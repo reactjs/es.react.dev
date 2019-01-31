@@ -16,9 +16,11 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Los componentes permiten separar la UI en piezas independientes, reutilizables y pensar en cada pieza de forma aislada.
+Esta página proporciona una introducción a la idea de los componentes.
+Puedes encontrar una [API detallada sobre componentes aqui](/docs/react-component.html).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
 
 ## Function and Class Components
 
