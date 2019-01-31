@@ -61,7 +61,7 @@ Sin embargo, los elementos también pueden representar componentes definidos por
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+Cuando React ve representando un componente definido por el usuario, pasa atributos JSX a este componente como un solo objeto. Llamamos a este objeto "props".
 
 Por ejemplo, este código muestra "Hello, Sara" en la página:
 
@@ -90,7 +90,7 @@ Recapitulemos lo que sucede en este ejemplo:
 > 
 > React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Bienvenido />` representa un componente y requiere que `Bienvenido` esté al alcance.
 > 
-> Puedes leer mas sobre el razonamiento detras de esta convencion [aqui.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
+> Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
 ## Composición de Componentes
 
@@ -157,7 +157,7 @@ function Comment(props) {
 
 Acepta `author` (un objeto), `text` (una cadena), y `date` (una fecha) como propiedades, y representa un comentario en una web de redes sociales.
 
-Este componente puede ser dificil de cambiar por todo el anidamiento, y tambien es dificil reusar partes individuales de el. Vamos a extraer algunos componentes de este.
+Este componente puede ser difícil de cambiar por todo el anidamiento, y tambien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes de este.
 
 Primero, vamos a extraer `Avatar`:
 
@@ -238,7 +238,7 @@ Extraer componentes puede parecer un trabajo pesado al principio, pero tener una
 
 ## Las props son de solo lectura
 
-Ya sea que declares un componente [como una funcion o como una clase](#function-and-class-components), este nunca debe modificar sus propiedades. Considera esta funcion `sum` :
+Ya sea que declares un componente [como una funcion o como una clase](#function-and-class-components), este nunca debe modificar sus propiedades. Considera esta función `sum` :
 
 ```js
 function sum(a, b) {
@@ -260,4 +260,4 @@ React es bastante flexible pero tiene una sola regla estricta:
 
 **Todos los componentes de React deben actuar como funciones puras con respecto a sus propiedades.**
 
-Por supuesto, las UI de las aplicaciones son dinamicas y cambian con el tiempo. En la [siguiente sección](/docs/state-and-lifecycle.html), introduciremos un nuevo concepto de "estado". El estado le permite a los componentes de React cambiar su salida a lo largo del tiempo en respuesta a acciones del usuario, respuestas de red y cualquier otra cosa, sin violar esta regla.
+Por supuesto, las UI de las aplicaciones son dinámicas y cambian con el tiempo. En la [siguiente sección](/docs/state-and-lifecycle.html), introduciremos un nuevo concepto de "estado". El estado le permite a los componentes de React cambiar su salida a lo largo del tiempo en respuesta a acciones del usuario, respuestas de red y cualquier otra cosa, sin violar esta regla.
