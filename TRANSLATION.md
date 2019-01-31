@@ -13,8 +13,17 @@ Suggestion on words and terms:
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
 | arrow function | *arrow function* |
+| Bundler | *Bundler* |
 | camelCase | *camelCase* |
 | callback | *callback* |
+| controlled component | *controlled component* |
 | lowercase | *lowercase* |
+| props | *props* |
 | React element | Elemento de React |
+| state | *state* |
 | string | *string* |
+| template literals | *template literals* |
+| uncontrolled component | *uncontrolled component* |
+
+
+
