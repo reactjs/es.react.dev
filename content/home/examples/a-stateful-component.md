@@ -1,7 +1,7 @@
 ---
-title: A Stateful Component
+title: Un componente con estado
 order: 1
 domid: timer-example
 ---
 
-In addition to taking input data (accessed via `this.props`), a component can maintain internal state data (accessed via `this.state`). When a component's state data changes, the rendered markup will be updated by re-invoking `render()`.
+Además de recibir datos de entrada (a través de `this.props`), un componente puede tener un estado interno de los datos (a través de `this.state`). Cuándo el estado de un componente componente cambia sus datos, esto provoca que que se vuelva a invocar `render()` para mostrar los datos actualizados.
