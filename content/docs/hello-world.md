@@ -6,7 +6,7 @@ prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-The smallest React example looks like this:
+El ejemplo más pequeño de React se ve así:
 
 ```js
 ReactDOM.render(
