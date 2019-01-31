@@ -1,7 +1,7 @@
 ---
-title: Un componente usando componentes de terceros
+title: Un componente usando Plugins externos
 order: 3
 domid: markdown-example
 ---
 
-React es flexible y provee medios que te permiten interactuar con otras librerías y marcos(frameworks). Este ejemplo usa **remarkable**, una librería externa de Markdown, que convierte los valores de `<textarea>` en tiempo real.
+React es flexible y proporciona medios que te permiten interactuar con otras librerías y frameworks. Este ejemplo usa **remarkable**, una biblioteca externa de Markdown, que convierte los valores de `<textarea>` en tiempo real.
