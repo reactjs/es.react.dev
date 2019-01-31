@@ -20,7 +20,7 @@ A diferencia de los elementos del DOM de los navegadores, los elementos de React
 
 >**Nota:**
 >
->Uno podría confundir los elementos con el muy conocido concepto de "componentes". En la siguiente sección [siguiente sección](/docs/components-and-props.html) hablaremos de componentes. Los elementos son los que "constituyen" los componentes, y recomendamos leer esta sección antes de continuar.
+>Uno podría confundir los elementos con el muy conocido concepto de "componentes". En la [siguiente sección](/docs/components-and-props.html) hablaremos de componentes. Los elementos son los que "constituyen" los componentes, y recomendamos leer esta sección antes de continuar.
 
 ## Renderizando un Elemento en el DOM
 
@@ -30,11 +30,11 @@ Digamos que hay un `<div>` en alguna parte de tu archivo HTML:
 <div id="root"></div>
 ```
 
-Nosotros lo llamamos un nodo "raíz" porque todo lo que esté dentro de él será manejado por React DOM.
+Lo llamamos un nodo "raíz" porque todo lo que esté dentro de él será manejado por React DOM.
 
-Las aplicaciones construidas con solo React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, podrías tener cuantos nodos raíz en el DOM como quieras.
+Las aplicaciones construidas solamente con React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, podrías tener cuantos nodos raíz en el DOM como quieras.
 
-Para renderizar un elemento de React en el nodo raíz del DOM, ambos se pasan a `ReactDOM.render()`:
+Para renderizar un elemento de React en un nodo raíz del DOM, pasa ambos a `ReactDOM.render()`:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -60,7 +60,7 @@ Este llama a `ReactDOM.render()` cada segundo desde un [`setInterval()`](https:/
 >
 >En la práctica, la mayoría de las aplicaciones de React solo llama `ReactDOM.render()` una vez. En las siguientes secciones aprenderemos cómo el código se puede encapsular en [componentes con estado](/docs/state-and-lifecycle.html).
 >
->Nosotros recomendamos que no te saltes ningún tema porque estos se relacionan entre ellos.
+>Recomendamos que no te saltes ningún tema porque estos se relacionan entre ellos.
 
 ## React Solo Actualiza lo que es Necesario
 
