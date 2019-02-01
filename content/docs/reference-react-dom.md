@@ -22,9 +22,9 @@ El paquete `react-dom` proporciona metodos especificos del DOM que pueden ser ut
 
 React soporta todos los navegadores populares, incluyendo Internet Explorer 9 y versiones posteriores, aunque [algunos polyfills son requeridos](/docs/javascript-environment-requirements.html) para navegadores mas viejos como IE 9 e IE 10.
 
-> Note
+> Nota
 >
-> We don't support older browsers that don't support ES5 methods, but you may find that your apps do work in older browsers if polyfills such as [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) are included in the page. You're on your own if you choose to take this path.
+> No soportamos navegadores viejos que no soporten metodos ES5, pero puede que te des cuenta de que tus aplicaciones funcionan en navegadores viejos si polyfills como [es5-shim y es5-sham](https://github.com/es-shims/es5-shim) estan incluidas en la pagina. Estas por tu cuenta si decides tomar este camino.
 
 * * *
 
