@@ -247,7 +247,7 @@ boolean isPrimary
 
 Una nota sobre la compatibilidad con varios navegadores:
 
-Los eventos de puntero aún no son compatibles con todos los navegadores (al momento de escribir este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). Reaccionar de forma deliberada no admite el polietileno para otros navegadores, ya que un polietileno de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
+Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). Reaccionar de forma deliberada no admite el polietileno para otros navegadores, ya que un polyfill de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
 
 Si su aplicación requiere eventos de puntero, le recomendamos que agregue un polyfill de evento de puntero de terceros.
 
