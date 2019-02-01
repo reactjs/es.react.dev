@@ -6,11 +6,11 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-If you load React from a `<script>` tag, these top-level APIs are available on the `ReactDOM` global. If you use ES6 with npm, you can write `import ReactDOM from 'react-dom'`. If you use ES5 with npm, you can write `var ReactDOM = require('react-dom')`.
+Si cargas React desde una etiqueta `<script>`, estas APIs de alto nivel estaran disponibles en la variable global `ReactDOM`. Si usas ES6 con npm, puedes escribir `import ReactDOM from 'react-dom'`. Si usas ES5 con npm, puedes escribir `var ReactDOM = require('react-dom')`.
 
-## Overview
+## Resumen
 
-The `react-dom` package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.
+El paquete `react-dom` proporciona metodos especificos del DOM que pueden ser utilizados en el nivel mas alto de tu aplicacion como una escotilla de escape para salir del modelo de React si asi lo necesitas. La mayoria de tus componentes no deberian necesitar usar este modulo.
 
 - [`render()`](#render)
 - [`hydrate()`](#hydrate)
@@ -18,9 +18,9 @@ The `react-dom` package provides DOM-specific methods that can be used at the to
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Browser Support
+### Soporte de Navegadores
 
-React supports all popular browsers, including Internet Explorer 9 and above, although [some polyfills are required](/docs/javascript-environment-requirements.html) for older browsers such as IE 9 and IE 10.
+React soporta todos los navegadores populares, incluyendo Internet Explorer 9 y versiones posteriores, aunque [algunos polyfills son requeridos](/docs/javascript-environment-requirements.html) para navegadores mas viejos como IE 9 e IE 10.
 
 > Note
 >
