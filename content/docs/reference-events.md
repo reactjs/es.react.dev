@@ -108,7 +108,7 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composición Eventos
+### Eventos de Composición
 
 Nombres de Eventos:
 
