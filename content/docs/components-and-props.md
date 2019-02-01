@@ -31,9 +31,9 @@ function Welcome(props) {
 }
 ```
 
-Esta función es un componente de React válido porque acepta un solo argumento de objeto "props" (que significa propiedades) con datos y devuelve un elemento de React. Llamamos a dichos componentes "funcionales" porque literalmente son funciones JavaScript.
+Esta función es un componente de React válido porque acepta un solo argumento de objeto "props" (que proviene de propiedades) con datos y devuelve un elemento de React. Llamamos a dichos componentes "funcionales" porque literalmente son funciones JavaScript.
 
-También puedes utilizar una [ clase de ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) para definir un componente:
+También puedes utilizar una [clase de ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) para definir un componente:
 
 ```js
 class Welcome extends React.Component {
@@ -45,7 +45,7 @@ class Welcome extends React.Component {
 
 Los dos componentes anteriores son equivalentes desde el punto de vista de React.
 
-Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales para su concisión.
+Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales por su concisión.
 
 ## Renderizando un Componente
 
@@ -86,9 +86,9 @@ Recapitulemos lo que sucede en este ejemplo:
 3. Nuestro componente `Welcome` devuelve un elemento `<h1>Hello, Sara</h1>` como resultado.
 4. React DOM actualiza eficientemente el DOM para que coincida con `<h1>Hello, Sara</h1>`.
 
-> **Note:** Siempre comienza los nombres de componentes con una letra mayúscula
+> **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula
 > 
-> React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Bienvenido />` representa un componente y requiere que `Bienvenido` esté al alcance.
+>React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Bienvenido />` representa un componente y requiere que `Bienvenido` esté al alcance.
 > 
 > Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
@@ -96,7 +96,7 @@ Recapitulemos lo que sucede en este ejemplo:
 
 Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comunmente como componentes.
 
-Por ejemplo, podemos crear un componente de `App` que renderiza `Welcome` muchas veces:
+Por ejemplo, podemos crear un componente `App` que renderiza `Welcome` muchas veces:
 
 ```js{8-10}
 function Welcome(props) {
@@ -121,11 +121,11 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Por lo general, aplicaciones nuevas en React tienen un único componente `App` en lo mas alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
+Por lo general, las aplicaciones en React tienen un único componente `App` en lo mas alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
 ## Extracción de Componentes
 
-No tengas miedo de dividir los componentes en unos más pequeños.
+No tengas miedo de dividir los componentes en otros más pequeños.
 
 Por ejemplo, considera este componente `Comentario`:
 
@@ -155,9 +155,9 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-Acepta `author` (un objeto), `text` (una cadena), y `date` (una fecha) como propiedades, y representa un comentario en una web de redes sociales.
+Acepta `author` (un objeto), `text` (un string), y `date` (una fecha) como propiedades, y describe un comentario en una web de redes sociales.
 
-Este componente puede ser difícil de cambiar por todo el anidamiento, y tambien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes de este.
+Este componente puede ser difícil de cambiar debido a todo el anidamiento, y tambien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes del mismo.
 
 Primero, vamos a extraer `Avatar`:
 
@@ -172,7 +172,7 @@ function Avatar(props) {
 }
 ```
 
-El `Avatar` no necesita saber que está siendo renderizado dentro de un `Comment`. Esto es por lo que le dimos a la propiedad un nombre más genérico: `user` en vez de `author`.
+El `Avatar` no necesita saber que está siendo renderizado dentro de un `Comment`. Esto es por lo que le dimos a su propiedad un nombre más genérico: `user` en vez de `author`.
 
 Recomendamos nombrar las propiedades desde el punto de vista del componente, en vez de la del contexto en el que se va a utilizar.
 
@@ -214,7 +214,7 @@ function UserInfo(props) {
 }
 ```
 
-Esto nos permite simplificar `Comment` un poco más:
+Esto nos permite simplificar `Comment` aun más:
 
 ```js{4}
 function Comment(props) {
@@ -236,7 +236,7 @@ function Comment(props) {
 
 Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su UI se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
 
-## Las props son de solo lectura
+## Las propiedades son de solo lectura
 
 Ya sea que declares un componente [como una funcion o como una clase](#function-and-class-components), este nunca debe modificar sus propiedades. Considera esta función `sum` :
 
