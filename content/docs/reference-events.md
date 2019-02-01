@@ -347,7 +347,7 @@ onLoad onError
 
 ### Eventos de Animación
 
-Nombres de Eventos
+Nombres de Eventos:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
