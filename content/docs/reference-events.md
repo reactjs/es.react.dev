@@ -76,7 +76,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 - [Eventos del Teclado](#keyboard-events)
 - [Eventos de Enfoque](#focus-events)
 - [Formar Eventos](#form-events)
-- [Eventos del Ratón](#mouse-events)
+- [Mouse Eventos](#mouse-events)
 - [Eventos Puntero](#pointer-events)
 - [Selección Eventos](#selection-events)
 - [Eventos Táctiles](#touch-events)
@@ -90,17 +90,17 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 
 * * *
 
-## Reference
+## Referencia
 
-### Clipboard Events
+### Portapapeles Eventos
 
-Event names:
+Nombres de Eventos:
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -108,15 +108,15 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composition Events
+### Composición Eventos
 
-Event names:
+Nombres de Eventos:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 string data
@@ -125,15 +125,15 @@ string data
 
 * * *
 
-### Keyboard Events
+### Eventos del Teclado
 
-Event names:
+Nombres de Eventos:
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 boolean altKey
@@ -150,21 +150,21 @@ boolean shiftKey
 number which
 ```
 
-The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+La propiedad `key` puede tomar cualquiera de los valores documentados en [la especificación de DOM Level 3 Eventos](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
-### Focus Events
+### Eventos de Enfoque
 
-Event names:
+Nombres de Eventos:
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+Estos eventos de enfoque funcionan en todos los elementos en React DOM, no solo en los elementos de forma.
 
-Properties:
+Propiedades:
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -172,21 +172,21 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Form Events
+### Formar Events
 
-Event names:
+Nombres de Eventos:
 
 ```
 onChange onInput onInvalid onSubmit
 ```
 
-For more information about the onChange event, see [Forms](/docs/forms.html).
+Para obtener más información sobre el evento onChange, consulte [Formularios](/docs/forms.html).
 
 * * *
 
-### Mouse Events
+### Mouse Eventos
 
-Event names:
+Nombres de Eventos:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -194,9 +194,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Los eventos `onMouseEnter` y` onMouseLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del burbujeo normal y no tienen una fase de captura.
 
-Properties:
+Propiedades:
 
 ```javascript
 boolean altKey
@@ -217,20 +217,20 @@ boolean shiftKey
 
 * * *
 
-### Pointer Events
+### Eventos Puntero
 
-Event names:
+Nombres de Eventos:
 
 ```
 onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-The `onPointerEnter` and `onPointerLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Los eventos `onPointerEnter` y` onPointerLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del burbujeo normal y no tienen una fase de captura.
 
-Properties:
+Propiedades:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following properties:
+Como se define en [la especificación W3](https://www.w3.org/TR/pointerevents/), los eventos de puntero amplían [Mouse Eventos](#mouse-events) con las siguientes propiedades:
 
 ```javascript
 number pointerId
@@ -245,17 +245,17 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Una nota sobre la compatibilidad con varios navegadores:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Los eventos de puntero aún no son compatibles con todos los navegadores (al momento de escribir este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). Reaccionar de forma deliberada no admite el polietileno para otros navegadores, ya que un polietileno de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Si su aplicación requiere eventos de puntero, le recomendamos que agregue un polyfill de evento de puntero de terceros.
 
 * * *
 
-### Selection Events
+### Selección Eventos
 
-Event names:
+Nombres de Eventos
 
 ```
 onSelect
@@ -263,15 +263,15 @@ onSelect
 
 * * *
 
-### Touch Events
+### Eventos Táctiles
 
-Event names:
+Nombres de Eventos:
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 boolean altKey
@@ -286,15 +286,15 @@ DOMTouchList touches
 
 * * *
 
-### UI Events
+### Eventos de la Interfaz de Usuario
 
-Event names:
+Nombres de Eventos:
 
 ```
 onScroll
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 number detail
@@ -303,15 +303,15 @@ DOMAbstractView view
 
 * * *
 
-### Wheel Events
+### Ruedas Eventos
 
-Event names:
+Nombres de Eventos:
 
 ```
 onWheel
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 number deltaMode
@@ -322,9 +322,9 @@ number deltaZ
 
 * * *
 
-### Media Events
+### Eventos de Medios
 
-Event names:
+Nombres de Eventos:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -335,9 +335,9 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Image Events
+### Eventos de Imagen
 
-Event names:
+Nombres de Eventos:
 
 ```
 onLoad onError
@@ -345,15 +345,15 @@ onLoad onError
 
 * * *
 
-### Animation Events
+### Eventos de Animacion
 
-Event names:
+Nombres de Eventos
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 string animationName
@@ -363,15 +363,15 @@ float elapsedTime
 
 * * *
 
-### Transition Events
+### Eventos de Transición
 
-Event names:
+Nombres de Eventos:
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 string propertyName
@@ -381,9 +381,9 @@ float elapsedTime
 
 * * *
 
-### Other Events
+### Otros Eventos
 
-Event names:
+Nombres de Eventos:
 
 ```
 onToggle
