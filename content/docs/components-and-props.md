@@ -92,7 +92,7 @@ Recapitulemos lo que sucede en este ejemplo:
 > 
 > Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
-## Composición de Componentes
+## Confeccionando Componentes
 
 Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comunmente como componentes.
 
@@ -123,7 +123,7 @@ ReactDOM.render(
 
 Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
-## Extracción de Componentes
+## Extrayendo de Componentes
 
 No tengas miedo de dividir los componentes en otros más pequeños.
 
