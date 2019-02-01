@@ -78,7 +78,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 - [Formar Eventos](#form-events)
 - [Eventos del Ratón](#mouse-events)
 - [Eventos del Puntero](#pointer-events)
-- [Selección Eventos](#selection-events)
+- [Eventos de Selección](#selection-events)
 - [Eventos Táctiles](#touch-events)
 - [Eventos de la Interfaz de Usuario](#ui-events)
 - [Ruedas Eventos](#wheel-events)
