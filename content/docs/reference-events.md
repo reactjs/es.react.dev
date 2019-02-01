@@ -253,7 +253,7 @@ Si su aplicación requiere eventos de puntero, le recomendamos que agregue un po
 
 * * *
 
-### Selección Eventos
+### Eventos de Selección
 
 Nombres de Eventos
 
