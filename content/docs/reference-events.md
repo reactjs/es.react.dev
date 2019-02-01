@@ -10,7 +10,7 @@ Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma part
 
 ## Overview
 
-A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor de navegador cruzado alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation ()` y `preventDefault ()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
+A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor agnóstico al navegador alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation()` y `preventDefault()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
 
 Si encuentra que necesita el evento del navegador subyacente por alguna razón, simplemente use el atributo `nativeEvent` para obtenerlo. Cada objeto `SyntheticEvent` tiene los siguientes atributos:
 
@@ -33,7 +33,7 @@ string type
 
 > Nota:
 >
-> A partir de v0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation ()` o `e.preventDefault ()` deben activarse manualmente, según corresponda.
+> A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation ()` o `e.preventDefault ()` deben activarse manualmente, según corresponda.
 
 
 ### Agrupación de eventos
@@ -53,7 +53,7 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Mo funcionará. this.state.clickEvent solo contendrá valores nulos.
+  // No funcionará. this.state.clickEvent solo contendrá valores nulos.
   this.setState({clickEvent: event});
 
   // Todavía puede exportar propiedades de eventos.
@@ -65,26 +65,26 @@ function onClick(event) {
 >
 > Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
-## Eventos Apoyados
+## Eventos Soportados
 
 React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
 
-Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos para la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de clic en la fase de captura.
+Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos llamado en la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de clic en la fase de captura.
 
-- [Portapapeles Eventos](#clipboard-events)
-- [Composición Eventos](#composition-events)
+- [Eventos del Portapapeles](#clipboard-events)
+- [Eventos de Composición](#composition-events)
 - [Eventos del Teclado](#keyboard-events)
 - [Eventos de Enfoque](#focus-events)
 - [Formar Eventos](#form-events)
-- [Mouse Eventos](#mouse-events)
-- [Eventos Puntero](#pointer-events)
-- [Selección Eventos](#selection-events)
+- [Eventos del Ratón](#mouse-events)
+- [Eventos del Puntero](#pointer-events)
+- [Eventos de Selección](#selection-events)
 - [Eventos Táctiles](#touch-events)
 - [Eventos de la Interfaz de Usuario](#ui-events)
-- [Ruedas Eventos](#wheel-events)
+- [Eventos de la Rueda del Ratón](#wheel-events)
 - [Eventos de Medios](#media-events)
 - [Eventos de Imagen](#image-events)
-- [Eventos de Animacion](#animation-events)
+- [Eventos de Animación](#animation-events)
 - [Eventos de Transición](#transition-events)
 - [Otros Eventos](#other-events)
 
@@ -92,7 +92,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 
 ## Referencia
 
-### Portapapeles Eventos
+### Eventos del Portapapeles
 
 Nombres de Eventos:
 
@@ -108,7 +108,7 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composición Eventos
+### Eventos de Composición
 
 Nombres de Eventos:
 
@@ -150,7 +150,7 @@ boolean shiftKey
 number which
 ```
 
-La propiedad `key` puede tomar cualquiera de los valores documentados en [la especificación de DOM Level 3 Eventos](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+La propiedad `key` puede tomar cualquiera de los valores documentados en [la especificación de DOM Level 3 Events](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
@@ -162,7 +162,7 @@ Nombres de Eventos:
 onFocus onBlur
 ```
 
-Estos eventos de enfoque funcionan en todos los elementos en React DOM, no solo en los elementos de forma.
+Estos eventos de enfoque funcionan en todos los elementos en React DOM, no solo en los elementos de formulario.
 
 Propiedades:
 
@@ -172,7 +172,7 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Formar Events
+### Eventos de Formulario
 
 Nombres de Eventos:
 
@@ -184,7 +184,7 @@ Para obtener más información sobre el evento onChange, consulte [Formularios](
 
 * * *
 
-### Mouse Eventos
+### Eventos del Ratón
 
 Nombres de Eventos:
 
@@ -230,7 +230,7 @@ Los eventos `onPointerEnter` y` onPointerLeave` se propagan desde el elemento qu
 
 Propiedades:
 
-Como se define en [la especificación W3](https://www.w3.org/TR/pointerevents/), los eventos de puntero amplían [Mouse Eventos](#mouse-events) con las siguientes propiedades:
+Como se define en [la especificación W3](https://www.w3.org/TR/pointerevents/), los eventos de puntero amplían los [Eventos de Ratón](#mouse-events) con las siguientes propiedades:
 
 ```javascript
 number pointerId
@@ -247,13 +247,13 @@ boolean isPrimary
 
 Una nota sobre la compatibilidad con varios navegadores:
 
-Los eventos de puntero aún no son compatibles con todos los navegadores (al momento de escribir este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). Reaccionar de forma deliberada no admite el polietileno para otros navegadores, ya que un polietileno de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
+Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). Reaccionar de forma deliberada no admite el polietileno para otros navegadores, ya que un polyfill de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
 
 Si su aplicación requiere eventos de puntero, le recomendamos que agregue un polyfill de evento de puntero de terceros.
 
 * * *
 
-### Selección Eventos
+### Eventos de Selección
 
 Nombres de Eventos
 
@@ -303,7 +303,7 @@ DOMAbstractView view
 
 * * *
 
-### Ruedas Eventos
+### Eventos de la Rueda del Ratón
 
 Nombres de Eventos:
 
@@ -345,9 +345,9 @@ onLoad onError
 
 * * *
 
-### Eventos de Animacion
+### Eventos de Animación
 
-Nombres de Eventos
+Nombres de Eventos:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
