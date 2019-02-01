@@ -10,7 +10,7 @@ Esta guía de referencia documenta la envoltura `SyntheticEvent` que forma parte
 
 ## Overview
 
-A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor de navegador cruzado alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation ()` y `preventDefault ()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
+A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor agnóstico al navegador alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation()` y `preventDefault()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
 
 Si encuentra que necesita el evento del navegador subyacente por alguna razón, simplemente use el atributo `nativeEvent` para obtenerlo. Cada objeto `SyntheticEvent` tiene los siguientes atributos:
 
