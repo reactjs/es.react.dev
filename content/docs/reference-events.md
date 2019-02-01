@@ -162,7 +162,7 @@ Nombres de Eventos:
 onFocus onBlur
 ```
 
-Estos eventos de enfoque funcionan en todos los elementos en React DOM, no solo en los elementos de forma.
+Estos eventos de enfoque funcionan en todos los elementos en React DOM, no solo en los elementos de formulario.
 
 Propiedades:
 
