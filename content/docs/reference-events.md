@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Esta guía de referencia documenta la envoltura `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
 
 ## Overview
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor de navegador cruzado alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation ()` y `preventDefault ()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+Si encuentra que necesita el evento del navegador subyacente por alguna razón, simplemente use el atributo `nativeEvent` para obtenerlo. Cada objeto `SyntheticEvent` tiene los siguientes atributos:
 
 ```javascript
 boolean bubbles
@@ -31,9 +31,10 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Nota:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> A partir de v0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation ()` o `e.preventDefault ()` deben activarse manualmente, según corresponda.
+
 
 ### Event Pooling
 
