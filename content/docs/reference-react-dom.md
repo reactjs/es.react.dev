@@ -28,19 +28,31 @@ React soporta todos los navegadores populares, incluyendo Internet Explorer 9 y 
 
 * * *
 
-## Reference
+## Referencia
 
 ### `render()`
 
 ```javascript
-ReactDOM.render(element, container[, callback])
+ReactDOM.render(elemento, contenedor[, callback])
 ```
 
-Render a React element into the DOM in the supplied `container` and return a [reference](/docs/more-about-refs.html) to the component (or returns `null` for [stateless components](/docs/components-and-props.html#functional-and-class-components)).
+Renderiza un elemento React al DOM en el `contenedor` suministrado y retorna una [referencia](/docs/more-about-refs.html) al componente (o devuelve `null` para [componentes sin estado](/docs/components-and-props.html#functional-and-class-components)).
 
-If the React element was previously rendered into `container`, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.
+Si el elemento React fue previamente renderizado al `contenedor`, esto ejecutara una actualizacion en el, y solo mutara el DOM de ser necesario para reflejar el mas reciente elemento React.
 
-If the optional callback is provided, it will be executed after the component is rendered or updated.
+Si el callback opcional es suministrado, sera ejecutado despues de que el componente es renderizado o actualizado.
+
+> Nota:
+>
+> `ReactDOM.render()` controla el contenido del nodo contenedor que pasas. Cualquier elemento del DOM adentro de este son reemplazados cuando es llamado por primera vez. Las llamadas posteriores utilizan el algoritmo de diferenciado de React DOM para actualizaciones eficientes.
+>
+> `ReactDOM.render()` no modifica el nodo contenedor (solo modifica los hijos del contenedor). Puede ser posible insertar un componente en un nodo existente del DOM sin sobreescribir los hijos existentes.
+>
+> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
+> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
+> [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) to the root element.
+>
+> Using `ReactDOM.render()` to hydrate a server-rendered container is deprecated and will be removed in React 17. Use [`hydrate()`](#hydrate) instead.
 
 > Note:
 >
