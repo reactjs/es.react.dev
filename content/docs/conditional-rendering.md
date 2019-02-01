@@ -1,6 +1,6 @@
 ---
 id: conditional-rendering
-title: Conditional Rendering
+title: Renderizado condicional
 permalink: docs/conditional-rendering.html
 prev: handling-events.html
 next: lists-and-keys.html
@@ -8,9 +8,9 @@ redirect_from:
   - "tips/false-in-jsx.html"
 ---
 
-In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
+En React, puedes crear distintos componentes que encapsulan el comportamiento que necesitas. Entonces, puedes renderizar solamente algunos de ellos, dependiendo del estado de tu aplicación.
 
-Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) or the [conditional operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to create elements representing the current state, and let React update the UI to match them.
+El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
 
 Consider these two components:
 
