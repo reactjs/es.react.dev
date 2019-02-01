@@ -303,7 +303,7 @@ DOMAbstractView view
 
 * * *
 
-### Ruedas Eventos
+### Eventos de la Rueda del Ratón
 
 Nombres de Eventos:
 
