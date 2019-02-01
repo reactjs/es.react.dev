@@ -36,11 +36,11 @@ string type
 > A partir de v0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation ()` o `e.preventDefault ()` deben activarse manualmente, según corresponda.
 
 
-### Event Pooling
+### Agrupación de eventos
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+El `SyntheticEvent` está agrupado. Esto significa que el objeto `SyntheticEvent` se reutilizará y todas las propiedades se anularán después de que se haya invocado la devolución de llamada del evento.
+Esto es por razones de rendimiento.
+Como tal, no puede acceder al evento de forma asíncrona.
 
 ```javascript
 function onClick(event) {
