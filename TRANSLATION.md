@@ -12,7 +12,7 @@ Suggestion on words and terms:
 
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
-| arrow function | *arrow function* |
+| arrow function | función flecha |
 | bug | error |
 | Bundler | *Bundler* |
 | camelCase | *camelCase* |
@@ -20,12 +20,12 @@ Suggestion on words and terms:
 | controlled component | *controlled component* |
 | debugging | depuración |
 | library | biblioteca |
-| lowercase | *lowercase* |
+| lowercase | minúscula(s) |
 | props | *props* |
 | React element | Elemento de React |
-| state | *state* |
-| string | *string* |
-| template literals | *template literals* |
+| state | estado |
+| string | cadena de texto |
+| template literals | plantilla de cadena (de texto) |
 | uncontrolled component | *uncontrolled component* |
 
 
