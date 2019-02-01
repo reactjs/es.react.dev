@@ -121,7 +121,7 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Por lo general, las aplicaciones en React tienen un único componente `App` en lo mas alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
+Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
 ## Extracción de Componentes
 
@@ -155,9 +155,9 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-Acepta `author` (un objeto), `text` (un string), y `date` (una fecha) como propiedades, y describe un comentario en una web de redes sociales.
+Acepta `author` (un objeto), `text` (un string), y `date` (una fecha) como props, y describe un comentario en una web de redes sociales.
 
-Este componente puede ser difícil de cambiar debido a todo el anidamiento, y tambien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes del mismo.
+Este componente puede ser difícil de cambiar debido a todo el anidamiento, y támbien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes del mismo.
 
 Primero, vamos a extraer `Avatar`:
 
@@ -174,7 +174,7 @@ function Avatar(props) {
 
 El `Avatar` no necesita saber que está siendo renderizado dentro de un `Comment`. Esto es por lo que le dimos a su propiedad un nombre más genérico: `user` en vez de `author`.
 
-Recomendamos nombrar las propiedades desde el punto de vista del componente, en vez de la del contexto en el que se va a utilizar.
+Recomendamos nombrar las props desde el punto de vista del componente, en vez de la del contexto en el que se va a utilizar.
 
 Ahora podemos simplificar `Comment` un poquito:
 
@@ -236,9 +236,9 @@ function Comment(props) {
 
 Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su UI se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
 
-## Las propiedades son de solo lectura
+## Las props son de solo lectura
 
-Ya sea que declares un componente [como una funcion o como una clase](#function-and-class-components), este nunca debe modificar sus propiedades. Considera esta función `sum` :
+Ya sea que declares un componente [como una función o como una clase](#function-and-class-components), este nunca debe modificar sus props. Considera esta función `sum` :
 
 ```js
 function sum(a, b) {
@@ -258,6 +258,6 @@ function withdraw(account, amount) {
 
 React es bastante flexible pero tiene una sola regla estricta:
 
-**Todos los componentes de React deben actuar como funciones puras con respecto a sus propiedades.**
+**Todos los componentes de React deben actuar como funciones puras con respecto a sus props.**
 
 Por supuesto, las UI de las aplicaciones son dinámicas y cambian con el tiempo. En la [siguiente sección](/docs/state-and-lifecycle.html), introduciremos un nuevo concepto de "estado". El estado le permite a los componentes de React cambiar su salida a lo largo del tiempo en respuesta a acciones del usuario, respuestas de red y cualquier otra cosa, sin violar esta regla.
