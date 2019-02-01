@@ -172,7 +172,7 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Formar Events
+### Eventos de Formulario
 
 Nombres de Eventos:
 
