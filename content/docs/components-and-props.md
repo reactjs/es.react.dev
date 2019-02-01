@@ -15,8 +15,7 @@ redirect_from:
 prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
-Los componentes permiten separar la UI en piezas independientes, reutilizables y pensar en cada pieza de forma aislada.
-Esta página proporciona una introducción a la idea de los componentes.
+Los componentes permiten separar la UI en piezas independientes, reutilizables y pensar en cada pieza de forma aislada.Esta página proporciona una introducción a la idea de los componentes.
 Puedes encontrar una [API detallada sobre componentes aqui](/docs/react-component.html).
 
 Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
@@ -33,7 +32,8 @@ function Welcome(props) {
 
 Esta función es un componente de React válido porque acepta un solo argumento de objeto "props" (que proviene de propiedades) con datos y devuelve un elemento de React. Llamamos a dichos componentes "funcionales" porque literalmente son funciones JavaScript.
 
-También puedes utilizar una [clase de ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) para definir un componente:
+También puedes utilizar una [clase de ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes) para definir un componente:
+
 
 ```js
 class Welcome extends React.Component {
@@ -45,7 +45,7 @@ class Welcome extends React.Component {
 
 Los dos componentes anteriores son equivalentes desde el punto de vista de React.
 
-Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales por su concisión.
+Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales por su brevedad.
 
 ## Renderizando un Componente
 
@@ -86,7 +86,7 @@ Recapitulemos lo que sucede en este ejemplo:
 3. Nuestro componente `Welcome` devuelve un elemento `<h1>Hello, Sara</h1>` como resultado.
 4. React DOM actualiza eficientemente el DOM para que coincida con `<h1>Hello, Sara</h1>`.
 
-> **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula
+> **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula.
 > 
 >React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Welcome />` representa un componente y requiere que `Welcome` esté en scope.
 > 
