@@ -33,7 +33,7 @@ string type
 
 > Nota:
 >
-> A partir de v0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation ()` o `e.preventDefault ()` deben activarse manualmente, según corresponda.
+> A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation ()` o `e.preventDefault ()` deben activarse manualmente, según corresponda.
 
 
 ### Agrupación de eventos
