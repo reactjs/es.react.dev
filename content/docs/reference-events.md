@@ -6,7 +6,7 @@ layout: docs
 category: Reference
 ---
 
-Esta guía de referencia documenta la envoltura `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
+Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
 
 ## Overview
 
@@ -194,7 +194,7 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-Los eventos `onMouseEnter` y` onMouseLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del burbujeo normal y no tienen una fase de captura.
+Los eventos `onMouseEnter` y` onMouseLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del bubbling normal y no tienen una fase de captura.
 
 Propiedades:
 
@@ -226,7 +226,7 @@ onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-Los eventos `onPointerEnter` y` onPointerLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del burbujeo normal y no tienen una fase de captura.
+Los eventos `onPointerEnter` y` onPointerLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del bubbling normal y no tienen una fase de captura.
 
 Propiedades:
 
