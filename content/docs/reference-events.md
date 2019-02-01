@@ -84,7 +84,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 - [Eventos de la Rueda del Ratón](#wheel-events)
 - [Eventos de Medios](#media-events)
 - [Eventos de Imagen](#image-events)
-- [Eventos de Animacion](#animation-events)
+- [Eventos de Animación](#animation-events)
 - [Eventos de Transición](#transition-events)
 - [Otros Eventos](#other-events)
 
