@@ -184,7 +184,7 @@ Para obtener más información sobre el evento onChange, consulte [Formularios](
 
 * * *
 
-### Mouse Eventos
+### Eventos del Ratón
 
 Nombres de Eventos:
 
