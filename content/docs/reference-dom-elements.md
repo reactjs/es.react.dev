@@ -14,27 +14,29 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+React implementa un sistema DOM independiente del navegador, por razones de rendimiento y compatibilidad entre navegadores. Aprovechamos la oportunidad para pulir algunos detalles en las implementaciones del DOM en el navegador.
 
-In React, all DOM properties and attributes (including event handlers) should be camelCased. For example, the HTML attribute `tabindex` corresponds to the attribute `tabIndex` in React. The exception is `aria-*` and `data-*` attributes, which should be lowercased. For example, you can keep `aria-label` as `aria-label`.
+En React, todas las propiedades y atributos (incluyendo manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
-## Differences In Attributes
+## Diferencias en los Atributos
 
-There are a number of attributes that work differently between React and HTML:
+Hay una serie de atributos HTML que funcionan de manera diferente en React.
 
 ### checked
 
-The `checked` attribute is supported by `<input>` components of type `checkbox` or `radio`. You can use it to set whether the component is checked. This is useful for building controlled components. `defaultChecked` is the uncontrolled equivalent, which sets whether the component is checked when it is first mounted.
+El atributo `checked` es compatible con los componentes `<input>` tipo `checkbox` o `radio`. Lo puedes usar para establecer si el componente está marcado. Esto es útil para construir componentes controlados. `defaultChecked` es el equivalente no controlado; solo establece si el componente está marcado cuando se monta por primera vez.
 
 ### className
 
-To specify a CSS class, use the `className` attribute. This applies to all regular DOM and SVG elements like `<div>`, `<a>`, and others.
+Para especificar una clase CSS, usa el atributo `className`. Esto aplica a todos los elementos regulares de DOM y SVG como `<div>`, `<a>`, y otros.
 
-If you use React with Web Components (which is uncommon), use the `class` attribute instead.
+Si usas React con Web Components (lo cual no es común), usa el atributo `class` en lugar de `className`.
 
 ### dangerouslySetInnerHTML
 
-`dangerouslySetInnerHTML` is React's replacement for using `innerHTML` in the browser DOM. In general, setting HTML from code is risky because it's easy to inadvertently expose your users to a [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) attack. So, you can set HTML directly from React, but you have to type out `dangerouslySetInnerHTML` and pass an object with a `__html` key, to remind yourself that it's dangerous. For example:
+En React, `dangerouslySetInnerHTML` es el atributo que reemplaza a `innerHTML` (propiedad DOM). Significa "establecer HTML interno peligrosamente". En general, es riesgoso establecer contenido HTML desde tu código, directamente con texto plano, porque puedes exponer inadvertidamente a tus usuarios a un ataque [cross-site scripting (XSS)](https://es.wikipedia.org/wiki/Cross-site_scripting). 
+
+Por lo tanto, para establecer contenido HTML directamente desde React, debes usar el atributo `dangerouslySetInnerHTML`, como recordatorio de que es peligroso. Este atributo acepta un objeto con una propiedad `__html`. Por ejemplo:
 
 ```js
 function createMarkup() {
@@ -48,7 +50,7 @@ function MyComponent() {
 
 ### htmlFor
 
-Since `for` is a reserved word in JavaScript, React elements use `htmlFor` instead.
+Ya que `for` es una palabra reservada en Javascript, los elementos de React usan el atributo `htmlFor` en su lugar.
 
 ### onChange
 
