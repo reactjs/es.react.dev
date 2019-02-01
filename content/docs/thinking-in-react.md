@@ -66,7 +66,7 @@ Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos
 
 Ahora que tenemos nuestra jerarquía de componentes, es momento de implementar la aplicación. La forma más fácil es construir una versión que tome nuestro modelo de datos y muestre la interfaz de usuario sin interactividad. Es mejor desacoplar estos procesos porque crear una versión estática requiere escribir un montón pero no pensar tanto, mientras que agregar interactividad requiere pensar un montón y no escribir tanto. Vamos a ver por qué.
 
-Para construír una versión estática de tu aplicación que muestre tu modelo de datos vas a necesitar construir componentes que reusen otros componentes y pasen datos usando *props*. *props* son una forma de pasar datos de un padre a su hijo. Si estás familiarizado con el concepto de *state*, **no uses para nada el estado** para crear esta versión estática. El estado está reservado para interactividad, esto es, cuando los datos cambian a través del tiempo. Dado que esta es una versión estática de la aplicación, no lo necesitas.
+Para construír una versión estática de tu aplicación que muestre tu modelo de datos vas a necesitar construir componentes que reusen otros componentes y pasen datos usando *props*. *props* son una forma de pasar datos de un padre a su hijo. Si estás familiarizado con el concepto de *estado*, **no uses para nada el estado** para crear esta versión estática. El estado está reservado para interactividad, esto es, cuando los datos cambian a través del tiempo. Dado que esta es una versión estática de la aplicación, no lo necesitas.
 
 Puedes contruir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
 
@@ -74,13 +74,13 @@ Al final de este paso tendrás una colección de componentes reutilizables que r
 
 Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
-### Una pequeña pausa: Props vs State
+### Una pequeña pausa: Props vs Estado
 
-Hay dos tipos de datos en React: props y state. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
+Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
 
 ## Paso 3: Identificar la versión mínima (pero completa) del estado de tu interfaz de usuario 
 
-Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios en tu modelo de datos interno. React hace esto fácil gracias a su **state**.
+Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios en tu modelo de datos interno. React hace esto fácil gracias a su **estado**.
 
 Para armar tu aplicación de forma correcta necesitas primero pensar en la mínima cantidad de estado mutable que necesita la aplicación. Lo importante acá es que [*no te repitas*](https://es.wikipedia.org/wiki/No_te_repitas) (DRY: Don't Repeat Yourself). Necesitas descubrir la mínima representación del estado que tu aplicación va a necesitar y calcular el resto bajo demanda. Por ejemplo, si estás creando una lista de tareas pendientes, solo mantén un array de las tareas, no mantengas una variable a parte en el estado para contar cuantas hay. En vez de eso, cuando vayas a mostrar cuantas hay simplemente obtén el largo del array de tareas.
 
@@ -137,7 +137,7 @@ Hasta ahora, hemos creado una aplicación que funciona correctamente como una fu
 
 React hace de este flujo de datos explícito para que sea más fácil entender como funciona la aplicación, a cambio necesita un poco más de código que un flujo de datos en dos sentidos tradicional.
 
-Si intentas escribir o marcar la caja en la versión actual del ejemplo, veras que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` de `input` para ser siempre igual al `state` recibido de `FilterableProductTable`.
+Si intentas escribir o marcar la caja en la versión actual del ejemplo, veras que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` de `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
 
 Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que cada vez que el usuario modifica el formulario, se actualiza el estado para reflejar lo que el usuario ingresó. Ya que los componentes solo pueden actualizar su propio estado, entonces `FilterableProductTable` necesita pasar funciones a `SearchBar` que este ejecutará cada vez que el estado deba actualizarse. Podemos usar el evento `onChange` del input para que nos notifique de esto. La función que pasa `FilterableProductTable` va a ejecutar entonces `setState()`, y la aplicación se va a actualizar.
 
