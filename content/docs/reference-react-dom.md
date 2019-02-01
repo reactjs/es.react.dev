@@ -52,7 +52,7 @@ Si el callback opcional es suministrado, sera ejecutado después de que el compo
 > y debe ser evitada debido a que en futuras versiones de React puede que los componentes se renderizen de manera asíncrona en algunos casos. Si deseas obtener una referencia a la instancia `ReactComponent` raíz,
 > la solución preferida es agregar una [referencia mediante callback](/docs/more-about-refs.html#the-ref-callback-attribute) al elemento raíz.
 >
-> Usar `ReactDOM.render()` para refrescar un contenedor renderizado por servidor es una practica vieja, y sera deprecada en la version 17 de React. Usa [`hydrate()`](#hydrate) en su lugar.
+> Usar `ReactDOM.render()` para actualizar un contenedor renderizado por servidor es una practica vieja, y sera deprecada en la version 17 de React. Usa [`hydrate()`](#hydrate) en su lugar.
 
 * * *
 
@@ -62,9 +62,9 @@ Si el callback opcional es suministrado, sera ejecutado después de que el compo
 ReactDOM.hydrate(elemento, contenedor[, callback])
 ```
 
-Es igual a [`render()`](#render), pero es utilizado para refrescar un contenedor cuyo contenido HTML fur renderizado por [`ReactDOMServer`](/docs/react-dom-server.html). React tratara de agregar detectores de eventos al marcado existente.
+Es igual a [`render()`](#render), pero es utilizado para actualizar un contenedor cuyo contenido HTML fur renderizado por [`ReactDOMServer`](/docs/react-dom-server.html). React tratara de agregar detectores de eventos al marcado existente.
 
-React espera que el contenido renderizado sea idéntico entre el servidor y el cliente. Puede ser capaz de arreglar las diferencias en el contexto de texto, pero deberías tratar los desajustes como errores, y arreglarlos. En modo de desarrollo, React alerta sobre desajustes durante el refrescamiento. No hay garantías de que las diferencias de atributos serán arregladas en caso de desajustes. Esto es importante por razones de rendimiento, porque en la mayoría de las aplicaciones los desajustes son raros, por esto validar todo el marcado seria prohibitivamente costoso.
+React espera que el contenido renderizado sea idéntico entre el servidor y el cliente. Puede ser capaz de arreglar las diferencias en el contexto de texto, pero deberías tratar los desajustes como errores, y arreglarlos. En modo de desarrollo, React alerta sobre desajustes durante la actualización. No hay garantías de que las diferencias de atributos serán arregladas en caso de desajustes. Esto es importante por razones de rendimiento, porque en la mayoría de las aplicaciones los desajustes son raros, por esto validar todo el marcado seria prohibitivamente costoso.
 
 Si el atributo de un elemento o contenido de texto es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puedes silenciar la alerta agregando `suppressHydrationWarning={true}` al elemento. Esto solo funciona a 1 nivel de profundidad, y es pensado para ser una escotilla de escape. No abuses de el. A menos que sea contenido de texto, React aun no intentara arreglarlo, asi que es posible que continué inconsistente hasta próximas actualizaciones.
 
