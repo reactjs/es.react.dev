@@ -10,7 +10,7 @@ prev: composition-vs-inheritance.html
 
 React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instragram.
 
-Una de las grandes ventaja de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalida de búsqueda usando React.
+Una de las grandes ventaja de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalidad de búsqueda usando React.
 
 ## Empieza con un mock
 
@@ -35,7 +35,7 @@ Nuestro API JSON devuelve información en el siguiente formato:
 
 Lo Primero que vas a querer hacer es dibujar cajas alrededor de cada componente (y subcomponente) en el mock y darles nombres a todos ellos. Si trabajas con un diseñador, probablemente ya lo hayan hecho ¡Así que ve a hablar con ellos! ¡Los nombres de sus capas de Photoshop podrían terminar siendo los nombres de tus componentes de React!
 
-¿Pero cómo sabes qué debería ser su propio componente? Usa las mismas técnicas para decidir si deberías crear una función u objeto nuevo. Uno de esto es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica), esto significa que un componente debe, idealmente, hacer solo una cosa. Si termina creciendo entonces debería ser dividido en componentes más pequeños.
+¿Pero cómo sabes qué debería ser su propio componente? Usa las mismas técnicas para decidir si deberías crear una función u objeto nuevo. Una técnica es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica), esto significa que un componente debe, idealmente, hacer solo una cosa. Si termina creciendo entonces debería ser dividido en componentes más pequeños.
 
 Dado a que normalmente estarás mostrando modelos de datos JSON de un API al usuario descubrirás que, si tu modelo fue construido correctamente, tu interfaz de usuario (y por lo tanto tu estructura de componentes) mapeará muy bien. Eso es porque la interfaz de usuario y el modelo de datos tienden a adherirse a la misma *arquitectura de información*, lo que significa que el trabajo de separar tu interfaz de usuario en componentes es normalmente trivial. Divide tus componentes para representar exactamente una parte de tu modelo de datos.
 
@@ -127,7 +127,7 @@ Usemos esta estrategia para nuestra aplicación:
 
 Genial, hemos decidido que nuestro estado viva en `FilterableProductTable`. Primero, agrega `this.state = {filterText: '', inStockOnly: false}` al `constructor` de `FilterableProductTable` para reflejar el estado inicial de tu aplicación. Entonces pasa `filterText` y `inStockOnly` a `ProductTable` y `SearchBar` como props. Finalmente usa estos props para filtrar las filas en `ProductTable` y establece el valor de los campos del formulario en `SearchBar`.
 
-Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a `"ball"` como valor inicial y recarga tu aplicación. Veras que la tabla de datos se actualizó correctamente.
+Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a `"ball"` cómo valor inicial y recarga tu aplicación. Veras que la tabla de datos se actualizó correctamente.
 
 ## Paso 5: Agregar flujo de datos inverso
 
@@ -145,4 +145,4 @@ Aunque parece complejo, es en realidad una pocas línas de código. Y se vuelve 
 
 ## Eso es todo
 
-Ojalá esto te haya dado una idea de como pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es extremadamente fácil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
+Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es extremadamente fácil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
