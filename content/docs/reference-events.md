@@ -92,7 +92,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 
 ## Referencia
 
-### Portapapeles Eventos
+### Eventos del Portapapeles
 
 Nombres de Eventos:
 
