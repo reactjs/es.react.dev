@@ -88,7 +88,7 @@ Recapitulemos lo que sucede en este ejemplo:
 
 > **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula
 > 
->React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Bienvenido />` representa un componente y requiere que `Bienvenido` esté al alcance.
+>React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Welcome />` representa un componente y requiere que `Welcome` esté al alcance.
 > 
 > Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
@@ -127,7 +127,7 @@ Por lo general, las aplicaciones en React tienen un único componente `App` en l
 
 No tengas miedo de dividir los componentes en otros más pequeños.
 
-Por ejemplo, considera este componente `Comentario`:
+Por ejemplo, considera este componente `Comment`:
 
 ```js
 function Comment(props) {
