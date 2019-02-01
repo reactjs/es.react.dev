@@ -10,7 +10,7 @@ Si cargas React desde una etiqueta `<script>`, estas APIs de alto nivel estaran 
 
 ## Resumen
 
-El paquete `react-dom` proporciona metodos especificos del DOM que pueden ser utilizados en el nivel mas alto de tu aplicacion como una escotilla de escape para salir del modelo de React si asi lo necesitas. La mayoria de tus componentes no deberian necesitar usar este modulo.
+El paquete `react-dom` proporciona métodos específicos del DOM que pueden ser utilizados en el nivel mas alto de tu aplicación como una escotilla de escape para salir del modelo de React si asi lo necesitas. La mayoría de tus componentes no deberían necesitar usar este modulo.
 
 - [`render()`](#render)
 - [`hydrate()`](#hydrate)
@@ -38,33 +38,21 @@ ReactDOM.render(elemento, contenedor[, callback])
 
 Renderiza un elemento React al DOM en el `contenedor` suministrado y retorna una [referencia](/docs/more-about-refs.html) al componente (o devuelve `null` para [componentes sin estado](/docs/components-and-props.html#functional-and-class-components)).
 
-Si el elemento React fue previamente renderizado al `contenedor`, esto ejecutara una actualizacion en el, y solo mutara el DOM de ser necesario para reflejar el mas reciente elemento React.
+Si el elemento React fue previamente renderizado al `contenedor`, esto ejecutara una actualización en el, y solo mutara el DOM de ser necesario para reflejar el mas reciente elemento React.
 
-Si el callback opcional es suministrado, sera ejecutado despues de que el componente es renderizado o actualizado.
+Si el callback opcional es suministrado, sera ejecutado después de que el componente es renderizado o actualizado.
 
 > Nota:
 >
-> `ReactDOM.render()` controla el contenido del nodo contenedor que pasas. Cualquier elemento del DOM adentro de este son reemplazados cuando es llamado por primera vez. Las llamadas posteriores utilizan el algoritmo de diferenciado de React DOM para actualizaciones eficientes.
+> `ReactDOM.render()` controla el contenido del nodo contenedor que suministras. Cualquiera de los elementos DOM adentro de este son reemplazados cuando es llamado por primera vez. Las llamadas posteriores utilizan el algoritmo de diferenciado de React DOM para actualizaciones eficientes.
 >
-> `ReactDOM.render()` no modifica el nodo contenedor (solo modifica los hijos del contenedor). Puede ser posible insertar un componente en un nodo existente del DOM sin sobreescribir los hijos existentes.
+> `ReactDOM.render()` no modifica el nodo contenedor (solo modifica los hijos del contenedor). Puede ser posible insertar un componente en un nodo existente del DOM sin sobrescribir los hijos existentes.
 >
-> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
-> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) to the root element.
+> `ReactDOM.render()` actualmente retorna una referencia a la instancia `ReactComponent` raíz. Sin embargo, utilizar este valor retornado es una practica vieja,
+> y debe ser evitada debido a que en futuras versiones de React puede que los componentes se renderizen de manera asíncrona en algunos casos. Si deseas obtener una referencia a la instancia `ReactComponent` raíz,
+> la solución preferida es agregar una [referencia mediante callback](/docs/more-about-refs.html#the-ref-callback-attribute) al elemento raíz.
 >
-> Using `ReactDOM.render()` to hydrate a server-rendered container is deprecated and will be removed in React 17. Use [`hydrate()`](#hydrate) instead.
-
-> Note:
->
-> `ReactDOM.render()` controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.
->
-> `ReactDOM.render()` does not modify the container node (only modifies the children of the container). It may be possible to insert a component to an existing DOM node without overwriting the existing children.
->
-> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
-> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) to the root element.
->
-> Using `ReactDOM.render()` to hydrate a server-rendered container is deprecated and will be removed in React 17. Use [`hydrate()`](#hydrate) instead.
+> Usar `ReactDOM.render()` para refrescar un contenedor renderizado por servidor es una practica vieja, y sera deprecada en la version 17 de React. Usa [`hydrate()`](#hydrate) en su lugar.
 
 * * *
 
