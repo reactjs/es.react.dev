@@ -345,7 +345,7 @@ onLoad onError
 
 * * *
 
-### Eventos de Animacion
+### Eventos de Animación
 
 Nombres de Eventos
 
