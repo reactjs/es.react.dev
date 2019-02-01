@@ -44,7 +44,7 @@ Como tal, no puede acceder al evento de forma asíncrona.
 
 ```javascript
 function onClick(event) {
-  console.log(event); // => nullified object.
+  console.log(event); // => objeto nulo.
   console.log(event.type); // => "click"
   const eventType = event.type; // => "click"
 
@@ -53,40 +53,40 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // Mo funcionará. this.state.clickEvent solo contendrá valores nulos.
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // Todavía puede exportar propiedades de eventos.
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> Nota:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
-## Supported Events
+## Eventos Apoyados
 
-React normalizes events so that they have consistent properties across different browsers.
+React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos para la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de clic en la fase de captura.
 
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
+- [Portapapeles Eventos](#clipboard-events)
+- [Composición Eventos](#composition-events)
+- [Eventos del Teclado](#keyboard-events)
+- [Eventos de Enfoque](#focus-events)
+- [Formar Eventos](#form-events)
+- [Eventos del Ratón](#mouse-events)
+- [Eventos Puntero](#pointer-events)
+- [Selección Eventos](#selection-events)
+- [Eventos Táctiles](#touch-events)
+- [Eventos de la Interfaz de Usuario](#ui-events)
+- [Ruedas Eventos](#wheel-events)
+- [Eventos de Medios](#media-events)
+- [Eventos de Imagen](#image-events)
+- [Eventos de Animacion](#animation-events)
+- [Eventos de Transición](#transition-events)
+- [Otros Eventos](#other-events)
 
 * * *
 
