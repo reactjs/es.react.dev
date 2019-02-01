@@ -14,7 +14,7 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Aprovechamos la oportunidad para pulir algunos detalles en las implementaciones del DOM en el navegador.
+React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Esto nos dio la oportunidad de pulir algunos detalles en las implementaciones del DOM en el navegador.
 
 En React, todas las propiedades y atributos (incluyendo manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
