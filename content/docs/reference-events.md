@@ -53,7 +53,7 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Mo funcionará. this.state.clickEvent solo contendrá valores nulos.
+  // No funcionará. this.state.clickEvent solo contendrá valores nulos.
   this.setState({clickEvent: event});
 
   // Todavía puede exportar propiedades de eventos.
