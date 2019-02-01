@@ -14,7 +14,7 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-React implementa un sistema DOM independiente del navegador, por razones de rendimiento y compatibilidad entre navegadores. Aprovechamos la oportunidad para pulir algunos detalles en las implementaciones del DOM en el navegador.
+React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Aprovechamos la oportunidad para pulir algunos detalles en las implementaciones del DOM en el navegador.
 
 En React, todas las propiedades y atributos (incluyendo manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
@@ -54,19 +54,19 @@ Ya que `for` es una palabra reservada en Javascript, los elementos de React usan
 
 ### onChange
 
-The `onChange` event behaves as you would expect it to: whenever a form field is changed, this event is fired. We intentionally do not use the existing browser behavior because `onChange` is a misnomer for its behavior and React relies on this event to handle user input in real time.
+En React, el atributo `onChange` recibe una función manejadora que se ejecuta cada vez que el contenido en un `<input>` cambia. Este comportamiento es, intencionalmente, distinto al del evento `onchange` del DOM, cuyo nombre no es el más adecuado. 
 
 ### selected
 
-The `selected` attribute is supported by `<option>` components. You can use it to set whether the component is selected. This is useful for building controlled components.
+El atributo `selected` es compatible con los componentes tipo `<option>`. Puedes usarlo para establecer si el elemento está seleccionado, lo cual es útil para construir componentes controlados.
 
 ### style
 
->Note
+>Nota
 >
->Some examples in the documentation use `style` for convenience, but **using the `style` attribute as the primary means of styling elements is generally not recommended.** In most cases, [`className`](#classname) should be used to reference classes defined in an external CSS stylesheet. `style` is most often used in React applications to add dynamically-computed styles at render time. See also [FAQ: Styling and CSS](/docs/faq-styling.html).
+>Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos computados dinámicamente al momento de renderización. Revisa tambièn [FAQ: Styling and CSS](/docs/faq-styling.html).
 
-The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM `style` JavaScript property, is more efficient, and prevents XSS security holes. For example:
+El atributo `style` acepta un objeto de Javascript con propiedades escritas en formato camelCase, en lugar de un CSS string. Esto es consistente con la propiedad DOM `style` en Javascript, es más eficiente y previene vulnerabilidades XSS. Por ejemplo:
 
 ```js
 const divStyle = {
@@ -79,36 +79,35 @@ function HelloWorldComponent() {
 }
 ```
 
-Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:
+Ten en cuenta que estos estilos no reciben automáticamente los prefijos de compatibilidad entre navegadores. Para soportar navegadores antiguos, debes proveer las propiedades correspondientes:
 
 ```js
 const divStyle = {
-  WebkitTransition: 'all', // note the capital 'W' here
-  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+  WebkitTransition: 'all', // nota la 'W' mayúscula aquí 
+  msTransition: 'all' // 'ms' es el único prefijo de proveedor en minúscula
 };
 
 function ComponentWithTransition() {
   return <div style={divStyle}>This should work cross-browser</div>;
 }
 ```
+Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de los proveedores [a excepción de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/) deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
 
-Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. `node.style.backgroundImage`). Vendor prefixes [other than `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/) should begin with a capital letter. This is why `WebkitTransition` has an uppercase "W".
-
-React will automatically append a "px" suffix to certain numeric inline style properties. If you want to use units other than "px", specify the value as a string with the desired unit. For example:
+React adjuntará automáticamente el sufijo "px" a ciertas propiedades numéricas. Si quieres usar unidades diferentes a "px", especifica el valor como un string con la unidad deseada. Por ejemplo: 
 
 ```js
-// Result style: '10px'
+// Estilo resultante: '10px'
 <div style={{ height: 10 }}>
   Hello World!
 </div>
 
-// Result style: '10%'
+// Estilo resultante: '10%'
 <div style={{ height: '10%' }}>
   Hello World!
 </div>
 ```
 
-Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg `zoom`, `order`, `flex`). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+No todas las propiedades numéricas del objeto `style` son convertidas a strings con píxeles, sin embargo. Ciertas propiedades se mantienen sin unidad (p.ej `zoom`, `order`, `flex`). Una lista completa de las propiedades sin unidad puede verse [aquí](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
 ### suppressContentEditableWarning
 
