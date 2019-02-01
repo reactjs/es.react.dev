@@ -64,51 +64,51 @@ ReactDOM.hydrate(elemento, contenedor[, callback])
 
 Es igual a [`render()`](#render), pero es utilizado para actualizar un contenedor cuyo contenido HTML fur renderizado por [`ReactDOMServer`](/docs/react-dom-server.html). React tratara de agregar detectores de eventos al marcado existente.
 
-React espera que el contenido renderizado sea idéntico entre el servidor y el cliente. Puede ser capaz de arreglar las diferencias en el contexto de texto, pero deberías tratar los desajustes como errores, y arreglarlos. En modo de desarrollo, React alerta sobre desajustes durante la actualización. No hay garantías de que las diferencias de atributos serán arregladas en caso de desajustes. Esto es importante por razones de rendimiento, porque en la mayoría de las aplicaciones los desajustes son raros, por esto validar todo el marcado seria prohibitivamente costoso.
+React espera que el contenido renderizado sea idéntico entre el servidor y el cliente. Puede arreglar las diferencias del contenido de texto, pero deberías tratar los desajustes como errores, y arreglarlos. En modo de desarrollo, React alerta sobre desajustes durante la actualización. No hay garantías de que las diferencias de atributos serán arregladas en caso de desajustes. Esto es importante por razones de rendimiento, porque en la mayoría de las aplicaciones los desajustes son raros, por esto validar todo el marcado seria prohibitivamente costoso.
 
 Si el atributo de un elemento o contenido de texto es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puedes silenciar la alerta agregando `suppressHydrationWarning={true}` al elemento. Esto solo funciona a 1 nivel de profundidad, y es pensado para ser una escotilla de escape. No abuses de el. A menos que sea contenido de texto, React aun no intentara arreglarlo, asi que es posible que continué inconsistente hasta próximas actualizaciones.
 
 Si necesitas renderizar algo diferente de manera intencional en el servidor y en el cliente, puedes realizar un renderizado en 2 pasos. Los componentes que renderizan contenido diferente al cliente, pueden leer una variable de estado como `this.state.isClient`, la cual puedes cambiar a `true` en `componentDidMount()`. De esta manera, el pase de renderizado inicial renderizara el mismo contenido que el servidor, evitando desajustes, pero un pase adicional pasara sincronamente justo después de la actualización. Recuerda que este enfoque hará que tus componentes sean mas lentos debido a que se deben renderizar 2 veces, asi que usa esto con precaución.
 
-Recuerda estar consciente d la experiencia de usuario en conexiones lentas. El código Javascript puede ser cargado significativamente después de que el HTML inicial sea renderizado, entonces, si renderizas algo diferente en el pase exclusivo por el cliente, la transición puede ser discorde. Sin embargo, si se ejecuta bien, puede ser beneficioso para renderizar una "capa" de la aplicación en el servidor, y solo mostrar unos widgets extra en el cliente. Para aprender como hacer esto sin tener desajustes en el marcado, consulta la explicación en el párrafo anterior.
+Recuerda estar consciente de la experiencia de usuario en conexiones lentas. El código Javascript puede ser cargado significativamente después de que el HTML inicial sea renderizado, entonces, si renderizas algo diferente en el pase exclusivo por el cliente, la transición puede ser discorde. Sin embargo, si se ejecuta bien, puede ser beneficioso para renderizar una "capa" de la aplicación en el servidor, y solo mostrar unos widgets extra en el cliente. Para aprender como hacer esto sin tener desajustes en el marcado, consulta la explicación en el párrafo anterior.
 
 * * *
 
 ### `unmountComponentAtNode()`
 
 ```javascript
-ReactDOM.unmountComponentAtNode(container)
+ReactDOM.unmountComponentAtNode(contenedor)
 ```
 
-Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns `true` if a component was unmounted and `false` if there was no component to unmount.
+Remueve un componente React ya montado en el DOM, y limpia sus manejadores de eventos y estado. Si ningún componente fue montado en el contenedor, llamar a esta función no hará nada. Retorna `true` si un componente fue desmontado, y `false` si no hay algún componente para desmontar.
 
 * * *
 
 ### `findDOMNode()`
 
-> Note:
+> Nota:
 >
-> `findDOMNode` is an escape hatch used to access the underlying DOM node. In most cases, use of this escape hatch is discouraged because it pierces the component abstraction. [It has been deprecated in `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` es una escotilla de escape para acceder al componente DOM subyacente. En la mayoría de los casos, usar esta escotilla de escape no es recomendado debido a que atraviesa la abstracción del componente. [Esto ha sido deprecado en modo estricto: `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
-ReactDOM.findDOMNode(component)
+ReactDOM.findDOMNode(componente)
 ```
-If this component has been mounted into the DOM, this returns the corresponding native browser DOM element. This method is useful for reading values out of the DOM, such as form field values and performing DOM measurements. **In most cases, you can attach a ref to the DOM node and avoid using `findDOMNode` at all.**
+Si este componente ha sido montado al DOM, este método retorna el elemento DOM nativo correspondiente. Este método es util para leer valores fuera del DOM, como por ejemplo valores de formularios, o realizar mediciones del DOM. **En la mayoría de casos, puedes agregar una referencia al nodo del DOM, y evitar el uso de `findDOMNode` por completo**
 
-When a component renders to `null` or `false`, `findDOMNode` returns `null`. When a component renders to a string, `findDOMNode` returns a text DOM node containing that value. As of React 16, a component may return a fragment with multiple children, in which case `findDOMNode` will return the DOM node corresponding to the first non-empty child.
+Cuando un componente es renderizado a `null` o `false`, `findDOMNode` retorna `null`. Cuando un componente es renderizado a una cadena de texto, `findDOMNode` retorna un nodo DOM de texto que contiene ese valor. En React 16, un componente puede retornar un fragmento con múltiples hijos, en este caso `findDOMNode` retornara el nodo del DOM correspondiente al primer hijo no vació.
 
-> Note:
+> Nota:
 >
-> `findDOMNode` only works on mounted components (that is, components that have been placed in the DOM). If you try to call this on a component that has not been mounted yet (like calling `findDOMNode()` in `render()` on a component that has yet to be created) an exception will be thrown.
+> `findDOMNode` solo funciona con componentes montados (esto significa, componentes que han sido puestos en el DOM). Si tratas de llamar este método con un componente que aun no ha sido montado (por ejemplo, llamar `findDOMNode()` en `render()` con un componente que aun no ha sido creado) generara una excepción.
 >
-> `findDOMNode` cannot be used on function components.
+> `findDOMNode` no puede ser utilizado con componentes de tipo función.
 
 * * *
 
 ### `createPortal()`
 
 ```javascript
-ReactDOM.createPortal(child, container)
+ReactDOM.createPortal(hijo, contenedor)
 ```
 
-Creates a portal. Portals provide a way to [render children into a DOM node that exists outside the hierarchy of the DOM component](/docs/portals.html).
+Crea un portal. Los portales proveen una forma para [renderizar hijos a un nodo del DOM que existe fuera de la jerarquía del componente DOM](/docs/portals.html).
