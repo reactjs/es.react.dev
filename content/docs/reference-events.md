@@ -65,7 +65,7 @@ function onClick(event) {
 >
 > Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
-## Eventos Apoyados
+## Eventos Soportados
 
 React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
 
