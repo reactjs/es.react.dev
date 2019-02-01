@@ -17,16 +17,16 @@ Suggestion on words and terms:
 | Bundler | *Bundler* |
 | camelCase | *camelCase* |
 | callback | *callback* |
-| controlled component | *controlled component* |
+| controlled component | componente controlado |
 | debugging | depuración |
 | library | biblioteca |
 | lowercase | minúscula(s) |
 | props | *props* |
 | React element | Elemento de React |
 | state | estado |
-| string | cadena de texto |
-| template literals | plantilla de cadena (de texto) |
-| uncontrolled component | *uncontrolled component* |
+| string | *string* |
+| template literals | *template literals* |
+| uncontrolled component | componente no controlado |
 
 
 
