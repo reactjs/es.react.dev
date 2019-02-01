@@ -87,37 +87,37 @@ function getGreeting(user) {
 }
 ```
 
-### Specifying Attributes with JSX
+### Especificando atributos con jsx
 
-You may use quotes to specify string literals as attributes:
+Puedes utilizar comillas para especificar strings literales como atributos:
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-You may also use curly braces to embed a JavaScript expression in an attribute:
+También puedes usar comillas para insertar una expresión JavaScript en un atributo:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+No pongas comillas rodeando llaves cuando insertes una expresión JavaScript en un atributo. Debes utilizar comillas (para los valores de los strings) o llaves (para las expresiones), pero no ambas en el mismo atributo.
 
 >**Warning:**
 >
->Since JSX is closer to JavaScript than to HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+>Dado que JSX está más cercano a JavaScript que a HTML, React DOM usa la convención de nomenclatura `camelCase` en vez de nombres de atributos HTML.
 >
->For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>Por ejemplo, `class` se vuelve [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) en JSX, y `tabindex` se vuelve [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-### Specifying Children with JSX
+### Especificando hijos con JSX
 
-If a tag is empty, you may close it immediately with `/>`, like XML:
+Si una etiqueta está vacía, puedes cerrarla inmediatamente con `/>`, como en XML:
 
 ```js
 const element = <img src={user.avatarUrl} />;
 ```
 
-JSX tags may contain children:
+Las etiquetas de Javascript pueden contener hijos:
 
 ```js
 const element = (
@@ -128,23 +128,23 @@ const element = (
 );
 ```
 
-### JSX Prevents Injection Attacks
+### JSX Previene Ataques de Inyección
 
-It is safe to embed user input in JSX:
+Es seguro insertar datos ingresados por el usuario en JSX:
 
 ```js
 const title = response.potentiallyMaliciousInput;
-// This is safe:
+// Esto es seguro:
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+Por defecto, React DOM [escapa](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) cualquier valor insertado en JSX antes de renderizarlo. De este modo, se asegura de que nunca se pueda insertar nada que no esté explícitamente escrito en tú aplicación. Todo es convertido en un string antes de ser renderizado. Esto ayuda a prevenir vulnerabilidades [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
-### JSX Represents Objects
+### JSX Representa Objetos
 
-Babel compiles JSX down to `React.createElement()` calls.
+Babel compila JSX bajo llamados a `React.createElement()`.
 
-These two examples are identical:
+Estos dos ejemplos son identicos:
 
 ```js
 const element = (
@@ -162,10 +162,10 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+`React.createElement()` realiza algunas comprobaciones para ayudarte a escribir código libre de errores, pero, en esencia crea un objeto como este:
 
 ```js
-// Note: this structure is simplified
+// Nota: Esta estructura está simplificada
 const element = {
   type: 'h1',
   props: {
@@ -175,10 +175,10 @@ const element = {
 };
 ```
 
-These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+Estos objetos son llamados "Elementos de React". Puedes pensar en ellos como descripciones de lo que quieres ver en pantalla. React lee estos objetos y los usa para construir el DOM y mantenerlo actualizado.
 
-We will explore rendering React elements to the DOM in the next section.
+Vamos a explorar el renderizado de los elementos de React al DOM en la siguiente sección.
 
 >**Tip:**
 >
->We recommend using the ["Babel" language definition](http://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) color scheme which is compatible with it.
+>Recomendamos usar la [Definición del lenguaje en "Babel"](http://babeljs.io/docs/editors) en tu editor de elección para que tanto el código en ES6 como el código en JSX sea resaltado apropiadamente. Este sitio web utiliza el esquema de color [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), el cual es compatible con esto.
