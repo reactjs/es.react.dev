@@ -81,7 +81,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 - [Eventos de Selección](#selection-events)
 - [Eventos Táctiles](#touch-events)
 - [Eventos de la Interfaz de Usuario](#ui-events)
-- [Ruedas Eventos](#wheel-events)
+- [Eventos de la Rueda del Ratón](#wheel-events)
 - [Eventos de Medios](#media-events)
 - [Eventos de Imagen](#image-events)
 - [Eventos de Animacion](#animation-events)
