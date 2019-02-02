@@ -118,11 +118,11 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintáxis más corta. Hay algunas formas de hacer condiciones inline en JSX, explicadas a continuación.
+Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintáxis más corta. Hay algunas formas de hacer condiciones $INLINE en JSX, explicadas a continuación.
 
-### If inline con operador lógico &&
+### If $INLINE con operador lógico &&
 
-You may [embed any expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndolas en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser ùtil para incluir condicionalmente un elemento:
 
 ```js{6-10}
 function Mailbox(props) {
@@ -146,15 +146,15 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
+[**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-It works because in JavaScript, `true && expression` always evaluates to `expression`, and `false && expression` always evaluates to `false`.
+Funciona porque en JavaScript, `true && expresión` siempre evalúa a `expresión`, y `false && expresión` siempre evalúa a `false`.
 
-Therefore, if the condition is `true`, the element right after `&&` will appear in the output. If it is `false`, React will ignore and skip it.
+Por eso, si la condición es `true`, el elemento just después de `&&` aparecerá en el resultado. Si es `false`, React lo ignorará.
 
-### Inline If-Else with Conditional Operator
+### $INLINE If-Else with Conditional Operator
 
-Another method for conditionally rendering elements inline is to use the JavaScript conditional operator [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
+Another method for conditionally rendering elements $INLINE is to use the JavaScript conditional operator [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
 
 In the example below, we use it to conditionally render a small block of text.
 
