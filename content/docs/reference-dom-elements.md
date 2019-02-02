@@ -16,7 +16,7 @@ redirect_from:
 
 React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Esto nos dio la oportunidad de pulir algunos detalles en las implementaciones del DOM en el navegador.
 
-En React, todas las propiedades y atributos (incluyendo manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
+En React, todas las propiedades y atributos (incluídos los manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
 ## Diferencias en los Atributos
 
@@ -111,17 +111,17 @@ No todas las propiedades numéricas del objeto `style` son convertidas a strings
 
 ### suppressContentEditableWarning
 
-Normally, there is a warning when an element with children is also marked as `contentEditable`, because it won't work. This attribute suppresses that warning. Don't use this unless you are building a library like [Draft.js](https://facebook.github.io/draft-js/) that manages `contentEditable` manually.
+Normalmente, hay una advertencia cuando un elemento con hijos también se marca como `contentEditable`, porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés construyendo una librería como [Draft.js] (https://facebook.github.io/draft-js/) que administra `contentEditable` manualmente.
 
 ### suppressHydrationWarning
 
-If you use server-side React rendering, normally there is a warning when the server and the client render different content. However, in some rare cases, it is very hard or impossible to guarantee an exact match. For example, timestamps are expected to differ on the server and on the client.
+Si usas renderización de React del lado del servidor, normalmente hay una advertencia cuando el servidor y el cliente presentan contenido diferente. Sin embargo, en algunos casos raros, es muy difícil o imposible garantizar una coincidencia exacta. Por ejemplo, se espera que las marcas de tiempo difieran en el servidor y en el cliente. 
 
-If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrate()` documentation](/docs/react-dom.html#hydrate).
+Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sobre los desajustes en los atributos y el contenido de ese elemento. Solo funciona a un nivel de profundidad y está diseñado para ser utilizado como escotilla de escape. No lo uses en exceso. Puedes leer más sobre hidratación en la [documentación de `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value
 
-The `value` attribute is supported by `<input>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+El atributo `value` es compatible con los componentes` <input> `y` <textarea> `. Puedes usarlo para establecer el valor del componente. Esto es útil para construir componentes controlados. `defaultValue` es el equivalente no controlado, que establece el valor del componente cuando se monta por primera vez.
 
 ## All Supported HTML Attributes
 
