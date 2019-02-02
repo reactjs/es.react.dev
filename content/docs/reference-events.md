@@ -69,7 +69,7 @@ function onClick(event) {
 
 React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
 
-Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos llamado en la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de clic en la fase de captura.
+Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos llamado en la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de click en la fase de captura.
 
 - [Eventos del Portapapeles](#clipboard-events)
 - [Eventos de Composición](#composition-events)
