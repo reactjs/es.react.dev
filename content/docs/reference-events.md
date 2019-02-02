@@ -230,7 +230,7 @@ Los eventos `onPointerEnter` y` onPointerLeave` se propagan desde el elemento qu
 
 Propiedades:
 
-Como se define en [la especificación W3](https://www.w3.org/TR/pointerevents/), los eventos de puntero amplían los [Eventos de Ratón](#mouse-events) con las siguientes propiedades:
+Como se define en [la especificación W3](https://www.w3.org/TR/pointerevents/), los eventos de puntero extienden los [Eventos de Ratón](#mouse-events) con las siguientes propiedades:
 
 ```javascript
 number pointerId
