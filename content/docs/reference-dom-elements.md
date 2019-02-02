@@ -130,9 +130,9 @@ A partir de React 16, cualquier atributo de DOM estándar [o personalizado](/blo
 React siempre ha proporcionado una API para el DOM centrada en JavaScript. Dado que los componentes de React a menudo reciben tanto props personalizados como props relacionados con el DOM, React utiliza la convención `camelCase` igual que las APIs del DOM:
 
 ```js
-<div tabIndex="-1" />      // Justo como la API del DOM node.tabIndex
-<div className="Button" /> // Justo como la API del DOM node.className
-<input readOnly={true} />  // Justo como la API del DOM node.readOnly
+<div tabIndex="-1" />      // Como la API del DOM node.tabIndex
+<div className="Button" /> // Como la API del DOM node.className
+<input readOnly={true} />  // Como la API del DOM node.readOnly
 ```
 Estos props funcionan de manera similar a sus atributos HTML correspondientes, con la excepción de los casos especiales documentados anteriormente.
 
