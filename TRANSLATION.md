@@ -21,6 +21,7 @@ Suggestion on words and terms:
 | controlled component | componente controlado |
 | debugging | depuración |
 | key | key |
+| lazy initialization | inicialización diferida |
 | library | biblioteca |
 | lowercase | minúscula(s) |
 | props | *props* |
