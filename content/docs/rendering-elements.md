@@ -32,7 +32,7 @@ Digamos que hay un `<div>` en alguna parte de tu archivo HTML:
 
 Lo llamamos un nodo "raíz" porque todo lo que esté dentro de él será manejado por React DOM.
 
-Las aplicaciones construidas solamente con React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, podrías tener cuantos nodos raíz en el DOM como quieras.
+Las aplicaciones construidas solamente con React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, puedes tener tantos nodos raíz del DOM aislados como quieras.
 
 Para renderizar un elemento de React en un nodo raíz del DOM, pasa ambos a `ReactDOM.render()`:
 
@@ -44,9 +44,9 @@ Esto muestra "Hello, world" en la página.
 
 ## Actualizando el Elemento Renderizado
 
-Los elementos de React son [inmutables](https://en.wikipedia.org/wiki/Immutable_object). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un marco solitario en una película: este representa la Interfaz Gráfica en cierto punto en el tiempo.
+Los elementos de React son [inmutables](https://en.wikipedia.org/wiki/Immutable_object). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un fotograma solitario en una película: este representa la IU en cierto punto en el tiempo.
 
-Con nuestro conocimiento hasta este punto, la única manera de actualizar la Interfaz Gráfica es creando un nuevo elemento, y pasarlo a `ReactDOM.render()`.
+Con nuestro conocimiento hasta este punto, la única manera de actualizar la IU es creando un nuevo elemento, y pasarlo a `ReactDOM.render()`.
 
 Considera este ejemplo de un reloj en marcha:
 
@@ -66,10 +66,10 @@ Este llama a `ReactDOM.render()` cada segundo desde un [`setInterval()`](https:/
 
 React DOM compara el elemento y su hijos con el elemento anterior, y solo aplica las actualizaciones del DOM que son necesarias para que el DOM esté en el estado deseado.
 
-Esto puedes verificarlo inspeccionando el [último ejemplo](codepen://rendering-elements/update-rendered-element) con las herramientas del navegador:
+Puedes verificar esto inspeccionando el [último ejemplo](codepen://rendering-elements/update-rendered-element) con las herramientas del navegador:
 
 ![inspector del DOM mostrando actualizaciones diminutas](../images/docs/granular-dom-updates.gif)
 
-Aunque creamos un elemento que describe el árbol de la Interfaz Gráfica en su totalidad en cada instante, React DOM solo actualiza el texto del nodo cuyo contenido cambió.
+Aunque creamos un elemento que describe el árbol de la IU en su totalidad en cada instante, React DOM solo actualiza el texto del nodo cuyo contenido cambió.
 
-En nuestra experiencia, pensar en cómo la Interfaz Gráfica debería verse en un momento dado y no en cómo cambiarla en el tiempo, elimina todo clase de errores.
+En nuestra experiencia, pensar en cómo la IU debería verse en un momento dado y no en cómo cambiarla en el tiempo, elimina toda una clase de errores.
