@@ -18,7 +18,7 @@ React implementa un sistema DOM independiente del navegador, por motivos de rend
 
 En React, todas las propiedades y atributos (incluídos los manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
-## Diferencias en los Atributos
+## Diferencias en los atributos
 
 Hay una serie de atributos HTML que funcionan de manera diferente en React.
 
@@ -84,14 +84,14 @@ Ten en cuenta que estos estilos no reciben automáticamente los prefijos de comp
 ```js
 const divStyle = {
   WebkitTransition: 'all', // nota la 'W' mayúscula aquí 
-  msTransition: 'all' // 'ms' es el único prefijo de proveedor en minúscula
+  msTransition: 'all' // 'ms' es el único prefijo de proveedor de navegador en minúscula
 };
 
 function ComponentWithTransition() {
   return <div style={divStyle}>This should work cross-browser</div>;
 }
 ```
-Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de los proveedores [a excepción de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/) deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
+Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de los proveedores de navegadores, [a excepción de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/), deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
 
 React adjuntará automáticamente el sufijo "px" a ciertas propiedades numéricas. Si quieres usar unidades diferentes a "px", especifica el valor como un string con la unidad deseada. Por ejemplo: 
 
@@ -111,7 +111,7 @@ No todas las propiedades numéricas del objeto `style` son convertidas a strings
 
 ### suppressContentEditableWarning
 
-Normalmente, hay una advertencia cuando un elemento con hijos también se marca como `contentEditable`, porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés construyendo una librería como [Draft.js] (https://facebook.github.io/draft-js/) que administra `contentEditable` manualmente.
+Normalmente, hay una advertencia cuando un elemento con hijos también se marca como `contentEditable`, porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés construyendo una biblioteca como [Draft.js] (https://facebook.github.io/draft-js/) que administra `contentEditable` manualmente.
 
 ### suppressHydrationWarning
 
@@ -123,21 +123,20 @@ Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sob
 
 El atributo `value` es compatible con los componentes` <input> `y` <textarea> `. Puedes usarlo para establecer el valor del componente. Esto es útil para construir componentes controlados. `defaultValue` es el equivalente no controlado, que establece el valor del componente cuando se monta por primera vez.
 
-## All Supported HTML Attributes
+## Todos los atributos HTML soportados
 
-As of React 16, any standard [or custom](/blog/2017/09/08/dom-attributes-in-react-16.html) DOM attributes are fully supported.
+A partir de React 16, cualquier atributo de DOM estándar [o personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html) es totalmente soportado.
 
-React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, React uses the `camelCase` convention just like the DOM APIs:
+React siempre ha proporcionado una API para el DOM centrada en JavaScript. Dado que los componentes de React a menudo reciben tanto props personalizados como props relacionados con el DOM, React utiliza la convención `camelCase` igual que las APIs del DOM:
 
 ```js
-<div tabIndex="-1" />      // Just like node.tabIndex DOM API
-<div className="Button" /> // Just like node.className DOM API
-<input readOnly={true} />  // Just like node.readOnly DOM API
+<div tabIndex="-1" />      // Justo como la API del DOM node.tabIndex
+<div className="Button" /> // Justo como la API del DOM node.className
+<input readOnly={true} />  // Justo como la API del DOM node.readOnly
 ```
+Estos props funcionan de manera similar a sus atributos HTML correspondientes, con la excepción de los casos especiales documentados anteriormente.
 
-These props work similarly to the corresponding HTML attributes, with the exception of the special cases documented above.
-
-Some of the DOM attributes supported by React include:
+Algunos de los atributos DOM soportados por React incluyen:
 
 ```
 accept acceptCharset accessKey action allowFullScreen alt async autoComplete
@@ -155,7 +154,8 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-Similarly, all SVG attributes are fully supported:
+Similarmente, todos los atributos SVG son totalmente compatibles con React: 
+
 
 ```
 accentHeight accumulate additive alignmentBaseline allowReorder alphabetic
@@ -194,4 +194,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-You may also use custom attributes as long as they're fully lowercase.
+También puedes usar atributos personalizados siempre que estén en minúsculas.
