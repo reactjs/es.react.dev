@@ -6,7 +6,7 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* son una característica que próximamente permitirá usar el estado y otras características de React sin escribir una clase. Están actualmente en React v16.8.0-alpha.1.
+*Hooks* son una próxima característica que te permite usar el estado y otras características de React sin escribir una clase. Están actualmente en React v16.8.0-alpha.1.
 
 Esta página describe las API para los Hooks incorporados en React.
 
