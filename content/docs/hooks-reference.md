@@ -79,7 +79,7 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 >
 > Otra opción es `useReducer`, que es más adecuada para administrar objetos de estado que contienen múltiples subvalores.
 
-#### Inicialización perezosa
+#### Inicialización gradual
 
 El argumento `initialState` es el estado utilizado durante el render inicial. En renders posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
 
