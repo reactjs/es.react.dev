@@ -77,7 +77,7 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 > });
 > ```
 >
-> Otra opción es `useReducer`, que es más adecuada para administrar estado de objetos que contienen múltiples subvalores.
+> Otra opción es `useReducer`, que es más adecuada para administrar objetos de estado que contienen múltiples subvalores.
 
 #### Inicialización perezosa
 
