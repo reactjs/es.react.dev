@@ -6,11 +6,11 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* son una próxima característica que te permite usar el estado y otras características de React sin escribir una clase. Están actualmente en React v16.8.0-alpha.1.
+Los *Hooks* son una próxima característica que te permite usar el estado y otras características de React sin escribir una clase. Están actualmente en React v16.8.0-alpha.1.
 
-Esta página describe las APIs para los Hooks incorporados en React.
+Esta página describe las API para los Hooks incorporados en React.
 
-Si eres nuevo en Hooks, es posible que desees revisar [la descripción general](/docs/hooks-overview.html) primero. También puedes encontrar información útil en la sección [preguntas frecuentes](/docs/hooks-faq.html).
+Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descripción general](/docs/hooks-overview.html). También puedes encontrar información útil en la sección de [preguntas frecuentes](/docs/hooks-faq.html).
 
 - [Basic Hooks](#basic-hooks)
   - [`useState`](#usestate)
@@ -44,7 +44,7 @@ setState(newState);
 ```
 
 During subsequent re-renders, the first value returned by `useState` will always be the most recent state after applying updates.
-Durante las siguientes renderizaciones, el primer valor devuelto por `useState` siempre será el estado más reciente después de aplicar las actualizaciones.
+Durante las siguientes re-renders, el primer valor devuelto por `useState` siempre será el estado más reciente después de aplicar las actualizaciones.
 
 #### Actualizaciones funcionales
 
@@ -98,9 +98,9 @@ useEffect(didUpdate);
 
 Acepta una función que contiene código imperativo, posiblemente código efectivo.
 
-Las mutaciones, suscripciones, temporizadores, registro y otros efectos secundarios no están permitidos dentro del cuerpo principal de un componente de función (denominado como _render phase_ de React). Si lo hace, dará lugar a errores confusos e inconsistencias en la interfaz de usuario.
+Las mutaciones, suscripciones, temporizadores, registro y otros efectos secundarios no están permitidos dentro del cuerpo principal de un componente funcional (denominado como _render phase_ de React). Si lo hace, dará lugar a errores confusos e inconsistencias en la interfaz de usuario.
 
-En su lugar, use `useEffect`. La función es pasada a `useEffect` se ejecutará después de que el renderizado se confirma en la pantalla. Piense en los efectos como una escotilla de escape del mundo puramente funcional de React al mundo imperativo.
+En su lugar, use `useEffect`. La función pasada a `useEffect` se ejecutará después de que el renderizado es confirmado en la pantalla. Piense en los efectos como una escotilla de escape del mundo puramente funcional de React al mundo imperativo.
 
 Por defecto, los efectos se ejecutan después de cada renderizado completado, pero puede elegir ejecutarlo [solo cuando ciertos valores han cambiado](#conditionally-firing-an-effect).
 
