@@ -1,3 +1,17 @@
 {
-    "cSpell.language": ",es"
+    "cSpell.language": ",es",
+    "cSpell.words": [
+        "at",
+        "callback",
+        "component",
+        "create",
+        "dom",
+        "find",
+        "from",
+        "hydrate",
+        "node",
+        "polyfills",
+        "portal",
+        "unmount"
+    ]
 }
