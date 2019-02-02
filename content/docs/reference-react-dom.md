@@ -62,11 +62,11 @@ Si el callback opcional es suministrado, será ejecutado después de que el comp
 ReactDOM.hydrate(elemento, contenedor[, callback])
 ```
 
-Es igual a [`render()`](#render), pero es utilizado para actualizar un contenedor cuyo contenido HTML fue renderizado por [`ReactDOMServer`](/docs/react-dom-server.html). React tratara de agregar detectores de eventos al marcado existente.
+Es igual a [`render()`](#render), pero es utilizado para actualizar un contenedor cuyo contenido HTML fue renderizado por [`ReactDOMServer`](/docs/react-dom-server.html). React tratará de agregar detectores de eventos al marcado existente.
 
 React espera que el contenido renderizado sea idéntico entre el servidor y el cliente. Puede arreglar las diferencias del contenido de texto, pero deberías tratar los desajustes como errores, y arreglarlos. En modo de desarrollo, React alerta sobre desajustes durante la actualización. No hay garantías de que las diferencias de atributos serán arregladas en caso de desajustes. Esto es importante por razones de rendimiento, porque en la mayoría de las aplicaciones los desajustes son raros, por esto validar todo el marcado seria prohibitivamente costoso.
 
-Si el atributo de un elemento o contenido de texto es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puedes silenciar la alerta agregando `suppressHydrationWarning={true}` al elemento. Esto solo funciona a 1 nivel de profundidad, y es pensado para ser una escotilla de escape. No abuses de él. A menos que sea contenido de texto, React aun no intentara arreglarlo, así que es posible que continué inconsistente hasta próximas actualizaciones.
+Si el atributo de un elemento o contenido de texto es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puedes silenciar la alerta agregando `suppressHydrationWarning={true}` al elemento. Esto solo funciona a 1 nivel de profundidad, y es pensado para ser una escotilla de escape. No abuses de él. A menos que sea contenido de texto, React aun no intentará arreglarlo, así que es posible que continue inconsistente hasta próximas actualizaciones.
 
 Si necesitas renderizar algo diferente de manera intencional en el servidor y en el cliente, puedes realizar un renderizado en 2 pasos. Los componentes que renderizan contenido diferente al cliente, pueden leer una variable de estado como `this.state.isClient`, la cual puedes cambiar a `true` en `componentDidMount()`. De esta manera, el pase de renderizado inicial renderizará el mismo contenido que el servidor, evitando desajustes, pero un pase adicional pasará síncronamente justo después de la actualización. Recuerda que este enfoque hará que tus componentes sean más lentos debido a que se deben renderizar 2 veces, asi que usa esto con precaución.
 
@@ -93,9 +93,9 @@ Remueve un componente React ya montado en el DOM, y limpia sus manejadores de ev
 ```javascript
 ReactDOM.findDOMNode(componente)
 ```
-Si este componente ha sido montado al DOM, este método retorna el elemento DOM nativo correspondiente. Este método es útil para leer valores fuera del DOM, como por ejemplo valores de formularios, o realizar mediciones del DOM. **En la mayoría de casos, puedes agregar una referencia al nodo del DOM, y evitar el uso de `findDOMNode` por completo**
+Si este componente ha sido montado al DOM, este método retorna el elemento DOM nativo correspondiente. Este método es útil para leer valores fuera del DOM, como por ejemplo valores de formularios, o realizar mediciones del DOM. **En la mayoría de casos, puedes agregar una referencia al nodo del DOM, y evitar el uso de `findDOMNode` por completo**.
 
-Cuando un componente es renderizado a `null` o `false`, `findDOMNode` retorna `null`. Cuando un componente es renderizado a una cadena de texto, `findDOMNode` retorna un nodo DOM de texto que contiene ese valor. En React 16, un componente puede retornar un fragmento con múltiples hijos, en este caso `findDOMNode` retornara el nodo del DOM correspondiente al primer hijo no vació.
+Cuando un componente es renderizado a `null` o `false`, `findDOMNode` retorna `null`. Cuando un componente es renderizado a una cadena de texto, `findDOMNode` retorna un nodo DOM de texto que contiene ese valor. En React 16, un componente puede retornar un fragmento con múltiples hijos, en este caso `findDOMNode` retornará el nodo del DOM correspondiente al primer hijo no vació.
 
 > Nota:
 >
