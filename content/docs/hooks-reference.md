@@ -102,7 +102,7 @@ Las mutaciones, suscripciones, temporizadores, registro y otros efectos secundar
 
 En su lugar, use `useEffect`. La función es pasada a `useEffect` se ejecutará después de que el renderizado se confirma en la pantalla. Piense en los efectos como una escotilla de escape del mundo puramente funcional de React al mundo imperativo.
 
-De forma predeterminada, los efectos se ejecutan después de cada renderizado, pero puede elegir ejecutarlo [solo cuando ciertos valores han cambiado](#conditionally-firing-an-effect).
+Por defecto, los efectos se ejecutan después de cada renderizado completado, pero puede elegir ejecutarlo [solo cuando ciertos valores han cambiado](#conditionally-firing-an-effect).
 
 #### Limpiando un efecto
 
