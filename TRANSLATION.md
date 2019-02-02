@@ -25,6 +25,7 @@ Suggestion on words and terms:
 | lowercase | minúscula(s) |
 | props | *props* |
 | React element | Elemento de React |
+| render | renderizar (verb), renderizado (noun)
 | state | estado |
 | string | *string* |
 | template literals | *template literals* |
