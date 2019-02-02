@@ -226,7 +226,7 @@ onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-Los eventos `onPointerEnter` y` onPointerLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del bubbling normal y no tienen una fase de captura.
+Los eventos `onPointerEnter` y `onPointerLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del bubbling normal y no tienen una fase de captura.
 
 Propiedades:
 
