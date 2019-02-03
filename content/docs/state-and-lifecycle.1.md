@@ -29,7 +29,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
 En esta sección, aprenderemos como hacer al componente `Clock` verdaderamente reutilizable y encapsulado. Configurará su propio temporizador y se actualizará cada segundo.
 
@@ -55,9 +55,9 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-Sin embargo, se pierde un requisito crucial: el hecho de que `Clock` configure un temporizador y actualice la IU cada segundo debe ser un detalle de implementación del `Clock`.
+Sin embargo, se pierde un requisito crucial: el hecho de que `Clock` configure un temporizador y actualice la IU cada segundo debe ser un detalle de implementación de `Clock`.
 
 Idealmente, queremos escribir esto una vez y que `Clock` sea actualice a sí mismo:
 
@@ -101,7 +101,7 @@ class Clock extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` ahora se define como una clase en lugar de una función.
 
@@ -193,7 +193,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
 A continuación, haremos que `Clock` configure su propio temporizador y se actualice cada segundo.
 
@@ -201,9 +201,9 @@ A continuación, haremos que `Clock` configure su propio temporizador y se actua
 
 En aplicaciones con muchos componentes, es muy importante liberar recursos tomados por los componentes cuando se destruyen.
 
-Queremos [configurar un temporizador](`https://developer.mozilla.org/es/docs/Web/API/WindowTimers/setInterval`) siempre que `Clock` se renderice en el DOM por primera vez. Esto se llama «montaje» en React.
+Queremos [configurar un temporizador](`https://developer.mozilla.org/es/docs/Web/API/WindowTimers/setInterval`) cada vez que `Clock` se renderice en el DOM por primera vez. Esto se llama «montaje» en React.
 
-También queremos [borrar ese temporizador](https://developer.mozilla.org/es/docs/Web/API/WindowTimers/clearInterval) siempre que el DOM producido por el Clock se elimina. Esto se llama «desmontaje» en React.
+También queremos [borrar ese temporizador](https://developer.mozilla.org/es/docs/Web/API/WindowTimers/clearInterval) cada vez que el DOM producido por `Clock` se elimine. Esto se llama «desmontaje» en React.
 
 Podemos declarar métodos especiales en la clase del componente para ejecutar algún código cuando un componente se monta y desmonta:
 
@@ -260,7 +260,7 @@ Eliminaremos el temporizador en el método de ciclo de vida `componentWillUnmoun
 
 Finalmente, implementaremos un método llamado `tick()` que el componente `Clock` ejecutará cada segundo.
 
-Utilizará `this.setState()` para programar acutalizaciones al estado local del componente. 
+Utilizará `this.setState()` para programar actualizaciones al estado local del componente. 
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -302,7 +302,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 Ahora el reloj cambia cada segundo.
 
@@ -310,11 +310,11 @@ Repasemos rápidamente lo que está sucediendo y el orden en que se invocan los 
 
 1) Cuando se pasa `<Clock />` a `ReactDOM.render()`, React invoca al constructor del componente `Clock`. Ya que `Clock` necesita mostrar la hora actual, inicializa `this.state` con un objeto que incluye la hora actual. Luego actualizaremos este estado.
 
-2) React invoca entonces al método `render()` del componente `Clock`. Así es como React aprende lo que se debe mostrar en pantalla. React entoces actualiza el DOM para que coincida con la salida del renderizado de `Clock`.
+2) React invoca entonces al método `render()` del componente `Clock`. Así es como React aprende lo que se debe mostrar en pantalla. React entonces actualiza el DOM para que coincida con la salida del renderizado de `Clock`.
 
-3) Cuando la salida de `Clock` se inserta en el DOM, React invoca al método de ciclo de vida `componentDidMount()`. Dentro de él, el componente `Clock` le pide al navegador que configure un temporizador para llamar al método `tick()` del componente una vez por segundo.
+3) Cuando la salida de `Clock` se inserta en el DOM, React invoca al método de ciclo de vida `componentDidMount()`. Dentro de él, el componente `Clock` le pide al navegador que configure un temporizador para invocar al método `tick()` del componente una vez por segundo.
 
-4) Cada segundo el navegador llama al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la IU al llamar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió y llama de nuevo al método `render()` para aprender qué debe estar en la pantalla. Esta vez, `this.state.date` en el método render () será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
+4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la IU al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para aprender qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
 
 5) Si el componente `Clock` se elimina en algún momento del DOM, React invoca al método de ciclo de vida `componentWillUnmount()`, por lo que el temporizador se detiene.
 
@@ -327,14 +327,14 @@ Hay tres cosas que debes saber sobre `setState()`.
 Por ejemplo, esto no volverá a renderizar un componente:
 
 ```js
-// Wrong
+// Incorrecto
 this.state.comment = 'Hello';
 ```
 
 Instead, use `setState()`:
 
 ```js
-// Correct
+// Correcto
 this.setState({comment: 'Hello'});
 ```
 
@@ -342,14 +342,14 @@ El único lugar donde puede asignar `this.state` es el constructor.
 
 ### Las actualizaciones del estado pueden ser asíncronas
 
-React puede agrupar varias llamadas de `setState()` en una sola actualización para mejor desempeño.
+React puede agrupar varias invocaciones a `setState()` en una sola actualización para mejor desempeño.
 
 Debido a que `this.props` y `this.state` pueden actualizarse de forma asincrónica, no debe confiar en sus valores para calcular el siguiente estado.
 
 Por ejemplo, este código puede fallar en actualizar el contador:
 
 ```js
-// Wrong
+// Incorrecto
 this.setState({
   counter: this.state.counter + this.props.increment,
 });
@@ -358,7 +358,7 @@ this.setState({
 Para arreglarlo, usa una segunda forma de `setState()` que acepta una función en lugar de un objeto. Esa función recibirá el estado previo como primer argumento, y las props en el momento en que se aplica la actualización como segundo argumento:
 
 ```js
-// Correct
+// Correcto
 this.setState((state, props) => ({
   counter: state.counter + props.increment
 }));
@@ -367,7 +367,7 @@ this.setState((state, props) => ({
 Anteriormente usamos una [función flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Funciones/Arrow_functions), pero se podría haber hecho igualmente con funciones comunes:
 
 ```js
-// Correct
+// Correcto
 this.setState(function(state, props) {
   return {
     counter: state.counter + props.increment
@@ -415,7 +415,7 @@ La fusión es superficial, asi que `this.setState({comments})` deja intacto a `t
 
 Ni los componentes padres o hijos pueden saber si un determinado componente tiene o no tiene estado y no les debería importar si se define como una función o una clase.
 
-Por eso es que el estado a menudo se le denomina local o encapsulado. No es accesible desde otro componente excepto aquel que lo posee y lo asigna.
+Por eso es que el estado a menudo se le denomina local o encapsulado. No es accesible desde otro componente excepto de aquel que lo posee y lo asigna.
 
 Un componente puede elegir pasar su estado como props a sus componentes hijos:
 
@@ -429,7 +429,7 @@ Esto también funciona para componentes definidos por el usuario:
 <FormattedDate date={this.state.date} />
 ```
 
-El componente `FormattedDate` recibiría `date` en sus props y no sabría si nivo del estado de `Clock`, de los props de `Clock`, o si se escribió manualmente:
+El componente `FormattedDate` recibiría `date` en sus props y no sabría si vino del estado de `Clock`, de los props de `Clock`, o si se escribió manualmente:
 
 ```js
 function FormattedDate(props) {
@@ -437,11 +437,11 @@ function FormattedDate(props) {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-Esto comunmente es llamado flujo de datos «descendente» o «unidireccional». Cualquier estado siempre es propiedad de algún componente específico, y cualquier dato o IU derivados de ese estado solo pueden afectar los componentes «debajo» de ellos en el árbol.
+A esto comúnmente se le llama flujo de datos «descendente» o «unidireccional». Cualquier estado siempre es propiedad de algún componente específico, y cualquier dato o IU derivados de ese estado solo pueden afectar los componentes «debajo» de ellos en el árbol.
 
-Si imaginas un árbol de componentes como una cascada de props, el estado de cada componente es como una fuente de agua adicional que se le une en un punto arbitrario pero también fluye hacia abajo.
+Si imaginas un árbol de componentes como una cascada de props, el estado de cada componente es como una fuente de agua adicional que se le une en un punto arbitrario, pero también fluye hacia abajo.
 
 Para mostrar que todos los componentes están verdaderamente aislados, podemos crear un componente `App` que represente tres `<Clock>`:
 
@@ -462,7 +462,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Cada `Clock` establece su propio temporizador y se actualiza de forma independiente.
 
