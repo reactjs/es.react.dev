@@ -5,7 +5,7 @@ permalink: docs/conditional-rendering.html
 prev: handling-events.html
 next: lists-and-keys.html
 redirect_from:
- - "tips/false-in-jsx.html"
+  - "tips/false-in-jsx.html"
 ---
 
 En React, puedes crear distintos componentes que encapsulan el comportamiento que necesitas. Entonces, puedes renderizar solamente algunos de ellos, dependiendo del estado de tu aplicación.
@@ -16,11 +16,11 @@ Considera estos dos componentes::
 
 ```js
 function SaludoParaUsuario(props) {
- return <h1>¡Bienvenido de vuelta!</h1>;
+  return <h1>¡Bienvenido de vuelta!</h1>;
 }
 
 function SaludoParaInvitado(props) {
- return <h1>Por favor regístrese.</h1>;
+  return <h1>Por favor regístrese.</h1>;
 }
 ```
 
@@ -28,17 +28,17 @@ Vamos a crear un componente `Saludo` que muestra cualquiera de estos componentes
 
 ```javascript{3-7,11,12}
 function Saludo(props) {
- const estaConectado = props.estaConectado;
- if (estaConectado) {
-   return <SaludoParaUsuario />;
- }
- return <SaludoParaInvitado />;
+  const estaConectado = props.estaConectado;
+  if (estaConectado) {
+    return <SaludoParaUsuario />;
+  }
+  return <SaludoParaInvitado />;
 }
 
 ReactDOM.render(
- // Intentar cambiando estaConectado={true}:
- <Saludo estaConectado={false} />,
- document.getElementById('raiz')
+  // Intentar cambiando estaConectado={true}:
+  <Saludo estaConectado={false} />,
+  document.getElementById('raiz')
 );
 ```
 
@@ -54,19 +54,19 @@ Considera estos dos componentes nuevos que representan botones de Cerrar sesión
 
 ```js
 function BotonInicioSesion(props) {
- return (
-   <button onClick={props.onClick}>
-     Iniciar sesión
-   </button>
- );
+  return (
+    <button onClick={props.onClick}>
+      Iniciar sesión
+    </button>
+  );
 }
 
 function BotonCierreSesion(props) {
- return (
-   <button onClick={props.onClick}>
-     Cerrar sesión
-   </button>
- );
+  return (
+    <button onClick={props.onClick}>
+      Cerrar sesión
+    </button>
+  );
 }
 ```
 
@@ -76,43 +76,43 @@ El componente va a renderizar `<BotonInicioSesion />` o `<BotonCierreSesion />` 
 
 ```javascript{20-25,29,30}
 class GestionInicioSesion extends React.Component {
- constructor(props) {
-   super(props);
-   this.manejarClickInicioSesion = this.manejarClickInicioSesion.bind(this);
-   this.manejarClickCierreSesion = this.manejarClickCierreSesion.bind(this);
-   this.state = {estaConectado: false};
- }
+  constructor(props) {
+    super(props);
+    this.manejarClickInicioSesion = this.manejarClickInicioSesion.bind(this);
+    this.manejarClickCierreSesion = this.manejarClickCierreSesion.bind(this);
+    this.state = {estaConectado: false};
+  }
 
- manejarClickInicioSesion() {
-   this.setState({estaConectado: true});
- }
+  manejarClickInicioSesion() {
+    this.setState({estaConectado: true});
+  }
 
- manejarClickCierreSesion() {
-   this.setState({estaConectado: false});
- }
+  manejarClickCierreSesion() {
+    this.setState({estaConectado: false});
+  }
 
- render() {
-   const estaConectado = this.state.estaConectado;
-   let boton;
+  render() {
+    const estaConectado = this.state.estaConectado;
+    let boton;
 
-   if (estaConectado) {
-     boton = <BotonCierreSesion onClick={this.manejarClickCierreSesion} />;
-   } else {
-     boton = <BotonInicioSesion onClick={this.manejarClickInicioSesion} />;
-   }
+    if (estaConectado) {
+      boton = <BotonCierreSesion onClick={this.manejarClickCierreSesion} />;
+    } else {
+      boton = <BotonInicioSesion onClick={this.manejarClickInicioSesion} />;
+    }
 
-   return (
-     <div>
-       <Saludo estaConectado={estaConectado} />
-       {boton}
-     </div>
-   );
- }
+    return (
+      <div>
+        <Saludo estaConectado={estaConectado} />
+        {boton}
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(
- <GestionInicioSesion />,
- document.getElementById('raiz')
+  <GestionInicioSesion />,
+  document.getElementById('raiz')
 );
 ```
 
@@ -126,23 +126,23 @@ Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embeddin
 
 ```js{6-10}
 function Buzon(props) {
- const mensajesNoLeidos = props.mensajesNoLeidos;
- return (
-   <div>
-     <h1>¡Hola!</h1>
-     {mensajesNoLeidos.length > 0 &&
-       <h2>
-         Tienes {mensajesNoLeidos.length} mensajes sin leer.
-       </h2>
-     }
-   </div>
- );
+  const mensajesNoLeidos = props.mensajesNoLeidos;
+  return (
+    <div>
+      <h1>¡Hola!</h1>
+      {mensajesNoLeidos.length > 0 &&
+        <h2>
+          Tienes {mensajesNoLeidos.length} mensajes sin leer.
+        </h2>
+      }
+    </div>
+  );
 }
 
 const mensajes = ['React', 'Re: React', 'Re:Re: React'];
 ReactDOM.render(
- <Buzon mensajesNoLeidos={mensajes} />,
- document.getElementById('raiz')
+  <Buzon mensajesNoLeidos={mensajes} />,
+  document.getElementById('raiz')
 );
 ```
 
@@ -160,12 +160,12 @@ En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un blo
 
 ```javascript{5}
 render() {
- const estaConectado = this.state.estaConectado;
- return (
-   <div>
-     El usuario <b>{estaConectado ? 'está' : 'no está'}</b> conectado.
-   </div>
- );
+  const estaConectado = this.state.estaConectado;
+  return (
+    <div>
+      El usuario <b>{estaConectado ? 'está' : 'no está'}</b> conectado.
+    </div>
+  );
 }
 ```
 
@@ -173,16 +173,16 @@ También puede usarse para expresiones más grandes, aunque es menos obvio lo qu
 
 ```js{5,7,9}
 render() {
- const estaConectado = this.state.estaConectado;
- return (
-   <div>
-     {estaConectado ? (
-       <BotonCierreSesion onClick={this.manejarClickCierreSesion} />
-     ) : (
-       <BotonInicioSesion onClick={this.manejarClickInicioSesion} />
-     )}
-   </div>
- );
+  const estaConectado = this.state.estaConectado;
+  return (
+    <div>
+      {estaConectado ? (
+        <BotonCierreSesion onClick={this.manejarClickCierreSesion} />
+      ) : (
+        <BotonInicioSesion onClick={this.manejarClickInicioSesion} />
+      )}
+    </div>
+  );
 }
 ```
 
@@ -196,45 +196,45 @@ En el siguiente ejemplo, el `<BannerAdvertencia />` se renderiza dependiendo del
 
 ```javascript{2-4,29}
 function BannerAdvertencia(props) {
- if (!props.advertencia) {
-   return null;
- }
+  if (!props.advertencia) {
+    return null;
+  }
 
- return (
-   <div className="advertencia">
+  return (
+    <div className="advertencia">
      ¡Advertencia!
-   </div>
- );
+    </div>
+  );
 }
 
 class Pagina extends React.Component {
- constructor(props) {
-   super(props);
-   this.state = {advertencia: true};
-   this.manejarClickConmutacion = this.manejarClickConmutacion.bind(this);
- }
+  constructor(props) {
+    super(props);
+    this.state = {advertencia: true};
+    this.manejarClickConmutacion = this.manejarClickConmutacion.bind(this);
+  }
 
- manejarClickConmutacion() {
-   this.setState(state => ({
-     Advertencia: !state.advertencia
-   }));
- }
+  manejarClickConmutacion() {
+    this.setState(state => ({
+      Advertencia: !state.advertencia
+    }));
+  }
 
- render() {
-   return (
-     <div>
-       <BannerAdvertencia advertencia={this.state.advertencia} />
-       <button onClick={this.manejarClickConmutacion}>
-         {this.state.advertencia ? 'Ocultar' : 'Mostrar'}
-       </button>
-     </div>
-   );
- }
+  render() {
+    return (
+      <div>
+        <BannerAdvertencia advertencia={this.state.advertencia} />
+        <button onClick={this.manejarClickConmutacion}>
+          {this.state.advertencia ? 'Ocultar' : 'Mostrar'}
+        </button>
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(
- <Pagina />,
- document.getElementById('raiz')
+  <Pagina />,
+  document.getElementById('raiz')
 );
 ```
 
