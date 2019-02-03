@@ -16,7 +16,7 @@ redirect_from:
 
 React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Esto nos dio la oportunidad de pulir algunos detalles en las implementaciones del DOM en el navegador.
 
-En React, todas las propiedades y atributos (incluídos los manejadores de eventos) deben escribirse en estilo camelCase. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
+En React, todas las propiedades y atributos (incluidos los manejadores de eventos) deben escribirse en estilo *camelCase*. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
 ## Diferencias en los atributos
 
@@ -34,9 +34,8 @@ Si usas React con Web Components (lo cual no es común), usa el atributo `class`
 
 ### dangerouslySetInnerHTML
 
-En React, `dangerouslySetInnerHTML` es el atributo que reemplaza a `innerHTML` (propiedad DOM). Significa "establecer HTML interno peligrosamente". En general, es riesgoso establecer contenido HTML desde tu código, directamente con texto plano, porque puedes exponer inadvertidamente a tus usuarios a un ataque [cross-site scripting (XSS)](https://es.wikipedia.org/wiki/Cross-site_scripting). 
+En React, `dangerouslySetInnerHTML` es el atributo que reemplaza a `innerHTML` (propiedad DOM). Significa "establecer HTML interno peligrosamente". En general, es riesgoso establecer contenido HTML desde el código, porque puedes exponer inadvertidamente a tus usuarios a un ataque [*cross-site scripting* (XSS)](https://es.wikipedia.org/wiki/Cross-site_scripting). Por lo tanto, para establecer contenido HTML directamente desde React, debes usar el atributo `dangerouslySetInnerHTML` y pasarle un objeto con una propiedad `__html`, como recordatorio de que es peligroso. Por ejemplo:
 
-Por lo tanto, para establecer contenido HTML directamente desde React, debes usar el atributo `dangerouslySetInnerHTML`, como recordatorio de que es peligroso. Este atributo acepta un objeto con una propiedad `__html`. Por ejemplo:
 
 ```js
 function createMarkup() {
@@ -54,7 +53,7 @@ Ya que `for` es una palabra reservada en Javascript, los elementos de React usan
 
 ### onChange
 
-En React, el atributo `onChange` recibe una función manejadora que se ejecuta cada vez que el contenido en un `<input>` cambia. Este comportamiento es, intencionalmente, distinto al del evento `onchange` del DOM, cuyo nombre no es el más adecuado. 
+El evento `onChange` se comporta según lo esperado: cuando el campo de un formulario cambia, se lanza el evento. No usamos intencionalmente el comportamiento existente en los navegadores, porque `onChange` no es un nombre adecuado para lo que hace y React depende de este evento para manejar la entrada del usuario en tiempo real.
 
 ### selected
 
@@ -64,9 +63,9 @@ El atributo `selected` es compatible con los componentes tipo `<option>`. Puedes
 
 >Nota
 >
->Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos computados dinámicamente al momento de renderización. Revisa tambièn [FAQ: Styling and CSS](/docs/faq-styling.html).
+>Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos calculados dinámicamente al momento de renderización. Revisa tambièn [FAQ: Styling and CSS](/docs/faq-styling.html).
 
-El atributo `style` acepta un objeto de Javascript con propiedades escritas en formato camelCase, en lugar de un CSS string. Esto es consistente con la propiedad DOM `style` en Javascript, es más eficiente y previene vulnerabilidades XSS. Por ejemplo:
+El atributo `style` acepta un objeto de Javascript con propiedades escritas en formato *camelCase*, en lugar de un *string* CSS. Esto es consistente con la propiedad DOM `style` en Javascript, es más eficiente y previene vulnerabilidades XSS. Por ejemplo:
 
 ```js
 const divStyle = {
@@ -79,7 +78,7 @@ function HelloWorldComponent() {
 }
 ```
 
-Ten en cuenta que estos estilos no reciben automáticamente los prefijos de compatibilidad entre navegadores. Para soportar navegadores antiguos, debes proveer las propiedades correspondientes:
+Ten en cuenta que estos estilos no reciben automáticamente los prefijos de compatibilidad. Para ser compatible con navegadores antiguos, debes proveer las propiedades correspondientes:
 
 ```js
 const divStyle = {
@@ -91,9 +90,9 @@ function ComponentWithTransition() {
   return <div style={divStyle}>This should work cross-browser</div>;
 }
 ```
-Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de los proveedores de navegadores, [a excepción de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/), deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
+Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de compatibilidad, [a excepción de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/), deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
 
-React adjuntará automáticamente el sufijo "px" a ciertas propiedades numéricas. Si quieres usar unidades diferentes a "px", especifica el valor como un string con la unidad deseada. Por ejemplo: 
+React adjuntará automáticamente el sufijo "px" a ciertas propiedades numéricas. Si quieres usar unidades diferentes a "px", especifica el valor como un *string* con la unidad deseada. Por ejemplo: 
 
 ```js
 // Estilo resultante: '10px'
@@ -107,25 +106,25 @@ React adjuntará automáticamente el sufijo "px" a ciertas propiedades numérica
 </div>
 ```
 
-No todas las propiedades numéricas del objeto `style` son convertidas a strings con píxeles, sin embargo. Ciertas propiedades se mantienen sin unidad (p.ej `zoom`, `order`, `flex`). Una lista completa de las propiedades sin unidad puede verse [aquí](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Sin embargo, no todas las propiedades numéricas del objeto `style` son convertidas a *strings* con píxeles. Ciertas propiedades se mantienen sin unidad (p.ej `zoom`, `order`, `flex`). Una lista completa de las propiedades sin unidad puede verse [aquí](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
 ### suppressContentEditableWarning
 
-Normalmente, hay una advertencia cuando un elemento con hijos también se marca como `contentEditable`, porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés construyendo una biblioteca como [Draft.js] (https://facebook.github.io/draft-js/) que administra `contentEditable` manualmente.
+Normalmente, hay una advertencia cuando un elemento con hijos también se marca como `contentEditable`, porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés construyendo una biblioteca como [Draft.js](https://facebook.github.io/draft-js/) que administra `contentEditable` manualmente.
 
 ### suppressHydrationWarning
 
 Si usas renderización de React del lado del servidor, normalmente hay una advertencia cuando el servidor y el cliente presentan contenido diferente. Sin embargo, en algunos casos raros, es muy difícil o imposible garantizar una coincidencia exacta. Por ejemplo, se espera que las marcas de tiempo difieran en el servidor y en el cliente. 
 
-Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sobre los desajustes en los atributos y el contenido de ese elemento. Solo funciona a un nivel de profundidad y está diseñado para ser utilizado como escotilla de escape. No lo uses en exceso. Puedes leer más sobre hidratación en la [documentación de `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sobre los desajustes en los atributos y el contenido de ese elemento. Solo funciona a un nivel de profundidad y está diseñado para ser utilizado como una vía de escape. No lo uses en exceso. Puedes leer más sobre hidratación en la [documentación de `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value
 
 El atributo `value` es compatible con los componentes` <input> `y` <textarea> `. Puedes usarlo para establecer el valor del componente. Esto es útil para construir componentes controlados. `defaultValue` es el equivalente no controlado, que establece el valor del componente cuando se monta por primera vez.
 
-## Todos los atributos HTML soportados
+## Todos los atributos HTML admitidos
 
-A partir de React 16, cualquier atributo de DOM estándar [o personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html) es totalmente soportado.
+A partir de React 16, se admite cualquier atributo de DOM estándar [o personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html).
 
 React siempre ha proporcionado una API para el DOM centrada en JavaScript. Dado que los componentes de React a menudo reciben tanto props personalizados como props relacionados con el DOM, React utiliza la convención `camelCase` igual que las APIs del DOM:
 
@@ -136,7 +135,7 @@ React siempre ha proporcionado una API para el DOM centrada en JavaScript. Dado 
 ```
 Estos props funcionan de manera similar a sus atributos HTML correspondientes, con la excepción de los casos especiales documentados anteriormente.
 
-Algunos de los atributos DOM soportados por React incluyen:
+Algunos de los atributos DOM admitidos por React son:
 
 ```
 accept acceptCharset accessKey action allowFullScreen alt async autoComplete
@@ -154,7 +153,7 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-Similarmente, todos los atributos SVG son totalmente compatibles con React: 
+Similarmente, se admiten todos los atributos SVG: 
 
 
 ```
@@ -194,4 +193,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-También puedes usar atributos personalizados siempre que estén en minúsculas.
+También puedes usar atributos personalizados siempre que estén completamente en minúsculas.
