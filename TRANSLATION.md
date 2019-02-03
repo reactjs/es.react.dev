@@ -12,18 +12,25 @@ Suggestion on words and terms:
 
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
-| arrow function | *arrow function* |
+| array | array |
+| arrow function | función flecha |
+| bug | error |
 | Bundler | *Bundler* |
 | camelCase | *camelCase* |
 | callback | *callback* |
-| controlled component | *controlled component* |
-| lowercase | *lowercase* |
+| controlled component | componente controlado |
+| debugging | depuración |
+| key | key |
+| lazy initialization | inicialización diferida |
+| library | biblioteca |
+| lowercase | minúscula(s) |
 | props | *props* |
 | React element | Elemento de React |
-| state | *state* |
+| render | renderizar (verb), renderizado (noun)
+| state | estado |
 | string | *string* |
 | template literals | *template literals* |
-| uncontrolled component | *uncontrolled component* |
+| uncontrolled component | componente no controlado |
 
 
 
