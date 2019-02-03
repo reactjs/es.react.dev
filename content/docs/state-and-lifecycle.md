@@ -409,7 +409,7 @@ Luego puedes actualizarlas independientemente con invocaciones separadas a `setS
   }
 ```
 
-La fusión es superficial, asi que `this.setState({comments})` deja intacto a `this.state.posts`, pero remplaza completamente `this.state.comments`.
+La fusión es superficial, asi que `this.setState({comments})` deja intacto a `this.state.posts`, pero reemplaza completamente `this.state.comments`.
 
 ## Los datos fluyen hacia abajo
 
