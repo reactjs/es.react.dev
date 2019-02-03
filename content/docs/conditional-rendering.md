@@ -12,7 +12,7 @@ En React, puedes crear distintos componentes que encapsulan el comportamiento qu
 
 El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
 
-Consider these two components:
+Considera estos dos componentes::
 
 ```js
 function UserGreeting(props) {
@@ -152,11 +152,11 @@ Funciona porque en JavaScript, `true && expresión` siempre evalúa a `expresió
 
 Por eso, si la condición es `true`, el elemento just después de `&&` aparecerá en el resultado. Si es `false`, React lo ignorará.
 
-### $INLINE If-Else with Conditional Operator
+### $INLINE If-Else con operador condicional
 
-Another method for conditionally rendering elements $INLINE is to use the JavaScript conditional operator [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
+Otro método para el renderizado condicional $INLINE de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) de JavaScript.
 
-In the example below, we use it to conditionally render a small block of text.
+En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un bloque de texto pequeño.
 
 ```javascript{5}
 render() {
@@ -169,7 +169,7 @@ render() {
 }
 ```
 
-It can also be used for larger expressions although it is less obvious what's going on:
+También puede usarse para expresiones más grandes, aunque es menos obvio lo que está pasando:
 
 ```js{5,7,9}
 render() {
@@ -186,13 +186,13 @@ render() {
 }
 ```
 
-Just like in JavaScript, it is up to you to choose an appropriate style based on what you and your team consider more readable. Also remember that whenever conditions become too complex, it might be a good time to [extract a component](/docs/components-and-props.html#extracting-components).
+Al igual que en JavaScript, depende de ti elegir un estilo apropiado en base a lo que a ti y a tu equipo consideran más legible. Recuerda también que cuando las condiciones se vuelven demasiado complejas, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
 
-### Preventing Component from Rendering
+### Evitar que el componente se renderice
 
-In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return `null` instead of its render output.
+En casos excepcionales, es posible que desees que un componente se oculte a sí mismo aunque haya sido renderizado por otro componente. Para hacer esto, devuelve `null` en lugar del resultado de render.
 
-In the example below, the `<WarningBanner />` is rendered depending on the value of the prop called `warn`. If the value of the prop is `false`, then the component does not render:
+En el siguiente ejemplo, el `<WarningBanner />` se renderiza dependiendo del valor de la prop llamada `warn`. Si el valor de la prop es `false`, entonces el componente no se renderiza:
 
 ```javascript{2-4,29}
 function WarningBanner(props) {
@@ -238,6 +238,6 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
+[**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
-Returning `null` from a component's `render` method does not affect the firing of the component's lifecycle methods. For instance `componentDidUpdate` will still be called.
+Devolviendo `null` desde el método `render` de un componente no influye en la activación de los métodos del ciclo de vida del componente. Por ejemplo `componentDidUpdate` seguirá siendo llamado.
