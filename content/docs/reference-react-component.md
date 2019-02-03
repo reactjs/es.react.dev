@@ -67,7 +67,7 @@ Una actualización puede ser causada por cambios en los props o el state. Estos 
 
 > Nota:
 >
-> Estos métodos están considerados *legacy* (deprecados) y debe [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
+> Estos métodos están considerados *legacy* (deprecados) y debes [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
 > * [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 > * [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
