@@ -18,7 +18,7 @@ Se llama JSX, y es una extensión de la sintaxis de JavaScript. Recomendamos usa
 
 JSX produce "elementos" de React. Exploraremos como renderizarlos en el DOM en la [siguiente sección](/docs/rendering-elements.html). A continuación puedes encontrar lo básico de JSX que será necesario para empezar.
 
-### Por qué JSX?
+### ¿Por qué JSX?
 
 React acepta el hecho de que la lógica de renderizado está intrínsecamente unida a la lógica de la interfaz de usuario: cómo se manejan los eventos, cómo cambia el estado con el tiempo y cómo se preparan los datos para su visualización.
 
@@ -95,7 +95,7 @@ Puedes utilizar comillas para especificar strings literales como atributos:
 const element = <div tabIndex="0"></div>;
 ```
 
-También puedes usar comillas para insertar una expresión JavaScript en un atributo:
+También puedes usar llaves para insertar una expresión JavaScript en un atributo:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
@@ -107,7 +107,7 @@ No pongas comillas rodeando llaves cuando insertes una expresión JavaScript en 
 >
 >Dado que JSX está más cercano a JavaScript que a HTML, React DOM usa la convención de nomenclatura `camelCase` en vez de nombres de atributos HTML.
 >
->Por ejemplo, `class` se vuelve [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) en JSX, y `tabindex` se vuelve [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>Por ejemplo, `class` se vuelve [`className`](https://developer.mozilla.org/es/docs/Web/API/Element/className) en JSX, y `tabindex` se vuelve [`tabIndex`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/tabIndex).
 
 ### Especificando hijos con JSX
 
@@ -138,7 +138,7 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-Por defecto, React DOM [escapa](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) cualquier valor insertado en JSX antes de renderizarlo. De este modo, se asegura de que nunca se pueda insertar nada que no esté explícitamente escrito en tú aplicación. Todo es convertido en un string antes de ser renderizado. Esto ayuda a prevenir vulnerabilidades [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting).
+Por defecto, React DOM [escapa](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) cualquier valor insertado en JSX antes de renderizarlo. De este modo, se asegura de que nunca se pueda insertar nada que no esté explícitamente escrito en tú aplicación. Todo es convertido en un string antes de ser renderizado. Esto ayuda a prevenir vulnerabilidades [XSS (cross-site-scripting)](https://es.wikipedia.org/wiki/Cross-site_scripting).
 
 ### JSX Representa Objetos
 
