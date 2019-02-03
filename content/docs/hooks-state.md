@@ -8,8 +8,7 @@ prev: hooks-overview.html
 
 Los *Hooks* son una caracteristica futura que permite usar el estado y otras características de React sin tener que crear una clase. Están disponibles actualmente en React v16.8.0-alpha.1.
 
-La [página anterior](/docs/hooks-intro.html) introdujo los Hooks con este 
-ejemplo:
+La [página anterior](/docs/hooks-intro.html) introdujo los Hooks con este ejemplo:
 
 ```js{4-5}
 import { useState } from 'react';
@@ -29,11 +28,11 @@ function Example() {
 }
 ```
 
-
+Empezaremos aprendiendo sobre los Hooks comparando este código con uno equivalente en una clase
 
 ## Ejemplo equivalente en forma de clase
 
-
+Si has usado clases en React previamente este código te resultará familiar
 
 ```js
 class Example extends React.Component {
@@ -57,6 +56,7 @@ class Example extends React.Component {
 }
 ```
 
+El estado empieza como `{ count:0 }` y se incrementa `state.count` cuando el usuario hace click un botón llamando a `this.setState()`. Usaremos fragmentos de esta clase en toda la página.
 
 >Nota
 >
