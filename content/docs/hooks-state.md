@@ -14,7 +14,7 @@ La [página anterior](/docs/hooks-intro.html) introdujo los Hooks con este ejemp
 import { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // Declaración de una variable de estado que llamaremos "count"
   const [count, setCount] = useState(0);
 
   return (
@@ -68,7 +68,7 @@ Como recordatorio, un componente funcional en React es así:
 
 ```js
 const Example = (props) => {
-  // You can use Hooks here!
+  // Puedes usar Hooks aquí!
   return <div />;
 }
 ```
@@ -77,7 +77,7 @@ o así:
 
 ```js
 function Example(props) {
-  // You can use Hooks here!
+  // Puedes usar Hooks aquí!
   return <div />;
 }
 ```
@@ -126,7 +126,7 @@ En un componente funcional no existe `this` por lo que no podemos asignar o leer
 import { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // Declaración de una variable de estado que llamaremos "count"
   const [count, setCount] = useState(0);
 ```
 
@@ -142,7 +142,7 @@ Ahora que sabemos que hace el Hook `useState`, nuestro ejemplo debería tener m�
 import { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // Declaración de una variable de estado que llamaremos "count"
   const [count, setCount] = useState(0);
 ```
 
@@ -262,7 +262,7 @@ En el componente de arriba tenemos `age`, `fruit`, y `todos` como variables loca
 
 ```js
   function handleOrangeClick() {
-    // Similar to this.setState({ fruit: 'orange' })
+    // Similar a this.setState({ fruit: 'orange' })
     setFruit('orange');
   }
 ```
