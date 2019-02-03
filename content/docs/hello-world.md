@@ -10,12 +10,12 @@ El más pequeño de los ejemplos de React se ve así:
 
 ```js
 ReactDOM.render(
-  <h1>Hola, mundo!</h1>,
+  <h1>Hello, world!</h1>,
   document.getElementById('root')
 );
 ```
 
-Este muestra un encabezado con el texto "Hola, mundo!" en la página.
+Este muestra un encabezado con el texto "Hello, world!" en la página.
 
 [](codepen://hello-world)
 
@@ -29,21 +29,20 @@ En esta guía, examinaremos los componentes básicos de las aplicaciones React: 
 >
 >Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si tu prefieres aprender haciendo, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
 
-This is the first chapter in a step-by-step guide about main React concepts. You can find a list of all its chapters in the navigation sidebar. If you're reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.
+Este es el primer capítulo en una guía paso a paso sobre los principales conceptos de React. Puedes encontrar una lista de todos los capítulos en la barra de navigación lateral. Si estás leyendo esto desde un dispositivo móvil, puedes acceder a la navegación presionando el botón en la esquina inferior derecha de tu pantalla.
 
-Every chapter in this guide builds on the knowledge introduced in earlier chapters. **You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the sidebar.** For example, [“Introducing JSX”](/docs/introducing-jsx.html) is the next chapter after this one.
+Cada capítulo en esta guía se construye en base al conocimiento presentado en capítulos anteriores. **Tu puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
 
-## Knowledge Level Assumptions
+## Suposiciones del nivel de conocimiento
 
-React is a JavaScript library, and so we'll assume you have a basic understanding of the JavaScript language. **If you don't feel very confident, we recommend [going through a JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level** and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won't have to feel like you're learning both React and JavaScript at the same time.
+React es una biblioteca Javascript, y vamos a asumir que tienes un entendimiento básico del lenguaje Javascript. **Si no te sientes muy seguro, te recomendamos [hacer un tutorial de Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript/Una_re-introducci%C3%B3n_a_JavaScript) para comprobar tu nivel de conocimiento** y permitirte seguir adelante con esta guía sin perderte. Te debería tomar entre 30 minutos y una hora, and so we'll assume you have a basic understanding of the JavaScript language. **If you don't feel very confident, we recommend [going through a JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level** and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, pero como resultado, no tendrás que sentir que estás aprendiendo React y JavaScript al mismo tiempo.
 
->Note
+>Nota
 >
->This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+> Esta guía ocasionalmente usa la nueva syntaxis de JavaScript en los ejemplos. Si no has trabajado con JavaScript en los últimos años, [estos tres puntos](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) son un buen resumen.
 
+## Empecemos!
 
-## Let's Get Started!
-
-Keep scrolling down, and you'll find the link to the [next chapter of this guide](/docs/introducing-jsx.html) right before the website footer.
+Sigue bajando, y encontraras el link al [siguiente capítulo de esta guía](/docs/introducing-jsx.html) justo antes del pie de la página.
 
 
