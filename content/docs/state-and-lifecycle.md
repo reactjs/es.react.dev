@@ -59,7 +59,7 @@ setInterval(tick, 1000);
 
 Sin embargo, se pierde un requisito crucial: el hecho de que `Clock` configure un temporizador y actualice la IU cada segundo debe ser un detalle de implementación de `Clock`.
 
-Idealmente, queremos escribir esto una vez y que `Clock` sea actualice a sí mismo:
+Idealmente, queremos escribir esto una vez y que `Clock` se actualice a sí mismo:
 
 ```js{2}
 ReactDOM.render(
@@ -126,7 +126,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) Añadir un [constructor de clase](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) que asigne el `this.state` inicial:
+2) Añadir un [constructor de clase](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes#Constructor) que asigne el `this.state` inicial:
 
 ```js{4}
 class Clock extends React.Component {
@@ -310,11 +310,11 @@ Repasemos rápidamente lo que está sucediendo y el orden en que se invocan los 
 
 1) Cuando se pasa `<Clock />` a `ReactDOM.render()`, React invoca al constructor del componente `Clock`. Ya que `Clock` necesita mostrar la hora actual, inicializa `this.state` con un objeto que incluye la hora actual. Luego actualizaremos este estado.
 
-2) React invoca entonces al método `render()` del componente `Clock`. Así es como React aprende lo que se debe mostrar en pantalla. React entonces actualiza el DOM para que coincida con la salida del renderizado de `Clock`.
+2) React invoca entonces al método `render()` del componente `Clock`. Así es como React sabe lo que se debe mostrar en pantalla. React entonces actualiza el DOM para que coincida con la salida del renderizado de `Clock`.
 
 3) Cuando la salida de `Clock` se inserta en el DOM, React invoca al método de ciclo de vida `componentDidMount()`. Dentro de él, el componente `Clock` le pide al navegador que configure un temporizador para invocar al método `tick()` del componente una vez por segundo.
 
-4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la IU al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para aprender qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
+4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la IU al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para saber qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
 
 5) Si el componente `Clock` se elimina en algún momento del DOM, React invoca al método de ciclo de vida `componentWillUnmount()`, por lo que el temporizador se detiene.
 
@@ -331,20 +331,20 @@ Por ejemplo, esto no volverá a renderizar un componente:
 this.state.comment = 'Hello';
 ```
 
-Instead, use `setState()`:
+En su lugar utiliza `setState()`:
 
 ```js
 // Correcto
 this.setState({comment: 'Hello'});
 ```
 
-El único lugar donde puede asignar `this.state` es el constructor.
+El único lugar donde puedes asignar `this.state` es el constructor.
 
 ### Las actualizaciones del estado pueden ser asíncronas
 
-React puede agrupar varias invocaciones a `setState()` en una sola actualización para mejor desempeño.
+React puede agrupar varias invocaciones a `setState()` en una sola actualización para mejorar el rendimiento.
 
-Debido a que `this.props` y `this.state` pueden actualizarse de forma asincrónica, no debe confiar en sus valores para calcular el siguiente estado.
+Debido a que `this.props` y `this.state` pueden actualizarse de forma asincrónica, no debes confiar en sus valores para calcular el siguiente estado.
 
 Por ejemplo, este código puede fallar en actualizar el contador:
 
@@ -443,7 +443,7 @@ A esto comúnmente se le llama flujo de datos «descendente» o «unidireccional
 
 Si imaginas un árbol de componentes como una cascada de props, el estado de cada componente es como una fuente de agua adicional que se le une en un punto arbitrario, pero también fluye hacia abajo.
 
-Para mostrar que todos los componentes están verdaderamente aislados, podemos crear un componente `App` que represente tres `<Clock>`:
+Para mostrar que todos los componentes están verdaderamente aislados, podemos crear un componente `App` que represente tres componentes `<Clock>`:
 
 ```js{4-6}
 function App() {
@@ -464,6 +464,6 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
-Cada `Clock` establece su propio temporizador y se actualiza de forma independiente.
+Cada `Clock` configura su propio temporizador y se actualiza de forma independiente.
 
 En las aplicaciones de React, si un componente tiene o no estado se considera un detalle de implementación del componente que puede cambiar con el tiempo. Puedes usar componentes sin estado dentro de componentes con estado y viceversa.
