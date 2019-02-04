@@ -70,7 +70,7 @@ React proporciona algunos Hooks incorporados como `useState`. También puedes cr
 >
 >Puedes aprender más sobre el Hook de Estado en la pagina dedicada: [Usando el Hook de Estado](/docs/hooks-state.html).
 
-## ⚡️ Hook de Estado
+## ⚡️ Hook de Efecto
 
 Es probable que hayas realizado recuperación de datos, suscripciones o modificacion manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
 
