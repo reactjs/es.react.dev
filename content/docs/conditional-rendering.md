@@ -50,7 +50,7 @@ Este ejemplo renderiza un saludo diferente según el valor de la prop `isLoggedI
 
 Puedes usar variables para almacenar elementos. Esto puede ayudarte para renderizar condicionalmente una parte del componente mientras el resto del resultado no cambia.
 
-Considera estos dos componentes nuevos que representan botones de Logout y Login:
+Considera estos dos componentes nuevos que representan botones de cierre e inicio de sesión:
 
 ```js
 function LoginButton(props) {
@@ -113,11 +113,11 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones en la misma línea en JSX, explicadas a continuación.
+Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones en una misma línea en JSX, explicadas a continuación.
 
 ### If en la misma línea con operador lógico &&
 
-Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser ùtil para incluir condicionalmente un elemento:
+Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser útil para incluir condicionalmente un elemento:
 
 ```js{6-10}
 function Mailbox(props) {
@@ -143,22 +143,22 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-Funciona porque en JavaScript, `true && expresión` siempre evalúa a `expresión`, y `false && expresión` siempre evalúa a `false`.
+Esto funciona porque en JavaScript, `true && expresión` siempre evalúa a `expresión`, y `false && expresión` siempre evalúa a `false`.
 
-Por eso, si la condición es `true`, el elemento just después de `&&` aparecerá en el resultado. Si es `false`, React lo ignorará.
+Por eso, si la condición es `true`, el elemento justo después de `&&` aparecerá en el resultado. Si es `false`, React lo ignorará.
 
-### en la misma línea If-Else con operador condicional
+### If-Else en una línea con operador condicional
 
-Otro método para el renderizado condicional en la misma línea de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) de JavaScript.
+Otro método para el renderizado condicional en una misma línea de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) de JavaScript.
 
-En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un bloque de texto pequeño.
+En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un pequeño bloque de texto.
 
 ```javascript{5}
 render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      El usuario <b>{isLoggedIn ? 'está' : 'no está'}</b> conectado.
+      The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
     </div>
   );
 }
@@ -181,46 +181,43 @@ render() {
 }
 ```
 
-Al igual que en JavaScript, depende de ti elegir un estilo apropiado en base a lo que a ti y a tu equipo consideran más legible. Recuerda también que cuando las condiciones se vuelven demasiado complejas, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
+Al igual que en JavaScript, depende de ti elegir un estilo apropiado en base a lo que tu y tu equipo consideran más legible. Recuerda también que cuando las condiciones se vuelven demasiado complejas, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
 
 ### Evitar que el componente se renderice
 
-En casos excepcionales, es posible que desees que un componente se oculte a sí mismo aunque haya sido renderizado por otro componente. Para hacer esto, devuelve `null` en lugar del resultado de render.
+En casos excepcionales, es posible que desees que un componente se oculte a sí mismo aunque haya sido renderizado por otro componente. Para hacer esto, devuelve `null` en lugar del resultado de renderizado.
 
-En el siguiente ejemplo, el `<BannerAdvertencia />` se renderiza dependiendo del valor de la prop llamada `advertencia`. Si el valor de la prop es `false`, entonces el componente no se renderiza:
+En el siguiente ejemplo, el `<WarningBanner />` se renderiza dependiendo del valor de la prop llamada `warn`. Si el valor de la prop es `false`, entonces el componente no se renderiza:
 
 ```javascript{2-4,29}
-function BannerAdvertencia(props) {
-  if (!props.advertencia) {
+function WarningBanner(props) {
+  if (!props.warn) {
     return null;
   }
-
   return (
-    <div className="advertencia">
-     ¡Advertencia!
+    <div className="warning">
+      Warning!
     </div>
   );
 }
 
-class Pagina extends React.Component {
+class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {advertencia: true};
-    this.manejarClickConmutacion = this.manejarClickConmutacion.bind(this);
+    this.state = {showWarning: true};
+    this.handleToggleClick = this.handleToggleClick.bind(this);
   }
-
-  manejarClickConmutacion() {
+  handleToggleClick() {
     this.setState(state => ({
-      Advertencia: !state.advertencia
+      showWarning: !state.showWarning
     }));
   }
-
   render() {
     return (
       <div>
-        <BannerAdvertencia advertencia={this.state.advertencia} />
-        <button onClick={this.manejarClickConmutacion}>
-          {this.state.advertencia ? 'Ocultar' : 'Mostrar'}
+        <WarningBanner warn={this.state.showWarning} />
+        <button onClick={this.handleToggleClick}>
+          {this.state.showWarning ? 'Hide' : 'Show'}
         </button>
       </div>
     );
@@ -235,6 +232,6 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
-Devolviendo `null` desde el método `render` de un componente no influye en la activación de los métodos del ciclo de vida del componente. Por ejemplo `componentDidUpdate` seguirá siendo llamado.
+El devolver `null` desde el método `render` de un componente no influye en la activación de los métodos del ciclo de vida del componente. Por ejemplo `componentDidUpdate` seguirá siendo llamado.
 
 
