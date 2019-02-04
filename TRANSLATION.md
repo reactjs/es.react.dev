@@ -20,6 +20,8 @@ Suggestion on words and terms:
 | callback | *callback* |
 | controlled component | componente controlado |
 | debugging | depuración |
+| functional component | componente funcional |
+| hook | hook |
 | key | key |
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
