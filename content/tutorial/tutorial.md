@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Tutorial: Intro a React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,26 +12,26 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Este tutorial no asume ningún conocimiento previo sobre React.
 
-## Before We Start the Tutorial
+## Antes de empezar el tutorial
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+Vamos a contruir un pequeño juego durante este tutorial. **Deberás estar tentado a obviarlo porque tú no estás construyendo juegos en el día a día, pero dale una oportunidad.** Las técnicas que aprenderás en el tutorial son fundamentales para construir cualquier aplicación de React, y dominarlo te dará un entendimiento profundo de React.
 
 >Tip
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>Este tutorial está diseñado para personas que prefieren **aprender haciendo**. Si tu prefieres aprender los conceptos desde el principio, revisa nuestra [guía paso a paso](/docs/hello-world.html). Podrías encontrar este tutorial y la guía, complementarias entre sí.
 
-The tutorial is divided into several sections:
+Este tutorial está dividido en varias secciones:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Setup para el tutorial](#setup-para-el-tutorial) te dará un punto de partida para seguir el tutorial.
+* [Visión general](#vision-general) te enseñará **los fundamentos** de React: componentes, props y estado.
+* [Completando el juego](#completando-el-juego) te enseñará **las técnicas más comunes** en desarrollo de React.
+* [Agregando Time Travel](#agregando-time-travel) te dará una **visión más profunda** de las fortalezas únicas de React.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+No tienes que completar todas las secciones a la vez para obtener el valor de este tutorial. Prueba llegar tan lejos como puedas, incluso si es una o dos secciones.
 
-It's fine to copy and paste code as you're following along the tutorial, but we recommend to type it by hand. This will help you develop a muscle memory and a stronger understanding.
+Está bien copiar y pegar el código mientras sigues el tutorial, pero te recomendamos que lo escribaas a mano. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
 
 ### What Are We Building?
 
@@ -80,7 +80,7 @@ This setup requires more work but allows you to complete the tutorial using an e
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Delete all files in the `src/` folder of the new project
 
 > Note: **don't delete the entire `src` folder, just the original source files inside it.**.  We'll replace the default source files with examples for this project in the next step.
 
@@ -225,7 +225,7 @@ Congratulations! You've just "passed a prop" from a parent Board component to a 
 
 ### Making an Interactive Component
 
-Let's fill the Square component with an "X" when we click it. 
+Let's fill the Square component with an "X" when we click it.
 First, change the button tag that is returned from the Square component's `render()` function to this:
 
 ```javascript{4}
@@ -1013,7 +1013,7 @@ In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-U
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
-``` 
+```
 
 Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
 

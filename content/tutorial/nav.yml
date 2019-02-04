@@ -1,8 +1,8 @@
 - title: Tutorial
   items:
-    - id: before-we-start-the-tutorial
-      title: Before We Start the Tutorial
-      href: /tutorial/tutorial.html#before-we-start-the-tutorial
+    - id: antes-de-empezar-el-tutorial
+      title: Antes de empezar el tutorial
+      href: /tutorial/tutorial.html#antes-de-empezar-el-tutorial
       forceInternal: true
       subitems:
         - id: what-are-we-building
