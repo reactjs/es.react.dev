@@ -21,7 +21,7 @@ Suggestion on words and terms:
 | controlled component | componente controlado |
 | debugging | depuración |
 | functional component | componente funcional |
-| hook | hook |
+| hook | *hook* |
 | key | key |
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
