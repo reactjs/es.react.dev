@@ -1,16 +1,16 @@
 ---
 id: hooks-rules
-title: Rules of Hooks
+title: Reglas de los Hooks
 permalink: docs/hooks-rules.html
 next: hooks-custom.html
 prev: hooks-effect.html
 ---
 
-*Hooks* are an upcoming feature that lets you use state and other React features without writing a class. They're currently in React v16.8.0-alpha.1.
+Los *Hooks* son una de las próximas funcionalidades que te permitirá usar el estado y otras caracteristicas de React sin tener que escribir una clase. Actualmente están en React v16.8.0-alpha.1.
 
-Hooks are JavaScript functions, but you need to follow two rules when using them. We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically:
+Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para hacer cumplir estas reglas automáticamente.
 
-### Only Call Hooks at the Top Level
+### Solo llama Hooks en el nivel superior
 
 **Don't call Hooks inside loops, conditions, or nested functions.** Instead, always use Hooks at the top level of your React function. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That's what allows React to correctly preserve the state of Hooks between multiple `useState` and `useEffect` calls. (If you're curious, we'll explain this in depth [below](#explanation).)
 
