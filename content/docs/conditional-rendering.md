@@ -12,7 +12,7 @@ En React, puedes crear distintos componentes que encapsulan el comportamiento qu
 
 El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
 
-Considera estos dos componentes::
+Considera estos dos componentes:
 
 ```js
 function UserGreeting(props) {
@@ -113,9 +113,9 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones en una misma línea en JSX, explicadas a continuación.
+Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones en una línea en JSX, explicadas a continuación.
 
-### If en la misma línea con operador lógico &&
+### If en una línea con operador lógico &&
 
 Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser útil para incluir condicionalmente un elemento:
 
@@ -134,7 +134,7 @@ function Mailbox(props) {
   );
 }
 
-const mensajes = ['React', 'Re: React', 'Re:Re: React'];
+const messages = ['React', 'Re: React', 'Re:Re: React'];
 ReactDOM.render(
   <Mailbox unreadMessages={messages} />,
   document.getElementById('root')
@@ -149,7 +149,7 @@ Por eso, si la condición es `true`, el elemento justo después de `&&` aparecer
 
 ### If-Else en una línea con operador condicional
 
-Otro método para el renderizado condicional en una misma línea de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) de JavaScript.
+Otro método para el renderizado condicional de elementos en una línea es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) de JavaScript.
 
 En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un pequeño bloque de texto.
 
@@ -172,9 +172,9 @@ render() {
   return (
     <div>
       {isLoggedIn ? (
-        <LogoutButton onClick={this.manejarClickCierreSesion} />
+        <LogoutButton onClick={this.handleLogoutClick} />
       ) : (
-        <LoginButton  onClick={this.manejarClickInicioSesion} />
+        <LoginButton  onClick={this.handleLoginClick} />
       )}
     </div>
   );
@@ -225,7 +225,7 @@ class Page extends React.Component {
 }
 
 ReactDOM.render(
-  <Pagina />,
+  <Page />,
   document.getElementById('root')
 );
 ```
