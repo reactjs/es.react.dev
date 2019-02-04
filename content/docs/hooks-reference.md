@@ -213,7 +213,7 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Inicialización perezosa
+#### Inicialización diferida
 
 `useReducer` acepta un tercer argumento opcional, `initialAction`. Si se proporciona, la acción inicial se aplica durante el render inicial. Esto es útil para calcular un estado inicial que incluye valores pasados a través de props:
 
