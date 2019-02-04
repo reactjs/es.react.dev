@@ -43,6 +43,6 @@ React es una biblioteca Javascript, y vamos a asumir que tienes un entendimiento
 
 ## Empecemos!
 
-Sigue bajando, y encontraras el link al [siguiente capítulo de esta guía](/docs/introducing-jsx.html) justo antes del pie de la página.
+Sigue bajando, y encontrarás el link al [siguiente capítulo de esta guía](/docs/introducing-jsx.html) justo antes del pie de la página.
 
 
