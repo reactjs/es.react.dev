@@ -10,117 +10,112 @@ redirect_from:
 
 En React, puedes crear distintos componentes que encapsulan el comportamiento que necesitas. Entonces, puedes renderizar solamente algunos de ellos, dependiendo del estado de tu aplicación.
 
-El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
+El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/if...else) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
 
 Considera estos dos componentes::
 
 ```js
-function SaludoParaUsuario(props) {
-  return <h1>¡Bienvenido de vuelta!</h1>;
+function UserGreeting(props) {
+  return <h1>Welcome back!</h1>;
 }
 
-function SaludoParaInvitado(props) {
-  return <h1>Por favor regístrese.</h1>;
+function GuestGreeting(props) {
+  return <h1>Please sign up.</h1>;
 }
 ```
 
-Vamos a crear un componente `Saludo` que muestra cualquiera de estos componentes dependiendo si el usuario ha iniciado sesión:
+Vamos a crear un componente `Greeting` que muestra cualquiera de estos componentes dependiendo si el usuario ha iniciado sesión:
 
 ```javascript{3-7,11,12}
-function Saludo(props) {
-  const estaConectado = props.estaConectado;
-  if (estaConectado) {
-    return <SaludoParaUsuario />;
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
   }
-  return <SaludoParaInvitado />;
+  return <GuestGreeting />;
 }
 
 ReactDOM.render(
-  // Intentar cambiando estaConectado={true}:
-  <Saludo estaConectado={false} />,
-  document.getElementById('raiz')
+  // Intentar cambiando isLoggedIn={true}:
+  <Greeting isLoggedIn={false} />,
+  document.getElementById('root')
 );
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
 
-Este ejemplo renderiza un saludo diferente según el valor de la prop `estaConectado`.
+Este ejemplo renderiza un saludo diferente según el valor de la prop `isLoggedIn`.
 
 ### Variables de elementos
 
 Puedes usar variables para almacenar elementos. Esto puede ayudarte para renderizar condicionalmente una parte del componente mientras el resto del resultado no cambia.
 
-Considera estos dos componentes nuevos que representan botones de Cerrar sesión y Iniciar sesión:
+Considera estos dos componentes nuevos que representan botones de Logout y Login:
 
 ```js
-function BotonInicioSesion(props) {
+function LoginButton(props) {
   return (
     <button onClick={props.onClick}>
-      Iniciar sesión
+      Login
     </button>
   );
 }
 
-function BotonCierreSesion(props) {
+function LogoutButton(props) {
   return (
     <button onClick={props.onClick}>
-      Cerrar sesión
+      Logout
     </button>
   );
 }
 ```
 
-En el siguiente ejemplo, crearemos un [componente con estado](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) llamado `GestionInicioSesion`.
+En el siguiente ejemplo, crearemos un [componente con estado](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) llamado `LoginControl`.
 
-El componente va a renderizar `<BotonInicioSesion />` o `<BotonCierreSesion />` dependiendo de su estado actual. También va a renderizar un `<Saludo />` del ejemplo anterior:
+El componente va a renderizar `<LoginButton  />` o `<LogoutButton />` dependiendo de su estado actual. También va a renderizar un `<Greeting  />` del ejemplo anterior:
 
 ```javascript{20-25,29,30}
-class GestionInicioSesion extends React.Component {
+class LoginControl extends React.Component {
   constructor(props) {
     super(props);
-    this.manejarClickInicioSesion = this.manejarClickInicioSesion.bind(this);
-    this.manejarClickCierreSesion = this.manejarClickCierreSesion.bind(this);
-    this.state = {estaConectado: false};
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.state = {isLoggedIn: false};
   }
-
-  manejarClickInicioSesion() {
-    this.setState({estaConectado: true});
+  handleLoginClick() {
+    this.setState({isLoggedIn: true});
   }
-
-  manejarClickCierreSesion() {
-    this.setState({estaConectado: false});
+  handleLogoutClick() {
+    this.setState({isLoggedIn: false});
   }
-
   render() {
-    const estaConectado = this.state.estaConectado;
-    let boton;
-
-    if (estaConectado) {
-      boton = <BotonCierreSesion onClick={this.manejarClickCierreSesion} />;
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} />;
     } else {
-      boton = <BotonInicioSesion onClick={this.manejarClickInicioSesion} />;
+      button = <LoginButton onClick={this.handleLoginClick} />;
     }
-
     return (
       <div>
-        <Saludo estaConectado={estaConectado} />
-        {boton}
+        <Greeting isLoggedIn={isLoggedIn} />
+        {button}
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <GestionInicioSesion />,
-  document.getElementById('raiz')
+  <LoginControl />,
+  document.getElementById('root')
 );
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones $INLINE en JSX, explicadas a continuación.
+Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones en la misma línea en JSX, explicadas a continuación.
 
-### If $INLINE con operador lógico &&
+### If en la misma línea con operador lógico &&
 
 Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser ùtil para incluir condicionalmente un elemento:
 
@@ -142,7 +137,7 @@ function Buzon(props) {
 const mensajes = ['React', 'Re: React', 'Re:Re: React'];
 ReactDOM.render(
   <Buzon mensajesNoLeidos={mensajes} />,
-  document.getElementById('raiz')
+  document.getElementById('root')
 );
 ```
 
@@ -152,18 +147,18 @@ Funciona porque en JavaScript, `true && expresión` siempre evalúa a `expresió
 
 Por eso, si la condición es `true`, el elemento just después de `&&` aparecerá en el resultado. Si es `false`, React lo ignorará.
 
-### $INLINE If-Else con operador condicional
+### en la misma línea If-Else con operador condicional
 
-Otro método para el renderizado condicional $INLINE de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) de JavaScript.
+Otro método para el renderizado condicional en la misma línea de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) de JavaScript.
 
 En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un bloque de texto pequeño.
 
 ```javascript{5}
 render() {
-  const estaConectado = this.state.estaConectado;
+  const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      El usuario <b>{estaConectado ? 'está' : 'no está'}</b> conectado.
+      El usuario <b>{isLoggedIn ? 'está' : 'no está'}</b> conectado.
     </div>
   );
 }
@@ -173,13 +168,13 @@ También puede usarse para expresiones más grandes, aunque es menos obvio lo qu
 
 ```js{5,7,9}
 render() {
-  const estaConectado = this.state.estaConectado;
+  const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      {estaConectado ? (
-        <BotonCierreSesion onClick={this.manejarClickCierreSesion} />
+      {isLoggedIn ? (
+        <LogoutButton onClick={this.manejarClickCierreSesion} />
       ) : (
-        <BotonInicioSesion onClick={this.manejarClickInicioSesion} />
+        <LoginButton  onClick={this.manejarClickInicioSesion} />
       )}
     </div>
   );
@@ -234,7 +229,7 @@ class Pagina extends React.Component {
 
 ReactDOM.render(
   <Pagina />,
-  document.getElementById('raiz')
+  document.getElementById('root')
 );
 ```
 
