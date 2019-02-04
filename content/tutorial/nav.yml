@@ -9,9 +9,9 @@
           title: ¿Qué estamos construyendo?
           href: /tutorial/tutorial.html#que-estamos-construyendo
           forceInternal: true
-        - id: prerequisites
-          title: Prerequisites
-          href: /tutorial/tutorial.html#prerequisites
+        - id: prerequisitos
+          title: Prerequisitos
+          href: /tutorial/tutorial.html#prerequisitos
           forceInternal: true
     - id: setup-for-the-tutorial
       title: Setup for the Tutorial
