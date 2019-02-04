@@ -33,15 +33,15 @@ No tienes que completar todas las secciones a la vez para obtener el valor de es
 
 Está bien copiar y pegar el código mientras sigues el tutorial, pero te recomendamos que lo escribaas a mano. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
 
-### What Are We Building?
+### ¿Qué estamos construyendo?
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+En este tutorial, te mostraremoscómo construir un juego de tic-tac-toe interactivo con React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Puedes ver lo que construiremos aquí: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Si el código no te hace sentido, o si no estás familiarizado con la sintaxis de código, ¡no te preocupes! El objetivo de este tutorial es ayudarte a entender React y su sintaxis.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Recomentamos que revises el juego de tic-tac-toe antes de continuar con el tutorial. Una de las características que notarás es que hay una lista enumerada a la derecha del tablero del jugador. Esta lista da una historia de todos los movimientos que han ocurrido en el juego, y se va actualizando conforme el juego progresa.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Puedes cerrar el juego de tic-tac-toe una vez que te familiarizaste con él. Empezaremos desde una plantilla más simple en este tutorial. Nuestro siguiente paso es configurarlo de tal forma que puedas empezar a construir el juego.
 
 ### Prerequisites
 

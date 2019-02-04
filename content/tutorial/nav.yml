@@ -5,9 +5,9 @@
       href: /tutorial/tutorial.html#antes-de-empezar-el-tutorial
       forceInternal: true
       subitems:
-        - id: what-are-we-building
-          title: What Are We Building?
-          href: /tutorial/tutorial.html#what-are-we-building
+        - id: que-estamos-construyendo
+          title: ¿Qué estamos construyendo?
+          href: /tutorial/tutorial.html#que-estamos-construyendo
           forceInternal: true
         - id: prerequisites
           title: Prerequisites
