@@ -19,7 +19,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
 
 > Nota:
 >
-> Airbnb ha liberado una utilidad para pruebas llamada Enzyme, que hace fácil asegurar, manipular y navegar por el resultado de sus Componentes de React. Si está decidiendo que utilidad para pruebas unitarias utilizar junto con Jest u otro ejecutor de pruebas, vale la pena darle un vistazo a: [http://airbnb.io/enzyme/](http://airbnb.io/enzyme/)
+> Airbnb ha liberado una utilidad para pruebas llamada Enzyme, que hace fácil asegurar, manipular y navegar por el resultado de sus Componentes de React. Si está decidiendo que utilidad para pruebas unitarias utilizar junto con Jest u otra herramienta para pruebas, vale la pena darle un vistazo a: [http://airbnb.io/enzyme/](http://airbnb.io/enzyme/)
 >
 > Como otra opción, también hay otra utilidad para pruebas llamada react-testing-library diseñada para permitir e incentivar el escribir las pruebas de sus componentes de la misma forma en que los usuarios finales los usarían. De igual forma, funciona con cualquiera de los ejecutores de pruebas: [https://git.io/react-testing-library](https://git.io/react-testing-library)
 
@@ -61,7 +61,7 @@ Simulate.{eventName}(
 )
 ```
 
-Simula la ejecución de un evento en un nodo del DOM con los datos de evento `eventData` opcionales.
+Simula la ejecución de un evento en un nodo del DOM con los datos opcionales de evento `eventData`.
 
 `Simulate` tiene un método para [cada uno de los eventos que React comprende](/docs/events.html#supported-events).
 
@@ -85,7 +85,7 @@ ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 
 > Nota
 >
-> Se debe proveer cualquiera de las propiedades del evento que se esté usando en su componente (p.e. keyCode, which, etc...) ya que React no creará ninguna de estas por usted.
+> Se debe proveer cualquiera de las propiedades del evento que se esté usando en tu componente (p.e. keyCode, which, etc...) ya que React no creará ninguna de estas por ti.
 
 * * *
 
@@ -126,7 +126,7 @@ Pasa un módulo de un componente a simular a este método para mejorarlo con mé
 isElement(element)
 ```
 
-Retorna `true` si `element` es un Elemento de React.
+Retorna `true` si `element` es cualquier elemento de React.
 
 * * *
 
