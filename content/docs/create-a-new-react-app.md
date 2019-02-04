@@ -1,6 +1,6 @@
 ---
 id: create-a-new-react-app
-title: Crear una Jueva Aplicación React
+title: Crear una Nueva Aplicación React
 permalink: docs/create-a-new-react-app.html
 redirect_from:
   - "docs/add-react-to-a-new-app.html"
