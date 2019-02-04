@@ -4,7 +4,7 @@ title: Reenvío de Refs
 permalink: docs/forwarding-refs.html
 ---
 
-El reenvío de Refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser util para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios mas comunes son descritos a continuación.
+El reenvío de Refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
 
 ## Reenviando refs a componentes DOM
 
@@ -41,7 +41,7 @@ A continuación un explicación paso a paso de lo que sucede en el ejemplo de ar
 
 **Una vez empiezas a usar `forwardRef` en una biblioteca de componentes, debes tratarlo como un cambio incompatible y liberar una nueva versión mayor de la biblioteca**. Esto es debido a que probablemente tu biblioteca tendrá un comportamiento observable muy diferente (tal como a que se asignan las refs, y que tipos son exportados), y esto puede romper aplicaciones y otras bibliotecas que dependan del comportamiento anterior.
 
-Aplicar `React.forwardRef` de forma condicional cuando existe támpoco es recomendado por las mismas razones: cambia el comportamiento de tu biblioteca y puede romper las aplicaciones de tus usuarios cuando actualicen React.
+Aplicar `React.forwardRef` de forma condicional cuando existe tampoco es recomendado por las mismas razones: cambia el comportamiento de tu biblioteca y puede romper las aplicaciones de tus usuarios cuando actualicen React.
 
 ## Reenviando refs en componentes de orden superior
 
@@ -56,7 +56,7 @@ Hay un detalle en el ejemplo anterior: las refs no son pasadas. Esto es porque `
 Esto significa que las `refs` que queremos para nuestro componente `FancyButton` de hecho estarán adjuntadas al componente `LogProps`:
 `embed:forwarding-refs/fancy-button-ref.js`
 
-Afortuandamente, podemos reenviar explicitamente refs al componente interno `FancyButton` usando el API `React.forwardRef`. `React.forwardRef` acepta una función de renderizado que recibe los parámetros `props` y `ref`, y devuelve un nodo React. Por ejemplo:
+Afortunadamente, podemos reenviar explícitamente refs al componente interno `FancyButton` usando el API `React.forwardRef`. `React.forwardRef` acepta una función de renderizado que recibe los parámetros `props` y `ref`, y devuelve un nodo React. Por ejemplo:
 `embed:forwarding-refs/log-props-after.js`
 
 ## Mostrar un nombre personalizado en las herramientas de desarrollo
