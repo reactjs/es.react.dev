@@ -10,7 +10,7 @@ redirect_from:
 
 En React, puedes crear distintos componentes que encapsulan el comportamiento que necesitas. Entonces, puedes renderizar solamente algunos de ellos, dependiendo del estado de tu aplicación.
 
-El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/if...else) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
+El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o el [operador condicional](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) para crear elementos representando el estado actual, y deja que React actualice la UI para emparejarlos.
 
 Considera estos dos componentes::
 
@@ -120,14 +120,14 @@ Si bien declarar una variable y usar una sentencia `if` es una buena forma de re
 Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser ùtil para incluir condicionalmente un elemento:
 
 ```js{6-10}
-function Buzon(props) {
-  const mensajesNoLeidos = props.mensajesNoLeidos;
+function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
   return (
     <div>
-      <h1>¡Hola!</h1>
-      {mensajesNoLeidos.length > 0 &&
+      <h1>Hello!</h1>
+      {unreadMessages.length > 0 &&
         <h2>
-          Tienes {mensajesNoLeidos.length} mensajes sin leer.
+          You have {unreadMessages.length} unread messages.
         </h2>
       }
     </div>
@@ -136,7 +136,7 @@ function Buzon(props) {
 
 const mensajes = ['React', 'Re: React', 'Re:Re: React'];
 ReactDOM.render(
-  <Buzon mensajesNoLeidos={mensajes} />,
+  <Mailbox unreadMessages={messages} />,
   document.getElementById('root')
 );
 ```
@@ -149,7 +149,7 @@ Por eso, si la condición es `true`, el elemento just después de `&&` aparecer�
 
 ### en la misma línea If-Else con operador condicional
 
-Otro método para el renderizado condicional en la misma línea de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) de JavaScript.
+Otro método para el renderizado condicional en la misma línea de elementos es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) de JavaScript.
 
 En el siguiente ejemplo, lo usaremos para renderizar de forma condicional un bloque de texto pequeño.
 
