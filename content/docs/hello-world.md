@@ -27,7 +27,7 @@ En esta guía, examinaremos los componentes básicos de las aplicaciones React: 
 
 >Tip
 >
->Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si tu prefieres aprender haciendo, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
+>Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si tú prefieres aprender haciendo, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
 
 Este es el primer capítulo en una guía paso a paso sobre los principales conceptos de React. Puedes encontrar una lista de todos los capítulos en la barra de navigación lateral. Si estás leyendo esto desde un dispositivo móvil, puedes acceder a la navegación presionando el botón en la esquina inferior derecha de tu pantalla.
 
