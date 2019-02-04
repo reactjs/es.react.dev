@@ -1,14 +1,14 @@
 ---
 id: hooks-state
-title: Using the Effect Hook
+title: Usando el Hook de efecto
 permalink: docs/hooks-effect.html
 next: hooks-rules.html
 prev: hooks-intro.html
 ---
 
-*Hooks* are an upcoming feature that lets you use state and other React features without writing a class. They're currently in React v16.8.0-alpha.1.
+Los *Hooks* son una nueva característica que te permite usar estado y otras características de React sin escribir una clase. Actualmente están disponibles en la versión v16.8.0-alpha.1 de React.
 
-The *Effect Hook* lets you perform side effects in function components:
+El *Hook de efecto* te permite llevar a cabo efectos secundarios en componentes funcionales:
 
 ```js{1,6-10}
 import { useState, useEffect } from 'react';
@@ -16,9 +16,9 @@ import { useState, useEffect } from 'react';
 function Example() {
   const [count, setCount] = useState(0);
 
-  // Similar to componentDidMount and componentDidUpdate:
+  // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
-    // Update the document title using the browser API
+    // Actualiza el título del documento usando la API del navegador
     document.title = `You clicked ${count} times`;
   });
 
@@ -33,25 +33,25 @@ function Example() {
 }
 ```
 
-This snippet is based on the [counter example from the previous page](/docs/hooks-state.html), but we added a new feature to it: we set the document title to a custom message including the number of clicks.
+Este fragmento está basado en el [ejemplo de contador de la página anterior](/docs/hooks-state.html), pero le hemos añadido una funcionalidad nueva: actualizamos el título del documento con un mensaje personalizado que incluye el número de clicks.
 
-Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects. Whether or not you're used to calling these operations "side effects" (or just "effects"), you've likely performed them in your components before.
+Peticiones de datos, establecimiento de suscripciones y actualizaciones manuales del DOM en componentes de React serían ejemplos de efectos secundarios. Tanto si estás acostumbrado a llamar a estas operaciones efectos secundarios (o simplemente efectos) como si no, probablemente los has llevado a cabo en tus componentes con anterioridad.
 
->Tip
+>Consejo
 >
->If you're familiar with React class lifecycle methods, you can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
+>Si estás familiarizado con el ciclo de vida de las clases de React y sus métodos, el Hook `useEffect` equivale a `componentDidMount`, `componentDidUpdate` y `componentWillUnmount` combinados.
 
-There are two common kinds of side effects in React components: those that don't require cleanup, and those that do. Let's look at this distinction in more detail.
+Hay dos tipos de efectos secundarios en los componentes de React: aquellos que necesitan una operación de saneamiento y los que si la necesitan. Vamos a profundizar más en esta distinción.
 
-## Effects Without Cleanup
+## Efectons sin operación de saneamiento
 
-Sometimes, we want to **run some additional code after React has updated the DOM.** Network requests, manual DOM mutations, and logging are common examples of effects that don't require a cleanup. We say that because we can run them and immediately forget about them. Let's compare how classes and Hooks let us express such side effects.
+En ciertas ocasiones, queremos **ejecutar código adicional después de que React haya actualizado el DOM.** Peticiones de red, mutaciones manuales del DOM, y registros son ejemplos comúnes de efectos que no requieren una acción de saneamiento. Decimos esto porque podemos ejecutarlos y olvidarnos de ellos inmediatamente. Vamos a comparar como las clases y los Hooks nos permiten expresar dichos efectos.
 
-### Example Using Classes
+### Ejemplo con clases
 
-In React class components, the `render` method itself shouldn't cause side effects. It would be too early -- we typically want to perform our effects *after* React has updated the DOM.
+En los componentes de React con clases, el método `render` no debería causar efectos secundarios por si mismo. Sería prematuro, normalmente queremos llevar a cabo nuestros efectos *después* de que React haya actualizado el DOM.
 
-This is why in React classes, we put side effects into `componentDidMount` and `componentDidUpdate`. Coming back to our example, here is a React counter class component that updates the document title right after React makes changes to the DOM:
+Y es por eso que en las clases de React, ponemos los efectos secundarios en `componentDidMount` y `componentDidUpdate`. Volviendo a nuestro ejemplo, aquí tenemos el componente clase contador de React que actualiza el título del documento justo después de que React haga cambios en el DOM:
 
 ```js{9-15}
 class Example extends React.Component {
@@ -83,15 +83,15 @@ class Example extends React.Component {
 }
 ```
 
-Note how **we have to duplicate the code between these two lifecycle methods in class.**
+Fíjate en como **hemos duplicado el código en los dos métodos del ciclo de vida en la clase**
 
-This is because in many cases we want to perform the same side effect regardless of whether the component just mounted, or if it has been updated. Conceptually, we want it to happen after every render -- but React class components don't have a method like this. We could extract a separate method but we would still have to call it in two places.
+Esto es porque en muchas ocasiones queremos llevar a cabo el mismo efecto secundario sin importar si el componente acaba de montarse o si se ha actualizado. Conceptualmente, queremos que ocurra después de cada renderizado, pero las clases de React no tienen un método que haga eso. Podríamos extraer un método, pero aún así tendríamos que llamarlo en los dos sitios.
 
-Now let's see how we can do the same with the `useEffect` Hook.
+Veamos ahora como podemos hacer lo mismo con el Hook `useEffect`.
 
-### Example Using Hooks
+### Ejemplo con Hooks
 
-We've already seen this example at the top of this page, but let's take a closer look at it:
+Ya hemos visto este ejemplo al principio de la página, pero veámoslo más detenidamete:
 
 ```js{1,6-8}
 import { useState, useEffect } from 'react';
