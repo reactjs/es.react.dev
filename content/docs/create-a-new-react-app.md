@@ -84,7 +84,7 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 
 Una cadena de herramientas para construir Javascript generalmente consiste de:
 
-* Un **gestor de paquetes**, tal como [Yarn](https://yarnpkg.com/) o [npm](https://www.npmjs.com/). Este te permite aprovechar el vasto ecosistema de paquetes de terceros, e instalarlos o actualizarlos de una manera fácil.
+* Un **gestor de paquetes** como [Yarn](https://yarnpkg.com/) o [npm](https://www.npmjs.com/). Este te permite aprovechar el vasto ecosistema de paquetes de terceros, e instalarlos o actualizarlos de una manera fácil.
 
 * Un **empaquetador**, tal como [webpack](https://webpack.js.org/) o [Parcel](https://parceljs.org/). Este te permite escribir código modular y empaquetarlo junto en paquetes más pequeños que optimizan el tiempo de carga.
 
