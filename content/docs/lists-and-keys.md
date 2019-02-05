@@ -70,7 +70,7 @@ ReactDOM.render(
 );
 ```
 
-Cuando ejecutes este código, serás advertido que una key debería ser proporcionada para ítems de lista. Una "key" es un atributo especial string que debes incluir al crear listas de elementos. Vamos a discutir porque esto es importante en la próxima sección.
+Cuando ejecutes este código, serás advertido que una key debería ser proporcionada para ítems de lista. Una "key" es un atributo especial string que debes incluir al crear listas de elementos. Vamos a discutir por qué esto es importante en la próxima sección.
 
 Vamos a asignar una `key` a nuestra lista de ítems dentro de `numbers.map()` y arreglar el problema de la falta de key.
 
