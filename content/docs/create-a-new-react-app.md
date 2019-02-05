@@ -92,4 +92,4 @@ Una cadena de herramientas para construir Javascript generalmente consiste de:
 
 Si prefieres configurar tu propia cadena de herramientas JavaScript desde cero, [chequea esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea parte de la funcionalidad de **Create React App**.
 
-No te olvides de asegurarte que tu cadena de herramientas este [configurada apropiadamente para producción](/docs/optimizing-performance.html#use-the-production-build).
+No te olvides de asegurarte que tu cadena de herramientas esté [configurada apropiadamente para producción](/docs/optimizing-performance.html#use-the-production-build).
