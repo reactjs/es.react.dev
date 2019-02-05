@@ -33,7 +33,7 @@ incrementCount() {
 }
 
 handleSomething() {
-  // Digamos que `this.state.count` inicia en 0.
+  // Digamos que `this.state.count` se inicia en 0.
   this.incrementCount();
   this.incrementCount();
   this.incrementCount();
