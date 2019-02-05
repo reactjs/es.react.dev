@@ -1,6 +1,6 @@
 ---
 id: faq-state
-title: Estado del Componente
+title: Estado del componente
 permalink: docs/faq-state.html
 layout: docs
 category: FAQ
