@@ -88,7 +88,7 @@ Una cadena de herramientas para construir Javascript generalmente consiste de:
 
 * Un **empaquetador** como [webpack](https://webpack.js.org/) o [Parcel](https://parceljs.org/). Este te permite escribir código modular y empaquetarlo junto en paquetes más pequeños que optimizan el tiempo de carga.
 
-* Un **compilador**, tal como [Babel](http://babeljs.io/). Este te permite escribir Javascript moderno que aún así funciona en navegadores más viejos.
+* Un **compilador** como [Babel](http://babeljs.io/). Este te permite escribir Javascript moderno que aún así funciona en navegadores más antiguos.
 
 Si prefieres configurar tu propia cadena de herramientas JavaScript desde cero, [chequea esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea parte de la funcionalidad de **Create React App**.
 
