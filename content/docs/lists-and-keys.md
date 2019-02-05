@@ -20,7 +20,7 @@ Este código muestra `[2, 4, 6, 8, 10]` a la consola.
 
 En React, transformar arrays en listas de [elementos](/docs/rendering-elements.html) es casi idéntico.
 
-### Renderizando Múltiples Componentes
+### Renderizado de Múltiples Componentes
 
 Puedes hacer colecciones de elementos e [incluirlos en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) usando llaves `{}`.
 
@@ -46,8 +46,7 @@ ReactDOM.render(
 
 Este código muestra una lista de números entre 1 y 5.
 
-### Componente de Lista Básica
-
+### Componente Básico de Lista
 Usualmente renderizarías listas dentro de un [componente](/docs/components-and-props.html).
 
 Podemos refactorizar el ejemplo anterior en un componente que acepte un array de `numbers` e imprima una lista desordenada de elementos.
@@ -134,13 +133,13 @@ No recomendamos usar índices para keys si el orden de los ítems puede cambiar.
 
 Aquí hay una [explicación en profundidad sobre por qué las keys son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
 
-### Extracción de Componentes con keys
+### Extracción de Componentes con Keys
 
 Las keys solo tienen sentido en el contexto del array que las envuelve.
 
 Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` del array en lugar de en el elemento `<li>` del propio `ListItem`.
 
-**Ejemplo: Uso incorrecto de key**
+**Ejemplo: Uso Incorrecto de Key**
 
 ```javascript{4,5,14,15}
 function ListItem(props) {
@@ -206,7 +205,7 @@ ReactDOM.render(
 
 Una buena regla es que los elementos dentro de `map()` necesitan keys.
 
-### Las Keys Deben Ser Solo Únicas Entre Hermanos
+### Las Keys Deben Ser Únicas Solo Entre Hermanos
 
 Las keys usadas dentro de arrays deberían ser únicas entre sus hermanos. Sin embargo, no necesitan ser únicas globalmente. Podemos usar las mismas keys cuando creamos dos arrays diferentes:
 
