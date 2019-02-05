@@ -10,7 +10,7 @@ category: FAQ
 
 `setState()` programa una actualización al objeto `estado` de un componente. Cuando el estado cambia, el componente responde volviendo a renderizar.
 
-### ¿Cuál es la diferencia entre `estado` y `props`?
+### ¿Cuál es la diferencia entre `state` y `props`?
 
 [`props`](/docs/components-and-props.html) (abreviatura de "properties") y [`estado`](/docs/state-and-lifecycle.html) son objetos planos de JavaScript. Mientras ambos contienen información que influye en el resultado del render, son diferentes debido a una importante razón: `props` se pasa *al* componente (similar a los parámetros de una función) mientras que `estado` se administra *dentro* del componente (similar a las variables declaradas dentro de una función).
 
