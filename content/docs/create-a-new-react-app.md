@@ -86,7 +86,7 @@ Una cadena de herramientas para construir Javascript generalmente consiste de:
 
 * Un **gestor de paquetes** como [Yarn](https://yarnpkg.com/) o [npm](https://www.npmjs.com/). Este te permite aprovechar el vasto ecosistema de paquetes de terceros, e instalarlos o actualizarlos de una manera fácil.
 
-* Un **empaquetador**, tal como [webpack](https://webpack.js.org/) o [Parcel](https://parceljs.org/). Este te permite escribir código modular y empaquetarlo junto en paquetes más pequeños que optimizan el tiempo de carga.
+* Un **empaquetador** como [webpack](https://webpack.js.org/) o [Parcel](https://parceljs.org/). Este te permite escribir código modular y empaquetarlo junto en paquetes más pequeños que optimizan el tiempo de carga.
 
 * Un **compilador**, tal como [Babel](http://babeljs.io/). Este te permite escribir Javascript moderno que aún así funciona en navegadores más viejos.
 
