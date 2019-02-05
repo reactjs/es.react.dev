@@ -184,7 +184,7 @@ function ListItem(props) {
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Correcto! La key deberia ser especificada dentro del array.
+    // Correcto! La key debería ser especificada dentro del array.
     <ListItem key={number.toString()}
               value={number} />
   );
