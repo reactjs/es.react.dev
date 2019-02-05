@@ -138,7 +138,7 @@ Aquí esta una [explicación en profundidad sobre porque las keys son necesarias
 
 Las keys solo tienen sentido en el contexto del array que las envuelve.
 
-Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` en el array en lugar de en el elemento `<li>` en el `ListItem` en sí mismo.
+Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` en el array en lugar de en el elemento `<li>` en el `ListItem` en sí.
 
 **Ejemplo: Uso Incorrecto de Key**
 
@@ -146,7 +146,7 @@ Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components)
 function ListItem(props) {
   const value = props.value;
   return (
-    // Mal! No es necesario especificar la key aquí:
+    // Mal! No hay necesidad de especificar la key aquí:
     <li key={value.toString()}>
       {value}
     </li>
