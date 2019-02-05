@@ -22,7 +22,7 @@ Las cadenas de herramientas en esta página **no requieren ninguna configuració
 
 ## Puede que no necesites una Cadena de Herramientas
 
-Si no sufres de los problemas descritos arriba, o aún no te sientes cómodo usando herramientas de Javascript, considera [añadir React como una etiqueta `<script>` en una página HTML](/docs/add-react-to-a-website.html), opcionalmente [con JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
+Si no experimentas los problemas descritos arriba, o aún no te sientes cómodo usando herramientas de Javascript, considera [añadir React como una etiqueta `<script>` en una página HTML](/docs/add-react-to-a-website.html), opcionalmente [con JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
 Esta es también **la manera más fácil de integrar React en un sitio web existente.** Siempre puedes añadir una cadena de herramientas después si lo consideras necesario.
 
