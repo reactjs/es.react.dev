@@ -140,7 +140,7 @@ Las keys solo tienen sentido en el contexto del array que las envuelve.
 
 Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` del array en lugar de en el elemento `<li>` del propio `ListItem`.
 
-**Ejemplo: Uso Incorrecto de Key**
+**Ejemplo: Uso incorrecto de key**
 
 ```javascript{4,5,14,15}
 function ListItem(props) {
