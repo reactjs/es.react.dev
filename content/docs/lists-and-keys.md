@@ -280,7 +280,7 @@ function NumberList(props) {
 }
 ```
 
-JSX permite [integrar cualquier expresión](/docs/introducing-jsx.html#embedding-expressions-in-jsx) en llaves así que podemos alinear el resultado `map()`:
+JSX permite [integrar cualquier expresión](/docs/introducing-jsx.html#embedding-expressions-in-jsx) en llaves así que podemos alinear el resultado de `map()`:
 
 ```js{5-8}
 function NumberList(props) {
