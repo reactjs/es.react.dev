@@ -18,7 +18,7 @@ Esta página describe algunas cadenas de herramientas de React populares, las cu
 * Edición en vivo de CSS y JS en desarrollo.
 * Optimización de la salida para producción.
 
-Las cadenas de herramientas en esta página **no requieren ninguna configuración para empezar**.
+Las cadenas de herramientas que se recomiendan en esta página **no requieren ninguna configuración para empezar**.
 
 ## Puede que no necesites una Cadena de Herramientas
 
