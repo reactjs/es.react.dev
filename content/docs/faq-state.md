@@ -88,7 +88,7 @@ Este es un detalle de implementación, así que evita confiar en él directament
 
 ### ¿Por qué React no actualiza `this.state` de forma sincrónica?
 
-Como se explicó en la sección anterior, React intencionalmente "espera" hasta que todos los componentes llamen a `setState()` en sus controladores de eventos antes de comenzar a re-renderizar. Esto aumenta el rendimiento al evitar re-renderizados innecesarios.
+Como se explicó en la sección anterior, React intencionalmente "espera" hasta que todos los componentes llamen a `setState()` en sus controladores de eventos antes de comenzar a rerenderizar. Esto aumenta el rendimiento al evitar rerenderizados innecesarios.
 
 Sin embargo, es posible que aún te estés preguntando por qué React no solo actualiza 'this.state' inmediatamente sin volver a renderizar.
 
