@@ -36,9 +36,9 @@ React ha sido diseñado desde su inicio para ser adoptado gradualmente, así pue
 
 ### Área de Juegos
 
-Si estas interesado en jugar un poco con React, puedes usar un área de juegos online. Prueba la plantilla *Hola mundo* en [CodePen](codepen://hello-world) o en [CodeSandbox](https://codesandbox.io/s/new).
+Si estas interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world) o en [CodeSandbox](https://codesandbox.io/s/new).
 
-Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editarlo, y abrirlo desde tu sistema de archivos al navegador. Esto realiza una transformación de código lenta, así que solo recomendamos esto para demostraciones simples.
+Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editarlo, y abrirlo desde tu sistema de archivos al navegador. Esto realiza una transformación de código lenta, así que solo recomendamos esto para pruebas simples.
 
 ### Agregar React a un Sitio Web.
 
@@ -100,7 +100,7 @@ A veces las personas consiguen libros de terceros o recursos de video más útil
 
 ### Conceptos Avanzados
 
-Una vez que te sientas cómodo con los [conceptos principales](#main-concepts) y hayas jugado con React un poco, puede que estés interesado en temas más avanzados. Esta sección te presentará funcionalidades poderosas, pero menos conocidas de React como [contexto](/docs/context.html) o [referencias](/docs/refs-and-the-dom.html).
+Una vez que te sientas cómodo con los [conceptos principales](/docs/hello-world.html) y hayas jugado con React un poco, puede que estés interesado en temas más avanzados. Esta sección te presentará funcionalidades poderosas, pero menos conocidas de React como [contexto](/docs/context.html) o [referencias](/docs/refs-and-the-dom.html).
 
 ### Referencia a API
 
