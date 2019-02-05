@@ -10,7 +10,7 @@ next: cdn-links.html
 
 Para obtener la mejor experiencia de usuario y desarrollador use una cadena de herramientas integrada.
 
-Esta página describe algunas cadenas de herramientas de React populares, las cuales ayudan con tareas como:
+Esta página describe algunas de las cadenas de herramientas de React más populares, las cuales ayudan con tareas como:
 
 * Escalar a múltiples archivos y componentes.
 * Usar bibliotecas de terceros desde npm.
