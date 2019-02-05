@@ -94,7 +94,7 @@ Sin embargo, es posible que aún te estés preguntando por qué React no solo ac
 
 Hay dos razones principales:
 
-* Esto rompería la consistencia entre `props` y `estado`, causando problemas que son muy difíciles de depurar.
+* Esto rompería la consistencia entre `props` y `state`, causando problemas que son muy difíciles de depurar.
 * Esto haría que algunas de las nuevas funcionalidades en las que estamos trabajando sean imposibles de implementar.
 
 Este [comentario de GitHub](https://github.com/facebook/react/issues/11527#issuecomment-360199710) profundiza en los ejemplos específicos.
