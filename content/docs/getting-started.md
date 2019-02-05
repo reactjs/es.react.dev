@@ -1,6 +1,6 @@
 ---
 id: getting-started
-title: Getting Started
+title: Empezando
 permalink: docs/getting-started.html
 next: add-react-to-a-website.html
 redirect_from:
@@ -19,15 +19,16 @@ redirect_from:
 ---
 
 Esta página es un resumen de la documentación de React y recursos relacionados.
+
 **React** es una librería Javascript para crear interfaces de usuario. Aprende todo de lo que trata React en [nuestra página principal](/) o [en este tutorial](/tutorial/tutorial.html).
 
 ---
 
-- [Prueba React](#try-react)
-- [Aprende React](#learn-react)
-- [Mantente Informado](#staying-informed)
-- [Documentación por Versiones](#versioned-documentation)
-- [¿Hace falta algo?](#something-missing)
+- [Prueba React](#prueba-react)
+- [Aprende React](#aprende-react)
+- [Mantente Informado](#mantente-informado)
+- [Documentación por Versiones](#documentación-por-versiones)
+- [¿Algo hace falta?](#¿algo-hace-falta)
 
 ## Prueba React
 
@@ -43,13 +44,13 @@ Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML
 
 Puedes [agregar React a un HTML en un minuto](/docs/add-react-to-a-website.html). Puedes o bien ir agregándolo gradualmente, o mantenerlo contenido en unos cuantos *widgets* dinámicos.
 
-### Crear una Aplicación React Nueva
+### Crea una Aplicación React Nueva
 
 Cuando se empieza un proyecto con React, [una simple página HTML con una etiqueta de tipo *script*](/docs/add-react-to-a-website.html) puede ser la mejor opción. Solo toma un minuto para configurarse.
 
-A medida que tu aplicación crezca, puede que consideres una configuración más integrada. Hay una [gran variedad de herramientas](/docs/create-a-new-react-app.html) que recomendamos para aplicaciones más grandes. Cada una de ellas puede funcionar con poca configuración, y te permite tomar toda la ventaja de un ambiente de React completo.
+A medida que tu aplicación crezca, puede que consideres una configuración más integrada. Hay una [gran variedad de herramientas](/docs/create-a-new-react-app.html) que recomendamos para aplicaciones más grandes. Cada una de ellas puede funcionar con poca configuración, y te permite tomar toda la ventaja de un ambiente React completo.
 
-## Aprender React
+## Aprende React
 
 Las personas vienen a React de distintos orígenes, y de diferentes estilos de aprendizaje. Bien si prefieres un enfoque más teórico o practico, esperamos que encuentres esta sección útil.
 
@@ -79,7 +80,7 @@ Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.or
 
 >Consejo
 >
->Cuando te sientas confundido sobre algo de Javascript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) y [javascript.info](http://javascript.info/) son sitios increíbles para revisar. También hay un [foro de soporte por la comunidad](/community/support.html) donde puedes pedir ayuda.
+>Cuando te sientas confundido sobre algo de Javascript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) y [javascript.info](http://javascript.info/) son sitios increíbles para revisar. También hay un [foro de asistencia por la comunidad](/community/support.html) donde puedes pedir ayuda.
 
 ### Tutorial Práctico
 
