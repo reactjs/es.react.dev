@@ -134,7 +134,7 @@ No recomendamos usar índices para keys si el orden de los ítems puede cambiar.
 
 Aquí hay una [explicación en profundidad sobre por qué las keys son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
 
-### Extracción de Componentes con Keys
+### Extracción de Componentes con keys
 
 Las keys solo tienen sentido en el contexto del array que las envuelve.
 
