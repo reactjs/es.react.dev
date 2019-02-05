@@ -261,7 +261,7 @@ const content = posts.map((post) =>
 
 Con el ejemplo de arriba, el componente `Post` puede leer `props.id`, pero no `props.key`.
 
-### Incrustando map() en JSX
+### Integrar map() en JSX
 
 En los ejemplos de arriba declaramos una variable separada `listItems` y la incluimos en JSX:
 
