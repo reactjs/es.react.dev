@@ -18,7 +18,7 @@ console.log(doubled);
 
 Este código muestra `[2, 4, 6, 8, 10]` a la consola.
 
-En react, transformar arrays en listas de [elementos](/docs/rendering-elements.html) es casi idéntico.
+En React, transformar arrays en listas de [elementos](/docs/rendering-elements.html) es casi idéntico.
 
 ### Renderizando Múltiples Componentes
 
