@@ -12,7 +12,7 @@ Para obtener la mejor experiencia de usuario y desarrollador use una cadena de h
 
 Esta página describe algunas cadenas de herramientas de React populares, las cuales ayudan con tareas como:
 
-* Escalar a multiples archivos y componentes.
+* Escalar múltiples archivos y componentes.
 * Usar bibliotecas de terceros de npm.
 * Detección temprana de errores comunes.
 * Edición en vivo de CSS y JS en desarrollo.
