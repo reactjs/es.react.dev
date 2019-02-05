@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### Qué hace `setState`?
+### ¿Qué hace `setState`?
 
 `setState()` programa una actualización al objeto `estado` de un componente. Cuando el estado cambia, el componente responde volviendo a renderizar.
 
