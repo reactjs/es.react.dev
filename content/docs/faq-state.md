@@ -43,7 +43,7 @@ handleSomething() {
   // pero React no actualiza `this.state.count` hasta que el componente se vuelve a renderizar.
   // Entonces `incrementCount()` termina leyendo `this.state.count` como 0 cada vez, y lo establece a 1.
 
-  // La solución se describe a continuación!
+  // ¡La solución se describe a continuación!
 }
 ```
 
