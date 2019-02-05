@@ -4,7 +4,8 @@ Current progress: https://github.com/reactjs/es.reactjs.org/issues/4
 
 # Style Guide
 
-[todo]
+- Leave code blocks untranslated. (It is usually OK to translate comments inside them.)
+- Links to references (MDN, wikipedia) should go to the Spanish version.
 
 # Common translations
 
