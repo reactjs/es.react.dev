@@ -44,7 +44,7 @@ ReactDOM.render(
 
 [**Pruebalo en CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
 
-Este código muestra una lista de numeros entre 1 y 5.
+Este código muestra una lista de números entre 1 y 5.
 
 ### Componente de Lista Básica
 
