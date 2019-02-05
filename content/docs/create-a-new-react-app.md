@@ -57,7 +57,7 @@ Cuando estés listo para desplegar a producción, ejecuta `npm run build` lo cua
 
 ### Next.js
 
-[Next.js](https://nextjs.org/) es un marco de trabajo ligero popular para **aplicaciones estáticas y renderizadas en servidor** construidas con React. Incluye de paquete **soluciones de estilo y enrutamiento**, y asume que estas usando [Node.js](https://nodejs.org/) como ambiente de servidor.
+[Next.js](https://nextjs.org/) es un *framework* popular y ligero para **aplicaciones estáticas y renderizadas en servidor** construidas con React. Integra **soluciones de estilo y enrutamiento** y asume que estás usando [Node.js](https://nodejs.org/) como ambiente de servidor.
  
 Aprende Next.js de [su guía oficial](https://nextjs.org/learn/).
 
