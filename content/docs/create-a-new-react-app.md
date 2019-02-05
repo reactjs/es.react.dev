@@ -71,7 +71,6 @@ Aprende Gatsby de [su guía oficial](https://www.gatsbyjs.org/docs/) y de [la ga
 
 Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las recomendamos para los usuarios con más experiencia:
 
-
 - **[Neutrino](https://neutrinojs.org/)** combina el poder de [webpack](https://webpack.js.org/) con la simplicidad de los *presets* (configuraciones preempaquetadas), e incluye *presets* para [aplicaciones React](https://neutrinojs.org/packages/react/) y [componentes React](https://neutrinojs.org/packages/react-components/).
 
 - **[nwb](https://github.com/insin/nwb)** es particularmente bueno para [publicar componentes React en npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). También puede ser usado para [crear aplicaciones React](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb). 
