@@ -99,7 +99,7 @@ Hay dos razones principales:
 
 Este [comentario de GitHub](https://github.com/facebook/react/issues/11527#issuecomment-360199710) profundiza en los ejemplos específicos.
 
-### ¿Debo usar una librería de manejo de estado como Redux o MobX?
+### ¿Debo usar una biblioteca de manejo de estado como Redux o MobX?
 
 [Tal vez.](https://redux.js.org/faq/general#when-should-i-use-redux)
 
