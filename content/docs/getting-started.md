@@ -18,27 +18,26 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-This page is an overview of the React documentation and related resources.
-
-**React** is a JavaScript library for building user interfaces. Learn what React is all about on [our homepage](/) or [in the tutorial](/tutorial/tutorial.html).
+Esta página es un resumen de la documentación de React y recursos relacionados.
+**React** es una librería Javascript para crear interfaces de usuario. Aprende todo de lo que trata React en [nuestra página principal](/) o [en este tutorial](/tutorial/tutorial.html).
 
 ---
 
-- [Try React](#try-react)
-- [Learn React](#learn-react)
-- [Staying Informed](#staying-informed)
-- [Versioned Documentation](#versioned-documentation)
-- [Something Missing?](#something-missing)
+- [Prueba React](#try-react)
+- [Aprende React](#learn-react)
+- [Mantente Informado](#staying-informed)
+- [Documentación por Versiones](#versioned-documentation)
+- [¿Hace falta algo?](#something-missing)
 
-## Try React
+## Prueba React
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need.** Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+React ha sido diseñado desde su inicio para ser adoptado gradualmente, así puedes **usar tan poco o mucho de React como necesites.** Bien si quieres una prueba de React, agregar interactividad a una simple página HTML, o empezar una aplicación compleja con React, los enlaces de esta sección te ayudarán a empezar.
 
-### Online Playgrounds
+### Patio de Juegos Online
 
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world) or [CodeSandbox](https://codesandbox.io/s/new).
+Si estas interesado en jugar un poco con React, puedes usar un patio de juegos online. Prueba la plantilla de *Hola mundo* en [CodePen](codepen://hello-world) o en [CodeSandbox](https://codesandbox.io/s/new).
 
-If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editarlo, y abrirlo desde tu sistema de archivos a tu navegador. Esto realiza una transformación de código lenta, así que solo recomendamos esto para demostraciones simples.
 
 ### Add React to a Website
 
