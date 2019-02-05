@@ -138,7 +138,7 @@ Aquí hay una [explicación en profundidad sobre por qué las keys son necesaria
 
 Las keys solo tienen sentido en el contexto del array que las envuelve.
 
-Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` en el array en lugar de en el elemento `<li>` en el `ListItem` en sí.
+Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` del array en lugar de en el elemento `<li>` del propio `ListItem`.
 
 **Ejemplo: Uso Incorrecto de Key**
 
