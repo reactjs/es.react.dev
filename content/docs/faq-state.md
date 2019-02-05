@@ -103,4 +103,4 @@ Este [comentario de GitHub](https://github.com/facebook/react/issues/11527#issue
 
 [Tal vez.](https://redux.js.org/faq/general#when-should-i-use-redux)
 
-Es una buena idea conocer primero React, antes de agregar librerías adicionales. Puedes construir aplicaciones bastante complejas usando solo React.
+Es una buena idea conocer primero React, antes de agregar bibliotecas adicionales. Puedes construir aplicaciones bastante complejas usando solo React.
