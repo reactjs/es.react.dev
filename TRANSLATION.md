@@ -6,6 +6,7 @@ Current progress: https://github.com/reactjs/es.reactjs.org/issues/4
 
 - Leave code blocks untranslated. (It is usually OK to translate comments inside them.)
 - Links to references (MDN, wikipedia) should go to the Spanish version.
+- Use "tú" for the 2nd person singular.
 
 # Common translations
 
