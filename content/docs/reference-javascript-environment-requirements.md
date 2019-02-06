@@ -1,14 +1,17 @@
 ---
 id: javascript-environment-requirements
-title: JavaScript Environment Requirements
+title: Requerimientos del ambiente de JavaScript
 layout: docs
 category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
-React 16 depends on the collection types [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). If you support older browsers and devices which may not yet provide these natively (e.g. IE < 11) or which have non-compliant implementations (e.g. IE 11), consider including a global polyfill in your bundled application, such as [core-js](https://github.com/zloirock/core-js) or [babel-polyfill](https://babeljs.io/docs/usage/polyfill/).
+React 16 depende de tipos de collección [Map]
 
-A polyfilled environment for React 16 using core-js to support older browsers might look like:
+(https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) y [Set]
+(https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Set). Si soportas navegadores y dispositivos más antiguos que aún no los proporcionan de forma nativa (por ejemplo, IE <11) o que tienen implementaciones no compatibles (por ejemplo, IE 11), considere la posibilidad de incluir un polyfill global en su aplicación empaquetada, como [core-js](https://github.com/zloirock/core-js) o [babel-polyfill](https://babeljs.io/docs/usage/polyfill/).
+
+Un entorno polyfilled para React 16 que usa core-js para soportar navegadores más antiguos podría verse de la siguiente forma:
 
 ```js
 import 'core-js/es6/map';
@@ -23,8 +26,8 @@ ReactDOM.render(
 );
 ```
 
-React also depends on `requestAnimationFrame` (even in test environments).  
-You can use the [raf](https://www.npmjs.com/package/raf) package to shim `requestAnimationFrame`:
+React también depende de `requestAnimationFrame` (incluso en entornos de prueba).
+Puedes usar el paquete [raf](https://www.npmjs.com/package/raf) para parchar `requestAnimationFrame`:
 
 ```js
 import 'raf/polyfill';
