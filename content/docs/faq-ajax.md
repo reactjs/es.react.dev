@@ -1,24 +1,24 @@
 ---
 id: faq-ajax
-title: AJAX and APIs
+title: AJAX y APIs
 permalink: docs/faq-ajax.html
 layout: docs
 category: FAQ
 ---
 
-### How can I make an AJAX call?
+### ¿Cómo puedo hacer una llamada AJAX?
 
-You can use any AJAX library you like with React. Some popular ones are [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), and the browser built-in [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+Con React, puedes usar cualquier librería AJAX. Algunas de las más populares son [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), y [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), la cual es soportada de manera nativa en la mayoría de navegadores modernos.
 
-### Where in the component lifecycle should I make an AJAX call?
+### ¿En qué ciclo de vida de un componente puedo hacer una llamada AJAX?
 
-You should populate data with AJAX calls in the [`componentDidMount`](/docs/react-component.html#mounting) lifecycle method. This is so you can use `setState` to update your component when the data is retrieved.
+Deberías ejecutar tus llamadas AJAX en el ciclo de vida [`componentDidMount`](/docs/react-component.html#mounting). De esta manera, podrás llamar a `setState` para actualizar el componente una vez que hayas recibido tus datos.
 
-### Example: Using AJAX results to set local state
+### Ejemplo: Utilizar el resultado de una llamada AJAX para actualizar el estado local de un componente
 
-The component below demonstrates how to make an AJAX call in `componentDidMount` to populate local component state. 
+El siguiente ejemplo demuestra cómo ejecutar una llamada AJAX en `componentDidMount` para establecer el estado local de un componente.
 
-The example API returns a JSON object like this:
+La API de ejemplo devuelve el siguiente JSON:
 
 ```
 {
