@@ -6,9 +6,9 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
-React y [Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components) estan construidos para resolver diferentes problemas.  `Web Components` proporciona una fuerte encapsulación para componentes reutilizables, mientras que React proporciona una biblioteca declarativa que mantiene el DOM sincronizado con sus datos. Los dos objetivos se complementan. Como desarrollador, eres libre de usar React en tus `Web Components`, utilizar `Web Components` en React, o ambos.
+React y [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) están construidos para resolver diferentes problemas.  `Web Components` proporciona una fuerte encapsulación para componentes reutilizables, mientras que React proporciona una biblioteca declarativa que mantiene el DOM sincronizado con tus datos. Los dos objetivos se complementan. Como desarrollador, eres libre de usar React en tus `Web Components`, utilizar `Web Components` en React, o ambos.
 
-La mayoria de las personas que usan React no utilizan `Web Components`, pero es posible que desees hacerlo, especialmente si estás utilizando componentes de IU de terceros que se escriben utilizando `Web Components`.
+La mayoría de las personas que usan React no utilizan `Web Components`, pero es posible que desees hacerlo, especialmente si estás utilizando componentes de IU de terceros que se escriben utilizando `Web Components`.
 
 ## Usando `Web Components` en React
 
@@ -22,12 +22,12 @@ class HelloMessage extends React.Component {
 
 > Nota:
 >
-> Los `Web Component` a menudo exponen una API imperativa. Por ejemplo, un `Web Component` `video` podría exponer las funciones `play()` y `pause()`. Para acceder a un API imperativa de un `Web Component`, necesitarás utilizar una referencia para interactuar con el DOM directamente. Si estás utilizando `Web Component` de terceros, lo mejor sería escribir un componente React que sirva como un contenedor para tu `Web Component`.
+> Los `Web Components` a menudo exponen una API imperativa. Por ejemplo, un `Web Components` `video` podría exponer las funciones `play()` y `pause()`. Para acceder a un API imperativa de un `Web Components`, necesitarás utilizar una referencia para interactuar con el DOM directamente. Si estás utilizando `Web Components` de terceros, lo mejor sería escribir un componente React que sirva como un contenedor para tu `Web Components`.
 >
-> Los eventos emitidos por un `Web Component` pueden no distribuirse correctamente a través de un árbol de renderizado React.
+> Los eventos emitidos por un `Web Components` pueden no distribuirse correctamente a través de un árbol de renderizado React.
 > Deberás agregar manualmente los controladores de eventos para manejarlos dentro de tus componentes React.
 
-Una cosa que puede confundirte es que los `Web Component` usan ***"class"*** en vez de ***"className"***
+Una cosa que puede confundirte, es que los `Web Components` usan ***"class"*** en vez de ***"className"***
 
 ```javascript
 function BrickFlipbox() {
@@ -58,5 +58,5 @@ customElements.define('x-search', XSearch);
 
 >Nota:
 >
->Este codigo **NO** funcionará si transformas clases con Babel. Ver [Este asunto](https://github.com/w3c/webcomponents/issues/587) para la discusión.
+>Este código **NO** funcionará si transformas clases con Babel. Ver [Este asunto](https://github.com/w3c/webcomponents/issues/587) para la discusión.
 >Incluye el [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) Antes de cargar tus `Web Components` para que puedas solucionar este problema.
