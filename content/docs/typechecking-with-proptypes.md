@@ -50,11 +50,8 @@ MyComponent.propTypes = {
   optionalString: PropTypes.string,
   optionalSymbol: PropTypes.symbol,
 
-  /* doubt */
   // Cualquier cosa que sea interpretada: numeros, cadenas, elementos o un array
   // (o fragment) que contengan estos tipos.
-  // Anything that can be rendered: numbers, strings, elements or an array
-  // (or fragment) containing these types.
   optionalNode: PropTypes.node,
 
   // Un elemento de React
