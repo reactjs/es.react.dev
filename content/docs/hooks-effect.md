@@ -335,7 +335,7 @@ function FriendStatusWithCounter(props) {
 
 Si estás familiarizado con las clases, te preguntarás porque la fase de saneamiento de efecto ocurre después de cada re-renderizado y no simplemente cuando el componente se desmonta. Veamos un ejemplo práctico para ver portuq este diseño nos ayuda a crear componentes con menos bugs.
 
-[Earlier on this page](#example-using-classes-1), we introduced an example `FriendStatus` component that displays whether a friend is online or not. Our class reads `friend.id` from `this.props`, subscribes to the friend status after the component mounts, and unsubscribes during unmounting:
+[En apartados anteriores](#example-using-classes-1) hemos presentado el ejemplo de componente `FriendStatus` que muestra si un amigo está conectado o no. Nuestra clase lee `friend.id` de `this.props`, se suscribe al estado del amigo al montarse y cancela la suscripción al desmontarse.
 
 ```js
   componentDidMount() {
@@ -353,9 +353,9 @@ Si estás familiarizado con las clases, te preguntarás porque la fase de saneam
   }
 ```
 
-**But what happens if the `friend` prop changes** while the component is on the screen? Our component would continue displaying the online status of a different friend. This is a bug. We would also cause a memory leak or crash when unmounting since the unsubscribe call would use the wrong friend ID.
+**¿Pero que sucede si la propiedad `friend` cambia** mientras el componente está en la pantalla? Nuestro componente continuaría mostrando el estado de un amigo diferente. Esto es un error. Además podríamos causar una fuga de memoria o un fallo crítico dado que la llamada que cancela la suscripción usaría un identificador erroneo.
 
-In a class component, we would need to add `componentDidUpdate` to handle this case:
+En un componente de clase, necesitaríamos añadir `componentDidUpdate` para manejar este caso:
 
 ```js{8-19}
   componentDidMount() {
@@ -366,12 +366,12 @@ In a class component, we would need to add `componentDidUpdate` to handle this c
   }
 
   componentDidUpdate(prevProps) {
-    // Unsubscribe from the previous friend.id
+    // Cancela la suscripción del friend.id anterior
     ChatAPI.unsubscribeFromFriendStatus(
       prevProps.friend.id,
       this.handleStatusChange
     );
-    // Subscribe to the next friend.id
+    // Se suscribe al siguiente friend.id
     ChatAPI.subscribeToFriendStatus(
       this.props.friend.id,
       this.handleStatusChange
@@ -386,9 +386,9 @@ In a class component, we would need to add `componentDidUpdate` to handle this c
   }
 ```
 
-Forgetting to handle `componentDidUpdate` properly is a common source of bugs in React applications.
+No gestionar `componentDidUpdate` correctamente es una fuente de errores común en las aplicaciones React.
 
-Now consider the version of this component that uses Hooks:
+Ahora consideremos la versión de este componente que usa Hooks:
 
 ```js
 function FriendStatus(props) {
@@ -401,31 +401,31 @@ function FriendStatus(props) {
   });
 ```
 
-It doesn't suffer from this bug. (But we also didn't make any changes to it.)
+No padece el mismo error. (Aunque tampoco hemos hecho ningún cambio)
 
-There is no special code for handling updates because `useEffect` handles them *by default*. It cleans up the previous effects before applying the next effects. To illustrate this, here is a sequence of subscribe and unsubscribe calls that this component could produce over time:
+No hay un código especial para gestionar las actualizaciones porque `useEffect` las gestiona *por defecto*. Sanea los efectos anteriores antes de aplicar los nuevos. Para ilustrar esto, esta es una secuencia de llamadas de suscripción y cancelación que produciría este componente a lo largo del tiempo:
 
 ```js
-// Mount with { friend: { id: 100 } } props
-ChatAPI.subscribeToFriendStatus(100, handleStatusChange);     // Run first effect
+// Se monta con las props { friend: { id: 100 } }
+ChatAPI.subscribeToFriendStatus(100, handleStatusChange);     // Ejecuta el primer efecto
 
-// Update with { friend: { id: 200 } } props
-ChatAPI.unsubscribeFromFriendStatus(100, handleStatusChange); // Clean up previous effect
-ChatAPI.subscribeToFriendStatus(200, handleStatusChange);     // Run next effect
+// Se actualiza con las props { friend: { id: 200 } }
+ChatAPI.unsubscribeFromFriendStatus(100, handleStatusChange); // Sanea el efecto anterior
+ChatAPI.subscribeToFriendStatus(200, handleStatusChange);     // Ejecuta el siguiente efecto
 
-// Update with { friend: { id: 300 } } props
-ChatAPI.unsubscribeFromFriendStatus(200, handleStatusChange); // Clean up previous effect
-ChatAPI.subscribeToFriendStatus(300, handleStatusChange);     // Run next effect
+// Se actualiza con las props { friend: { id: 300 } }
+ChatAPI.unsubscribeFromFriendStatus(200, handleStatusChange); // Sanea el efecto anterior
+ChatAPI.subscribeToFriendStatus(300, handleStatusChange);     // Ejecuta el siguiente efecto
 
-// Unmount
-ChatAPI.unsubscribeFromFriendStatus(300, handleStatusChange); // Clean up last effect
+// Se desmonta
+ChatAPI.unsubscribeFromFriendStatus(300, handleStatusChange); // Sanea el último efecto
 ```
 
-This behavior ensures consistency by default and prevents bugs that are common in class components due to missing update logic.
+Este comportamiento asegura la consistencia por defecto y previene errores que son comunes en los componentes de clase debido a la falta de lógica de actualización.
 
-### Tip: Optimizing Performance by Skipping Effects
+### Consejo: Omite efectos para optimizar el rendimiento
 
-In some cases, cleaning up or applying the effect after every render might create a performance problem. In class components, we can solve this by writing an extra comparison with `prevProps` or `prevState` inside `componentDidUpdate`:
+En algunos casos, sanear o aplicar el efecto después de cada renderizado puede crear problemas de rendimiento. En los componentes de clase podemos solucionarlos escribiendo una comparación extra con `prevProps` o `prevState` dentro de `componentDidUpdate`:
 
 ```js
 componentDidUpdate(prevProps, prevState) {
@@ -435,19 +435,19 @@ componentDidUpdate(prevProps, prevState) {
 }
 ```
 
-This requirement is common enough that it is built into the `useEffect` Hook API. You can tell React to *skip* applying an effect if certain values haven't changed between re-renders. To do so, pass an array as an optional second argument to `useEffect`:
+Este requerimiento es tan común que está incorporado en la API del Hook `useEffect`. Puedes indicarle a React que *omita* aplicar un efecto si ciertos valores no han cambiado entre renderizados. Para hacerlo, pasa un array como segundo argumento opcional a `useEffect`:
 
 ```js{3}
 useEffect(() => {
   document.title = `You clicked ${count} times`;
-}, [count]); // Only re-run the effect if count changes
+}, [count]); // Solo se vuelve a ejecutar si count cambia
 ```
 
-In the example above, we pass `[count]` as the second argument. What does this mean? If the `count` is `5`, and then our component re-renders with `count` still equal to `5`, React will compare `[5]` from the previous render and `[5]` from the next render. Because all items in the array are the same (`5 === 5`), React would skip the effect. That's our optimization.
+En el ejemplo anterior pasamos `[count]` como segundo argumento. Qué significa esto? Si `count` es `5`, y cuando nuestro componente se re-renderiza `count` continua siendo igual a `5`, React comparará el `[5]` del renderizado anterior con el `[5]` del siguiente renderizado. Dado que todos los elementos en el array (`5 === 5`), React omitirá el efecto. Esa es nuestra optimización.
 
-When we render with `count` updated to `6`, React will compare the items in the `[5]` array from the previous render to items in the `[6]` array from the next render. This time, React will re-apply the effect because `5 !== 6`. If there are multiple items in the array, React will re-run the effect even if just one of them is different.
+Cuando renderizamos con `count` actualizado a `6`, React comparará los elementos en el array `[5]` del renderizado anterior con los elementos del array `[6]` del siguente renderizado. En esta ocasión, React volverá a aplicar el efecto dado que `5 !== 6`. Si el array contiene varios elementos, React volverá a ejecutar el efecto si cualquiera de los elementos es diferente.
 
-This also works for effects that have a cleanup phase:
+Esto también funciona para efectos que tienen fase de saneamiento:
 
 ```js{6}
 useEffect(() => {
@@ -455,21 +455,21 @@ useEffect(() => {
   return () => {
     ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
   };
-}, [props.friend.id]); // Only re-subscribe if props.friend.id changes
+}, [props.friend.id]); // Solo se vuelve a suscribir si la propiedad props.friend.id cambia
 ```
 
-In the future, the second argument might get added automatically by a build-time transformation.
+En el futuro, el segundo argumento podría ser añadido automáticamente por una transformación en tiempo de compilación.
 
->Note
+>Nota
 >
->If you use this optimization, make sure the array includes **any values from the outer scope that change over time and that are used by the effect**. Otherwise, your code will reference stale values from previous renders. We'll also discuss other optimization options in the [Hooks API reference](/docs/hooks-reference.html).
+>Si usas esta optimización, asegurate de que incluyes **cualquier valor del ámbito externo que cambie a lo largo del tiempo y que sea usado por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Adicionalmente, trataremos otras opciones de optimización en la [referencia del API de Hooks](/docs/hooks-reference.html).
 >
->If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument. This tells React that your effect doesn't depend on *any* values from props or state, so it never needs to re-run. This isn't handled as a special case -- it follows directly from how the inputs array always works. While passing `[]` is closer to the familiar `componentDidMount` and `componentWillUnmount` mental model, we suggest not making it a habit because it often leads to bugs, [as discussed above](#explanation-why-effects-run-on-each-update). Don't forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
+>Si quieres ejecutar un efecto y sanearlo solamente una vez (al montar y desmontar), puedes pasar un array vacío (`[]`) como segundo argumento. Esto le indica a React que el efecto no depende de *ningún* valor proviniente de las props o el estado, de modo que no necesita volver a ejecutarse. Esto no se gestiona como un caso especial, obedece directamente al modo en el que siempre funcionan los arrays. A pesar de que pasar `[]` se parece al modelo mental de `componentDidMount` y `componentWillUnmount` y nos puede resultar familiar, recomendamos no convertirlo en un hábito, dado que a menudo nos conduce a errores, [tal y como hemos visto anteriormente](#explanation-why-effects-run-on-each-update). No olvides que React pospone la ejecución de `useEffect` hasta que el navegador finaliza el trazado, de modo que hacer algún trabajo extra no es tan problemático.
 
-## Next Steps
+## Próximos pasos
 
-Congratulations! This was a long page, but hopefully by the end most of your questions about effects were answered. You've learned both the State Hook and the Effect Hook, and there is a *lot* you can do with both of them combined. They cover most of the use cases for classes -- and where they don't, you might find the [additional Hooks](/docs/hooks-reference.html) helpful.
+¡Enhorabuena! Esta página ha sido muy larga, pero esperamos que al final la mayoría de tus dudas sobre los efectos hayan sido resueltas. Has aprendido los Hooks de estado y de efecto, y puedes hacer *muchas* cosas combinándolos. Estos Hooks abarcan la mayoría de casos de uso de las clases. Y en el caso de no ser suficientes, existen [Hooks adicionales](/docs/hooks-reference.html) que pueden servirte de ayuda.
 
-We're also starting to see how Hooks solve problems outlined in [Motivation](/docs/hooks-intro.html#motivation). We've seen how effect cleanup avoids duplication in `componentDidUpdate` and `componentWillUnmount`, brings related code closer together, and helps us avoid bugs. We've also seen how we can separate effects by their purpose, which is something we couldn't do in classes at all.
+También hemos empezado a ver como los Hooks solucionan problemas esbozados en [Motivación](/docs/hooks-intro.html#motivation). Hemos visto como el saneamiento de efectos evita la duplicidad en `componentDidUpdate` y `componentWillUnmount`, consolidando el código asociado y ayudándonos a evitar errores. Además hemos visto como podemos separar efectos por su propósito, que era algo que no podíamos hacer con clases.
 
-At this point you might be questioning how Hooks work. How can React know which `useState` call corresponds to which state variable between re-renders? How does React "match up" previous and next effects on every update? **On the next page we will learn about the [Rules of Hooks](/docs/hooks-rules.html) -- they're essential to making Hooks work.**
+Llegados a este punto puedes estar preguntándote como funcionan los Hooks. ¿Cómo puede saber React que llamada a `useState` corresponde a que variable de estado entre renderizados? ¿Como identifica React los efectos anteriores y posteriores en cada actualización? **En la siguiente página aprenderemos las [reglas de los Hooks](/docs/hooks-rules.html), las cuales son esenciales para que funcionen correctamente.**
