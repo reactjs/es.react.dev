@@ -1,9 +1,9 @@
 ---
 id: fragments
-title: Fragments
+title: Fragmentos
 permalink: docs/fragments.html
 ---
-Un patrón común en React es que un componente devuelva multiples elementos. Los Fragments te permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
+Un patrón común en React es que un componente devuelva multiples elementos. Los Fragmentos te permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
 
 ```js
 render() {
@@ -44,8 +44,8 @@ class Columns extends React.Component {
   render() {
     return (
       <div>
-        <td>Hola</td>
-        <td>Mundo</td>
+        <td>Hello</td>
+        <td>World</td>
       </div>
     );
   }
@@ -58,14 +58,14 @@ resulta en una salida de `<Table />` de:
 <table>
   <tr>
     <div>
-      <td>Hola</td>
-      <td>Mundo</td>
+      <td>Hello</td>
+      <td>World</td>
     </div>
   </tr>
 </table>
 ```
 
-Los Fragments solucionan este problema.
+Los Fragmentos solucionan este problema.
 
 ## Uso
 
@@ -74,36 +74,36 @@ class Columns extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <td>Hola</td>
-        <td>Mundo</td>
+        <td>Hello</td>
+        <td>World</td>
       </React.Fragment>
     );
   }
 }
 ```
 
-que resulta en una correcta salida de `<Table />` de:
+que resulta en una salida correcta de `<Table />` de:
 
 ```jsx
 <table>
   <tr>
-    <td>Hola</td>
-    <td>Mundo</td>
+    <td>Hello</td>
+    <td>World</td>
   </tr>
 </table>
 ```
 
 ### Sintaxis corta
 
-Hay una sintaxis nueva, más corta que puede usar para declarar fragments. Parecen etiquetas vacías:
+Hay una sintaxis nueva, más corta que puedes usar para declarar fragmentos. Parecen etiquetas vacías:
 
 ```jsx{4,7}
 class Columns extends React.Component {
   render() {
     return (
       <>
-        <td>Hola</td>
-        <td>Mundo</td>
+        <td>Hello</td>
+        <td>World</td>
       </>
     );
   }
@@ -114,16 +114,16 @@ Puedes utilizar `<></>` de la misma manera que usarías cualquier otro elemento,
 
 Considera que: **[muchas herramientas no lo soportan aún](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**, por lo que podrías escribir explícitamente `<React.Fragment>` hasta que las herramientas se pongan al día.
 
-### Fragments incrustados
+### Fragmentos incrustados
 
-Fragments declarados con la sintaxis explícita `<React.Fragment>` pueden tener llaves. Un caso de uso para esto es el mapeo de una colección a un arreglo de fragment -- por ejemplo, para crear una lista de descripción:
+Fragmentos declarados con la sintaxis explícita `<React.Fragment>` pueden tener llaves. Un caso de uso para esto es el mapeo de una colección a un arreglo de fragmentos -- por ejemplo, para crear una lista de descripción:
 
 ```jsx
 function Glossary(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Sin la 'key', React disparará una advertencia de key
+        // Sin la prop 'key', React disparará una advertencia de key
         <React.Fragment key={item.id}>
           <dt>{item.term}</dt>
           <dd>{item.description}</dd>
