@@ -123,7 +123,7 @@ function Glossary(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Sin la prop 'key', React disparará una advertencia de key
+        // Sin el prop 'key', React disparará una advertencia de key
         <React.Fragment key={item.id}>
           <dt>{item.term}</dt>
           <dd>{item.description}</dd>
