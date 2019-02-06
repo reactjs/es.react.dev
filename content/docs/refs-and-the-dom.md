@@ -29,15 +29,15 @@ Por ejemplo, en lugar de exponer los métodos `open()` y `close()` a un componen
 
 ### No Abuses de las Referencias
 
-Your first inclination may be to use refs to "make things happen" in your app. If this is the case, take a moment and think more critically about where state should be owned in the component hierarchy. Often, it becomes clear that the proper place to "own" that state is at a higher level in the hierarchy. See the [Lifting State Up](/docs/lifting-state-up.html) guide for examples of this.
+Tu primer pensamiento puede ser usar referencias para "hacer que las cosas funcionen" en tu aplicación. De ser este el caso, espera un momento, y piensa críticamente donde debe estar el estado en la jerarquía de componentes. Frecuentemente, se vuelve mas claro que el lugar donde debería "estar" el estado, es en el nivel más alto de la jerarquía. Mira la guía [Levantando El Estado](/docs/lifting-state-up.html) para ejemplos de esto.
 
-> Note
+> Nota
 >
-> The examples below have been updated to use the `React.createRef()` API introduced in React 16.3. If you are using an earlier release of React, we recommend using [callback refs](#callback-refs) instead.
+> Los ejemplos a continuación han sido actualizados para hacer uso del API `React.createRef()` introducido en React 16.3. Si estas usando una versión de React anterior a esta, recomendamos usar en su lugar [referencias mediante callback](#callback-refs).
 
-### Creating Refs
+### Creando Referencias
 
-Refs are created using `React.createRef()` and attached to React elements via the `ref` attribute. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
+Las referencias son creadas usando `React.createRef()` y agregandolas a elementos React mediante el atributo `ref`. Las referencias son asignadas comunmente a una propiedad de instancia cuando un componente es construido, así puede ser referenciados mediante el componente.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {
@@ -51,23 +51,25 @@ class MyComponent extends React.Component {
 }
 ```
 
-### Accessing Refs
+### Accediendo a Referencias
 
-When a ref is passed to an element in `render`, a reference to the node becomes accessible at the `current` attribute of the ref.
+Cuando una referencia es pasada a un elemento en el `renderizado`, una referencia al nodo pasa a ser accesible en el atributo `current` de la referencia.
 
 ```javascript
 const node = this.myRef.current;
 ```
 
-The value of the ref differs depending on the type of the node:
+El valor de la referencia es diferente dependiendo del tipo de nodo:
 
-- When the `ref` attribute is used on an HTML element, the `ref` created in the constructor with `React.createRef()` receives the underlying DOM element as its `current` property.
-- When the `ref` attribute is used on a custom class component, the `ref` object receives the mounted instance of the component as its `current`.
-- **You may not use the `ref` attribute on function components** because they don't have instances.
+- Cuando el atributo `ref` es usado en un elemento HTML, la `referencia` creada en el constructor con `React.createRef()` recibe el elemento DOM adyacente como su propiedad `current`.
+- Cuando el atributo `ref` es usado en un componente de clase personalizado, el objeto de la `referencia` recibe la instancia montada del componente como su atributo `current`.
+- **No puedes hacer uso de `referencias` en componentes de función** debido a que no tienen instancias.
 
-The examples below demonstrate the differences.
+Los ejemplos a continuación demuestran las diferencias.
 
-#### Adding a Ref to a DOM Element
+#### Agregando una Referencia a un elemnto del DOM
+
+Esta código utiliza un `ref` para guardar una referencia al nodo del DOM:
 
 This code uses a `ref` to store a reference to a DOM node:
 
@@ -75,20 +77,20 @@ This code uses a `ref` to store a reference to a DOM node:
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    // create a ref to store the textInput DOM element
+    // crea una referencia para guardar el elemento textInput del DOM
     this.textInput = React.createRef();
     this.focusTextInput = this.focusTextInput.bind(this);
   }
 
   focusTextInput() {
-    // Explicitly focus the text input using the raw DOM API
-    // Note: we're accessing "current" to get the DOM node
+    // Hace enfoque explicitamente del campo de texto haciendo uso de un API del DOM
+    // Nota: Estamos accediendo la propiedad "current" para obtener el nodo del DOM
     this.textInput.current.focus();
   }
 
   render() {
-    // tell React that we want to associate the <input> ref
-    // with the `textInput` that we created in the constructor
+    // Informa a React de que queremos agregar la referencia `textInput` que creamos
+    // en el constructor a la etiqueta <input>
     return (
       <div>
         <input
@@ -105,11 +107,11 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-React will assign the `current` property with the DOM element when the component mounts, and assign it back to `null` when it unmounts. `ref` updates happen before `componentDidMount` or `componentDidUpdate` lifecycle methods.
+React asignará a la propiedad `current` el elemento del DOM cuando el componente sea montado, y la asignará de nuevo `null` cuando sea desmontado. La `referencia` es actualizada antes de los métodos `componentDidMount` or `componentDidUpdate`.
 
-#### Adding a Ref to a Class Component
+#### Agregando una Referencia a un Componente de Clase
 
-If we wanted to wrap the `CustomTextInput` above to simulate it being clicked immediately after mounting, we could use a ref to get access to the custom input and call its `focusTextInput` method manually:
+Si quisieramos envolver el `CustomTextInput` de más arriba para simular que esta siendo clickeado despues de montarse, podríamos utilizar una referencia para obtener acceso al input personalizado y llamar a su método `focusTextInput` manualmente:
 
 ```javascript{4,8,13}
 class AutoFocusTextInput extends React.Component {
@@ -130,7 +132,7 @@ class AutoFocusTextInput extends React.Component {
 }
 ```
 
-Note that this only works if `CustomTextInput` is declared as a class:
+Recuerda que esto solo funciona si `CustomTextInput` es declarado como una clase:
 
 ```js{1}
 class CustomTextInput extends React.Component {
@@ -138,9 +140,9 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-#### Refs and Function Components
+#### Referencias y Componentes de Función
 
-**You may not use the `ref` attribute on function components** because they don't have instances:
+**No puedes usar el atributo `ref` en componentes de función** debido a que no tienen instancias:
 
 ```javascript{1,8,13}
 function MyFunctionComponent() {
@@ -153,7 +155,7 @@ class Parent extends React.Component {
     this.textInput = React.createRef();
   }
   render() {
-    // This will *not* work!
+    // Esto *no* va a funcionar!
     return (
       <MyFunctionComponent ref={this.textInput} />
     );
@@ -161,13 +163,13 @@ class Parent extends React.Component {
 }
 ```
 
-You should convert the component to a class if you need a ref to it, just like you do when you need lifecycle methods or state.
+Tienes que convertir el componente a una clase si necesitas utilizar una referencia en el, justo como cuando necesitas mëtodos del ciclo de vida, o utilizar estado.
 
-You can, however, **use the `ref` attribute inside a function component** as long as you refer to a DOM element or a class component:
+Sin embargo, puedes **usar el atributo `ref` dentro de un componente de función** siempre y cuando hagas referencia de un elemento del DOM o de un componente de clase.
 
 ```javascript{2,3,6,13}
 function CustomTextInput(props) {
-  // textInput must be declared here so the ref can refer to it
+  // textInput debe estar declarado aquí para que *ref* pueda referenciarlo
   let textInput = React.createRef();
 
   function handleClick() {
@@ -189,25 +191,25 @@ function CustomTextInput(props) {
 }
 ```
 
-### Exposing DOM Refs to Parent Components
+### Exponiendo Referencias del DOM a Componentes Padres
 
-In rare cases, you might want to have access to a child's DOM node from a parent component. This is generally not recommended because it breaks component encapsulation, but it can occasionally be useful for triggering focus or measuring the size or position of a child DOM node.
+En casos raros, puede que necesites acceder al nodo DOM de un hijo desde un componente padre. Esto generalmente no es recomendado porque rompe con la encapsulación del componente, pero puede ser utíl ocacionalmente para hacer enfoque, o medir el tamaño o posición de un nodo hijo del DOM.
 
-While you could [add a ref to the child component](#adding-a-ref-to-a-class-component), this is not an ideal solution, as you would only get a component instance rather than a DOM node. Additionally, this wouldn't work with function components.
+Bien podrías [agregar una referencia al componente hijo](#adding-a-ref-to-a-class-component), esta no es la solución ideal, porque lo que obtendrías sería la instancia del componente en vez del nodo del DOM. Adicionalmente, esto no funcionaría con componentes de función.
 
-If you use React 16.3 or higher, we recommend to use [ref forwarding](/docs/forwarding-refs.html) for these cases. **Ref forwarding lets components opt into exposing any child component's ref as their own**. You can find a detailed example of how to expose a child's DOM node to a parent component [in the ref forwarding documentation](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
+Si usas React 16.3 o una versión mayor, recomendamos usar [paso de referencias](/docs/forwarding-refs.html) para estos casos. **Paso de referencias permite que los componentes decidan exponer cualquier referencia de sus hijos como si fuera la suya**. Puedes encontrar un ejemplo detallado de como exponer los nodos DOM de los hijos a un componente padre [en la documentación de paso de referencias](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
-If you use React 16.2 or lower, or if you need more flexibility than provided by ref forwarding, you can use [this alternative approach](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) and explicitly pass a ref as a differently named prop.
+Si usas React 16.2 o una versión más antigua, o si necesitas más flexibilidad de la que provee el paso de referencias, puedes utilizar [este enfoque alternativo](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) y pasar explicitamente una referencia como una propiedad nombrada diferente.
 
-When possible, we advise against exposing DOM nodes, but it can be a useful escape hatch. Note that this approach requires you to add some code to the child component. If you have absolutely no control over the child component implementation, your last option is to use [`findDOMNode()`](/docs/react-dom.html#finddomnode), but it is discouraged and deprecated in [`StrictMode`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
+Cuando sea posible, recomendamos no exponer los nodos del DOM, pero puede ser utíl como una vía de escape. Recuerda que este enfoque require que agregues código al componente hijo. Si no tienes control alguno sobre la implementación del componente hijo, tu ultima opción es usar [`findDOMNode()`](/docs/react-dom.html#finddomnode), pero esto no es recomendado, y esta dspreciado en modo estricto: [`(StrictMode)`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
-### Callback Refs
+### Referencias mediante Callback
 
-React also supports another way to set refs called "callback refs", which gives more fine-grain control over when refs are set and unset.
+React tambien ofrece otra manera de agregar referencias con "referencias mediante callback", que da un control mas detallado sobre cuando las referencias son establecidas o no.
 
-Instead of passing a `ref` attribute created by `createRef()`, you pass a function. The function receives the React component instance or HTML DOM element as its argument, which can be stored and accessed elsewhere. 
+En lugar de pasar un atributo a `ref` creado por `createRef()`, pasas una función. La función recibe la instancia del componente React o el elemento DOM del HTML como su argumento, que puede ser guardado y accedido desde otros lugares.
 
-The example below implements a common pattern: using the `ref` callback to store a reference to a DOM node in an instance property.
+El ejemplo a continuación implementa un patrón común: usar el `ref` mediante callback para guardar una referencia al nodo del DOM en una propiedad de la instancia.
 
 ```javascript{5,7-9,11-14,19,29,34}
 class CustomTextInput extends React.Component {
@@ -221,19 +223,19 @@ class CustomTextInput extends React.Component {
     };
 
     this.focusTextInput = () => {
-      // Focus the text input using the raw DOM API
+      // Hace enfoque del campo de texto usando un mëtodo propio del DOM
       if (this.textInput) this.textInput.focus();
     };
   }
 
   componentDidMount() {
-    // autofocus the input on mount
+    // Auto enfoca el campo despues de que el componente se monta
     this.focusTextInput();
   }
 
   render() {
-    // Use the `ref` callback to store a reference to the text input DOM
-    // element in an instance field (for example, this.textInput).
+    // Usa el `ref` mediante callback para guardar una referencia al campo de texto del DOM
+    // en una propiedad de la instancia (por ejemplo, this.textInput)
     return (
       <div>
         <input
