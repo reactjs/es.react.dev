@@ -13,21 +13,21 @@ permalink: docs/refs-and-the-dom.html
 
 Las referencias proporcionan una forma de acceder a los nodos del DOM o a elementos React creados en el metodo de renderizado.
 
-In the typical React dataflow, [props](/docs/components-and-props.html) are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both of these cases, React provides an escape hatch.
+En un flujo normal de datos de React, [las propiedades](/docs/components-and-props.html) son la unica forma en la que los componentes padres pueden interactuar con sus hijos. Para modificar un hijo, vuelves a renderizarlo con propiedades nuevas. Sin embargo, hay ciertos casos donde necesitarás modificar imperativamente un hijo fuera del flujo de datos tipico. El hijo a ser modificado puede ser una instancia de un componente React, o puede ser un elemento del DOM. Para ambos casos, React proporciona una via de escape.
 
-### When to Use Refs
+### Cuando Usar Referencias
 
-There are a few good use cases for refs:
+Existen unos cuantos buenos casos de uso para referencias:
 
-* Managing focus, text selection, or media playback.
-* Triggering imperative animations.
-* Integrating with third-party DOM libraries.
+* Controlar enfoques, selección de texto, o reproducción de medios.
+* Activar animaciones imperativas.
+* Integración con librerías DOM de terceros.
 
-Avoid using refs for anything that can be done declaratively.
+Evita el uso de referencias en cualquier cosa que pueda ser hecha declarativamente.
 
-For example, instead of exposing `open()` and `close()` methods on a `Dialog` component, pass an `isOpen` prop to it.
+Por ejemplo, en lugar de exponer los métodos `open()` y `close()` a un componente `Dialog`, pasa una propiedad `isOpen` a este en su lugar.
 
-### Don't Overuse Refs
+### No Abuses de las Referencias
 
 Your first inclination may be to use refs to "make things happen" in your app. If this is the case, take a moment and think more critically about where state should be owned in the component hierarchy. Often, it becomes clear that the proper place to "own" that state is at a higher level in the hierarchy. See the [Lifting State Up](/docs/lifting-state-up.html) guide for examples of this.
 
