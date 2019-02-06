@@ -6,7 +6,11 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
+<<<<<<< HEAD
 Los *Hooks* son una próxima característica que te permite usar el estado y otras características de React sin escribir una clase. Están actualmente en React v16.8.0-alpha.1.
+=======
+*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 Esta página describe las API para los Hooks incorporados en React.
 
@@ -79,7 +83,11 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 >
 > Otra opción es `useReducer`, que es más adecuada para administrar objetos de estado que contienen múltiples subvalores.
 
+<<<<<<< HEAD
 #### Inicialización gradual
+=======
+#### Lazy initial state
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 El argumento `initialState` es el estado utilizado durante el render inicial. En renders posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
 
@@ -89,6 +97,10 @@ const [state, setState] = useState(() => {
   return initialState;
 });
 ```
+
+#### Bailing out of a state update
+
+If you update a State Hook to the same value as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 ### `useEffect`
 
@@ -173,39 +185,44 @@ Los siguientes Hooks son variantes de los básicos de la sección anterior o sol
 ### `useReducer`
 
 ```js
-const [state, dispatch] = useReducer(reducer, initialState);
+const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
 Una alternativa a [`useState`](#usestate). Acepta un reducer de tipo `(state, action) => newState` y devuelve el estado actual emparejado con un método` dispatch`. (Si está familiarizado con Redux, ya sabe cómo funciona).
 
+<<<<<<< HEAD
 Aquí está el ejemplo de contador de la sección [`useState`] (# usestate), reescrito para usar un reducer:
+=======
+`useReducer` is usually preferable to `useState` when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one. `useReducer` also lets you optimize performance for components that trigger deep updates because [you can pass `dispatch` down instead of callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+
+Here's the counter example from the [`useState`](#usestate) section, rewritten to use a reducer:
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 ```js
 const initialState = {count: 0};
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'reset':
-      return initialState;
     case 'increment':
       return {count: state.count + 1};
     case 'decrement':
       return {count: state.count - 1};
     default:
+<<<<<<< HEAD
       // Un reducer siempre debe devolver un estado válido.
       // Alternativamente, puede lanzar un error si se envía una acción no válida.
       return state;
+=======
+      throw new Error();
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
   }
 }
 
 function Counter({initialCount}) {
-  const [state, dispatch] = useReducer(reducer, {count: initialCount});
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
       Count: {state.count}
-      <button onClick={() => dispatch({type: 'reset'})}>
-        Reset
-      </button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
     </>
@@ -213,21 +230,46 @@ function Counter({initialCount}) {
 }
 ```
 
+<<<<<<< HEAD
 #### Inicialización diferida
 
 `useReducer` acepta un tercer argumento opcional, `initialAction`. Si se proporciona, la acción inicial se aplica durante el render inicial. Esto es útil para calcular un estado inicial que incluye valores pasados a través de props:
+=======
+#### Specifying the initial state
 
-```js
-const initialState = {count: 0};
+There’s two different ways to initialize `useReducer` state. You may choose either one depending on the use case. The simplest way to pass the initial state as a second argument:
+
+```js{3}
+  const [state, dispatch] = useReducer(
+    reducer,
+    {count: initialCount}
+  );
+```
+
+>Note
+>
+>React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
+
+#### Lazy initialization
+
+You can also create the initial state lazily. To do this, you can pass an `init` function as the third argument. The initial state will be set to `init(initialArg)`.
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
+
+It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
+
+```js{1-3,11-12,21,26}
+function init(initialCount) {
+  return {count: initialCount};
+}
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'reset':
-      return {count: action.payload};
     case 'increment':
       return {count: state.count + 1};
     case 'decrement':
       return {count: state.count - 1};
+    case 'reset':
+      return init(action.payload);
     default:
       // Un reducer siempre debe devolver un estado válido.
       // Alternativamente, puede lanzar un error si se envía una acción no válida.
@@ -236,12 +278,7 @@ function reducer(state, action) {
 }
 
 function Counter({initialCount}) {
-  const [state, dispatch] = useReducer(
-    reducer,
-    initialState,
-    {type: 'reset', payload: initialCount},
-  );
-
+  const [state, dispatch] = useReducer(reducer, initialCount, init);
   return (
     <>
       Count: {state.count}
@@ -256,7 +293,9 @@ function Counter({initialCount}) {
 }
 ```
 
-`useReducer` is usually preferable to `useState` when you have complex state logic that involves multiple sub-values. It also lets you optimize performance for components that trigger deep updates because [you can pass `dispatch` down instead of callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+#### Bailing out of a dispatch
+
+If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 `useReducer` suele ser preferible a `useState` cuando tiene una lógica de estado compleja que involucra múltiples subvalores. También le permite optimizar el rendimiento de los componentes que activan actualizaciones profundas porque [puede pasar `dispatch` en lugar de callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
@@ -370,7 +409,11 @@ useDebugValue(value)
 
 `useDebugValue` puede usarse para mostrar una etiqueta para Hooks personalizados en React DevTools.
 
+<<<<<<< HEAD
 Por ejemplo, considere el Hook personalizado `useFriendStatus` descrito en ["Construyendo sus propios Hooks"](/docs/hooks-custom.html):
+=======
+For example, consider the `useFriendStatus` custom Hook described in ["Building Your Own Hooks"](/docs/hooks-custom.html):
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 ```js{6-8}
 function useFriendStatus(friendID) {
@@ -378,8 +421,13 @@ function useFriendStatus(friendID) {
 
   // ...
 
+<<<<<<< HEAD
   // Mostrar una etiqueta en DevTools junto a este Hook
   // por ejemplo: "FriendStatus: Online"
+=======
+  // Show a label in DevTools next to this Hook
+  // e.g. "FriendStatus: Online"
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
   useDebugValue(isOnline ? 'Online' : 'Offline');
 
   return isOnline;
@@ -388,15 +436,28 @@ function useFriendStatus(friendID) {
 
 > Consejo
 >
+<<<<<<< HEAD
 > No recomendamos agregar valores de depuración a cada Hook personalizado. Es más valioso para los Hooks personalizados que forman parte de las bibliotecas compartidas.
+=======
+> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 #### Aplazar el formato de los valores de depuración
 
+<<<<<<< HEAD
 En algunos casos, formatear un valor para mostrar puede ser una operación costosa. También es innecesario a menos que un Hook sea realmente inspeccionado.
 
 Por esta razón, `useDebugValue` acepta una función de formato como un segundo parámetro opcional. Esta función solo se llama si se inspeccionan los Hooks. Recibe el valor de depuración como parámetro y debe devolver un valor de visualización formateado.
 
 Por ejemplo, un Hook personalizado que devolvió un valor de `Date` podría evitar llamar a la función `toDateString` innecesariamente al pasar el siguiente formateador:
+=======
+In some cases formatting a value for display might be an expensive operation. It's also unnecessary unless a Hook is actually inspected.
+
+For this reason `useDebugValue` accepts a formatting function as an optional second parameter. This function is only called if the Hooks are inspected. It receives the debug value as a parameter and should return a formatted display value.
+
+For example a custom Hook that returned a `Date` value could avoid calling the `toDateString` function unnecessarily by passing the following formatter:
+
+>>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 ```js
 useDebugValue(date, date => date.toDateString());
 ```
