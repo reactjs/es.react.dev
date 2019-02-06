@@ -1,9 +1,9 @@
 ---
-id: fragmentos
-title: Fragmentos
-permalink: docs/fragmentos.html
+id: fragments
+title: Fragments
+permalink: docs/fragments.html
 ---
-Un patrón común en React es que un componente devuelva multiples elementos. Los Fragments le permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
+Un patrón común en React es que un componente devuelva multiples elementos. Los Fragments te permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
 
 ```js
 render() {
@@ -17,11 +17,11 @@ render() {
 }
 ```
 
-También hay una nueva [sintaxis corta](#short-syntax) para declararlos, pero aún no es soportada por todas las herramientas populares.
+También hay una nueva [sintaxis corta](#sintaxis-corta) para declararlos, pero aún no es soportada por todas las herramientas populares.
 
 ## Motivación
 
-Un patrón común es que un componente devuelva una lista de hijos. Tome este código de ejemplo en React:
+Un patrón común es que un componente devuelva una lista de hijos. Toma este código de ejemplo en React:
 
 ```jsx
 class Table extends React.Component {
@@ -37,7 +37,7 @@ class Table extends React.Component {
 }
 ```
 
-`<Columns />` tendría que devolver múltiples elementos `<td>` para que el código HTML renderizado sea valido. Si un div padre fue utilizado dentro del código `render()` de `<Columns />`, entonces el código HTML resultante será inválido.
+`<Columns />` tendría que devolver múltiples elementos `<td>` para que el código HTML renderizado sea válido. Si un div padre fue utilizado dentro del código `render()` de `<Columns />`, entonces el código HTML resultante será inválido.
 
 ```jsx
 class Columns extends React.Component {
@@ -110,13 +110,13 @@ class Columns extends React.Component {
 }
 ```
 
-Puede utilizar `<></>` de la misma manera que usaría cualquier otro elemento, excepto que este no soporta llaves o atributos.
+Puedes utilizar `<></>` de la misma manera que usarías cualquier otro elemento, excepto que este no soporta llaves o atributos.
 
-Considere que: **[muchas herramientas no lo soportan aún](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**, por lo que podría escribir explícitamente `<React.Fragment>` hasta que las herramientas se pongan al día.
+Considera que: **[muchas herramientas no lo soportan aún](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**, por lo que podrías escribir explícitamente `<React.Fragment>` hasta que las herramientas se pongan al día.
 
 ### Fragments incrustados
 
-Fragments declarados con la sintaxis explícita `<React.Fragment>` pueden tener llaves. Un caso de uso para esto es el mapeo de una colección a un arreglo de fragmento -- por ejemplo, para crear una lista de descripción:
+Fragments declarados con la sintaxis explícita `<React.Fragment>` pueden tener llaves. Un caso de uso para esto es el mapeo de una colección a un arreglo de fragment -- por ejemplo, para crear una lista de descripción:
 
 ```jsx
 function Glossary(props) {
@@ -138,4 +138,4 @@ function Glossary(props) {
 
 ### Demostración en vivo
 
-Puede probar la nueva sintaxis de fragmentos JSX con este [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
+Puedes probar la nueva sintaxis de fragmentos JSX con este [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
