@@ -80,7 +80,7 @@ Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.or
 
 >Consejo
 >
->Cuando te sientas confundido sobre algo de Javascript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) y [javascript.info](http://javascript.info/) son sitios increíbles para revisar. También hay un [foro de asistencia por la comunidad](/community/support.html) donde puedes pedir ayuda.
+>Cuando te sientas confundido sobre algo de Javascript, [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript) y [javascript.info](http://javascript.info/) son sitios increíbles para revisar. También hay un [foro de asistencia por la comunidad](/community/support.html) donde puedes pedir ayuda.
 
 ### Tutorial Práctico
 
@@ -114,7 +114,7 @@ El [glosario](/docs/glossary.html) contiene un resumen de los términos más com
 
 El [Blog de React](/blog/) es la fuente oficial de actualizaciones por parte del equipo de React. Cualquier información importante, incluyendo notas sobre lanzamientos o notas de depreciación, serán puestas allí primero.
 
-También puedes seguir la [cuenta @reactjs](https://twitter.com/reactjs) en Twitter, pero no te perderás de nada si solo lees el blog.
+También puedes seguir la [cuenta de @reactjs](https://twitter.com/reactjs) en Twitter, pero no te perderás de nada si solo lees el blog.
 
 No todos los lanzamientos de React ameritan su propia publicación en el blog, pero puedes encontrar una lista detallada de cambios para cada lanzamiento en el [archivo CHANGELOG.MD en el repositorio de React](https://github.com/facebook/react/blob/master/CHANGELOG.md), así como también en la página de [Lanzamientos](https://github.com/facebook/react).
 
@@ -124,4 +124,4 @@ Esta documentación siempre refleja la última versión estable de React, desde 
 
 ## ¿Algo hace falta?
 
-Si algo hace falta en la documentación, o si estas confundido, por favor [abre un caso en el repositorio de la documentación](https://github.com/reactjs/reactjs.org/issues/new) con tus sugerencias para mejoras, o envía un tweet a la [cuenta @reactjs](https://twitter.com/reactjs). ¡Nos encanta saber de ti!
+Si algo hace falta en la documentación, o si estas confundido, por favor [abre un caso en el repositorio de la documentación](https://github.com/reactjs/reactjs.org/issues/new) con tus sugerencias para mejoras, o envía un tweet a la [cuenta de @reactjs](https://twitter.com/reactjs). ¡Nos encanta saber de ti!
