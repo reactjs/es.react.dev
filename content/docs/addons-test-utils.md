@@ -19,15 +19,9 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
 
 > Nota:
 >
-<<<<<<< HEAD
-> Airbnb ha liberado una utilidad para pruebas llamada Enzyme, que hace fácil asegurar, manipular y navegar por el resultado de sus Componentes de React. Si está decidiendo que utilidad para pruebas unitarias utilizar junto con Jest u otra herramienta para pruebas, vale la pena darle un vistazo a: [http://airbnb.io/enzyme/](http://airbnb.io/enzyme/)
->
-> Como otra opción, también hay otra utilidad para pruebas llamada react-testing-library diseñada para permitir e incentivar el escribir las pruebas de sus componentes de la misma forma en que los usuarios finales los usarían. De igual forma, funciona con cualquiera de los ejecutores de pruebas: [https://git.io/react-testing-library](https://git.io/react-testing-library)
-=======
 > We recommend using [`react-testing-library`](https://git.io/react-testing-library) which is designed to enable and encourage writing tests that use your components as the end users do.
 >
 > Alternatively, Airbnb has released a testing utility called [Enzyme](http://airbnb.io/enzyme/), which makes it easy to assert, manipulate, and traverse your React Components' output.
->>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -48,67 +42,6 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
 
 ## Referencia
 
-<<<<<<< HEAD
-## Renderizado superficial
-
-Cuando se escriben pruebas de unidad para React, el renderizado superficial puede ser de ayuda. El renderizado superficial permite renderizar el componente "un nivel de profundidad" y asegurar lo que su método de renderizado retorna, sin preocuparse acerca del comportamiento de los componentes hijos, los cuales no son instanciados o renderizados. Esto no requiere de un DOM.
-
-> Nota:
->
-> El renderizado superficial se ha movido a `react-test-renderer/shallow`.<br>
-> [Puede encontrar más información sobre el renderizado superficial en su página de referencia](/docs/shallow-renderer.html)
-
-## Otras utilidades
-
-### `Simulate`
-
-```javascript
-Simulate.{eventName}(
-  element,
-  [eventData]
-)
-```
-
-Simula la ejecución de un evento en un nodo del DOM con los datos opcionales de evento `eventData`.
-
-`Simulate` tiene un método para [cada uno de los eventos que React comprende](/docs/events.html#supported-events).
-
-**Haciendo clic en un elemento**
-
-```javascript
-// <button ref={(node) => this.button = node}>...</button>
-const node = this.button;
-ReactTestUtils.Simulate.click(node);
-```
-
-**Cambiar el valor en un campo de entrada y presionar ENTER.**
-
-```javascript
-// <input ref={(node) => this.textInput = node} />
-const node = this.textInput;
-node.value = 'giraffe';
-ReactTestUtils.Simulate.change(node);
-ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
-```
-
-> Nota
->
-> Se debe proveer cualquiera de las propiedades del evento que se esté usando en tu componente (p.e. keyCode, which, etc...) ya que React no creará ninguna de estas por ti.
-
-* * *
-
-### `renderIntoDocument()`
-
-```javascript
-renderIntoDocument(element)
-```
-
-Renderiza un Elemento de React en un nodo separado del DOM en el documento. **Esta función requiere un DOM**
-
-> Nota:
->
-> Necesitará tener `window`, `window.document` y `window.document.createElement` habilitados de forma global **antes** de importar `React`. De otro modo React pensará que no tiene acceso al DOM y los métodos como `setState` no funcionarán.
-=======
 ### `act()`
 
 To prepare a component for assertions, wrap the code rendering it and performing updates inside an `act()` call. This makes your test run closer to how React works in the browser.
@@ -190,7 +123,6 @@ it('can render and update a counter', () => {
 ```
 
 Don't forget that dispatching DOM events only works when the DOM container is added to the `document`. You can use a helper like [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) to reduce the boilerplate code.
->>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 * * *
 
@@ -376,8 +308,6 @@ ReactDOM.render(element, domContainer);
 > You will need to have `window`, `window.document` and `window.document.createElement` globally available **before** you import `React`. Otherwise React will think it can't access the DOM and methods like `setState` won't work.
 
 * * *
-<<<<<<< HEAD
-=======
 
 ## Other Utilities
 
@@ -417,4 +347,3 @@ ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 > You will have to provide any event property that you're using in your component (e.g. keyCode, which, etc...) as React is not creating any of these for you.
 
 * * *
->>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
