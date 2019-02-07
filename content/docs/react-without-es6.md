@@ -164,7 +164,7 @@ Porfavor en encuenta que la síntaxis anterior es **experimental** y la síntaxi
 Si prefieres jugar a lo seguro, tienes algunas opciones:
 
 * Vincular los métodos a la instancia desde el constructor.
-* Usar funciones de flecha, e.g. `onClick={(e) => this.handleClick(e)}`.
+* Usar funciones flecha, e.g. `onClick={(e) => this.handleClick(e)}`.
 * Continuar utilizando `createReactClass`.
 
 ## Mixins
