@@ -159,7 +159,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Porfavor en encuenta que la síntaxis anterior es **experimental** y la síntaxis podría cambiar, o la propuesta podría no llegar a formar parte del lenguaje formalmente.
+Por favor, ten en encuenta que la sintaxis anterior es **experimental** y podría cambiar, o la propuesta podría no llegar a formar parte del lenguaje.
 
 Si prefieres jugar a lo seguro, tienes algunas opciones:
 
