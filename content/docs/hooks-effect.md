@@ -331,7 +331,7 @@ function FriendStatusWithCounter(props) {
 
 **Los *Hooks* nos permiten separar el código en función de lo que hace** en vez de en función del nombre de un método de ciclo de vida. React aplicará *cada* efecto del componente en el orden en el que han sido especificados.
 
-### Explicación: Porque los efectos se ejecutan en cada actualización
+### Explicación: Por qué los efectos se ejecutan en cada actualización
 
 Si estás familiarizado con las clases, te preguntarás porque la fase de saneamiento de efecto ocurre después de cada re-renderizado y no simplemente cuando el componente se desmonta. Veamos un ejemplo práctico para ver portuq este diseño nos ayuda a crear componentes con menos bugs.
 
