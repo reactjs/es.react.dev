@@ -179,7 +179,7 @@ Si prefieres jugar a lo seguro, tienes algunas opciones:
 
 Algunas veces componentes muy diferentes pueden compartir una funcionalidad en común. Estos son algunas veces llamados [preocupaciones transversales](https://en.wikipedia.org/wiki/Cross-cutting_concern). `createReactClass` te permite utilizar el sistema heredado de `mixins` para ello.
 
-Un caso de uso común es un componente que necesita actualizarse con un intérvalo de tiempo. Es fácil utilizar `setInterval()`, pero es importante cancelar tú intérvalo cuando ya no lo necesites más para ahorrar memoria. React provee [métodos de ciclo de vida](/docs/react-component.html#the-component-lifecycle) que te permiten saber cuando un componente es creado o destruido. Creemos un _mixin_ sencillo el cual utilice esos métodos para proveer simplemente una función `setInterval()` que será limpiada automáticamente cuando tu componente sea destruido.
+Un caso de uso común es un componente que necesita actualizarse con un intervalo de tiempo. Es fácil utilizar `setInterval()`, pero es importante cancelar tu intervalo cuando ya no lo necesites más para ahorrar memoria. React provee [métodos de ciclo de vida](/docs/react-component.html#the-component-lifecycle) que te permiten saber cuando un componente es creado o destruido. Creemos un _mixin_ sencillo que utilice esos métodos para proveer simplemente una función `setInterval()` que será limpiada automáticamente cuando tu componente sea destruido.
 
 ```javascript
 var SetIntervalMixin = {
