@@ -462,7 +462,7 @@ En el futuro, el segundo argumento podría ser añadido automáticamente por una
 
 >Nota
 >
->Si usas esta optimización, asegurate de que incluyes **cualquier valor del ámbito externo que cambie a lo largo del tiempo y que sea usado por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Adicionalmente, trataremos otras opciones de optimización en la [referencia del API de *Hooks*](/docs/hooks-reference.html).
+>Si usas esta optimización, asegurate de que incluyes **cualquier valor del ámbito externo que cambie a lo largo del tiempo y que sea usado por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Adicionalmente, trataremos otras opciones de optimización en la [referencia de la API de *Hooks*](/docs/hooks-reference.html).
 >
 >Si quieres ejecutar un efecto y sanearlo solamente una vez (al montar y desmontar), puedes pasar un array vacío (`[]`) como segundo argumento. Esto le indica a React que el efecto no depende de *ningún* valor proviniente de las props o el estado, de modo que no necesita volver a ejecutarse. Esto no se gestiona como un caso especial, obedece directamente al modo en el que siempre funcionan los arrays. A pesar de que pasar `[]` se parece al modelo mental de `componentDidMount` y `componentWillUnmount` y nos puede resultar familiar, recomendamos no convertirlo en un hábito, dado que a menudo nos conduce a errores, [tal y como hemos visto anteriormente](#explanation-why-effects-run-on-each-update). No olvides que React pospone la ejecución de `useEffect` hasta que el navegador finaliza el trazado, de modo que hacer algún trabajo extra no es tan problemático.
 
