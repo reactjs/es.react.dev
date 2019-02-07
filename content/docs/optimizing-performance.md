@@ -1,18 +1,18 @@
 ---
 id: optimizing-performance
-title: Optimizing Performance
+title: Optimizando el Rendimiento
 permalink: docs/optimizing-performance.html
 redirect_from:
   - "docs/advanced-performance.html"
 ---
 
-Internally, React uses several clever techniques to minimize the number of costly DOM operations required to update the UI. For many applications, using React will lead to a fast user interface without doing much work to specifically optimize for performance. Nevertheless, there are several ways you can speed up your React application.
+Internamente, React utiliza diferentes técnicas inteligentes para minimizar el número de operaciones DOM costosas requeridas para actualizar la interfaz de usuario. Para muchas aplicaciones, el uso de React conllevará a una interfaz de usuario rápida sin hacer mucho trabajo para optimizar específicamente el rendimiento. Sin embargo, hay varias maneras de acelerar tu aplicación de React.
 
-## Use the Production Build {#use-the-production-build}
+## Usar la *Build* de Producción
 
-If you're benchmarking or experiencing performance problems in your React apps, make sure you're testing with the minified production build.
+Si estás haciendo análisis comparativos o experimentando problemas de rendimiento en tus aplicacions de React, asegúrate que estas probando con una *build* minificada.
 
-By default, React includes many helpful warnings. These warnings are very useful in development. However, they make React larger and slower so you should make sure to use the production version when you deploy the app.
+Por defect, React incluye muchas alertas útiles. Estas alertas son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
 
 If you aren't sure whether your build process is set up correctly, you can check it by installing [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). If you visit a site with React in production mode, the icon will have a dark background:
 
