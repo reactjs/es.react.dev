@@ -55,7 +55,7 @@ Button.propTypes = {
 }
 ```
 
-En este caso, `ThirdPartyPropTypes.deprecated` es un contenedor que llama a `PropTypes.bool`. Este patrón en sí mismo está bien, pero desencadena un falso positivo porque React cree que usted está llamando directamente a PropTypes. La siguiente sección explica cómo solucionar este problema para una biblioteca que implementa algo como `ThirdPartyPropTypes`. Si no es una biblioteca que escribió, puede presentar un problema en su contra.
+En este caso, `ThirdPartyPropTypes.deprecated` es un contenedor que llama a `PropTypes.bool`. Este patrón en sí mismo está bien, pero desencadena un falso positivo porque React cree que tú estás llamando directamente a PropTypes. La siguiente sección explica cómo solucionar este problema para una biblioteca que implementa algo como `ThirdPartyPropTypes`. Si no es una biblioteca que escribiste, puedes abrir un issue en su proyecto.
 
 ### Corrección del falso positivo en PropTypes de terceros
 
