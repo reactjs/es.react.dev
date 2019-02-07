@@ -35,7 +35,7 @@ function Example() {
 
 Este fragmento está basado en el [ejemplo de contador de la página anterior](/docs/hooks-state.html), pero le hemos añadido una funcionalidad nueva: actualizamos el título del documento con un mensaje personalizado que incluye el número de clicks.
 
-Peticiones de datos, establecimiento de suscripciones y actualizaciones manuales del DOM en componentes de React serían ejemplos de efectos secundarios. Tanto si estás acostumbrado a llamar a estas operaciones efectos secundarios (o simplemente efectos) como si no, probablemente los has llevado a cabo en tus componentes con anterioridad.
+Peticiones de datos, establecimiento de suscripciones y actualizaciones manuales del DOM en componentes de React serían ejemplos de efectos secundarios. Tanto si estás acostumbrado a llamar a estas operaciones "efectos secundarios" (o simplemente "efectos") como si no, probablemente los has llevado a cabo en tus componentes con anterioridad.
 
 >Consejo
 >
