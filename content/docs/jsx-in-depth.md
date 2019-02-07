@@ -13,31 +13,31 @@ redirect_from:
   - "docs/jsx-in-depth-ko-KR.html"
 ---
 
-Fundamentally, JSX just provides syntactic sugar for the `React.createElement(component, props, ...children)` function. The JSX code:
+Fundamentalmente, JSX solo proporciona azúcar sintáctica para la función `React.createElement(component, props, ...children)`. El código JSX:
 
 ```js
 <MyButton color="blue" shadowSize={2}>
-  Click Me
+  Haz click en mi
 </MyButton>
 ```
 
-compiles into:
+compila en:
 
 ```js
 React.createElement(
   MyButton,
   {color: 'blue', shadowSize: 2},
-  'Click Me'
+  'Haz click en mi'
 )
 ```
 
-You can also use the self-closing form of the tag if there are no children. So:
+También puedes utilizar la forma de cierre automático de la etiqueta si no hay hijos. Asi:
 
 ```js
 <div className="sidebar" />
 ```
 
-compiles into:
+compila en:
 
 ```js
 React.createElement(
@@ -47,19 +47,19 @@ React.createElement(
 )
 ```
 
-If you want to test out how some specific JSX is converted into JavaScript, you can try out [the online Babel compiler](babel://jsx-simple-example).
+Si deseas probar cómo algunos JSX específicos se convierten en JavaScript, puedes probar [el compilador de Babel en línea](babel://jsx-simple-example).
 
-## Specifying The React Element Type
+## Especificando el tipo de elemento React
 
-The first part of a JSX tag determines the type of the React element.
+La primera parte de una etiqueta JSX determina el tipo del elemento React.
 
-Capitalized types indicate that the JSX tag is referring to a React component. These tags get compiled into a direct reference to the named variable, so if you use the JSX `<Foo />` expression, `Foo` must be in scope.
+Los tipos en mayúsculas indican que la etiqueta JSX se refiere a un componente React. Estas etiquetas se compilan en una referencia directa a la variable nombrada, por lo que si usas la expresión JSX `<Foo />`, `Foo` debe estar dentro del alcance.
 
-### React Must Be in Scope
+### React debe estar al alcance
 
-Since JSX compiles into calls to `React.createElement`, the `React` library must also always be in scope from your JSX code.
+Como JSX se compila en llamadas a `React.createElement`, la biblioteca` React` también debe estar siempre dentro del alcance de su código JSX.
 
-For example, both of the imports are necessary in this code, even though `React` and `CustomButton` are not directly referenced from JavaScript:
+Por ejemplo, ambas importaciones son necesarias en este código, a pesar de que `React` y `CustomButton` no están directamente referenciados desde JavaScript:
 
 ```js{1,2,5}
 import React from 'react';
@@ -71,18 +71,18 @@ function WarningButton() {
 }
 ```
 
-If you don't use a JavaScript bundler and loaded React from a `<script>` tag, it is already in scope as the `React` global.
+Si no usas un bundler de JavaScript y carga React de una etiqueta `<script>`, ya está dentro del alcance como el `React` global.
 
-### Using Dot Notation for JSX Type
+### Usando la notación de punto para el tipo JSX
 
-You can also refer to a React component using dot-notation from within JSX. This is convenient if you have a single module that exports many React components. For example, if `MyComponents.DatePicker` is a component, you can use it directly from JSX with:
+También puedes referirte a un componente React usando notación de punto desde JSX. Esto es conveniente si tienes un solo módulo que exporta muchos componentes React. Por ejemplo, si `MyComponents.DatePicker` es un componente, puede usarlo directamente desde JSX con:
 
 ```js{10}
 import React from 'react';
 
 const MyComponents = {
   DatePicker: function DatePicker(props) {
-    return <div>Imagine a {props.color} datepicker here.</div>;
+    return <div>Imagina un {props.color} datepicker aquí.</div>;
   }
 }
 
@@ -91,42 +91,42 @@ function BlueDatePicker() {
 }
 ```
 
-### User-Defined Components Must Be Capitalized
+### Los componentes definidos por el usuario deben estar en mayúsculas
 
-When an element type starts with a lowercase letter, it refers to a built-in component like `<div>` or `<span>` and results in a string `'div'` or `'span'` passed to `React.createElement`. Types that start with a capital letter like `<Foo />` compile to `React.createElement(Foo)` and correspond to a component defined or imported in your JavaScript file.
+Cuando un tipo de elemento comienza con una letra minúscula, se refiere a un componente incorporado como `<div>` o `<span>` y da como resultado una cadena `'div'` o `'span'` que se pasa a `React.createElement`. Los tipos que comienzan con una letra mayúscula como `<Foo />` compilan a `React.createElement(Foo)` y corresponden a un componente definido o importado en tu archivo JavaScript.
 
-We recommend naming components with a capital letter. If you do have a component that starts with a lowercase letter, assign it to a capitalized variable before using it in JSX.
+Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo una variable en mayúscula antes de usarlo en JSX.
 
-For example, this code will not run as expected:
+Por ejemplo, este código no se ejecutará como se esperaba:
 
 ```js{3,4,10,11}
 import React from 'react';
 
-// Wrong! This is a component and should have been capitalized:
+// ¡Incorrecto! Este es un componente y debería haberse capitalizado:
 function hello(props) {
-  // Correct! This use of <div> is legitimate because div is a valid HTML tag:
+  // ¡Correcto! Este uso de <div> es legítimo porque div es una etiqueta HTML válida:
   return <div>Hello {props.toWhat}</div>;
 }
 
 function HelloWorld() {
-  // Wrong! React thinks <hello /> is an HTML tag because it's not capitalized:
+  // ¡Incorrecto! React piensa que <hola /> es una etiqueta HTML porque no está en mayúscula:
   return <hello toWhat="World" />;
 }
 ```
 
-To fix this, we will rename `hello` to `Hello` and use `<Hello />` when referring to it:
+Para solucionar este problema, cambiaremos el nombre de `hello` a `Hello` y usaremos `<Hello />` cuando nos refiramos a el:
 
 ```js{3,4,10,11}
 import React from 'react';
 
-// Correct! This is a component and should be capitalized:
+// ¡Correcto! Este es un componente y debe ser capitalizado:
 function Hello(props) {
-  // Correct! This use of <div> is legitimate because div is a valid HTML tag:
+  // ¡Correcto! Este uso de <div> es legítimo porque div es una etiqueta HTML válida:
   return <div>Hello {props.toWhat}</div>;
 }
 
 function HelloWorld() {
-  // Correct! React knows <Hello /> is a component because it's capitalized.
+  // ¡Correcto! React sabe que <Hello /> es un componente porque está en mayúsculas.
   return <Hello toWhat="World" />;
 }
 ```
