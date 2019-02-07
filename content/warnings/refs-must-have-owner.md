@@ -24,7 +24,7 @@ Esto usualmente significa una de tres cosas:
 
 ## Refs en los componentes de función
 
-Si `<Foo>` es un componente de función, no puede agregarle una referencia:
+Si `<Foo>` es un componente de función, no puedes agregarle una referencia:
 
 ```js
 // ¡No funciona si Foo es una función!
