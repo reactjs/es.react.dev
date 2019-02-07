@@ -42,7 +42,7 @@ Greeting.defaultProps = {
 };
 ```
 
-Con `createReactClass()`, es necesario que tú definas `getDefaultProps()` como una función en el objeto pasado a `createReactClass()`:
+Con `createReactClass()`, es necesario que definas `getDefaultProps()` como una función en el objeto que se le pasa:
 
 ```javascript
 var Greeting = createReactClass({
