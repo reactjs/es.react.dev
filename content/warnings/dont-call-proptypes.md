@@ -38,7 +38,7 @@ var apiShape = PropTypes.shape({
 var error = apiShape(json, 'response');
 ```
 
-Si depende de usar PropTypes como este, le recomendamos que use o cree una bifurcación de PropTypes (como [estos](https://github.com/aackerman/PropTypes) [dos](https://github.com/developit/proptypes) paquetes).
+Si dependes en el uso de PropTypes como este, te recomendamos que uses o crees una bifurcación de PropTypes (como [estos](https://github.com/aackerman/PropTypes) [dos](https://github.com/developit/proptypes) paquetes).
 
 Si no corrige la advertencia, este código se bloqueará en la producción con React 16.
 
