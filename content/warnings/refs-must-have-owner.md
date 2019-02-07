@@ -55,7 +55,7 @@ ReactDOM.render(
 );
 ```
 
-Considere si [realmente necesita una referencia](/docs/refs-and-the-dom.html#when-to-use-refs) antes de usar este enfoque.
+Considera si [realmente necesitas una referencia](/docs/refs-and-the-dom.html#when-to-use-refs) antes de usar este enfoque.
 
 ## Múltiples copias de React
 
