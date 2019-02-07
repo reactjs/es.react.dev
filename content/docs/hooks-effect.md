@@ -233,7 +233,7 @@ function FriendStatus(props) {
 
 ## Recapitulación
 
-Hemos aprendido que `useEffect` nos permite expresar diferentes tipos de efectos secundarios después de que un componente se renderize. Algunos efectos pueden pueden devolver una función cuando requieran un saneamiento:
+Hemos aprendido que `useEffect` nos permite expresar diferentes tipos de efectos secundarios después de que un componente se renderice. Algunos efectos pueden pueden devolver una función cuando requieran un saneamiento:
 
 ```js
   useEffect(() => {
