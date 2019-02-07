@@ -335,7 +335,7 @@ function FriendStatusWithCounter(props) {
 
 Si estás familiarizado con las clases, te preguntarás porque la fase de saneamiento de efecto ocurre después de cada re-renderizado y no simplemente cuando el componente se desmonta. Veamos un ejemplo práctico para ver portuq este diseño nos ayuda a crear componentes con menos bugs.
 
-[En apartados anteriores](#example-using-classes-1) hemos presentado el ejemplo de componente `FriendStatus` que muestra si un amigo está conectado o no. Nuestra clase lee `friend.id` de `this.props`, se suscribe al estado del amigo al montarse y cancela la suscripción al desmontarse.
+[En apartados anteriores](#example-using-classes-1) hemos presentado el ejemplo de un componente `FriendStatus` que muestra si un amigo está conectado o no. Nuestra clase lee `friend.id` de `this.props`, se suscribe al estado del amigo al montarse y cancela la suscripción al desmontarse.
 
 ```js
   componentDidMount() {
