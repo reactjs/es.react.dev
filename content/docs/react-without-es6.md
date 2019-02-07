@@ -222,4 +222,4 @@ ReactDOM.render(
 );
 ```
 
-Si un componente utiliza multiples _mixins_ y varios _mixins_ definen el mismo método de ciclo de vida (e. varios _mixins_ quieren hacer algún tipo de limpieza cuando el componente sea destruido), todos los métodos de ciclo de vida tendrán la garantía de ser ejecutados. Los métodos definidos en _mixins_ correran en el orden en el que los _mixins_ fueron enumerados, seguidos de una llamada al método en el componente.
+Si un componente utiliza multiples _mixins_ y varios _mixins_ definen el mismo método de ciclo de vida (e. varios _mixins_ quieren hacer algún tipo de limpieza cuando el componente sea destruido), todos los métodos de ciclo de vida tendrán la garantía de ser ejecutados. Los métodos definidos en _mixins_ se ejecutan en el orden en el que los _mixins_ fueron enumerados, seguidos de una llamada al método en el componente.
