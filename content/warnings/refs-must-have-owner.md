@@ -4,7 +4,7 @@ layout: single
 permalink: warnings/refs-must-have-owner.html
 ---
 
-Probablemente esté aquí porque recibió uno de los siguientes mensajes de error:
+Probablemente estés aquí porque recibió uno de los siguientes mensajes de error:
 
 *React 16.0.0+*
 > Advertencia:
