@@ -40,7 +40,7 @@ var error = apiShape(json, 'response');
 
 Si dependes en el uso de PropTypes como este, te recomendamos que uses o crees una bifurcación de PropTypes (como [estos](https://github.com/aackerman/PropTypes) [dos](https://github.com/developit/proptypes) paquetes).
 
-Si no corrige la advertencia, este código se bloqueará en la producción con React 16.
+Si no corriges la advertencia, este código se bloqueará en la versión de producción que use React 16.
 
 ### Si no llama directamente a PropTypes pero sigue recibiendo la advertencia
 
