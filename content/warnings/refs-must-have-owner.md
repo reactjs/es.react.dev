@@ -36,7 +36,7 @@ Si necesita agregar una referencia a un componente, primero conviértalo a una c
 
 ## Cadenas de Ref fuera del método Render
 
-Esto generalmente significa que está intentando agregar una referencia a un componente que no tiene un propietario (es decir, no se creó dentro del método `render` de otro componente). Por ejemplo, esto no funcionará:
+Esto generalmente significa que estás intentando agregar una referencia a un componente que no tiene un propietario (es decir, no se creó dentro del método `render` de otro componente). Por ejemplo, esto no funcionará:
 
 ```js
 // ¡No funciona!
