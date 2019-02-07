@@ -122,7 +122,7 @@ function Example() {
 
 ### Explicación detallada
 
-Ahora que sabemos algo más sobre los efectos, estas lineas deberían cobrar sentido:
+Ahora que sabemos algo más sobre los efectos, estas líneas deberían cobrar sentido:
 
 ```js
 function Example() {
