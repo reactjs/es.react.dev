@@ -32,7 +32,7 @@ Si `<Foo>` es un componente de función, no puede agregarle una referencia:
 ```
 
 If you need to add a ref to a component, convert it to a class first, or consider not using refs as they are [rarely necessary](/docs/refs-and-the-dom.html#when-to-use-refs).
-Si necesita agregar una referencia a un componente, primero conviértalo a una clase, o considere no usar las referencias ya que son [raramente necesarias](/docs/refs-and-the-dom.html#when-to-use-refs).
+Si necesitas agregar una referencia a un componente, primero conviértelo a una clase, o considera no usar las referencias ya que son [raramente necesarias](/docs/refs-and-the-dom.html#when-to-use-refs).
 
 ## Cadenas de Ref fuera del método Render
 
