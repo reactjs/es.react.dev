@@ -143,7 +143,7 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-  // ADVERTENCIA: esta síntaxis es experimental!
+  // ADVERTENCIA: esta sintaxis es experimental!
   // Al usar una función de flecha aqui, el metodo es vinculado automaticamente:
   handleClick = () => {
     alert(this.state.message);
