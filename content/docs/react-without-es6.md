@@ -110,7 +110,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Con `createReactClass()`, esto no es necesario porque todos los metódos son automaticamente vinculados con la instancia:
+Con `createReactClass()`, esto no es necesario porque vincula todos los métodos:
 
 ```javascript
 var SayHello = createReactClass({
