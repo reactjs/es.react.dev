@@ -91,7 +91,7 @@ class SayHello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {message: 'Hello!'};
-    // Esta linea es importante!
+    // Esta línea es importante!
     this.handleClick = this.handleClick.bind(this);
   }
 
