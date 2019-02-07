@@ -14,7 +14,7 @@ class Greeting extends React.Component {
 }
 ```
 
-Si tú aún no utilizas ES6, puedes utilizar el módulo `create-react-class`:
+Si aún no utilizas ES6, puedes utilizar el módulo `create-react-class`:
 
 
 ```javascript
