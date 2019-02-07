@@ -225,7 +225,7 @@ function FriendStatus(props) {
 
 **¿Por qué hemos devuelto una función en nuestro efecto?** Este es un mecanismo opcional de los efectos. Todos los efectos pueden devolver una función que los sanea más tarde. Esto nos permite mantener la lógica de añadir y eliminar suscripciones cerca la una de la otra. ¡Son parte del mismo efecto!
 
-**¿Cuándo sanea React el efecto exáctamente?** React sanea el efecto cuando el componente se desmonta. Sin embargo, como hemos aprendido anteriormente, los efectos no se ejecutan solo una vez, sino en cada renderizado. He aquí el motivo por el cual React *también* sanea los efectos de renderizados anteriores antes de ejecutar los efectos del renderizado actual. Más adelante analizaremos [porque esto ayuda a evitar errores](#explanation-why-effects-run-on-each-update) y [como omitir este funcionamiento en el caso de que provoque problemas de rendimiento](#tip-optimizing-performance-by-skipping-effects).
+**¿Cuándo sanea React el efecto exactamente?** React sanea el efecto cuando el componente se desmonta. Sin embargo, como hemos aprendido anteriormente, los efectos no se ejecutan solo una vez, sino en cada renderizado. He aquí el motivo por el cual React *también* sanea los efectos de renderizados anteriores antes de ejecutar los efectos del renderizado actual. Más adelante analizaremos [porque esto ayuda a evitar errores](#explanation-why-effects-run-on-each-update) y [como omitir este funcionamiento en el caso de que provoque problemas de rendimiento](#tip-optimizing-performance-by-skipping-effects).
 
 >Nota
 >
