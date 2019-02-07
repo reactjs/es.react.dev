@@ -5,12 +5,8 @@ permalink: docs/hooks-custom.html
 next: hooks-reference.html
 prev: hooks-rules.html
 ---
-<<<<<<< HEAD
-*Hooks* are an upcoming feature that lets you use state and other React features without writing a class. They're currently in React v16.8.0-alpha.1.
-=======
 
 *Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
->>>>>>> 98c1d22fbef2638cafb03b07e0eabe2a6186fca8
 
 Construir tus propios Hooks te permite extraer la lógica del componente en funciones reutilizables.
 
