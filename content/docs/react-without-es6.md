@@ -30,7 +30,7 @@ La API de clases en ES6 es similar a `createReactClass()` con algunas excepcione
 
 ## Declarando _Props_ por Defecto
 
-Con functiones y clases de ES6 `defaultProps` es definido como una propiedad del componente:
+Con funciones y clases de ES6 `defaultProps` se define como una propiedad del componente:
 
 ```javascript
 class Greeting extends React.Component {
