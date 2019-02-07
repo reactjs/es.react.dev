@@ -100,7 +100,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // Porque `this.handleClick` está vinculada, podemos utilizarla como un event handler
+    // Porque `this.handleClick` está vinculada, podemos utilizarla como un *event handler*
     return (
       <button onClick={this.handleClick}>
         Say hello
