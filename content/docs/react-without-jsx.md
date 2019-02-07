@@ -11,7 +11,7 @@ Cada elemento JSX es solamente azucar sintactico para llamar `React.createElemen
 Por ejemplo, este código escrito con JSX:
 
 ```js
-class Hello extends React.Component {`React.createElement(component, props, ...children)`.
+class Hello extends React.Component
   render() {
     return <div>Hello {this.props.toWhat}</div>;
   }
