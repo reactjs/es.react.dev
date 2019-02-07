@@ -6,12 +6,12 @@ next: hooks-rules.html
 prev: hooks-intro.html
 ---
 
-Los *Hooks* son una nueva característica que te permite usar estado y otras características de React sin escribir una clase. Actualmente están disponibles en la versión v16.8.0-alpha.1 de React.
+Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 El *Hook de efecto* te permite llevar a cabo efectos secundarios en componentes funcionales:
 
 ```js{1,6-10}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
@@ -94,7 +94,7 @@ Veamos ahora como podemos hacer lo mismo con el *Hook* `useEffect`.
 Ya hemos visto este ejemplo al principio de la página, pero veámoslo más detenidamete:
 
 ```js{1,6-8}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
@@ -199,7 +199,7 @@ Veamos como podemos escribir este componente con *Hooks*.
 Quizás puedas estar pensando que necesitaríamos un efecto aparte para llevar a cabo este saneamiento. Pero el código para añadir y eliminar una suscripción esta tan estrechamente relacionado que `useEffect` está diseñado para mantenerlo unido. Si tu efecto devuelve una función, React la ejecutará en el momento de sanear el efecto:
 
 ```js{10-16}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
