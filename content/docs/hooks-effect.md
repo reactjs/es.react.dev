@@ -333,7 +333,7 @@ function FriendStatusWithCounter(props) {
 
 ### Explicación: Por qué los efectos se ejecutan en cada actualización
 
-Si estás familiarizado con las clases, te preguntarás porque la fase de saneamiento de efecto ocurre después de cada re-renderizado y no simplemente cuando el componente se desmonta. Veamos un ejemplo práctico para ver portuq este diseño nos ayuda a crear componentes con menos bugs.
+Si estás familiarizado con las clases, te preguntarás por qué la fase de saneamiento de efecto ocurre después de cada rerenderizado y no simplemente cuando el componente se desmonta. Veamos un ejemplo práctico para ver por qué este diseño nos ayuda a crear componentes con menos errores.
 
 [En apartados anteriores](#example-using-classes-1) hemos presentado el ejemplo de un componente `FriendStatus` que muestra si un amigo está conectado o no. Nuestra clase lee `friend.id` de `this.props`, se suscribe al estado del amigo al montarse y cancela la suscripción al desmontarse.
 
