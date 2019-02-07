@@ -42,7 +42,7 @@ Si dependes en el uso de PropTypes como este, te recomendamos que uses o crees u
 
 Si no corriges la advertencia, este código se bloqueará en la versión de producción que use React 16.
 
-### Si no llama directamente a PropTypes pero sigue recibiendo la advertencia
+### Si no llamas directamente a PropTypes pero sigues recibiendo la advertencia
 
 Inspeccione la traza producida por la advertencia. Encontrará la definición del componente responsable de la llamada directa PropTypes. Probablemente, el problema se deba a PropTypes de terceros que envuelven PropTypes de React, por ejemplo:
 
