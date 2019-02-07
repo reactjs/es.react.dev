@@ -67,7 +67,7 @@ Aquí esta cómo solucionarlo. Usaremos `deprecated` de [react-bootstrap/react-p
 export default function deprecated(propType, explanation) {
   return function validate(props, propName, componentName) {
     if (props[propName] != null) {
-      const message = `"${propName}" propiedad de "${componentName}" ha sido desaprobado.\n${explanation}`;
+      const message = `"${propName}" property of "${componentName}" has been deprecated.\n${explanation}`;
       if (!warned[message]) {
         warning(false, message);
         warned[message] = true;
@@ -86,7 +86,7 @@ Para corregir el falso positivo, asegurate de pasar **todos** los argumentos al 
 export default function deprecated(propType, explanation) {
   return function validate(props, propName, componentName, ...rest) { // Nota ...rest aqui
     if (props[propName] != null) {
-      const message = `"${propName}" propiedad de "${componentName}" ha sido desaprobado.\n${explanation}`;
+      const message = `"${propName}" property of "${componentName}" has been deprecated.\n${explanation}`;
       if (!warned[message]) {
         warning(false, message);
         warned[message] = true;
