@@ -57,7 +57,7 @@ Button.propTypes = {
 
 En este caso, `ThirdPartyPropTypes.deprecated` es un contenedor que llama a `PropTypes.bool`. Este patrón en sí mismo está bien, pero desencadena un falso positivo porque React cree que tú estás llamando directamente a PropTypes. La siguiente sección explica cómo solucionar este problema para una biblioteca que implementa algo como `ThirdPartyPropTypes`. Si no es una biblioteca que escribiste, puedes abrir un issue en su proyecto.
 
-### Corrección del falso positivo en PropTypes de terceros
+### Solucionando el falso positivo en PropTypes de terceros
 
 Si usted es autor de una biblioteca PropTypes de terceros y deja que los consumidores envuelvan los PropTypes React existentes, es posible que comiencen a ver esta advertencia proveniente de su biblioteca. Esto sucede porque React no ve un último argumento "secreto" que [pasa](https://github.com/facebook/react/pull/7132) para detectar llamadas de PropTypes manuales.
 
