@@ -196,7 +196,7 @@ Fíjate en como `componentDidMount` y `componentWillUnmount` necesitan ser un re
 
 Veamos como podemos escribir este componente con *Hooks*.
 
-Quizás puedas estar pensando que necesitaríamos un efecto aparte para llevar a cabo este saneamiento. Pero el código para añadir y eliminar una suscripción esta tan estrechamente relacionado que `useEffect` está diseñado para mantenerlo unido. Si tu efecto devuelve una función, React la ejecutará en el momento de sanear el efecto:
+Quizás puedas estar pensando que necesitaríamos un efecto aparte para llevar a cabo este saneamiento. Pero el código para añadir y eliminar una suscripción está tan estrechamente relacionado que `useEffect` está diseñado para mantenerlo unido. Si tu efecto devuelve una función, React la ejecutará en el momento de sanear el efecto:
 
 ```js{10-16}
 import React, { useState, useEffect } from 'react';
