@@ -14,16 +14,15 @@ Si estás haciendo análisis comparativos o experimentando problemas de rendimie
 
 Por defect, React incluye muchas alertas útiles. Estas alertas son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
 
-Si no estás seguro si tu *build* 
-If you aren't sure whether your build process is set up correctly, you can check it by installing [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). If you visit a site with React in production mode, the icon will have a dark background:
+Si no estás seguro si tu proceso de *build* está configurado correctamente, puedes revisarlo instalando [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). Si visitas un sitio con React en modo de producción, el ícono tendrá un fondo oscuro:
 
 <img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React DevTools on a website with production version of React">
 
-If you visit a site with React in development mode, the icon will have a red background:
+Si visitas un sitio con React en modo de desarrollo, el ícono tendrá un fondo rojo:
 
 <img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React DevTools on a website with development version of React">
 
-It is expected that you use the development mode when working on your app, and the production mode when deploying your app to the users.
+Se espera que uses el modo de desarrollo cuando estás trabajando en tu aplicación, y el modo de producción cuando despliegues tu aplicación a los usuarios.
 
 You can find instructions for building your app for production below.
 
