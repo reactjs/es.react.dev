@@ -43,7 +43,7 @@ Esto generalmente significa que estás intentando agregar una referencia a un co
 ReactDOM.render(<App ref="app" />, el);
 ```
 
-Intente renderizar este componente dentro de un nuevo componente de nivel superior que contendrá la referencia. Como alternativa, puede utilizar una referencia de callback:
+Intenta renderizar este componente dentro de un nuevo componente de nivel superior que contendrá la referencia. Como alternativa, puedes utilizar una referencia de callback:
 
 ```js
 let app;
