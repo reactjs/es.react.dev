@@ -24,7 +24,7 @@ Vamos a contruir un pequeño juego durante este tutorial. **Deberás estar tenta
 
 Este tutorial está dividido en varias secciones:
 
-* [Setup para el tutorial](#setup-para-el-tutorial) te dará un punto de partida para seguir el tutorial.
+* [Configuración para el tutorial](#configuracion-para-el-tutorial) te dará un punto de partida para seguir el tutorial.
 * [Visión general](#vision-general) te enseñará **los fundamentos** de React: componentes, props y estado.
 * [Completando el juego](#completando-el-juego) te enseñará **las técnicas más comunes** en desarrollo de React.
 * [Agregando Time Travel](#agregando-time-travel) te dará una **visión más profunda** de las fortalezas únicas de React.
@@ -50,60 +50,60 @@ Asumimos que tienes cierta familiaridad con HTML y JavaScript, pero deberías se
 
 Si necesitas revisar JavaScript, te recomendamos leer [esta guía](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Ten en cuenta que también usamos algunas características de ES6, una versión reciente de JavaScript. En este tutorial, estamos usando [funciones flecha](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [clases](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), sentencias [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) y [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Puedes usar el [Babel REPL](babel://es5-syntax-example) para revisar a qué código compila ES6.
 
-## Setup for the Tutorial
+## Configuración para el tutorial
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Hay dos maneras de completar este tutorial: puedes escribir el código en tu navegador, o puedes configurar tu entorno de desarrollo local en tu computador.
 
-### Setup Option 1: Write Code in the Browser
+### Opción de configuración 1: Escribe código en el navegador
 
-This is the quickest way to get started!
+¡Ésta es la forma más rápida de empezar!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Primero, abre este **[código inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** en una nueva pestaña. La nueva pestaña deberá mostrar un tablero vacío del juego de tic-tac-toe y código de React. Estaremos editando el código de React en este tutorial.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Ahora puedes saltarte a la segunda opción de configuración o ir a la sección de [visión general](#vision-general) para obtener una idea general de React.
 
-### Setup Option 2: Local Development Environment
+### Opción de configuración 2: Entorno de desarrollo local
 
-This is completely optional and not required for this tutorial!
+¡Ésta es completamente opcional y no es requeridad para éste tutorial!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Opcional: Instrucciones para seguir adelante localmente usando tu editor de texto preferido</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Esta configuración requiere más trabajo pero te permite completar el tutorial usando un editor de tu elección. Aquí los pasos a seguir:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Asegúrate de tener una versión reciente de [Node.js](https://nodejs.org/en/) instalada.
+2. Sigue las [instrucciones de instalación de Create React App](/docs/create-a-new-react-app.html#create-react-app) para hacer un nuevo proyecto.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project
+1. Elimina todos los archivos en la carpeta `src/` del nuevo proyecto.
 
-> Note: **don't delete the entire `src` folder, just the original source files inside it.**.  We'll replace the default source files with examples for this project in the next step.
+> Nota: **no elimines la carpeta `src` por completo, solo los archivos de código fuente originales dentro de ella**. Reemplazaremos los archivos de código fuente por defecto con ejemplos para este proyecto en el siguiente paso.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Si usas Mac ó Linux:
 rm -f *
 
-# Or, if you're on Windows:
+# Ó, si usas Windows:
 del *
 
-# Then, switch back to the project folder
+# Luego, regresa a la carpeta del proyecto
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+1. Agrega un archivo llamado `index.css` en la carpeta `src/` con [este código CSS](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+2. Agrega un archivo llamado `index.js` en la carpeta `src/` con [este código JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+3. Agrega estas 3 líneas en la parte superior del archivo `index.js` en la carpeta `src/`:
 
 ```js
 import React from 'react';
@@ -111,15 +111,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+Ahora, si tu ejecutas `npm start` en la carpeta del proyecto y abres `http://localhost:3000` en el navegador, deberías ver un campo de tic-tac-toe vacío.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Recomendamos seguir [estas instrucciones](https://babeljs.io/docs/editors/) para configurar el resaltado de sintaxis para tu editor.
 
 </details>
 
-### Help, I'm Stuck!
+### ¡Ayuda, estoy atorado!
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Si te atoras, revisa los [recursos de soporte de la comunidad](/community/support.html). En particular, [el chat de Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) es una gran manera de obtener ayuda rápidamente. Si no recibes una respuesta, o sigues atorado, por favor crea un issue, y te ayudaremos.
 
 ## Overview
 
