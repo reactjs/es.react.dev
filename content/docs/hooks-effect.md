@@ -49,7 +49,7 @@ En ciertas ocasiones, queremos **ejecutar código adicional después de que Reac
 
 ### Ejemplo con clases
 
-En los componentes de React con clases, el método `render` no debería causar efectos secundarios por si mismo. Sería prematuro. Normalmente queremos llevar a cabo nuestros efectos *después* de que React haya actualizado el DOM.
+En los componentes de React con clases, el método `render` no debería causar efectos secundarios por sí mismo. Sería prematuro. Normalmente queremos llevar a cabo nuestros efectos *después* de que React haya actualizado el DOM.
 
 Y es por eso que en las clases de React, ponemos los efectos secundarios en `componentDidMount` y `componentDidUpdate`. Volviendo a nuestro ejemplo, aquí tenemos el componente clase contador de React que actualiza el título del documento justo después de que React haga cambios en el DOM:
 
