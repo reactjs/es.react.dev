@@ -353,7 +353,7 @@ Si estás familiarizado con las clases, te preguntarás porque la fase de saneam
   }
 ```
 
-**¿Pero que sucede si la propiedad `friend` cambia** mientras el componente está en la pantalla? Nuestro componente continuaría mostrando el estado de un amigo diferente. Esto es un error. Además podríamos causar una fuga de memoria o un fallo crítico dado que la llamada que cancela la suscripción usaría un identificador erroneo.
+**¿Pero qué sucede si la propiedad `friend` cambia** mientras el componente está en la pantalla? Nuestro componente continuaría mostrando el estado de un amigo diferente. Esto es un error. Además podríamos causar una fuga de memoria o un fallo crítico al desmontar dado que la llamada que cancela la suscripción usaría un identificador erróneo.
 
 En un componente de clase, necesitaríamos añadir `componentDidUpdate` para manejar este caso:
 
