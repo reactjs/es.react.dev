@@ -134,7 +134,7 @@ var SayHello = createReactClass({
 
 Esto significa que las clases de ES6 traen consigo la necesidad de escribir un poco más de código repetitivo para utilizar *event handlers*, pero la ventaja radica en una ligera mejora del rendimiento en aplicaciones grandes.
 
-Sí el codigo repetitivo no es atractivo para tí, puedes activar la propuesta de síntaxis **experimental** [Propiedades de Clases](https://babeljs.io/docs/plugins/transform-class-properties/) con Babel:
+Si el código repetitivo no es atractivo para ti, puedes activar la propuesta de sintaxis **experimental** [Propiedades de Clases](https://babeljs.io/docs/plugins/transform-class-properties/) con Babel:
 
 
 ```javascript
