@@ -9,7 +9,7 @@ Probablemente estés aquí porque recibió uno de los siguientes mensajes de err
 *React 16.0.0+*
 > Advertencia:
 >
-> El elemento ref se especificó como una cadena (myRefName) pero no se estableció ningún propietario. Puede tener varias copias de React cargadas. (detalles: https://fb.me/react-refs-must-have-owner).
+> Element ref was specified as a string (myRefName) but no owner was set. You may have multiple copies of React loaded. (details: https://fb.me/react-refs-must-have-owner).
 
 *versiones anteriores de React*
 > Advertencia:
