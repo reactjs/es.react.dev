@@ -43,7 +43,7 @@ Peticiones de datos, establecimiento de suscripciones y actualizaciones manuales
 
 Hay dos tipos de efectos secundarios en los componentes de React: aquellos que necesitan una operación de saneamiento y los que si la necesitan. Vamos a profundizar más en esta distinción.
 
-## Efectons sin saneamiento
+## Efectos sin saneamiento
 
 En ciertas ocasiones, queremos **ejecutar código adicional después de que React haya actualizado el DOM.** Peticiones de red, mutaciones manuales del DOM, y registros son ejemplos comúnes de efectos que no requieren una acción de saneamiento. Decimos esto porque podemos ejecutarlos y olvidarnos de ellos inmediatamente. Vamos a comparar como las clases y los *Hooks* nos permiten expresar dichos efectos.
 
