@@ -44,7 +44,7 @@ Si no corriges la advertencia, este código se bloqueará en la versión de prod
 
 ### Si no llamas directamente a PropTypes pero sigues recibiendo la advertencia
 
-Inspeccione la traza producida por la advertencia. Encontrará la definición del componente responsable de la llamada directa PropTypes. Probablemente, el problema se deba a PropTypes de terceros que envuelven PropTypes de React, por ejemplo:
+Inspecciona la traza producida por la advertencia. Encontrarás la definición del componente responsable de la llamada directa PropTypes. Probablemente, el problema se deba a PropTypes de terceros que envuelven PropTypes de React, por ejemplo:
 
 ```js
 Button.propTypes = {
