@@ -61,4 +61,4 @@ Considera si [realmente necesitas una referencia](/docs/refs-and-the-dom.html#wh
 
 Bower hace un buen trabajo de deduplicación de dependencias, pero npm no lo hace. Si no está haciendo nada (elegante) con refs, hay una buena probabilidad de que el problema no sea con sus refs, sino más bien un problema con tener varias copias de React cargadas en tu proyecto. A veces, cuando ingresa un módulo de terceros a través de npm, obtendrás una copia duplicada de la biblioteca de dependencias, y esto puede crear problemas.
 
-Si está utilizando npm... `npm ls` o `npm ls react` puede ayudar a clarificar.
+Si estás utilizando npm... `npm ls` o `npm ls react` pueden ayudarte a iluminarte.
