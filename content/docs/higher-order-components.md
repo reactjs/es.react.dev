@@ -45,7 +45,7 @@ class CommentList extends React.Component {
   }
 
   componentWillUnmount() {
-    // Eliminar el manejador de eventos de cambios
+    // Eliminar el gestor de eventos de cambios
     DataSource.removeChangeListener(this.handleChange);
   }
 
@@ -102,9 +102,9 @@ class BlogPost extends React.Component {
 
 `CommentList` y `BlogPost` no son idénticos, ambos llaman a métodos distintos en `DataSource`, y renderizan una salida diferente. Paro gran parte de su implementación es la misma:
 
-- Al montar, añadir un manejador de eventos de cambio al `DataSource`.
-- En el manejador de eventos de cambio, llamar `setState` cada vez que la fuente de datos cambie.
-- Al desmontar, eliminar el manejador de eventos de cambio.
+- Al montar, añadir un gestor de eventos de cambio al `DataSource`.
+- En el gestor de eventos de cambio, llamar `setState` cada vez que la fuente de datos cambie.
+- Al desmontar, eliminar el gestor de eventos de cambio.
 
 Puedes imaginarte que en una aplicación grande este mismo patrón de suscribirse a una `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de multiples componentes. En esto es donde los componentes de orden superior se destacan.
 
