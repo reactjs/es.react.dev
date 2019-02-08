@@ -15,7 +15,7 @@ import ReactDOMServer from 'react-dom/server';
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Resumen
+## Resumen {#overview}
 
 Los siguientes métodos se pueden utilizar tanto en el servidor como en el entorno del navegador:
 
@@ -29,9 +29,9 @@ Estos métodos adicionales dependen de un paquete (`stream`) que **solo está di
 
 * * *
 
-## Referencia
+## Referencia {#reference}
 
-### `renderToString()`
+### `renderToString()` {#rendertostring}
 
 ```javascript
 ReactDOMServer.renderToString(element)
@@ -43,7 +43,7 @@ Si llamas [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) a un nodo que ya 
 
 * * *
 
-### `renderToStaticMarkup()`
+### `renderToStaticMarkup()` {#rendertostaticmarkup}
 
 ```javascript
 ReactDOMServer.renderToStaticMarkup(element)
@@ -55,7 +55,7 @@ Si planeas usar React en el cliente para hacer que el marcado sea interactivo, n
 
 * * *
 
-### `renderToNodeStream()`
+### `renderToNodeStream()` {#rendertonodestream}
 
 ```javascript
 ReactDOMServer.renderToNodeStream(element)
@@ -73,7 +73,7 @@ Si llamas [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en un nodo que ya
 
 * * *
 
-### `renderToStaticNodeStream()`
+### `renderToStaticNodeStream()` {#rendertostaticnodestream}
 
 ```javascript
 ReactDOMServer.renderToStaticNodeStream(element)
