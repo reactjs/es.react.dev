@@ -6,11 +6,11 @@ layout: docs
 category: FAQ
 ---
 
-### ¿Qué hace `setState`?
+### ¿Qué hace `setState`? {#what-does-setstate-do}
 
 `setState()` programa una actualización al objeto `estado` de un componente. Cuando el estado cambia, el componente responde volviendo a renderizar.
 
-### ¿Cuál es la diferencia entre `state` y `props`?
+### ¿Cuál es la diferencia entre `state` y `props`? {#what-is-the-difference-between-state-and-props}
 
 [`props`](/docs/components-and-props.html) (abreviatura de "*properties*") y [`state`](/docs/state-and-lifecycle.html) son objetos planos de JavaScript. Mientras ambos contienen información que influye en el resultado del render, son diferentes debido a una importante razón: `props` se pasa *al* componente (similar a los parámetros de una función) mientras que `state` se administra *dentro* del componente (similar a las variables declaradas dentro de una función).
 
@@ -18,7 +18,7 @@ Aquí hay algunos buenos recursos para leer más sobre cuándo usar `props` vs. 
 * [Props vs State](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
 * [ReactJS: Props vs. State](http://lucybain.com/blog/2016/react-state-vs-pros/)
 
-### ¿Por qué `setState` me está dando el valor incorrecto?
+### ¿Por qué `setState` me está dando el valor incorrecto? {#why-is-setstate-giving-me-the-wrong-value}
 
 En React, tanto `this.props` como `this.state` representan los valores *renderizados*, es decir, lo que hay actualmente en la pantalla.
 
@@ -49,11 +49,11 @@ handleSomething() {
 
 Ve a continuación cómo solucionar este problema.
 
-### ¿Cómo actualizo el estado con valores que dependen del estado actual?
+### ¿Cómo actualizo el estado con valores que dependen del estado actual? {#how-do-i-update-state-with-values-that-depend-on-the-current-state}
 
 Pasa una función en lugar de un objeto a `setState` para asegurarte de que la llamada siempre use la versión más actualizada del estado (ver más abajo).
 
-### ¿Cuál es la diferencia entre pasar un objeto o una función en `setState`?
+### ¿Cuál es la diferencia entre pasar un objeto o una función en `setState`? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
 
 Pasar una función de actualización te permite acceder al valor del estado actual dentro del actualizador. Dado que las llamadas a `setState` son por lotes, esto te permite encadenar actualizaciones y asegurarte de que se construyan una encima de otra en lugar de generar conflictos:
 
@@ -78,7 +78,7 @@ handleSomething() {
 
 [Aprende más sobre setState](/docs/react-component.html#setstate)
 
-### ¿Cuándo `setState` es asíncrono?
+### ¿Cuándo `setState` es asíncrono? {#when-is-setstate-asynchronous}
 
 Actualmente, `setState` es asíncrono dentro de los controladores de eventos.
 
@@ -86,7 +86,7 @@ Esto garantiza, por ejemplo, que si `Parent` y `Child` llaman a `setState` duran
 
 Este es un detalle de implementación, así que evita confiar en él directamente. En las versiones futuras, React realizará actualizaciones por lotes por defecto en más casos.
 
-### ¿Por qué React no actualiza `this.state` de forma sincrónica?
+### ¿Por qué React no actualiza `this.state` de forma sincrónica? {#why-doesnt-react-update-thisstate-synchronously}
 
 Como se explicó en la sección anterior, React intencionalmente "espera" hasta que todos los componentes llamen a `setState()` en sus controladores de eventos antes de comenzar a rerenderizar. Esto aumenta el rendimiento al evitar rerenderizados innecesarios.
 
@@ -99,7 +99,7 @@ Hay dos razones principales:
 
 Este [comentario de GitHub](https://github.com/facebook/react/issues/11527#issuecomment-360199710) profundiza en los ejemplos específicos.
 
-### ¿Debo usar una biblioteca de manejo de estado como Redux o MobX?
+### ¿Debo usar una biblioteca de manejo de estado como Redux o MobX? {#should-i-use-a-state-management-library-like-redux-or-mobx}
 
 [Tal vez.](https://redux.js.org/faq/general#when-should-i-use-redux)
 
