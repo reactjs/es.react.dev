@@ -20,7 +20,7 @@ Puedes encontrar una [API detallada sobre componentes aqui](/docs/react-componen
 
 Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
 
-## Componentes Funcionales y de Clase
+## Componentes Funcionales y de Clase {#function-and-class-components}
 
 La forma más sencilla de definir un componente es escribir una función de JavaScript:
 
@@ -47,7 +47,7 @@ Los dos componentes anteriores son equivalentes desde el punto de vista de React
 
 Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales por su brevedad.
 
-## Renderizando un Componente
+## Renderizando un Componente {#rendering-a-component}
 
 Anteriormente, sólo encontramos elementos de React que representan las etiquetas del DOM:
 
@@ -92,7 +92,7 @@ Recapitulemos lo que sucede en este ejemplo:
 > 
 > Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
-## Composición de Componentes
+## Composición de Componentes {#composing-components}
 
 Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comunmente como componentes.
 
@@ -123,7 +123,7 @@ ReactDOM.render(
 
 Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
-## Extracción de Componentes
+## Extracción de Componentes {#extracting-components}
 
 No tengas miedo de dividir los componentes en otros más pequeños.
 
@@ -236,7 +236,7 @@ function Comment(props) {
 
 Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su UI se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
 
-## Las props son de solo lectura
+## Las props son de solo lectura {#props-are-read-only}
 
 Ya sea que declares un componente [como una función o como una clase](#function-and-class-components), este nunca debe modificar sus props. Considera esta función `sum` :
 
