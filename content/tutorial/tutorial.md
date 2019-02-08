@@ -171,19 +171,19 @@ JSX viene con todo el poder de JavaScript. Puedes poner *cualquier* expresión d
 
 El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componener y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir UIs complejas desde componentes simples.
 
-## Inspecting the Starter Code
+## Inspeccionando el código inicial
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+Si vas a trabajar el tutorial **en tu navegador,** abre este código en un nuevo tab: **[Código inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Si vas a trabajar el tutorial **localmente,** abre `src/index.js` en la carpeta de tu proyecto (ya has tocado este archivo durante la [configuración](#setup-option-2-local-development-environment)).
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+Este código inicial es la base de lo que estás construyendo. Nos han provisto los estilos de CSS así que solo necesitas enfocarte en aprender React y programar el juego tic-tac-toe.
 
-By inspecting the code, you'll notice that we have three React components:
+Inspeccionando el código, notarás que tenemos 3 componentes de React:
 
 * Square
 * Board
 * Game
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+El componente Square renderiza un simple `<button>` y el Board renderiza 9 cuadrados. El componente Game renderiza un table con valores de posición por defecto que modificaremos luego. Actualmente no hay componentes interactivos.
 
 ### Passing Data Through Props
 
