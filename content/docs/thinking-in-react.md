@@ -12,7 +12,7 @@ React es, en nuestra opinión, la mejor forma de construir aplicaciones Web gran
 
 Una de las grandes ventaja de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalidad de búsqueda usando React.
 
-## Empieza con un mock
+## Empieza con un mock {#start-with-a-mock}
 
 Imagina que ya tenemos un API JSON y un mock de nuestro diseñador. Este luce más o menos así:
 
@@ -31,7 +31,7 @@ Nuestro API JSON devuelve información en el siguiente formato:
 ];
 ```
 
-## Paso 1: Divide la UI en una jerarquía de componentes
+## Paso 1: Divide la UI en una jerarquía de componentes {#step-1-break-the-ui-into-a-component-hierarchy}
 
 Lo Primero que vas a querer hacer es dibujar cajas alrededor de cada componente (y subcomponente) en el mock y darles nombres a todos ellos. Si trabajas con un diseñador, probablemente ya lo hayan hecho ¡Así que ve a hablar con ellos! ¡Los nombres de sus capas de Photoshop podrían terminar siendo los nombres de tus componentes de React!
 
@@ -59,7 +59,7 @@ Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Paso 2: Crea una versión estática en React
+## Paso 2: Crea una versión estática en React {#step-2-build-a-static-version-in-react}
 
 <p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -74,11 +74,11 @@ Al final de este paso tendrás una colección de componentes reutilizables que r
 
 Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
-### Una pequeña pausa: Props vs Estado
+### Una pequeña pausa: Props vs Estado {#a-brief-interlude-props-vs-state}
 
 Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
 
-## Paso 3: Identificar la versión mínima (pero completa) del estado de tu interfaz de usuario 
+## Paso 3: Identificar la versión mínima (pero completa) del estado de tu interfaz de usuario  {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
 Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios en tu modelo de datos interno. React hace esto fácil gracias a su **estado**.
 
@@ -104,7 +104,7 @@ Finalmente, nuestro estado es:
   * El texto de búsqueda que el usuario ingresó
   * El valor del checkbox
 
-## Paso 4: Identificar donde debe vivir tu estado
+## Paso 4: Identificar donde debe vivir tu estado {#step-4-identify-where-your-state-should-live}
 
 <p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="http://codepen.io">CodePen</a>.</p>
 
@@ -129,7 +129,7 @@ Genial, hemos decidido que nuestro estado viva en `FilterableProductTable`. Prim
 
 Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a `"ball"` cómo valor inicial y recarga tu aplicación. Veras que la tabla de datos se actualizó correctamente.
 
-## Paso 5: Agregar flujo de datos inverso
+## Paso 5: Agregar flujo de datos inverso {#step-5-add-inverse-data-flow}
 
 <p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> e  <a href="http://codepen.io">CodePen</a>.</p>
 
@@ -143,6 +143,6 @@ Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que 
 
 Aunque parece complejo, es en realidad una pocas línas de código. Y se vuelve realmente explícito como fluyen los datos a través de la aplicación.
 
-## Eso es todo
+## Eso es todo {#and-thats-it}
 
 Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es extremadamente fácil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)

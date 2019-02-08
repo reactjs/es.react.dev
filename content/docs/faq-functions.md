@@ -16,9 +16,11 @@ Pasa controladores de eventos y otras funciones como props a componentes hijos:
 
 Si necesitas tener acceso al componente padre dentro del evento, también debes enlazar la funciones a la instancia del componente (ver ejemplo).
 
+
 ### ¿Cómo enlazo una función a la instancia de un componente?
 
 Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
+
 
 #### Enlazar dentro del Constructor (ES2015)
 
@@ -36,6 +38,7 @@ class Foo extends Component {
   }
 }
 ```
+
 #### Propiedades de las Clases (Propuesta de etapa 3)
 
 ```jsx
@@ -49,6 +52,7 @@ class Foo extends Component {
   }
 }
 ```
+
 #### Enlazar en la renderización
 
 ```jsx
@@ -79,6 +83,7 @@ class Foo extends Component {
 ```
 >**Nota:**
 >
+
 >Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componenten, lo cual podría implicar problemas de rendimiento (ver ejemplo)
 
 ### ¿Está bien utilizar funciones flecha en los métodos de renderizado?
@@ -136,6 +141,7 @@ Esto es lo equivalente de llamar `.bind`:
 ```
 
 #### Ejemplo: Pasar parámetros utilizando función flecha
+
 ```jsx
 const A = 65 // código ASCII del caracter.
 
@@ -226,7 +232,7 @@ Mira [esta visualización](http://demo.nimius.net/debounce_throttle/) para ver l
 >`_.debounce`, `_.throttle` y `raf-schd` proporcionan el método `cancel` para cancelar callbacks retrasados. Puedes llamar este método dentro de `componentWillUnmount` _o_ corrobora que el componente sigue montado dentro de la función retrasada.
 
 
-#### Throttle
+#### Throttle {#throttle}
 
 Throttling previene que una función sea llamada mas de una vez según el tiempo determinado. El ejemplo que se encuentra debajo estrangula o hace throttle de un controlador de evento tipo click para prevenir que se llame mas de una vez por segundo.
 
@@ -254,7 +260,7 @@ class LoadMoreButton extends React.Component {
 }
 ```
 
-#### Debounce
+#### Debounce {#debounce}
 
 Debouncing asegura que una función no va a ser ejecutada hasta que cierta cantidad de tiempo haya pasado desde la última vez que fue llamada.
 Esto puede ser muy útil cuando tienes que realizar operaciones demandantes como respuesta de un evento que puede ejecutarse muy rápido (ejemplo eventos de scroll o teclado). El siguiente ejemplo hace debounce de una entrada de texto con un delay de 250ms.
@@ -298,7 +304,7 @@ class Searchbox extends React.Component {
 }
 ```
 
-#### `requestAnimationFrame` throttling
+#### `requestAnimationFrame` throttling {#requestanimationframe-throttling}
 
 [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) es una forma de poner una función en cola para ser ejecutada por el navegador en un tiempo optimo para el rendimiento del renderizado. Una función en cola con `requestAnimationFrame` va a dispararse en el siguiente cuadro. El navegador se va a encargar de que hayan 60 cuadros por segundo (60fps). Sin embargo, si el navegador no puede, el mismo navegador naturalmente va a limitar la cantida de cuadros por segundo. Por ejemplo, un dispositivo podría solo manejar 30 fps, por ende, solo tendrás 30 cuadros por segundo. Usando `requestAnimationFrame` para throttle es una técnica muy útil ya que previene que tu mismo generes más de 60 actualizaciones por segundo. Si estás generando 100 actualizaciones por segundo, puedes crear esfuerzo adicional para el navegador que el usuario de todas formas no va a poder apreciar.
 
@@ -345,5 +351,7 @@ class ScrollListener extends React.Component {
 }
 ```
 
+
 #### Probando tu límite de cuadros
 Cuando probamos limites de cuadros de forma correcta, es muy útil tener la habilidad de adelantar el tiempo. Si estás utilizando [`jest`](https://facebook.github.io/jest/) puedes usar [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) para adelantar el tiempo. Si estás utilizando throttle de `requestAnimationFrame` podrías encontrar útil [`raf-stub`](https://github.com/alexreardon/raf-stub) para controlar la frecuencia de los cuadros de animación.
+
