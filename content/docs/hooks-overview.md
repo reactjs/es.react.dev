@@ -16,12 +16,12 @@ Hooks son [compatibles con versiones anteriores](/docs/hooks-intro.html#no-break
 
 **↑↑↑ Cada sección termina con un recuadro amarillo como este.** Ellos vinculan a explicaciones detalladas.
 
-## 📌 Hook de Estado
+## 📌 Hook de Estado {#-state-hook}
 
 Este ejemplo renderiza un contador. Cuando haces click en el botón, incrementa el valor:
 
 ```js{1,4,5}
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Example() {
   // Declara una nueva variable de estado, que llamaremos "count".
@@ -42,7 +42,7 @@ Aquí, `useState` es un *Hook* (hablaremos de lo que esto significa en un moment
 
 El único argumento para `useState` es el estado inicial. En el ejemplo anterior, es `0` porque nuestro contador comienza desde cero. Ten en cuenta que a diferencia de `this.state`, el estado aquí no tiene que ser un objeto -- aunque puede serlo si quisieras. El argumento de estado inicial solo se usa durante el primer renderizado.
 
-#### Declarando múltiples variables de estado
+#### Declarando múltiples variables de estado {#declaring-multiple-state-variables}
 
 Puedes usar el Hook de Estado más de una vez en un mismo componente:
 
@@ -58,7 +58,7 @@ function ExampleWithManyStates() {
 
 La sintáxis de [desestructuración de un array] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment) nos permite dar diferentes nombres a las variables de estado que declaramos llamando a `useState `. Estos nombres no forman parte de la API `useState`. En su lugar, React asume que si llamas a `useState` muchas veces, lo haces en el mismo orden durante cada renderizado. Volveremos a explicar por qué esto funciona y cuándo será útil más adelante.
 
-#### Pero qué es un Hook?
+#### Pero qué es un Hook? {#but-what-is-a-hook}
 
 Hooks son funciones que te permiten "enganchar" el estado de React y el ciclo de vida desde componentes funcionales. Los hooks no funcionan dentro de las clases -- te permiten usar React sin clases. ([No recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescribir tus componentes existentes de la noche a la mañana, pero puedes comenzar a usar Hooks en los nuevos si quieres.)
 
@@ -68,7 +68,7 @@ React proporciona algunos Hooks incorporados como `useState`. También puedes cr
 >
 >Puedes aprender más sobre el Hook de Estado en la pagina dedicada: [Usando el Hook de Estado](/docs/hooks-state.html).
 
-## ⚡️ Hook de Efecto
+## ⚡️ Hook de Efecto {#️-effect-hook}
 
 Es probable que hayas realizado recuperación de datos, suscripciones o modificacion manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
 
@@ -77,7 +77,7 @@ El Hook de Efecto, `useEffect`, agrega la capacidad de realizar efectos secundar
 Por ejemplo, este componente establece el título del documento después de que React actualiza el DOM:
 
 ```js{1,6-10}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
@@ -104,7 +104,7 @@ Cuando llamas a `useEffect`, le estás diciendo a React que ejecute tu función 
 Los efectos también pueden especificar opcionalmente cómo "limpiar" después de ellos devolviendo una función. Por ejemplo, este componente utiliza un efecto para suscribirse al estado en línea de un amigo, y se limpia al anular su suscripción:
 
 ```js{10-16}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
@@ -159,7 +159,7 @@ Los Hooks te permiten organizar efectos secundarios en un componente según qué
 >
 > Puede obtener más información sobre `useEffect` en la página dedicada: [Usando el Hook de Efecto](/docs/hooks-effect.html).
 
-## ✌️ Reglas de Hooks
+## ✌️ Reglas de Hooks {#️-rules-of-hooks}
 
 Hooks son funciones de JavaScript, pero imponen dos reglas adicionales:
 
@@ -172,7 +172,7 @@ Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin
 >
 >Puedes aprender más sobre estas reglas en la página dedicada: [Reglas de Hooks](/docs/hooks-rules.html).
 
-## 💡 Construyendo Tus Propios Hooks
+## 💡 Construyendo Tus Propios Hooks {#-building-your-own-hooks}
 
 A veces, queremos reutilizar alguna lógica de estado entre componentes. Tradicionalmente, había dos soluciones populares para este problema: [componente de orden superior](/docs/higher-order-components.html) y [render props](/docs/render-props.html). Los Hooks personalizados te permiten hacer esto, pero sin agregar más componentes a tu árbol.
 
@@ -181,7 +181,7 @@ Anteriormente en esta página, presentamos un componente `FriendStatus` que llam
 Primero, extraeremos esta lógica en un Hook personalizado llamado `useFriendStatus`:
 
 ```js{3}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
   const [isOnline, setIsOnline] = useState(null);
@@ -239,7 +239,7 @@ Puedes escribir Hooks personalizados que cubran una amplia gama de casos de uso 
 >
 >>Puedes aprender más sobre Hooks personalizados en la página dedicada: [Construyendo Tus Propios Hooks](/docs/hooks-custom.html).
 
-## 🔌 Otros Hooks
+## 🔌 Otros Hooks {#-other-hooks}
 
 Hay algunos Hooks incorporados de uso menos común que pueden resultarte útiles. Por ejemplo, [`useContext`](/docs/hooks-reference.html#usecontext) te permite suscribirte al contexto React sin introducir el anidamiento:
 
@@ -263,7 +263,7 @@ function Todos() {
 >
 >>Puedes aprender más sobre todos los Hooks incorporados en la página dedicada: [Referencia de la Hooks API](/docs/hooks-reference.html).
 
-## Próximos Pasos
+## Próximos Pasos {#next-steps}
 
 ¡Uf, eso fue rápido! Si algunas cosas no te hacen mucho sentido o si te gustaria aprender más en detalle, puedes leer las siguientes páginas, comenzando con la documentación de [Hook de Estado](/docs/hooks-state.html).
 

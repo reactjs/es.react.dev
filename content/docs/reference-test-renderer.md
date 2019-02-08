@@ -13,7 +13,7 @@ import TestRenderer from 'react-test-renderer'; // ES6
 const TestRenderer = require('react-test-renderer'); // ES5 with npm
 ```
 
-## Resumen
+## Resumen {#overview}
 
 Este paquete proporciona un procesador de React que se puede usar para procesar componentes de React a objetos JavaScript puros, sin depender del DOM o de un entorno móvil nativo.
 
@@ -67,11 +67,11 @@ expect(testInstance.findByType(SubComponent).props.foo).toBe('bar');
 expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 ```
 
-### TestRenderer
+### TestRenderer {#testrenderer}
 
 * [`TestRenderer.create()`](#testrenderercreate)
 
-### Instancias de TestRenderer
+### Instancias de TestRenderer {#testrenderer-instance}
 
 * [`testRenderer.toJSON()`](#testrenderertojson)
 * [`testRenderer.toTree()`](#testrenderertotree)
@@ -80,7 +80,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 * [`testRenderer.getInstance()`](#testrenderergetinstance)
 * [`testRenderer.root`](#testrendererroot)
 
-### TestInstance
+### TestInstance {#testinstance}
 
 * [`testInstance.find()`](#testinstancefind)
 * [`testInstance.findByType()`](#testinstancefindbytype)
@@ -94,9 +94,9 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 * [`testInstance.parent`](#testinstanceparent)
 * [`testInstance.children`](#testinstancechildren)
 
-## Referencia
+## Referencia {#reference}
 
-### `TestRenderer.create()`
+### `TestRenderer.create()` {#testrenderercreate}
 
 ```javascript
 TestRenderer.create(element, options);
@@ -104,7 +104,7 @@ TestRenderer.create(element, options);
 
 Crea una instancia `TestRenderer` con el elemento React pasado como argumento. No utiliza el DOM real, pero aún así representa completamente el árbol de componentes en memoria para que puedas hacer afirmaciones al respecto. La instancia devuelta tiene los siguientes métodos y propiedades.
 
-### `testRenderer.toJSON()`
+### `testRenderer.toJSON()` {#testrenderertojson}
 
 ```javascript
 testRenderer.toJSON()
@@ -112,7 +112,7 @@ testRenderer.toJSON()
 
 Devuelve un objeto que representa el árbol renderizado en formato `JSON`. Este árbol solo contiene los nodos específicos de la plataforma como `<div>` o `<View>` y sus `props`, pero no contiene ningún componente escrito por el usuario. Esta representación es práctica para usarla en [pruebas de instantanea (`snapshot`)](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
-### `testRenderer.toTree()`
+### `testRenderer.toTree()` {#testrenderertotree}
 
 ```javascript
 testRenderer.toTree()
@@ -120,7 +120,7 @@ testRenderer.toTree()
 
 Devuelve un objeto que representa el árbol renderizado. A diferencia de `toJSON()`, la representación es más detallada, e incluye los componentes escritos por el usuario. Probablemente no necesites de este método al menos que estes escribiendo tu propia biblioteca de afirmaciones sobre el renderizador de prueba.
 
-### `testRenderer.update()`
+### `testRenderer.update()` {#testrendererupdate}
 
 ```javascript
 testRenderer.update(element)
@@ -128,7 +128,7 @@ testRenderer.update(element)
 
 Re-renderiza el nuevo árbol en memoria con un nuevo elemento raíz. Esto simula una actualización de React en la raíz. Si el nuevo elemento posee el mismo tipo y `key` del elemento anterior, el árbol será actualizado, de lo contrario se re-montara un nuevo árbol.
 
-### `testRenderer.unmount()`
+### `testRenderer.unmount()` {#testrendererunmount}
 
 ```javascript
 testRenderer.unmount()
@@ -136,7 +136,7 @@ testRenderer.unmount()
 
 Desmonta el árbol en memoria, generando los eventos apropiados del ciclo de vida.
 
-### `testRenderer.getInstance()`
+### `testRenderer.getInstance()` {#testrenderergetinstance}
 
 ```javascript
 testRenderer.getInstance()
@@ -144,7 +144,7 @@ testRenderer.getInstance()
 
 Devuelve la instancia correspondiente a la raíz del elemento, si está disponible. Este método no funciona si el elemento raíz es un componente funcional, ya que los mismos no poseen instancias.
 
-### `testRenderer.root`
+### `testRenderer.root` {#testrendererroot}
 
 ```javascript
 testRenderer.root
@@ -152,7 +152,7 @@ testRenderer.root
 
 Devuelve el objeto `test instance` de la raíz, el cual es útil para realizar afirmaciones acerca de nodos específicos en el árbol. Este puede ser usado para buscar otros objetos `test instance` ubicados más profundo en el árbol del componente.
 
-### `testInstance.find()`
+### `testInstance.find()` {#testinstancefind}
 
 ```javascript
 testInstance.find(test)
@@ -160,7 +160,7 @@ testInstance.find(test)
 
 Busca un único objeto `test instance` descendiente para el cual `test(testInstance)` devuelve `true`. Si `test(testInstance)` no devuelve `true` para exactamente una sola instancia, entonces genera un error.
 
-### `testInstance.findByType()`
+### `testInstance.findByType()` {#testinstancefindbytype}
 
 ```javascript
 testInstance.findByType(type)
@@ -168,7 +168,7 @@ testInstance.findByType(type)
 
 Busca un único objeto `test instance` descendiente con el `type` pasado como argumento. Si no existe un único descendiente con el tipo provisto genera un error.
 
-### `testInstance.findByProps()`
+### `testInstance.findByProps()` {#testinstancefindbyprops}
 
 ```javascript
 testInstance.findByProps(props)
@@ -176,7 +176,7 @@ testInstance.findByProps(props)
 
 Busca un único objeto `test instance` descendiente con los `props` pasados como argumento. Si no existe un único descendiente con los `props` genera un error.
 
-### `testInstance.findAll()`
+### `testInstance.findAll()` {#testinstancefindall}
 
 ```javascript
 testInstance.findAll(test)
@@ -184,7 +184,7 @@ testInstance.findAll(test)
 
 Busca todos los objetos `test instance` descendientes para los cuales `test(testInstance)` devuelve `true`.
 
-### `testInstance.findAllByType()`
+### `testInstance.findAllByType()` {#testinstancefindallbytype}
 
 ```javascript
 testInstance.findAllByType(type)
@@ -192,7 +192,7 @@ testInstance.findAllByType(type)
 
 Busca todos los objetos `test instance` descendientes con el tipo (`type`) pasado como argumento.
 
-### `testInstance.findAllByProps()`
+### `testInstance.findAllByProps()` {#testinstancefindallbyprops}
 
 ```javascript
 testInstance.findAllByProps(props)
@@ -202,7 +202,7 @@ testInstance.findAllByProps(props)
 Busca todos los objetos `test instance` descendientes con los `props` pasados como argumento.
 Find all descendant test instances with the provided `props`.
 
-### `testInstance.instance`
+### `testInstance.instance` {#testinstanceinstance}
 
 ```javascript
 testInstance.instance
@@ -210,7 +210,7 @@ testInstance.instance
 
 La instancia de componente correspondiente a este objeto `test instance`. Está únicamente disponible para componentes de clase, ya que los componentes funcionales no poseen instancias. Es equivalente al valor de `this` dentro del componente.
 
-### `testInstance.type`
+### `testInstance.type` {#testinstancetype}
 
 ```javascript
 testInstance.type
@@ -218,7 +218,7 @@ testInstance.type
 
 El tipo del componente que corresponde a este objeto `test instance`. Por ejemplo, un componente `<Button />` tiene un tipo `Button`.
 
-### `testInstance.props`
+### `testInstance.props` {#testinstanceprops}
 
 ```javascript
 testInstance.props
@@ -226,7 +226,7 @@ testInstance.props
 
 Los `props` correspondientes a este objeto `test instance`. Por ejemplo, un componente `<Button size="small" />` tiene las siguientes propiedades: `{size: 'small'}`.
 
-### `testInstance.parent`
+### `testInstance.parent` {#testinstanceparent}
 
 ```javascript
 testInstance.parent
@@ -234,7 +234,7 @@ testInstance.parent
 
 El objeto `test instance` padre.
 
-### `testInstance.children`
+### `testInstance.children` {#testinstancechildren}
 
 ```javascript
 testInstance.children
@@ -242,7 +242,7 @@ testInstance.children
 
 Los objetos `test instance` hijos directos.
 
-## Ideas
+## Ideas {#ideas}
 
 La función `TestRenderer.create` puede recibir una opción `createNodeMock` la cual permite la creación de `refs` adaptados para ser usados como objetos falsos en pruebas. `createNodeMock` acepta el elemento actual y debe retornar un objeto `ref` falso. Esto es útil cuando se necesita realizar pruebas sobre un componente que depende de `ref`
 
