@@ -122,7 +122,7 @@ const BlogPostWithSubscription = withSubscription(
 );
 ```
 
-El primer parámetros es el componente envuelto. El segundo parámetro obtiene los datos en los que estamos interesados dado un `DataSource` y los *props* actuales.
+El primer parámetro es el componente envuelto. El segundo parámetro obtiene los datos en los que estamos interesados dado un `DataSource` y los *props* actuales.
 
 Cuando `CommentListWithSubscription` y `BlogPostWithSubscription` sean renderizados, `CommentList` y `BlogPost` recibirán un *prop* `data` con los datos más actualizados recibidos de `DataSource`:
 
@@ -156,7 +156,7 @@ function withSubscription(WrappedComponent, selectData) {
 
     render() {
       // ... y renderiza el componente envuelto con los datos frescos!
-      // Tome nota que pasamos cualquier prop adicional
+      // Tome nota de que pasamos cualquier prop adicional
       return <WrappedComponent data={this.state.data} {...this.props} />;
     }
   };
@@ -185,7 +185,7 @@ function logProps(InputComponent) {
   return InputComponent;
 }
 
-// EnhancedComponent se encargará de logear cuando se reciban props
+// EnhancedComponent se encargará de logear cuando los props sean recibidos
 const EnhancedComponent = logProps(InputComponent);
 ```
 
