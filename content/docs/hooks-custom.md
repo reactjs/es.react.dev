@@ -67,7 +67,7 @@ En cambio, nos gustaría compartir esta lógica entre `FriendStatus` y `FriendLi
 
 Tradicionalmente en React, hemos tenido dos formas populares para compartir lógica de estados entre componentes: [renderizar props](/docs/render-props.html) y [componentes de orden mas alto](/docs/higher-order-components.html). Ahora veremos como los Hooks resuelven muchos de los mismos problemas sin forzarte a añadir más componentes al árbol.
 
-## Extrayendo un Hook Personalizado
+## Extrayendo un Hook Personalizado {#extracting-a-custom-hook}
 
 Cuando queremos compartir lógica entre dos funciones de Javascript, lo extraemos en una tercera función. Ambos, componentes y Hooks, son funciones, así que esto funciona para ellos también!
 
@@ -112,7 +112,7 @@ function useFriendStatus(friendID) {
 
 Ahora veamos como podemos usar nuestro Hook personalizado.
 
-## Usando un Hook Personalizado
+## Usando un Hook Personalizado {#using-a-custom-hook}
 
 Al principio, nuestro objetivo declarado fue eliminar la lógica duplicada de los componentes `FriendStatus` y `FriendListItem`. Ambos quieren saber cuando un amigo está conectado.
 
@@ -149,7 +149,7 @@ function FriendListItem(props) {
 
 **¿Cómo un Hook personalizado obtiene un estado aislado?** Cada *llamada* al Hook obtiene un estado aislado. Debido a que llamamos `useFriendStatus` directamente, desde el punto de vista de React nuestro componente llama a `useState` y `useEffect`. Y como [ aprendimos](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) [anteriormente](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) podemos llamar a `useState` y a ` useEffect` muchas veces en un componente y ellos van a ser completamente independientes.
 
-### Truco: Pasa información entre Hooks
+### Truco: Pasa información entre Hooks {#tip-pass-information-between-hooks}
 
 Ya que los Hooks son funciones, podemos pasar información entre ellos.
 
@@ -195,7 +195,7 @@ Como la llamada al Hook `useState` nos da el último valor de la variable de est
 
 Esto nos permite saber cuando el amigo* actualmente seleccionado* está en línea. Si elegimos un amigo diferente y actualizamos la variable de estado `recipientID`, nuestro Hook `useFriendStatus` va a eliminara su suscripción del amigo previamente seleccionado, y se suscribirá al estado del nuevo seleccionado.
 
-## `usaTuImaginación()`
+## `usaTuImaginación()` {#useyourimagination}
 
 Los Hooks personalizados ofrecen la flexibilidad de compartir lógica que no era posible antes con los componentes de React. Puedes escribir Hooks personalizados que cubran una amplia gama de casos de uso como manejo de formularios, animación, suscripciones declarativas, temporizadores y probablemente muchos más que no hemos considerado. Además, puedes construir Hooks que sean tan fáciles de usar como las características integradas de React.
 

@@ -19,7 +19,7 @@ render() {
 
 También hay una nueva [sintaxis corta](#sintaxis-corta) para declararlos, pero aún no es soportada por todas las herramientas populares.
 
-## Motivación
+## Motivación {#motivation}
 
 Un patrón común es que un componente devuelva una lista de hijos. Toma este código de ejemplo en React:
 
@@ -67,7 +67,7 @@ resulta en una salida de `<Table />` de:
 
 Los Fragmentos solucionan este problema.
 
-## Uso
+## Uso {#usage}
 
 ```jsx{4,7}
 class Columns extends React.Component {
@@ -93,7 +93,7 @@ que resulta en una salida correcta de `<Table />` de:
 </table>
 ```
 
-### Sintaxis corta
+### Sintaxis corta {#short-syntax}
 
 Hay una sintaxis nueva, más corta que puedes usar para declarar fragmentos. Parecen etiquetas vacías:
 
@@ -114,7 +114,7 @@ Puedes utilizar `<></>` de la misma manera que usarías cualquier otro elemento,
 
 Considera que: **[muchas herramientas no lo soportan aún](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**, por lo que podrías escribir explícitamente `<React.Fragment>` hasta que las herramientas se pongan al día.
 
-### Fragmentos incrustados
+### Fragmentos incrustados {#keyed-fragments}
 
 Fragmentos declarados con la sintaxis explícita `<React.Fragment>` pueden tener llaves. Un caso de uso para esto es el mapeo de una colección a un arreglo de fragmentos -- por ejemplo, para crear una lista de descripción:
 
@@ -136,6 +136,6 @@ function Glossary(props) {
 
 `key` es el único atributo que se puede pasar a `Fragment`. En el futuro, vamos a agregar soporte para atributos adicionales como manejadores de eventos.
 
-### Demostración en vivo
+### Demostración en vivo {#live-demo}
 
 Puedes probar la nueva sintaxis de fragmentos JSX con este [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).

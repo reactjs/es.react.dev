@@ -43,11 +43,11 @@ Peticiones de datos, establecimiento de suscripciones y actualizaciones manuales
 
 Hay dos tipos de efectos secundarios en los componentes de React: aquellos que necesitan una operación de saneamiento y los que si la necesitan. Vamos a profundizar más en esta distinción.
 
-## Efectos sin saneamiento
+## Efectos sin saneamiento {#effects-without-cleanup}
 
 En ciertas ocasiones, queremos **ejecutar código adicional después de que React haya actualizado el DOM.** Peticiones de red, mutaciones manuales del DOM, y registros son ejemplos comunes de efectos que no requieren una acción de saneamiento. Decimos esto porque podemos ejecutarlos y olvidarnos de ellos inmediatamente. Vamos a comparar como las clases y los *Hooks* nos permiten expresar dichos efectos.
 
-### Ejemplo con clases
+### Ejemplo con clases {#example-using-classes}
 
 En los componentes de React con clases, el método `render` no debería causar efectos secundarios por sí mismo. Sería prematuro. Normalmente queremos llevar a cabo nuestros efectos *después* de que React haya actualizado el DOM.
 
@@ -89,7 +89,7 @@ Esto es porque en muchas ocasiones queremos llevar a cabo el mismo efecto secund
 
 Veamos ahora como podemos hacer lo mismo con el *Hook* `useEffect`.
 
-### Ejemplo con *Hooks*
+### Ejemplo con *Hooks* {#example-using-hooks}
 
 Ya hemos visto este ejemplo al principio de la página, pero veámoslo más detenidamete:
 
@@ -120,7 +120,7 @@ function Example() {
 
 **¿Se ejecuta `useEffect` después de cada renderizado?** ¡Sí! Por defecto se ejecuta después del primer renderizado *y* después de cada actualización. Más tarde trataremos [como personalizar este comportamiento](#tip-optimizing-performance-by-skipping-effects). En vez de pensar en términos de "montar" y "actualizar", puede resultarte más fácil pensar en efectos que ocurren "después del renderizado". React se asegura de que el DOM se ha actualizado antes de llevar a cabo el efecto.
 
-### Explicación detallada
+### Explicación detallada {#detailed-explanation}
 
 Ahora que sabemos algo más sobre los efectos, estas líneas deberían cobrar sentido:
 
@@ -141,11 +141,11 @@ Los desarrolladores experimentados en JavaScript se percatarán de que la funci�
 >
 >A diferencia de `componentDidMount` o `componentDidUpdate`, los efectos planificados con `useEffect` no bloquean la actualización de la pantalla del navegador. Esto hace que tu aplicación responda mejor. La mayoría de efectos no necesitan suceder de manera síncrona. En los casos poco comunes en los que se necesita una ejecución síncrona (como en mediciones de la disposición de elementos), podemos usar el *Hook* [`useLayoutEffect`](/docs/hooks-reference.html#uselayouteffect) con una API idéntica a la de `useEffect`.
 
-## Efectos con saneamiento
+## Efectos con saneamiento {#effects-with-cleanup}
 
 En el apartado anterior hemos visto como expresar efectos secundarios que no necesitan ningún saneamiento. Sin embargo, algunos efectos la necesitan. Por ejemplo, **si queremos establecer una suscripción** a alguna fuente de datos externa. En ese caso, ¡es importante sanear el efecto para no introducir una fuga de memoria! Comparemos como se puede hacer esto con clases y con *Hooks*.
 
-### Ejemplo con clases
+### Ejemplo con clases {#example-using-classes-1}
 
 En una clase de React, normalmente se establece una suscripción en `componentDidMount`, y se cancela la suscripción en `componentWillUnmount`. Por ejemplo, digamos que tenemos un módulo `ChatAPI` que nos permite suscribirnos para saber si un amigo está conectado. Así es como podemos establecer la suscripción y mostrar ese estado usando una clase:
 
@@ -192,7 +192,7 @@ Fíjate en como `componentDidMount` y `componentWillUnmount` necesitan ser un re
 >
 >Los lectores avispados podrán percatarse de que este ejemplo necesita también un método `componentDidUpdate` para ser completamente correcto. De momento vamos a ignorar este hecho, pero volveremos a él en una [sección posterior](#explanation-why-effects-run-on-each-update) de esta página. 
 
-### Ejemplo usando *Hooks*
+### Ejemplo usando *Hooks* {#example-using-hooks-1}
 
 Veamos como podemos escribir este componente con *Hooks*.
 
@@ -231,7 +231,7 @@ function FriendStatus(props) {
 >
 >No tenemos que nombrar la función devuelta por el efecto. La hemos llamado `cleanup` esta vez para clarificar su propósito, pero podemos devolver una función flecha o nombrarla de otra forma.
 
-## Recapitulación
+## Recapitulación {#recap}
 
 Hemos aprendido que `useEffect` nos permite expresar diferentes tipos de efectos secundarios después de que un componente se renderice. Algunos efectos pueden pueden devolver una función cuando requieran un saneamiento:
 
@@ -260,11 +260,11 @@ El *Hook* de efecto unifica ambos casos en una única API.
 
 -------------
 
-## Consejos para usar efectos
+## Consejos para usar efectos {#tips-for-using-effects}
 
 Vamos a continuar profundizando en algunos aspectos de `useEffect` que les resultarán curiosos de alguna forma a los usuarios de React experimentados. No te sientas obligado a indagar en ello ahora mismo. Siempre puedes volver a esta página para conocer más detalles del *Hook* de efecto.
 
-### Consejo: Usa varios efectos para separar conceptos
+### Consejo: Usa varios efectos para separar conceptos {#tip-use-multiple-effects-to-separate-concerns}
 
 Uno de los problemas que esbozamos en la [Motivación](/docs/hooks-intro.html#complex-components-become-hard-to-understand) para crear los *Hooks* es que los métodos del ciclo de vida de las clases suelen contener lógica que no está relacionada, pero la que lo esta se fragmenta en varios métodos. Este es un componente que combina la lógica del contador y el indicador de estado del amigo de los ejemplos anteriores:
 
@@ -331,7 +331,7 @@ function FriendStatusWithCounter(props) {
 
 **Los *Hooks* nos permiten separar el código en función de lo que hace** en vez de en función del nombre de un método de ciclo de vida. React aplicará *cada* efecto del componente en el orden en el que han sido especificados.
 
-### Explicación: Por qué los efectos se ejecutan en cada actualización
+### Explicación: Por qué los efectos se ejecutan en cada actualización {#explanation-why-effects-run-on-each-update}
 
 Si estás familiarizado con las clases, te preguntarás por qué la fase de saneamiento de efecto ocurre después de cada rerenderizado y no simplemente cuando el componente se desmonta. Veamos un ejemplo práctico para ver por qué este diseño nos ayuda a crear componentes con menos errores.
 
@@ -423,7 +423,7 @@ ChatAPI.unsubscribeFromFriendStatus(300, handleStatusChange); // Sanea el últim
 
 Este comportamiento asegura la consistencia por defecto y previene errores que son comunes en los componentes de clase debido a la falta de lógica de actualización.
 
-### Consejo: Omite efectos para optimizar el rendimiento
+### Consejo: Omite efectos para optimizar el rendimiento {#tip-optimizing-performance-by-skipping-effects}
 
 En algunos casos, sanear o aplicar el efecto después de cada renderizado puede crear problemas de rendimiento. En los componentes de clase podemos solucionarlos escribiendo una comparación extra con `prevProps` o `prevState` dentro de `componentDidUpdate`:
 
@@ -466,7 +466,7 @@ En el futuro, el segundo argumento podría ser añadido automáticamente por una
 >
 >Si quieres ejecutar un efecto y sanearlo solamente una vez (al montar y desmontar), puedes pasar un array vacío (`[]`) como segundo argumento. Esto le indica a React que el efecto no depende de *ningún* valor proviniente de las props o el estado, de modo que no necesita volver a ejecutarse. Esto no se gestiona como un caso especial, obedece directamente al modo en el que siempre funcionan los arrays. A pesar de que pasar `[]` se parece al modelo mental de `componentDidMount` y `componentWillUnmount` y nos puede resultar familiar, recomendamos no convertirlo en un hábito, dado que a menudo nos conduce a errores, [tal y como hemos visto anteriormente](#explanation-why-effects-run-on-each-update). No olvides que React pospone la ejecución de `useEffect` hasta que el navegador finaliza el trazado, de modo que hacer algún trabajo extra no es tan problemático.
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
 ¡Enhorabuena! Esta página ha sido muy larga, pero esperamos que al final la mayoría de tus dudas sobre los efectos hayan sido resueltas. Has aprendido los *Hooks* de estado y de efecto, y puedes hacer *muchas* cosas combinándolos. Estos *Hooks* abarcan la mayoría de casos de uso de las clases. Y en el caso de no ser suficientes, existen [*Hooks* adicionales](/docs/hooks-reference.html) que pueden servirte de ayuda.
 
