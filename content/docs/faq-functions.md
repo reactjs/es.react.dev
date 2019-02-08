@@ -1,26 +1,36 @@
 ---
 id: faq-functions
+id: faq-funciones
 title: Passing Functions to Components
+title: Pasando Funciones a Componentes
 permalink: docs/faq-functions.html
 layout: docs
 category: FAQ
 ---
 
 ### How do I pass an event handler (like onClick) to a component?
+### ¿Cómo puedo pasar un controlador de eventos (como onClick) a un componente?
 
 Pass event handlers and other functions as props to child components:
+Pasa controladores de eventos y otras funciones como props a componentes hijos:
 
 ```jsx
 <button onClick={this.handleClick}>
 ```
 
 If you need to have access to the parent component in the handler, you also need to bind the function to the component instance (see below).
+Si necesitas tener acceso al componente padre dentro del evento, también debes enlazar la funciones a la instancia del componente (ver ejemplo).
 
 ### How do I bind a function to a component instance?
+### ¿Cómo enlazo una función a la instancia de un componente?
 
 There are several ways to make sure functions have access to component attributes like `this.props` and `this.state`, depending on which syntax and build steps you are using.
 
+Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
+
 #### Bind in Constructor (ES2015)
+
+#### Enlazar dentro del Constructor (ES2015)
 
 ```jsx
 class Foo extends Component {
@@ -29,65 +39,76 @@ class Foo extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    console.log('Click happened');
+    console.log('Se hizo click');
   }
   render() {
-    return <button onClick={this.handleClick}>Click Me</button>;
+    return <button onClick={this.handleClick}>Clickéame</button>;
   }
 }
 ```
 
 #### Class Properties (Stage 3 Proposal)
+#### Propiedades de las Clases (Propuesta de etapa 3)
 
 ```jsx
 class Foo extends Component {
   // Note: this syntax is experimental and not standardized yet.
+  // Nota: esta sintaxis es experimental y todavía no está estandarizada.
   handleClick = () => {
-    console.log('Click happened');
+    console.log('Se hizo click');
   }
   render() {
-    return <button onClick={this.handleClick}>Click Me</button>;
+    return <button onClick={this.handleClick}>Clickéame</button>;
   }
 }
 ```
 
 #### Bind in Render
+#### Enlazar en la renderización
 
 ```jsx
 class Foo extends Component {
   handleClick() {
-    console.log('Click happened');
+    console.log('Se hizo click');
   }
   render() {
-    return <button onClick={this.handleClick.bind(this)}>Click Me</button>;
+    return <button onClick={this.handleClick.bind(this)}>Clickéame</button>;
   }
 }
 ```
 
 >**Note:**
+>**Nota:**
 >
 >Using `Function.prototype.bind` in render creates a new function each time the component renders, which may have performance implications (see below).
+> Usando `Function.prototype.bind` dentro de la renderización crea una nueva función cada vez que el componente se renderiza, lo cual podría implicar problemas de rendimiento.
 
 #### Arrow Function in Render
+#### Funciones Flecha en renderización
 
 ```jsx
 class Foo extends Component {
   handleClick() {
-    console.log('Click happened');
+    console.log('Se hizo click');
   }
   render() {
-    return <button onClick={() => this.handleClick()}>Click Me</button>;
+    return <button onClick={() => this.handleClick()}>Clickéame</button>;
   }
 }
 ```
 
 >**Note:**
+>**Nota:**
 >
 >Using an arrow function in render creates a new function each time the component renders, which may have performance implications (see below).
+>Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componenten, lo cual podría implicar problemas de rendimiento (ver ejemplo)
 
 ### Is it OK to use arrow functions in render methods?
+### ¿Está bien utilizar funciones flecha en los métodos de renderizado?
 
 Generally speaking, yes, it is OK, and it is often the easiest way to pass parameters to callback functions.
+
+Generalmente hablando, si está bien y normalmente es la forma más fácil de pasar parametros a funciones 
 
 If you do have performance issues, by all means, optimize!
 
