@@ -43,7 +43,7 @@ Ya que un componente es la fuente de la verdad en el DOM, a veces es más fácil
 
 Si aún no tienes claro qué tipo de componente debes usar para una situación en particular, puedes encontrar [este artículo sobre entradas controladas y no controladas](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) que puede ser útil.
 
-### Valores predeterminados
+### Valores predeterminados {#default-values}
 
 En el ciclo de vida de renderizado de React, el atributo `value` en los elementos del formulario reemplazará el valor en el DOM con un componente no controlado, a menudo quieres React para especificar el valor inicial, pero dejas las actualizaciones posteriores sin control. Para manejar este caso, puedes especificar un `defaultValue` en lugar de `value`.
 
@@ -66,7 +66,7 @@ render() {
 
 Del mismo modo, `<input type="checkbox">` e `<input type="radio">` admiten `defaultChecked`, y `<select>` y `<textarea>` admiten `defaultValue`.
 
-## La etiqueta de entrada de archivo
+## La etiqueta de entrada de archivo {#the-file-input-tag}
 
 En HTML, un `<input type="file">` permite al usuario elegir uno o más archivos del almacenamiento en sus dispositivos para cargarlos a un servidor o manipularlos mediante JavaScript a través de la [API File](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
 

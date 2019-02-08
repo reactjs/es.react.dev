@@ -20,13 +20,13 @@ Esta página describe algunas de las cadenas de herramientas de React más popul
 
 Las cadenas de herramientas que se recomiendan en esta página **no requieren ninguna configuración para empezar**.
 
-## Puede que no necesites una Cadena de Herramientas
+## Puede que no necesites una Cadena de Herramientas {#you-might-not-need-a-toolchain}
 
 Si no experimentas los problemas descritos arriba, o aún no te sientes cómodo usando herramientas de Javascript, considera [añadir React como una etiqueta `<script>` en una página HTML](/docs/add-react-to-a-website.html), opcionalmente [con JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
 Esta es también **la manera más fácil de integrar React en un sitio web existente.** Siempre puedes añadir una cadena de herramientas más grande si lo consideras útil!
 
-## Cadenas de Herramientas Recomendadas
+## Cadenas de Herramientas Recomendadas {#recommended-toolchains}
 
 El equipo de React principalmente recomienda las siguientes soluciones:
 
@@ -35,7 +35,7 @@ El equipo de React principalmente recomienda las siguientes soluciones:
 - Si estás construyendo un **sitio web orientado a contenido estático,** prueba [Gatsby](#gatsby).
 - Si estás construyendo una **biblioteca de componentes** o **integrando una base de código existente**, prueba [Cadenas de Herramientas más Flexibles](#cadenas-de-herramientas-ms-flexibles).
 
-### Create React App
+### Create React App {#create-react-app}
 
 [Create React App](http://github.com/facebookincubator/create-react-app) es un ambiente cómodo para **aprender React**, y es la mejor manera de comenzar a construir **una nueva [aplicación de página única](/docs/glossary.html#single-page-application)** usando React.
 
@@ -55,19 +55,19 @@ Create React App no se encarga de la lógica de `backend` o de bases de datos; t
 
 Cuando estés listo para desplegar a producción, ejecuta `npm run build` lo cual crea una compilación optimizada de tu aplicación en el directorio `build`. Puedes aprender más acerca de **Create React App** [en su archivo README](https://github.com/facebookincubator/create-react-app#create-react-app-) y en la [Guía del Usuario](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
-### Next.js
+### Next.js {#nextjs}
 
 [Next.js](https://nextjs.org/) es un *framework* popular y ligero para **aplicaciones estáticas y renderizadas en servidor** construidas con React. Integra **soluciones de estilo y enrutamiento** y asume que estás usando [Node.js](https://nodejs.org/) como ambiente de servidor.
  
 Aprende Next.js de [su guía oficial](https://nextjs.org/learn/).
 
-### Gatsby
+### Gatsby {#gatsby}
 
 [Gatsby](https://www.gatsbyjs.org/) es la mejor manera de crear **sitios web estáticos** usando React. Te permite usar componentes React, pero genera HTML y CSS pre-renderizado para garantizar el tiempo de carga más rápido.
  
 Aprende Gatsby de [su guía oficial](https://www.gatsbyjs.org/docs/) y de [la galería de kits de inicio](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
-### Cadenas de Herramientas más Flexibles
+### Cadenas de Herramientas más Flexibles {#more-flexible-toolchains}
 
 Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las recomendamos para los usuarios con más experiencia:
 
@@ -79,7 +79,7 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** es un marco de trabajo de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
 
-## Creando una Cadena de Herramientas desde Cero
+## Creando una Cadena de Herramientas desde Cero {#creating-a-toolchain-from-scratch}
 
 Una cadena de herramientas para construir Javascript generalmente consiste de:
 

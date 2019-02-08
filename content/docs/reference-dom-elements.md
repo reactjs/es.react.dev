@@ -18,21 +18,21 @@ React implementa un sistema DOM independiente del navegador, por motivos de rend
 
 En React, todas las propiedades y atributos (incluidos los manejadores de eventos) deben escribirse en estilo *camelCase*. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 
-## Diferencias en los atributos
+## Diferencias en los atributos {#differences-in-attributes}
 
 Hay una serie de atributos HTML que funcionan de manera diferente en React.
 
-### checked
+### checked {#checked}
 
 El atributo `checked` es compatible con los componentes `<input>` tipo `checkbox` o `radio`. Lo puedes usar para establecer si el componente está marcado. Esto es útil para construir componentes controlados. `defaultChecked` es el equivalente no controlado; solo establece si el componente está marcado cuando se monta por primera vez.
 
-### className
+### className {#classname}
 
 Para especificar una clase CSS, usa el atributo `className`. Esto aplica a todos los elementos regulares de DOM y SVG como `<div>`, `<a>`, y otros.
 
 Si usas React con Web Components (lo cual no es común), usa el atributo `class` en lugar de `className`.
 
-### dangerouslySetInnerHTML
+### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
 En React, `dangerouslySetInnerHTML` es el atributo que reemplaza a `innerHTML` (propiedad DOM). Significa "establecer HTML interno peligrosamente". En general, es riesgoso establecer contenido HTML desde el código, porque puedes exponer inadvertidamente a tus usuarios a un ataque [*cross-site scripting* (XSS)](https://es.wikipedia.org/wiki/Cross-site_scripting). Por lo tanto, para establecer contenido HTML directamente desde React, debes usar el atributo `dangerouslySetInnerHTML` y pasarle un objeto con una propiedad `__html`, como recordatorio de que es peligroso. Por ejemplo:
 
@@ -47,19 +47,19 @@ function MyComponent() {
 }
 ```
 
-### htmlFor
+### htmlFor {#htmlfor}
 
 Ya que `for` es una palabra reservada en Javascript, los elementos de React usan el atributo `htmlFor` en su lugar.
 
-### onChange
+### onChange {#onchange}
 
 El evento `onChange` se comporta según lo esperado: cuando el campo de un formulario cambia, se lanza el evento. No usamos intencionalmente el comportamiento existente en los navegadores, porque `onChange` no es un nombre adecuado para lo que hace y React depende de este evento para manejar la entrada del usuario en tiempo real.
 
-### selected
+### selected {#selected}
 
 El atributo `selected` es compatible con los componentes tipo `<option>`. Puedes usarlo para establecer si el elemento está seleccionado, lo cual es útil para construir componentes controlados.
 
-### style
+### style {#style}
 
 >Nota
 >
@@ -108,21 +108,21 @@ React adjuntará automáticamente el sufijo "px" a ciertas propiedades numérica
 
 Sin embargo, no todas las propiedades numéricas del objeto `style` son convertidas a *strings* con píxeles. Ciertas propiedades se mantienen sin unidad (p.ej `zoom`, `order`, `flex`). Una lista completa de las propiedades sin unidad puede verse [aquí](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
-### suppressContentEditableWarning
+### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
 Normalmente, hay una advertencia cuando un elemento con hijos también se marca como `contentEditable`, porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés construyendo una biblioteca como [Draft.js](https://facebook.github.io/draft-js/) que administra `contentEditable` manualmente.
 
-### suppressHydrationWarning
+### suppressHydrationWarning {#suppresshydrationwarning}
 
 Si usas renderización de React del lado del servidor, normalmente hay una advertencia cuando el servidor y el cliente presentan contenido diferente. Sin embargo, en algunos casos raros, es muy difícil o imposible garantizar una coincidencia exacta. Por ejemplo, se espera que las marcas de tiempo difieran en el servidor y en el cliente. 
 
 Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sobre los desajustes en los atributos y el contenido de ese elemento. Solo funciona a un nivel de profundidad y está diseñado para ser utilizado como una vía de escape. No lo uses en exceso. Puedes leer más sobre hidratación en la [documentación de `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
-### value
+### value {#value}
 
 El atributo `value` es compatible con los componentes` <input> `y` <textarea> `. Puedes usarlo para establecer el valor del componente. Esto es útil para construir componentes controlados. `defaultValue` es el equivalente no controlado, que establece el valor del componente cuando se monta por primera vez.
 
-## Todos los atributos HTML admitidos
+## Todos los atributos HTML admitidos {#all-supported-html-attributes}
 
 A partir de React 16, se admite cualquier atributo de DOM estándar [o personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html).
 
