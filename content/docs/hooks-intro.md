@@ -5,10 +5,10 @@ permalink: docs/hooks-intro.html
 next: hooks-overview.html
 ---
 
-*Hooks* are an upcoming feature that lets you use state and other React features without writing a class. They're currently in React v16.8.0-alpha.1.
+*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
 
 ```js{4,5}
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Example() {
   // Declare a new state variable, which we'll call "count"
@@ -29,6 +29,10 @@ This new function `useState` is the first "Hook" we'll learn about, but this exa
 
 **You can start learning Hooks [on the next page](/docs/hooks-overview.html).** On this page, we'll continue by explaining why we're adding Hooks to React and how they can help you write great applications.
 
+>Note
+>
+>React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM. React Native will support Hooks in the next stable release.
+
 ## Video Introduction
 
 At React Conf 2018, Sophie Alpert and Dan Abramov introduced Hooks, followed by Ryan Florence demonstrating how to refactor an application to use them. Watch the video here:
@@ -43,7 +47,7 @@ Before we continue, note that Hooks are:
 
 * **Completely opt-in.** You can try Hooks in a few components without rewriting any existing code. But you don't have to learn or use Hooks right now if you don't want to.
 * **100% backwards-compatible.** Hooks don't contain any breaking changes.
-* **Available now.** Hooks are currently in an alpha release, and we hope to include them in React 16.x after receiving community feedback.
+* **Available now.** Hooks are now available with the release of v16.8.0.
 
 **There are no plans to remove classes from React.** You can read more about the gradual adoption strategy for Hooks in the [bottom section](#gradual-adoption-strategy) of this page.
 
@@ -98,6 +102,10 @@ We also understand that the bar for adding a new primitive to React is extremely
 Finally, there is no rush to migrate to Hooks. We recommend avoiding any "big rewrites", especially for existing, complex class components. It takes a bit of a mindshift to start "thinking in Hooks". In our experience, it's best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. After you give Hooks a try, please feel free to [send us feedback](https://github.com/facebook/react/issues/new), positive or negative.
 
 We intend for Hooks to cover all existing use cases for classes, but **we will keep supporting class components for the foreseeable future.** At Facebook, we have tens of thousands of components written as classes, and we have absolutely no plans to rewrite them. Instead, we are starting to use Hooks in the new code side by side with classes.
+
+## Frequently Asked Questions
+
+We've prepared a [Hooks FAQ page](/docs/hooks-faq.html) that answers the most common questions about Hooks.
 
 ## Next Steps
 

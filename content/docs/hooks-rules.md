@@ -6,7 +6,7 @@ next: hooks-custom.html
 prev: hooks-effect.html
 ---
 
-Los *Hooks* son una de las próximas funcionalidades que te permitirá usar el estado y otras caracteristicas de React sin tener que escribir una clase. Actualmente están en React v16.8.0-alpha.1.
+Los *Hooks* son una de las próximas funcionalidades que te permitirá usar el estado y otras caracteristicas de React sin tener que escribir una clase. Actualmente están disponibles en la versión de React v16.8.0-alpha.1.
 
 Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para hacer cumplir estas reglas automáticamente.
 
@@ -28,7 +28,7 @@ Siguiendo esta regla, te aseguras de que toda la lógica del estado de un compon
 Lanzamos un plugin de ESLint llamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que hace cumplir estas dos reglas. Puedes añadir este plugin a tu proyecto si quieres probarlo:
 
 ```bash
-npm install eslint-plugin-react-hooks@next
+npm install eslint-plugin-react-hooks
 ```
 
 ```js
