@@ -92,7 +92,7 @@ MyComponent.propTypes = {
   requiredAny: PropTypes.any.isRequired,
 
   // También puedes suministrar un validador personalizado. Debe retornar un objeto Error
-  // si la validación falla. No use `console.warn` o throw, porque no va a funcionar en
+  // si la validación falla. No uses `console.warn` o throw, porque no va a funcionar en
   // `oneOfType`
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
@@ -103,7 +103,7 @@ MyComponent.propTypes = {
     }
   },
 
-  // También puede suministrar un validador personalizado a `arrayOf` y `objectOf`.
+  // También puedes suministrar un validador personalizado a `arrayOf` y `objectOf`.
   // Debe retornar un objeto Error si la validación falla. El validador se llamará
   // por cada key en el array o el objecto. Los primeros dos arguments del validador
   // son el array o el objeto, y la key del elemento actual.
@@ -167,7 +167,7 @@ ReactDOM.render(
 );
 ```
 
-Si estas usando un transform de Babel como [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/), puedes declarar `defaultProps` como una propiedad estática al interior de un componente clase de React. Esta sintaxis no se ha terminado y require un paso de compilación para funcionar en el navegador. Para mas información, vea [class field proposal](https://github.com/tc39/proposal-class-fields).
+Si estás usando un transform de Babel como [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/), puedes declarar `defaultProps` como una propiedad estática al interior de un componente clase de React. Esta sintaxis no se ha terminado y require un paso de compilación para funcionar en el navegador. Para mas información, puedes ver [class field proposal](https://github.com/tc39/proposal-class-fields).
 
 ```javascript
 class Greeting extends React.Component {
