@@ -185,11 +185,11 @@ Inspeccionando el código, notarás que tenemos 3 componentes de React:
 
 El componente Square renderiza un simple `<button>` y el Board renderiza 9 cuadrados. El componente Game renderiza un table con valores de posición por defecto que modificaremos luego. Actualmente no hay componentes interactivos.
 
-### Passing Data Through Props
+### Pasando datos a través de props
 
-Just to get our feet wet, let's try passing some data from our Board component to our Square component.
+Solo para ensuciarnos las manos, vamos a pasar algo de datos de nuestro componente Board a nuestro componente Square.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+En el método `renderSquare` de Board, cambia el código para pasar una prop llamada `value` al Square:
 
 ```js{3}
 class Board extends React.Component {
@@ -198,7 +198,7 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+Cambia el método `render` de Square para mostrar ese valor, reemplazando `{/* TODO */}` con `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
@@ -212,17 +212,17 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+Antes:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+Después: Deberías ver un número en cada cuadrado del resultado renderizado.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+¡Felicidades! Acabas de "pasar una prop" de un componente padre Board a un componente hijo Square. Pasando props es cómo la información fluye en apps de React, de padres a hijos.
 
 ### Making an Interactive Component
 
