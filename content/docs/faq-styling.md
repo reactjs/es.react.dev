@@ -44,7 +44,7 @@ Las clases CSS son generalmente mejores para el rendimiento que los estilos en l
 
 "CSS-in-JS" se refiere a un patrón donde el CSS se compone usando JavaScript en lugar de definirlo en archivos externos. Lee una comparación de las bibliotecas CSS-in-JS [aquí](https://github.com/MicheleBertoli/css-in-js).
 
-_ Ten en cuenta que esta funcionalidad no es parte de React, sino que es proporcionada por bibliotecas de terceros. React no tiene una opinión sobre cómo se definen los estilos; en caso de dudas, un buen punto de partida es definir tus estilos en un archivo `*.css` separado como de costumbre y referirse a ellos usando [`className`](/docs/dom-elements.html#classname).
+_Ten en cuenta que esta funcionalidad no es parte de React, sino que es proporcionada por bibliotecas de terceros._ React no tiene una opinión sobre cómo se definen los estilos; en caso de dudas, un buen punto de partida es definir tus estilos en un archivo `*.css` separado como de costumbre y referirse a ellos usando [`className`](/docs/dom-elements.html#classname).
 
 ### ¿Puedo hacer animaciones en React?
 
