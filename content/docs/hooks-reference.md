@@ -411,7 +411,7 @@ function useFriendStatus(friendID) {
 #### Defer formatting debug values {#defer-formatting-debug-values}
 >>>>>>> aada3a308493614b7d5b4b438b5c345d7ecc6c53
 
-#### Aplazar el formato de los valores de depuración
+#### Aplazar el formato de los valores de depuración {#aplazar-el-formato-de-los-valores-de-depuración}
 
 En algunos casos, formatear un valor para mostrar puede ser una operación costosa. También es innecesario a menos que un Hook sea realmente inspeccionado.
 
