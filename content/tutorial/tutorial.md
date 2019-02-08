@@ -326,22 +326,22 @@ Cuando llamas `setState` en un componente, React actualiza automáticamente los 
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
-### Developer Tools
+### Herramientas de desarrollo
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+La extensión de React Devtools para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) y [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) te permite inspeccionar el árbol de componentes de React con tus herramientas de desarrollo del navegador.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+El React DevTools te permite revisar las props y el estado de tus componentes de React.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+Después de instalar React DevTools, puedes hacer click derecho en cualquier elemento de la página, click en "Inspect" para abrir las herramientas de desarrollo, y la pestaña de React aparecerá como la última pestaña a la derecha.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+**Sin embargo, notar que hay unos cuantos pasos extras para hacerlo funcionar con CodePen:**
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Loguéate o regístrate y confirma tu correo electrónico (requerido para prevenir spam).
+2. Click en el botón "Fork".
+3. Click en "Change View" y luego selecciona "Debug mode".
+4. En la nueva pestaña que se abre, el devtools debería ahora tener una pestaña de React.
 
 ## Completing the Game
 
