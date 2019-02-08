@@ -25,9 +25,9 @@ Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descr
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
 
-## Hooks Básicos
+## Hooks Básicos {#basic-hooks}
 
-### `useState`
+### `useState` {#usestate}
 
 ```js
 const [state, setState] = useState(initialState);
@@ -46,7 +46,7 @@ setState(newState);
 During subsequent re-renders, the first value returned by `useState` will always be the most recent state after applying updates.
 Durante las siguientes re-renders, el primer valor devuelto por `useState` siempre será el estado más reciente después de aplicar las actualizaciones.
 
-#### Actualizaciones funcionales
+#### Actualizaciones funcionales {#functional-updates}
 
 Si el nuevo estado se calcula utilizando el estado anterior, puede pasar una función a `setState`. La función recibirá el valor anterior y devolverá un valor actualizado. Aquí hay un ejemplo de un componente contador que usa ambas formas de `setState`:
 
@@ -79,7 +79,7 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 >
 > Otra opción es `useReducer`, que es más adecuada para administrar objetos de estado que contienen múltiples subvalores.
 
-#### Inicialización gradual
+#### Inicialización gradual {#lazy-initial-state}
 
 El argumento `initialState` es el estado utilizado durante el render inicial. En renders posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
 
@@ -90,11 +90,11 @@ const [state, setState] = useState(() => {
 });
 ```
 
-#### Bailing out of a state update
+#### Bailing out of a state update {#bailing-out-of-a-state-update}
 
 If you update a State Hook to the same value as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-### `useEffect`
+### `useEffect` {#useeffect}
 
 ```js
 useEffect(didUpdate);
@@ -108,7 +108,7 @@ En su lugar, use `useEffect`. La función pasada a `useEffect` se ejecutará des
 
 Por defecto, los efectos se ejecutan después de cada renderizado completado, pero puede elegir ejecutarlo [solo cuando ciertos valores han cambiado](#conditionally-firing-an-effect).
 
-#### Limpiando un efecto
+#### Limpiando un efecto {#cleaning-up-an-effect}
 
 A menudo, los efectos crean recursos que deben limpiarse antes de que el componente salga de la pantalla, como una suscripción o un ID de temporizador. Para hacer esto, la función pasada a `useEffect` puede devolver una función de limpieza. Por ejemplo, para crear una suscripción:
 
@@ -124,7 +124,7 @@ useEffect(() => {
 
   La función de limpieza se ejecuta antes de que el componente se elimine de la interfaz de usuario para evitar pérdidas de memoria. Además, si un componente se procesa varias veces (como suele hacer), el **efecto anterior se limpia antes de ejecutar el siguiente efecto**. En nuestro ejemplo, esto significa que se crea una nueva suscripción en cada actualización. Para evitar disparar un efecto en cada actualización, consulte la siguiente sección.
 
-#### Tiempo de los efectos
+#### Tiempo de los efectos {#timing-of-effects}
 
 A diferencia de `componentDidMount` y` componentDidUpdate`, la función enviada a `useEffect` se inicia **después** de la disposición y pintada de la página, durante un evento diferido. Esto lo hace adecuado para los muchos efectos secundarios comunes, como la configuración de suscripciones y los controladores de eventos, porque la mayoría de los tipos de trabajo no deben impedir que el navegador actualice la pantalla.
 
@@ -132,7 +132,7 @@ Sin embargo, no todos los efectos pueden ser diferidos. Por ejemplo, una mutaci�
 
 Aunque `useEffect` se aplaza hasta después de que el navegador se haya pintado, se garantiza que se activará antes de cualquier nuevo render. React siempre eliminará los efectos de un render anterior antes de comenzar una nueva actualización.
 
-#### Condicionalmente disparando un efecto.
+#### Condicionalmente disparando un efecto. {#conditionally-firing-an-effect}
 
 El comportamiento predeterminado para los efectos es ejecutar el efecto después de cada render completo. De esa manera, siempre se recrea un efecto si cambia uno de sus inputs.
 
@@ -160,7 +160,7 @@ Pasar en un arreglo vacío `[]` de entradas le dice a React que su efecto no dep
 >
 > El arreglo de entradas no se pasa como argumentos a la función de efecto. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro de la función de efecto también debería aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear esta matriz automáticamente.
 
-### `useContext`
+### `useContext` {#usecontext}
 
 ```js
 const context = useContext(Context);
@@ -170,11 +170,11 @@ Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devu
 
 Cuando el proveedor se actualiza, este Hook activará un render extra con el último valor de contexto.
 
-## Hooks Adicionales
+## Hooks Adicionales {#additional-hooks}
 
 Los siguientes Hooks son variantes de los básicos de la sección anterior o solo son necesarios para casos de borde específicos. No te estreses por aprenderlos por adelantado.
 
-### `useReducer`
+### `useReducer` {#usereducer}
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init);
@@ -212,7 +212,7 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Specifying the initial state
+#### Specifying the initial state {#specifying-the-initial-state}
 
 There’s two different ways to initialize `useReducer` state. You may choose either one depending on the use case. The simplest way to pass the initial state as a second argument:
 
@@ -227,7 +227,7 @@ There’s two different ways to initialize `useReducer` state. You may choose ei
 >
 >React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
 
-#### Lazy initialization
+#### Lazy initialization {#lazy-initialization}
 
 You can also create the initial state lazily. To do this, you can pass an `init` function as the third argument. The initial state will be set to `init(initialArg)`.
 
@@ -269,13 +269,13 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Bailing out of a dispatch
+#### Bailing out of a dispatch {#bailing-out-of-a-dispatch}
 
 If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 `useReducer` suele ser preferible a `useState` cuando tiene una lógica de estado compleja que involucra múltiples subvalores. También le permite optimizar el rendimiento de los componentes que activan actualizaciones profundas porque [puede pasar `dispatch` en lugar de callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
-### `useCallback`
+### `useCallback` {#usecallback}
 
 ```js
 const memoizedCallback = useCallback(
@@ -296,7 +296,7 @@ Pase un callback en línea y un arreglo de entradas. `useCallback` devolverá un
 >
 > El arreglo de entradas no se pasa como argumentos al callback. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro del callback también debe aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear esta matriz automáticamente.
 
-### `useMemo`
+### `useMemo` {#usememo}
 
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
@@ -316,7 +316,7 @@ Si no se proporciona un arreglo, se calculará un nuevo valor cada vez que se pa
 >
 > El arreglo de entradas no se pasa como argumentos a la función. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro de la función también debe aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear este arreglo automáticamente.
 
-### `useRef`
+### `useRef` {#useref}
 
 ```js
 const refContainer = useRef(initialValue);
@@ -344,7 +344,7 @@ function TextInputWithFocusButton() {
 
 Tenga en cuenta que `useRef()` es mas útil que el atributo `ref`. Es [útil para mantener cualquier valor mutable en torno a](/docs/hooks-faq.html#is-there-something-like-instance-variables) similar a cómo utilizarías los campos de instancia en las clases.
 
-### `useImperativeHandle`
+### `useImperativeHandle` {#useimperativehandle}
 
 ```js
 useImperativeHandle(ref, createHandle, [inputs])
@@ -367,7 +367,7 @@ FancyInput = forwardRef(FancyInput);
 
 En este ejemplo, un componente padre que muestra `<FancyInput ref={fancyInputRef} />` podría llamar a `fancyInputRef.current.focus()`.
 
-### `useLayoutEffect`
+### `useLayoutEffect` {#uselayouteffect}
 
 La firma es idéntica a `useEffect`, pero se dispara de forma síncrona después de todas las mutaciones de DOM. Use esto para leer el diseño del DOM y volver a renderizar de forma sincrónica. Las actualizaciones programadas dentro de `useLayoutEffect` se vaciarán sincrónicamente, antes de que el navegador tenga la oportunidad de pintar.
 
@@ -377,7 +377,7 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 >
 > Si está migrando código de un componente de clase, `useLayoutEffect` se dispara en la misma fase que` componentDidMount` y `componentDidUpdate`, por lo que si no está seguro de qué effect Hook usar, este es probablemente el menos riesgoso.
 
-### `useDebugValue`
+### `useDebugValue` {#usedebugvalue}
 
 ```js
 useDebugValue(value)
@@ -403,7 +403,13 @@ function useFriendStatus(friendID) {
 
 > Consejo
 >
+<<<<<<< HEAD
 > No recomendamos agregar valores de depuración a cada Hook personalizado. Es más valioso para los Hooks personalizados que forman parte de las bibliotecas compartidas.
+=======
+> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+
+#### Defer formatting debug values {#defer-formatting-debug-values}
+>>>>>>> aada3a308493614b7d5b4b438b5c345d7ecc6c53
 
 #### Aplazar el formato de los valores de depuración
 

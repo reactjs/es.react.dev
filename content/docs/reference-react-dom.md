@@ -8,7 +8,7 @@ permalink: docs/react-dom.html
 
 Si cargas React desde una etiqueta `<script>`, estas APIs de alto nivel estarán disponibles en la variable global `ReactDOM`. Si usas ES6 con npm, puedes escribir `import ReactDOM from 'react-dom'`. Si usas ES5 con npm, puedes escribir `var ReactDOM = require('react-dom')`.
 
-## Resumen
+## Resumen {#overview}
 
 El paquete `react-dom` proporciona métodos específicos del DOM que pueden ser utilizados en el nivel más alto de tu aplicación como una vía de escape del modelo de React si así lo necesitas. La mayoría de tus componentes no deberían necesitar usar este módulo.
 
@@ -18,7 +18,7 @@ El paquete `react-dom` proporciona métodos específicos del DOM que pueden ser 
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Soporte de Navegadores
+### Soporte de Navegadores {#browser-support}
 
 React es compatible con todos los navegadores populares, incluyendo Internet Explorer 9 y versiones posteriores, aunque [se necesitan algunos *polyfills*](/docs/javascript-environment-requirements.html) para navegadores más antiguos como IE 9 e IE 10.
 
@@ -28,9 +28,9 @@ React es compatible con todos los navegadores populares, incluyendo Internet Exp
 
 * * *
 
-## Referencia
+## Referencia {#reference}
 
-### `render()`
+### `render()` {#render}
 
 ```javascript
 ReactDOM.render(elemento, contenedor[, callback])
@@ -56,7 +56,7 @@ Si se suministra el *callback* opcional, será ejecutado después de que el comp
 
 * * *
 
-### `hydrate()`
+### `hydrate()` {#hydrate}
 
 ```javascript
 ReactDOM.hydrate(elemento, contenedor[, callback])
@@ -74,7 +74,7 @@ Recuerda estar consciente de la experiencia de usuario en conexiones lentas. El 
 
 * * *
 
-### `unmountComponentAtNode()`
+### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
 ```javascript
 ReactDOM.unmountComponentAtNode(contenedor)
@@ -84,7 +84,7 @@ Elimina un componente React ya montado en el DOM, y limpia sus manejadores de ev
 
 * * *
 
-### `findDOMNode()`
+### `findDOMNode()` {#finddomnode}
 
 > Nota:
 >
@@ -105,7 +105,7 @@ Cuando un componente es renderizado a `null` o `false`, `findDOMNode` retorna `n
 
 * * *
 
-### `createPortal()`
+### `createPortal()` {#createportal}
 
 ```javascript
 ReactDOM.createPortal(hijo, contenedor)

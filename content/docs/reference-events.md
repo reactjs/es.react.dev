@@ -8,7 +8,7 @@ category: Reference
 
 Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
 
-## Overview
+## Overview {#overview}
 
 A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor agnóstico al navegador alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation()` y `preventDefault()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
 
@@ -35,8 +35,7 @@ string type
 >
 > A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation()` o `e.preventDefault()` deben activarse manualmente, según corresponda.
 
-
-### Agrupación de eventos
+### Agrupación de eventos {#event-pooling}
 
 El `SyntheticEvent` está agrupado. Esto significa que el objeto `SyntheticEvent` se reutilizará y todas las propiedades se anularán después de que se haya invocado la devolución de llamada del evento.
 Esto es por razones de rendimiento.
@@ -63,6 +62,7 @@ function onClick(event) {
 
 > Nota:
 >
+<<<<<<< HEAD
 > Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
 ## Eventos Soportados
@@ -93,6 +93,38 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 ## Referencia
 
 ### Eventos del Portapapeles
+=======
+> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+
+## Supported Events {#supported-events}
+
+React normalizes events so that they have consistent properties across different browsers.
+
+The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+
+- [Clipboard Events](#clipboard-events)
+- [Composition Events](#composition-events)
+- [Keyboard Events](#keyboard-events)
+- [Focus Events](#focus-events)
+- [Form Events](#form-events)
+- [Mouse Events](#mouse-events)
+- [Pointer Events](#pointer-events)
+- [Selection Events](#selection-events)
+- [Touch Events](#touch-events)
+- [UI Events](#ui-events)
+- [Wheel Events](#wheel-events)
+- [Media Events](#media-events)
+- [Image Events](#image-events)
+- [Animation Events](#animation-events)
+- [Transition Events](#transition-events)
+- [Other Events](#other-events)
+
+* * *
+
+## Reference {#reference}
+
+### Clipboard Events {#clipboard-events}
+>>>>>>> aada3a308493614b7d5b4b438b5c345d7ecc6c53
 
 Nombres de Eventos:
 
@@ -108,7 +140,7 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Eventos de Composición
+### Eventos de Composición {#composition-events}
 
 Nombres de Eventos:
 
@@ -125,7 +157,7 @@ string data
 
 * * *
 
-### Eventos del Teclado
+### Eventos del Teclado {#keyboard-events}
 
 Nombres de Eventos:
 
@@ -154,7 +186,7 @@ La propiedad `key` puede tomar cualquiera de los valores documentados en [la esp
 
 * * *
 
-### Eventos de Enfoque
+### Eventos de Enfoque {#focus-events}
 
 Nombres de Eventos:
 
@@ -172,7 +204,7 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Eventos de Formulario
+### Eventos de Formulario {#form-events}
 
 Nombres de Eventos:
 
@@ -184,7 +216,7 @@ Para obtener más información sobre el evento onChange, consulte [Formularios](
 
 * * *
 
-### Eventos del Ratón
+### Eventos del Ratón {#mouse-events}
 
 Nombres de Eventos:
 
@@ -217,7 +249,7 @@ boolean shiftKey
 
 * * *
 
-### Eventos Puntero
+### Eventos Puntero {#pointer-events}
 
 Nombres de Eventos:
 
@@ -253,7 +285,7 @@ Si su aplicación requiere eventos de puntero, le recomendamos que agregue un po
 
 * * *
 
-### Eventos de Selección
+### Eventos de Selección {#selection-events}
 
 Nombres de Eventos
 
@@ -263,7 +295,7 @@ onSelect
 
 * * *
 
-### Eventos Táctiles
+### Eventos Táctiles {#touch-events}
 
 Nombres de Eventos:
 
@@ -286,7 +318,7 @@ DOMTouchList touches
 
 * * *
 
-### Eventos de la Interfaz de Usuario
+### Eventos de la Interfaz de Usuario {#ui-events}
 
 Nombres de Eventos:
 
@@ -303,7 +335,7 @@ DOMAbstractView view
 
 * * *
 
-### Eventos de la Rueda del Ratón
+### Eventos de la Rueda del Ratón {#wheel-events}
 
 Nombres de Eventos:
 
@@ -322,7 +354,7 @@ number deltaZ
 
 * * *
 
-### Eventos de Medios
+### Eventos de Medios {#media-events}
 
 Nombres de Eventos:
 
@@ -335,7 +367,7 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Eventos de Imagen
+### Eventos de Imagen {#image-events}
 
 Nombres de Eventos:
 
@@ -345,7 +377,7 @@ onLoad onError
 
 * * *
 
-### Eventos de Animación
+### Eventos de Animación {#animation-events}
 
 Nombres de Eventos:
 
@@ -363,7 +395,7 @@ float elapsedTime
 
 * * *
 
-### Eventos de Transición
+### Eventos de Transición {#transition-events}
 
 Nombres de Eventos:
 
@@ -381,7 +413,7 @@ float elapsedTime
 
 * * *
 
-### Otros Eventos
+### Otros Eventos {#other-events}
 
 Nombres de Eventos:
 

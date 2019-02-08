@@ -46,7 +46,7 @@ ReactDOM.render(
 
 Este ejemplo renderiza un saludo diferente según el valor de la prop `isLoggedIn`.
 
-### Variables de elementos
+### Variables de elementos {#element-variables}
 
 Puedes usar variables para almacenar elementos. Esto puede ayudarte para renderizar condicionalmente una parte del componente mientras el resto del resultado no cambia.
 
@@ -115,7 +115,7 @@ ReactDOM.render(
 
 Si bien declarar una variable y usar una sentencia `if` es una buena forma de renderizar condicionalmente un componente, a veces podrías querer usar una sintaxis más corta. Hay algunas formas de hacer condiciones en una línea en JSX, explicadas a continuación.
 
-### If en una línea con operador lógico &&
+### If en una línea con operador lógico && {#inline-if-with-logical--operator}
 
 Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser útil para incluir condicionalmente un elemento:
 
@@ -147,7 +147,7 @@ Esto funciona porque en JavaScript, `true && expresión` siempre evalúa a `expr
 
 Por eso, si la condición es `true`, el elemento justo después de `&&` aparecerá en el resultado. Si es `false`, React lo ignorará.
 
-### If-Else en una línea con operador condicional
+### If-Else en una línea con operador condicional {#inline-if-else-with-conditional-operator}
 
 Otro método para el renderizado condicional de elementos en una línea es usar el operador condicional [`condición ? true : false`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Conditional_Operator) de JavaScript.
 
@@ -183,7 +183,7 @@ render() {
 
 Al igual que en JavaScript, depende de ti elegir un estilo apropiado en base a lo que tu y tu equipo consideran más legible. Recuerda también que cuando las condiciones se vuelven demasiado complejas, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
 
-### Evitar que el componente se renderice
+### Evitar que el componente se renderice {#preventing-component-from-rendering}
 
 En casos excepcionales, es posible que desees que un componente se oculte a sí mismo aunque haya sido renderizado por otro componente. Para hacer esto, devuelve `null` en lugar del resultado de renderizado.
 
