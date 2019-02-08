@@ -165,9 +165,9 @@ function withSubscription(WrappedComponent, selectData) {
 
 Nótese que un *HOC* no modifica el componente de entrada, ni usa herencia para copiar su comportamiento. En su lugar, un *HOC* **compone** el componente original al **envolverlo** en un componente contenedor. Un *HOC* es una función pura sin efectos colaterales.
 
-Y, eso es todo!. El componente envuelto recibe todos los *props* de el contenedor, junto con un nuevo *prop*, `data`, el cual es usado para renderizar su salida. Al *HOC* no le importa cómo o porqué los datos son usados, y al componente envuelto no le importa de donde proceden los datos.
+Y, eso es todo!. El componente envuelto recibe todos los *props* del contenedor, junto con un nuevo *prop*, `data`, el cual es usado para renderizar su salida. Al *HOC* no le importa cómo o porqué los datos son usados, y al componente envuelto no le importa de donde proceden los datos.
 
-Debido a que `withSubscription` es una función normal, puedes añadir tantos, o tan pocos, argumentos como desees. Por ejemplo, puedes querer hacer el nombre del *prop* `data` configurable, para aislar aún más el *HOC& de el componente envuelto. O podrías aceptar un argumento que configure `shouldComponentUpdate`, o alguno que configure la fuente de datos. Todo esto es posible porque el *HOC* tiene el control total sobre como se define el componente.
+Debido a que `withSubscription` es una función normal, puedes añadir tantos, o tan pocos, argumentos como desees. Por ejemplo, puedes querer hacer el nombre del *prop* `data` configurable, para aislar aún más el *HOC& del componente envuelto. O podrías aceptar un argumento que configure `shouldComponentUpdate`, o alguno que configure la fuente de datos. Todo esto es posible porque el *HOC* tiene el control total sobre como se define el componente.
 
 Tal como los componentes, el contrato entre `withSubscription` y el componente envuelto está basado completamente en los *props*. Esto hace fácil intercambiar un *HOC* por otro, siempre y cuando provean los mismos *props* al componente envuelto. Esto puede ser útil si cambias de bibliotecas de obtención de datos, por ejemplo.
 
@@ -298,7 +298,7 @@ La función utilitaria `compose` es provista por muchas bibliotecas de terceros,
 
 Los componentes contenedores creados por los *HOCs* se muestran en las [Herramientas de Desarrollo de React](https://github.com/facebook/react-devtools) como cualquier otro componente. Para facilitar la depuración elige que se muestre un nombre que comunique que es el resultado de un *HOC*.
 
-La técnica más común consiste en envolver el `displayName` de el componente envuelto. De esta forma si tu componente de orden superior se llama `withSubscription`, y el `displayName` del componente envuelto es `CommentList`, usa como nombre a mostrar `WithSubscription(CommentList)`:
+La técnica más común consiste en envolver el `displayName` del componente envuelto. De esta forma si tu componente de orden superior se llama `withSubscription`, y el `displayName` del componente envuelto es `CommentList`, usa como nombre a mostrar `WithSubscription(CommentList)`:
 
 ```js
 function withSubscription(WrappedComponent) {
