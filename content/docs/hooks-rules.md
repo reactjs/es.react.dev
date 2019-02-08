@@ -10,29 +10,29 @@ Los *Hooks* son una de las próximas funcionalidades que te permitirá usar el e
 
 Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para hacer cumplir estas reglas automáticamente.
 
-### Solo llama Hooks en el nivel superior
+### Llama Hooks solo en el nivel superior
 
-**Don't call Hooks inside loops, conditions, or nested functions.** Instead, always use Hooks at the top level of your React function. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That's what allows React to correctly preserve the state of Hooks between multiple `useState` and `useEffect` calls. (If you're curious, we'll explain this in depth [below](#explanation).)
+**No llames Hooks dentro de ciclos, condicionales, or funciones anidadas.** En vez de eso, usa siempre Hooks en el nivel superior de tu función en React. Siguiendo esta regla, te aseguras de que los hooks se llamen en el mismo orden cada vez que un componente se renderiza. Esto es lo que permite a React preservar correctamente el estado de los hooks entre multiples llamados a `useState` y `useEffect`. (Si eres curioso, vamos a explicar esto en detalle [más abajo](#explicación).)
 
-### Only Call Hooks from React Functions
+### Llama Hooks solo en funciones de React
 
-**Don't call Hooks from regular JavaScript functions.** Instead, you can:
+**No llames Hooks desde funciones JavaScript regulares.** En vez de eso, puedes:
 
-* ✅ Call Hooks from React function components.
-* ✅ Call Hooks from custom Hooks (we'll learn about them [on the next page](/docs/hooks-custom.html)).
+* ✅ Llama Hooks desde componentes funcionales de React.
+* ✅ Llama Hooks desde Hooks personalizados (aprenderemos acerca de ellos [en la siguiente página](/docs/hooks-custom.html)).
 
-By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.
+Siguiendo esta regla, te aseguras de que toda la lógica del estado de un componente sea claramente visible desde tu código fuente.
 
-## ESLint Plugin
+## Plugin de ESLint
 
-We released an ESLint plugin called [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) that enforces these two rules. You can add this plugin to your project if you'd like to try it:
+Lanzamos un plugin de ESLint llamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que hace cumplir estas dos reglas. Puedes añadir este plugin a tu proyecto si quieres probarlo:
 
 ```bash
 npm install eslint-plugin-react-hooks@next
 ```
 
 ```js
-// Your ESLint configuration
+// Tu configuración de ESLint
 {
   "plugins": [
     // ...
@@ -45,11 +45,11 @@ npm install eslint-plugin-react-hooks@next
 }
 ```
 
-In the future, we intend to include this plugin by default into Create React App and similar toolkits.
+En el futuro, tenemos la intención de incluir este plugin por defecto en Create React App y otros paquetes similares.
 
 **You can skip to the next page explaining how to write [your own Hooks](/docs/hooks-custom.html) now.** On this page, we'll continue by explaining the reasoning behind these rules.
 
-## Explanation
+## Explicación
 
 As we [learned earlier](/docs/hooks-state.html#tip-using-multiple-state-variables), we can use multiple State or Effect Hooks in a single component:
 
