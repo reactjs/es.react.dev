@@ -40,7 +40,6 @@ function Example() {
 
 Aquí, `useState` es un *Hook* (hablaremos de lo que esto significa en un momento). Lo llamamos dentro de un componente funcional para agregarle un estado local. React mantendrá este estado entre re-renderizados. `useState` devuelve un par: el valor de estado *actual* y una función que le permite actualizarlo. Puedes llamar a esta función desde un controlador de eventos o desde otro lugar. Es similar a `this.setState` en una clase, excepto que no combina el estado antiguo y el nuevo. (Mostraremos un ejemplo comparando `useState` con` this.state` en [Usando el Hook de Estado](/docs/hooks-state.html).)
 
-
 El único argumento para `useState` es el estado inicial. En el ejemplo anterior, es `0` porque nuestro contador comienza desde cero. Ten en cuenta que a diferencia de `this.state`, el estado aquí no tiene que ser un objeto -- aunque puede serlo si quisieras. El argumento de estado inicial solo se usa durante el primer renderizado.
 
 #### Declarando múltiples variables de estado
