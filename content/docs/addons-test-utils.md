@@ -13,7 +13,7 @@ import ReactTestUtils from 'react-dom/test-utils'; // ES6
 var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
 ```
 
-## Introducción
+## Introducción {#overview}
 
 `ReactTestUtils` facilita probar los componentes de React en cualquiera de los frameworks de pruebas que elijas. En Facebook usamos [Jest](https://facebook.github.io/jest/) para realizar las pruebas de JavaScript sin problemas. Aprende como iniciar con Jest en el [tutorial para React](http://facebook.github.io/jest/docs/en/tutorial-react.html#content) que se encuentra en el sitio web de Jest.
 
@@ -40,9 +40,9 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
  - [`renderIntoDocument()`](#renderintodocument)
  - [`Simulate`](#simulate)
 
-## Referencia
+## Referencia {#reference}
 
-### `act()`
+### `act()` {#act}
 
 Para preparar un componente en ser asegurado, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a `act()`. Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.
 
@@ -126,7 +126,7 @@ No olvides que la ejecución de eventos del DOM sólo funciona cuando el contene
 
 * * *
 
-### `mockComponent()`
+### `mockComponent()` {#mockcomponent}
 
 ```javascript
 mockComponent(
@@ -143,7 +143,7 @@ Pasa un módulo de un componente a simular a este método para mejorarlo con mé
 
 * * *
 
-### `isElement()`
+### `isElement()` {#iselement}
 
 ```javascript
 isElement(element)
@@ -153,7 +153,7 @@ Retorna `true` si `element` es cualquier elemento de React.
 
 * * *
 
-### `isElementOfType()`
+### `isElementOfType()` {#iselementoftype}
 
 ```javascript
 isElementOfType(
@@ -166,7 +166,7 @@ Retorna `true` si `element` es un Elemento de React cuyo tipo es un `componentCl
 
 * * *
 
-### `isDOMComponent()`
+### `isDOMComponent()` {#isdomcomponent}
 
 ```javascript
 isDOMComponent(instance)
@@ -176,7 +176,7 @@ Retorna `true` si `instance` es un componente del DOM (tal como un `<div>` o `<s
 
 * * *
 
-### `isCompositeComponent()`
+### `isCompositeComponent()` {#iscompositecomponent}
 
 ```javascript
 isCompositeComponent(instance)
@@ -186,7 +186,7 @@ Retorna `true` si `instance` es un componente definido por el usuario, tal como 
 
 * * *
 
-### `isCompositeComponentWithType()`
+### `isCompositeComponentWithType()` {#iscompositecomponentwithtype}
 
 ```javascript
 isCompositeComponentWithType(
@@ -199,7 +199,7 @@ Retorna `true` si `instance` es un componente cuyo tipo es un `componentClass` d
 
 * * *
 
-### `findAllInRenderedTree()`
+### `findAllInRenderedTree()` {#findallinrenderedtree}
 
 ```javascript
 findAllInRenderedTree(
@@ -212,7 +212,7 @@ Navega por todos los componentes en `tree` y acumula todos los componentes en do
 
 * * *
 
-### `scryRenderedDOMComponentsWithClass()`
+### `scryRenderedDOMComponentsWithClass()` {#scryrendereddomcomponentswithclass}
 
 ```javascript
 scryRenderedDOMComponentsWithClass(
@@ -225,7 +225,7 @@ Encuentra todos los elementos en el DOM de componentes presentes en el árbol de
 
 * * *
 
-### `findRenderedDOMComponentWithClass()`
+### `findRenderedDOMComponentWithClass()` {#findrendereddomcomponentwithclass}
 
 ```javascript
 findRenderedDOMComponentWithClass(
@@ -238,7 +238,7 @@ Igual a [`scryRenderedDOMComponentsWithClass()`](#scryrendereddomcomponentswithc
 
 * * *
 
-### `scryRenderedDOMComponentsWithTag()`
+### `scryRenderedDOMComponentsWithTag()` {#scryrendereddomcomponentswithtag}
 
 ```javascript
 scryRenderedDOMComponentsWithTag(
@@ -251,7 +251,7 @@ Encuentra todos los elementos en el DOM de componentes presentes en el árbol de
 
 * * *
 
-### `findRenderedDOMComponentWithTag()`
+### `findRenderedDOMComponentWithTag()` {#findrendereddomcomponentwithtag}
 
 ```javascript
 findRenderedDOMComponentWithTag(
@@ -264,7 +264,7 @@ Igual a [`scryRenderedDOMComponentsWithTag()`](#scryrendereddomcomponentswithtag
 
 * * *
 
-### `scryRenderedComponentsWithType()`
+### `scryRenderedComponentsWithType()` {#scryrenderedcomponentswithtype}
 
 ```javascript
 scryRenderedComponentsWithType(
@@ -277,7 +277,7 @@ Encuentra todas las instancias de componentes cuyo tipo sea igual a `componentCl
 
 * * *
 
-### `findRenderedComponentWithType()`
+### `findRenderedComponentWithType()` {#findrenderedcomponentwithtype}
 
 ```javascript
 findRenderedComponentWithType(
@@ -290,7 +290,7 @@ Igual a [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) pe
 
 ***
 
-### `renderIntoDocument()`
+### `renderIntoDocument()` {#renderintodocument}
 
 ```javascript
 renderIntoDocument(element)
@@ -309,9 +309,9 @@ ReactDOM.render(element, domContainer);
 
 * * *
 
-## Otras utilidades
+## Otras utilidades {#other-utilities}
 
-### `Simulate`
+### `Simulate` {#simulate}
 
 ```javascript
 Simulate.{eventName}(
