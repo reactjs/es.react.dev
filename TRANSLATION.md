@@ -16,12 +16,14 @@ Suggestion on words and terms:
 | ------------------ | ---------- |
 | array | array |
 | arrow function | función flecha |
+| assert | comprobar |
 | bug | error |
 | Bundler | *Bundler* |
-| camelCase | *camelCase* |
 | callback | *callback* |
+| camelCase | *camelCase* |
 | controlled component | componente controlado |
 | debugging | depuración |
+| DOM | DOM |
 | framework | *framework* |
 | functional component | componente funcional |
 | hook | *hook* |
@@ -32,6 +34,7 @@ Suggestion on words and terms:
 | props | *props* |
 | React element | Elemento de React |
 | render | renderizar (verb), renderizado (noun)
+| shallow rendering | renderizado superficial |
 | state | estado |
 | string | *string* |
 | template literals | *template literals* |
