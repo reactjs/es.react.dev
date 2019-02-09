@@ -49,13 +49,13 @@ React.createElement(
 
 Si deseas probar cómo algunos JSX específicos se convierten en JavaScript, puedes probar [el compilador de Babel en línea](babel://jsx-simple-example).
 
-## Especificando el tipo de elemento React
+## Especificando el tipo de elemento React {#specifying-the-react-element-type}
 
 La primera parte de una etiqueta JSX determina el tipo del elemento React.
 
 Los tipos en mayúsculas indican que la etiqueta JSX se refiere a un componente React. Estas etiquetas se compilan en una referencia directa a la variable nombrada, por lo que si usas la expresión JSX `<Foo />`, `Foo` debe estar dentro del alcance.
 
-### React debe estar al alcance
+### React debe estar al alcance {#react-must-be-in-scope}
 
 Como JSX se compila en llamadas a `React.createElement`, la biblioteca` React` también debe estar siempre dentro del alcance de su código JSX.
 
@@ -73,7 +73,7 @@ function WarningButton() {
 
 Si no usas un bundler de JavaScript y carga React de una etiqueta `<script>`, ya está dentro del alcance como el `React` global.
 
-### Usando la notación de punto para el tipo JSX
+### Usando la notación de punto para el tipo JSX {#using-dot-notation-for-jsx-type}
 
 También puedes referirte a un componente React usando notación de punto desde JSX. Esto es conveniente si tienes un solo módulo que exporta muchos componentes React. Por ejemplo, si `MyComponents.DatePicker` es un componente, puede usarlo directamente desde JSX con:
 
@@ -91,7 +91,7 @@ function BlueDatePicker() {
 }
 ```
 
-### Los componentes definidos por el usuario deben estar en mayúsculas
+### Los componentes definidos por el usuario deben estar en mayúsculas {#user-defined-components-must-be-capitalized}
 
 Cuando un tipo de elemento comienza con una letra minúscula, se refiere a un componente incorporado como `<div>` o `<span>` y da como resultado una cadena `'div'` o `'span'` que se pasa a `React.createElement`. Los tipos que comienzan con una letra mayúscula como `<Foo />` compilan a `React.createElement(Foo)` y corresponden a un componente definido o importado en tu archivo JavaScript.
 
@@ -131,7 +131,7 @@ function HelloWorld() {
 }
 ```
 
-### Elegir el tipo en tiempo de ejecución
+### Elegir el tipo en tiempo de ejecución {#choosing-the-type-at-runtime}
 
 No puedes utilizar una expresión general como el tipo de elemento React. Si deseas usar una expresión general para indicar el tipo de elemento, primero asignela a una variable en mayúscula. Esto ocurre a menudo cuando se desea generar un componente diferente basado en un prop:
 
@@ -168,11 +168,11 @@ function Story(props) {
 }
 ```
 
-## Props en JSX
+## Props en JSX {#props-in-jsx}
 
 Hay varias formas diferentes de especificar props en JSX.
 
-### Expresiones JavaScript como Props
+### Expresiones JavaScript como Props {#javascript-expressions-as-props}
 
 Puede pasar cualquier expresión de JavaScript como prop, al rodearla con `{}`. Por ejemplo, en este JSX:
 
@@ -198,7 +198,7 @@ function NumberDescriber(props) {
 
 Puedes obtener más información sobre [representación condicional](/docs/conditional-rendering.html) y [loops](/docs/lists-and-keys.html) en las secciones correspondientes.
 
-### Literales String
+### Literales String {#string-literals}
 
 Puede pasar una string literal como prop. Estas dos expresiones JSX son equivalentes:
 
@@ -218,7 +218,7 @@ Cuando se pasa un literal string, su valor no se escapa de HTML. Así que estas 
 
 Este comportamiento no suele ser relevante. Sólo se menciona aquí para completar.
 
-### Props Predeterminado a "Verdadero"
+### Props Predeterminado a "Verdadero" {#props-default-to-true}
 
 Si no pasas ningún valor para un prop, el valor predeterminado es `true`. Estas dos expresiones JSX son equivalentes:
 
@@ -230,7 +230,7 @@ Si no pasas ningún valor para un prop, el valor predeterminado es `true`. Estas
 
 En general, no recomendamos usar esto porque puede confundirse con la [taquigrafía del objeto ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento es justo allí para que coincida con el comportamiento de HTML.
 
-### Atributos de propagación
+### Atributos de propagación {#spread-attributes}
 
 Si ya tienes `props` como objeto, y quiere pasarlo en JSX, puedes usar `...` como operador de “propagación” para pasar el objeto de props completo. Estos dos componentes son equivalentes:
 
@@ -270,11 +270,11 @@ Todos los demás props se pasan a través del objeto `...other` que hace que est
 
 Los atributos de propagación pueden ser útiles, pero también facilitan la transferencia de propiedades innecesarias a los componentes que no les interesan o la transferencia de atributos HTML no válidos al DOM. Recomendamos utilizar esta sintaxis con moderación. 
 
-## Niños en JSX
+## Niños en JSX {#children-in-jsx}
 
 En las expresiones JSX que contienen una etiqueta de apertura y una etiqueta de cierre, el contenido entre esas etiquetas se pasa como un elemento especial: `props.children`. Hay varias maneras diferentes de pasar a los niños:
 
-### Cadenas de Literales
+### Cadenas de Literales {#string-literals-1}
 
 Puede poner una cadena entre las etiquetas de apertura y cierre y `props.children` será solo esa cadena. Esto es útil para muchos de los elementos HTML integrados. Por ejemplo:
 
@@ -308,7 +308,7 @@ JSX elimina los espacios en blanco al principio y al final de una línea. Tambi�
 </div>
 ```
 
-### JSX Niños
+### JSX Niños {#jsx-children}
 
 Puede proporcionar más elementos JSX como los niños. Esto es útil para mostrar componentes anidados:
 
@@ -345,7 +345,7 @@ render() {
 }
 ```
 
-### Expresiones de JavaScript como niños
+### Expresiones de JavaScript como niños {#javascript-expressions-as-children}
 
 Puede pasar cualquier expresión de JavaScript como hijos, encerrándola dentro de `{}`. Por ejemplo, estas expresiones son equivalentes:
 
@@ -380,7 +380,7 @@ function Hello(props) {
 }
 ```
 
-### Funciones como niños
+### Funciones como niños {#functions-as-children}
 
 Normalmente, las expresiones de JavaScript insertadas en JSX se evaluarán como una cadena, un elemento React o una lista de esas cosas. Sin embargo, `props.children` funciona igual que cualquier otro prop, ya que puede pasar cualquier tipo de datos, no solo los tipos que React sabe cómo procesar. Por ejemplo, si tiene un componente personalizado, puedes hacer que tome un callback como `props.children`:
 
@@ -405,7 +405,7 @@ function ListOfTenThings() {
 
 Los niños pasados a un componente personalizado pueden ser cualquier cosa, siempre que ese componente los transforme en algo que React pueda entender antes de renderizar. Este uso no es común, pero funciona si desea ampliar lo que JSX es capaz de hacer.
 
-### Vooleanos, Nulos e Indefinidos se ignoran
+### Vooleanos, Nulos e Indefinidos se ignoran {#booleans-null-and-undefined-are-ignored}
 
 `false`, `null`, `undefined` y `true` son hijos válidos. Simplemente no se renderizan. Estas expresiones JSX se renderizan todas a la misma forma:
 
