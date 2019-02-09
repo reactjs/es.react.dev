@@ -7,33 +7,33 @@ permalink: docs/glossary.html
 
 ---
 
-## Aplicación de página única
+## Aplicación de página única {#single-page-application}
 
 Una aplicación de página única (single-page application) es una aplicación que carga una única página HTML y todos los componentes necesarios (tales como JavaScript y CSS) para que se ejecute la aplicación. Cualquier interacción con la página o páginas subsecuentes no requiere hacer solicitudes al servidor lo que significa que la página no es recargada.
 
 Aún cuando puedes construir una aplicación de página única en React, esto no es un requerimiento. React también puede ser utilizado para mejorar pequeñas partes de sitios web existentes con interactividad adicional. Código escrito en React puede coexistir pacíficamente con páginas renderizadas de lado del servidor por lenguajes como PHP, ó cualquier otra librería de lado del cliente. De hecho, así es como React está siendo utilizado en Facebook.
 
-## ES6, ES2015, ES2016, etc
+## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
 Estos acrónimos se refieren a las mas recientes versiones del estándar de Especificación de Lenguaje ECMAScript, del cual JavaScript es una implementación. La versión ES6 (también conocida como ES2015) incluye muchas adiciones a las versiones previas tales como: *arrow functions*, clases, *template literals*, declaraciones de variables con `let` y `const`. Puedes aprender más sobre versiones específicas [aquí](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
-## Compiladores
+## Compiladores {#compilers}
 
 Un compilador de JavaScript toma el código JavaScript, lo transforma y regresa el código en un formato diferente. El caso de uso más común es tomar código JavaScript con sintáxis ES6 y transformarlo en código que navegadores más antiguos puedan interpretar. [Babel](https://babeljs.io/) es el compilador más usado con React.
 
-## Bundlers
+## Bundlers {#bundlers}
 
 Los *bundlers* toman el código JavaScript y CSS escrito como módulos separados (frecuentemente cientos de ellos), y los combina en unos cuantos archivos mejor optimizados para los navegadores. Algunos *bundlers* comúnmente usandos en aplicaciones de React son [Webpack](https://webpack.js.org/) y [Browserify](http://browserify.org/).
 
-## Package managers
+## Package managers {#package-managers}
 
 Los *package managers* son herramientas que te permiten administrar las dependencias de tu proyecto. [npm](https://www.npmjs.com/) y [Yarn](http://yarnpkg.com/) son dos *package managers* comúnmente usados en aplicaciones de React. Ambos son clientes para el mismo registro de paquetes npm.
 
-## CDN
+## CDN {#cdn}
 
 CDN son las siglas de *Content Delivery Network* (Red de Entrega de Contenido). Los *CDN* entregan contenido estático en caché desde una red de servidores alrededor del mundo.
 
-## JSX
+## JSX {#jsx}
 
 JSX es una extensión de sintáxis para JavaScript. Es similar a un *template language*, pero tiene todo el poder de JavaScript. JSX es compilado a llamadas `React.createElement()` que regresan simples objetos de JavaScript llamados *"React elements"*. Puedes encontrar una introducción básica a JSX en la documentación [aquí](/docs/introducing-jsx.html) y un tutorial más completo de JSX [aquí](/docs/jsx-in-depth.html).
 
@@ -47,7 +47,7 @@ ReactDOM.render(
 );
 ```  
 
-## [Elementos](/docs/rendering-elements.html)
+## [Elementos](/docs/rendering-elements.html) {#elements}
 
 Los elementos de React son los bloques de construcción de una aplicación de React. Uno podría confundir los elementos con el concepto más ampliamente conocido de "componentes". Un elemento describe lo que quieres ver en pantalla. Los elementos de React son immutables.
 
@@ -57,7 +57,7 @@ const element = <h1>Hola, mundo</h1>;
 
 Normalmente, los elementos no se utilizan directamente, si no que se devuelven desde los components.
 
-## [Componentes](/docs/components-and-props.html)
+## [Componentes](/docs/components-and-props.html) {#components}
 
 Los componentes de React son pequeños y reutilizables fragmentos de código que devuelven un elemento de React para ser renderizado en una página. La versión más simple de un componente de React es una función en simple JavaScript que regrese un elemento de React:
 
@@ -78,7 +78,7 @@ class Welcome extends React.Component {
 
 Los componentes pueden ser divididos en distintas piezas de funcionalidad y usados en otros componentes. Los componentes pueden regresar otros componentes, arreglos, cadenas de texto y números. Una buena regla es que si una parte de tu interfaz es usada varias veces (Botón, Panel, Avatar), o es lo suficientemente compleja (App, Noticias, Comentario), es un buen candidato para ser un componente reusable. Los nombres de los componentes deberían también comenzar con una letra mayúscula (`<Wrapper/>` **not** `<wrapper/>`). Consulte [esta documentación](/docs/components-and-props.html#rendering-a-component) para obtener más información sobre el renderizado de componentes.
 
-### [`props`](/docs/components-and-props.html)
+### [`props`](/docs/components-and-props.html) {#props}
 
 `props` son entradas de un componente de React. Son información que es pasada desde un componente padre a un componente hijo.
 
@@ -91,7 +91,7 @@ props.number = 42;
 
 Si necesitas moficiar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa `state` en su lugar.
 
-### `props.children`
+### `props.children` {#propschildren}
 
 `props.children` está disponible en cada componente. Contiene el contenido ubicado entre las etiquetas de apertura y cierre de un componente. Por ejemplo:
 
@@ -116,7 +116,7 @@ class Welcome extends React.Component {
 }
 ```
 
-### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class)
+### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
 Un componente necesita `state` cuando algunos datos asociados a el cambian con el tiempo. Por ejemplo, un componente `Checkbox` tal vez necesite `isChecked` en su *state* , y un componente `NewsFeed` tal vez necesite mantener un registro de `fetchedPosts` en su estado.
 
@@ -124,7 +124,7 @@ La diferencia más importante entre `state` y `props` es que los `props` son pas
 
 Para cada pieza particular de datos cambiantes, debería existir solo un componente que lo "posea" en su *state*. No intentes sincronizar *states* de dos componentes distintos. En su lugar, [elévalo](/docs/lifting-state-up.html) a su ancestro compartido más cercano, y pásalo como *props* en ambos.
 
-## [Métodos de ciclo de vida](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class)
+## [Métodos de ciclo de vida](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
 Los métodos de ciclo de vida son funcionalidad personalizada que se ejecutan durante las diferentes fases de un componente. Existen métodos disponibles cuando el componente se crea y se inserta en el *DOM* ([*mounting*](/docs/react-component.html#mounting)), cuando el componente se actualiza, y cuando el componente es desmontado o removido del *DOM*. 
 
@@ -140,7 +140,7 @@ An *uncontrolled component* works like form elements do outside of React. When a
 
 En la mayoría de los casos debes usar *controlled components*.
 
-## [Keys](/docs/lists-and-keys.html) 
+## [Keys](/docs/lists-and-keys.html) {#keys}
 
 Una *"key"* es un atributo especial (cadena de texto) de que necesitas incluir cuando creas un arreglo de elementos. Las *keys* ayudan a React a identificar que elementos han cambiado, han sido agregados o removidos. Las *keys* deben asignarse a los elementos dentro de un arreglo para darles una identidad estable.
 
@@ -148,19 +148,19 @@ Las *keys* sólo tienen que ser únicas entre elementos hermanos en el mismo arr
 
 No pases algo como `Math.random()` a las *keys*. Es importante que las *keys* tengan una "indentidad estable" a través de múltiples renderizados así React puede determinar cuales elementos fueron agregados, removidos o re-ordenados. Idealmente, las *keys* deberían corresponder a un identificador único y estable que venga desde los datos, por ejemplo: `post.id`.
 
-## [Refs](/docs/refs-and-the-dom.html)
+## [Refs](/docs/refs-and-the-dom.html) {#refs}
 
 React admite un atributo especial que se puede agregar a cualquier componente. El atributo `ref` puede ser un objeto creado por [la función `React.createRef()`](/docs/react-api.html#reactcreateref) o una función *callback*, o una cadena de texto (en la API antigua). Cuando el atributo `ref` es una función de *callback*, la función recibe el elemento *DOM* subyacente o la instancia de clase (dependiendo del tipo de elemento) como argumento. Esto permite tener acceso directo al *DOM* del elemento o a la instancia del componente.
 
 Usa los *refs* con moderación. Si te encuentras frecuentemente haciendo uso de los *refs* para "hacer que las cosas sucedan" en tu aplicación, considera familiarizarte más con [flujos de datos de arriba hacia abajo](/docs/lifting-state-up.html).
 
-## [Eventos](/docs/handling-events.html) 
+## [Eventos](/docs/handling-events.html) {#events}
 
 El manejo de eventos con elementos de React tiene algunas diferencias sintácticas:
 
 * Los manejadores de eventos en React son nombrados usando *camelCase*, en lugar de *lowercase*.
 * Con JSX pasas una función como manejador de eventos, en lugar de una cadena de texto.
 
-## [Reconciliación](/docs/reconciliation.html)
+## [Reconciliación](/docs/reconciliation.html) {#reconciliation}
 
 Cuando las *props* o el *state* de un componente de React cambia, React decide si una actualización al *DOM* es necesaria comparando el elemento recién devuelto con el renderizado previamente. Cuando no son iguales, React actualizará el *DOM*. Este proceso es llamado "reconcilización".
