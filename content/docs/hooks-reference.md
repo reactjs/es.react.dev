@@ -6,7 +6,7 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+Los Hooks son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Esta página describe las API para los Hooks incorporados en React.
 
@@ -35,7 +35,7 @@ const [state, setState] = useState(initialState);
 
 Devuelve un valor con estado y una función para actualizarlo.
 
-Durante el render inicial, el estado devuelto (`state`) es el mismo que el valor pasado como primer argumento (`initialState`).
+Durante el renderizado inicial, el estado devuelto (`state`) es el mismo que el valor pasado como primer argumento (`initialState`).
 
 La función `setState` se usa para actualizar el estado. Acepta un nuevo valor de estado y encola una nueva renderización del componente.
 
@@ -43,8 +43,7 @@ La función `setState` se usa para actualizar el estado. Acepta un nuevo valor d
 setState(newState);
 ```
 
-During subsequent re-renders, the first value returned by `useState` will always be the most recent state after applying updates.
-Durante las siguientes re-renders, el primer valor devuelto por `useState` siempre será el estado más reciente después de aplicar las actualizaciones.
+En las renderizaciones siguientes, el primer valor devuelto por `useState` será siempre el estado más reciente después de aplicar las actualizaciones.
 
 #### Actualizaciones funcionales {#functional-updates}
 
@@ -90,9 +89,9 @@ const [state, setState] = useState(() => {
 });
 ```
 
-#### Bailing out of a state update {#bailing-out-of-a-state-update}
+#### Evitar una actualización del estado {#bailing-out-of-a-state-update}
 
-If you update a State Hook to the same value as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+Si se actualiza un Hook de estado con el mismo valor que el estado actual, React evitará la renderización de los hijos y disparar los efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
 ### `useEffect` {#useeffect}
 
@@ -132,7 +131,7 @@ Sin embargo, no todos los efectos pueden ser diferidos. Por ejemplo, una mutaci�
 
 Aunque `useEffect` se aplaza hasta después de que el navegador se haya pintado, se garantiza que se activará antes de cualquier nuevo render. React siempre eliminará los efectos de un render anterior antes de comenzar una nueva actualización.
 
-#### Condicionalmente disparando un efecto. {#conditionally-firing-an-effect}
+#### Disparar un efecto condicionalmente. {#conditionally-firing-an-effect}
 
 El comportamiento predeterminado para los efectos es ejecutar el efecto después de cada render completo. De esa manera, siempre se recrea un efecto si cambia uno de sus inputs.
 
@@ -182,9 +181,9 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 
 Una alternativa a [`useState`](#usestate). Acepta un reducer de tipo `(state, action) => newState` y devuelve el estado actual emparejado con un método` dispatch`. (Si está familiarizado con Redux, ya sabe cómo funciona).
 
-`useReducer` is usually preferable to `useState` when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one. `useReducer` also lets you optimize performance for components that trigger deep updates because [you can pass `dispatch` down instead of callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+`useReducer` a menudo es preferible a `useState` cuando se tiene una lógica compleja que involucra múltiples subvalores o cuando el próximo estado depende del anterior. `useReducer` además te permite optimizar el rendimiento para componentes que activan actualizaciones profundas, porque [puedes pasar hacia abajo `dispatch` en lugar de *callbacks*](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
-Here's the counter example from the [`useState`](#usestate) section, rewritten to use a reducer:
+Aquí está el ejemplo del contador de la sección [`useState`], reescrito para usar un reductor:
 
 ```js
 const initialState = {count: 0};
@@ -212,9 +211,9 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Specifying the initial state {#specifying-the-initial-state}
+#### Especificar el estado inicial {#specifying-the-initial-state}
 
-There’s two different ways to initialize `useReducer` state. You may choose either one depending on the use case. The simplest way to pass the initial state as a second argument:
+Hay dos formas diferentes de inicializar el estado de `useReducer`. Puedes elegir uno dependiendo de tu caso de uso. La forma más simple para pasar el estado inicial es como un segundo argumento:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -223,17 +222,17 @@ There’s two different ways to initialize `useReducer` state. You may choose ei
   );
 ```
 
->Note
+>Nota
 >
->React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
+>React no utiliza la convención del argumento `state = initialState` popularizada por Redux. El valor inicial a veces necesita tener una dependencia en las props y por tanto se especifica en cambio en la llamada al Hook. Si te parece muy importante, puedes llamar a `useReducer(reducer, undefined, reducer)` para emular el comportamiento de Redux, pero no se recomienda
 
-#### Lazy initialization {#lazy-initialization}
+#### Inicialización diferida {#lazy-initialization}
 
-You can also create the initial state lazily. To do this, you can pass an `init` function as the third argument. The initial state will be set to `init(initialArg)`.
+También puedes crear el estado inicial de manera diferida. Para hacerlo, le puedes pasar una función `init` como tercer argumento. El estado inicial será establecido como `init(initialArg)`.
 
-It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
+Esto te permite extraer la lógica para calcular el estado inicial fuera del reductor. También es útil para reiniciar el estado luego en respuesta a una acción:
 
-```js{1-3,11-12,21,26}
+```js{1-3,11-12,19,24}
 function init(initialCount) {
   return {count: initialCount};
 }
@@ -247,9 +246,7 @@ function reducer(state, action) {
     case 'reset':
       return init(action.payload);
     default:
-      // Un reducer siempre debe devolver un estado válido.
-      // Alternativamente, puede lanzar un error si se envía una acción no válida.
-      return state;
+      throw new Error();
   }
 }
 
@@ -269,11 +266,9 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Bailing out of a dispatch {#bailing-out-of-a-dispatch}
+#### Evitar un *dispatch* {#bailing-out-of-a-dispatch}
 
-If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
-
-`useReducer` suele ser preferible a `useState` cuando tiene una lógica de estado compleja que involucra múltiples subvalores. También le permite optimizar el rendimiento de los componentes que activan actualizaciones profundas porque [puede pasar `dispatch` en lugar de callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+Si devuelves el mismo valor del estado actual desde un Hook reductor, React evitará el renderizado de los hijos y disparar efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
 ### `useCallback` {#usecallback}
 
@@ -302,15 +297,15 @@ Pase un callback en línea y un arreglo de entradas. `useCallback` devolverá un
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Retorna un valor [memorizado](https://en.wikipedia.org/wiki/Memoization).
+Devuelve un valor [memorizado](https://en.wikipedia.org/wiki/Memoization).
 
-Pase una función de "crear" y un arreglo de entradas. `useMemo` solo volverá a calcular el valor memorizado cuando una de las entradas haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada render.
+Pasa una función de "crear" y un arreglo de entradas. `useMemo` solo volverá a calcular el valor memorizado cuando una de las entradas haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada render.
 
 Recuerde que la función pasada a `useMemo` se ejecuta durante el renderizado. No hagas nada allí que normalmente no harías al renderizar. Por ejemplo, los efectos secundarios pertenecen a `useEffect`, no a` useMemo`.
 
 Si no se proporciona un arreglo, se calculará un nuevo valor cada vez que se pase una nueva instancia de función como primer argumento. (Con una función en línea, en cada render).
 
-**Puede confiar en `useMemo` como una optimización del rendimiento, no como una garantía semántica.** En el futuro, React puede elegir "olvidar" algunos valores previamente memorizados y recalcularlos en el próximo render, por ejemplo. para liberar memoria para componentes fuera de pantalla. Escriba su código para que aún funcione sin `useMemo` - y luego agréguelo para optimizar el rendimiento.
+**Puede confiar en `useMemo` como una optimización del rendimiento, no como una garantía semántica.** En el futuro, React puede elegir "olvidar" algunos valores previamente memorizados y recalcularlos en el próximo renderizado, por ejemplo para liberar memoria para componentes fuera de pantalla. Escribe tu código para que aún funcione sin `useMemo` - y luego agrégalo para optimizar el rendimiento.
 
 > Nota
 >
@@ -322,9 +317,9 @@ Si no se proporciona un arreglo, se calculará un nuevo valor cada vez que se pa
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument (`initialValue`). The returned object will persist for the full lifetime of the component.
+`useRef` devuelve un objeto *ref* mutable cuya propiedad `.current` se inicializa con el argumento pasado (`initialValue`). El objeto devuelto se mantendrá persistente durante la vida completa del componente.
 
-A common use case is to access a child imperatively:
+Un caso de uso común es para acceder a un hijo imperativamente:
 
 ```js
 function TextInputWithFocusButton() {
@@ -403,15 +398,9 @@ function useFriendStatus(friendID) {
 
 > Consejo
 >
-<<<<<<< HEAD
-> No recomendamos agregar valores de depuración a cada Hook personalizado. Es más valioso para los Hooks personalizados que forman parte de las bibliotecas compartidas.
-=======
-> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+> No recomendamos agregar valores de depuración a cada Hook personalizado. Es más valioso para los Hooks personalizados que forman parte de  bibliotecas compartidas.
 
-#### Defer formatting debug values {#defer-formatting-debug-values}
->>>>>>> aada3a308493614b7d5b4b438b5c345d7ecc6c53
-
-#### Aplazar el formato de los valores de depuración
+#### Aplazar el formato de los valores de depuración {#defer-formatting-debug-values}
 
 En algunos casos, formatear un valor para mostrar puede ser una operación costosa. También es innecesario a menos que un Hook sea realmente inspeccionado.
 
