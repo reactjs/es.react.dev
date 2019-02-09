@@ -33,11 +33,11 @@ Tu primer pensamiento puede ser usar referencias para "hacer que las cosas funci
 
 > Nota
 >
-> Los ejemplos a continuación han sido actualizados para hacer uso del API `React.createRef()` introducido en React 16.3. Si estas usando una versión de React anterior a esta, recomendamos usar en su lugar [referencias mediante callback](#callback-refs).
+> Los ejemplos a continuación han sido actualizados para hacer uso del API `React.createRef()` introducido en React 16.3. Si estas usando una versión de React anterior a esta, recomendamos usar en su lugar [referencias mediante callback](#referencias-mediante-callback).
 
 ### Creando Referencias
 
-Las referencias son creadas usando `React.createRef()` y agregandolas a elementos de React mediante el atributo `ref`. Las referencias son asignadas comunmente a una propiedad de instancia cuando un componente es construido, así puede ser referenciados mediante el componente.
+Las referencias son creadas usando `React.createRef()` y agregandolas a elementos de React mediante el atributo `ref`. Las referencias son asignadas comunmente a una propiedad de instancia cuando un componente es construido, así pueden ser referenciadas por el componente.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {
@@ -67,7 +67,7 @@ El valor de la referencia es diferente dependiendo del tipo de nodo:
 
 Los ejemplos a continuación demuestran las diferencias.
 
-#### Agregando una Referencia a un elemento del DOM
+### Agregando una Referencia a un elemento del DOM
 
 Esta código utiliza un `ref` para guardar una referencia al nodo del DOM:
 
@@ -105,7 +105,7 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-React asignará a la propiedad `current` el elemento del DOM cuando el componente sea montado, y la asignará de nuevo `null` cuando sea desmontado. La `referencia` es actualizada antes de los métodos `componentDidMount` or `componentDidUpdate`.
+React asignará a la propiedad `current` el elemento del DOM cuando el componente sea montado, y la asignará de nuevo `null` cuando sea desmontado. La `referencia` es actualizada antes de los métodos `componentDidMount` o `componentDidUpdate`.
 
 #### Agregando una Referencia a un Componente de Clase
 
@@ -191,13 +191,13 @@ function CustomTextInput(props) {
 
 ### Exponiendo Referencias del DOM a Componentes Padres
 
-En casos raros, puede que necesites acceder al nodo DOM de un hijo desde un componente padre. Esto generalmente no es recomendado porque rompe con la encapsulación del componente, pero puede ser util ocasionalmente para hacer enfoque, o medir el tamaño o posición de un nodo hijo del DOM.
+En casos raros, puede que necesites acceder al nodo DOM de un hijo desde un componente padre. Esto generalmente no es recomendado porque rompe con la encapsulación del componente, pero puede ser util ocasionalmente para hacer enfoque, o medir el tamaño o posición de un nodo del DOM hijo.
 
-Bien podrías [agregar una referencia al componente hijo](#adding-a-ref-to-a-class-component), esta no es la solución ideal, porque lo que obtendrías sería la instancia del componente en vez del nodo del DOM. Adicionalmente, esto no funcionaría con componentes de función.
+Bien podrías [agregar una referencia al componente hijo](#agregando-una-referencia-a-un-componente-de-clase), esta no es la solución ideal, porque lo que obtendrías sería la instancia del componente en vez del nodo del DOM. Adicionalmente, esto no funcionaría con componentes de función.
 
 Si usas React 16.3 o una versión mayor, recomendamos usar [paso de referencias](/docs/forwarding-refs.html) para estos casos. **Paso de referencias permite que los componentes decidan exponer cualquier referencia de sus hijos como si fuera la suya**. Puedes encontrar un ejemplo detallado de como exponer los nodos DOM de los hijos a un componente padre [en la documentación de paso de referencias](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
-Si usas React 16.2 o una versión más antigua, o si necesitas más flexibilidad de la que provee el paso de referencias, puedes utilizar [este enfoque alternativo](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) y pasar explícitamente una referencia como una propiedad nombrada diferente.
+Si usas React 16.2 o una versión más antigua, o si necesitas más flexibilidad de la que ofrece el paso de referencias, puedes utilizar [este enfoque alternativo](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) y pasar explícitamente una referencia como una propiedad nombrada diferente.
 
 Siempre que sea posible, recomendamos no exponer los nodos del DOM, pero puede ser util como una vía de escape. Recuerda que este enfoque require que agregues código al componente hijo. Si no tienes control alguno sobre la implementación del componente hijo, tu ultima opción es usar [`findDOMNode()`](/docs/react-dom.html#finddomnode), pero esto no es recomendado, y esta despreciado en modo estricto: [`(StrictMode)`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
@@ -283,8 +283,8 @@ Si trabajaste con React antes, puede que estes familiarizado con un API antigua 
 
 > Nota
 >
-> Si estas considerando usar `this.refs.textInput` para acceder a las referencias, recomendamos que uses en su lugar o bien [referencias mediante callback](#callback-refs) o [el API `createRef`](#creating-refs).
+> Si estas considerando usar `this.refs.textInput` para acceder a las referencias, recomendamos que uses en su lugar o bien [referencias mediante callback](#referencias-mediante-callback) o [el API `createRef`](#creando-referencias).
 
 ### Advertencias sobre Referencias mediante Callback
 
-Si el callback de `ref` es definido como una *arrow function*, esta sera llamada 2 veces durante las actualizaciones, la primera con `null`, y de nuevo con el elemento DOM correspondiente. Esto se debe a que una nueva instancia de la funcion es creada en cada renderizado, por lo que React necesita limpiar la referencia vieja y agregar la nueva. Puedes evitar esto definiendo el callback del `ref` como un metodo en la clase, pero recuerda que no deberia importar en la mayoria de los casos.
+Si el callback de `ref` es definido como una *arrow function*, esta sera llamada 2 veces durante las actualizaciones, la primera con `null`, y la siguiente con el elemento DOM correspondiente. Esto se debe a que una nueva instancia de la funcion es creada en cada renderizado, por lo que React necesita limpiar la referencia vieja y agregar la nueva. Puedes evitar esto definiendo el callback del `ref` como un metodo en la clase, pero recuerda que no deberia importar en la mayoria de los casos.
