@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
 
-## Overview
+## Overview {#overview}
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor agnóstico al navegador alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation()` y `preventDefault()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+Si encuentras que necesitas el evento del navegador subyacente por alguna razón, simplemente use el atributo `nativeEvent` para obtenerlo. Cada objeto `SyntheticEvent` tiene los siguientes atributos:
 
 ```javascript
 boolean bubbles
@@ -31,19 +31,19 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Nota:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation()` o `e.preventDefault()` deben activarse manualmente, según corresponda.
 
-### Event Pooling
+### Agrupación de eventos {#event-pooling}
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+El `SyntheticEvent` está agrupado. Esto significa que el objeto `SyntheticEvent` se reutilizará y todas las propiedades se anularán después de que se haya invocado la devolución de llamada del evento.
+Esto es por razones de rendimiento.
+Como tal, no puede acceder al evento de forma asíncrona.
 
 ```javascript
 function onClick(event) {
-  console.log(event); // => nullified object.
+  console.log(event); // => objeto nulo.
   console.log(event.type); // => "click"
   const eventType = event.type; // => "click"
 
@@ -52,19 +52,51 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // No funcionará. this.state.clickEvent solo contendrá valores nulos.
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // Todavía puedes exportar propiedades de eventos.
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> Nota:
 >
+<<<<<<< HEAD
+> Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
+
+## Eventos Soportados
+
+React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
+
+Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos llamado en la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de click en la fase de captura.
+
+- [Eventos del Portapapeles](#clipboard-events)
+- [Eventos de Composición](#composition-events)
+- [Eventos del Teclado](#keyboard-events)
+- [Eventos de Enfoque](#focus-events)
+- [Formar Eventos](#form-events)
+- [Eventos del Ratón](#mouse-events)
+- [Eventos del Puntero](#pointer-events)
+- [Eventos de Selección](#selection-events)
+- [Eventos Táctiles](#touch-events)
+- [Eventos de la Interfaz de Usuario](#ui-events)
+- [Eventos de la Rueda del Ratón](#wheel-events)
+- [Eventos de Medios](#media-events)
+- [Eventos de Imagen](#image-events)
+- [Eventos de Animación](#animation-events)
+- [Eventos de Transición](#transition-events)
+- [Otros Eventos](#other-events)
+
+* * *
+
+## Referencia
+
+### Eventos del Portapapeles
+=======
 > If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
 
-## Supported Events
+## Supported Events {#supported-events}
 
 React normalizes events so that they have consistent properties across different browsers.
 
@@ -89,17 +121,18 @@ The event handlers below are triggered by an event in the bubbling phase. To reg
 
 * * *
 
-## Reference
+## Reference {#reference}
 
-### Clipboard Events
+### Clipboard Events {#clipboard-events}
+>>>>>>> aada3a308493614b7d5b4b438b5c345d7ecc6c53
 
-Event names:
+Nombres de Eventos:
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -107,15 +140,15 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composition Events
+### Eventos de Composición {#composition-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 string data
@@ -124,15 +157,15 @@ string data
 
 * * *
 
-### Keyboard Events
+### Eventos del Teclado {#keyboard-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 boolean altKey
@@ -149,21 +182,21 @@ boolean shiftKey
 number which
 ```
 
-The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+La propiedad `key` puede tomar cualquiera de los valores documentados en [la especificación de DOM Level 3 Events](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
-### Focus Events
+### Eventos de Enfoque {#focus-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+Estos eventos de enfoque funcionan en todos los elementos en React DOM, no sólo en los elementos de formulario.
 
-Properties:
+Propiedades:
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -171,21 +204,21 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Form Events
+### Eventos de Formulario {#form-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onChange onInput onInvalid onSubmit
 ```
 
-For more information about the onChange event, see [Forms](/docs/forms.html).
+Para obtener más información sobre el evento onChange, consulte [Formularios](/docs/forms.html).
 
 * * *
 
-### Mouse Events
+### Eventos del Ratón {#mouse-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -193,9 +226,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Los eventos `onMouseEnter` y `onMouseLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del bubbling normal y no tienen una fase de captura.
 
-Properties:
+Propiedades:
 
 ```javascript
 boolean altKey
@@ -216,20 +249,20 @@ boolean shiftKey
 
 * * *
 
-### Pointer Events
+### Eventos Puntero {#pointer-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-The `onPointerEnter` and `onPointerLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Los eventos `onPointerEnter` y `onPointerLeave` se propagan desde el elemento que se deja hasta el que se ingresa en lugar del bubbling normal y no tienen una fase de captura.
 
-Properties:
+Propiedades:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following properties:
+Como se define en [la especificación W3](https://www.w3.org/TR/pointerevents/), los eventos de puntero extienden los [Eventos de Ratón](#mouse-events) con las siguientes propiedades:
 
 ```javascript
 number pointerId
@@ -244,17 +277,17 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Una nota sobre la compatibilidad con varios navegadores:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). React deliberada no admite polyfill para otros navegadores, ya que un polyfill de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Si su aplicación requiere eventos de puntero, le recomendamos que agregue un polyfill de evento de puntero de terceros.
 
 * * *
 
-### Selection Events
+### Eventos de Selección {#selection-events}
 
-Event names:
+Nombres de Eventos
 
 ```
 onSelect
@@ -262,15 +295,15 @@ onSelect
 
 * * *
 
-### Touch Events
+### Eventos Táctiles {#touch-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 boolean altKey
@@ -285,15 +318,15 @@ DOMTouchList touches
 
 * * *
 
-### UI Events
+### Eventos de la Interfaz de Usuario {#ui-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onScroll
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 number detail
@@ -302,15 +335,15 @@ DOMAbstractView view
 
 * * *
 
-### Wheel Events
+### Eventos de la Rueda del Ratón {#wheel-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onWheel
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 number deltaMode
@@ -321,9 +354,9 @@ number deltaZ
 
 * * *
 
-### Media Events
+### Eventos de Medios {#media-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -334,9 +367,9 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Image Events
+### Eventos de Imagen {#image-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onLoad onError
@@ -344,15 +377,15 @@ onLoad onError
 
 * * *
 
-### Animation Events
+### Eventos de Animación {#animation-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 string animationName
@@ -362,15 +395,15 @@ float elapsedTime
 
 * * *
 
-### Transition Events
+### Eventos de Transición {#transition-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+Propiedades:
 
 ```javascript
 string propertyName
@@ -380,9 +413,9 @@ float elapsedTime
 
 * * *
 
-### Other Events
+### Otros Eventos {#other-events}
 
-Event names:
+Nombres de Eventos:
 
 ```
 onToggle

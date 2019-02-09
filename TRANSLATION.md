@@ -4,7 +4,9 @@ Current progress: https://github.com/reactjs/es.reactjs.org/issues/4
 
 # Style Guide
 
-[todo]
+- Leave code blocks untranslated. (It is usually OK to translate comments inside them.)
+- Links to references (MDN, wikipedia) should go to the Spanish version.
+- Use "tú" for the 2nd person singular.
 
 # Common translations
 
@@ -12,21 +14,28 @@ Suggestion on words and terms:
 
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
-| arrow function | *arrow function* |
+| array | array |
+| arrow function | función flecha |
 | bug | error |
 | Bundler | *Bundler* |
 | camelCase | *camelCase* |
 | callback | *callback* |
-| controlled component | *controlled component* |
+| controlled component | componente controlado |
 | debugging | depuración |
+| framework | *framework* |
+| functional component | componente funcional |
+| hook | *hook* |
+| key | key |
+| lazy initialization | inicialización diferida |
 | library | biblioteca |
-| lowercase | *lowercase* |
+| lowercase | minúscula(s) |
 | props | *props* |
 | React element | Elemento de React |
-| state | *state* |
+| render | renderizar (verb), renderizado (noun)
+| state | estado |
 | string | *string* |
 | template literals | *template literals* |
-| uncontrolled component | *uncontrolled component* |
+| uncontrolled component | componente no controlado |
 
 
 

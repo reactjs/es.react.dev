@@ -16,9 +16,11 @@ redirect_from:
 ---
 Esta página contiene una referencia detallada de la API de React sobre los componentes definidos a través de clases. Asumimos que estas familiarizado con los conceptos fundamentales de React, como [Componentes y Props](/docs/components-and-props.html), así también [State y Lifecycle](/docs/state-and-lifecycle.html). Si no, léelas primero.
 
-## Resumen
+## Resumen {#overview}
 
 React te permite definir componentes como clases o funciones. Los componentes definidos como clases actualmente proporcionan una serie de características extra que explicamos en esta página. Para definir una clase de componente React, necesitas extender `React.Component`:
+
+React lets you define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page. To define a React component class, you need to extend `React.Component`:
 
 ```js
 class Welcome extends React.Component {
@@ -36,11 +38,11 @@ El único método que *debes* definir en una subclase de `React.Component` es [`
 >
 > React no te obliga a usar la sintaxis de clases ES6. Si prefieres evitarlo, puede utilizar el módulo `create-react-class` o una abstracción personalizada similar en su lugar. Échale un vistazo a [Usando React sin ES6](/docs/react-without-es6.html) para aprender mas.
 
-### El Ciclo de Vida del Componente
+### El Ciclo de Vida del Componente {#the-component-lifecycle}
 
 Cada componente tiene varios "métodos de ciclo de vida" que puedes sobrescribir para ejecutar código en momentos particulares del proceso. **Puedes usar [este diagrama de ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) como una hoja de referencia.** En la lista de abajo, los métodos de ciclo de vida comúnmente usados están marcados en **negrita**. El resto de ellos existen para casos de uso relativamente raros.
 
-#### Montaje
+#### Montaje {#mounting}
 
 Estos métodos se llaman cuando se crea una instancia de un componente y se inserta en el DOM:
 
@@ -55,7 +57,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 >
 > * [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
-#### Updating
+#### Updating {#updating}
 
 Una actualización puede ser causada por cambios en los props o el state. Estos métodos se llaman en el siguiente orden cuando un componente se re renderiza:
 
@@ -72,45 +74,45 @@ Una actualización puede ser causada por cambios en los props o el state. Estos 
 > * [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 > * [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
-#### Unmounting
+#### Unmounting {#unmounting}
 
 Este método es llamado cuando un componente se elimina del DOM:
 
 * [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Manejo de Errores
+#### Manejo de Errores {#error-handling}
 
 Estos métodos se invocan cuando hay un error durante la renderización, en un método en el ciclo de vida o en el constructor de cualquier componente hijo.
 
 * [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
 * [`componentDidCatch()`](#componentdidcatch)
 
-### Otras APIs
+### Otras APIs {#other-apis}
 
 Cada componente también proporciona algunas otras APIs:
 
 * [`setState()`](#setstate)
 * [`forceUpdate()`](#forceupdate)
 
-### Propiedades de clase
+### Propiedades de clase {#class-properties}
 
 * [`defaultProps`](#defaultprops)
 * [`displayName`](#displayname)
 
-### Propiedades de Instancia
+### Propiedades de Instancia {#instance-properties}
 
 * [`props`](#props)
 * [`state`](#state)
 
 * * *
 
-## Referencia
+## Referencia {#references}
 
-### Funciones del ciclo de vida usadas comúnmente
+### Funciones del ciclo de vida usadas comúnmente {#commonly-used-lifecycle-methods}
 
 Los métodos que verás en esta sección cubren la gran mayoría de casos de uso que encontrarás cuando crees componentes en React. **Para una referencia visual, revisa [este diagrama de los ciclos de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
-### `render()`
+### `render()` {#render}
 
 ```javascript
 render()
@@ -136,7 +138,7 @@ Si necesitas interactuar con el navegador, realiza tu trabajo en `componentDidMo
 
 * * *
 
-### `constructor()`
+### `constructor()` {#constructor}
 
 ```javascript
 constructor(props)
@@ -187,7 +189,7 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 
 * * *
 
-### `componentDidMount()`
+### `componentDidMount()` {#componentdidmount}
 
 ```javascript
 componentDidMount()
@@ -201,7 +203,7 @@ Este método es un buen lugar para establecer cualquier suscripción. Si lo hace
 
 * * *
 
-### `componentDidUpdate()`
+### `componentDidUpdate()` {#componentdidupdate}
 
 ```javascript
 componentDidUpdate(prevProps, prevState, snapshot)
@@ -230,7 +232,7 @@ Si su componente implementa el ciclo de vida `getSnapshotBeforeUpdate()`(que es 
 
 * * *
 
-### `componentWillUnmount()`
+### `componentWillUnmount()` {#componentwillunmount}
 
 ```javascript
 componentWillUnmount()
@@ -242,11 +244,11 @@ componentWillUnmount()
 
 * * *
 
-### Métodos de ciclo de vida raramente utilizados
+### Métodos de ciclo de vida raramente utilizados {#rarely-used-lifecycle-methods}
 
 Los métodos de esta sección corresponden a casos de uso poco común. Son útiles alguna vez, pero la mayoría de sus componentes probablemente no necesitan ninguno de ellos. **Puedes ver la mayoría de los métodos a continuación en [este diagrama de ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) si haces clic en la casilla de verificación "Mostrar ciclos de vida menos comunes" en la parte superior de él.**
 
-### `shouldComponentUpdate()`
+### `shouldComponentUpdate()` {#shouldcomponentupdate}
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState)
@@ -266,7 +268,7 @@ Actualmente, si `shouldComponentUpdate()` devuelve `false`, entonces [`component
 
 * * *
 
-### `static getDerivedStateFromProps()`
+### `static getDerivedStateFromProps()` {#static-getderivedstatefromprops}
 
 ```js
 static getDerivedStateFromProps(props, state)
@@ -291,7 +293,7 @@ Tenga en cuenta que este método se activa en *cada* renderizado, independientem
 
 * * *
 
-### `getSnapshotBeforeUpdate()`
+### `getSnapshotBeforeUpdate()` {#getsnapshotbeforeupdate}
 
 ```javascript
 getSnapshotBeforeUpdate(prevProps, prevState)
@@ -311,7 +313,7 @@ En los ejemplos anteriores, es importante leer la propiedad `scrollHeight` en `g
 
 * * *
 
-### Límites de error
+### Límites de error {#error-boundaries}
 
 [Los límites de error](/docs/error-boundaries.html) son componentes de React que detectan errores de JavaScript en cualquier parte de su árbol de componentes secundarios, registran esos errores y muestran una IU alternativa en lugar del árbol de componentes que se colgó. Los límites de error capturan errores durante representación, en métodos de ciclo de vida y en constructores de todo el árbol debajo de ellos.
 
@@ -325,7 +327,7 @@ Para mas detalles ve el [*Manejo de Errores en React 16*](/blog/2017/07/26/error
 >
 > Los limites de error solo capturan errores en los componentes **debajo** de ellos en el árbol. Un límite de error no puede capturar un error dentro de él mismo.
 
-### `static getDerivedStateFromError()`
+### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 
 ```javascript
 static getDerivedStateFromError(error)
@@ -362,7 +364,7 @@ class ErrorBoundary extends React.Component {
 
 * * *
 
-### `componentDidCatch()`
+### `componentDidCatch()` {#componentdidcatch}
 
 ```javascript
 componentDidCatch(error, info)
@@ -413,11 +415,11 @@ class ErrorBoundary extends React.Component {
 
 * * *
 
-### Métodos de ciclo de vida obsoletos
+### Métodos de ciclo de vida obsoletos {#legacy-lifecycle-methods}
 
 Estos métodos de ciclo de vida a continuación están marcados como "legado". Siguen funcionando, pero no recomendamos su uso en nuevos proyectos. Puedes aprender más sobre como migrar estos métodos a sus correspondientes actuales en[ este post del blog.](/blog/2018/03/27/update-on-async-rendering.html).
 
-### `UNSAFE_componentWillMount()`
+### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
 ```javascript
 UNSAFE_componentWillMount()
@@ -435,7 +437,7 @@ Este ciclo de vida es el único método que se llama en el renderizado en el lad
 
 * * *
 
-### `UNSAFE_componentWillReceiveProps()`
+### `UNSAFE_componentWillReceiveProps()` {#unsafe_componentwillreceiveprops}
 
 ```javascript
 UNSAFE_componentWillReceiveProps(nextProps)
@@ -463,7 +465,7 @@ React doesn't call `UNSAFE_componentWillReceiveProps()` with initial props durin
 
 * * *
 
-### `UNSAFE_componentWillUpdate()`
+### `UNSAFE_componentWillUpdate()` {#unsafe_componentwillupdate}
 
 ```javascript
 UNSAFE_componentWillUpdate(nextProps, nextState)
@@ -485,13 +487,13 @@ Normalmente, este método puede ser reemplazado por `componentDidUpdate()`. Si e
 
 * * *
 
-## Otras APIs
+## Otras APIs {#other-apis-1}
 
 A diferencia de los métodos de ciclo de vida anteriores (que React llama por ti), los métodos siguientes son los métodos *que* tu puedes llamar desde tus componentes.
 
 Hay sólo dos de ellos: `setState()` y `forceUpdate()`.
 
-### `setState()`
+### `setState()` {#setstate}
 
 ```javascript
 setState(updater[, callback])
@@ -562,7 +564,7 @@ For more detail, see:
 
 * * *
 
-### `forceUpdate()`
+### `forceUpdate()` {#forceupdate}
 
 ```javascript
 component.forceUpdate(callback)
@@ -576,9 +578,9 @@ Normalmente, debes intentar evitar todos los usos de `forceUpdate()` y solo leer
 
 * * *
 
-## Propiedades de clase
+## Propiedades de clase {#class-properties-1}
 
-### `defaultProps`
+### `defaultProps` {#defaultprops}
 
 `defaultProps` puede ser definido como una propiedad en la propia clase de componente, para establecer los props predeterminados para la clase. Esto se utiliza para props no definidos, pero no para props nulos. Por ejemplo:
 
@@ -610,21 +612,21 @@ Si `props.color` se establece a null, permanecerá null:
 
 * * *
 
-### `displayName`
+### `displayName` {#displayname}
 
 La cadena `displayName` es usada en la depuración de mensajes. Por lo general, no necesita establecerlo explícitamente porque se deduce del nombre de la función o clase que define el componente. Es posible que desees establecerlo explícitamente si quieres mostrar un nombre diferente para la depuración o cuando creas un componente de orden superior, consulta [ Ajustar el Nombre de Pantalla para una Fácil Depuración ](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) para más detalles.
 
 * * *
 
-## Propiedades de Instancia
+## Propiedades de Instancia {#instance-properties-1}
 
-### `props`
+### `props` {#props}
 
 `this.props`contiene los props que fueron definidos por el encargado de llamar al componente. Vea [Componentes y Props](/docs/components-and-props.html) para una introducción a los props.
 
 En particular, `this.props.children` es un accesorio especial, tipicamente definido por las etiquetas hijas en la expresión JSX en vez de en la etiqueta como tal.
 
-### `state`
+### `state` {#state}
 
 El state contiene datos específicos a este componente que pueden cambiar con el tiempo. El estado está definido por el usuario, y debe ser un simple objeto JavaScript.
 
