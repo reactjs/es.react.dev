@@ -11,9 +11,9 @@ redirect_from:
 permalink: docs/refs-and-the-dom.html
 ---
 
-Las referencias proporcionan una forma de acceder a los nodos del DOM o a elementos React creados en el metodo de renderizado.
+Las referencias proporcionan una forma de acceder a los nodos del DOM o a elementos React creados en el método de renderizado.
 
-En un flujo normal de datos de React, [las propiedades](/docs/components-and-props.html) son la unica forma en la que los componentes padres pueden interactuar con sus hijos. Para modificar un hijo, vuelves a renderizarlo con propiedades nuevas. Sin embargo, hay ciertos casos donde necesitarás modificar imperativamente un hijo fuera del flujo de datos tipico. El hijo a ser modificado puede ser una instancia de un componente React, o puede ser un elemento del DOM. Para ambos casos, React proporciona una via de escape.
+En un flujo normal de datos de React, [las propiedades](/docs/components-and-props.html) son la única forma en la que los componentes padres pueden interactuar con sus hijos. Para modificar un hijo, vuelves a renderizarlo con propiedades nuevas. Sin embargo, hay ciertos casos donde necesitarás modificar imperativamente un hijo fuera del flujo de datos tipico. El hijo a ser modificado puede ser una instancia de un componente React, o puede ser un elemento del DOM. Para ambos casos, React proporciona una via de escape.
 
 ### Cuando Usar Referencias
 
@@ -209,7 +209,7 @@ React tambien ofrece otra manera de agregar referencias con "referencias mediant
 
 En lugar de pasar un atributo a `ref` creado por `createRef()`, pasas una función. La función recibe la instancia del componente React o el elemento DOM del HTML como su argumento, que puede ser guardado y accedido desde otros lugares.
 
-El ejemplo a continuación implementa un patrón común: usar el `ref` mediante callback para guardar una referencia al nodo del DOM en una propiedad de la instancia.
+El ejemplo a continuación implementa un patrón común: usar el `ref` mediante un callback para guardar una referencia al nodo del DOM en una propiedad de la instancia.
 
 ```javascript{5,7-9,11-14,19,29,34}
 class CustomTextInput extends React.Component {
@@ -253,9 +253,9 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-React will call the `ref` callback with the DOM element when the component mounts, and call it with `null` when it unmounts. Refs are guaranteed to be up-to-date before `componentDidMount` or `componentDidUpdate` fires.
+React llamara al callback del `ref` con el elemento del DOM cuando el componente sea montado, y lo llamara con `null` cuando este se desmonte. Se asegura que las referencias seran actualizadas antes que el `componentDidMount` o el `componentDidUpdate` sean ejecutados.
 
-You can pass callback refs between components like you can with object refs that were created with `React.createRef()`.
+Puedes pasar una referencia mediante callback entre componentes tal como puedes con los objetos de referencias creados con `React.createRef()`
 
 ```javascript{4,13}
 function CustomTextInput(props) {
@@ -277,16 +277,16 @@ class Parent extends React.Component {
 }
 ```
 
-In the example above, `Parent` passes its ref callback as an `inputRef` prop to the `CustomTextInput`, and the `CustomTextInput` passes the same function as a special `ref` attribute to the `<input>`. As a result, `this.inputElement` in `Parent` will be set to the DOM node corresponding to the `<input>` element in the `CustomTextInput`.
+En el ejemplo de arriba, `Parent` pasa su referencia mediante callback como una propiedad `inputRef` al `CustomTextInput`, y el componente `CustomTextInput` pasa la misma funcion como un atributo especial `ref` al `<input>`. Como resultado, `this.inputElement` en el `Parent` sera asignado con el nodo del DOM correspondiente al elemento `input` del `CustomTextInput`.
 
-### Legacy API: String Refs
+### API Antigua: Referencias mediante Cadena de Texto
 
-If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `"textInput"`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because string refs have [some issues](https://github.com/facebook/react/pull/8333#issuecomment-271648615), are considered legacy, and **are likely to be removed in one of the future releases**. 
+Si trabajaste con React antes, puede que estes familiarizado con un API antigua donde el atributo `ref` es una cadena de texto, justo como `"textInput"`, y el nodo del DOM es accedido como `this.refs.textInput`. No recomendamos usar esto, ya que las referencias mediante cadenas de texto tiene [ciertos problemas](https://github.com/facebook/react/pull/8333#issuecomment-271648615), son consideradas antiguas, y **posiblemente seran removidas en uno de los futuros lanzamientos**.
 
-> Note
+> Nota
 >
-> If you're currently using `this.refs.textInput` to access refs, we recommend using either the [callback pattern](#callback-refs) or the [`createRef` API](#creating-refs) instead.
+> Si estas considerando usar `this.refs.textInput` para acceder a las referencias, recomendamos que uses en su lugar o bien [referencias mediante callback](#callback-refs) o [el API `createRef`](#creating-refs).
 
-### Caveats with callback refs
+### Advertencias sobre Referencias mediante Callback
 
-If the `ref` callback is defined as an inline function, it will get called twice during updates, first with `null` and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one. You can avoid this by defining the `ref` callback as a bound method on the class, but note that it shouldn't matter in most cases.
+Si el callback de `ref` es definido como una *arrow function*, esta sera llamada 2 veces durante las actualizaciones, la primera con `null` y de nuevo con el elemento DOM correspondiente. Esto se debe a que una nueva instancia de la funcion es creada en cada renderizado, por lo que React necesita limpiar la referencia vieja y agregar la nueva. Puedes evitar esto definiendo el callback del `ref` como un metodo en la clase, pero recuerda que no deberia importar en la mayoria de los casos.
