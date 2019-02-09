@@ -6,7 +6,7 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+Los Hooks son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Esta página describe las API para los Hooks incorporados en React.
 
@@ -247,13 +247,7 @@ function reducer(state, action) {
     case 'reset':
       return init(action.payload);
     default:
-<<<<<<< HEAD
-      // Un reducer siempre debe devolver un estado válido.
-      // Alternativamente, puede lanzar un error si se envía una acción no válida.
-      return state;
-=======
       throw new Error();
->>>>>>> e3cf542e75018ff7f0104ab7a4df9dc2b8d43bef
   }
 }
 
@@ -407,15 +401,9 @@ function useFriendStatus(friendID) {
 
 > Consejo
 >
-<<<<<<< HEAD
-> No recomendamos agregar valores de depuración a cada Hook personalizado. Es más valioso para los Hooks personalizados que forman parte de las bibliotecas compartidas.
-=======
-> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+> No recomendamos agregar valores de depuración a cada Hook personalizado. Es más valioso para los Hooks personalizados que forman parte de  bibliotecas compartidas.
 
-#### Defer formatting debug values {#defer-formatting-debug-values}
->>>>>>> aada3a308493614b7d5b4b438b5c345d7ecc6c53
-
-#### Aplazar el formato de los valores de depuración
+#### Aplazar el formato de los valores de depuración {#defer-formatting-debug-values}
 
 En algunos casos, formatear un valor para mostrar puede ser una operación costosa. También es innecesario a menos que un Hook sea realmente inspeccionado.
 
