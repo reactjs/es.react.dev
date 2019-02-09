@@ -1,6 +1,6 @@
 ---
 id: forms
-title: Forms
+title: Formularios
 permalink: docs/forms.html
 prev: lists-and-keys.html
 next: lifting-state-up.html
@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-HTML form elements work a little bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+Los elementos de formularios en HTML funcionan un poco diferente a otros elementos del DOM en React, debido a que los elementos de formularios conservan naturalmente estados. Por ejemplo, este formulario en HTML puro acepta un solo nombre.
 
 ```html
 <form>
@@ -21,7 +21,7 @@ HTML form elements work a little bit differently from other DOM elements in Reac
 </form>
 ```
 
-This form has the default HTML form behavior of browsing to a new page when the user submits the form. If you want this behavior in React, it just works. But in most cases, it's convenient to have a JavaScript function that handles the submission of the form and has access to the data that the user entered into the form. The standard way to achieve this is with a technique called "controlled components".
+Este formulario tiene el comportamiento predeterminado en HTML que consiste en viajar a una nueva pagina cuando el usuario envia el formulario. Si deseas este comportamiento en React, simplemente ya funciona asi. Pero en la mayoria de casos, es conveniente tener una funcion en Javascript que maneja el envio de un formulario, y que tenga acceso a los datos que el usuario introdujo en el formulario. La forma predeterminada para conseguir esto es una tecnica llamads "componentes controlados".
 
 ## Controlled Components {#controlled-components}
 
