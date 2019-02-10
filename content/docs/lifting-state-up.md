@@ -8,6 +8,7 @@ redirect_from:
   - "docs/flux-overview.html"
   - "docs/flux-todo-list.html"
 ---
+
 Usualmente, muchos componentes necesitan reflejar el mismo cambio en los datos. Recomendamos elevar el estado compartido al ancestro común más cercano. Veamos cómo funciona.
 
 En esta sección, crearemos una calculadora de temperatura que calculará si el agua hervirá a una determinada temperatura.
@@ -22,6 +23,7 @@ function BoilingVerdict(props) {
   return <p>The water would not boil.</p>;
 }
 ```
+
 Luego, crearemos un componente llamado `Calculator`. Este renderiza un `<input>` que permite insertar la temperatura y guarda su valor en `this.state.temperature`.
 
 Además, renderiza el `BoilingVerdict` para el valor insertado.
@@ -55,6 +57,7 @@ class Calculator extends React.Component {
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ZXeOBm?editors=0010)
+
 ## Añadiendo una segunda entrada {#adding-a-second-input}
 
 Nuestro nuevo requisito es que, además de la temperatura en Celsius, proveemos la temperatura en Fahrenheit, y éstas se mantienen sincronizadas.
@@ -91,6 +94,7 @@ class TemperatureInput extends React.Component {
   }
 }
 ```
+
 Ahora podemos cambiar `Calculator` para que renderice dos entradas separadas para la temperatura:
 
 ```js{5,6}
@@ -240,14 +244,16 @@ Por ejemplo, si insertamos 37 en la entrada de Celsius, el estado del componente
   scale: 'c'
 }
 ```
-Si luego editamos el valor de Fahrenheit para que sea 451, el estado de `Calculator` será:
+
+Si luego editamos el valor de Fahrenheit para que sea 212, el estado de `Calculator` será:
 
 ```js
 {
-  temperature: '451',
+  temperature: '212',
   scale: 'f'
 }
 ```
+
 Pudimos haber guardado el valor de ambas entradas pero resulta que no es necesario. Es suficiente con guardar el valor de la entrada recientemente cambiada, y la escala que ésta representa. Entonces podemos inferir el valor de la otra entrada basados solamente en el valor actual de `temperature` y `scale`.
 
 Las entradas se mantienen sincronizadas porque los valores son calculados a partir del mismo estado:
@@ -321,4 +327,3 @@ Si algo puede ser derivado de las propiedades o el estado, probablemente no debe
 Cuando veas que algo está mal en la IU, puedes usar [React Developer Tools](https://github.com/facebook/react-devtools) para inspeccionar las propiedades y moverte hacia arriba en el árbol hasta encontrar el componente responsable de actualizar el estado. Esto te permite seguir un error hasta su fuente:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
-
