@@ -276,6 +276,7 @@ npm run build
 
 Si no ves ninguna salida, significa que se completó correctamente.
 
+
 ### Tipo de definiciones {#type-definitions}
 Para poder mostrar errores y sugerencias de otros paquetes, el compilador se basa en archivos de declaración. Un archivo de declaración proporciona toda la información de tipo sobre una biblioteca. Esto nos permite usar bibliotecas javascript como las de npm en nuestro proyecto.
 
