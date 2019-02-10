@@ -261,6 +261,7 @@ En React, lo más probable es que escribas tus componentes en un archivo `.js`. 
 `.ts` es la extensión de archivo predeterminada, mientras que `.tsx` es una extensión especial que se usa para los archivos que contienen `JSX`.
 
 ### Corriendo TypeScript {#running-typescript}
+
 Si seguiste las instrucciones anteriores, deberías poder ejecutar TypeScript por primera vez.
 
 ```bash
