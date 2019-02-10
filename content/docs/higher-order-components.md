@@ -4,7 +4,7 @@ title: Componentes de Orden Superior
 permalink: docs/higher-order-components.html
 ---
 
-Un componente de orden superior (*HOC* por las siglas en inglés de *higher-order component*) es una técnica avanzada en React para el reuso de la lógica de componentes. Los *HOCs* no son parte del API de React. Son un patrón que surge de la naturaleza composicional de React.
+Un componente de orden superior (*HOC* por las siglas en inglés de *higher-order component*) es una técnica avanzada en React para el reuso de la lógica de componentes. Los *HOCs* no son parte de la API de React. Son un patrón que surge de la naturaleza composicional de React.
 
 En concreto, **un componente de orden superior es una función que recibe un componente y devuelve un nuevo componente.**
 
@@ -16,13 +16,13 @@ Mientras que un componente transforma _props_ en interfaz de usuario, un compone
 
 Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
 
-En este documento discutiremos porque los componentes de orden superior son útiles y como escribir tus propios *HOCs*.
+En este documento discutiremos por qué los componentes de orden superior son útiles y como escribir tus propios *HOCs*.
 
-## Use HOCs para preocupaciones transversales
+## Usa HOCs para preocupaciones transversales
 
 > **Nota**
 >
-> Anteriormente recomendábamos el uso de *mixins* para manejar las preocupaciones transversales. Desde entonces, nos hemos dado cuenta que los *mixins* causan más problemas de los que resuelven. [Lee más](/blog/2016/07/13/mixins-considered-harmful.html) acerca de porqué hemos decidido alejarnos de los *mixins* y como puedes migrar tus componentes existentes.
+> Anteriormente recomendábamos el uso de *mixins* para manejar las preocupaciones transversales. Desde entonces, nos hemos dado cuenta que los *mixins* causan más problemas de los que resuelven. [Lee más](/blog/2016/07/13/mixins-considered-harmful.html) acerca de por qué hemos decidido alejarnos de los *mixins* y como puedes migrar tus componentes existentes.
 
 Los componentes son la unidad primaria de reuso de código en React. Sin embargo, encontrarás que algunos patrones no se ajustan directamente a componentes tradicionales.
 
@@ -106,9 +106,9 @@ class BlogPost extends React.Component {
 - En el gestor de eventos de cambio, llamar `setState` cada vez que la fuente de datos cambie.
 - Al desmontar, eliminar el gestor de eventos de cambio.
 
-Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a una `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de multiples componentes. En esto es donde los componentes de orden superior se destacan.
+Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de multiples componentes. En esto es donde los componentes de orden superior se destacan.
 
-Podemos crear una función que cree componentes, como `CommentList` y `BlogPost`, que se subscriben a `DataSource`. La función aceptará como uno de sus argumentos un componente hijo que recibirá la data subscrita como un *prop*. Llamemos esta función `withSubscription`:
+Podemos crear una función que cree componentes, como `CommentList` y `BlogPost`, que se subscriben a `DataSource`. La función aceptará como uno de sus argumentos un componente hijo que recibirá los datos suscritos como un *prop*. Llamemos esta función `withSubscription`:
 
 ```js
 const CommentListWithSubscription = withSubscription(
@@ -156,7 +156,7 @@ function withSubscription(WrappedComponent, selectData) {
 
     render() {
       // ... y renderiza el componente envuelto con los datos frescos!
-      // Tome nota de que pasamos cualquier prop adicional
+      // Toma nota de que pasamos cualquier prop adicional
       return <WrappedComponent data={this.state.data} {...this.props} />;
     }
   };
@@ -165,13 +165,14 @@ function withSubscription(WrappedComponent, selectData) {
 
 Nótese que un *HOC* no modifica el componente de entrada, ni usa herencia para copiar su comportamiento. En su lugar, un *HOC* **compone** el componente original al **envolverlo** en un componente contenedor. Un *HOC* es una función pura sin efectos colaterales.
 
-Y, eso es todo!. El componente envuelto recibe todos los *props* del contenedor, junto con un nuevo *prop*, `data`, el cual es usado para renderizar su salida. Al *HOC* no le importa cómo o porqué los datos son usados, y al componente envuelto no le importa de donde proceden los datos.
+¡Y, eso es todo!. El componente envuelto recibe todos los *props* del contenedor, junto con un nuevo *prop*, `data`, el cual es usado para renderizar su salida. Al *HOC* no le importa cómo o porqué los datos son usados, y al componente envuelto no le importa de donde proceden los datos.
 
 Debido a que `withSubscription` es una función normal, puedes añadir tantos, o tan pocos, argumentos como desees. Por ejemplo, puedes querer hacer el nombre del *prop* `data` configurable, para aislar aún más el *HOC* del componente envuelto. O podrías aceptar un argumento que configure `shouldComponentUpdate`, o alguno que configure la fuente de datos. Todo esto es posible porque el *HOC* tiene el control total sobre como se define el componente.
 
 Tal como los componentes, el contrato entre `withSubscription` y el componente envuelto está basado completamente en los *props*. Esto hace fácil intercambiar un *HOC* por otro, siempre y cuando provean los mismos *props* al componente envuelto. Esto puede ser útil si cambias de bibliotecas de obtención de datos, por ejemplo.
 
 ## No Mutes el Componente Original. Usa Composición.
+
 Resiste la tentación de modificar el prototipo de un componente (o de mutarlo de cualquier otra forma) dentro de un *HOC*
 
 ```js
@@ -189,7 +190,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Existen varios problemas con esto. Uno es que el componente de entrada no podrá ser usado aparte del componente mejorado. Más importante aún, si aplicas otro *HOC* al `EnhancedComponent` que **también** mute `componentWillReceiveProps`, la funcionalidad del primer *HOC* será sobrescrita!. Este *HOC* tampoco funcionará con componentes funcionales, los cuales no poseen los métodos del ciclo de vida.
+Existen varios problemas con esto. Uno es que el componente de entrada no podrá ser usado aparte del componente mejorado. Más importante aún, si aplicas otro *HOC* al `EnhancedComponent` que **también** mute `componentWillReceiveProps`, ¡la funcionalidad del primer *HOC* será sobrescrita!. Este *HOC* tampoco funcionará con componentes funcionales, los cuales no poseen los métodos del ciclo de vida.
 
 Mutar *HOCs* es una abstracción con fugas, el consumidor tiene que saber como están implementados para evitar conflictos con otros *HOCs*.
 
@@ -203,14 +204,14 @@ function logProps(WrappedComponent) {
       console.log('Next props: ', nextProps);
     }
     render() {
-      // Envuelve el componente de entrada en un contenedor, sin mutarlo. Bien!
+      // Envuelve el componente de entrada en un contenedor, sin mutarlo. ¡Bien!
       return <WrappedComponent {...this.props} />;
     }
   }
 }
 ```
 
-Este *HOC* posee la misma funcionalidad que la versión con mutación, pero al mismo tiempo evita el potencial de conflictos. Funciona igualmente bien com componentes de clase o funcionales. Y dado que es una función pura es posible componerlo con otros *HOCs*, o incluso consigo mismo.
+Este *HOC* posee la misma funcionalidad que la versión con mutación, pero al mismo tiempo evita el potencial de conflictos. Funciona igualmente bien com componentes de clase o de función. Y dado que es una función pura es posible componerlo con otros *HOCs*, o incluso consigo mismo.
 
 Puedes haber notado similitud entre los *HOCs* y un patrón llamado **componentes contenedores**. Los componentes contenedores son parte de una estrategia de separación de responsabilidades entre preocupaciones de alto y bajo nivel. Los contenedores manejan temas como subscripciones y estado, y pasan *props* a componentes que manejan temas como renderizar la interfaz de usuario. Los *HOCs* usan contenedores como parte de su implementación. Puedes pensar en los *HOCs* como definiciones de componentes contenedores parametrizables. 
 
@@ -263,7 +264,7 @@ La firma más común para los *HOCs* se ve así:
 const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
 ```
 
-*Qué?!* Si lo divides en partes es más fácil de entender que sucede.
+*!¿Qué?!* Si lo divides en partes es más fácil de entender que sucede.
 
 ```js
 // connect es una función que retorna otra función
@@ -274,7 +275,7 @@ const ConnectedComment = enhance(CommentList);
 ```
 En otras palabras, `connect` es una función de orden superior que devuelve un componente de orden superior!
 
-Esta forma puede pareser confusa o innecesaria, pero tiene una propiedad útil. Los *HOCs* de un solo argumento, como los que devuelve la función `connect` tienen la firma `Component => Component`. Las funciones cuyo tipo de salida es el mismo que el tipo de entrada son muy fáciles de componer.
+Esta forma puede parecer confusa o innecesaria, pero tiene una propiedad útil. Los *HOCs* de un solo argumento, como los que devuelve la función `connect` tienen la firma `Component => Component`. Las funciones cuyo tipo de salida es el mismo que el de entrada son muy fáciles de componer.
 
 ```js
 // En lugar de hacer esto...
@@ -292,7 +293,7 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 (Esta misma propiedad también permite a `connect`, y a otros *HOCs* de estilo mejoradores, que sean usados como decoradores, una propuesta experimental en JavaScript.)
 
-La función utilitaria `compose` es provista por muchas bibliotecas de terceros, incluyendo en *lodash* (como [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), en [Redux](http://redux.js.org/docs/api/compose.html), y en [Ramda](http://ramdajs.com/docs/#compose).
+La función utilitaria `compose` es provista por muchas bibliotecas de terceros, incluida en *lodash* (como [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), en [Redux](http://redux.js.org/docs/api/compose.html), y en [Ramda](http://ramdajs.com/docs/#compose).
 
 ## Convención: Envuelve el Nombre a Mostrar para una Depuración Fácil
 
@@ -319,7 +320,7 @@ Los componentes de orden superior vienen con algunas consideraciones que no son 
 
 ### No Uses *HOCs* dentro del método *render*
 
-El algoritmo de detección de diferencias de React (llamado reconciliación) utiliza la identidad del componente para determinar si debe actualizar el subárbol existente o desecharlo y montar uno nuevo. Si el componente devuelto por `render` es idéntico (`===`) al componente de la llamada a `render` previa, React actualiza el subárbol calculando las diferencias con el nuevo. Si no són iguales, el subárbol anterior es desmontado completamente.
+El algoritmo de detección de diferencias de React (llamado reconciliación) utiliza la identidad del componente para determinar si debe actualizar el subárbol existente o desecharlo y montar uno nuevo. Si el componente devuelto por `render` es idéntico (`===`) al componente de la llamada a `render` previa, React actualiza el subárbol calculando las diferencias con el nuevo. Si no son iguales, el subárbol anterior es desmontado completamente.
 
 Normalmente no es necesario pensar acerca de esto. Pero importa para los *HOCs* porque significa que no puedes aplicar un *HOC* a un componente dentro del método `render` de otro componente:
 
@@ -395,4 +396,4 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 Aunque la convención para los componentes de orden superior es pasar todos los *props* al componente envuelto, esto no funciona para las *refs*. Esto es porque `ref` no es realmente un *prop*, al igual que `key` es manejado de forma especial por React. Si añades una *ref* a un elemento cuyo componente es el resultado de un *HOC*, esa *ref* se refiere a la instancia del componente contenedor más externo, no al componente envuelto.
 
-La solución a este problema es usar el API `React.forwardRef` (introducido con React 16.3). [Aprende más acerca de este API en la sección acerca de Reenvío de Refs](/docs/forwarding-refs.html).
+La solución a este problema es usar la API `React.forwardRef` (introducido con React 16.3). [Aprende más acerca de esta API en la sección acerca de Reenvío de Refs](/docs/forwarding-refs.html).
