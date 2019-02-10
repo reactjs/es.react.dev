@@ -263,8 +263,6 @@ En React, lo más probable es que escribas tus componentes en un archivo `.js`. 
 ### Corriendo TypeScript {#running-typescript}
 Si seguiste las instrucciones anteriores, deberías poder ejecutar TypeScript por primera vez.
 
-Si usas yarn, ejecuta:
-
 ```bash
 yarn build
 ```
