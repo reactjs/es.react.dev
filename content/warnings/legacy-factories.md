@@ -29,7 +29,7 @@ function render() {
 
 ## Sin JSX {#sin-jsx}
 
-Si no quieres o no puedes usar JSX, tendrás entonces que envolver tu componente en un factory antes de llamarlo:
+Si no quieres o no puedes usar JSX, tendrás entonces que envolver tu componente en un *factory* antes de llamarlo:
 
 ```javascript
 var React = require('react');
@@ -44,7 +44,7 @@ Esta es una ruta de actualización fácil si ya tienes muchas llamadas como func
 
 ## Componentes dinámicos sin JSX {#componentes-dinamicos-sin-jsx}
 
-Si recibes un componente de clase de forma dinámica, entonces probablemente sea innecesario crear un factory para invocarlo inmediatamente. En su lugar puedes simplemente crear tu elemento en línea:
+Si recibes un componente de clase de forma dinámica, entonces probablemente sea innecesario crear un *factory* para invocarlo inmediatamente. En su lugar puedes simplemente crear tu elemento en línea:
 
 ```javascript
 var React = require('react');
