@@ -122,8 +122,6 @@ Si no usaste el comando Create React App o Babel, puedes usar [flow-remove-types
 
 Si seguiste las instrucciones anteriores, deberías poder ejecutar Flow por primera vez.
 
-Si usas Yarn, ejecuta:
-
 ```bash
 yarn flow
 ```
