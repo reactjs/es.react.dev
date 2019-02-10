@@ -6,7 +6,7 @@ prev: typechecking-with-prototypes.html
 next: refs-and-the-dom.html
 ---
 
-Los comprobadores de tipos estático [Flow](https://flow.org/) y [TypeScript](https://www.typescriptlang.org/) identifican cierto tipo de problemas incluso antes de ejecutar tu código. También pueden mejorar el flujo de trabajo del desarrollador al agregar características como el autocompletado. Por este motivo, recomendamos utilizar Flow o TypeScript en lugar de `PropTypes` para bases de código más grandes.
+Los comprobadores de tipos estáticos [Flow](https://flow.org/) y [TypeScript](https://www.typescriptlang.org/) identifican cierto tipo de problemas incluso antes de ejecutar tu código. También pueden mejorar el flujo de trabajo del desarrollador al agregar características como el autocompletado. Por este motivo, recomendamos utilizar Flow o TypeScript en lugar de `PropTypes` para bases de código más grandes.
 
 ## Flow {#flow}
 
