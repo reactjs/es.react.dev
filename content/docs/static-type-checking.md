@@ -227,7 +227,6 @@ Mirando el `tsconfig.json` generado ahora, puede ver que hay muchas opciones que
 De las muchas opciones, veremos `rootDir` y `outDir`. De esta manera, el compilador tomará los archivos de typescript y generará archivos de javascript. Sin embargo, no queremos confundirnos con nuestros archivos de origen y la salida generada.
 
 Abordaremos esto en dos pasos:
-
 * En primer lugar, vamos a organizar nuestra estructura de proyecto de esta manera. Pondremos todo nuestro código fuente en el directorio `src`.
 
 ```
@@ -237,7 +236,7 @@ Abordaremos esto en dos pasos:
 └── tsconfig.json
 ```
 
-* A continuación, le diremos al compilador dónde está nuestro código fuente y dónde debería ir la salida..
+* A continuación, le diremos al compilador dónde está nuestro código fuente y dónde debería ir la salida.
 
 ```js{6,7}
 // tsconfig.json
@@ -283,11 +282,9 @@ Para poder mostrar errores y sugerencias de otros paquetes, el compilador se bas
 
 Hay dos formas principales de obtener declaraciones para una biblioteca.:
 
-__Bundled__
-La biblioteca tiene sus propios archivos de declaración bundles. Esto es genial para nosotros, ya que todo lo que tenemos que hacer es instalar la biblioteca, y podemos usarla de inmediato. Para verificar si una biblioteca tiene tipos bundles, busque un archivo `index.d.ts` en el proyecto. Algunas bibliotecas lo tendrán especificado en su `package.json` bajo el campo `typings` o `types`.
+__Bundled__ - La biblioteca tiene sus propios archivos de declaración bundles. Esto es genial para nosotros, ya que todo lo que tenemos que hacer es instalar la biblioteca, y podemos usarla de inmediato. Para verificar si una biblioteca tiene tipos bundles, busque un archivo `index.d.ts` en el proyecto. Algunas bibliotecas lo tendrán especificado en su `package.json` bajo el campo `typings` o `types`.
 
-__[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__
-DefinitelyTyped es un gran repositorio de declaraciones para bibliotecas que no incluyen un archivo bundle. Las declaraciones son de carácter público y son administradas por Microsoft y colaboradores de código abierto. React, por ejemplo, no incluye su propio archivo de declaración. En su lugar, podemos obtenerlo de DefinitelyTyped. Para ello ingresa este comando en tu terminal.
+__[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__ - DefinitelyTyped es un gran repositorio de declaraciones para bibliotecas que no incluyen un archivo bundle. Las declaraciones son de carácter público y son administradas por Microsoft y colaboradores de código abierto. React, por ejemplo, no incluye su propio archivo de declaración. En su lugar, podemos obtenerlo de DefinitelyTyped. Para ello ingresa este comando en tu terminal.
 
 ```bash
 # yarn
@@ -327,6 +324,4 @@ JetBrains desarrolla y mantiene varias herramientas específicamente para la com
 
 ## Otros lenguajes {#other-languages}
 
->Nota
->
-> Tenga en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y, por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](http://fable.io)with [elmish-react](https://elmish.github.io/react). Visite sus respectivos sitios para obtener más información y siéntete libre de agregar más idiomas tipificados estáticamente que funcionan con React a esta página!
+Tenga en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y, por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](http://fable.io)with [elmish-react](https://elmish.github.io/react). Visite sus respectivos sitios para obtener más información y siéntete libre de agregar más idiomas tipificados estáticamente que funcionan con React a esta página!
