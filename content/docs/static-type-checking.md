@@ -22,15 +22,15 @@ Vamos a explicar estos pasos a continuación en detalle.
 
 ### Agregando Flow a tu proyecto {#adding-flow-to-a-project}
 
-Primero, navegue hasta el directorio donde esta tu proyecto, en la terminal, Deberás ejecutar el siguiente comando:
+Primero, navega hasta el directorio donde está tu proyecto, en la terminal, Deberás ejecutar el siguiente comando:
 
- Si usas [Yarn](https://yarnpkg.com/), ejecutar:
+ Si usas [Yarn](https://yarnpkg.com/), ejecuta:
 
 ```bash
 yarn add --dev flow-bin
 ```
 
-Si usas [npm](https://www.npmjs.com/), ejecutar:
+Si usas [npm](https://www.npmjs.com/), ejecuta:
 
 ```bash
 npm install --save-dev flow-bin
