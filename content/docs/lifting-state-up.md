@@ -13,7 +13,7 @@ Usualmente, muchos componentes necesitan reflejar el mismo cambio en los datos. 
 
 En esta sección, crearemos una calculadora de temperatura que calculará si el agua hervirá a una determinada temperatura.
 
-Comenzaremos con un componente llamado `BoilingVerdict`. Éste acepta la temperatura en `celsius` como una propiedad e imprime si es suficiente para que el agua hierva:
+Comenzaremos con un componente llamado `BoilingVerdict`. Este acepta la temperatura en `celsius` como una propiedad e imprime si es suficiente para que el agua hierva:
 
 ```js{3,5}
 function BoilingVerdict(props) {
@@ -60,7 +60,7 @@ class Calculator extends React.Component {
 
 ## Añadiendo una segunda entrada {#adding-a-second-input}
 
-Nuestro nuevo requisito es que, además de la temperatura en Celsius, proveemos la temperatura en Fahrenheit, y éstas se mantienen sincronizadas.
+Nuestro nuevo requisito es que, además de la temperatura en Celsius, proveemos la temperatura en Fahrenheit, y estas se mantienen sincronizadas.
 
 Podemos comenzar por extraer el componente `TemperatureInput` de `Calculator`. Añadiremos una nueva propiedad `scale` al mismo que podrá ser `"c"` o `"f"`:
 
@@ -130,9 +130,9 @@ function toFahrenheit(celsius) {
 }
 ```
 
-Éstas dos functiones convierten números. Escribiremos otra función que tomará la cadena `temperature` y una función de conversión como parámetros y retornará una cadena. La usaremos para calcular el valor de una entrada basado en la otra entrada.
+Estas dos funciones convierten números. Escribiremos otra función que tomará la cadena `temperature` y una función de conversión como parámetros y retornará una cadena. La usaremos para calcular el valor de una entrada basado en la otra entrada.
 
-Retorna una cadena vacía si `temperature` es inválida, y mantiene la salida redondeada al tercer lugar decimal:
+Retorna una cadena vacía si `temperature` es inválida y mantiene la salida redondeada al tercer lugar decimal:
 
 ```js
 function tryConvert(temperature, convert) {
@@ -169,11 +169,11 @@ class TemperatureInput extends React.Component {
     // ...  
 ```
 
-Sin embargo, queremos que éstas dos entradas estén sincronizadas. Cuando actualicemos la entrada de Celsius, la entrada de Fahrenheit debe reflejar la conversión de temperatura, y viceversa.
+Sin embargo, queremos que estas dos entradas estén sincronizadas. Cuando actualicemos la entrada de Celsius, la entrada de Fahrenheit debe reflejar la conversión de temperatura, y viceversa.
 
 En React, la compartición del estado puede lograrse moviendo el estado hacia arriba al ancestro común más cercano de los componentes que lo necesitan. A esto se le llama "levantar el estado". Eliminaremos el estado local de `TemperatureInput` y lo moveremos hacia `Calculator`.
 
-Si `Calculator` posee el estado compartido, entonces se convierte en la "fuente de verdad" para la temperatura actual en ambas entradas. Este puede instruir a ambos a tener valores consistentes entre si. Puesto que las propiedades de ambos componentes `TemperatureInput` vienen del mismo componente `Calculator`, las dos entradas siempre estarán sincronizadas.
+Si `Calculator` posee el estado compartido, entonces se convierte en la "fuente de verdad" para la temperatura actual en ambas entradas. Este puede instruir a ambos a tener valores consistentes entre sí. Puesto que las propiedades de ambos componentes `TemperatureInput` vienen del mismo componente `Calculator`, las dos entradas siempre estarán sincronizadas.
 
 Veamos cómo trabaja esto paso a paso.
 
@@ -203,9 +203,9 @@ Ahora, cuando `TemperatureInput` quiera actualizar su temperatura, este llama a 
 >
 >No existe un significado especial para los nombres de las propiedades `temperature` o `onTemperatureChange` en los componentes. Pudimos haberles dado otro nombre, como `value` y `onChange` lo cual es una convención común.
 
-La propiedad `onTemperatureChange` será proporcionada de manera conjunta con `temperature` por el componente padre `Calculator`. Éste manejará el cambio modificando su estado local, volviendo a renderizar ambas entradas con los nuevos valores. Analizaremos los cambios en la implementación de `Calculator` en un momento.
+La propiedad `onTemperatureChange` será proporcionada de manera conjunta con `temperature` por el componente padre `Calculator`. Este manejará el cambio modificando su estado local, volviendo a renderizar ambas entradas con los nuevos valores. Analizaremos los cambios en la implementación de `Calculator` en un momento.
 
-Antes de ahondar en los cambios de `Calculator`, recapitulemos nuestros cambios al componente `TemperatureInput`. Hemos eliminado el estado local de éste, y en vez de leer `this.state.temperature`, ahora leemos `this.props.temperature`. En vez de llamar a `this.setState()` cuando queremos hacer un cambio, ahora llamamos a `this.props.onTemperatureChange()`, que será proporcionado por `Calculator`:
+Antes de ahondar en los cambios de `Calculator`, recapitulemos nuestros cambios al componente `TemperatureInput`. Hemos eliminado el estado local de este, y en vez de leer `this.state.temperature`, ahora leemos `this.props.temperature`. En vez de llamar a `this.setState()` cuando queremos hacer un cambio, ahora llamamos a `this.props.onTemperatureChange()`, que será proporcionado por `Calculator`:
 
 ```js{8,12}
 class TemperatureInput extends React.Component {
@@ -254,7 +254,7 @@ Si luego editamos el valor de Fahrenheit para que sea 212, el estado de `Calcula
 }
 ```
 
-Pudimos haber guardado el valor de ambas entradas pero resulta que no es necesario. Es suficiente con guardar el valor de la entrada recientemente cambiada, y la escala que ésta representa. Entonces podemos inferir el valor de la otra entrada basados solamente en el valor actual de `temperature` y `scale`.
+Pudimos haber guardado el valor de ambas entradas pero resulta que no es necesario. Es suficiente con guardar el valor de la entrada recientemente cambiada, y la escala que esta representa. Entonces podemos inferir el valor de la otra entrada basados solamente en el valor actual de `temperature` y `scale`.
 
 Las entradas se mantienen sincronizadas porque los valores son calculados a partir del mismo estado:
 
@@ -307,8 +307,8 @@ Recapitulemos qué pasa cuando editamos una entrada:
 
 * React llama a la función especificada como `onChange` en el `<input>` del DOM. En nuestro caso es el método `handleChange` en el componente `TemperatureInput`.
 * El método `handleChange` en el componente `TemperatureInput` llama a `this.props.onTemperatureChange()` con el nuevo valor. Sus propiedades, incluyendo `onTemperatureChange`, fueron provistas para el componente padre `Calculator`.
-* Cuando renderizó previamente, `Calculator` especificó que `onTemperatureChange` del componente `TemperatureInput` con la escala Celsius es el método `handleCelsiusChange` y `onTemperatureChange` del componente `TemperatureUnit` con escala Fahrenheit is el método `handleFahrenheitChange`. Entonces, cada uno de estos métodos es llamado dependiendo del componente que se edite.
-* Dentro de estos métodos, el componente `Calculator` pregunta a React para re-renderizarse a si mismo llamando al método `this.setState()` con el nuevo valor y la escala actual de la entrada que acabamos de editar.
+* Cuando renderizó previamente, `Calculator` especificó que `onTemperatureChange` del componente `TemperatureInput` con la escala Celsius es el método `handleCelsiusChange` y `onTemperatureChange` del componente `TemperatureUnit` con escala Fahrenheit es el método `handleFahrenheitChange`. Entonces, cada uno de estos métodos es llamado dependiendo del componente que se edite.
+* Dentro de estos métodos, el componente `Calculator` pregunta a React para rerenderizarse a sí mismo llamando al método `this.setState()` con el nuevo valor y la escala actual de la entrada que acabamos de editar.
 * React llama al método `render` del componente `Calculator` para saber cómo debe lucir la IU. Los valores de ambas entradas son recalculados en base a la temperatura actual y la escala activa. La conversión de temperatura es hecha aquí.
 * React llama a los métodos `render` de los componentes `TemperatureInput` de manera individual con sus nuevas propiedades especificadas por `Calculator`. Aprende como sus IU deberían verse.
 * React llama al método `render` del componente `BoilingVerdict`, pasando la temperatura en Celsius como una propiedad.
@@ -318,9 +318,9 @@ Toda actualización sigue los mismos pasos y las entradas se mantienen sincroniz
 
 ## Lecciones aprendidas {#lessons-learned}
 
-Debe hacer una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes levantar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en [top-down data flow](/docs/state-and-lifecycle.html#the-data-flows-down).
+Debe hacer una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes levantar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en el [flujo de datos descendente](/docs/state-and-lifecycle.html#the-data-flows-down).
 
-Levantar el estado implica escribir más código "boilerplate" que los enfoques "two-way binding", pero como beneficio, toma menos tiempo encontrar un error. Como todo estado "vive" en algún componente y sólo ese componente puede cambiar, el margen de error se ve reducido grandemente. De manera adicional, puedes implementar lógica adicional para transformar o rechazar algún cambio en la entrada del usuario.
+Levantar el estado implica escribir más código *"boilerplate"* que los enfoques *"two-way binding"*, pero como beneficio, toma menos tiempo encontrar un error. Como todo estado "vive" en algún componente y sólo ese componente puede cambiar, el margen de error se ve reducido grandemente. De manera adicional, puedes implementar lógica adicional para transformar o rechazar algún cambio en la entrada del usuario.
 
 Si algo puede ser derivado de las propiedades o el estado, probablemente no debería estar en el estado. Por ejemplo, en vez de almacenar `celsiusValue` y `fahrenheitValue`, solamente almacenamos la última edición a `temperature` y `scale`. El valor de de la otra entrada siempre puede ser calculado desde el método `render()`. Esto nos permite limpiar o aplicar un redondeo a la otra entrada sin perder la precisión en la entrada del usuario.
 
