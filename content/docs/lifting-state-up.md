@@ -55,7 +55,7 @@ class Calculator extends React.Component {
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ZXeOBm?editors=0010)
-## Añadiendo una segunda entrada
+## Añadiendo una segunda entrada {#adding-a-second-input}
 
 Nuestro nuevo requisito es que, además de la temperatura en Celsius, proveemos la temperatura en Fahrenheit, y éstas se mantienen sincronizadas.
 
@@ -112,7 +112,7 @@ Ahora tenemos dos entradas, pero cuando insertamos la temperatura en una de ella
 
 Tampoco podemos mostrar el componente `BoilingVerdict` de `Calculator`. `Calculator` no conoce la temperatura actual porque está escondida dentro de `TemperatureInput`.
 
-## Escribiendo funciones de conversión
+## Escribiendo funciones de conversión {#writing-conversion-functions}
 
 Primeramente, escribiremos dos funciones para convertir de Celsius a Fahrenheit y viceversa:
 
@@ -144,7 +144,7 @@ function tryConvert(temperature, convert) {
 
 Por ejemplo, `tryConvert('abc', toCelsius)` retorna una cadena vacía, y `tryConvert('10.22', toFahrenheit)` retorna `'50.396'`.
 
-## Levantando el estado
+## Levantando el estado {#lifting-state-up}
 
 Actualmente, ambos componentes `TemperatureInput` mantienen de manera independiente sus valores en el estado local:
 
@@ -310,7 +310,7 @@ Recapitulemos qué pasa cuando editamos una entrada:
 
 Toda actualización sigue los mismos pasos y las entradas se mantienen sincronizadas.
 
-## Lecciones aprendidas
+## Lecciones aprendidas {#lessons-learned}
 
 Debe hacer una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes levantar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en [top-down data flow](/docs/state-and-lifecycle.html#the-data-flows-down).
 
