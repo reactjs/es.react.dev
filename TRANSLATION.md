@@ -4,7 +4,7 @@ Progreso actual: https://github.com/reactjs/es.reactjs.org/issues/4
 
 # Guía de estilo
 
-## Indentificadores de los títulos
+## Identificadores de los títulos
 
 Los títulos de las secciones tienen identificadores explícitos de la siguiente manera:
 
