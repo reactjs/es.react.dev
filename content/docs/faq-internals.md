@@ -1,6 +1,6 @@
 ---
 id: faq-internals
-title: DOM virtual e Internos
+title: DOM virtual y detalles de implementación
 permalink: docs/faq-internals.html
 layout: docs
 category: FAQ
