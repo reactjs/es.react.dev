@@ -819,13 +819,13 @@ history = [
 
 Ahora necesitamos decidir qué componente debe ser el dueño del estado `history`.
 
-### Lifting State Up, Again {#lifting-state-up-again}
+### Elevando el estado, otra vez {#lifting-state-up-again}
 
-We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
+Queremos que el componente de nivel superior, Game, muestre una lista de los movimientos pasados. Necesitará acceso al `historial` para hacerlo, así que colocaremos el estado `history` en el componente Game.
 
-Placing the `history` state into the Game component lets us remove the `squares` state from its child Board component. Just like we ["lifted state up"](#lifting-state-up) from the Square component into the Board component, we are now lifting it up from the Board into the top-level Game component. This gives the Game component full control over the Board's data, and lets it instruct the Board to render previous turns from the `history`.
+Colocando el estado `history` en el componente Game te permite eliminar el estado `squares` de su componente hijo Board. Tal como ["elevamos el estado"](#lifting-state-up) del componente Square al componente Board, ahora elevaremos del Board al componente Game. Esto dará al componente Game completo control sobre los datos de Board, y permitirá instruir al tablero que renderice los turnos previos desde el `history`.
 
-First, we'll set up the initial state for the Game component within its constructor:
+Primero, vamos a establecer el estado inicial para el componente Game en su constructor:
 
 ```javascript{2-10}
 class Game extends React.Component {
@@ -855,13 +855,13 @@ class Game extends React.Component {
 }
 ```
 
-Next, we'll have the Board component receive `squares` and `onClick` props from the Game component. Since we now have a single click handler in Board for many Squares, we'll need to pass the location of each Square into the `onClick` handler to indicate which Square was clicked. Here are the required steps to transform the Board component:
+Luego, tenemos que el componente Board recibe los props `squares` y `onClick` del componente Game. Desde que ahora tenemos un solo manejador de click en Board para muchos Squares, necesitamos pasar la ubicación de cada Square en el manejador `onClick` para indicar qué cuadrado fue clickedo. Aquí están los pasos requeridos para transformar el componente Board:
 
-* Delete the `constructor` in Board.
-* Replace `this.state.squares[i]` with `this.props.squares[i]` in Board's `renderSquare`.
-* Replace `this.handleClick(i)` with `this.props.onClick(i)` in Board's `renderSquare`.
+* Eliminar el `constructor` en Board.
+* Reemplazar `this.state.squares[i]` por `this.props.squares[i]` en el método `renderSquare` del componente Board.
+* Reemplazar `this.handleClick(i)` por `this.props.onClick(i)` en el método `renderSquare` del componente Board.
 
-The Board component now looks like this:
+El componente Board ahora se ve así:
 
 ```javascript{17,18}
 class Board extends React.Component {
@@ -890,9 +890,9 @@ class Board extends React.Component {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Ganador: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -919,7 +919,7 @@ class Board extends React.Component {
 }
 ```
 
-We'll update the Game component's `render` function to use the most recent history entry to determine and display the game's status:
+Actualizaremos el método `render` del componente Game para usar la entrada más reciente del historial para determinar y mostrar el estado del juego:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -929,9 +929,9 @@ We'll update the Game component's `render` function to use the most recent histo
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Ganador: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -951,7 +951,7 @@ We'll update the Game component's `render` function to use the most recent histo
   }
 ```
 
-Since the Game component is now rendering the game's status, we can remove the corresponding code from the Board's `render` method. After refactoring, the Board's `render` function looks like this:
+Dado que el componente ahora está renderizando el estado del juego, podemos eliminar el código correspondiente del método `render` del Board. Luego de refactorizar, el método `render` se ve así:
 
 ```js{1-4}
   render() {
@@ -977,7 +977,7 @@ Since the Game component is now rendering the game's status, we can remove the c
   }
 ```
 
-Finally, we need to move the `handleClick` method from the Board component to the Game component. We also need to modify `handleClick` because the Game component's state is structured differently. Within the Game's `handleClick` method, we concatenate new history entries onto `history`.
+Por último, necesitamos mover el método `handleClick` del componente Board al componente Game. También encesitamos modificar `handleClick` porque el estado del componente Game está estructurado diferente. En el método `handleClick` de Game, concatenamos la nueva entrada del historial en `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -997,13 +997,13 @@ Finally, we need to move the `handleClick` method from the Board component to th
   }
 ```
 
->Note
+>Nota
 >
->Unlike the array `push()` method you might be more familiar with, the `concat()` method doesn't mutate the original array, so we prefer it.
+>A diferencia del método `push()` de los arrays que debes estar más familiarizado, el método `concat()` no mutal el array original, por eso lo preferimos.
 
-At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
+En este punto, el componente Board solo necesita los métodos `renderSquare` y `render`. El estado del juego y el método `handleClick` deberían estar en el componente Game.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
 ### Showing the Past Moves {#showing-the-past-moves}
 
