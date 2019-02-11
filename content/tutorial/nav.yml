@@ -1,17 +1,17 @@
 - title: Tutorial
   items:
-    - id: antes-de-empezar-el-tutorial
+    - id: before-we-start-the-tutorial
       title: Antes de empezar el tutorial
-      href: /tutorial/tutorial.html#antes-de-empezar-el-tutorial
+      href: /tutorial/tutorial.html#before-we-start-the-tutorial
       forceInternal: true
       subitems:
-        - id: que-estamos-construyendo
+        - id: what-are-we-building
           title: ¿Qué estamos construyendo?
-          href: /tutorial/tutorial.html#que-estamos-construyendo
+          href: /tutorial/tutorial.html#what-are-we-building
           forceInternal: true
-        - id: prerequisitos
+        - id: prerequisites
           title: Prerequisitos
-          href: /tutorial/tutorial.html#prerequisitos
+          href: /tutorial/tutorial.html#prerequisites
           forceInternal: true
     - id: setup-for-the-tutorial
       title: Setup for the Tutorial
