@@ -613,11 +613,11 @@ Hemos cambiado `this.props` a `props` en ambas veces que aparece.
 >
 >Cuando modificamos el componente Square a ser un componente de función, también cambiamos `onClick={() => this.props.onClick()}` a una más corta `onClick={props.onClick}` (notar la falta de paréntesis en *ambos* lados). En una clase, usamos una función flecha para acceder al correcto valor de `this`, pero en un componente de función no necesitamos preocuparnos de `this`.
 
-### Taking Turns {#taking-turns}
+### Tomando turnos {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+Ahora necesitamos corregir un defecto obvio en nuestro juego tic-tac-toe: las "O" no pueden ser marcadas en el tablero.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+Estableceremos el primer movimiento a ser una "X" por defecto. Podemos establecer el valor por defecto modificando el estado inicial en nuestro constructor del componente Board:
 
 ```javascript{6}
 class Board extends React.Component {
@@ -630,7 +630,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+Cada vez que el jugador haga un movimiento, `xIsNext` (un booleano) será invertido para determinar qué jugador sigue y el estado del juego será guardado. Actualizaremos la función `handleClick` del componente Board para invertir el valor de `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -643,17 +643,17 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+Con este cambio, "X"s y "O"s pueden tomar turnos. También vamos a cambiar el texto de "status" en el `render` del Board para que muestre qué jugador tiene el siguiente turno:
 
 ```javascript{2}
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       // the rest has not changed
 ```
 
-After applying these changes, you should have this Board component:
+Luego de aplicar estos cambios, deberíamos tener este componente Board:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -684,7 +684,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
@@ -710,7 +710,7 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
 ### Declaring a Winner {#declaring-a-winner}
 
