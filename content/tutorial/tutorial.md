@@ -14,7 +14,7 @@ redirect_from:
 
 Este tutorial no asume ningún conocimiento previo sobre React.
 
-## Antes de empezar el tutorial
+## Antes de empezar el tutorial {#before-we-start-the-tutorial}
 
 Vamos a contruir un pequeño juego durante este tutorial. **Deberás estar tentado a obviarlo porque tú no estás construyendo juegos en el día a día, pero dale una oportunidad.** Las técnicas que aprenderás en el tutorial son fundamentales para construir cualquier aplicación de React, y dominarlo te dará un entendimiento profundo de React.
 
@@ -33,8 +33,7 @@ No tienes que completar todas las secciones a la vez para obtener el valor de es
 
 Está bien copiar y pegar el código mientras sigues el tutorial, pero te recomendamos que lo escribaas a mano. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
 
-### ¿Qué estamos construyendo?
-<!-- <h3 id="que-estamos-construyendo">¿Qué estamos construyendo?</h3> -->
+### ¿Qué estamos construyendo? {#what-are-we-building}
 
 En este tutorial, te mostraremoscómo construir un juego de tic-tac-toe interactivo con React.
 
@@ -44,17 +43,17 @@ Recomentamos que revises el juego de tic-tac-toe antes de continuar con el tutor
 
 Puedes cerrar el juego de tic-tac-toe una vez que te familiarizaste con él. Empezaremos desde una plantilla más simple en este tutorial. Nuestro siguiente paso es configurarlo de tal forma que puedas empezar a construir el juego.
 
-### Prerequisitos
+### Prerequisitos {#prerequisites}
 
 Asumimos que tienes cierta familiaridad con HTML y JavaScript, pero deberías ser capaz de seguir adelante incluso si vienes de un lenguaje de programación diferente. También suponemos que estás familiarizado con conceptos de programación como funciones, objetos, arrays, y en menor medida, clases.
 
 Si necesitas revisar JavaScript, te recomendamos leer [esta guía](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Ten en cuenta que también usamos algunas características de ES6, una versión reciente de JavaScript. En este tutorial, estamos usando [funciones flecha](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [clases](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), sentencias [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) y [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Puedes usar el [Babel REPL](babel://es5-syntax-example) para revisar a qué código compila ES6.
 
-## Configuración para el tutorial
+## Configuración para el tutorial {#setup-for-the-tutorial}
 
 Hay dos maneras de completar este tutorial: puedes escribir el código en tu navegador, o puedes configurar tu entorno de desarrollo local en tu computador.
 
-### Opción de configuración 1: Escribe código en el navegador
+### Opción de configuración 1: Escribe código en el navegador {#setup-option-1-write-code-in-the-browser}
 
 ¡Ésta es la forma más rápida de empezar!
 
@@ -62,7 +61,7 @@ Primero, abre este **[código inicial](https://codepen.io/gaearon/pen/oWWQNa?edi
 
 Ahora puedes saltarte a la segunda opción de configuración o ir a la sección de [visión general](#vision-general) para obtener una idea general de React.
 
-### Opción de configuración 2: Entorno de desarrollo local
+### Opción de configuración 2: Entorno de desarrollo local {#setup-option-2-local-development-environment}
 
 ¡Ésta es completamente opcional y no es requeridad para éste tutorial!
 
@@ -83,7 +82,9 @@ npx create-react-app my-app
 
 1. Elimina todos los archivos en la carpeta `src/` del nuevo proyecto.
 
-> Nota: **no elimines la carpeta `src` por completo, solo los archivos de código fuente originales dentro de ella**. Reemplazaremos los archivos de código fuente por defecto con ejemplos para este proyecto en el siguiente paso.
+> Nota:
+>
+>**No elimines la carpeta `src` por completo, solo los archivos de código fuente originales dentro de ella**. Reemplazaremos los archivos de código fuente por defecto con ejemplos para este proyecto en el siguiente paso.
 
 ```bash
 cd my-app
@@ -117,15 +118,15 @@ Recomendamos seguir [estas instrucciones](https://babeljs.io/docs/editors/) para
 
 </details>
 
-### ¡Ayuda, estoy atorado!
+### ¡Ayuda, estoy atorado! {#help-im-stuck}
 
 Si te atoras, revisa los [recursos de soporte de la comunidad](/community/support.html). En particular, [el chat de Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) es una gran manera de obtener ayuda rápidamente. Si no recibes una respuesta, o sigues atorado, por favor crea un issue, y te ayudaremos.
 
-## Visión General
+## Visión General {#overview}
 
 Ahora que está tu entorno configurado, ¡vamos a obtener una visión general de React!
 
-### ¿Qué es React?
+### ¿Qué es React? {#what-is-react}
 
 React es una librería de JavaScript declarativa, eficiente y flexible para construir interfaces de usuario. Permite componer UIs complejas de pequeñas y aisladas piezas de código llamadas "componentes".
 
@@ -171,7 +172,7 @@ JSX viene con todo el poder de JavaScript. Puedes poner *cualquier* expresión d
 
 El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componener y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir UIs complejas desde componentes simples.
 
-## Inspeccionando el código inicial
+## Inspeccionando el código inicial {#inspecting-the-starter-code}
 
 Si vas a trabajar el tutorial **en tu navegador,** abre este código en un nuevo tab: **[Código inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Si vas a trabajar el tutorial **localmente,** abre `src/index.js` en la carpeta de tu proyecto (ya has tocado este archivo durante la [configuración](#setup-option-2-local-development-environment)).
 
@@ -185,7 +186,7 @@ Inspeccionando el código, notarás que tenemos 3 componentes de React:
 
 El componente Square renderiza un simple `<button>` y el Board renderiza 9 cuadrados. El componente Game renderiza un table con valores de posición por defecto que modificaremos luego. Actualmente no hay componentes interactivos.
 
-### Pasando datos a través de props
+### Pasando datos a través de props {#passing-data-through-props}
 
 Solo para ensuciarnos las manos, vamos a pasar algo de datos de nuestro componente Board a nuestro componente Square.
 
@@ -224,7 +225,7 @@ Después: Deberías ver un número en cada cuadrado del resultado renderizado.
 
 ¡Felicidades! Acabas de "pasar una prop" de un componente padre Board a un componente hijo Square. Pasando props es cómo la información fluye en apps de React, de padres a hijos.
 
-### Haciendo un componente interactivo
+### Haciendo un componente interactivo {#making-an-interactive-component}
 
 Vamos a rellenar el componente de Square con una "X" cuando damos click en él.
 Primero, cambia la etiqueta button que es retornada del método `render()` del componente Square a esto:
@@ -326,7 +327,7 @@ Cuando llamas `setState` en un componente, React actualiza automáticamente los 
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
-### Herramientas de desarrollo
+### Herramientas de desarrollo {#developer-tools}
 
 La extensión de React Devtools para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) y [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) te permite inspeccionar el árbol de componentes de React con tus herramientas de desarrollo del navegador.
 
@@ -343,11 +344,11 @@ Después de instalar React DevTools, puedes hacer click derecho en cualquier ele
 3. Click en "Change View" y luego selecciona "Debug mode".
 4. En la nueva pestaña que se abre, el devtools debería ahora tener una pestaña de React.
 
-## Completing the Game
+## Completing the Game {#completing-the-game}
 
 We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
 
-### Lifting State Up
+### Lifting State Up {#lifting-state-up}
 
 Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
 
@@ -544,20 +545,20 @@ Since the Square components no longer maintain state, the Square components rece
 
 Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
 
-### Why Immutability Is Important
+### Why Immutability Is Important {#why-immutability-is-important}
 
 In the previous code example, we suggested that you use the `.slice()` operator to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
 
 There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
 
-#### Data Change with Mutation
+#### Data Change with Mutation {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
 // Now player is {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation
+#### Data Change without Mutation {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
@@ -570,23 +571,23 @@ var newPlayer = Object.assign({}, player, {score: 2});
 
 The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
 
-#### Complex Features Become Simple
+#### Complex Features Become Simple {#complex-features-become-simple}
 
 Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
 
-#### Detecting Changes
+#### Detecting Changes {#detecting-changes}
 
 Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
 
 Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
 
-#### Determining When to Re-render in React
+#### Determining When to Re-render in React {#determining-when-to-re-render-in-react}
 
 The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
 
 You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
 
-### Function Components
+### Function Components {#function-components}
 
 We'll now change the Square to be a **function component**.
 
@@ -612,7 +613,7 @@ We have changed `this.props` to `props` both times it appears.
 >
 >When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides). In a class, we used an arrow function to access the correct `this` value, but in a function component we don't need to worry about `this`.
 
-### Taking Turns
+### Taking Turns {#taking-turns}
 
 We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
 
@@ -711,7 +712,7 @@ class Board extends React.Component {
 
 **[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner
+### Declaring a Winner {#declaring-a-winner}
 
 Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. We can determine a winner by adding this helper function to the end of the file:
 
@@ -773,11 +774,11 @@ We can now change the Board's `handleClick` function to return early by ignoring
 
 Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
 
-## Adding Time Travel
+## Adding Time Travel {#adding-time-travel}
 
 As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
 
-### Storing a History of Moves
+### Storing a History of Moves {#storing-a-history-of-moves}
 
 If we mutated the `squares` array, implementing time travel would be very difficult.
 
@@ -817,7 +818,7 @@ history = [
 
 Now we need to decide which component should own the `history` state.
 
-### Lifting State Up, Again
+### Lifting State Up, Again {#lifting-state-up-again}
 
 We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
 
@@ -1003,7 +1004,7 @@ At this point, the Board component only needs the `renderSquare` and `render` me
 
 **[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves
+### Showing the Past Moves {#showing-the-past-moves}
 
 Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
 
@@ -1070,7 +1071,7 @@ For each move in the tic-tac-toes's game's history, we create a list item `<li>`
 
 Let's discuss what the above warning means.
 
-### Picking a Key
+### Picking a Key {#picking-a-key}
 
 When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
 
@@ -1106,7 +1107,7 @@ If no key is specified, React will present a warning and use the array index as 
 Keys do not need to be globally unique; they only need to be unique between components and their siblings.
 
 
-### Implementing Time Travel
+### Implementing Time Travel {#implementing-time-travel}
 
 In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
 
@@ -1204,7 +1205,7 @@ If we click on any step in the game's history, the tic-tac-toe board should imme
 
 **[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up
+### Wrapping Up {#wrapping-up}
 
 Congratulations! You've created a tic-tac-toe game that:
 
