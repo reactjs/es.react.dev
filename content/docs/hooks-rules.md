@@ -25,7 +25,7 @@ Siguiendo esta regla, te aseguras de que toda la lógica del estado de un compon
 
 ## Plugin de ESLint
 
-Lanzamos un plugin de ESLint llamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que hace cumplir estas dos reglas. Puedes añadir este plugin a tu proyecto si quieres probarlo:
+Lanzamos un plugin de ESLint llamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que refuerza estas dos reglas. Puedes añadir este plugin a tu proyecto si quieres probarlo:
 
 ```bash
 npm install eslint-plugin-react-hooks
@@ -47,26 +47,26 @@ npm install eslint-plugin-react-hooks
 
 En el futuro, tenemos la intención de incluir este plugin por defecto en Create React App y otros paquetes similares.
 
-**You can skip to the next page explaining how to write [your own Hooks](/docs/hooks-custom.html) now.** On this page, we'll continue by explaining the reasoning behind these rules.
+**Puedes pasar a la siguiente página donde explicamos como escribir [tus propios Hooks](/docs/hooks-custom.html) ahora mismo.** En esta página, vamos a continuar explicando el razonamiento detrás de estas reglas.
 
 ## Explicación
 
-As we [learned earlier](/docs/hooks-state.html#tip-using-multiple-state-variables), we can use multiple State or Effect Hooks in a single component:
+Como [aprendimos anteriormente](/docs/hooks-state.html#tip-using-multiple-state-variables), podemos usar multiples Hooks de Estado o Hooks de Efecto en un solo componente:
 
 ```js
 function Form() {
-  // 1. Use the name state variable
+  // 1. Usa la variable de estado del nombre
   const [name, setName] = useState('Mary');
 
-  // 2. Use an effect for persisting the form
+  // 2. Usa un efecto para persistir el formulario
   useEffect(function persistForm() {
     localStorage.setItem('formData', name);
   });
 
-  // 3. Use the surname state variable
+  // 3. Usa la variable de estado del apellido
   const [surname, setSurname] = useState('Poppins');
 
-  // 4. Use an effect for updating the title
+  // 4. Usa un efecto para la actualización del título
   useEffect(function updateTitle() {
     document.title = name + ' ' + surname;
   });
@@ -75,32 +75,32 @@ function Form() {
 }
 ```
 
-So how does React know which state corresponds to which `useState` call? The answer is that **React relies on the order in which Hooks are called**. Our example works because the order of the Hook calls is the same on every render:
+Entonces, como hace React para saber cual estado corresponde a cual llamado del `useState`? La respuesta es que **React se basa en el orden en el cual los Hooks son llamados**. Nuestro ejemplo funciona porque el orden en los llamados de los Hooks son el mismo en cada render:
 
 ```js
 // ------------
-// First render
+// Primer render
 // ------------
-useState('Mary')           // 1. Initialize the name state variable with 'Mary'
-useEffect(persistForm)     // 2. Add an effect for persisting the form
-useState('Poppins')        // 3. Initialize the surname state variable with 'Poppins'
-useEffect(updateTitle)     // 4. Add an effect for updating the title
+useState('Mary')           // 1. Inicializa la variable de estado del nombre con 'Mary'
+useEffect(persistForm)     // 2. Agrega un efecto para persistir el formulario
+useState('Poppins')        // 3. Inicializa la variable de estado del apellido con 'Poppins'
+useEffect(updateTitle)     // 4. Agrega un efecto para la actualización del título
 
 // -------------
-// Second render
+// Segundo render
 // -------------
-useState('Mary')           // 1. Read the name state variable (argument is ignored)
-useEffect(persistForm)     // 2. Replace the effect for persisting the form
-useState('Poppins')        // 3. Read the surname state variable (argument is ignored)
-useEffect(updateTitle)     // 4. Replace the effect for updating the title
+useState('Mary')           // 1. Lee la variable de estado del nombre (el argumento es ignorado)
+useEffect(persistForm)     // 2. Reemplaza el efecto para persistir el formulario
+useState('Poppins')        // 3. Lee la variable de estado del apellido (el argumento es ignorado)
+useEffect(updateTitle)     // 4. Reemplaza el efecto de actualización del título
 
 // ...
 ```
 
-As long as the order of the Hook calls is the same between renders, React can associate some local state with each of them. But what happens if we put a Hook call (for example, the `persistForm` effect) inside a condition?
+Siempre y cuando el orden de los llamados a los Hooks sean los mismos entre renders, React puede asociar algún estado local con cada uno de ellos. Pero que pasa si ponemos la llamada a un Hook (por ejemplo, el efecto `persistForm`) dentro de una condición?
 
 ```js
-  // 🔴 We're breaking the first rule by using a Hook in a condition
+  // 🔴 Estamos rompiendo la primera regla al usar un Hook en una condición
   if (name !== '') {
     useEffect(function persistForm() {
       localStorage.setItem('formData', name);
@@ -108,30 +108,30 @@ As long as the order of the Hook calls is the same between renders, React can as
   }
 ```
 
-The `name !== ''` condition is `true` on the first render, so we run this Hook. However, on the next render the user might clear the form, making the condition `false`. Now that we skip this Hook during rendering, the order of the Hook calls becomes different:
+La condición `name !== ''` es `true` en el primer render, entonces corremos el Hook. Sin embargo, en el siguiente render el usuario puede borrar el formulario, haciendo la condición `false`. Ahora que nos saltamos este Hook durante el renderizado, el orden de las llamadas a los Hooks se vuelve diferente: 
 
 ```js
-useState('Mary')           // 1. Read the name state variable (argument is ignored)
-// useEffect(persistForm)  // 🔴 This Hook was skipped!
-useState('Poppins')        // 🔴 2 (but was 3). Fail to read the surname state variable
-useEffect(updateTitle)     // 🔴 3 (but was 4). Fail to replace the effect
+useState('Mary')           // 1. Lee la variable de estado del nombre (el argumento es ignorado)
+// useEffect(persistForm)  // 🔴 Este Hook fue saltado
+useState('Poppins')        // 🔴 2 (pero era el 3). Falla la lectura de la variable de estado del apellido
+useEffect(updateTitle)     // 🔴 3 (pero era el 4). Falla el reemplazo del efecto
 ```
 
-React wouldn't know what to return for the second `useState` Hook call. React expected that the second Hook call in this component corresponds to the `persistForm` effect, just like during the previous render, but it doesn't anymore. From that point, every next Hook call after the one we skipped would also shift by one, leading to bugs.
+React no sabría que devolver para la segunda llamada del Hook `useState`. React esperaba que la segunda llamada al Hook en este componente corresponda al efecto `persistForm`, igual que en el render anterior, pero ya no lo hace. A partir de este punto, cada siguiente llamada de un Hook después de la que nos saltamos también cambiaría de puesto por uno, lo que llevaría a la aparición de errores.
 
-**This is why Hooks must be called on the top level of our components.** If we want to run an effect conditionally, we can put that condition *inside* our Hook:
+**Es por esto que los Hooks deben ser utilizados en el nivel superior de nuestros componentes.** Si queremos ejecutar un efecto condicionalmente, podemos poner esa condición *dentro* de nuestro Hook:
 
 ```js
   useEffect(function persistForm() {
-    // 👍 We're not breaking the first rule anymore
+    // 👍 No vamos a romper la primera regla nunca más.
     if (name !== '') {
       localStorage.setItem('formData', name);
     }
   });
 ```
 
-**Note that you don't need to worry about this problem if you use the [provided lint rule](https://www.npmjs.com/package/eslint-plugin-react-hooks).** But now you also know *why* Hooks work this way, and which issues the rule is preventing.
+**Ten en cuenta que no necesitas preocuparte por este problema si usas las [reglas de lint provistas](https://www.npmjs.com/package/eslint-plugin-react-hooks).** Pero ahora también sabes *por qué* los Hooks funcionan de esta manera, y cuáles son los problemas que la primera regla está impidiendo.
 
-## Next Steps
+## Siguientes pasos
 
-Finally, we're ready to learn about [writing your own Hooks](/docs/hooks-custom.html)! Custom Hooks let you combine Hooks provided by React into your own abstractions, and reuse common stateful logic between different components.
+Finalmente, estamos listos para aprender acerca de cómo [escribir nuestros propios Hooks](/docs/hooks-custom.html)! Los Hooks personalizados te permiten combinar los Hooks proporcionados por React en sus propias abstracciones y reutilizar la lógica de estado común entre los diferentes componentes.
