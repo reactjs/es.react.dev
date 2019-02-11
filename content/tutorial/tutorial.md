@@ -1005,22 +1005,22 @@ En este punto, el componente Board solo necesita los métodos `renderSquare` y `
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves {#showing-the-past-moves}
+### Mostrando los movimientos anteriores {#showing-the-past-moves}
 
-Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
+Desde que grabamos el historial del juego tic-tac-toe, ahora podemos mostrarlo al jugador como una lista de movimientos anteriores.
 
-We learned earlier that React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.
+Aprendimos antes que los elementos de React son objetos de primera clase en JavaScript; así que podemos pasarlo alrededor de nuestras aplicaciones. Para renderizar múltiples elementos en React, podemos usar un array de elementos de React.
 
-In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) that is commonly used for mapping data to other data, for example:
+En JavaScript, los arrays tienen un [método `map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que es comúnmente usado para mapear datos a otros datos, por ejemplo:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
+Usando el método `map`, podemos mapear nuestro historial de movimientos a elementos de React representando botones en la pantalla, y mostrando una lista de potones para "saldar" a movimientos anteriores.
 
-Let's `map` over the `history` in the Game's `render` method:
+Vamos a `mapear` sobre el `historial` en el método `render` del componente Game:
 
 ```javascript{6-15,34}
   render() {
@@ -1030,8 +1030,8 @@ Let's `map` over the `history` in the Game's `render` method:
 
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        'Ir al movimiento #' + move :
+        'Ir a inicio del juego';
       return (
         <li>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -1041,9 +1041,9 @@ Let's `map` over the `history` in the Game's `render` method:
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Ganador: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -1063,14 +1063,14 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+Por cada movimiento en el hisotrial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
 
-Let's discuss what the above warning means.
+Vamos a discutir que significa la advertencia anterior.
 
 ### Picking a Key {#picking-a-key}
 
