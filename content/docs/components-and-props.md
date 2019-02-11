@@ -86,11 +86,19 @@ Recapitulemos lo que sucede en este ejemplo:
 3. Nuestro componente `Welcome` devuelve un elemento `<h1>Hello, Sara</h1>` como resultado.
 4. React DOM actualiza eficientemente el DOM para que coincida con `<h1>Hello, Sara</h1>`.
 
+<<<<<<< HEAD
 > **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula.
 > 
 >React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Welcome />` representa un componente y requiere que `Welcome` esté en scope.
 > 
 > Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
+=======
+>**Note:** Always start component names with a capital letter.
+>
+>React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>
+>To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>>>>>>> 6dea652a709af39e90a88be45f0f45849ab29d17
 
 ## Composición de Componentes {#composing-components}
 
