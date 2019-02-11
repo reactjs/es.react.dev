@@ -22,7 +22,7 @@ Esto usualmente significa una de tres cosas:
 - Está intentando agregar un `ref` a un elemento que se está creando fuera de la función render() de un componente.
 - Tiene varias copias (en conflicto) de React cargadas (por ejemplo, debido a una dependencia npm mal configurada)
 
-## Refs en los componentes de función
+## Refs en los componentes de función {#refs-on-function-components}
 
 Si `<Foo>` es un componente de función, no puedes agregarle una referencia:
 
@@ -34,7 +34,7 @@ Si `<Foo>` es un componente de función, no puedes agregarle una referencia:
 If you need to add a ref to a component, convert it to a class first, or consider not using refs as they are [rarely necessary](/docs/refs-and-the-dom.html#when-to-use-refs).
 Si necesitas agregar una referencia a un componente, primero conviértelo a una clase, o considera no usar las referencias ya que son [raramente necesarias](/docs/refs-and-the-dom.html#when-to-use-refs).
 
-## Cadenas de Ref fuera del método Render
+## Cadenas de Ref fuera del método Render {#strings-refs-outside-the-render-method}
 
 Esto generalmente significa que estás intentando agregar una referencia a un componente que no tiene un propietario (es decir, no se creó dentro del método `render` de otro componente). Por ejemplo, esto no funcionará:
 
@@ -57,7 +57,7 @@ ReactDOM.render(
 
 Considera si [realmente necesitas una referencia](/docs/refs-and-the-dom.html#when-to-use-refs) antes de usar este enfoque.
 
-## Múltiples copias de React
+## Múltiples copias de React {#multiple-copies-of-react}
 
 Bower hace un buen trabajo de deduplicación de dependencias, pero npm no lo hace. Si no está haciendo nada (elegante) con refs, hay una buena probabilidad de que el problema no sea con sus refs, sino más bien un problema con tener varias copias de React cargadas en tu proyecto. A veces, cuando ingresa un módulo de terceros a través de npm, obtendrás una copia duplicada de la biblioteca de dependencias, y esto puede crear problemas.
 
