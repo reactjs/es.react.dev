@@ -190,7 +190,7 @@ Fíjate en como `componentDidMount` y `componentWillUnmount` necesitan ser un re
 
 >Nota
 >
->Los lectores perspicaces podrán percatarse de que este ejemplo necesita también un método `componentDidUpdate` para ser completamente correcto. De momento vamos a ignorar este hecho, pero volveremos a él en una [sección posterior](#explanation-why-effects-run-on-each-update) de esta página. 
+>El lector perspicaz se habrá dado cuenta de que este ejemplo necesita también de un método `componentDidUpdate` para ser completamente correcto. De momento vamos a ignorar este hecho, pero lo retomaremos en una [sección posterior](#explanation-why-effects-run-on-each-update) de esta página. 
 
 ### Ejemplo usando *Hooks* {#example-using-hooks-1}
 
