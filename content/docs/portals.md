@@ -12,7 +12,7 @@ ReactDOM.createPortal(child, container)
 
 El primer argumento (`child`) es cualquier [hijo renderizable por React](/docs/react-component.html#render), como un elemento, cadena de caracteres o fragmento. El segundo argumento (`container`) es un elemento DOM.
 
-## Uso
+## Uso {#usage}
 
 Normalmente, cuando retornas un elemento del método de render de un componente, este se monta en el DOM como un elemento hijo del nodo padre más cercano:
 
@@ -51,7 +51,7 @@ Un caso de uso típico de Portals es cuando un componente principal tiene un est
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
-## Propagación de eventos a través de Portales
+## Propagación de eventos a través de Portales {#event-bubbling-through-portals}
 
 Aunque un portal puede estar en cualquier parte del árbol DOM, se comporta como un hijo de React normal en cualquier otra forma. Las características como el contexto funcionan exactamente de la misma manera, independientemente de si el elemento hijo es un portal, ya que el portal aún existe en el *árbol de React* sin importar la posición en el *árbol DOM*.
 
