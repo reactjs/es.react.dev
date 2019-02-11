@@ -13,18 +13,18 @@ Ambos React y ReactDOM están disponibles a través de un CDN.
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-Las versiones anteriores son solo para el uso en desarrollo, y no son adecuados para el uso en producción. Las versiones de React minimizadas y optimizadas para el uso en producción están disponibles en:
+Las versiones anteriores son solo para el uso en desarrollo, y no son adecuadas para el uso en producción. Las versiones de React minimizadas y optimizadas para el uso en producción están disponibles en:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-Para usar una versión especifica de `react` y `react-dom`, cambia el `16` con el numero de versión.
+Para usar una versión específica de `react` y `react-dom`, cambia el `16` con el número de versión.
 
 ### ¿Por qué el atributo `crossorigin`? {#why-the-crossorigin-attribute}
 
-Si utilizas React desde un CDN, nosotros recomendamos mantener el atributo [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) puesto:
+Si utilizas React desde un CDN, nosotros recomendamos mantener el atributo [`crossorigin`](https://developer.mozilla.org/es/docs/Web/HTML/Atributos_de_configuracion_CORS) puesto:
 
 ```html
 <script crossorigin src="..."></script>
