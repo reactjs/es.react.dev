@@ -650,7 +650,7 @@ Con este cambio, "X"s y "O"s pueden tomar turnos. También vamos a cambiar el te
     const status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // el resto no ha cambiado
 ```
 
 Luego de aplicar estos cambios, deberíamos tener este componente Board:
@@ -712,8 +712,9 @@ class Board extends React.Component {
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### Declarando un ganador {#declaring-a-winner}
 
+Ahora que mostramos de qué jugador es el siguiente turno, debemos también mostrar cuando alguien ganó el juego y si no hay más movimientos que hacer. Podemos determinar un ganador añadiendo esta función de apoyo al final del archivo.
 Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. We can determine a winner by adding this helper function to the end of the file:
 
 ```javascript
@@ -738,23 +739,23 @@ function calculateWinner(squares) {
 }
 ```
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+Llamaremos a `calculateWinner(squares)` en el método `render` del componente Board para revisar si un jugador a ganado. Si un jugador ha ganado, podemos mostrar un texto como: "Ganador: X" o "Ganador: O". Reemplazaremos la declaración del `status` en el método `render` de Board con este código:
 
 ```javascript{2-8}
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'Ganador: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
-      // the rest has not changed
+      // el resto del código no ha cambiado
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+Ahora podemos cambiar la función `handleClick` del componente Board para retornar rápidamente ignorando un click si alguien ha ganado el juego o si un cuadrado está ya rellenado:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -770,9 +771,9 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+¡Felicidades! Ahora tienes un juego tic-tac-toe funcionando. Y también acabas de aprender lo básico de React. Así que *eres* probablemente el real ganador aquí.
 
 ## Adding Time Travel {#adding-time-travel}
 
