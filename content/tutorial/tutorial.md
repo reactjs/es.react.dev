@@ -24,10 +24,10 @@ Vamos a contruir un pequeño juego durante este tutorial. **Deberás estar tenta
 
 Este tutorial está dividido en varias secciones:
 
-* [Configuración para el tutorial](#configuracion-para-el-tutorial) te dará un punto de partida para seguir el tutorial.
-* [Visión general](#vision-general) te enseñará **los fundamentos** de React: componentes, props y estado.
-* [Completando el juego](#completando-el-juego) te enseñará **las técnicas más comunes** en desarrollo de React.
-* [Agregando Time Travel](#agregando-time-travel) te dará una **visión más profunda** de las fortalezas únicas de React.
+* [Configuración para el tutorial](#setup-for-the-tutorial) te dará un punto de partida para seguir el tutorial.
+* [Visión general](#overview) te enseñará **los fundamentos** de React: componentes, props y estado.
+* [Completando el juego](#completing-the-game) te enseñará **las técnicas más comunes** en desarrollo de React.
+* [Agregando viaje en el tiempo](#adding-time-travel) te dará una **visión más profunda** de las fortalezas únicas de React.
 
 No tienes que completar todas las secciones a la vez para obtener el valor de este tutorial. Prueba llegar tan lejos como puedas, incluso si es una o dos secciones.
 
@@ -59,7 +59,7 @@ Hay dos maneras de completar este tutorial: puedes escribir el código en tu nav
 
 Primero, abre este **[código inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** en una nueva pestaña. La nueva pestaña deberá mostrar un tablero vacío del juego de tic-tac-toe y código de React. Estaremos editando el código de React en este tutorial.
 
-Ahora puedes saltarte a la segunda opción de configuración o ir a la sección de [visión general](#vision-general) para obtener una idea general de React.
+Ahora puedes saltarte a la segunda opción de configuración o ir a la sección de [visión general](#overview) para obtener una idea general de React.
 
 ### Opción de configuración 2: Entorno de desarrollo local {#setup-option-2-local-development-environment}
 
