@@ -545,47 +545,47 @@ Debido a que el componente Square ahora no mantiene estado, los componentes Squa
 
 Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicareomos porqué crear una copia del array `squares` en la siguiente sección.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### ¿Porqué es importante la Inmutabilidad? {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` operator to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+En el ejemplo de código anterior, sugerimos que uses el operador `.slice()` para crear una copia del array de `squares` para modificar en vez de modificar el array existente. Ahora discutiremos inmutabilidad y porqué es importante aprenderlo.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+Hay generalmente dos enfoques para cambiar datos. El primer enfoque es *mutar* los datos directamente cambienado sus valores. El segundo enfoque es reemplazar los datos con una nueva copia que tiene los cambios deseados.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Cambio de datos con mutación {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+// Ahora `player` es {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Cambio de datos sin mutación {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+// Ahora `player` no ha cambiado, pero `newPlayer` es {score: 2, name: 'Jeff'}
 
-// Or if you are using object spread syntax proposal, you can write:
+// O si usas la sintaxis propuesta de propagación de objeto, puedes escribir:
 // var newPlayer = {...player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+El resultado final es el mismo, pero al no mutar (o cambiar los datos subyacentes) directamente, obtenemos muchos beneficios descritos a continuación
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Funcionalidades complejas se vuelven simples {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+Inmutabilidad hace que funcionalidades complejas sean mucho más fácil de implementar. Luego en este tutorial, implementaremos una funcionalidad de "viaje en el tiempo" que nos permite repasar el historial del juego tic-tac-toe y "volver" a movimientos previos. Esta funcionalidad no es específica de juegos, una habilidad de deshacer y rehacer ciertas acciones es un requerimiento común en aplicaciones. Evitar la mutación de datos directamente nos permite mantener intacto versiones previas del historial del juego, y reusarlas luego.
 
-#### Detecting Changes {#detecting-changes}
+#### Detectar cambios {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Detectar cambios en objetos mutables es difícil porque son modificados directmante. Esta detección requiere que los objetos mutables sean comparados a la copia previa del mismo y que el árbol entero del objeto sea recorrido.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Detectar cambios en objetos inmutables es considerablemente más sencillo. Si el objeto inmutable que está siendo referenciado es diferente del anterior, significa que el objeto ha cambiado.
 
-#### Determining When to Re-render in React {#determining-when-to-re-render-in-react}
+#### Determinar cuando re-renderizar en React {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+El beneficio principal de inmutabilidad es que te ayuda a construir _componentes puros_ en React. Datos inmutables pueden determinar fácilmente si se han realizado cambios, que ayuda también a determinar cuando un componente requiere ser re-renderizado.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+Puedes aprender más acerca de `shouldComponentUpdate()` y cómo puedes construir *componentes puros* leyendo [Optimizando el rendimiento](/docs/optimizing-performance.html#examples).
 
 ### Function Components {#function-components}
 
