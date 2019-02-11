@@ -46,63 +46,63 @@ Cada componente tiene varios "métodos de ciclo de vida" que puedes sobrescribir
 
 Estos métodos se llaman cuando se crea una instancia de un componente y se inserta en el DOM:
 
-* [**`constructor()`**](#constructor)
-* [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
-* [**`render()`**](#render)
-* [**`componentDidMount()`**](#componentdidmount)
+- [**`constructor()`**](#constructor)
+- [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
+- [**`render()`**](#render)
+- [**`componentDidMount()`**](#componentdidmount)
 
 > Nota:
 >
 > Estos métodos están considerados *legacy* (deprecados) y debes [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
-> * [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
+>- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
 #### Updating {#updating}
 
 Una actualización puede ser causada por cambios en los props o el state. Estos métodos se llaman en el siguiente orden cuando un componente se re renderiza:
 
-* [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
-* [`shouldComponentUpdate()`](#shouldcomponentupdate)
-* [**`render()`**](#render)
-* [`getSnapshotBeforeUpdate()`](#getsnapshotbeforeupdate)
-* [**`componentDidUpdate()`**](#componentdidupdate)
+- [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
+- [`shouldComponentUpdate()`](#shouldcomponentupdate)
+- [**`render()`**](#render)
+- [`getSnapshotBeforeUpdate()`](#getsnapshotbeforeupdate)
+- [**`componentDidUpdate()`**](#componentdidupdate)
 
 > Nota:
 >
 > Estos métodos están considerados *legacy* (deprecados) y debes [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
-> * [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
-> * [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
+>- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
+>- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
 #### Unmounting {#unmounting}
 
 Este método es llamado cuando un componente se elimina del DOM:
 
-* [**`componentWillUnmount()`**](#componentwillunmount)
+- [**`componentWillUnmount()`**](#componentwillunmount)
 
 #### Manejo de Errores {#error-handling}
 
 Estos métodos se invocan cuando hay un error durante la renderización, en un método en el ciclo de vida o en el constructor de cualquier componente hijo.
 
-* [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
-* [`componentDidCatch()`](#componentdidcatch)
+- [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
+- [`componentDidCatch()`](#componentdidcatch)
 
 ### Otras APIs {#other-apis}
 
 Cada componente también proporciona algunas otras APIs:
 
-* [`setState()`](#setstate)
-* [`forceUpdate()`](#forceupdate)
+- [`setState()`](#setstate)
+- [`forceUpdate()`](#forceupdate)
 
 ### Propiedades de clase {#class-properties}
 
-* [`defaultProps`](#defaultprops)
-* [`displayName`](#displayname)
+- [`defaultProps`](#defaultprops)
+- [`displayName`](#displayname)
 
 ### Propiedades de Instancia {#instance-properties}
 
-* [`props`](#props)
-* [`state`](#state)
+- [`props`](#props)
+- [`state`](#state)
 
 * * *
 
@@ -122,11 +122,11 @@ El método `render()` es el único método requerido en un componente de clase.
 
 Cuando se llama, debe examinar a `this.props` y `this.state` y devolver uno de los siguientes tipos:
 
-* **Elementos de React.** normalmente creados a través de [JSX](/docs/introducing-jsx.html). Por ejemplo, `<div />` y `<MyComponent />` son elementos de React que enseñan a React a renderizar un nodo DOM, u otro componente definido por el usuario, respectivamente.
-* **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/controllers) para más detalles.
-* **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [subárboles](/docs/controllers) para más detalles.
-* **String and numbers.** Estos son renderizados como nodos de texto en el DOM.
-* **Booleanos o `nulos`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
+- **Elementos de React.** normalmente creados a través de [JSX](/docs/introducing-jsx.html). Por ejemplo, `<div />` y `<MyComponent />` son elementos de React que enseñan a React a renderizar un nodo DOM, u otro componente definido por el usuario, respectivamente.
+- **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/controllers) para más detalles.
+- **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [subárboles](/docs/controllers) para más detalles.
+- **String and numbers.** Estos son renderizados como nodos de texto en el DOM.
+- **Booleanos o `nulos`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
 
 La función `render ()` debe ser pura, lo que significa que no modifica el estado del componente, devuelve el mismo resultado cada vez que se invoca y no interactúa directamente con el navegador.
 
