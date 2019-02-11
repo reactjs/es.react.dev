@@ -1206,26 +1206,26 @@ Si clickeamos en cualquier paso de la historia del juego, el tablero tic-tac-toe
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up {#wrapping-up}
+### Concluyendo {#wrapping-up}
 
-Congratulations! You've created a tic-tac-toe game that:
+¡Felicitaciones! Has creado un juego de tic-tac-toe que:
 
-* Lets you play tic-tac-toe,
-* Indicates when a player has won the game,
-* Stores a game's history as a game progresses,
-* Allows players to review a game's history and see previous versions of a game's board.
+* Te permite jugar tic-tac-toe,
+* Indica cuando un jugador ha ganado el juego,
+* Almacena el historial del juego como va progresando,
+* Permite a los jugadores revisar el historial del juego y ver versiones anteriores del tablero de juego.
 
-Nice work! We hope you now feel like you have a decent grasp on how React works.
+¡Buen trabajo! Esperamos que ahora te sientas que tienes un entendimiento descente sobre cómo funciona React.
 
-Check out the final result here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+Revisa el resultado final aquí: **[Resultado final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
+Si tienes un tiempo extra o quieres practicar tus nuevas habilidades de React, aquí algunas ideas de mejoras que puedes hacer al juego de tic-tac-toe, las cuales están listadas en orden de dificultad creciente:
 
-1. Display the location for each move in the format (col, row) in the move history list.
-2. Bold the currently selected item in the move list.
-3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-5. When someone wins, highlight the three squares that caused the win.
-6. When no one wins, display a message about the result being a draw.
+1. Muestra la ubicación para cada movimiento en el formato (columna, fila) en la lista del historial de movimientos.
+2. Convierte en negrita el elemento actualmente seleccionado en la lista de movimientos.
+3. Reescribe el Board para usar 2 ciclos para hacer los cuadrados en vez de escribirlos a mano.
+4. Agrega un botón de switch que te permita ordenar los movimientos en orden ascendente o descendente.
+5. Cuando alguien gana, resalta los 3 cuadrados que hicieron que gane.
+6. Cuando nadie gane, muestra un mensaje acerca de que el resultado es un empate.
 
-Throughout this tutorial, we touched on React concepts including elements, components, props, and state. For a more detailed explanation of each of these topics, check out [the rest of the documentation](/docs/hello-world.html). To learn more about defining components, check out the [`React.Component` API reference](/docs/react-component.html).
+A lo largo de este tutorial, hemos abordado conceptos de React incluyendo elementos, componentes, props, y estado. Para una explicación más detallada de cada uno de estos temas, revisa [el resto de la documentación](/docs/hello-world.html). Para aprender más acerca de definir componentes, revisa la [referencia del API de `React.Component`](/docs/react-component.html).
