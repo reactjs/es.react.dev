@@ -587,13 +587,13 @@ El beneficio principal de inmutabilidad es que te ayuda a construir _componentes
 
 Puedes aprender más acerca de `shouldComponentUpdate()` y cómo puedes construir *componentes puros* leyendo [Optimizando el rendimiento](/docs/optimizing-performance.html#examples).
 
-### Function Components {#function-components}
+### Componentes de función {#function-components}
 
-We'll now change the Square to be a **function component**.
+Ahora cambiaremos el componente Square a ser un **componente de función**.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+En React, **componentes de función** son una forma más simple de escribir componentes que solo contienen un método `render` y no tiene estado propio. En lugar de definir una clase que extiende `React.Component`, podemos escribir una función que toma `props` como parámetros y retorna lo que se debe renderizar. Componentes de función son menos tediosos de escribir que clases, y muchos componentes pueden ser expresados de esta manera.
 
-Replace the Square class with this function:
+Reemplaza la clase Square por esta función:
 
 ```javascript
 function Square(props) {
@@ -605,13 +605,13 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+Hemos cambiado `this.props` a `props` en ambas veces que aparece.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>Nota
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides). In a class, we used an arrow function to access the correct `this` value, but in a function component we don't need to worry about `this`.
+>Cuando modificamos el componente Square a ser un componente de función, también cambiamos `onClick={() => this.props.onClick()}` a una más corta `onClick={props.onClick}` (notar la falta de paréntesis en *ambos* lados). En una clase, usamos una función flecha para acceder al correcto valor de `this`, pero en un componente de función no necesitamos preocuparnos de `this`.
 
 ### Taking Turns {#taking-turns}
 
