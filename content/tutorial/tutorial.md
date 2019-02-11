@@ -1108,17 +1108,17 @@ Si el key no está especificado, React presentará una advertencia y usará el �
 Los keys no necesitan ser globalmente únicos; solo necesitan ser únicos entre componentes y sus hermanos..
 
 
-### Implementing Time Travel {#implementing-time-travel}
+### Implementando viaje en el tiempo {#implementing-time-travel}
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
+En el historial del juego de tic-tac-toe, cada movimiento anterior tiene un ID único asociado; es el número secuencial del movimiento. Los movimientos nunca son reordenados, eliminados, ó insertados en el medio, así que es seguro usar los índices del movimiento como un key.
 
-In the Game component's `render` method, we can add the key as `<li key={move}>` and React's warning about keys should disappear:
+En el método `render` del componente Game, podemos agregar el key como `<li key={move}` la advertencia de React debería desaparecer:
 
 ```js{6}
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        'Ir al movimiento #' + move :
+        'Ir al inicio del juego';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -1127,11 +1127,11 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
+Haciendo click en cualquiera de los botones de la lista arroja un error porque el método `jumpTo` no está definido. Antes de implementar `jumpTo`, agregaremos `stepNumber` al estado del componente Game para indicar qué paso estamos viendo actualmente.
 
-First, add `stepNumber: 0` to the initial state in Game's `constructor`:
+Primero, agrega `stepNumber: 0` al estado inicial en el constructor de Game:
 
 ```js{8}
 class Game extends React.Component {
@@ -1147,11 +1147,11 @@ class Game extends React.Component {
   }
 ```
 
-Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We also set `xIsNext` to true if the number that we're changing `stepNumber` to is even:
+Luego, definiremos el método `jumpTo` en el componente Game para actualizar el `stepNumber`. También estableceremos `xIsNext` a verdadero si el número que estamos cambiando en `stepNumber` es par:
 
 ```javascript{5-10}
   handleClick(i) {
-    // this method has not changed
+    // este método no ha cambiado
   }
 
   jumpTo(step) {
@@ -1162,15 +1162,15 @@ Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We a
   }
 
   render() {
-    // this method has not changed
+    //  este método no ha cambiado
   }
 ```
 
-We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+Ahora haremos unos pequeños cambios al método `handleClick` de Game, el cuál se dispara cuando haces click en un cuadrado.
 
-The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+El estado `stepNumber` que hemos añadido ahora refleja el movimiento mostrado al usuario. Después de hacer un nuevo movimiento, necesitamos actualizar `stepNumber` añadiendo `stepNumber: history.length` como parte del argumento de `this.setState`. Esto asegura que no nos estanquemos mostrando el mismo movimiento después de uno nuevo realizado.
 
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now become incorrect.
+También reemplazaremos `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Esto asegura que si "volvemos en el tiempo" y luego hacemos un nuevo movimiento desde ese punto, tiramos todo la historia "futura" que ahora sería incorrecta.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1191,7 +1191,7 @@ We will also replace reading `this.state.history` with `this.state.history.slice
   }
 ```
 
-Finally, we will modify the Game component's `render` method from always rendering the last move to rendering the currently selected move according to `stepNumber`:
+Finalmente, modificaremos el método `render` del componente Game de siempre renderizar el último movimiento a renderizar el movimiento seleccionado actualmente de acuerdo a `stepNumber`:
 
 ```javascript{3}
   render() {
@@ -1199,12 +1199,12 @@ Finally, we will modify the Game component's `render` method from always renderi
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    // the rest has not changed
+    // el resto no ha cambiado
 ```
 
-If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+Si clickeamos en cualquier paso de la historia del juego, el tablero tic-tac-toe debería actualizarse inmediatamente para mostrar el tablero como se veía luego de que el paso ocurrió.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
 ### Wrapping Up {#wrapping-up}
 
