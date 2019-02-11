@@ -775,21 +775,21 @@ Ahora podemos cambiar la función `handleClick` del componente Board para retorn
 
 ¡Felicidades! Ahora tienes un juego tic-tac-toe funcionando. Y también acabas de aprender lo básico de React. Así que *eres* probablemente el real ganador aquí.
 
-## Adding Time Travel {#adding-time-travel}
+## Agregando viaje en el tiempo {#adding-time-travel}
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+Como ejercicio final, vamos a hacer posible "retroceder en el tiempo" al movimiento previo en el juego.
 
-### Storing a History of Moves {#storing-a-history-of-moves}
+### Almacenando un historial de movimientos {#storing-a-history-of-moves}
 
-If we mutated the `squares` array, implementing time travel would be very difficult.
+Si mutamos el array de `squares`, implementar viaje en el tiempo sería muy difícil.
 
-However, we used `slice()` to create a new copy of the `squares` array after every move, and [treated it as immutable](#why-immutability-is-important). This will allow us to store every past version of the `squares` array, and navigate between the turns that have already happened.
+Sin embargo, usamos `slice()` para crear una copia nueva del array de `squares` después de cada movimiento, y [lo tratamos como inmutable](#why-immutability-is-important). Esto nos permite almacenar cada versión previa del array de `squares`, y navegar entre los turnos que ya han pasado.
 
-We'll store the past `squares` arrays in another array called `history`. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+Almacenaremos los pasados arrays de `squares` en otro array llamado `history`. El array `history` representa todos los estados del tablero, desde el primer movimiento hasta el último, y tiene una forma como esta:
 
 ```javascript
 history = [
-  // Before first move
+  // Antes del primer movimiento
   {
     squares: [
       null, null, null,
@@ -797,7 +797,7 @@ history = [
       null, null, null,
     ]
   },
-  // After first move
+  // Luego del primer movimiento
   {
     squares: [
       null, null, null,
@@ -805,7 +805,7 @@ history = [
       null, null, null,
     ]
   },
-  // After second move
+  // Luego del segundo movimiento
   {
     squares: [
       null, null, null,
@@ -817,7 +817,7 @@ history = [
 ]
 ```
 
-Now we need to decide which component should own the `history` state.
+Ahora necesitamos decidir qué componente debe ser el dueño del estado `history`.
 
 ### Lifting State Up, Again {#lifting-state-up-again}
 
