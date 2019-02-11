@@ -1072,18 +1072,18 @@ Por cada movimiento en el hisotrial del juego de tic-tac-toe, creamos un element
 
 Vamos a discutir que significa la advertencia anterior.
 
-### Picking a Key {#picking-a-key}
+### Escogiendo una key {#picking-a-key}
 
-When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
+Cuando renderizamos una lista, React almacena información acerca de cada elemento de la lista renderizado. Cuando actualizamos una lista, React necesita determinar que ha cambiado. Podríamos haber añadido, eliminado, reacomodado, o actualizado los elementos de la lista.
 
-Imagine transitioning from
+Imagina cambiar de
 
 ```html
 <li>Alexa: 7 tasks left</li>
 <li>Ben: 5 tasks left</li>
 ```
 
-to
+a
 
 ```html
 <li>Ben: 9 tasks left</li>
@@ -1091,21 +1091,21 @@ to
 <li>Alexa: 5 tasks left</li>
 ```
 
-In addition to the updated counts, a human reading this would probably say that we swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what we intended. Because React cannot know our intentions, we need to specify a *key* property for each list item to differentiate each list item from its siblings. One option would be to use the strings `alexa`, `ben`, `claudia`. If we were displaying data from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+Además de los contadores actualizados, un humano leyendo esto probablemente diría que se intercambiaron el orden de Alexa y Ben e insertaron Claudia entre ellos. Sin embargo, React es un programa de computadora y no sabe lo que intentamos. Porque React no puede saber nuestras intenciones, necesitamos especificar una propiedad *key* para cada elemento de la lista para diferenciar cada uno de sus hermanos. Una opción sería usar los strings `alexa`, `ben`, `claudia`. Si fueramos a mostrar datos de una base de datos, los ids de base de datos de  Alexa, Ben y Claudia podrían ser usados como keys.
 
 ```html
 <li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+Cuando una lista es re-renderizada, React toma cada key del elemento de la lista y busca el elemento de la lista anterior que coincida el key. Si la lista actual tiene un key que no existía antes, React crea un componente. Si a la lista actual le falta un key que existía en la lista anterior, React destruye el componente previo. Si dos keys coinciden, el componente correspondiente es movido. Los keys le dicen a React acerca de la identidad de cada componente lo cual permite a React mantener su estado entre re-renderizados. Si el key de un componente cambia, el componente será destruido y re-creado con un nuevo estado.
 
-`key` is a special and reserved property in React (along with `ref`, a more advanced feature). When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it belongs in `props`, `key` cannot be referenced using `this.props.key`. React automatically uses `key` to decide which components to update. A component cannot inquire about its `key`.
+`key` es una propiedad especial y reservada en React (al igual que con `ref`, una característica más avanzada). Cuando un elementoes creado, React extrae la propiedad `key` y la almacena directamente en el elemento retornado. Aun cuando el `key` puede verse que pertenece a las `props`, `key` no puede ser referenciado usando `this.props.key`. React automáticamente usa `key` para decidir qué componentes actualizar. Un componente no puede averiguar sobre su `key`.
 
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
+**Se recomienda fuertemente que uses keys apropiado cuando construyas listas dinámicas**. Si no tienes un key apropiado, quizás quieras considerar reestruturar tus datos para que puedas tenerla.
 
-If no key is specified, React will present a warning and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the warning but has the same problems as array indices and is not recommended in most cases.
+Si el key no está especificado, React presentará una advertencia y usará el índice del array como índice por defecto. Usando el índice del array como un key es problemático cuando intentas reordenar los elementos de una lista ó insertar/eliminar elementos de la lista. Pasar explícitamente `key={i}` silencia la advertencia pero tiene los mismos problemas que los índices del array y no es recomendado en la mayoría de los casos.
 
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+Los keys no necesitan ser globalmente únicos; solo necesitan ser únicos entre componentes y sus hermanos..
 
 
 ### Implementing Time Travel {#implementing-time-travel}
