@@ -430,9 +430,9 @@ Ahora usaremos el prop pasando el mecanismo otra vez. Modificaremos el Board par
 
 Cada Square ahora recibirá un prop `value` que será `'X'`, `'O'`, ó `null` para cuadrados vacíos.
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualiza el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el stado de Board directamente desde Square.
 
-To maintain the Board's state's privacy, we'll pass down a function from the Board to the Square. This function will get called when a Square is clicked. We'll change the `renderSquare` method in Board to:
+Para mantener el estado de Board privado, necesitamos pasar una función como prop desde Board a Square. Esta función será llamada cuando un cuadrado es clickeado. Cambiaremos el método `renderSquare` en Board a:
 
 ```javascript{5}
   renderSquare(i) {
@@ -445,17 +445,17 @@ To maintain the Board's state's privacy, we'll pass down a function from the Boa
   }
 ```
 
->Note
+>Nota
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+>Dividimos el elemento retornado en múltiples líneas por legibilidad, y agregamos paréntesis para que JavaScript no inserte un punto y coma después del `return` y rompa nuestro código.
 
-Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+Ahora estamos pasando dos props desde Board a Square: `value` y `onClick`. El prop `onClick` es una función que Square puede llamar cuando sea clickeado. Haremos los siguientes cambios a Square:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* Reemplazar `this.state.value` por `this.props.value` en el método `render` de Square
+* Reemplazar `this.setState()` por `this.props.onClick()` en el método `render` de Square
+* Eliminar el `constructor` de Square porque el componente ya no hace seguimiento del estado del juego
 
-After these changes, the Square component looks like this:
+Luego de estos cambios, el componente Square se ve algo así:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -472,19 +472,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+Cuando un cuadrado es clickeado, la función `onClick` provista por el componente Board es llamada. Aquí un repaso de cómo esto fue logrado:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes.
+1. El prop `onClick` en el componente pre-construido del DOM `<button>` le dice a React para establecer un escuchador del evento click.
+2. Cuando el botón es clickeado, React llamará al manejador de evento `onClick` que está definido en el método `render()` de Square.
+3. Este manejador de evento llama a `this.props.onClick()`. El prop `onClick` del componente Square fue especificado por el componente Board.
+4. Debido a que el Board pasó `onClick={() => this.handleClick(i)}` a Square, el componente Square llama a `this.handleClick(i)` cuando es clickeado.
+5. No tenemos definido el método `handleClick()` aun, así que nuestro código falla.
 
->Note
+>Nota
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could name the Square's `onClick` prop or Board's `handleClick` method differently. In React, however, it is a convention to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. PAra componentes personalizados como Square, la nomenclatura la decides tú. Podemos nombrar el prop `onClick` de Square o el método `handleClick` de Board diferente. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Event]` para los métodos que manejan los eventos.
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+Cuando intentamos clickear un cuadrado, deberíamos obtener un eerror porque no hemos definido `handleClick` aun. Vamos ahora a agregar `handleClick` a la clase Board:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -537,13 +537,13 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+Luego de estos cambios, podemos nuevamente clickear en los cuadrados para rellenarlos. Sin embargo, ahora el estado está almacenado en el componente Board en lugar de cada componente Square. Cuando el estado del Board cambia, los componentes Square se re-renderiza automáticamente. Mantener el estado de todos los cuadrados en el componente Board nos permitirá determinar el ganador en el futuro.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+Debido a que el componente Square ahora no mantiene estado, los componentes Square reciben valores del  componente Board e informan al mismo cuando son clickeados. En términos de React, los componentes Square ahora son **componentes controlados**. El componente Board tiene control completo sobre ellos.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicareomos porqué crear una copia del array `squares` en la siguiente sección.
 
 ### Why Immutability Is Important {#why-immutability-is-important}
 
