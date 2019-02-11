@@ -89,7 +89,7 @@ Puedes usar el [plugin `eslint-plugin-react-hooks`](https://www.npmjs.com/packag
 
 Para que los Hook funcionen, el import de `react` de tu código debe resolver al mismo módulo que el import de `react` dentro del paquete `react-dom`.
 
-Si estos imports de `react` resuelven a dos objetos exports diferentes, verás este warning. Esto podría suceder si **accidentalmente resultas con dos copias** del paquete `react`.
+Si estos imports de `react` resuelven a dos objetos exports diferentes, verás esta advertencia. Esto podría suceder si **accidentalmente resultas con dos copias** del paquete `react`.
 
 Si usas Node para gestión de paquetes, puedes correr este comando en el directorio de tu proyecto:
 
