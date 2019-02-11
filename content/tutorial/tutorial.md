@@ -344,19 +344,19 @@ Después de instalar React DevTools, puedes hacer click derecho en cualquier ele
 3. Click en "Change View" y luego selecciona "Debug mode".
 4. En la nueva pestaña que se abre, el devtools debería ahora tener una pestaña de React.
 
-## Completing the Game {#completing-the-game}
+## Completando el juego {#completing-the-game}
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+Ahora tenemos los bloques de construcción básicos para nuestro juego tic-tac-toe. Para completar el juego, necesitamos alternar colocando "X" y "O" en el tablero, y necesitas una forma de determinar el ganador.
 
-### Lifting State Up {#lifting-state-up}
+### Elevando el estado {#lifting-state-up}
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+Actualmente, cada componente Square mantiene el estado del juego. Para determinar un ganador, necesitamos mantener el valor de cada uno de los 9 cuadrador en un solo lugar.
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+Podemos pensar que el tablero debería solo preguntar a cada cuadrado por su estado. Aunque este enfoque es posible en React, te incentivamos a que no lo uses porque el código se vuelve difícil de ententer, susceptible a errores, y difícil de refactorizar. En su lugar, el mejor enfoque es almacenar el estado del juego en el componente padre Board en vez de cada componente Square. El componente Board puede decirle a cada cuadrado que mostrar pasándole un prop [tal cual hicimos cuando pasamos un número a cada cuadrado](#passing-data-through-props).
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+**Para recopilar datos de múltiples hijos, o tener dos componentes hijos comunicados entre si, necesitas declarar el estado compartido en su componente padre. El componente padre puede pasar el estado hacia los hijos usando props; esto mantiene los componentes hijos sincronizados entre ellos y con su componente padre.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out. We'll add a constructor to the Board and set the Board's initial state to contain an array with 9 nulls. These 9 nulls correspond to the 9 squares:
+Elevar el estado al componente padre es común cuando componentes de React son refactorizados, vamos a tomar esta oportunidad para intentarlo. Añadiremos un constructor al Board y estableceremos el estado inicial de Board para contener un arreglo con 9 valores null. Estos 9 nulls corresponden a los 9 cuadrados:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -372,7 +372,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Siguiente jugador: X';
 
     return (
       <div>
@@ -398,7 +398,7 @@ class Board extends React.Component {
 }
 ```
 
-When we fill the board in later, the board will look something like this:
+Cuando rellenemos el tablero luego, el tablero se verá algo así:
 
 ```javascript
 [
@@ -408,7 +408,7 @@ When we fill the board in later, the board will look something like this:
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+El método `renderSquare` del componente Board actualmente se ve así:
 
 ```javascript
   renderSquare(i) {
@@ -416,9 +416,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+Al principio, [pasamos el prop `value`](#passing-data-through-props) desde el Board para mostrar los números de 0 a 8 en cada cuadrado. En un paso previo, reemplazamos los números con una marca "X" [determinado por el estado del propio Square](#making-an-interactive-component). Esto es porque el cuadrado actualmente ignora el prop `value` pasado por el Board.
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+Ahora usaremos el prop pasando el mecanismo otra vez. Modificaremos el Board para instruir cada Square acerca de su valor actual (`'X'`, `'O'`, ó `null`). Ya tenemos definido el arreglo `squares` en  el constructor del Board, y modificaremos el método `renderSquare` para que lo lea desde allí:
 
 ```javascript{2}
   renderSquare(i) {
@@ -426,9 +426,9 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[Ver el código completo en este punto](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+Cada Square ahora recibirá un prop `value` que será `'X'`, `'O'`, ó `null` para cuadrados vacíos.
 
 Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
 
