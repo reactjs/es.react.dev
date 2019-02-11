@@ -1,10 +1,10 @@
 ---
 id: portals
-title: Portals
+title: Portales
 permalink: docs/portals.html
 ---
 
-Portals proporciona una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del Componente padre.
+Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del Componente padre.
 
 ```js
 ReactDOM.createPortal(child, container)
@@ -41,13 +41,13 @@ render() {
 }
 ```
 
-Un caso de uso típico de Portals es cuando un componente principal tiene un estilo `overflow: hidden` or `z-index`, pero necesita que el elemento "salga" visualmente de su contenedor. Por ejemplo, cuadros de diálogo, hovercards y tooltips.
+Un caso de uso típico de los portales es cuando un componente principal tiene un estilo `overflow: hidden` or `z-index`, pero necesita que el elemento "salga" visualmente de su contenedor. Por ejemplo, cuadros de diálogo, *hovercards* y *tooltips*.
 
 > Nota:
 >
-> Cuando trabajes con Portals, recuerde que [administrar el enfoque del teclado](/docs/accessibility.html#programmatically-managing-focus) es muy importante.
+> Cuando trabajes con portales, recuerda que [administrar el foco del teclado](/docs/accessibility.html#programmatically-managing-focus) es muy importante.
 >
-> Para los cuadros de dialogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+> Para los cuadros de diálogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -85,7 +85,7 @@ class Modal extends React.Component {
     // se montarán en un nodo DOM separado. Si un componente hijo
     // requiere estar conectado inmediatamente cuando se monta al árbol del DOM
     // por ejemplo, para medir un nodo DOM, o usar 'autoFocus' en un descendiente,
-    // agregue el estado a Modal y renderice solo a los hijos 
+    // agrega el estado a Modal y renderiza solo a los hijos 
     // cuando se inserta Modal en el árbol DOM.
     modalRoot.appendChild(this.el);
   }
@@ -110,8 +110,8 @@ class Parent extends React.Component {
   }
 
   handleClick() {
-    // Esto se activará cuando el botón en el Hijo sea cliqueado,
-    // actualizando el estado del Padre,
+    // Esto se activará cuando el botón en el Child sea cliqueado,
+    // actualizando el estado de Parent,
     // aunque el botón no sea descendiente directo en el DOM.
     this.setState(state => ({
       clicks: state.clicks + 1
