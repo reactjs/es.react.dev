@@ -432,7 +432,7 @@ Esto puede ser útil para renderizar condicionalmente elementos React. Este JSX 
 </div>
 ```
 
-Una advertencia es que algunos [valores "falsos"](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), como el número `0`, todavía son renderizados por React. Por ejemplo, este código no se comportará como se espera porque se imprimirá `0` cuando `props.messages` sea una arreglo vacío:
+Una advertencia es que algunos [valores que se comportan como falsos](https://developer.mozilla.org/es/docs/Glossary/Falsy), como el número `0`, todavía son renderizados por React. Por ejemplo, este código no se comportará como se espera porque se imprimirá `0` cuando `props.messages` sea una arreglo vacío:
 
 ```js{2}
 <div>
