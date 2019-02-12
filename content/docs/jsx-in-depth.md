@@ -102,7 +102,7 @@ Por ejemplo, este código no se ejecutará como se esperaba:
 ```js{3,4,10,11}
 import React from 'react';
 
-// ¡Incorrecto! Este es un componente y debería haberse capitalizado:
+// ¡Incorrecto! Este es un componente y debería comenzar con mayúscula:
 function hello(props) {
   // ¡Correcto! Este uso de <div> es legítimo porque div es una etiqueta HTML válida:
   return <div>Hello {props.toWhat}</div>;
