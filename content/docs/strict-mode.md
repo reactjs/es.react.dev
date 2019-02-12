@@ -1,6 +1,6 @@
 ---
 id: strict-mode
-title: Modo estrícto
+title: Modo estricto
 permalink: docs/strict-mode.html
 ---
 
@@ -8,12 +8,12 @@ permalink: docs/strict-mode.html
 
 > Nota:
 >
-> Las comprobaciones hechas por el modo estrícto solamente son ejecutadas en el modo de desarrollo; _no van a impactar producción_.
+> Las comprobaciones hechas por el modo estricto solamente son ejecutadas en el modo de desarrollo; _no van a impactar producción_.
 
-Puedes habilitar el modo estrícto para cualquier parte de tu aplicación. Por ejemplo:
+Puedes habilitar el modo estricto para cualquier parte de tu aplicación. Por ejemplo:
 `embed:strict-mode/enabling-strict-mode.js`
 
-En el ejemplo anterior, las comprobaciones del modo estrícto *no* va a correr en los componentes de `Header` y `Footer`. Sin embargo, `ComponentOne` y `ComponentTwo`, así como todos sus descendientes, tendrán las comprobaciones.
+En el ejemplo anterior, las comprobaciones del modo estricto *no* va a correr en los componentes de `Header` y `Footer`. Sin embargo, `ComponentOne` y `ComponentTwo`, así como todos sus descendientes, tendrán las comprobaciones.
 
 `StrictMode` en la actualidad ayuda a:
 * [Identificar ciclos de vida inseguros](#identifying-unsafe-lifecycles)
@@ -26,7 +26,7 @@ Funcionalidades adicionales serán agregadas en futuras versiones de React.
 
 ### Identificar ciclos de vida inseguros {#identifying-unsafe-lifecycles}
 
-Como fue explicado [en este artículo del blog](/blog/2018/03/27/update-on-async-rendering.html), algúnos cíclos de vida antiguos son inseguros para ser usados en aplicaciones de React asíncronas. Sin embargo, si tu aplicación utiliza librerías de terceros, puede ser díficil asegurar que estos ciclos de vida no estén siendo utilizados. Por fortuna, ¡el modo estrícto puede ayudar con esto!
+Como fue explicado [en este artículo del blog](/blog/2018/03/27/update-on-async-rendering.html), algúnos cíclos de vida antiguos son inseguros para ser usados en aplicaciones de React asíncronas. Sin embargo, si tu aplicación utiliza librerías de terceros, puede ser díficil asegurar que estos ciclos de vida no estén siendo utilizados. Por fortuna, ¡el modo estricto puede ayudar con esto!
 
 Cuando el modo estricto está habilitado, React reune en una lista todos los componentes de clases que están usando ciclos de vida inseguros, y registra por medio de un mensaje de advertencia la información sobre estos componentes, de esta forma:
 
@@ -41,7 +41,7 @@ Anteriormente, React proporcionaba dos formas para utilizar refs: la API legado 
 React 16.3 agregó una tercera opción que ofrece la comodidad que tiene string ref sin ninguna de las desventajas:
 `embed:16-3-release-blog-post/create-ref-example.js`
 
-Desde que los object refs fueron agregados en gran parte como reemplazo a los string refs, el modo estrícto ahora advierte sobre el uso de string refs.
+Desde que los object refs fueron agregados en gran parte como reemplazo a los string refs, el modo estricto ahora advierte sobre el uso de string refs.
 
 > **Nota:**
 >
@@ -97,7 +97,7 @@ El ciclo de vida de la fase de renderizado incluye los siguientes métodos de lo
 
 Ya que los métodos arriba mencionados pueden ser llamados más de una vez, es importante que estos no contengan ningún efecto secundario. Ignorar esta regla puede llevar a una cantidad de problemas, incluyendo fugas de memoria y estados de aplicación inválido. Desafortunadamente, puede ser muy difícil el detectar estos problemas ya con frecuencia pueden ser [no determinísticos](https://en.wikipedia.org/wiki/Deterministic_algorithm).
 
-El modo estrícto no puede detectar efectos secundarios de forma automática por ti, pero te puede ayudar a encontrarlos al hacerlos un poco más determinísticos. Esto se logra al invocar dos veces los siguientes métodos:
+El modo estricto no puede detectar efectos secundarios de forma automática por ti, pero te puede ayudar a encontrarlos al hacerlos un poco más determinísticos. Esto se logra al invocar dos veces los siguientes métodos:
 
 * El método `constructor` en los componentes de clases
 * El método `render`
@@ -113,11 +113,11 @@ Por ejemplo, considera el siguiente código:
 
 En primera instancia, este código no debería parecer problemático. Pero si `SharedApplicationState.recordEvent` no es [idempotente](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning), entonces al instanciar este componente múltiples veces puede llevar a que tenga un estado de aplicación inválido. Estos tipo de bug sutiles pueden no manifestarse durante el desarrollo, o quizas sí lo hagan pero de forma inconsistente y se pase por alto.
 
-Al invocar los métodos dos veces, como el constructor del componente, el modo estrícto hace que patrones como estos sean más fáciles de encontrar.
+Al invocar los métodos dos veces, como el constructor del componente, el modo estricto hace que patrones como estos sean más fáciles de encontrar.
 
 ### Detectar el uso de la API legado para el contexto {#detecting-legacy-context-api}
 
-La API legado para el contexto es propensa a errores, y será eliminada en una versión principal a futuro. Aún está funcionando para todas las versiones 16.x pero mostrará el siguiente mensaje de advertencia si se usa en modo estrícto:
+La API legado para el contexto es propensa a errores, y será eliminada en una versión principal a futuro. Aún está funcionando para todas las versiones 16.x pero mostrará el siguiente mensaje de advertencia si se usa en modo estricto:
 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 
