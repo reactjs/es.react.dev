@@ -27,7 +27,7 @@ se compila en:
 React.createElement(
   MyButton,
   {color: 'blue', shadowSize: 2},
-  'Haz click en mi'
+  'Haz click en mí'
 )
 ```
 
