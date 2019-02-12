@@ -119,4 +119,4 @@ Este problema también ocurre cuando usas `npm link` o un equivalente. En ese ca
 
 ## Otras causas {#other-causes}
 
-Si nada de esto funciona, por favor agrega un comentario en [este issue](https://github.com/facebook/react/issues/13991) y trataremos de ayudar. Intenta crear un pequeño ejemplo que reproduzca el problema — podrías encontrar la causa mientras lo haces.
+Si nada de esto funciona, por favor agrega un comentario en [este *issue*](https://github.com/facebook/react/issues/13991) y trataremos de ayudar. Intenta crear un pequeño ejemplo que reproduzca el problema — podrías encontrar la causa mientras lo haces.
