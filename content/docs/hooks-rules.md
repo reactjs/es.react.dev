@@ -6,15 +6,15 @@ next: hooks-custom.html
 prev: hooks-effect.html
 ---
 
-Los *Hooks* son una de las próximas funcionalidades que te permitirá usar el estado y otras caracteristicas de React sin tener que escribir una clase. Actualmente están disponibles en la versión de React v16.8.0-alpha.1.
+Los Hooks son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para hacer cumplir estas reglas automáticamente.
 
-### Llama Hooks solo en el nivel superior
+### Llama Hooks solo en el nivel superior {#only-call-hooks-at-the-top-level}
 
 **No llames Hooks dentro de ciclos, condicionales, or funciones anidadas.** En vez de eso, usa siempre Hooks en el nivel superior de tu función en React. Siguiendo esta regla, te aseguras de que los hooks se llamen en el mismo orden cada vez que un componente se renderiza. Esto es lo que permite a React preservar correctamente el estado de los hooks entre multiples llamados a `useState` y `useEffect`. (Si eres curioso, vamos a explicar esto en detalle [más abajo](#explicación).)
 
-### Llama Hooks solo en funciones de React
+### Llama Hooks solo en funciones de React {#only-call-hooks-from-react-functions}
 
 **No llames Hooks desde funciones JavaScript regulares.** En vez de eso, puedes:
 
@@ -23,7 +23,7 @@ Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando l
 
 Siguiendo esta regla, te aseguras de que toda la lógica del estado de un componente sea claramente visible desde tu código fuente.
 
-## Plugin de ESLint
+## Plugin de ESLint {#eslint-plugin}
 
 Lanzamos un plugin de ESLint llamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que refuerza estas dos reglas. Puedes añadir este plugin a tu proyecto si quieres probarlo:
 
@@ -49,7 +49,7 @@ En el futuro, tenemos la intención de incluir este plugin por defecto en Create
 
 **Puedes pasar a la siguiente página donde explicamos como escribir [tus propios Hooks](/docs/hooks-custom.html) ahora mismo.** En esta página, vamos a continuar explicando el razonamiento detrás de estas reglas.
 
-## Explicación
+## Explicación {#explanation}
 
 Como [aprendimos anteriormente](/docs/hooks-state.html#tip-using-multiple-state-variables), podemos usar multiples Hooks de Estado o Hooks de Efecto en un solo componente:
 
@@ -132,6 +132,6 @@ React no sabría que devolver para la segunda llamada del Hook `useState`. React
 
 **Ten en cuenta que no necesitas preocuparte por este problema si usas las [reglas de lint provistas](https://www.npmjs.com/package/eslint-plugin-react-hooks).** Pero ahora también sabes *por qué* los Hooks funcionan de esta manera, y cuáles son los problemas que la primera regla está impidiendo.
 
-## Siguientes pasos
+## Siguientes pasos {#next-steps}
 
 Finalmente, estamos listos para aprender acerca de cómo [escribir nuestros propios Hooks](/docs/hooks-custom.html)! Los Hooks personalizados te permiten combinar los Hooks proporcionados por React en sus propias abstracciones y reutilizar la lógica de estado común entre los diferentes componentes.
