@@ -110,12 +110,15 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | ------------------ | ---------- |
 | array | *array* |
 | arrow function | función flecha |
+| assert | comprobar |
 | bug | error |
 | bundler | *bundler* |
 | camelCase | *camelCase* |
 | callback | *callback* |
+| camelCase | *camelCase* |
 | controlled component | componente controlado |
 | debugging | depuración |
+| DOM | DOM |
 | framework | *framework* |
 | function component | componente de función |
 | hook | *hook* |
@@ -126,6 +129,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | props | *props* |
 | React element | Elemento de React |
 | render | renderizar (verb), renderizado (noun)
+| shallow rendering | renderizado superficial |
 | state | estado |
 | string | *string* |
 | template literals | *template literals* |
