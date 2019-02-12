@@ -200,7 +200,7 @@ Puedes obtener más información sobre [renderizado condicional](/docs/condition
 
 ### Literales *string* {#string-literals}
 
-Puede pasar una string literal como prop. Estas dos expresiones JSX son equivalentes:
+Puede pasar un literal *string* como prop. Estas dos expresiones JSX son equivalentes:
 
 ```js
 <MyComponent message="hello world" />
