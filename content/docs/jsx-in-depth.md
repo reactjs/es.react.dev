@@ -47,7 +47,7 @@ React.createElement(
 )
 ```
 
-Si deseas probar cómo algunos JSX específicos se convierten en JavaScript, puedes probar [el compilador de Babel en línea](babel://jsx-simple-example).
+Si deseas probar cómo cierto código JSX en específico se convierte a JavaScript, puedes probar [el compilador de Babel en línea](babel://jsx-simple-example).
 
 ## Especificando el tipo de elemento React {#specifying-the-react-element-type}
 
