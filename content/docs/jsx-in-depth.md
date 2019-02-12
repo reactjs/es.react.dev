@@ -208,7 +208,7 @@ Puede pasar un literal *string* como prop. Estas dos expresiones JSX son equival
 <MyComponent message={'hello world'} />
 ```
 
-Cuando se pasa un literal string, su valor no se escapa de HTML. Así que estas dos expresiones JSX son equivalentes:
+Cuando se pasa un literal *string*, su valor es HTML sin escapar. Así que estas dos expresiones JSX son equivalentes:
 
 ```js
 <MyComponent message="&lt;3" />
