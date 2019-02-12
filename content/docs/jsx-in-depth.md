@@ -382,7 +382,7 @@ function Hello(props) {
 
 ### Funciones como hijos {#functions-as-children}
 
-Normalmente, las expresiones de JavaScript insertadas en JSX se evaluarán como una cadena, un elemento React o una lista de esas cosas. Sin embargo, `props.children` funciona igual que cualquier otro prop, ya que puede pasar cualquier tipo de datos, no solo los tipos que React sabe cómo procesar. Por ejemplo, si tiene un componente personalizado, puedes hacer que tome un callback como `props.children`:
+Normalmente, las expresiones de JavaScript insertadas en JSX se evaluarán como una cadena, un elemento React o una lista de esas cosas. Sin embargo, `props.children` funciona igual que cualquier otro prop, ya que puede pasar cualquier tipo de datos, no solo los tipos que React sabe cómo procesar. Por ejemplo, si tienes un componente personalizado, puedes hacer que tome un *callback* como `props.children`:
 
 ```js{4,13}
 // Llama al callback de los elementos secundarios para producir un componente repetido
