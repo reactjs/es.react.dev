@@ -276,7 +276,7 @@ En las expresiones JSX que contienen una etiqueta de apertura y una etiqueta de 
 
 ### Cadenas de Literales {#string-literals-1}
 
-Puede poner una cadena entre las etiquetas de apertura y cierre y `props.children` será solo esa cadena. Esto es útil para muchos de los elementos HTML integrados. Por ejemplo:
+Puede poner un *string* entre las etiquetas de apertura y cierre y `props.children` será solo ese *string*. Esto es útil para muchos de los elementos HTML integrados. Por ejemplo:
 
 ```js
 <MyComponent>Hello world!</MyComponent>
