@@ -634,4 +634,4 @@ Si no se utiliza algún valor para renderizar o simplemente flujos de datos (por
 
 Consulta [Estado y Ciclo de Vida](/docs/state-and-lifecycle.html) para mas información sobre el estado.
 
-Nunca mudes `this.state` directamente, ya que llamar `setState()` después podría reemplazar la mutación que habías hecho anteriormente. Intenta tratar `this.state` como si fuera inmutable.
+Nunca mutes `this.state` directamente, ya que llamar `setState()` después podría reemplazar la mutación que habías hecho anteriormente. Intenta tratar `this.state` como si fuera inmutable.
