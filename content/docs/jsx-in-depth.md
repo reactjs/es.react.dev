@@ -405,7 +405,7 @@ function ListOfTenThings() {
 
 Los niños pasados a un componente personalizado pueden ser cualquier cosa, siempre que ese componente los transforme en algo que React pueda entender antes de renderizar. Este uso no es común, pero funciona si desea ampliar lo que JSX es capaz de hacer.
 
-### Vooleanos, Nulos e Indefinidos se ignoran {#booleans-null-and-undefined-are-ignored}
+### Los booleanos, `null` y `undefined` se ignoran {#booleans-null-and-undefined-are-ignored}
 
 `false`, `null`, `undefined` y `true` son hijos válidos. Simplemente no se renderizan. Estas expresiones JSX se renderizan todas a la misma forma:
 
