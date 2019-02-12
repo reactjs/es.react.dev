@@ -218,7 +218,7 @@ Cuando se pasa un literal string, su valor no se escapa de HTML. Así que estas 
 
 Este comportamiento no suele ser relevante. Sólo se menciona aquí para completar.
 
-### Props Predeterminado a "Verdadero" {#props-default-to-true}
+### Los props son por defecto "true" {#props-default-to-true}
 
 Si no pasas ningún valor para un prop, el valor predeterminado es `true`. Estas dos expresiones JSX son equivalentes:
 
