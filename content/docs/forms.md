@@ -21,15 +21,15 @@ Los elementos de formularios en HTML funcionan un poco diferente a otros element
 </form>
 ```
 
-Este formulario tiene el comportamiento predeterminado en HTML que consiste en viajar a una nueva pagina cuando el usuario envia el formulario. Si deseas este comportamiento en React, simplemente ya funciona asi. Pero en la mayoria de casos, es conveniente tener una funcion en Javascript que maneja el envio de un formulario, y que tenga acceso a los datos que el usuario introdujo en el formulario. La forma predeterminada para conseguir esto es una tecnica llamads "componentes controlados".
+Este formulario tiene el comportamiento predeterminado en HTML que consiste en viajar a una nueva pagina cuando el usuario enviá el formulario. Si deseas este comportamiento en React, simplemente ya funciona asi. Pero en la mayoría de casos, es conveniente tener una función en Javascript que maneja el envío de un formulario, y que tenga acceso a los datos que el usuario introdujo en el formulario. La forma predeterminada para conseguir esto es una técnica llamada "componentes controlados".
 
-## Controlled Components {#controlled-components}
+## Componentes Controlados {#controlled-components}
 
-In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with [`setState()`](/docs/react-component.html#setstate).
+En HTML, los elementos de formularios como los `<input>`, `<textarea>` y el `<select>` normalmente mantienen sus propios estados y lo actualizan de acuerdo a las entradas del usuario. En React, el estado mutable es mantenido normalmente en la propiedad estado de los componentes, y solo se actualiza con [`setState()`](/docs/react-component.html#setstate).
 
-We can combine the two by making the React state be the "single source of truth". Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a "controlled component".
+Podemos combinar ambos haciendo que el estado de React sea "única fuente de la verdad". De esta manera, los componentes React que rendericen un formulario también controlan lo que pasa en ese formulario con las subsecuentes entradas del usuario. Un elemento de entrada de un formulario cuyos valores son controlados por React de esta forma es denominado "componente controlado".
 
-For example, if we want to make the previous example log the name when it is submitted, we can write the form as a controlled component:
+Por ejemplo, si queremos hacer que el ejemplo anterior muestre el nombre que esta siendo suministrado, podemos escribir el formulario como un componente controlado:
 
 ```javascript{4,10-12,24}
 class NameForm extends React.Component {
@@ -46,7 +46,7 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('Un nombre fue suministrado: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -54,7 +54,7 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Nombre:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
@@ -64,11 +64,11 @@ class NameForm extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
+[**Pruebalo en CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Since the `value` attribute is set on our form element, the displayed value will always be `this.state.value`, making the React state the source of truth. Since `handleChange` runs on every keystroke to update the React state, the displayed value will update as the user types.
+Ya que el atributo `value` es agregado en nuestro elemento de formulario, el valor mostrado siempre sera el de `this.state.value`, haciendo que el estado de React sea la fuente de la verdad. Ya que `handleChange` corre cada vez que una tecla es oprimida para actualizar el estado de React, el valor mostrado sera actualizado mientras que el usuario escribe.
 
-With a controlled component, every state mutation will have an associated handler function. This makes it straightforward to modify or validate user input. For example, if we wanted to enforce that names are written with all uppercase letters, we could write `handleChange` as:
+Con un componente controlado, toda mutación del estado tendrá asociada una función controlador. Esto hace mas directo modificar o validar la entrada del usuario. Por ejemplo, si quisiéramos asegurar que los nombres sean escritos con todas las letras en mayúscula, podríamos escribir el `handleChange` como:
 
 ```javascript{2}
 handleChange(event) {
@@ -76,7 +76,7 @@ handleChange(event) {
 }
 ```
 
-## The textarea Tag {#the-textarea-tag}
+## La Etiqueta textarea {#the-textarea-tag}
 
 In HTML, a `<textarea>` element defines its text by its children:
 
