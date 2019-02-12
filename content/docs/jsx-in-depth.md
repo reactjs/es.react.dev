@@ -288,7 +288,7 @@ Esto es JSX válido, y `props.children` en` MyComponent` simplemente será el *s
 <div>This is valid HTML &amp; JSX at the same time.</div>
 ```
 
-JSX elimina los espacios en blanco al principio y al final de una línea. También elimina las líneas en blanco. Se eliminan las nuevas líneas adyacentes a las etiquetas; Las nuevas líneas que se producen en medio de cadenas literales se condensan en un solo espacio. Así que todo esto se traduce en lo mismo:
+JSX elimina los espacios en blanco al principio y al final de una línea. También elimina las líneas en blanco. Se eliminan las nuevas líneas adyacentes a las etiquetas, las nuevas líneas que se producen en medio de literales de *string* se condensan en un solo espacio. Así que todo esto se traduce en lo mismo:
 
 ```js
 <div>Hello World</div>
