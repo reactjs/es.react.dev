@@ -8,7 +8,7 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Manejar eventos con elementos de React es muy similar a la manera en cómo se manejan eventos con elementos del DOM. Solo hay una diferencias de sintaxis:
+Manejar eventos con elementos de React es muy similar a manejar eventos con elementos del Dom.. Solo hay una diferencias de sintaxis:
 
 * Los eventos de React se nombran usando camelCase, en vez de minúsculas.
 * En JSX se pasa la función como el manejador del evento, en vez de una cadena de texto.
@@ -29,7 +29,7 @@ En React es algo diferente:
 </button>
 ```
 
-Otra diferencia es que en React no puedes retornar `false` para prevenir el comportamiento por defecto. Debes, explícitamente, llamar `preventDefault`. Por ejemplo, en un HTML plano, para prevenir el comportamiento por defecto de un hipervínculo de abrir una nueva página, puedes escribir:
+Otra diferencia es que en React no puedes retornar `false` para prevenir el comportamiento por defecto. Debes, explícitamente, llamar `preventDefault`. Por ejemplo, en un HTML plano, para prevenir el comportamiento por defecto de un enlace de abrir una nueva página, puedes escribir:
 
 ```html
 <a href="#" onclick="console.log('The link was clicked.'); return false">
@@ -54,11 +54,11 @@ function ActionLink() {
 }
 ```
 
-Aquí, `e` es un evento sintético. React define estos eventos sintéticos acorde a las [especificaciones W3C](https://www.w3.org/TR/DOM-Level-3-Events/), entoncés no debes preocuparte por la compatibilidad a tráves de los navegadores. Mira la guía de referencia [`SyntheticEvent`](/docs/events.html) para aprender más.
+Aquí, `e` es un evento sintético. React define estos eventos sintéticos acorde a las [especificaciones W3C](https://www.w3.org/TR/DOM-Level-3-Events/), entonces no debes preocuparte por la compatibilidad a tráves de los navegadores. Mira la guía de referencia [`SyntheticEvent`](/docs/events.html) para aprender más.
 
 Cuando estás utilizando React, generalmente, no debes llamar `addEventListener` para agregar manejadores de eventos a un elemento del DOM después de que este es creado. Por el contrario, solo debes proveer un manejador de eventos cuando el elemento es inicialmente renderizado.
 
-Cuando defines un componente usando [clases de ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), un patrón muy común es que los manejadores de eventos sean un método de la clase. Por ejemplo, este componente `Toggle` renderiza un botón que permite al usuario cambiar el estado entre "PRENDIDO" y "APAGADO":
+Cuando defines un componente usando [clases de ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes), un patrón muy común es que los manejadores de eventos sean un método de la clase. Por ejemplo, este componente `Toggle` renderiza un botón que permite al usuario cambiar el estado entre "PRENDIDO" y "APAGADO":
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
