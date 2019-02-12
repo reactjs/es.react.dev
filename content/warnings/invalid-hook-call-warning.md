@@ -115,7 +115,7 @@ Este problema también ocurre cuando usas `npm link` o un equivalente. En ese ca
 
 >Nota
 >
->En general, React soporta usar múltiples copias independientes en una página (por ejemplo, si una página y un widget externo lo usan). Sólo falla si `require('react')` resuelve diferente entre un componente y la copia de `react-dom` con la que fue renderizado.
+>En general, React admite usar múltiples copias independientes en una página (por ejemplo, si una página y un widget externo lo usan). Sólo falla si `require('react')` resuelve diferente entre un componente y la copia de `react-dom` con la que fue renderizado.
 
 ## Otras causas {#otras-causas}
 
