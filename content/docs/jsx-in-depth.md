@@ -31,7 +31,7 @@ React.createElement(
 )
 ```
 
-También puedes utilizar la forma de cierre automático de la etiqueta si no hay hijos. Asi:
+También puedes utilizar la forma de cierre automático de la etiqueta si no hay hijos. Así:
 
 ```js
 <div className="sidebar" />
