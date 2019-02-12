@@ -27,7 +27,7 @@ function render() {
 }
 ```
 
-## Sin JSX {#sin-jsx}
+## Sin JSX {#without-jsx}
 
 Si no quieres o no puedes usar JSX, tendrás entonces que envolver tu componente en un *factory* antes de llamarlo:
 
@@ -42,7 +42,7 @@ function render() {
 
 Esta es una ruta de actualización fácil si ya tienes muchas llamadas como función.
 
-## Componentes dinámicos sin JSX {#componentes-dinamicos-sin-jsx}
+## Componentes dinámicos sin JSX {#dynamic-components-without-jsx}
 
 Si recibes un componente de clase de forma dinámica, entonces probablemente sea innecesario crear un *factory* para invocarlo inmediatamente. En su lugar puedes simplemente crear tu elemento en línea:
 
@@ -54,6 +54,6 @@ function render(MyComponent) {
 }
 ```
 
-## En profundidad {#en-profundidad}
+## En profundidad {#in-depth}
 
 [Lee más acerca de POR QUÉ estamos haciendo este cambio.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
