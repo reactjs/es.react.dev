@@ -85,7 +85,7 @@ Puedes usar el [plugin `eslint-plugin-react-hooks`](https://www.npmjs.com/packag
 >[Los Hooks personalizados](/docs/hooks-custom.html) *podrían* llamar otros Hooks (ese es su propósito). Esto funciona porque los Hooks personalizados también se supone que deben llamarse únicamente mientras un componente funcional se está renderizando.
 
 
-## React duplicado {#react-duplicado}
+## React duplicado {#duplicate-react}
 
 Para que los Hook funcionen, el import de `react` de tu código debe resolver al mismo módulo que el import de `react` dentro del paquete `react-dom`.
 
