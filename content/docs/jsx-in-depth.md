@@ -282,7 +282,7 @@ Puede poner un *string* entre las etiquetas de apertura y cierre y `props.childr
 <MyComponent>Hello world!</MyComponent>
 ```
 
-Esto es JSX válido, y `props.children` en` MyComponent` simplemente será la cadena `Hello world!`. HTML no se ha escapado, por lo que generalmente puedes escribir JSX de la misma manera que escribiría HTML de esta manera:
+Esto es JSX válido, y `props.children` en` MyComponent` simplemente será el *string* `Hello world!`. El código HTML no se ha escapado, por lo que generalmente puedes escribir JSX de la misma manera que escribirías HTML de esta manera:
 
 ```html
 <div>This is valid HTML &amp; JSX at the same time.</div>
