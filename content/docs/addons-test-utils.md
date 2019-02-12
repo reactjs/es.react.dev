@@ -44,7 +44,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 with npm
 
 ### `act()` {#act}
 
-Para preparar un componente en ser asegurado, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a `act()`. Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.
+Para preparar la asertividad en un componente, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a `act()`. Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.
 
 >Nota
 >
@@ -122,7 +122,7 @@ it('can render and update a counter', () => {
 });
 ```
 
-No olvides que la ejecución de eventos del DOM sólo funciona cuando el contenedor del DOM es agregado al `document`. Puedes utilizar una ayuda como [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) para reducir todo el código repetitivo.
+No olvides que la ejecución de eventos del DOM sólo funciona cuando el contenedor del DOM es agregado al `document`. Puedes utilizar un ayudante como [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) para reducir todo el código repetitivo.
 
 * * *
 
@@ -322,7 +322,7 @@ Simulate.{eventName}(
 
 Simula la ejecución de un evento en un nodo del DOM con los datos de evento `eventData` opcionales.
 
-`Simulate` tiene un método para [cada uno de los eventos que React comprende](/docs/events.html#supported-events).
+`Simulate` tiene un método para [cada uno de los eventos que React entiende](/docs/events.html#supported-events).
 
 **Haciendo clic en un elemento**
 
@@ -332,7 +332,7 @@ const node = this.button;
 ReactTestUtils.Simulate.click(node);
 ```
 
-**Cambiar el valor en un campo de entrada y presionar ENTER.**
+**Cambiando el valor en un campo de entrada y presionando ENTER.**
 
 ```javascript
 // <input ref={(node) => this.textInput = node} />
@@ -343,6 +343,7 @@ ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 ```
 
 > Nota
-> Se debe proveer cualquiera de las propiedades del evento que se esté usando en tu componente (p.e. keyCode, which, etc...) ya que React no creará ninguna de estas por ti.
+>
+> Tendrás que proveer cualquiera de las propiedades del evento que se esté usando en tu componente (p.e. keyCode, which, etc...) ya que React no creará ninguna de estas por ti.
 
 * * *
