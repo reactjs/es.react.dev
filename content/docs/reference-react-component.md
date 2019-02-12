@@ -173,7 +173,7 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 >
 > **Evita copiar los props en el state! Es un error muy común:**
 >
-> ```js
+>```js
 > constructor(props) {
 >  super(props);
 >  // No hagas esto!
