@@ -196,7 +196,7 @@ function NumberDescriber(props) {
 }
 ```
 
-Puedes obtener más información sobre [representación condicional](/docs/conditional-rendering.html) y [loops](/docs/lists-and-keys.html) en las secciones correspondientes.
+Puedes obtener más información sobre [renderizado condicional](/docs/conditional-rendering.html) y [bucles](/docs/lists-and-keys.html) en las secciones correspondientes.
 
 ### Literales *string* {#string-literals}
 
