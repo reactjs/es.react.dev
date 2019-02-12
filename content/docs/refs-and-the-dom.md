@@ -253,7 +253,7 @@ class CustomTextInput extends React.Component {
 
 React llamara al callback del `ref` con el elemento del DOM cuando el componente sea montado, y lo llamara con `null` cuando este se desmonte. Se asegura que las referencias serán actualizadas antes que el `componentDidMount` o el `componentDidUpdate` sean ejecutados.
 
-Puedes pasar una referencia mediante callback entre componentes tal como puedes con los objetos de referencias creados con `React.createRef()`
+Puedes pasar una referencia mediante callback entre componentes tal como puedes con los objetos de referencias creados con `React.createRef()`.
 
 ```javascript{4,13}
 function CustomTextInput(props) {
