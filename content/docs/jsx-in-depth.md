@@ -228,7 +228,7 @@ Si no pasas ningún valor para un prop, el valor predeterminado es `true`. Estas
 <MyTextBox autocomplete={true} />
 ```
 
-En general, no recomendamos usar esto porque puede confundirse con la [taquigrafía del objeto ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento es justo allí para que coincida con el comportamiento de HTML.
+En general, no recomendamos usarlo porque puede confundirse con la [notación simplificada de objetos ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento está para que coincida con el de HTML.
 
 ### Atributos de propagación {#spread-attributes}
 
