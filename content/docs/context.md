@@ -8,19 +8,19 @@ Context provee una forma de pasar datos a través del árbol de componentes sin 
 
 En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, tema de interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente una *prop* a través de cada nivel del árbol.
 
-- [When to Use Context](#when-to-use-context)
-- [Before You Use Context](#before-you-use-context)
+- [Cuándo usar Context](#when-to-use-context)
+- [Antes de usar Context](#before-you-use-context)
 - [API](#api)
   - [React.createContext](#reactcreatecontext)
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
-- [Examples](#examples)
-  - [Dynamic Context](#dynamic-context)
-  - [Updating Context from a Nested Component](#updating-context-from-a-nested-component)
-  - [Consuming Multiple Contexts](#consuming-multiple-contexts)
-- [Caveats](#caveats)
-- [Legacy API](#legacy-api)
+- [Ejemplos](#examples)
+  - [Context dinámico](#dynamic-context)
+  - [Actualizando Context desde un componente anidado](#updating-context-from-a-nested-component)
+  - [Consumiendo múltiples Contexts](#consuming-multiple-contexts)
+- [Advertencias](#caveats)
+- [API antigua](#legacy-api)
 
 ## When to Use Context
 
