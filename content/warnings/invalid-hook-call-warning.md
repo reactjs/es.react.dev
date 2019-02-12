@@ -111,7 +111,7 @@ console.log(window.React1 === window.React2);
 
 Si imprime `false` entonces probablemente tienes dos React y debes averiguar por qué. [Este issue](https://github.com/facebook/react/issues/13991) incluye varias razones comunes encontradas por la comunidad.
 
-Este problema también ocurre cuando usas `npm link` o un equivalente. En ese caso, tu bundler podría "ver" dos Reacts — uno en la carpeta de aplicación y otro en la de librerías. Asumiendo que `myapp` y `mylib` son carpetas hermanas, una solución posible es correr `npm link ../myapp/node_modules/react` en `mylib`. Esto debería hacer que la librería use la copia de React de la aplicación.
+Este problema también ocurre cuando usas `npm link` o un equivalente. En ese caso, tu bundler podría "ver" dos Reacts — uno en la carpeta de aplicación y otro en la de bibliotecas. Asumiendo que `myapp` y `mylib` son carpetas hermanas, una solución posible es correr `npm link ../myapp/node_modules/react` en `mylib`. Esto debería hacer que la biblioteca use la copia de React de la aplicación.
 
 >Nota
 >
