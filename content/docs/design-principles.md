@@ -120,7 +120,7 @@ Encontramos que las opciones de configuración globales en tiempo de ejecución 
 
 Por ejemplo, ocasionalmente se nos solicita que implementemos una función como `React.configure(options)` o `React.register(component)`. Sin embargo, esto plantea múltiples problemas, y no conocemos buenas soluciones para ellos.
 
-Qué pasaría si alguien llama dicha función desde una biblioteca de componentes de terceros? Y qué si una aplicación React contiene embebida otra aplicación React, y sus configuraciones son incompatibles? Como podría un componente de terceros especificar que requiere una configuración en particular? Creemos que una configuración global no funciona bien con la composición. Dado que la composición es central en React, no proveemos configuración global en el código.
+Qué pasaría si alguien llama dicha función desde una biblioteca de componentes de terceros? Y qué si una aplicación React contiene embebida otra aplicación React, y sus configuraciones son incompatibles? Cómo podría un componente de terceros especificar que requiere una configuración en particular? Creemos que una configuración global no funciona bien con la composición. Dado que la composición es central en React, no proveemos configuración global en el código.
 
 Sin embargo, si proveemos alguna configuración global a nivel de compilación. Por ejemplo, proveemos procesos de compilación separados para desarrollo y producción. Podríamos también  [incluir una compilación para análisis de rendimiento](https://github.com/facebook/react/issues/6627) en el futuro, y estamos abiertos a considerar otras opciones de compilación.
 
@@ -128,7 +128,7 @@ Sin embargo, si proveemos alguna configuración global a nivel de compilación. 
 
 Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](http://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
 
-Ser agnóstico al renderizador es una restricción de diseño importante para React. Añade una sobre carga en la representación interna. Por otra parte, cualquier mejora en el núcleo se traduce en una mejora a lo largo de todas las plataformas.
+Ser agnóstico al renderizador es una restricción de diseño importante para React. Añade una sobrecarga en la representación interna. Por otra parte, cualquier mejora en el núcleo se traduce en una mejora a lo largo de todas las plataformas.
 
 Tener un modelo de programación único nos permite formar equipos de ingeniería alrededor de productos, en lugar de plataformas. Hasta ahora este sacrificio ha valido la pena.
 
@@ -144,7 +144,7 @@ Algunas APIs comúnmente usadas tienen nombres detallados. Por ejemplo, usamos `
 
 En una base de código masiva como la de Facebook, ser capaz de buscar los usos de una API específica es muy importante. Valoramos nombres distintivos y detallados, especialmente para las funcionalidades que deberían ser poco usadas. Por ejemplo, `dangerouslySetInnerHTML` es muy difícil de no ver en una revisión de código.
 
-Optimizar para la búsqueda también es importante  por nuestra dependencia de [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) para realizar cambios incompatibles. Queremos que sea fácil y seguro aplicar gran cantidad de cambios automatizados a lo largo de la base de código, y los nombres únicos detallados nos ayudan a lograr esto. De igual manera, los nombres distintivos facilitan escribir [reglas de validación](https://github.com/yannickcr/eslint-plugin-react) personalizadas para usar React sin preocuparse por falsos positivos.
+Optimizar para la búsqueda también es importante  por nuestra dependencia de [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) para realizar cambios incompatibles. Queremos que sea fácil y seguro aplicar gran cantidad de cambios automatizados a lo largo de la base de código, y los nombres distintivos detallados nos ayudan a lograr esto. De igual manera, los nombres distintivos facilitan escribir [reglas de validación](https://github.com/yannickcr/eslint-plugin-react) personalizadas para usar React sin preocuparse por falsos positivos.
 
 [JSX](/docs/introducing-jsx.html) juega un papel similar. Si bien no es requerido con React, lo utilizamos ampliamente en Facebook por razones estéticas y pragmáticas.
 
@@ -154,10 +154,10 @@ En nuestra base de código, JSX provee una pista inequívoca a las herramientas 
 
 Hacemos todo lo posible para abordar los problemas planteados por la comunidad. Sin embargo, es probable que prioricemos los problemas que las personas *también* experimentan internamente en Facebook. Quizás de manera contraria a la intuición, creemos que esta es la razón principal por la que la comunidad puede apostar por React.
 
-El amplio uso interno nos dá la confianza de que React no desaparecerá mañana. Le añade un valor de negocio tangible a la compañía y es usado en muchos de sus productos. Usar nuestro propio producto, una práctica conocida como [Dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) en inglés, significa que nuestra visión permanece nítica y que tenemos una dirección enfocada hacia el futuro.
+El amplio uso interno nos dá la confianza de que React no desaparecerá mañana. Le añade un valor de negocio tangible a la compañía y es usado en muchos de sus productos. Usar nuestro propio producto, una práctica conocida como [Dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) en inglés, significa que nuestra visión permanece nítida y que tenemos una dirección enfocada hacia el futuro.
 
 Esto no quiere decir que ignoramos los problemas identificados por la comunidad. Por ejemplo, añadimos soporte a los [componentes web](/docs/webcomponents.html) y a [SVG](https://github.com/facebook/react/pull/6243) en React a pesar de que no dependemos de ninguno de ellos internamente. Estamos [escuchando activamente tus puntos de dolor](https://github.com/facebook/react/issues/2686) y [los abordamos](/blog/2016/07/11/introducing-reacts-error-code-system.html) de la mejor manera posible. La comunidad es lo que hace que React sea especial para nosotros, y nos sentimos honrados de contribuir.
 
-Después de haber liberado muchos proyectos de código abierto en Facebook, hemos aprendido que tratar de hacer a todo el mundo feliz al mismo tiempo producía proyectos mal enfocados que no escalaban bien. En su lugar, descubrimos que elegir a una pequeña audiencia y enfocarnos en hacerlos felices produce un efecto neto positivo. Eso es exactamente lo que hicimos con React, y hasta ahora resolver los problemas encontrados por los equipos de producto de Facebook se ha traducido bien a la comunidad de código abierto.
+Después de haber liberado muchos proyectos de código abierto en Facebook, hemos aprendido que tratar de hacer a todo el mundo feliz al mismo tiempo producía proyectos mal enfocados que no escalaban bien. En su lugar, descubrimos que elegir a una pequeña audiencia y enfocarnos en hacerlos felices produce un efecto neto positivo. Eso es exactamente lo que hicimos con React, y hasta ahora resolver los problemas encontrados por los equipos de producto en Facebook se ha traducido bien a la comunidad de código abierto.
 
 La desventaja de este enfoque es que a veces fallamos en dar suficiente foco a los aspectos con los que los equipos de Facebook no tienen que lidiar, tales como la experiencia de "comenzar". Estamos muy conscientes de esto, y estamos buscando como mejorarlo de una forma que beneficie a todos en la comunidad sin cometer los mismos errores que tuvimos anteriormente con proyectos de código abierto.
