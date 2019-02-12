@@ -4,15 +4,14 @@ title: Code-Splitting
 permalink: docs/code-splitting.html
 ---
 
-## Bundling
+## *Bundling*
 
-Most React apps will have their files "bundled" using tools like
-[Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/).
-Bundling is the process of following imported files and merging them into a
-single file: a "bundle". This bundle can then be included on a webpage to load
-an entire app at once.
+La mayoría de las aplicaciones React tendrán sus archivos "empaquetados" o *bundled* con herramientas como
+[Webpack](https://webpack.js.org/) o [Browserify](http://browserify.org/).
+El *bundling* es el proceso de seguir los archivos importados y fusionarlos en un
+archivo único: un *bundle* o "paquete". Este *bundle* se puede incluir en una página web para cargar una aplicación completa de una sola vez.
 
-#### Example
+#### Ejemplo
 
 **App:**
 
@@ -40,44 +39,33 @@ function add(a, b) {
 console.log(add(16, 26)); // 42
 ```
 
-> Note:
+> Nota:
 >
-> Your bundles will end up looking a lot different than this.
+> Tus *bundles* van a lucir muy diferente a esto.
 
-If you're using [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), or a similar tool, you will have a Webpack setup out of the box to bundle your
-app.
+Si usas [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), o una herramienta similar, vas a tener una configuración de Webpack incluida para generar el *bundle* de tu aplicación.  
 
-If you aren't, you'll need to setup bundling yourself. For example, see the
-[Installation](https://webpack.js.org/guides/installation/) and
-[Getting Started](https://webpack.js.org/guides/getting-started/) guides on the
-Webpack docs.
+Si no, tú mismo vas a tener que configurar el *bundling*. Por ejemplo, revisa las guías [Installation](https://webpack.js.org/guides/installation/) y
+[Getting Started](https://webpack.js.org/guides/getting-started/) en la documentación de Webpack.
 
-## Code Splitting
+## División de código
 
-Bundling is great, but as your app grows, your bundle will grow too. Especially
-if you are including large third-party libraries. You need to keep an eye on
-the code you are including in your bundle so that you don't accidentally make
-it so large that your app takes a long time to load.
+El *Bundling* es genial, pero a medida que tu aplicación crezca, tu *bundle* también crecerá. Especialmente
+si incluyes grandes bibliotecas de terceros. Necesitas vigilar el código que incluyes en tu *bundle*, de manera que no lo hagas accidentalmente tan grande que tu aplicación se tome mucho tiempo en cargar.
 
-To avoid winding up with a large bundle, it's good to get ahead of the problem
-and start "splitting" your bundle.
- [Code-Splitting](https://webpack.js.org/guides/code-splitting/) is a feature
-supported by bundlers like Webpack and Browserify (via
-[factor-bundle](https://github.com/browserify/factor-bundle)) which can create
-multiple bundles that can be dynamically loaded at runtime.
+Para evitar terminar con un *bundle* grande, es bueno adelantarse al problema
+y comenzar a dividir tu *bundle*. [División de código](https://webpack.js.org/guides/code-splitting/) es una funcionalidad disponible en *bundlers* como Webpack y Browserify (vía [factor-bundle](https://github.com/browserify/factor-bundle)) que puede crear múltiples *bundles* a ser cargados dinámicamente durante la ejecución de tu aplicación.
 
-Code-splitting your app can help you "lazy-load" just the things that are
-currently needed by the user, which can dramatically improve the performance of
-your app. While you haven't reduced the overall amount of code in your app,
-you've avoided loading code that the user may never need, and reduced the amount
-of code needed during the initial load.
+Dividir el código de tu aplicación puede ayudarte a cargar solo lo necesario en cada momento para el usuario, lo cual puede mejorar dramáticamente el rendimiento de tu aplicación. Si bien no habrás reducido la cantidad total de código en tu aplicación,
+habrás evitado cargar código que el usuario podría no necesitar nunca, y reducido la cantidad necesaria
+de código durante la carga inicial.
+
 
 ## `import()`
 
-The best way to introduce code-splitting into your app is through the dynamic
-`import()` syntax.
+La mejor manera de introducir división de código en tu aplicación es a través de la sintáxis de `import()`s dinámicos.
 
-**Before:**
+**Antes:**
 
 ```js
 import { add } from './math';
@@ -85,7 +73,7 @@ import { add } from './math';
 console.log(add(16, 26));
 ```
 
-**After:**
+**Después:**
 
 ```js
 import("./math").then(math => {
@@ -95,15 +83,14 @@ import("./math").then(math => {
 
 > Note:
 >
-> The dynamic `import()` syntax is a ECMAScript (JavaScript)
-> [proposal](https://github.com/tc39/proposal-dynamic-import) not currently
-> part of the language standard. It is expected to be accepted in the
-> near future.
+> La sintáxis de `import()`s dinámicos es una [propuesta](https://github.com/tc39/proposal-dynamic-import)
+> ECMAScript (JavaScript) que no es parte actual del estándar
+> del lenguaje. Se espera que sea aceptada en el
+> futuro cercano
 
-When Webpack comes across this syntax, it automatically starts code-splitting
-your app. If you're using Create React App, this is already configured for you
-and you can [start using it](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) immediately. It's also supported
-out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+Cuando Webpack se encuentra esta sintáxis, comienza a dividir el código de tu
+aplicación automáticamente. Si estás usando Create React App, esto ya viene
+configurado para ti y puedes comenzar a [usarlo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting). It's also supported out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
 
 If you're setting up Webpack yourself, you'll probably want to read Webpack's
 [guide on code splitting](https://webpack.js.org/guides/code-splitting/). Your Webpack config should look vaguely [like this](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
