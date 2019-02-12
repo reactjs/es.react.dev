@@ -75,7 +75,7 @@ Si no usas un *bundler* de JavaScript y cargas React desde una etiqueta `<script
 
 ### Usando la notación de punto para el tipo JSX {#using-dot-notation-for-jsx-type}
 
-También puedes referirte a un componente React usando notación de punto desde JSX. Esto es conveniente si tienes un solo módulo que exporta muchos componentes React. Por ejemplo, si `MyComponents.DatePicker` es un componente, puede usarlo directamente desde JSX con:
+También puedes referirte a un componente React usando notación de punto desde JSX. Esto es conveniente si tienes un solo módulo que exporta muchos componentes de React. Por ejemplo, si `MyComponents.DatePicker` es un componente, puede usarlo directamente desde JSX con:
 
 ```js{10}
 import React from 'react';
