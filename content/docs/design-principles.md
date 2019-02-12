@@ -72,7 +72,7 @@ Es por eso que React provee válvulas de escape para trabajar con modelos mutabl
 
 Incluso cuando tus componentes son descritos como funciones, al usar React no los llamas directamente. Cada componente retorna una [descripción de lo que necesita ser renderizado](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree), y dicha descripción puede incluir componentes escritos por el usuario como `<LikeButton>` y componentes específicos de la plataforma como `<div>`. Corresponde a React "desenrollar" `<LikeButton>` en algún momento en el futuro y aplicar recursivamente los cambios al árbol de interfaz de usuario de acuerdo a los resultados de renderizar los componentes.
 
-Esta es una distinción sutil pero poderosa. Dado que no llamas la función del componente, pero dejas que React la llama, esto significa que React tiene el poder de retrasar esta llamada si es necesario. En su implementación actual React recorre el árbol recursivamente y llama a las funciones de renderizado del árbol completamente actualizado en un único `tick`. Sin embargo, en el futuro podría empezar a [retrazar algunas actualizaciones para evitar la eliminación de cuadros](https://github.com/facebook/react/issues/6170).
+Esta es una distinción sutil pero poderosa. Dado que no llamas la función del componente, pero dejas que React la llame, esto significa que React tiene el poder de retrasar esta llamada si es necesario. En su implementación actual React recorre el árbol recursivamente y llama a las funciones de renderizado del árbol completamente actualizado en un único `tick`. Sin embargo, en el futuro podría empezar a [retrazar algunas actualizaciones para evitar la eliminación de cuadros](https://github.com/facebook/react/issues/6170).
 
 Este es un tema común en el diseño de React. Algunas bibliotecas populares implementan el enfoque *"push"* en el cual la computación se realiza cuando nuevos datos están disponibles. React, sin embargo, se apega al enfoque *"pull"* en el cual las computaciones pueden ser retrasadas hasta que sean necesarias.
 
@@ -80,13 +80,13 @@ React no es una biblioteca genérica de procesamiento de datos. Es una bibliotec
 
 Si algo se encuentra fuera de la pantalla, podemos retrasar cualquier lógica relacionada. Si los datos están llegando más rápido que la tasa de cuadros por segundos, podemos fusionar y agrupar por lotes las actualizaciones. Podemos priorizar el trabajo proveniente de las interacciones del usuario (tales como las animaciones causadas por presionar un botón) por encima de trabajo en segundo plano menos importante (tal como renderizar nuevo contenido descargado recientemente de la red) para evitar la perdida de cuadros.
 
-Para estar claros, no estamos aprovechando esto en este momento. Sin embargo la libertad de poder hacer algo como esto es la razón por la que preferimos tener el control sobre la planificación, y por la que `setState()` es asíncrono. Conceptualmente, pensamos acerca de esto como "planificar una actualización".
+Para estar claros, no estamos aprovechando esto en este momento. Sin embargo la libertad de poder hacerlo es la razón por la que preferimos tener el control sobre la planificación, y por la que `setState()` es asíncrono. Conceptualmente, pensamos acerca de esto como "planificar una actualización".
 
-El control sobre la planificación nos sería más difícil de obtener si dejamos que el usuario componga vistas directamente con un paradigma basado en *"push"* común en algunas variaciones de la [Programación Funcional Reactiva](https://en.wikipedia.org/wiki/Functional_reactive_programming). Queremos tener la propiedad sobre el código "pega".
+El control sobre la planificación nos sería más difícil de obtener si dejamos que el usuario componga vistas directamente con un paradigma basado en *"push"* común en algunas variantes de la [Programación Funcional Reactiva](https://en.wikipedia.org/wiki/Functional_reactive_programming). Queremos tener la propiedad sobre el código "pega".
 
-Es un objetivo clave para React que la cantidad del código de usuario que se ejecute antes de regresar a React sea mínimo. Esto asegura que React retenga la capacidad de planificar y dividir el trabajo en trozos de acuerdo a lo que conoce acerca de la interfaz de usario.
+Es un objetivo clave para React que la cantidad del código de usuario que se ejecute antes de regresar a React sea mínimo. Esto asegura que React retenga la capacidad de planificar y dividir el trabajo en trozos de acuerdo a lo que conoce acerca de la interfaz de usuario.
 
-Tenemos un chiste interno en el equipo de acerca de que React debería haberse llamado *"Schedule"* (el inglés para Plan), ya que React no quiere ser completamente "reactivo".
+Tenemos un chiste interno en el equipo de React acerca de que debería haberse llamado *"Schedule"* (el inglés para Plan), ya que React no quiere ser completamente "reactivo".
 
 ### Experiencia de Desarrollador {#developer-experience}
 
@@ -96,13 +96,13 @@ Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools
 
 También tratamos de dar un extra para proveer advertencias útiles a los desarrolladores. Por ejemplo, React te advierte en desarrollo si anidas etiquetas de una forma que el navegador no las entiende, o si cometes un error de transcripción en el API. Las advertencias a desarrolladores y los chequeos relacionados son la razón principal por la que la versión de desarrollo de React es más lenta que la versión de producción.
 
-Los patrons de uso que observamos internamente en Facebook nos permiten entender cuales son los errores comunes, y prevenirlo de manera temprana. Cuando añadimos nuevas funcionalidades, tratamos de anticipar los errores comunes y advertir acerca de ellos.
+Los patrones de uso que observamos internamente en Facebook nos permiten entender cuales son los errores comunes, y prevenirlos de manera temprana. Cuando añadimos nuevas funcionalidades, tratamos de anticipar los errores comunes y advertir acerca de ellos.
 
 Siempre estamos buscando formas de mejorar la experiencia de desarrollo. Nos encantaría oir tus sugerencias y aceptar contribuciones para mejorarla aún más.
 
 ### Depuración {#debugging}
 
-Cuando algo sale mal, es importante contar con las migajas de pan que te permitan rastrear el error a su fuente en la base de código. En React, los *props* y el estado son esas migajas de pan.
+Cuando algo sale mal, es importante contar con las migajas de pan que te permitan rastrear el error a su origen en la base de código. En React, los *props* y el estado son esas migajas de pan.
 
 Si vez algo malo en la pantalla, puedes abrir la herramientas de desarrollo de React, encontrar el componente responsable del renderizado, y ver si los *props* y el estado son correctos. Si lo son, sabes que el problema está en la función `render()` del componente, o en alguna función llamada por `render()`. El problema está aislado.
 
@@ -112,7 +112,7 @@ Si los *props* son incorrectos, puedes recorrer el árbol hacia arriba en el ins
 
 Esta capacidad de rastrear cualquier interfaz de usuario hasta los datos que la produjeron en la forma de *props* y estado actual es muy importante para React. Es un objetivo explicito del diseño que el estado no esté "atrapado" en combinadores y *closures*, y que esté disponible a React directamente.
 
-Si bien la interfaz de usuario es dinámica, creemos que funciones `render()` síncronas de los *props* y el estado convierten la depuración de un trabajo adivinatorio en un procedimiento aburrido pero finito. Nos gustaría preservar esta restricción en React incluso si hace que algunos casos de uso, tal como animaciones complejas, más difíciles. 
+Si bien la interfaz de usuario es dinámica, creemos que funciones `render()` síncronas en función de los *props* y el estado convierten la depuración de un trabajo adivinatorio en un procedimiento aburrido pero finito. Nos gustaría preservar esta restricción en React incluso si hace algunos casos de uso, tales como animaciones complejas, más difíciles. 
 
 ### Configuración {#configuration}
 
