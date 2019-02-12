@@ -6,7 +6,7 @@ permalink: docs/context.html
 
 Context provee una forma de pasar datos a través del árbol de componentes sin tener que pasar *props* manualmente en cada nivel.
 
-En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, tema de interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente una *prop* a través de cada nivel del árbol.
+En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, tema de interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente un *prop* a través de cada nivel del árbol.
 
 - [Cuándo usar Context](#when-to-use-context)
 - [Antes de usar Context](#before-you-use-context)
@@ -22,13 +22,15 @@ En una aplicación típica de React, los datos se pasan de arriba hacia abajo (d
 - [Advertencias](#caveats)
 - [API antigua](#legacy-api)
 
-## When to Use Context
+## Cuándo usar Context
 
 Context is designed to share data that can be considered "global" for a tree of React components, such as the current authenticated user, theme, or preferred language. For example, in the code below we manually thread through a "theme" prop in order to style the Button component:
 
+Context está diseñado para compartir datos que pueden considerarse "globales" para un árbol de componentes en React, como el usuario autenticado actual, el tema o el idioma preferido. Por ejemplo, en el código a continuación, pasamos manualmente un *prop* de "tema" para darle estilo al componente *Button*:
+
 `embed:context/motivation-problem.js`
 
-Using context, we can avoid passing props through intermediate elements:
+Usando Context podemos evitar pasar *props* a través de elementos intermedios:
 
 `embed:context/motivation-solution.js`
 
