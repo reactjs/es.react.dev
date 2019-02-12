@@ -308,7 +308,7 @@ JSX elimina los espacios en blanco al principio y al final de una línea. Tambi�
 </div>
 ```
 
-### JSX Niños {#jsx-children}
+### Los hijos JSX {#jsx-children}
 
 Puede proporcionar más elementos JSX como los niños. Esto es útil para mostrar componentes anidados:
 
