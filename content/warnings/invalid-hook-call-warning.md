@@ -95,7 +95,7 @@ Si usas Node para gestión de paquetes, puedes correr este comando en el directo
 
     npm ls react
 
-Si ves más de un React, tendrás que descubrir por qué está sucediendo esto y arreglar tu árbol de dependencias. Por ejemplo, quizá una librería que estás usando especifica incorrectamente `react` como una dependencia (en lugar de una peer dependency). Hasta que esa librería sea arreglada, [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/) es una posible solución temporal.
+Si ves más de un React, tendrás que descubrir por qué está sucediendo esto y arreglar tu árbol de dependencias. Por ejemplo, quizá una biblioteca que estás usando especifica incorrectamente `react` como una dependencia (en lugar de una peer dependency). Hasta que esa biblioteca sea arreglada, [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/) es una posible solución temporal.
 
 También puedes intentar depurar este problema agregando algunos logs y reiniciando el servidor de desarrollo:
 
