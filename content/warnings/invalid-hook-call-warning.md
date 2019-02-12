@@ -12,7 +12,7 @@ Hay tres razones comunes por las cuales podrías estar viéndolo:
 
 1. Tienes **versiones incongruentes** de React y React DOM.
 2. Estás **rompiendo las [Reglas de los Hooks](/docs/hooks-rules.html)**.
-3. Tienes **más de una copia de React** en la misma app.
+3. Tienes **más de una copia de React** en la misma aplicación.
 
 Demos un vistazo a cada uno de estos casos.
 
