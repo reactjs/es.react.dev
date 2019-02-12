@@ -17,7 +17,7 @@ Fundamentalmente, JSX solo proporciona azúcar sintáctica para la función `Rea
 
 ```js
 <MyButton color="blue" shadowSize={2}>
-  Haz click en mi
+  Haz click en mí
 </MyButton>
 ```
 
