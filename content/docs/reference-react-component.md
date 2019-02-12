@@ -20,8 +20,6 @@ Esta página contiene una referencia detallada de la API de React sobre los comp
 
 React te permite definir componentes como clases o funciones. Los componentes definidos como clases actualmente proporcionan una serie de características extra que explicamos en esta página. Para definir una clase de componente React, necesitas extender `React.Component`:
 
-React lets you define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page. To define a React component class, you need to extend `React.Component`:
-
 ```js
 class Welcome extends React.Component {
   render() {
@@ -150,22 +148,22 @@ El constructor para un componente React es llamado antes de ser montado. Al impl
 
 Normalmente, los constructores de React sólo se utilizan para dos propósitos:
 
-* Para inicializar  un state local asignando un objeto al `this.state`.</li>
+* Para inicializar un state local asignando un objeto al `this.state`.
 
-* Para enlazar [ gestores de eventos ](/docs/handling-events.html) a una instancia.</ul>
+* Para enlazar [ gestores de eventos ](/docs/handling-events.html) a una instancia.
 
 **No debes llamar `setState()`** en el constructor `()`. En su lugar, si su componente necesita usar el state local, ** asigna directamente el state inicial al ` this.state `** directamente en el constructor:
 
 ```js
 constructor(props) {
   super(props);
-  // Don't call this.setState() here!
+  // No llames this.setState() aquí!
   this.state = { counter: 0 };
   this.handleClick = this.handleClick.bind(this);
 }
 ```
 
-El constructor es el único lugar donde debe asignar `this.state` directamente. En todos los demás métodos, debe usar `this.setState()` en su lugar.
+El constructor es el único lugar donde debes asignar `this.state` directamente. En todos los demás métodos, debes usar `this.setState()` en su lugar.
 
 Evita introducir cualquier efecto secundario o suscripciones en el constructor. Para estos casos de uso, use `componentDidMount()` en su lugar.
 
@@ -299,7 +297,7 @@ Ten en cuenta que este método se activa en *cada* renderizado, independientemen
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
-`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to e.g. the DOM. Permite al componente capturar cierta información del DOM (por ejemplo, la posición del scroll) antes de que se cambie potencialmente. Any value returned by this lifecycle will be passed as a parameter to `componentDidUpdate()`.
+`getSnapshotBeforeUpdate()` se invoca justo antes de que la salida renderizada más reciente se entregue, por ejemplo, al DOM. Permite al componente capturar cierta información del DOM (por ejemplo, la posición del scroll) antes de que se cambie potencialmente. Cualquier valor que se devuelva en este ciclo de vida se pasará como parametro al método `componentDidUpdate()`.
 
 Este caso de uso no es común, pero puede ourrir en IUs como un hilo de chat que necesita manejar la posición del scroll de manera especial.
 
@@ -427,9 +425,10 @@ UNSAFE_componentWillMount()
 
 > Nota
 >
-> This lifecycle was previously named `componentWillMount`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Este ciclo de vida se llamaba anteriormente `componentWillMount`. Ese nombre seguirá funcionando hasta la versión 17. Usa la [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para actualizar automaticamente tus componentes.
 
-`UNSAFE_componentWillMount()` is invoked just before mounting occurs. Es llamado antes de `render()`, por lo tanto, al llamar a `setState()` de forma síncrona en este método no se activará una representación adicional. Generally, we recommend using the `constructor()` instead for initializing state.
+`UNSAFE_componentWillMount()` se invoca justo antes de que el montaje ocurra. Es llamado antes de `render()`, por lo tanto, al llamar a `setState()` de forma síncrona en este método no se activará una representación adicional.
+En general, recomendamos usar el `constructor()` en lugar de inicializar el state.
 
 Evite introducir efectos secundarios o suscripciones en este método. Para estos casos de uso, use `componentDidMount()` en su lugar.
 
@@ -445,23 +444,24 @@ UNSAFE_componentWillReceiveProps(nextProps)
 
 > Nota
 >
-> This lifecycle was previously named `componentWillReceiveProps`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Este ciclo de vida se llamaba anteriormente `componentWillReceiveProps`. Ese nombre seguirá funcionando hasta la versión 17. Usa [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para actualizar automaticamente tus componentes.
 >
 > Nota:
 >
 > El uso de este método de ciclo de vida a menudo conduce a errores e inconsistencias
 >
 > * Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza [`componentDidUpdate`](#componentdidupdate).
-> * Si usaste `componentWillReceiveProps` para **re calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * Si quieres ** restablecer algún state cuando un prop cambie** considera hacer un componente[ completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
+> * Si usabas `componentWillReceiveProps` para **re calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Si quieres ** restablecer algún state cuando un prop cambie** considera hacer un componente[completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
 > Para otros casos de uso, [sigue las recomendaciones en este blog sobre state derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-`UNSAFE_componentWillReceiveProps()` is invoked before a mounted component receives new props. Si necesita actualizar el estado en respuesta a cambios de accesorios (por ejemplo, para restablecerlo), puede comparar `this.props` y `nextProps` y realizar transiciones de estado usando `this.setState ()` en este método.
+`UNSAFE_componentWillReceiveProps()` se invoca antes de que un componente montado reciba nuevos props. Si necesita actualizar el estado en respuesta a cambios de accesorios (por ejemplo, para restablecerlo), puede comparar `this.props` y `nextProps` y realizar transiciones de estado usando `this.setState ()` en este método.
 
-Note that if a parent component causes your component to re-render, this method will be called even if props have not changed. Make sure to compare the current and next values if you only want to handle changes.
+Ten en cuenta que si un componente principal hace que su componente se vuelva a generar, se llamará a este método incluso si los props no han cambiado. Asegúrate de comparar los valores actuales y los siguientes solo si deseas manejar los cambios.
 
-React doesn't call `UNSAFE_componentWillReceiveProps()` with initial props during [mounting](#mounting). Solo llama a este método si algunos de los accesorios de los componentes debe ser actualizado. Calling `this.setState()` generally doesn't trigger `UNSAFE_componentWillReceiveProps()`.
+React no llama `UNSAFE_componentWillReceiveProps()` con props inicial durante su [mounting](#mounting). Solo llama a este método si algunos de los props de los componentes deben ser actualizados. Normalmente, llamar a `this.setState()` no provoca `UNSAFE_componentWillReceiveProps()
+`.
 
 * * *
 
@@ -475,15 +475,15 @@ UNSAFE_componentWillUpdate(nextProps, nextState)
 >
 > This lifecycle was previously named `componentWillUpdate`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
 
-`UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Use esto como una oportunidad para realizar la preparación antes de que ocurra una actualización. Este método no es llamado para el renderizador inicial.
+`UNSAFE_componentWillUpdate()` se invoca justo antes de renderizar cuando llegan nuevos props o se esta recibiendo el state. Use esto como una oportunidad para realizar la preparación antes de que ocurra una actualización. Este método no es llamado para el renderizador inicial.
 
-Note that you cannot call `this.setState()` here; nor should you do anything else (e.g. dispatch a Redux action) that would trigger an update to a React component before `UNSAFE_componentWillUpdate()` returns.
+No puedes llamar aquí a `this.setState()`; tampoco deberias hacer nada más (por ejemplo, enviar una acción de Redux) que activaría una actualización de un componente React antes de que devuelva el método `UNSAFE_componentWillUpdate ()`.
 
 Normalmente, este método puede ser reemplazado por `componentDidUpdate()`. Si estabas leyendo el DOM en este método (por ejemplo para guardar una posición de desplazamiento), puedes mover esa lógica a `getSnapshotBeforeUpdate()`.
 
 > Nota
 >
-> `UNSAFE_componentWillUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `UNSAFE_componentWillUpdate()` no será invocado si [`shouldComponentUpdate()`](#shouldcomponentupdate) devuelve false.
 
 * * *
 
@@ -556,7 +556,7 @@ this.setState((state) => {
 });
 ```
 
-For more detail, see:
+Para más detalles, visite:
 
 * [State and Lifecycle guide](/docs/state-and-lifecycle.html)
 * [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
