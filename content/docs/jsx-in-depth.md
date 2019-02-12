@@ -71,7 +71,7 @@ function WarningButton() {
 }
 ```
 
-Si no usas un bundler de JavaScript y carga React de una etiqueta `<script>`, ya está dentro del alcance como el `React` global.
+Si no usas un *bundler* de JavaScript y cargas React desde una etiqueta `<script>`, ya está dentro del alcance como el elemento global `React`.
 
 ### Usando la notación de punto para el tipo JSX {#using-dot-notation-for-jsx-type}
 
