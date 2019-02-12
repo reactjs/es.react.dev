@@ -106,15 +106,14 @@ method();
 
 Los métodos de enlace nos aseguran que el segundo fragmento funcione de la misma manera que el primero.
 
-Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. 
-Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
+Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
  
-[Este post creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
-explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
+[Este post creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
 
 ### Por qué mi función está siendo llamada cada vez que mi componente renderiza?
 
 Asegurate que no estes _llamando la función_ cuando la pases al componente:
+
 ```jsx
 render() {
   // Incorrecto: handleClick es llamada en vez de ser pasado como una referencia!
@@ -123,6 +122,7 @@ render() {
 ```
 
 En lugar de eso, *pasa la función como tal* (sin los parentesis)
+
 ```jsx
 render() {
   // Correcto: handleClick se pasa como una referencia!
