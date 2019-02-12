@@ -24,8 +24,6 @@ En una aplicación típica de React, los datos se pasan de arriba hacia abajo (d
 
 ## Cuándo usar Context {#when-to-use-context}
 
-Context is designed to share data that can be considered "global" for a tree of React components, such as the current authenticated user, theme, or preferred language. For example, in the code below we manually thread through a "theme" prop in order to style the Button component:
-
 Context está diseñado para compartir datos que pueden considerarse "globales" para un árbol de componentes en React, como el usuario autenticado actual, el tema o el idioma preferido. Por ejemplo, en el código a continuación, pasamos manualmente un *prop* de "tema" para darle estilo al componente *Button*:
 
 `embed:context/motivation-problem.js`
@@ -34,29 +32,29 @@ Usando Context podemos evitar pasar *props* a través de elementos intermedios:
 
 `embed:context/motivation-solution.js`
 
-## Before You Use Context {#before-you-use-context}
+## Antes de usar Context {#before-you-use-context}
 
-Context is primarily used when some data needs to be accessible by *many* components at different nesting levels. Apply it sparingly because it makes component reuse more difficult.
+Context se usa principalmente cuando algunos datos tienen que ser accesibles por *muchos* componentes en diferentes niveles de anidamiento. Aplícalo con moderación porque hace que la reutilización de componentes sea más difícil.
 
-**If you only want to avoid passing some props through many levels, [component composition](/docs/composition-vs-inheritance.html) is often a simpler solution than context.**
+**Si solo deseas evitar pasar algunos props a través de muchos niveles, la [composición de componentes](/docs/composition-vs-inheritance.html) suele ser una solución más simple que Context.**
 
-For example, consider a `Page` component that passes a `user` and `avatarSize` prop several levels down so that deeply nested `Link` and `Avatar` components can read it:
+Por ejemplo, considera un componente `Page` que pasa un prop `user` y `avatarSize` varios niveles hacia abajo para que los componentes anidados `Link` y `Avatar` puedan leerlo:
 
 ```js
 <Page user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... que renderiza ...
 <PageLayout user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... que renderiza ...
 <NavigationBar user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... que renderiza ...
 <Link href={user.permalink}>
   <Avatar user={user} size={avatarSize} />
 </Link>
 ```
 
-It might feel redundant to pass down the `user` and `avatarSize` props through many levels if in the end only the `Avatar` component really needs it. It's also annoying that whenever the `Avatar` component needs more props from the top, you have to add them at all the intermediate levels too.
+Puede parecer redundante pasar los props de `user` y` avatarSize` a través de muchos niveles si al final solo el componente `Avatar` realmente lo necesita. También es molesto que cada vez que el componente `Avatar` necesite más props, también hay que agregarlos en todos los niveles intermedios.
 
-One way to solve this issue **without context** is to [pass down the `Avatar` component itself](/docs/composition-vs-inheritance.html#containment) so that the intermediate components don't need to know about the `user` prop:
+Una forma de resolver este problema **sin usar Context** es [pasar el mismo componente `Avatar`](/docs/composition-vs-inheritance.html#containment) para que los componentes intermedios no tengan que saber sobre el prop `usuario`:
 
 ```js
 function Page(props) {
@@ -69,21 +67,22 @@ function Page(props) {
   return <PageLayout userLink={userLink} />;
 }
 
-// Now, we have:
+// Ahora tenemos:
 <Page user={user} />
-// ... which renders ...
+// ... que renderiza ...
 <PageLayout userLink={...} />
-// ... which renders ...
+// ... que renderiza ...
 <NavigationBar userLink={...} />
-// ... which renders ...
+// ... que renderiza ...
 {props.userLink}
 ```
 
-With this change, only the top-most Page component needs to know about the `Link` and `Avatar` components' use of `user` and `avatarSize`.
+Con este cambio, solo el componente más importante Page necesita saber sobre el uso de `user` y `avatarSize` de los componentes `Link` y `Avatar`.
 
-This *inversion of control* can make your code cleaner in many cases by reducing the amount of props you need to pass through your application and giving more control to the root components. However, this isn't the right choice in every case: moving more complexity higher in the tree makes those higher-level components more complicated and forces the lower-level components to be more flexible than you may want.
+Esta *inversión de control* puede hacer que tu código, en muchos casos, sea más limpio al reducir la cantidad de props que necesitas pasar a través de tu aplicación y dar más control a los componentes raíz. Sin embargo, esta no es la opción correcta en todos los casos: mover más complejidad más arriba en el árbol hace que esos componentes de nivel superior sean más complicados y obliga a los componentes de nivel inferior a ser más flexibles de lo que tu podrías desear.
 
-You're not limited to a single child for a component. You may pass multiple children, or even have multiple separate "slots" for children, [as documented here](/docs/composition-vs-inheritance.html#containment):
+No estás limitado a un solo hijo por componente. Puede pasar varios hijos, o incluso tener varios "slots" separadas para los hijos, [como se documenta aquí](/docs/composition-vs-inheritance.html#contenering):
+
 
 ```js
 function Page(props) {
@@ -105,9 +104,9 @@ function Page(props) {
 }
 ```
 
-This pattern is sufficient for many cases when you need to decouple a child from its immediate parents. You can take it even further with [render props](/docs/render-props.html) if the child needs to communicate with the parent before rendering.
+Este patrón es suficiente para muchos casos cuando necesitas separar a un componente hijo de sus componentes padres inmediatos. Puedes llevarlo aún más lejos con [render props](/docs/render-props.html) si el hijo necesita comunicarse con el padre antes de renderizar.
 
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache. 
+Sin embargo, a veces, los mismos datos deben ser accesibles por muchos componentes en el árbol y a diferentes niveles de anidamiento. El contexto te permite "transmitir" dichos datos, y los cambios, a todos los componentes abajo. Los ejemplos comunes en los que el uso de Context podría ser más simple que otras alternativas incluyen la administración de la configuración regional, el tema o un caché de datos.
 
 ## API {#api}
 
