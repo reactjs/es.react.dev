@@ -113,7 +113,6 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | assert | comprobar |
 | bug | error |
 | bundler | *bundler* |
-| camelCase | *camelCase* |
 | callback | *callback* |
 | camelCase | *camelCase* |
 | controlled component | componente controlado |
