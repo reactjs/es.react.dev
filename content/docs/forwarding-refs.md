@@ -6,7 +6,7 @@ permalink: docs/forwarding-refs.html
 
 El reenvío de Refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
 
-## Reenviando refs a componentes DOM
+## Reenviando refs a componentes DOM {#forwarding-refs-to-dom-components}
 
 Considere un componente `FancyButton` que renderiza el elemento DOM nativo `button`:
 `embed:forwarding-refs/fancy-button-simple.js`
@@ -37,13 +37,13 @@ A continuación un explicación paso a paso de lo que sucede en el ejemplo de ar
 >
 >El Reenvío de Refs no esta limitado únicamente a componentes DOM. También se puede reenviar refs a instancias de componentes de clase.
 
-## Nota para los mantenedores de bibliotecas de componentes
+## Nota para los mantenedores de bibliotecas de componentes {#note-for-component-library-maintainers}
 
 **Una vez empiezas a usar `forwardRef` en una biblioteca de componentes, debes tratarlo como un cambio incompatible y liberar una nueva versión mayor de la biblioteca**. Esto es debido a que probablemente tu biblioteca tendrá un comportamiento observable muy diferente (tal como a que se asignan las refs, y que tipos son exportados), y esto puede romper aplicaciones y otras bibliotecas que dependan del comportamiento anterior.
 
 Aplicar `React.forwardRef` de forma condicional cuando existe tampoco es recomendado por las mismas razones: cambia el comportamiento de tu biblioteca y puede romper las aplicaciones de tus usuarios cuando actualicen React.
 
-## Reenviando refs en componentes de orden superior
+## Reenviando refs en componentes de orden superior {#forwarding-refs-in-higher-order-components}
 
 Esta técnica puede ser particularmente útil con [componentes de orden superior](/docs/higher-order-components.html) (también conocidos como `HOCs` por las siglas en inglés de _Higher-Order Components_). Comencemos con un ejemplo de un HOC que imprime los props de un componente a la consola:
 `embed:forwarding-refs/log-props-before.js`
@@ -59,7 +59,7 @@ Esto significa que las `refs` que queremos para nuestro componente `FancyButton`
 Afortunadamente, podemos reenviar explícitamente refs al componente interno `FancyButton` usando el API `React.forwardRef`. `React.forwardRef` acepta una función de renderizado que recibe los parámetros `props` y `ref`, y devuelve un nodo React. Por ejemplo:
 `embed:forwarding-refs/log-props-after.js`
 
-## Mostrar un nombre personalizado en las herramientas de desarrollo
+## Mostrar un nombre personalizado en las herramientas de desarrollo {#displaying-a-custom-name-in-devtools}
 
 `React.forwardRef` acepta una función de renderizado. Las herramientas de desarrollo de React (_React DevTools_) usan esta función para determinar que nombre mostrar para el componente que hace el reenvio.
  
