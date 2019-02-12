@@ -372,7 +372,7 @@ function TodoList() {
 }
 ```
 
-Las expresiones de JavaScript se pueden mezclar con otros tipos de niños. Esto suele ser útil en lugar de las plantillas de cadena:
+Las expresiones de JavaScript se pueden mezclar con otros tipos de hijos. Esto suele ser útil en lugar de *string templates*:
 
 ```js{2}
 function Hello(props) {
