@@ -216,7 +216,7 @@ Cuando se pasa un literal *string*, su valor es HTML sin escapar. Así que estas
 <MyComponent message={'<3'} />
 ```
 
-Este comportamiento no suele ser relevante. Sólo se menciona aquí para completar.
+Este comportamiento no suele ser relevante. Sólo se menciona aquí en aras de ser exhaustivos.
 
 ### Los props son por defecto "true" {#props-default-to-true}
 
