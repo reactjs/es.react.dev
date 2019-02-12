@@ -37,7 +37,7 @@ También puedes utilizar la forma de cierre automático de la etiqueta si no hay
 <div className="sidebar" />
 ```
 
-compila en:
+se compila en:
 
 ```js
 React.createElement(
