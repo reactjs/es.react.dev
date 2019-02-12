@@ -347,7 +347,7 @@ render() {
 
 ### Expresiones de JavaScript como hijos {#javascript-expressions-as-children}
 
-Puede pasar cualquier expresión de JavaScript como hijos, encerrándola dentro de `{}`. Por ejemplo, estas expresiones son equivalentes:
+Puedes pasar cualquier expresión de JavaScript como hijos, encerrándola dentro de `{}`. Por ejemplo, estas expresiones son equivalentes:
 
 ```js
 <MyComponent>foo</MyComponent>
