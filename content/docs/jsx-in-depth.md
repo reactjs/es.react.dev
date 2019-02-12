@@ -133,7 +133,7 @@ function HelloWorld() {
 
 ### Elegir el tipo en tiempo de ejecución {#choosing-the-type-at-runtime}
 
-No puedes utilizar una expresión general como el tipo de elemento React. Si deseas usar una expresión general para indicar el tipo de elemento, primero asignela a una variable en mayúscula. Esto ocurre a menudo cuando se desea generar un componente diferente basado en un prop:
+No puedes utilizar una expresión general como el tipo de elemento React. Si deseas usar una expresión general para indicar el tipo de elemento, primero asígnala a una variable en mayúscula. Esto ocurre a menudo cuando se desea generar un componente diferente basado en un prop:
 
 ```js{10,11}
 import React from 'react';
