@@ -4,14 +4,22 @@ title: Code-Splitting
 permalink: docs/code-splitting.html
 ---
 
+<<<<<<< HEAD
 ## *Bundling*
+=======
+## Bundling {#bundling}
+>>>>>>> 57bcddcfa15a7dd7c902430687f2932856812d23
 
 La mayoría de las aplicaciones React tendrán sus archivos "empaquetados" o *bundled* con herramientas como
 [Webpack](https://webpack.js.org/) o [Browserify](http://browserify.org/).
 El *bundling* es el proceso de seguir los archivos importados y fusionarlos en un
 archivo único: un *bundle* o "paquete". Este *bundle* se puede incluir en una página web para cargar una aplicación completa de una sola vez.
 
+<<<<<<< HEAD
 #### Ejemplo
+=======
+#### Example {#example}
+>>>>>>> 57bcddcfa15a7dd7c902430687f2932856812d23
 
 **App:**
 
@@ -50,8 +58,12 @@ Si no, tú mismo vas a tener que configurar el *bundling*. Por ejemplo, revisa l
 
 ## División de código
 
+<<<<<<< HEAD
 El *Bundling* es genial, pero a medida que tu aplicación crezca, tu *bundle* también crecerá. Especialmente
 si incluyes grandes bibliotecas de terceros. Necesitas vigilar el código que incluyes en tu *bundle*, de manera que no lo hagas accidentalmente tan grande que tu aplicación se tome mucho tiempo en cargar.
+=======
+## Code Splitting {#code-splitting}
+>>>>>>> 57bcddcfa15a7dd7c902430687f2932856812d23
 
 Para evitar terminar con un *bundle* grande, es bueno adelantarse al problema
 y comenzar a dividir tu *bundle*. [División de código](https://webpack.js.org/guides/code-splitting/) es una funcionalidad disponible en *bundlers* como Webpack y Browserify (vía [factor-bundle](https://github.com/browserify/factor-bundle)) que puede crear múltiples *bundles* a ser cargados dinámicamente durante la ejecución de tu aplicación.
@@ -61,7 +73,7 @@ habrás evitado cargar código que el usuario podría no necesitar nunca, y redu
 de código durante la carga inicial.
 
 
-## `import()`
+## `import()` {#import}
 
 La mejor manera de introducir división de código en tu aplicación es a través de la sintáxis de `import()`s dinámicos.
 
@@ -98,7 +110,7 @@ If you're setting up Webpack yourself, you'll probably want to read Webpack's
 When using [Babel](http://babeljs.io/), you'll need to make sure that Babel can
 parse the dynamic import syntax but is not transforming it. For that you will need [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
 
-## `React.lazy`
+## `React.lazy` {#reactlazy}
 
 > Note:
 >
@@ -138,7 +150,7 @@ This will automatically load the bundle containing the `OtherComponent` when thi
 
 `React.lazy` takes a function that must call a dynamic `import()`. This must return a `Promise` which resolves to a module with a `default` export containing a React component.
 
-### Suspense
+### Suspense {#suspense}
 
 If the module containing the `OtherComponent` is not yet loaded by the time `MyComponent` renders, we must show some fallback content while we're waiting for it to load - such as a loading indicator. This is done using the `Suspense` component.
 
@@ -176,7 +188,7 @@ function MyComponent() {
 }
 ```
 
-### Error boundaries
+### Error boundaries {#error-boundaries}
 
 If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these errors to show a nice user experience and manage recovery with [Error Boundaries](/docs/error-boundaries.html). Once you've created your Error Boundary, you can use it anywhere above your lazy components to display an error state when there's a network error.
 
@@ -199,7 +211,7 @@ const MyComponent = () => (
 );
 ```
 
-## Route-based code splitting
+## Route-based code splitting {#route-based-code-splitting}
 
 Deciding where in your app to introduce code splitting can be a bit tricky. You
 want to make sure you choose places that will split bundles evenly, but won't
@@ -232,7 +244,7 @@ const App = () => (
 );
 ```
 
-## Named Exports
+## Named Exports {#named-exports}
 
 `React.lazy` currently only supports default exports. If the module you want to import uses named exports, you can create an intermediate module that reexports it as the default. This ensures that treeshaking keeps working and that you don't pull in unused components.
 
