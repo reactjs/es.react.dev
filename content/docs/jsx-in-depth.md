@@ -452,7 +452,6 @@ Para solucionar esto, asegúrate de que la expresión antes de `&&` sea siempre 
 </div>
 ```
 
-Conversely, if you want a value like `false`, `true`, `null`, or `undefined` to appear in the output, you have to [convert it to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion) first:
 Por el contrario, si desea que aparezca un valor como `false`, `true`, `null` o `undefined` en la salida, debes primero [convertirlo en una cadena](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion):
 
 ```js{2}
