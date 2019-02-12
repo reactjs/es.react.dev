@@ -602,7 +602,7 @@ Si `props.color` no es proporcionado, se establecerá por defecto a `'blue'`:
   }
 ```
 
-Si `props.color` se establece a null, permanecerá null:
+Si `props.color` es null, permanecerá null:
 
 ```js
   render() {
