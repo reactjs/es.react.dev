@@ -13,7 +13,7 @@ redirect_from:
   - "docs/top-level-api-zh-CN.html"
 ---
 
-`React` es el punto de entrada a la librería de React. Si se carga React desde una etiqueta `<script>`, estas API de alto nivel estarán disponibles en el `React` global. Si se usa ES6 con npm se puede escribir `import React from 'react'`. Si se usa ES5 con npm, se puede escribir `var React = require('react')`.
+`React` es el punto de entrada a la biblioteca de React. Si se carga React desde una etiqueta `<script>`, estas API de alto nivel estarán disponibles en el `React` global. Si se usa ES6 con npm se puede escribir `import React from 'react'`. Si se usa ES5 con npm, se puede escribir `var React = require('react')`.
 
 ## Resumen {#overview}
 
@@ -110,7 +110,7 @@ Si la función `render()` del componente de React renderiza el mismo resultado d
 
 > Nota
 >
-> `shouldComponentUpdate()` del `React.PureComponent` solo compara superficialmente los objetos. Si estos contienen estructuras de datos complejos pueden producir falsos negativos para diferencias más profundas. Solo se extiende `PureComponent` cuando se espera tener los props y el estado simples o usar [`forceUpdate()`](/docs/react-component.html#forceupdate) cuando se sabe que las estructuras de datos profundos han cambiado. O considerar usar [objetos inmutables](https://facebook.github.io/immutable-js/) para facilitar comparaciones rápidas de los datos anidados.
+> `shouldComponentUpdate()` del `React.PureComponent` solo compara superficialmente los objetos. Si estos contienen estructuras de datos complejos pueden producir falsos negativos para diferencias más profundas. Solo se extiende `PureComponent` cuando se espera tener los props y el estado simples o usar [`forceUpdate()`](/docs/react-component.html#forceupdate) cuando se sabe que las estructuras de datos profundos han cambiado. O considera usar [objetos inmutables](https://facebook.github.io/immutable-js/) para facilitar comparaciones rápidas de los datos anidados.
 >
 > Además, `shouldComponentUpdate()` del `React.PureComponent` omite las actualizaciones de los props para todo el componente del subárbol. Asegúrate que todos los componentes hijos también sean “puros”.
 
@@ -124,9 +124,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` es un [componente de orden superior](/docs/higher-order-components.html). Es similar a [`React.PureComponent`](#reactpurecomponent) pero para componentes función en vez de clases.
+`React.memo` es un [componente de orden superior](/docs/higher-order-components.html). Es similar a [`React.PureComponent`](#reactpurecomponent) pero para componentes de función en vez de clases.
 
-Si el componente función renderiza el mismo resultado dados los mismos props, se puede envolver en una llamada a `React.memo` para una mejora en el desempeño en algunos casos memoizando el resultado. Esto significa que React omitirá renderizar el componente y reusará el último resultado renderizado.
+Si el componente de función renderiza el mismo resultado dados los mismos props, se puede envolver en una llamada a `React.memo` para una mejora en el desempeño en algunos casos memoizando el resultado. Esto significa que React omitirá renderizar el componente y reusará el último resultado renderizado.
 
 Por defecto solo comparará superficialmente objetos complejos en el objeto de props. Si se desea controlar la comparación, se puede proporcionar también una función de comparación personalizada como el segundo argumento.
 
@@ -186,7 +186,7 @@ Clona y retorna un elemento React usando `element` como punto de partida. El ele
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-Sin embargo, también preserva los `ref`s. Esto significa que, si se obtiene un hijo con un `ref` en èl, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
+Sin embargo, también preserva los `ref`s. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
 
 Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithProps()`.
 
