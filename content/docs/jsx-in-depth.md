@@ -442,7 +442,7 @@ Una advertencia es que algunos [valores "falsos"](https://developer.mozilla.org/
 </div>
 ```
 
-Para solucionar esto, asegúrese de que la expresión antes de `&&` sea siempre booleana:
+Para solucionar esto, asegúrate de que la expresión antes de `&&` sea siempre booleana:
 
 ```js{2}
 <div>
