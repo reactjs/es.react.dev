@@ -319,7 +319,7 @@ Puedes proporcionar más elementos JSX como hijos. Esto es útil para mostrar co
 </MyContainer>
 ```
 
-Puedes mezclar diferentes tipos de niños, así que puedes usar literales de string junto con niños JSX. Esta es otra forma en la que JSX es como HTML, de modo que es tanto JSX válido como HTML válido:
+Puedes mezclar diferentes tipos de hijos, así que puedes usar literales de *string* junto con hijos JSX. Esta es otra forma en la que JSX es como HTML, de modo que es tanto JSX válido como HTML válido:
 
 ```html
 <div>
