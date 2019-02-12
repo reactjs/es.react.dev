@@ -451,7 +451,7 @@ UNSAFE_componentWillReceiveProps(nextProps)
 > El uso de este método de ciclo de vida a menudo conduce a errores e inconsistencias
 >
 > * Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza [`componentDidUpdate`](#componentdidupdate).
-> * Si usabas `componentWillReceiveProps` para **re calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Si usaste `componentWillReceiveProps` para **re calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 > * Si quieres ** restablecer algún state cuando un prop cambie** considera hacer un componente[completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
 > Para otros casos de uso, [sigue las recomendaciones en este blog sobre state derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
