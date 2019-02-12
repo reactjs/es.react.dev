@@ -16,11 +16,9 @@ Pasa controladores de eventos y otras funciones como props a componentes hijos:
 
 Si necesitas tener acceso al componente padre dentro del evento, también debes enlazar la funciones a la instancia del componente (ver ejemplo).
 
-
 ### ¿Cómo enlazo una función a la instancia de un componente?
 
 Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
-
 
 #### Enlazar dentro del Constructor (ES2015)
 
@@ -65,6 +63,7 @@ class Foo extends Component {
   }
 }
 ```
+
 >**Nota:**
 >
 > Usando `Function.prototype.bind` dentro de la renderización crea una nueva función cada vez que el componente se renderiza, lo cual podría implicar problemas de rendimiento.
@@ -81,9 +80,9 @@ class Foo extends Component {
   }
 }
 ```
+
 >**Nota:**
 >
-
 >Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componenten, lo cual podría implicar problemas de rendimiento (ver ejemplo)
 
 ### ¿Está bien utilizar funciones flecha en los métodos de renderizado?
@@ -91,8 +90,11 @@ class Foo extends Component {
 Generalmente hablando, si está bien y normalmente es la forma más fácil de pasar parámetros a funciones 
 
 Si tienes problemas de rendimiento, no dudes en optimizar!
+
 ### ¿Por qué tiene que ser necesario enlazar?
+
 En JavaScript, estos dos fragmentos de código **no** son equivalentes.
+
 ```js
 obj.method();
 ```
@@ -107,7 +109,7 @@ Los métodos de enlace nos aseguran que el segundo fragmento funcione de la mism
 Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. 
 Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
  
-[Èste post creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
+[Este post creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
 explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
 
 ### Por qué mi función está siendo llamada cada vez que mi componente renderiza?
@@ -129,6 +131,7 @@ render() {
 ```
 
 ### ¿Cómo paso un parámetro a un controlador de eventos o callback?
+
 Puedes utilizar funciones flecha para envolver un controlador de eventos y pasar parámetros:
 
 ```jsx
@@ -136,6 +139,7 @@ Puedes utilizar funciones flecha para envolver un controlador de eventos y pasar
 ```
 
 Esto es lo equivalente de llamar `.bind`:
+
 ```jsx
 <button onClick={this.handleClick.bind(this, id)} />
 ```
@@ -218,19 +222,15 @@ class Alphabet extends React.Component {
 
 Si tienes un controlador de eventos como `onClick` o `onScroll` y quieres prevenir que un callback sea disparado antes de tiempo, puedes limitar la tasa en la cual este callback es ejecutado. Se puede lograr usando:
 
-
 - **thottling**: cambios de ejemplo basados en una frecuencia según tiempo (ej [`_.throttle`](https://lodash.com/docs#throttle))
 - **debouncing**: publica cambios después de un periodo de inactividad (ej [`_.debounce`](https://lodash.com/docs#debounce))
-- **`requestAnimationFrame` throttling**: cambios de ejemplo basados en [`requestAnimationFrame`]
-(https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (ej [`raf-schd`](https://github.com/alexreardon/raf-schd))
-
+- **`requestAnimationFrame` throttling**: cambios de ejemplo basados en [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (ej [`raf-schd`](https://github.com/alexreardon/raf-schd))
 
 Mira [esta visualización](http://demo.nimius.net/debounce_throttle/) para ver la comparación entre las funciones `throttle` y `debounce`.
 
 > Nota:
 >
 >`_.debounce`, `_.throttle` y `raf-schd` proporcionan el método `cancel` para cancelar callbacks retrasados. Puedes llamar este método dentro de `componentWillUnmount` _o_ corrobora que el componente sigue montado dentro de la función retrasada.
-
 
 #### Throttle {#throttle}
 
@@ -262,9 +262,7 @@ class LoadMoreButton extends React.Component {
 
 #### Debounce {#debounce}
 
-Debouncing asegura que una función no va a ser ejecutada hasta que cierta cantidad de tiempo haya pasado desde la última vez que fue llamada.
-Esto puede ser muy útil cuando tienes que realizar operaciones demandantes como respuesta de un evento que puede ejecutarse muy rápido (ejemplo eventos de scroll o teclado). El siguiente ejemplo hace debounce de una entrada de texto con un delay de 250ms.
-
+Debouncing asegura que una función no va a ser ejecutada hasta que cierta cantidad de tiempo haya pasado desde la última vez que fue llamada. Esto puede ser muy útil cuando tienes que realizar operaciones demandantes como respuesta de un evento que puede ejecutarse muy rápido (ejemplo eventos de scroll o teclado). El siguiente ejemplo hace debounce de una entrada de texto con un delay de 250ms.
 
 ```jsx
 import debounce from 'lodash.debounce';
@@ -351,7 +349,6 @@ class ScrollListener extends React.Component {
 }
 ```
 
-
 #### Probando tu límite de cuadros
-Cuando probamos limites de cuadros de forma correcta, es muy útil tener la habilidad de adelantar el tiempo. Si estás utilizando [`jest`](https://facebook.github.io/jest/) puedes usar [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) para adelantar el tiempo. Si estás utilizando throttle de `requestAnimationFrame` podrías encontrar útil [`raf-stub`](https://github.com/alexreardon/raf-stub) para controlar la frecuencia de los cuadros de animación.
 
+Cuando probamos limites de cuadros de forma correcta, es muy útil tener la habilidad de adelantar el tiempo. Si estás utilizando [`jest`](https://facebook.github.io/jest/) puedes usar [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) para adelantar el tiempo. Si estás utilizando throttle de `requestAnimationFrame` podrías encontrar útil [`raf-stub`](https://github.com/alexreardon/raf-stub) para controlar la frecuencia de los cuadros de animación.
