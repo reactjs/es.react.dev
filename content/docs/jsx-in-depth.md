@@ -119,7 +119,7 @@ Para solucionar este problema, cambiaremos el nombre de `hello` a `Hello` y usar
 ```js{3,4,10,11}
 import React from 'react';
 
-// ¡Correcto! Este es un componente y debe ser capitalizado:
+// ¡Correcto! Este es un componente y debe comenzar con mayúscula:
 function Hello(props) {
   // ¡Correcto! Este uso de <div> es legítimo porque div es una etiqueta HTML válida:
   return <div>Hello {props.toWhat}</div>;
