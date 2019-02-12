@@ -310,7 +310,7 @@ JSX elimina los espacios en blanco al principio y al final de una línea. Tambi�
 
 ### Los hijos JSX {#jsx-children}
 
-Puede proporcionar más elementos JSX como los niños. Esto es útil para mostrar componentes anidados:
+Puedes proporcionar más elementos JSX como hijos. Esto es útil para mostrar componentes anidados:
 
 ```js
 <MyContainer>
