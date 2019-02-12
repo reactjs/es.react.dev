@@ -11,15 +11,15 @@ permalink: docs/glossary.html
 
 Una aplicación de página única (single-page application) es una aplicación que carga una única página HTML y todos los componentes necesarios (tales como JavaScript y CSS) para que se ejecute la aplicación. Cualquier interacción con la página o páginas subsecuentes no requiere hacer solicitudes al servidor lo que significa que la página no es recargada.
 
-Aún cuando puedes construir una aplicación de página única en React, esto no es un requerimiento. React también puede ser utilizado para mejorar pequeñas partes de sitios web existentes con interactividad adicional. Código escrito en React puede coexistir pacíficamente con páginas renderizadas de lado del servidor por lenguajes como PHP, ó cualquier otra librería de lado del cliente. De hecho, así es como React está siendo utilizado en Facebook.
+Aunque puedes construir una aplicación de página única en React, esto no es un requerimiento. React también puede ser utilizado para mejorar pequeñas partes de sitios web existentes con interactividad adicional. El código escrito en React puede coexistir pacíficamente con páginas renderizadas de lado del servidor por lenguajes como PHP, ó cualquier otra biblioteca del lado del cliente. De hecho, así es como React está siendo utilizado en Facebook.
 
 ## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
-Estos acrónimos se refieren a las mas recientes versiones del estándar de Especificación de Lenguaje ECMAScript, del cual JavaScript es una implementación. La versión ES6 (también conocida como ES2015) incluye muchas adiciones a las versiones previas tales como: *arrow functions*, clases, *template literals*, declaraciones de variables con `let` y `const`. Puedes aprender más sobre versiones específicas [aquí](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Estas siglas se refieren a las más recientes versiones del estándar de Especificación de Lenguaje ECMAScript, del cual JavaScript es una implementación. La versión ES6 (también conocida como ES2015) incluye muchas adiciones a las versiones previas tales como: funciones flecha, clases, plantillas de cadena de texto, declaraciones de variables con `let` y `const`. Puedes aprender más sobre versiones específicas [aquí](https://es.wikipedia.org/wiki/ECMAScript#Versions).
 
 ## Compiladores {#compilers}
 
-Un compilador de JavaScript toma el código JavaScript, lo transforma y regresa el código en un formato diferente. El caso de uso más común es tomar código JavaScript con sintáxis ES6 y transformarlo en código que navegadores más antiguos puedan interpretar. [Babel](https://babeljs.io/) es el compilador más usado con React.
+Un compilador de JavaScript toma el código JavaScript, lo transforma y devuelve en un formato diferente. El caso de uso más común es tomar código JavaScript con sintaxis ES6 y transformarlo en código que navegadores más antiguos puedan interpretar. [Babel](https://babeljs.io/) es el compilador más usado con React.
 
 ## Bundlers {#bundlers}
 
@@ -35,7 +35,7 @@ CDN son las siglas de *Content Delivery Network* (Red de Entrega de Contenido). 
 
 ## JSX {#jsx}
 
-JSX es una extensión de sintáxis para JavaScript. Es similar a un *template language*, pero tiene todo el poder de JavaScript. JSX es compilado a llamadas `React.createElement()` que regresan simples objetos de JavaScript llamados *"React elements"*. Puedes encontrar una introducción básica a JSX en la documentación [aquí](/docs/introducing-jsx.html) y un tutorial más completo de JSX [aquí](/docs/jsx-in-depth.html).
+JSX es una extensión de sintaxis para JavaScript. Es similar a un *template language*, pero tiene todo el poder de JavaScript. JSX es compilado a llamadas `React.createElement()` que regresan simples objetos de JavaScript llamados *"React elements"*. Puedes encontrar una introducción básica a JSX en la documentación [aquí](/docs/introducing-jsx.html) y un tutorial más completo de JSX [aquí](/docs/jsx-in-depth.html).
 
 *React DOM* usa una convención de nombres en *camelCase* para las propiedades en lugar de nombres de atributos HTML. Por ejemplo, `tabindex` se vuelve `tabIndex` en JSX. El atributo `class` se escribe como `className` ya que `class` es una palabra reservada en JavaScript:
 
@@ -49,7 +49,7 @@ ReactDOM.render(
 
 ## [Elementos](/docs/rendering-elements.html) {#elements}
 
-Los elementos de React son los bloques de construcción de una aplicación de React. Uno podría confundir los elementos con el concepto más ampliamente conocido de "componentes". Un elemento describe lo que quieres ver en pantalla. Los elementos de React son immutables.
+Los elementos de React son los bloques de construcción de una aplicación de React. Uno podría confundir los elementos con el concepto más ampliamente conocido de "componentes". Un elemento describe lo que quieres ver en pantalla. Los elementos de React son inmutables.
 
 ```js
 const element = <h1>Hola, mundo</h1>;
@@ -89,7 +89,7 @@ Recuerda que los `props` son de sólo lectura. No deben ser modificados de ningu
 props.number = 42;
 ```
 
-Si necesitas moficiar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa `state` en su lugar.
+Si necesitas moficiar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa el `estado` en su lugar.
 
 ### `props.children` {#propschildren}
 
@@ -116,29 +116,27 @@ class Welcome extends React.Component {
 }
 ```
 
-### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
+### [`estado`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-Un componente necesita `state` cuando algunos datos asociados a el cambian con el tiempo. Por ejemplo, un componente `Checkbox` tal vez necesite `isChecked` en su *state* , y un componente `NewsFeed` tal vez necesite mantener un registro de `fetchedPosts` en su estado.
+Un componente necesita `estado` cuando algunos datos asociados a el cambian con el tiempo. Por ejemplo, un componente `Checkbox` tal vez necesite `isChecked` en su estado, y un componente `NewsFeed` tal vez necesite mantener un registro de `fetchedPosts` en su estado.
 
-La diferencia más importante entre `state` y `props` es que los `props` son pasados desde un componente padre, pero el `state` es manejado por el propio componente. Un componente no puede cambiar sus `props`, pero puede cambiar su `state`. Para hacerlo, debe llamar a `this.setState()`. Sólo los componentes definidos como clases pueden tener *state*.
+La diferencia más importante entre `estado` y `props` es que los `props` son pasados desde un componente padre, pero el `estado` es manejado por el propio componente. Un componente no puede cambiar sus `props`, pero puede cambiar su `estado`. Para hacerlo, debe llamar a `this.setState()`. Sólo los componentes definidos como clases pueden tener estado.
 
-Para cada pieza particular de datos cambiantes, debería existir solo un componente que lo "posea" en su *state*. No intentes sincronizar *states* de dos componentes distintos. En su lugar, [elévalo](/docs/lifting-state-up.html) a su ancestro compartido más cercano, y pásalo como *props* en ambos.
+Para cada pieza particular de datos cambiantes, debería existir solo un componente que lo "posea" en su estado. No intentes sincronizar estado de dos componentes distintos. En su lugar, [elévalo](/docs/lifting-state-up.html) a su ancestro compartido más cercano, y pásalo como *props* en ambos.
 
 ## [Métodos de ciclo de vida](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
 Los métodos de ciclo de vida son funcionalidad personalizada que se ejecutan durante las diferentes fases de un componente. Existen métodos disponibles cuando el componente se crea y se inserta en el *DOM* ([*mounting*](/docs/react-component.html#mounting)), cuando el componente se actualiza, y cuando el componente es desmontado o removido del *DOM*. 
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Componentes controlados](/docs/forms.html#controlled-components) vs. [Componentes no controlados](/docs/uncontrolled-components.html)
 
 React tiene dos enfoques distintos para tratar con las entradas de formularios.
 
-Un elemento de entrada de un formulario cuyo valor está controlado por React es llamado *controlled component*. Cuando un usuario introduce información en un *controlled component* se activa un manejador de eventos de cambio y el código decide si la entrada es válida (volviendo a renderizar con el valor actualizado). Si no se vuelve a renderizar, el elemento del formulario permanecerá sin cambios.
+Un elemento de entrada de un formulario cuyo valor está controlado por React es llamado *componente controlado*. Cuando un usuario introduce información en un *componente controlado* se activa un manejador de eventos de cambio y el código decide si la entrada es válida (volviendo a renderizar con el valor actualizado). Si no se vuelve a renderizar, el elemento del formulario permanecerá sin cambios.
 
-Un *uncontrolled component* funciona como los elementos de un formulario fuera de React. Cuando un usuario introduce información en un campo del formulario (una caja de texto, una lista de selección, etc) la información actualizada es reflejada sin que React tenga que hacer nada. Sin embargo, esto también significa que no se puede forzar al campo a que tenga un valor determinado.
+Un *componente no controlado* funciona como los elementos de un formulario fuera de React. Cuando un usuario introduce información en un campo del formulario (una caja de texto, una lista de selección, etc) la información actualizada es reflejada sin que React tenga que hacer nada. Sin embargo, esto también significa que no se puede forzar al campo a que tenga un valor determinado.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
-
-En la mayoría de los casos debes usar *controlled components*.
+En la mayoría de los casos debes usar *componentes controlados*.
 
 ## [Keys](/docs/lists-and-keys.html) {#keys}
 
@@ -163,4 +161,4 @@ El manejo de eventos con elementos de React tiene algunas diferencias sintáctic
 
 ## [Reconciliación](/docs/reconciliation.html) {#reconciliation}
 
-Cuando las *props* o el *state* de un componente de React cambia, React decide si una actualización al *DOM* es necesaria comparando el elemento recién devuelto con el renderizado previamente. Cuando no son iguales, React actualizará el *DOM*. Este proceso es llamado "reconcilización".
+Cuando las *props* o el *estado* de un componente de React cambia, React decide si una actualización al *DOM* es necesaria comparando el elemento recién devuelto con el renderizado previamente. Cuando no son iguales, React actualizará el *DOM*. Este proceso es llamado "reconciliación".
