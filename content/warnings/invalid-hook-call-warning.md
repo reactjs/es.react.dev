@@ -43,7 +43,7 @@ function useWindowWidth() {
 }
 ```
 
-Para evitar confusiones, **no** está soportado llamar Hooks en otros casos:
+Para evitar confusiones, **no** se admite llamar Hooks en otros casos:
 
 * 🔴 No llames Hooks en componentes de clase.
 * 🔴 No los llames en manejadores de eventos.
