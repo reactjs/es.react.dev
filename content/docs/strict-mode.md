@@ -17,8 +17,8 @@ En el ejemplo anterior, las comprobaciones del modo estrícto *no* va a correr e
 
 `StrictMode` en la actualidad ayuda a:
 * [Identificar ciclos de vida inseguros](#identifying-unsafe-lifecycles)
-* [Advertir sobre el uso de la API legado de string ref](#warning-about-legacy-string-ref-api-usage)
-* [Advertir sobre el uso del método obsoleto findDOMNode](#warning-about-deprecated-finddomnode-usage)
+* [Advertencia sobre el uso de la API legado de string ref](#warning-about-legacy-string-ref-api-usage)
+* [Advertencia sobre el uso del método obsoleto findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Detectar efectos secundarios inesperados](#detecting-unexpected-side-effects)
 * [Detectar el uso de la API legado para el contexto](#detecting-legacy-context-api)
 
@@ -34,7 +34,7 @@ Cuando el modo estricto está habilitado, React reune en una lista todos los com
 
 Solucionar los problemas identificados por el modo estricto _ahora_, hará que sea más fácil para ti aprovechar el renderizamiento asíncrono en futuras versiones de React.
 
-### Advertir sobre el uso de la API legado de string ref {#warning-about-legacy-string-ref-api-usage}
+### Advertencia sobre el uso de la API legado de string ref {#warning-about-legacy-string-ref-api-usage}
 
 Anteriormente, React proporcionaba dos formas para utilizar refs: la API legado de string ref y la API por callback. Aunque la API de string ref era la más cómoda de las dos, tenía [muchas desventajas](https://github.com/facebook/react/issues/1373) y por lo tanto nuestra recomendación oficial fue [usar la forma de callback en su lugar](/docs/refs-and-the-dom.html#legacy-api-string-refs)
 
@@ -51,7 +51,7 @@ Desde que los object refs fueron agregados en gran parte como reemplazo a los st
 
 [Aprende más sobre la API `createRef` aquí.](/docs/refs-and-the-dom.html)
 
-### Advertir sobre el uso del método obsoleto findDOMNode {#warning-about-deprecated-finddomnode-usage}
+### Advertencia sobre el uso del método obsoleto findDOMNode {#warning-about-deprecated-finddomnode-usage}
 
 React solía soportar `findDOMNode` para buscar en el árbol un nodo del DOM dada una instancia de una clase. Normalmente no necesitas hacer esto ya que puedes [vincular un ref directamente un nodo del DOM](/docs/refs-and-the-dom.html#creating-refs).
 
