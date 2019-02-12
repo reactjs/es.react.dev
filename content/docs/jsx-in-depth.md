@@ -21,7 +21,7 @@ Fundamentalmente, JSX solo proporciona azúcar sintáctica para la función `Rea
 </MyButton>
 ```
 
-compila en:
+se compila en:
 
 ```js
 React.createElement(
