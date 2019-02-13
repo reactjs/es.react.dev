@@ -545,7 +545,7 @@ Debido a que el componente Square ahora no mantiene estado, los componentes Squa
 
 Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicareomos porqué crear una copia del array `squares` en la siguiente sección.
 
-### ¿Porqué es importante la Inmutabilidad? {#why-immutability-is-important}
+### ¿Por qué es importante la Inmutabilidad? {#why-immutability-is-important}
 
 En el ejemplo de código anterior, sugerimos que uses el operador `.slice()` para crear una copia del array de `squares` para modificar en vez de modificar el array existente. Ahora discutiremos inmutabilidad y porqué es importante aprenderlo.
 

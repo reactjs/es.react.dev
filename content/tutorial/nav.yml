@@ -65,7 +65,7 @@
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important
-          title: ¿Porqué es importante la Inmutabilidad?
+          title: ¿Por qué es importante la Inmutabilidad?
           href: /tutorial/tutorial.html#why-immutability-is-important
           forceInternal: true
         - id: function-components
