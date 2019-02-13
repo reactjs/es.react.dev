@@ -4,22 +4,14 @@ title: Code-Splitting
 permalink: docs/code-splitting.html
 ---
 
-<<<<<<< HEAD
-## *Bundling*
-=======
-## Bundling {#bundling}
->>>>>>> 57bcddcfa15a7dd7c902430687f2932856812d23
+## *Bundling* {#bundling}
 
 La mayoría de las aplicaciones React tendrán sus archivos "empaquetados" o *bundled* con herramientas como
 [Webpack](https://webpack.js.org/) o [Browserify](http://browserify.org/).
 El *bundling* es el proceso de seguir los archivos importados y fusionarlos en un
 archivo único: un *bundle* o "paquete". Este *bundle* se puede incluir en una página web para cargar una aplicación completa de una sola vez.
 
-<<<<<<< HEAD
-#### Ejemplo
-=======
-#### Example {#example}
->>>>>>> 57bcddcfa15a7dd7c902430687f2932856812d23
+#### Ejemplo {#example}
 
 **App:**
 
@@ -56,14 +48,10 @@ Si usas [Create React App](https://github.com/facebookincubator/create-react-app
 Si no, tú mismo vas a tener que configurar el *bundling*. Por ejemplo, revisa las guías [Installation](https://webpack.js.org/guides/installation/) y
 [Getting Started](https://webpack.js.org/guides/getting-started/) en la documentación de Webpack.
 
-## División de código
+## División de código {#code-splitting}
 
-<<<<<<< HEAD
 El *Bundling* es genial, pero a medida que tu aplicación crezca, tu *bundle* también crecerá. Especialmente
 si incluyes grandes bibliotecas de terceros. Necesitas vigilar el código que incluyes en tu *bundle*, de manera que no lo hagas accidentalmente tan grande que tu aplicación se tome mucho tiempo en cargar.
-=======
-## Code Splitting {#code-splitting}
->>>>>>> 57bcddcfa15a7dd7c902430687f2932856812d23
 
 Para evitar terminar con un *bundle* grande, es bueno adelantarse al problema
 y comenzar a dividir tu *bundle*. [División de código](https://webpack.js.org/guides/code-splitting/) es una funcionalidad disponible en *bundlers* como Webpack y Browserify (vía [factor-bundle](https://github.com/browserify/factor-bundle)) que puede crear múltiples *bundles* a ser cargados dinámicamente durante la ejecución de tu aplicación.
@@ -75,7 +63,7 @@ de código durante la carga inicial.
 
 ## `import()` {#import}
 
-La mejor manera de introducir división de código en tu aplicación es a través de la sintáxis de `import()`s dinámicos.
+La mejor manera de introducir división de código en tu aplicación es a través de la sintaxis de `import()`s dinámicos.
 
 **Antes:**
 
@@ -93,32 +81,30 @@ import("./math").then(math => {
 });
 ```
 
-> Note:
+> Nota:
 >
-> La sintáxis de `import()`s dinámicos es una [propuesta](https://github.com/tc39/proposal-dynamic-import)
+> La sintaxis de `import()`s dinámicos es una [propuesta](https://github.com/tc39/proposal-dynamic-import)
 > ECMAScript (JavaScript) que no es parte actual del estándar
 > del lenguaje. Se espera que sea aceptada en el
 > futuro cercano
 
-Cuando Webpack se encuentra esta sintáxis, comienza a dividir el código de tu
+Cuando Webpack se encuentra esta sintaxis, comienza a dividir el código de tu
 aplicación automáticamente. Si estás usando Create React App, esto ya viene
-configurado para ti y puedes comenzar a [usarlo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting). It's also supported out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+configurado para ti y puedes comenzar a [usarlo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting). También es compatible por defecto en [Next.js](https://github.com/zeit/next.js/#dynamic-import).
 
-If you're setting up Webpack yourself, you'll probably want to read Webpack's
-[guide on code splitting](https://webpack.js.org/guides/code-splitting/). Your Webpack config should look vaguely [like this](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
+Si configuras Webpack por ti mismo, probablemente vas a querer leer la [guía sobre división de código](https://webpack.js.org/guides/code-splitting/) de Webpack. Tu configuración de Webpack debería verse vagamente [como ésta](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-When using [Babel](http://babeljs.io/), you'll need to make sure that Babel can
-parse the dynamic import syntax but is not transforming it. For that you will need [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
+Cuando uses [Babel](http://babeljs.io/), tienes que asegurarte de que Babel reconozca la sintaxis de `import()` dinámico pero no la transforme. Para ello vas a necesitar el [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 
-> Note:
+> Nota:
 >
-> `React.lazy` and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we recommend [Loadable Components](https://github.com/smooth-code/loadable-components). It has a nice [guide for bundle splitting with server-side rendering](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+> `React.lazy` y Suspense aún no están disponibles para hacer renderización del lado del servidor. Si quieres hacer división de código en una aplicación renderizada en el servidor, recomendamos [Loadable Components](https://github.com/smooth-code/loadable-components). Tiene una buena [guía para dividir bundles con renderización del lado del servidor](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
 
-The `React.lazy` function lets you render a dynamic import as a regular component.
+La función `React.lazy` te deja renderizar un *import* dinámico como un componente regular.
 
-**Before:**
+**Antes:**
 
 ```js
 import OtherComponent from './OtherComponent';
@@ -132,7 +118,7 @@ function MyComponent() {
 }
 ```
 
-**After:**
+**Después:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -146,9 +132,10 @@ function MyComponent() {
 }
 ```
 
-This will automatically load the bundle containing the `OtherComponent` when this component gets rendered.
+Esto va a cargar automáticamente el *bundle* que contiene a `OtherComponent` cuando este componente sea renderizado.
 
-`React.lazy` takes a function that must call a dynamic `import()`. This must return a `Promise` which resolves to a module with a `default` export containing a React component.
+`React.lazy` recibe una función que debe ejecutar un `import()` dinámico. Este debe retornar una `Promise` que se resuelve en un módulo con un *export* `default` que contenga un componente de React.
+
 
 ### Suspense {#suspense}
 
