@@ -63,7 +63,7 @@ de código durante la carga inicial.
 
 ## `import()` {#import}
 
-La mejor manera de introducir división de código en tu aplicación es a través de la sintaxis de `import()`s dinámicos.
+La mejor manera de introducir división de código en tu aplicación es a través de la sintaxis de `import()` dinámico.
 
 **Antes:**
 
@@ -83,7 +83,7 @@ import("./math").then(math => {
 
 > Nota:
 >
-> La sintaxis de `import()`s dinámicos es una [propuesta](https://github.com/tc39/proposal-dynamic-import)
+> La sintaxis de `import()` dinámico es una [propuesta](https://github.com/tc39/proposal-dynamic-import)
 > ECMAScript (JavaScript) que no es parte actual del estándar
 > del lenguaje. Se espera que sea aceptada en el
 > futuro cercano
@@ -139,7 +139,7 @@ Esto va a cargar automáticamente el *bundle* que contiene a `OtherComponent` cu
 
 ### Suspense {#suspense}
 
-If the module containing the `OtherComponent` is not yet loaded by the time `MyComponent` renders, we must show some fallback content while we're waiting for it to load - such as a loading indicator. This is done using the `Suspense` component.
+Si el módulo que contiene a `OtherComponent` aún no ha sido cargado cuando `MyComponent` es renderizado, debemos mostrar algún contenido por defecto mienttras esperamos que cargue - como un indicador de carga. Esto se hace usando el componente `Suspense`.
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -155,7 +155,7 @@ function MyComponent() {
 }
 ```
 
-The `fallback` prop accepts any React elements that you want to render while waiting for the component to load. You can place the `Suspense` component anywhere above the lazy component. You can even wrap multiple lazy components with a single `Suspense` component.
+El prop `fallback` acepta cualquier elemento de React que quieras renderizar mientas esperas que `OtherComponent` cargue. Puedes poner el componente `Suspense` en cualquier parte sobre el componente lazy. Incluso puedes envolver múltiples componentes lazy con un solo componente `Suspense`.   
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -175,9 +175,9 @@ function MyComponent() {
 }
 ```
 
-### Error boundaries {#error-boundaries}
+### Límites de error {#error-boundaries}
 
-If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these errors to show a nice user experience and manage recovery with [Error Boundaries](/docs/error-boundaries.html). Once you've created your Error Boundary, you can use it anywhere above your lazy components to display an error state when there's a network error.
+Si el otro módulo no se carga (por ejemplo, debido a un fallo de la red), se generará un error. Puedes manejar estos errores para mostrar una buena experiencia de usuario y manejar la recuperación con [Límites de error](/docs/error-boundaries.html). Una vez hayas creado tu límite de error (Error Boundary) puedes usarlo en cualquier parte sobre tus componentes lazy para mostrar un estado de error cuando haya un error de red.
 
 ```js
 import MyErrorBoundary from './MyErrorBoundary';
@@ -198,19 +198,14 @@ const MyComponent = () => (
 );
 ```
 
-## Route-based code splitting {#route-based-code-splitting}
+## División de código basada en rutas {#route-based-code-splitting}
 
-Deciding where in your app to introduce code splitting can be a bit tricky. You
-want to make sure you choose places that will split bundles evenly, but won't
-disrupt the user experience.
+Decidir en qué parte de tu aplicación introducir la división de código puede ser un poco complicado. Quieres asegurarte de elegir lugares que dividan los *bundles* de manera uniforme, sin interrumpir la experiencia del usuario.
 
-A good place to start is with routes. Most people on the web are used to
-page transitions taking some amount of time to load. You also tend to be
-re-rendering the entire page at once so your users are unlikely to be
-interacting with other elements on the page at the same time.
+Un buen lugar para comenzar es con las rutas. La mayoríade la gente en la web está acostumbrada a que las transiciones entre páginas se tomen cierto tiempo en cargar. También tiendes a re-renderizar toda de una vez, así que es improbable que tus usuarios interactúen con otros elementos en la página al mismo tiempo.
 
-Here's an example of how to setup route-based code splitting into your app using
-libraries like [React Router](https://reacttraining.com/react-router/) with `React.lazy`.
+Este es un ejemplo de cómo configurar la división de código basada en rutas en tu aplicación usando
+bibliotecas como [React Router](https://reacttraining.com/react-router/) con `React.lazy`.
 
 ```js
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -231,7 +226,7 @@ const App = () => (
 );
 ```
 
-## Named Exports {#named-exports}
+## Exports con nombres {#named-exports}
 
 `React.lazy` currently only supports default exports. If the module you want to import uses named exports, you can create an intermediate module that reexports it as the default. This ensures that treeshaking keeps working and that you don't pull in unused components.
 
