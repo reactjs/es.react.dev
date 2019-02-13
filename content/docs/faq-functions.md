@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### ¿Cómo puedo pasar un controlador de eventos (como onClick) a un componente?
+### ¿Cómo puedo pasar un controlador de eventos (como onClick) a un componente? {#how-do-i-pass-an-event-handler-like-onclick-to-a-component}
 
 Pasa controladores de eventos y otras funciones como props a componentes hijos:
 
@@ -14,13 +14,13 @@ Pasa controladores de eventos y otras funciones como props a componentes hijos:
 <button onClick={this.handleClick}>
 ```
 
-Si necesitas tener acceso al componente padre dentro del evento, también debes enlazar la funciones a la instancia del componente (ver ejemplo).
+Si necesitas tener acceso al componente padre dentro del evento, también debes enlazar la funciones a la instancia del componente (ver abajo).
 
-### ¿Cómo enlazo una función a la instancia de un componente?
+### ¿Cómo enlazo una función a la instancia de un componente? {#how-do-i-bind-a-function-to-a-component-instance}
 
 Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
 
-#### Enlazar dentro del Constructor (ES2015)
+#### Enlazar dentro del Constructor (ES2015) {#bind-in-constructor-es2015}
 
 ```jsx
 class Foo extends Component {
@@ -37,7 +37,7 @@ class Foo extends Component {
 }
 ```
 
-#### Propiedades de las Clases (Propuesta de etapa 3)
+#### Propiedades de las Clases (Propuesta de etapa 3) {#class-properties-stage-3-proposal}
 
 ```jsx
 class Foo extends Component {
@@ -51,7 +51,7 @@ class Foo extends Component {
 }
 ```
 
-#### Enlazar en la renderización
+#### Enlazar en la renderización {#bind-in-render}
 
 ```jsx
 class Foo extends Component {
@@ -66,9 +66,9 @@ class Foo extends Component {
 
 >**Nota:**
 >
-> Usando `Function.prototype.bind` dentro de la renderización crea una nueva función cada vez que el componente se renderiza, lo cual podría implicar problemas de rendimiento.
+> Al usar `Function.prototype.bind` dentro de la renderización se crea una nueva función cada vez que el componente se renderiza, lo cual podría implicar problemas de rendimiento (ver abajo).
 
-#### Funciones Flecha en renderización
+#### Funciones Flecha en renderización {#arrow-function-in-render}
 
 ```jsx
 class Foo extends Component {
@@ -83,15 +83,15 @@ class Foo extends Component {
 
 >**Nota:**
 >
->Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componenten, lo cual podría implicar problemas de rendimiento (ver ejemplo)
+>Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componente, lo cual podría implicar problemas de rendimiento (ver abajo)
 
-### ¿Está bien utilizar funciones flecha en los métodos de renderizado?
+### ¿Está bien utilizar funciones flecha en los métodos de renderizado? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
-Generalmente hablando, si está bien y normalmente es la forma más fácil de pasar parámetros a funciones 
+Generalmente hablando, si está bien y normalmente es la forma más fácil de pasar parámetros a funciones.
 
-Si tienes problemas de rendimiento, no dudes en optimizar!
+Si tienes problemas de rendimiento, ¡no dudes en optimizar!
 
-### ¿Por qué tiene que ser necesario enlazar?
+### ¿Por qué tiene que ser necesario enlazar? {#why-is-binding-necessary-at-all}
 
 En JavaScript, estos dos fragmentos de código **no** son equivalentes.
 
@@ -108,20 +108,20 @@ Los métodos de enlace nos aseguran que el segundo fragmento funcione de la mism
 
 Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
  
-[Este post creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
+[Este artículo creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
 
-### Por qué mi función está siendo llamada cada vez que mi componente renderiza?
+### ¿Por qué mi función está siendo llamada cada vez que mi componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
 
-Asegurate que no estes _llamando la función_ cuando la pases al componente:
+Asegúrate que no estés _llamando la función_ cuando la pases al componente:
 
 ```jsx
 render() {
-  // Incorrecto: handleClick es llamada en vez de ser pasado como una referencia!
+  // Incorrecto: ¡Se llama a handleClick en vez de ser pasado como una referencia!
   return <button onClick={this.handleClick()}>Clickéame!</button>
 }
 ```
 
-En lugar de eso, *pasa la función como tal* (sin los parentesis)
+En lugar de eso, *pasa la función como tal* (sin los paréntesis)
 
 ```jsx
 render() {
@@ -130,7 +130,7 @@ render() {
 }
 ```
 
-### ¿Cómo paso un parámetro a un controlador de eventos o callback?
+### ¿Cómo paso un parámetro a un controlador de eventos o callback? {#how-do-i-pass-a-parameter-to-an-event-handler-or-callback}
 
 Puedes utilizar funciones flecha para envolver un controlador de eventos y pasar parámetros:
 
@@ -144,10 +144,10 @@ Esto es lo equivalente de llamar `.bind`:
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Ejemplo: Pasar parámetros utilizando función flecha
+#### Ejemplo: Pasar parámetros utilizando función flecha {#example-passing-params-using-arrow-functions}
 
 ```jsx
-const A = 65 // código ASCII del caracter.
+const A = 65 // código ASCII del carácter.
 
 class Alphabet extends React.Component {
   constructor(props) {
@@ -178,12 +178,12 @@ class Alphabet extends React.Component {
 }
 ```
 
-#### Ejemplo: Pasando parámetros usando data-attributes
+#### Ejemplo: Pasando parámetros usando data-attributes {#example-passing-params-using-data-attributes}
 
-Alternativamente, puedes utilizar DOM APIs para guardar la data necesaria para controladores de eventos. Considera esta propuesta si necesitas optimizar una gran cantidad de elementos o tu estructura o arbol de renderizado que dependen de verificaciones de calidad de React.PureComponent
+Alternativamente, puedes utilizar APIs del DOM para guardar los datos que necesitan los controladores de eventos. Considera esta propuesta si necesitas optimizar una gran cantidad de elementos o tu árbol de renderizado depende de las verificaciones de igualdad de React.PureComponent.
 
 ```jsx
-const A = 65 // código ASCII del caracter
+const A = 65 // código ASCII del carácter
 
 class Alphabet extends React.Component {
   constructor(props) {
@@ -218,13 +218,13 @@ class Alphabet extends React.Component {
 }
 ```
 
-### ¿Cómo puede prevenir que una función sea llamada muy rapidamente o muchas veces seguidas?
+### ¿Cómo puede prevenir que una función sea llamada muy rápidamente o muchas veces seguidas? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
 
 Si tienes un controlador de eventos como `onClick` o `onScroll` y quieres prevenir que un callback sea disparado antes de tiempo, puedes limitar la tasa en la cual este callback es ejecutado. Se puede lograr usando:
 
-- **thottling**: cambios de ejemplo basados en una frecuencia según tiempo (ej [`_.throttle`](https://lodash.com/docs#throttle))
-- **debouncing**: publica cambios después de un periodo de inactividad (ej [`_.debounce`](https://lodash.com/docs#debounce))
-- **`requestAnimationFrame` throttling**: cambios de ejemplo basados en [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (ej [`raf-schd`](https://github.com/alexreardon/raf-schd))
+- **throttle**: regula los cambios siguiendo una frecuencia basada en el tiempo (ej. [`_.throttle`](https://lodash.com/docs#throttle))
+- **debounce**: publica cambios después de un periodo de inactividad (ej. [`_.debounce`](https://lodash.com/docs#debounce))
+- **throttle con `requestAnimationFrame`**: regula los cambios en base a [`requestAnimationFrame`](https://developer.mozilla.org/es/docs/Web/API/Window/requestAnimationFrame) (ej [`raf-schd`](https://github.com/alexreardon/raf-schd))
 
 Mira [esta visualización](http://demo.nimius.net/debounce_throttle/) para ver la comparación entre las funciones `throttle` y `debounce`.
 
@@ -304,11 +304,11 @@ class Searchbox extends React.Component {
 
 #### `requestAnimationFrame` throttling {#requestanimationframe-throttling}
 
-[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) es una forma de poner una función en cola para ser ejecutada por el navegador en un tiempo optimo para el rendimiento del renderizado. Una función en cola con `requestAnimationFrame` va a dispararse en el siguiente cuadro. El navegador se va a encargar de que hayan 60 cuadros por segundo (60fps). Sin embargo, si el navegador no puede, el mismo navegador naturalmente va a limitar la cantida de cuadros por segundo. Por ejemplo, un dispositivo podría solo manejar 30 fps, por ende, solo tendrás 30 cuadros por segundo. Usando `requestAnimationFrame` para throttle es una técnica muy útil ya que previene que tu mismo generes más de 60 actualizaciones por segundo. Si estás generando 100 actualizaciones por segundo, puedes crear esfuerzo adicional para el navegador que el usuario de todas formas no va a poder apreciar.
+[`requestAnimationFrame`](https://developer.mozilla.org/es/docs/Web/API/Window/requestAnimationFrame) es una forma de poner una función en cola para ser ejecutada por el navegador en un tiempo óptimo para el rendimiento del renderizado. Una función en cola con `requestAnimationFrame` va a dispararse en el siguiente cuadro. El navegador se va a encargar de que hayan 60 cuadros por segundo (60fps). Sin embargo, si el navegador no puede, el mismo navegador naturalmente va a limitar la cantida de cuadros por segundo. Por ejemplo, un dispositivo podría solo manejar 30 fps, por ende, solo tendrás 30 cuadros por segundo. Usando `requestAnimationFrame` para throttle es una técnica muy útil ya que previene que tú mismo generes más de 60 actualizaciones por segundo. Si estás generando 100 actualizaciones por segundo, puedes crear esfuerzo adicional para el navegador que el usuario de todas formas no va a poder apreciar.
 
 >**Nota:**
 >
->Usando ésta técnica podemos capturar el último valor capturado en un cuadro. Puedes ver a un ejemplo de como funciona este tipo de optimización en [`MDN`](https://developer.mozilla.org/es/docs/Web/Events/scroll)
+>Usando esta técnica podemos capturar el último valor capturado en un cuadro. Puedes ver a un ejemplo de como funciona este tipo de optimización en [`MDN`](https://developer.mozilla.org/es/docs/Web/Events/scroll)
 
 ```jsx
 import rafSchedule from 'raf-schd';
@@ -349,6 +349,6 @@ class ScrollListener extends React.Component {
 }
 ```
 
-#### Probando tu límite de cuadros
+#### Probando tu límite de cuadros {#testing-your-rate-limiting}
 
 Cuando probamos limites de cuadros de forma correcta, es muy útil tener la habilidad de adelantar el tiempo. Si estás utilizando [`jest`](https://facebook.github.io/jest/) puedes usar [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) para adelantar el tiempo. Si estás utilizando throttle de `requestAnimationFrame` podrías encontrar útil [`raf-stub`](https://github.com/alexreardon/raf-stub) para controlar la frecuencia de los cuadros de animación.
