@@ -10,23 +10,23 @@ Web accessibility (also referred to as [**a11y**](https://en.wiktionary.org/wiki
 
 React fully supports building accessible websites, often by using standard HTML techniques.
 
-## Standards and Guidelines {#standards-and-guidelines}
+## Normas y lineamientos
 
 ### WCAG {#wcag}
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
+Las [Pautas de Accesibilidad de Contenido Web (WCAG por sus siglas en inglés)](https://www.w3.org/WAI/intro/wcag) proporcionan pautas para crear sitios web accesibles.
 
-The following WCAG checklists provide an overview:
+Las siguientes listas de verificación WCAG proporcionan una visión general:
 
-- [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
-- [WCAG checklist from WebAIM](http://webaim.org/standards/wcag/checklist)
-- [Checklist from The A11Y Project](http://a11yproject.com/checklist.html)
+- [Lista de verificación WCAG de Wuhcag](https://www.wuhcag.com/wcag-checklist/)
+- [Lista de verificación WCAG de WebAIM](http://webaim.org/standards/wcag/checklist)
+- [Lista de verificación de El Proyecto A11Y](http://a11yproject.com/checklist.html)
 
 ### WAI-ARIA {#wai-aria}
 
-The [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) document contains techniques for building fully accessible JavaScript widgets.
+El documento [Iniciativa de Accesibilidad Web - Aplicaciones de Internet Enriquecidas y Accesibles (WAI-ARIA por sus siglas en inglés)](https://www.w3.org/WAI/intro/aria) contiene técnicas para construir widgets de JavaScript totalmente accesibles.
 
-Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be hyphen-cased (also known as kebab-case, lisp-case, etc) as they are in plain HTML:
+Tenga en cuenta que todos los atributos HTML `aria- *` son totalmente compatibles con JSX. Mientras que la mayoría de las propiedades y atributos de DOM en React son camelCase, estos atributos deben tener un guión (también conocido como kebab-case, lisp-case, etc.) ya que están en HTML simple:
 
 ```javascript{3,4}
 <input
@@ -39,16 +39,16 @@ Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most 
 />
 ```
 
-## Semantic HTML {#semantic-html}
-Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information
-in our websites will often give us accessibility for free.
+## HTML semnántico
 
-- [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+El HTML semántico es la base de la accesibilidad en una aplicación web. Haciendo uso de los diversos elementos HTML para reforzar el significado de la información en nuestros sitios web a menudo nos dará accesibilidad de forma gratuita.
 
-Sometimes we break HTML semantics when we add `<div>` elements to our JSX to make our React code work, especially when working with lists (`<ol>`, `<ul>` and `<dl>`) and the HTML `<table>`.
-In these cases we should rather use [React Fragments](/docs/fragments.html) to group together multiple elements.
+- [Referencia de elementos HTML en MDN](https://developer.mozilla.org/es/docs/Web/HTML/Elemento)
 
-For example,
+A veces rompemos la semántica HTML cuando agregamos elementos `<div>` a nuestro JSX para hacer que nuestro código React funcione, especialmente cuando trabajamos con listas (`<ol>`, `<ul>` y `<dl>`) y la etiqueta `<table>` de HTML.
+En estos casos, deberíamos usar [Fragmentos React](/docs/fragments.html) para agrupar varios elementos.
+
+Por ejemplo,
 
 ```javascript{1,5,8}
 import React, { Fragment } from 'react';
@@ -73,7 +73,7 @@ function Glossary(props) {
 }
 ```
 
-You can map a collection of items to an array of fragments as you would any other type of element as well:
+Puedes asignar una colección de elementos a un arreglo de fragmentos como lo haría con cualquier otro tipo de elemento:
 
 ```javascript{6,9}
 function Glossary(props) {
@@ -91,7 +91,7 @@ function Glossary(props) {
 }
 ```
 
-When you don't need any props on the Fragment tag you can use the [short syntax](/docs/fragments.html#short-syntax), if your tooling supports it:
+Cuando no necesites ninguna prop en la etiqueta Fragment, puedes usar la [sintaxis corta](/docs/fragments.html#short-syntax), si tus herramientas lo admiten:
 
 ```javascript{3,6}
 function ListItem({ item }) {
@@ -104,83 +104,82 @@ function ListItem({ item }) {
 }
 ```
 
-For more info, see [the Fragments documentation](/docs/fragments.html).
+Para más información, consulta [la documentación de Fragmentos](/docs/fragments.html).
 
-## Accessible Forms {#accessible-forms}
+## Formularios accesibles
 
-### Labeling {#labeling}
-Every HTML form control, such as `<input>` and `<textarea>`, needs to be labeled accessibly. We need to provide descriptive labels that are also exposed to screen readers.
+### Etiquetado
 
-The following resources show us how to do this:
+Todos los controles de formulario HTML, como `<input>` y `<textarea>`, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
 
-- [The W3C shows us how to label elements](https://www.w3.org/WAI/tutorials/forms/labels/)
-- [WebAIM shows us how to label elements](http://webaim.org/techniques/forms/controls)
-- [The Paciello Group explains accessible names](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
+Los siguientes recursos nos muestran cómo hacer esto:
 
-Although these standard HTML practices can be directly used in React, note that the `for` attribute is written as `htmlFor` in JSX:
+- [El W3C nos muestra cómo etiquetar elementos](https://www.w3.org/WAI/tutorials/forms/labels/)
+- [WebAIM nos muestra cómo etiquetar elementos](http://webaim.org/techniques/forms/controls)
+- [El Grupo Paciello explica los nombres accesibles](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
+
+Aunque estas prácticas estándar de HTML se pueden usar directamente en React, ten en cuenta que el atributo `for` se escribe como `htmlFor` en JSX:
 
 ```javascript{1}
 <label htmlFor="namedInput">Name:</label>
 <input id="namedInput" type="text" name="name"/>
 ```
 
-### Notifying the user of errors {#notifying-the-user-of-errors}
+### Notificando errores al usuario
 
-Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:
+Las situaciones de error deben ser entendidas por todos los usuarios. El siguiente enlace también nos muestra cómo exponer textos de error a lectores de pantalla:
 
-- [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [WebAIM looks at form validation](http://webaim.org/techniques/formvalidation/)
+- [El W3C demuestra notificaciones de usuario](https://www.w3.org/WAI/tutorials/forms/notifications/)
+- [WebAIM analiza la validación de formularios](http://webaim.org/techniques/formvalidation/)
 
-## Focus Control {#focus-control}
+## Control de foco
 
-Ensure that your web application can be fully operated with the keyboard only:
+Asegúrese de que su aplicación web pueda ser operada completamente solo con el teclado:
 
-- [WebAIM talks about keyboard accessibility](http://webaim.org/techniques/keyboard/)
+- [WebAIM habla sobre accesibilidad de teclado](http://webaim.org/techniques/keyboard/)
 
-### Keyboard focus and focus outline {#keyboard-focus-and-focus-outline}
+### Foco de teclado y contorno de foco
 
-Keyboard focus refers to the current element in the DOM that is selected to accept input from the keyboard. We see it everywhere as a focus outline similar to that shown in the following image:
+El foco del teclado se refiere al elemento actual en el DOM que está seleccionado para aceptar la entrada desde el teclado. Lo vemos en todas partes como un contorno de foco similar al que se muestra en la siguiente imagen:
 
 <img src="../images/docs/keyboard-focus.png" alt="Blue keyboard focus outline around a selected link." />
 
-Only ever use CSS that removes this outline, for example by setting `outline: 0`, if you are replacing it with another focus outline implementation.
+Solamente use CSS que elimine este contorno, por ejemplo, configurando `outline: 0`, si lo va a reemplazar por otra implementación de contorno de foco.
 
-### Mechanisms to skip to desired content {#mechanisms-to-skip-to-desired-content}
+### Mecanismos para omitir hacia el contenido deseado.
 
-Provide a mechanism to allow users to skip past navigation sections in your application as this assists and speeds up keyboard navigation.
+Proporcione un mecanismo para permitir que los usuarios omitan las secciones de navegación en su aplicación, ya que esto ayuda y acelera la navegación con el teclado.
 
-Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with
-internal page anchors and some styling:
+Skiplink o Skip Navigation son enlaces de navegación ocultos que solo se hacen visibles cuando los usuarios de teclado interactúan con la página. Son muy fáciles de implementar con anclajes internos de página y algunos estilos:
 
-- [WebAIM - Skip Navigation Links](http://webaim.org/techniques/skipnav/)
+- [WebAIM - Omitir enlaces de navegación](http://webaim.org/techniques/skipnav/)
 
-Also use landmark elements and roles, such as `<main>` and `<aside>`, to demarcate page regions as assistive technology allow the user to quickly navigate to these sections.
+También utilice elementos y roles de puntos de referencia, como `<main>` y `<aside>`, para delimitar las regiones de la página ya que la tecnología de asistencia permite al usuario navegar rápidamente a estas secciones.
 
-Read more about the use of these elements to enhance accessibility here:
+Lea más sobre el uso de estos elementos para mejorar la accesibilidad aquí:
 
-- [Accessible Landmarks](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Puntos de referencia accesibles](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Programmatically managing focus {#programmatically-managing-focus}
+### Gestionando programáticamente el foco.
 
-Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this,
-we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.
+Nuestras aplicaciones React modifican continuamente el DOM de HTML durante el tiempo de ejecución, lo que a veces hace que el foco del teclado se pierda o se establezca en un elemento inesperado. Para reparar esto, tenemos que empujar programáticamente el foco del teclado en la dirección correcta. Por ejemplo, al restablecer el foco del teclado a un botón que abrió una ventana modal después de que se cierre esa ventana modal.
 
-MDN Web Docs takes a look at this and describes how we can build [keyboard-navigable JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
+MDN Web Docs analiza esto y describe cómo podemos construir [widgets de JavaScript navegables por el teclado](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
-To set focus in React, we can use [Refs to DOM elements](/docs/refs-and-the-dom.html).
+Para establecer el foco en React, podemos usar [Referencias a elementos del DOM](/docs/refs-and-the-dom.html).
 
-Using this, we first create a ref to an element in the JSX of a component class:
+Usando esto, primero creamos una referencia a un elemento en el JSX de una clase de componente:
 
 ```javascript{4-5,8-9,13}
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    // Create a ref to store the textInput DOM element
+    // Crea una referencia para almacenar el elemento textInput del DOM
     this.textInput = React.createRef();
   }
   render() {
-  // Use the `ref` callback to store a reference to the text input DOM
-  // element in an instance field (for example, this.textInput).
+  // Utiliza la devolución de llamada `ref` para almacenar una referencia al elemento DOM de entrada de texto 
+  // en un campo de instancia (por ejemplo, this.textInput).
     return (
       <input
         type="text"
@@ -191,18 +190,18 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-Then we can focus it elsewhere in our component when needed:
+Entonces podemos enfocarlo en otro lugar de nuestro componente cuando sea necesario:
 
  ```javascript
  focus() {
-   // Explicitly focus the text input using the raw DOM API
-   // Note: we're accessing "current" to get the DOM node
+   // Enfoca explícitamente la entrada de texto usando la API de DOM sin formato
+    // Nota: estamos accediendo a "actual" para obtener el nodo DOM
    this.textInput.current.focus();
  }
  ```
 
-Sometimes a parent component needs to set focus to an element in a child component. We can do this by [exposing DOM refs to parent components](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components)
-through a special prop on the child component that forwards the parent's ref to the child's DOM node.
+A veces, un componente padre debe establecer el foco en un elemento dentro de un componente hijo. Podemos hacer esto [exponiendo las referencias del DOM a los componentes padre](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components)
+a través de una prop especial en el componente hijo que envía la referencia del padre al nodo DOM del hijo.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -225,21 +224,19 @@ class Parent extends React.Component {
   }
 }
 
-// Now you can set focus when required.
+// Ahora puedes establecer el foco cuando sea necesario.
 this.inputElement.current.focus();
 ```
 
-When using a HOC to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC
-does not implement ref forwarding, the above pattern can still be used as a fallback.
+Cuando se utiliza un HOC para extender componentes, se recomienda [reenviar la referencia](/docs/forwarding-refs.html) al componente envuelto usando la función `forwardRef` de React. Si un HOC de un tercero no implementa el reenvío de ref, el patrón anterior se puede utilizar como una alternativa de todas formas.
 
-A great focus management example is the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on
-the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that
-initially triggered the modal.
 
->Note:
+Un gran ejemplo de gestión de foco es el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este es un ejemplo relativamente raro de una ventana modal totalmente accesible. No solo establece el foco inicial en el botón de cancelación (lo que evita que el usuario de teclado active accidentalmente la acción exitosa) y atrapa el foco del teclado dentro del modal, sino que también restablece el foco hacia el elemento que inicialmente activó el modal.
+
+>Nota:
 >
->While this is a very important accessibility feature, it is also a technique that should be used judiciously. Use it to repair the keyboard focus flow when it is disturbed, not to try and anticipate how
->users want to use applications.
+>Si bien esta es una característica de accesibilidad muy importante, también es una técnica que debe usarse con prudencia. Úsalo para reparar el flujo de foco del teclado cuando está perturbado, no para intentar anticipar cómo 
+>los usuarios desean usar las aplicaciones.
 
 ## Mouse and pointer events {#mouse-and-pointer-events}
 
