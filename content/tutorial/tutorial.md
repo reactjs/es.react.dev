@@ -739,7 +739,7 @@ function calculateWinner(squares) {
 }
 ```
 
-Llamaremos a `calculateWinner(squares)` en el método `render` del componente Board para revisar si un jugador a ganado. Si un jugador ha ganado, podemos mostrar un texto como: "Winner: X" o "Winner: O". Reemplazaremos la declaración del `status` en el método `render` de Board con este código:
+Llamaremos a `calculateWinner(squares)` en el método `render` del componente Board para revisar si un jugador ha ganado. Si un jugador ha ganado, podemos mostrar un texto como: "Winner: X" o "Winner: O". Reemplazaremos la declaración del `status` en el método `render` de Board con este código:
 
 ```javascript{2-8}
   render() {
