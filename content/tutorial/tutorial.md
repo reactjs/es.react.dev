@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro a React"
+title: "Tutorial: Introducción a React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -31,7 +31,7 @@ Este tutorial está dividido en varias secciones:
 
 No tienes que completar todas las secciones a la vez para obtener el valor de este tutorial. Prueba llegar tan lejos como puedas, incluso si es una o dos secciones.
 
-Está bien copiar y pegar el código mientras sigues el tutorial, pero te recomendamos que lo escribaas a mano. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
+Está bien copiar y pegar el código mientras sigues el tutorial, pero te recomendamos que lo escribas a mano. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
 
 ### ¿Qué estamos construyendo? {#what-are-we-building}
 
@@ -47,7 +47,7 @@ Puedes cerrar el juego de tic-tac-toe una vez que te familiarizaste con él. Emp
 
 Asumimos que tienes cierta familiaridad con HTML y JavaScript, pero deberías ser capaz de seguir adelante incluso si vienes de un lenguaje de programación diferente. También suponemos que estás familiarizado con conceptos de programación como funciones, objetos, arrays, y en menor medida, clases.
 
-Si necesitas revisar JavaScript, te recomendamos leer [esta guía](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Ten en cuenta que también usamos algunas características de ES6, una versión reciente de JavaScript. En este tutorial, estamos usando [funciones flecha](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [clases](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), sentencias [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) y [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Puedes usar el [Babel REPL](babel://es5-syntax-example) para revisar a qué código compila ES6.
+Si necesitas revisar JavaScript, te recomendamos leer [esta guía](https://developer.mozilla.org/es/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Ten en cuenta que también usamos algunas características de ES6, una versión reciente de JavaScript. En este tutorial, estamos usando [funciones flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [clases](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), sentencias [`let`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/let) y [`const`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/const). Puedes usar el [Babel REPL](babel://es5-syntax-example) para revisar a qué código compila ES6.
 
 ## Configuración para el tutorial {#setup-for-the-tutorial}
 
@@ -80,7 +80,7 @@ Esta configuración requiere más trabajo pero te permite completar el tutorial 
 npx create-react-app my-app
 ```
 
-1. Elimina todos los archivos en la carpeta `src/` del nuevo proyecto.
+3. Elimina todos los archivos en la carpeta `src/` del nuevo proyecto.
 
 > Nota:
 >
@@ -100,11 +100,11 @@ del *
 cd ..
 ```
 
-1. Agrega un archivo llamado `index.css` en la carpeta `src/` con [este código CSS](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. Agrega un archivo llamado `index.css` en la carpeta `src/` con [este código CSS](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-2. Agrega un archivo llamado `index.js` en la carpeta `src/` con [este código JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. Agrega un archivo llamado `index.js` en la carpeta `src/` con [este código JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-3. Agrega estas 3 líneas en la parte superior del archivo `index.js` en la carpeta `src/`:
+6. Agrega estas 3 líneas en la parte superior del archivo `index.js` en la carpeta `src/`:
 
 ```js
 import React from 'react';
@@ -128,7 +128,7 @@ Ahora que está tu entorno configurado, ¡vamos a obtener una visión general de
 
 ### ¿Qué es React? {#what-is-react}
 
-React es una librería de JavaScript declarativa, eficiente y flexible para construir interfaces de usuario. Permite componer UIs complejas de pequeñas y aisladas piezas de código llamadas "componentes".
+React es una librería de JavaScript declarativa, eficiente y flexible para construir interfaces de usuario. Permite componer IUs complejas de pequeñas y aisladas piezas de código llamadas "componentes".
 
 React tiene pocos tipos diferentes de componentes, pero vamos a empezar con la subclase `React.Component`:
 
@@ -170,7 +170,7 @@ Si tienes curiosidad, `createElement()` está descrito en más detalle en la [re
 
 JSX viene con todo el poder de JavaScript. Puedes poner *cualquier* expresión de JavaScript en el interior de las llaves dentro de JSX. Cada elemento de React es un objeto de JavaScript que puedes almacenar en una variable o pasar alrededor de tu programa.
 
-El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componener y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir UIs complejas desde componentes simples.
+El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componener y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir IUs complejas desde componentes simples.
 
 ## Inspeccionando el código inicial {#inspecting-the-starter-code}
 
@@ -246,7 +246,7 @@ Si hacemos click en un cuadrado ahora, deberíamos de obtener una alerta en nues
 
 >Nota
 >
->Para continuar escribiendo código sin problemas y evitar el [confuso comportamiento de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), vamos a usar la [sintaxis de funciones flecha](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) para manejar eventos aquí y más abajo:
+>Para continuar escribiendo código sin problemas y evitar el [confuso comportamiento de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), vamos a usar la [sintaxis de funciones flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions) para manejar eventos aquí y más abajo:
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -289,7 +289,7 @@ class Square extends React.Component {
 
 >Nota
 >
->En las [clases de JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), necesitas siempre llamar `super` cuando defines el constructor de una subclase. Todas las clases de componentes de React que tienen un `constructor` deben empezar con una llamada a `super(props)`.
+>En las [clases de JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes), necesitas siempre llamar `super` cuando defines el constructor de una subclase. Todas las clases de componentes de React que tienen un `constructor` deben empezar con una llamada a `super(props)`.
 
 Ahora vamos a cambiar el método `render` de Square para mostrar el valor del estado actual cuando es clickeado:
 
@@ -297,7 +297,7 @@ Ahora vamos a cambiar el método `render` de Square para mostrar el valor del es
 * Reemplaza el manejador de evento `() => alert()` por `() => this.setState({value: 'X'})`.
 * Pon los props `className` y `onClick` en líneas separadas para mejor legibilidad.
 
-Luedo de estos cambios, la etiqueta `<button>` que es retornada del método `render` de Square se ve así:
+Luego de estos cambios, la etiqueta `<button>` que es retornada del método `render` de Square se ve así:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -333,9 +333,9 @@ La extensión de React Devtools para [Chrome](https://chrome.google.com/webstore
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-El React DevTools te permite revisar las props y el estado de tus componentes de React.
+React DevTools te permite revisar los props y el estado de tus componentes de React.
 
-Después de instalar React DevTools, puedes hacer click derecho en cualquier elemento de la página, click en "Inspect" para abrir las herramientas de desarrollo, y la pestaña de React aparecerá como la última pestaña a la derecha.
+Después de instalar React DevTools, puedes hacer click derecho en cualquier elemento de la página, click en "Inspeccionar elemento" para abrir las herramientas de desarrollo, y la pestaña de React aparecerá como la última pestaña a la derecha.
 
 **Sin embargo, notar que hay unos cuantos pasos extras para hacerlo funcionar con CodePen:**
 
@@ -354,7 +354,7 @@ Actualmente, cada componente Square mantiene el estado del juego. Para determina
 
 Podemos pensar que el tablero debería solo preguntar a cada cuadrado por su estado. Aunque este enfoque es posible en React, te incentivamos a que no lo uses porque el código se vuelve difícil de ententer, susceptible a errores, y difícil de refactorizar. En su lugar, el mejor enfoque es almacenar el estado del juego en el componente padre Board en vez de cada componente Square. El componente Board puede decirle a cada cuadrado que mostrar pasándole un prop [tal cual hicimos cuando pasamos un número a cada cuadrado](#passing-data-through-props).
 
-**Para recopilar datos de múltiples hijos, o tener dos componentes hijos comunicados entre si, necesitas declarar el estado compartido en su componente padre. El componente padre puede pasar el estado hacia los hijos usando props; esto mantiene los componentes hijos sincronizados entre ellos y con su componente padre.**
+**Para recopilar datos de múltiples hijos, o tener dos componentes hijos comunicados entre sí, necesitas declarar el estado compartido en su componente padre. El componente padre puede pasar el estado hacia los hijos usando props; esto mantiene los componentes hijos sincronizados entre ellos y con su componente padre.**
 
 Elevar el estado al componente padre es común cuando componentes de React son refactorizados, vamos a tomar esta oportunidad para intentarlo. Añadiremos un constructor al Board y estableceremos el estado inicial de Board para contener un arreglo con 9 valores null. Estos 9 nulls corresponden a los 9 cuadrados:
 
@@ -372,7 +372,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Siguiente jugador: X';
+    const status = 'Next player: X';
 
     return (
       <div>
@@ -430,7 +430,7 @@ Ahora usaremos el prop pasando el mecanismo otra vez. Modificaremos el Board par
 
 Cada Square ahora recibirá un prop `value` que será `'X'`, `'O'`, ó `null` para cuadrados vacíos.
 
-Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualiza el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el stado de Board directamente desde Square.
+Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualiza el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el estado de Board directamente desde Square.
 
 Para mantener el estado de Board privado, necesitamos pasar una función como prop desde Board a Square. Esta función será llamada cuando un cuadrado es clickeado. Cambiaremos el método `renderSquare` en Board a:
 
@@ -482,9 +482,9 @@ Cuando un cuadrado es clickeado, la función `onClick` provista por el component
 
 >Nota
 >
->El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. PAra componentes personalizados como Square, la nomenclatura la decides tú. Podemos nombrar el prop `onClick` de Square o el método `handleClick` de Board diferente. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Event]` para los métodos que manejan los eventos.
+>El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. Para componentes personalizados como Square, la nomenclatura la decides tú. Podemos nombrar el prop `onClick` de Square o el método `handleClick` de Board diferente. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Event]` para los métodos que manejan los eventos.
 
-Cuando intentamos clickear un cuadrado, deberíamos obtener un eerror porque no hemos definido `handleClick` aun. Vamos ahora a agregar `handleClick` a la clase Board:
+Cuando intentamos clickear un cuadrado, deberíamos obtener un error porque no hemos definido `handleClick` aun. Vamos ahora a agregar `handleClick` a la clase Board:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -549,7 +549,7 @@ Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array
 
 En el ejemplo de código anterior, sugerimos que uses el operador `.slice()` para crear una copia del array de `squares` para modificar en vez de modificar el array existente. Ahora discutiremos inmutabilidad y porqué es importante aprenderlo.
 
-Hay generalmente dos enfoques para cambiar datos. El primer enfoque es *mutar* los datos directamente cambienado sus valores. El segundo enfoque es reemplazar los datos con una nueva copia que tiene los cambios deseados.
+Hay generalmente dos enfoques para cambiar datos. El primer enfoque es *mutar* los datos directamente cambiando sus valores. El segundo enfoque es reemplazar los datos con una nueva copia que tiene los cambios deseados.
 
 #### Cambio de datos con mutación {#data-change-with-mutation}
 ```javascript
@@ -573,7 +573,7 @@ El resultado final es el mismo, pero al no mutar (o cambiar los datos subyacente
 
 #### Funcionalidades complejas se vuelven simples {#complex-features-become-simple}
 
-Inmutabilidad hace que funcionalidades complejas sean mucho más fácil de implementar. Luego en este tutorial, implementaremos una funcionalidad de "viaje en el tiempo" que nos permite repasar el historial del juego tic-tac-toe y "volver" a movimientos previos. Esta funcionalidad no es específica de juegos, una habilidad de deshacer y rehacer ciertas acciones es un requerimiento común en aplicaciones. Evitar la mutación de datos directamente nos permite mantener intacto versiones previas del historial del juego, y reusarlas luego.
+La inmutabilidad hace que funcionalidades complejas sean mucho más fácil de implementar. Luego en este tutorial, implementaremos una funcionalidad de "viaje en el tiempo" que nos permite repasar el historial del juego tic-tac-toe y "volver" a movimientos previos. Esta funcionalidad no es específica de juegos, una habilidad de deshacer y rehacer ciertas acciones es un requerimiento común en aplicaciones. Evitar la mutación de datos directamente nos permite mantener intacto versiones previas del historial del juego, y reusarlas luego.
 
 #### Detectar cambios {#detecting-changes}
 
@@ -647,7 +647,7 @@ Con este cambio, "X"s y "O"s pueden tomar turnos. También vamos a cambiar el te
 
 ```javascript{2}
   render() {
-    const status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       // el resto no ha cambiado
@@ -684,7 +684,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
@@ -739,16 +739,16 @@ function calculateWinner(squares) {
 }
 ```
 
-Llamaremos a `calculateWinner(squares)` en el método `render` del componente Board para revisar si un jugador a ganado. Si un jugador ha ganado, podemos mostrar un texto como: "Ganador: X" o "Ganador: O". Reemplazaremos la declaración del `status` en el método `render` de Board con este código:
+Llamaremos a `calculateWinner(squares)` en el método `render` del componente Board para revisar si un jugador a ganado. Si un jugador ha ganado, podemos mostrar un texto como: "Winner: X" o "Winner: O". Reemplazaremos la declaración del `status` en el método `render` de Board con este código:
 
 ```javascript{2-8}
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Ganador: ' + winner;
+      status = 'Winner: ' + winner;
     } else {
-      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -890,9 +890,9 @@ class Board extends React.Component {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Ganador: ' + winner;
+      status = 'Winner: ' + winner;
     } else {
-      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -929,9 +929,9 @@ Actualizaremos el método `render` del componente Game para usar la entrada más
 
     let status;
     if (winner) {
-      status = 'Ganador: ' + winner;
+      status = 'Winner: ' + winner;
     } else {
-      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -1011,7 +1011,7 @@ Desde que grabamos el historial del juego tic-tac-toe, ahora podemos mostrarlo a
 
 Aprendimos antes que los elementos de React son objetos de primera clase en JavaScript; así que podemos pasarlo alrededor de nuestras aplicaciones. Para renderizar múltiples elementos en React, podemos usar un array de elementos de React.
 
-En JavaScript, los arrays tienen un [método `map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que es comúnmente usado para mapear datos a otros datos, por ejemplo:
+En JavaScript, los arrays tienen un [método `map()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que es comúnmente usado para mapear datos a otros datos, por ejemplo:
 
 ```js
 const numbers = [1, 2, 3];
@@ -1030,8 +1030,8 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Ir al movimiento #' + move :
-        'Ir a inicio del juego';
+        'Go to move #' + move :
+        'Go to game start';
       return (
         <li>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -1041,9 +1041,9 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
     let status;
     if (winner) {
-      status = 'Ganador: ' + winner;
+      status = 'Winner: ' + winner;
     } else {
-      status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -1117,8 +1117,8 @@ En el método `render` del componente Game, podemos agregar el key como `<li key
 ```js{6}
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Ir al movimiento #' + move :
-        'Ir al inicio del juego';
+        'Go to move #' + move :
+        'Go to game start';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -1226,6 +1226,6 @@ Si tienes un tiempo extra o quieres practicar tus nuevas habilidades de React, a
 3. Reescribe el Board para usar 2 ciclos para hacer los cuadrados en vez de escribirlos a mano.
 4. Agrega un botón de switch que te permita ordenar los movimientos en orden ascendente o descendente.
 5. Cuando alguien gana, resalta los 3 cuadrados que hicieron que gane.
-6. Cuando nadie gane, muestra un mensaje acerca de que el resultado es un empate.
+6. Cuando nadie gana, muestra un mensaje acerca de que el resultado es un empate.
 
 A lo largo de este tutorial, hemos abordado conceptos de React incluyendo elementos, componentes, props, y estado. Para una explicación más detallada de cada uno de estos temas, revisa [el resto de la documentación](/docs/hello-world.html). Para aprender más acerca de definir componentes, revisa la [referencia del API de `React.Component`](/docs/react-component.html).
