@@ -8,10 +8,10 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Manejar eventos con elementos de React es muy similar a manejar eventos con elementos del Dom.. Solo hay una diferencias de sintaxis:
+Manejar eventos en elementos de React es muy similar a manejar eventos con elementos del Dom. Hay algunas diferencias de sintaxis:
 
 * Los eventos de React se nombran usando camelCase, en vez de minúsculas.
-* En JSX se pasa la función como el manejador del evento, en vez de una cadena de texto.
+* Con JSX pasas una función como el manejador del evento, en vez de un string.
 
 Por ejemplo, el HTML:
 
@@ -56,9 +56,9 @@ function ActionLink() {
 
 Aquí, `e` es un evento sintético. React define estos eventos sintéticos acorde a las [especificaciones W3C](https://www.w3.org/TR/DOM-Level-3-Events/), entonces no debes preocuparte por la compatibilidad a tráves de los navegadores. Mira la guía de referencia [`SyntheticEvent`](/docs/events.html) para aprender más.
 
-Cuando estás utilizando React, generalmente, no debes llamar `addEventListener` para agregar manejadores de eventos a un elemento del DOM después de que este es creado. Por el contrario, solo debes proveer un manejador de eventos cuando el elemento es inicialmente renderizado.
+Cuando estás utilizando React, generalmente, no debes llamar `addEventListener` para agregar escuchadores de eventos a un elemento del DOM después de que este es creado. Por el contrario, solo debes proveer un manejador de eventos cuando el elemento es inicialmente renderizado.
 
-Cuando defines un componente usando [clases de ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes), un patrón muy común es que los manejadores de eventos sean un método de la clase. Por ejemplo, este componente `Toggle` renderiza un botón que permite al usuario cambiar el estado entre "PRENDIDO" y "APAGADO":
+Cuando defines un componente usando una [clase de ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes), un patrón muy común es que los manejadores de eventos sean un método de la clase. Por ejemplo, este componente `Toggle` renderiza un botón que permite al usuario cambiar el estado entre "ENCENDIDO" y "APAGADO":
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -66,7 +66,7 @@ class Toggle extends React.Component {
     super(props);
     this.state = {isToggleOn: true};
 
-    // Esta ligadura es necesaria para hacer que `this` funcione en el callback
+    // Este enlace es necesario para hacer que `this` funcione en el callback
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -95,7 +95,7 @@ ReactDOM.render(
 
 Tienes que tener mucho cuidado en cuanto al significado de `this` en los callbacks de JSX. En JavaScript, los métodos de clase no están [ligados](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) por defecto. Si olvidas ligar `this.handleClick` y lo pasas a `onClick`, `this` sera `undefined` cuando se llame la función.
 
-Esto no es un comportamiento especifico de React; esto hace parte de [como funcionan las funciones JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalmente, si refieres un método sin usar `()` después de este, tal como `onClick={this.handleClick}`, deberías ligar ese método.
+Esto no es un comportamiento especifico de React; esto hace parte de [como operan las funciones JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalmente, si refieres un método sin usar `()` después de este, tal como `onClick={this.handleClick}`, deberías ligar ese método.
 
 Si te molesta llamar `bind`, existen dos maneras de evitarlo. Si usas la sintaxis experimental [campos publicos de clases](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar los campos de clases para ligar los callbacks correctamente:
 
@@ -118,8 +118,8 @@ class LoggingButton extends React.Component {
 ```
 
 Esta sintaxis está habilitada por defecto en [Create React App](https://github.com/facebookincubator/create-react-app).
-:
-Si no estas usando la sintaxis de campos publicos de clases, puedes usar [funciones flecha](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) en el callback:
+
+Si no estas usando la sintaxis de campos publicos de clases, puedes usar una [función flecha](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) en el callback:
 
 ```js{7-9}
 class LoggingButton extends React.Component {
@@ -138,9 +138,9 @@ class LoggingButton extends React.Component {
 }
 ```
 
-El problema con esta sintaxis es que un callback diferente es creado cada vez que `LogginButton` es renderizado. En la mayoría de los casos, esto está bien. Sin embargo, si este callback se pasa como una propiedad a componentes más bajos, estos componentes podría renderizarse nuevamente. Nosotros, generalmente, recomendamos ligar en el constructor o usar la sintaxis de campos de clases, para evitar esta clase de problemas de rendimiento.
+El problema con esta sintaxis es que un callback diferente es creado cada vez que `LogginButton` es renderizado. En la mayoría de los casos, esto está bien. Sin embargo, si este callback se pasa como una propiedad a componentes más bajos, estos componentes podrían renderizarse nuevamente. Generalmente, recomendamos ligar en el constructor o usar la sintaxis de campos de clases, para evitar esta clase de problemas de rendimiento.
 
-## Pasando Argumentos a un Manejador de Eventos {#passing-arguments-to-event-handlers}
+## Pasando Argumentos a Escuchadores de Eventos {#passing-arguments-to-event-handlers}
 
 Dentro de un bucle es muy común querer pasar un parámetro extra a un manejador de eventos. Por ejemplo, si `id` es el ID de una fila, cualquiera de los códigos a continuación podría funcionar:
 
