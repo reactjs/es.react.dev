@@ -220,7 +220,7 @@ class Alphabet extends React.Component {
 
 ### ¿Cómo puede prevenir que una función sea llamada muy rápidamente o muchas veces seguidas? {#how-can-i-prevent-a-function-from-being-called-too-quickly-or-too-many-times-in-a-row}
 
-Si tienes un controlador de eventos como `onClick` o `onScroll` y quieres prevenir que un callback sea disparado antes de tiempo, puedes limitar la tasa en la cual este callback es ejecutado. Se puede lograr usando:
+Si tienes un controlador de eventos como `onClick` o `onScroll` y quieres prevenir que un *callback* sea disparado antes de tiempo, puedes limitar la tasa en la cual este *callback* es ejecutado. Se puede lograr usando:
 
 - **throttle**: regula los cambios siguiendo una frecuencia basada en el tiempo (ej. [`_.throttle`](https://lodash.com/docs#throttle))
 - **debounce**: publica cambios después de un periodo de inactividad (ej. [`_.debounce`](https://lodash.com/docs#debounce))
@@ -230,11 +230,11 @@ Mira [esta visualización](http://demo.nimius.net/debounce_throttle/) para ver l
 
 > Nota:
 >
->`_.debounce`, `_.throttle` y `raf-schd` proporcionan el método `cancel` para cancelar callbacks retrasados. Puedes llamar este método dentro de `componentWillUnmount` _o_ corrobora que el componente sigue montado dentro de la función retrasada.
+>`_.debounce`, `_.throttle` y `raf-schd` proporcionan el método `cancel` para cancelar *callbacks* retrasados. Puedes llamar este método dentro de `componentWillUnmount` _o_ corrobora que el componente sigue montado dentro de la función retrasada.
 
 #### Throttle {#throttle}
 
-Throttling previene que una función sea llamada mas de una vez según el tiempo determinado. El ejemplo que se encuentra debajo estrangula o hace throttle de un controlador de evento tipo click para prevenir que se llame mas de una vez por segundo.
+*Throttle* previene que una función sea llamada más de una vez según el tiempo determinado. El ejemplo que se encuentra debajo regula un controlador de evento tipo click para prevenir que se llame más de una vez por segundo.
 
 ```jsx
 import throttle from 'lodash.throttle';
@@ -262,7 +262,7 @@ class LoadMoreButton extends React.Component {
 
 #### Debounce {#debounce}
 
-Debouncing asegura que una función no va a ser ejecutada hasta que cierta cantidad de tiempo haya pasado desde la última vez que fue llamada. Esto puede ser muy útil cuando tienes que realizar operaciones demandantes como respuesta de un evento que puede ejecutarse muy rápido (ejemplo eventos de scroll o teclado). El siguiente ejemplo hace debounce de una entrada de texto con un delay de 250ms.
+*Debounce* asegura que una función no va a ser ejecutada hasta que cierta cantidad de tiempo haya pasado desde la última vez que fue llamada. Esto puede ser muy útil cuando tienes que realizar operaciones demandantes como respuesta de un evento que puede ejecutarse muy rápido (ejemplo eventos de scroll o teclado). El siguiente ejemplo hace *debounce* de una entrada de texto con un demora de 250ms.
 
 ```jsx
 import debounce from 'lodash.debounce';
@@ -351,4 +351,4 @@ class ScrollListener extends React.Component {
 
 #### Probando tu límite de cuadros {#testing-your-rate-limiting}
 
-Cuando probamos limites de cuadros de forma correcta, es muy útil tener la habilidad de adelantar el tiempo. Si estás utilizando [`jest`](https://facebook.github.io/jest/) puedes usar [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) para adelantar el tiempo. Si estás utilizando throttle de `requestAnimationFrame` podrías encontrar útil [`raf-stub`](https://github.com/alexreardon/raf-stub) para controlar la frecuencia de los cuadros de animación.
+Cuando probamos límites de cuadros de forma correcta, es muy útil tener la habilidad de adelantar el tiempo. Si estás utilizando [`jest`](https://facebook.github.io/jest/) puedes usar [`mock timers`](https://facebook.github.io/jest/docs/en/timer-mocks.html) para adelantar el tiempo. Si estás utilizando *throttle* con `requestAnimationFrame` podrías encontrar útil [`raf-stub`](https://github.com/alexreardon/raf-stub) para controlar la frecuencia de los cuadros de animación.
