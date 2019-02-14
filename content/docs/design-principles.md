@@ -16,7 +16,7 @@ Nosotros escribimos este documento para que tengas una mejor idea de como decidi
 >
 >Para una introducción a React, chequea en su lugar [Pensando en React](/docs/thinking-in-react.html).
 
-### Composición
+### Composición {#composition}
 
 La característica clave de React es la composición de componentes. Los componentes escritos por distintas personas deben trabajar bien en conjunto. Es importante para nosotros que puedas añadir funcionalidad a un componente sin causar una ola de cambios a lo largo de la base de código.
 
@@ -26,7 +26,7 @@ No hay nada "malo" acerca de usar estado o métodos del ciclo de vida en compone
 
 Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](http://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
 
-### Abstracciones Comunes
+### Abstracciones Comunes {#common-abstraction}
 
 En general [evitamos añadir funcionalidades](https://www.youtube.com/watch?v=4anAwXYqLG8) que puedan ser implementadas en espacio de usuario. No queremos sobrecargar tus aplicaciones con código de biblioteca que sea inútil. Sin embargo, existen excepciones.
 
@@ -36,13 +36,13 @@ Es por eso que algunas veces añadimos funcionalidades a React. Si notamos que m
 
 Siempre discutimos estas propuestas de mejora con la comunidad. Puedes encontrar algunas de estas discusiones con la etiqueta ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") en el gestionador de defectos de React.
 
-### Válvulas de Escape
+### Válvulas de Escape {#escape-hatches}
 
 React es pragmático. Esta guiado por la necesidad de los productos escritos en Facebook. Si bien es influenciado por algunos paradigmas que aún no son totalmente convencionales, tales como la programación funcional, mantenerlo accessible a un amplio rango de programadores con distintos niveles de experiencia y habilidades es uno de los objetivos explícitos del proyecto.
 
 Si queremos descontinuar un patrón que no nos gusta, es nuestra responsabilidad considerar todos los casos de uso existentes para el, y antes de descontinuarlo [educar a la comunidad respecto a las alternativas](/blog/2016/07/13/mixins-considered-harmful.html). Si algún patrón es útil para construir aplicaciones, pero es difícil de expresar de una manera declarativa, [proveeremos un API imperativo](/docs/more-about-refs.html). Si no podemos encontrar una API perfecta para algo que consideramos necesario en múltiples aplicaciones, [temporalmente proporcionaremos una API funcional](/docs/legacy-context.html) siempre y cuando sea posible librarnos de ella posteriormente, y se deje la puerta abierta a mejoras futuras.
 
-### Estabilidad
+### Estabilidad {#stability}
 
 Valoramos la estabilidad del API. En Facebook tenemos más de 50 mil componentes usando React. Muchas otras compañías, incluyendo [Twitter](https://twitter.com/) y [Airbnb](https://www.airbnb.com/), también usan React extensamente. Es por eso que usualmente somos reacios a cambiar APIs o comportamientos públicos.
 
@@ -62,13 +62,13 @@ Cuando añadimos una advertencia de descontinuación, la mantenemos por el resto
 
 Puedes encontrar los *codemods* que hemos liberado en el repositorio [react-codemod](https://github.com/reactjs/react-codemod).
 
-### Interoperabilidad
+### Interoperabilidad {#interoperability}
 
 Valoramos altamente la interoperabilidad con sistemas existentes y la adopción gradual. Facebook tiene una base de código masiva que no es React. Sus sitios web usan una mezcla de un sistema de componentes del lado de servidor llamado XHP, bibliotecas internas de interfaz de usuario previas a React, y React. Para nosotros es importante que cualquier equipo de producto pueda [comenzar usando React para una funcionalidad pequeña](https://www.youtube.com/watch?v=BF58ZJ1ZQxY) en vez de reescribir su código para apostar por el.
 
 Es por eso que React provee válvulas de escape para trabajar con modelos mutables, y trata de trabajar bien con otras bibliotecas de interfaz de usuario. Puedes envolver una interfaz de usuario imperativa en un componente declarativo, y viceversa. Esto es crucial para la adopción gradual.
 
-### Planificación
+### Planificación {#scheduling}
 
 Incluso cuando tus componentes son descritos como funciones, al usar React no los llamas directamente. Cada componente retorna una [descripción de lo que necesita ser renderizado](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree), y dicha descripción puede incluir componentes escritos por el usuario como `<LikeButton>` y componentes específicos de la plataforma como `<div>`. Corresponde a React "desenrollar" `<LikeButton>` en algún momento en el futuro y aplicar recursivamente los cambios al árbol de interfaz de usuario de acuerdo a los resultados de renderizar los componentes.
 
@@ -88,7 +88,7 @@ Es un objetivo clave para React que la cantidad del código de usuario que se ej
 
 Tenemos un chiste interno en el equipo de React acerca de que debería haberse llamado *"Schedule"* (el inglés para Plan), ya que React no quiere ser completamente "reactivo".
 
-### Experiencia de Desarrollador
+### Experiencia de Desarrollador {#developer-experience}
 
 Proveer una buena Experiencia de Desarrollador es importante para nosotros.
 
@@ -100,7 +100,7 @@ Los patrones de uso que observamos internamente en Facebook nos permiten entende
 
 Siempre estamos buscando formas de mejorar la experiencia de desarrollo. Nos encantaría oir tus sugerencias y aceptar contribuciones para mejorarla aún más.
 
-### Depuración
+### Depuración {#debugging}
 
 Cuando algo sale mal, es importante contar con las migajas de pan que te permitan rastrear el error a su origen en la base de código. En React, los *props* y el estado son esas migajas de pan.
 
@@ -114,7 +114,7 @@ Esta capacidad de rastrear cualquier interfaz de usuario hasta los datos que la 
 
 Si bien la interfaz de usuario es dinámica, creemos que funciones `render()` síncronas en función de los *props* y el estado convierten la depuración de un trabajo adivinatorio en un procedimiento aburrido pero finito. Nos gustaría preservar esta restricción en React incluso si hace algunos casos de uso, tales como animaciones complejas, más difíciles. 
 
-### Configuración
+### Configuración {#configuration}
 
 Encontramos que las opciones de configuración globales en tiempo de ejecución son problemáticas.
 
@@ -124,7 +124,7 @@ Qué pasaría si alguien llama dicha función desde una biblioteca de componente
 
 Sin embargo, si proveemos alguna configuración global a nivel de compilación. Por ejemplo, proveemos procesos de compilación separados para desarrollo y producción. Podríamos también  [incluir una compilación para análisis de rendimiento](https://github.com/facebook/react/issues/6627) en el futuro, y estamos abiertos a considerar otras opciones de compilación.
 
-### Más allá del DOM
+### Más allá del DOM {#beyond-the-dom}
 
 Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](http://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
 
@@ -132,13 +132,13 @@ Ser agnóstico al renderizador es una restricción de diseño importante para Re
 
 Tener un modelo de programación único nos permite formar equipos de ingeniería alrededor de productos, en lugar de plataformas. Hasta ahora este sacrificio ha valido la pena.
 
-### Implementación
+### Implementación {#implementation}
 
 Tratamos de proveer APIs elegantes donde sea posible. Estamos mucho menos preocupados con que la implementación sea elegante. El mundo real está muy lejos de ser perfecto, y en una medida razonable preferimos poner el código feo en la biblioteca si eso significa que el usuario no tiene que escribirlo. Cuando evaluamos nuevo código, buscamos una implementación correcta, con buen rendimiento y que permita una buena experiencia de desarrollo. La elegancia es secundaria.
 
 Preferimos código aburrido a código inteligente. El código es descartable y cambia a menudo. Así que es importante que [no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario](https://youtu.be/4anAwXYqLG8?t=13m9s). Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que este abstraido de manera prematura y que sea difícil de cambiar. 
 
-### Optimizado para Instrumentación
+### Optimizado para Instrumentación {#optimized-for-tooling}
 
 Algunas APIs comúnmente usadas tienen nombres detallados. Por ejemplo, usamos `componentDidMount()` en lugar de `didMount()` o `onMount()`. Esto es [intencional](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). El objetivo es hacer los puntos de interacción con la biblioteca ampliamente visibles.
 
@@ -150,7 +150,7 @@ Optimizar para la búsqueda también es importante  por nuestra dependencia de [
 
 En nuestra base de código, JSX provee una pista inequívoca a las herramientas de que están tratando con un árbol de elementos de React. Esto hace posible añadir optimizaciones en tiempo de compilación tales como [elevar elementos constantes](http://babeljs.io/docs/plugins/transform-react-constant-elements/), y de forma segura validar y aplicar *codemods* al uso interno de componentes, e [incluir la ubicación del código fuente JSX](https://github.com/facebook/react/pull/6771)  en las advertencias.
 
-### *Dogfooding*
+### *Dogfooding* {#dogfooding}
 
 Hacemos todo lo posible para abordar los problemas planteados por la comunidad. Sin embargo, es probable que prioricemos los problemas que las personas *también* experimentan internamente en Facebook. Quizás de manera contraria a la intuición, creemos que esta es la razón principal por la que la comunidad puede apostar por React.
 
