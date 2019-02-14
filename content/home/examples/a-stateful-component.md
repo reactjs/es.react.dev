@@ -1,7 +1,7 @@
 ---
-title: Un componente con estado
+title: Un Componente Con Estado
 order: 1
 domid: timer-example
 ---
 
-Además de recibir datos de entrada (a través de `this.props`), un componente puede tener un estado interno de los datos (a través de `this.state`). Cuando el estado de un componente componente cambia sus datos, los elementos renderizados serán actualizados mediante la re-invocación de render().
+Además de obtener datos de entrada (a los que accedes a través de `this.props`),un componente puede tener datos en su estado internamente (a los que accedes a través de `this.state`). Cuando el estado del componente cambie de datos, el cambio se representará actualizando e invocando `render()`.
