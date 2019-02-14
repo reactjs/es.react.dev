@@ -40,7 +40,7 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Cómo obtengo los props o el estado previo?](#how-to-get-the-previous-props-or-state)
   * [¿Cómo implemento getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [¿Hay algo similar a forceUpdate?](#is-there-something-like-forceupdate)
-  * [¿Puedo crear una referencia (ref) a un Componente función?](#can-i-make-a-ref-to-a-function-component)
+  * [¿Puedo crear una referencia (ref) a un Componente de función?](#can-i-make-a-ref-to-a-function-component)
   * [¿Qué significa [thing, setThing] = useState()?](#what-does-const-thing-setthing--usestate-mean)
 * **[Optimizaciones de desempeño](#performance-optimizations)**
   * [¿Puedo saltarme un efecto durante las actualizaciones?](#can-i-skip-an-effect-on-updates)
@@ -87,7 +87,7 @@ Los Hooks tienen también su propia curva de aprendizaje. Si hay algo faltante e
 
 Cuando estés listo, te recomendamos empezar a usar Hooks en los nuevos componentes que escribas. Asegúrate que todo tu equipo esté de acuerdo en usarlos, y que estén familiarizados con esta documentación. No recomendamos reescribir tus classes exitentes a menos de que hayas planeado reescribirlas de cualquier manera (por ejemplo para arreglar bugs).
 
-No puedes usar Hooks *dentro* de un Componente Clase, pero definitivamente puedes mezclar componentes clase y componentes función con Hooks en un mismo árbol. Si un componente es una clase, o una función que utiliza Hooks es un detalle de implementación del Componente. A largo plazo, experamos que los Hooks sean la manera más usada de escribir Componentes de React.
+No puedes usar Hooks *dentro* de un Componente de Clase, pero definitivamente puedes mezclar componentes de clase y componentes de función con Hooks en un mismo árbol. Si un componente es una clase, o una función que utiliza Hooks es un detalle de implementación del Componente. A largo plazo, experamos que los Hooks sean la manera más usada de escribir Componentes de React.
 
 ### ¿Cubren los Hooks todos los casos de uso de las clases? {#do-hooks-cover-all-use-cases-for-classes}
 
@@ -115,7 +115,7 @@ Aún más importante, los Hooks personalizados tienen el poder de restringir la 
 
 Desde el punto de vista de React, un componente que use Hooks, sigue siendo un componente normal. Si las herramientas de testing que utilizas no depende de los mecanismos internos de React, testear los componentes que usen Hooks, no debería ser diferente de testear cualquier otro componente.
 
-Por ejemplo, asumamos que tenemos este componentes de Conteo:
+Por ejemplo, asumamos que tenemos este componente de Conteo:
 
 ```js
 function Example() {
@@ -155,7 +155,7 @@ afterEach(() => {
 });
 
 it('can render and update a counter', () => {
-  // Test first render and effect
+  // Testeamos el primer render y efecto
   act(() => {
     ReactDOM.render(<Counter />, container);
   });
@@ -164,7 +164,7 @@ it('can render and update a counter', () => {
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
 
-  // Test second render and effect
+  // Testeamos el segundo render y efecto
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
