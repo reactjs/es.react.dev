@@ -3,8 +3,8 @@ id: reconciliation
 title: Reconciliación
 permalink: docs/reconciliation.html
 ---
-React proporciona una API declarativa para que no tengas que preocuparte por qué es exactamente lo que cambia en cada actualización.
-Esto facilita mucho la escritura de aplicaciones, pero podría no ser obvio cómo se implementa esto dentro de React. Este artículo explica las elecciones que hicimos en el algoritmo "diferencial" de React para que las actualizaciones de los componentes sean predecibles y al mismo tiempo sean lo suficiente rápidas para las aplicaciones de alto rendimiento.
+
+React proporciona una API declarativa para que no tengas que preocuparte por qué es exactamente lo que cambia en cada actualización. Esto facilita mucho la escritura de aplicaciones, pero podría no ser obvio cómo se implementa esto dentro de React. Este artículo explica las elecciones que hicimos en el algoritmo "diferencial" de React para que las actualizaciones de los componentes sean predecibles y al mismo tiempo sean lo suficiente rápidas para las aplicaciones de alto rendimiento.
 
 ## Motivacion {#motivation}
 
@@ -140,9 +140,7 @@ Cuando ese no sea el caso, puede agregar una nueva propiedad de ID a su modelo o
 
 Como último recurso, puede pasar el índice de un elemento en la matriz como una clave. Esto puede funcionar bien si los items nunca se reordenan, pero los reordenamientos serán lentos.
 
-Reorganizar también puede causar problemas de estado del componente cuando los índices se utilizan como claves. 
-
-Si la clave es un índice, mover un elemento lo cambia. Como resultado, el estado el componente para cosas como entradas no controladas pueden mezclarse y actualizarse de manera inesperada.
+Reorganizar también puede causar problemas de estado del componente cuando los índices se utilizan como claves. Si la clave es un índice, mover un elemento lo cambia. Como resultado, el estado el componente para cosas como entradas no controladas pueden mezclarse y actualizarse de manera inesperada.
 
 [Aquí](codepen://reconciliation/index-used-as-key) es un ejemplo de los problemas que pueden ser causados por el uso de índices como claves en Codepen, y [aquí](codepen://reconciliation/no-index-used-as-key) es una versión actualizada del mismo ejemplo que muestra cómo no usar los índices como claves solucionará estos problemas de reordenación, clasificación y preparación.
 
