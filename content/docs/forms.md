@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-Los elementos de formularios en HTML funcionan un poco diferente a otros elementos del DOM en React, debido a que los elementos de formularios conservan naturalmente estados. Por ejemplo, este formulario solamente en HTML, acepta un solo nombre.
+Los elementos de formularios en HTML funcionan un poco diferente a otros elementos del DOM en React, debido a que los elementos de formularios conservan naturalmente algún estado interno. Por ejemplo, este formulario solamente en HTML, acepta un solo nombre.
 
 ```html
 <form>
@@ -66,7 +66,7 @@ class NameForm extends React.Component {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Ya que el atributo `value` es agregado en nuestro elemento del formulario, el valor mostrado siempre sera el de `this.state.value`, haciendo que el estado de React sea la fuente de la verdad. Ya que `handleChange` corre cada vez que una tecla es oprimida para actualizar el estado de React, el valor mostrado será actualizado mientras que el usuario escribe.
+Ya que el atributo `value` es agregado en nuestro elemento del formulario, el valor mostrado siempre será el de `this.state.value`, haciendo que el estado de React sea la fuente de la verdad. Ya que `handleChange` corre cada vez que una tecla es oprimida para actualizar el estado de React, el valor mostrado será actualizado mientras que el usuario escribe.
 
 Con un componente controlado, toda mutación del estado tendrá asociada una función controlador. Esto hace más directo modificar o validar la entrada del usuario. Por ejemplo, si quisiéramos asegurar que los nombres sean escritos con todas las letras en mayúscula, podríamos escribir el `handleChange` como:
 
@@ -82,18 +82,18 @@ En HTML, el elemento `<textarea>` define su texto por sus hijos:
 
 ```html
 <textarea>
-	Hola, esto es un poco de texto dentro de un área de texto
+  Hola, esto es un poco de texto dentro de un área de texto
 </textarea>
 ```
 
-En React, un `<textarea>` utiliza un atributo `value` en su lugar. De esta manera, un formulario que hace uso de un `<textarea>` puede ser escrito de manera similar a un formulario que utiliza un campo en una sola linea:
+En React, un `<textarea>` utiliza un atributo `value` en su lugar. De esta manera, un formulario que hace uso de un `<textarea>` puede ser escrito de manera similar a un formulario que utiliza un campo en una sola línea:
 
 ```javascript{4-6,12-14,26}
 class EssayForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-			value: 'Por favor escribe un ensayo sobre tu elemento del DOM favorito.'
+      value: 'Por favor escribe un ensayo sobre tu elemento del DOM favorito.'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -105,7 +105,7 @@ class EssayForm extends React.Component {
   }
 
   handleSubmit(event) {
-		alert('Un ensayo fue envíado: ' + this.state.value);
+    alert('Un ensayo fue enviado: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -123,7 +123,7 @@ class EssayForm extends React.Component {
 }
 ```
 
-Recuerda que `this.state.value` es inicializado en el constructor, de manera que el area de texto empiece con algo de texto.
+Recuerda que `this.state.value` es inicializado en el constructor, de manera que el área de texto empiece con algo de texto.
 
 ## La Etiqueta select {#the-select-tag}
 
@@ -180,11 +180,11 @@ class FlavorForm extends React.Component {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
 
-En resumen, esto hace que `<input type="text">`, `<textarea>`, y `<select>` trabajen de manera similar, todos soportan un atributo `value` el cual puedes usar para implementar un componente controlado.
+En resumen, esto hace que `<input type="text">`, `<textarea>`, y `<select>` trabajen de manera similar, todos aceptan un atributo `value` el cual puedes usar para implementar un componente controlado.
 
 > Nota
 >
-> Puedes pasar un array al atributo `value`, permitiendo que selecciones multiples opciones en una etiqueta `select`:
+> Puedes pasar un array al atributo `value`, permitiendo que selecciones múltiples opciones en una etiqueta `select`:
 >
 >```js
 ><select multiple={true} value={['B', 'C']}>
@@ -202,7 +202,7 @@ Ya que su valor es solo de lectura, es un componente **no controlado** en React.
 
 ## Manejando Múltiples Inputs {#handling-multiple-inputs}
 
-Cuando necesitas manejar múltiples elementos `input` controlados, puedes agregar un atributo `name` a cada uno de los elementos y dejar que la función controlador decida que hacer basado en el valor de `event.target.name`.
+Cuando necesitas manejar múltiples elementos `input` controlados, puedes agregar un atributo `name` a cada uno de los elementos y dejar que la función controladora decida que hacer basada en el valor de `event.target.name`.
 
 Por ejemplo:
 
@@ -275,9 +275,9 @@ También, ya que `setState()` automáticamente [combina un estado parcial al est
 
 ## Valor Nulo en un Input Controlado {#controlled-input-null-value}
 
-Especificar la propiedad `value` en un [componente controlado](/docs/forms.html#controlled-components) evita que el usuario cambie la entrada a menos que así lo quiera. Si has especificado un `value` pero la entrada aun es editable, quizás agregaste accidentalmente al `value` un valor `undefined` o `null`.
+Especificar la propiedad `value` en un [componente controlado](/docs/forms.html#controlled-components) evita que el usuario cambie la entrada a menos que así lo quiera. Si has especificado un `value` pero la entrada aún es editable, quizás agregaste accidentalmente al `value` un valor `undefined` o `null`.
 
-El código a continuación demuestra esto. (El input esta bloqueado en principio, pero se vuelve editable después de un corto retraso.)
+El código a continuación demuestra esto. (El input está bloqueado en principio, pero se vuelve editable después de un corto retraso).
 
 ```javascript
 ReactDOM.render(<input value="hi" />, mountNode);
@@ -290,8 +290,8 @@ setTimeout(function() {
 
 ## Alternativas a Componentes Controlados {#alternatives-to-controlled-components}
 
-A veces puede ser tedioso usar componentes controlados, debido a que se necesita escribir un controlador de eventos para cada forma en la que tus datos puedan cambiar y agregarlos a todos en el estado del *input* a travez del componente React. Esto puede volverse particularmente molesto cuando estas convirtiendo una base de código existente a React, o integrando una aplicación React con una librería que no integra React. En estas situaciones, puede que quieras leer acerca de [componentes no controlados](/docs/uncontrolled-components.html), una técnica alternativa para implementar *inputs* en formularios.
+A veces puede ser tedioso usar componentes controlados, debido a que se necesita escribir un controlador de eventos para cada forma en la que tus datos puedan cambiar y agregarlos a todos en el estado del *input* a través del componente React. Esto puede volverse particularmente molesto cuando estás convirtiendo una base de código existente a React, o integrando una aplicación React con una biblioteca que no integra React. En estas situaciones, puede que quieras leer acerca de [componentes no controlados](/docs/uncontrolled-components.html), una técnica alternativa para implementar *inputs* en formularios.
 
 ## Soluciones Completas {#fully-fledged-solutions}
 
-Si lo que estás buscando es una solución completa incluyendo validación, tener en cuenta los campos visitados, y manejar el envío del formulario, [Formik](https://jaredpalmer.com/formik) es una de las opciones populares, Sin embargo, esta construído con los mismos principios de los componentes controlados y manejo de estado, así que no los dejes de aprender.
+Si lo que estás buscando es una solución completa incluyendo validación, tener en cuenta los campos visitados y manejar el envío del formulario, [Formik](https://jaredpalmer.com/formik) es una de las opciones populares. Sin embargo, esta construido con los mismos principios de los componentes controlados y manejo de estado, así que no los dejes de aprender.
