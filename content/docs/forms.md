@@ -294,4 +294,4 @@ A veces puede ser tedioso usar componentes controlados, debido a que se necesita
 
 ## Soluciones Completas {#fully-fledged-solutions}
 
-Si lo que estás buscando es una solución completa incluyendo validación, tener en cuenta los campos visitados y manejar el envío del formulario, [Formik](https://jaredpalmer.com/formik) es una de las opciones populares. Sin embargo, esta construido con los mismos principios de los componentes controlados y manejo de estado, así que no los dejes de aprender.
+Si lo que estás buscando es una solución completa incluyendo validación, tener en cuenta los campos visitados y manejar el envío del formulario, [Formik](https://jaredpalmer.com/formik) es una de las opciones populares. Sin embargo, está construido con los mismos principios de los componentes controlados y manejo de estado, así que no los dejes de aprender.
