@@ -112,7 +112,7 @@ Si los *props* son incorrectos, puedes recorrer el árbol hacia arriba en el ins
 
 Esta capacidad de rastrear cualquier interfaz de usuario hasta los datos que la produjeron en la forma de *props* y estado actual es muy importante para React. Es un objetivo explícito del diseño que el estado no esté "atrapado" en combinadores y clausuras, y que esté disponible a React directamente.
 
-Si bien la interfaz de usuario es dinámica, creemos que funciones `render()` síncronas en función de los *props* y el estado convierten la depuración de un trabajo adivinatorio en un procedimiento aburrido pero finito. Nos gustaría preservar esta restricción en React incluso si hace algunos casos de uso, tales como animaciones complejas, más difíciles. 
+Si bien la interfaz de usuario es dinámica, creemos que funciones `render()` síncronas en función de los *props* y el estado convierten la depuración de un trabajo adivinatorio en un procedimiento aburrido pero finito. Nos gustaría preservar esta restricción aunque haga algunos casos de uso, tales como animaciones complejas, más difíciles. 
 
 ### Configuración {#configuration}
 
