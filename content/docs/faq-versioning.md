@@ -1,48 +1,48 @@
 ---
 id: faq-versioning
-title: Versioning Policy
+title: Política de versiones
 permalink: docs/faq-versioning.html
 layout: docs
 category: FAQ
 ---
 
-React follows [semantic versioning (semver)](https://semver.org/) principles.
+React sigue los principios de [versionado semántico (semver)](https://semver.org/lang/es/).
 
-That means that with a version number **x.y.z**:
+Esto significa que con un número de versión **x.y.z**:
 
-* When releasing **breaking changes**, we make a **major release** by changing the **x** number (ex: 15.6.2 to 16.0.0).
-* When releasing **new features**, we make a **minor release** by changing the **y** number (ex: 15.6.2 to 15.7.0).
-* When releasing **bug fixes**, we make a **patch release** by changing the **z** number (ex: 15.6.2 to 15.6.3).
+* Al publicar **cambios de ruptura**, hacemos una **publicación mayor** cambiando el número **x** (ej: 15.6.2 a 16.0.0).
+* Al publicar **nueva funcionalidad**, hacemos una **publicación menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
+* Al publicar **correcciones de bugs**, publicamos un **patch** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
 
-Major releases can also contain new features, and any release can include bug fixes.
+Las publicaciones mayores también pueden contener nueva funcionalidad, y cualquier versión puede incluir correcciones de bugs.
 
-### Breaking Changes {#breaking-changes}
+### Rompiendo cambios {#breaking-changes}
 
-Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017; React 17 isn't expected until 2019.
+Los cambios de ruptura son inconvenientes para todos, por lo que intentamos minimizar el número de publicaciones importantes – por ejemplo, React 15 fue publicado en abril de 2016 y React 16 fue publicado en septiembre de 2017; no esperamos publicar React 17 hasta el 2019.
 
-Instead, we release new features in minor versions. That means that minor releases are often more interesting and compelling than majors, despite their unassuming name.
+En cambio, publicamos nueva funcionalidad en versiones menores. Esto significa que las publicaciones menores son a menudo más interesantes que las publicaciones mayores, a pesar de su modesto nombre.
 
-### Commitment to Stability {#commitment-to-stability}
+### Compromiso a la estabilidad {#commitment-to-stability}
 
-As we change React over time, we try to minimize the effort required to take advantage of new features. When possible, we'll keep an older API working, even if that means putting it in a separate package. For example, [mixins have been discouraged for years](/blog/2016/07/13/mixins-considered-harmful.html) but they're supported to this day [via create-react-class](/docs/react-without-es6.html#mixins) and many codebases continue to use them in stable, legacy code.
+A medida que actualizamos React, intentamos minimizar el esfuerzo necesario para aprovechar nueva funcionalidad. Cuando sea posible, mantendremos un API antiguo funcionando, incluso si eso significa ponerlo en un *package* separado. Por ejemplo, [el uso de mixins ha sido desalentado durante años](/blog/2016/07/13/mixins-considered-harmful.html) pero están respaldados hasta este día [a través de la clase create-react-class](/docs/react-without-es6.html#mixins) y muchos *codebases* siguen utilizándolos en código estable y *legacy*.
 
-Over a million developers use React, collectively maintaining millions of components. The Facebook codebase alone has over 50,000 React components. That means we need to make it as easy as possible to upgrade to new versions of React; if we make large changes without a migration path, people will be stuck on old versions. We test these upgrade paths on Facebook itself – if our team of less than 10 people can update 50,000+ components alone, we hope the upgrade will be manageable for anyone using React. In many cases, we write [automated scripts](https://github.com/reactjs/react-codemod) to upgrade component syntax, which we then include in the open-source release for everyone to use.
+Más de un millón de desarrolladores utilizan React, manteniendo colectivamente millones de componentes. Solamente el codebase de Facebook tiene más de 50.000 componentes de React. Esto significa que tenemos hacer que sea lo más fácil posible actualizar a nuevas versiones de React; si hacemos grandes cambios sin un camino de migración, la gente se quedará atrapada en versiones antiguas. Probamos estas rutas de actualización en Facebook mismo – si nuestro equipo de menos de 10 personas puede actualizar 50.000 componentes, esperamos que la actualización sea manejable para cualquiera que utilice React. En muchos casos, escribimos [scripts automatizados](https://github.com/reactjs/react-codemod) para actualizar la sintaxis de componentes, que luego incluimos en la versión de código abierto para que todo el mundo los utilice.
 
-### Gradual Upgrades via Warnings {#gradual-upgrades-via-warnings}
+### Mejoras graduales a través de advertencias {#gradual-upgrades-via-warnings}
 
-Development builds of React include many helpful warnings. Whenever possible, we add warnings in preparation for future breaking changes. That way, if your app has no warnings on the latest release, it will be compatible with the next major release. This allows you to upgrade your apps one component at a time.
+Las versiones de desarrollo de React incluyen muchas advertencias útiles. Siempre que sea posible, añadimos advertencias en preparación a futuros cambios de ruptura. De esta manera, si tu aplicación no tiene advertencias en la última versión, ella será compatible con la próxima versión mayor. Esto te permite actualizar tu aplicación un componente a la vez.
 
-Development warnings won't affect the runtime behavior of your app. That way, you can feel confident that your app will behave the same way between the development and production builds -- the only differences are that the production build won't log the warnings and that it is more efficient. (If you ever notice otherwise, please file an issue.)
+Las advertencias de desarrollo no afectarán el comportamiento en tiempo de ejecución de tu aplicación. De esa manera, puedes sentir la confianza de que tu aplicación se comportará de la misma manera entre la versión de desarrollo y la versión de producción -- las únicas diferencias son que la versión de producción no registrará las advertencias y es más eficiente. (Si alguna vez observa lo contrario, por favor presentar un *issue*.)
 
-### What Counts as a Breaking Change? {#what-counts-as-a-breaking-change}
+### ¿Qué cuenta como un cambio de ruptura? {#what-counts-as-a-breaking-change}
 
-In general, we *don't* bump the major version number for changes to:
+En general, *no publicamos* una versión mayor por cambios a:
 
-* **Development warnings.** Since these don't affect production behavior, we may add new warnings or modify existing warnings in between major versions. In fact, this is what allows us to reliably warn about upcoming breaking changes.
-* **APIs starting with `unstable_`.** These are provided as experimental features whose APIs we are not yet confident in. By releasing these with an `unstable_` prefix, we can iterate faster and get to a stable API sooner.
-* **Alpha and canary versions of React.** We provide alpha versions of React as a way to test new features early, but we need the flexibility to make changes based on what we learn in the alpha period. If you use these versions, note that APIs may change before the stable release.
-* **Undocumented APIs and internal data structures.** If you access internal property names like `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` or `__reactInternalInstance$uk43rzhitjg`, there is no warranty.  You are on your own.
+* **Advertencias de desarrollo.** Dado que no afectan al comportamiento de producción, podemos añadir nuevas advertencias o modificar advertencias existentes entre las versiones mayores. De hecho, esto es lo que nos permite advertir de forma fiable sobre los próximos cambios de ruptura.
+* **APIs que comienzan con `unstable_`.** Estos ofrecen funcionalidades experimentales sobre cuyos APIs todavía no estamos seguros. Al publicar esto con un prefijo `unstable_`, podemos iterar más rápido y llegar a un API estable lo antes posible.
+* **Versiones alfa y canarias de React.**  Proporcionamos versiones alfa de React como una manera de probar nuevas características temprano, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa.
+* **APIs no documentadas y estructuras de datos internas.** Si accede a nombres de propiedad interna como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no podemos garantizar nada. Usted está por su cuenta.
 
-This policy is designed to be pragmatic: certainly, we don't want to cause headaches for you. If we bumped the major version for all of these changes, we would end up releasing more major versions and ultimately causing more versioning pain for the community. It would also mean that we can't make progress in improving React as fast as we'd like.
+Esta política está diseñada para ser pragmática: desde luego, no queremos causarle dolores de cabeza. Si publicaramos una nueva versión mayor por cada uno de estos cambios, acabaríamos publicando más versiones mayores y causaríamos más inconveniencias a la comunidad. También significaría que no podríamos mejorar React tan rápido como nos gustaría.
 
-That said, if we expect that a change on this list will cause broad problems in the community, we will still do our best to provide a gradual migration path.
+Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar un camino de migración gradual.
