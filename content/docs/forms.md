@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-Los elementos de formularios en HTML funcionan un poco diferente a otros elementos del DOM en React, debido a que los elementos de formularios conservan naturalmente estados. Por ejemplo, este formulario en HTML puro, acepta un solo nombre.
+Los elementos de formularios en HTML funcionan un poco diferente a otros elementos del DOM en React, debido a que los elementos de formularios conservan naturalmente estados. Por ejemplo, este formulario solamente en HTML, acepta un solo nombre.
 
 ```html
 <form>
@@ -17,7 +17,7 @@ Los elementos de formularios en HTML funcionan un poco diferente a otros element
     Nombre:
     <input type="text" name="name" />
   </label>
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Enviar" />
 </form>
 ```
 
@@ -27,7 +27,7 @@ Este formulario tiene el comportamiento predeterminado en HTML que consiste en n
 
 En HTML, los elementos de formularios como los `<input>`, `<textarea>` y el `<select>` normalmente mantienen sus propios estados y los actualizan de acuerdo a la interacción del usuario. En React, el estado mutable es mantenido normalmente en la propiedad estado de los componentes, y solo se actualiza con [`setState()`](/docs/react-component.html#setstate).
 
-Podemos combinar ambos haciendo que el estado de React sea la "única fuente de la verdad". De esta manera, los componentes React que rendericen un formulario también controlan lo que pasa en ese formulario con las subsecuentes interacciones del usuario. Un campo de un formulario cuyos valores son controlados por React de esta forma es denominado "componente controlado".
+Podemos combinar ambos haciendo que el estado de React sea la "única fuente de la verdad". De esta manera, los componentes React que rendericen un formulario también controlan lo que pasa en ese formulario con las subsecuentes entradas del usuario. Un campo de un formulario cuyos valores son controlados por React de esta forma es denominado "componente controlado".
 
 Por ejemplo, si queremos hacer que el ejemplo anterior muestre el nombre que esta siendo suministrado, podemos escribir el formulario como un componente controlado:
 
@@ -57,7 +57,7 @@ class NameForm extends React.Component {
           Nombre:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Enviar" />
       </form>
     );
   }
@@ -66,7 +66,7 @@ class NameForm extends React.Component {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Ya que el atributo `value` es agregado en nuestro campo del formulario, el valor mostrado siempre sera el de `this.state.value`, haciendo que el estado de React sea la fuente de la verdad. Ya que `handleChange` corre cada vez que una tecla es oprimida para actualizar el estado de React, el valor mostrado sera actualizado mientras que el usuario escribe.
+Ya que el atributo `value` es agregado en nuestro elemento del formulario, el valor mostrado siempre sera el de `this.state.value`, haciendo que el estado de React sea la fuente de la verdad. Ya que `handleChange` corre cada vez que una tecla es oprimida para actualizar el estado de React, el valor mostrado será actualizado mientras que el usuario escribe.
 
 Con un componente controlado, toda mutación del estado tendrá asociada una función controlador. Esto hace más directo modificar o validar la entrada del usuario. Por ejemplo, si quisiéramos asegurar que los nombres sean escritos con todas las letras en mayúscula, podríamos escribir el `handleChange` como:
 
@@ -200,9 +200,9 @@ En HTML, un `<input type="file">` permite que el usuario escoja uno o varios arc
 
 Ya que su valor es solo de lectura, es un componente **no controlado** en React. Es explicado en detalle junto a otros componentes no controlados [más adelante en la documentación](/docs/uncontrolled-components.html#the-file-input-tag).
 
-## Manejando Multiples Inputs {#handling-multiple-inputs}
+## Manejando Múltiples Inputs {#handling-multiple-inputs}
 
-Cuando necesitas manejar multiples elementos `input` controlados, puedes agregar un atributo `name` a cada uno de los elementos y dejar que la función controlador decida que hacer basado en el valor de `event.target.name`.
+Cuando necesitas manejar múltiples elementos `input` controlados, puedes agregar un atributo `name` a cada uno de los elementos y dejar que la función controlador decida que hacer basado en el valor de `event.target.name`.
 
 Por ejemplo:
 
@@ -256,14 +256,14 @@ class Reservation extends React.Component {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
-Ten en cuenta como utilizamos la sintaxis de la [propiedad *name* computada de ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) para actualizar la clave en el estado correspondiente al nombre del *input*.
+Ten en cuenta como utilizamos la sintaxis de la [propiedad *name* computada de ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) para actualizar la clave del estado correspondiente al nombre del *input*.
 
 ```js{2}
 this.setState({
   [name]: value
 });
 ```
-Esto es equivalente a este código en ES5:
+Esto es equivalente a este código ES5:
 
 ```js{2}
 var partialState = {};
@@ -271,11 +271,11 @@ partialState[name] = value;
 this.setState(partialState);
 ```
 
-También, ya que `setState()` automáticamente [combina un estado parcial al estado actual](/docs/state-and-lifecycle.html#state-updates-are-merged), solamente necesitamos llamarlo con las partes que hayan cambiado.
+También, ya que `setState()` automáticamente [combina un estado parcial al estado actual](/docs/state-and-lifecycle.html#state-updates-are-merged), solamente necesitamos llamarlo con las partes que han cambiado.
 
 ## Valor Nulo en un Input Controlado {#controlled-input-null-value}
 
-Especificar la propiedad `value` en un [componente controlado](/docs/forms.html#controlled-components) evita que el usuario cambie la entrada a menos que así lo quiera. Si has especificado un `value` pero la entrada aun es editable, quizas hayas agregado accidentalmente al `value` un valor `undefined` o `null`.
+Especificar la propiedad `value` en un [componente controlado](/docs/forms.html#controlled-components) evita que el usuario cambie la entrada a menos que así lo quiera. Si has especificado un `value` pero la entrada aun es editable, quizás agregaste accidentalmente al `value` un valor `undefined` o `null`.
 
 El código a continuación demuestra esto. (El input esta bloqueado en principio, pero se vuelve editable después de un corto retraso.)
 
@@ -290,7 +290,7 @@ setTimeout(function() {
 
 ## Alternativas a Componentes Controlados {#alternatives-to-controlled-components}
 
-A veces puede ser tedioso usar componentes controlados, debido a que se necesita escribir un controlador de eventos para cada forma en la que tus datos puedan cambiar y encolarlos a todos en el estado del *input* a travez del componente React. Esto puede volverse particularmente molesto cuando estas convirtiendo una base de código existente a React, o integrando una aplicación React con una librería que no integra React. En estas situaciones, puede que quieras leer acerca de [componentes no controlados](/docs/uncontrolled-components.html), una técnica alternativa para implementar *inputs* en formularios.
+A veces puede ser tedioso usar componentes controlados, debido a que se necesita escribir un controlador de eventos para cada forma en la que tus datos puedan cambiar y agregarlos a todos en el estado del *input* a travez del componente React. Esto puede volverse particularmente molesto cuando estas convirtiendo una base de código existente a React, o integrando una aplicación React con una librería que no integra React. En estas situaciones, puede que quieras leer acerca de [componentes no controlados](/docs/uncontrolled-components.html), una técnica alternativa para implementar *inputs* en formularios.
 
 ## Soluciones Completas {#fully-fledged-solutions}
 
