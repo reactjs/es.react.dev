@@ -8,7 +8,7 @@ category: FAQ
 
 React sigue los principios de [versionado semántico (semver)](https://semver.org/lang/es/).
 
-Esto significa que con un número de versión **x.y.z**:
+Esto significa que lo hace con un número de versión **x.y.z**:
 
 * Al publicar **cambios de ruptura**, hacemos una **publicación mayor** cambiando el número **x** (ej: 15.6.2 a 16.0.0).
 * Al publicar **nueva funcionalidad**, hacemos una **publicación menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
