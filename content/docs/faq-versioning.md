@@ -30,7 +30,7 @@ Más de un millón de desarrolladores utilizan React, manteniendo colectivamente
 
 ### Mejoras graduales a través de advertencias {#gradual-upgrades-via-warnings}
 
-Las versiones de desarrollo de React incluyen muchas advertencias útiles. Siempre que sea posible, añadimos advertencias en preparación a futuros cambios de ruptura. De esta manera, si tu aplicación no tiene advertencias en la última versión, ella será compatible con la próxima versión mayor. Esto te permite actualizar tu aplicación un componente a la vez.
+Las versiones de desarrollo de React incluyen muchas advertencias útiles. Siempre que es posible, añadimos advertencias en preparación a futuros cambios con rupturas. De esta manera, si tu aplicación no tiene advertencias en el último lanzamiento, esta será compatible con el próximo lanzamiento importante. Esto te permite actualizar tu aplicación un componente a la vez.
 
 Las advertencias de desarrollo no afectarán el comportamiento en tiempo de ejecución de tu aplicación. De esa manera, puedes sentir la confianza de que tu aplicación se comportará de la misma manera entre la versión de desarrollo y la versión de producción -- las únicas diferencias son que la versión de producción no registrará las advertencias y es más eficiente. (Si alguna vez observa lo contrario, por favor presentar un *issue*.)
 
