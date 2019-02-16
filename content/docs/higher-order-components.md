@@ -14,7 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Mientras que un componente transforma _props_ en interfaz de usuario, un componente de orden superior transforma un componente en otro.
 
-Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
+Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api/connect.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
 
 En este documento discutiremos por qué los componentes de orden superior son útiles y como escribir tus propios *HOCs*.
 
@@ -396,4 +396,4 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 Aunque la convención para los componentes de orden superior es pasar todos los *props* al componente envuelto, esto no funciona para las *refs*. Esto es porque `ref` no es realmente un *prop*, al igual que `key` es manejado de forma especial por React. Si añades una *ref* a un elemento cuyo componente es el resultado de un *HOC*, esa *ref* se refiere a la instancia del componente contenedor más externo, no al componente envuelto.
 
-La solución a este problema es usar la API `React.forwardRef` (introducido con React 16.3). [Aprende más acerca de esta API en la sección acerca de Reenvío de Refs](/docs/forwarding-refs.html).
+La solución a este problema es usar la API `React.forwardRef` (introducida con React 16.3). [Aprende más acerca de esta API en la sección acerca de Reenvío de Refs](/docs/forwarding-refs.html).
