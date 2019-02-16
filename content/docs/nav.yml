@@ -79,7 +79,7 @@
       title: Componentes no Controlados
     - id: web-components
       title: Componentes Web
-- title: API  de Referencia
+- title: Referencia de API
   items:
     - id: react-api
       title: React
@@ -95,59 +95,59 @@
     - id: events
       title: SyntheticEvent
     - id: test-utils
-      title: Utilidades de Prueba
+      title: Utilidades para Pruebas
     - id: shallow-renderer
-      title: Renderizador Superficial
+      title: Renderizado Superficial
     - id: test-renderer
-      title: Test Renderer
+      title: Renderizador de Prueba
     - id: javascript-environment-requirements
-      title: JS Environment Requirements
+      title: Requerimientos del Entorno de JavaScript
     - id: glossary
-      title: Glossary
+      title: Glosario
 - title: Hooks (Nuevo)
   isOrdered: true
   items:
       - id: hooks-intro
-        title: Introducing Hooks
+        title: Introduciendo Hooks
       - id: hooks-overview
-        title: Hooks at a Glance
+        title: Hooks a Simple Vista
       - id: hooks-state
-        title: Using the State Hook
+        title: Usando el Hook de Estado
       - id: hooks-effect
-        title: Using the Effect Hook
+        title: Usando el Hook de Efecto
       - id: hooks-rules
-        title: Rules of Hooks
+        title: Reglas de Hooks
       - id: hooks-custom
-        title: Building Your Own Hooks
+        title: Construyendo tus Propios Hooks
       - id: hooks-reference
-        title: Hooks API Reference
+        title: Referencia de API de Hooks
       - id: hooks-faq
-        title: Hooks FAQ
+        title: Preguntas Frecuentes sobre Hooks
 - title: Contribuyendo
   items:
   - id: how-to-contribute
-    title: How to Contribute
+    title: ¿Cómo contribuir?
   - id: codebase-overview
-    title: Codebase Overview
+    title: Visión General de Código Base
   - id: implementation-notes
-    title: Implementation Notes
+    title: Notas de Implementación
   - id: design-principles
-    title: Design Principles
-- title: Preguntas más Frecuentes
+    title: Principios de diseño
+- title: Preguntas Frecuentes
   items:
     - id: faq-ajax
       title: AJAX y APIs
     - id: faq-build
-      title: Babel, JSX, and Build Steps
+      title: Babel, JSX, y Build Steps
     - id: faq-functions
-      title: Passing Functions to Components
+      title: Pasando Funciones a Componentes
     - id: faq-state
-      title: Component State
+      title: Estado del Componente
     - id: faq-styling
-      title: Styling and CSS
+      title: Estilos y CSS
     - id: faq-structure
-      title: File Structure
+      title: Estructura de archivos
     - id: faq-versioning
-      title: Versioning Policy
+      title: Política de Versiones
     - id: faq-internals
-      title: Virtual DOM and Internals
+      title: DOM Virtual y Detalles de Implementación
