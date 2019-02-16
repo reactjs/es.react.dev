@@ -16,7 +16,11 @@ Hooks son [compatibles con versiones anteriores](/docs/hooks-intro.html#no-break
 
 **↑↑↑ Cada sección termina con un recuadro amarillo como este.** Ellos vinculan a explicaciones detalladas.
 
+<<<<<<< HEAD
 ## 📌 Hook de Estado {#-state-hook}
+=======
+## 📌 State Hook {#state-hook}
+>>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
 
 Este ejemplo renderiza un contador. Cuando haces click en el botón, incrementa el valor:
 
@@ -68,7 +72,11 @@ React proporciona algunos Hooks incorporados como `useState`. También puedes cr
 >
 >Puedes aprender más sobre el Hook de Estado en la pagina dedicada: [Usando el Hook de Estado](/docs/hooks-state.html).
 
+<<<<<<< HEAD
 ## ⚡️ Hook de Efecto {#️-effect-hook}
+=======
+## ⚡️ Effect Hook {#effect-hook}
+>>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
 
 Es probable que hayas realizado recuperación de datos, suscripciones o modificacion manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
 
@@ -159,7 +167,11 @@ Los Hooks te permiten organizar efectos secundarios en un componente según qué
 >
 > Puede obtener más información sobre `useEffect` en la página dedicada: [Usando el Hook de Efecto](/docs/hooks-effect.html).
 
+<<<<<<< HEAD
 ## ✌️ Reglas de Hooks {#️-rules-of-hooks}
+=======
+## ✌️ Rules of Hooks {#rules-of-hooks}
+>>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
 
 Hooks son funciones de JavaScript, pero imponen dos reglas adicionales:
 
@@ -172,7 +184,11 @@ Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin
 >
 >Puedes aprender más sobre estas reglas en la página dedicada: [Reglas de Hooks](/docs/hooks-rules.html).
 
+<<<<<<< HEAD
 ## 💡 Construyendo Tus Propios Hooks {#-building-your-own-hooks}
+=======
+## 💡 Building Your Own Hooks {#building-your-own-hooks}
+>>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
 
 A veces, queremos reutilizar alguna lógica de estado entre componentes. Tradicionalmente, había dos soluciones populares para este problema: [componente de orden superior](/docs/higher-order-components.html) y [render props](/docs/render-props.html). Los Hooks personalizados te permiten hacer esto, pero sin agregar más componentes a tu árbol.
 
@@ -239,7 +255,11 @@ Puedes escribir Hooks personalizados que cubran una amplia gama de casos de uso 
 >
 >>Puedes aprender más sobre Hooks personalizados en la página dedicada: [Construyendo Tus Propios Hooks](/docs/hooks-custom.html).
 
+<<<<<<< HEAD
 ## 🔌 Otros Hooks {#-other-hooks}
+=======
+## 🔌 Other Hooks {#other-hooks}
+>>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
 
 Hay algunos Hooks incorporados de uso menos común que pueden resultarte útiles. Por ejemplo, [`useContext`](/docs/hooks-reference.html#usecontext) te permite suscribirte al contexto React sin introducir el anidamiento:
 
