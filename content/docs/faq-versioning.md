@@ -41,7 +41,7 @@ En general, *no publicamos* una versión mayor por cambios a:
 * **Advertencias de desarrollo.** Dado que no afectan al comportamiento de producción, podemos añadir nuevas advertencias o modificar advertencias existentes entre las versiones mayores. De hecho, esto es lo que nos permite advertir de forma fiable sobre los próximos cambios de ruptura.
 * **APIs que comienzan con `unstable_`.** Estos ofrecen funcionalidades experimentales sobre cuyos APIs todavía no estamos seguros. Al publicar esto con un prefijo `unstable_`, podemos iterar más rápido y llegar a un API estable lo antes posible.
 * **Versiones alfa y canarias de React.**  Proporcionamos versiones alfa de React como una manera de probar nuevas características temprano, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa.
-* **APIs no documentadas y estructuras de datos internas.** Si accede a nombres de propiedad interna como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no podemos garantizar nada. Usted está por su cuenta.
+* **APIs no documentadas y estructuras de datos internas.** Si accedes a nombres de propiedades internas como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no podemos garantizar nada. Estás por tu cuenta.
 
 Esta política está diseñada para ser pragmática: desde luego, no queremos causarle dolores de cabeza. Si publicaramos una nueva versión mayor por cada uno de estos cambios, acabaríamos publicando más versiones mayores y causaríamos más inconveniencias a la comunidad. También significaría que no podríamos mejorar React tan rápido como nos gustaría.
 
