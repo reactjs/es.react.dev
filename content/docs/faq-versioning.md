@@ -16,7 +16,7 @@ Esto significa que con un número de versión **x.y.z**:
 
 Las publicaciones mayores también pueden contener nueva funcionalidad, y cualquier versión puede incluir correcciones de bugs.
 
-### Rompiendo cambios {#breaking-changes}
+### Cambios con Rupturas {#breaking-changes}
 
 Los cambios de ruptura son inconvenientes para todos, por lo que intentamos minimizar el número de publicaciones importantes – por ejemplo, React 15 fue publicado en abril de 2016 y React 16 fue publicado en septiembre de 2017; no esperamos publicar React 17 hasta el 2019.
 
