@@ -1,6 +1,6 @@
 ---
 id: rendering-elements
-title: Renderizando Elementos
+title: Renderizando elementos
 permalink: docs/rendering-elements.html
 redirect_from:
   - "docs/displaying-data.html"

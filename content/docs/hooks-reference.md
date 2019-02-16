@@ -1,6 +1,6 @@
 ---
 id: hooks-reference
-title: Hooks API Reference
+title: Referencia de la API de los Hooks
 permalink: docs/hooks-reference.html
 prev: hooks-custom.html
 next: hooks-faq.html

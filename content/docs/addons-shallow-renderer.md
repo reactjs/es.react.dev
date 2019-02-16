@@ -1,6 +1,6 @@
 ---
 id: shallow-renderer
-title: Renderizado superficial
+title: Renderizador superficial
 permalink: docs/shallow-renderer.html
 layout: docs
 category: Referencia
@@ -15,7 +15,7 @@ var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 with npm
 
 ## Resumen {#resumen}
 
-El renderizado superficial es util cuando escribes pruebas unitarias. El renderizado superficial te permite renderizar un componente a "un nivel de profundidad" y comprobar lo que su método de renderizado retorna sin preocuparse sobre el comportamiento de los componentes hijos, los cuales no son instanciados ni renderizados. Esto no requiere un DOM.
+El renderizado superficial es útil cuando escribes pruebas unitarias. El renderizado superficial te permite renderizar un componente a "un nivel de profundidad" y comprobar lo que su método de renderizado retorna sin preocuparse sobre el comportamiento de los componentes hijos, los cuales no son instanciados ni renderizados. Esto no requiere un DOM.
 
 Por ejemplo, si tienes el siguiente componente:
 
