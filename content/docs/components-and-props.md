@@ -90,7 +90,7 @@ Recapitulemos lo que sucede en este ejemplo:
 > 
 >React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Welcome />` representa un componente y requiere que `Welcome` esté en scope.
 > 
-> Puedes leer mas sobre el razonamiento detras de esta convención [aquí.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
+> Para saber más sobre el razonamiento detrás de esta convención, puedes consultar [JSX en profundidad](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
 ## Composición de Componentes {#composing-components}
 
