@@ -45,4 +45,4 @@ En general, *no publicamos* una versión mayor por cambios a:
 
 Esta política está diseñada para ser pragmática: desde luego, no queremos causarle dolores de cabeza. Si publicaramos una nueva versión mayor por cada uno de estos cambios, acabaríamos publicando más versiones mayores y causaríamos más inconveniencias a la comunidad. También significaría que no podríamos mejorar React tan rápido como nos gustaría.
 
-Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar un camino de migración gradual.
+Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar una guía de migración gradual.
