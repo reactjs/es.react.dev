@@ -32,17 +32,17 @@ Más de un millón de desarrolladores utilizan React, manteniendo colectivamente
 
 Las versiones de desarrollo de React incluyen muchas advertencias útiles. Siempre que es posible, añadimos advertencias en preparación a futuros cambios con rupturas. De esta manera, si tu aplicación no tiene advertencias en el último lanzamiento, esta será compatible con el próximo lanzamiento importante. Esto te permite actualizar tu aplicación un componente a la vez.
 
-Las advertencias de desarrollo no afectarán el comportamiento en tiempo de ejecución de tu aplicación. De esa manera, puedes estar seguro de que tu aplicación se comportará de la misma manera entre la versión de desarrollo y la versión de producción -- las únicas diferencias son que la versión de producción no registrará las advertencias y es más eficiente. (Si alguna vez observas lo contrario, por favor abre un caso).
+Las advertencias de desarrollo no afectarán el comportamiento en tiempo de ejecución de tu aplicación. De esa forma, puedes estar seguro de que tu aplicación se comportará de la misma manera entre la versión de desarrollo y la versión de producción -- las únicas diferencias son que la versión de producción no registrará las advertencias y es más eficiente. (Si alguna vez observas lo contrario, por favor abre un caso).
 
 ### ¿Qué cuenta como un Cambio con Rupturas? {#what-counts-as-a-breaking-change}
 
 En general, *no publicamos* una versión importante por cambios a:
 
 * **Advertencias de desarrollo.** Dado que no afectan el comportamiento en producción, podemos añadir nuevas advertencias o modificar advertencias existentes entre versiones importantes. De hecho, esto es lo que nos permite advertir de forma fiable sobre los próximos cambios con rupturas.
-* **APIs que comienzan con `unstable_`.** Estas ofrecen funcionalidades experimentales sobre cuyos APIs todavía no estamos seguros. Al publicar esto con un prefijo `unstable_`, podemos iterar más rápido y llegar a un API estable lo antes posible.
+* **APIs que comienzan con `unstable_`.** Estas ofrecen funcionalidades experimentales sobre cuyas APIs todavía no estamos seguros. Al publicar esto con un prefijo `unstable_`, podemos iterar más rápido y llegar a un API estable lo antes posible.
 * **Versiones alfa y *canary* de React.**  Proporcionamos versiones alfa de React como una manera de probar nuevas características con antelación, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa. Si utilizas estas versiones, ten en cuenta que las APIs pueden cambiar antes de la versión estable sea publicada.
 * **APIs no documentadas y estructuras de datos internas.** Si accedes a nombres de propiedades internas como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no podemos garantizar nada. Estás por tu cuenta.
 
 Esta política está diseñada para ser pragmática: desde luego, no queremos causarte dolores de cabeza. Si publicáramos una nueva versión importante por cada uno de estos cambios, acabaríamos lanzando más versiones importantes y causaríamos más inconvenientes con el versionado a la comunidad. También significaría que no podríamos mejorar React tan rápido como nos gustaría.
 
-Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar una guía de migración gradual.
+Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar una guía de actualización gradual.
