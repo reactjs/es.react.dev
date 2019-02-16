@@ -12,7 +12,7 @@ Esto significa que lo hace con un número de versión **x.y.z**:
 
 * Al publicar **cambios de ruptura**, hacemos una **publicación mayor** cambiando el número **x** (ej: 15.6.2 a 16.0.0).
 * Al publicar **nueva funcionalidad**, hacemos una **publicación menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
-* Al publicar **correcciones de bugs**, publicamos un **patch** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
+* Al lanzar **correcciones de errores**, hacemos el lanzamiento de un **parche** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
 
 Las publicaciones mayores también pueden contener nueva funcionalidad, y cualquier versión puede incluir correcciones de bugs.
 
