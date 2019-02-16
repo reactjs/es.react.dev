@@ -9,6 +9,7 @@ next: thinking-in-react.html
 ---
 
 React tiene un potente modelo de composición, y recomendamos usar composición en lugar de herencia para reutilizar código entre componentes.
+
 En esta sección consideraremos algunos problemas en los que los desarrolladores nuevos en React a menudo emplean herencia, y mostraremos cómo los podemos resolver con composición.
 
 ## Contención {#containment}
@@ -48,8 +49,7 @@ function WelcomeDialog() {
 
 Cualquier cosa dentro del tag de JSX `<FancyBorder>` se pasa dentro del componente `FancyBorder` como la prop `children`. Como `FancyBorder` renderiza `{props.children}` dentro de un `<div>`, los elementos que se le han pasado aparecen en el resultado final.
 
-Aunque es menos común, a veces puedes necesitar multiples "agujeros" en un componente. En estos casos puedes inventarte
-tu propia convención en lugar de usar `children`: 
+Aunque es menos común, a veces puedes necesitar multiples "agujeros" en un componente. En estos casos puedes inventarte tu propia convención en lugar de usar `children`: 
 
 ```js{5,8,18,21}
 function SplitPane(props) {
@@ -80,9 +80,7 @@ function App() {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
 
-Los elementos como `<Contacts />` y `<Chat />` son simplemente objetos, por lo que puedes pasarlos como props como
-cualquier otro dato.
-Este enfoque puede recordarte a "huecos" (slots) en otras bibliotecas, pero no hay limitaciones en lo que puedes pasar como props en React.
+Los elementos como `<Contacts />` y `<Chat />` son simplemente objetos, por lo que puedes pasarlos como props como cualquier otro dato. Este enfoque puede recordarte a "huecos" (slots) en otras bibliotecas, pero no hay limitaciones en lo que puedes pasar como props en React.
 
 ## Especialización {#specialization}
 
@@ -171,5 +169,4 @@ En Facebook usamos React en miles de componentes, y no hemos hallado ningún cas
 
 Las props y la composición te dan toda la flexibilidad que necesitas para customizar el aspecto y el comportamiento de un componente de forma explícita y segura. Recuerda que los componentes pueden aceptar props arbitrarias, incluyendo valores primitivos, elementos de React y funciones. 
 
-Si quieres reutilizar funcionalidad que no es de interfaz entre componentes, sugerimos que la extraigas en un módulo de JavaScript independiente.
-Los componentes pueden importarlo y usar esa función, objeto, o clase, sin extenderla.
+Si quieres reutilizar funcionalidad que no es de interfaz entre componentes, sugerimos que la extraigas en un módulo de JavaScript independiente. Los componentes pueden importarlo y usar esa función, objeto, o clase, sin extenderla.
