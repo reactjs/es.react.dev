@@ -39,7 +39,7 @@ Las advertencias de desarrollo no afectarán el comportamiento en tiempo de ejec
 En general, *no publicamos* una versión importante por cambios a:
 
 * **Advertencias de desarrollo.** Dado que no afectan el comportamiento en producción, podemos añadir nuevas advertencias o modificar advertencias existentes entre versiones importantes. De hecho, esto es lo que nos permite advertir de forma fiable sobre los próximos cambios con rupturas.
-* **APIs que comienzan con `unstable_`.** Estos ofrecen funcionalidades experimentales sobre cuyos APIs todavía no estamos seguros. Al publicar esto con un prefijo `unstable_`, podemos iterar más rápido y llegar a un API estable lo antes posible.
+* **APIs que comienzan con `unstable_`.** Estas ofrecen funcionalidades experimentales sobre cuyos APIs todavía no estamos seguros. Al publicar esto con un prefijo `unstable_`, podemos iterar más rápido y llegar a un API estable lo antes posible.
 * **Versiones alfa y *canary* de React.**  Proporcionamos versiones alfa de React como una manera de probar nuevas características con antelación, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa. Si utiliza estas versiones, tenga en cuenta que los APIs pueden cambiar antes de la versión estable sea publicada.
 * **APIs no documentadas y estructuras de datos internas.** Si accedes a nombres de propiedades internas como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no podemos garantizar nada. Estás por tu cuenta.
 
