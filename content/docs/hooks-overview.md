@@ -16,11 +16,7 @@ Hooks son [compatibles con versiones anteriores](/docs/hooks-intro.html#no-break
 
 **↑↑↑ Cada sección termina con un recuadro amarillo como este.** Ellos vinculan a explicaciones detalladas.
 
-<<<<<<< HEAD
-## 📌 Hook de Estado {#-state-hook}
-=======
-## 📌 State Hook {#state-hook}
->>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
+## 📌 Hook de Estado {#state-hook}
 
 Este ejemplo renderiza un contador. Cuando haces click en el botón, incrementa el valor:
 
@@ -60,7 +56,7 @@ function ExampleWithManyStates() {
 }
 ```
 
-La sintáxis de [desestructuración de un array] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment) nos permite dar diferentes nombres a las variables de estado que declaramos llamando a `useState `. Estos nombres no forman parte de la API `useState`. En su lugar, React asume que si llamas a `useState` muchas veces, lo haces en el mismo orden durante cada renderizado. Volveremos a explicar por qué esto funciona y cuándo será útil más adelante.
+La sintaxis de [desestructuración de un array] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment) nos permite dar diferentes nombres a las variables de estado que declaramos llamando a `useState `. Estos nombres no forman parte de la API `useState`. En su lugar, React asume que si llamas a `useState` muchas veces, lo haces en el mismo orden durante cada renderizado. Volveremos a explicar por qué esto funciona y cuándo será útil más adelante.
 
 #### Pero qué es un Hook? {#but-what-is-a-hook}
 
@@ -70,13 +66,9 @@ React proporciona algunos Hooks incorporados como `useState`. También puedes cr
 
 >Explicación Detallada
 >
->Puedes aprender más sobre el Hook de Estado en la pagina dedicada: [Usando el Hook de Estado](/docs/hooks-state.html).
+>Puedes aprender más sobre el Hook de Estado en la página dedicada: [Usando el Hook de Estado](/docs/hooks-state.html).
 
-<<<<<<< HEAD
-## ⚡️ Hook de Efecto {#️-effect-hook}
-=======
-## ⚡️ Effect Hook {#effect-hook}
->>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
+## ⚡️ Hook de Efecto {#️effect-hook}
 
 Es probable que hayas realizado recuperación de datos, suscripciones o modificacion manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
 
@@ -167,11 +159,7 @@ Los Hooks te permiten organizar efectos secundarios en un componente según qué
 >
 > Puede obtener más información sobre `useEffect` en la página dedicada: [Usando el Hook de Efecto](/docs/hooks-effect.html).
 
-<<<<<<< HEAD
-## ✌️ Reglas de Hooks {#️-rules-of-hooks}
-=======
-## ✌️ Rules of Hooks {#rules-of-hooks}
->>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
+## ✌️ Reglas de Hooks {#️rules-of-hooks}
 
 Hooks son funciones de JavaScript, pero imponen dos reglas adicionales:
 
@@ -184,11 +172,7 @@ Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin
 >
 >Puedes aprender más sobre estas reglas en la página dedicada: [Reglas de Hooks](/docs/hooks-rules.html).
 
-<<<<<<< HEAD
-## 💡 Construyendo Tus Propios Hooks {#-building-your-own-hooks}
-=======
-## 💡 Building Your Own Hooks {#building-your-own-hooks}
->>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
+## 💡 Construyendo Tus Propios Hooks {#building-your-own-hooks}
 
 A veces, queremos reutilizar alguna lógica de estado entre componentes. Tradicionalmente, había dos soluciones populares para este problema: [componente de orden superior](/docs/higher-order-components.html) y [render props](/docs/render-props.html). Los Hooks personalizados te permiten hacer esto, pero sin agregar más componentes a tu árbol.
 
@@ -255,11 +239,7 @@ Puedes escribir Hooks personalizados que cubran una amplia gama de casos de uso 
 >
 >>Puedes aprender más sobre Hooks personalizados en la página dedicada: [Construyendo Tus Propios Hooks](/docs/hooks-custom.html).
 
-<<<<<<< HEAD
-## 🔌 Otros Hooks {#-other-hooks}
-=======
-## 🔌 Other Hooks {#other-hooks}
->>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
+## 🔌 Otros Hooks {#other-hooks}
 
 Hay algunos Hooks incorporados de uso menos común que pueden resultarte útiles. Por ejemplo, [`useContext`](/docs/hooks-reference.html#usecontext) te permite suscribirte al contexto React sin introducir el anidamiento:
 
@@ -285,7 +265,7 @@ function Todos() {
 
 ## Próximos Pasos {#next-steps}
 
-¡Uf, eso fue rápido! Si algunas cosas no te hacen mucho sentido o si te gustaria aprender más en detalle, puedes leer las siguientes páginas, comenzando con la documentación de [Hook de Estado](/docs/hooks-state.html).
+¡Uf, eso fue rápido! Si algunas cosas no te hacen mucho sentido o si te gustaría aprender más en detalle, puedes leer las siguientes páginas, comenzando con la documentación de [Hook de Estado](/docs/hooks-state.html).
 
 También puede consultar la [Referencia de la Hooks API](/docs/hooks-reference.html) y las [Preguntas Frecuentes sobre Hooks](/docs/hooks-faq.html).
 
