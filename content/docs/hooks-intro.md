@@ -35,7 +35,7 @@ Esta nueva función `useState` es el primer "Hook" que vamos a aprender, pero es
 
 ## Video de introducción {#video-introduction}
 
-En el React Conf 2018, Sophie Alpert y Dan Abramov presentaron Hooks, Seguidos por Ryan Florence demostrando cómo refactorizar una aplicación usandolos. Mira el video aquí:
+En el React Conf 2018, Sophie Alpert y Dan Abramov presentaron Hooks, seguidos por Ryan Florence demostrando cómo refactorizar una aplicación usándolos. Mira el video aquí:
 
 <br>
 
@@ -57,13 +57,13 @@ Antes de continuar, debes notar que los Hooks son:
 
 ## Motivación {#motivation}
 
-Los Hooks resuelven una amplia variedad de problemas aparentemente desconectados en React que hemos encontrado durante más de cinco años de escribir y mantener decenas de miles de componentes. Ya sea que estés aprendiendo React, usandolo diariamente o incluso prefieras una librería diferente con un modelo de componentes similar, es posible que reconozcas algunos de estos problemas.
+Los Hooks resuelven una amplia variedad de problemas aparentemente desconectados en React que hemos encontrado durante más de cinco años de escribir y mantener decenas de miles de componentes. Ya sea que estés aprendiendo React, usándolo diariamente o incluso prefieras una librería diferente con un modelo de componentes similar, es posible que reconozcas algunos de estos problemas.
 
 ### Es difícil reutilizar la lógica de estado entre componentes {#its-hard-to-reuse-stateful-logic-between-components}
 
-RReact no ofrece una forma de "acoplar" comportamientos reutilizables a un componente (Por ejemplo, al conectarse a un _store_). Si llevas un tiempo trabajando con React, puedes estar familiarizado con patrones como [render props](/docs/render-props.html) y [componentes de alto orden](/docs/higher-order-components.html) que tratan resolver esto. Pero estos patrones requieren que reestructures tus componentes al usarlos, lo cual puede ser complicado y hacen que tu código sea más difícil de seguir. Si observas una aplicación típica de React usando _React DevTools_, Lo más probable es que encuentres un "wrapper hell" de componentes envueltos en capas de _providers_, _consumers_, _componentes de alto orden_, _render props_, y otras abstracciones. Aunque podemos [filtrarlos usando las DevTools](https://github.com/facebook/react-devtools/pull/503), esto apunta a un problema aún más profundo: React necesita un mejor primitivo para compartir lógica de estado.
+RReact no ofrece una forma de "acoplar" comportamientos reutilizables a un componente (Por ejemplo, al conectarse a un _store_). Si llevas un tiempo trabajando con React, puedes estar familiarizado con patrones como [render props](/docs/render-props.html) y [componentes de orden superior](/docs/higher-order-components.html) que tratan resolver esto. Pero estos patrones requieren que reestructures tus componentes al usarlos, lo cual puede ser complicado y hacen que tu código sea más difícil de seguir. Si observas una aplicación típica de React usando _React DevTools_, Lo más probable es que encuentres un "wrapper hell" de componentes envueltos en capas de _providers_, _consumers_, _componentes de orden superior_, _render props_, y otras abstracciones. Aunque podemos [filtrarlos usando las DevTools](https://github.com/facebook/react-devtools/pull/503), esto apunta a un problema aún más profundo: React necesita un mejor primitivo para compartir lógica de estado.
 
-Con Hooks, puedes extraer lógica de estado de un componente y de tal forma este puede ser probado y re-usado independientemente. **Los Hooks te permiten reutilizar lógica de estado sin cambiar la jerarquía de tu componente.** Esto facilita el compartir Hooks entre muchos componentes o incluso con la comunidad.
+Con Hooks, puedes extraer lógica de estado de un componente de tal forma que este pueda ser probado y re-usado independientemente. **Los Hooks te permiten reutilizar lógica de estado sin cambiar la jerarquía de tu componente.** Esto facilita el compartir Hooks entre muchos componentes o incluso con la comunidad.
 
 Discutiremos esto más a fondo en [Construyendo Tus Propios Hooks](/docs/hooks-custom.html).
 
@@ -93,11 +93,11 @@ Para resolver estos problemas, **Hooks te permiten usar más de las funciones de
 
 >**TLDR: No hay planes para eliminar las clases de React.**
 
-Sabemos que los desarrolladores de React estan enfocados en la creación de productos de software y no tienen tiempo para analizar cada nueva API que se está lanzando. Los Hooks son muy nuevos, y tal vez sea mejor esperar más ejemplos y tutoriales antes de pensar en aprenderlos o adoptarlos.
+Sabemos que los desarrolladores de React están enfocados en la creación de productos de software y no tienen tiempo para analizar cada nueva API que se está lanzando. Los Hooks son muy nuevos, y tal vez sea mejor esperar más ejemplos y tutoriales antes de pensar en aprenderlos o adoptarlos.
 
 También entendemos que la barra para añadir un nuevo primitivo a React es extremadamente alta. Para los lectores curiosos, hemos preparado un,[RFC detallado](https://github.com/reactjs/rfcs/pull/68) que se sumerge en la motivación con más detalles, y proporciona una perspectiva extra sobre las decisiones de diseño específicas y el estado de la técnica relacionado.
 
-**Es crucial, que los Hooks trabajen codo a codo con el código existente para que puedas adoptarlos gradualmente.** Estamos compartiendo esta API experimental para obtener retroalimentación temprana de aquellos en la comunidad que están interesados en dar forma al futuro de React - y vamos a iterar en Hooks al aire libre.
+**Es crucial, que los Hooks trabajen codo a codo con el código existente para que puedas adoptarlos gradualmente.** Estamos compartiendo esta API experimental para obtener retroalimentación temprana de aquellos en la comunidad que están interesados en dar forma al futuro de React - y vamos a iterar en Hooks de forma abierta.
 
 Por último, no hay prisa por migrar a Hooks. Recomendamos evitar cualquier "gran reescritura", especialmente para componentes de clase existentes y complejos. Se necesita un poco de cambio de mentalidad para empezar a "pensar en Hooks". En nuestra experiencia, es mejor practicar primero el uso de hooks en componentes nuevos y no críticos, y asegurarnos de que todos los miembros de tu equipo se sientan cómodos con ellos. Después de que le dés una oportunidad a Hooks, por favor siéntete libre de [enviarnos tus comentarios](https://github.com/facebook/react/issues/new), positivos o negativos.
 
