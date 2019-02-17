@@ -30,7 +30,7 @@ Los componentes de React también pueden ser definidos como funciones que se pue
 
 - [`React.memo`](#reactmemo)
 
-### Crear Elementos de React {#creating-react-elements}
+### Crear elementos de React {#creating-react-elements}
 
 Se recomienda [usar JSX](/docs/introducing-jsx.html) para describir cómo debe verse la UI. Cada elemento de JSX es solo un azúcar sintáctico para llamar [`React.createElement()`](#createelement). Normalmente no se recurrirá a los siguientes métodos directamente si se está usando JSX.
 
@@ -39,7 +39,7 @@ Se recomienda [usar JSX](/docs/introducing-jsx.html) para describir cómo debe v
 
 Para más información, ver [Usar React sin JSX](/docs/react-without-jsx.html).
 
-### Transformar Elementos {#transforming-elements}
+### Transformar elementos {#transforming-elements}
 
 `React` proporciona varias API para manipular elementos:
 

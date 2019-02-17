@@ -19,7 +19,7 @@ La mayoría de sitios web no son, y no necesitan ser, aplicaciones de una sóla 
 - [Agrega React en Un Minuto](#add-react-in-one-minute)
 - [Opcional: Prueba React con JSX](#optional-try-react-with-jsx) (sin necesidad de usar bundler!)
 
-## Agrega React en Un Minuto {#add-react-in-one-minute}
+## Agrega React en un minuto {#add-react-in-one-minute}
 
 En esta sección, vamos a mostrarte como agregar un componente de React a una página HTML existente. Puedes seguir los pasos en tu sitio web, o crear un nuevo archivo HTML para practicar.
 
@@ -27,7 +27,7 @@ No habrá necesidad de usar herramientas complicadas u otros requerimientos para
 
 Opcional: [Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
 
-### Paso 1: Agrega un Contenedor del DOM al HTML {#step-1-add-a-dom-container-to-the-html}
+### Paso 1: Agrega un contenedor del DOM al HTML {#step-1-add-a-dom-container-to-the-html}
 
 Para iniciar, abre la página HTML que deseas editar. Agrega una etiqueta `<div>` vacía para marcar el lugar donde deseas visualizar algo con React. Por ejemplo:
 
@@ -45,7 +45,7 @@ A este `<div>` le agregamos un atributo HTML `id` que es único. Esto nos permit
 >
 >Puedes agregar un "contenedor" `<div>` como este en **cualquier sitio** dentro de la etiqueta `<body>`. Puedes tener la cantidad de contenedores independientes en el DOM que desees. Por lo general éstos están vacíos -- React reemplazará cualquier contenido existente dentro de los contenedores del DOM.
 
-### Paso 2: Agrega las etiquetas de Script {#step-2-add-the-script-tags}
+### Paso 2: Agrega las etiquetas de script {#step-2-add-the-script-tags}
 
 Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes de cerrar la etiqueta `</body>`:
 
@@ -65,7 +65,7 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
 
 Las primeras dos etiquetas cargan React. La tercera carga tu código del componente.
 
-### Paso 3: Crea un Componente de React {#step-3-create-a-react-component}
+### Paso 3: Crea un componente de React {#step-3-create-a-react-component}
 
 Crea un archivo llamado `like_button.js` en el mismo lugar donde tienes tu archivo HTML.
 
@@ -96,7 +96,7 @@ Dale un vistazo a las siguientes secciones para más consejos sobre como integra
 
 **[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
-### Consejo: Reusar un Componente {#tip-reuse-a-component}
+### Consejo: Reusar un componente {#tip-reuse-a-component}
 
 Por lo general, es deseado mostrar componentes de React en múltiples lugares de una página HTML. Aquí hay un ejemplo que muestra el botón de "Like" tres veces y le pasa algunos datos al mismo:
 
@@ -108,7 +108,7 @@ Por lo general, es deseado mostrar componentes de React en múltiples lugares de
 >
 >Esta estrategía es útil cuando las partes de la página que funcionan en React están aisladas entre sí. En código de React, es mucho más fácil usar [composición de componentes](/docs/components-and-props.html#composing-components) en su lugar.
 
-### Consejo: Compactar JavaScript para Producción {#tip-minify-javascript-for-production}
+### Consejo: Compactar JavaScript para producción {#tip-minify-javascript-for-production}
 
 Antes de desplegar tu sitio web a producción, debes ser consciente que no compactar tu JavaScript puede disminuir de forma considerable la carga de tu página.
 
@@ -179,7 +179,7 @@ En tu terminal, ve a la carpeta que contiene tu proyecto y pega estos dos comand
 ¡Felicitaciones! Acabas de agregar una **configuración de JSX lista para producción** a tu proyecto.
 
 
-### Ejecuta el Preprocesador de JSX {#run-jsx-preprocessor}
+### Ejecuta el preprocesador de JSX {#run-jsx-preprocessor}
 
 Crea una carpeta llamada `src` y ejecuta este comando en la terminal:
 

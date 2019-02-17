@@ -43,7 +43,7 @@ Recomendamos que revises el juego de tic-tac-toe antes de continuar con el tutor
 
 Puedes cerrar el juego de tic-tac-toe una vez que te familiarizaste con él. Empezaremos desde una plantilla más simple en este tutorial. Nuestro siguiente paso es configurarlo de tal forma que puedas empezar a construir el juego.
 
-### Prerequisitos {#prerequisites}
+### Prerrequisitos {#prerequisites}
 
 Asumimos que tienes cierta familiaridad con HTML y JavaScript, pero deberías ser capaz de seguir adelante incluso si vienes de un lenguaje de programación diferente. También suponemos que estás familiarizado con conceptos de programación como funciones, objetos, arrays, y en menor medida, clases.
 
@@ -545,7 +545,7 @@ Debido a que el componente Square ahora no mantiene estado, los componentes Squa
 
 Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicareomos porqué crear una copia del array `squares` en la siguiente sección.
 
-### ¿Por qué es importante la Inmutabilidad? {#why-immutability-is-important}
+### ¿Por qué es importante la inmutabilidad? {#why-immutability-is-important}
 
 En el ejemplo de código anterior, sugerimos que uses el operador `.slice()` para crear una copia del array de `squares` para modificar en vez de modificar el array existente. Ahora discutiremos inmutabilidad y porqué es importante aprenderlo.
 

@@ -74,7 +74,7 @@ Al final de este paso tendrás una colección de componentes reutilizables que r
 
 Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
-### Una pequeña pausa: Props vs Estado {#a-brief-interlude-props-vs-state}
+### Una pequeña pausa: Props vs. estado {#a-brief-interlude-props-vs-state}
 
 Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
 

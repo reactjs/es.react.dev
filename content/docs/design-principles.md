@@ -26,7 +26,7 @@ No hay nada "malo" en usar estado o métodos del ciclo de vida en componentes. C
 
 Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](http://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
 
-### Abstracciones Comunes {#common-abstraction}
+### Abstracciones comunes {#common-abstraction}
 
 En general [evitamos añadir funcionalidades](https://www.youtube.com/watch?v=4anAwXYqLG8) que puedan ser implementadas en espacio de usuario. No queremos sobrecargar tus aplicaciones con código de biblioteca que sea inútil. Sin embargo, existen excepciones.
 
@@ -36,7 +36,7 @@ Es por eso que algunas veces añadimos funcionalidades a React. Si notamos que m
 
 Siempre discutimos estas propuestas de mejora con la comunidad. Puedes encontrar algunas de estas discusiones con la etiqueta ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") en el gestor de incidencias de React.
 
-### Válvulas de Escape {#escape-hatches}
+### Válvulas de escape {#escape-hatches}
 
 React es pragmático. Esta guiado por la necesidad de los productos escritos en Facebook. Si bien es influenciado por algunos paradigmas que aún no son totalmente convencionales, tales como la programación funcional, mantenerlo accesible a un amplio rango de programadores con distintos niveles de experiencia y habilidades es uno de los objetivos explícitos del proyecto.
 
@@ -88,9 +88,9 @@ Es un objetivo clave para React que la cantidad del código de usuario que se ej
 
 Tenemos un chiste interno en el equipo de React acerca de que debería haberse llamado *"Schedule"* (el inglés para Plan), ya que React no quiere ser completamente "reactivo".
 
-### Experiencia de Desarrollador {#developer-experience}
+### Experiencia de desarrollador {#developer-experience}
 
-Proveer una buena Experiencia de Desarrollador es importante para nosotros.
+Proveer una buena experiencia de desarrollador es importante para nosotros.
 
 Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
 
@@ -138,7 +138,7 @@ Tratamos de proveer APIs elegantes donde sea posible. Estamos mucho menos preocu
 
 Preferimos código aburrido a código inteligente. El código es descartable y cambia a menudo. Así que es importante que [no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario](https://youtu.be/4anAwXYqLG8?t=13m9s). Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que esté abstraído de manera prematura y que sea difícil de cambiar. 
 
-### Optimizado para Instrumentación {#optimized-for-tooling}
+### Optimizado para instrumentación {#optimized-for-tooling}
 
 Algunas APIs comúnmente usadas tienen nombres detallados. Por ejemplo, usamos `componentDidMount()` en lugar de `didMount()` o `onMount()`. Esto es [intencional](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). El objetivo es hacer los puntos de interacción con la biblioteca ampliamente visibles.
 

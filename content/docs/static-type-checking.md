@@ -67,7 +67,7 @@ npm run flow init
 
 Este comando creará un archivo de configuración de Flow que deberás confirmar (hacer *commit*).
 
-### Elimminando la sintaxis de Flow del código compilado {#stripping-flow-syntax-from-the-compiled-code}
+### Eliminando la sintaxis de Flow del código compilado {#stripping-flow-syntax-from-the-compiled-code}
 
 Flow extiende el lenguaje JavaScript con una sintaxis especial para declaraciones y anotaciones de tipo. Sin embargo, los navegadores no interpretan esta sintaxis, por lo que debes asegurarte de que no termine en el paquete compilado de JavaScript que envías al navegador.
 

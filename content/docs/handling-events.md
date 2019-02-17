@@ -140,7 +140,7 @@ class LoggingButton extends React.Component {
 
 El problema con esta sintaxis es que un callback diferente es creado cada vez que `LogginButton` es renderizado. En la mayoría de los casos, esto está bien. Sin embargo, si este callback se pasa como una propiedad a componentes más bajos, estos componentes podrían renderizarse nuevamente. Generalmente, recomendamos ligar en el constructor o usar la sintaxis de campos de clases, para evitar esta clase de problemas de rendimiento.
 
-## Pasando Argumentos a Escuchadores de Eventos {#passing-arguments-to-event-handlers}
+## Pasando argumentos a escuchadores de eventos {#passing-arguments-to-event-handlers}
 
 Dentro de un bucle es muy común querer pasar un parámetro extra a un manejador de eventos. Por ejemplo, si `id` es el ID de una fila, cualquiera de los códigos a continuación podría funcionar:
 

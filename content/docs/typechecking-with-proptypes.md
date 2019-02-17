@@ -118,7 +118,7 @@ MyComponent.propTypes = {
 };
 ```
 
-### Solicitar un Sólo Hijo {#requiring-single-child}
+### Solicitar un sólo hijo {#requiring-single-child}
 
 Usando `PropTypes.element` puedes especificar que únicamente un hijo se pase al componente.
 
@@ -142,7 +142,7 @@ MyComponent.propTypes = {
 };
 ```
 
-### Valores por defecto de Props {#default-prop-values}
+### Valores por defecto de props {#default-prop-values}
 
 Puedes definir los valores por defecto de tus props al asignar la propiedad especial `defaultProps`:
 

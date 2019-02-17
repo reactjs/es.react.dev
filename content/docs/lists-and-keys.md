@@ -134,7 +134,7 @@ No recomendamos usar índices para keys si el orden de los ítems puede cambiar.
 
 Aquí hay una [explicación en profundidad sobre por qué las keys son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
 
-### Extracción de Componentes con Keys {#extracting-components-with-keys}
+### Extracción de componentes con keys {#extracting-components-with-keys}
 
 Las keys solo tienen sentido en el contexto del array que las envuelve.
 
@@ -206,7 +206,7 @@ ReactDOM.render(
 
 Una buena regla es que los elementos dentro de `map()` necesitan keys.
 
-### Las Keys Deben Ser Únicas Solo Entre Hermanos {#keys-must-only-be-unique-among-siblings}
+### Las keys deben ser únicas solo entre hermanos {#keys-must-only-be-unique-among-siblings}
 
 Las keys usadas dentro de arrays deberían ser únicas entre sus hermanos. Sin embargo, no necesitan ser únicas globalmente. Podemos usar las mismas keys cuando creamos dos arrays diferentes:
 

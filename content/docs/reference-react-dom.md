@@ -18,7 +18,7 @@ El paquete `react-dom` proporciona métodos específicos del DOM que pueden ser 
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Soporte de Navegadores {#browser-support}
+### Soporte de navegadores {#browser-support}
 
 React es compatible con todos los navegadores populares, incluyendo Internet Explorer 9 y versiones posteriores, aunque [se necesitan algunos *polyfills*](/docs/javascript-environment-requirements.html) para navegadores más antiguos como IE 9 e IE 10.
 

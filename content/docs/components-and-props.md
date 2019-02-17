@@ -20,7 +20,7 @@ Puedes encontrar una [API detallada sobre componentes aquí](/docs/react-compone
 
 Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
 
-## Componentes Funcionales y de Clase {#function-and-class-components}
+## Componentes funcionales y de clase {#function-and-class-components}
 
 La forma más sencilla de definir un componente es escribir una función de JavaScript:
 
@@ -47,7 +47,7 @@ Los dos componentes anteriores son equivalentes desde el punto de vista de React
 
 Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales por su brevedad.
 
-## Renderizando un Componente {#rendering-a-component}
+## Renderizando un componente {#rendering-a-component}
 
 Anteriormente, sólo encontramos elementos de React que representan las etiquetas del DOM:
 
@@ -92,7 +92,7 @@ Recapitulemos lo que sucede en este ejemplo:
 > 
 > Para saber más sobre el razonamiento detrás de esta convención, puedes consultar [JSX en profundidad](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Composición de Componentes {#composing-components}
+## Composición de componentes {#composing-components}
 
 Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comúnmente como componentes.
 
@@ -123,7 +123,7 @@ ReactDOM.render(
 
 Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
-## Extracción de Componentes {#extracting-components}
+## Extracción de componentes {#extracting-components}
 
 No tengas miedo de dividir los componentes en otros más pequeños.
 

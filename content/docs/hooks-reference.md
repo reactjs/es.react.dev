@@ -169,7 +169,7 @@ Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devu
 
 Cuando el proveedor se actualiza, este Hook activará un render extra con el último valor de contexto.
 
-## Hooks Adicionales {#additional-hooks}
+## Hooks adicionales {#additional-hooks}
 
 Los siguientes Hooks son variantes de los básicos de la sección anterior o solo son necesarios para casos de borde específicos. No te estreses por aprenderlos por adelantado.
 
