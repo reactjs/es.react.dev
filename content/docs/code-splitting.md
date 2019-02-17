@@ -1,6 +1,6 @@
 ---
 id: code-splitting
-title: Code-Splitting
+title: División de código
 permalink: docs/code-splitting.html
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: composition-vs-inheritance
-title: Composición vs Herencia
+title: Composición vs. herencia
 permalink: docs/composition-vs-inheritance.html
 redirect_from:
   - "docs/multiple-components.html"
