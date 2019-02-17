@@ -244,8 +244,8 @@ class CodeEditor extends Component {
     const {compiled} = this.state;
 
     try {
-      // If we suspect this is the case, we can show a more helpful error.
-      // If we suspect this is the case, we can show a more helpful error.
+      // Example code requires React, ReactDOM, and Remarkable to be within scope.
+      // It also requires a "mountNode" variable for ReactDOM.render()
       // eslint-disable-next-line no-new-func
       new Function('React', 'ReactDOM', 'Remarkable', compiled)(
         React,
