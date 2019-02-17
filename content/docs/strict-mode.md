@@ -26,7 +26,7 @@ Funcionalidades adicionales serán agregadas en futuras versiones de React.
 
 ### Identificar ciclos de vida inseguros {#identifying-unsafe-lifecycles}
 
-Como fue explicado [en este artículo del blog](/blog/2018/03/27/update-on-async-rendering.html), algúnos cíclos de vida antiguos son inseguros para ser usados en aplicaciones de React asíncronas. Sin embargo, si tu aplicación utiliza librerías de terceros, puede ser díficil asegurar que estos ciclos de vida no estén siendo utilizados. Por fortuna, ¡el modo estricto puede ayudar con esto!
+Como fue explicado [en este artículo del blog](/blog/2018/03/27/update-on-async-rendering.html), algúnos cíclos de vida antiguos son inseguros para ser usados en aplicaciones de React asíncronas. Sin embargo, si tu aplicación utiliza bibliotecas de terceros, puede ser díficil asegurar que estos ciclos de vida no estén siendo utilizados. Por fortuna, ¡el modo estricto puede ayudar con esto!
 
 Cuando el modo estricto está habilitado, React reune en una lista todos los componentes de clases que están usando ciclos de vida inseguros, y registra por medio de un mensaje de advertencia la información sobre estos componentes, de esta forma:
 

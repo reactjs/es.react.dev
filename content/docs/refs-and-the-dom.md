@@ -21,7 +21,7 @@ Existen unos cuantos buenos casos de uso para referencias:
 
 * Controlar enfoques, selección de texto, o reproducción de medios.
 * Activar animaciones imperativas.
-* Integración con librerías DOM de terceros.
+* Integración con bibliotecas DOM de terceros.
 
 Evita usar referencias en cualquier cosa que pueda ser hecha declarativamente.
 
