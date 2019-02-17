@@ -70,7 +70,7 @@ React proporciona algunos Hooks incorporados como `useState`. También puedes cr
 
 ## ⚡️ Hook de Efecto {#️effect-hook}
 
-Es probable que hayas realizado recuperación de datos, suscripciones o modificacion manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
+Es probable que hayas realizado recuperación de datos, suscripciones o modificación manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
 
 El Hook de Efecto, `useEffect`, agrega la capacidad de realizar efectos secundarios desde un componente funcional. Tiene el mismo propósito que `componentDidMount`,` componentDidUpdate` y `componentWillUnmount` en las clases React, pero unificadas en una sola API. (Mostraremos ejemplos comparando `useEffect` con estos métodos en [Usando el Hook de Efecto](/docs/hooks-effect.html).)
 

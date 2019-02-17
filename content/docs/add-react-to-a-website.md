@@ -165,7 +165,7 @@ Este enfoque está bien mientras aprendes o creas demostraciones simples. Sin em
 
 ### Agregar JSX a un proyecto {#add-jsx-to-a-project}
 
-Agregar JSX a un proyecto no necesita de herramientas complicadas como un bundler o un servidor de desarrollo. Básicamente, agregar JSX **es muy parecido a agregar un preprocesador de CSS.** El único requsito es que tengas [Node.js](https://nodejs.org/) instalado en tu computador.
+Agregar JSX a un proyecto no necesita de herramientas complicadas como un bundler o un servidor de desarrollo. Básicamente, agregar JSX **es muy parecido a agregar un preprocesador de CSS.** El único requisito es que tengas [Node.js](https://nodejs.org/) instalado en tu computador.
 
 En tu terminal, ve a la carpeta que contiene tu proyecto y pega estos dos comandos:
 
@@ -197,6 +197,6 @@ No esperes hasta que termine -- este comando inicia un observador automático pa
 
 Si ahora creas un archivo llamado `src/like_button.js` con este **[código inicial de JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, el observador va a crear un `like_button.js` preprocesado con el código JavaScript original que es apto para el navegador. Cuando edites el código del archivo que tiene JSX, el transformador va a volver a ejecutarse de forma automática.
 
-Como un bonus, esto también te permite utilizar características nuevas de la sintáxis de JavaScript, como las clases, sin que te preocupes de que no funcionen en navegadores antiguos. La herramienta que hemos usado se llamda Babel, y puedes leer más sobre ella en [su documentación](http://babeljs.io/docs/en/babel-cli/).
+Como un bonus, esto también te permite utilizar características nuevas de la sintaxis de JavaScript, como las clases, sin que te preocupes de que no funcionen en navegadores antiguos. La herramienta que hemos usado se llama Babel, y puedes leer más sobre ella en [su documentación](http://babeljs.io/docs/en/babel-cli/).
 
 Si notas que se te está haciendo más cómodo manejar las herramientas de configuración y quieres sacarle mayor provecho, [en la próxima sección](/docs/create-a-new-react-app.html) se describen unas de las cadenas de herramientas más populares y accesibles. Dado el caso que no te sientas así -- esas etiquetas de script serán suficiente.

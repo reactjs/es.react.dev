@@ -24,7 +24,7 @@ Los componentes de React permiten dividir la UI en piezas independientes, reusab
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
 
-Si no se usan las clases ES6, se puede usar el módulo `create-react-class`. Para más infomación, ver [Usar React sin ES6](/docs/react-without-es6.html).
+Si no se usan las clases ES6, se puede usar el módulo `create-react-class`. Para más información, ver [Usar React sin ES6](/docs/react-without-es6.html).
 
 Los componentes de React también pueden ser definidos como funciones que se pueden envolver:
 
@@ -202,7 +202,7 @@ Retorna una función que produce elementos React de un tipo dado. Como [`React.c
 
 Este auxiliar es considerado antiguo y en su lugar fomentamos el uso de JSX o de `React.createElement()`.
 
-Normalmente no se invocará `React.createFactory()` directamente si se está usando JSX. Para aprender más, ver [React Without JSX](/docs/react-without-jsx.html).
+Normalmente no se invocará `React.createFactory()` directamente si se está usando JSX. Para aprender más, ver [React sin JSX](/docs/react-without-jsx.html).
 
 * * *
 

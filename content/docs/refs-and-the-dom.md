@@ -37,7 +37,7 @@ Tu primer pensamiento puede ser usar referencias para "hacer que las cosas funci
 
 ### Creando Referencias {#creating-refs}
 
-Las referencias son creadas usando `React.createRef()` y agregandolas a elementos de React mediante el atributo `ref`. Las referencias son asignadas comunmente a una propiedad de instancia cuando un componente es construido, así pueden ser referenciadas por el componente.
+Las referencias son creadas usando `React.createRef()` y agregándolas a elementos de React mediante el atributo `ref`. Las referencias son asignadas comúnmente a una propiedad de instancia cuando un componente es construido, así pueden ser referenciadas por el componente.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {

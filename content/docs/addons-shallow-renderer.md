@@ -63,6 +63,6 @@ Puedes ver el shallowRenderer como un "lugar" para renderizar el componente que 
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
-Despues que `shallowRenderer.render()` es llamado, se puede usar `shallowRenderer.getRenderOutput()` para obtener el resultado superficialmente renderizado.
+Después que `shallowRenderer.render()` es llamado, se puede usar `shallowRenderer.getRenderOutput()` para obtener el resultado superficialmente renderizado.
 
 Entonces ya se pueden empezar a comprobar hechos sobre el resultado.

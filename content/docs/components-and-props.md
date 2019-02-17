@@ -16,7 +16,7 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 Los componentes permiten separar la UI en piezas independientes, reutilizables y pensar en cada pieza de forma aislada.Esta página proporciona una introducción a la idea de los componentes.
-Puedes encontrar una [API detallada sobre componentes aqui](/docs/react-component.html).
+Puedes encontrar una [API detallada sobre componentes aquí](/docs/react-component.html).
 
 Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
 
@@ -94,7 +94,7 @@ Recapitulemos lo que sucede en este ejemplo:
 
 ## Composición de Componentes {#composing-components}
 
-Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comunmente como componentes.
+Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comúnmente como componentes.
 
 Por ejemplo, podemos crear un componente `App` que renderiza `Welcome` muchas veces:
 
@@ -157,7 +157,7 @@ function Comment(props) {
 
 Acepta `author` (un objeto), `text` (un string), y `date` (una fecha) como props, y describe un comentario en una web de redes sociales.
 
-Este componente puede ser difícil de cambiar debido a todo el anidamiento, y támbien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes del mismo.
+Este componente puede ser difícil de cambiar debido a todo el anidamiento, y también es difícil reutilizar partes individuales de él. Vamos a extraer algunos componentes del mismo.
 
 Primero, vamos a extraer `Avatar`:
 

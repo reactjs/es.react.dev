@@ -12,7 +12,7 @@ redirect_from:
 >
 >Nosotros ofrecemos [un script de codemod](/blog/2017/04/07/react-v15.5.0.html#migrating-from-reactproptypes) para automatizar la conversión.
 
-A medida que tu aplicación crece, puedes capturar una gran cantidad de errores con verificación de tipos. Para algunas aplicaciones, puedes usar extensiones de Javascript como [Flow](https://flow.org/) o [TypeScript](https://www.typescriptlang.org/) para verificar los tipos en tu aplicación. Pero incluso si no usas alguno de ellos, React tiene algunas habilidades de verificación de tipos incorporadas. Para usar verificación de tipos en las props de un component, puedes asignar la propiedad especial `PropTypes`:
+A medida que tu aplicación crece, puedes capturar una gran cantidad de errores con verificación de tipos. Para algunas aplicaciones, puedes usar extensiones de Javascript como [Flow](https://flow.org/) o [TypeScript](https://www.typescriptlang.org/) para verificar los tipos en tu aplicación. Pero incluso si no usas alguno de ellos, React tiene algunas habilidades de verificación de tipos incorporadas. Para usar verificación de tipos en las props de un componente, puedes asignar la propiedad especial `PropTypes`:
 
 ```javascript
 import PropTypes from 'prop-types';

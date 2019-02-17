@@ -14,7 +14,7 @@ redirect_from:
   - "tips/initial-ajax.html"
   - "tips/use-react-with-other-libraries.html"
 ---
-Esta página contiene una referencia detallada de la API de React sobre los componentes definidos a través de clases. Asumimos que estas familiarizado con los conceptos fundamentales de React, como [Componentes y Props](/docs/components-and-props.html), así también [State y Lifecycle](/docs/state-and-lifecycle.html). Si no, léelas primero.
+Esta página contiene una referencia detallada de la API de React sobre los componentes definidos a través de clases. Asumimos que estas familiarizado con los conceptos fundamentales de React, como [Componentes y props](/docs/components-and-props.html), así también [Estado y ciclo de vida](/docs/state-and-lifecycle.html). Si no, léelas primero.
 
 ## Resumen {#overview}
 

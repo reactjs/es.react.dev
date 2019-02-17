@@ -95,7 +95,7 @@ function BlueDatePicker() {
 
 Cuando un tipo de elemento comienza con una letra minúscula, se refiere a un componente incorporado como `<div>` o `<span>` y da como resultado una cadena `'div'` o `'span'` que se pasa a `React.createElement`. Los tipos que comienzan con una letra mayúscula como `<Foo />` compilan a `React.createElement(Foo)` y corresponden a un componente definido o importado en tu archivo JavaScript.
 
-Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo una variable en mayúscula antes de usarlo en JSX.
+Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo a una variable en mayúscula antes de usarlo en JSX.
 
 Por ejemplo, este código no se ejecutará como se esperaba:
 

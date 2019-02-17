@@ -6,7 +6,7 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-Los Hooks son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
+Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Esta página describe las API para los Hooks incorporados en React.
 
@@ -80,7 +80,7 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 
 #### Inicialización gradual {#lazy-initial-state}
 
-El argumento `initialState` es el estado utilizado durante el render inicial. En renders posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
+El argumento `initialState` es el estado utilizado durante el render inicial. En renderizados posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
 
 ```js
 const [state, setState] = useState(() => {

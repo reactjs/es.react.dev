@@ -68,7 +68,7 @@ class CommentList extends React.Component {
 }
 ```
 
-Posteriormente escribes un componente para subscribirte a un único post de un blog, el cual sigue un patrón similar:
+Posteriormente escribes un componente para suscribirte a un único post de un blog, el cual sigue un patrón similar:
 
 ```js
 class BlogPost extends React.Component {
@@ -106,7 +106,7 @@ class BlogPost extends React.Component {
 - En el gestor de eventos de cambio, llamar `setState` cada vez que la fuente de datos cambie.
 - Al desmontar, eliminar el gestor de eventos de cambio.
 
-Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de multiples componentes. En esto es donde los componentes de orden superior se destacan.
+Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de múltiples componentes. En esto es donde los componentes de orden superior se destacan.
 
 Podemos crear una función que cree componentes, como `CommentList` y `BlogPost`, que se subscriben a `DataSource`. La función aceptará como uno de sus argumentos un componente hijo que recibirá los datos suscritos como un *prop*. Llamemos esta función `withSubscription`:
 
