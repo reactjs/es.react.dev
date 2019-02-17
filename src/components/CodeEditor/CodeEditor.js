@@ -59,8 +59,9 @@ class CodeEditor extends Component {
           Babel no pudo ser cargado.
           <br />
           <br />
-          Esto puede ser causado por un bloqueador de anuncios. Si estás usando uno, considera
-          añadir reactjs.org a la lista blanca así los ejemplos con código en vivo funcionarán.
+          Esto puede ser causado por un bloqueador de anuncios. Si estás usando
+          uno, considera añadir reactjs.org a la lista blanca y así los ejemplos
+          con código en vivo funcionarán.
         </span>
       );
     } else if (error != null) {
@@ -243,8 +244,8 @@ class CodeEditor extends Component {
     const {compiled} = this.state;
 
     try {
-      // El código de ejemplo requiere React, ReactDOM, y Remarkable para estar dentro del alcance de aplicación.
-      // Esto también requiere una variable "mountNode" para ReactDOM.render()
+      // If we suspect this is the case, we can show a more helpful error.
+      // If we suspect this is the case, we can show a more helpful error.
       // eslint-disable-next-line no-new-func
       new Function('React', 'ReactDOM', 'Remarkable', compiled)(
         React,
@@ -279,8 +280,8 @@ class CodeEditor extends Component {
     } catch (error) {
       console.error(error);
 
-      // Ciertos bloqueadores de anuncios (ej: Fair AdBlocker) previenen la carga de Babel.
-      // Si sospechamos que éste es el caso, podemos mostrar un error más útil.
+      // Certain ad blockers (eg Fair AdBlocker) prevent Babel from loading.
+      // If we suspect this is the case, we can show a more helpful error.
       const showBabelErrorMessage = !window.Babel;
 
       return {
