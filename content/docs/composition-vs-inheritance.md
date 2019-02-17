@@ -35,10 +35,10 @@ function WelcomeDialog() {
   return (
     <FancyBorder color="blue">
       <h1 className="Dialog-title">
-        Bienvenidos
+        Welcome
       </h1>
       <p className="Dialog-message">
-        ¡Gracias por visitar nuestra nave espacial!
+        Thank you for visiting our spacecraft!
       </p>
     </FancyBorder>
   );
@@ -105,8 +105,8 @@ function Dialog(props) {
 function WelcomeDialog() {
   return (
     <Dialog
-      title="Bienvenidos"
-      message="¡Gracias por visitar nuestra nave espacial!" />
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" />
   );
 }
 ```
@@ -140,8 +140,8 @@ class SignUpDialog extends React.Component {
 
   render() {
     return (
-      <Dialog title="Programa de exploración de Marte"
-              message="Cómo debemos llamarte?">
+      <Dialog title="Mars Exploration Program"
+              message="How should we refer to you?">
         <input value={this.state.login}
                onChange={this.handleChange} />
         <button onClick={this.handleSignUp}>
