@@ -3,7 +3,7 @@ id: fragments
 title: Fragmentos
 permalink: docs/fragments.html
 ---
-Un patrón común en React es que un componente devuelva multiples elementos. Los Fragmentos te permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
+Un patrón común en React es que un componente devuelva múltiples elementos. Los Fragmentos te permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
 
 ```js
 render() {

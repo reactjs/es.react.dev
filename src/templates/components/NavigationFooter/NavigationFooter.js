@@ -61,7 +61,7 @@ const NavigationFooter = ({next, prev, location}) => {
                 textAlign: 'right',
               }}>
               <div>
-                <SecondaryLabel>Next article</SecondaryLabel>
+                <SecondaryLabel>Próximo artículo</SecondaryLabel>
                 <div
                   css={{
                     paddingTop: 10,

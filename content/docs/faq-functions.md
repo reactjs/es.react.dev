@@ -20,7 +20,7 @@ Si necesitas tener acceso al componente padre dentro del evento, también debes 
 
 Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
 
-#### Enlazar dentro del Constructor (ES2015) {#bind-in-constructor-es2015}
+#### Enlazar dentro del constructor (ES2015) {#bind-in-constructor-es2015}
 
 ```jsx
 class Foo extends Component {
@@ -37,7 +37,7 @@ class Foo extends Component {
 }
 ```
 
-#### Propiedades de las Clases (Propuesta de etapa 3) {#class-properties-stage-3-proposal}
+#### Propiedades de las clases (propuesta de etapa 3) {#class-properties-stage-3-proposal}
 
 ```jsx
 class Foo extends Component {
@@ -68,7 +68,7 @@ class Foo extends Component {
 >
 > Al usar `Function.prototype.bind` dentro de la renderización se crea una nueva función cada vez que el componente se renderiza, lo cual podría implicar problemas de rendimiento (ver abajo).
 
-#### Funciones Flecha en renderización {#arrow-function-in-render}
+#### Funciones flecha en renderización {#arrow-function-in-render}
 
 ```jsx
 class Foo extends Component {

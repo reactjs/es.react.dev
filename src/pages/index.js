@@ -287,7 +287,7 @@ class Home extends Component {
               <Flex valign="center">
                 <CtaItem>
                   <ButtonLink to="/docs/getting-started.html" type="primary">
-                    Get Started
+                    Comienza
                   </ButtonLink>
                 </CtaItem>
                 <CtaItem>

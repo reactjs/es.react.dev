@@ -14,7 +14,7 @@ redirect_from:
   - "tips/initial-ajax.html"
   - "tips/use-react-with-other-libraries.html"
 ---
-Esta página contiene una referencia detallada de la API de React sobre los componentes definidos a través de clases. Asumimos que estas familiarizado con los conceptos fundamentales de React, como [Componentes y Props](/docs/components-and-props.html), así también [State y Lifecycle](/docs/state-and-lifecycle.html). Si no, léelas primero.
+Esta página contiene una referencia detallada de la API de React sobre los componentes definidos a través de clases. Asumimos que estas familiarizado con los conceptos fundamentales de React, como [Componentes y props](/docs/components-and-props.html), así también [Estado y ciclo de vida](/docs/state-and-lifecycle.html). Si no, léelas primero.
 
 ## Resumen {#overview}
 
@@ -36,7 +36,7 @@ El único método que *debes* definir en una subclase de `React.Component` es [`
 >
 > React no te obliga a usar la sintaxis de clases ES6. Si prefieres evitarlo, puede utilizar el módulo `create-react-class` o una abstracción personalizada similar en su lugar. Échale un vistazo a [Usando React sin ES6](/docs/react-without-es6.html) para aprender mas.
 
-### El Ciclo de Vida del Componente {#the-component-lifecycle}
+### El ciclo de vida del componente {#the-component-lifecycle}
 
 Cada componente tiene varios "métodos de ciclo de vida" que puedes sobrescribir para ejecutar código en momentos particulares del proceso. **Puedes usar [este diagrama de ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) como una hoja de referencia.** En la lista de abajo, los métodos de ciclo de vida comúnmente usados están marcados en **negrita**. El resto de ellos existen para casos de uso relativamente raros.
 
@@ -55,7 +55,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
-#### Updating {#updating}
+#### Actualización {#updating}
 
 Una actualización puede ser causada por cambios en los props o el state. Estos métodos se llaman en el siguiente orden cuando un componente se re renderiza:
 
@@ -72,13 +72,13 @@ Una actualización puede ser causada por cambios en los props o el state. Estos 
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
-#### Unmounting {#unmounting}
+#### Desmontaje {#unmounting}
 
 Este método es llamado cuando un componente se elimina del DOM:
 
 - [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Manejo de Errores {#error-handling}
+#### Manejo de errores {#error-handling}
 
 Estos métodos se invocan cuando hay un error durante la renderización, en un método en el ciclo de vida o en el constructor de cualquier componente hijo.
 
@@ -97,7 +97,7 @@ Cada componente también proporciona algunas otras APIs:
 - [`defaultProps`](#defaultprops)
 - [`displayName`](#displayname)
 
-### Propiedades de Instancia {#instance-properties}
+### Propiedades de instancia {#instance-properties}
 
 - [`props`](#props)
 - [`state`](#state)
@@ -618,7 +618,7 @@ La cadena `displayName` es usada en la depuración de mensajes. Por lo general, 
 
 * * *
 
-## Propiedades de Instancia {#instance-properties-1}
+## Propiedades de instancia {#instance-properties-1}
 
 ### `props` {#props}
 

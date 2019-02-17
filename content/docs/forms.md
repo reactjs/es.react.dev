@@ -23,7 +23,7 @@ Los elementos de formularios en HTML funcionan un poco diferente a otros element
 
 Este formulario tiene el comportamiento predeterminado en HTML que consiste en navegar a una nueva página cuando el usuario envía el formulario. Si deseas este comportamiento en React, simplemente ya funciona así. Pero en la mayoría de casos, es conveniente tener una función en Javascript que se encargue del envío del formulario, y que tenga acceso a los datos que el usuario introdujo en el formulario. La forma predeterminada para conseguir esto es una técnica llamada "componentes controlados".
 
-## Componentes Controlados {#controlled-components}
+## Componentes controlados {#controlled-components}
 
 En HTML, los elementos de formularios como los `<input>`, `<textarea>` y el `<select>` normalmente mantienen sus propios estados y los actualizan de acuerdo a la interacción del usuario. En React, el estado mutable es mantenido normalmente en la propiedad estado de los componentes, y solo se actualiza con [`setState()`](/docs/react-component.html#setstate).
 
@@ -76,7 +76,7 @@ handleChange(event) {
 }
 ```
 
-## La Etiqueta textarea {#the-textarea-tag}
+## La etiqueta textarea {#the-textarea-tag}
 
 En HTML, el elemento `<textarea>` define su texto por sus hijos:
 
@@ -125,7 +125,7 @@ class EssayForm extends React.Component {
 
 Recuerda que `this.state.value` es inicializado en el constructor, de manera que el área de texto empiece con algo de texto.
 
-## La Etiqueta select {#the-select-tag}
+## La etiqueta select {#the-select-tag}
 
 En HTML, `<select>` crea una lista desplegable. Por ejemplo, este HTML crea una lista desplegable de sabores:
 
@@ -190,7 +190,7 @@ En resumen, esto hace que `<input type="text">`, `<textarea>`, y `<select>` trab
 ><select multiple={true} value={['B', 'C']}>
 >```
 
-## La Etiqueta file input {#the-file-input-tag}
+## La etiqueta file input {#the-file-input-tag}
 
 En HTML, un `<input type="file">` permite que el usuario escoja uno o varios archivos de su dispositivo de almacenamiento para ser cargados a un servidor o ser manipulados por Javascript mediante el [API de Archivos](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
 
@@ -200,7 +200,7 @@ En HTML, un `<input type="file">` permite que el usuario escoja uno o varios arc
 
 Ya que su valor es solo de lectura, es un componente **no controlado** en React. Es explicado en detalle junto a otros componentes no controlados [más adelante en la documentación](/docs/uncontrolled-components.html#the-file-input-tag).
 
-## Manejando Múltiples Inputs {#handling-multiple-inputs}
+## Manejando múltiples inputs {#handling-multiple-inputs}
 
 Cuando necesitas manejar múltiples elementos `input` controlados, puedes agregar un atributo `name` a cada uno de los elementos y dejar que la función controladora decida que hacer basada en el valor de `event.target.name`.
 
@@ -273,7 +273,7 @@ this.setState(partialState);
 
 También, ya que `setState()` automáticamente [combina un estado parcial al estado actual](/docs/state-and-lifecycle.html#state-updates-are-merged), solamente necesitamos llamarlo con las partes que han cambiado.
 
-## Valor Nulo en un Input Controlado {#controlled-input-null-value}
+## Valor nulo en un input controlado {#controlled-input-null-value}
 
 Especificar la propiedad `value` en un [componente controlado](/docs/forms.html#controlled-components) evita que el usuario cambie la entrada a menos que así lo quiera. Si has especificado un `value` pero la entrada aún es editable, quizás agregaste accidentalmente al `value` un valor `undefined` o `null`.
 
@@ -288,10 +288,10 @@ setTimeout(function() {
 
 ```
 
-## Alternativas a Componentes Controlados {#alternatives-to-controlled-components}
+## Alternativas a componentes controlados {#alternatives-to-controlled-components}
 
 A veces puede ser tedioso usar componentes controlados, debido a que se necesita escribir un controlador de eventos para cada forma en la que tus datos puedan cambiar y agregarlos a todos en el estado del *input* a través del componente React. Esto puede volverse particularmente molesto cuando estás convirtiendo una base de código existente a React, o integrando una aplicación React con una biblioteca que no integra React. En estas situaciones, puede que quieras leer acerca de [componentes no controlados](/docs/uncontrolled-components.html), una técnica alternativa para implementar *inputs* en formularios.
 
-## Soluciones Completas {#fully-fledged-solutions}
+## Soluciones completas {#fully-fledged-solutions}
 
 Si lo que estás buscando es una solución completa incluyendo validación, tener en cuenta los campos visitados y manejar el envío del formulario, [Formik](https://jaredpalmer.com/formik) es una de las opciones populares. Sin embargo, está construido con los mismos principios de los componentes controlados y manejo de estado, así que no los dejes de aprender.

@@ -16,25 +16,25 @@ Esto significa que lo hace con un número de versión **x.y.z**:
 
 Los lanzamientos importantes también pueden contener nuevas funcionalidades, y cualquier lanzamiento puede incluir correcciones de errores.
 
-### Cambios con Rupturas {#breaking-changes}
+### Cambios con rupturas {#breaking-changes}
 
 Los cambios con rupturas son inconvenientes para todos, por lo que intentamos minimizar el número de lanzamientos importantes – por ejemplo, React 15 fue lanzado en Abril de 2016 y React 16 fue lanzado en Septiembre de 2017; no esperamos lanzar React 17 hasta el 2019.
 
 En cambio, lanzamos nuevas funcionalidades en versiones menores. Esto significa que los lanzamientos menores son a menudo más interesantes que los lanzamientos importantes, a pesar de su modesto nombre.
 
-### Compromiso a la Estabilidad {#commitment-to-stability}
+### Compromiso a la estabilidad {#commitment-to-stability}
 
 A medida que actualizamos React, intentamos minimizar el esfuerzo necesario para aprovechar nuevas funcionalidades. Cuando sea posible, mantendremos un API antiguo funcionando, incluso si eso significa ponerlo en un paquete separado. Por ejemplo, [el uso de *mixins* no ha sido recomendado durante años](/blog/2016/07/13/mixins-considered-harmful.html) pero aún son aceptados hasta hoy en día [mediante el uso de create-react-class](/docs/react-without-es6.html#mixins) y muchas bases de código aún siguen utilizándolos en código estable pero antiguo.
 
 Más de un millón de desarrolladores utilizan React, manteniendo colectivamente millones de componentes. Solamente la base de código de Facebook tiene más de 50.000 componentes de React. Esto significa que tenemos que hacer lo más fácil posible actualizar a nuevas versiones de React; si hacemos grandes cambios sin una guía de actualización, la gente se quedará atascada en versiones antiguas. Probamos estas guías de actualización en Facebook – si nuestro equipo de menos de 10 personas puede actualizar 50.000 componentes por si mismos, esperamos que la actualización sea manejable para cualquiera que utilice React. En muchos casos, escribimos [*scripts* automatizados](https://github.com/reactjs/react-codemod) para actualizar la sintaxis de componentes, que luego incluimos en la versión de código abierto para que todo el mundo los utilice.
 
-### Mejoras Graduales a través de Advertencias {#gradual-upgrades-via-warnings}
+### Mejoras graduales a través de advertencias {#gradual-upgrades-via-warnings}
 
 Las versiones de desarrollo de React incluyen muchas advertencias útiles. Siempre que es posible, añadimos advertencias en preparación a futuros cambios con rupturas. De esta manera, si tu aplicación no tiene advertencias en el último lanzamiento, esta será compatible con el próximo lanzamiento importante. Esto te permite actualizar tu aplicación un componente a la vez.
 
 Las advertencias de desarrollo no afectarán el comportamiento en tiempo de ejecución de tu aplicación. De esa forma, puedes estar seguro de que tu aplicación se comportará de la misma manera entre la versión de desarrollo y la versión de producción -- las únicas diferencias son que la versión de producción no registrará las advertencias y es más eficiente. (Si alguna vez observas lo contrario, por favor abre un caso).
 
-### ¿Qué cuenta como un Cambio con Rupturas? {#what-counts-as-a-breaking-change}
+### ¿Qué cuenta como un cambio con rupturas? {#what-counts-as-a-breaking-change}
 
 En general, *no publicamos* una versión importante por cambios a:
 

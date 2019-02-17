@@ -146,7 +146,7 @@ Reorganizar también puede causar problemas de estado del componente cuando los 
 
 ## Compensaciones {#tradeoffs}
 
-Es importante recordar que el algoritmo de reconciliación es un detalle de la implementación. React podría volver a renderizar toda la aplicación en cada acción; El resultado final sería el mismo. Para que quede claro, volver a renderizar en este contexto significa llamar a `render` para todos los componentes, no significa que React los desmonte y los vuelva a montar. Solo aplicará las diferencias siguiendo las reglas establecidad en las secciones anteriores. 
+Es importante recordar que el algoritmo de reconciliación es un detalle de la implementación. React podría volver a renderizar toda la aplicación en cada acción; El resultado final sería el mismo. Para que quede claro, volver a renderizar en este contexto significa llamar a `render` para todos los componentes, no significa que React los desmonte y los vuelva a montar. Solo aplicará las diferencias siguiendo las reglas establecidas en las secciones anteriores. 
 
 Regularmente refinamos las heurísticas para que los casos de uso común sean más rápidos. En la implementación actual, puedes expresar el hecho de que un subárbol se ha movido entre sus hermanos, pero no puede decir que se haya movido a otro lugar. El algoritmo reenviará ese subárbol completo.
 
