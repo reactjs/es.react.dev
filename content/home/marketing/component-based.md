@@ -3,7 +3,7 @@ title: Basado en componentes
 order: 1
 ---
 
-Cree componentes encapsulados que manejen su propio estado,
+Crea componentes encapsulados que manejen su propio estado,
 y conviértelos en interfaces de usuario complejas.
 
 Ya que la lógica de los componentes está escrita en JavaScript y no en plantillas,
