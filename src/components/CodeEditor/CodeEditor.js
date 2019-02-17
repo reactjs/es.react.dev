@@ -56,12 +56,11 @@ class CodeEditor extends Component {
     if (showBabelErrorMessage) {
       errorMessage = (
         <span>
-          Babel could not be loaded.
+          Babel no pudo ser cargado.
           <br />
           <br />
-          This can be caused by an ad blocker. If you're using one, consider
-          adding reactjs.org to the whitelist so the live code examples will
-          work.
+          Esto puede ser causado por un bloqueador de anuncios. Si estás usando uno, considera
+          añadir reactjs.org a la lista blanca así los ejemplos con código en vivo funcionarán.
         </span>
       );
     } else if (error != null) {
@@ -99,7 +98,7 @@ class CodeEditor extends Component {
                 color: colors.white,
               }}>
               <MetaTitle onDark={true}>
-                Live JSX Editor
+                Editor en vivo de JSX
                 <label
                   css={{
                     fontSize: 14,
@@ -200,7 +199,7 @@ class CodeEditor extends Component {
                   padding: '0 10px',
                   backgroundColor: colors.divider,
                 }}>
-                <MetaTitle>Result</MetaTitle>
+                <MetaTitle>Resultado</MetaTitle>
               </div>
               <div
                 id={containerNodeID}
@@ -244,8 +243,8 @@ class CodeEditor extends Component {
     const {compiled} = this.state;
 
     try {
-      // Example code requires React, ReactDOM, and Remarkable to be within scope.
-      // It also requires a "mountNode" variable for ReactDOM.render()
+      // El código de ejemplo requiere React, ReactDOM, y Remarkable para estar dentro del alcance de aplicación.
+      // Esto también requiere una variable "mountNode" para ReactDOM.render()
       // eslint-disable-next-line no-new-func
       new Function('React', 'ReactDOM', 'Remarkable', compiled)(
         React,
@@ -280,8 +279,8 @@ class CodeEditor extends Component {
     } catch (error) {
       console.error(error);
 
-      // Certain ad blockers (eg Fair AdBlocker) prevent Babel from loading.
-      // If we suspect this is the case, we can show a more helpful error.
+      // Ciertos bloqueadores de anuncios (ej: Fair AdBlocker) previenen la carga de Babel.
+      // Si sospechamos que éste es el caso, podemos mostrar un error más útil.
       const showBabelErrorMessage = !window.Babel;
 
       return {
