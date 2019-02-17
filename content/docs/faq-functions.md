@@ -1,6 +1,6 @@
 ---
 id: faq-funciones
-title: Pasando Funciones a Componentes
+title: Pasando funciones a componentes
 permalink: docs/faq-functions.html
 layout: docs
 category: FAQ

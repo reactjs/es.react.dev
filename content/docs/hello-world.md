@@ -1,6 +1,6 @@
 ---
 id: hello-world
-title: Hello World
+title: Hola mundo
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
@@ -10,12 +10,12 @@ El más pequeño de los ejemplos de React se ve así:
 
 ```js
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <h1>¡Hola mundo!</h1>,
   document.getElementById('root')
 );
 ```
 
-Este muestra un encabezado con el texto "Hello, world!" en la página.
+Este muestra un encabezado con el texto "¡Hola mundo!" en la página.
 
 [](codepen://hello-world)
 
