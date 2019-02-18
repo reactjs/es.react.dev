@@ -44,9 +44,9 @@ Esto muestra "Hello, world" en la página.
 
 ## Actualizando el elemento renderizado {#updating-the-rendered-element}
 
-Los elementos de React son [inmutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un fotograma solitario en una película: este representa la Interfaz de Usuario en cierto punto en el tiempo.
+Los elementos de React son [inmutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un fotograma solitario en una película: este representa la interfaz de usuario en cierto punto en el tiempo.
 
-Con nuestro conocimiento hasta este punto, la única manera de actualizar la Interfaz de Usuario es creando un nuevo elemento, y pasarlo a `ReactDOM.render()`.
+Con nuestro conocimiento hasta este punto, la única manera de actualizar la interfaz de usuario es creando un nuevo elemento, y pasarlo a `ReactDOM.render()`.
 
 Considera este ejemplo de un reloj en marcha:
 
@@ -70,6 +70,6 @@ Puedes verificar esto inspeccionando el [último ejemplo](codepen://rendering-el
 
 ![inspector del DOM mostrando actualizaciones diminutas](../images/docs/granular-dom-updates.gif)
 
-Aunque creamos un elemento que describe el árbol de la Interfaz de Usuario en su totalidad en cada instante, React DOM solo actualiza el texto del nodo cuyo contenido cambió.
+Aunque creamos un elemento que describe el árbol de la interfaz de usuario en su totalidad en cada instante, React DOM solo actualiza el texto del nodo cuyo contenido cambió.
 
-En nuestra experiencia, pensar en cómo la Interfaz de Usuario debería verse en un momento dado y no en cómo cambiarla en el tiempo, elimina toda una clase de errores.
+En nuestra experiencia, pensar en cómo la interfaz de usuario debería verse en un momento dado y no en cómo cambiarla en el tiempo, elimina toda una clase de errores.
