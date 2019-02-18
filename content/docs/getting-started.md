@@ -76,7 +76,7 @@ Si vienes con experiencia como diseñador, [estos recursos](http://reactfordesig
 
 La documentación de React asume cierta familiaridad con la programación en Javascript. No necesitas ser un experto, pero es más difícil aprender React y Javascript al mismo tiempo.
 
-Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para medir tu nivel de conocimiento. Te tomará entre 30 minutos a 1 hora, pero te sentirás más seguro aprendiendo React.
+Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.org/es-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para medir tu nivel de conocimiento. Te tomará entre 30 minutos a 1 hora, pero te sentirás más seguro aprendiendo React.
 
 >Consejo
 >
