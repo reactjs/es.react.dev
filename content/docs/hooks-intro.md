@@ -16,9 +16,9 @@ function Example() {
 
   return (
     <div>
-      <p>Hiciste click {count} veces</p>
+      <p>You clicked {count} times</p>
       <button onClick={() => setCount(count + 1)}>
-        Haz click en mí
+        Click me
       </button>
     </div>
   );
@@ -31,7 +31,7 @@ Esta nueva función `useState` es el primer "Hook" que vamos a aprender, pero es
 
 >Nota
 >
->React 16.8.0 es la primera versión que es compatible con Hooks. Al actualizar, no olvides actualizar todos los paquetes, incluyendo React DOM. React native será compatible con Hooks en la próxima versión estable.
+>React 16.8.0 es la primera versión que es compatible con Hooks. Al actualizar, no olvides actualizar todos los paquetes, incluyendo React DOM. React Native será compatible con Hooks en la próxima versión estable.
 
 ## Video de introducción {#video-introduction}
 
