@@ -256,7 +256,7 @@ Abordaremos esto en dos pasos:
 En general, no deseas mantener el javascript generado en tu control de código fuente, así que asegúrate de agregar la carpeta de compilación a tu `.gitignore`.
 
 ### Extensiones de archivo {#file-extensions}
-En React, lo más probable es que escribas tus componentes en un archivo `.js`. En TypeScript tenemos 2 extensiones de archivo.:
+En React, lo más probable es que escribas tus componentes en un archivo `.js`. En TypeScript tenemos 2 extensiones de archivo:
 
 `.ts` es la extensión de archivo predeterminada, mientras que `.tsx` es una extensión especial que se usa para los archivos que contienen `JSX`.
 
@@ -280,7 +280,7 @@ Si no ves ninguna salida, significa que se completó correctamente.
 ### Definiciones de tipo {#type-definitions}
 Para poder mostrar errores y sugerencias de otros paquetes, el compilador se basa en archivos de declaración. Un archivo de declaración proporciona toda la información de tipos sobre una biblioteca. Esto nos permite usar bibliotecas javascript como las que están en npm en nuestro proyecto.
 
-Hay dos formas principales de obtener declaraciones para una biblioteca.:
+Hay dos formas principales de obtener declaraciones para una biblioteca:
 
 __Integradas__ - La biblioteca incluye sus propios archivos de declaración. Esto es genial para nosotros, ya que todo lo que tenemos que hacer es instalar la biblioteca y podemos usarla de inmediato. Para verificar si una biblioteca tiene tipos integrados, busca un archivo `index.d.ts` en el proyecto. Algunas bibliotecas lo tendrán especificado en su `package.json` bajo el campo `typings` o `types`.
 
