@@ -57,7 +57,7 @@ Los tipos en mayúsculas indican que la etiqueta JSX se refiere a un componente 
 
 ### React debe estar al alcance {#react-must-be-in-scope}
 
-Como JSX se compila en llamadas a `React.createElement`, la biblioteca` React` también debe estar siempre dentro del alcance de su código JSX.
+Como JSX se compila en llamadas a `React.createElement`, la biblioteca` React` también debe estar siempre dentro del alcance de tu código JSX.
 
 Por ejemplo, ambas importaciones son necesarias en este código, a pesar de que `React` y `CustomButton` no están directamente referenciados desde JavaScript:
 
@@ -228,7 +228,7 @@ Si no pasas ningún valor para un prop, el valor predeterminado es `true`. Estas
 <MyTextBox autocomplete={true} />
 ```
 
-En general, no recomendamos usarlo porque puede confundirse con la [notación simplificada de objetos ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento está para que coincida con el de HTML.
+En general, no recomendamos usarlo porque puede confundirse con la [notación simplificada de objetos ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento está para que coincida con el de HTML.
 
 ### Atributos de propagación {#spread-attributes}
 
@@ -282,7 +282,7 @@ Puede poner un *string* entre las etiquetas de apertura y cierre y `props.childr
 <MyComponent>Hello world!</MyComponent>
 ```
 
-Esto es JSX válido, y `props.children` en` MyComponent` simplemente será el *string* `Hello world!`. El código HTML no se ha escapado, por lo que generalmente puedes escribir JSX de la misma manera que escribirías HTML de esta manera:
+Esto es JSX válido, y `props.children` en `MyComponent` simplemente será el *string* `Hello world!`. El código HTML no se ha escapado, por lo que generalmente puedes escribir JSX de la misma manera que escribirías HTML de esta manera:
 
 ```html
 <div>This is valid HTML &amp; JSX at the same time.</div>
@@ -331,7 +331,7 @@ Puedes mezclar diferentes tipos de hijos, así que puedes usar literales de *str
 </div>
 ```
 
-A React component can also return an array of elements:
+Un componente de React también puede retornar un array de elementos:
 
 ```js
 render() {
