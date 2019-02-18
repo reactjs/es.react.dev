@@ -68,7 +68,7 @@ Del mismo modo, `<input type="checkbox">` e `<input type="radio">` admiten `defa
 
 ## La etiqueta de entrada de archivo {#the-file-input-tag}
 
-En HTML, un `<input type="file">` permite al usuario elegir uno o más archivos del almacenamiento en sus dispositivos para cargarlos a un servidor o manipularlos mediante JavaScript a través de la [API File](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
+En HTML, un `<input type="file">` permite al usuario elegir uno o más archivos del almacenamiento en sus dispositivos para cargarlos a un servidor o manipularlos mediante JavaScript a través de la [API de archivos](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />

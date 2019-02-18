@@ -58,7 +58,7 @@ MyComponent.propTypes = {
   optionalElement: PropTypes.element,
 
   // Además puedes declarar que una prop es una instancia de una clase. Este usa
-  // el operador instanceof de Js.
+  // el operador instanceof de JS.
   optionalMessage: PropTypes.instanceOf(Message),
 
   // Puedes asegurar que una prop esta limitada a valores específicos si se
