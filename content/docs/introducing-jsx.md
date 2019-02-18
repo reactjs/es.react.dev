@@ -103,9 +103,9 @@ const element = <img src={user.avatarUrl}></img>;
 
 No pongas comillas rodeando llaves cuando insertes una expresión JavaScript en un atributo. Debes utilizar comillas (para los valores de los strings) o llaves (para las expresiones), pero no ambas en el mismo atributo.
 
->**Warning:**
+>**Advertencia:**
 >
->Dado que JSX está más cercano a JavaScript que a HTML, React DOM usa la convención de nomenclatura `camelCase` en vez de nombres de atributos HTML.
+>Dado que JSX es más cercano a JavaScript que a HTML, React DOM usa la convención de nomenclatura `camelCase` en vez de nombres de atributos HTML.
 >
 >Por ejemplo, `class` se vuelve [`className`](https://developer.mozilla.org/es/docs/Web/API/Element/className) en JSX, y `tabindex` se vuelve [`tabIndex`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/tabIndex).
 
@@ -142,9 +142,9 @@ Por defecto, React DOM [escapa](http://stackoverflow.com/questions/7381974/which
 
 ### JSX representa objetos {#jsx-represents-objects}
 
-Babel compila JSX bajo llamados a `React.createElement()`.
+Babel compila JSX a llamadas de `React.createElement()`.
 
-Estos dos ejemplos son identicos:
+Estos dos ejemplos son idénticos:
 
 ```js
 const element = (
