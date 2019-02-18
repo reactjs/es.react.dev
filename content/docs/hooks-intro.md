@@ -73,7 +73,7 @@ A menudo tenemos que mantener componentes que empiezan simples pero con el pasar
 
 En muchos casos no es posible dividir estos componentes en otros más pequeños porque la lógica de estado está por todas partes. También es difícil probarlos. Esta es una de las razones por las que muchas personas prefieren combinar React con una librería de administración de estado separada. Sin embargo, esto a menudo introduce demasiada abstracción, requiere que saltes entre diferentes archivos, y hace que la reutilización de componentes sea más difícil.
 
-Para resolver esto, **Hooks te permite dividir un componente en funciones más pequeñas basadas en las piezas relacionadas (como la configuración de una suscripción o la consulta de datos)**,en lugar de forzar una división basada en los métodos del ciclo de vida. También puedes optar por administrar el estado local del componente con un _reducer_ para hacerlo más predecible.
+Para resolver esto, **Hooks te permite dividir un componente en funciones más pequeñas basadas en las piezas relacionadas (como la configuración de una suscripción o la consulta de datos)**,  en lugar de forzar una división basada en los métodos del ciclo de vida. También puedes optar por administrar el estado local del componente con un _reducer_ para hacerlo más predecible.
 
 Discutiremos esto más a fondo en [Usando el *Hook* de efecto](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns).
 
