@@ -24,11 +24,11 @@ Esta página es un resumen de la documentación de React y recursos relacionados
 
 ---
 
-- [Prueba React](#prueba-react)
-- [Aprende React](#aprende-react)
-- [Mantente Informado](#mantente-informado)
-- [Documentación por Versiones](#documentación-por-versiones)
-- [¿Algo hace falta?](#¿algo-hace-falta)
+- [Prueba React](#try-react)
+- [Aprende React](#learn-react)
+- [Mantente Informado](#staying-informed)
+- [Documentación por Versiones](#versioned-documentation)
+- [¿Algo hace falta?](#something-missing)
 
 ## Prueba React {#try-react}
 
