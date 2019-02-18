@@ -121,8 +121,8 @@ El método `render()` es el único método requerido en un componente de clase.
 Cuando se llama, debe examinar a `this.props` y `this.state` y devolver uno de los siguientes tipos:
 
 - **Elementos de React.** normalmente creados a través de [JSX](/docs/introducing-jsx.html). Por ejemplo, `<div />` y `<MyComponent />` son elementos de React que enseñan a React a renderizar un nodo DOM, u otro componente definido por el usuario, respectivamente.
-- **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/controllers) para más detalles.
-- **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [subárboles](/docs/controllers) para más detalles.
+- **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/fragments) para más detalles.
+- **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [portales](/docs/portals) para más detalles.
 - **String and numbers.** Estos son renderizados como nodos de texto en el DOM.
 - **Booleanos o `nulos`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
 
