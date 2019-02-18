@@ -53,7 +53,7 @@ Antes de continuar, debes notar que los Hooks son:
 
 **Los Hooks no reemplazan tu conocimiento de los conceptos de React.** Por el contrario, los Hooks proporcionan una API más directa a los conceptos que ya conoces de React: _props_, estado, contexto, referencias, y ciclo de vida. Como veremos más adelante, los hooks también ofrecen una nueva y poderosa forma de combinarlos.
 
-**Si sólo quieres empezar a aprender a usar hooks, ¡no dudes en [saltar directamente a la página siguiente!](/docs/hooks-overview.html)** También puedes seguir leyendo esta página para saber más acerca de por qué estamos añadiendo Hooks y cómo vamos a empezar a usarlos sin tener que reescribir nuestras aplicaciones.
+**Si sólo quieres empezar a aprender a usar hooks, ¡no dudes en [saltar directamente a la siguiente página!](/docs/hooks-overview.html)** También puedes seguir leyendo esta página para saber más acerca de por qué estamos añadiendo Hooks y cómo vamos a empezar a usarlos sin tener que reescribir nuestras aplicaciones.
 
 ## Motivación {#motivation}
 
