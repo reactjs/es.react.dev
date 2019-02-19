@@ -57,7 +57,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 
 #### Actualización {#updating}
 
-Una actualización puede ser causada por cambios en los props o el state. Estos métodos se llaman en el siguiente orden cuando un componente se re-renderiza:
+Una actualización puede ser causada por cambios en los props o el estado. Estos métodos se llaman en el siguiente orden cuando un componente se re-renderiza:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -100,7 +100,7 @@ Cada componente también proporciona algunas otras APIs:
 ### Propiedades de instancia {#instance-properties}
 
 - [`props`](#props)
-- [`state`](#state)
+- [`estado`](#state)
 
 * * *
 
@@ -148,11 +148,11 @@ El constructor para un componente React es llamado antes de ser montado. Al impl
 
 Normalmente, los constructores de React sólo se utilizan para dos propósitos:
 
-* Para inicializar un state local asignando un objeto al `this.state`.
+* Para inicializar un estado local asignando un objeto al `this.state`.
 
 * Para enlazar [ manejadores de eventos ](/docs/handling-events.html) a una instancia.
 
-**No debes llamar `setState()`** en el constructor `()`. En su lugar, si su componente necesita usar el state local, **asigna directamente el state inicial al `this.state`** directamente en el constructor:
+**No debes llamar `setState()`** en el `constructor()`. En su lugar, si su componente necesita usar el estado local, **asigna directamente el estado inicial al `this.state`** directamente en el constructor:
 
 ```js
 constructor(props) {
@@ -169,7 +169,7 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 
 > Nota
 >
-> **Evita copiar los props en el state! Es un error muy común:**
+> **Evita copiar los props en el estado! Es un error muy común:**
 >
 >```js
 >constructor(props) {
@@ -179,11 +179,11 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 >}
 >```
 >
-> El problema es que es innecesario (puedes usar `this.props.color` directamente en su lugar), esto crea errores (actualizaciones al prop `color` no se reflejarán en el state).
+> El problema es que es innecesario (puedes usar `this.props.color` directamente en su lugar), esto crea errores (actualizaciones al prop `color` no se reflejarán en el estado).
 >
-> **Sólo utiliza este patrón si deseas ignorar intencionalmente las actualizaciones de prop.** En ese caso, tiene sentido renombrar el prop a `initialColor` o `defaultColor`. Puedes forzar al componente a "limpiar" su state interno [ cambiando su `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) cuando sea necesario.
+> **Sólo utiliza este patrón si deseas ignorar intencionalmente las actualizaciones de prop.** En ese caso, tiene sentido renombrar el prop a `initialColor` o `defaultColor`. Puedes forzar al componente a "limpiar" su estado interno [ cambiando su `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) cuando sea necesario.
 >
-> Lee nuestro [post en el blog sobre como evitar estados derivados](/blog/2018/06/07/you-probably-dont-need-derived-state.html) para aprender qué hacer si crees que necesitas algún state que dependa de los props.
+> Lee nuestro [post en el blog sobre como evitar estados derivados](/blog/2018/06/07/you-probably-dont-need-derived-state.html) para aprender qué hacer si crees que necesitas algún estado que dependa de los props.
 
 * * *
 
@@ -197,7 +197,7 @@ componentDidMount()
 
 Este método es un buen lugar para establecer cualquier suscripción. Si lo haces, no olvides darle de baja en `componentWillUnmount()`.
 
-**Puedes llamar `setState()` inmediatamente** en `componentDidMount()`. Se activará un renderizado extra, pero sucederá antes de que el navegador actualice la pantalla. Esto garantiza que, aunque en este caso se invocará dos veces el `render()`, el usuario no verá el estado intermedio. Utiliza este patrón con precaución porque a menudo causa problemas de rendimiento. En la mayoría de los casos, deberías ser capaz de asignar el state inicial en el `constructor()` en su lugar. Sin embargo, puede ser necesario para casos como modales y tooltips cuando se necesita medir un nodo DOM antes de representar algo que depende de su tamaño o posición.
+**Puedes llamar `setState()` inmediatamente** en `componentDidMount()`. Se activará un renderizado extra, pero sucederá antes de que el navegador actualice la pantalla. Esto garantiza que, aunque en este caso se invocará dos veces el `render()`, el usuario no verá el estado intermedio. Utiliza este patrón con precaución porque a menudo causa problemas de rendimiento. En la mayoría de los casos, deberías ser capaz de asignar el estado inicial en el `constructor()` en su lugar. Sin embargo, puede ser necesario para casos como modales y tooltips cuando se necesita medir un nodo DOM antes de representar algo que depende de su tamaño o posición.
 
 * * *
 
@@ -220,7 +220,7 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-**Puedes llamar `setState()` inmediatamente** en `componentDidUpdate()` pero ten en cuenta que **debe ser envuelto en una condición** como en el ejemplo anterior, o causará un bucle infinito. También causaría una re-renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente. Si estás intentando crear un "espejo" desde un state a un prop que viene desde arriba, considera usar el prop directamente en su lugar. Lee más sobre [por qué copiar props en el state causa errores](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+**Puedes llamar `setState()` inmediatamente** en `componentDidUpdate()` pero ten en cuenta que **debe ser envuelto en una condición** como en el ejemplo anterior, o causará un bucle infinito. También causaría una re-renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente. Si estás intentando crear un "espejo" desde un estado a un prop que viene desde arriba, considera usar el prop directamente en su lugar. Lee más sobre [por qué copiar props en el estado causa errores](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 Si tu componente implementa el ciclo de vida `getSnapshotBeforeUpdate()`(que es raro), el valor que devuelve se pasará como un tercer parámetro "snapshot" a `componentDidUpdate()`. De lo contrario, este parámetro será indefinido.
 
@@ -256,9 +256,9 @@ Usa `shouldComponentUpdate()` para avisar a React si la salida de un componente 
 
 `shouldComponentUpdate()` es invocado antes de renderizar cuando los nuevos accesorios o el estado están siendo recibidos. Por defecto es `true`. Este método no es llamado para el renderizado inicial o cuando `forceUpdate()` es usado.
 
-Este método sólo existe como **[optimización de rendimiento](/docs/optimizing-performance.html).** No confíes en él para "prevenir" un renderizado, ya que esto puede conducir a errores. **Considere usar el componente integrado [`PureComponent`](/docs/react-api.html#reactpurecomponent)** en lugar de escribir `shouldComponentUpdate()` a mano. `PureComponent` realiza una comparación superficial de props y state, y reduce la posibilidad de saltar una actualización necesaria.
+Este método sólo existe como **[optimización de rendimiento](/docs/optimizing-performance.html).** No confíes en él para "prevenir" un renderizado, ya que esto puede conducir a errores. **Considere usar el componente integrado [`PureComponent`](/docs/react-api.html#reactpurecomponent)** en lugar de escribir `shouldComponentUpdate()` a mano. `PureComponent` realiza una comparación superficial de props y estado, y reduce la posibilidad de saltar una actualización necesaria.
 
-Si estás seguro de querer escribirlo a mano, puedes comparar `this.props` con `nextProps` y `this.state` con `nextState` y devolver `false` para indicar a React que se puede omitir la actualización. Devolver `false` no previene a los componentes hijos de re-renderizarse cuando *su* state cambia.
+Si estás seguro de querer escribirlo a mano, puedes comparar `this.props` con `nextProps` y `this.state` con `nextState` y devolver `false` para indicar a React que se puede omitir la actualización. Devolver `false` no previene a los componentes hijos de re-renderizarse cuando *su* estado cambia.
 
 No recomendamos realizar comprobaciones de igualdad profundas ni utilizar `JSON.stringify()` en `shouldComponentUpdate()`. Es muy ineficiente y dañará el rendimiento.
 
@@ -272,7 +272,7 @@ Actualmente, si `shouldComponentUpdate()` devuelve `false`, entonces [`component
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el state, o nulo para actualizar nada.
+`getDerivedStateFromProps` se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o nulo para actualizar nada.
 
 Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) donde el estado depende de los cambios en props con el tiempo. Por ejemplo, puede ser util para implementar un componente `<Transition>` que compare su anterior hijo y el siguiente para decidir cual de los dos animar en la entrada y salida.
 
@@ -283,9 +283,9 @@ Derivar el estado conduce al código verboso y hace que tus componentes sean dif
 
 * Si quieres **recalcular algunos datos solo cuando un prop cambie**,[usa memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* Si quieres **restablecer algún state cuando un prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
+* Si quieres **restablecer algún estado cuando un prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 
-Este método no tiene acceso a la instancia del componente. Si quieres, puedes reutilizar algún código entre `getDerivedStateFromProps()` y los otros métodos de clase mediante la extracción de funciones puras de los props del componente y el state fuera de la definición de clase.
+Este método no tiene acceso a la instancia del componente. Si quieres, puedes reutilizar algún código entre `getDerivedStateFromProps()` y los otros métodos de clase mediante la extracción de funciones puras de los props del componente y el estado fuera de la definición de clase.
 
 Ten en cuenta que este método se activa en *cada* renderizado, independientemente de la causa. En caso contrario, `UNSAFE_componentWillReceiveProps`, que sólo se dispara cuando el padre causa una re-renderizado y no como resultado de un `setState` local.
 
@@ -315,7 +315,7 @@ En los ejemplos anteriores, es importante leer la propiedad `scrollHeight` en `g
 
 [Los límites de error](/docs/error-boundaries.html) son componentes de React que detectan errores de JavaScript en cualquier parte de su árbol de componentes secundarios, registran esos errores y muestran una IU alternativa en lugar del árbol de componentes que se colgó. Los límites de error capturan errores durante representación, en métodos de ciclo de vida y en constructores de todo el árbol debajo de ellos.
 
-Un componente definido a través de un clase se convierte en un límite de error si se define uno o ambos métodos de ciclo de vida `static getDerivedStateFromError()` o `componentDidCatch()`. Actualizar el state desde estos ciclos de vida te permite capturar eventos no controlados desde JavaScript en el árbol inferior, y mostrarlo como respuesta en la UI.
+Un componente definido a través de un clase se convierte en un límite de error si se define uno o ambos métodos de ciclo de vida `static getDerivedStateFromError()` o `componentDidCatch()`. Actualizar el estado desde estos ciclos de vida te permite capturar eventos no controlados desde JavaScript en el árbol inferior, y mostrarlo como respuesta en la UI.
 
 Usa solo límites de error para recuperar excepciones inesperadas; no intentes usarlos para controlar el flujo
 
@@ -331,7 +331,7 @@ Para mas detalles ve el [*Manejo de Errores en React 16*](/blog/2017/07/26/error
 static getDerivedStateFromError(error)
 ```
 
-Este ciclo de vida se invoca después de que un error haya sido lanzado por un componente descendiente. Recibe el error que fue lanzado como parámetro y debe devolver un valor para actualizar el state.
+Este ciclo de vida se invoca después de que un error haya sido lanzado por un componente descendiente. Recibe el error que fue lanzado como parámetro y debe devolver un valor para actualizar el estado.
 
 ```js{7-10,13-16}
 class ErrorBoundary extends React.Component {
@@ -428,7 +428,7 @@ UNSAFE_componentWillMount()
 > Este ciclo de vida se llamaba anteriormente `componentWillMount`. Ese nombre seguirá funcionando hasta la versión 17. Usa la [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para actualizar automaticamente tus componentes.
 
 `UNSAFE_componentWillMount()` se invoca justo antes de que el montaje ocurra. Es llamado antes de `render()`, por lo tanto, al llamar a `setState()` de forma síncrona en este método no se activará una representación adicional.
-En general, recomendamos usar el `constructor()` en lugar de inicializar el state.
+En general, recomendamos usar el `constructor()` en lugar de inicializar el estado.
 
 Evite introducir efectos secundarios o suscripciones en este método. Para estos casos de uso, use `componentDidMount()` en su lugar.
 
@@ -454,7 +454,7 @@ UNSAFE_componentWillReceiveProps(nextProps)
 > * Si usaste `componentWillReceiveProps` para **re calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 > * Si quieres ** restablecer algún state cuando un prop cambie** considera hacer un componente[completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
-> Para otros casos de uso, [sigue las recomendaciones en este blog sobre state derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+> Para otros casos de uso, [sigue las recomendaciones en este blog sobre estado derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 `UNSAFE_componentWillReceiveProps()` se invoca antes de que un componente montado reciba nuevos props. Si necesita actualizar el estado en respuesta a cambios de accesorios (por ejemplo, para restablecerlo), puede comparar `this.props` y `nextProps` y realizar transiciones de estado usando `this.setState ()` en este método.
 
@@ -475,7 +475,7 @@ UNSAFE_componentWillUpdate(nextProps, nextState)
 >
 > This lifecycle was previously named `componentWillUpdate`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
 
-`UNSAFE_componentWillUpdate()` se invoca justo antes de renderizar cuando llegan nuevos props o se esta recibiendo el state. Use esto como una oportunidad para realizar la preparación antes de que ocurra una actualización. Este método no es llamado para el renderizador inicial.
+`UNSAFE_componentWillUpdate()` se invoca justo antes de renderizar cuando llegan nuevos props o se esta recibiendo el estado. Use esto como una oportunidad para realizar la preparación antes de que ocurra una actualización. Este método no es llamado para el renderizador inicial.
 
 No puedes llamar aquí a `this.setState()`; tampoco deberias hacer nada más (por ejemplo, enviar una acción de Redux) que activaría una actualización de un componente React antes de que devuelva el método `UNSAFE_componentWillUpdate ()`.
 
@@ -513,7 +513,7 @@ El primer argumento es una función `updater` con la firma:
 (state, props) => stateChange
 ```
 
-`state` es una referencia al estado del componente en el momento en que se está aplicando el cambio. No debería ser mutado directamente. En cambio, los cambios deberían ser representados construyendo un nuevo objeto basado en la entrada de `prevState` y `props`. Por ejemplo, supongamos que quisiéramos incrementar un valor en el state por `props.step`:
+`state` es una referencia al estado del componente en el momento en que se está aplicando el cambio. No debería ser mutado directamente. En cambio, los cambios deberían ser representados construyendo un nuevo objeto basado en la entrada de `prevState` y `props`. Por ejemplo, supongamos que quisiéramos incrementar un valor en el estado por `props.step`:
 
 ```javascript
 this.setState((state, props) => {
@@ -548,7 +548,7 @@ Object.assign(
 )
 ```
 
-Las llamadas posteriores anularán los valores de llamadas anteriores en el mismo ciclo, por lo que la cantidad solo se incrementará una vez. Si el siguiente state depende del state actual, recomendamos utilizar una actualizador a través de una función formulario.
+Las llamadas posteriores anularán los valores de llamadas anteriores en el mismo ciclo, por lo que la cantidad solo se incrementará una vez. Si el siguiente estado depende del estado actual, recomendamos utilizar una actualizador a través de una función formulario.
 
 ```js
 this.setState((state) => {
@@ -626,11 +626,11 @@ La cadena `displayName` es usada en la depuración de mensajes. Por lo general, 
 
 En particular, `this.props.children` es un accesorio especial, tipicamente definido por las etiquetas hijas en la expresión JSX en vez de en la etiqueta como tal.
 
-### `state` {#state}
+### `Estado` {#state}
 
-El state contiene datos específicos a este componente que pueden cambiar con el tiempo. El estado está definido por el usuario, y debe ser un simple objeto JavaScript.
+El estado contiene datos específicos de este componente que pueden cambiar con el tiempo. El estado está definido por el usuario, y debe ser un simple objeto JavaScript.
 
-Si no se utiliza algún valor para renderizar o simplemente flujos de datos (por ejemplo, un ID de temporizador), no tiene que ponerlo en el state. Dichos valores se pueden definir como campos en la instancia del componente.
+Si no se utiliza algún valor para renderizar o simplemente flujos de datos (por ejemplo, un ID de temporizador), no tiene que ponerlo en el estado. Dichos valores se pueden definir como campos en la instancia del componente.
 
 Consulta [Estado y Ciclo de Vida](/docs/state-and-lifecycle.html) para mas información sobre el estado.
 
