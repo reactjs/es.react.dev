@@ -24,70 +24,68 @@ Si visitas un sitio con React en modo de desarrollo, el ícono tendrá un fondo 
 
 Se espera que uses el modo de desarrollo cuando estás trabajando en tu aplicación, y el modo de producción cuando despliegues tu aplicación a los usuarios.
 
-You can find instructions for building your app for production below.
+Abajo puedes encontrar las instrucciones para construir tu aplicación de producción.
 
 ### Create React App {#create-react-app}
 
-If your project is built with [Create React App](https://github.com/facebookincubator/create-react-app), run:
+Si tu proyecto fui construido con [Create React App](https://github.com/facebookincubator/create-react-app), ejecuta:
 
 ```
 npm run build
 ```
 
-This will create a production build of your app in the `build/` folder of your project.
+Esto creará una *build* de producción de tu aplicación el directorio  `build/` de tu proyecto.
 
-Remember that this is only necessary before deploying to production. For normal development, use `npm start`.
+Recuerda que esto es solo una necesidad antes de desplegar a producción. Para el desarrollo normal, usa `npm start`.
 
 ### Single-File Builds {#single-file-builds}
 
-We offer production-ready versions of React and React DOM as single files:
+Ofrecemos versiones listas para producción de React y React DOM como un archivo:
 
 ```html
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-Remember that only React files ending with `.production.min.js` are suitable for production.
+Recuerda que solo los archivos de React que terminan con `production.min.js` son apropiados para producción.
 
 ### Brunch {#brunch}
 
-For the most efficient Brunch production build, install the [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch) plugin:
+Para la *build* de producción Brunch más eficiente, instala el plugin [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch):
 
 ```
-# If you use npm
+# Si usas npm
 npm install --save-dev uglify-js-brunch
 
-# If you use Yarn
+# Si usas Yarn
 yarn add --dev uglify-js-brunch
 ```
 
-Then, to create a production build, add the `-p` flag to the `build` command:
+Entonces, para crear una *build* de producción, agrega la bandera `-p` al comando `build`:
 
 ```
 brunch build -p
 ```
-
-Remember that you only need to do this for production builds. You shouldn't pass the `-p` flag or apply this plugin in development, because it will hide useful React warnings and make the builds much slower.
+Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no deberías pasar la bandera `-p` o aplicar el plugin en desarrollo, por que ocultará las advertencias de React y hará las *builds* mucho mas lentas.
 
 ### Browserify {#browserify}
 
-For the most efficient Browserify production build, install a few plugins:
+Para la *build* de producción con Browserify más eficiente, instala algunos plugins:
 
 ```
-# If you use npm
+# Si usas npm
 npm install --save-dev envify uglify-js uglifyify 
 
-# If you use Yarn
+# Si usas Yarn
 yarn add --dev envify uglify-js uglifyify 
 ```
+Para crear una *build* de producción, asegúrate de agregar estas transformaciones **(El orden es importante)**:
 
-To create a production build, make sure that you add these transforms **(the order matters)**:
+* La transformación [`envify`](https://github.com/hughsk/envify) asegura que el ambiente de la *build* sea correcto. Hazlo lo global (`-g`).
+* La transformación [`uglifyify`](https://github.com/hughsk/uglifyify) remueve los import de desarollo. Hazlo global tambien (`-g`).
+* Finalmente, el *bundle* resultante es canalizado a [`uglify-js`](https://github.com/mishoo/UglifyJS2) para mutilar ([Lee porque](https://github.com/hughsk/uglifyify#motivationusage)).
 
-* The [`envify`](https://github.com/hughsk/envify) transform ensures the right build environment is set. Make it global (`-g`).
-* The [`uglifyify`](https://github.com/hughsk/uglifyify) transform removes development imports. Make it global too (`-g`).
-* Finally, the resulting bundle is piped to [`uglify-js`](https://github.com/mishoo/UglifyJS2) for mangling ([read why](https://github.com/hughsk/uglifyify#motivationusage)).
-
-For example:
+Por ejemplo:
 
 ```
 browserify ./index.js \
@@ -96,16 +94,16 @@ browserify ./index.js \
   | uglifyjs --compress --mangle > ./bundle.js
 ```
 
->**Note:**
+>**Nota:**
 >
->The package name is `uglify-js`, but the binary it provides is called `uglifyjs`.<br>
->This is not a typo.
+>El nombre del paquete es `uglify-js`, pero el binario que proporciona se llama `uglifyjs`.<br>
+>Estoy no es un error de imprenta.
 
-Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
+Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberías aplicar estos plugins en desarrollo por que ocultaran las advertencias de React, y haran las *builds* mucho mas lentas.
 
 ### Rollup {#rollup}
 
-For the most efficient Rollup production build, install a few plugins:
+Para el *Rollup* de la *build* de producción mas eficiente, instala algunos plugins:
 
 ```
 # If you use npm
