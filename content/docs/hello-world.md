@@ -10,14 +10,14 @@ El más pequeño de los ejemplos de React se ve así:
 
 ```js
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <h1>¡Hola mundo!</h1>,
   document.getElementById('root')
 );
 ```
 
-Este muestra un encabezado con el texto "Hello, world!" en la página.
+Este muestra un encabezado con el texto "¡Hola mundo!" en la página.
 
-[Pruébalo en CodePen](codepen://hello-world)
+[](codepen://hello-world)
 
 Dale click al enlace de arriba para abrir un editor online. Tómate la libertad de hacer cambios, y mira cómo afectan el resultado. La mayoría de páginas en esta guía tendrán ejemplos que puedes editar en vivo como éste.
 

@@ -38,7 +38,7 @@ Para renderizar un elemento de React en un nodo raíz del DOM, pasa ambos a `Rea
 
 `embed:rendering-elements/render-an-element.js`
 
-[Pruébalo en CodePen](codepen://rendering-elements/render-an-element)
+[](codepen://rendering-elements/render-an-element)
 
 Esto muestra "Hello, world" en la página.
 
@@ -52,7 +52,7 @@ Considera este ejemplo de un reloj en marcha:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[Pruébalo en CodePen](codepen://rendering-elements/update-rendered-element)
+[](codepen://rendering-elements/update-rendered-element)
 
 Este llama a `ReactDOM.render()` cada segundo desde un [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
 

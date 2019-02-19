@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-[Pruébalo en CodePen](codepen://introducing-jsx)
+[](codepen://introducing-jsx)
 
 Dividimos JSX en varias líneas para facilitar la lectura. Aunque no es necesario, cuando hagas esto también te recomendamos envolverlo entre paréntesis para evitar errores por la [inserción automática del punto y coma](http://stackoverflow.com/q/2846283).
 

@@ -79,4 +79,4 @@ En React, un `<input type="file" />` siempre es un componente no controlado porq
 Debes utilizar la API File para interactuar con ellos. El siguiente ejemplo muestra cómo crear un [referencia al nodo DOM](/docs/refs-and-the-dom.html) para acceder a los archivos en un controlador de envío:
 `embed:uncontrolled-components/input-type-file.js`
 
-[Pruébalo en CodePen](codepen://uncontrolled-components/input-type-file)
+[](codepen://uncontrolled-components/input-type-file)

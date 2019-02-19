@@ -77,7 +77,7 @@ ReactDOM.render(
 );
 ```
 
-[Pruébalo en CodePen](codepen://components-and-props/rendering-a-component)
+[](codepen://components-and-props/rendering-a-component)
 
 Recapitulemos lo que sucede en este ejemplo:
 
@@ -119,7 +119,7 @@ ReactDOM.render(
 );
 ```
 
-[Pruébalo en CodePen](codepen://components-and-props/composing-components)
+[](codepen://components-and-props/composing-components)
 
 Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
@@ -153,7 +153,7 @@ function Comment(props) {
 }
 ```
 
-[Pruébalo en CodePen](codepen://components-and-props/extracting-components)
+[](codepen://components-and-props/extracting-components)
 
 Acepta `author` (un objeto), `text` (un string), y `date` (una fecha) como props, y describe un comentario en una web de redes sociales.
 
@@ -232,7 +232,7 @@ function Comment(props) {
 }
 ```
 
-[Pruébalo en CodePen](codepen://components-and-props/extracting-components-continued)
+[](codepen://components-and-props/extracting-components-continued)
 
 Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su UI se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
 
