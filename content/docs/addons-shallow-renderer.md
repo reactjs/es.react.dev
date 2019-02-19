@@ -10,7 +10,7 @@ category: Referencia
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow'; // ES6
-var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 with npm
+var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 con npm
 ```
 
 ## Resumen {#resumen}
@@ -35,7 +35,7 @@ Entonces puedes comprobar:
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow';
 
-// en tu test:
+// en tu prueba:
 const renderer = new ShallowRenderer();
 renderer.render(<MyComponent />);
 const result = renderer.getRenderOutput();
@@ -47,11 +47,11 @@ expect(result.props.children).toEqual([
 ]);
 ```
 
-Las pruebas superficiales tienen algunas limitaciones, es decir, no soportan refs.
+Las pruebas superficiales tienen algunas limitaciones, es decir, no soportan referencias.
 
 > Nota:
 >
-> También recomendamos revisar [Shallow Rendering API](http://airbnb.io/enzyme/docs/api/shallow.html) de Enzyme. Provee un API de alto nivel mucho mejor de la misma funcionalidad.
+> También recomendamos revisar la [API de Renderizado Superficial](http://airbnb.io/enzyme/docs/api/shallow.html) de Enzyme. Provee una API de alto nivel mucho mejor de la misma funcionalidad.
 
 ## Referencia {#referencia}
 

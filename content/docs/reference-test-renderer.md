@@ -10,14 +10,14 @@ category: Referencia
 
 ```javascript
 import TestRenderer from 'react-test-renderer'; // ES6
-const TestRenderer = require('react-test-renderer'); // ES5 with npm
+const TestRenderer = require('react-test-renderer'); // ES5 con npm
 ```
 
 ## Resumen {#overview}
 
 Este paquete proporciona un procesador de React que se puede usar para procesar componentes de React a objetos JavaScript puros, sin depender del DOM o de un entorno móvil nativo.
 
-Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Nativo sin usar un navegador o [jsdom](https://github.com/tmpvar/jsdom).
+Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Native sin usar un navegador o [jsdom](https://github.com/tmpvar/jsdom).
 
 Ejemplo:
 
@@ -198,9 +198,7 @@ Busca todos los objetos `test instance` descendientes con el tipo (`type`) pasad
 testInstance.findAllByProps(props)
 ```
 
-
 Busca todos los objetos `test instance` descendientes con los `props` pasados como argumento.
-Find all descendant test instances with the provided `props`.
 
 ### `testInstance.instance` {#testinstanceinstance}
 
@@ -268,7 +266,7 @@ TestRenderer.create(
   {
     createNodeMock: (element) => {
       if (element.type === 'input') {
-        // mock a focus function
+        // simula una función de enfoque
         return {
           focus: () => {
             focused = true;
