@@ -315,7 +315,7 @@ En los ejemplos anteriores, es importante leer la propiedad `scrollHeight` en `g
 
 [Los límites de error](/docs/error-boundaries.html) son componentes de React que detectan errores de JavaScript en cualquier parte de su árbol de componentes secundarios, registran esos errores y muestran una IU alternativa en lugar del árbol de componentes que se colgó. Los límites de error capturan errores durante representación, en métodos de ciclo de vida y en constructores de todo el árbol debajo de ellos.
 
-Un componente definido a través de un clase se convierte en un límite de error si se define uno o ambos métodos de ciclo de vida `static getDerivedStateFromError()` o `componentDidCatch()`. Actualizar el estado desde estos ciclos de vida te permite capturar eventos no controlados desde JavaScript en el árbol inferior, y mostrarlo como respuesta en la UI.
+Un componente definido a través de un clase se convierte en un límite de error si se define uno o ambos métodos de ciclo de vida `static getDerivedStateFromError()` o `componentDidCatch()`. Actualizar el estado desde estos ciclos de vida te permite capturar eventos no controlados desde JavaScript en el árbol inferior, y mostrarlo como respuesta en la interfaz de usuario.
 
 Usa solo límites de error para recuperar excepciones inesperadas; no intentes usarlos para controlar el flujo
 
@@ -347,7 +347,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // Puedes renderizar cualquier UI diferente
+      // Puedes renderizar cualquier interfaz de usuario diferente
       return <h1>Something went wrong.</h1>;
     }
 
@@ -398,7 +398,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // Puedes renderizar una UI customizada
+      // Puedes renderizar una interfaz de usuario customizada
       return <h1>Something went wrong.</h1>;
     }
 
@@ -409,7 +409,7 @@ class ErrorBoundary extends React.Component {
 
 > Nota
 >
-> En el evento de un error, puedes renderizar una UI con `componentDidCatch()` llamando a `setState()`, pero esto estará obsoleto en una futura versión. Usa `static getDerivedStateFromError()` para controlar el plan de renderizado.
+> En el evento de un error, puedes renderizar una interfaz de usuario con `componentDidCatch()` llamando a `setState()`, pero esto estará obsoleto en una futura versión. Usa `static getDerivedStateFromError()` para controlar el plan de renderizado.
 
 * * *
 
@@ -451,8 +451,8 @@ UNSAFE_componentWillReceiveProps(nextProps)
 > El uso de este método de ciclo de vida a menudo conduce a errores e inconsistencias
 >
 > * Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza [`componentDidUpdate`](#componentdidupdate).
-> * Si usaste `componentWillReceiveProps` para **re calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * Si quieres ** restablecer algún state cuando un prop cambie** considera hacer un componente[completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
+> * Si usaste `componentWillReceiveProps` para **re-calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Si quieres **restablecer algún state cuando un prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
 > Para otros casos de uso, [sigue las recomendaciones en este blog sobre estado derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
@@ -558,9 +558,9 @@ this.setState((state) => {
 
 Para más detalles, visite:
 
-* [State and Lifecycle guide](/docs/state-and-lifecycle.html)
-* [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
-* [In depth: Why isn't `this.state` updated immediately?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
+* [Guía: Estado y ciclo de vida](/docs/state-and-lifecycle.html)
+* [En profundidad: Cuando y por qué las llamadas de `setState()` se hacen en lotes?](https://stackoverflow.com/a/48610973/458193)
+* [En profundidad: Por qué `this.state` no se actualiza inmediatamente?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
 
@@ -598,7 +598,7 @@ Si `props.color` no es proporcionado, se establecerá por defecto a `'blue'`:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color will be set to blue
+    return <CustomButton /> ; // props.color será asignado a azul
   }
 ```
 
@@ -606,7 +606,7 @@ Si `props.color` es null, permanecerá null:
 
 ```js
   render() {
-    return <CustomButton color={null} /> ; // props.color will remain null
+    return <CustomButton color={null} /> ; // props.color se mantendrá en null
   }
 ```
 
