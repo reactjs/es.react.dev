@@ -1,6 +1,6 @@
 ---
 id: rendering-elements
-title: Renderizando Elementos
+title: Renderizando elementos
 permalink: docs/rendering-elements.html
 redirect_from:
   - "docs/displaying-data.html"
@@ -22,7 +22,7 @@ A diferencia de los elementos del DOM de los navegadores, los elementos de React
 >
 >Uno podría confundir los elementos con el muy conocido concepto de "componentes". En la [siguiente sección](/docs/components-and-props.html) hablaremos de componentes. Los elementos son los que "constituyen" los componentes, y recomendamos leer esta sección antes de continuar.
 
-## Renderizando un Elemento en el DOM {#rendering-an-element-into-the-dom}
+## Renderizando un elemento en el DOM {#rendering-an-element-into-the-dom}
 
 Digamos que hay un `<div>` en alguna parte de tu archivo HTML:
 
@@ -42,7 +42,7 @@ Para renderizar un elemento de React en un nodo raíz del DOM, pasa ambos a `Rea
 
 Esto muestra "Hello, world" en la página.
 
-## Actualizando el Elemento Renderizado {#updating-the-rendered-element}
+## Actualizando el elemento renderizado {#updating-the-rendered-element}
 
 Los elementos de React son [inmutables](https://en.wikipedia.org/wiki/Immutable_object). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un fotograma solitario en una película: este representa la IU en cierto punto en el tiempo.
 
@@ -62,7 +62,7 @@ Este llama a `ReactDOM.render()` cada segundo desde un [`setInterval()`](https:/
 >
 >Recomendamos que no te saltes ningún tema porque estos se relacionan entre ellos.
 
-## React Solo Actualiza lo que es Necesario {#react-only-updates-whats-necessary}
+## React solo actualiza lo que es necesario {#react-only-updates-whats-necessary}
 
 React DOM compara el elemento y su hijos con el elemento anterior, y solo aplica las actualizaciones del DOM que son necesarias para que el DOM esté en el estado deseado.
 

@@ -1,12 +1,12 @@
 ---
 id: hooks-custom
-title: Construyendo Tus Propios Hooks
+title: Construyendo tus propios Hooks
 permalink: docs/hooks-custom.html
 next: hooks-reference.html
 prev: hooks-rules.html
 ---
 
-Los Hooks son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
+Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Construir tus propios Hooks te permite extraer la lógica del componente en funciones reutilizables.
 
@@ -67,7 +67,7 @@ En cambio, nos gustaría compartir esta lógica entre `FriendStatus` y `FriendLi
 
 Tradicionalmente en React, hemos tenido dos formas populares para compartir lógica de estados entre componentes: [renderizar props](/docs/render-props.html) y [componentes de orden mas alto](/docs/higher-order-components.html). Ahora veremos como los Hooks resuelven muchos de los mismos problemas sin forzarte a añadir más componentes al árbol.
 
-## Extrayendo un Hook Personalizado {#extracting-a-custom-hook}
+## Extrayendo un Hook personalizado {#extracting-a-custom-hook}
 
 Cuando queremos compartir lógica entre dos funciones de Javascript, lo extraemos en una tercera función. Ambos, componentes y Hooks, son funciones, así que esto funciona para ellos también!
 
@@ -112,7 +112,7 @@ function useFriendStatus(friendID) {
 
 Ahora veamos como podemos usar nuestro Hook personalizado.
 
-## Usando un Hook Personalizado {#using-a-custom-hook}
+## Usando un Hook personalizado {#using-a-custom-hook}
 
 Al principio, nuestro objetivo declarado fue eliminar la lógica duplicada de los componentes `FriendStatus` y `FriendListItem`. Ambos quieren saber cuando un amigo está conectado.
 

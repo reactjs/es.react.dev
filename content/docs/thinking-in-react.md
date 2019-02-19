@@ -8,7 +8,7 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instragram.
+React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instagram.
 
 Una de las grandes ventaja de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalidad de búsqueda usando React.
 
@@ -51,7 +51,7 @@ Verás que tenemos cinco componentes en nuestra aplicación de ejemplo. Hemos es
 
 Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Nombre" y "Precio") no son sus propios componentes. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
 
-Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos jerarquicamente. Esto es fácil. Los componentes que aparecen dentro de otro componente en nuestro mock deberían aparecer como hijos en la jerarquía.
+Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos jerárquicamente. Esto es fácil. Los componentes que aparecen dentro de otro componente en nuestro mock deberían aparecer como hijos en la jerarquía.
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -66,15 +66,15 @@ Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos
 
 Ahora que tenemos nuestra jerarquía de componentes, es momento de implementar la aplicación. La forma más fácil es construir una versión que tome nuestro modelo de datos y muestre la interfaz de usuario sin interactividad. Es mejor desacoplar estos procesos porque crear una versión estática requiere escribir un montón pero no pensar tanto, mientras que agregar interactividad requiere pensar un montón y no escribir tanto. Vamos a ver por qué.
 
-Para construír una versión estática de tu aplicación que muestre tu modelo de datos vas a necesitar construir componentes que reusen otros componentes y pasen datos usando *props*. *props* son una forma de pasar datos de un padre a su hijo. Si estás familiarizado con el concepto de *estado*, **no uses para nada el estado** para crear esta versión estática. El estado está reservado para interactividad, esto es, cuando los datos cambian a través del tiempo. Dado que esta es una versión estática de la aplicación, no lo necesitas.
+Para construir una versión estática de tu aplicación que muestre tu modelo de datos vas a necesitar construir componentes que reusen otros componentes y pasen datos usando *props*. *props* son una forma de pasar datos de un padre a su hijo. Si estás familiarizado con el concepto de *estado*, **no uses para nada el estado** para crear esta versión estática. El estado está reservado para interactividad, esto es, cuando los datos cambian a través del tiempo. Dado que esta es una versión estática de la aplicación, no lo necesitas.
 
-Puedes contruir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
+Puedes construir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
 
 Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver como se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
 
 Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
-### Una pequeña pausa: Props vs Estado {#a-brief-interlude-props-vs-state}
+### Una pequeña pausa: Props vs. estado {#a-brief-interlude-props-vs-state}
 
 Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
 
@@ -108,7 +108,7 @@ Finalmente, nuestro estado es:
 
 <p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="http://codepen.io">CodePen</a>.</p>
 
-Bien, hemos identificado la minima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
+Bien, hemos identificado la mínima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
 
 Recuerda: React se trata de usar un flujo de datos en un sentido. Puede que no sea inmediatamente obvio cual componente debería poseer el estado. **Esta es normalmente la parte más complicada para quienes están arrancando con React**, así que sigue estos pasos para averiguarlo.
 

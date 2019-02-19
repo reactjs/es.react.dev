@@ -1,6 +1,6 @@
 ---
 id: create-a-new-react-app
-title: Crear una Nueva Aplicación React
+title: Crear una nueva aplicación React
 permalink: docs/create-a-new-react-app.html
 redirect_from:
   - "docs/add-react-to-a-new-app.html"
@@ -20,13 +20,13 @@ Esta página describe algunas de las cadenas de herramientas de React más popul
 
 Las cadenas de herramientas que se recomiendan en esta página **no requieren ninguna configuración para empezar**.
 
-## Puede que no necesites una Cadena de Herramientas {#you-might-not-need-a-toolchain}
+## Puede que no necesites una cadena de herramientas {#you-might-not-need-a-toolchain}
 
 Si no experimentas los problemas descritos arriba, o aún no te sientes cómodo usando herramientas de Javascript, considera [añadir React como una etiqueta `<script>` en una página HTML](/docs/add-react-to-a-website.html), opcionalmente [con JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
 Esta es también **la manera más fácil de integrar React en un sitio web existente.** Siempre puedes añadir una cadena de herramientas más grande si lo consideras útil!
 
-## Cadenas de Herramientas Recomendadas {#recommended-toolchains}
+## Cadenas de herramientas recomendadas {#recommended-toolchains}
 
 El equipo de React principalmente recomienda las siguientes soluciones:
 
@@ -67,7 +67,7 @@ Aprende Next.js de [su guía oficial](https://nextjs.org/learn/).
  
 Aprende Gatsby de [su guía oficial](https://www.gatsbyjs.org/docs/) y de [la galería de kits de inicio](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
-### Cadenas de Herramientas más Flexibles {#more-flexible-toolchains}
+### Cadenas de herramientas más flexibles {#more-flexible-toolchains}
 
 Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las recomendamos para los usuarios con más experiencia:
 
@@ -79,7 +79,7 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** es un marco de trabajo de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
 
-## Creando una Cadena de Herramientas desde Cero {#creating-a-toolchain-from-scratch}
+## Creando una cadena de herramientas desde cero {#creating-a-toolchain-from-scratch}
 
 Una cadena de herramientas para construir Javascript generalmente consiste de:
 

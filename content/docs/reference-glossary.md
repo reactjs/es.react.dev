@@ -55,7 +55,7 @@ Los elementos de React son los bloques de construcción de una aplicación de Re
 const element = <h1>Hola, mundo</h1>;
 ```
 
-Normalmente, los elementos no se utilizan directamente, si no que se devuelven desde los components.
+Normalmente, los elementos no se utilizan directamente, si no que se devuelven desde los componentes.
 
 ## [Componentes](/docs/components-and-props.html) {#components}
 

@@ -1,6 +1,6 @@
 ---
 id: test-renderer
-title: Renderizador de Prueba
+title: Renderizador de prueba
 permalink: docs/test-renderer.html
 layout: docs
 category: Referencia

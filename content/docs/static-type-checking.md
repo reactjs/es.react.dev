@@ -67,7 +67,7 @@ npm run flow init
 
 Este comando creará un archivo de configuración de Flow que deberás confirmar (hacer *commit*).
 
-### Elimminando la sintaxis de Flow del código compilado {#stripping-flow-syntax-from-the-compiled-code}
+### Eliminando la sintaxis de Flow del código compilado {#stripping-flow-syntax-from-the-compiled-code}
 
 Flow extiende el lenguaje JavaScript con una sintaxis especial para declaraciones y anotaciones de tipo. Sin embargo, los navegadores no interpretan esta sintaxis, por lo que debes asegurarte de que no termine en el paquete compilado de JavaScript que envías al navegador.
 
@@ -324,4 +324,4 @@ JetBrains desarrolla y mantiene varias herramientas específicamente para la com
 
 ## Otros lenguajes {#other-languages}
 
-Ten en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](http://fable.io)con [elmish-react](https://elmish.github.io/react). Visita sus respectivos sitios para obtener más información y siéntete libre de agregar más lenguajes estáticamente tipados que funcionan con React a esta página!
+Ten en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](http://fable.io) con [elmish-react](https://elmish.github.io/react). Visita sus respectivos sitios para obtener más información y siéntete libre de agregar más lenguajes estáticamente tipados que funcionan con React a esta página!

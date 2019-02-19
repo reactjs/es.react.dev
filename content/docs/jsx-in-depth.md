@@ -1,6 +1,6 @@
 ---
 id: jsx-in-depth
-title: JSX In Depth
+title: JSX en profundidad
 permalink: docs/jsx-in-depth.html
 redirect_from:
   - "docs/jsx-spread.html"
@@ -66,7 +66,7 @@ import React from 'react';
 import CustomButton from './CustomButton';
 
 function WarningButton() {
-  // return React.createElement(CustomButton, {color: 'red'}, null);
+  // retorna React.createElement(CustomButton, {color: 'red'}, null);
   return <CustomButton color="red" />;
 }
 ```
@@ -95,7 +95,7 @@ function BlueDatePicker() {
 
 Cuando un tipo de elemento comienza con una letra minúscula, se refiere a un componente incorporado como `<div>` o `<span>` y da como resultado una cadena `'div'` o `'span'` que se pasa a `React.createElement`. Los tipos que comienzan con una letra mayúscula como `<Foo />` compilan a `React.createElement(Foo)` y corresponden a un componente definido o importado en tu archivo JavaScript.
 
-Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo una variable en mayúscula antes de usarlo en JSX.
+Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo a una variable en mayúscula antes de usarlo en JSX.
 
 Por ejemplo, este código no se ejecutará como se esperaba:
 
@@ -172,7 +172,7 @@ function Story(props) {
 
 Hay varias formas diferentes de especificar props en JSX.
 
-### Expresiones JavaScript como Props {#javascript-expressions-as-props}
+### Expresiones JavaScript como props {#javascript-expressions-as-props}
 
 Puede pasar cualquier expresión de JavaScript como prop, al rodearla con `{}`. Por ejemplo, en este JSX:
 
@@ -270,9 +270,9 @@ Todos los demás props se pasan a través del objeto `...other` que hace que est
 
 Los atributos de propagación pueden ser útiles, pero también facilitan la transferencia de propiedades innecesarias a los componentes que no les interesan o la transferencia de atributos HTML no válidos al DOM. Recomendamos utilizar esta sintaxis con moderación. 
 
-## Niños en JSX {#children-in-jsx}
+## Hijos en JSX {#children-in-jsx}
 
-En las expresiones JSX que contienen una etiqueta de apertura y una etiqueta de cierre, el contenido entre esas etiquetas se pasa como un elemento especial: `props.children`. Hay varias maneras diferentes de pasar a los niños:
+En las expresiones JSX que contienen una etiqueta de apertura y una etiqueta de cierre, el contenido entre esas etiquetas se pasa como un elemento especial: `props.children`. Hay varias maneras diferentes de pasar a los hijos:
 
 ### Cadenas de Literales {#string-literals-1}
 
@@ -403,7 +403,7 @@ function ListOfTenThings() {
 }
 ```
 
-Los niños pasados a un componente personalizado pueden ser cualquier cosa, siempre que ese componente los transforme en algo que React pueda entender antes de renderizar. Este uso no es común, pero funciona si desea ampliar lo que JSX es capaz de hacer.
+Los hijos pasados a un componente personalizado pueden ser cualquier cosa, siempre que ese componente los transforme en algo que React pueda entender antes de renderizar. Este uso no es común, pero funciona si desea ampliar lo que JSX es capaz de hacer.
 
 ### Los booleanos, `null` y `undefined` se ignoran {#booleans-null-and-undefined-are-ignored}
 

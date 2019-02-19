@@ -81,7 +81,7 @@ ReactDOMServer.renderToStaticNodeStream(element)
 
 Similar a [`renderToNodeStream`](#rendertonodestream), excepto que esto no crea atributos DOM adicionales que React usa internamente, como `data-reactroot`. Esto es útil si desea utilizar React como un simple generador de páginas estáticas, ya que eliminar los atributos adicionales puede ahorrar algunos bytes.
 
-La salida HTML de este flujo es exactamente igual a lo que [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup) devolveria.
+La salida HTML de este flujo es exactamente igual a lo que [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup) devolvería.
 
 Si planeas usar React en el cliente para hacer que el marcado sea interactivo, no use este método. En su lugar, utilice [`renderToNodeStream`](#rendertonodestream) en el servidor y [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) en el cliente.
 

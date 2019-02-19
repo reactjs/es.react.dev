@@ -28,7 +28,7 @@ var Greeting = createReactClass({
 
 La API de clases en ES6 es similar a `createReactClass()` con algunas excepciones.
 
-## Declarando _Props_ por Defecto {#declaring-default-props}
+## Declarando _props_ por defecto {#declaring-default-props}
 
 Con funciones y clases de ES6 `defaultProps` se define como una propiedad del componente:
 
@@ -57,7 +57,7 @@ var Greeting = createReactClass({
 });
 ```
 
-## Configurando el Estado Inicial {#setting-the-initial-state}
+## Configurando el estado inicial {#setting-the-initial-state}
 
 En clases de ES6, puedes definir el estado inicial al asignar `this.state` en el constructor:
 
@@ -84,7 +84,7 @@ var Counter = createReactClass({
 
 ## Autobinding {#autobinding}
 
-En componentes de React declarados como clases de ES6, los métodos se rigen por la misma semántica que las clases regulares de ES6. Esto significa que no vinculan `this` automomáticamente a la instancia. Debes utilizar `.bind(this)` explícitamente en el constructor:
+En componentes de React declarados como clases de ES6, los métodos se rigen por la misma semántica que las clases regulares de ES6. Esto significa que no vinculan `this` automáticamente a la instancia. Debes utilizar `.bind(this)` explícitamente en el constructor:
 
 ```javascript
 class SayHello extends React.Component {
@@ -159,7 +159,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Por favor, ten en encuenta que la sintaxis anterior es **experimental** y podría cambiar, o la propuesta podría no llegar a formar parte del lenguaje.
+Por favor, ten en cuenta que la sintaxis anterior es **experimental** y podría cambiar, o la propuesta podría no llegar a formar parte del lenguaje.
 
 Si prefieres jugar a lo seguro, tienes algunas opciones:
 

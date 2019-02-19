@@ -87,7 +87,7 @@ function getGreeting(user) {
 }
 ```
 
-### Especificando atributos con jsx {#specifying-attributes-with-jsx}
+### Especificando atributos con JSX {#specifying-attributes-with-jsx}
 
 Puedes utilizar comillas para especificar strings literales como atributos:
 
@@ -128,7 +128,7 @@ const element = (
 );
 ```
 
-### JSX Previene Ataques de Inyección {#jsx-prevents-injection-attacks}
+### JSX previene ataques de inyección {#jsx-prevents-injection-attacks}
 
 Es seguro insertar datos ingresados por el usuario en JSX:
 
@@ -140,7 +140,7 @@ const element = <h1>{title}</h1>;
 
 Por defecto, React DOM [escapa](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) cualquier valor insertado en JSX antes de renderizarlo. De este modo, se asegura de que nunca se pueda insertar nada que no esté explícitamente escrito en tú aplicación. Todo es convertido en un string antes de ser renderizado. Esto ayuda a prevenir vulnerabilidades [XSS (cross-site-scripting)](https://es.wikipedia.org/wiki/Cross-site_scripting).
 
-### JSX Representa Objetos {#jsx-represents-objects}
+### JSX representa objetos {#jsx-represents-objects}
 
 Babel compila JSX bajo llamados a `React.createElement()`.
 

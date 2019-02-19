@@ -1,12 +1,12 @@
 ---
 id: hooks-reference
-title: Hooks API Reference
+title: Referencia de la API de los Hooks
 permalink: docs/hooks-reference.html
 prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-Los Hooks son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
+Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Esta página describe las API para los Hooks incorporados en React.
 
@@ -80,7 +80,7 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 
 #### Inicialización gradual {#lazy-initial-state}
 
-El argumento `initialState` es el estado utilizado durante el render inicial. En renders posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
+El argumento `initialState` es el estado utilizado durante el render inicial. En renderizados posteriores, se ignora. Si el estado inicial es el resultado de un cálculo costoso, puede proporcionar una función en su lugar, que se ejecutará solo en el render inicial:
 
 ```js
 const [state, setState] = useState(() => {
@@ -169,7 +169,7 @@ Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devu
 
 Cuando el proveedor se actualiza, este Hook activará un render extra con el último valor de contexto.
 
-## Hooks Adicionales {#additional-hooks}
+## Hooks adicionales {#additional-hooks}
 
 Los siguientes Hooks son variantes de los básicos de la sección anterior o solo son necesarios para casos de borde específicos. No te estreses por aprenderlos por adelantado.
 
@@ -199,7 +199,7 @@ function reducer(state, action) {
   }
 }
 
-function Counter({initialCount}) {
+function Counter({initialState}) {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>

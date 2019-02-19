@@ -1,6 +1,6 @@
 ---
 id: hooks-state
-title: Usando el *Hook* de efecto
+title: Usando el Hook de efecto
 permalink: docs/hooks-effect.html
 next: hooks-rules.html
 prev: hooks-intro.html
@@ -91,7 +91,7 @@ Veamos ahora como podemos hacer lo mismo con el *Hook* `useEffect`.
 
 ### Ejemplo con *Hooks* {#example-using-hooks}
 
-Ya hemos visto este ejemplo al principio de la página, pero veámoslo más detenidamete:
+Ya hemos visto este ejemplo al principio de la página, pero veámoslo más detenidamente:
 
 ```js{1,6-8}
 import React, { useState, useEffect } from 'react';
@@ -135,7 +135,7 @@ function Example() {
 
 Declaramos la variable de estado `count` y le indicamos a React que necesitamos usar un efecto. Le pasamos una función al *Hook* `useEffect`. Esta función que pasamos *es* nuestro efecto. Dentro de nuestro efecto actualizamos el título del documento usando la API del navegador `document.title`. Podemos leer el valor más reciente de `count` dentro del efecto porque se encuentra en el ámbito de nuestra función. Cuando React renderiza nuestro componente, recordará este efecto y lo ejecutará después de actualizar el DOM. Esto sucede en cada renderizado, incluyendo el primero.
 
-Los desarrolladores experimentados en JavaScript se percatarán de que la función que le pasamos a `useEffect` es distinta en cada renderizado. Esto es intencionado. En realidad esto es lo que nos permite leer la variable `count` desde el interior de nuestro efecto sin preocuparnos de que su valor esté obsoleto. Cada vez que re-renderizamos, planificamos un _efecto_ diferente, reemplazando el anterior. En cierta manera, esto hace que los efectos funcionen más como parte del resultado del renderizado. Cada efecto pertenece a su correspondiente renderizado. [Más adelante](#explanation-why-effects-run-on-each-update) veremos más claramente porque esto es útil.
+Los desarrolladores experimentados en JavaScript se percatarán de que la función que le pasamos a `useEffect` es distinta en cada renderizado. Esto es intencionado. En realidad esto es lo que nos permite leer la variable `count` desde el interior de nuestro efecto sin preocuparnos de que su valor esté obsoleto. Cada vez que rerenderizamos, planificamos un _efecto_ diferente, reemplazando el anterior. En cierta manera, esto hace que los efectos funcionen más como parte del resultado del renderizado. Cada efecto pertenece a su correspondiente renderizado. [Más adelante](#explanation-why-effects-run-on-each-update) veremos más claramente porque esto es útil.
 
 > Consejo
 >

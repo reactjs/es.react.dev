@@ -1,6 +1,6 @@
 ---
 id: shallow-renderer
-title: Renderizado superficial
+title: Renderizador superficial
 permalink: docs/shallow-renderer.html
 layout: docs
 category: Referencia
@@ -15,7 +15,7 @@ var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 with npm
 
 ## Resumen {#resumen}
 
-El renderizado superficial es util cuando escribes pruebas unitarias. El renderizado superficial te permite renderizar un componente a "un nivel de profundidad" y comprobar lo que su método de renderizado retorna sin preocuparse sobre el comportamiento de los componentes hijos, los cuales no son instanciados ni renderizados. Esto no requiere un DOM.
+El renderizado superficial es útil cuando escribes pruebas unitarias. El renderizado superficial te permite renderizar un componente a "un nivel de profundidad" y comprobar lo que su método de renderizado retorna sin preocuparse sobre el comportamiento de los componentes hijos, los cuales no son instanciados ni renderizados. Esto no requiere un DOM.
 
 Por ejemplo, si tienes el siguiente componente:
 
@@ -59,10 +59,10 @@ Las pruebas superficiales tienen algunas limitaciones, es decir, no soportan ref
 
 Puedes ver el shallowRenderer como un "lugar" para renderizar el componente que quieres probar, y del cual quieres extraer el resultado del componente.
 
-`shallowRenderer.render()` es parecido a [`ReactDOM.render()`](/docs/react-dom.html#render) pero no necesita DOM y solamente rendeirza un único nivel de profundidad. Esto quiere decir que se pueden probar componentes sin tener en cuenta como sus hijos son implementados.
+`shallowRenderer.render()` es parecido a [`ReactDOM.render()`](/docs/react-dom.html#render) pero no necesita DOM y solamente renderiza un único nivel de profundidad. Esto quiere decir que se pueden probar componentes sin tener en cuenta como sus hijos son implementados.
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
-Despues que `shallowRenderer.render()` es llamado, se puede usar `shallowRenderer.getRenderOutput()` para obtener el resultado superficialmente renderizado.
+Después que `shallowRenderer.render()` es llamado, se puede usar `shallowRenderer.getRenderOutput()` para obtener el resultado superficialmente renderizado.
 
 Entonces ya se pueden empezar a comprobar hechos sobre el resultado.
