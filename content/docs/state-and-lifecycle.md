@@ -314,7 +314,7 @@ Repasemos rápidamente lo que está sucediendo y el orden en que se invocan los 
 
 3) Cuando la salida de `Clock` se inserta en el DOM, React invoca al método de ciclo de vida `componentDidMount()`. Dentro de él, el componente `Clock` le pide al navegador que configure un temporizador para invocar al método `tick()` del componente una vez por segundo.
 
-4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la interfaz e usuario al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para saber qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
+4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la interfaz de usuario al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para saber qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
 
 5) Si el componente `Clock` se elimina en algún momento del DOM, React invoca al método de ciclo de vida `componentWillUnmount()`, por lo que el temporizador se detiene.
 
