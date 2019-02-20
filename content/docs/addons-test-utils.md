@@ -139,7 +139,11 @@ Pasa un módulo de un componente a simular a este método para mejorarlo con mé
 
 > Nota:
 >
+<<<<<<< HEAD
 > `mockComponent()` es una API heredada. En su lugar, recomendamos usar [renderizado superficial](/docs/test-utils.html#shallow-rendering) o [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+=======
+> `mockComponent()` is a legacy API. We recommend using [shallow rendering](/docs/shallow-renderer.html) or [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock) instead.
+>>>>>>> 022c1b2f86bb7b37401bc2d35d9ae6e44f422715
 
 * * *
 
