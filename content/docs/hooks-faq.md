@@ -6,7 +6,7 @@ prev: hooks-reference.html
 ---
 
 Los *Hooks* son una adición nueva en React 16.8. Te permiten user el estado y
-otras caracterísitcas de React sin la necesidad de escribir una clase.
+otras características de React sin la necesidad de escribir una clase.
 
 Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](/docs/hooks-overview.html).
 
@@ -30,13 +30,13 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Reemplazan los hooks a los render props y los Componente de Alto Orden (HOC)?](#do-hooks-replace-render-props-and-higher-order-components)
   * [¿Qué significan los Hooks para APIs populares como el connect de Redux, o React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [¿Funcionan los Hooks con tipado estático?](#do-hooks-work-with-static-typing)
-  * [¿Cómo testear Componentes que usan Hooks?](#how-to-test-components-that-use-hooks)
+  * [¿Cómo probar Componentes que usan Hooks?](#how-to-test-components-that-use-hooks)
   * [¿Qué hacen cumplir las reglas de lint?](#what-exactly-do-the-lint-rules-enforce)
 * **[De las clases a los Hooks](#from-classes-to-hooks)**
   * [¿Cómo corresponden los métodos del ciclo de vida a los Hooks?](#how-do-lifecycle-methods-correspond-to-hooks)
   * [¿Existe algo similar a las variables de instancia?](#is-there-something-like-instance-variables)
   * [¿Debería usar una o muchas variables de estado?](#should-i-use-one-or-many-state-variables)
-  * [¿Puedo correr un efecto solo en cuando hayan actualizaciones?](#can-i-run-an-effect-only-on-updates)
+  * [¿Puedo correr un efecto solo en cuando ocurran actualizaciones?](#can-i-run-an-effect-only-on-updates)
   * [¿Cómo obtengo los props o el estado previo?](#how-to-get-the-previous-props-or-state)
   * [¿Cómo implemento getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [¿Hay algo similar a forceUpdate?](#is-there-something-like-forceupdate)
@@ -111,9 +111,9 @@ Los Hooks fueron diseñados con el tipado estático en mente. Al ser funciones, 
 
 Aún más importante, los Hooks personalizados tienen el poder de restringir la API de React si quisieras tiparlas de una manera más estricta. React te da las primitivas, pero puedes combinarlas de distintas maneras de las que proveemos por defecto.
 
-### ¿Cómo testear Componentes que usan Hooks? {#how-to-test-components-that-use-hooks}
+### ¿Cómo probar Componentes que usan Hooks? {#how-to-test-components-that-use-hooks}
 
-Desde el punto de vista de React, un componente que use Hooks, sigue siendo un componente normal. Si las herramientas de testing que utilizas no depende de los mecanismos internos de React, testear los componentes que usen Hooks, no debería ser diferente de testear cualquier otro componente.
+Desde el punto de vista de React, un componente que use Hooks, sigue siendo un componente normal. Si las herramientas de prueba que utilizas no dependen de los mecanismos internos de React, probar los componentes que usen Hooks, no debería ser diferente de probar cualquier otro componente.
 
 Por ejemplo, asumamos que tenemos este componente de Conteo:
 
@@ -134,7 +134,7 @@ function Example() {
 }
 ```
 
-Vamos a testearlo usando React DOM. Para asegurarnos de que el comportamiento concuerda con lo que sucede en el browser, envolveremos el código, renderizándolo y actualizándolo usando llamadas a [`ReactTestUtils.act()`](/docs/test-utils.html#act).
+Vamos a probarlo usando React DOM. Para asegurarnos de que el comportamiento concuerda con lo que sucede en el browser, envolveremos el código, renderizándolo y actualizándolo usando llamadas a [`ReactTestUtils.act()`](/docs/test-utils.html#act).
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -155,7 +155,7 @@ afterEach(() => {
 });
 
 it('can render and update a counter', () => {
-  // Testeamos el primer render y efecto
+  // Probamos el primer render y efecto
   act(() => {
     ReactDOM.render(<Counter />, container);
   });
@@ -164,7 +164,7 @@ it('can render and update a counter', () => {
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
 
-  // Testeamos el segundo render y efecto
+  // Probamos el segundo render y efecto
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
@@ -175,9 +175,9 @@ it('can render and update a counter', () => {
 
 Las llamadas a `act()` también resolverán los effectos adentro de ellas.
 
-Si necesitas testear un Hook personalizado, puedes hacerlo creando un componente en tu test, y usando tu Hook desde el mismo. Luego puedes testear el componente que escribiste.
+Si necesitas probar un Hook personalizado, puedes hacerlo creando un componente en tu prueba, y usando tu Hook desde el mismo. Luego puedes probar el componente que escribiste.
 
-Para reducir el boilerplate, recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que está diseñada para promover tests que utilicesn tus componentes como lo harían los usuarios finales.
+Para reducir el boilerplate, recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que está diseñada para promover pruebas que utilicen tus componentes como lo harían los usuarios finales.
 
 ### ¿Qué hacen cumplir las [reglas de lint](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
@@ -309,7 +309,7 @@ Nota cómo podemos mover el llamado a `useState` para la variable de estado `pos
 
 Ambas aproximaciones, poner todo el estado en un solo llamdo a `useState`, y usar un llamado a `useState` por cada campo, pueden funcionar. Los Componentes suelen ser más legibles cuando encuentras un balance entre ambos extremos, y agrupas partes del estado relacionadas en unas cuantas variables de estado independientes. Si la lógica del estado se vuelve muy compleja, recomendamos [manejarla con un reductor](/docs/hooks-reference.html#usereducer), o un Hook personalizado.
 
-### ¿Puedo correr un efecto solo en cuando hayan actualizaciones? {#can-i-run-an-effect-only-on-updates}
+### ¿Puedo correr un efecto solo en cuando ocurran actualizaciones? {#can-i-run-an-effect-only-on-updates}
 
 Este es un caso de uso poco común. Si lo necesitas, puedes usar [una referencia mutable](#is-there-something-like-instance-variables) para guardar manualmente una bandera booleana que corresponde a si es el primer renderizado, o renderizados subsecuentes, luego puedes verificar la bandera en tu efecto. (Si te encuentras haciendo esto regularmente podrías crear un Hook Personalizado).
 
