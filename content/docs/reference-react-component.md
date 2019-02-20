@@ -57,7 +57,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 
 #### Actualización {#updating}
 
-Una actualización puede ser causada por cambios en los props o el estado. Estos métodos se llaman en el siguiente orden cuando un componente se re-renderiza:
+Una actualización puede ser causada por cambios en los props o el estado. Estos métodos se llaman en el siguiente orden cuando un componente se vuelve a renderizar:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -220,7 +220,7 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-**Puedes llamar `setState()` inmediatamente** en `componentDidUpdate()` pero ten en cuenta que **debe ser envuelto en una condición** como en el ejemplo anterior, o causará un bucle infinito. También causaría una re-renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente. Si estás intentando crear un "espejo" desde un estado a un prop que viene desde arriba, considera usar el prop directamente en su lugar. Lee más sobre [por qué copiar props en el estado causa errores](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+**Puedes llamar `setState()` inmediatamente** en `componentDidUpdate()` pero ten en cuenta que **debe ser envuelto en una condición** como en el ejemplo anterior, o causará un bucle infinito. También causaría una renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente. Si estás intentando crear un "espejo" desde un estado a un prop que viene desde arriba, considera usar el prop directamente en su lugar. Lee más sobre [por qué copiar props en el estado causa errores](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 Si tu componente implementa el ciclo de vida `getSnapshotBeforeUpdate()`(que es raro), el valor que devuelve se pasará como un tercer parámetro "snapshot" a `componentDidUpdate()`. De lo contrario, este parámetro será indefinido.
 
@@ -238,7 +238,7 @@ componentWillUnmount()
 
 `componentWillUnmount()` se invoca inmediatamente antes de desmontar y destruir un componente. Realiza las tareas de limpieza necesarias en este método, como la invalidación de temporizadores, la cancelación de solicitudes de red o la eliminación de las suscripciones que se crearon en `componentDidMount()`.
 
-**No debes llamar `setState()`** en `componentWillUnmount()` porque el componente nunca será re-renderizado. Una vez que una instancia de componente sea desmontada, nunca será montada de nuevo.
+**No debes llamar `setState()`** en `componentWillUnmount()` porque el componente nunca será vuelto a renderizar. Una vez que una instancia de componente sea desmontada, nunca será montada de nuevo.
 
 * * *
 
@@ -258,7 +258,7 @@ Usa `shouldComponentUpdate()` para avisar a React si la salida de un componente 
 
 Este método sólo existe como **[optimización de rendimiento](/docs/optimizing-performance.html).** No confíes en él para "prevenir" un renderizado, ya que esto puede conducir a errores. **Considere usar el componente integrado [`PureComponent`](/docs/react-api.html#reactpurecomponent)** en lugar de escribir `shouldComponentUpdate()` a mano. `PureComponent` realiza una comparación superficial de props y estado, y reduce la posibilidad de saltar una actualización necesaria.
 
-Si estás seguro de querer escribirlo a mano, puedes comparar `this.props` con `nextProps` y `this.state` con `nextState` y devolver `false` para indicar a React que se puede omitir la actualización. Devolver `false` no previene a los componentes hijos de re-renderizarse cuando *su* estado cambia.
+Si estás seguro de querer escribirlo a mano, puedes comparar `this.props` con `nextProps` y `this.state` con `nextState` y devolver `false` para indicar a React que se puede omitir la actualización. Devolver `false` no previene a los componentes hijos de volverse a renderizar cuando *su* estado cambia.
 
 No recomendamos realizar comprobaciones de igualdad profundas ni utilizar `JSON.stringify()` en `shouldComponentUpdate()`. Es muy ineficiente y dañará el rendimiento.
 
@@ -287,7 +287,7 @@ Derivar el estado conduce al código verboso y hace que tus componentes sean dif
 
 Este método no tiene acceso a la instancia del componente. Si quieres, puedes reutilizar algún código entre `getDerivedStateFromProps()` y los otros métodos de clase mediante la extracción de funciones puras de los props del componente y el estado fuera de la definición de clase.
 
-Ten en cuenta que este método se activa en *cada* renderizado, independientemente de la causa. En caso contrario, `UNSAFE_componentWillReceiveProps`, que sólo se dispara cuando el padre causa una re-renderizado y no como resultado de un `setState` local.
+Ten en cuenta que este método se activa en *cada* renderizado, independientemente de la causa. En caso contrario, `UNSAFE_componentWillReceiveProps`, que sólo se dispara cuando el padre causa un nuevo renderizado y no como resultado de un `setState` local.
 
 * * *
 
