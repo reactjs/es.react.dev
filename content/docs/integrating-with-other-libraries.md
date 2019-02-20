@@ -14,7 +14,7 @@ Esto no significa que sea imposible o incluso necesariamente difícil de combina
 
 La forma más fácil de evitar conflictos es evitar que el componente React se actualice. Puedes hacer esto renderizando elementos que React no tiene motivos para actualizar, como un `<div />` vacío.
 
-### Cómo abordar el problema
+### Cómo abordar el problema {#how-to-approach-the-problem}
 
 Para demostrar esto, vamos a definir un wrapper para un plugin genérico de jQuery.
 
