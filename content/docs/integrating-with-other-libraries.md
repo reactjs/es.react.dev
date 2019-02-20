@@ -286,7 +286,7 @@ Cuando se elimina un componente *desde dentro de* un árbol de React, la limpiez
 
 Aunque generalmente se recomienda usar un flujo de datos unidireccional como [el estado de React](/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), o [Redux](http://redux.js.org/), los componentes React pueden usar una capa modelo de otros frameworks.
 
-### Usando modelos de Backbone en React Components
+### Usando Modelos de Backbone en Componentes de React {#using-backbone-models-in-react-components}
 
 La forma más sencilla de consumir modelos y colecciones [Backbone](http://backbonejs.org/) de un componente React es escuchar los diversos eventos de cambio y forzar manualmente una actualización.
 
