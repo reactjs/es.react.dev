@@ -436,4 +436,4 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
 
-Esta técnica no se limita a Backbone. Puede usar React con cualquier biblioteca de modelos suscribiéndose a sus cambios en los métodos del ciclo de vida y, opcionalmente, copiando los datos al estado local de React.
+Esta técnica no se limita a Backbone. Puedes usar React con cualquier biblioteca de modelos suscribiéndote a sus cambios en los métodos del ciclo de vida y, opcionalmente, copiando los datos al estado local de React.
