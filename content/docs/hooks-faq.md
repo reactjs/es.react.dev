@@ -27,7 +27,7 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Qué tanto de mi conocimiento de React se mantiene relevante?](#how-much-of-my-react-knowledge-stays-relevant)
   * [¿Debería usar Hooks, clases, o una mezcla de ambos?](#should-i-use-hooks-classes-or-a-mix-of-both)
   * [¿Cubren los Hooks todos los casos de uso de las clases?](#do-hooks-cover-all-use-cases-for-classes)
-  * [¿Reemplazan los hooks a los render props y los Componente de Orden Superior (HOC)?](#do-hooks-replace-render-props-and-higher-order-components)
+  * [¿Reemplazan los hooks a los render props y los Componentes de Orden Superior (HOC)?](#do-hooks-replace-render-props-and-higher-order-components)
   * [¿Qué significan los Hooks para APIs populares como el connect de Redux, o React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [¿Funcionan los Hooks con tipado estático?](#do-hooks-work-with-static-typing)
   * [¿Cómo probar Componentes que usan Hooks?](#how-to-test-components-that-use-hooks)
@@ -95,7 +95,7 @@ Nuestra meta es que los Hooks cubran todos los casos de uso de las clases lo má
 
 Los Hooks aún son jóvenes, y algunas librerías  de terceros podrían no ser compatibles con Hooks de momento.
 
-### ¿Reemplazan los hooks a los render props y los Componente de Orden Superior (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
+### ¿Reemplazan los hooks a los render props y los Componentes de Orden Superior (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
 
 En muchas ocasiones, render props y los componentes de orden superior, renderizan un sólo hijo. Pensamos que los Hooks son una forma más sencilla de soportar este caso de uso. Aún hay lugar para ambos patrones (por ejemplo, un scroller virtual podría tener un prop `renderItem`, o un conmponente que sea un contenedor visual podría tener su propia estructura de DOM). Pero en la mayoría de los casos, los Hooks serán suficiente y ayudaran a reducir la anidación en tu arbol.
 
