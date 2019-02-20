@@ -560,7 +560,7 @@ Para más detalles, visite:
 
 * [Guía: Estado y ciclo de vida](/docs/state-and-lifecycle.html)
 * [En profundidad: ¿Cuándo y por qué las llamadas de `setState()` se hacen en lotes?](https://stackoverflow.com/a/48610973/458193)
-* [En profundidad: Por qué `this.state` no se actualiza inmediatamente?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
+* [En profundidad: ¿Por qué `this.state` no se actualiza inmediatamente?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
 
