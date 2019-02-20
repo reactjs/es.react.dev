@@ -250,7 +250,7 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
-Puedes tener tantos componentes aislados como desee y usar `ReactDOM.render()` para renderizarlos a diferentes contenedores DOM. Gradualmente, a medida que conviertas más de tu aplicación a React, podráx combinarlos en componentes más grandes y mover algunos de los `ReactDOM.render()` mas arriba en la jerarquía.
+Puedes tener tantos componentes aislados como desees y usar `ReactDOM.render()` para renderizarlos a diferentes contenedores DOM. Gradualmente, a medida que conviertas más de tu aplicación a React, podrás combinarlos en componentes más grandes y mover algunos de los `ReactDOM.render()` mas arriba en la jerarquía.
 
 ### Incrustación de React en una vista de Backbone
 
