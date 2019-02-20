@@ -48,7 +48,7 @@ Para un ejemplo más concreto de estos conceptos, escribamos un wrapper mínimo 
 
 >**Nota:**
 >
-> Solo porque es posible, no significa que sea el mejor enfoque para las aplicaciones React. Te recomendamos que use los componentes React cuando pueda. Los componentes de React son más fáciles de reutilizar en las aplicaciones de React y, a menudo, brindan más control sobre su comportamiento y apariencia.
+> Solo porque es posible, no significa que sea el mejor enfoque para las aplicaciones React. Te recomendamos que uses los componentes React cuando puedas. Los componentes de React son más fáciles de reutilizar en las aplicaciones de React y, a menudo, brindan más control sobre su comportamiento y apariencia.
 
 Primero, veamos lo que `Chosen` le hace al DOM.
 
