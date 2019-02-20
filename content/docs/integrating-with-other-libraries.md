@@ -281,7 +281,7 @@ Es importante que también llamemos a `ReactDOM.unmountComponentAtNode()` en el 
 
 Cuando se elimina un componente *desde dentro de* un árbol de React, la limpieza se realiza automáticamente, pero como estamos eliminando todo el árbol a mano, debemos llamar a este método.
 
-## Integración con capas de modelo
+## Integración con capas de modelo {#integrating-with-model-layers}
 
 Aunque generalmente se recomienda usar un flujo de datos unidireccional como [el estado de React](/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), o [Redux](http://redux.js.org/), los componentes React pueden usar una capa modelo de otros frameworks.
 
