@@ -86,7 +86,7 @@ class Chosen extends React.Component {
 }
 ```
 
-Observe cómo envolvimos `<select>` en un `<div>` extra. Esto es necesario porque `Chosen` agregará otro elemento DOM justo después del nodo `<select>` que le pasamos. Sin embargo, en lo que respecta a React, `<div>` siempre tiene un solo hijo. Así es como nos aseguramos de que las actualizaciones de React no entren en conflicto con el nodo DOM adicional añadido por `Chosen`. Es importante que si modificas el DOM fuera del flujo de React, debe asegurarse de que React no tenga una razón para tocar esos nodos DOM.
+Observe cómo envolvimos `<select>` en un `<div>` extra. Esto es necesario porque `Chosen` agregará otro elemento DOM justo después del nodo `<select>` que le pasamos. Sin embargo, en lo que respecta a React, `<div>` siempre tiene un solo hijo. Así es como nos aseguramos de que las actualizaciones de React no entren en conflicto con el nodo DOM adicional añadido por `Chosen`. Es importante que si modificas el DOM fuera del flujo de React, debes asegurarte de que React no tenga una razón para tocar esos nodos DOM.
 
 A continuación, implementaremos los métodos del ciclo de vida. Necesitamos inicializar `Chosen` con la referencia al nodo `<select>` en `componentDidMount`, y eliminarlo en `componentWillUnmount`:
 
