@@ -169,7 +169,7 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 
 > Nota
 >
-> **Evita copiar los props en el estado! Es un error muy común:**
+> **¡Evita copiar los props en el estado! Es un error muy común:**
 >
 >```js
 >constructor(props) {
