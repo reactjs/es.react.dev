@@ -194,7 +194,7 @@ React puede integrarse en otras aplicaciones gracias a la flexibilidad de [`Reac
 
 Aunque React se usa comúnmente en el inicio para cargar un solo componente React raíz en el DOM, `ReactDOM.render()` también se puede llamar varias veces para partes independientes de la interfaz de usuario que pueden ser tan pequeñas como un botón, o tan grandes como una aplicación.
 
-De hecho, asi es exactamente cómo se utiliza React en Facebook. Esto nos permite escribir aplicaciones en React pieza por pieza y combinarlas con nuestras plantillas existentes generadas por el servidor y otros códigos del lado del cliente.
+De hecho, así es exactamente cómo se utiliza React en Facebook. Esto nos permite escribir aplicaciones en React pieza por pieza y combinarlas con nuestras plantillas existentes generadas por el servidor y otros códigos del lado del cliente.
 
 ### Reemplazando el renderizado basado en strings con React
 
