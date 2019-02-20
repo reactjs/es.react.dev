@@ -188,7 +188,7 @@ class Chosen extends React.Component {
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
-## Integración con otras librerias de vista
+## Integración con otras bibliotecas de vista {#integrating-with-other-view-libraries}
 
 React puede integrarse en otras aplicaciones gracias a la flexibilidad de [`ReactDOM.render()`](/docs/react-dom.html#render).
 
