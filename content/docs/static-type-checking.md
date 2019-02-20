@@ -215,21 +215,16 @@ npm install --save-dev typescript
 }
 ```
 
-<<<<<<< HEAD
 ### Configurando el compilador de TypeScript {#configuring-the-typescript-compiler}
-El compilador no nos sirve de nada hasta que le decimos qué hacer. En TypeScript, estas reglas se definen en un archivo especial llamado `tsconfig.json`. Para generar este archivo ejecuta:
-=======
-### Configuring the TypeScript Compiler {#configuring-the-typescript-compiler}
-The compiler is of no help to us until we tell it what to do. In TypeScript, these rules are defined in a special file called `tsconfig.json`. To generate this file:
+El compilador no nos sirve de nada hasta que le decimos qué hacer. En TypeScript, estas reglas se definen en un archivo especial llamado `tsconfig.json`. Para generar este archivo:
 
-If you use [Yarn](https://yarnpkg.com/), run:
+Si usas [Yarn](https://yarnpkg.com/), ejecuta:
 
 ```bash
 yarn run tsc --init
 ```
 
-If you use [npm](https://www.npmjs.com/), run:
->>>>>>> 022c1b2f86bb7b37401bc2d35d9ae6e44f422715
+Si usas [npm](https://www.npmjs.com/), ejecuta:
 
 ```bash
 npx tsc --init
