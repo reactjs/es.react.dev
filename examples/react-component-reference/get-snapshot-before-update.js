@@ -6,7 +6,7 @@ class ScrollingList extends React.Component {
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     // ¿Estamos agregando nuevos elementos a la lista?
-    // Captura la posición del scroll para que podamos ajustar el scroll despuës.
+    // Captura la posición del scroll para que podamos ajustar el scroll después.
     if (prevProps.list.length < this.props.list.length) {
       const list = this.listRef.current;
       return list.scrollHeight - list.scrollTop;
