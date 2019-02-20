@@ -181,7 +181,7 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 >
 > El problema es que es innecesario (puedes usar `this.props.color` directamente en su lugar), esto crea errores (actualizaciones al prop `color` no se reflejarán en el estado).
 >
-> **Sólo utiliza este patrón si deseas ignorar intencionalmente las actualizaciones de prop.** En ese caso, tiene sentido renombrar el prop a `initialColor` o `defaultColor`. Puedes forzar al componente a "limpiar" su estado interno [ cambiando su `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) cuando sea necesario.
+> **Sólo utiliza este patrón si deseas ignorar intencionalmente las actualizaciones de prop.** En ese caso, tiene sentido renombrar el prop a `initialColor` o `defaultColor`. Puedes forzar al componente a "limpiar" su estado interno [cambiando su `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) cuando sea necesario.
 >
 > Lee nuestro [post en el blog sobre como evitar estados derivados](/blog/2018/06/07/you-probably-dont-need-derived-state.html) para aprender qué hacer si crees que necesitas algún estado que dependa de los props.
 
