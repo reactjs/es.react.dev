@@ -23,11 +23,11 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
 * **[Estrategia de Adopción](#adoption-strategy)**
   * [¿Qué versiones de React incluyen Hooks?](#which-versions-of-react-include-hooks)
   * [¿Necesito reescribir todos mis componentes que ya sean clases?](#do-i-need-to-rewrite-all-my-class-components)
-  * [¿Qué puedo hacer con los Hooks que no pueda hacer con las clases?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
+  * [¿Qué puedo hacer con Hooks que no pueda hacer con clases?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
   * [¿Qué tanto de mi conocimiento de React se mantiene relevante?](#how-much-of-my-react-knowledge-stays-relevant)
   * [¿Debería usar Hooks, clases, o una mezcla de ambos?](#should-i-use-hooks-classes-or-a-mix-of-both)
   * [¿Cubren los Hooks todos los casos de uso de las clases?](#do-hooks-cover-all-use-cases-for-classes)
-  * [¿Reemplazan los hooks a los render props y los Componente de Alto Orden (HOC)?](#do-hooks-replace-render-props-and-higher-order-components)
+  * [¿Reemplazan los hooks a los render props y los Componente de Orden Superior (HOC)?](#do-hooks-replace-render-props-and-higher-order-components)
   * [¿Qué significan los Hooks para APIs populares como el connect de Redux, o React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [¿Funcionan los Hooks con tipado estático?](#do-hooks-work-with-static-typing)
   * [¿Cómo probar Componentes que usan Hooks?](#how-to-test-components-that-use-hooks)
@@ -36,8 +36,8 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Cómo corresponden los métodos del ciclo de vida a los Hooks?](#how-do-lifecycle-methods-correspond-to-hooks)
   * [¿Existe algo similar a las variables de instancia?](#is-there-something-like-instance-variables)
   * [¿Debería usar una o muchas variables de estado?](#should-i-use-one-or-many-state-variables)
-  * [¿Puedo correr un efecto solo en cuando ocurran actualizaciones?](#can-i-run-an-effect-only-on-updates)
-  * [¿Cómo obtengo los props o el estado previo?](#how-to-get-the-previous-props-or-state)
+  * [¿Puedo correr un efecto solo cuando ocurran actualizaciones?](#can-i-run-an-effect-only-on-updates)
+  * [¿Cómo obtengo las props o el estado previo?](#how-to-get-the-previous-props-or-state)
   * [¿Cómo implemento getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [¿Hay algo similar a forceUpdate?](#is-there-something-like-forceupdate)
   * [¿Puedo crear una referencia (ref) a un Componente de función?](#can-i-make-a-ref-to-a-function-component)
@@ -73,7 +73,7 @@ React Native soportará Hooks completamente en su próxima versión estable.
 
 No. [No hay planes](/docs/hooks-intro.html#gradual-adoption-strategy) de remover las clases de React -- todos debemos seguir lanzando productos y no nos podemos dar el lujo de reescribir. Recomendamos usar Hooks en tu código nuevo.
 
-### ¿Qué puedo hacer con los Hooks que no pueda hacer con las clases? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
+### ¿Qué puedo hacer con Hooks que no pueda hacer con clases? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
 Los Hooks ofrecen una nueva, poderosa y expresiva forma de reusar funcionalidad entre componentes. La sección ["Construyendo tus Propios Hooks"](/docs/hooks-custom.html) provee un vistazo a las posibilidades. [Este artículo](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) por uno de los miembros clave del equipo de React se adentra más en las nuevas capacidades que proveen los Hooks.
 
@@ -95,9 +95,9 @@ Nuestra meta es que los Hooks cubran todos los casos de uso de las clases lo má
 
 Los Hooks aún son jóvenes, y algunas librerías  de terceros podrían no ser compatibles con Hooks de momento.
 
-### ¿Reemplazan los hooks a los render props y los Componente de Alto Orden (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
+### ¿Reemplazan los hooks a los render props y los Componente de Orden Superior (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
 
-En muchas ocasiones, render props y los componentes de alto orden, renderizan un sólo hijo. Pensamos que los Hooks son una forma más sencilla de soportar este caso de uso. Aún hay lugar para ambos patrones (por ejemplo, un scroller virtual podría tener un prop `renderItem`, o un conmponente que sea un contenedor visual podría tener su propia estructura de DOM). Pero en la mayoría de los casos, los Hooks serán suficiente y ayudaran a reducir la anidación en tu arbol.
+En muchas ocasiones, render props y los componentes de orden superior, renderizan un sólo hijo. Pensamos que los Hooks son una forma más sencilla de soportar este caso de uso. Aún hay lugar para ambos patrones (por ejemplo, un scroller virtual podría tener un prop `renderItem`, o un conmponente que sea un contenedor visual podría tener su propia estructura de DOM). Pero en la mayoría de los casos, los Hooks serán suficiente y ayudaran a reducir la anidación en tu arbol.
 
 ### ¿Qué significan los Hooks para APIs populares como el connect de Redux, o React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
@@ -107,7 +107,7 @@ En el futuro, nuevas versiones de estas librerías también podrían exportar Ho
 
 ### ¿Funcionan los Hooks con tipado estático? {#do-hooks-work-with-static-typing}
 
-Los Hooks fueron diseñados con el tipado estático en mente. Al ser funciones, son más fáciles de tipar que patrones como los componentes de alto orden (HOC). Las últimas definiciones para React de TypeScript y Flow incluyen soporte para Hooks.
+Los Hooks fueron diseñados con el tipado estático en mente. Al ser funciones, son más fáciles de tipar que patrones como los componentes de orden superior (HOC). Las últimas definiciones para React de TypeScript y Flow incluyen soporte para Hooks.
 
 Aún más importante, los Hooks personalizados tienen el poder de restringir la API de React si quisieras tiparlas de una manera más estricta. React te da las primitivas, pero puedes combinarlas de distintas maneras de las que proveemos por defecto.
 
@@ -173,7 +173,7 @@ it('can render and update a counter', () => {
 });
 ```
 
-Las llamadas a `act()` también resolverán los effectos adentro de ellas.
+Las llamadas a `act()` también resolverán los efectos adentro de ellas.
 
 Si necesitas probar un Hook personalizado, puedes hacerlo creando un componente en tu prueba, y usando tu Hook desde el mismo. Luego puedes probar el componente que escribiste.
 
@@ -305,15 +305,15 @@ function useWindowPosition() {
 }
 ```
 
-Nota cómo podemos mover el llamado a `useState` para la variable de estado `position` y el effecto relacionado en un Hook personalizado sin cambiar su código. Si todo el estado estuviera en un solo objeto, extraerlo sería más difícil.
+Nota cómo podemos mover el llamado a `useState` para la variable de estado `position` y el efecto relacionado en un Hook personalizado sin cambiar su código. Si todo el estado estuviera en un solo objeto, extraerlo sería más difícil.
 
 Ambas aproximaciones, poner todo el estado en un solo llamdo a `useState`, y usar un llamado a `useState` por cada campo, pueden funcionar. Los Componentes suelen ser más legibles cuando encuentras un balance entre ambos extremos, y agrupas partes del estado relacionadas en unas cuantas variables de estado independientes. Si la lógica del estado se vuelve muy compleja, recomendamos [manejarla con un reductor](/docs/hooks-reference.html#usereducer), o un Hook personalizado.
 
-### ¿Puedo correr un efecto solo en cuando ocurran actualizaciones? {#can-i-run-an-effect-only-on-updates}
+### ¿Puedo correr un efecto solo cuando ocurran actualizaciones? {#can-i-run-an-effect-only-on-updates}
 
 Este es un caso de uso poco común. Si lo necesitas, puedes usar [una referencia mutable](#is-there-something-like-instance-variables) para guardar manualmente una bandera booleana que corresponde a si es el primer renderizado, o renderizados subsecuentes, luego puedes verificar la bandera en tu efecto. (Si te encuentras haciendo esto regularmente podrías crear un Hook Personalizado).
 
-### ¿Cómo obtengo los props o el estado previo? {#how-to-get-the-previous-props-or-state}
+### ¿Cómo obtengo las props o el estado previo? {#how-to-get-the-previous-props-or-state}
 
 Actualmente lo puedes hacer manualmente [con una referencia](#is-there-something-like-instance-variables):
 
@@ -349,7 +349,7 @@ function usePrevious(value) {
 }
 ```
 
-Nota como esto podría funcionar para props, estado, o cualquie rotro valor calculado.
+Nota como esto podría funcionar para props, estado, o cualquier otro valor calculado.
 
 ```js{5}
 function Counter() {
@@ -362,7 +362,7 @@ function Counter() {
 
 Es posible que en el futuro React provea un `usePrevious` Hook por defecto, ya que es un caso de uso relativamente común.
 
-Mira también [el patrón recomendado para estado derivado](#how-do-i-implement-getderivedstatefromprops).
+Mira también [el patrón recomendado para un estado derivado](#how-do-i-implement-getderivedstatefromprops).
 
 ### ¿Cómo implemento getDerivedStateFromProps??
 
@@ -391,7 +391,7 @@ Esto puede parecer extraño en un principio, pero una actualización durante el 
 
 Los Hooks `useState` y `useReducer` [evitan las actualizaciones](/docs/hooks-reference.html#bailing-out-of-a-state-update) si el siguiente valor es igual al anterior. Mutar el estado y llamar a `setState` no causarán un re-renderizado.
 
-Usualmente, nodeberías mutar el estado local en React. Sin embargo, como una salida de emergencia, puedes usar un contador incremental para forzar un re-renderizado incluso si el estado no ha cambiado:
+Usualmente, no deberías mutar el estado local en React. Sin embargo, como una salida de emergencia, puedes usar un contador incremental para forzar un re-renderizado incluso si el estado no ha cambiado:
 
 ```js
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
