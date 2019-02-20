@@ -43,7 +43,6 @@ Ten en cuenta que definimos los [métodos del ciclo de vida](/docs/react-compone
 
 ### Integración con el plugin jQuery Chosen {#integrating-with-jquery-chosen-plugin}
 
-For a more concrete example of these concepts, let's write a minimal wrapper for the plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
 Para un ejemplo más concreto de estos conceptos, escribamos un wrapper mínimo para el plugin [Elegido](https://harvesthq.github.io/chosen/), que aumenta las entradas `<select>`.
 
 >**Nota:**
