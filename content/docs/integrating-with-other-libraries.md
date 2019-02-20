@@ -16,7 +16,7 @@ La forma más fácil de evitar conflictos es evitar que el componente React se a
 
 ### Cómo abordar el problema
 
-Para demostrar esto, Vamos a definir un wrapper para un plugin generico de jQuery.
+Para demostrar esto, vamos a definir un wrapper para un plugin genérico de jQuery.
 
 Adjuntaremos un [ref](/docs/refs-and-the-dom.html) al elemento DOM raíz. Dentro de `componentDidMount`, obtendremos una referencia a él para que podamos pasarlo al plugin jQuery.
 
