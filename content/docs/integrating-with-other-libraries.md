@@ -53,7 +53,7 @@ Primero, veamos lo que `Chosen` le hace al DOM.
 
 Si lo llama en un nodo DOM `<select>`, este lee los atributos fuera del nodo DOM original, lo oculta con un estilo en línea y luego agrega un nodo DOM separado con su propia representación visual justo después del `<select> `. Luego, se activan los eventos de jQuery para notificarnos sobre los cambios.
 
-Digamos que esta es la API que buscamos con nuestro componente `<Chosen>` wrapper de React:
+Digamos que esta es la API que buscamos con nuestro componente wrapper `<Chosen>`:
 
 ```js
 function Example() {
