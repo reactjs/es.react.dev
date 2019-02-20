@@ -359,7 +359,7 @@ De esta manera, solo el componente de orden superior necesita conocer los aspect
 
 En el siguiente ejemplo, haremos una copia de los atributos del modelo para formar el estado inicial. Nos suscribimos al evento `change` (y cancelamos la suscripción al desmontar), y cuando sucede, actualizamos el estado con los atributos actuales del modelo. Finalmente, nos aseguramos de que si el prop `model` cambia, no nos olvidemos de cancelar la suscripción del modelo anterior y suscribirnos al nuevo.
 
-Ten en cuenta que este ejemplo no pretende ser exhaustivo con respecto al trabajo con Backbone, pero debería darle una idea de cómo abordar esto de una manera genérica:
+Ten en cuenta que este ejemplo no pretende ser exhaustivo con respecto al trabajo con Backbone, pero debería darte una idea de cómo abordar esto de una manera genérica:
 
 ```js{1,5,10,14,16,17,22,26,32}
 function connectToBackboneModel(WrappedComponent) {
