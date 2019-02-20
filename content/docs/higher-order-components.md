@@ -14,7 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Mientras que un componente transforma _props_ en interfaz de usuario, un componente de orden superior transforma un componente en otro.
 
-Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api/connect.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
+Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
 
 En este documento discutiremos por qué los componentes de orden superior son útiles y como escribir tus propios *HOCs*.
 
