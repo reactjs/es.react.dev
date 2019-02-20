@@ -196,7 +196,7 @@ Aunque React se usa comúnmente en el inicio para cargar un solo componente Reac
 
 De hecho, así es exactamente cómo se utiliza React en Facebook. Esto nos permite escribir aplicaciones en React pieza por pieza y combinarlas con nuestras plantillas existentes generadas por el servidor y otros códigos del lado del cliente.
 
-### Reemplazando el renderizado basado en strings con React
+### Reemplazando el renderizado basado en strings con React {#replacing-string-based-rendering-with-react}
 
 Un patrón común en las aplicaciones web más antiguas es describir los fragmentos del DOM como una cadena e insertarlo en el DOM de la siguiente manera: `$el.html(htmlString)`. Estos puntos en un código base son perfectos para introducir React. Solo reescribe el renderizado basado en cadena como un componente React.
 
