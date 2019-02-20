@@ -6,7 +6,7 @@ permalink: docs/integrating-with-other-libraries.html
 
 React puede ser utilizado en cualquier aplicación web. Puede integrarse en otras aplicaciones y, con un poco de cuidado, otras aplicaciones pueden integrarse en React. Esta guía examinará algunos de los casos de uso más comunes, centrándose en la integración con [jQuery](https://jquery.com/) y [Backbone](http://backbonejs.org/), pero las mismas ideas pueden ser aplicadas a la integración de componentes con cualquier código existente.
 
-## Integración con los plugins de manipulación de DOM
+## Integración con los plugins de manipulación del DOM {#integrating-with-dom-manipulation-plugins}
 
 React no es consciente de los cambios realizados en el DOM fuera de React. React determina las actualizaciones basándose en su propia representación interna, y si los mismos nodos DOM son manipulados por otra biblioteca, React se confunde y no tiene forma de recuperarse.
 
