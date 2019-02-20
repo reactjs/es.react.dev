@@ -41,7 +41,7 @@ class SomePlugin extends React.Component {
 
 Ten en cuenta que definimos los [métodos del ciclo de vida](/docs/react-component.html#the-component-lifecycle) `componentDidMount` y` componentWillUnmount`. Muchos plugins de jQuery adjuntan listeners de eventos al DOM, por lo que es importante desmontarlos en `componentWillUnmount`. Si el complemento no proporciona un método para la limpieza, probablemente tendrás que proporcionar el tuyo, recordando eliminar cualquier listener de eventos que el plugin haya registrado para evitar pérdidas de memoria.
 
-### Integración con jQuery Chosen Plugin
+### Integración con el plugin jQuery Chosen {#integrating-with-jquery-chosen-plugin}
 
 For a more concrete example of these concepts, let's write a minimal wrapper for the plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
 Para un ejemplo más concreto de estos conceptos, escribamos un wrapper mínimo para el plugin [Elegido](https://harvesthq.github.io/chosen/), que aumenta las entradas `<select>`.
