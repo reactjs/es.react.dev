@@ -188,29 +188,29 @@ En particular, la regla hace cumplir que:
 * Las llamadas a Hooks están dentro de una función cuyo nombre usa `PascalCase` (que se asume es un Componente), u otra función cuyo nombre empieza con "`use`", seguido de una letra mayúscula (por ejemplo `useSomething`, que se asume es un Hook personalizado).
 * Los Hooks se llaman en el mismo orden en cada llamado a render.
 
-Hay alguna heurísticas más, y podrían cambiar con el tiempo mientras ajustamos las reglas para generar un balance entre encontrar bugs y encontrar falsos positivos.
+Hay algunas heurísticas más, y podrían cambiar con el tiempo mientras ajustamos las reglas para generar un balance entre encontrar bugs y encontrar falsos positivos.
 
-## From Classes to Hooks {#from-classes-to-hooks}
+## De las clases a los Hooks {#from-classes-to-hooks}
 
-### How do lifecycle methods correspond to Hooks? {#how-do-lifecycle-methods-correspond-to-hooks}
+### ¿Cómo corresponden los métodos del ciclo de vida a los Hooks?{#how-do-lifecycle-methods-correspond-to-hooks}
 
-* `constructor`: Function components don't need a constructor. You can initialize the state in the [`useState`](/docs/hooks-reference.html#usestate) call. If computing it is expensive, you can pass a function to `useState`.
+* `constructor`: Los componentes de Función no requieren un constructor. Puedes inicializar el estado en la llamada a [`useState`](/docs/hooks-reference.html#usestate). Si el cálculo del estado inicial es costoso, puedes pasar una función a `useState`.
 
-* `getDerivedStateFromProps`: Schedule an update [while rendering](#how-do-i-implement-getderivedstatefromprops) instead.
+* `getDerivedStateFromProps`: Agenda una actualización [durante el renderizado](#how-do-i-implement-getderivedstatefromprops).
 
-* `shouldComponentUpdate`: See `React.memo` [below](#how-do-i-implement-shouldcomponentupdate).
+* `shouldComponentUpdate`: Ver `React.memo` [abajo](#how-do-i-implement-shouldcomponentupdate).
 
-* `render`: This is the function component body itself.
+* `render`: Es el cuerpo de el componente de función en sí.
 
-* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: The [`useEffect` Hook](/docs/hooks-reference.html#useeffect) can express all combinations of these (including [less](#can-i-skip-an-effect-on-updates) [common](#can-i-run-an-effect-only-on-updates) cases).
+* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: El [Hook `useEffect`](/docs/hooks-reference.html#useeffect) puede expresar todas las combinaciones de estos (incluyendo casos [poco](#can-i-skip-an-effect-on-updates) [comunes](#can-i-run-an-effect-only-on-updates)).
 
-* `componentDidCatch` and `getDerivedStateFromError`: There are no Hook equivalents for these methods yet, but they will be added soon.
+* `componentDidCatch` y `getDerivedStateFromError`: Aún no hay Hooks equivalentes a estos métodos, pero serán añadidos pronto.
 
-### Is there something like instance variables? {#is-there-something-like-instance-variables}
+### ¿Existe algo similar a las variables de instancia? {#is-there-something-like-instance-variables}
 
-Yes! The [`useRef()`](/docs/hooks-reference.html#useref) Hook isn't just for DOM refs. The "ref" object is a generic container whose `current` property is mutable and can hold any value, similar to an instance property on a class.
+Si!, el Hook [`useRef()`](/docs/hooks-reference.html#useref) no es solo para referencias al DOM. El objeto "ref" es un contenedor genérico cuya propiedad `current` es mutable y puede contener cualquier valor, similar a una variable de instancia en una clase.
 
-You can write to it from inside `useEffect`:
+Puedes escribir en el desde adentro de `useEffect`:
 
 ```js{2,8}
 function Timer() {
@@ -230,7 +230,7 @@ function Timer() {
 }
 ```
 
-If we just wanted to set an interval, we wouldn't need the ref (`id` could be local to the effect), but it's useful if we want to clear the interval from an event handler:
+Si simplemente quisieramos setear un intérvalo no necesitaríamos le referencia (`id` podría ser local al efecto), pero es útil si queremos limpiar el intérvalo de un manejador de evento.
 
 ```js{3}
   // ...
@@ -240,11 +240,11 @@ If we just wanted to set an interval, we wouldn't need the ref (`id` could be lo
   // ...
 ```
 
-Conceptually, you can think of refs as similar to instance variables in a class. Unless you're doing [lazy initialization](#how-to-create-expensive-objects-lazily), avoid setting refs during rendering -- this can lead to surprising behavior. Instead, typically you want to modify refs in event handlers and effects.
+Conceptualmente, puedes pensar en los refs como símiles a las variables de instancia en una clase. A menos que estés utilizando inicialización perezosa ([lazy initialization](#how-to-create-expensive-objects-lazily)), evita setear referencias durante el renderizado -- esto podría llevar a comportamiento inesperado. En cambio, generalmente querrás modificar las referencias en manejadores de eventos y efectos.
 
-### Should I use one or many state variables? {#should-i-use-one-or-many-state-variables}
+### ¿Debería usar una o muchas variables de estado? {#should-i-use-one-or-many-state-variables}
 
-If you're coming from classes, you might be tempted to always call `useState()` once and put all state into a single object. You can do it if you'd like. Here is an example of a component that follows the mouse movement. We keep its position and size in the local state:
+Si vienes de las clases, podrías estar tentado a siempre llamar a `useState()` una sola vez y poner todo tu estado dentro de un solo objeto. Lo puedes hacer si quieres. Aquí hay un ejemplo que sigue el movimiento del mouse. mantenemos su posición y tamaño en el estado local:
 
 ```js
 function Box() {
@@ -253,7 +253,7 @@ function Box() {
 }
 ```
 
-Now let's say we want to write some logic that changes `left` and `top` when the user moves their mouse. Note how we have to merge these fields into the previous state object manually:
+Ahora digamos que queremos escribir un poco de lógica que cambie `left` y `top` cuando el usuario mueva el mouse. Nota como mezclamos estos campos en el estado previo manualmente:
 
 ```js{4,5}
   // ...
@@ -269,11 +269,11 @@ Now let's say we want to write some logic that changes `left` and `top` when the
   // ...
 ```
 
-This is because when we update a state variable, we *replace* its value. This is different from `this.setState` in a class, which *merges* the updated fields into the object.
+Esto se debe a que cuando actualizamos una variable de estado, *reemplazamos* su valor. Esto es diferente de `this.setState` en una clase, que *mezcla* los campos actualizados en el objeto.
 
-If you miss automatic merging, you can write a custom `useLegacyState` Hook that merges object state updates. However, instead **we recommend to split state into multiple state variables based on which values tend to change together.**
+Si extrañas esta mezcla automática, puedes escribir un Hook personalizado `useLegacyState` que mezcle las actualizaciones al objeto de estado. Sin embargo, **Recomendamos dividir el estado en múltiples variables de estado, basado en los valores que tienden a cambiar juntos**.
 
-For example, we could split our component state into `position` and `size` objects, and always replace the `position` with no need for merging:
+Por ejemplo, podríamos dividir el estado de nuestor componente en objetos `position` y `size`, y siempre reemplazar `position` sin la necesidad de mezclar.
 
 ```js{2,7}
 function Box() {
@@ -287,7 +287,7 @@ function Box() {
     // ...
 ```
 
-Separating independent state variables also has another benefit. It makes it easy to later extract some related logic into a custom Hook, for example:
+Separar variables de estado independientes también tiene otro beneficio. Hace fácil extraer lógica relacionada en un Hook personalizado, por ejemplo:
 
 ```js{2,7}
 function Box() {
@@ -305,17 +305,17 @@ function useWindowPosition() {
 }
 ```
 
-Note how we were able to move the `useState` call for the `position` state variable and the related effect into a custom Hook without changing their code. If all state was in a single object, extracting it would be more difficult.
+Nota cómo podemos mover el llamado a `useState` para la variable de estado `position` y el effecto relacionado en un Hook personalizado sin cambiar su código. Si todo el estado estuviera en un solo objeto, extraerlo sería más difícil.
 
-Both putting all state in a single `useState` call, and having a `useState` call per each field can work. Components tend to be most readable when you find a balance between these two extremes, and group related state into a few independent state variables. If the state logic becomes complex, we recommend [managing it with a reducer](/docs/hooks-reference.html#usereducer) or a custom Hook.
+Ambas aproximaciones, poner todo el estado en un solo llamdo a `useState`, y usar un llamado a `useState` por cada campo, pueden funcionar. Los Componentes suelen ser más legibles cuando encuentras un balance entre ambos extremos, y agrupas partes del estado relacionadas en unas cuantas variables de estado independientes. Si la lógica del estado se vuelve muy compleja, recomendamos [manejarla con un reductor](/docs/hooks-reference.html#usereducer), o un Hook personalizado.
 
-### Can I run an effect only on updates? {#can-i-run-an-effect-only-on-updates}
+### ¿Puedo correr un efecto solo en cuando hayan actualizaciones? {#can-i-run-an-effect-only-on-updates}
 
-This is a rare use case. If you need it, you can [use a mutable ref](#is-there-something-like-instance-variables) to manually store a boolean value corresponding to whether you are on the first or a subsequent render, then check that flag in your effect. (If you find yourself doing this often, you could create a custom Hook for it.)
+Este es un caso de uso poco común. Si lo necesitas, puedes usar [una referencia mutable](#is-there-something-like-instance-variables) para guardar manualmente una bandera booleana que corresponde a si es el primer renderizado, o renderizados subsecuentes, luego puedes verificar la bandera en tu efecto. (Si te encuentras haciendo esto regularmente podrías crear un Hook Personalizado).
 
-### How to get the previous props or state? {#how-to-get-the-previous-props-or-state}
+### ¿Cómo obtengo los props o el estado previo? {#how-to-get-the-previous-props-or-state}
 
-Currently, you can do it manually [with a ref](#is-there-something-like-instance-variables):
+Actualmente lo puedes hacer manualmente [con una referencia](#is-there-something-like-instance-variables):
 
 ```js{6,8}
 function Counter() {
@@ -331,7 +331,7 @@ function Counter() {
 }
 ```
 
-This might be a bit convoluted but you can extract it into a custom Hook:
+Esto podría ser un poco complicado, pero puedes extraer la funcionalidad en un Hook personalizado:
 
 ```js{3,7}
 function Counter() {
@@ -349,7 +349,7 @@ function usePrevious(value) {
 }
 ```
 
-Note how this would work for props, state, or any other calculated value.
+Nota como esto podría funcionar para props, estado, o cualquie rotro valor calculado.
 
 ```js{5}
 function Counter() {
@@ -360,15 +360,15 @@ function Counter() {
   // ...
   ```
 
-It's possible that in the future React will provide a `usePrevious` Hook out of the box since it's a relatively common use case.
+Es posible que en el futuro React provea un `usePrevious` Hook por defecto, ya que es un caso de uso relativamente común.
 
-See also [the recommended pattern for derived state](#how-do-i-implement-getderivedstatefromprops).
+Mira también [el patrón recomendado para estado derivado](#how-do-i-implement-getderivedstatefromprops).
 
-### How do I implement `getDerivedStateFromProps`?
+### ¿Cómo implemento getDerivedStateFromProps??
 
-While you probably [don't need it](/blog/2018/06/07/you-probably-dont-need-derived-state.html), in rare cases that you do (such as implementing a `<Transition>` component), you can update the state right during rendering. React will re-run the component with updated state immediately after exiting the first render so it wouldn't be expensive.
+A pesar de que probablemente [no lo necesites](/blog/2018/06/07/you-probably-dont-need-derived-state.html), en los pocos casos en los que sea necesario (por ejemplo implementando un componente `<Transition>`), puedes actualizar el estado en medio de la renderización. React correrá de nuevo el componente con el estado actualizado inmediatamente después de correr el primer renderizaod, así que no es costoso.
 
-Here, we store the previous value of the `row` prop in a state variable so that we can compare:
+Aquí, guardamos el valor anterior del prop `row` en una variable de estado para poder comparar:
 
 ```js
 function ScrollView({row}) {
@@ -385,13 +385,13 @@ function ScrollView({row}) {
 }
 ```
 
-This might look strange at first, but an update during rendering is exactly what `getDerivedStateFromProps` has always been like conceptually.
+Esto puede parecer extraño en un principio, pero una actualización durante el renderizado es exactamente lo que siempre ha sido `getDerivedStateFromProps` conceptualmente.
 
-### Is there something like forceUpdate?
+### ¿Hay algo similar a forceUpdate?
 
-Both `useState` and `useReducer` Hooks [bail out of updates](/docs/hooks-reference.html#bailing-out-of-a-state-update) if the next value is the same as the previous one. Mutating state in place and calling `setState` will not cause a re-render.
+Los Hooks `useState` y `useReducer` [evitan las actualizaciones](/docs/hooks-reference.html#bailing-out-of-a-state-update) si el siguiente valor es igual al anterior. Mutar el estado y llamar a `setState` no causarán un re-renderizado.
 
-Normally, you shouldn't mutate local state in React. However, as an escape hatch, you can use an incrementing counter to force a re-render even if the state has not changed:
+Usualmente, nodeberías mutar el estado local en React. Sin embargo, como una salida de emergencia, puedes usar un contador incremental para forzar un re-renderizado incluso si el estado no ha cambiado:
 
 ```js
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -401,15 +401,15 @@ Normally, you shouldn't mutate local state in React. However, as an escape hatch
   }
 ```
 
-Try to avoid this pattern if possible.
+Intenta evitar este patrón de ser posible.
 
-### Can I make a ref to a function component?
+### ¿Puedo crear una referencia (ref) a un Componente de función?
 
-While you shouldn't need this often, you may expose some imperative methods to a parent component with the [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle) Hook.
+A pesar de que no deberías necesitar esto muy seguido, podrías exponer algunos métodos imperativos a un componente padre con con el Hook [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
 
-### What does `const [thing, setThing] = useState()` mean?
+### ¿Qué significa [thing, setThing] = useState()?
 
-If you're not familiar with this syntax, check out the [explanation](/docs/hooks-state.html#tip-what-do-square-brackets-mean) in the State Hook documentation.
+Si no estás familiarizado con esta sintaxis, mira la [explicación](/docs/hooks-state.html#tip-what-do-square-brackets-mean) en la documentación de los Hooks de estado.
 
 
 ## Performance Optimizations
