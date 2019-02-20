@@ -298,4 +298,4 @@ function NumberList(props) {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Algunas veces esto resulta más claro en código, pero este estilo también puede ser abusado. Como en JavaScript, depende de ti decidir cuando vale la pena extraer una variable por legibilidad. Ten en mente que si el cuerpo de `map()` esta muy anidado, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
+Algunas veces esto resulta más claro en código, pero este estilo también puede ser abusado. Como en JavaScript, depende de ti decidir cuando vale la pena extraer una variable por legibilidad. Ten en mente que si el cuerpo de `map()` está muy anidado, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
