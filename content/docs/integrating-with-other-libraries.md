@@ -252,7 +252,7 @@ ReactDOM.render(
 
 Puedes tener tantos componentes aislados como desees y usar `ReactDOM.render()` para renderizarlos a diferentes contenedores DOM. Gradualmente, a medida que conviertas más de tu aplicación a React, podrás combinarlos en componentes más grandes y mover algunos de los `ReactDOM.render()` mas arriba en la jerarquía.
 
-### Incrustación de React en una vista de Backbone
+### Incrustación de React en una vista de Backbone {#embedding-react-in-a-backbone-view}
 
 Las vistas de [Backbone](http://backbonejs.org/) suelen utilizar cadenas HTML, o funciones plantillas que producen cadenas, para crear el contenido de sus elementos DOM. Este proceso, también, puede reemplazarse con la representación de un componente React.
 
