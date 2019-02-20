@@ -200,7 +200,7 @@ De hecho, asi es exactamente cómo se utiliza React en Facebook. Esto nos permit
 
 Un patrón común en las aplicaciones web más antiguas es describir los fragmentos del DOM como una cadena e insertarlo en el DOM de la siguiente manera: `$el.html(htmlString)`. Estos puntos en un código base son perfectos para introducir React. Solo reescribe el renderizado basado en cadena como un componente React.
 
-Así que la siguiente implementación de jQuery ...
+Así que la siguiente implementación de jQuery...
 
 ```js
 $('#container').html('<button id="btn">Say Hello</button>');
