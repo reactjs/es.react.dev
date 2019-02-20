@@ -400,7 +400,7 @@ function connectToBackboneModel(WrappedComponent) {
 }
 ```
 
-Para demostrar cómo usarlo, conectaremos un componente `NameInput` React a un modelo de Backbone, y actualizaremos su atributo `firstName` cada vez que cambie la entrada:
+Para demostrar cómo usarlo, conectaremos un componente React `NameInput` a un modelo de Backbone, y actualizaremos su atributo `firstName` cada vez que cambie la entrada:
 
 ```js{4,6,11,15,19-21}
 function NameInput(props) {
