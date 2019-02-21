@@ -132,7 +132,7 @@ Acepta un prop `value` que se pasará a los componentes consumidores que son des
 
 Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia el prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
 
-Los cambios se determinan comparando los valores nuevos y antiguos utilizando el mismo algoritmo que [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
+Los cambios se determinan comparando los valores nuevos y antiguos utilizando el mismo algoritmo que [`Object.is`](//developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
 
 > Nota
 > 
