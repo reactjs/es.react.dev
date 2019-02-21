@@ -57,11 +57,7 @@ React solía soportar `findDOMNode` para buscar en el árbol un nodo del DOM dad
 
 `findDOMNode`también puede ser utilizado en componentes con clases pero esto estaba dañando los niveles de abstracción al permitir a un padre solicitar que cierto hijo fuera renderizado. Esto crea un peligro para refactorizar algo en el caso que no puedas cambiar los detalles de la implementación de un componente ya que un padre puede estar utilizando uno de sus nodos del DOM. `findDOMNode` sólo retorna el primer hijo, pero con el uso de los Fragmentos, es posible que un componente pueda renderizar múltiples nodos del DOM. `findDOMNode` es una API de solo lectura para usar una sola vez. Sólo da una respuesta cuando se invoca el método. Si un componente hijo renderiza un nodo diferente, no hay forma alguna de manipular este cambio. Por lo tanto `findDOMNode` solo funciona si los componentes simpre retornan un solo nodo de DOM que nunca cambie.
 
-<<<<<<< HEAD
 En su lugar puedes hacer que este comportamiento sea explicito pasando un ref a tu componente personalizado y transmitiéndolo al DOM usando el [reenvío de ref](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
-=======
-You can instead make this explicit by passing a ref to your custom component and pass that along to the DOM using [ref forwarding](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
->>>>>>> 21ca8ed58819b9b498d8c55066e1e299c9dbe452
 
 También puedes agregar un nodo del DOM envuelto en tu componente y vincular un ref directamente al mismo.
 
