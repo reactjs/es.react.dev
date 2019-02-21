@@ -164,7 +164,7 @@ MyClass.contextType = MyContext;
 
 A la propiedad `contextType` en una clase se le puede asignar un objeto Context creado por [`React.createContext()`](#reactcreatecontext). Esto te permite consumir el valor actual más cercano de ese Context utilizando `this.context`. Puedes hacer referencia a esto en cualquiera de los métodos del ciclo de vida, incluida la función de renderizado.
 
-> Note:
+> Nota:
 >
 > Solo puedes suscribirte a un solo Context usando esta API. Si necesitas leer más de una, lee [Consuming Multiple Contexts](#consuming-multiple-contexts).
 >
