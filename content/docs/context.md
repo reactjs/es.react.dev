@@ -235,7 +235,7 @@ Si dos o más valores de contexto se usan a menudo juntos, es posible que desees
 
 ## Advertencias {#caveats}
 
-Debido a que `Context` usa la identidad de referencia para determinar cuándo se debe volver a renderizar, hay algunos errores que podrían provocar renderizados involuntarios en los consumidores cuando se vuelve a renderizar en el padre del proveedor. Por ejemplo, el código a continuación volverá a representar a todos los consumidores cada vez que el Proveedor vuelva a renderizar porque siempre se crea un nuevo objeto para `value`:
+Debido a que `Context` usa la identidad por referencia para determinar cuándo se debe volver a renderizar, hay algunos errores que podrían provocar renderizados involuntarios en los consumidores cuando se vuelve a renderizar en el padre del proveedor. Por ejemplo, el código a continuación volverá a renderizar a todos los consumidores cada vez que el `Proveedor` se vuelva a renderizar porque siempre se crea un nuevo objeto para `value`:
 
 `embed:context/reference-caveats-problem.js`
 
