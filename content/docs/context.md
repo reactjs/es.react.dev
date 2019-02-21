@@ -248,5 +248,5 @@ Para evitar esto, levanta el valor al estado del padre:
 
 > Nota
 > 
-> React previamente liberado con el API experimental de Context. La antigua API será compatible con todas las versiones 16.x, pero las aplicaciones que la utilicen deberían migrar a la nueva versión. La API antigua se eliminará en una importante futura versión de React. Leer la [documentación antigua de Context aquí](/docs/legacy-context.html).
+> React previamente había liberado el API experimental de Context. La antigua API será compatible con todas las versiones 16.x, pero las aplicaciones que la utilicen deberían migrar a la nueva versión. La API antigua se eliminará en una futura versión importante de React. Lee la [documentación antigua de Context aquí](/docs/legacy-context.html).
  
