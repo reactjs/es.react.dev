@@ -8,7 +8,7 @@ React puede ser utilizado en cualquier aplicación web. Puede integrarse en otra
 
 ## Integración con los plugins de manipulación del DOM {#integrating-with-dom-manipulation-plugins}
 
-React no es consciente de los cambios realizados en el DOM fuera de React. React determina las actualizaciones basándose en su propia representación interna, y si los mismos nodos DOM son manipulados por otra biblioteca, React se confunde y no tiene forma de recuperarse.
+React es inconsciente de los cambios realizados en el DOM fuera de React. React determina las actualizaciones basándose en su propia representación interna, y si los mismos nodos DOM son manipulados por otra biblioteca, React se confunde y no tiene forma de recuperarse.
 
 Esto no significa que sea imposible o incluso necesariamente difícil de combinar React con otras formas de afectar el DOM, solo hay que tener en cuenta lo que está haciendo cada uno.
 
