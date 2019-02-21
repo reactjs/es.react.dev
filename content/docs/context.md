@@ -136,7 +136,7 @@ Los cambios se determinan comparando los valores nuevos y antiguos utilizando el
 
 > Nota
 > 
-> La forma en que se determinan los cambios puede causar algunos problemas al pasar objetos como `value`: see [Caveats](#caveats).
+> La forma en que se determinan los cambios puede causar algunos problemas al pasar objetos como `value`: mira las [Advertencias](#caveats).
 
 ### `Class.contextType` {#classcontexttype}
 
