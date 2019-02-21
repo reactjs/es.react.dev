@@ -120,7 +120,7 @@ No obstante, los componentes de React son declarativos y especifican *qué* se d
 <Button />
 ```
 
-Los límites de errores preservan la naturaleza declarativa de React, y se comportan como esperarías. Por ejemplo, incluso si un error ocurre en un método `componentDidUpdate` causado por un `setState` en algún sitio profundamente dentro del árbol, se propagará de todas formas correctamente al límite de errores más cercano.
+Los límites de errores preservan la naturaleza declarativa de React, y se comportan como esperarías. Por ejemplo, incluso si un error ocurre en un método `componentDidUpdate` causado por un `setState` en algún sitio profundo dentro del árbol, se propagará de todas formas correctamente al límite de errores más cercano.
 
 ## ¿Qué pasa con los manejadores de eventos? {#how-about-event-handlers}
 
