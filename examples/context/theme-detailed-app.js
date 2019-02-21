@@ -5,7 +5,7 @@ import ThemedButton from './themed-button';
 function Toolbar(props) {
   return (
     <ThemedButton onClick={props.changeTheme}>
-      Cambiar tema
+      Change Theme
     </ThemedButton>
   );
 }
