@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
     // highlight-range{2}
     this.state = {
-      value: {something: 'algo'},
+      value: {something: 'something'},
     };
   }
 
