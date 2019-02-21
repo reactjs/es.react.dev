@@ -4,13 +4,13 @@ title: Accesibilidad
 permalink: docs/accessibility.html
 ---
 
-## ¿Por qué Accesibilidad?
+## ¿Por qué Accesibilidad? {#why-accessibility}
 
-La accesibilidad web (también conocida como [** a11y **] (https://en.wiktionary.org/wiki/a11y)) es el diseño y la creación de sitios web que pueden ser utilizados por todos. El soporte de accesibilidad es necesario para permitir que la tecnología de asistencia interprete las páginas web.
+La accesibilidad web (también conocida como [**a11y**](https://en.wiktionary.org/wiki/a11y)) es el diseño y la creación de sitios web que pueden ser utilizados por todos. El soporte de accesibilidad es necesario para permitir que la tecnología de asistencia interprete las páginas web.
 
 React es totalmente compatible con la creación de sitios web accesibles, a menudo mediante el uso de técnicas estándar de HTML.
 
-## Normas y lineamientos
+## Normas y lineamientos {#standards-and-guidelines}
 
 ### WCAG {#wcag}
 
@@ -26,7 +26,7 @@ Las siguientes listas de verificación WCAG proporcionan una visión general:
 
 El documento [Iniciativa de Accesibilidad Web - Aplicaciones de Internet Enriquecidas y Accesibles (WAI-ARIA por sus siglas en inglés)](https://www.w3.org/WAI/intro/aria) contiene técnicas para construir widgets de JavaScript totalmente accesibles.
 
-Tenga en cuenta que todos los atributos HTML `aria- *` son totalmente compatibles con JSX. Mientras que la mayoría de las propiedades y atributos de DOM en React son camelCase, estos atributos deben tener un guión (también conocido como kebab-case, lisp-case, etc.) ya que están en HTML simple:
+Ten en cuenta que todos los atributos HTML `aria- *` son totalmente compatibles con JSX. Mientras que la mayoría de las propiedades y atributos de DOM en React son camelCase, estos atributos deben tener un guión (también conocido como kebab-case, lisp-case, etc.) ya que están en HTML simple:
 
 ```javascript{3,4}
 <input
@@ -39,7 +39,7 @@ Tenga en cuenta que todos los atributos HTML `aria- *` son totalmente compatible
 />
 ```
 
-## HTML semnántico
+## HTML semántico {#semantic-html}
 
 El HTML semántico es la base de la accesibilidad en una aplicación web. Haciendo uso de los diversos elementos HTML para reforzar el significado de la información en nuestros sitios web a menudo nos dará accesibilidad de forma gratuita.
 
@@ -106,9 +106,9 @@ function ListItem({ item }) {
 
 Para más información, consulta [la documentación de Fragmentos](/docs/fragments.html).
 
-## Formularios accesibles
+## Formularios accesibles {#accessible-forms}
 
-### Etiquetado
+### Etiquetado {#labeling}
 
 Todos los controles de formulario HTML, como `<input>` y `<textarea>`, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
 
@@ -125,20 +125,20 @@ Aunque estas prácticas estándar de HTML se pueden usar directamente en React, 
 <input id="namedInput" type="text" name="name"/>
 ```
 
-### Notificando errores al usuario
+### Notificando errores al usuario {#notifying-the-user-of-errors}
 
 Las situaciones de error deben ser entendidas por todos los usuarios. El siguiente enlace también nos muestra cómo exponer textos de error a lectores de pantalla:
 
 - [El W3C demuestra notificaciones de usuario](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [WebAIM analiza la validación de formularios](http://webaim.org/techniques/formvalidation/)
 
-## Control de foco
+## Control de foco {#focus-control}
 
 Asegúrese de que su aplicación web pueda ser operada completamente solo con el teclado:
 
 - [WebAIM habla sobre accesibilidad de teclado](http://webaim.org/techniques/keyboard/)
 
-### Foco de teclado y contorno de foco
+### Foco de teclado y contorno de foco {#keyboard-focus-and-focus-outline}
 
 El foco del teclado se refiere al elemento actual en el DOM que está seleccionado para aceptar la entrada desde el teclado. Lo vemos en todas partes como un contorno de foco similar al que se muestra en la siguiente imagen:
 
@@ -146,7 +146,7 @@ El foco del teclado se refiere al elemento actual en el DOM que está selecciona
 
 Solamente use CSS que elimine este contorno, por ejemplo, configurando `outline: 0`, si lo va a reemplazar por otra implementación de contorno de foco.
 
-### Mecanismos para omitir hacia el contenido deseado.
+### Mecanismos para omitir hacia el contenido deseado. {#mechanisms-to-skip-to-desired-content}
 
 Proporcione un mecanismo para permitir que los usuarios omitan las secciones de navegación en su aplicación, ya que esto ayuda y acelera la navegación con el teclado.
 
@@ -160,7 +160,7 @@ Lea más sobre el uso de estos elementos para mejorar la accesibilidad aquí:
 
 - [Puntos de referencia accesibles](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Gestionando programáticamente el foco.
+### Gestionando programáticamente el foco. {#programmatically-managing-focus}
 
 Nuestras aplicaciones React modifican continuamente el DOM de HTML durante el tiempo de ejecución, lo que a veces hace que el foco del teclado se pierda o se establezca en un elemento inesperado. Para reparar esto, tenemos que empujar programáticamente el foco del teclado en la dirección correcta. Por ejemplo, al restablecer el foco del teclado a un botón que abrió una ventana modal después de que se cierre esa ventana modal.
 
@@ -238,7 +238,7 @@ Un gran ejemplo de gestión de foco es el [react-aria-modal](https://github.com/
 >Si bien esta es una característica de accesibilidad muy importante, también es una técnica que debe usarse con prudencia. Úsalo para reparar el flujo de foco del teclado cuando está perturbado, no para intentar anticipar cómo 
 >los usuarios desean usar las aplicaciones.
 
-## Eventos de ratón y puntero
+## Eventos de ratón y puntero {#mouse-and-pointer-events}
 
 Asegúrate que también se puede acceder a todas las funciones expuestas a través de un mouse o evento de puntero utilizando solo el teclado. Dependiendo solo del dispositivo puntero llevará a muchos casos donde Los usuarios de teclado no pueden usar tu aplicación.
 
@@ -369,7 +369,7 @@ Este código expone la funcionalidad a los usuarios del dispositivo puntero y de
 
 Este es un ejemplo de muchos casos en los que, dependiendo de solo el puntero y el mouse, los eventos interrumpirán la funcionalidad para los usuarios de teclado. Probando siempre con el teclado resaltará de inmediato las áreas problemáticas que luego se pueden solucionar mediante el uso de controladores de eventos compatibles con el teclado.
 
-## Widgets más complejos
+## Widgets más complejos {#more-complex-widgets}
 
 Una experiencia de usuario más compleja no debe significar que sea menos accesible. Mientras que la accesibilidad se logra más fácilmente mediante la codificación lo más cerca posible de HTML, incluso el widget más complejo se puede codificar de manera accesible.
 
@@ -382,15 +382,15 @@ Cada tipo de widget tiene un patrón de diseño específico y se espera que func
 - [Heydon Pickering - Ejemplos ARIA](http://heydonworks.com/practical_aria_examples/)
 - [Componentes Inclusivos](https://inclusive-components.design/)
 
-## Otros puntos a considerar
+## Otros puntos a considerar {#other-points-for-consideration}
 
-### Configurando el idioma
+### Configurando el idioma {#setting-the-language}
 
 Indique el idioma humano de los textos de la página, ya que el software del lector de pantalla lo utiliza para seleccionar la configuración de voz correcta:
 
 - [WebAIM - Documento de lenguaje](http://webaim.org/techniques/screenreader/#language)
 
-### Configuración del título del documento
+### Configuración del título del documento {#setting-the-document-title}
 
 Configure el `<title>` del documento para que describa correctamente el contenido de la página actual, ya que esto garantiza que el usuario esté al tanto del contexto de la página actual:
 
@@ -398,7 +398,7 @@ Configure el `<title>` del documento para que describa correctamente el contenid
 
 Podemos configurar esto en React usando el [Componente Título del Documento de React](https://github.com/gaearon/react-document-title).
 
-### Contraste de color
+### Contraste de color {#color-contrast}
 
 Asegúrese de que todo el texto legible en su sitio web tenga el contraste de color suficiente para que los usuarios con poca visión puedan leerlo al máximo:
 
@@ -415,11 +415,11 @@ Si desea ampliar sus habilidades de prueba de contraste, puede utilizar estas he
 - [WebAIM - Comprobador de contraste de color](http://webaim.org/resources/contrastchecker/)
 - [El Grupo Paciello - Color Contrast Analyzer](https://www.paciellogroup.com/resources/contrastanalyser/)
 
-## Herramientas de desarrollo y pruebas
+## Herramientas de desarrollo y pruebas {#development-and-testing-tools}
 
 Hay una serie de herramientas que podemos utilizar para ayudar en la creación de aplicaciones web accesibles.
 
-### El teclado
+### El teclado {#the-keyboard}
 
 La comprobación más fácil y también una de las más importantes es, por mucho, comprobar si se puede acceder a todo el sitio web y usarlo solo con el teclado. Hágalo de la siguiente forma:
 
@@ -428,11 +428,11 @@ La comprobación más fácil y también una de las más importantes es, por much
 1. Usando `Enter` para activar elementos.
 1. Cuando sea necesario, utilice las teclas de flecha del teclado para interactuar con algunos elementos, como menús y menús desplegables.
 
-### Asistencia para el desarrollo
+### Asistencia para el desarrollo {#development-assistance}
 
-Podemos verificar algunas funciones de accesibilidad directamente en nuestro código JSX. A menudo, las comprobaciones de intellisense para roles, estados y propiedades ARIA ya son proporcinadas en IDE's preparados para JSX. También tenemos acceso a la siguiente herramienta:
+Podemos verificar algunas funciones de accesibilidad directamente en nuestro código JSX. A menudo, las comprobaciones de intellisense para roles, estados y propiedades ARIA ya son proporcionadas en IDE's preparados para JSX. También tenemos acceso a la siguiente herramienta:
 
-#### eslint-plugin-jsx-a11y
+#### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
 
 El complemento [eslint-plugin-jsx-a11y] (https://github.com/evcohen/eslint-plugin-jsx-a11y) para ESLint proporciona linting de AST sobre los problemas de accesibilidad en tu JSX. Muchos IDE's te permiten integrar estos hallazgos directamente en el análisis de código y las ventanas de código fuente.
 
@@ -445,11 +445,11 @@ El complemento [eslint-plugin-jsx-a11y] (https://github.com/evcohen/eslint-plugi
   }
   ```
 
-### Probando accesibilidad en el navegador.
+### Probando accesibilidad en el navegador. {#testing-accessibility-in-the-browser}
 
 Existen varias herramientas que pueden ejecutar auditorías de accesibilidad en las páginas web de su navegador. Utilízalas en combinación con otras comprobaciones de accesibilidad que se mencionan aquí, ya que solo pueden probar la accesibilidad técnica de su HTML.
 
-#### aXe, aXe-core y react-axe
+#### aXe, aXe-core y react-axe {#axe-axe-core-and-react-axe}
 
 Deque Systems offers [aXe-core](https://github.com/dequelabs/axe-core) for automated and end-to-end accessibility tests of your applications. This module includes integrations for Selenium.
 
@@ -457,11 +457,11 @@ Deque Systems offers [aXe-core](https://github.com/dequelabs/axe-core) for autom
 
 También puede usar el módulo [react-axe](https://github.com/dylanb/react-axe) para informar estos hallazgos de accesibilidad directamente a la consola mientras desarrolla y depura.
 
-#### WebAIM WAVE
+#### WebAIM WAVE {#webaim-wave}
 
 La [Herramienta de evaluación de accesibilidad web](http://wave.webaim.org/extension/) (WAVE por sus siglas en inglés) es otra extensión de accesibilidad del navegador.
 
-#### Inspectores de accesibilidad y el Árbol de Accesibilidad
+#### Inspectores de accesibilidad y el Árbol de Accesibilidad {#accessibility-inspectors-and-the-accessibility-tree}
 
 [El Árbol de Accesibilidad](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) es un subconjunto del árbol DOM que contiene objetos accesibles para cada elemento del DOM que debería ser expuesto a la tecnología de asistencia, como los lectores de pantalla.
 
@@ -471,15 +471,15 @@ En algunos navegadores podemos ver fácilmente la información de accesibilidad 
 - [Activar el inspector de accesibilidad en Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
 - [Usando el inspector de accesibilidad en OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
-### Lectores de pantalla
+### Lectores de pantalla {#screen-readers}
 
 Las pruebas con un lector de pantalla deben formar parte de sus pruebas de accesibilidad.
 
-Tenga en cuenta que las combinaciones de navegador / lector de pantalla son importantes. Se recomienda que pruebe su aplicación en el navegador que mejor se adapte a su lector de pantalla.
+Ten en cuenta que las combinaciones de navegador / lector de pantalla son importantes. Se recomienda que pruebe su aplicación en el navegador que mejor se adapte a su lector de pantalla.
 
-### Lectores de pantalla de uso común
+### Lectores de pantalla de uso común {#commonly-used-screen-readers}
 
-#### NVDA en Firefox
+#### NVDA en Firefox {#nvda-in-firefox}
 
 [Acceso a Escritorio No Visual](https://www.nvaccess.org/) o NVDA  por sus siglas en inglés, es un lector de pantalla de Windows de código abierto que es ampliamente usado.
 
@@ -488,7 +488,7 @@ Consulte las siguientes guías sobre cómo utilizar mejor NVDA:
 - [WebAIM - Usando NVDA para evaluar la accesibilidad web](http://webaim.org/articles/nvda/)
 - [Deque - Atajos de teclado NVDA](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
-#### VoiceOver en Safari
+#### VoiceOver en Safari {#voiceover-in-safari}
 
 VoiceOver es un lector de pantalla integrado en dispositivos Apple.
 
@@ -498,7 +498,7 @@ Consulte las siguientes guías sobre cómo activar y usar VoiceOver:
 - [Deque - VoiceOver para los atajos de teclado de OS X](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
 - [Deque - VoiceOver para accesos directos de iOS](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
-#### JAWS en Internet Explorer
+#### JAWS en Internet Explorer {#jaws-in-internet-explorer}
 
 [Acceso al Trabajo con el Habla](http://www.freedomscientific.com/Products/Blindness/JAWS) o JAWS por sus siglas en inglés, es un lector de pantalla de uso prolífico en Windows.
 
@@ -507,9 +507,9 @@ Consulte las siguientes guías sobre cómo utilizar mejor JAWS:
 - [WebAIM - Uso de JAWS para evaluar la accesibilidad web](http://webaim.org/articles/jaws/)
 - [Deque - Atajos de teclado de JAWS](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
-### Otros lectores de pantalla
+### Otros lectores de pantalla {#other-screen-readers}
 
-#### ChromeVox en Google Chrome
+#### ChromeVox en Google Chrome {#chromevox-in-google-chrome}
 
 [ChromeVox](http://www.chromevox.com/) es un lector de pantalla integrado en Chromebooks y está disponible [como una extensión](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=es) para Google Chrome.
 
