@@ -168,7 +168,7 @@ A la propiedad `contextType` en una clase se le puede asignar un objeto Context 
 >
 > Solo puedes suscribirte a un solo Context usando esta API. Si necesitas leer más de una, lee [Consumir múltiples Context](#consuming-multiple-contexts).
 >
-> Si está utilizando la [sintaxis experimental de campos de clase pública](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar un campo de clase **static** para inicializar tu `contextType`.
+> Si estás utilizando la [sintaxis experimental de campos de clase pública](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar un campo de clase **static** para inicializar tu `contextType`.
 
 
 ```js
