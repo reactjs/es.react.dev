@@ -6,11 +6,11 @@ layout: docs
 category: Reference
 ---
 
-Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
+Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Manejando eventos](/docs/handling-events.html) para obtener más información.
 
-## Overview
+## Resumen {#overview}
 
-A sus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor agnóstico al navegador alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation()` y `preventDefault()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
+A tus manejadores de eventos se les pasarán instancias de `SyntheticEvent`, un contenedor agnóstico al navegador alrededor del evento nativo del navegador. Tiene la misma interfaz que el evento nativo del navegador, incluyendo `stopPropagation()` y `preventDefault()`, excepto que los eventos funcionan de manera idéntica en todos los navegadores.
 
 Si encuentras que necesitas el evento del navegador subyacente por alguna razón, simplemente use el atributo `nativeEvent` para obtenerlo. Cada objeto `SyntheticEvent` tiene los siguientes atributos:
 
@@ -35,8 +35,7 @@ string type
 >
 > A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation()` o `e.preventDefault()` deben activarse manualmente, según corresponda.
 
-
-### Agrupación de eventos
+### Agrupación de eventos {#event-pooling}
 
 El `SyntheticEvent` está agrupado. Esto significa que el objeto `SyntheticEvent` se reutilizará y todas las propiedades se anularán después de que se haya invocado la devolución de llamada del evento.
 Esto es por razones de rendimiento.
@@ -65,7 +64,7 @@ function onClick(event) {
 >
 > Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
-## Eventos Soportados
+## Eventos Soportados {#supported-events}
 
 React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
 
@@ -90,9 +89,9 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 
 * * *
 
-## Referencia
+## Referencia {#reference}
 
-### Eventos del Portapapeles
+### Eventos del Portapapeles {#clipboard-events}
 
 Nombres de Eventos:
 
@@ -108,7 +107,7 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Eventos de Composición
+### Eventos de Composición {#composition-events}
 
 Nombres de Eventos:
 
@@ -125,7 +124,7 @@ string data
 
 * * *
 
-### Eventos del Teclado
+### Eventos del Teclado {#keyboard-events}
 
 Nombres de Eventos:
 
@@ -154,7 +153,7 @@ La propiedad `key` puede tomar cualquiera de los valores documentados en [la esp
 
 * * *
 
-### Eventos de Enfoque
+### Eventos de Enfoque {#focus-events}
 
 Nombres de Eventos:
 
@@ -172,7 +171,7 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Eventos de Formulario
+### Eventos de Formulario {#form-events}
 
 Nombres de Eventos:
 
@@ -184,7 +183,7 @@ Para obtener más información sobre el evento onChange, consulte [Formularios](
 
 * * *
 
-### Eventos del Ratón
+### Eventos del Ratón {#mouse-events}
 
 Nombres de Eventos:
 
@@ -217,7 +216,7 @@ boolean shiftKey
 
 * * *
 
-### Eventos Puntero
+### Eventos Puntero {#pointer-events}
 
 Nombres de Eventos:
 
@@ -247,13 +246,13 @@ boolean isPrimary
 
 Una nota sobre la compatibilidad con varios navegadores:
 
-Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). React deliberada no admite polyfill para otros navegadores, ya que un polyfill de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
+Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). React no admite *polyfills* deliberadamente para otros navegadores, ya que un *polyfill* de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
 
 Si su aplicación requiere eventos de puntero, le recomendamos que agregue un polyfill de evento de puntero de terceros.
 
 * * *
 
-### Eventos de Selección
+### Eventos de Selección {#selection-events}
 
 Nombres de Eventos
 
@@ -263,7 +262,7 @@ onSelect
 
 * * *
 
-### Eventos Táctiles
+### Eventos Táctiles {#touch-events}
 
 Nombres de Eventos:
 
@@ -286,7 +285,7 @@ DOMTouchList touches
 
 * * *
 
-### Eventos de la Interfaz de Usuario
+### Eventos de la Interfaz de Usuario {#ui-events}
 
 Nombres de Eventos:
 
@@ -303,7 +302,7 @@ DOMAbstractView view
 
 * * *
 
-### Eventos de la Rueda del Ratón
+### Eventos de la Rueda del Ratón {#wheel-events}
 
 Nombres de Eventos:
 
@@ -322,7 +321,7 @@ number deltaZ
 
 * * *
 
-### Eventos de Medios
+### Eventos de Medios {#media-events}
 
 Nombres de Eventos:
 
@@ -335,7 +334,7 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Eventos de Imagen
+### Eventos de Imagen {#image-events}
 
 Nombres de Eventos:
 
@@ -345,7 +344,7 @@ onLoad onError
 
 * * *
 
-### Eventos de Animación
+### Eventos de Animación {#animation-events}
 
 Nombres de Eventos:
 
@@ -363,7 +362,7 @@ float elapsedTime
 
 * * *
 
-### Eventos de Transición
+### Eventos de Transición {#transition-events}
 
 Nombres de Eventos:
 
@@ -381,7 +380,7 @@ float elapsedTime
 
 * * *
 
-### Otros Eventos
+### Otros Eventos {#other-events}
 
 Nombres de Eventos:
 

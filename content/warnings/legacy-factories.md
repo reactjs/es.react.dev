@@ -4,7 +4,7 @@ layout: single
 permalink: warnings/legacy-factories.html
 ---
 
-You probably came here because your code is calling your component as a plain function call. This is now deprecated:
+Probablemente llegaste aquí porque tu código está llamando tu componente como una función. Esto es ahora obsoleto:
 
 ```javascript
 var MyComponent = require('MyComponent');
@@ -14,9 +14,9 @@ function render() {
 }
 ```
 
-## JSX
+## JSX {#jsx}
 
-React components can no longer be called directly like this. Instead [you can use JSX](/docs/jsx-in-depth.html).
+Los componentes de React ya no pueden ser llamados directamente de esta manera. En su lugar [puedes usar JSX](/docs/jsx-in-depth.html).
 
 ```javascript
 var React = require('react');
@@ -27,9 +27,9 @@ function render() {
 }
 ```
 
-## Without JSX
+## Sin JSX {#without-jsx}
 
-If you don't want to, or can't use JSX, then you'll need to wrap your component in a factory before calling it:
+Si no quieres o no puedes usar JSX, tendrás entonces que envolver tu componente en un *factory* antes de llamarlo:
 
 ```javascript
 var React = require('react');
@@ -40,11 +40,11 @@ function render() {
 }
 ```
 
-This is an easy upgrade path if you have a lot of existing function calls.
+Esta es una ruta de actualización fácil si ya tienes muchas llamadas como función.
 
-## Dynamic components without JSX
+## Componentes dinámicos sin JSX {#dynamic-components-without-jsx}
 
-If you get a component class from a dynamic source, then it might be unnecessary to create a factory that you immediately invoke. Instead you can just create your element inline:
+Si recibes un componente de clase de forma dinámica, entonces probablemente sea innecesario crear un *factory* para invocarlo inmediatamente. En su lugar puedes simplemente crear tu elemento en línea:
 
 ```javascript
 var React = require('react');
@@ -54,6 +54,6 @@ function render(MyComponent) {
 }
 ```
 
-## In Depth
+## En profundidad {#in-depth}
 
-[Read more about WHY we're making this change.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
+[Lee más acerca de POR QUÉ estamos haciendo este cambio.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)

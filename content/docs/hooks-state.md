@@ -11,7 +11,7 @@ Los *Hooks* son una caracteristica futura que permite usar el estado y otras car
 La [página anterior](/docs/hooks-intro.html) introdujo los Hooks con este ejemplo:
 
 ```js{4-5}
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Example() {
   // Declaración de una variable de estado que llamaremos "count"
@@ -30,7 +30,7 @@ function Example() {
 
 Empezaremos aprendiendo sobre los Hooks comparando este código con uno equivalente en una clase
 
-## Ejemplo equivalente en forma de clase
+## Ejemplo equivalente en forma de clase {#equivalent-class-example}
 
 Si has usado clases en React previamente este código te resultará familiar
 
@@ -62,7 +62,7 @@ El estado empieza como `{ count:0 }` y se incrementa `state.count` cuando el usu
 >
 >Puedes estar preguntndote porque estamos usando un contador en lugar de un ejemplo más realista. Esto es porque ayuda a centrarse en la API mientras seguimos dando nuestro primeros pasos on los Hooks
 
-## Hooks and Function Components
+## Hooks and Function Components {#hooks-and-function-components}
 
 Como recordatorio, un componente funcional en React es así:
 
@@ -86,12 +86,12 @@ Puedes haber conocido previamente estos componentes como "componentes sin estado
 
 Los Hooks **no** funcionan en clases, pero los puedes usar en lugar de escribir clases
 
-## ¿Qué es un Hook?
+## ¿Qué es un Hook? {#whats-a-hook}
 
 Nuestro nuevo ejemplo empieza importando el Hook `useState` desde React:
 
 ```js{1}
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Example() {
   // ...
@@ -106,7 +106,7 @@ function Example() {
 >
 >Hay algunas reglas especiales sobre donde puedes y no puedes usar Hooks dentro de un componente. Las aprendermos en [Reglas de los Hooks](/docs/hooks-rules.html)
 
-## Declarando una variable de estado
+## Declarando una variable de estado {#declaring-a-state-variable}
 
 En una clase, inicializamos el estado `count` a `0` estableciendo `this.state` a `{ count: 0 }` en el constructor:
 
@@ -123,7 +123,7 @@ class Example extends React.Component {
 En un componente funcional no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro compoente
 
 ```js{4,5}
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Example() {
   // Declaración de una variable de estado que llamaremos "count"
@@ -139,7 +139,7 @@ function Example() {
 Ahora que sabemos que hace el Hook `useState`, nuestro ejemplo debería tener más sentido:
 
 ```js{4,5}
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Example() {
   // Declaración de una variable de estado que llamaremos "count"
@@ -154,7 +154,7 @@ Declaramos una variable de estado llamada `count` y le asignamos a `0`. React re
 >
 >"Crear" no sería del todo correcto porque el estado solamente se crea la primera vez que nuestro componente se renderiza. Durante los siguientes renderizados, `useState` nos da el estado actual. Esta es también la razón por la que los nombres de los Hooks *siempre* empiezan con `use`. Aprenderemos sobre ello más adelante [Reglas de Hooks](/docs/hooks-rules.html).
 
-## Leyendo el estado
+## Leyendo el estado {#reading-state}
 
 Cuando queremos mostrar el valor actual de count en una clase lo obtenemos de `this.state.count`:
 
@@ -169,7 +169,7 @@ En una función podemos usar `count` directamente:
   <p>You clicked {count} times</p>
 ```
 
-## Actualizando el estado
+## Actualizando el estado {#updating-state}
 
 En unsa clase, necesitamos llamar a `this.setState()` para actualizar el estado `count`:
 
@@ -187,7 +187,7 @@ En una función ya tenemos `setCount` y `count` como variables, así que no nece
   </button>
 ```
 
-## Resumen
+## Resumen {#recap}
 
 Ahora **recapitularemos lo que hemos aprendido línea por línea** y comprobaremos si lo hemos entendido
 
@@ -196,7 +196,7 @@ Ahora **recapitularemos lo que hemos aprendido línea por línea** y comprobarem
   But if GitHub got away with it for years we can cheat.
 -->
 ```js{1,4,9}
- 1:  import { useState } from 'react';
+ 1:  import React, { useState } from 'react';
  2:
  3:  function Example() {
  4:    const [count, setCount] = useState(0);
@@ -218,7 +218,7 @@ Ahora **recapitularemos lo que hemos aprendido línea por línea** y comprobarem
 
 Esto puede parecer mucho para empezar. ¡No tengas prisa! Si te pierdes con esta explicación repasa el código de arriba y trara de leerlo de arriba hacia abajo. Prometemos que una vez trates de "olvidar" como funciona el estado en las clases y mires a este código con la mente despejada cobrará sentido
 
-### Tip: ¿Qué significan los corchetes?
+### Tip: ¿Qué significan los corchetes? {#tip-what-do-square-brackets-mean}
 
 Habrás observado los corchetes cuando declaramos una variable de estado
 
@@ -246,7 +246,7 @@ Cuando declaramos una variable de estado con `useState`, devuelve un array con d
 >
 >Puedes tener curiosidad por como React sabe a que componente corresponde `useState` ya que no estamos pasando algo como `this` a React. Responderemos [esta pregunta](/docs/hooks-faq.html#how-does-react-associate-hook-calls-with-components) y muchas otras en la sección FAQ
 
-### Tip: Usando multiples variables de estado
+### Tip: Usando multiples variables de estado {#tip-using-multiple-state-variables}
 
 Declarando variables de estado como un par `[something, setSomething]` también es útil porque nos permite dar *diferentes* nombres a diferentes variables de estados si queremos usar más de una
 
@@ -271,7 +271,7 @@ En el componente de arriba tenemos `age`, `fruit`, y `todos` como variables loca
 
  Damos más recomendaciones sobre como separar distintas variables de estado[en la FAQ](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
 
-## Siguientes pasos
+## Siguientes pasos {#next-steps}
 
 En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", Nos permite añadir un estado locas a los componentes funcionales de React
 

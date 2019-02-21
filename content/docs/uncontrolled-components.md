@@ -1,14 +1,14 @@
 ---
 id: uncontrolled-components
-title: Uncontrolled Components
+title: Componentes no controlados
 permalink: docs/uncontrolled-components.html
 ---
 
-In most cases, we recommend using [controlled components](/docs/forms.html) to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+En la mayoría de los casos, te recomendamos usar [Componentes controlados](/docs/forms.html) para implementar formularios. En un componente controlado, los datos del formulario son manejados por un componente React. La alternativa son los componentes no controlados, donde los datos del formulario son manejados por el propio DOM.
 
-To write an uncontrolled component, instead of writing an event handler for every state update, you can [use a ref](/docs/refs-and-the-dom.html) to get form values from the DOM.
+Para escribir un componente no controlado, en lugar de escribir un controlador de eventos para cada actualización de estado, puedes [usar una referencia](/docs/refs-and-the-dom.html) para que obtengas los valores del formulario desde el DOM.
 
-For example, this code accepts a single name in an uncontrolled component:
+Por ejemplo, este código acepta un solo nombre en un componente no controlado:
 
 ```javascript{5,9,18}
 class NameForm extends React.Component {
@@ -37,15 +37,15 @@ class NameForm extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
+[**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
 
-Since an uncontrolled component keeps the source of truth in the DOM, it is sometimes easier to integrate React and non-React code when using uncontrolled components. It can also be slightly less code if you want to be quick and dirty. Otherwise, you should usually use controlled components.
+Ya que un componente es la fuente de la verdad en el DOM, a veces es más fácil integrar el código React y el código no React cuando usas componentes no controlados. También puede haber menos código si optas por una solución rápida y sin muchos miramientos. De lo contrario, deberías por lo general utilizar componentes controlados.
 
-If it's still not clear which type of component you should use for a particular situation, you might find [this article on controlled versus uncontrolled inputs](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) to be helpful.
+Si aún no tienes claro qué tipo de componente debes usar para una situación en particular, puedes encontrar [este artículo sobre entradas controladas y no controladas](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) que puede ser útil.
 
-### Default Values
+### Valores predeterminados {#default-values}
 
-In the React rendering lifecycle, the `value` attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a `defaultValue` attribute instead of `value`.
+En el ciclo de vida de renderizado de React, el atributo `value` en los elementos del formulario reemplazará el valor en el DOM con un componente no controlado, a menudo quieres React para especificar el valor inicial, pero dejas las actualizaciones posteriores sin control. Para manejar este caso, puedes especificar un `defaultValue` en lugar de `value`.
 
 ```javascript{7}
 render() {
@@ -64,21 +64,19 @@ render() {
 }
 ```
 
-Likewise, `<input type="checkbox">` and `<input type="radio">` support `defaultChecked`, and `<select>` and `<textarea>` supports `defaultValue`.
+Del mismo modo, `<input type="checkbox">` e `<input type="radio">` admiten `defaultChecked`, y `<select>` y `<textarea>` admiten `defaultValue`.
 
-## The file input Tag
+## La etiqueta de entrada de archivo {#the-file-input-tag}
 
-In HTML, an `<input type="file">` lets the user choose one or more files from their device storage to be uploaded to a server or manipulated by JavaScript via the [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
+En HTML, un `<input type="file">` permite al usuario elegir uno o más archivos del almacenamiento en sus dispositivos para cargarlos a un servidor o manipularlos mediante JavaScript a través de la [API de archivos](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />
 ```
 
-In React, an `<input type="file" />` is always an uncontrolled component because its value can only be set by a user, and not programmatically.
+En React, un `<input type="file" />` siempre es un componente no controlado porque su valor solo puede ser establecido por un usuario, y no mediante programación.
 
-You should use the File API to interact with the files. The following example shows how to create a [ref to the DOM node](/docs/refs-and-the-dom.html) to access file(s) in a submit handler:
-
+Debes utilizar la API File para interactuar con ellos. El siguiente ejemplo muestra cómo crear un [referencia al nodo DOM](/docs/refs-and-the-dom.html) para acceder a los archivos en un controlador de envío:
 `embed:uncontrolled-components/input-type-file.js`
 
 [](codepen://uncontrolled-components/input-type-file)
-

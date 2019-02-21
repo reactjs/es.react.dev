@@ -6,11 +6,11 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
-React and [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) are built to solve different problems.  Web Components provide strong encapsulation for reusable components, while React provides a declarative library that keeps the DOM in sync with your data. The two goals are complementary. As a developer, you are free to use React in your Web Components, or to use Web Components in React, or both.
+React y [Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components) están construidos para resolver diferentes problemas. Los Web Components proporciona una fuerte encapsulación para componentes reutilizables, mientras que React proporciona una biblioteca declarativa que mantiene el DOM sincronizado con tus datos. Los dos objetivos se complementan. Como desarrollador, eres libre de usar React en tus Web Components, utilizar Web Components en React, o ambos.
 
-Most people who use React don't use Web Components, but you may want to, especially if you are using third-party UI components that are written using Web Components.
+La mayoría de las personas que usan React no utilizan Web Components, pero es posible que desees hacerlo, especialmente si estás utilizando componentes de interfaz de usuario de terceros que se escriben utilizando Web Components.
 
-## Using Web Components in React
+## Usando Web Components en React {#using-web-components-in-react}
 
 ```javascript
 class HelloMessage extends React.Component {
@@ -20,14 +20,14 @@ class HelloMessage extends React.Component {
 }
 ```
 
-> Note:
+> Nota:
 >
-> Web Components often expose an imperative API. For instance, a `video` Web Component might expose `play()` and `pause()` functions. To access the imperative APIs of a Web Component, you will need to use a ref to interact with the DOM node directly. If you are using third-party Web Components, the best solution is to write a React component that behaves as a wrapper for your Web Component.
+> Los Web Components a menudo exponen una API imperativa. Por ejemplo, un Web Component `video` podría exponer las funciones `play()` y `pause()`. Para acceder a un API imperativa de un Web Component, necesitarás utilizar una referencia para interactuar con el DOM directamente. Si estás utilizando Web Components de terceros, lo mejor sería escribir un componente React que sirva como un contenedor para tu Web Component`.
 >
-> Events emitted by a Web Component may not properly propagate through a React render tree.
-> You will need to manually attach event handlers to handle these events within your React components.
+> Los eventos emitidos por un Web Component pueden no distribuirse correctamente a través de un árbol de renderizado React.
+> Deberás agregar manualmente los controladores de eventos para manejarlos dentro de tus componentes React.
 
-One common confusion is that Web Components use "class" instead of "className".
+Una cosa que puede confundirte, es que los Web Components usan ***"class"*** en vez de ***"className"***
 
 ```javascript
 function BrickFlipbox() {
@@ -40,7 +40,7 @@ function BrickFlipbox() {
 }
 ```
 
-## Using React in your Web Components
+## Usando React en tus Web Components {#using-react-in-your-web-components}
 
 ```javascript
 class XSearch extends HTMLElement {
@@ -56,7 +56,7 @@ class XSearch extends HTMLElement {
 customElements.define('x-search', XSearch);
 ```
 
->Note:
+>Nota:
 >
->This code **will not** work if you transform classes with Babel. See [this issue](https://github.com/w3c/webcomponents/issues/587) for the discussion.
->Include the [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) before you load your web components to fix this issue.
+>Este código **NO** funcionará si transformas clases con Babel. Ver [Este caso](https://github.com/w3c/webcomponents/issues/587) para la discusión.
+>Incluye el [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) antes de cargar tus Web Components para que puedas solucionar este problema.

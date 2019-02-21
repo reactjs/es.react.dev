@@ -6,15 +6,15 @@ layout: docs
 category: FAQ
 ---
 
-### ¿Cómo puedo hacer una llamada AJAX?
+### ¿Cómo puedo hacer una llamada AJAX? {#how-can-i-make-an-ajax-call}
 
-Con React, puedes usar cualquier librería AJAX. Algunas de las más populares son [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), y [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), la cual es soportada de manera nativa en la mayoría de navegadores modernos.
+Con React, puedes usar cualquier biblioteca AJAX. Algunas de las más populares son [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), y [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), la cual es soportada de manera nativa en la mayoría de navegadores modernos.
 
-### ¿En qué ciclo de vida de un componente puedo hacer una llamada AJAX?
+### ¿En qué ciclo de vida de un componente puedo hacer una llamada AJAX? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
 Deberías ejecutar tus llamadas AJAX en el ciclo de vida [`componentDidMount`](/docs/react-component.html#mounting). De esta manera, podrás llamar a `setState` para actualizar el componente una vez que hayas recibido tus datos.
 
-### Ejemplo: Utilizar el resultado de una llamada AJAX para actualizar el estado local de un componente
+### Ejemplo: Utilizar el resultado de una llamada AJAX para actualizar el estado local de un componente {#example-using-ajax-results-to-set-local-state}
 
 El siguiente ejemplo demuestra cómo ejecutar una llamada AJAX en `componentDidMount` para establecer el estado local de un componente.
 
