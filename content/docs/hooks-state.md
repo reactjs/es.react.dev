@@ -64,7 +64,7 @@ El estado empieza como `{ count:0 }` y se incrementa `state.count` cuando el usu
 
 ## Hooks and Function Components {#hooks-and-function-components}
 
-Como recordatorio, un componente funcional en React es así:
+Como recordatorio, un componente funcional en React se ve así:
 
 ```js
 const Example = (props) => {
