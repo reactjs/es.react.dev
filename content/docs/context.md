@@ -81,7 +81,7 @@ Con este cambio, solo el componente más importante Page necesita saber sobre el
 
 Esta *inversión de control* puede hacer que tu código, en muchos casos, sea más limpio al reducir la cantidad de props que necesitas pasar a través de tu aplicación y dar más control a los componentes raíz. Sin embargo, esta no es la opción correcta en todos los casos: mover más complejidad más arriba en el árbol hace que esos componentes de nivel superior sean más complicados y obliga a los componentes de nivel inferior a ser más flexibles de lo que tu podrías desear.
 
-No estás limitado a un solo hijo por componente. Puede pasar varios hijos, o incluso tener varios "slots" separadas para los hijos, [como se documenta aquí](/docs/composition-vs-inheritance.html#contenering):
+No estás limitado a un solo hijo por componente. Puede pasar varios hijos, o incluso tener varios “huecos” (slots) separados para los hijos, [como se documenta aquí](/docs/composition-vs-inheritance.html#contenering):
 
 
 ```js
