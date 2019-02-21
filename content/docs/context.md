@@ -126,7 +126,7 @@ El argumento `defaultValue` es usado **únicamente** cuando un componente no tie
 <MyContext.Provider value={/* algún valor */}>
 ```
 
-Cada objeto Context viene con un componente `Provider` de React que permite que los componentes que consumen se suscriban a los cambios de contexto.
+Cada objeto Context viene con un componente `Provider` de React que permite que los componentes que lo consumen se suscriban a los cambios del contexto.
 
 Acepta un prop `value` que se pasará a los componentes consumidores que son descendientes de este `Provider`. Un `Provider` puede estar conectado a muchos consumidores. Los `Providers` pueden estar anidados para sobreescribir los valores más profundos dentro del árbol.
 
