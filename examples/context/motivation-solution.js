@@ -9,7 +9,7 @@ class App extends React.Component {
     // highlight-range{1-3,5}
     // Usa un Provider para pasar el tema actual al árbol de abajo.
     // Cualquier componente puede leerlo, sin importar qué tan profundo se encuentre.
-    // En este ejemplo, estamos pasando "dark" como valor actual.
+    // En este ejemplo, estamos pasando "dark" como valor actual.
     return (
       <ThemeContext.Provider value="dark">
         <Toolbar />
@@ -32,8 +32,8 @@ function Toolbar(props) {
 class ThemedButton extends React.Component {
   // highlight-range{1-3,6}
   // Asigna un contextType para leer el contexto del tema actual.
-  // React encontrará el Provider superior más cercano y usará su valor.
-  // En este ejemplo, el tema actual es "dark".
+  // React encontrará el Provider superior más cercano y usará su valor.
+  // En este ejemplo, el tema actual es "dark".
   static contextType = ThemeContext;
   render() {
     return <Button theme={this.context} />;
