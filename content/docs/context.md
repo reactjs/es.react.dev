@@ -212,7 +212,7 @@ Un ejemplo más complejo con valores dinámicos para el tema:
 **app.js**
 `embed:context/theme-detailed-app.js`
 
-### Actualización Context de un componente anidado {#updating-context-from-a-nested-component}
+### Actualizando Context desde un componente anidado {#updating-context-from-a-nested-component}
 
 A menudo es necesario actualizar el contexto desde un componente que está anidado en algún lugar del árbol de componentes. En este caso, puedes pasar una función a través del contexto para permitir a los consumidores actualizar el contexto:
 
