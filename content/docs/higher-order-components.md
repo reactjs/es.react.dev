@@ -45,7 +45,7 @@ class CommentList extends React.Component {
   }
 
   componentWillUnmount() {
-    // Eliminar el gestor de eventos de cambios
+    // Eliminar el manejador de eventos de cambios
     DataSource.removeChangeListener(this.handleChange);
   }
 
@@ -102,9 +102,9 @@ class BlogPost extends React.Component {
 
 `CommentList` y `BlogPost` no son idénticos, ambos llaman a métodos distintos en `DataSource`, y renderizan una salida diferente. Pero gran parte de su implementación es la misma:
 
-- Al montar, añadir un gestor de eventos de cambio al `DataSource`.
-- En el gestor de eventos de cambio, llamar `setState` cada vez que la fuente de datos cambie.
-- Al desmontar, eliminar el gestor de eventos de cambio.
+- Al montar, añadir un manejador de eventos de cambio al `DataSource`.
+- En el manejador de eventos, llamar `setState` cada vez que la fuente de datos cambie.
+- Al desmontar, eliminar el manejador de eventos de cambio.
 
 Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de múltiples componentes. En esto es donde los componentes de orden superior se destacan.
 
@@ -211,7 +211,7 @@ function logProps(WrappedComponent) {
 }
 ```
 
-Este *HOC* posee la misma funcionalidad que la versión con mutación, pero al mismo tiempo evita el potencial de conflictos. Funciona igualmente bien com componentes de clase o de función. Y dado que es una función pura es posible componerlo con otros *HOCs*, o incluso consigo mismo.
+Este *HOC* posee la misma funcionalidad que la versión con mutación, pero al mismo tiempo evita el potencial de conflictos. Funciona igualmente bien con componentes de clase o de función. Y dado que es una función pura es posible componerlo con otros *HOCs*, o incluso consigo mismo.
 
 Puedes haber notado similitud entre los *HOCs* y un patrón llamado **componentes contenedores**. Los componentes contenedores son parte de una estrategia de separación de responsabilidades entre preocupaciones de alto y bajo nivel. Los contenedores manejan temas como subscripciones y estado, y pasan *props* a componentes que manejan temas como renderizar la interfaz de usuario. Los *HOCs* usan contenedores como parte de su implementación. Puedes pensar en los *HOCs* como definiciones de componentes contenedores parametrizables. 
 
@@ -282,7 +282,7 @@ Esta forma puede parecer confusa o innecesaria, pero tiene una propiedad útil. 
 const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
 
 // ... puedes usar una utilidad para componer funciones
-// compose(f, g, h) is the same as (...args) => f(g(h(...args)))
+// compose(f, g, h) es lo mismo que (...args) => f(g(h(...args)))
 const enhance = compose(
   // Ambos son HOCs que reciben un único argumento
   withRouter,

@@ -14,10 +14,10 @@ Los elementos de formularios en HTML funcionan un poco diferente a otros element
 ```html
 <form>
   <label>
-    Nombre:
+    Name:
     <input type="text" name="name" />
   </label>
-  <input type="submit" value="Enviar" />
+  <input type="submit" value="Submit" />
 </form>
 ```
 
@@ -46,7 +46,7 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Un nombre fue suministrado: ' + this.state.value);
+    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -54,10 +54,10 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Nombre:
+          Name:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
@@ -82,7 +82,7 @@ En HTML, el elemento `<textarea>` define su texto por sus hijos:
 
 ```html
 <textarea>
-  Hola, esto es un poco de texto dentro de un área de texto
+  Hello there, this is some text in a text area
 </textarea>
 ```
 
@@ -93,7 +93,7 @@ class EssayForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'Por favor escribe un ensayo sobre tu elemento del DOM favorito.'
+      value: 'Please write an essay about your favorite DOM element.'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -105,7 +105,7 @@ class EssayForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Un ensayo fue enviado: ' + this.state.value);
+    alert('An essay was submitted: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -113,10 +113,10 @@ class EssayForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Ensayo:
+          Essay:
           <textarea value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
@@ -131,9 +131,9 @@ En HTML, `<select>` crea una lista desplegable. Por ejemplo, este HTML crea una 
 
 ```html
 <select>
-  <option value="grapefruit">Toronja</option>
-  <option value="lime">Lima</option>
-  <option selected value="coconut">Coco</option>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
   <option value="mango">Mango</option>
 </select>
 ```
@@ -155,7 +155,7 @@ class FlavorForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Tu sabor favorito es: ' + this.state.value);
+    alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -163,15 +163,15 @@ class FlavorForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Selecciona tu sabor favorito:
+          Pick your favorite flavor:
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Toronja</option>
-            <option value="lime">Lima</option>
-            <option value="coconut">Coco</option>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
             <option value="mango">Mango</option>
           </select>
         </label>
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
@@ -232,7 +232,7 @@ class Reservation extends React.Component {
     return (
       <form>
         <label>
-          Va a ir:
+          Is going:
           <input
             name="isGoing"
             type="checkbox"
@@ -241,7 +241,7 @@ class Reservation extends React.Component {
         </label>
         <br />
         <label>
-          Número de Invitados:
+          Number of guests:
           <input
             name="numberOfGuests"
             type="number"

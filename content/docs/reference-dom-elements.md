@@ -63,7 +63,7 @@ El atributo `selected` es compatible con los componentes tipo `<option>`. Puedes
 
 >Nota
 >
->Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos calculados dinámicamente al momento de renderización. Revisa tambièn [FAQ: Styling and CSS](/docs/faq-styling.html).
+>Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos calculados dinámicamente al momento de renderización. Revisa también [Preguntas Frecuentes: Estilo y CSS](/docs/faq-styling.html).
 
 El atributo `style` acepta un objeto de Javascript con propiedades escritas en formato *camelCase*, en lugar de un *string* CSS. Esto es consistente con la propiedad DOM `style` en Javascript, es más eficiente y previene vulnerabilidades XSS. Por ejemplo:
 

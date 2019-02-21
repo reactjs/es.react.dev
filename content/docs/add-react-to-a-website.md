@@ -57,7 +57,7 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Carguemos nuestro componente de React. -->
+  <!-- Cargamos nuestro componente de React. -->
   <script src="like_button.js"></script>
 
 </body>
@@ -147,7 +147,7 @@ return (
 );
 ```
 
-Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la IU -- ya sea usando React o con otras bibliotecas.
+Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la interfaz de usuario -- ya sea usando React o con otras bibliotecas.
 
 Puedes experimentar con JSX usando [este conversor en línea](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
 

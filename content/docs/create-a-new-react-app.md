@@ -33,7 +33,7 @@ El equipo de React principalmente recomienda las siguientes soluciones:
 - Si estás **aprendiendo React** o **creando una nueva [aplicación de página única](/docs/glossary.html#single-page-application),** usa [Create React App](#create-react-app).
 - Si estás construyendo un **sito web renderizado en servidor con Node.js,** prueba [Next.js](#nextjs).
 - Si estás construyendo un **sitio web orientado a contenido estático,** prueba [Gatsby](#gatsby).
-- Si estás construyendo una **biblioteca de componentes** o **integrando una base de código existente**, prueba [Cadenas de Herramientas más Flexibles](#cadenas-de-herramientas-ms-flexibles).
+- Si estás construyendo una **biblioteca de componentes** o **integrando una base de código existente**, prueba [Cadenas de Herramientas más Flexibles](#more-flexible-toolchains).
 
 ### Create React App {#create-react-app}
 
@@ -49,7 +49,7 @@ npm start
 
 >Nota
 >
->En la primera línea `npx` no es una errata: Es una [herramienta de ejecución de paquetes que viene con npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>En la primera línea `npx` no es un error de escritura: Es una [herramienta de ejecución de paquetes que viene con npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
 Create React App no se encarga de la lógica de `backend` o de bases de datos; tan solo crea un flujo de construcción para `frontend`, de manera que lo puedes usar con cualquier `backend`. Para ello internamente usa [Babel](http://babeljs.io/) y [webpack](https://webpack.js.org/), pero no necesitas saber nada de estas herramientas para usar Create React App.
 
@@ -77,7 +77,7 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 
 - **[Parcel](https://parceljs.org/)** es un empaquetador de aplicaciones web rápido y de cero configuración que [funciona con React](https://parceljs.org/recipes.html#react).
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** es un marco de trabajo de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** es un framework de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
 
 ## Creando una cadena de herramientas desde cero {#creating-a-toolchain-from-scratch}
 

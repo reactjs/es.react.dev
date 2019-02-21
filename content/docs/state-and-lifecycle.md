@@ -10,7 +10,7 @@ next: handling-events.html
 
 Esta página introduce el concepto de estado y ciclo de vida en un componente de React. Puedes encontrar una [referencia detallada de la API de un componente aquí](/docs/react-component.html).
 
-Consideremos el ejemplo del reloj de [una de las secciones anteriores](/docs/rendering-elements.html#updating-the-rendered-element). En [Renderizando elementos](/docs/rendering-elements.html#rendering-an-element-into-the-dom), aprendimos solo una forma de actualizar la IU. Invocamos a `ReactDOM.render()` para que cambie el resultado renderizado.
+Consideremos el ejemplo del reloj de [una de las secciones anteriores](/docs/rendering-elements.html#updating-the-rendered-element). En [Renderizando elementos](/docs/rendering-elements.html#rendering-an-element-into-the-dom), aprendimos solo una forma de actualizar la interfaz de usuario. Invocamos a `ReactDOM.render()` para que cambie el resultado renderizado.
 
 ```js{8-11}
 function tick() {
@@ -31,7 +31,7 @@ setInterval(tick, 1000);
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-En esta sección, aprenderemos como hacer al componente `Clock` verdaderamente reutilizable y encapsulado. Configurará su propio temporizador y se actualizará cada segundo.
+En esta sección, aprenderemos como hacer al componente `Clock` verdaderamente reutilizable y encapsulado. Configurarás tu propio temporizador y se actualizará cada segundo.
 
 Podemos comenzar por encapsular cómo se ve el reloj:
 
@@ -57,7 +57,7 @@ setInterval(tick, 1000);
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-Sin embargo, se pierde un requisito crucial: el hecho de que `Clock` configure un temporizador y actualice la IU cada segundo debe ser un detalle de implementación de `Clock`.
+Sin embargo, se pierde un requisito crucial: el hecho de que `Clock` configure un temporizador y actualice la interfaz de usuario cada segundo debe ser un detalle de implementación de `Clock`.
 
 Idealmente, queremos escribir esto una vez y que `Clock` se actualice a sí mismo:
 
@@ -314,7 +314,7 @@ Repasemos rápidamente lo que está sucediendo y el orden en que se invocan los 
 
 3) Cuando la salida de `Clock` se inserta en el DOM, React invoca al método de ciclo de vida `componentDidMount()`. Dentro de él, el componente `Clock` le pide al navegador que configure un temporizador para invocar al método `tick()` del componente una vez por segundo.
 
-4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la IU al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para saber qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
+4) Cada segundo el navegador invoca al método `tick()`. Dentro de él, el componente `Clock` planifica una actualización de la interfaz de usuario al invocar a `setState()` con un objeto que contiene la hora actual. Gracias a la invocación a `setState()`, React sabe que el estado cambió e invoca de nuevo al método `render()` para saber qué debe estar en la pantalla. Esta vez, `this.state.date` en el método `render()` será diferente, por lo que el resultado del renderizado incluirá la hora actualizada. Conforme a eso React actualiza el DOM.
 
 5) Si el componente `Clock` se elimina en algún momento del DOM, React invoca al método de ciclo de vida `componentWillUnmount()`, por lo que el temporizador se detiene.
 
@@ -439,7 +439,7 @@ function FormattedDate(props) {
 
 [**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-A esto comúnmente se le llama flujo de datos «descendente» o «unidireccional». Cualquier estado siempre es propiedad de algún componente específico, y cualquier dato o IU derivados de ese estado solo pueden afectar los componentes «debajo» de ellos en el árbol.
+A esto comúnmente se le llama flujo de datos «descendente» o «unidireccional». Cualquier estado siempre es propiedad de algún componente específico, y cualquier dato o interfaz de usuario derivados de ese estado solo pueden afectar los componentes «debajo» de ellos en el árbol.
 
 Si imaginas un árbol de componentes como una cascada de props, el estado de cada componente es como una fuente de agua adicional que se le une en un punto arbitrario, pero también fluye hacia abajo.
 
