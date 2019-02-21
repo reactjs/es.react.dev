@@ -1,5 +1,5 @@
 // highlight-range{1-4}
-// Context nos permite pasar un valor de manera profunda en el árbol de componentes
+// Context nos permite pasar un valor a lo profundo del árbol de componentes
 // sin pasarlo explícitamente a través de cada componente.
 // Crear un Context para el tema actual (con "light" como valor predeterminado).
 const ThemeContext = React.createContext('light');
