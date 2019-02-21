@@ -99,7 +99,7 @@ Si no usas Create React App, puedes añadir manualmente [este plugin](https://ww
 
 > Nota
 >
-> Los nombres de componentes que se muestran en las trazas de pila dependen de la propiedad [`Function.name`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name). Si das soporte a navegadores antiguos y dispositivos que puede que no provean esto nativamente (p.ej. IE 11), considera incluir un polyfill de `Function.name` en tu aplicación empaquetada, como [`function.name-polyfill`](https://github.com/JamesMGreene/Function.name). Alternativamente, puedes poner la propiedad [`displayName`](/docs/react-component.html#displayname) en todos tus componentes.
+> Los nombres de componentes que se muestran en las trazas de pila dependen de la propiedad [`Function.name`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/name). Si das soporte a navegadores antiguos y dispositivos que puede que no provean esto nativamente (p.ej. IE 11), considera incluir un polyfill de `Function.name` en tu aplicación empaquetada, como [`function.name-polyfill`](https://github.com/JamesMGreene/Function.name). Alternativamente, puedes poner la propiedad [`displayName`](/docs/react-component.html#displayname) en todos tus componentes.
 
 
 ## ¿Qué pasa con try/catch? {#how-about-trycatch}
