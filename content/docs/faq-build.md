@@ -1,6 +1,6 @@
 ---
 id: faq-build
-title: Babel, JSX, y pasos de compilación.
+title: Babel, JSX, y pasos de compilación
 permalink: docs/faq-build.html
 layout: docs
 category: FAQ
@@ -26,7 +26,7 @@ category: FAQ
 ```jsx
 <div>
   {/* ¡También funciona
-  para comentarios multi-linea!. */}
+  para comentarios multilínea! */}
   Hello, {name}! 
 </div>
 ```
