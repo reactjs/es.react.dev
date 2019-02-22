@@ -85,7 +85,7 @@ class Chosen extends React.Component {
 }
 ```
 
-Observe cómo envolvimos `<select>` en un `<div>` extra. Esto es necesario porque `Chosen` agregará otro elemento DOM justo después del nodo `<select>` que le pasamos. Sin embargo, en lo que respecta a React, `<div>` siempre tiene un solo hijo. Así es como nos aseguramos de que las actualizaciones de React no entren en conflicto con el nodo DOM adicional añadido por `Chosen`. Es importante que si modificas el DOM fuera del flujo de React, debes asegurarte de que React no tenga una razón para tocar esos nodos DOM.
+Observa cómo envolvimos `<select>` en un `<div>` extra. Esto es necesario porque `Chosen` agregará otro elemento DOM justo después del nodo `<select>` que le pasamos. Sin embargo, en lo que respecta a React, `<div>` siempre tiene un solo hijo. Así es como nos aseguramos de que las actualizaciones de React no entren en conflicto con el nodo DOM adicional añadido por `Chosen`. Es importante que si modificas el DOM fuera del flujo de React, debes asegurarte de que React no tenga una razón para tocar esos nodos DOM.
 
 A continuación, implementaremos los métodos del ciclo de vida. Necesitamos inicializar `Chosen` con la referencia al nodo `<select>` en `componentDidMount`, y eliminarlo en `componentWillUnmount`:
 
@@ -198,7 +198,7 @@ De hecho, así es exactamente cómo se utiliza React en Facebook. Esto nos permi
 
 ### Reemplazando el renderizado basado en strings con React {#replacing-string-based-rendering-with-react}
 
-Un patrón común en las aplicaciones web más antiguas es describir los fragmentos del DOM como una cadena e insertarlo en el DOM de la siguiente manera: `$el.html(htmlString)`. Estos puntos en un código base son perfectos para introducir React. Solo reescribe el renderizado basado en cadena como un componente React.
+Un patrón común en las aplicaciones web más antiguas es describir los fragmentos del DOM como un string e insertarlo en el DOM de la siguiente manera: `$el.html(htmlString)`. Estos puntos en un código base son perfectos para introducir React. Solo reescribe el renderizado basado en string como un componente React.
 
 Así que la siguiente implementación de jQuery...
 
@@ -253,7 +253,7 @@ Puedes tener tantos componentes aislados como desees y usar `ReactDOM.render()` 
 
 ### Incrustación de React en una vista de Backbone {#embedding-react-in-a-backbone-view}
 
-Las vistas de [Backbone](http://backbonejs.org/) suelen utilizar cadenas HTML, o funciones plantillas que producen cadenas, para crear el contenido de sus elementos DOM. Este proceso, también, puede reemplazarse con la representación de un componente React.
+Las vistas de [Backbone](http://backbonejs.org/) suelen utilizar strings HTML, o funciones plantillas que producen strings, para crear el contenido de sus elementos DOM. Este proceso, también, puede reemplazarse con la representación de un componente React.
 
 A continuación, crearemos una vista de Backbone llamada `ParagraphView`. Anulará la función `render()` de Backbone para renderizar un componente React `<Paragraph>` en el elemento DOM proporcionado por Backbone (`this.el`). Aquí también estamos usando [`ReactDOM.render()`](/docs/react-dom.html#render):
 
