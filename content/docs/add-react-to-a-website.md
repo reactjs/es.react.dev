@@ -149,7 +149,11 @@ return (
 
 Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la interfaz de usuario -- ya sea usando React o con otras bibliotecas.
 
+<<<<<<< HEAD
 Puedes experimentar con JSX usando [este conversor en línea](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
+=======
+You can play with JSX using [this online converter](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ### Prueba JSX de forma rápida {#quickly-try-jsx}
 
@@ -197,6 +201,10 @@ No esperes hasta que termine -- este comando inicia un observador automático pa
 
 Si ahora creas un archivo llamado `src/like_button.js` con este **[código inicial de JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, el observador va a crear un `like_button.js` preprocesado con el código JavaScript original que es apto para el navegador. Cuando edites el código del archivo que tiene JSX, el transformador va a volver a ejecutarse de forma automática.
 
+<<<<<<< HEAD
 Como un bonus, esto también te permite utilizar características nuevas de la sintaxis de JavaScript, como las clases, sin que te preocupes de que no funcionen en navegadores antiguos. La herramienta que hemos usado se llama Babel, y puedes leer más sobre ella en [su documentación](http://babeljs.io/docs/en/babel-cli/).
+=======
+As a bonus, this also lets you use modern JavaScript syntax features like classes without worrying about breaking older browsers. The tool we just used is called Babel, and you can learn more about it from [its documentation](https://babeljs.io/docs/en/babel-cli/).
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Si notas que se te está haciendo más cómodo manejar las herramientas de configuración y quieres sacarle mayor provecho, [en la próxima sección](/docs/create-a-new-react-app.html) se describen unas de las cadenas de herramientas más populares y accesibles. Dado el caso que no te sientas así -- esas etiquetas de script serán suficiente.

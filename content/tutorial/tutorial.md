@@ -227,8 +227,13 @@ Después: Deberías ver un número en cada cuadrado del resultado renderizado.
 
 ### Haciendo un componente interactivo {#making-an-interactive-component}
 
+<<<<<<< HEAD
 Vamos a rellenar el componente de Square con una "X" cuando damos click en él.
 Primero, cambia la etiqueta button que es retornada del método `render()` del componente Square a esto:
+=======
+Let's fill the Square component with an "X" when we click it.
+First, change the button tag that is returned from the Square component's `render()` function to this:
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ```javascript{4}
 class Square extends React.Component {

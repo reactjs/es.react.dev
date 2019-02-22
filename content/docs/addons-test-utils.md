@@ -15,13 +15,21 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 con npm
 
 ## Introducción {#overview}
 
+<<<<<<< HEAD
 `ReactTestUtils` facilita probar los componentes de React en cualquiera de los frameworks de pruebas que elijas. En Facebook usamos [Jest](https://facebook.github.io/jest/) para realizar las pruebas de JavaScript sin problemas. Aprende como iniciar con Jest en el [tutorial para React](http://facebook.github.io/jest/docs/en/tutorial-react.html#content) que se encuentra en el sitio web de Jest.
+=======
+`ReactTestUtils` makes it easy to test React components in the testing framework of your choice. At Facebook we use [Jest](https://facebook.github.io/jest/) for painless JavaScript testing. Learn how to get started with Jest through the Jest website's [React Tutorial](https://jestjs.io/docs/tutorial-react).
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 > Nota:
 >
 > Recomendamos utilizar [`react-testing-library`](https://git.io/react-testing-library) que está diseñada para permitir e incentivar la escritura de las pruebas para que usen los componentes de la misma forma en que lo harían los usuarios finales.
 >
+<<<<<<< HEAD
 > Como otra opción, Airbnb ha liberado una utilidad de pruebas llamada [Enzyme](http://airbnb.io/enzyme/), que hace fácil asegurar, manipular y navegar por los resultados de tus Componentes de React.
+=======
+> Alternatively, Airbnb has released a testing utility called [Enzyme](https://airbnb.io/enzyme/), which makes it easy to assert, manipulate, and traverse your React Components' output.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)

@@ -110,7 +110,11 @@ Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otr
  
 [Este artículo creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
 
+<<<<<<< HEAD
 ### ¿Por qué mi función está siendo llamada cada vez que mi componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
+=======
+[This post by Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explains what binding is, and how functions work in JavaScript, in detail.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Asegúrate que no estés _llamando la función_ cuando la pases al componente:
 

@@ -37,7 +37,11 @@ El equipo de React principalmente recomienda las siguientes soluciones:
 
 ### Create React App {#create-react-app}
 
+<<<<<<< HEAD
 [Create React App](http://github.com/facebookincubator/create-react-app) es un ambiente cómodo para **aprender React**, y es la mejor manera de comenzar a construir **una nueva [aplicación de página única](/docs/glossary.html#single-page-application)** usando React.
+=======
+[Create React App](https://github.com/facebookincubator/create-react-app) is a comfortable environment for **learning React**, and is the best way to start building **a new [single-page](/docs/glossary.html#single-page-application) application** in React.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 **Create React App** configura tu ambiente de desarrollo de forma que puedas usar las últimas características de Javascript, brindando una buena experiencia de desarrollo, y optimizando tu aplicación para producción. Necesitarás tener Node >= 6 y npm >= 5.2 instalados en tu máquina. Para crear un proyecto ejecuta:
 
@@ -51,7 +55,11 @@ npm start
 >
 >En la primera línea `npx` no es un error de escritura: Es una [herramienta de ejecución de paquetes que viene con npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
+<<<<<<< HEAD
 Create React App no se encarga de la lógica de `backend` o de bases de datos; tan solo crea un flujo de construcción para `frontend`, de manera que lo puedes usar con cualquier `backend`. Para ello internamente usa [Babel](http://babeljs.io/) y [webpack](https://webpack.js.org/), pero no necesitas saber nada de estas herramientas para usar Create React App.
+=======
+Create React App doesn't handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses [Babel](https://babeljs.io/) and [webpack](https://webpack.js.org/), but you don't need to know anything about them.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Cuando estés listo para desplegar a producción, ejecuta `npm run build` lo cual crea una compilación optimizada de tu aplicación en el directorio `build`. Puedes aprender más acerca de **Create React App** [en su archivo README](https://github.com/facebookincubator/create-react-app#create-react-app-) y en la [Guía del Usuario](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
@@ -87,7 +95,11 @@ Una cadena de herramientas para construir Javascript generalmente consiste de:
 
 * Un **empaquetador** como [webpack](https://webpack.js.org/) o [Parcel](https://parceljs.org/). Este te permite escribir código modular y empaquetarlo junto en paquetes más pequeños que optimizan el tiempo de carga.
 
+<<<<<<< HEAD
 * Un **compilador** como [Babel](http://babeljs.io/). Este te permite escribir Javascript moderno que aún así funciona en navegadores más antiguos.
+=======
+* A **compiler** such as [Babel](https://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Si prefieres configurar tu propia cadena de herramientas JavaScript desde cero, [chequea esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea parte de la funcionalidad de **Create React App**.
 
