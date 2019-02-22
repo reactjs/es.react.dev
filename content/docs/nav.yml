@@ -138,7 +138,7 @@
     - id: faq-ajax
       title: AJAX y APIs
     - id: faq-build
-      title: Babel, JSX y pasos para construir.
+      title: Babel, JSX y pasos de compilación.
     - id: faq-functions
       title: Pasando funciones a componentes
     - id: faq-state
