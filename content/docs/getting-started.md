@@ -24,11 +24,11 @@ Esta página es un resumen de la documentación de React y recursos relacionados
 
 ---
 
-- [Prueba React](#prueba-react)
-- [Aprende React](#aprende-react)
-- [Mantente Informado](#mantente-informado)
-- [Documentación por Versiones](#documentación-por-versiones)
-- [¿Algo hace falta?](#¿algo-hace-falta)
+- [Prueba React](#try-react)
+- [Aprende React](#learn-react)
+- [Mantente Informado](#staying-informed)
+- [Documentación por Versiones](#versioned-documentation)
+- [¿Algo hace falta?](#something-missing)
 
 ## Prueba React {#try-react}
 
@@ -70,17 +70,17 @@ Si sientes que la documentación de React va a un ritmo mayor del que te sientes
 
 ### React para diseñadores {#react-for-designers}
 
-Si vienes con experiencia como diseñador, [estos recursos](http://reactfordesigners.com/) son un gran lugar para empezar.
+Si vienes con experiencia como diseñador, [estos recursos](https://reactfordesigners.com/) son un gran lugar para empezar.
 
 ### Recursos JavaScript {#javascript-resources}
 
 La documentación de React asume cierta familiaridad con la programación en Javascript. No necesitas ser un experto, pero es más difícil aprender React y Javascript al mismo tiempo.
 
-Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para medir tu nivel de conocimiento. Te tomará entre 30 minutos a 1 hora, pero te sentirás más seguro aprendiendo React.
+Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para medir tu nivel de conocimiento. Te tomará entre 30 minutos a 1 hora, pero te sentirás más seguro aprendiendo React.
 
 >Consejo
 >
->Cuando te sientas confundido sobre algo de Javascript, [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript) y [javascript.info](http://javascript.info/) son sitios increíbles para revisar. También hay un [foro de asistencia por la comunidad](/community/support.html) donde puedes pedir ayuda.
+>Cuando te sientas confundido sobre algo de Javascript, [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript) y [javascript.info](https://javascript.info/) son sitios increíbles para revisar. También hay un [foro de asistencia por la comunidad](/community/support.html) donde puedes pedir ayuda.
 
 ### Tutorial práctico {#practical-tutorial}
 

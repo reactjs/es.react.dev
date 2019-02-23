@@ -36,7 +36,6 @@ Si usas React con Web Components (lo cual no es común), usa el atributo `class`
 
 En React, `dangerouslySetInnerHTML` es el atributo que reemplaza a `innerHTML` (propiedad DOM). Significa "establecer HTML interno peligrosamente". En general, es riesgoso establecer contenido HTML desde el código, porque puedes exponer inadvertidamente a tus usuarios a un ataque [*cross-site scripting* (XSS)](https://es.wikipedia.org/wiki/Cross-site_scripting). Por lo tanto, para establecer contenido HTML directamente desde React, debes usar el atributo `dangerouslySetInnerHTML` y pasarle un objeto con una propiedad `__html`, como recordatorio de que es peligroso. Por ejemplo:
 
-
 ```js
 function createMarkup() {
   return {__html: 'First &middot; Second'};
@@ -63,7 +62,7 @@ El atributo `selected` es compatible con los componentes tipo `<option>`. Puedes
 
 >Nota
 >
->Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos calculados dinámicamente al momento de renderización. Revisa tambièn [FAQ: Styling and CSS](/docs/faq-styling.html).
+>Algunos ejemplos en la documentación usan el atributo `style` por conveniencia, pero **generalmente no se recomienda usar el atributo `style` como medio principal para estilizar elementos**. En la mayoría de los casos, [`className`](#classname) debe ser usado para hacer referencia a clases definidas en documentos CSS externos. En React, el atributo `style` se usa con mayor frecuencia para añadir estilos calculados dinámicamente al momento de renderización. Revisa también [Preguntas Frecuentes: Estilo y CSS](/docs/faq-styling.html).
 
 El atributo `style` acepta un objeto de Javascript con propiedades escritas en formato *camelCase*, en lugar de un *string* CSS. Esto es consistente con la propiedad DOM `style` en Javascript, es más eficiente y previene vulnerabilidades XSS. Por ejemplo:
 
@@ -90,7 +89,8 @@ function ComponentWithTransition() {
   return <div style={divStyle}>This should work cross-browser</div>;
 }
 ```
-Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de compatibilidad, [a excepción de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/), deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
+
+Las propiedades del objeto aceptado por `style` tienen formato camelCase para ser consistentes con la forma en que se accede a los estilos de los nodos DOM en JS (p.ej `node.style.backgroundImage`). Los prefijos de compatibilidad, [a excepción de `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/), deben iniciarse con letra mayúscula. Por esto `WebkitTransition` tiene una "W" mayúscula. 
 
 React adjuntará automáticamente el sufijo "px" a ciertas propiedades numéricas. Si quieres usar unidades diferentes a "px", especifica el valor como un *string* con la unidad deseada. Por ejemplo: 
 

@@ -31,9 +31,9 @@ Nuestro API JSON devuelve información en el siguiente formato:
 ];
 ```
 
-## Paso 1: Divide la UI en una jerarquía de componentes {#step-1-break-the-ui-into-a-component-hierarchy}
+## Paso 1: Divide la interfaz de usuario en una jerarquía de componentes {#step-1-break-the-ui-into-a-component-hierarchy}
 
-Lo Primero que vas a querer hacer es dibujar cajas alrededor de cada componente (y subcomponente) en el mock y darles nombres a todos ellos. Si trabajas con un diseñador, probablemente ya lo hayan hecho ¡Así que ve a hablar con ellos! ¡Los nombres de sus capas de Photoshop podrían terminar siendo los nombres de tus componentes de React!
+Lo primero que vas a querer hacer es dibujar cajas alrededor de cada componente (y subcomponente) en el mock y darles nombres a todos ellos. Si trabajas con un diseñador, probablemente ya lo hayan hecho ¡Así que ve a hablar con ellos! ¡Los nombres de sus capas de Photoshop podrían terminar siendo los nombres de tus componentes de React!
 
 ¿Pero cómo sabes qué debería ser su propio componente? Usa las mismas técnicas para decidir si deberías crear una función u objeto nuevo. Una técnica es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica), esto significa que un componente debe, idealmente, hacer solo una cosa. Si termina creciendo entonces debería ser dividido en componentes más pequeños.
 
@@ -49,7 +49,7 @@ Verás que tenemos cinco componentes en nuestra aplicación de ejemplo. Hemos es
   4. **`ProductCategoryRow` (turquoise):** muestra el encabezado de cada *categoría*
   5. **`ProductRow` (red):** muestra una fila por cada *producto*
 
-Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Nombre" y "Precio") no son sus propios componentes. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
+Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Name" y "Price") no son sus propios componentes. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
 
 Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos jerárquicamente. Esto es fácil. Los componentes que aparecen dentro de otro componente en nuestro mock deberían aparecer como hijos en la jerarquía.
 
@@ -61,7 +61,7 @@ Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos
 
 ## Paso 2: Crea una versión estática en React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Ahora que tenemos nuestra jerarquía de componentes, es momento de implementar la aplicación. La forma más fácil es construir una versión que tome nuestro modelo de datos y muestre la interfaz de usuario sin interactividad. Es mejor desacoplar estos procesos porque crear una versión estática requiere escribir un montón pero no pensar tanto, mientras que agregar interactividad requiere pensar un montón y no escribir tanto. Vamos a ver por qué.
@@ -106,7 +106,7 @@ Finalmente, nuestro estado es:
 
 ## Paso 4: Identificar donde debe vivir tu estado {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
 Bien, hemos identificado la mínima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
 
@@ -131,7 +131,7 @@ Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a
 
 ## Paso 5: Agregar flujo de datos inverso {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> e  <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
 Hasta ahora, hemos creado una aplicación que funciona correctamente como una función de los props y estado fluyendo hacia abajo en la jerarquía. Es momento entonces de empezar a soportar que los datos fluyan en el otro sentido: el componente de formulario ubicado más abajo en la jerarquía necesita actualizar el estado en `FilterableProductTable`.
 

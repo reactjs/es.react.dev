@@ -71,6 +71,6 @@ Si nombras la función, _DevTools_ también incluirá su nombre (Ej: "*ForwardRe
 
 `embed:forwarding-refs/wrapped-component-with-function-name.js`
 
-Puedes incluso asigna la propiedad `displayName` de la función para que incluya el componente que estás envolviendo:
+Puedes incluso asignar la propiedad `displayName` de la función para que incluya el componente que estás envolviendo:
 
 `embed:forwarding-refs/customized-display-name.js`

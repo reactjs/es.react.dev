@@ -4,57 +4,57 @@ title: Context
 permalink: docs/context.html
 ---
 
-Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+Context provee una forma de pasar datos a través del árbol de componentes sin tener que pasar *props* manualmente en cada nivel.
 
-In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, el tema de la interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente un *prop* a través de cada nivel del árbol.
 
-- [When to Use Context](#when-to-use-context)
-- [Before You Use Context](#before-you-use-context)
+- [Cuándo usar Context](#when-to-use-context)
+- [Antes de usar Context](#before-you-use-context)
 - [API](#api)
   - [React.createContext](#reactcreatecontext)
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
-- [Examples](#examples)
-  - [Dynamic Context](#dynamic-context)
-  - [Updating Context from a Nested Component](#updating-context-from-a-nested-component)
-  - [Consuming Multiple Contexts](#consuming-multiple-contexts)
-- [Caveats](#caveats)
-- [Legacy API](#legacy-api)
+- [Ejemplos](#examples)
+  - [Context dinámico](#dynamic-context)
+  - [Actualizando Context desde un componente anidado](#updating-context-from-a-nested-component)
+  - [Consumiendo múltiples Contexts](#consuming-multiple-contexts)
+- [Advertencias](#caveats)
+- [API antigua](#legacy-api)
 
-## When to Use Context {#when-to-use-context}
+## Cuándo usar Context {#when-to-use-context}
 
-Context is designed to share data that can be considered "global" for a tree of React components, such as the current authenticated user, theme, or preferred language. For example, in the code below we manually thread through a "theme" prop in order to style the Button component:
+Context está diseñado para compartir datos que pueden considerarse "globales" para un árbol de componentes en React, como el usuario autenticado actual, el tema o el idioma preferido. Por ejemplo, en el código a continuación, pasamos manualmente un *prop* de "tema" para darle estilo al componente *Button*:
 
 `embed:context/motivation-problem.js`
 
-Using context, we can avoid passing props through intermediate elements:
+Usando Context podemos evitar pasar *props* a través de elementos intermedios:
 
 `embed:context/motivation-solution.js`
 
-## Before You Use Context {#before-you-use-context}
+## Antes de usar Context {#before-you-use-context}
 
-Context is primarily used when some data needs to be accessible by *many* components at different nesting levels. Apply it sparingly because it makes component reuse more difficult.
+Context se usa principalmente cuando algunos datos tienen que ser accesibles por *muchos* componentes en diferentes niveles de anidamiento. Aplícalo con moderación porque hace que la reutilización de componentes sea más difícil.
 
-**If you only want to avoid passing some props through many levels, [component composition](/docs/composition-vs-inheritance.html) is often a simpler solution than context.**
+**Si solo deseas evitar pasar algunos props a través de muchos niveles, la [composición de componentes](/docs/composition-vs-inheritance.html) suele ser una solución más simple que Context.**
 
-For example, consider a `Page` component that passes a `user` and `avatarSize` prop several levels down so that deeply nested `Link` and `Avatar` components can read it:
+Por ejemplo, considera un componente `Page` que pasa un prop `user` y `avatarSize` varios niveles hacia abajo para que los componentes anidados `Link` y `Avatar` puedan leerlo:
 
 ```js
 <Page user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... que renderiza ...
 <PageLayout user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... que renderiza ...
 <NavigationBar user={user} avatarSize={avatarSize} />
-// ... which renders ...
+// ... que renderiza ...
 <Link href={user.permalink}>
   <Avatar user={user} size={avatarSize} />
 </Link>
 ```
 
-It might feel redundant to pass down the `user` and `avatarSize` props through many levels if in the end only the `Avatar` component really needs it. It's also annoying that whenever the `Avatar` component needs more props from the top, you have to add them at all the intermediate levels too.
+Puede parecer redundante pasar los props de `user` y` avatarSize` a través de muchos niveles si al final solo el componente `Avatar` realmente lo necesita. También es molesto que cada vez que el componente `Avatar` necesite más props, también hay que agregarlos en todos los niveles intermedios.
 
-One way to solve this issue **without context** is to [pass down the `Avatar` component itself](/docs/composition-vs-inheritance.html#containment) so that the intermediate components don't need to know about the `user` prop:
+Una forma de resolver este problema **sin usar Context** es [pasar el mismo componente `Avatar`](/docs/composition-vs-inheritance.html#containment) para que los componentes intermedios no tengan que saber sobre el prop `usuario`:
 
 ```js
 function Page(props) {
@@ -67,21 +67,22 @@ function Page(props) {
   return <PageLayout userLink={userLink} />;
 }
 
-// Now, we have:
+// Ahora tenemos:
 <Page user={user} />
-// ... which renders ...
+// ... que renderiza ...
 <PageLayout userLink={...} />
-// ... which renders ...
+// ... que renderiza ...
 <NavigationBar userLink={...} />
-// ... which renders ...
+// ... que renderiza ...
 {props.userLink}
 ```
 
-With this change, only the top-most Page component needs to know about the `Link` and `Avatar` components' use of `user` and `avatarSize`.
+Con este cambio, solo el componente más importante Page necesita saber sobre el uso de `user` y `avatarSize` de los componentes `Link` y `Avatar`.
 
-This *inversion of control* can make your code cleaner in many cases by reducing the amount of props you need to pass through your application and giving more control to the root components. However, this isn't the right choice in every case: moving more complexity higher in the tree makes those higher-level components more complicated and forces the lower-level components to be more flexible than you may want.
+Esta *inversión de control* puede hacer que tu código, en muchos casos, sea más limpio al reducir la cantidad de props que necesitas pasar a través de tu aplicación y dar más control a los componentes raíz. Sin embargo, esta no es la opción correcta en todos los casos: mover más complejidad más arriba en el árbol hace que esos componentes de nivel superior sean más complicados y obliga a los componentes de nivel inferior a ser más flexibles de lo que tu podrías desear.
 
-You're not limited to a single child for a component. You may pass multiple children, or even have multiple separate "slots" for children, [as documented here](/docs/composition-vs-inheritance.html#containment):
+No estás limitado a un solo hijo por componente. Puede pasar varios hijos, o incluso tener varios “huecos” (slots) separados para los hijos, [como se documenta aquí](/docs/composition-vs-inheritance.html#contenering):
+
 
 ```js
 function Page(props) {
@@ -103,9 +104,9 @@ function Page(props) {
 }
 ```
 
-This pattern is sufficient for many cases when you need to decouple a child from its immediate parents. You can take it even further with [render props](/docs/render-props.html) if the child needs to communicate with the parent before rendering.
+Este patrón es suficiente para muchos casos cuando necesitas separar a un componente hijo de sus componentes padres inmediatos. Puedes llevarlo aún más lejos con [render props](/docs/render-props.html) si el hijo necesita comunicarse con el padre antes de renderizar.
 
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache. 
+Sin embargo, a veces, los mismos datos deben ser accesibles por muchos componentes en el árbol y a diferentes niveles de anidamiento. Context te permite "transmitir" dichos datos, y los cambios, a todos los componentes de abajo. Los ejemplos comunes en los que el uso de Context podría ser más simple que otras alternativas incluyen la administración de la configuración de localización, el tema o un caché de datos.
 
 ## API {#api}
 
@@ -115,27 +116,27 @@ However, sometimes the same data needs to be accessible by many components in th
 const MyContext = React.createContext(defaultValue);
 ```
 
-Creates a Context object. When React renders a component that subscribes to this Context object it will read the current context value from the closest matching `Provider` above it in the tree.
+Crea un objeto Context. Cuando React renderiza un componente que se suscribe a este objeto Context, este leerá el valor de contexto actual del `Provider` más cercano en el árbol.
 
-The `defaultValue` argument is **only** used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Note: passing `undefined` as a Provider value does not cause consuming components to use `defaultValue`.
+El argumento `defaultValue` es usado **únicamente** cuando un componente no tiene un `Provider` superior a él en el árbol. Esto puede ser útil para probar componentes de forma aislada sin contenerlos. Nota: pasar `undefined` como valor al `Provider` no hace que los componentes que lo consumen utilicen `defaultValue`.
 
 ### `Context.Provider` {#contextprovider}
 
 ```js
-<MyContext.Provider value={/* some value */}>
+<MyContext.Provider value={/* algún valor */}>
 ```
 
-Every Context object comes with a Provider React component that allows consuming components to subscribe to context changes.
+Cada objeto Context viene con un componente `Provider` de React que permite que los componentes que lo consumen se suscriban a los cambios del contexto.
 
-Accepts a `value` prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
+Acepta un prop `value` que se pasará a los componentes consumidores que son descendientes de este `Provider`. Un `Provider` puede estar conectado a muchos consumidores. Los `Providers` pueden estar anidados para sobreescribir los valores más profundos dentro del árbol.
 
-All consumers that are descendants of a Provider will re-render whenever the Provider's `value` prop changes. The propagation from Provider to its descendant consumers is not subject to the `shouldComponentUpdate` method, so the consumer is updated even when an ancestor component bails out of the update.
+Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia el prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
 
-Changes are determined by comparing the new and old values using the same algorithm as [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
+Los cambios se determinan comparando los valores nuevos y antiguos utilizando el mismo algoritmo que [`Object.is`](//developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
 
-> Note
+> Nota
 > 
-> The way changes are determined can cause some issues when passing objects as `value`: see [Caveats](#caveats).
+> La forma en que se determinan los cambios puede causar algunos problemas al pasar objetos como `value`: mira las [Advertencias](#caveats).
 
 ### `Class.contextType` {#classcontexttype}
 
@@ -143,7 +144,7 @@ Changes are determined by comparing the new and old values using the same algori
 class MyClass extends React.Component {
   componentDidMount() {
     let value = this.context;
-    /* perform a side-effect at mount using the value of MyContext */
+    /* realiza un efecto secundario en el montaje utilizando el valor de MyContext */
   }
   componentDidUpdate() {
     let value = this.context;
@@ -155,19 +156,19 @@ class MyClass extends React.Component {
   }
   render() {
     let value = this.context;
-    /* render something based on the value of MyContext */
+    /* renderiza algo basado en el valor de MyContext */
   }
 }
 MyClass.contextType = MyContext;
 ```
 
-The `contextType` property on a class can be assigned a Context object created by [`React.createContext()`](#reactcreatecontext). This lets you consume the nearest current value of that Context type using `this.context`. You can reference this in any of the lifecycle methods including the render function.
+A la propiedad `contextType` en una clase se le puede asignar un objeto Context creado por [`React.createContext()`](#reactcreatecontext). Esto te permite consumir el valor actual más cercano de ese Context utilizando `this.context`. Puedes hacer referencia a esto en cualquiera de los métodos del ciclo de vida, incluida la función de renderizado.
 
-> Note:
+> Nota:
 >
-> You can only subscribe to a single context using this API. If you need to read more than one see [Consuming Multiple Contexts](#consuming-multiple-contexts).
+> Solo puedes suscribirte a un solo Context usando esta API. Si necesitas leer más de una, lee [Consumir múltiples Context](#consuming-multiple-contexts).
 >
-> If you are using the experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), you can use a **static** class field to initialize your `contextType`.
+> Si estás utilizando la [sintaxis experimental de campos de clase pública](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar un campo de clase **static** para inicializar tu `contextType`.
 
 
 ```js
@@ -175,7 +176,7 @@ class MyClass extends React.Component {
   static contextType = MyContext;
   render() {
     let value = this.context;
-    /* render something based on the value */
+    /* renderiza algo basado en el valor */
   }
 }
 ```
@@ -184,23 +185,23 @@ class MyClass extends React.Component {
 
 ```js
 <MyContext.Consumer>
-  {value => /* render something based on the context value */}
+  {value => /* renderiza algo basado en el valor de contexto */}
 </MyContext.Consumer>
 ```
 
-A React component that subscribes to context changes. This lets you subscribe to a context within a [function component](/docs/components-and-props.html#function-and-class-components).
+Un componente de React que se suscribe a cambios de contexto. Esto le permite suscribirse a un contexto dentro de un [componente de función](/docs/components-and-props.html#function-and-class-components).
 
-Requires a [function as a child](/docs/render-props.html#using-props-other-than-render). The function receives the current context value and returns a React node. The `value` argument passed to the function will be equal to the `value` prop of the closest Provider for this context above in the tree. If there is no Provider for this context above, the `value` argument will be equal to the `defaultValue` that was passed to `createContext()`.
+Requiere una [función como hijo](/docs/render-props.html#using-props-other-than-render). La función recibe el valor de contexto actual y devuelve un nodo de React. El argumento `value` pasado a la función será igual al prop `value` del `Provider` más cercano para este contexto en el árbol. Si no hay un `Proveedor` superior para este contexto, el argumento `value` será igual al `defaultValue` que se pasó a `createContext()`.
 
-> Note
+> Nota
 > 
-> For more information about the 'function as a child' pattern, see [render props](/docs/render-props.html).
+> Para más información sobre el patrón 'función como hijo', ver [render props](/docs/render-props.html).
 
-## Examples {#examples}
+## Ejemplos {#examples}
 
-### Dynamic Context {#dynamic-context}
+### Context dinámico {#dynamic-context}
 
-A more complex example with dynamic values for the theme:
+Un ejemplo más complejo con valores dinámicos para el tema:
 
 **theme-context.js**
 `embed:context/theme-detailed-theme-context.js`
@@ -211,9 +212,9 @@ A more complex example with dynamic values for the theme:
 **app.js**
 `embed:context/theme-detailed-app.js`
 
-### Updating Context from a Nested Component {#updating-context-from-a-nested-component}
+### Actualizando Context desde un componente anidado {#updating-context-from-a-nested-component}
 
-It is often necessary to update the context from a component that is nested somewhere deeply in the component tree. In this case you can pass a function down through the context to allow consumers to update the context:
+A menudo es necesario actualizar el contexto desde un componente que está anidado en algún lugar del árbol de componentes. En este caso, puedes pasar una función a través del contexto para permitir a los consumidores actualizar el contexto:
 
 **theme-context.js**
 `embed:context/updating-nested-context-context.js`
@@ -224,28 +225,28 @@ It is often necessary to update the context from a component that is nested some
 **app.js**
 `embed:context/updating-nested-context-app.js`
 
-### Consuming Multiple Contexts {#consuming-multiple-contexts}
+### Consumir múltiples Context {#consuming-multiple-contexts}
 
-To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree. 
+Para mantener el renderizado de Context rápido, React necesita hacer que cada consumidor de contexto sea un nodo separado en el árbol.
 
 `embed:context/multiple-contexts.js`
 
-If two or more context values are often used together, you might want to consider creating your own render prop component that provides both.
+Si dos o más valores de contexto se usan a menudo juntos, es posible que desees considerar la creación de tu propio componente de procesamiento que proporcione ambos.
 
-## Caveats {#caveats}
+## Advertencias {#caveats}
 
-Because context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider's parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for `value`:
+Debido a que `Context` usa la identidad por referencia para determinar cuándo se debe volver a renderizar, hay algunos errores que podrían provocar renderizados involuntarios en los consumidores cuando se vuelve a renderizar en el padre del proveedor. Por ejemplo, el código a continuación volverá a renderizar a todos los consumidores cada vez que el `Proveedor` se vuelva a renderizar porque siempre se crea un nuevo objeto para `value`:
 
 `embed:context/reference-caveats-problem.js`
 
 
-To get around this, lift the value into the parent's state:
+Para evitar esto, levanta el valor al estado del padre:
 
 `embed:context/reference-caveats-solution.js`
 
-## Legacy API {#legacy-api}
+## API antigua {#legacy-api}
 
-> Note
+> Nota
 > 
-> React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the [legacy context docs here](/docs/legacy-context.html).
+> React previamente había liberado el API experimental de Context. La antigua API será compatible con todas las versiones 16.x, pero las aplicaciones que la utilicen deberían migrar a la nueva versión. La API antigua se eliminará en una futura versión importante de React. Lee la [documentación antigua de Context aquí](/docs/legacy-context.html).
  

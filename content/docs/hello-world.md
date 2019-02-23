@@ -10,12 +10,12 @@ El más pequeño de los ejemplos de React se ve así:
 
 ```js
 ReactDOM.render(
-  <h1>¡Hola mundo!</h1>,
+  <h1>Hello, world!</h1>,
   document.getElementById('root')
 );
 ```
 
-Este muestra un encabezado con el texto "¡Hola mundo!" en la página.
+Este muestra un encabezado con el texto "Hello, world!" en la página.
 
 [](codepen://hello-world)
 
@@ -27,11 +27,11 @@ En esta guía, examinaremos los componentes básicos de las aplicaciones React: 
 
 >Tip
 >
->Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si tú prefieres aprender haciendo, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
+>Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si prefieres aprender mediante práctica, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
 
 Este es el primer capítulo en una guía paso a paso sobre los principales conceptos de React. Puedes encontrar una lista de todos los capítulos en la barra de navegación lateral. Si estás leyendo esto desde un dispositivo móvil, puedes acceder a la navegación presionando el botón en la esquina inferior derecha de tu pantalla.
 
-Cada capítulo en esta guía se construye en base al conocimiento presentado en capítulos anteriores. **Tú puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
+Cada capítulo en esta guía se construye en base al conocimiento presentado en capítulos anteriores. **Puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
 
 ## Suposiciones del nivel de conocimiento {#knowledge-level-assumptions}
 

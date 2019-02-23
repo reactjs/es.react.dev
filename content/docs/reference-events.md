@@ -6,7 +6,7 @@ layout: docs
 category: Reference
 ---
 
-Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Eventos de manipulación](/docs/handling-events.html) para obtener más información.
+Esta guía de referencia documenta el contenedor `SyntheticEvent` que forma parte del sistema de eventos de React. Consulte la guía [Manejando eventos](/docs/handling-events.html) para obtener más información.
 
 ## Resumen {#overview}
 
@@ -246,7 +246,7 @@ boolean isPrimary
 
 Una nota sobre la compatibilidad con varios navegadores:
 
-Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). React deliberada no admite polyfill para otros navegadores, ya que un polyfill de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
+Los eventos de puntero aún no son compatibles con todos los navegadores (en el momento de escritura de este artículo, los navegadores compatibles incluyen: Chrome, Firefox, Edge e Internet Explorer). React no admite *polyfills* deliberadamente para otros navegadores, ya que un *polyfill* de conformidad estándar aumentaría significativamente el tamaño del paquete de `react-dom`.
 
 Si su aplicación requiere eventos de puntero, le recomendamos que agregue un polyfill de evento de puntero de terceros.
 
