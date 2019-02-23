@@ -61,7 +61,7 @@ Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos
 
 ## Paso 2: Crea una versión estática en React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Ahora que tenemos nuestra jerarquía de componentes, es momento de implementar la aplicación. La forma más fácil es construir una versión que tome nuestro modelo de datos y muestre la interfaz de usuario sin interactividad. Es mejor desacoplar estos procesos porque crear una versión estática requiere escribir un montón pero no pensar tanto, mientras que agregar interactividad requiere pensar un montón y no escribir tanto. Vamos a ver por qué.
@@ -106,7 +106,7 @@ Finalmente, nuestro estado es:
 
 ## Paso 4: Identificar donde debe vivir tu estado {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
 Bien, hemos identificado la mínima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
 
@@ -131,7 +131,7 @@ Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a
 
 ## Paso 5: Agregar flujo de datos inverso {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> e  <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
 Hasta ahora, hemos creado una aplicación que funciona correctamente como una función de los props y estado fluyendo hacia abajo en la jerarquía. Es momento entonces de empezar a soportar que los datos fluyan en el otro sentido: el componente de formulario ubicado más abajo en la jerarquía necesita actualizar el estado en `FilterableProductTable`.
 

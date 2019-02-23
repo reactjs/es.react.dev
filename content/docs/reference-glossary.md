@@ -27,7 +27,7 @@ Los *bundlers* toman el código JavaScript y CSS escrito como módulos separados
 
 ## Package managers {#package-managers}
 
-Los *package managers* son herramientas que te permiten administrar las dependencias de tu proyecto. [npm](https://www.npmjs.com/) y [Yarn](http://yarnpkg.com/) son dos *package managers* comúnmente usados en aplicaciones de React. Ambos son clientes para el mismo registro de paquetes npm.
+Los *package managers* son herramientas que te permiten administrar las dependencias de tu proyecto. [npm](https://www.npmjs.com/) y [Yarn](https://yarnpkg.com/) son dos *package managers* comúnmente usados en aplicaciones de React. Ambos son clientes para el mismo registro de paquetes npm.
 
 ## CDN {#cdn}
 
