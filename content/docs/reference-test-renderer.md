@@ -38,11 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-<<<<<<< HEAD
-Puede usar la función de pruebas de instantánea (`snapshot`) de Jest para guardar automáticamente una copia del árbol JSON en un archivo y comprobar en sus pruebas que no ha cambiado: [Aprende más sobre ello](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
-=======
-You can use Jest's snapshot testing feature to automatically save a copy of the JSON tree to a file and check in your tests that it hasn't changed: [Learn more about it](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Puede usar la función de pruebas de instantánea (`snapshot`) de Jest para guardar automáticamente una copia del árbol JSON en un archivo y comprobar en sus pruebas que no ha cambiado: [Aprende más sobre ello](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
 
 También puede recorrer la salida para encontrar nodos específicos y hacer afirmaciones sobre ellos.
 
@@ -114,11 +110,7 @@ Crea una instancia `TestRenderer` con el elemento React pasado como argumento. N
 testRenderer.toJSON()
 ```
 
-<<<<<<< HEAD
-Devuelve un objeto que representa el árbol renderizado en formato `JSON`. Este árbol solo contiene los nodos específicos de la plataforma como `<div>` o `<View>` y sus `props`, pero no contiene ningún componente escrito por el usuario. Esta representación es práctica para usarla en [pruebas de instantanea (`snapshot`)](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
-=======
-Return an object representing the rendered tree. This tree only contains the platform-specific nodes like `<div>` or `<View>` and their props, but doesn't contain any user-written components. This is handy for [snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Devuelve un objeto que representa el árbol renderizado en formato `JSON`. Este árbol solo contiene los nodos específicos de la plataforma como `<div>` o `<View>` y sus `props`, pero no contiene ningún componente escrito por el usuario. Esta representación es práctica para usarla en [pruebas de instantanea (`snapshot`)](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 

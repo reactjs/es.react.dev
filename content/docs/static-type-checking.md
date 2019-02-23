@@ -332,8 +332,4 @@ JetBrains desarrolla y mantiene varias herramientas específicamente para la com
 
 ## Otros lenguajes {#other-languages}
 
-<<<<<<< HEAD
-Ten en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](http://fable.io) con [elmish-react](https://elmish.github.io/react). Visita sus respectivos sitios para obtener más información y siéntete libre de agregar más lenguajes estáticamente tipados que funcionan con React a esta página!
-=======
-Note there are other statically typed languages that compile to JavaScript and are thus React compatible. For example, [F#/Fable](https://fable.io/) with [elmish-react](https://elmish.github.io/react). Check out their respective sites for more information, and feel free to add more statically typed languages that work with React to this page!
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Ten en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](https://fable.io) con [elmish-react](https://elmish.github.io/react). Visita sus respectivos sitios para obtener más información y siéntete libre de agregar más lenguajes estáticamente tipados que funcionan con React a esta página!

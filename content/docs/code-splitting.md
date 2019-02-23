@@ -94,12 +94,7 @@ configurado para ti y puedes comenzar a [usarlo](https://github.com/facebookincu
 
 Si configuras Webpack por ti mismo, probablemente vas a querer leer la [guía sobre división de código](https://webpack.js.org/guides/code-splitting/) de Webpack. Tu configuración de Webpack debería verse vagamente [como esta](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-<<<<<<< HEAD
-Cuando uses [Babel](http://babeljs.io/), tienes que asegurarte de que Babel reconozca la sintaxis de `import()` dinámico pero no la transforme. Para ello vas a necesitar el [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
-=======
-When using [Babel](https://babeljs.io/), you'll need to make sure that Babel can
-parse the dynamic import syntax but is not transforming it. For that you will need [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Cuando uses [Babel](https://babeljs.io/), tienes que asegurarte de que Babel reconozca la sintaxis de `import()` dinámico pero no la transforme. Para ello vas a necesitar el [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/es-ES/package/babel-plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 

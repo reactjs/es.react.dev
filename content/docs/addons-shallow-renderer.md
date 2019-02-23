@@ -51,11 +51,7 @@ Las pruebas superficiales tienen algunas limitaciones, es decir, no soportan ref
 
 > Nota:
 >
-<<<<<<< HEAD
-> También recomendamos revisar la [API de Renderizado Superficial](http://airbnb.io/enzyme/docs/api/shallow.html) de Enzyme. Provee una API de alto nivel mucho mejor de la misma funcionalidad.
-=======
-> We also recommend checking out Enzyme's [Shallow Rendering API](https://airbnb.io/enzyme/docs/api/shallow.html). It provides a nicer higher-level API over the same functionality.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+> También recomendamos revisar la [API de Renderizado Superficial](https://airbnb.io/enzyme/docs/api/shallow.html) de Enzyme. Provee una API de alto nivel mucho mejor de la misma funcionalidad.
 
 ## Referencia {#referencia}
 
