@@ -152,7 +152,6 @@ Proporcione un mecanismo para permitir que los usuarios omitan las secciones de 
 
 Skiplink o Skip Navigation son enlaces de navegación ocultos que solo se hacen visibles cuando los usuarios de teclado interactúan con la página. Son muy fáciles de implementar con anclajes internos de página y algunos estilos:
 
-
 - [WebAIM - Omitir enlaces de navegación](http://webaim.org/techniques/skipnav/)
 
 También utilice elementos y roles de puntos de referencia, como `<main>` y `<aside>`, para delimitar las regiones de la página ya que la tecnología de asistencia permite al usuario navegar rápidamente a estas secciones.
