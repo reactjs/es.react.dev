@@ -1,10 +1,10 @@
 ---
 id: forwarding-refs
-title: Reenvío de Refs
+title: Reenvío de refs
 permalink: docs/forwarding-refs.html
 ---
 
-El reenvío de Refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
+El reenvío de refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
 
 ## Reenviando refs a componentes DOM {#forwarding-refs-to-dom-components}
 
@@ -15,7 +15,7 @@ Los componentes React ocultan sus detalles de implementación, incluyendo su sal
 
 Aunque dicho encapsulamiento es deseable para componentes a nivel de aplicación como `FeedStory` o `Comment`, puede ser inconveniente en el caso de componentes "hoja" altamente reutilizables como `FancyButton` o `MyTextInput`. Estos componentes tienden a ser usados a lo largo de las aplicaciones de forma similar a los componentes DOM `button` e `input`, y acceder sus nodos DOM puede resultar inevitable para gestionar el foco, la selección, o animaciones.
 
-**El Reenvío de Refs es una característica opcional que permite a algunos componentes tomar una `ref` que reciben, y pasarla (en otras palabras, "reenviarla") a un hijo.**
+**El Reenvío de refs es una característica opcional que permite a algunos componentes tomar una `ref` que reciben, y pasarla (en otras palabras, "reenviarla") a un hijo.**
 
 En el siguiente ejemplo, `FancyButton` usa `React.forwardRef` para obtener la `ref` que le pasaron, y luego reenviarla al `button` DOM que renderiza:
 
@@ -35,7 +35,7 @@ A continuación un explicación paso a paso de lo que sucede en el ejemplo de ar
 >
 >El segundo argumento `ref` solo existe cuando defines un componente con una llamada a `React.forwardRef`. Los componentes normales de función o de clase no reciben el argumento `ref` y ref támpoco está disponible entre sus props.
 >
->El Reenvío de Refs no esta limitado únicamente a componentes DOM. También se puede reenviar refs a instancias de componentes de clase.
+>El Reenvío de refs no esta limitado únicamente a componentes DOM. También se puede reenviar refs a instancias de componentes de clase.
 
 ## Nota para los mantenedores de bibliotecas de componentes {#note-for-component-library-maintainers}
 
@@ -71,6 +71,6 @@ Si nombras la función, _DevTools_ también incluirá su nombre (Ej: "*ForwardRe
 
 `embed:forwarding-refs/wrapped-component-with-function-name.js`
 
-Puedes incluso asigna la propiedad `displayName` de la función para que incluya el componente que estás envolviendo:
+Puedes incluso asignar la propiedad `displayName` de la función para que incluya el componente que estás envolviendo:
 
 `embed:forwarding-refs/customized-display-name.js`

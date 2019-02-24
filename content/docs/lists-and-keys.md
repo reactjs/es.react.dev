@@ -42,11 +42,11 @@ ReactDOM.render(
 );
 ```
 
-[**Pruebalo en CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+[**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
 
 Este código muestra una lista de números entre 1 y 5.
 
-### Componente Básico de Lista {#basic-list-component}
+### Componente básico de lista {#basic-list-component}
 
 Usualmente renderizarías listas dentro de un [componente](/docs/components-and-props.html).
 
@@ -109,7 +109,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-La mejor forma de elegir una key es usando un string que idenfique únicamente a un elemento de la lista entre sus hermanos. Habitualmente vas a usar IDs de tus datos como key:
+La mejor forma de elegir una key es usando un string que identifique únicamente a un elemento de la lista entre sus hermanos. Habitualmente vas a usar IDs de tus datos como key:
 
 ```js{2}
 const todoItems = todos.map((todo) =>
@@ -130,11 +130,11 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-No recomendamos usar índices para keys si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el árticulo de Robin Pokorny para una [explicación en profundidad de los impactos negativos de usar un índice como key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si eliges no asignar una key explícita a la lista de ítems, React por defecto usará índices como keys.
+No recomendamos usar índices para keys si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el artículo de Robin Pokorny para una [explicación en profundidad de los impactos negativos de usar un índice como key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si eliges no asignar una key explícita a la lista de ítems, React por defecto usará índices como keys.
 
 Aquí hay una [explicación en profundidad sobre por qué las keys son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
 
-### Extracción de Componentes con Keys {#extracting-components-with-keys}
+### Extracción de componentes con keys {#extracting-components-with-keys}
 
 Las keys solo tienen sentido en el contexto del array que las envuelve.
 
@@ -206,7 +206,7 @@ ReactDOM.render(
 
 Una buena regla es que los elementos dentro de `map()` necesitan keys.
 
-### Las Keys Deben Ser Únicas Solo Entre Hermanos {#keys-must-only-be-unique-among-siblings}
+### Las keys deben ser únicas solo entre hermanos {#keys-must-only-be-unique-among-siblings}
 
 Las keys usadas dentro de arrays deberían ser únicas entre sus hermanos. Sin embargo, no necesitan ser únicas globalmente. Podemos usar las mismas keys cuando creamos dos arrays diferentes:
 
@@ -298,4 +298,4 @@ function NumberList(props) {
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Algunas veces esto resulta en código mas claro, pero este estilo también puede ser abusado. Como en JavaScript, depende de ti decidir cuando vale la pena extraer una variable por legibilidad. Ten en mente que si el cuerpo de `map()` esta muy anidado, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).
+Algunas veces esto resulta más claro en código, pero este estilo también puede ser abusado. Como en JavaScript, depende de ti decidir cuando vale la pena extraer una variable por legibilidad. Ten en mente que si el cuerpo de `map()` está muy anidado, puede ser un buen momento para [extraer un componente](/docs/components-and-props.html#extracting-components).

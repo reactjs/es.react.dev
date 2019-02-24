@@ -2,7 +2,7 @@
 id: static-type-checking
 title: Comprobación de tipos estáticos
 permalink: docs/static-type-checking.html
-prev: typechecking-with-prototypes.html
+prev: typechecking-with-proptypes.html
 next: refs-and-the-dom.html
 ---
 
@@ -67,7 +67,7 @@ npm run flow init
 
 Este comando creará un archivo de configuración de Flow que deberás confirmar (hacer *commit*).
 
-### Elimminando la sintaxis de Flow del código compilado {#stripping-flow-syntax-from-the-compiled-code}
+### Eliminando la sintaxis de Flow del código compilado {#stripping-flow-syntax-from-the-compiled-code}
 
 Flow extiende el lenguaje JavaScript con una sintaxis especial para declaraciones y anotaciones de tipo. Sin embargo, los navegadores no interpretan esta sintaxis, por lo que debes asegurarte de que no termine en el paquete compilado de JavaScript que envías al navegador.
 
@@ -216,10 +216,18 @@ npm install --save-dev typescript
 ```
 
 ### Configurando el compilador de TypeScript {#configuring-the-typescript-compiler}
-El compilador no nos sirve de nada hasta que le decimos qué hacer. En TypeScript, estas reglas se definen en un archivo especial llamado `tsconfig.json`. Para generar este archivo ejecuta:
+El compilador no nos sirve de nada hasta que le decimos qué hacer. En TypeScript, estas reglas se definen en un archivo especial llamado `tsconfig.json`. Para generar este archivo:
+
+Si usas [Yarn](https://yarnpkg.com/), ejecuta:
 
 ```bash
-tsc --init
+yarn run tsc --init
+```
+
+Si usas [npm](https://www.npmjs.com/), ejecuta:
+
+```bash
+npx tsc --init
 ```
 
 Mirando el `tsconfig.json` generado ahora, puedes ver que hay muchas opciones que puedes usar para configurar el compilador. Para obtener una descripción detallada de todas las opciones, consulta [aquí](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
@@ -256,7 +264,7 @@ Abordaremos esto en dos pasos:
 En general, no deseas mantener el javascript generado en tu control de código fuente, así que asegúrate de agregar la carpeta de compilación a tu `.gitignore`.
 
 ### Extensiones de archivo {#file-extensions}
-En React, lo más probable es que escribas tus componentes en un archivo `.js`. En TypeScript tenemos 2 extensiones de archivo.:
+En React, lo más probable es que escribas tus componentes en un archivo `.js`. En TypeScript tenemos 2 extensiones de archivo:
 
 `.ts` es la extensión de archivo predeterminada, mientras que `.tsx` es una extensión especial que se usa para los archivos que contienen `JSX`.
 
@@ -280,7 +288,7 @@ Si no ves ninguna salida, significa que se completó correctamente.
 ### Definiciones de tipo {#type-definitions}
 Para poder mostrar errores y sugerencias de otros paquetes, el compilador se basa en archivos de declaración. Un archivo de declaración proporciona toda la información de tipos sobre una biblioteca. Esto nos permite usar bibliotecas javascript como las que están en npm en nuestro proyecto.
 
-Hay dos formas principales de obtener declaraciones para una biblioteca.:
+Hay dos formas principales de obtener declaraciones para una biblioteca:
 
 __Integradas__ - La biblioteca incluye sus propios archivos de declaración. Esto es genial para nosotros, ya que todo lo que tenemos que hacer es instalar la biblioteca y podemos usarla de inmediato. Para verificar si una biblioteca tiene tipos integrados, busca un archivo `index.d.ts` en el proyecto. Algunas bibliotecas lo tendrán especificado en su `package.json` bajo el campo `typings` o `types`.
 
@@ -324,4 +332,4 @@ JetBrains desarrolla y mantiene varias herramientas específicamente para la com
 
 ## Otros lenguajes {#other-languages}
 
-Ten en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](http://fable.io)con [elmish-react](https://elmish.github.io/react). Visita sus respectivos sitios para obtener más información y siéntete libre de agregar más lenguajes estáticamente tipados que funcionan con React a esta página!
+Ten en cuenta que hay otros lenguajes de tipo estático que se compilan en JavaScript y por lo tanto, son compatibles con React. Por ejemplo, [F#/Fable](https://fable.io) con [elmish-react](https://elmish.github.io/react). Visita sus respectivos sitios para obtener más información y siéntete libre de agregar más lenguajes estáticamente tipados que funcionan con React a esta página!

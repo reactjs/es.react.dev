@@ -27,7 +27,7 @@ Si envías un pull request, hazlo contra la rama `master`. Mantenemos ramas esta
 
 ### Versionamiento Semántico {#semantic-versioning}
 
-React sigue [el versionamiento semántico](http://semver.org/). Lanzamos versiones de parches para correcciones de errores, versiones secundarias para nuevas funciones y versiones principales para cualquier cambio importante. Cuando hacemos cambios importantes, también introducimos advertencias de descontinuación en una versión menor para que nuestros usuarios conozcan los próximos cambios y migren su código de antemano.
+React sigue [el versionamiento semántico](https://semver.org/). Lanzamos versiones de parches para correcciones de errores, versiones secundarias para nuevas funciones y versiones principales para cualquier cambio importante. Cuando hacemos cambios importantes, también introducimos advertencias de descontinuación en una versión menor para que nuestros usuarios conozcan los próximos cambios y migren su código de antemano.
 
 Etiquetamos cada pull request con un rótulo que indica si el cambio debería ir en la siguiente version [parche](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-patch), [menor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-minor), o [mayor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-major). Lanzamos nuevas versiones de parches cada pocas semanas, versiones menores cada pocos meses y versiones mayores una o dos veces al año.
 
@@ -52,7 +52,7 @@ Facebook tiene un [programa de recompensas](https://www.facebook.com/whitehat/) 
 * IRC: [#reactjs en freenode](https://webchat.freenode.net/?channels=reactjs)
 * Foro de discusión: [Discuss.reactjs.org](https://discuss.reactjs.org/)
 
-También hay [una comunidad activa de usuarios de React en la plataforma de chat Discord](http://www.reactiflux.com/) en caso de que necesite ayuda con React.
+También hay [una comunidad activa de usuarios de React en la plataforma de chat Discord](https://www.reactiflux.com/) en caso de que necesite ayuda con React.
 
 ### Proponiendo un Cambio {#proposing-a-change}
 

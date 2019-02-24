@@ -1,6 +1,6 @@
 ---
 id: higher-order-components
-title: Componentes de Orden Superior
+title: Componentes de orden superior
 permalink: docs/higher-order-components.html
 ---
 
@@ -14,7 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Mientras que un componente transforma _props_ en interfaz de usuario, un componente de orden superior transforma un componente en otro.
 
-Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
+Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) en *Redux* y [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) en *Relay*.
 
 En este documento discutiremos por qué los componentes de orden superior son útiles y como escribir tus propios *HOCs*.
 
@@ -45,7 +45,7 @@ class CommentList extends React.Component {
   }
 
   componentWillUnmount() {
-    // Eliminar el gestor de eventos de cambios
+    // Eliminar el manejador de eventos de cambios
     DataSource.removeChangeListener(this.handleChange);
   }
 
@@ -68,7 +68,7 @@ class CommentList extends React.Component {
 }
 ```
 
-Posteriormente escribes un componente para subscribirte a un único post de un blog, el cual sigue un patrón similar:
+Posteriormente escribes un componente para suscribirte a un único post de un blog, el cual sigue un patrón similar:
 
 ```js
 class BlogPost extends React.Component {
@@ -102,11 +102,11 @@ class BlogPost extends React.Component {
 
 `CommentList` y `BlogPost` no son idénticos, ambos llaman a métodos distintos en `DataSource`, y renderizan una salida diferente. Pero gran parte de su implementación es la misma:
 
-- Al montar, añadir un gestor de eventos de cambio al `DataSource`.
-- En el gestor de eventos de cambio, llamar `setState` cada vez que la fuente de datos cambie.
-- Al desmontar, eliminar el gestor de eventos de cambio.
+- Al montar, añadir un manejador de eventos de cambio al `DataSource`.
+- En el manejador de eventos, llamar `setState` cada vez que la fuente de datos cambie.
+- Al desmontar, eliminar el manejador de eventos de cambio.
 
-Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de multiples componentes. En esto es donde los componentes de orden superior se destacan.
+Puedes imaginarte que en una aplicación grande, este mismo patrón de suscribirse a `DataSource` y llamar `setState` se repetirá una y otra vez. Necesitamos una abstracción que nos permita definir esta lógica en un solo lugar y compartirla a través de múltiples componentes. En esto es donde los componentes de orden superior se destacan.
 
 Podemos crear una función que cree componentes, como `CommentList` y `BlogPost`, que se subscriben a `DataSource`. La función aceptará como uno de sus argumentos un componente hijo que recibirá los datos suscritos como un *prop*. Llamemos esta función `withSubscription`:
 
@@ -171,7 +171,7 @@ Debido a que `withSubscription` es una función normal, puedes añadir tantos, o
 
 Tal como los componentes, el contrato entre `withSubscription` y el componente envuelto está basado completamente en los *props*. Esto hace fácil intercambiar un *HOC* por otro, siempre y cuando provean los mismos *props* al componente envuelto. Esto puede ser útil si cambias de bibliotecas de obtención de datos, por ejemplo.
 
-## No Mutes el Componente Original. Usa Composición.
+## No mutes el componente original. Usa composición.
 
 Resiste la tentación de modificar el prototipo de un componente (o de mutarlo de cualquier otra forma) dentro de un *HOC*
 
@@ -211,11 +211,11 @@ function logProps(WrappedComponent) {
 }
 ```
 
-Este *HOC* posee la misma funcionalidad que la versión con mutación, pero al mismo tiempo evita el potencial de conflictos. Funciona igualmente bien com componentes de clase o de función. Y dado que es una función pura es posible componerlo con otros *HOCs*, o incluso consigo mismo.
+Este *HOC* posee la misma funcionalidad que la versión con mutación, pero al mismo tiempo evita el potencial de conflictos. Funciona igualmente bien con componentes de clase o de función. Y dado que es una función pura es posible componerlo con otros *HOCs*, o incluso consigo mismo.
 
 Puedes haber notado similitud entre los *HOCs* y un patrón llamado **componentes contenedores**. Los componentes contenedores son parte de una estrategia de separación de responsabilidades entre preocupaciones de alto y bajo nivel. Los contenedores manejan temas como subscripciones y estado, y pasan *props* a componentes que manejan temas como renderizar la interfaz de usuario. Los *HOCs* usan contenedores como parte de su implementación. Puedes pensar en los *HOCs* como definiciones de componentes contenedores parametrizables. 
 
-## Convención: Pasa los *Props* no Relacionados al Componente Envuelto
+## Convención: Pasa los *Props* no relacionados al componente envuelto
 
 Los *HOCs* añaden funcionalidad a un componente. No deberían alterar de forma drástica su contrato. Se espera que el componente devuelto por un *HOC* tenga una interfaz similar al componente envuelto.
 
@@ -243,7 +243,7 @@ render() {
 
 Esta convención ayuda a asegurar que los *HOCs* sean tan flexibles y reutilizables como sea posible.
 
-## Convención: Maximizar la Componibilidad
+## Convención: Maximizar la componibilidad
 
 No todos los *HOCs* se ven igual. Algunas veces aceptan tan solo un argumento, el componente envuelto:
 
@@ -282,7 +282,7 @@ Esta forma puede parecer confusa o innecesaria, pero tiene una propiedad útil. 
 const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
 
 // ... puedes usar una utilidad para componer funciones
-// compose(f, g, h) is the same as (...args) => f(g(h(...args)))
+// compose(f, g, h) es lo mismo que (...args) => f(g(h(...args)))
 const enhance = compose(
   // Ambos son HOCs que reciben un único argumento
   withRouter,
@@ -293,9 +293,9 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 (Esta misma propiedad también permite a `connect`, y a otros *HOCs* de estilo mejoradores, que sean usados como decoradores, una propuesta experimental en JavaScript.)
 
-La función utilitaria `compose` es provista por muchas bibliotecas de terceros, incluida en *lodash* (como [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), en [Redux](http://redux.js.org/docs/api/compose.html), y en [Ramda](http://ramdajs.com/docs/#compose).
+La función utilitaria `compose` es provista por muchas bibliotecas de terceros, incluida en *lodash* (como [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), en [Redux](https://redux.js.org/api/compose), y en [Ramda](http://ramdajs.com/docs/#compose).
 
-## Convención: Envuelve el Nombre a Mostrar para una Depuración Fácil
+## Convención: Envuelve el nombre a mostrar para una depuración fácil
 
 Los componentes contenedores creados por los *HOCs* se muestran en las [Herramientas de Desarrollo de React](https://github.com/facebook/react-devtools) como cualquier otro componente. Para facilitar la depuración elige que se muestre un nombre que comunique que es el resultado de un *HOC*.
 
@@ -318,7 +318,7 @@ function getDisplayName(WrappedComponent) {
 
 Los componentes de orden superior vienen con algunas consideraciones que no son obvias inmediatamente si eres nuevo en React.
 
-### No Uses *HOCs* dentro del método *render*
+### No uses *HOCs* dentro del método *render*
 
 El algoritmo de detección de diferencias de React (llamado reconciliación) utiliza la identidad del componente para determinar si debe actualizar el subárbol existente o desecharlo y montar uno nuevo. Si el componente devuelto por `render` es idéntico (`===`) al componente de la llamada a `render` previa, React actualiza el subárbol calculando las diferencias con el nuevo. Si no son iguales, el subárbol anterior es desmontado completamente.
 
@@ -340,7 +340,7 @@ En su lugar, aplica los *HOCs* por fuera de la definición del componente de man
 
 En aquellos casos extraños donde necesites aplicar un *HOC* de forma dinámica, también puedes hacerlo en los métodos del ciclo de vida, o en su constructor.
 
-### Los Métodos Estáticos Deben ser Copiados
+### Los métodos estáticos deben ser copiados
 
 A veces resulta útil definir un método estático en un componente React. Por ejemplo, los contenedores de *Relay* exponen el método estático `getFragment` para facilitar la composición de fragmentos *GraphQL*.
 
@@ -396,4 +396,4 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 Aunque la convención para los componentes de orden superior es pasar todos los *props* al componente envuelto, esto no funciona para las *refs*. Esto es porque `ref` no es realmente un *prop*, al igual que `key` es manejado de forma especial por React. Si añades una *ref* a un elemento cuyo componente es el resultado de un *HOC*, esa *ref* se refiere a la instancia del componente contenedor más externo, no al componente envuelto.
 
-La solución a este problema es usar la API `React.forwardRef` (introducido con React 16.3). [Aprende más acerca de esta API en la sección acerca de Reenvío de Refs](/docs/forwarding-refs.html).
+La solución a este problema es usar la API `React.forwardRef` (introducida con React 16.3). [Aprende más acerca de esta API en la sección acerca de Reenvío de Refs](/docs/forwarding-refs.html).

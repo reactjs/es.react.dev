@@ -1,6 +1,6 @@
 ---
 id: components-and-props
-title: Componentes y Propiedades
+title: Componentes y propiedades
 permalink: docs/components-and-props.html
 redirect_from:
   - "docs/reusable-components.html"
@@ -15,12 +15,12 @@ redirect_from:
 prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
-Los componentes permiten separar la UI en piezas independientes, reutilizables y pensar en cada pieza de forma aislada.Esta página proporciona una introducción a la idea de los componentes.
-Puedes encontrar una [API detallada sobre componentes aqui](/docs/react-component.html).
+Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada.Esta página proporciona una introducción a la idea de los componentes.
+Puedes encontrar una [API detallada sobre componentes aquí](/docs/react-component.html).
 
 Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
 
-## Componentes Funcionales y de Clase {#function-and-class-components}
+## Componentes funcionales y de clase {#function-and-class-components}
 
 La forma más sencilla de definir un componente es escribir una función de JavaScript:
 
@@ -47,7 +47,7 @@ Los dos componentes anteriores son equivalentes desde el punto de vista de React
 
 Las clases tienen algunas características adicionales que veremos en las [próximas secciones](/docs/state-and-lifecycle.html). Hasta entonces, usaremos componentes funcionales por su brevedad.
 
-## Renderizando un Componente {#rendering-a-component}
+## Renderizando un componente {#rendering-a-component}
 
 Anteriormente, sólo encontramos elementos de React que representan las etiquetas del DOM:
 
@@ -61,7 +61,7 @@ Sin embargo, los elementos también pueden representar componentes definidos por
 const element = <Welcome name="Sara" />;
 ```
 
-Cuando React ve representando un componente definido por el usuario, pasa atributos JSX a este componente como un solo objeto. Llamamos a este objeto "props".
+Cuando React ve un elemento representando un componente definido por el usuario, pasa atributos JSX a este componente como un solo objeto. Llamamos a este objeto "props".
 
 Por ejemplo, este código muestra "Hello, Sara" en la página:
 
@@ -88,13 +88,13 @@ Recapitulemos lo que sucede en este ejemplo:
 
 > **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula.
 > 
->React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Welcome />` representa un componente y requiere que `Welcome` esté en scope.
+>React trata los componentes que empiezan con letras minúsculas como etiquetas del DOM. Por ejemplo, `<div />` representa una etiqueta div HTML pero `<Welcome />` representa un componente y requiere que `Welcome` esté definido.
 > 
 > Para saber más sobre el razonamiento detrás de esta convención, puedes consultar [JSX en profundidad](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Composición de Componentes {#composing-components}
+## Composición de componentes {#composing-components}
 
-Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comunmente como componentes.
+Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comúnmente como componentes.
 
 Por ejemplo, podemos crear un componente `App` que renderiza `Welcome` muchas veces:
 
@@ -123,7 +123,7 @@ ReactDOM.render(
 
 Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
 
-## Extracción de Componentes {#extracting-components}
+## Extracción de componentes {#extracting-components}
 
 No tengas miedo de dividir los componentes en otros más pequeños.
 
@@ -157,7 +157,7 @@ function Comment(props) {
 
 Acepta `author` (un objeto), `text` (un string), y `date` (una fecha) como props, y describe un comentario en una web de redes sociales.
 
-Este componente puede ser difícil de cambiar debido a todo el anidamiento, y támbien es difícil reusar partes individuales de él. Vamos a extraer algunos componentes del mismo.
+Este componente puede ser difícil de cambiar debido a todo el anidamiento, y también es difícil reutilizar partes individuales de él. Vamos a extraer algunos componentes del mismo.
 
 Primero, vamos a extraer `Avatar`:
 
@@ -234,7 +234,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su UI se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
+Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su interfaz de usuario se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
 
 ## Las props son de solo lectura {#props-are-read-only}
 
@@ -246,7 +246,7 @@ function sum(a, b) {
 }
 ```
 
-Tales funciones son llamadas ["puras"](https://en.wikipedia.org/wiki/Pure_function) por que no tratan de cambiar sus entradas, y siempre devuelven el mismo resultado para las mismas entradas.
+Tales funciones son llamadas ["puras"](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional#Funciones_puras) por que no tratan de cambiar sus entradas, y siempre devuelven el mismo resultado para las mismas entradas.
 
 En contraste, esta función es impura por que cambia su propia entrada:
 
@@ -260,4 +260,4 @@ React es bastante flexible pero tiene una sola regla estricta:
 
 **Todos los componentes de React deben actuar como funciones puras con respecto a sus props.**
 
-Por supuesto, las UI de las aplicaciones son dinámicas y cambian con el tiempo. En la [siguiente sección](/docs/state-and-lifecycle.html), introduciremos un nuevo concepto de "estado". El estado le permite a los componentes de React cambiar su salida a lo largo del tiempo en respuesta a acciones del usuario, respuestas de red y cualquier otra cosa, sin violar esta regla.
+Por supuesto, las interfaces de usuario de las aplicaciones son dinámicas y cambian con el tiempo. En la [siguiente sección](/docs/state-and-lifecycle.html), introduciremos un nuevo concepto de "estado". El estado le permite a los componentes de React cambiar su salida a lo largo del tiempo en respuesta a acciones del usuario, respuestas de red y cualquier otra cosa, sin violar esta regla.

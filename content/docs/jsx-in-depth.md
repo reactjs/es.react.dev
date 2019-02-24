@@ -1,6 +1,6 @@
 ---
 id: jsx-in-depth
-title: JSX In Depth
+title: JSX en profundidad
 permalink: docs/jsx-in-depth.html
 redirect_from:
   - "docs/jsx-spread.html"
@@ -57,7 +57,7 @@ Los tipos en mayúsculas indican que la etiqueta JSX se refiere a un componente 
 
 ### React debe estar al alcance {#react-must-be-in-scope}
 
-Como JSX se compila en llamadas a `React.createElement`, la biblioteca` React` también debe estar siempre dentro del alcance de su código JSX.
+Como JSX se compila en llamadas a `React.createElement`, la biblioteca` React` también debe estar siempre dentro del alcance de tu código JSX.
 
 Por ejemplo, ambas importaciones son necesarias en este código, a pesar de que `React` y `CustomButton` no están directamente referenciados desde JavaScript:
 
@@ -66,7 +66,7 @@ import React from 'react';
 import CustomButton from './CustomButton';
 
 function WarningButton() {
-  // return React.createElement(CustomButton, {color: 'red'}, null);
+  // retorna React.createElement(CustomButton, {color: 'red'}, null);
   return <CustomButton color="red" />;
 }
 ```
@@ -95,7 +95,7 @@ function BlueDatePicker() {
 
 Cuando un tipo de elemento comienza con una letra minúscula, se refiere a un componente incorporado como `<div>` o `<span>` y da como resultado una cadena `'div'` o `'span'` que se pasa a `React.createElement`. Los tipos que comienzan con una letra mayúscula como `<Foo />` compilan a `React.createElement(Foo)` y corresponden a un componente definido o importado en tu archivo JavaScript.
 
-Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo una variable en mayúscula antes de usarlo en JSX.
+Recomendamos nombrar los componentes con una letra mayúscula. Si tienes un componente que comienza con una letra minúscula, asígnalo a una variable en mayúscula antes de usarlo en JSX.
 
 Por ejemplo, este código no se ejecutará como se esperaba:
 
@@ -172,7 +172,7 @@ function Story(props) {
 
 Hay varias formas diferentes de especificar props en JSX.
 
-### Expresiones JavaScript como Props {#javascript-expressions-as-props}
+### Expresiones JavaScript como props {#javascript-expressions-as-props}
 
 Puede pasar cualquier expresión de JavaScript como prop, al rodearla con `{}`. Por ejemplo, en este JSX:
 
@@ -228,7 +228,7 @@ Si no pasas ningún valor para un prop, el valor predeterminado es `true`. Estas
 <MyTextBox autocomplete={true} />
 ```
 
-En general, no recomendamos usarlo porque puede confundirse con la [notación simplificada de objetos ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento está para que coincida con el de HTML.
+En general, no recomendamos usarlo porque puede confundirse con la [notación simplificada de objetos ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que es la abreviatura de `{foo: foo}` en lugar de `{foo: true}`. Este comportamiento está para que coincida con el de HTML.
 
 ### Atributos de propagación {#spread-attributes}
 
@@ -270,9 +270,9 @@ Todos los demás props se pasan a través del objeto `...other` que hace que est
 
 Los atributos de propagación pueden ser útiles, pero también facilitan la transferencia de propiedades innecesarias a los componentes que no les interesan o la transferencia de atributos HTML no válidos al DOM. Recomendamos utilizar esta sintaxis con moderación. 
 
-## Niños en JSX {#children-in-jsx}
+## Hijos en JSX {#children-in-jsx}
 
-En las expresiones JSX que contienen una etiqueta de apertura y una etiqueta de cierre, el contenido entre esas etiquetas se pasa como un elemento especial: `props.children`. Hay varias maneras diferentes de pasar a los niños:
+En las expresiones JSX que contienen una etiqueta de apertura y una etiqueta de cierre, el contenido entre esas etiquetas se pasa como un elemento especial: `props.children`. Hay varias maneras diferentes de pasar a los hijos:
 
 ### Cadenas de Literales {#string-literals-1}
 
@@ -282,7 +282,7 @@ Puede poner un *string* entre las etiquetas de apertura y cierre y `props.childr
 <MyComponent>Hello world!</MyComponent>
 ```
 
-Esto es JSX válido, y `props.children` en` MyComponent` simplemente será el *string* `Hello world!`. El código HTML no se ha escapado, por lo que generalmente puedes escribir JSX de la misma manera que escribirías HTML de esta manera:
+Esto es JSX válido, y `props.children` en `MyComponent` simplemente será el *string* `Hello world!`. El código HTML no se ha escapado, por lo que generalmente puedes escribir JSX de la misma manera que escribirías HTML de esta manera:
 
 ```html
 <div>This is valid HTML &amp; JSX at the same time.</div>
@@ -331,7 +331,7 @@ Puedes mezclar diferentes tipos de hijos, así que puedes usar literales de *str
 </div>
 ```
 
-A React component can also return an array of elements:
+Un componente de React también puede retornar un array de elementos:
 
 ```js
 render() {
@@ -403,7 +403,7 @@ function ListOfTenThings() {
 }
 ```
 
-Los niños pasados a un componente personalizado pueden ser cualquier cosa, siempre que ese componente los transforme en algo que React pueda entender antes de renderizar. Este uso no es común, pero funciona si desea ampliar lo que JSX es capaz de hacer.
+Los hijos pasados a un componente personalizado pueden ser cualquier cosa, siempre que ese componente los transforme en algo que React pueda entender antes de renderizar. Este uso no es común, pero funciona si desea ampliar lo que JSX es capaz de hacer.
 
 ### Los booleanos, `null` y `undefined` se ignoran {#booleans-null-and-undefined-are-ignored}
 
@@ -452,7 +452,7 @@ Para solucionar esto, asegúrate de que la expresión antes de `&&` sea siempre 
 </div>
 ```
 
-Por el contrario, si desea que aparezca un valor como `false`, `true`, `null` o `undefined` en la salida, debes primero [convertirlo en una cadena](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion):
+Por el contrario, si desea que aparezca un valor como `false`, `true`, `null` o `undefined` en la salida, debes primero [convertirlo en una cadena](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion):
 
 ```js{2}
 <div>

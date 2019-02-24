@@ -19,7 +19,7 @@ La mayoría de sitios web no son, y no necesitan ser, aplicaciones de una sóla 
 - [Agrega React en Un Minuto](#add-react-in-one-minute)
 - [Opcional: Prueba React con JSX](#optional-try-react-with-jsx) (sin necesidad de usar bundler!)
 
-## Agrega React en Un Minuto {#add-react-in-one-minute}
+## Agrega React en un minuto {#add-react-in-one-minute}
 
 En esta sección, vamos a mostrarte como agregar un componente de React a una página HTML existente. Puedes seguir los pasos en tu sitio web, o crear un nuevo archivo HTML para practicar.
 
@@ -27,7 +27,7 @@ No habrá necesidad de usar herramientas complicadas u otros requerimientos para
 
 Opcional: [Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
 
-### Paso 1: Agrega un Contenedor del DOM al HTML {#step-1-add-a-dom-container-to-the-html}
+### Paso 1: Agrega un contenedor del DOM al HTML {#step-1-add-a-dom-container-to-the-html}
 
 Para iniciar, abre la página HTML que deseas editar. Agrega una etiqueta `<div>` vacía para marcar el lugar donde deseas visualizar algo con React. Por ejemplo:
 
@@ -45,7 +45,7 @@ A este `<div>` le agregamos un atributo HTML `id` que es único. Esto nos permit
 >
 >Puedes agregar un "contenedor" `<div>` como este en **cualquier sitio** dentro de la etiqueta `<body>`. Puedes tener la cantidad de contenedores independientes en el DOM que desees. Por lo general éstos están vacíos -- React reemplazará cualquier contenido existente dentro de los contenedores del DOM.
 
-### Paso 2: Agrega las etiquetas de Script {#step-2-add-the-script-tags}
+### Paso 2: Agrega las etiquetas de script {#step-2-add-the-script-tags}
 
 Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes de cerrar la etiqueta `</body>`:
 
@@ -57,7 +57,7 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Carguemos nuestro componente de React. -->
+  <!-- Cargamos nuestro componente de React. -->
   <script src="like_button.js"></script>
 
 </body>
@@ -65,7 +65,7 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
 
 Las primeras dos etiquetas cargan React. La tercera carga tu código del componente.
 
-### Paso 3: Crea un Componente de React {#step-3-create-a-react-component}
+### Paso 3: Crea un componente de React {#step-3-create-a-react-component}
 
 Crea un archivo llamado `like_button.js` en el mismo lugar donde tienes tu archivo HTML.
 
@@ -96,7 +96,7 @@ Dale un vistazo a las siguientes secciones para más consejos sobre como integra
 
 **[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
-### Consejo: Reusar un Componente {#tip-reuse-a-component}
+### Consejo: Reusar un componente {#tip-reuse-a-component}
 
 Por lo general, es deseado mostrar componentes de React en múltiples lugares de una página HTML. Aquí hay un ejemplo que muestra el botón de "Like" tres veces y le pasa algunos datos al mismo:
 
@@ -108,7 +108,7 @@ Por lo general, es deseado mostrar componentes de React en múltiples lugares de
 >
 >Esta estrategía es útil cuando las partes de la página que funcionan en React están aisladas entre sí. En código de React, es mucho más fácil usar [composición de componentes](/docs/components-and-props.html#composing-components) en su lugar.
 
-### Consejo: Compactar JavaScript para Producción {#tip-minify-javascript-for-production}
+### Consejo: Compactar JavaScript para producción {#tip-minify-javascript-for-production}
 
 Antes de desplegar tu sitio web a producción, debes ser consciente que no compactar tu JavaScript puede disminuir de forma considerable la carga de tu página.
 
@@ -147,9 +147,9 @@ return (
 );
 ```
 
-Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la IU -- ya sea usando React o con otras librerías.
+Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la interfaz de usuario -- ya sea usando React o con otras bibliotecas.
 
-Puedes experimentar con JSX usando [este conversor en línea](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
+Puedes experimentar con JSX usando [este conversor en línea](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
 
 ### Prueba JSX de forma rápida {#quickly-try-jsx}
 
@@ -165,7 +165,7 @@ Este enfoque está bien mientras aprendes o creas demostraciones simples. Sin em
 
 ### Agregar JSX a un proyecto {#add-jsx-to-a-project}
 
-Agregar JSX a un proyecto no necesita de herramientas complicadas como un bundler o un servidor de desarrollo. Básicamente, agregar JSX **es muy parecido a agregar un preprocesador de CSS.** El único requsito es que tengas [Node.js](https://nodejs.org/) instalado en tu computador.
+Agregar JSX a un proyecto no necesita de herramientas complicadas como un bundler o un servidor de desarrollo. Básicamente, agregar JSX **es muy parecido a agregar un preprocesador de CSS.** El único requisito es que tengas [Node.js](https://nodejs.org/) instalado en tu computador.
 
 En tu terminal, ve a la carpeta que contiene tu proyecto y pega estos dos comandos:
 
@@ -179,7 +179,7 @@ En tu terminal, ve a la carpeta que contiene tu proyecto y pega estos dos comand
 ¡Felicitaciones! Acabas de agregar una **configuración de JSX lista para producción** a tu proyecto.
 
 
-### Ejecuta el Preprocesador de JSX {#run-jsx-preprocessor}
+### Ejecuta el preprocesador de JSX {#run-jsx-preprocessor}
 
 Crea una carpeta llamada `src` y ejecuta este comando en la terminal:
 
@@ -197,6 +197,6 @@ No esperes hasta que termine -- este comando inicia un observador automático pa
 
 Si ahora creas un archivo llamado `src/like_button.js` con este **[código inicial de JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, el observador va a crear un `like_button.js` preprocesado con el código JavaScript original que es apto para el navegador. Cuando edites el código del archivo que tiene JSX, el transformador va a volver a ejecutarse de forma automática.
 
-Como un bonus, esto también te permite utilizar características nuevas de la sintáxis de JavaScript, como las clases, sin que te preocupes de que no funcionen en navegadores antiguos. La herramienta que hemos usado se llamda Babel, y puedes leer más sobre ella en [su documentación](http://babeljs.io/docs/en/babel-cli/).
+Como un bonus, esto también te permite utilizar características nuevas de la sintaxis de JavaScript, como las clases, sin que te preocupes de que no funcionen en navegadores antiguos. La herramienta que hemos usado se llama Babel, y puedes leer más sobre ella en [su documentación](https://babeljs.io/docs/en/babel-cli/).
 
 Si notas que se te está haciendo más cómodo manejar las herramientas de configuración y quieres sacarle mayor provecho, [en la próxima sección](/docs/create-a-new-react-app.html) se describen unas de las cadenas de herramientas más populares y accesibles. Dado el caso que no te sientas así -- esas etiquetas de script serán suficiente.

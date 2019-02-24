@@ -1,6 +1,6 @@
 ---
 id: code-splitting
-title: Code-Splitting
+title: División de código
 permalink: docs/code-splitting.html
 ---
 
@@ -94,7 +94,7 @@ configurado para ti y puedes comenzar a [usarlo](https://github.com/facebookincu
 
 Si configuras Webpack por ti mismo, probablemente vas a querer leer la [guía sobre división de código](https://webpack.js.org/guides/code-splitting/) de Webpack. Tu configuración de Webpack debería verse vagamente [como esta](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-Cuando uses [Babel](http://babeljs.io/), tienes que asegurarte de que Babel reconozca la sintaxis de `import()` dinámico pero no la transforme. Para ello vas a necesitar el [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
+Cuando uses [Babel](https://babeljs.io/), tienes que asegurarte de que Babel reconozca la sintaxis de `import()` dinámico pero no la transforme. Para ello vas a necesitar el [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/es-ES/package/babel-plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 
@@ -202,7 +202,7 @@ const MyComponent = () => (
 
 Decidir en qué parte de tu aplicación introducir la división de código puede ser un poco complicado. Quieres asegurarte de elegir lugares que dividan los *bundles* de manera uniforme, sin interrumpir la experiencia del usuario.
 
-Un buen lugar para comenzar es con las rutas. La mayoría de la gente en la web está acostumbrada a que las transiciones entre páginas se tomen cierto tiempo en cargar. También tiendes a rerenderizar toda de una vez, así que es improbable que tus usuarios interactúen con otros elementos en la página al mismo tiempo.
+Un buen lugar para comenzar es con las rutas. La mayoría de la gente en la web está acostumbrada a que las transiciones entre páginas se tomen cierto tiempo en cargar. También tiendes a volver a renderizar todo de una vez, así que es improbable que tus usuarios interactúen con otros elementos en la página al mismo tiempo.
 
 Este es un ejemplo de cómo configurar la división de código basada en rutas en tu aplicación usando
 bibliotecas como [React Router](https://reacttraining.com/react-router/) con `React.lazy`.

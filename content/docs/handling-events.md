@@ -1,6 +1,6 @@
 ---
 id: handling-events
-title: Manejando Eventos
+title: Manejando eventos
 permalink: docs/handling-events.html
 prev: state-and-lifecycle.html
 next: conditional-rendering.html
@@ -91,17 +91,17 @@ ReactDOM.render(
 );
 ```
 
-[**Pruébalo en CodePen**](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-Tienes que tener mucho cuidado en cuanto al significado de `this` en los callbacks de JSX. En JavaScript, los métodos de clase no están [ligados](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) por defecto. Si olvidas ligar `this.handleClick` y lo pasas a `onClick`, `this` sera `undefined` cuando se llame la función.
+Tienes que tener mucho cuidado en cuanto al significado de `this` en los callbacks de JSX. En JavaScript, los métodos de clase no están [ligados](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_objects/Function/bind) por defecto. Si olvidas ligar `this.handleClick` y lo pasas a `onClick`, `this` será `undefined` cuando se llame la función.
 
 Esto no es un comportamiento especifico de React; esto hace parte de [como operan las funciones JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalmente, si refieres un método sin usar `()` después de este, tal como `onClick={this.handleClick}`, deberías ligar ese método.
 
-Si te molesta llamar `bind`, existen dos maneras de evitarlo. Si usas la sintaxis experimental [campos publicos de clases](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar los campos de clases para ligar los callbacks correctamente:
+Si te molesta llamar `bind`, existen dos maneras de evitarlo. Si usas la sintaxis experimental [campos públicos de clases](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar los campos de clases para ligar los callbacks correctamente:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
-  // Esta sintaxis nos asegura que `this` esta ligado dentro de handleClick
+  // Esta sintaxis nos asegura que `this` está ligado dentro de handleClick
   // Peligro: esto es una sintaxis *experimental*
   handleClick = () => {
     console.log('this is:', this);
@@ -119,7 +119,7 @@ class LoggingButton extends React.Component {
 
 Esta sintaxis está habilitada por defecto en [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Si no estas usando la sintaxis de campos publicos de clases, puedes usar una [función flecha](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) en el callback:
+Si no estas usando la sintaxis de campos públicos de clases, puedes usar una [función flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions) en el callback:
 
 ```js{7-9}
 class LoggingButton extends React.Component {
@@ -140,7 +140,7 @@ class LoggingButton extends React.Component {
 
 El problema con esta sintaxis es que un callback diferente es creado cada vez que `LogginButton` es renderizado. En la mayoría de los casos, esto está bien. Sin embargo, si este callback se pasa como una propiedad a componentes más bajos, estos componentes podrían renderizarse nuevamente. Generalmente, recomendamos ligar en el constructor o usar la sintaxis de campos de clases, para evitar esta clase de problemas de rendimiento.
 
-## Pasando Argumentos a Escuchadores de Eventos {#passing-arguments-to-event-handlers}
+## Pasando argumentos a escuchadores de eventos {#passing-arguments-to-event-handlers}
 
 Dentro de un bucle es muy común querer pasar un parámetro extra a un manejador de eventos. Por ejemplo, si `id` es el ID de una fila, cualquiera de los códigos a continuación podría funcionar:
 
