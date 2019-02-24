@@ -11,7 +11,6 @@ redirect_from:
 
 React es uno de los primeros proyectos de código abierto de Facebook que se encuentran bajo una fase de desarrollo activa y también se utiliza para entregar productos de sofware a todos en [facebook.com](https://www.facebook.com). Todavía estamos trabajando en los problemas para hacer que la contribución a este proyecto sea lo más fácil y transparente posible, pero aún no hemos llegado a ese punto. Esperamos que este documento haga que el proceso de contribución sea claro y responda algunas preguntas que pueda tener.
 
-
 ### [Codigo de Conducta](https://code.facebook.com/codeofconduct) {#code-of-conduct}
 
 Facebook ha adoptado un Código de conducta que esperamos que los participantes del proyecto cumplan. Lea [el texto completo](https://code.facebook.com/codeofconduct) para que pueda comprender qué acciones serán o no toleradas.
@@ -25,8 +24,6 @@ Todo el trabajo en React sucede directamente en [GitHub](https://github.com/face
 Haremos todo lo posible para mantener la [rama `maestra`](https://github.com/facebook/react/tree/master) en buen estado, con pruebas que pasen todo el tiempo. Pero para avanzar rápidamente, realizaremos cambios en la API con los que tu aplicación podría no ser compatible. Recomendamos que uses [la última versión estable de React](/downloads.html).
 
 Si envías un pull request, hazlo contra la rama `master`. Mantenemos ramas estables para las versiones principales por separado, pero no aceptamos pull requests directamente a ellas. En su lugar, seleccionamos los cambios que no se rompen de la versión principal a la última versión estable.
-
-If you send a pull request, please do it against the `master` branch. We maintain stable branches for major versions separately but we don't accept pull requests to them directly. Instead, we cherry-pick non-breaking changes from master to the latest stable major version.
 
 ### Versionamiento Semántico {#semantic-versioning}
 
@@ -76,7 +73,6 @@ Si decide solucionar un problema, asegúrese de revisar el hilo de comentarios e
 Si alguien reclama un problema pero no hace un seguimiento por más de dos semanas, está bien que se haga cargo pero aún así debe dejar un comentario.
 
 ### Enviando un Pull Request {#sending-a-pull-request}
-
 
 El equipo principal está monitoreando los Pull Requests. Revisaremos tu Pull Request y haremos un Merge, solicitaremos cambios o lo con una explicación. Para los cambios de API, es posible que tengamos que arreglar nuestros usos internos en Facebook.com, lo que podría causar algún retraso. Haremos nuestro mejor esfuerzo para proporcionar actualizaciones y comentarios durante todo el proceso.
 
@@ -157,7 +153,6 @@ Sin embargo, todavía hay algunos estilos que la impresora no puede recoger. Si 
 Es posible que le interese ver [este breve video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos) que brinda una introducción sobre cómo contribuir a React.
 
 #### Videos Destacados: {#video-highlights}
-
 - [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construir y probar React localmente
 - [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Creando y enviando pull requests
 - [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizando el código
