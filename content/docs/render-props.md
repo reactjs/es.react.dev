@@ -298,7 +298,7 @@ class MouseTracker extends React.Component {
 }
 ```
 
-En este ejemplo, cada vez que se renderiza `<MouseTracker>`, genera una nueva función como el valor de la propiedad `<Mouse render>`, negando así el efecto de `<Mouse>` extendiendo `React.PureComponent` en primer ugar!
+En este ejemplo, cada vez que se renderiza `<MouseTracker>`, genera una nueva función como el valor de la propiedad `<Mouse render>`, negando así el efecto de `<Mouse>` extendiendo `React.PureComponent` en primer lugar!
 
 Para solucionar este problema, a veces se puede definir la prop como un método de instancia, así:
 
