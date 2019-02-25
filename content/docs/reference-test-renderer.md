@@ -1,6 +1,6 @@
 ---
 id: test-renderer
-title: Renderizador de Prueba
+title: Renderizador de prueba
 permalink: docs/test-renderer.html
 layout: docs
 category: Referencia
@@ -10,14 +10,14 @@ category: Referencia
 
 ```javascript
 import TestRenderer from 'react-test-renderer'; // ES6
-const TestRenderer = require('react-test-renderer'); // ES5 with npm
+const TestRenderer = require('react-test-renderer'); // ES5 con npm
 ```
 
 ## Resumen {#overview}
 
 Este paquete proporciona un procesador de React que se puede usar para procesar componentes de React a objetos JavaScript puros, sin depender del DOM o de un entorno móvil nativo.
 
-Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Nativo sin usar un navegador o [jsdom](https://github.com/tmpvar/jsdom).
+Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Native sin usar un navegador o [jsdom](https://github.com/tmpvar/jsdom).
 
 Ejemplo:
 
@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Puede usar la función de pruebas de instantánea (`snapshot`) de Jest para guardar automáticamente una copia del árbol JSON en un archivo y comprobar en sus pruebas que no ha cambiado: [Aprende más sobre ello](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+Puede usar la función de pruebas de instantánea (`snapshot`) de Jest para guardar automáticamente una copia del árbol JSON en un archivo y comprobar en sus pruebas que no ha cambiado: [Aprende más sobre ello](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
 
 También puede recorrer la salida para encontrar nodos específicos y hacer afirmaciones sobre ellos.
 
@@ -110,7 +110,7 @@ Crea una instancia `TestRenderer` con el elemento React pasado como argumento. N
 testRenderer.toJSON()
 ```
 
-Devuelve un objeto que representa el árbol renderizado en formato `JSON`. Este árbol solo contiene los nodos específicos de la plataforma como `<div>` o `<View>` y sus `props`, pero no contiene ningún componente escrito por el usuario. Esta representación es práctica para usarla en [pruebas de instantanea (`snapshot`)](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Devuelve un objeto que representa el árbol renderizado en formato `JSON`. Este árbol solo contiene los nodos específicos de la plataforma como `<div>` o `<View>` y sus `props`, pero no contiene ningún componente escrito por el usuario. Esta representación es práctica para usarla en [pruebas de instantanea (`snapshot`)](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
@@ -198,9 +198,7 @@ Busca todos los objetos `test instance` descendientes con el tipo (`type`) pasad
 testInstance.findAllByProps(props)
 ```
 
-
 Busca todos los objetos `test instance` descendientes con los `props` pasados como argumento.
-Find all descendant test instances with the provided `props`.
 
 ### `testInstance.instance` {#testinstanceinstance}
 
@@ -268,7 +266,7 @@ TestRenderer.create(
   {
     createNodeMock: (element) => {
       if (element.type === 'input') {
-        // mock a focus function
+        // simula una función de enfoque
         return {
           focus: () => {
             focused = true;

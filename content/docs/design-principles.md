@@ -1,6 +1,6 @@
 ---
 id: design-principles
-title: Design Principles
+title: Principios de diseño
 layout: contributing
 permalink: docs/design-principles.html
 prev: implementation-notes.html
@@ -8,156 +8,156 @@ redirect_from:
   - "contributing/design-principles.html"
 ---
 
-We wrote this document so that you have a better idea of how we decide what React does and what React doesn't do, and what our development philosophy is like. While we are excited to see community contributions, we are not likely to choose a path that violates one or more of these principles.
+Escribimos este documento para que tengas una mejor idea de como decidimos lo que hace y lo que no hace React, y como es nuestra filosofía de desarrollo. Si bien estamos entusiasmados por ver contribuciones de la comunidad, es poco probable que elijamos una ruta que viole uno o más de estos principios.
 
->**Note:**
+>**Nota:**
 >
->This document assumes a strong understanding of React. It describes the design principles of *React itself*, not React components or applications.
+>Este documento asume un fuerte entendimiento de React. Describe los principios de diseño de *React en sí mismo*, no de componentes o aplicaciones de React.
 >
->For an introduction to React, check out [Thinking in React](/docs/thinking-in-react.html) instead.
+>Para una introducción a React, chequea en su lugar [Pensando en React](/docs/thinking-in-react.html).
 
-### Composition {#composition}
+### Composición {#composition}
 
-The key feature of React is composition of components. Components written by different people should work well together. It is important to us that you can add functionality to a component without causing rippling changes throughout the codebase.
+La característica clave de React es la composición de componentes. Los componentes escritos por distintas personas deben trabajar bien en conjunto. Es importante para nosotros que puedas añadir funcionalidad a un componente sin causar una ola de cambios a lo largo de la base de código.
 
-For example, it should be possible to introduce some local state into a component without changing any of the components using it. Similarly, it should be possible to add some initialization and teardown code to any component when necessary.
+Por ejemplo, debería ser posible introducir algún estado local en un componente sin cambiar ninguno de los componentes que lo usen. Igualmente, debería ser posible añadir código de inicialización y destrucción a cualquier componente cuando sea necesario.
 
-There is nothing "bad" about using state or lifecycle methods in components. Like any powerful feature, they should be used in moderation, but we have no intention to remove them. On the contrary, we think they are integral parts of what makes React useful. We might enable [more functional patterns](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) in the future, but both local state and lifecycle methods will be a part of that model.
+No hay nada "malo" en usar estado o métodos del ciclo de vida en componentes. Como cualquier funcionalidad poderosa, deben ser usados con moderación, pero no tenemos intención de eliminarlos. Por el contrario, pensamos que son parte integral de lo que hace útil a React. Podríamos habilitar [patrones más funcionales](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) en el futuro, pero tanto el estado local como los métodos del ciclo de vida serán parte de ese modelo.
 
-Components are often described as "just functions" but in our view they need to be more than that to be useful. In React, components describe any composable behavior, and this includes rendering, lifecycle, and state. Some external libraries like [Relay](http://facebook.github.io/relay/) augment components with other responsibilities such as describing data dependencies. It is possible that those ideas might make it back into React too in some form.
+Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](https://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
 
-### Common Abstraction {#common-abstraction}
+### Abstracciones comunes {#common-abstraction}
 
-In general we [resist adding features](https://www.youtube.com/watch?v=4anAwXYqLG8) that can be implemented in userland. We don't want to bloat your apps with useless library code. However, there are exceptions to this.
+En general [evitamos añadir funcionalidades](https://www.youtube.com/watch?v=4anAwXYqLG8) que puedan ser implementadas en espacio de usuario. No queremos sobrecargar tus aplicaciones con código de biblioteca que sea inútil. Sin embargo, existen excepciones.
 
-For example, if React didn't provide support for local state or lifecycle methods, people would create custom abstractions for them. When there are multiple abstractions competing, React can't enforce or take advantage of the properties of either of them. It has to work with the lowest common denominator.
+Por ejemplo, si React no proveyera soporte para el estado local o métodos del ciclo de vida, las personas crearían abstracciones propias para eso. Cuando existen múltiples abstracciones compitiendo, React no puede imponer o aprovechar las propiedades de ninguna de ellas. Tendría que trabajar con el mínimo común denominador.
 
-This is why sometimes we add features to React itself. If we notice that many components implement a certain feature in incompatible or inefficient ways, we might prefer to bake it into React. We don't do it lightly. When we do it, it's because we are confident that raising the abstraction level benefits the whole ecosystem. State, lifecycle methods, cross-browser event normalization are good examples of this.
+Es por eso que algunas veces añadimos funcionalidades a React. Si notamos que muchos componentes implementan una funcionalidad en específico de manera ineficiente o incompatible, podríamos preferir incluirla en React. No lo hacemos a la ligera. Cuando lo hacemos, es porque estamos confiados de que elevar el nivel de la abstracción beneficia al ecosistema en su conjunto. El estado, los métodos del ciclo de vida, y la normalización de eventos entre navegadores son ejemplos claros de esto.
 
-We always discuss such improvement proposals with the community. You can find some of those discussions by the ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") label on the React issue tracker.
+Siempre discutimos estas propuestas de mejora con la comunidad. Puedes encontrar algunas de estas discusiones con la etiqueta ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") en el gestor de incidencias de React.
 
-### Escape Hatches {#escape-hatches}
+### Válvulas de escape {#escape-hatches}
 
-React is pragmatic. It is driven by the needs of the products written at Facebook. While it is influenced by some paradigms that are not yet fully mainstream such as functional programming, staying accessible to a wide range of developers with different skills and experience levels is an explicit goal of the project.
+React es pragmático. Esta guiado por la necesidad de los productos escritos en Facebook. Si bien es influenciado por algunos paradigmas que aún no son totalmente convencionales, tales como la programación funcional, mantenerlo accesible a un amplio rango de programadores con distintos niveles de experiencia y habilidades es uno de los objetivos explícitos del proyecto.
 
-If we want to deprecate a pattern that we don't like, it is our responsibility to consider all existing use cases for it and [educate the community about the alternatives](/blog/2016/07/13/mixins-considered-harmful.html) before we deprecate it. If some pattern that is useful for building apps is hard to express in a declarative way, we will [provide an imperative API](/docs/more-about-refs.html) for it. If we can't figure out a perfect API for something that we found necessary in many apps, we will [provide a temporary subpar working API](/docs/legacy-context.html) as long as it is possible to get rid of it later and it leaves the door open for future improvements.
+Si queremos descontinuar un patrón que no nos gusta, es nuestra responsabilidad considerar todos los casos de uso existentes para él, y antes de descontinuarlo [educar a la comunidad respecto a las alternativas](/blog/2016/07/13/mixins-considered-harmful.html). Si algún patrón es útil para construir aplicaciones, pero es difícil de expresar de una manera declarativa, [proveeremos una API imperativa](/docs/more-about-refs.html). Si no podemos encontrar una API perfecta para algo que consideramos necesario en múltiples aplicaciones, [temporalmente proporcionaremos una API funcional](/docs/legacy-context.html) siempre y cuando sea posible librarnos de ella posteriormente, y se deje la puerta abierta a mejoras futuras.
 
-### Stability {#stability}
+### Estabilidad {#stability}
 
-We value API stability. At Facebook, we have more than 50 thousand components using React. Many other companies, including [Twitter](https://twitter.com/) and [Airbnb](https://www.airbnb.com/), are also heavy users of React. This is why we are usually reluctant to change public APIs or behavior.
+Valoramos la estabilidad de la API. En Facebook tenemos más de 50 mil componentes usando React. Muchas otras compañías, incluyendo [Twitter](https://twitter.com/) y [Airbnb](https://www.airbnb.com/), también usan React extensamente. Es por eso que usualmente somos reacios a cambiar APIs o comportamientos públicos.
 
-However we think stability in the sense of "nothing changes" is overrated. It quickly turns into stagnation. Instead, we prefer the stability in the sense of "It is heavily used in production, and when something changes, there is a clear (and preferably automated) migration path."
+Sin embargo, creemos que la estabilidad en el sentido de "nada cambia" está sobrevalorada. Se transforma rápidamente en estancamiento. En su lugar, preferimos la estabilidad en el sentido de "es ampliamente usado en producción, y cuando algo cambia, hay una ruta clara (y preferiblemente automatizada) de migración."
 
-When we deprecate a pattern, we study its internal usage at Facebook and add deprecation warnings. They let us assess the impact of the change. Sometimes we back out if we see that it is too early, and we need to think more strategically about getting the codebases to the point where they are ready for this change.
+Cuando descontinuamos un patrón, estudiamos su uso interno en Facebook y añadimos advertencias de descontinuación. Esto nos permite evaluar el impacto del cambio. A veces nos retractamos si vemos que es muy temprano, y que necesitamos pensar de una manera más estratégica como llevar las bases de código al punto en el cual estén listas para este cambio.
 
-If we are confident that the change is not too disruptive and the migration strategy is viable for all use cases, we release the deprecation warning to the open source community. We are closely in touch with many users of React outside of Facebook, and we monitor popular open source projects and guide them in fixing those deprecations.
+Si confiamos que el cambio no es muy disruptivo y que la estrategia de migración es viable para todos los casos de uso, liberamos las notificaciones de descontinuación a la comunidad de código abierto. Estamos en contacto cercano con muchos usuarios de React por fuera de Facebook, y monitoreamos proyectos de código abierto populares, y los guiamos en la resolución de estas descontinuaciones.
 
-Given the sheer size of the Facebook React codebase, successful internal migration is often a good indicator that other companies won't have problems either. Nevertheless sometimes people point out additional use cases we haven't thought of, and we add escape hatches for them or rethink our approach.
+Dado el inmenso tamaño de la base de código en React de Facebook, una migración interna exitosa es a menudo un buen indicador de que otras compañías tampoco tendrán problemas. Sin embargo, a veces las personas nos indican casos de usos adicionales que no habíamos pensado, y añadimos válvulas de escape para ellos o repensamos nuestro enfoque.
 
-We don't deprecate anything without a good reason. We recognize that sometimes deprecations warnings cause frustration but we add them because deprecations clean up the road for the improvements and new features that we and many people in the community consider valuable.
+No descontinuamos nada sin una buena razón. Reconocemos que a veces las advertencias de descontinuación causan frustración, pero las añadimos porque las descontinuaciones limpian el camino para las mejoras y nuevas funcionalidades que nosotros y muchos en la comunidad consideran valiosas.
 
-For example, we added a [warning about unknown DOM props](/warnings/unknown-prop.html) in React 15.2.0. Many projects were affected by this. However fixing this warning is important so that we can introduce the support for [custom attributes](https://github.com/facebook/react/issues/140) to React. There is a reason like this behind every deprecation that we add.
+Por ejemplo, en React 15.2.0 añadimos [una advertencia acerca de props desconocidos en el DOM](/warnings/unknown-prop.html). Muchos proyectos fueron afectados por esto. Sin embargo arreglar esta advertencia es importante para poder introducir en React soporte para [atributos personalizados](https://github.com/facebook/react/issues/140). Hay una razón como esta detrás de cada advertencia de descontinuación que añadimos.
 
-When we add a deprecation warning, we keep it for the rest of the current major version, and [change the behavior in the next major version](/blog/2016/02/19/new-versioning-scheme.html). If there is a lot of repetitive manual work involved, we release a [codemod](https://www.youtube.com/watch?v=d0pOgY8__JM) script that automates most of the change. Codemods enable us to move forward without stagnation in a massive codebase, and we encourage you to use them as well.
+Cuando añadimos una advertencia de descontinuación, la mantenemos por el resto de la versión mayor actual, y [cambiamos el comportamiento en la siguiente versión mayor](/blog/2016/02/19/new-versioning-scheme.html). Si hay un montón de trabajo manual involucrado, liberamos un script de [codemod](https://www.youtube.com/watch?v=d0pOgY8__JM) que automatiza la mayor parte del cambio. Los *Codemods* nos permiten avanzar sin estancamiento en una base de código masivo, y te alentamos a que también los uses.
 
-You can find the codemods that we released in the [react-codemod](https://github.com/reactjs/react-codemod) repository.
+Puedes encontrar los *codemods* que hemos liberado en el repositorio [react-codemod](https://github.com/reactjs/react-codemod).
 
-### Interoperability {#interoperability}
+### Interoperabilidad {#interoperability}
 
-We place high value in interoperability with existing systems and gradual adoption. Facebook has a massive non-React codebase. Its website uses a mix of a server-side component system called XHP, internal UI libraries that came before React, and React itself. It is important to us that any product team can [start using React for a small feature](https://www.youtube.com/watch?v=BF58ZJ1ZQxY) rather than rewrite their code to bet on it.
+Valoramos altamente la interoperabilidad con sistemas existentes y la adopción gradual. Facebook tiene una base de código masiva que no es React. Sus sitios web usan una mezcla de un sistema de componentes del lado de servidor llamado XHP, bibliotecas internas de interfaz de usuario previas a React, y React. Para nosotros es importante que cualquier equipo de producto pueda [comenzar usando React para una funcionalidad pequeña](https://www.youtube.com/watch?v=BF58ZJ1ZQxY) en vez de reescribir su código para apostar por él.
 
-This is why React provides escape hatches to work with mutable models, and tries to work well together with other UI libraries. You can wrap an existing imperative UI into a declarative component, and vice versa. This is crucial for gradual adoption.
+Es por eso que React provee válvulas de escape para trabajar con modelos mutables, y trata de trabajar bien con otras bibliotecas de interfaz de usuario. Puedes envolver una interfaz de usuario imperativa en un componente declarativo, y viceversa. Esto es crucial para la adopción gradual.
 
-### Scheduling {#scheduling}
+### Planificación {#scheduling}
 
-Even when your components are described as functions, when you use React you don't call them directly. Every component returns a [description of what needs to be rendered](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree), and that description may include both user-written components like `<LikeButton>` and platform-specific components like `<div>`. It is up to React to "unroll" `<LikeButton>` at some point in the future and actually apply changes to the UI tree according to the render results of the components recursively.
+Incluso cuando tus componentes son descritos como funciones, al usar React no los llamas directamente. Cada componente retorna una [descripción de lo que necesita ser renderizado](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree), y dicha descripción puede incluir componentes escritos por el usuario como `<LikeButton>` y componentes específicos de la plataforma como `<div>`. Corresponde a React "desenrollar" `<LikeButton>` en algún momento en el futuro y aplicar recursivamente los cambios al árbol de interfaz de usuario de acuerdo a los resultados de renderizar los componentes.
 
-This is a subtle distinction but a powerful one. Since you don't call that component function but let React call it, it means React has the power to delay calling it if necessary. In its current implementation React walks the tree recursively and calls render functions of the whole updated tree during a single tick. However in the future it might start [delaying some updates to avoid dropping frames](https://github.com/facebook/react/issues/6170).
+Esta es una distinción sutil pero poderosa. Dado que no llamas la función del componente, pero dejas que React la llame, esto significa que React tiene el poder de retrasar esta llamada si es necesario. En su implementación actual React recorre el árbol recursivamente y llama a las funciones de renderizado del árbol completamente actualizado en un único `tick`. Sin embargo, en el futuro podría empezar a [retrasar algunas actualizaciones para evitar la eliminación de cuadros](https://github.com/facebook/react/issues/6170).
 
-This is a common theme in React design. Some popular libraries implement the "push" approach where computations are performed when the new data is available. React, however, sticks to the "pull" approach where computations can be delayed until necessary.
+Este es un tema común en el diseño de React. Algunas bibliotecas populares implementan el enfoque *"push"* en el cual la computación se realiza cuando nuevos datos están disponibles. React, sin embargo, se apega al enfoque *"pull"* en el cual las computaciones pueden ser retrasadas hasta que sean necesarias.
 
-React is not a generic data processing library. It is a library for building user interfaces. We think that it is uniquely positioned in an app to know which computations are relevant right now and which are not.
+React no es una biblioteca genérica de procesamiento de datos. Es una biblioteca para construir interfaces de usuario. Creemos que está posicionada de forma única en una aplicación para conocer cuales computaciones son relevantes inmediatamente y cuales no.
 
-If something is offscreen, we can delay any logic related to it. If data is arriving faster than the frame rate, we can coalesce and batch updates. We can prioritize work coming from user interactions (such as an animation caused by a button click) over less important background work (such as rendering new content just loaded from the network) to avoid dropping frames.
+Si algo se encuentra fuera de la pantalla, podemos retrasar cualquier lógica relacionada. Si los datos están llegando más rápido que la tasa de cuadros por segundos, podemos fusionar y agrupar por lotes las actualizaciones. Podemos priorizar el trabajo proveniente de las interacciones del usuario (tales como las animaciones causadas por presionar un botón) por encima de trabajo en segundo plano menos importante (tal como renderizar nuevo contenido descargado recientemente de la red) para evitar la perdida de cuadros.
 
-To be clear, we are not taking advantage of this right now. However the freedom to do something like this is why we prefer to have control over scheduling, and why `setState()` is asynchronous. Conceptually, we think of it as "scheduling an update".
+Para estar claros, no estamos aprovechando esto en este momento. Sin embargo la libertad de poder hacerlo es la razón por la que preferimos tener el control sobre la planificación, y por la que `setState()` es asíncrono. Conceptualmente, pensamos acerca de esto como "planificar una actualización".
 
-The control over scheduling would be harder for us to gain if we let the user directly compose views with a "push" based paradigm common in some variations of [Functional Reactive Programming](https://en.wikipedia.org/wiki/Functional_reactive_programming). We want to own the "glue" code.
+El control sobre la planificación nos sería más difícil de obtener si dejamos que el usuario componga vistas directamente con un paradigma basado en *"push"* común en algunas variantes de la [Programación Funcional Reactiva](https://en.wikipedia.org/wiki/Functional_reactive_programming). Queremos tener la propiedad sobre el código "pega".
 
-It is a key goal for React that the amount of the user code that executes before yielding back into React is minimal. This ensures that React retains the capability to schedule and split work in chunks according to what it knows about the UI.
+Es un objetivo clave para React que la cantidad del código de usuario que se ejecute antes de regresar a React sea mínimo. Esto asegura que React retenga la capacidad de planificar y dividir el trabajo en trozos de acuerdo a lo que conoce acerca de la interfaz de usuario.
 
-There is an internal joke in the team that React should have been called "Schedule" because React does not want to be fully "reactive".
+Tenemos un chiste interno en el equipo de React acerca de que debería haberse llamado *"Schedule"* (el inglés para Plan), ya que React no quiere ser completamente "reactivo".
 
-### Developer Experience {#developer-experience}
+### Experiencia de desarrollador {#developer-experience}
 
-Providing a good developer experience is important to us.
+Proveer una buena experiencia de desarrollador es importante para nosotros.
 
-For example, we maintain [React DevTools](https://github.com/facebook/react-devtools) which let you inspect the React component tree in Chrome and Firefox. We have heard that it brings a big productivity boost both to the Facebook engineers and to the community.
+Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
 
-We also try to go an extra mile to provide helpful developer warnings. For example, React warns you in development if you nest tags in a way that the browser doesn't understand, or if you make a common typo in the API. Developer warnings and the related checks are the main reason why the development version of React is slower than the production version.
+También tratamos de dar un extra para proveer advertencias útiles a los desarrolladores. Por ejemplo, React te advierte en desarrollo si anidas etiquetas de una forma que el navegador no las entiende, o si cometes un error de transcripción en la API. Las advertencias a desarrolladores y los chequeos relacionados son la razón principal por la que la versión de desarrollo de React es más lenta que la versión de producción.
 
-The usage patterns that we see internally at Facebook help us understand what the common mistakes are, and how to prevent them early. When we add new features, we try to anticipate the common mistakes and warn about them.
+Los patrones de uso que observamos internamente en Facebook nos permiten entender cuales son los errores comunes, y prevenirlos de manera temprana. Cuando añadimos nuevas funcionalidades, tratamos de anticipar los errores comunes y advertir acerca de ellos.
 
-We are always looking out for ways to improve the developer experience. We love to hear your suggestions and accept your contributions to make it even better.
+Siempre estamos buscando formas de mejorar la experiencia de desarrollo. Nos encantaría oir tus sugerencias y aceptar contribuciones para mejorarla aún más.
 
-### Debugging {#debugging}
+### Depuración {#debugging}
 
-When something goes wrong, it is important that you have breadcrumbs to trace the mistake to its source in the codebase. In React, props and state are those breadcrumbs.
+Cuando algo sale mal, es importante contar con las migajas de pan que te permitan rastrear el error a su origen en la base de código. En React, los *props* y el estado son esas migajas de pan.
 
-If you see something wrong on the screen, you can open React DevTools, find the component responsible for rendering, and then see if the props and state are correct. If they are, you know that the problem is in the component’s `render()` function, or some function that is called by `render()`. The problem is isolated.
+Si ves algo malo en la pantalla, puedes abrir la herramientas de desarrollo de React, encontrar el componente responsable del renderizado, y ver si los *props* y el estado son correctos. Si lo son, sabes que el problema está en la función `render()` del componente, o en alguna función llamada por `render()`. El problema está aislado.
 
-If the state is wrong, you know that the problem is caused by one of the `setState()` calls in this file. This, too, is relatively simple to locate and fix because usually there are only a few `setState()` calls in a single file.
+Si el estado es incorrecto, sabes que el problema es causado por alguna de las llamadas a `setState()` en este archivo. Esto también es relativamente simple de ubicar y arreglar, porque usualmente hay solo unas pocas llamadas a `setState()` en un solo archivo.
 
-If the props are wrong, you can traverse the tree up in the inspector, looking for the component that first "poisoned the well" by passing bad props down.
+Si los *props* son incorrectos, puedes recorrer el árbol hacia arriba en el inspector, buscando el componente que haya sido el primero en "envenenar el pozo" al pasar *props* incorrectas.
 
-This ability to trace any UI to the data that produced it in the form of current props and state is very important to React. It is an explicit design goal that state is not "trapped" in closures and combinators, and is available to React directly.
+Esta capacidad de rastrear cualquier interfaz de usuario hasta los datos que la produjeron en la forma de *props* y estado actual es muy importante para React. Es un objetivo explícito del diseño que el estado no esté "atrapado" en combinadores y clausuras, y que esté disponible a React directamente.
 
-While the UI is dynamic, we believe that synchronous `render()` functions of props and state turn debugging from guesswork into a boring but finite procedure. We would like to preserve this constraint in React even though it makes some use cases, like complex animations, harder.
+Si bien la interfaz de usuario es dinámica, creemos que funciones `render()` síncronas en función de los *props* y el estado convierten la depuración de un trabajo adivinatorio en un procedimiento aburrido pero finito. Nos gustaría preservar esta restricción aunque haga algunos casos de uso, tales como animaciones complejas, más difíciles. 
 
-### Configuration {#configuration}
+### Configuración {#configuration}
 
-We find global runtime configuration options to be problematic.
+Encontramos que las opciones de configuración globales en tiempo de ejecución son problemáticas.
 
-For example, it is occasionally requested that we implement a function like `React.configure(options)` or `React.register(component)`. However this poses multiple problems, and we are not aware of good solutions to them.
+Por ejemplo, ocasionalmente se nos solicita que implementemos una función como `React.configure(options)` o `React.register(component)`. Sin embargo, esto plantea múltiples problemas, y no conocemos buenas soluciones para ellos.
 
-What if somebody calls such a function from a third-party component library? What if one React app embeds another React app, and their desired configurations are incompatible? How can a third-party component specify that it requires a particular configuration? We think that global configuration doesn't work well with composition. Since composition is central to React, we don't provide global configuration in code.
+¿Qué pasaría si alguien llama dicha función desde una biblioteca de componentes de terceros? ¿Y qué si una aplicación React contiene embebida otra aplicación React, y sus configuraciones son incompatibles? ¿Cómo podría un componente de terceros especificar que requiere una configuración en particular? Creemos que una configuración global no funciona bien con la composición. Dado que la composición es central en React, no proveemos configuración global en el código.
 
-We do, however, provide some global configuration on the build level. For example, we provide separate development and production builds. We may also [add a profiling build](https://github.com/facebook/react/issues/6627) in the future, and we are open to considering other build flags.
+Sin embargo, sí proveemos alguna configuración global a nivel de compilación. Por ejemplo, proveemos procesos de compilación separados para desarrollo y producción. Podríamos también  [incluir una compilación para análisis de rendimiento](https://github.com/facebook/react/issues/6627) en el futuro, y estamos abiertos a considerar otras opciones de compilación.
 
-### Beyond the DOM {#beyond-the-dom}
+### Más allá del DOM {#beyond-the-dom}
 
-We see the value of React in the way it allows us to write components that have fewer bugs and compose together well. DOM is the original rendering target for React but [React Native](http://facebook.github.io/react-native/) is just as important both to Facebook and the community.
+Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](https://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
 
-Being renderer-agnostic is an important design constraint of React. It adds some overhead in the internal representations. On the other hand, any improvements to the core translate across platforms.
+Ser agnóstico al renderizador es una restricción de diseño importante para React. Añade una sobrecarga en la representación interna. Por otra parte, cualquier mejora en el núcleo se traduce en una mejora a lo largo de todas las plataformas.
 
-Having a single programming model lets us form engineering teams around products instead of platforms. So far the tradeoff has been worth it for us.
+Tener un modelo de programación único nos permite formar equipos de ingeniería alrededor de productos, en lugar de plataformas. Hasta ahora este sacrificio ha valido la pena.
 
-### Implementation {#implementation}
+### Implementación {#implementation}
 
-We try to provide elegant APIs where possible. We are much less concerned with the implementation being elegant. The real world is far from perfect, and to a reasonable extent we prefer to put the ugly code into the library if it means the user does not have to write it. When we evaluate new code, we are looking for an implementation that is correct, performant and affords a good developer experience. Elegance is secondary.
+Tratamos de proveer APIs elegantes donde sea posible. Estamos mucho menos preocupados con que la implementación sea elegante. El mundo real está muy lejos de ser perfecto, y en una medida razonable preferimos poner el código feo en la biblioteca si eso significa que el usuario no tiene que escribirlo. Cuando evaluamos nuevo código, buscamos una implementación correcta, con buen rendimiento y que permita una buena experiencia de desarrollo. La elegancia es secundaria.
 
-We prefer boring code to clever code. Code is disposable and often changes. So it is important that it [doesn't introduce new internal abstractions unless absolutely necessary](https://youtu.be/4anAwXYqLG8?t=13m9s). Verbose code that is easy to move around, change and remove is preferred to elegant code that is prematurely abstracted and hard to change.
+Preferimos código aburrido a código inteligente. El código es descartable y cambia a menudo. Así que es importante que [no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario](https://youtu.be/4anAwXYqLG8?t=13m9s). Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que esté abstraído de manera prematura y que sea difícil de cambiar. 
 
-### Optimized for Tooling {#optimized-for-tooling}
+### Optimizado para instrumentación {#optimized-for-tooling}
 
-Some commonly used APIs have verbose names. For example, we use `componentDidMount()` instead of `didMount()` or `onMount()`. This is [intentional](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). The goal is to make the points of interaction with the library highly visible.
+Algunas APIs comúnmente usadas tienen nombres detallados. Por ejemplo, usamos `componentDidMount()` en lugar de `didMount()` o `onMount()`. Esto es [intencional](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). El objetivo es hacer los puntos de interacción con la biblioteca ampliamente visibles.
 
-In a massive codebase like Facebook, being able to search for uses of specific APIs is very important. We value distinct verbose names, and especially for the features that should be used sparingly. For example, `dangerouslySetInnerHTML` is hard to miss in a code review.
+En una base de código masiva como la de Facebook, ser capaz de buscar los usos de una API específica es muy importante. Valoramos nombres distintivos y detallados, especialmente para las funcionalidades que deberían ser poco usadas. Por ejemplo, `dangerouslySetInnerHTML` es muy difícil de no ver en una revisión de código.
 
-Optimizing for search is also important because of our reliance on [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) to make breaking changes. We want it to be easy and safe to apply vast automated changes across the codebase, and unique verbose names help us achieve this. Similarly, distinctive names make it easy to write custom [lint rules](https://github.com/yannickcr/eslint-plugin-react) about using React without worrying about potential false positives.
+Optimizar para la búsqueda también es importante  por nuestra dependencia de [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) para realizar cambios incompatibles. Queremos que sea fácil y seguro aplicar gran cantidad de cambios automatizados a lo largo de la base de código, y los nombres distintivos detallados nos ayudan a lograr esto. De igual manera, los nombres distintivos facilitan escribir [reglas de validación](https://github.com/yannickcr/eslint-plugin-react) personalizadas para usar React sin preocuparse por falsos positivos.
 
-[JSX](/docs/introducing-jsx.html) plays a similar role. While it is not required with React, we use it extensively at Facebook both for aesthetic and pragmatic reasons.
+[JSX](/docs/introducing-jsx.html) juega un papel similar. Si bien no es requerido con React, lo utilizamos ampliamente en Facebook por razones estéticas y pragmáticas.
 
-In our codebase, JSX provides an unambiguous hint to the tools that they are dealing with a React element tree. This makes it possible to add build-time optimizations such as [hoisting constant elements](http://babeljs.io/docs/plugins/transform-react-constant-elements/), safely lint and codemod internal component usage, and [include JSX source location](https://github.com/facebook/react/pull/6771) into the warnings.
+En nuestra base de código, JSX provee una pista inequívoca a las herramientas de que están tratando con un árbol de elementos de React. Esto hace posible añadir optimizaciones en tiempo de compilación tales como [elevar elementos constantes](https://babeljs.io/docs/en/babel-plugin-transform-react-constant-elements/), y de forma segura validar y aplicar *codemods* al uso interno de componentes, e [incluir la ubicación del código fuente JSX](https://github.com/facebook/react/pull/6771)  en las advertencias.
 
-### Dogfooding {#dogfooding}
+### *Dogfooding* {#dogfooding}
 
-We try our best to address the problems raised by the community. However we are likely to prioritize the issues that people are *also* experiencing internally at Facebook. Perhaps counter-intuitively, we think this is the main reason why the community can bet on React.
+Hacemos todo lo posible para abordar los problemas planteados por la comunidad. Sin embargo, es probable que prioricemos los problemas que las personas *también* experimentan internamente en Facebook. Quizás de manera contraria a la intuición, creemos que esta es la razón principal por la que la comunidad puede apostar por React.
 
-Heavy internal usage gives us the confidence that React won't disappear tomorrow. React was created at Facebook to solve its problems. It brings tangible business value to the company and is used in many of its products. [Dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) it means that our vision stays sharp and we have a focused direction going forward.
+El amplio uso interno nos da la confianza de que React no desaparecerá mañana. Le añade un valor de negocio tangible a la compañía y es usado en muchos de sus productos. Usar nuestro propio producto, una práctica conocida como [*Dogfooding*](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) en inglés, significa que nuestra visión permanece nítida y que tenemos una dirección enfocada hacia el futuro.
 
-This doesn't mean that we ignore the issues raised by the community. For example, we added support for [web components](/docs/webcomponents.html) and [SVG](https://github.com/facebook/react/pull/6243) to React even though we don't rely on either of them internally. We are actively [listening to your pain points](https://github.com/facebook/react/issues/2686) and [address them](/blog/2016/07/11/introducing-reacts-error-code-system.html) to the best of our ability. The community is what makes React special to us, and we are honored to contribute back.
+Esto no quiere decir que ignoramos los problemas identificados por la comunidad. Por ejemplo, añadimos soporte a los [componentes web](/docs/webcomponents.html) y a [SVG](https://github.com/facebook/react/pull/6243) en React a pesar de que no dependemos de ninguno de ellos internamente. Estamos [escuchando activamente tus puntos de dolor](https://github.com/facebook/react/issues/2686) y [los abordamos](/blog/2016/07/11/introducing-reacts-error-code-system.html) de la mejor manera posible. La comunidad es lo que hace que React sea especial para nosotros, y nos sentimos honrados de contribuir.
 
-After releasing many open source projects at Facebook, we have learned that trying to make everyone happy at the same time produced projects with poor focus that didn't grow well. Instead, we found that picking a small audience and focusing on making them happy brings a positive net effect. That's exactly what we did with React, and so far solving the problems encountered by Facebook product teams has translated well to the open source community.
+Después de haber liberado muchos proyectos de código abierto en Facebook, hemos aprendido que tratar de hacer a todo el mundo feliz al mismo tiempo producía proyectos mal enfocados que no escalaban bien. En su lugar, descubrimos que elegir a una pequeña audiencia y enfocarnos en hacerlos felices produce un efecto neto positivo. Eso es exactamente lo que hicimos con React, y hasta ahora resolver los problemas encontrados por los equipos de producto en Facebook se ha traducido bien a la comunidad de código abierto.
 
-The downside of this approach is that sometimes we fail to give enough focus to the things that Facebook teams don't have to deal with, such as the "getting started" experience. We are acutely aware of this, and we are thinking of how to improve in a way that would benefit everyone in the community without making the same mistakes we did with open source projects before.
+La desventaja de este enfoque es que a veces fallamos en dar suficiente foco a los aspectos con los que los equipos de Facebook no tienen que lidiar, tales como la experiencia de "comenzar". Estamos muy conscientes de esto, y estamos buscando como mejorarlo de una forma que beneficie a todos en la comunidad sin cometer los mismos errores que tuvimos anteriormente con proyectos de código abierto.

@@ -308,9 +308,9 @@ Recapitulemos qué pasa cuando editamos una entrada:
 * React llama a la función especificada como `onChange` en el `<input>` del DOM. En nuestro caso es el método `handleChange` en el componente `TemperatureInput`.
 * El método `handleChange` en el componente `TemperatureInput` llama a `this.props.onTemperatureChange()` con el nuevo valor. Sus propiedades, incluyendo `onTemperatureChange`, fueron provistas para el componente padre `Calculator`.
 * Cuando renderizó previamente, `Calculator` especificó que `onTemperatureChange` del componente `TemperatureInput` con la escala Celsius es el método `handleCelsiusChange` y `onTemperatureChange` del componente `TemperatureUnit` con escala Fahrenheit es el método `handleFahrenheitChange`. Entonces, cada uno de estos métodos es llamado dependiendo del componente que se edite.
-* Dentro de estos métodos, el componente `Calculator` pregunta a React para rerenderizarse a sí mismo llamando al método `this.setState()` con el nuevo valor y la escala actual de la entrada que acabamos de editar.
-* React llama al método `render` del componente `Calculator` para saber cómo debe lucir la IU. Los valores de ambas entradas son recalculados en base a la temperatura actual y la escala activa. La conversión de temperatura es hecha aquí.
-* React llama a los métodos `render` de los componentes `TemperatureInput` de manera individual con sus nuevas propiedades especificadas por `Calculator`. Aprende como sus IU deberían verse.
+* Dentro de estos métodos, el componente `Calculator` pregunta a React para volver a renderizar a sí mismo llamando al método `this.setState()` con el nuevo valor y la escala actual de la entrada que acabamos de editar.
+* React llama al método `render` del componente `Calculator` para saber cómo debe lucir la interfaz de usuario. Los valores de ambas entradas son recalculados en base a la temperatura actual y la escala activa. La conversión de temperatura es hecha aquí.
+* React llama a los métodos `render` de los componentes `TemperatureInput` de manera individual con sus nuevas propiedades especificadas por `Calculator`. Aprende como sus interfaces de usuario deberían verse.
 * React llama al método `render` del componente `BoilingVerdict`, pasando la temperatura en Celsius como una propiedad.
 * React DOM actualiza el DOM con el componente `BolingVerdict` y sincroniza los valores deseados para las entradas. La entrada que acabmos de actualizar recibe su valor actual, y la otra entrada es actualizada a su temperatura luego de hacer la conversión.
 
@@ -324,6 +324,6 @@ Levantar el estado implica escribir más código *"boilerplate"* que los enfoque
 
 Si algo puede ser derivado de las propiedades o el estado, probablemente no debería estar en el estado. Por ejemplo, en vez de almacenar `celsiusValue` y `fahrenheitValue`, solamente almacenamos la última edición a `temperature` y `scale`. El valor de de la otra entrada siempre puede ser calculado desde el método `render()`. Esto nos permite limpiar o aplicar un redondeo a la otra entrada sin perder la precisión en la entrada del usuario.
 
-Cuando veas que algo está mal en la IU, puedes usar [React Developer Tools](https://github.com/facebook/react-devtools) para inspeccionar las propiedades y moverte hacia arriba en el árbol hasta encontrar el componente responsable de actualizar el estado. Esto te permite seguir un error hasta su fuente:
+Cuando veas que algo está mal en la interfaz de usuario, puedes usar [React Developer Tools](https://github.com/facebook/react-devtools) para inspeccionar las propiedades y moverte hacia arriba en el árbol hasta encontrar el componente responsable de actualizar el estado. Esto te permite seguir un error hasta su fuente:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">

@@ -41,7 +41,7 @@ class CodeExample extends Component {
 
               '& h3': {
                 color: colors.dark,
-                maxWidth: '11em',
+                // maxWidth: '11em',
                 paddingTop: 0,
               },
 
@@ -61,7 +61,7 @@ class CodeExample extends Component {
         {loaded ? (
           <CodeEditor code={code} containerNodeID={containerNodeID} />
         ) : (
-          <h4>Loading code example...</h4>
+          <h4>Cargando código de ejemplo...</h4>
         )}
       </div>
     );

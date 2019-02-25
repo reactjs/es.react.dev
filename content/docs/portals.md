@@ -4,7 +4,7 @@ title: Portales
 permalink: docs/portals.html
 ---
 
-Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del Componente padre.
+Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del componente padre.
 
 ```js
 ReactDOM.createPortal(child, container)
@@ -51,7 +51,7 @@ Un caso de uso típico de los portales es cuando un componente principal tiene u
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
-## Propagación de eventos a través de Portales {#event-bubbling-through-portals}
+## Propagación de eventos a través de portales {#event-bubbling-through-portals}
 
 Aunque un portal puede estar en cualquier parte del árbol DOM, se comporta como un hijo de React normal en cualquier otra forma. Las características como el contexto funcionan exactamente de la misma manera, independientemente de si el elemento hijo es un portal, ya que el portal aún existe en el *árbol de React* sin importar la posición en el *árbol DOM*.
 

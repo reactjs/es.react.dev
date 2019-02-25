@@ -8,7 +8,7 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instragram.
+React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instagram.
 
 Una de las grandes ventaja de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalidad de búsqueda usando React.
 
@@ -31,9 +31,9 @@ Nuestro API JSON devuelve información en el siguiente formato:
 ];
 ```
 
-## Paso 1: Divide la UI en una jerarquía de componentes {#step-1-break-the-ui-into-a-component-hierarchy}
+## Paso 1: Divide la interfaz de usuario en una jerarquía de componentes {#step-1-break-the-ui-into-a-component-hierarchy}
 
-Lo Primero que vas a querer hacer es dibujar cajas alrededor de cada componente (y subcomponente) en el mock y darles nombres a todos ellos. Si trabajas con un diseñador, probablemente ya lo hayan hecho ¡Así que ve a hablar con ellos! ¡Los nombres de sus capas de Photoshop podrían terminar siendo los nombres de tus componentes de React!
+Lo primero que vas a querer hacer es dibujar cajas alrededor de cada componente (y subcomponente) en el mock y darles nombres a todos ellos. Si trabajas con un diseñador, probablemente ya lo hayan hecho ¡Así que ve a hablar con ellos! ¡Los nombres de sus capas de Photoshop podrían terminar siendo los nombres de tus componentes de React!
 
 ¿Pero cómo sabes qué debería ser su propio componente? Usa las mismas técnicas para decidir si deberías crear una función u objeto nuevo. Una técnica es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica), esto significa que un componente debe, idealmente, hacer solo una cosa. Si termina creciendo entonces debería ser dividido en componentes más pequeños.
 
@@ -49,9 +49,9 @@ Verás que tenemos cinco componentes en nuestra aplicación de ejemplo. Hemos es
   4. **`ProductCategoryRow` (turquoise):** muestra el encabezado de cada *categoría*
   5. **`ProductRow` (red):** muestra una fila por cada *producto*
 
-Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Nombre" y "Precio") no son sus propios componentes. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
+Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Name" y "Price") no son sus propios componentes. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
 
-Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos jerarquicamente. Esto es fácil. Los componentes que aparecen dentro de otro componente en nuestro mock deberían aparecer como hijos en la jerarquía.
+Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos jerárquicamente. Esto es fácil. Los componentes que aparecen dentro de otro componente en nuestro mock deberían aparecer como hijos en la jerarquía.
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -61,20 +61,20 @@ Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos
 
 ## Paso 2: Crea una versión estática en React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando en React: Paso 2</a> en <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Ahora que tenemos nuestra jerarquía de componentes, es momento de implementar la aplicación. La forma más fácil es construir una versión que tome nuestro modelo de datos y muestre la interfaz de usuario sin interactividad. Es mejor desacoplar estos procesos porque crear una versión estática requiere escribir un montón pero no pensar tanto, mientras que agregar interactividad requiere pensar un montón y no escribir tanto. Vamos a ver por qué.
 
-Para construír una versión estática de tu aplicación que muestre tu modelo de datos vas a necesitar construir componentes que reusen otros componentes y pasen datos usando *props*. *props* son una forma de pasar datos de un padre a su hijo. Si estás familiarizado con el concepto de *estado*, **no uses para nada el estado** para crear esta versión estática. El estado está reservado para interactividad, esto es, cuando los datos cambian a través del tiempo. Dado que esta es una versión estática de la aplicación, no lo necesitas.
+Para construir una versión estática de tu aplicación que muestre tu modelo de datos vas a necesitar construir componentes que reusen otros componentes y pasen datos usando *props*. *props* son una forma de pasar datos de un padre a su hijo. Si estás familiarizado con el concepto de *estado*, **no uses para nada el estado** para crear esta versión estática. El estado está reservado para interactividad, esto es, cuando los datos cambian a través del tiempo. Dado que esta es una versión estática de la aplicación, no lo necesitas.
 
-Puedes contruir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
+Puedes construir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
 
 Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver como se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
 
 Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
-### Una pequeña pausa: Props vs Estado {#a-brief-interlude-props-vs-state}
+### Una pequeña pausa: Props vs. estado {#a-brief-interlude-props-vs-state}
 
 Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
 
@@ -106,9 +106,9 @@ Finalmente, nuestro estado es:
 
 ## Paso 4: Identificar donde debe vivir tu estado {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
-Bien, hemos identificado la minima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
+Bien, hemos identificado la mínima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
 
 Recuerda: React se trata de usar un flujo de datos en un sentido. Puede que no sea inmediatamente obvio cual componente debería poseer el estado. **Esta es normalmente la parte más complicada para quienes están arrancando con React**, así que sigue estos pasos para averiguarlo.
 
@@ -131,7 +131,7 @@ Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a
 
 ## Paso 5: Agregar flujo de datos inverso {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> e  <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando en React: Paso 5</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
 Hasta ahora, hemos creado una aplicación que funciona correctamente como una función de los props y estado fluyendo hacia abajo en la jerarquía. Es momento entonces de empezar a soportar que los datos fluyan en el otro sentido: el componente de formulario ubicado más abajo en la jerarquía necesita actualizar el estado en `FilterableProductTable`.
 

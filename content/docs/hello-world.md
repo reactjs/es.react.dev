@@ -1,6 +1,6 @@
 ---
 id: hello-world
-title: Hello World
+title: Hola mundo
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
@@ -23,17 +23,15 @@ Dale click al enlace de arriba para abrir un editor online. Tómate la libertad 
 
 ## ¿Cómo leer esta guía? {#how-to-read-this-guide}
 
-En esta guía, examinaremos los componentes básicos de las aplicaciones React: elementos y componentes. Una vez los domines, podrás crear aplicaciones complejas a partir de pequeñas piezas reutilizables. 
-
-In this guide, we will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
+En esta guía, examinaremos los componentes básicos de las aplicaciones React: elementos y componentes. Una vez los domines, podrás crear aplicaciones complejas a partir de pequeñas piezas reutilizables.
 
 >Tip
 >
->Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si tú prefieres aprender haciendo, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
+>Esta guía está diseñada para personas que prefieren **aprender los conceptos paso a paso**. Si prefieres aprender mediante práctica, revisa nuestro [tutorial práctico](/tutorial/tutorial.html). Encontrarás que esta guía y el tutorial se complementan el uno al otro.
 
-Este es el primer capítulo en una guía paso a paso sobre los principales conceptos de React. Puedes encontrar una lista de todos los capítulos en la barra de navigación lateral. Si estás leyendo esto desde un dispositivo móvil, puedes acceder a la navegación presionando el botón en la esquina inferior derecha de tu pantalla.
+Este es el primer capítulo en una guía paso a paso sobre los principales conceptos de React. Puedes encontrar una lista de todos los capítulos en la barra de navegación lateral. Si estás leyendo esto desde un dispositivo móvil, puedes acceder a la navegación presionando el botón en la esquina inferior derecha de tu pantalla.
 
-Cada capítulo en esta guía se construye en base al conocimiento presentado en capítulos anteriores. **Tú puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
+Cada capítulo en esta guía se construye en base al conocimiento presentado en capítulos anteriores. **Puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
 
 ## Suposiciones del nivel de conocimiento {#knowledge-level-assumptions}
 
