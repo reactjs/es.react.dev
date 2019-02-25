@@ -1,11 +1,11 @@
 ---
 id: hooks-faq
-title: Hooks FAQ
+title: Preguntas frecuentes sobre Hooks
 permalink: docs/hooks-faq.html
 prev: hooks-reference.html
 ---
 
-Los *Hooks* son una adición nueva en React 16.8. Te permiten user el estado y otras características de React sin la necesidad de escribir una clase.
+Los *Hooks* son una adición nueva en React 16.8. Te permiten usar el estado y otras características de React sin la necesidad de escribir una clase.
 
 Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](/docs/hooks-overview.html).
 
