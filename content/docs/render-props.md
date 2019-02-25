@@ -10,7 +10,7 @@ Un componente con una `render prop` toma una función que devuelve un elemento d
 
 ```jsx
 <DataProvider render={data => (
-  <h1>Hola {data.target}</h1>
+  <h1>Hello {data.target}</h1>
 )}/>
 ```
 
@@ -42,8 +42,8 @@ class MouseTracker extends React.Component {
   render() {
     return (
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
-        <h1>¡Mueve el cursor alrededor!</h1>
-        <p>La posición actual del mouse es ({this.state.x}, {this.state.y})</p>
+        <h1>Move the mouse around!</h1>
+        <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
       </div>
     );
   }
@@ -77,7 +77,7 @@ class Mouse extends React.Component {
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
 
         {/* ...pero, ¿cómo rederizamos algo más que un <p>? */}
-        <p>La posición actual del mouse es ({this.state.x}, {this.state.y})</p>
+        <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
       </div>
     );
   }
@@ -87,7 +87,7 @@ class MouseTracker extends React.Component {
   render() {
     return (
       <div>
-        <h1>¡Mueve el cursor alrededor!</h1>
+        <h1>Move the mouse around!</h1>
         <Mouse />
       </div>
     );
@@ -145,7 +145,7 @@ class MouseTracker extends React.Component {
   render() {
     return (
       <div>
-        <h1>¡Mueve el cursor alrededor!</h1>
+        <h1>Move the mouse around!</h1>
         <MouseWithCat />
       </div>
     );
@@ -199,7 +199,7 @@ class MouseTracker extends React.Component {
   render() {
     return (
       <div>
-        <h1>¡Mueve el cursor alrededor!</h1>
+        <h1>Move the mouse around!</h1>
         <Mouse render={mouse => (
           <Cat mouse={mouse} />
         )}/>
@@ -243,7 +243,7 @@ Aunque los ejemplos anteriores usan `render`, ¡podríamos usar la proposición 
 
 ```js
 <Mouse children={mouse => (
-  <p>La posición actual del mouse es {mouse.x}, {mouse.y}</p>
+  <p>The mouse position is {mouse.x}, {mouse.y}</p>
 )}/>
 ```
 Y recuerde, la propiedad `children` en realidad no necesita ser nombrada en la lista de "atributos" en su elemento JSX. En su lugar, puedes ponerlo directamente *dentro* del elemento!
@@ -251,7 +251,7 @@ Y recuerde, la propiedad `children` en realidad no necesita ser nombrada en la l
 ```js
 <Mouse>
   {mouse => (
-    <p>La posición actual del mouse es {mouse.x}, {mouse.y}</p>
+    <p>The mouse position is {mouse.x}, {mouse.y}</p>
   )}
 </Mouse>
 ```
@@ -283,7 +283,7 @@ class MouseTracker extends React.Component {
   render() {
     return (
       <div>
-        <h1>¡Mueve el cursor alrededor!</h1>
+        <h1>Move the mouse around!</h1>
 
         {/*
           ¡Esto esta mal! El valor de la `render prop`
@@ -313,7 +313,7 @@ class MouseTracker extends React.Component {
   render() {
     return (
       <div>
-        <h1>¡Mueve el cursor alrededor!</h1>
+        <h1>Move the mouse around!</h1>
         <Mouse render={this.renderTheCat} />
       </div>
     );
