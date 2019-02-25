@@ -411,48 +411,47 @@ A pesar de que no deberías necesitar esto muy seguido, podrías exponer algunos
 Si no estás familiarizado con esta sintaxis, mira la [explicación](/docs/hooks-state.html#tip-what-do-square-brackets-mean) en la documentación de los Hooks de estado.
 
 
-## Performance Optimizations {#performance-optimizations}
+## Optimizaciones de desempeño {#performance-optimizations}
 
-### Can I skip an effect on updates? {#can-i-skip-an-effect-on-updates}
+### ¿Puedo saltarme un efecto durante las actualizaciones? {#can-i-skip-an-effect-on-updates}
 
-Yes. See [conditionally firing an effect](/docs/hooks-reference.html#conditionally-firing-an-effect). Note that forgetting to handle updates often [introduces bugs](/docs/hooks-effect.html#explanation-why-effects-run-on-each-update), which is why this isn't the default behavior.
+Si. Mira [disparando un efecto condicionalmente](/docs/hooks-reference.html#conditionally-firing-an-effect). Ten en cuenta que no manejar las actualizaciones frecuentemente [introduce bugs](/docs/hooks-effect.html#explanation-why-effects-run-on-each-update), por lo cual este no es el comportamiento por defecto.
 
-### How do I implement `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
+### ¿Cómo implemento shouldComponentUpdate? {#how-do-i-implement-shouldcomponentupdate}
 
-You can wrap a function component with `React.memo` to shallowly compare its props:
+Puedes envolver un componente de función con `React.memo`, para comparar sus props superficialmente.
 
 ```js
 const Button = React.memo((props) => {
-  // your component
+  // Tu Componente
 });
 ```
 
-It's not a Hook because it doesn't compose like Hooks do. `React.memo` is equivalent to `PureComponent`, but it only compares props. (You can also add a second argument to specify a custom comparison function that takes the old and new props. If it returns true, the update is skipped.)
+No es un Hook porque no se compone como lo hacen los Hooks. `React.memo` es equivalente a `PureComponent`, pero solo compara las props. (Puedes añadir un segundo argumento para especificar una función de comparación personalizada, que reciba las props viejas y las nuevas. Si retorna `true`, se obvia la actualización).
 
-`React.memo` doesn't compare state because there is no single state object to compare. But you can make children pure too, or even [optimize individual children with `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
+`React.memo` no compara el estado porque no existe un único objeto de estado para comparar. Pero puedes hacer los hijos puros también, o incluso [optimizar hijos individualmente con `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
 
+### ¿Cómo memorizar (memoize) los cálculos? {#how-to-memoize-calculations}
 
-### How to memoize calculations? {#how-to-memoize-calculations}
-
-The [`useMemo`](/docs/hooks-reference.html#usememo) Hook lets you cache calculations between multiple renders by "remembering" the previous computation:
+El Hook [`useMemo`](/docs/hooks-reference.html#usememo) te deja cachear cálculos entre múltiples renders "recordando" el cálculo anterior.
 
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-This code calls `computeExpensiveValue(a, b)`. But if the inputs `[a, b]` haven't changed since the last value, `useMemo` skips calling it a second time and simply reuses the last value it returned.
+Este código llama a `computeExpensiveValue(a, b)`. Pero si los valores `[a, b]` no han cambiado `useMemo` evita llamarle de nuevo y simplemente reusa el último valor que había retornado.
 
-Remember that the function passed to `useMemo` runs during rendering. Don't do anything there that you wouldn't normally do while rendering. For example, side effects belong in `useEffect`, not `useMemo`.
+Recuerda que la función que se pasa a `useMemo` corre durante el renderizado. No hagas nada allí que no harías durante el renderizado. Por ejemplo, los efectos secundarios deberían estar en `useEffect`, no en `useMemo`.
 
-**You may rely on `useMemo` as a performance optimization, not as a semantic guarantee.** In the future, React may choose to "forget" some previously memoized values and recalculate them on next render, e.g. to free memory for offscreen components. Write your code so that it still works without `useMemo` — and then add it to optimize performance. (For rare cases when a value must *never* be recomputed, you can [lazily initialize](#how-to-create-expensive-objects-lazily) a ref.)
+**Puedes depender de `useMemo` como una mejora de desempeño, pero no como una garantía semántica.** In el futuro, React podría escoger "olvidar" algunos valores previamente memorizados y recalcularlos en el siguiente renderizado, por ejemplo para liberar memoria para los components que no se ven en pantalla. Escribe to código de manera que pueda funcionar sin `useMemo` — y luego añádelo para mejorar el desempeño. (Para casos extraños en los que un valor *nunca* deba ser recalculado, puedes inicializar una ref. [perezosamente](#how-to-create-expensive-objects-lazily)).
 
-Conveniently, `useMemo` also lets you skip an expensive re-render of a child:
+Convenientemente `useMemo` también te deja saltar re-renderizados costosos de un hijo:
 
 ```js
 function Parent({ a, b }) {
-  // Only re-rendered if `a` changes:
+  // Solo re-renderizado si `a` cambia:
   const child1 = useMemo(() => <Child1 a={a} />, [a]);
-  // Only re-rendered if `b` changes:
+  // Solo re-renderizado si `b` cambia:
   const child2 = useMemo(() => <Child2 b={b} />, [b]);
   return (
     <>
@@ -463,51 +462,51 @@ function Parent({ a, b }) {
 }
 ```
 
-Note that this approach won't work in a loop because Hook calls [can't](/docs/hooks-rules.html) be placed inside loops. But you can extract a separate component for the list item, and call `useMemo` there.
+Ten en cuenta que este método no funcionará en un ciclo porque las llamadas a Hooks [no pueden](/docs/hooks-rules.html) ser puestas dentro de ciclos. Pero puedes extraer un componente separado para el item de la lista, y llamar `useMemo` allí.
 
-### How to create expensive objects lazily? {#how-to-create-expensive-objects-lazily}
+### ¿Cómo crear objetos costosos de manera perezosa (lazy)? {#how-to-create-expensive-objects-lazily}
 
-`useMemo` lets you [memoize an expensive calculation](#how-to-memoize-calculations) if the inputs are the same. However, it only serves as a hint, and doesn't *guarantee* the computation won't re-run. But sometimes you need to be sure an object is only created once.
+`useMemo` te permite [memorizar un cálculo costoso](#how-to-memoize-calculations) si las entradas son las mismas, sin embargo, solo funciona como un indicio, y no *garantiza* que el cálculo no se correrá de nuevo. Pero a veces necesitas estar seguro que un objeto sólo se cree una vez.
 
-**The first common use case is when creating the initial state is expensive:**
+**El primer caso de uso común es cuando crear el estado inicial es costoso:**
 
 ```js
 function Table(props) {
-  // ⚠️ createRows() is called on every render
+  // ⚠️ createRows() se llama en cada renderizado
   const [rows, setRows] = useState(createRows(props.count));
   // ...
 }
 ```
 
-To avoid re-creating the ignored initial state, we can pass a **function** to `useState`:
+Para evadir re-crear el estado inicial ignorado, podemos pasar una **función** a `useState`:
 
 ```js
 function Table(props) {
-  // ✅ createRows() is only called once
+  // ✅ createRows() solo se llama una vez.
   const [rows, setRows] = useState(() => createRows(props.count));
   // ...
 }
 ```
 
-React will only call this function during the first render. See the [`useState` API reference](/docs/hooks-reference.html#usestate).
+React solo llama a esta función durante el primer renderizado. Mira el [manual de referencia de la API de `useState`](/docs/hooks-reference.html#usestate).
 
-**You might also occasionally want to avoid re-creating the `useRef()` initial value.** For example, maybe you want to ensure some imperative class instance only gets created once:
+**También podrías querer ocasionalmente evitar re-crear el valor inicial de `useRef`.** Por ejemplo, tal vez quieres asegurarte que que alguna instancia de una clase imperativa solo se cree una vez:
 
 ```js
 function Image(props) {
-  // ⚠️ IntersectionObserver is created on every render
+  // ⚠️ IntersectionObserver se crea en cada renderizado
   const ref = useRef(new IntersectionObserver(onIntersect));
   // ...
 }
 ```
 
-`useRef` **does not** accept a special function overload like `useState`. Instead, you can write your own function that creates and sets it lazily:
+`useRef` **no** acepta una sobrecarga especial con una función como `useState`. En cambio, puedes crear tu propia función que cree e inicialize el valor perezosamente:
 
 ```js
 function Image(props) {
   const ref = useRef(null);
 
-  // ✅ IntersectionObserver is created lazily once
+  // ✅ IntersectionObserver se crea perezosamente una vez.
   function getObserver() {
     let observer = ref.current;
     if (observer !== null) {
@@ -518,50 +517,50 @@ function Image(props) {
     return newObserver;
   }
 
-  // When you need it, call getObserver()
+  // Cuando lo necesites, llama a getObserver()
   // ...
 }
 ```
 
-This avoids creating an expensive object until it's truly needed for the first time. If you use Flow or TypeScript, you can also give `getObserver()` a non-nullable type for convenience.
+Esto ayuda a evitar crear un objeto costoso hasta que sea realmente necesario pro primera vez. Si usas Flow o TypeScript, puedes darle a `getOberver` un typo no nulo por conveniencia.
 
 
-### Are Hooks slow because of creating functions in render? {#are-hooks-slow-because-of-creating-functions-in-render}
+### ¿Son los hooks lentos debido a la creación de funciones en el render? {#are-hooks-slow-because-of-creating-functions-in-render}
 
-No. In modern browsers, the raw performance of closures compared to classes doesn't differ significantly except in extreme scenarios.
+No. en los navegadores modernos, el desempeño en crudo de los closures comparado con el de las clases no difiere de manera significativa, exceptuando casos extremos.
 
-In addition, consider that the design of Hooks is more efficient in a couple ways:
+Adicionalmente, considera que el diseño de los Hooks es más eficiente en un par de sentidos:
 
-* Hooks avoid a lot of the overhead that classes require, like the cost of creating class instances and binding event handlers in the constructor.
+* Evitan gran parte del overhead (trabajo extra) que las clases requieren, como el costo de crear instancias de clase y ligar (bind) los manejadores de eventos en el constructor.
 
-* **Idiomatic code using Hooks doesn't need the deep component tree nesting** that is prevalent in codebases that use higher-order components, render props, and context. With smaller component trees, React has less work to do.
+* **El código idiómatico usando Hooks no requiere el anidado profundo de componentes** que es prevalente en bases de código que utilizan componente de orden superior, render props, y contexto. Con árboles de componentes más pequeños, React tiene menos trabajo que realizar.
 
-Traditionally, performance concerns around inline functions in React have been related to how passing new callbacks on each render breaks `shouldComponentUpdate` optimizations in child components. Hooks approach this problem from three sides.
+Tradicionalmente, las preocupaciones de desempeño alrededor de funciones inline en React han estado relacionadas con como al pasar nuevos callbacks en cada renderizado rompe optimizaciones con `shouldComponentUpdate` en los componentes hijo. Los Hooks pueden resolver este problema desde tres ángulos diferentes.
 
-* The [`useCallback`](/docs/hooks-reference.html#usecallback) Hook lets you keep the same callback reference between re-renders so that `shouldComponentUpdate` continues to work:
+* El Hook [`useCallback`](/docs/hooks-reference.html#usecallback) te permite mantener la misma referencia al callback entre re-renderizados, de manera que `shouldComponentUpdate` no se rompe.
 
     ```js{2}
-    // Will not change unless `a` or `b` changes
+    // No cambia a menos que `a` o `b` cambien
     const memoizedCallback = useCallback(() => {
       doSomething(a, b);
     }, [a, b]);
     ```
 
-* The [`useMemo` Hook](/docs/hooks-faq.html#how-to-memoize-calculations) makes it easier to control when individual children update, reducing the need for pure components.
+* El [Hook `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) hace más fácil controlar cuando se deberían actualizar hijos individualmente, reduciendo la necesidad de componentes puros.
 
-* Finally, the `useReducer` Hook reduces the need to pass callbacks deeply, as explained below.
+* Finalmente el Hook `useReducer` reduce la necesidad de pasar callbacks profundamente, como se explica en la siguiente sección.
 
-### How to avoid passing callbacks down? {#how-to-avoid-passing-callbacks-down}
+### ¿Cómo evitar pasar callbacks hacia abajo? {#how-to-avoid-passing-callbacks-down}
 
-We've found that most people don't enjoy manually passing callbacks through every level of a component tree. Even though it is more explicit, it can feel like a lot of "plumbing".
+Nos hemos dado cuenta que la mayoría de personas no disfrutan pasar callbacks manualmente a través de cada nivel del árbol de componentes. A pesar de ser más explícito, se puede sentir como mucha "plomería".
 
-In large component trees, an alternative we recommend is to pass down a `dispatch` function from [`useReducer`](/docs/hooks-reference.html#usereducer) via context:
+En árboles de componentes muy grandes, una alternativa que recomendamos es pasar una función `dispatch` desde [`useReducer`](/docs/hooks-reference.html#usereducer) a través del contexto (Context):
 
 ```js{4,5}
 const TodosDispatch = React.createContext(null);
 
 function TodosApp() {
-  // Note: `dispatch` won't change between re-renders
+  // Nota: `dispatch` no cambia entre re-renderizados
   const [todos, dispatch] = useReducer(todosReducer);
 
   return (
@@ -572,11 +571,11 @@ function TodosApp() {
 }
 ```
 
-Any child in the tree inside `TodosApp` can use the `dispatch` function to pass actions up to `TodosApp`:
+Todo hijo en el árbol dentro de `TodosApp` puede usar la función `dispatch` para pasar acciones hacia arriba, a  `TodosApp`:
 
 ```js{2,3}
 function DeepChild(props) {
-  // If we want to perform an action, we can get dispatch from context.
+  // Si queremos realizar una acción, podemos obtener dispatch del contexto.
   const dispatch = useContext(TodosDispatch);
 
   function handleClick() {
@@ -589,19 +588,19 @@ function DeepChild(props) {
 }
 ```
 
-This is both more convenient from the maintenance perspective (no need to keep forwarding callbacks), and avoids the callback problem altogether. Passing `dispatch` down like this is the recommended pattern for deep updates.
+Esto es más conveniente desde la perspectiva de mantenimiento (no hay necesidad de seguir re-enviando callbacks) y resuelve el problema de los callbacks por completo. Pasar `dispatch` de esta manera es el patrón recomendado para actualizaciones profundas.
 
-Note that you can still choose whether to pass the application *state* down as props (more explicit) or as context (more convenient for very deep updates). If you use context to pass down the state too, use two different context types -- the `dispatch` context never changes, so components that read it don't need to rerender unless they also need the application state.
+Ten en cuenta que aún puedes decidir si quieres pasar el *estado* de la aplicación hacia abajo como props (más explícito) o como contexto (más conveniente para actualizaciones profundas). Si usas el contexto para pasar el estado haci abajo también, usa dos tipos diferentes de contexto -- el contexto de `dispatch` nunca cambia, así que los componentes que lean de el no necesitan re-renderizarse a menos que también necesiten el estado de la aplicación.
 
-### How to read an often-changing value from `useCallback`? {#how-to-read-an-often-changing-value-from-usecallback}
+### ¿Cómo leer un valor que cambia frecuentemente desde useCallback? {#how-to-read-an-often-changing-value-from-usecallback}
 
->Note
+>Nota
 >
->We recommend to [pass `dispatch` down in context](#how-to-avoid-passing-callbacks-down) rather than individual callbacks in props. The approach below is only mentioned here for completeness and as an escape hatch.
+>Recomendamos [pasar `dispatch` a través del contexto](#how-to-avoid-passing-callbacks-down) en vez de callbacks individuales en las props. El siguiente método sólo se menciona para efectos de completitud y como una salida de emergencia.
 >
->Also note that this pattern might cause problems in the [concurrent mode](/blog/2018/03/27/update-on-async-rendering.html). We plan to provide more ergonomic alternatives in the future, but the safest solution right now is to always invalidate the callback if some value it depends on changes.
+>También ten en cuenta que este patrón puede causar problemas en el [modo concurrente](/blog/2018/03/27/update-on-async-rendering.html). Planeamos proveer alternativas más ergonómicas en el futuro, pero la solución más segura en este momento es siempre invalidar el callback si alguno de los valores de los que depende cambia.
 
-In some rare cases you might need to memoize a callback with [`useCallback`](/docs/hooks-reference.html#usecallback) but the memoization doesn't work very well because the inner function has to be re-created too often. If the function you're memoizing is an event handler and isn't used during rendering, you can use [ref as an instance variable](#is-there-something-like-instance-variables), and save the last committed value into it manually:
+En algunos extraños casos puede que necesites memorizar un callback con [`useCallback`](/docs/hooks-reference.html#usecallback), pero la memorización no funciona muy bien, debido a que la función interna debe ser re-creada muy seguido. Si la función que estás memorizando es un manejador de eventos y no se usa durante el renderizado, puedes utilizar [ref como una variable de estado](/docs/hooks-reference.html#usecallback), I guardar el último valor manualmente:
 
 ```js{6,10}
 function Form() {
@@ -609,13 +608,13 @@ function Form() {
   const textRef = useRef();
 
   useLayoutEffect(() => {
-    textRef.current = text; // Write it to the ref
+    textRef.current = text; // Se escribe en la ref
   });
 
   const handleSubmit = useCallback(() => {
-    const currentText = textRef.current; // Read it from the ref
+    const currentText = textRef.current; // See lee desde la ref
     alert(currentText);
-  }, [textRef]); // Don't recreate handleSubmit like [text] would do
+  }, [textRef]); // No se recrea handleSubmit como [text] lo haría
 
   return (
     <>
@@ -626,12 +625,12 @@ function Form() {
 }
 ```
 
-This is a rather convoluted pattern but it shows that you can do this escape hatch optimization if you need it. It's more bearable if you extract it to a custom Hook:
+Este es un oatrón relativamente complicado, pero muestra que puedes utilizar esta salida de emergencia como optimización de ser necesario. Es más fácil de llevar si lo extraes a un Hook personalizado.
 
 ```js{4,16}
 function Form() {
   const [text, updateText] = useState('');
-  // Will be memoized even if `text` changes:
+  // Será memorizado incluso si `text` cambia:
   const handleSubmit = useEventCallback(() => {
     alert(text);
   }, [text]);
@@ -660,7 +659,7 @@ function useEventCallback(fn, dependencies) {
 }
 ```
 
-In either case, we **don't recommend this pattern** and only show it here for completeness. Instead, it is preferable to [avoid passing callbacks deep down](#how-to-avoid-passing-callbacks-down).
+En cualquier caso, **no recomendamos este patrón** y solo lo mostramos aquí para efectos de completitud. En cambio, es preferible [evitar pasar callbacks profundamente](#how-to-avoid-passing-callbacks-down).
 
 
 ## Under the Hood {#under-the-hood}
