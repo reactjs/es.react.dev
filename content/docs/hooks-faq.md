@@ -5,8 +5,7 @@ permalink: docs/hooks-faq.html
 prev: hooks-reference.html
 ---
 
-Los *Hooks* son una adición nueva en React 16.8. Te permiten user el estado y
-otras características de React sin la necesidad de escribir una clase.
+Los *Hooks* son una adición nueva en React 16.8. Te permiten user el estado y otras características de React sin la necesidad de escribir una clase.
 
 Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](/docs/hooks-overview.html).
 
@@ -85,7 +84,7 @@ Los Hooks tienen también su propia curva de aprendizaje. Si hay algo faltante e
 
 ### ¿Debería usar Hooks, clases, o una mezcla de ambos? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-Cuando estés listo, te recomendamos empezar a usar Hooks en los nuevos componentes que escribas. Asegúrate que todo tu equipo esté de acuerdo en usarlos, y que estén familiarizados con esta documentación. No recomendamos reescribir tus classes exitentes a menos de que hayas planeado reescribirlas de cualquier manera (por ejemplo para arreglar bugs).
+Cuando estés listo, te recomendamos empezar a usar Hooks en los nuevos componentes que escribas. Asegúrate que todo tu equipo esté de acuerdo en usarlos, y que estén familiarizados con esta documentación. No recomendamos reescribir tus clases existentes a menos de que hayas planeado reescribirlas de cualquier manera (por ejemplo para arreglar bugs).
 
 No puedes usar Hooks *dentro* de un Componente de Clase, pero definitivamente puedes mezclar componentes de clase y componentes de función con Hooks en un mismo árbol. Si un componente es una clase, o una función que utiliza Hooks es un detalle de implementación del Componente. A largo plazo, experamos que los Hooks sean la manera más usada de escribir Componentes de React.
 
@@ -97,7 +96,7 @@ Los Hooks aún son jóvenes, y algunas librerías  de terceros podrían no ser c
 
 ### ¿Reemplazan los hooks a los render props y los Componentes de Orden Superior (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
 
-En muchas ocasiones, render props y los componentes de orden superior, renderizan un sólo hijo. Pensamos que los Hooks son una forma más sencilla de soportar este caso de uso. Aún hay lugar para ambos patrones (por ejemplo, un scroller virtual podría tener un prop `renderItem`, o un conmponente que sea un contenedor visual podría tener su propia estructura de DOM). Pero en la mayoría de los casos, los Hooks serán suficiente y ayudaran a reducir la anidación en tu arbol.
+En muchas ocasiones, render props y los componentes de orden superior, renderizan un sólo hijo. Pensamos que los Hooks son una forma más sencilla de soportar este caso de uso. Aún hay lugar para ambos patrones (por ejemplo, un scroller virtual podría tener un prop `renderItem`, o un componente que sea un contenedor visual podría tener su propia estructura de DOM). Pero en la mayoría de los casos, los Hooks serán suficiente y ayudaran a reducir la anidación en tu arbol.
 
 ### ¿Qué significan los Hooks para APIs populares como el connect de Redux, o React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
@@ -273,7 +272,7 @@ Esto se debe a que cuando actualizamos una variable de estado, *reemplazamos* su
 
 Si extrañas esta mezcla automática, puedes escribir un Hook personalizado `useLegacyState` que mezcle las actualizaciones al objeto de estado. Sin embargo, **Recomendamos dividir el estado en múltiples variables de estado, basado en los valores que tienden a cambiar juntos**.
 
-Por ejemplo, podríamos dividir el estado de nuestor componente en objetos `position` y `size`, y siempre reemplazar `position` sin la necesidad de mezclar.
+Por ejemplo, podríamos dividir el estado de nuestro componente en objetos `position` y `size`, y siempre reemplazar `position` sin la necesidad de mezclar.
 
 ```js{2,7}
 function Box() {
@@ -364,7 +363,7 @@ Es posible que en el futuro React provea un `usePrevious` Hook por defecto, ya q
 
 Mira también [el patrón recomendado para un estado derivado](#how-do-i-implement-getderivedstatefromprops).
 
-### ¿Cómo implemento getDerivedStateFromProps??
+### ¿Cómo implemento getDerivedStateFromProps?
 
 A pesar de que probablemente [no lo necesites](/blog/2018/06/07/you-probably-dont-need-derived-state.html), en los pocos casos en los que sea necesario (por ejemplo implementando un componente `<Transition>`), puedes actualizar el estado en medio de la renderización. React correrá de nuevo el componente con el estado actualizado inmediatamente después de correr el primer renderizaod, así que no es costoso.
 
