@@ -133,7 +133,7 @@ class MouseWithCat extends React.Component {
           Podríamos simplemente cambiar el <p> por un <Cat> aquí ... pero luego
           necesitaríamos crear un componente <MouseWithSomethingElse> separado
           cada vez que necesitamos usarlo, por lo que <MouseWithCat>
-          No es realmente reutilizable todavía.
+          no es realmente reutilizable todavía.
         */}
         <Cat mouse={this.state} />
       </div>
