@@ -625,7 +625,7 @@ function Form() {
 }
 ```
 
-Este es un oatrón relativamente complicado, pero muestra que puedes utilizar esta salida de emergencia como optimización de ser necesario. Es más fácil de llevar si lo extraes a un Hook personalizado.
+Este es un patrón relativamente complicado, pero muestra que puedes utilizar esta salida de emergencia como optimización de ser necesario. Es más fácil de llevar si lo extraes a un Hook personalizado:
 
 ```js{4,16}
 function Form() {
@@ -662,24 +662,24 @@ function useEventCallback(fn, dependencies) {
 En cualquier caso, **no recomendamos este patrón** y solo lo mostramos aquí para efectos de completitud. En cambio, es preferible [evitar pasar callbacks profundamente](#how-to-avoid-passing-callbacks-down).
 
 
-## Under the Hood {#under-the-hood}
+## Bajo el capó {#under-the-hood}
 
-### How does React associate Hook calls with components? {#how-does-react-associate-hook-calls-with-components}
+### ¿Cómo asocia React las llamadas a los Hooks con Componentes? {#how-does-react-associate-hook-calls-with-components}
 
-React keeps track of the currently rendering component. Thanks to the [Rules of Hooks](/docs/hooks-rules.html), we know that Hooks are only called from React components (or custom Hooks -- which are also only called from React components).
+React está pendiente del componente que actualmente se está renderizando. Gracias a las [Reglas de los Hooks](/docs/hooks-rules.html), sabemos que los Hooks sólo son llamados desde componente de React (o Hooks personalizados -- los cuales también sólo son llamados desde componentes de React).
 
-There is an internal list of "memory cells" associated with each component. They're just JavaScript objects where we can put some data. When you call a Hook like `useState()`, it reads the current cell (or initializes it during the first render), and then moves the pointer to the next one. This is how multiple `useState()` calls each get independent local state.
+Hay una lista interna de "celdas de memoria" asociadas con cada componente. Son simplemente objetos de JavaScript donde podemos poner algunos datos. Cuando llamas un Hook como `useState()`, este lee la celda actual (o la inicializa durante el primer llamado), y luego mueve el puntero a la siguiente. Así es como llamados múltiples a `useState()` obtienen estados locales independientes.
 
-### What is the prior art for Hooks? {#what-is-the-prior-art-for-hooks}
+### ¿Cuáles son los antecedentes de los Hooks? {#what-is-the-prior-art-for-hooks}
 
-Hooks synthesize ideas from several different sources:
+Los Hook sintetizan ideas de muchas fuentes diferentes:
 
-* Our old experiments with functional APIs in the [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) repository.
-* React community's experiments with render prop APIs, including [Ryan Florence](https://github.com/ryanflorence)'s [Reactions Component](https://github.com/reactions/component).
-* [Dominic Gannaway](https://github.com/trueadm)'s [`adopt` keyword](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) proposal as a sugar syntax for render props.
-* State variables and state cells in [DisplayScript](http://displayscript.org/introduction.html).
-* [Reducer components](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) in ReasonReact.
-* [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) in Rx.
-* [Algebraic effects](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) in Multicore OCaml.
+* Nuestros viejos experimentos con APIs funcionales en el repositorio [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State).
+* Los experimentos de la comunidad con las APIs de render props, incluyendo [Reactions Component](https://github.com/reactions/component) de [Ryan Florence](https://github.com/ryanflorence).
+* [La palabra clave `adopt`](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) de [Dominic Gannaway](https://github.com/trueadm), que se propuso como sintaxis azucarada para las render props.
+* Las variables y celdas de estado en [DisplayScript](http://displayscript.org/introduction.html).
+* [Los componentes Reductores](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) en ReasonReact.
+* [Las suscripciones](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) en Rx.
+* [Los efectos algebraicos](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) en Multicore OCaml.
 
-[Sebastian Markbåge](https://github.com/sebmarkbage) came up with the original design for Hooks, later refined by [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm), and other members of the React team.
+[Sebastian Markbåge](https://github.com/sebmarkbage) propuso el diseño original de los Hooks, luego refinado por [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm), y otros miembros del equipo de React.
