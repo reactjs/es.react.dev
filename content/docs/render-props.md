@@ -270,7 +270,7 @@ Mouse.propTypes = {
 
 ### Ten cuidado al usar Render Props con React.PureComponent {#be-careful-when-using-render-props-with-reactpurecomponent}
 
-El uso de una `render prop` puede negar la ventaja del uso de [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) si crea la función dentro del método `render`. Esto se debe a que la comparación de propiedades poco profundas siempre devolverá `false` para las nuevas props, y cada `render` en este caso generará un nuevo valor para la render prop.
+El uso de una `render prop` puede no aprovechar la ventaja del uso de [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) si crea la función dentro del método `render`. Esto se debe a que la comparación de propiedades poco profundas siempre devolverá `false` para las nuevas props, y cada `render` en este caso generará un nuevo valor para la render prop.
 
 Por ejemplo, continuando con nuestro componente `<Mouse>` de los ejemplos anteriores, si `Mouse` extendiera `React.PureComponent` en lugar de `React.Component`, nuestro ejemplo se vería así:
 
