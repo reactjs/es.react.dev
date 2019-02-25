@@ -36,7 +36,7 @@ React ha sido diseñado desde su inicio para ser adoptado gradualmente, así pue
 
 ### Área de juegos {#online-playgrounds}
 
-Si estas interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world) o en [CodeSandbox](https://codesandbox.io/s/new).
+Si estas interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) o [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
 
 Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editarlo, y abrirlo desde tu sistema de archivos al navegador. Esto realiza una transformación de código lenta, así que solo recomendamos esto para pruebas simples.
 
