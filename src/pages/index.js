@@ -155,7 +155,7 @@ class Home extends Component {
                     </CtaItem>
                     <CtaItem>
                       <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                        Haz el tutorial
+                        Toma el tutorial
                       </ButtonLink>
                     </CtaItem>
                   </Flex>
@@ -292,7 +292,7 @@ class Home extends Component {
                 </CtaItem>
                 <CtaItem>
                   <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                    Haz el tutorial
+                    Toma el tutorial
                   </ButtonLink>
                 </CtaItem>
               </Flex>
