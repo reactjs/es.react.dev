@@ -45,7 +45,7 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Puedo saltarme un efecto durante las actualizaciones?](#can-i-skip-an-effect-on-updates)
   * [¿Cómo implemento shouldComponentUpdate?](#how-do-i-implement-shouldcomponentupdate)
   * [¿Cómo memorizar (memoize) los cálculos?](#how-to-memoize-calculations)
-  * [¿Cómo crear objetos costosos de manera perezosa (lazy)?](#how-to-create-expensive-objects-lazily)
+  * [¿Cómo crear objetos costosos de manera diferida (lazy)?](#how-to-create-expensive-objects-lazily)
   * [¿Son los hooks lentos debido a la creación de funciones en el render?](#are-hooks-slow-because-of-creating-functions-in-render)
   * [¿Cómo evitar pasar callbacks hacia abajo?](#how-to-avoid-passing-callbacks-down)
   * [¿Cómo leer un valor que cambia frecuentemente desde useCallback?](#how-to-read-an-often-changing-value-from-usecallback)
@@ -239,7 +239,7 @@ Si simplemente quisieramos setear un intérvalo no necesitaríamos le referencia
   // ...
 ```
 
-Conceptualmente, puedes pensar en los refs como símiles a las variables de instancia en una clase. A menos que estés utilizando inicialización perezosa ([lazy initialization](#how-to-create-expensive-objects-lazily)), evita setear referencias durante el renderizado -- esto podría llevar a comportamiento inesperado. En cambio, generalmente querrás modificar las referencias en manejadores de eventos y efectos.
+Conceptualmente, puedes pensar en los refs como símiles a las variables de instancia en una clase. A menos que estés utilizando inicialización diferida ([lazy initialization](#how-to-create-expensive-objects-lazily)), evita setear referencias durante el renderizado -- esto podría llevar a comportamiento inesperado. En cambio, generalmente querrás modificar las referencias en manejadores de eventos y efectos.
 
 ### ¿Debería usar una o muchas variables de estado? {#should-i-use-one-or-many-state-variables}
 
@@ -443,7 +443,7 @@ Este código llama a `computeExpensiveValue(a, b)`. Pero si los valores `[a, b]`
 
 Recuerda que la función que se pasa a `useMemo` corre durante el renderizado. No hagas nada allí que no harías durante el renderizado. Por ejemplo, los efectos secundarios deberían estar en `useEffect`, no en `useMemo`.
 
-**Puedes depender de `useMemo` como una mejora de desempeño, pero no como una garantía semántica.** In el futuro, React podría escoger "olvidar" algunos valores previamente memorizados y recalcularlos en el siguiente renderizado, por ejemplo para liberar memoria para los components que no se ven en pantalla. Escribe to código de manera que pueda funcionar sin `useMemo` — y luego añádelo para mejorar el desempeño. (Para casos extraños en los que un valor *nunca* deba ser recalculado, puedes inicializar una ref. [perezosamente](#how-to-create-expensive-objects-lazily)).
+**Puedes depender de `useMemo` como una mejora de desempeño, pero no como una garantía semántica.** En el futuro, React podría escoger "olvidar" algunos valores previamente memorizados y recalcularlos en el siguiente renderizado, por ejemplo para liberar memoria para los components que no se ven en pantalla. Escribe to código de manera que pueda funcionar sin `useMemo` — y luego añádelo para mejorar el desempeño. (Para casos extraños en los que un valor *nunca* deba ser recalculado, puedes inicializar una ref. [de manera diferida](#how-to-create-expensive-objects-lazily)).
 
 Convenientemente `useMemo` también te deja saltar re-renderizados costosos de un hijo:
 
@@ -464,7 +464,7 @@ function Parent({ a, b }) {
 
 Ten en cuenta que este método no funcionará en un ciclo porque las llamadas a Hooks [no pueden](/docs/hooks-rules.html) ser puestas dentro de ciclos. Pero puedes extraer un componente separado para el item de la lista, y llamar `useMemo` allí.
 
-### ¿Cómo crear objetos costosos de manera perezosa (lazy)? {#how-to-create-expensive-objects-lazily}
+### ¿Cómo crear objetos costosos de manera diferida (lazy)? {#how-to-create-expensive-objects-lazily}
 
 `useMemo` te permite [memorizar un cálculo costoso](#how-to-memoize-calculations) si las entradas son las mismas, sin embargo, solo funciona como un indicio, y no *garantiza* que el cálculo no se correrá de nuevo. Pero a veces necesitas estar seguro que un objeto sólo se cree una vez.
 
@@ -500,13 +500,13 @@ function Image(props) {
 }
 ```
 
-`useRef` **no** acepta una sobrecarga especial con una función como `useState`. En cambio, puedes crear tu propia función que cree e inicialize el valor perezosamente:
+`useRef` **no** acepta una sobrecarga especial con una función como `useState`. En cambio, puedes crear tu propia función que cree e inicialize el valor de manera diferida:
 
 ```js
 function Image(props) {
   const ref = useRef(null);
 
-  // ✅ IntersectionObserver se crea perezosamente una vez.
+  // ✅ IntersectionObserver se crea de manera diferida una vez.
   function getObserver() {
     let observer = ref.current;
     if (observer !== null) {
@@ -531,11 +531,11 @@ No. en los navegadores modernos, el desempeño en crudo de los closures comparad
 
 Adicionalmente, considera que el diseño de los Hooks es más eficiente en un par de sentidos:
 
-* Evitan gran parte del overhead (trabajo extra) que las clases requieren, como el costo de crear instancias de clase y ligar (bind) los manejadores de eventos en el constructor.
+* Evitan gran parte de la complejidad (trabajo extra) que las clases requieren, como el costo de crear instancias de clase y ligar (bind) los manejadores de eventos en el constructor.
 
-* **El código idiómatico usando Hooks no requiere el anidado profundo de componentes** que es prevalente en bases de código que utilizan componente de orden superior, render props, y contexto. Con árboles de componentes más pequeños, React tiene menos trabajo que realizar.
+* **El código idiómatico usando Hooks no requiere el anidado profundo de componentes** que es prevalente en bases de código que utilizan componentes de orden superior, render props, y contexto. Con árboles de componentes más pequeños, React tiene menos trabajo que realizar.
 
-Tradicionalmente, las preocupaciones de desempeño alrededor de funciones inline en React han estado relacionadas con como al pasar nuevos callbacks en cada renderizado rompe optimizaciones con `shouldComponentUpdate` en los componentes hijo. Los Hooks pueden resolver este problema desde tres ángulos diferentes.
+Tradicionalmente, las preocupaciones de desempeño alrededor de funciones inline en React han estado relacionadas con como al pasar nuevos callbacks en cada renderizado rompe optimizaciones con `shouldComponentUpdate` en los componentes hijos. Los Hooks pueden resolver este problema desde tres ángulos diferentes.
 
 * El Hook [`useCallback`](/docs/hooks-reference.html#usecallback) te permite mantener la misma referencia al callback entre re-renderizados, de manera que `shouldComponentUpdate` no se rompe.
 
