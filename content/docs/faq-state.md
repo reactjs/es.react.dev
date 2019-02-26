@@ -16,7 +16,7 @@ category: FAQ
 
 Aquí hay algunos buenos recursos para leer más sobre cuándo usar `props` vs. `estado`:
 * [Props vs State](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
-* [ReactJS: Props vs. State](http://lucybain.com/blog/2016/react-state-vs-pros/)
+* [ReactJS: Props vs. State](https://lucybain.com/blog/2016/react-state-vs-pros/)
 
 ### ¿Por qué `setState` me está dando el valor incorrecto? {#why-is-setstate-giving-me-the-wrong-value}
 

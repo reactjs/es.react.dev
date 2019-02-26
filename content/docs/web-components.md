@@ -8,7 +8,7 @@ redirect_from:
 
 React y [Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components) están construidos para resolver diferentes problemas. Los Web Components proporciona una fuerte encapsulación para componentes reutilizables, mientras que React proporciona una biblioteca declarativa que mantiene el DOM sincronizado con tus datos. Los dos objetivos se complementan. Como desarrollador, eres libre de usar React en tus Web Components, utilizar Web Components en React, o ambos.
 
-La mayoría de las personas que usan React no utilizan Web Components, pero es posible que desees hacerlo, especialmente si estás utilizando componentes de IU de terceros que se escriben utilizando Web Components.
+La mayoría de las personas que usan React no utilizan Web Components, pero es posible que desees hacerlo, especialmente si estás utilizando componentes de interfaz de usuario de terceros que se escriben utilizando Web Components.
 
 ## Usando Web Components en React {#using-web-components-in-react}
 
@@ -58,5 +58,5 @@ customElements.define('x-search', XSearch);
 
 >Nota:
 >
->Este código **NO** funcionará si transformas clases con Babel. Ver [Este asunto](https://github.com/w3c/webcomponents/issues/587) para la discusión.
+>Este código **NO** funcionará si transformas clases con Babel. Ver [Este caso](https://github.com/w3c/webcomponents/issues/587) para la discusión.
 >Incluye el [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) antes de cargar tus Web Components para que puedas solucionar este problema.

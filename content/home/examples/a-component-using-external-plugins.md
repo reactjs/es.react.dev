@@ -1,5 +1,5 @@
 ---
-title: Un componente usando Plugins externos
+title: Un componente usando plugins externos
 order: 3
 domid: markdown-example
 ---

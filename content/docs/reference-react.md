@@ -24,13 +24,13 @@ Los componentes de React permiten dividir la UI en piezas independientes, reusab
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
 
-Si no se usan las clases ES6, se puede usar el módulo `create-react-class`. Para más infomación, ver [Usar React sin ES6](/docs/react-without-es6.html).
+Si no se usan las clases ES6, se puede usar el módulo `create-react-class`. Para más información, ver [Usar React sin ES6](/docs/react-without-es6.html).
 
 Los componentes de React también pueden ser definidos como funciones que se pueden envolver:
 
 - [`React.memo`](#reactmemo)
 
-### Crear Elementos de React {#creating-react-elements}
+### Crear elementos de React {#creating-react-elements}
 
 Se recomienda [usar JSX](/docs/introducing-jsx.html) para describir cómo debe verse la UI. Cada elemento de JSX es solo un azúcar sintáctico para llamar [`React.createElement()`](#createelement). Normalmente no se recurrirá a los siguientes métodos directamente si se está usando JSX.
 
@@ -39,7 +39,7 @@ Se recomienda [usar JSX](/docs/introducing-jsx.html) para describir cómo debe v
 
 Para más información, ver [Usar React sin JSX](/docs/react-without-jsx.html).
 
-### Transformar Elementos {#transforming-elements}
+### Transformar elementos {#transforming-elements}
 
 `React` proporciona varias API para manipular elementos:
 
@@ -88,7 +88,7 @@ Los *Hooks* son una nueva adición en React 16.8. Permiten usar el estado y otra
 
 ### `React.Component` {#reactcomponent}
 
-`React.Component` es la clase base para los componentes de React cuando estos son definidos usando [clases ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+`React.Component` es la clase base para los componentes de React cuando estos son definidos usando [clases ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
 class Greeting extends React.Component {
@@ -186,7 +186,7 @@ Clona y retorna un elemento React usando `element` como punto de partida. El ele
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-Sin embargo, también preserva los `ref`s. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
+Sin embargo, también preserva los `refs`. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
 
 Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithProps()`.
 
@@ -202,7 +202,7 @@ Retorna una función que produce elementos React de un tipo dado. Como [`React.c
 
 Este auxiliar es considerado antiguo y en su lugar fomentamos el uso de JSX o de `React.createElement()`.
 
-Normalmente no se invocará `React.createFactory()` directamente si se está usando JSX. Para aprender más, ver [React Without JSX](/docs/react-without-jsx.html).
+Normalmente no se invocará `React.createFactory()` directamente si se está usando JSX. Para aprender más, ver [React sin JSX](/docs/react-without-jsx.html).
 
 * * *
 
@@ -312,7 +312,7 @@ En el ejemplo anterior, React pasa un `ref` dado a un elemento `<FancyButton ref
 
 Como resultado, después que React adjunte el ref, `ref.current` apuntará directamente a la instancia del elemento DOM `<button>`.
 
-Para más información, ver [enviando refs](/docs/forwarding-refs.html).
+Para más información, ver [reenvío de refs](/docs/forwarding-refs.html).
 
 ### `React.lazy` {#reactlazy}
 

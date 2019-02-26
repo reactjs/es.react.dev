@@ -1,5 +1,5 @@
 ---
-title: Un Componente Con Estado
+title: Un componente con estado
 order: 1
 domid: timer-example
 ---

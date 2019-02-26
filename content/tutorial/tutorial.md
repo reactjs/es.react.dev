@@ -16,7 +16,7 @@ Este tutorial no asume ningún conocimiento previo sobre React.
 
 ## Antes de empezar el tutorial {#before-we-start-the-tutorial}
 
-Vamos a contruir un pequeño juego durante este tutorial. **Deberás estar tentado a obviarlo porque tú no estás construyendo juegos en el día a día, pero dale una oportunidad.** Las técnicas que aprenderás en el tutorial son fundamentales para construir cualquier aplicación de React, y dominarlo te dará un entendimiento profundo de React.
+Vamos a construir un pequeño juego durante este tutorial. **Deberás estar tentado a obviarlo porque tú no estás construyendo juegos en el día a día, pero dale una oportunidad.** Las técnicas que aprenderás en el tutorial son fundamentales para construir cualquier aplicación de React, y dominarlo te dará un entendimiento profundo de React.
 
 >Tip
 >
@@ -35,15 +35,15 @@ Está bien copiar y pegar el código mientras sigues el tutorial, pero te recome
 
 ### ¿Qué estamos construyendo? {#what-are-we-building}
 
-En este tutorial, te mostraremoscómo construir un juego de tic-tac-toe interactivo con React.
+En este tutorial, te mostraremos cómo construir un juego de tic-tac-toe interactivo con React.
 
 Puedes ver lo que construiremos aquí: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Si el código no te hace sentido, o si no estás familiarizado con la sintaxis de código, ¡no te preocupes! El objetivo de este tutorial es ayudarte a entender React y su sintaxis.
 
-Recomentamos que revises el juego de tic-tac-toe antes de continuar con el tutorial. Una de las características que notarás es que hay una lista enumerada a la derecha del tablero del jugador. Esta lista da una historia de todos los movimientos que han ocurrido en el juego, y se va actualizando conforme el juego progresa.
+Recomendamos que revises el juego de tic-tac-toe antes de continuar con el tutorial. Una de las características que notarás es que hay una lista enumerada a la derecha del tablero del jugador. Esta lista da una historia de todos los movimientos que han ocurrido en el juego, y se va actualizando conforme el juego progresa.
 
 Puedes cerrar el juego de tic-tac-toe una vez que te familiarizaste con él. Empezaremos desde una plantilla más simple en este tutorial. Nuestro siguiente paso es configurarlo de tal forma que puedas empezar a construir el juego.
 
-### Prerequisitos {#prerequisites}
+### Prerrequisitos {#prerequisites}
 
 Asumimos que tienes cierta familiaridad con HTML y JavaScript, pero deberías ser capaz de seguir adelante incluso si vienes de un lenguaje de programación diferente. También suponemos que estás familiarizado con conceptos de programación como funciones, objetos, arrays, y en menor medida, clases.
 
@@ -55,7 +55,7 @@ Hay dos maneras de completar este tutorial: puedes escribir el código en tu nav
 
 ### Opción de configuración 1: Escribe código en el navegador {#setup-option-1-write-code-in-the-browser}
 
-¡Ésta es la forma más rápida de empezar!
+¡Esta es la forma más rápida de empezar!
 
 Primero, abre este **[código inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** en una nueva pestaña. La nueva pestaña deberá mostrar un tablero vacío del juego de tic-tac-toe y código de React. Estaremos editando el código de React en este tutorial.
 
@@ -63,7 +63,7 @@ Ahora puedes saltarte a la segunda opción de configuración o ir a la sección 
 
 ### Opción de configuración 2: Entorno de desarrollo local {#setup-option-2-local-development-environment}
 
-¡Ésta es completamente opcional y no es requeridad para éste tutorial!
+¡Esta es completamente opcional y no es requerida para este tutorial!
 
 <br>
 
@@ -170,7 +170,7 @@ Si tienes curiosidad, `createElement()` está descrito en más detalle en la [re
 
 JSX viene con todo el poder de JavaScript. Puedes poner *cualquier* expresión de JavaScript en el interior de las llaves dentro de JSX. Cada elemento de React es un objeto de JavaScript que puedes almacenar en una variable o pasar alrededor de tu programa.
 
-El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componener y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir IUs complejas desde componentes simples.
+El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componer y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir IUs complejas desde componentes simples.
 
 ## Inspeccionando el código inicial {#inspecting-the-starter-code}
 
@@ -350,7 +350,7 @@ Ahora tenemos los bloques de construcción básicos para nuestro juego tic-tac-t
 
 ### Elevando el estado {#lifting-state-up}
 
-Actualmente, cada componente Square mantiene el estado del juego. Para determinar un ganador, necesitamos mantener el valor de cada uno de los 9 cuadrador en un solo lugar.
+Actualmente, cada componente Square mantiene el estado del juego. Para determinar un ganador, necesitamos mantener el valor de cada uno de los 9 cuadrados en un solo lugar.
 
 Podemos pensar que el tablero debería solo preguntar a cada cuadrado por su estado. Aunque este enfoque es posible en React, te incentivamos a que no lo uses porque el código se vuelve difícil de ententer, susceptible a errores, y difícil de refactorizar. En su lugar, el mejor enfoque es almacenar el estado del juego en el componente padre Board en vez de cada componente Square. El componente Board puede decirle a cada cuadrado que mostrar pasándole un prop [tal cual hicimos cuando pasamos un número a cada cuadrado](#passing-data-through-props).
 
@@ -545,7 +545,7 @@ Debido a que el componente Square ahora no mantiene estado, los componentes Squa
 
 Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicareomos porqué crear una copia del array `squares` en la siguiente sección.
 
-### ¿Por qué es importante la Inmutabilidad? {#why-immutability-is-important}
+### ¿Por qué es importante la inmutabilidad? {#why-immutability-is-important}
 
 En el ejemplo de código anterior, sugerimos que uses el operador `.slice()` para crear una copia del array de `squares` para modificar en vez de modificar el array existente. Ahora discutiremos inmutabilidad y porqué es importante aprenderlo.
 
@@ -715,7 +715,6 @@ class Board extends React.Component {
 ### Declarando un ganador {#declaring-a-winner}
 
 Ahora que mostramos de qué jugador es el siguiente turno, debemos también mostrar cuando alguien ganó el juego y si no hay más movimientos que hacer. Podemos determinar un ganador añadiendo esta función de apoyo al final del archivo.
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. We can determine a winner by adding this helper function to the end of the file:
 
 ```javascript
 function calculateWinner(squares) {
@@ -1065,7 +1064,7 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-Por cada movimiento en el hisotrial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
+Por cada movimiento en el historial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".

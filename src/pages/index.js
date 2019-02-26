@@ -17,7 +17,6 @@ import {colors, media, sharedStyles} from 'theme';
 import loadScript from 'utils/loadScript';
 import createOgUrl from 'utils/createOgUrl';
 import {babelURL} from 'site-constants';
-import ReactDOM from 'react-dom';
 import logoWhiteSvg from 'icons/logo-white.svg';
 
 class Home extends Component {
@@ -51,7 +50,7 @@ class Home extends Component {
     return (
       <Layout location={location}>
         <TitleAndMetaTags
-          title="React &ndash; A JavaScript library for building user interfaces"
+          title="React &ndash; Una biblioteca de JavaScript para construir interfaces de usuario"
           ogUrl={createOgUrl('index.html')}
         />
         <div css={{width: '100%'}}>
@@ -134,7 +133,7 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    Una librería de JavaScript para construir interfaces de
+                    Una biblioteca de JavaScript para construir interfaces de
                     usuario
                   </p>
                   <Flex
@@ -287,7 +286,7 @@ class Home extends Component {
               <Flex valign="center">
                 <CtaItem>
                   <ButtonLink to="/docs/getting-started.html" type="primary">
-                    Get Started
+                    Comienza
                   </ButtonLink>
                 </CtaItem>
                 <CtaItem>
@@ -310,13 +309,6 @@ Home.propTypes = {
     marketing: PropTypes.object.isRequired,
   }).isRequired,
 };
-
-function renderExamplePlaceholder(containerId) {
-  ReactDOM.render(
-    <h4>Loading code example...</h4>,
-    document.getElementById(containerId),
-  );
-}
 
 const CtaItem = ({children, primary = false}) => (
   <div

@@ -20,7 +20,7 @@ Si necesitas tener acceso al componente padre dentro del evento, también debes 
 
 Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
 
-#### Enlazar dentro del Constructor (ES2015) {#bind-in-constructor-es2015}
+#### Enlazar dentro del constructor (ES2015) {#bind-in-constructor-es2015}
 
 ```jsx
 class Foo extends Component {
@@ -37,7 +37,7 @@ class Foo extends Component {
 }
 ```
 
-#### Propiedades de las Clases (Propuesta de etapa 3) {#class-properties-stage-3-proposal}
+#### Propiedades de las clases (propuesta de etapa 3) {#class-properties-stage-3-proposal}
 
 ```jsx
 class Foo extends Component {
@@ -68,7 +68,7 @@ class Foo extends Component {
 >
 > Al usar `Function.prototype.bind` dentro de la renderización se crea una nueva función cada vez que el componente se renderiza, lo cual podría implicar problemas de rendimiento (ver abajo).
 
-#### Funciones Flecha en renderización {#arrow-function-in-render}
+#### Funciones flecha en renderización {#arrow-function-in-render}
 
 ```jsx
 class Foo extends Component {
@@ -108,7 +108,7 @@ Los métodos de enlace nos aseguran que el segundo fragmento funcione de la mism
 
 Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
  
-[Este artículo creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
+[Este artículo creado por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
 
 ### ¿Por qué mi función está siendo llamada cada vez que mi componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
 

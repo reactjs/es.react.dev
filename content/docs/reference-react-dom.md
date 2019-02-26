@@ -18,7 +18,7 @@ El paquete `react-dom` proporciona métodos específicos del DOM que pueden ser 
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Soporte de Navegadores {#browser-support}
+### Soporte de navegadores {#browser-support}
 
 React es compatible con todos los navegadores populares, incluyendo Internet Explorer 9 y versiones posteriores, aunque [se necesitan algunos *polyfills*](/docs/javascript-environment-requirements.html) para navegadores más antiguos como IE 9 e IE 10.
 
@@ -50,7 +50,7 @@ Si se suministra el *callback* opcional, será ejecutado después de que el comp
 >
 > `ReactDOM.render()` actualmente retorna una referencia a la instancia `ReactComponent` raíz. Sin embargo, utilizar este valor retornado es una práctica vieja,
 > y debe ser evitada debido a que en futuras versiones de React puede que los componentes se rendericen de manera asíncrona en algunos casos. Si deseas obtener una referencia a la instancia `ReactComponent` raíz,
-> la solución preferida es agregar una [referencia mediante callback](/docs/more-about-refs.html#the-ref-callback-attribute) al elemento raíz.
+> la solución preferida es agregar una [referencia mediante callback](/docs/more-about-refs.html#callback-refs) al elemento raíz.
 >
 > El uso de `ReactDOM.render()` para hidratar un contenedor renderizado por servidor esta despreciado, y será eliminado en la versión 17 de React. Usa en su lugar [`hydrate()`](#hydrate).
 
@@ -66,7 +66,7 @@ Es igual a [`render()`](#render), pero es utilizado para hidratar un contenedor 
 
 React espera que el contenido renderizado sea idéntico entre el servidor y el cliente. Puede arreglar las diferencias del contenido de texto, pero deberías tratar los desajustes como errores y arreglarlos. En modo de desarrollo, React alerta sobre desajustes durante la hidratación. No hay garantías de que las diferencias de atributos sean arregladas en caso de desajustes. Esto es importante por razones de rendimiento, porque en la mayoría de las aplicaciones los desajustes son raros y validar todo el marcado sería demasiado costoso.
 
-Si el atributo de un elemento o contenido de texto es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puedes silenciar la alerta agregando `suppressHydrationWarning={true}` al elemento. Esto solo funciona a 1 nivel de profundidad, y está pensado como una vía de escape. No abuses de él. A menos que sea contenido de texto, React aun no intentará arreglarlo, así que es posible que continue inconsistente hasta próximas actualizaciones.
+Si el atributo de un elemento o contenido de texto es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puedes silenciar la alerta agregando `suppressHydrationWarning={true}` al elemento. Esto solo funciona a 1 nivel de profundidad, y está pensado como una vía de escape. No abuses de él. A menos que sea contenido de texto, React aun no intentará arreglarlo, así que es posible que continúe inconsistente hasta próximas actualizaciones.
 
 Si necesitas renderizar algo diferente de manera intencional en el servidor y en el cliente, puedes realizar un renderizado en 2 pasos. Los componentes que renderizan contenido diferente al cliente, pueden leer una variable de estado como `this.state.isClient`, la cual puedes cambiar a `true` en `componentDidMount()`. De esta manera, el paso de renderizado inicial renderizará el mismo contenido que el servidor, evitando desajustes, pero un paso adicional ocurrirá síncronamente justo después de la hidratación. Recuerda que este enfoque hará que tus componentes sean más lentos debido a que se deben renderizar dos veces, así que utilízalo con precaución.
 

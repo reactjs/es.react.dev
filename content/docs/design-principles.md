@@ -8,7 +8,7 @@ redirect_from:
   - "contributing/design-principles.html"
 ---
 
-Nosotros escribimos este documento para que tengas una mejor idea de como decidimos lo que hace y lo que no hace React, y como es nuestra filosofía de desarrollo. Si bien estamos entusiasmados por ver contribuciones de la comunidad, es poco probable que elijamos una ruta que viole uno o más de estos principios.
+Escribimos este documento para que tengas una mejor idea de como decidimos lo que hace y lo que no hace React, y como es nuestra filosofía de desarrollo. Si bien estamos entusiasmados por ver contribuciones de la comunidad, es poco probable que elijamos una ruta que viole uno o más de estos principios.
 
 >**Nota:**
 >
@@ -24,21 +24,21 @@ Por ejemplo, debería ser posible introducir algún estado local en un component
 
 No hay nada "malo" en usar estado o métodos del ciclo de vida en componentes. Como cualquier funcionalidad poderosa, deben ser usados con moderación, pero no tenemos intención de eliminarlos. Por el contrario, pensamos que son parte integral de lo que hace útil a React. Podríamos habilitar [patrones más funcionales](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) en el futuro, pero tanto el estado local como los métodos del ciclo de vida serán parte de ese modelo.
 
-Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](http://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
+Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](https://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
 
-### Abstracciones Comunes {#common-abstraction}
+### Abstracciones comunes {#common-abstraction}
 
 En general [evitamos añadir funcionalidades](https://www.youtube.com/watch?v=4anAwXYqLG8) que puedan ser implementadas en espacio de usuario. No queremos sobrecargar tus aplicaciones con código de biblioteca que sea inútil. Sin embargo, existen excepciones.
 
-Por ejemplo, si React no proveyera soporte para el estado local o métodos del ciclo de vida, las personas crearían abstracciones propias para eso. Cuando existen múltiples abstracciones compitiendo, React no puede enforzar o aprovechar las propiedades de ninguna de ellas. Tendría que trabajar con el mínimo común denominador.
+Por ejemplo, si React no proveyera soporte para el estado local o métodos del ciclo de vida, las personas crearían abstracciones propias para eso. Cuando existen múltiples abstracciones compitiendo, React no puede imponer o aprovechar las propiedades de ninguna de ellas. Tendría que trabajar con el mínimo común denominador.
 
 Es por eso que algunas veces añadimos funcionalidades a React. Si notamos que muchos componentes implementan una funcionalidad en específico de manera ineficiente o incompatible, podríamos preferir incluirla en React. No lo hacemos a la ligera. Cuando lo hacemos, es porque estamos confiados de que elevar el nivel de la abstracción beneficia al ecosistema en su conjunto. El estado, los métodos del ciclo de vida, y la normalización de eventos entre navegadores son ejemplos claros de esto.
 
 Siempre discutimos estas propuestas de mejora con la comunidad. Puedes encontrar algunas de estas discusiones con la etiqueta ["big picture"](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"Type:+Big+Picture") en el gestor de incidencias de React.
 
-### Válvulas de Escape {#escape-hatches}
+### Válvulas de escape {#escape-hatches}
 
-React es pragmático. Esta guiado por la necesidad de los productos escritos en Facebook. Si bien es influenciado por algunos paradigmas que aún no son totalmente convencionales, tales como la programación funcional, mantenerlo accessible a un amplio rango de programadores con distintos niveles de experiencia y habilidades es uno de los objetivos explícitos del proyecto.
+React es pragmático. Esta guiado por la necesidad de los productos escritos en Facebook. Si bien es influenciado por algunos paradigmas que aún no son totalmente convencionales, tales como la programación funcional, mantenerlo accesible a un amplio rango de programadores con distintos niveles de experiencia y habilidades es uno de los objetivos explícitos del proyecto.
 
 Si queremos descontinuar un patrón que no nos gusta, es nuestra responsabilidad considerar todos los casos de uso existentes para él, y antes de descontinuarlo [educar a la comunidad respecto a las alternativas](/blog/2016/07/13/mixins-considered-harmful.html). Si algún patrón es útil para construir aplicaciones, pero es difícil de expresar de una manera declarativa, [proveeremos una API imperativa](/docs/more-about-refs.html). Si no podemos encontrar una API perfecta para algo que consideramos necesario en múltiples aplicaciones, [temporalmente proporcionaremos una API funcional](/docs/legacy-context.html) siempre y cuando sea posible librarnos de ella posteriormente, y se deje la puerta abierta a mejoras futuras.
 
@@ -72,7 +72,7 @@ Es por eso que React provee válvulas de escape para trabajar con modelos mutabl
 
 Incluso cuando tus componentes son descritos como funciones, al usar React no los llamas directamente. Cada componente retorna una [descripción de lo que necesita ser renderizado](/blog/2015/12/18/react-components-elements-and-instances.html#elements-describe-the-tree), y dicha descripción puede incluir componentes escritos por el usuario como `<LikeButton>` y componentes específicos de la plataforma como `<div>`. Corresponde a React "desenrollar" `<LikeButton>` en algún momento en el futuro y aplicar recursivamente los cambios al árbol de interfaz de usuario de acuerdo a los resultados de renderizar los componentes.
 
-Esta es una distinción sutil pero poderosa. Dado que no llamas la función del componente, pero dejas que React la llame, esto significa que React tiene el poder de retrasar esta llamada si es necesario. En su implementación actual React recorre el árbol recursivamente y llama a las funciones de renderizado del árbol completamente actualizado en un único `tick`. Sin embargo, en el futuro podría empezar a [retrazar algunas actualizaciones para evitar la eliminación de cuadros](https://github.com/facebook/react/issues/6170).
+Esta es una distinción sutil pero poderosa. Dado que no llamas la función del componente, pero dejas que React la llame, esto significa que React tiene el poder de retrasar esta llamada si es necesario. En su implementación actual React recorre el árbol recursivamente y llama a las funciones de renderizado del árbol completamente actualizado en un único `tick`. Sin embargo, en el futuro podría empezar a [retrasar algunas actualizaciones para evitar la eliminación de cuadros](https://github.com/facebook/react/issues/6170).
 
 Este es un tema común en el diseño de React. Algunas bibliotecas populares implementan el enfoque *"push"* en el cual la computación se realiza cuando nuevos datos están disponibles. React, sin embargo, se apega al enfoque *"pull"* en el cual las computaciones pueden ser retrasadas hasta que sean necesarias.
 
@@ -88,9 +88,9 @@ Es un objetivo clave para React que la cantidad del código de usuario que se ej
 
 Tenemos un chiste interno en el equipo de React acerca de que debería haberse llamado *"Schedule"* (el inglés para Plan), ya que React no quiere ser completamente "reactivo".
 
-### Experiencia de Desarrollador {#developer-experience}
+### Experiencia de desarrollador {#developer-experience}
 
-Proveer una buena Experiencia de Desarrollador es importante para nosotros.
+Proveer una buena experiencia de desarrollador es importante para nosotros.
 
 Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
 
@@ -126,7 +126,7 @@ Sin embargo, sí proveemos alguna configuración global a nivel de compilación.
 
 ### Más allá del DOM {#beyond-the-dom}
 
-Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](http://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
+Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](https://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
 
 Ser agnóstico al renderizador es una restricción de diseño importante para React. Añade una sobrecarga en la representación interna. Por otra parte, cualquier mejora en el núcleo se traduce en una mejora a lo largo de todas las plataformas.
 
@@ -136,9 +136,9 @@ Tener un modelo de programación único nos permite formar equipos de ingenierí
 
 Tratamos de proveer APIs elegantes donde sea posible. Estamos mucho menos preocupados con que la implementación sea elegante. El mundo real está muy lejos de ser perfecto, y en una medida razonable preferimos poner el código feo en la biblioteca si eso significa que el usuario no tiene que escribirlo. Cuando evaluamos nuevo código, buscamos una implementación correcta, con buen rendimiento y que permita una buena experiencia de desarrollo. La elegancia es secundaria.
 
-Preferimos código aburrido a código inteligente. El código es descartable y cambia a menudo. Así que es importante que [no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario](https://youtu.be/4anAwXYqLG8?t=13m9s). Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que este abstraido de manera prematura y que sea difícil de cambiar. 
+Preferimos código aburrido a código inteligente. El código es descartable y cambia a menudo. Así que es importante que [no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario](https://youtu.be/4anAwXYqLG8?t=13m9s). Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que esté abstraído de manera prematura y que sea difícil de cambiar. 
 
-### Optimizado para Instrumentación {#optimized-for-tooling}
+### Optimizado para instrumentación {#optimized-for-tooling}
 
 Algunas APIs comúnmente usadas tienen nombres detallados. Por ejemplo, usamos `componentDidMount()` en lugar de `didMount()` o `onMount()`. Esto es [intencional](https://github.com/reactjs/react-future/issues/40#issuecomment-142442124). El objetivo es hacer los puntos de interacción con la biblioteca ampliamente visibles.
 
@@ -148,7 +148,7 @@ Optimizar para la búsqueda también es importante  por nuestra dependencia de [
 
 [JSX](/docs/introducing-jsx.html) juega un papel similar. Si bien no es requerido con React, lo utilizamos ampliamente en Facebook por razones estéticas y pragmáticas.
 
-En nuestra base de código, JSX provee una pista inequívoca a las herramientas de que están tratando con un árbol de elementos de React. Esto hace posible añadir optimizaciones en tiempo de compilación tales como [elevar elementos constantes](http://babeljs.io/docs/plugins/transform-react-constant-elements/), y de forma segura validar y aplicar *codemods* al uso interno de componentes, e [incluir la ubicación del código fuente JSX](https://github.com/facebook/react/pull/6771)  en las advertencias.
+En nuestra base de código, JSX provee una pista inequívoca a las herramientas de que están tratando con un árbol de elementos de React. Esto hace posible añadir optimizaciones en tiempo de compilación tales como [elevar elementos constantes](https://babeljs.io/docs/en/babel-plugin-transform-react-constant-elements/), y de forma segura validar y aplicar *codemods* al uso interno de componentes, e [incluir la ubicación del código fuente JSX](https://github.com/facebook/react/pull/6771)  en las advertencias.
 
 ### *Dogfooding* {#dogfooding}
 
