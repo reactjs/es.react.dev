@@ -20,24 +20,24 @@ Esta página describe algunas de las cadenas de herramientas de React más popul
 
 Las cadenas de herramientas que se recomiendan en esta página **no requieren ninguna configuración para empezar**.
 
-## Puede que no necesites una Cadena de Herramientas {#you-might-not-need-a-toolchain}
+## Puede que no necesites una cadena de herramientas {#you-might-not-need-a-toolchain}
 
 Si no experimentas los problemas descritos arriba, o aún no te sientes cómodo usando herramientas de Javascript, considera [añadir React como una etiqueta `<script>` en una página HTML](/docs/add-react-to-a-website.html), opcionalmente [con JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
 Esta es también **la manera más fácil de integrar React en un sitio web existente.** Siempre puedes añadir una cadena de herramientas más grande si lo consideras útil!
 
-## Cadenas de Herramientas Recomendadas {#recommended-toolchains}
+## Cadenas de herramientas recomendadas {#recommended-toolchains}
 
 El equipo de React principalmente recomienda las siguientes soluciones:
 
 - Si estás **aprendiendo React** o **creando una nueva [aplicación de página única](/docs/glossary.html#single-page-application),** usa [Create React App](#create-react-app).
 - Si estás construyendo un **sito web renderizado en servidor con Node.js,** prueba [Next.js](#nextjs).
 - Si estás construyendo un **sitio web orientado a contenido estático,** prueba [Gatsby](#gatsby).
-- Si estás construyendo una **biblioteca de componentes** o **integrando una base de código existente**, prueba [Cadenas de Herramientas más Flexibles](#cadenas-de-herramientas-ms-flexibles).
+- Si estás construyendo una **biblioteca de componentes** o **integrando una base de código existente**, prueba [Cadenas de Herramientas más Flexibles](#more-flexible-toolchains).
 
 ### Create React App {#create-react-app}
 
-[Create React App](http://github.com/facebookincubator/create-react-app) es un ambiente cómodo para **aprender React**, y es la mejor manera de comenzar a construir **una nueva [aplicación de página única](/docs/glossary.html#single-page-application)** usando React.
+[Create React App](https://github.com/facebookincubator/create-react-app) es un ambiente cómodo para **aprender React**, y es la mejor manera de comenzar a construir **una nueva [aplicación de página única](/docs/glossary.html#single-page-application)** usando React.
 
 **Create React App** configura tu ambiente de desarrollo de forma que puedas usar las últimas características de Javascript, brindando una buena experiencia de desarrollo, y optimizando tu aplicación para producción. Necesitarás tener Node >= 6 y npm >= 5.2 instalados en tu máquina. Para crear un proyecto ejecuta:
 
@@ -49,9 +49,9 @@ npm start
 
 >Nota
 >
->En la primera línea `npx` no es una errata: Es una [herramienta de ejecución de paquetes que viene con npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>En la primera línea `npx` no es un error de escritura: Es una [herramienta de ejecución de paquetes que viene con npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-Create React App no se encarga de la lógica de `backend` o de bases de datos; tan solo crea un flujo de construcción para `frontend`, de manera que lo puedes usar con cualquier `backend`. Para ello internamente usa [Babel](http://babeljs.io/) y [webpack](https://webpack.js.org/), pero no necesitas saber nada de estas herramientas para usar Create React App.
+Create React App no se encarga de la lógica de `backend` o de bases de datos; tan solo crea un flujo de construcción para `frontend`, de manera que lo puedes usar con cualquier `backend`. Para ello internamente usa [Babel](https://babeljs.io/) y [webpack](https://webpack.js.org/), pero no necesitas saber nada de estas herramientas para usar Create React App.
 
 Cuando estés listo para desplegar a producción, ejecuta `npm run build` lo cual crea una compilación optimizada de tu aplicación en el directorio `build`. Puedes aprender más acerca de **Create React App** [en su archivo README](https://github.com/facebookincubator/create-react-app#create-react-app-) y en la [Guía del Usuario](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
@@ -67,7 +67,7 @@ Aprende Next.js de [su guía oficial](https://nextjs.org/learn/).
  
 Aprende Gatsby de [su guía oficial](https://www.gatsbyjs.org/docs/) y de [la galería de kits de inicio](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
-### Cadenas de Herramientas más Flexibles {#more-flexible-toolchains}
+### Cadenas de herramientas más flexibles {#more-flexible-toolchains}
 
 Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las recomendamos para los usuarios con más experiencia:
 
@@ -77,9 +77,9 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 
 - **[Parcel](https://parceljs.org/)** es un empaquetador de aplicaciones web rápido y de cero configuración que [funciona con React](https://parceljs.org/recipes.html#react).
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** es un marco de trabajo de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** es un framework de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
 
-## Creando una Cadena de Herramientas desde Cero {#creating-a-toolchain-from-scratch}
+## Creando una cadena de herramientas desde cero {#creating-a-toolchain-from-scratch}
 
 Una cadena de herramientas para construir Javascript generalmente consiste de:
 
@@ -87,7 +87,7 @@ Una cadena de herramientas para construir Javascript generalmente consiste de:
 
 * Un **empaquetador** como [webpack](https://webpack.js.org/) o [Parcel](https://parceljs.org/). Este te permite escribir código modular y empaquetarlo junto en paquetes más pequeños que optimizan el tiempo de carga.
 
-* Un **compilador** como [Babel](http://babeljs.io/). Este te permite escribir Javascript moderno que aún así funciona en navegadores más antiguos.
+* Un **compilador** como [Babel](https://babeljs.io/). Este te permite escribir Javascript moderno que aún así funciona en navegadores más antiguos.
 
 Si prefieres configurar tu propia cadena de herramientas JavaScript desde cero, [chequea esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea parte de la funcionalidad de **Create React App**.
 
