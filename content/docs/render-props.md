@@ -52,7 +52,7 @@ class MouseTracker extends React.Component {
 
 A medida que el cursor se mueve alrededor de la pantalla, el componente muestra sus coordenadas (x, y) en un `<p>`.
 
-Ahora la pregunta es: ¿Cómo podemos reutilizar este comportamiento en otro componente? En otras palabras, si otro componente necesita saber sobre la posición del cursor, ¿podemos encapsular ese comportamiento para poder compartirlo fácilmente con ese componente?
+Ahora la pregunta es: ¿Cómo podemos reutilizar este comportamiento en otro componente? En otras palabras, si otro componente necesita saber la posición del cursor, ¿podemos encapsular ese comportamiento para poder compartirlo fácilmente con ese componente?
 
 Como los componentes son la unidad básica de reutilización de código en React, intentemos refactorizar el código un poco para usar un componente `<Mouse>` que encapsule el comportamiento que necesitamos reutilizar en otro lugar.
 
@@ -76,7 +76,7 @@ class Mouse extends React.Component {
     return (
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
 
-        {/* ...pero, ¿cómo rederizamos algo más que un <p>? */}
+        {/* ...pero, ¿cómo renderizamos algo más que un <p>? */}
         <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
       </div>
     );
@@ -99,7 +99,7 @@ Ahora, el componente `<Mouse>` encapsula todo el comportamiento asociado con la 
 
 Por ejemplo, digamos que tenemos un componente `<Cat>` que representa la imagen de un gato persiguiendo el cursor alrededor de la pantalla. Podríamos usar una propiedad `<Cat mouse={{ x, y }}>` para indicar al componente las coordenadas del cursor de manera que sepa dónde colocar la imagen en la pantalla.
 
-Como primer paso, puedes intentar renderizar el componente `<Cat>` *dentro del metodo `render` del componente `<Mouse>`*, de esta manera:
+Como primer paso, puedes intentar renderizar el componente `<Cat>` *dentro del método `render` del componente `<Mouse>`*, de esta manera:
 
 ```js
 class Cat extends React.Component {
@@ -153,9 +153,9 @@ class MouseTracker extends React.Component {
 }
 ```
 
-Esta propuesta funcionará para nuestro caso de uso específico, pero no hemos logrado el objetivo de realmente encapsular el comportamiento de una manera reutilizable. Ahora, cada vez que deseemos la posición del cursor para un caso de uso diferente, debemos crear un nuevo componente (es decir, esencialmente otro `<MouseWithCat>`) que renderice algo específicamente para ese caso de uso.
+Esta propuesta funcionará para nuestro caso de uso específico, pero no hemos logrado el objetivo de realmente encapsular el comportamiento de una manera reutilizable. Ahora, cada vez que queramos saber la posición del cursor para un caso de uso diferente, debemos crear un nuevo componente (es decir, esencialmente otro `<MouseWithCat>`) que renderice algo específicamente para ese caso de uso.
 
-Aquí es donde entran en juego las `render props`: En lugar de codificar de forma fija un componente `<Cat>` dentro del componente `<Mouse>`, y cambiar efectivamente la salida de su metodo render, podemos proporcionar una función por medio props a `<Mouse>` que pueda utilizar para determinar dinámicamente lo que debe renderizar -una `render prop`.
+Aquí es donde entran en juego las `render props`: En lugar de codificar de forma fija un componente `<Cat>` dentro del componente `<Mouse>`, y cambiar efectivamente la salida de su método render, podemos proporcionar una función por medio props a `<Mouse>` que pueda utilizar para determinar dinámicamente lo que debe renderizar -una `render prop`.
 
 ```js
 class Cat extends React.Component {
@@ -209,7 +209,7 @@ class MouseTracker extends React.Component {
 }
 ```
 
-Ahora, en lugar de clonar efectivamente el componente `<Mouse>` y codificar forma fija otra cosa en su método `render` para resolver un caso de uso específico, proporcionamos una `render prop` que `<Mouse>` pueda usar para dinámicamente determinar que renderizar.
+Ahora, en lugar de clonar efectivamente el componente `<Mouse>` y codificar de forma fija otra cosa en su método `render` para resolver un caso de uso específico, proporcionamos una `render prop` que `<Mouse>` pueda usar para dinámicamente determinar que renderizar.
 
 Más concretamente, **una render prop es una prop que recibe una función que un componente utiliza para saber qué renderizar.**
 
