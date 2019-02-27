@@ -257,7 +257,7 @@ Y recuerda, la propiedad `children` en realidad no necesita ser nombrada en la l
 </Mouse>
 ```
 
-Verás esta técnica utilizada en la API de [react-motion] (https://github.com/chenglou/react-motion).
+Verás esta técnica utilizada en la API de [react-motion](https://github.com/chenglou/react-motion).
 
 Ya que esta técnica es un poco inusual, probablemente querrás decir explícitamente que `children` debería ser una función en tus `propTypes` cuando diseñes una API como esta.
 
