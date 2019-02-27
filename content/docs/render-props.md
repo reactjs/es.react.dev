@@ -322,4 +322,4 @@ class MouseTracker extends React.Component {
 }
 ```
 
-En los casos en los que no puede definir la propiedad de forma estática (por ejemplo, porque necesita encerrar las props y/o el estado del componente), el <Mouse> `debería extender` React.Component` en su lugar.
+En los casos en los que no puede definir la propiedad de forma estática (por ejemplo, porque necesita encerrar las props y/o el estado del componente), el <Mouse> debería extender `React.Component` en su lugar.
