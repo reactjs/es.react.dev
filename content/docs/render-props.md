@@ -4,7 +4,7 @@ title: Render Props
 permalink: docs/render-props.html
 ---
 
-El término ["render prop"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) se refiere a una técnica para compartir codigo entre componentes en React utilizando una propiedad cuyo valor es una función.
+El término ["render prop"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) se refiere a una técnica para compartir código entre componentes en React utilizando una propiedad cuyo valor es una función.
 
 Un componente con una `render prop` toma una función que devuelve un elemento de React y lo llama en lugar de implementar su propia lógica de representación.
 
@@ -246,6 +246,7 @@ Aunque los ejemplos anteriores usan `render`, ¡podríamos usar la proposición 
   <p>The mouse position is {mouse.x}, {mouse.y}</p>
 )}/>
 ```
+
 Y recuerda, la propiedad `children` en realidad no necesita ser nombrada en la lista de "atributos" en su elemento JSX. En su lugar, puedes ponerlo directamente *dentro* del elemento!
 
 ```js
@@ -286,7 +287,7 @@ class MouseTracker extends React.Component {
         <h1>Move the mouse around!</h1>
 
         {/*
-          ¡Esto esta mal! El valor de la `render prop`
+          ¡Esto está mal! El valor de la `render prop`
           será diferente en cada render.
         */}
         <Mouse render={mouse => (
