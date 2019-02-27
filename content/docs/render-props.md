@@ -246,7 +246,7 @@ Aunque los ejemplos anteriores usan `render`, ¡podríamos usar la proposición 
   <p>The mouse position is {mouse.x}, {mouse.y}</p>
 )}/>
 ```
-Y recuerde, la propiedad `children` en realidad no necesita ser nombrada en la lista de "atributos" en su elemento JSX. En su lugar, puedes ponerlo directamente *dentro* del elemento!
+Y recuerda, la propiedad `children` en realidad no necesita ser nombrada en la lista de "atributos" en su elemento JSX. En su lugar, puedes ponerlo directamente *dentro* del elemento!
 
 ```js
 <Mouse>
