@@ -17,23 +17,23 @@ No recomendamos necesariamente alguna de estas convenciones en aplicaciones de R
 
 ### Dependencias Externas {#external-dependencies}
 
-React casi no tiene dependencias externas. Por lo general, un `require()` apunta a un archivo en el código base de React. Sin embargo, hay algunas pocas excepciones relativamente raras.
+React casi no tiene dependencias externas. Por lo general, un `require()` apunta a un archivo en el código base de React. Sin embargo, hay algunas excepciones relativamente raras.
 
-El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y nosotros las mantenemos sincronizadas. Nosotros no dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideras como una API pública, y sólo estan destinadas para ser usadas en proyectos de Facebook como React.
+El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y las mantenemos sincronizadas. No dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideradas como una API pública, y sólo estan destinadas para ser usadas en proyectos de Facebook como React.
 
 ### Carpetas principales {#top-level-folders}
 
 Después de clonar el [repositorio de React](https://github.com/facebook/react), verás algunas carpetas principales en él.
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contiene metadatos (como el `package.json`) y el código fuente (subdirectorio `src`) para todos los paquetes en el repositorio de React. **Si tú cambio esta relacionado con el código, el subdirectorio `src` de cada paquete es donde pasarás la mayoría del tiempo.**
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contiene algunas pequeñas aplicaciones de prueba para colaboradores.
-* [`build`] es el compilado de React. No esta en el repositorio pero aparecerá en la carpeta clonada de React después de que [compiles](/docs/how-to-contribute.html#development-workflow) por primera vez.
+* [`packages`](https://github.com/facebook/react/tree/master/packages) contiene metadatos (como el `package.json`) y el código fuente (subdirectorio `src`) para todos los paquetes en el repositorio de React. **Si tú cambio está relacionado con el código, el subdirectorio `src` de cada paquete es donde pasarás la mayoría del tiempo.**
+* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contiene algunas aplicaciones pequeñas de prueba para colaboradores.
+* [`build`] es el compilado de React. No está en el repositorio pero aparecerá en la carpeta clonada de React después de que [compiles](/docs/how-to-contribute.html#development-workflow) por primera vez.
 
-La documentación esta [en un repositorio a parte de React](https://github.com/reactjs/reactjs.org).
+La documentación está [en un repositorio aparte de React](https://github.com/reactjs/reactjs.org).
 
 Hay otras carpetas principales pero son usadas como herramientas y no vas a necesitarlas al momento de contribuir.
 
-### Ubicación de las Pruebas {#colocated-test}
+### Ubicación de las pruebas {#colocated-test}
 
 Nosotros no tenemos un carpeta principal para las pruebas unitarias. En cambio, están ubicadas en un directorio llamado `__tests__` relativo a los archivos que prueban.
 
@@ -54,7 +54,7 @@ warning(
 
 **La advertencia se muestra cuando la condición `warning` es `false`.**
 
-Una forma de pensar al respecto es que la condición debe reflejar la situacón normal más no una condicion excepcional.
+Una forma de pensar al respecto es que la condición debe reflejar la situación normal más no una condición excepcional.
 
 Es una buena idea evitar duplicar advertencias en la consola.
 
@@ -71,7 +71,7 @@ if (!didWarnAboutMath) {
 }
 ```
 
-Las advertencias sólo estan disponibles en desarrollo. En producción, son removidas. Si necesitas prohibir la ejecución de un código, usa el módulo `invariant`:
+Las advertencias sólo están disponibles en desarrollo. En producción, son removidas. Si necesitas prohibir la ejecución de un código, usa el módulo `invariant`:
 
 ```js
 var invariant = require('invariant');
@@ -84,9 +84,9 @@ invariant(
 
 **El invariante se muestra cuando la condición `invariant` es `false`.**
 
-"Invariante" es una forma de decir "está condición siempre es true". Puedes pensar al respecto como si hicieras un comprobación.
+"Invariante" es una forma de decir "está condición siempre es true". Puedes pensar al respecto como si hicieras una comprobación.
 
-Es importante mantener el comportamiento del ambiente de producción y desarrollo similar, de forma que la condición `invariant` aplique para ambos. Los mensajes de error son reemplazados automáticamente por códigos de error en producción para evitar que afecten de forma negativa el tamaño en bytes.
+Es importante mantener similar el comportamiento del ambiente de producción y desarrollo, de forma que la condición `invariant` aplique para ambos. Los mensajes de error son reemplazados automáticamente por códigos de error en producción para evitar que afecten de forma negativa el tamaño en bytes.
 
 ### Desarrollo y Producción {#development-and-production}
 
@@ -104,7 +104,7 @@ if (__DEV__) {
 
 ### Flow {#flow}
 
-Recientemente se introdujo validaciones [Flow](https://flow.org/) al código base. Archivos marcados con la anotación `@flow` en el comentario de encabezado de la licencia se están validando.
+Recientemente se introdujeron validaciones [Flow](https://flow.org/) al código base. Archivos marcados con la anotación `@flow` en el comentario de encabezado de la licencia se están validando.
 
 Se aceptan PR's [para agregar anotaciones Flow al código existente](https://github.com/facebook/react/pull/7600/files). Las anotaciones Flow son así:
 
@@ -176,7 +176,7 @@ React fue creado originalmente para el DOM pero fue adaptado para dar soporte a 
 
 **Los renderizadores gestionan cómo un árbol de React se convierte en la plataforma de llamadas subyacente.**
 
-Los renderizadores también estan ubicados en [`packages/`](https://github.com/facebook/react/tree/master/packages/):
+Los renderizadores también están ubicados en [`packages/`](https://github.com/facebook/react/tree/master/packages/):
 
 * [Render de React DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes de React en el DOM. Implementa [APIs principales de `ReactDOM`](/docs/react-dom.html) y esta disponible como un paquete npm [`react-dom`](https://www.npmjs.com/package/react-dom). También puede ser usado como un bundle independiente del navegador llamado `react-dom.js` que exporta un global de `ReactDOM`.
 * [Render de React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes de React en vistas nativas. Es usado internamente por React Native.
@@ -190,15 +190,15 @@ Otro renderizador oficialmente soportado es [`react-art`](https://github.com/fac
 
 ### Reconciliadores {#reconcilers}
 
-Incluso los renderizadores como React DOM y React Native necesitan compartir gran cantidad de lógica. En particular, el algoritmo de [reconciliación](/docs/reconciliation.html) debe ser tan similar como sea posible para que el renderizado declarativo, los componentes personalizados, el estado, los métodos del ciclo de vida, y refs funcionen de forma consistente a tráves de las plataformas.
+Incluso los renderizadores como React DOM y React Native necesitan compartir gran cantidad de lógica. En particular, el algoritmo de [reconciliación](/docs/reconciliation.html) debe ser tan similar como sea posible para que el renderizado declarativo, los componentes personalizados, el estado, los métodos del ciclo de vida, y las referencias funcionen de forma consistente a tráves de las plataformas.
 
 Para resolver esto, diferentes renderizadores comparten parte del código. Llamamos a esta parte de React un `reconciliador`. Cuando se planifica una actulización como `setState()`, el reconciliador llama el método `render()` en los componentes del árbol y los monta, actuliza, o desmonta.
 
-Los reconciliadores no estan enpaquetados por separado porque actualmente no tienen una API pública. Por el contrario, son exclusivamente usados por los renderizadores como React DOM y React Native.
+Los reconciliadores no están enpaquetados por separado porque actualmente no tienen una API pública. Por el contrario, son exclusivamente usados por los renderizadores como React DOM y React Native.
 
 ### Reconcilador de pila {#stack-reconciler}
 
-El reconciliador de "pila" es la implementación que permite el funcionamiento de React 15 y versiones previas. Nosotros paramos de usarlo, pero esta documentada en detalla en la [próxima sección](/docs/implementation-notes.html).
+El reconciliador de "pila" es la implementación que permite el funcionamiento de React 15 y versiones previas. Nosotros dejamos de usarlo, pero esta documentada en detalla en la [próxima sección](/docs/implementation-notes.html).
 
 ### Reconciliador Fiber {#fiber-reconciler}
 
@@ -206,7 +206,6 @@ El reconciliador "fiber" es un nuevo esfuerzo dedicado a resolver los problemas 
 
 Sus objetivos principales son:
 
-// TODO: revizar con atención estos puntos
 * Habilidad de dividir trabajo interrumplible en partes.
 * Habilidad de priorizar, y reusar trabajo en progreso.
 * Habilidad para moverse entre padres e hijos para soportar maquetación en React.
@@ -219,10 +218,10 @@ Su código fuente esta ubicado en [`packages/react-reconciler`](https://github.c
 
 ### Sistema de Eventos {#event-system}
 
-React implementa un sistema de eventos sintético que es agnostico de los renderizadores y funciona con React DOM y React Native. Su código fuente esta localizado en [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
+React implementa un sistema de eventos sintético que es agnostico de los renderizadores y funciona con React DOM y React Native. Su código fuente está localizado en [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
 
 Hay un [video con una muestra a profundidad del código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
 
-### Que sigue? {#what-next}
+### Qué sigue? {#what-next}
 
 Lee la [próxima sección](/docs/implementation-notes.html) para aprender en más detalle acerca de la implementación del reconciliador antes de React 16. No hemos documentado los aspectos internos del nuevo reconciliador aún.
