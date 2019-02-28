@@ -19,7 +19,7 @@ No recomendamos necesariamente alguna de estas convenciones en aplicaciones de R
 
 React casi no tiene dependencias externas. Por lo general, un `require()` apunta a un archivo en el código base de React. Sin embargo, hay algunas excepciones relativamente raras.
 
-El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y las mantenemos sincronizadas. No dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideradas como una API pública, y sólo estan destinadas para ser usadas en proyectos de Facebook como React.
+El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y las mantenemos sincronizadas. No dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideradas como una API pública, y sólo están destinadas para ser usadas en proyectos de Facebook como React.
 
 ### Carpetas principales {#top-level-folders}
 
@@ -180,7 +180,7 @@ Los renderizadores también están ubicados en [`packages/`](https://github.com/
 
 * [Render de React DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes de React en el DOM. Implementa [APIs principales de `ReactDOM`](/docs/react-dom.html) y esta disponible como un paquete npm [`react-dom`](https://www.npmjs.com/package/react-dom). También puede ser usado como un bundle independiente del navegador llamado `react-dom.js` que exporta un global de `ReactDOM`.
 * [Render de React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes de React en vistas nativas. Es usado internamente por React Native.
-* [Render de Pruebas de React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes de React en árboles JSON. Es usada por la funcionalidad [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) de [Jest](https://facebook.github.io/jest) y esta disponible como el paquete npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer).
+* [Render de pruebas de React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes de React en árboles JSON. Es usada por la funcionalidad [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) de [Jest](https://facebook.github.io/jest) y esta disponible como el paquete npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer).
 
 Otro renderizador oficialmente soportado es [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). Antes estaba en un [repositorio de GitHub](https://github.com/reactjs/react-art) separado pero lo movimos en la estructura principal de directorios por ahora.
 
@@ -214,7 +214,7 @@ Sus objetivos principales son:
 
 Puedes leer más acerca de la Arquitectura de React Fiber [aquí](https://github.com/acdlite/react-fiber-architecture) y [aquí](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). Como el soporte comenzó desde React 16, las funcionalidades asíncronas no se han habilitado aún.
 
-Su código fuente esta ubicado en [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
+Su código fuente está ubicado en [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
 
 ### Sistema de Eventos {#event-system}
 
