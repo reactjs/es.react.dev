@@ -1,6 +1,6 @@
 ---
 id: codebase-overview
-title: Codebase Overview
+title: Visión general de la base de código
 layout: contributing
 permalink: docs/codebase-overview.html
 prev: how-to-contribute.html
@@ -19,7 +19,7 @@ No recomendamos necesariamente alguna de estas convenciones en aplicaciones de R
 
 React casi no tiene dependencias externas. Por lo general, un `require()` apunta a un archivo en el código base de React. Sin embargo, hay algunas excepciones relativamente raras.
 
-El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y las mantenemos sincronizadas. No dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideradas como una API pública, y sólo están destinadas para ser usadas en proyectos de Facebook como React.
+El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y las mantenemos sincronizadas. No dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideradas como una API pública, y solo están destinadas para ser usadas en proyectos de Facebook como React.
 
 ### Carpetas principales {#top-level-folders}
 
@@ -35,7 +35,7 @@ Hay otras carpetas principales pero son usadas como herramientas y no vas a nece
 
 ### Ubicación de las pruebas {#colocated-test}
 
-Nosotros no tenemos un carpeta principal para las pruebas unitarias. En cambio, están ubicadas en un directorio llamado `__tests__` relativo a los archivos que prueban.
+No tenemos un carpeta principal para las pruebas unitarias. En cambio, están ubicadas en un directorio llamado `__tests__` relativo a los archivos que prueban.
 
 Por ejemplo, una prueba para [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) esta ubicada junto a [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js).
 
@@ -71,7 +71,7 @@ if (!didWarnAboutMath) {
 }
 ```
 
-Las advertencias sólo están disponibles en desarrollo. En producción, son removidas. Si necesitas prohibir la ejecución de un código, usa el módulo `invariant`:
+Las advertencias solo están disponibles en desarrollo. En producción, son removidas. Si necesitas prohibir la ejecución de un código, usa el módulo `invariant`:
 
 ```js
 var invariant = require('invariant');
@@ -98,7 +98,7 @@ Para compilados independientes, se vuelve `true` en el compilado no minificado, 
 
 ```js
 if (__DEV__) {
-  // This code will only run in development.
+  // Este codigo solo funcionará en desarrollo.
 }
 ```
 
@@ -127,10 +127,10 @@ React usa inyección dinámica en algunos módulos. Mientras esta función se es
 Puedes ver módulos declarando sus dependencias dinámicas de la siguiente manera:
 
 ```js
-// Dynamically injected
+// Inyectado dinámicamente
 var textComponentClass = null;
 
-// Relies on dynamically injected value
+// Depende de un valor inyectado dinámicamente
 function createInstanceForText(text) {
   return new textComponentClass(text);
 }
@@ -138,7 +138,7 @@ function createInstanceForText(text) {
 var ReactHostComponent = {
   createInstanceForText,
 
-  // Provides an opportunity for dynamic injection
+  // Da una oportunidad para la inyección dinamica
   injection: {
     injectTextComponentClass: function(componentClass) {
       textComponentClass = componentClass;
@@ -155,7 +155,7 @@ Hay múltiples puntos de inyección en el código base. En el futuro, pretendemo
 
 ### Múltiples paquetes {#multiple-packages}
 
-React es un [monorepo](https://danluu.com/monorepo/). Su repositorio contiene múltiples paquetes separados de tal forma que sus cambios puedan coordinarse, y los issues se encuentren en un sólo lugar.
+React es un [monorepo](https://danluu.com/monorepo/). Su repositorio contiene múltiples paquetes separados de tal forma que sus cambios puedan coordinarse, y los issues se encuentren en un solo lugar.
 
 ### Núcleo de React {#react-core}
 
@@ -193,7 +193,7 @@ Incluso los renderizadores como React DOM y React Native necesitan compartir una
 
 Para resolver esto, diferentes renderizadores comparten parte del código entre sí. Llamamos a esta parte de React un `reconciliador`. Cuando se planifica una actualización como `setState()`, el reconciliador llama el método `render()` en los componentes del árbol y los monta, actualiza, o desmonta.
 
-Los reconciliadores no están enpaquetados por separado porque actualmente no tienen una API pública. Por el contrario, son exclusivamente usados por los renderizadores como React DOM y React Native.
+Los reconciliadores no están empaquetados por separado porque actualmente no tienen una API pública. Por el contrario, son exclusivamente usados por los renderizadores como React DOM y React Native.
 
 ### Reconciliador de pila {#stack-reconciler}
 
