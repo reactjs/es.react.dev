@@ -90,11 +90,11 @@ Es importante mantener similar el comportamiento del ambiente de producción y d
 
 ### Desarrollo y Producción {#development-and-production}
 
-Puedes usar la variable speudo-global `__DEV__` en el código base para proteger bloques de código únicamente en desarrollo.
+Puedes usar la variable seudo-global `__DEV__` en el código base para proteger bloques de código únicamente en desarrollo.
 
-Esta variable es agregada durante la fase de compilación, y se transforma en verificaciones de la forma `process.env.NODE_ENV !== 'production'` en compilados de CommonJS.
+Esta variable es agregada durante la fase de compilación, y se transforma en verificaciones de la forma `process.env.NODE_ENV !== 'production'` en los compilados de CommonJS.
 
-Para compilados independientes, se vuelve `true` en el compilado no minificado, y se remueve por completo junto con los bloques `if` que protege el compilado minificado.
+Para compilados independientes, se vuelve `true` en el compilado no minificado, y se remueve por completo junto con los bloques `if` que protege en el compilado minificado.
 
 ```js
 if (__DEV__) {
@@ -106,7 +106,7 @@ if (__DEV__) {
 
 Recientemente se introdujeron validaciones [Flow](https://flow.org/) al código base. Archivos marcados con la anotación `@flow` en el comentario de encabezado de la licencia se están validando.
 
-Se aceptan PR's [para agregar anotaciones Flow al código existente](https://github.com/facebook/react/pull/7600/files). Las anotaciones Flow son así:
+Se aceptan pull requests [para agregar anotaciones Flow al código existente](https://github.com/facebook/react/pull/7600/files). Las anotaciones Flow se ven así:
 
 ```js
 ReactRef.detachRefs = function(
@@ -122,9 +122,9 @@ Puedes usar `yarn flow` localmente para verificar tu código con Flow.
 
 ### Inyección Dinámica {#dynamic-injection}
 
-React usa inyección dinámica en algunos módulos. Mientras esta función se específica de forma explícita, no deja de ser inoportuna porque dificulta la comprensión del código. La razón principal de su existencia es que React originalmente soportaba el DOM como objetivo. React Native empezó como un fork de React. Nosotros tuvimos que agregar inyección dinámica para permitir que React Native sobreescribiera algunos comportamientos.
+React usa inyección dinámica en algunos módulos. Mientras esta función se específica de forma explícita, no deja de ser inoportuna porque dificulta la comprensión del código. La razón principal de su existencia es que React originalmente soportaba el DOM como objetivo. React Native empezó como un fork de React. Tuvimos que agregar inyección dinámica para permitir que React Native sobreescribiera algunos comportamientos.
 
-Tu puedes ver módulos declarando sus dependencias dinámicas de la siguiente manera:
+Puedes ver módulos declarando sus dependencias dinámicas de la siguiente manera:
 
 ```js
 // Dynamically injected
@@ -149,56 +149,55 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 ```
 
-El campo `injection` no se maneja de alguna forma en especial. Pero por convención, significa que el módulo quiere tener algunas (presuntamente específicas a la plataforma) dependencias inyectadas al momento de ejecución.
+El campo `injection` no se maneja de alguna forma en especial. Pero por convención, significa que el módulo quiere tener algunas (presuntamente específicas a la plataforma) dependencias inyectadas al momento de su ejecución.
 
 Hay múltiples puntos de inyección en el código base. En el futuro, pretendemos remover el mecanismo de inyección dinámica y conectar todas las piezas de forma estática durante la compilación.
 
 ### Múltiples paquetes {#multiple-packages}
 
-React es un [monorepo](https://danluu.com/monorepo/). Su repositorio contiene múltiples paquetes separados de tal forma que sus cambios puedan coordinarse, y los issues se encuentran en un sólo lugar.
+React es un [monorepo](https://danluu.com/monorepo/). Su repositorio contiene múltiples paquetes separados de tal forma que sus cambios puedan coordinarse, y los issues se encuentren en un sólo lugar.
 
 ### Núcleo de React {#react-core}
 
 El "núcleo" de React incluye todas las [APIs principales de React](/docs/top-level-api.html#react), por ejemplo:
 
 * `React.createElement()`
-* `React.Component()`
+* `React.Component`
 * `React.Children`
 
-**El núcleo de React incluye las APIs para definir componentes.** Este no incluye el algoritmo de [reconciliación](/docs/reconciliation.html) o algún código específico a la plataforma. Es usado por componentes de React DOM y React Native.
+**El núcleo de React incluye las APIs necesarias para definir componentes.** Este no incluye el algoritmo de [reconciliación](/docs/reconciliation.html) o cualquier código específico a una plataforma. Es usado por componentes de React DOM y React Native.
 
-El código núcleo de React esta ubicado en [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) en el árbol de fuentes. Esta disponible en npm como el paquete [react](https://www.npmjs.com/package/react). La compilación del navegador se llama `react.js`, y exporta un global llamado `React`.
+El código del núcleo de React está ubicado en [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) en el árbol de fuentes. Está disponible en npm como el paquete [react](https://www.npmjs.com/package/react). La compilación del navegador se llama `react.js`, y exporta un global llamado `React`.
 
 ### Renderizadores {#renderers}
 
-React fue creado originalmente para el DOM pero fue adaptado para dar soporte a plataformas nativas con [React Native](https://facebook.github.io/react-native/)
-- Esto introdujo el concepto de "renderizadores" en React.
+React fue creado originalmente para el DOM pero fue adaptado para dar soporte a plataformas nativas con [React Native](https://facebook.github.io/react-native/). Esto introdujo el concepto de "renderizadores" en React.
 
-**Los renderizadores gestionan cómo un árbol de React se convierte en la plataforma de llamadas subyacente.**
+**Los renderizadores gestionan cómo un árbol de React se convierte en llamados de la plataforma subyacente.**
 
 Los renderizadores también están ubicados en [`packages/`](https://github.com/facebook/react/tree/master/packages/):
 
-* [Render de React DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes de React en el DOM. Implementa [APIs principales de `ReactDOM`](/docs/react-dom.html) y esta disponible como un paquete npm [`react-dom`](https://www.npmjs.com/package/react-dom). También puede ser usado como un bundle independiente del navegador llamado `react-dom.js` que exporta un global de `ReactDOM`.
-* [Render de React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes de React en vistas nativas. Es usado internamente por React Native.
-* [Render de pruebas de React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes de React en árboles JSON. Es usada por la funcionalidad [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) de [Jest](https://facebook.github.io/jest) y esta disponible como el paquete npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer).
+* [Renderizador de React DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes de React en el DOM. Implementa [APIs principales de `ReactDOM`](/docs/react-dom.html) y está disponible como un paquete npm [`react-dom`](https://www.npmjs.com/package/react-dom). También puede ser usado como un bundle independiente del navegador llamado `react-dom.js` que exporta un global de `ReactDOM`.
+* [Renderizador de React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes de React en vistas nativas. Es usado internamente por React Native.
+* [Renderizador de pruebas de React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes de React en árboles JSON. Es usada por la funcionalidad [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) de [Jest](https://facebook.github.io/jest) y está disponible como el paquete npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer).
 
-Otro renderizador oficialmente soportado es [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). Antes estaba en un [repositorio de GitHub](https://github.com/reactjs/react-art) separado pero lo movimos en la estructura principal de directorios por ahora.
+Otro renderizador oficialmente soportado es [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). Antes estaba en un [repositorio de GitHub](https://github.com/reactjs/react-art) separado pero lo movimos a la estructura principal de directorios por ahora.
 
->**Note:**
+>**Nota:**
 >
-> Técnicamente [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) es una capa delgada que enseña a React a interactuar con la implementación de React Native. El verdadero código espicífo a la plataforma que se encarga de las vistas nativas esta en el [repositorio de React Native](https://github.com/facebook/react-native) junto con sus componentes.
+> Técnicamente [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) es una capa delgada que enseña a React a interactuar con la implementación de React Native. El verdadero código espicífico a la plataforma que se encarga de las vistas nativas está en el [repositorio de React Native](https://github.com/facebook/react-native) junto con sus componentes.
 
 ### Reconciliadores {#reconcilers}
 
-Incluso los renderizadores como React DOM y React Native necesitan compartir gran cantidad de lógica. En particular, el algoritmo de [reconciliación](/docs/reconciliation.html) debe ser tan similar como sea posible para que el renderizado declarativo, los componentes personalizados, el estado, los métodos del ciclo de vida, y las referencias funcionen de forma consistente a tráves de las plataformas.
+Incluso los renderizadores como React DOM y React Native necesitan compartir una gran cantidad de lógica. En particular, el algoritmo de [reconciliación](/docs/reconciliation.html) debe ser tan similar como sea posible para que el renderizado declarativo, los componentes personalizados, el estado, los métodos del ciclo de vida, y las referencias funcionen de forma consistente a tráves de las plataformas.
 
-Para resolver esto, diferentes renderizadores comparten parte del código. Llamamos a esta parte de React un `reconciliador`. Cuando se planifica una actulización como `setState()`, el reconciliador llama el método `render()` en los componentes del árbol y los monta, actuliza, o desmonta.
+Para resolver esto, diferentes renderizadores comparten parte del código entre sí. Llamamos a esta parte de React un `reconciliador`. Cuando se planifica una actualización como `setState()`, el reconciliador llama el método `render()` en los componentes del árbol y los monta, actualiza, o desmonta.
 
 Los reconciliadores no están enpaquetados por separado porque actualmente no tienen una API pública. Por el contrario, son exclusivamente usados por los renderizadores como React DOM y React Native.
 
-### Reconcilador de pila {#stack-reconciler}
+### Reconciliador de pila {#stack-reconciler}
 
-El reconciliador de "pila" es la implementación que permite el funcionamiento de React 15 y versiones previas. Nosotros dejamos de usarlo, pero esta documentada en detalla en la [próxima sección](/docs/implementation-notes.html).
+El reconciliador de "pila" es la implementación que permite el funcionamiento de React 15 y versiones previas. Dejamos de usarlo, pero está documentado en detalle en la [próxima sección](/docs/implementation-notes.html).
 
 ### Reconciliador Fiber {#fiber-reconciler}
 
@@ -210,7 +209,7 @@ Sus objetivos principales son:
 * Habilidad de priorizar, y reusar trabajo en progreso.
 * Habilidad para moverse entre padres e hijos para soportar maquetación en React.
 * Habilidad para retornar múltiples elementos desde el método `render()`.
-* Mejor soporte a error boundaries.
+* Mejor soporte a límites de error.
 
 Puedes leer más acerca de la Arquitectura de React Fiber [aquí](https://github.com/acdlite/react-fiber-architecture) y [aquí](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). Como el soporte comenzó desde React 16, las funcionalidades asíncronas no se han habilitado aún.
 
@@ -218,9 +217,9 @@ Su código fuente está ubicado en [`packages/react-reconciler`](https://github.
 
 ### Sistema de Eventos {#event-system}
 
-React implementa un sistema de eventos sintético que es agnostico de los renderizadores y funciona con React DOM y React Native. Su código fuente está localizado en [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
+React implementa un sistema de eventos sintético que es agnóstico de los renderizadores y funciona con React DOM y React Native. Su código fuente está localizado en [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
 
-Hay un [video con una muestra a profundidad del código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
+Aquí hay un [video con una muestra en profundidad del código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
 
 ### Qué sigue? {#what-next}
 
