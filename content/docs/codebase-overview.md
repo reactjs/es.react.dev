@@ -35,7 +35,7 @@ Hay otras carpetas principales pero son usadas como herramientas y no vas a nece
 
 ### Ubicación de las pruebas {#colocated-test}
 
-Nosotros no tenemos un carpeta principal para las pruebas unitarias. En cambio, están ubicadas en un directorio llamado `__tests__` relativo a los archivos que prueban.
+No tenemos un carpeta principal para las pruebas unitarias. En cambio, están ubicadas en un directorio llamado `__tests__` relativo a los archivos que prueban.
 
 Por ejemplo, una prueba para [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) esta ubicada junto a [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js).
 
