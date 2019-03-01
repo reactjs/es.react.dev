@@ -98,7 +98,7 @@ Para compilados independientes, se vuelve `true` en el compilado no minificado, 
 
 ```js
 if (__DEV__) {
-  // Este codigo solo funcionará en desarrollo.
+  // Este código solo funcionará en desarrollo.
 }
 ```
 
