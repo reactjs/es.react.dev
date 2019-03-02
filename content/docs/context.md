@@ -54,7 +54,7 @@ Por ejemplo, considera un componente `Page` que pasa un prop `user` y `avatarSiz
 
 Puede parecer redundante pasar los props de `user` y` avatarSize` a través de muchos niveles si al final solo el componente `Avatar` realmente lo necesita. También es molesto que cada vez que el componente `Avatar` necesite más props, también hay que agregarlos en todos los niveles intermedios.
 
-Una forma de resolver este problema **sin usar Context** es [pasar el mismo componente `Avatar`](/docs/composition-vs-inheritance.html#containment) para que los componentes intermedios no tengan que saber sobre el prop `usuario`:
+Una forma de resolver este problema **sin usar Context** es [pasar el mismo componente `Avatar`](/docs/composition-vs-inheritance.html#containment) para que los componentes intermedios no tengan que saber sobre los props `usuario` o `avatarSize`:
 
 ```js
 function Page(props) {
@@ -68,7 +68,7 @@ function Page(props) {
 }
 
 // Ahora tenemos:
-<Page user={user} />
+<Page user={user} avatarSize={avatarSize} />
 // ... que renderiza ...
 <PageLayout userLink={...} />
 // ... que renderiza ...
