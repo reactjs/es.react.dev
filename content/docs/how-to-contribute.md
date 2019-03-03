@@ -1,6 +1,6 @@
 ---
 id: how-to-contribute
-title: How to Contribute
+title: Cómo contribuir
 layout: contributing
 permalink: docs/how-to-contribute.html
 next: codebase-overview.html
@@ -9,170 +9,170 @@ redirect_from:
   - "tips/introduction.html"
 ---
 
-React is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody on [facebook.com](https://www.facebook.com). We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
+React es uno de los primeros proyectos de código abierto de Facebook que si bien está siendo desarrollado muy activamente, al mismo tiempo se utiliza para crear código que les llega a todos en [facebook.com](https://www.facebook.com). Todavía estamos trabajando en los problemas para hacer que la contribución a este proyecto sea lo más fácil y transparente posible, pero aún no hemos llegado a ese punto. Esperamos que este documento haga que el proceso de contribución sea claro y responda algunas preguntas que pueda tener.
 
-### [Code of Conduct](https://code.facebook.com/codeofconduct) {#code-of-conduct}
+### [Código de conducta](https://code.facebook.com/codeofconduct) {#code-of-conduct}
 
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+Facebook ha adoptado un código de conducta que esperamos que los participantes del proyecto cumplan. Lee [el texto completo](https://code.facebook.com/codeofconduct) para que puedas comprender qué acciones serán o no toleradas.
 
-### Open Development {#open-development}
+### Desarrollo abierto {#open-development}
 
-All work on React happens directly on [GitHub](https://github.com/facebook/react). Both core team members and external contributors send pull requests which go through the same review process.
+Todo el trabajo en React sucede directamente en [GitHub](https://github.com/facebook/react). Tanto los miembros del equipo central como los colaboradores externos envían *pull requests* que pasan por el mismo proceso de revisión.
 
-### Branch Organization {#branch-organization}
+### Organización de las ramas {#branch-organization}
 
-We will do our best to keep the [`master` branch](https://github.com/facebook/react/tree/master) in good shape, with tests passing at all times. But in order to move fast, we will make API changes that your application might not be compatible with. We recommend that you use [the latest stable version of React](/downloads.html).
+Haremos todo lo posible por mantener la [rama `master`](https://github.com/facebook/react/tree/master) en buen estado, con pruebas que pasen todo el tiempo. Pero para avanzar rápidamente, realizaremos cambios en la API con los que tu aplicación podría no ser compatible. Recomendamos que uses [la última versión estable de React](/downloads.html).
 
-If you send a pull request, please do it against the `master` branch. We maintain stable branches for major versions separately but we don't accept pull requests to them directly. Instead, we cherry-pick non-breaking changes from master to the latest stable major version.
+Si envías un *pull request*, hazlo contra la rama `master`. Mantenemos ramas estables para las versiones principales por separado, pero no aceptamos *pull requests* directamente a ellas. En su lugar, seleccionamos cambios compatibles de la rama *master* y los pasamos a la última versión mayor estable.
 
-### Semantic Versioning {#semantic-versioning}
+### Versionado semántico {#semantic-versioning}
 
-React follows [semantic versioning](https://semver.org/). We release patch versions for bugfixes, minor versions for new features, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance.
+React sigue [el versionado semántico](https://semver.org/). Lanzamos versiones de parches para correcciones de errores, versiones menores para nuevas funciones y versiones mayores para cualquier cambio importante. Cuando hacemos cambios importantes, también introducimos advertencias de descontinuación en una versión menor para que nuestros usuarios conozcan los próximos cambios y migren su código de antemano.
 
-We tag every pull request with a label marking whether the change should go in the next [patch](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-patch), [minor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-minor), or a [major](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-major) version. We release new patch versions every few weeks, minor versions every few months, and major versions one or two times a year.
+Etiquetamos cada *pull request* con un rótulo que indica si el cambio debería ir en la siguiente versión de [parche](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-patch), [menor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-minor), o [mayor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-major). Lanzamos nuevas versiones de parches cada pocas semanas, versiones menores cada pocos meses y versiones mayores una o dos veces al año.
 
-Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+Cada cambio significativo se documenta en el [archivo de registro de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
-### Bugs {#bugs}
+### Errores {#bugs}
 
-#### Where to Find Known Issues {#where-to-find-known-issues}
+#### Dónde encontrar problemas conocidos {#where-to-find-known-issues}
 
-We are using [GitHub Issues](https://github.com/facebook/react/issues) for our public bugs. We keep a close eye on this and try to make it clear when we have an internal fix in progress. Before filing a new task, try to make sure your problem doesn't already exist.
+Estamos utilizando el sistema de [*incidencias* de GitHub](https://github.com/facebook/react/issues) para nuestros errores públicos. Mantenemos una estrecha vigilancia sobre esto y tratamos de avisar cuando tenemos una solución interna en curso. Antes de hacer un nuevo reporte, asegúrate de que tu problema no exista ya.
 
-#### Reporting New Issues {#reporting-new-issues}
+#### Reportando nuevas incidencias {#reporting-new-issues}
 
-The best way to get your bug fixed is to provide a reduced test case. This [JSFiddle template](https://jsfiddle.net/Luktwrdm/) is a great starting point.
+La mejor manera de solucionar tu error es proporcionar un caso de prueba reducido. Esta [plantilla JSFiddle](https://jsfiddle.net/Luktwrdm/) es un gran punto de partida.
 
-#### Security Bugs {#security-bugs}
+#### Errores de seguridad {#security-bugs}
 
-Facebook has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. With that in mind, please do not file public issues; go through the process outlined on that page.
+Facebook tiene un [programa de recompensas](https://www.facebook.com/whitehat/) para la divulgación segura de errores de seguridad. Con esto en mente, por favor, no abras incidencias públicas. Sigue el proceso descrito en esa página.
 
-### How to Get in Touch {#how-to-get-in-touch}
+### Cómo entrar en contacto {#how-to-get-in-touch}
 
-* IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* Discussion forum: [discuss.reactjs.org](https://discuss.reactjs.org/)
+* IRC: [#reactjs en freenode](https://webchat.freenode.net/?channels=reactjs)
+* Foro de discusión: [discuss.reactjs.org](https://discuss.reactjs.org/)
 
-There is also [an active community of React users on the Discord chat platform](https://www.reactiflux.com/) in case you need help with React.
+También hay [una comunidad activa de usuarios de React en la plataforma de chat Discord](https://www.reactiflux.com/) en caso de que necesites ayuda con React.
 
-### Proposing a Change {#proposing-a-change}
+### Proponer un cambio {#proposing-a-change}
 
-If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend [filing an issue](https://github.com/facebook/react/issues/new). This lets us reach an agreement on your proposal before you put significant effort into it.
+Si tiene la intención de cambiar la API pública o realizar cambios no triviales en la implementación, recomendamos [abrir una incidencia](https://github.com/facebook/react/issues/new). Esto nos permite llegar a un acuerdo sobre tu propuesta antes que le pongas un gran esfuerzo.
 
-If you're only fixing a bug, it's fine to submit a pull request right away but we still recommend to file an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
+Si solo estás solucionando un error, está bien enviar un *pull request* de inmediato, pero seguimos recomendando que abras una incidencia que detalle que es lo que estás solucionando. Esto es útil en caso de que no aceptemos esa solución en particular, pero aún queramos hacer el seguimiento del problema.
 
-### Your First Pull Request {#your-first-pull-request}
+### Tu primer pull request {#your-first-pull-request}
 
-Working on your first Pull Request? You can learn how from this free video series:
+¿Trabajando en tu primer *pull request*? Puedes aprender cómo en esta serie de videos gratis:
 
-**[How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+**[Cómo contribuir a un proyecto de código abierto en GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of **[good first issues](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** that contain bugs that have a relatively limited scope. This is a great place to get started.
+Para ayudarte a familiarizarte con nuestro proceso de contribución, tenemos una lista de **[incidencias adecuadas para comenzar](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** que contienen errores que tienen un alcance relativamente limitado. Este es un gran lugar para empezar.
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don't accidentally duplicate your effort.
+Si decides solucionar una incidencia, asegúrate de revisar el hilo de comentarios en caso de que alguien ya esté trabajando en una solución. Si nadie está trabajando en ello en este momento, deja un comentario que indique que deseas trabajar en ella para que otras personas no dupliquen accidentalmente su esfuerzo.
 
-If somebody claims an issue but doesn't follow up for more than two weeks, it's fine to take it over but you should still leave a comment.
+Si alguien reclama una incidencia pero no hace un seguimiento por más de dos semanas, está bien que te hagas cargo pero aún así debes dejar un comentario.
 
-### Sending a Pull Request {#sending-a-pull-request}
+### Enviar un pull request {#sending-a-pull-request}
 
-The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. For API changes we may need to fix our internal uses at Facebook.com, which could cause some delay. We'll do our best to provide updates and feedback throughout the process.
+El equipo principal está monitoreando los *pull requests*. Revisaremos tu *pull request* y haremos un *merge*, solicitaremos cambios o lo cerraremos con una explicación. Para los cambios de API, es posible que tengamos que arreglar nuestros usos internos en Facebook.com, lo que podría causar algún retraso. Haremos nuestro mejor esfuerzo para proporcionar actualizaciones y comentarios durante todo el proceso.
 
-**Before submitting a pull request,** please make sure the following is done:
+**Antes de enviar un _pull request_**, asegúrate de que se haga lo siguiente:
 
-1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
-2. Run `yarn` in the repository root.
-3. If you've fixed a bug or added code that should be tested, add tests!
-4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
-5. Run `yarn test-prod` to test in the production environment. It supports the same options as `yarn test`.
-6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
-7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
-8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
-9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
-10. If you haven't already, complete the CLA.
+1. Haz un *fork* [del repositorio](https://github.com/facebook/react) y crea tu rama a partir de `master`.
+2. Ejecuta `yarn` en la raíz del repositorio.
+3. Si has corregido un error o has agregado un código que debería probarse, ¡agrega pruebas!
+4. Asegúrate de que el conjunto de pruebas pasa (`yarn test`). Consejo: `yarn test --watch TestName` es útil en desarrollo.
+5. Ejecuta `yarn test-prod` para probar en el entorno de producción. Es compatible con las mismas opciones que `yarn test`.
+6. Si necesitas un depurador, ejecuta `yarn debug-test --watch TestName`, abre `chrome://inspect` y presiona "Inspeccionar".
+7. Formatea tu código con [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
+8. Asegúrate de ejecutar lint en tu código (`yarn lint`). Consejo: `yarn linc` para verificar solo los archivos modificados.
+9. Ejecuta los controles de tipo de [Flow](https://flowtype.org/) (`yarn flow`).
+10. Si aún no lo has hecho, completa el CLA.
 
-### Contributor License Agreement (CLA) {#contributor-license-agreement-cla}
+### Acuerdo de Licencia de Contribuidor (CLA) {#contributor-license-agreement-cla}
 
-In order to accept your pull request, we need you to submit a CLA. You only need to do this once, so if you've done this for another Facebook open source project, you're good to go. If you are submitting a pull request for the first time, just let us know that you have completed the CLA and we can cross-check with your GitHub username.
+Para aceptar tu pull request, necesitamos que envíes un CLA. Solo necesitas hacer esto una vez, así que si lo has hecho para otro proyecto de código abierto de Facebook, estás listo. Si estás enviando un *pull request* por primera vez, haznos saber que has completado el CLA y podemos verificarlo con tu nombre de usuario de GitHub.
 
-**[Complete your CLA here.](https://code.facebook.com/cla)**
+**[Completa tu CLA aquí.](https://code.facebook.com/cla)**
 
-### Contribution Prerequisites {#contribution-prerequisites}
+### Prerequisitos para contribuir {#contribution-prerequisites}
 
-* You have [Node](https://nodejs.org) installed at v8.0.0+ and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
-* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
-* You are familiar with Git.
+* Tienes [Node](https://nodejs.org) instalado con v8.0.0+ y [Yarn](https://yarnpkg.com/en/) con v1.2.0+.
+* Tienes `gcc` instalado o te sientes cómodo instalando un compilador si es necesario. Algunas de nuestras dependencias pueden requerir un paso de compilación. En OS X, las herramientas de línea de comandos de Xcode cubrirán esto. En Ubuntu, `apt-get install build-essential` instalará los paquetes necesarios. Comandos similares deberían funcionar en otras distribuciones de Linux. Windows requerirá algunos pasos adicionales, consulta las [instrucciones de instalación de `node-gyp`](https://github.com/nodejs/node-gyp#installation) para obtener más información.
+* Estás familiarizado con Git.
 
-### Development Workflow {#development-workflow}
+### Flujo de trabajo de desarrollo {#development-workflow}
 
-After cloning React, run `yarn` to fetch its dependencies.
-Then, you can run several commands:
+Después de clonar React, ejecuta `yarn` para obtener sus dependencias.
+A continuación, puedes ejecutar varios comandos:
 
-* `yarn lint` checks the code style.
-* `yarn linc` is like `yarn lint` but faster because it only checks files that differ in your branch.
-* `yarn test` runs the complete test suite.
-* `yarn test --watch` runs an interactive test watcher.
-* `yarn test <pattern>` runs tests with matching filenames.
-* `yarn test-prod` runs tests in the production environment. It supports all the same options as `yarn test`.
-* `yarn debug-test` is just like `yarn test` but with a debugger. Open `chrome://inspect` and press "Inspect".
-* `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
-* `yarn build` creates a `build` folder with all the packages.
-* `yarn build react/index,react-dom/index --type=UMD` creates UMD builds of just React and ReactDOM.
+* `yarn lint` comprueba el estilo del código.
+* `yarn linc` es como` yarn lint` pero más rápido, porque solo verifica los archivos que difieren en tu rama.
+* `yarn test` ejecuta el conjunto total de pruebas.
+* `yarn test --watch` ejecuta un observador de pruebas interactivo.
+* `yarn test <pattern>` ejecuta pruebas con nombres de archivos que coincidan.
+* `yarn test-prod` ejecuta pruebas en el entorno de producción. Es compatible con todas las mismas opciones que `yarn test`.
+* `yarn debug-test` es igual que` yarn test` pero con un depurador. Abre `chrome://inspect` y presiona "Inspeccionar".
+* `yarn flow` ejecuta todas las comprobaciones de tipos de [Flow](https://flowtype.org/).
+* `yarn build` crea una carpeta` build` con todos los paquetes.
+* `yarn build react/index,react-dom/index --type=UMD` crea las compilaciones UMD solo de React y ReactDOM.
 
-We recommend running `yarn test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However it can be handy to try your build of React in a real project.
+Recomendamos ejecutar `yarn test` (o sus variaciones anteriores) para asegurarte de no introducir ninguna regresión mientras trabajas en tu cambio. Sin embargo, puede ser útil probar tu compilación de React en un proyecto real.
 
-First, run `yarn build`. This will produce pre-built bundles in `build` folder, as well as prepare npm packages inside `build/packages`.
+En primer lugar, ejecuta `yarn build`. Esto producirá paquetes precompilados en la carpeta `build`, así como también preparará paquetes npm dentro de `build/packages`.
 
-The easiest way to try your changes is to run `yarn build react/index,react-dom/index --type=UMD` and then open `fixtures/packaging/babel-standalone/dev.html`. This file already uses `react.development.js` from the `build` folder so it will pick up your changes.
+La forma más fácil de probar tus cambios es ejecutar `yarn build react/index,react-dom/index --type=UMD` y luego abrir `fixtures/packaging/babel-standalone/dev.html`. Este archivo ya utiliza `react.development.js` de la carpeta` build` por lo que recogerá tus cambios.
 
-If you want to try your changes in your existing React project, you may copy `build/dist/react.development.js`, `build/dist/react-dom.development.js`, or any other build products into your app and use them instead of the stable version. If your project uses React from npm, you may delete `react` and `react-dom` in its dependencies and use `yarn link` to point them to your local `build` folder:
+Si deseas probar los cambios en tu proyecto React existente, puedes copiar `build/dist/react.development.js`,`build/dist/react-dom.development.js`, o cualquier otro producto de compilación en tu aplicación y usarlos en lugar de la versión estable. Si tu proyecto usa React desde npm, puedes eliminar `react` y` react-dom` en sus dependencias y usar `yarn link` para apuntarlos a tu carpeta local `build`:
 
 ```sh
-cd ~/path_to_your_react_clone/build/node_modules/react
+cd ~/ruta_a_tu_clon_react/build/node_modules/react
 yarn link
-cd ~/path_to_your_react_clone/build/node_modules/react-dom
+cd ~/ruta_a_tu_clon_react/build/node_modules/react-dom
 yarn link
-cd /path/to/your/project
+cd /ruta/a/tu/proyecto
 yarn link react react-dom
 ```
 
-Every time you run `yarn build` in the React folder, the updated versions will appear in your project's `node_modules`. You can then rebuild your project to try your changes.
+Cada vez que ejecutes `yarn build` en la carpeta React, las versiones actualizadas aparecerán dentro de `node_modules` en tu proyecto. A continuación, puedes reconstruir tu proyecto para probar tus cambios.
 
-We still require that your pull request contains unit tests for any new functionality. This way we can ensure that we don't break your code in the future.
+Aún requerimos que tu *pull request* contenga pruebas unitarias para cualquier funcionalidad nueva. De esta manera podemos asegurarnos de que tu código no falle en el futuro.
 
-### Style Guide {#style-guide}
+### Guía de estilo {#style-guide}
 
-We use an automatic code formatter called [Prettier](https://prettier.io/).
-Run `yarn prettier` after making any changes to the code.
+Utilizamos un formateador de código automático llamado [Prettier](https://prettier.io/).
+Ejecuta `yarn prettier` después de realizar cualquier cambio en el código.
 
-Then, our linter will catch most issues that may exist in your code.
-You can check the status of your code styling by simply running `yarn linc`.
+Luego, nuestra guía detectará la mayoría de los problemas que puedan existir en tu código. 
+Puedes verificar el estado de tu estilo de código simplemente ejecutando `yarn linc`.
 
-However, there are still some styles that the linter cannot pick up. If you are unsure about something, looking at [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
+Sin embargo, todavía hay algunos estilos que el *linter* no puede recoger. Si no estás seguro de algo, consulta la [Guía de estilo de Airbnb](https://github.com/airbnb/javascript) que te guiará en la dirección correcta.
 
-### Introductory Video {#introductory-video}
+### Video introductorio {#introductory-video}
 
-You may be interested in watching [this short video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 mins) which gives an introduction on how to contribute to React.
+Es posible que te interese ver [este breve video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos) que brinda una introducción sobre cómo contribuir a React.
 
-#### Video highlights: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Building and testing React locally
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Creating and sending pull requests
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizing code
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adding new React features
+#### Momentos destacados del video: {#video-highlights}
+- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construir y probar React localmente
+- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Crear y enviar *pull requests*
+- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizar el código
+- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - Registro de React en npm
+- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adición de nuevas funcionalidades a React
 
-For a realistic overview of what it _feels_ like to contribute to React for the first time, check out [this entertaining ReactNYC talk](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
+Para obtener una descripción realista de lo que se _siente_ contribuir a React por primera vez, echa un vistazo a [esta entretenida charla de ReactNYC](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
-### Request for Comments (RFC) {#request-for-comments-rfc}
+### Solicitud de comentarios (RFC) {#request-for-comments-rfc}
 
-Many changes, including bug fixes and documentation improvements can be implemented and reviewed via the normal GitHub pull request workflow.
+Muchos cambios, incluyendo correcciones de errores y mejoras en la documentación, se pueden implementar y revisar a través del flujo de trabajo normal de *pull request* de GitHub.
 
-Some changes though are "substantial", and we ask that these be put through a bit of a design process and produce a consensus among the React core team.
+Sin embargo, algunos cambios son "sustanciales", y pedimos que se sometan a un proceso de diseño y produzcan un consenso entre el equipo central de React.
 
-The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the project. You can contribute by visiting the [rfcs repository](https://github.com/reactjs/rfcs).
+El proceso "RFC" (solicitud de comentarios) tiene como objetivo proporcionar una ruta coherente y controlada para que las nuevas características ingresen al proyecto. Puedes contribuir visitando el [repositorio rfcs](https://github.com/reactjs/rfcs).
 
-### License {#license}
+### Licencia {#license}
 
-By contributing to React, you agree that your contributions will be licensed under its MIT license.
+Al contribuir a React, aceptas que tus contribuciones se otorgarán bajo su licencia MIT.
 
-### What Next? {#what-next}
+### ¿Qué hay luego? {#what-next}
 
-Read the [next section](/docs/codebase-overview.html) to learn how the codebase is organized.
+Lee la [sección siguiente](/docs/codebase-overview.html) para saber cómo está organizada la base de código.
