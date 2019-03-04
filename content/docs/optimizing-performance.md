@@ -12,7 +12,7 @@ Internamente, React utiliza diferentes técnicas inteligentes para minimizar el 
 
 Si estás haciendo análisis comparativos o experimentando problemas de rendimiento en tus aplicacions de React, asegúrate que estas probando con una *build* minificada.
 
-Por defect, React incluye muchas alertas útiles. Estas alertas son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
+Por defecto, React incluye muchas alertas útiles. Estas alertas son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
 
 Si no estás seguro si tu proceso de *build* está configurado correctamente, puedes revisarlo instalando [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). Si visitas un sitio con React en modo de producción, el ícono tendrá un fondo oscuro:
 
@@ -103,21 +103,21 @@ Recuerda que solo necesitas hacer esto para las *builds* de producción. No debe
 
 ### Rollup
 
-Para el *Rollup* de la *build* de producción mas eficiente, instala algunos plugins:
+Para la *build* de producción mas eficiente en Rollup, instala algunos plugins:
 
 ```
-# If you use npm
+# Si usas npm
 npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
 
-# If you use Yarn
+# Si usas Yarn
 yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
 ```
 
-To create a production build, make sure that you add these plugins **(the order matters)**:
+Para crear una *build* de producción, asegúrate de agregar estos plugins **(el orden es importante)**:
 
-* The [`replace`](https://github.com/rollup/rollup-plugin-replace) plugin ensures the right build environment is set.
-* The [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plugin provides support for CommonJS in Rollup.
-* The [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) plugin compresses and mangles the final bundle.
+* El plugin [`replace`](https://github.com/rollup/rollup-plugin-replace) asegura que el ambiente correcto para la *build* de producción sea establecido.
+* El pluglin [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) proporciona soporte para CommonJS en Rollup.
+* El plugin [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) comprime y mutila el *bundle* final.
 
 ```js
 plugins: [
@@ -131,18 +131,18 @@ plugins: [
 ]
 ```
 
-For a complete setup example [see this gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
+Para un ejemple de configuración completo [mira este gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
-Remember that you only need to do this for production builds. You shouldn't apply the `uglify` plugin or the `replace` plugin with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
+Recuerda que solo necesitas esto para las *builds* de producción. No deberías aplicar el plugin `uglify` o el plugin `replace` con el valor `'production'` en desarrollo, por que esto ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
 ### webpack
 
->**Note:**
+>**Nota:**
 >
->If you're using Create React App, please follow [the instructions above](#create-react-app).<br>
->This section is only relevant if you configure webpack directly.
+>Si estás usando Create React App, por favor sigue [las instrucciones arriba](#create-react-app).<br>
+>Esta sección solo es relevante si configuras webpack directamente.
 
-For the most efficient webpack production build, make sure to include these plugins in your production configuration:
+Para la *build* de producción más eficiente en webpack, asegúrate de incluir estos plugins en tu configuración de producción:
 
 ```js
 new webpack.DefinePlugin({
@@ -151,29 +151,29 @@ new webpack.DefinePlugin({
 new webpack.optimize.UglifyJsPlugin()
 ```
 
-You can learn more about this in [webpack documentation](https://webpack.js.org/guides/production-build/).
+Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production-build/).
 
-Remember that you only need to do this for production builds. You shouldn't apply `UglifyJsPlugin` or `DefinePlugin` with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
+Recuerda que solo necesitas hacer para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, por que ocultaran las advertencias de React y hará las *builds* mucho más lentas.
 
 ## Profiling Components with the Chrome Performance Tab
 
-In the **development** mode, you can visualize how components mount, update, and unmount, using the performance tools in supported browsers. For example:
+En el modo de **desarrollo**, puedes visualizar como montar componentes, actualizarlos y desmontarlos usando las herramientas para rendimiento soportadas por los navegadores. Por ejemplo:
 
 <center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="React components in Chrome timeline" /></center>
 
-To do this in Chrome:
+Para hacer esto en Chrome:
 
-1. Temporarily **disable all Chrome extensions, especially React DevTools**. They can significantly skew the results!
+1. Temporalmente, **Deshabilita todas la extensiones de Chrome, especialmente React DevTools**, ¡Ellas pueden sesgar significativamente los resultados!
 
-2. Make sure you're running the application in the development mode.
+2. Asegúrate de estar ejecutando la aplicación en modo de desarrollo.
 
-3. Open the Chrome DevTools **[Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** tab and press **Record**.
+3. Abre la pestaña **[Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** Chrome DevTools y presiona **Record**.
 
-4. Perform the actions you want to profile. Don't record more than 20 seconds or Chrome might hang.
+4. Define las acciones que quieres perfilar. No grabes mas de 20 segundos o Chrome podría colgarse.
 
-5. Stop recording.
+5. Para de grabar.
 
-6. React events will be grouped under the **User Timing** label.
+6. Los eventos de React se agruparan bajo la etiqueta **User Timing**.
 
 For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
 
