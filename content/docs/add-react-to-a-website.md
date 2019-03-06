@@ -110,11 +110,7 @@ Por lo general, es deseado mostrar componentes de React en múltiples lugares de
 
 ### Consejo: Compactar JavaScript para producción {#tip-minify-javascript-for-production}
 
-<<<<<<< HEAD
 Antes de desplegar tu sitio web a producción, debes ser consciente que no compactar tu JavaScript puede disminuir de forma considerable la carga de tu página.
-=======
-Before deploying your website to production, be mindful that unminified JavaScript can significantly slow down the page for your users.
->>>>>>> b50fe64c1e88489022eddf2cfff0995778827f84
 
 Si ya has compactado los scripts de tu aplicación, **tu sitio estará listo para producción** si aseguras que el HTML desplegado carga las versiones de React finalizadas en `production.min.js`:
 
