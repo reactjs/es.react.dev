@@ -1,6 +1,6 @@
 ---
 id: implementation-notes
-title: Implementation Notes
+title: Notas de implementación
 layout: contributing
 permalink: docs/implementation-notes.html
 prev: codebase-overview.html
@@ -8,32 +8,55 @@ next: design-principles.html
 redirect_from:
   - "contributing/implementation-notes.html"
 ---
+Esta sección es una colección de notas de implementación para el [reconciliador de pila](/docs/codebase-overview.html#stack-reconciler).
 
 This section is a collection of implementation notes for the [stack reconciler](/docs/codebase-overview.html#stack-reconciler).
 
+Es muy técnica y asume un gran entendimiento de la API pública de React como también sobre la división de React en núcleo, renderizadores y el reconciliador. Si no estás muy familiarizado con el código base de React, primero lee la [visión general del código base](/docs/codebase-overview.html).
+
 It is very technical and assumes a strong understanding of React public API as well as how it's divided into core, renderers, and the reconciler. If you're not very familiar with the React codebase, read [the codebase overview](/docs/codebase-overview.html) first.
+
+Además se asume una buena comprensión de las [diferencias entre componentes de React, sus instancias y sus elementos](/blog/2015/12/18/react-components-elements-and-instances.html).
 
 It also assumes an understanding of the [differences between React components, their instances, and elements](/blog/2015/12/18/react-components-elements-and-instances.html).
 
+El reconciliador de pila se usó en React 15 y también en versiones anteriores. Está ubicado en [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
+
 The stack reconciler was used in React 15 and earlier. It is located at [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
+
+### Video: Construyendo React desde 0 {#video-building-react-from-scratch}
 
 ### Video: Building React from Scratch {#video-building-react-from-scratch}
 
+[Paul O'Shannessy](https://twitter.com/zpao) dió una charla sobre [construir React desde 0](https://www.youtube.com/watch?v=_MAD4Oly9yg) que inspiró este documento.
+
 [Paul O'Shannessy](https://twitter.com/zpao) gave a talk about [building React from scratch](https://www.youtube.com/watch?v=_MAD4Oly9yg) that largely inspired this document.
+
+Tanto este documento como su charla son simplificaciones del código base real por lo que obtendrás un mejor entendimiento familiarizándote con ambos.
 
 Both this document and his talk are simplifications of the real codebase so you might get a better understanding by getting familiar with both of them.
 
+### Visión general {#overview}
+
 ### Overview {#overview}
+
+El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#stack-renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario. 
 
 The reconciler itself doesn't have a public API. [Renderers](/docs/codebase-overview.html#stack-renderers) like React DOM and React Native use it to efficiently update the user interface according to the React components written by the user.
 
+### Montando como un Proceso Recursivo {#mounting-as-a-recursive-process}
+
 ### Mounting as a Recursive Process {#mounting-as-a-recursive-process}
+
+Consideremos la primera vez que montas un componente:
 
 Let's consider the first time you mount a component:
 
 ```js
 ReactDOM.render(<App />, rootEl);
 ```
+
+React DOM pasará `<App />` al reconciliador. Recuerda que `<App />` es un elemento de React, es decir, una descripción de *qué* hay que renderizar. Puedes pensarlo como si fuera un objecto simple:
 
 React DOM will pass `<App />` along to the reconciler. Remember that `<App />` is a React element, that is, a description of *what* to render. You can think about it as a plain object:
 
@@ -42,9 +65,15 @@ console.log(<App />);
 // { type: App, props: {} }
 ```
 
+El reconciliador comprobará si `App` es una clase o una función.
+
 The reconciler will check if `App` is a class or a function.
 
+Si `App` es una función, el reconciliador ejecutará `App(props)` para renderizar el elemento.
+
 If `App` is a function, the reconciler will call `App(props)` to get the rendered element.
+
+Si `App` es una clase, el reconciliador instanciará una `App` con `new App(props)`, llamará al método del ciclo de vida `componentWillMount()`, y por último llamará al método `render()` para obtener el método renderizado.
 
 If `App` is a class, the reconciler will instantiate an `App` with `new App(props)`, call the `componentWillMount()` lifecycle method, and then will call the `render()` method to get the rendered element.
 
