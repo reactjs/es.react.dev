@@ -31,8 +31,6 @@ Este tutorial está dividido en varias secciones:
 
 No tienes que completar todas las secciones a la vez para obtener el valor de este tutorial. Prueba llegar tan lejos como puedas, incluso si es una o dos secciones.
 
-Está bien copiar y pegar el código mientras sigues el tutorial, pero te recomendamos que lo escribas a mano. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
-
 ### ¿Qué estamos construyendo? {#what-are-we-building}
 
 En este tutorial, te mostraremos cómo construir un juego de tic-tac-toe interactivo con React.
@@ -190,6 +188,8 @@ El componente Square renderiza un simple `<button>` y el Board renderiza 9 cuadr
 
 Solo para ensuciarnos las manos, vamos a pasar algo de datos de nuestro componente Board a nuestro componente Square.
 
+Recomendamos firmemente escribir el código a mano mientras sigues el tutorial sin copiar y pegar. Esto te ayudará a desarrollar una memoria muscular y un entendimiento más sólido.
+
 En el método `renderSquare` de Board, cambia el código para pasar una prop llamada `value` al Square:
 
 ```js{3}
@@ -242,7 +242,7 @@ class Square extends React.Component {
 }
 ```
 
-Si hacemos click en un cuadrado ahora, deberíamos de obtener una alerta en nuestro navegador.
+Si haces click en un cuadrado ahora, deberías ver una alerta en tu navegador.
 
 >Nota
 >
@@ -260,7 +260,7 @@ Si hacemos click en un cuadrado ahora, deberíamos de obtener una alerta en nues
 >}
 >```
 >
->Ten en cuenta cómo con `onClick={() => alert('click')}`, estamos pasando *una función* como valor del prop `onClick`. Esto solo se ejecuta luego de un click. Olvidar `() =>` y escribir `onClick={alert('click')}` es un error común, y ejecutaría la alerta cada vez que el componente se re-renderice.
+>Ten en cuenta cómo con `onClick={() => alert('click')}`, estamos pasando *una función* como valor del prop `onClick`. React solo llamará a esta función después de un click. Olvidar `() =>` y escribir `onClick={alert('click')}` es un error común, y ejecutaría la alerta cada vez que el componente se re-renderice.
 
 Como un siguiente paso, queremos que el componente Square "recuerde" que fue clickeado, y se rellene con una marca de "X". Para "recordar" cosas, los componente usan **estado**.
 
@@ -294,7 +294,7 @@ class Square extends React.Component {
 Ahora vamos a cambiar el método `render` de Square para mostrar el valor del estado actual cuando es clickeado:
 
 * Reemplaza `this.props.value` por `this.state.value` dentro de la etiqueta `<button>`.
-* Reemplaza el manejador de evento `() => alert()` por `() => this.setState({value: 'X'})`.
+* Reemplaza el manejador de evento `onClick={...}` por `onClick={() => this.setState({value: 'X'})}`.
 * Pon los props `className` y `onClick` en líneas separadas para mejor legibilidad.
 
 Luego de estos cambios, la etiqueta `<button>` que es retornada del método `render` de Square se ve así:
@@ -356,7 +356,9 @@ Podemos pensar que el tablero debería solo preguntar a cada cuadrado por su est
 
 **Para recopilar datos de múltiples hijos, o tener dos componentes hijos comunicados entre sí, necesitas declarar el estado compartido en su componente padre. El componente padre puede pasar el estado hacia los hijos usando props; esto mantiene los componentes hijos sincronizados entre ellos y con su componente padre.**
 
-Elevar el estado al componente padre es común cuando componentes de React son refactorizados, vamos a tomar esta oportunidad para intentarlo. Añadiremos un constructor al Board y estableceremos el estado inicial de Board para contener un arreglo con 9 valores null. Estos 9 nulls corresponden a los 9 cuadrados:
+Elevar el estado al componente padre es común cuando componentes de React son refactorizados, vamos a tomar esta oportunidad para intentarlo. 
+
+Añade un constructor al Board y establece el estado inicial de Board para contener un arreglo con 9 valores null. Estos 9 nulls corresponden a los 9 cuadrados:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -370,35 +372,9 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
-
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
 ```
 
-Cuando rellenemos el tablero luego, el tablero se verá algo así:
+Cuando rellenemos el tablero luego, el arreglo `this.state.squares` se verá algo así:
 
 ```javascript
 [
@@ -432,7 +408,7 @@ Cada Square ahora recibirá un prop `value` que será `'X'`, `'O'`, ó `null` pa
 
 Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualiza el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el estado de Board directamente desde Square.
 
-Para mantener el estado de Board privado, necesitamos pasar una función como prop desde Board a Square. Esta función será llamada cuando un cuadrado es clickeado. Cambiaremos el método `renderSquare` en Board a:
+En cambio, pasaremos una función como prop desde Board a Square y haremos que Square llame a esa función cuando un cuadrado sea clickeado. Cambiaremos el método `renderSquare` en Board a:
 
 ```javascript{5}
   renderSquare(i) {
@@ -478,11 +454,11 @@ Cuando un cuadrado es clickeado, la función `onClick` provista por el component
 2. Cuando el botón es clickeado, React llamará al manejador de evento `onClick` que está definido en el método `render()` de Square.
 3. Este manejador de evento llama a `this.props.onClick()`. El prop `onClick` del componente Square fue especificado por el componente Board.
 4. Debido a que el Board pasó `onClick={() => this.handleClick(i)}` a Square, el componente Square llama a `this.handleClick(i)` cuando es clickeado.
-5. No tenemos definido el método `handleClick()` aun, así que nuestro código falla.
+5. No tenemos definido el método `handleClick()` aun, así que nuestro código falla. Si haces click ahora verás una pantalla roja de error que dice algo como *"this.handleClick is not a function"* (this.handleClick no es una función).
 
 >Nota
 >
->El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. Para componentes personalizados como Square, la nomenclatura la decides tú. Podemos nombrar el prop `onClick` de Square o el método `handleClick` de Board diferente. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Event]` para los métodos que manejan los eventos.
+>El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. Para componentes personalizados como Square, la nomenclatura la decides tú. Podríamos darle cualquier nombre al prop `onClick` de Square o al método `handleClick` de Board, y el código funcionaría de la misma forma. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Event]` para los métodos que manejan los eventos.
 
 Cuando intentamos clickear un cuadrado, deberíamos obtener un error porque no hemos definido `handleClick` aun. Vamos ahora a agregar `handleClick` a la clase Board:
 
@@ -539,7 +515,7 @@ class Board extends React.Component {
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-Luego de estos cambios, podemos nuevamente clickear en los cuadrados para rellenarlos. Sin embargo, ahora el estado está almacenado en el componente Board en lugar de cada componente Square. Cuando el estado del Board cambia, los componentes Square se re-renderiza automáticamente. Mantener el estado de todos los cuadrados en el componente Board nos permitirá determinar el ganador en el futuro.
+Luego de estos cambios, podemos nuevamente clickear en los cuadrados para rellenarlos de la misma forma que lo hicimos antes. Sin embargo, ahora el estado está almacenado en el componente Board en lugar de cada componente Square. Cuando el estado del Board cambia, los componentes Square se re-renderiza automáticamente. Mantener el estado de todos los cuadrados en el componente Board nos permitirá determinar el ganador en el futuro.
 
 Debido a que el componente Square ahora no mantiene estado, los componentes Square reciben valores del  componente Board e informan al mismo cuando son clickeados. En términos de React, los componentes Square ahora son **componentes controlados**. El componente Board tiene control completo sobre ellos.
 
@@ -611,7 +587,7 @@ Hemos cambiado `this.props` a `props` en ambas veces que aparece.
 
 >Nota
 >
->Cuando modificamos el componente Square a ser un componente de función, también cambiamos `onClick={() => this.props.onClick()}` a una más corta `onClick={props.onClick}` (notar la falta de paréntesis en *ambos* lados). En una clase, usamos una función flecha para acceder al correcto valor de `this`, pero en un componente de función no necesitamos preocuparnos de `this`.
+>Cuando modificamos el componente Square a ser un componente de función, también cambiamos `onClick={() => this.props.onClick()}` a una más corta `onClick={props.onClick}` (notar la falta de paréntesis en *ambos* lados).
 
 ### Tomando turnos {#taking-turns}
 
@@ -643,7 +619,9 @@ Cada vez que el jugador haga un movimiento, `xIsNext` (un booleano) será invert
   }
 ```
 
-Con este cambio, "X"s y "O"s pueden tomar turnos. También vamos a cambiar el texto de "status" en el `render` del Board para que muestre qué jugador tiene el siguiente turno:
+Con este cambio, "X"s y "O"s pueden tomar turnos. ¡Inténtalo! 
+
+También vamos a cambiar el texto de "status" en el `render` del Board para que muestre qué jugador tiene el siguiente turno:
 
 ```javascript{2}
   render() {
@@ -714,7 +692,7 @@ class Board extends React.Component {
 
 ### Declarando un ganador {#declaring-a-winner}
 
-Ahora que mostramos de qué jugador es el siguiente turno, debemos también mostrar cuando alguien ganó el juego y si no hay más movimientos que hacer. Podemos determinar un ganador añadiendo esta función de apoyo al final del archivo.
+Ahora que mostramos de qué jugador es el siguiente turno, debemos también mostrar cuando alguien ganó el juego y si no hay más movimientos que hacer. Copia esta función de apoyo y pégala al final del archivo.
 
 ```javascript
 function calculateWinner(squares) {
@@ -737,6 +715,8 @@ function calculateWinner(squares) {
   return null;
 }
 ```
+
+Dado un arreglo de 9 cuadrados, esta función comprobará si hay un ganador y devolverá `'X'`, `'O'` o `null` según corresponda.
 
 Llamaremos a `calculateWinner(squares)` en el método `render` del componente Board para revisar si un jugador ha ganado. Si un jugador ha ganado, podemos mostrar un texto como: "Winner: X" o "Winner: O". Reemplazaremos la declaración del `status` en el método `render` de Board con este código:
 
