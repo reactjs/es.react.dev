@@ -34,7 +34,7 @@ Si tu proyecto fui construido con [Create React App](https://github.com/facebook
 npm run build
 ```
 
-Esto creará una *build* de producción de tu aplicación el directorio  `build/` de tu proyecto.
+Esto creará una *build* de producción de tu aplicación en el directorio  `build/` de tu proyecto.
 
 Recuerda que esto es solo una necesidad antes de desplegar a producción. Para el desarrollo normal, usa `npm start`.
 
@@ -81,8 +81,8 @@ yarn add --dev envify uglify-js uglifyify
 ```
 Para crear una *build* de producción, asegúrate de agregar estas transformaciones **(El orden es importante)**:
 
-* La transformación [`envify`](https://github.com/hughsk/envify) asegura que el ambiente de la *build* sea correcto. Hazlo lo global (`-g`).
-* La transformación [`uglifyify`](https://github.com/hughsk/uglifyify) remueve los import de desarollo. Hazlo global tambien (`-g`).
+* La transformación [`envify`](https://github.com/hughsk/envify) asegura que el ambiente de la *build* sea correcto. Hazlo global (`-g`).
+* La transformación [`uglifyify`](https://github.com/hughsk/uglifyify) remueve los *import* de desarollo. Hazlo global también (`-g`).
 * Finalmente, el *bundle* resultante es canalizado a [`uglify-js`](https://github.com/mishoo/UglifyJS2) para mutilar ([Lee porque](https://github.com/hughsk/uglifyify#motivationusage)).
 
 Por ejemplo:
@@ -131,7 +131,7 @@ plugins: [
 ]
 ```
 
-Para un ejemple de configuración completo [mira este gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
+Para un ejemplo de configuración completo [mira este gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
 Recuerda que solo necesitas esto para las *builds* de producción. No deberías aplicar el plugin `uglify` o el plugin `replace` con el valor `'production'` en desarrollo, por que esto ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
@@ -153,9 +153,9 @@ new webpack.optimize.UglifyJsPlugin()
 
 Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production-build/).
 
-Recuerda que solo necesitas hacer para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, por que ocultaran las advertencias de React y hará las *builds* mucho más lentas.
+Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, por que ocultaran las advertencias de React y hará las *builds* mucho más lentas.
 
-## Profiling Components with the Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
+## Perfilando Componentes con la pestaña Chrome Performance{#profiling-components-with-the-chrome-performance-tab}
 
 En el modo de **desarrollo**, puedes visualizar como montar componentes, actualizarlos y desmontarlos usando las herramientas para rendimiento soportadas por los navegadores. Por ejemplo:
 
@@ -175,48 +175,48 @@ Para hacer esto en Chrome:
 
 6. Los eventos de React se agruparan bajo la etiqueta **User Timing**.
 
-For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
+Para un tutorial mas detallado, consulte [este articulo por Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
 
-Note that **the numbers are relative so components will render faster in production**. Still, this should help you realize when unrelated UI gets updated by mistake, and how deep and how often your UI updates occur.
+Note que **los números son relativos, así que los componentes se renderizarán mas rápido en producción**. Como quiera esto debería ayudarlo a darse cuenta cuando *UI* no relacionada se actualiza por error, la frecuencia y profundidad con la que se actualiza.
 
-Currently Chrome, Edge, and IE are the only browsers supporting this feature, but we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) so we expect more browsers to add support for it.
+Actualmente Chrome, Edge, y IE son los únicos navegadores que soportan esta funcionalidad, pero usamos el standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) asi que esperamos mas navegadores soporten esta funcionalidad.
 
-## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+## Perfilando Componentes con DevTools Profiler {#profiling-components-with-the-devtools-profiler}
 
-`react-dom` 16.5+ and `react-native` 0.57+ provide enhanced profiling capabilities in DEV mode with the React DevTools Profiler.
-An overview of the Profiler can be found in the blog post ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
-A video walkthrough of the profiler is also [available on YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
+`react-dom` 16.5+ y `react-native` 0.57+ proveen capacidades de perfilación mejoradas en modo *DEV* con *React DevTools Profiler*.
+Un resumen del perfilador puede ser encontrado en la publicación ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
+Un video tutorial del perfilador esta [disponible en YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
 
-If you haven't yet installed the React DevTools, you can find them here:
+Si aun no ha instalado *React DevTools*, puede encontrarlo aquí:
 
-- [Chrome Browser Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Firefox Browser Extension](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Standalone Node Package](https://www.npmjs.com/package/react-devtools)
+- [Extensión del navegador Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [Extensión del navegador Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
+- [Paquete independiente de Node](https://www.npmjs.com/package/react-devtools)
 
-> Note
+> Nota
 >
-> A production profiling bundle of `react-dom` is also available as `react-dom/profiling`.
-> Read more about how to use this bundle at [fb.me/react-profiling](https://fb.me/react-profiling)
+> Existe un *bundle* de production profiling bundle of `react-dom` is also available as `react-dom/profiling`.
+> Lee mas sobre esto en [fb.me/react-profiling](https://fb.me/react-profiling)
 
-## Virtualize Long Lists {#virtualize-long-lists}
+## Virtualizar Listas Largas {#virtualize-long-lists}
 
-If your application renders long lists of data (hundreds or thousands of rows), we recommended using a technique known as "windowing". This technique only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created.
+Si su aplicación renderiza largas listas de datos (cientos o miles de filas), recomendamos que use una técnica conocida como *"windowing"*. Esta técnica solo renderiza un pequeño subconjunto de tus filas en un momento dado, y puede reducir dramáticamente el tiempo que demora en re-renderizar los componentes, así como el numero de nodos creados en el *DOM*.
 
-[react-window](https://react-window.now.sh/) and [react-virtualized](https://bvaughn.github.io/react-virtualized/) are popular windowing libraries. They provide several reusable components for displaying lists, grids, and tabular data. You can also create your own windowing component, like [Twitter did](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3), if you want something more tailored to your application's specific use case.
+[react-window](https://react-window.now.sh/) y [react-virtualized](https://bvaughn.github.io/react-virtualized/) son bibliotecas de *windowing* populares. Estas proveen varios componentes reusables para mostrar listas, *grids* y datos tabulares. También puedes crear tu propio componente "windowing*, como [hizo Twitter](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3), si quieres algo mas a la medida para tu aplicación.
 
-## Avoid Reconciliation {#avoid-reconciliation}
+## Evitar Reconciliación {#avoid-reconciliation}
 
-React builds and maintains an internal representation of the rendered UI. It includes the React elements you return from your components. This representation lets React avoid creating DOM nodes and accessing existing ones beyond necessity, as that can be slower than operations on JavaScript objects. Sometimes it is referred to as a "virtual DOM", but it works the same way on React Native.
+React construye y mantiene una representación interna de la interfaz de usuario renderizada. Esta incluye los elementos React que retornas de tus componentes. Esta representación permite a React evitar crear nodos DOM y acceder a los existentes más allá de lo necesario, ya que puede ser más lento que las operaciones en objetos JavaScript. A veces a esto se le llama "DOM Virtual", pero funciona de la misma forma en React Native.
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM.
+Cuando una propiedad o estado de un componente cambia, React decide si es necesario actualizar el DOM comparando el elemento recién retornado con el previamente renderizado. Sino son iguales, React actualizara el DOM.
 
-You can now visualize these re-renders of the virtual DOM with React DevTools:
+Ahora puede visualizar estos re-renderizados del DOM virtual con React DevTools:
 
-- [Chrome Browser Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Firefox Browser Extension](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Standalone Node Package](https://www.npmjs.com/package/react-devtools)
+- [Extensión del navegador Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [Extensión del navegador Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
+- [Paquete independiente de Node](https://www.npmjs.com/package/react-devtools)
 
-In the developer console select the **Highlight Updates** option in the **React** tab:
+En la consola del desarrollador seleccione la opción **Highlight Updates** en la pestaña de React:
 
 <center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="How to enable highlight updates" /></center>
 
