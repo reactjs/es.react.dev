@@ -60,7 +60,7 @@ El estado empieza como `{ count:0 }` y se incrementa `state.count` cuando el usu
 
 >Nota
 >
->Puedes estar preguntndote porque estamos usando un contador en lugar de un ejemplo más realista. Esto es porque ayuda a centrarse en la API mientras seguimos dando nuestro primeros pasos on los Hooks
+>Puedes estar preguntándote porque estamos usando un contador en lugar de un ejemplo más realista. Esto es porque ayuda a centrarse en la API mientras seguimos dando nuestro primeros pasos con los Hooks
 
 ## Hooks and Function Components {#hooks-and-function-components}
 
