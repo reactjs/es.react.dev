@@ -49,7 +49,7 @@ Si `App` es una clase, el reconciliador instanciará una `App` con `new App(prop
 
 De cualquier manera, el reconciliador averiguará a que elemento se renderizó `App`.
 
-Este proceso es recursivo. `App` puede ser renderizado como `<Greeting />`, `<Greeting />` puede ser renderizado como `<Button />`, y asi sucesivamente. El reconciliador examinará a fondo a través de los componentes definidos por el usuario de manera recursiva a medida que averigua a qué se renderiza cada componente.
+Este proceso es recursivo. `App` puede ser renderizado como `<Greeting />`, `<Greeting />` puede ser renderizado como `<Button />`, y así sucesivamente. El reconciliador examinará a fondo a través de los componentes definidos por el usuario de manera recursiva a medida que averigua a qué se renderiza cada componente.
 
 Puedes imaginar este proceso como pseudocódigo:
 
@@ -110,73 +110,72 @@ Hagamos un repaso de algunas ideas clave con el ejemplo anterior:
 
 * Los elementos de React son objetos simples que representan el tipo de un componente (Por ej. `App`) y las props.
 * Los componentes definidos por el usuario (Por ej. `App`) pueden ser clases o funciones pero todos "se renderizan" como elementos.
-* "Mounting" es un proceso recursivo que crea un DOM o un árbol nativo dado el elemento de React de mayor nivel (Por ej. `<App />`).
+* El "montaje" es un proceso recursivo que crea un DOM o un árbol nativo dado el elemento de React de mayor nivel (Por ej. `<App />`).
 
-### Mounting Host Elements {#mounting-host-elements}
+### Montando elementos principales {#mounting-host-elements}
 
-This process would be useless if we didn't render something to the screen as a result.
+Este proceso sería inservible si no renderizáramos algo en la pantalla como resultado.
 
-In addition to user-defined ("composite") components, React elements may also represent platform-specific ("host") components. For example, `Button` might return a `<div />` from its render method.
+Sumados a los componentes definidos por el usuario ("compuestos"), los elementos de React también pueden representar componentes específicos de la plataforma ("principales"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
 
-If element's `type` property is a string, we are dealing with a host element:
+Si la propiedad `type` de un elemento es una *string*, estamos trabajando con un elemento principal:
 
 ```js
 console.log(<div />);
 // { type: 'div', props: {} }
 ```
+No hay código definido por el usuario asociado con elementos principales.
 
-There is no user-defined code associated with host elements.
+Cuando el reconciliador encuentra un elemento principal, deja que el renderizador se encargue de montarlo. Por ejemplo, React DOM podría crear un nodo del DOM.
 
-When the reconciler encounters a host element, it lets the renderer take care of mounting it. For example, React DOM would create a DOM node.
+Si el elemento principal tiene hijos, el reconciliador los monta de manera recursiva siguiendo el mismo algoritmo como en el caso anterior. No importa si los hijos son principales (como `<div><hr /></div>`), compuestos (como `<div><Button /></div>`), o ambos.
 
-If the host element has children, the reconciler recursively mounts them following the same algorithm as above. It doesn't matter whether children are host (like `<div><hr /></div>`), composite (like `<div><Button /></div>`), or both.
+Los nodos del DOM producidos por componentes hijos serán anexados al nodo padre del DOM, y recursivamente, la estructura completa del DOM será ensamblada.
 
-The DOM nodes produced by the child components will be appended to the parent DOM node, and recursively, the complete DOM structure will be assembled.
-
->**Note:**
+>**Nota:**
 >
->The reconciler itself is not tied to the DOM. The exact result of mounting (sometimes called "mount image" in the source code) depends on the renderer, and can be a DOM node (React DOM), a string (React DOM Server), or a number representing a native view (React Native).
+>El reconciliador mismo no está ligado al DOM. El resultado exacto del montaje (a veces llamado "mount image" en el código fuente) depende del renderizador, y puede ser un nodo del DOM (React DOM), una *string* (React DOM Server), o un número representando una vista nativa (React Native).
 
-If we were to extend the code to handle host elements, it would look like this:
+Si fueramos a extender el código para aceptar elementos principales, se vería así:
 
 ```js
 function isClass(type) {
-  // React.Component subclasses have this flag
+  // Las subclases de React.Component tienen este indicador
   return (
     Boolean(type.prototype) &&
     Boolean(type.prototype.isReactComponent)
   );
 }
 
-// This function only handles elements with a composite type.
-// For example, it handles <App /> and <Button />, but not a <div />.
+// Esta función sólo acepta elementos de tipo compuesto.
+// Por ejemplo, acepta <App /> y <Button />, pero no <div />.
 function mountComposite(element) {
   var type = element.type;
   var props = element.props;
 
   var renderedElement;
   if (isClass(type)) {
-    // Component class
+    // Componente de clase
     var publicInstance = new type(props);
-    // Set the props
+    // Establecer las props
     publicInstance.props = props;
-    // Call the lifecycle if necessary
+    // Llamar al ciclo de vida si es necesario
     if (publicInstance.componentWillMount) {
       publicInstance.componentWillMount();
     }
     renderedElement = publicInstance.render();
   } else if (typeof type === 'function') {
-    // Component function
+    // Componente de función
     renderedElement = type(props);
   }
 
-  // This is recursive but we'll eventually reach the bottom of recursion when
-  // the element is host (e.g. <div />) rather than composite (e.g. <App />):
+  // Esto es recursivo pero eventualmente alcanzaremos el final de la recursión
+  // cuando el elemento sea principal (Por ej. <div /> en vez de compuesto (Por ej. <App />):
   return mount(renderedElement);
 }
 
-// This function only handles elements with a host type.
-// For example, it handles <div /> and <p /> but not an <App />.
+// Esta función solo acepta elementos de tipo principal.
+// Por ejemplo, acepta <div /> y <p /> pero no <App />.
 function mountHost(element) {
   var type = element.type;
   var props = element.props;
@@ -186,9 +185,9 @@ function mountHost(element) {
   }
   children = children.filter(Boolean);
 
-  // This block of code shouldn't be in the reconciler.
-  // Different renderers might initialize nodes differently.
-  // For example, React Native would create iOS or Android views.
+  // Este bloque de código no debería estar en el reconciliador.
+  // Diferentes renderizadores podrían inicializar nodos de manera diferente.
+  // Por ejemplo, React Native crearía vistas para iOS o Android.
   var node = document.createElement(type);
   Object.keys(props).forEach(propName => {
     if (propName !== 'children') {
@@ -196,29 +195,29 @@ function mountHost(element) {
     }
   });
 
-  // Mount the children
+  // Montaje de los hijos
   children.forEach(childElement => {
-    // Children may be host (e.g. <div />) or composite (e.g. <Button />).
-    // We will also mount them recursively:
+    // Los hijos pueden ser principiales (Por ej. <div />) o compuestos (Por ej. <Button />)
+    // También los montaremos de manera recursiva:
     var childNode = mount(childElement);
 
-    // This line of code is also renderer-specific.
-    // It would be different depending on the renderer:
+    // Esta línea de código también es específica a cada renderizador.
+    // Sería diferente dependiendo del renderizador:
     node.appendChild(childNode);
   });
 
-  // Return the DOM node as mount result.
-  // This is where the recursion ends.
+  // Devolver el nodo del DOM como resultado del montaje.
+  // Aquí es donde la recursión finaliza.
   return node;
 }
 
 function mount(element) {
   var type = element.type;
   if (typeof type === 'function') {
-    // User-defined components
+    // Componentes definidos por el usuario
     return mountComposite(element);
   } else if (typeof type === 'string') {
-    // Platform-specific components
+    // Componentes específicos a la plataforma
     return mountHost(element);
   }
 }
@@ -228,7 +227,7 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
-This is working but still far from how the reconciler is really implemented. The key missing ingredient is support for updates.
+Esto funciona pero todavía está lejos de la implementación real del reconciliador. El ingrediente faltante clave es el soporte para actualizaciones.
 
 ### Introducing Internal Instances {#introducing-internal-instances}
 
