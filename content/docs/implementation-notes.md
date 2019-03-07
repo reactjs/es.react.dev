@@ -10,55 +10,31 @@ redirect_from:
 ---
 Esta sección es una colección de notas de implementación para el [reconciliador de pila](/docs/codebase-overview.html#stack-reconciler).
 
-This section is a collection of implementation notes for the [stack reconciler](/docs/codebase-overview.html#stack-reconciler).
-
 Es muy técnica y asume un gran entendimiento de la API pública de React como también sobre la división de React en núcleo, renderizadores y el reconciliador. Si no estás muy familiarizado con el código base de React, primero lee la [visión general del código base](/docs/codebase-overview.html).
-
-It is very technical and assumes a strong understanding of React public API as well as how it's divided into core, renderers, and the reconciler. If you're not very familiar with the React codebase, read [the codebase overview](/docs/codebase-overview.html) first.
 
 Además se asume una buena comprensión de las [diferencias entre componentes de React, sus instancias y sus elementos](/blog/2015/12/18/react-components-elements-and-instances.html).
 
-It also assumes an understanding of the [differences between React components, their instances, and elements](/blog/2015/12/18/react-components-elements-and-instances.html).
-
 El reconciliador de pila se usó en React 15 y también en versiones anteriores. Está ubicado en [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
-
-The stack reconciler was used in React 15 and earlier. It is located at [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
 
 ### Video: Construyendo React desde 0 {#video-building-react-from-scratch}
 
-### Video: Building React from Scratch {#video-building-react-from-scratch}
-
 [Paul O'Shannessy](https://twitter.com/zpao) dió una charla sobre [construir React desde 0](https://www.youtube.com/watch?v=_MAD4Oly9yg) que inspiró este documento.
-
-[Paul O'Shannessy](https://twitter.com/zpao) gave a talk about [building React from scratch](https://www.youtube.com/watch?v=_MAD4Oly9yg) that largely inspired this document.
 
 Tanto este documento como su charla son simplificaciones del código base real por lo que obtendrás un mejor entendimiento familiarizándote con ambos.
 
-Both this document and his talk are simplifications of the real codebase so you might get a better understanding by getting familiar with both of them.
-
 ### Visión general {#overview}
-
-### Overview {#overview}
 
 El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#stack-renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario. 
 
-The reconciler itself doesn't have a public API. [Renderers](/docs/codebase-overview.html#stack-renderers) like React DOM and React Native use it to efficiently update the user interface according to the React components written by the user.
-
 ### Montando como un Proceso Recursivo {#mounting-as-a-recursive-process}
 
-### Mounting as a Recursive Process {#mounting-as-a-recursive-process}
-
 Consideremos la primera vez que montas un componente:
-
-Let's consider the first time you mount a component:
 
 ```js
 ReactDOM.render(<App />, rootEl);
 ```
 
 React DOM pasará `<App />` al reconciliador. Recuerda que `<App />` es un elemento de React, es decir, una descripción de *qué* hay que renderizar. Puedes pensarlo como si fuera un objecto simple:
-
-React DOM will pass `<App />` along to the reconciler. Remember that `<App />` is a React element, that is, a description of *what* to render. You can think about it as a plain object:
 
 ```js
 console.log(<App />);
@@ -67,64 +43,58 @@ console.log(<App />);
 
 El reconciliador comprobará si `App` es una clase o una función.
 
-The reconciler will check if `App` is a class or a function.
-
-Si `App` es una función, el reconciliador ejecutará `App(props)` para renderizar el elemento.
-
-If `App` is a function, the reconciler will call `App(props)` to get the rendered element.
+Si `App` es una función, el reconciliador llamará `App(props)` para renderizar el elemento.
 
 Si `App` es una clase, el reconciliador instanciará una `App` con `new App(props)`, llamará al método del ciclo de vida `componentWillMount()`, y por último llamará al método `render()` para obtener el método renderizado.
 
-If `App` is a class, the reconciler will instantiate an `App` with `new App(props)`, call the `componentWillMount()` lifecycle method, and then will call the `render()` method to get the rendered element.
+De cualquier manera, el reconciliador averiguará a que elemento se renderizó `App`.
 
-Either way, the reconciler will learn the element `App` "rendered to".
+Este proceso es recursivo. `App` puede ser renderizado como `<Greeting />`, `<Greeting />` puede ser renderizado como `<Button />`, y asi sucesivamente. El reconciliador examinará a fondo a través de los componentes definidos por el usuario de manera recursiva a medida que averigua a qué se renderiza cada componente.
 
-This process is recursive. `App` may render to a `<Greeting />`, `Greeting` may render to a `<Button />`, and so on. The reconciler will "drill down" through user-defined components recursively as it learns what each component renders to.
-
-You can imagine this process as a pseudocode:
+Puedes imaginar este proceso como pseudocódigo:
 
 ```js
 function isClass(type) {
-  // React.Component subclasses have this flag
+  // Las subclases de React.Component tienen este indicador
   return (
     Boolean(type.prototype) &&
     Boolean(type.prototype.isReactComponent)
   );
 }
 
-// This function takes a React element (e.g. <App />)
-// and returns a DOM or Native node representing the mounted tree.
+// Esta función toma un elemento de React (Por ej. <App />)
+// y devuelve un DOM o un nodo nativo que representa el árbol montado.
 function mount(element) {
   var type = element.type;
   var props = element.props;
 
-  // We will determine the rendered element
-  // by either running the type as function
-  // or creating an instance and calling render().
+  // Determinaremos el elemento renderizado
+  // ejecutando su tipo como una función
+  // o creando una instancia y llamando a render().
   var renderedElement;
   if (isClass(type)) {
-    // Component class
+    // Componente de clase
     var publicInstance = new type(props);
-    // Set the props
+    // Establecer las props
     publicInstance.props = props;
-    // Call the lifecycle if necessary
+    // Llamar al ciclo de vida si es necesario
     if (publicInstance.componentWillMount) {
       publicInstance.componentWillMount();
     }
-    // Get the rendered element by calling render()
+    // Obtener el elemento renderizado llamando a render()
     renderedElement = publicInstance.render();
   } else {
-    // Component function
+    // Componente de función
     renderedElement = type(props);
   }
 
-  // This process is recursive because a component may
-  // return an element with a type of another component.
+  // Este proceso es recursivo porque un componente
+  // puede devolver un elemento con un tipo de otro componente.
   return mount(renderedElement);
 
-  // Note: this implementation is incomplete and recurses infinitely!
-  // It only handles elements like <App /> or <Button />.
-  // It doesn't handle elements like <div /> or <p /> yet.
+  // Nota: ¡esta implementación está incompleta y se repite indefinidamente!
+  // Solo acepta elementos como <App /> o <Button />.
+  // Todavía no acepta elementos como <div /> o <p />.
 }
 
 var rootEl = document.getElementById('root');
@@ -132,15 +102,15 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
->**Note:**
+>**Nota:**
 >
->This really *is* a pseudo-code. It isn't similar to the real implementation. It will also cause a stack overflow because we haven't discussed when to stop the recursion.
+>Esto realmente *es* pseudocódigo. No es similar a la implementación real. Además causará un desbordamiento de pila porque no hemos analizado cuando parar la recursividad.
 
-Let's recap a few key ideas in the example above:
+Hagamos un repaso de algunas ideas clave con el ejemplo anterior:
 
-* React elements are plain objects representing the component type (e.g. `App`) and the props.
-* User-defined components (e.g. `App`) can be classes or functions but they all "render to" elements.
-* "Mounting" is a recursive process that creates a DOM or Native tree given the top-level React element (e.g. `<App />`).
+* Los elementos de React son objetos simples que representan el tipo de un componente (Por ej. `App`) y las props.
+* Los componentes definidos por el usuario (Por ej. `App`) pueden ser clases o funciones pero todos "se renderizan" como elementos.
+* "Mounting" es un proceso recursivo que crea un DOM o un árbol nativo dado el elemento de React de mayor nivel (Por ej. `<App />`).
 
 ### Mounting Host Elements {#mounting-host-elements}
 
