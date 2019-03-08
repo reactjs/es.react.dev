@@ -512,19 +512,19 @@ function mountTree(element, containerNode) {
 
 Ahora, ejecutando `unmountTree()`, o ejecutando `mountTree()` repetidamente, remueve el árbol viejo y ejecuta el método de ciclo de vida `componentWillUnmount()` en los componentes.
 
-### Updating {#updating}
+### Actualizando {#updating}
 
-In the previous section, we implemented unmounting. However React wouldn't be very useful if each prop change unmounted and mounted the whole tree. The goal of the reconciler is to reuse existing instances where possible to preserve the DOM and the state:
+En la sección anterior, implementamos el desmontaje. Sin embargo React no sería muy útil si cada cambio en una prop desmontara y montara el árbol entero. El objetivo del reconciliador es el de reusar instancias existentes donde sea posible para preservar el DOM y el estado:
 
 ```js
 var rootEl = document.getElementById('root');
 
 mountTree(<App />, rootEl);
-// Should reuse the existing DOM:
+// Debería reusar el DOM existente:
 mountTree(<App />, rootEl);
 ```
 
-We will extend our internal instance contract with one more method. In addition to `mount()` and `unmount()`, both `DOMComponent` and `CompositeComponent` will implement a new method called `receive(nextElement)`:
+Extenderemos el contrato de nuestra instancia interna con un método más. Sumado a `mount()` y `unmount()`, tanto `DOMComponent` como `CompositeComponent` implementarán un nuevo método llamado `receive(nextElement)`:
 
 ```js
 class CompositeComponent {
@@ -544,15 +544,15 @@ class DOMComponent {
 }
 ```
 
-Its job is to do whatever is necessary to bring the component (and any of its children) up to date with the description provided by the `nextElement`.
+Su trabajo es hacer lo necesario para mantener el componente (y a cualquiera de sus hijos) actualizados con la descripción provista por `nextElement`.
 
-This is the part that is often described as "virtual DOM diffing" although what really happens is that we walk the internal tree recursively and let each internal instance receive an update.
+Esta es la parte frecuentemente descripta como "diferenciación del virtual DOM" aunque lo que realmente sucede es que recorremos el árbol interno recursivamente y dejamos que cada instancia interna reciba una actualización.
 
-### Updating Composite Components {#updating-composite-components}
+### Actualizando componentes compuestos {#updating-composite-components}
 
-When a composite component receives a new element, we run the `componentWillUpdate()` lifecycle method.
+Cuando un componente compuesto recibe un nuevo elemento, ejecutamos el método de ciclo de vida `componentWillUpdate()`.
 
-Then we re-render the component with the new props, and get the next rendered element:
+Luego re-renderizamos el componente con las nuevas props, y obtenemos el siguiente elemento renderizado:
 
 ```js
 class CompositeComponent {
@@ -565,40 +565,40 @@ class CompositeComponent {
     var prevRenderedComponent = this.renderedComponent;
     var prevRenderedElement = prevRenderedComponent.currentElement;
 
-    // Update *own* element
+    // Actualizar *el propio* elemento
     this.currentElement = nextElement;
     var type = nextElement.type;
     var nextProps = nextElement.props;
 
-    // Figure out what the next render() output is
+    // Averiguar cual es el resultado del siguiente render()
     var nextRenderedElement;
     if (isClass(type)) {
-      // Component class
-      // Call the lifecycle if necessary
+      // Componente de clase
+      // Llamar al ciclo de vida si es necesario
       if (publicInstance.componentWillUpdate) {
         publicInstance.componentWillUpdate(nextProps);
       }
-      // Update the props
+      // Actualizar las props
       publicInstance.props = nextProps;
-      // Re-render
+      // Re-renderizar
       nextRenderedElement = publicInstance.render();
     } else if (typeof type === 'function') {
-      // Component function
+      // Componente de función
       nextRenderedElement = type(nextProps);
     }
 
     // ...
 ```
 
-Next, we can look at the rendered element's `type`. If the `type` has not changed since the last render, the component below can also be updated in place.
+Después, podemos mirar el `type` del elemento renderizado. Si el `type` no cambió desde el último renderizado, el siguiente componente puede ser actualizado en su lugar.
 
-For example, if it returned `<Button color="red" />` the first time, and `<Button color="blue" />` the second time, we can just tell the corresponding internal instance to `receive()` the next element:
+Por ejemplo, si devuelve `<Button color="red" />` la primera vez, y `<Button color="blue" />` la segunda vez, podemos simplemente decirle a la instancia interna correspondiente que ejecute `receive()` al siguiente elemento:
 
 ```js
     // ...
 
-    // If the rendered element type has not changed,
-    // reuse the existing component instance and exit.
+    // Si el tipo del elemento renderizado no cambió,
+    // reusar la instancia existente del componente y salir.
     if (prevRenderedElement.type === nextRenderedElement.type) {
       prevRenderedComponent.receive(nextRenderedElement);
       return;
@@ -607,48 +607,48 @@ For example, if it returned `<Button color="red" />` the first time, and `<Butto
     // ...
 ```
 
-However, if the next rendered element has a different `type` than the previously rendered element, we can't update the internal instance. A `<button>` can't "become" an `<input>`.
+Sin embargo, si el siguiente elemento renderizado tiene un `type` diferente al del anterior elemento renderizado, no podemos actualizar la instancia interna. Un `<button>` no puede "convertirse" en un `<input>`.
 
-Instead, we have to unmount the existing internal instance and mount the new one corresponding to the rendered element type. For example, this is what happens when a component that previously rendered a `<button />` renders an `<input />`:
+En cambio, tenemos que desmontar la instancia interna existene y montar la nueva correspondiente al tipo del elemento renderizado. Por ejemplo, esto es lo que pasa cuando un componente que anteriormente renderizaba un `<button />` ahora renderiza un `<input />`.
 
 ```js
     // ...
 
-    // If we reached this point, we need to unmount the previously
-    // mounted component, mount the new one, and swap their nodes.
+    // Si llegamos hasta este punto, necesitamos desmontar el componente
+    // montado anteriormente, montar el nuevo, y cambiar sus nodos.
 
-    // Find the old node because it will need to be replaced
+    // Encontrar el nodo viejo porque será necesario reemplazarlo
     var prevNode = prevRenderedComponent.getHostNode();
 
-    // Unmount the old child and mount a new child
+    // Desmontar el hijo viejo y montar el nuevo
     prevRenderedComponent.unmount();
     var nextRenderedComponent = instantiateComponent(nextRenderedElement);
     var nextNode = nextRenderedComponent.mount();
 
-    // Replace the reference to the child
+    // Reemplazar la referencia al hijo
     this.renderedComponent = nextRenderedComponent;
 
-    // Replace the old node with the new one
-    // Note: this is renderer-specific code and
-    // ideally should live outside of CompositeComponent:
+    // Reemplazar el nodo viejo por el nuevo
+    // Nota: este código es específico a cada renderizador
+    // e idealmente debería estar fuera de CompositeComponent:
     prevNode.parentNode.replaceChild(nextNode, prevNode);
   }
 }
 ```
 
-To sum this up, when a composite component receives a new element, it may either delegate the update to its rendered internal instance, or unmount it and mount a new one in its place.
+Para resumir, cuando un componente compuesto recibe un nuevo elemento, puede delegar la actualización a sus instancias internas renderizadas, o desmontarlo y montar uno nuevo en su lugar.
 
-There is another condition under which a component will re-mount rather than receive an element, and that is when the element's `key` has changed. We don't discuss `key` handling in this document because it adds more complexity to an already complex tutorial.
+Hay otra condición por la que un componente elegirá volver a montar en vez de recibir un elemento, y es cuando la `key` del elemento ha cambiado. No hablamos sobre el manejo de `key` en este documento porque agrega más complejidad a un tutorial complejo en sí.
 
-Note that we needed to add a method called `getHostNode()` to the internal instance contract so that it's possible to locate the platform-specific node and replace it during the update. Its implementation is straightforward for both classes:
+Nótese que necesitamos agregar un método llamado `getHostNode()` al contrato de la instancia interna para que sea posible localizar el nodo específico a la plataforma y reemplazarlo durante la actualización. Su implementación para ambas clases es simple:
 
 ```js
 class CompositeComponent {
   // ...
 
   getHostNode() {
-    // Ask the rendered component to provide it.
-    // This will recursively drill down any composites.
+    // Consultar al componente renderizado para que lo provea.
+    // Esto examinará de manera recursiva cualquier compuesto.
     return this.renderedComponent.getHostNode();
   }
 }
