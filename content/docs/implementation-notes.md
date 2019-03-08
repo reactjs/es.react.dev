@@ -312,15 +312,15 @@ class CompositeComponent {
 }
 ```
 
-This is not much different from our previous `mountComposite()` implementation, but now we can save some information, such as `this.currentElement`, `this.renderedComponent`, and `this.publicInstance`, for use during updates.
+Esto no es muy diferente de nuestra implementación previa de `mountComposite()`, pero ahora podemos guardar alguna información, como `this.currentElement`, `this.renderedComponent`, y `this.publicInstance`, para usar durante las actualizaciones.
 
-Note that an instance of `CompositeComponent` is not the same thing as an instance of the user-supplied `element.type`. `CompositeComponent` is an implementation detail of our reconciler, and is never exposed to the user. The user-defined class is the one we read from `element.type`, and `CompositeComponent` creates an instance of it.
+Ten en cuenta que una instancia de `CompositeComponent` no es lo mismo que una instancia del `element.type` proporcionado por el usuario. `CompositeComponent` es un detalle de la implementación de nuestro reconciliador, y nunca es expuesto al usuario. La clase definida por el usuario es la que leemos en `element.type`, y `CompositeComponent` crea una instancia de esa clase.
 
-To avoid the confusion, we will call instances of `CompositeComponent` and `DOMComponent` "internal instances". They exist so we can associate some long-lived data with them. Only the renderer and the reconciler are aware that they exist.
+Para evitar la confusión, llamaremos a las instancias de `CompositeComponent` y `DOMComponent` "instancias internas". Éstas existen para que podamos asociar datos antiguos a ellas. Sólo el renderizador y el reconciliador estan al tanto de que existen.
 
-In contrast, we call an instance of the user-defined class a "public instance". The public instance is what you see as `this` in the `render()` and other methods of your custom components.
+En contraste, llamamos "instancia pública" a una instancia de una clase definida por el usuario. La instancia pública es lo que ves como `this` en `render()` y en otros métodos de tus componentes personalizados.
 
-The `mountHost()` function, refactored to be a `mount()` method on `DOMComponent` class, also looks familiar:
+La función `mountHost()`, refactorizada para ser el método `mount()` en la clase `DOMComponent`, también resulta familiar:
 
 ```js
 class DOMComponent {
@@ -331,7 +331,7 @@ class DOMComponent {
   }
 
   getPublicInstance() {
-    // For DOM components, only expose the DOM node.
+    // Para componentes del DOM, sólo exponer el nodo del DOM.
     return this.node;
   }
 
@@ -344,36 +344,36 @@ class DOMComponent {
       children = [children];
     }
 
-    // Create and save the node
+    // Crear y guardar el nodo
     var node = document.createElement(type);
     this.node = node;
 
-    // Set the attributes
+    // Establecer los atributos
     Object.keys(props).forEach(propName => {
       if (propName !== 'children') {
         node.setAttribute(propName, props[propName]);
       }
     });
 
-    // Create and save the contained children.
-    // Each of them can be a DOMComponent or a CompositeComponent,
-    // depending on whether the element type is a string or a function.
+    // Crear y guardar los hijos incluídos.
+    // Cada uno de ellos puede ser un DOMComponent o un CompositeComponent,
+    // dependiendo de si el tipo del elemento es un string o una función.
     var renderedChildren = children.map(instantiateComponent);
     this.renderedChildren = renderedChildren;
 
-    // Collect DOM nodes they return on mount
+    // Juntar los nodos del DOM que los hijos devuelven en el montaje
     var childNodes = renderedChildren.map(child => child.mount());
     childNodes.forEach(childNode => node.appendChild(childNode));
 
-    // Return the DOM node as mount result
+    // Devolver el nodo del DOM como resultado del montaje
     return node;
   }
 }
 ```
 
-The main difference after refactoring from `mountHost()` is that we now keep `this.node` and `this.renderedChildren` associated with the internal DOM component instance. We will also use them for applying non-destructive updates in the future.
+La principal diferencia después de refactorizar `mountHost()` es que ahora podemos mantener `this.node` y `this.renderedChildren` asociados con la instancia interna del componente del DOM. También los usaremos para aplicar actualizaciones no destructivas en el futuro.
 
-As a result, each internal instance, composite or host, now points to its child internal instances. To help visualize this, if a function `<App>` component renders a `<Button>` class component, and `Button` class renders a `<div>`, the internal instance tree would look like this:
+Como resultado, cada instancia interna, compuesta o principal, ahora apunta a sus instancias internas hijas. Para ayudar a visualizar esto, si el componente `<App>` de una función renderiza un componente de clase `<Button>`, y la clase `Button` renderiza un `<div>`, el árbol de la instancia interna se vería así:
 
 ```js
 [object CompositeComponent] {
@@ -391,36 +391,36 @@ As a result, each internal instance, composite or host, now points to its child 
 }
 ```
 
-In the DOM you would only see the `<div>`. However the internal instance tree contains both composite and host internal instances.
+En el DOM sólo verías el `<div>`. Sin embargo el árbol de la instancia interna contiene las instancias internas tanto compuesta como principal.
 
-The composite internal instances need to store:
+Las instancias internas compuestas necesitan almacenar:
 
-* The current element.
-* The public instance if element type is a class.
-* The single rendered internal instance. It can be either a `DOMComponent` or a `CompositeComponent`.
+* El elemento actual.
+* La instancia pública si el tipo del elemento es una clase.
+* La única instancia interna renderizada. Puede ser un `DOMComponent` o un `CompositeComponent`.
 
-The host internal instances need to store:
+Las instancias internas principales necesitan almacenar:
 
-* The current element.
-* The DOM node.
-* All the child internal instances. Each of them can be either a `DOMComponent` or a `CompositeComponent`.
+* El elemento actual.
+* El nodo del DOM.
+* Todas las instancias internas hijas. Cada una de ellas puede ser un `DOMComponent` o un `CompositeComponent`.
 
-If you're struggling to imagine how an internal instance tree is structured in more complex applications, [React DevTools](https://github.com/facebook/react-devtools) can give you a close approximation, as it highlights host instances with grey, and composite instances with purple:
+Si se te dificulta imaginar como está estructurado un árbol de instancias internas en aplicaciones más complejas, las [React DevTools](https://github.com/facebook/react-devtools) pueden darte una aproximación, ya que resaltan las instancias principales con gris, y las instancias compuestas con lila:
 
  <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools tree" />
 
-To complete this refactoring, we will introduce a function that mounts a complete tree into a container node, just like `ReactDOM.render()`. It returns a public instance, also like `ReactDOM.render()`:
+Para completar este refactoreo, introduciremos una función que monta el árbol completo a un nodo contenedor, al igual que `ReactDOM.render()`. Devuelve una instancia pública, también como `ReactDOM.render()`:
 
 ```js
 function mountTree(element, containerNode) {
-  // Create the top-level internal instance
+  // Crear la instancia interna de mayor nivel
   var rootComponent = instantiateComponent(element);
 
-  // Mount the top-level component into the container
+  // Montar el componente de mayor nivel al contenedor
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
-  // Return the public instance it provides
+  // Devolver la instancia pública que provee
   var publicInstance = rootComponent.getPublicInstance();
   return publicInstance;
 }
