@@ -429,9 +429,9 @@ var rootEl = document.getElementById('root');
 mountTree(<App />, rootEl);
 ```
 
-### Unmounting {#unmounting}
+### Desmontaje {#unmounting}
 
-Now that we have internal instances that hold onto their children and the DOM nodes, we can implement unmounting. For a composite component, unmounting calls a lifecycle method and recurses.
+Ahora que tenemos instancias internas que se aferran a sus hijos y a los nodos del DOM, podemos implementar el desmontaje. Para un elemento compuesto, el desmontaje llama a un método de ciclo de vida y entra en recursión.
 
 ```js
 class CompositeComponent {
@@ -439,7 +439,7 @@ class CompositeComponent {
   // ...
 
   unmount() {
-    // Call the lifecycle method if necessary
+    // Llamar al método del ciclo de vida si es necesario
     var publicInstance = this.publicInstance;
     if (publicInstance) {
       if (publicInstance.componentWillUnmount) {
@@ -447,14 +447,13 @@ class CompositeComponent {
       }
     }
 
-    // Unmount the single rendered component
+    // Desmontar el único componente renderizado
     var renderedComponent = this.renderedComponent;
     renderedComponent.unmount();
   }
 }
 ```
-
-For `DOMComponent`, unmounting tells each child to unmount:
+Para `DomComponent`, el desmontaje le avisa a cada hijo que se debe desmontar:
 
 ```js
 class DOMComponent {
@@ -462,56 +461,56 @@ class DOMComponent {
   // ...
 
   unmount() {
-    // Unmount all the children
+    // Desmontar todos los hijos
     var renderedChildren = this.renderedChildren;
     renderedChildren.forEach(child => child.unmount());
   }
 }
 ```
 
-In practice, unmounting DOM components also removes the event listeners and clears some caches, but we will skip those details.
+En la práctica, desmontar componentes del DOM también remueve los escuchadores de eventos y limpia algunas cachés, pero nos saltearemos esos detalles.
 
-We can now add a new top-level function called `unmountTree(containerNode)` that is similar to `ReactDOM.unmountComponentAtNode()`:
+Ahora podemos agregar una nueva función de mayor nivel llamada `unmountTree(containerNode)` que es similar a `ReactDOM.unmountComponentAtNode()`:
 
 ```js
 function unmountTree(containerNode) {
-  // Read the internal instance from a DOM node:
-  // (This doesn't work yet, we will need to change mountTree() to store it.)
+  // Leer esta instancia interna desde un nodo del DOM:
+  // (Esto no funciona todavía, necesitaremos cambiar mountTree() para guardarlo.)
   var node = containerNode.firstChild;
   var rootComponent = node._internalInstance;
 
-  // Unmount the tree and clear the container
+  // Desmontar el árbol y limpiar el contenedor
   rootComponent.unmount();
   containerNode.innerHTML = '';
 }
 ```
 
-In order for this to work, we need to read an internal root instance from a DOM node. We will modify `mountTree()` to add the `_internalInstance` property to the root DOM node. We will also teach `mountTree()` to destroy any existing tree so it can be called multiple times:
+Para que esto funcione, necesitamos leer una instancia interna raíz de un nodo del DOM. Modificaremos `mountTree()` para agregar la propiedad `_internalInstance` al nodo raíz del DOM. También le enseñaremos a `mountTree()` a destruir cualquier árbol existente así puede ser llamado múltiples veces:
 
 ```js
 function mountTree(element, containerNode) {
-  // Destroy any existing tree
+  // Destruir cualquier árbol existente
   if (containerNode.firstChild) {
     unmountTree(containerNode);
   }
 
-  // Create the top-level internal instance
+  // Creaer la instancia interna de mayor nivel
   var rootComponent = instantiateComponent(element);
 
-  // Mount the top-level component into the container
+  // Montar el componente de mayor nivel al contenedor
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
-  // Save a reference to the internal instance
+  // Guardar una referencia a la instancia interna
   node._internalInstance = rootComponent;
 
-  // Return the public instance it provides
+  // Devolver la instancia pública que provee
   var publicInstance = rootComponent.getPublicInstance();
   return publicInstance;
 }
 ```
 
-Now, running `unmountTree()`, or running `mountTree()` repeatedly, removes the old tree and runs the `componentWillUnmount()` lifecycle method on components.
+Ahora, ejecutando `unmountTree()`, o ejecutando `mountTree()` repetidamente, remueve el árbol viejo y ejecuta el método de ciclo de vida `componentWillUnmount()` en los componentes.
 
 ### Updating {#updating}
 
