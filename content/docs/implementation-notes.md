@@ -116,7 +116,7 @@ Hagamos un repaso de algunas ideas clave con el ejemplo anterior:
 
 Este proceso sería inservible si no renderizáramos algo en la pantalla como resultado.
 
-Sumados a los componentes definidos por el usuario ("compuestos"), los elementos de React también pueden representar componentes específicos de la plataforma ("principales"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
+Sumados a los componentes definidos por el usuario ("compuestos"), los elementos de React también pueden representar componentes específicos a la plataforma ("principales"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
 
 Si la propiedad `type` de un elemento es una *string*, estamos trabajando con un elemento principal:
 
@@ -227,40 +227,39 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
-Esto funciona pero todavía está lejos de la implementación real del reconciliador. El ingrediente faltante clave es el soporte para actualizaciones.
+Esto funciona pero todavía está lejos de ser la implementación real del reconciliador. El ingrediente faltante clave es el soporte para actualizaciones.
 
-### Introducing Internal Instances {#introducing-internal-instances}
+### Introducción a Instancias Internas {#introducing-internal-instances}
 
-The key feature of React is that you can re-render everything, and it won't recreate the DOM or reset the state:
+La característica clave de React es que puedes re-renderizar todo, y no recreará el DOM or reiniciará el estado:
 
 ```js
 ReactDOM.render(<App />, rootEl);
-// Should reuse the existing DOM:
+// Debería reusar el DOM existente:
 ReactDOM.render(<App />, rootEl);
 ```
+Sin embargo, nuestra implementación anterior solo sabe cómo montar el árbol inicial. No puede realizar actualizaciones sobre él porque no guarda toda la información necesaria, como todas las `publicInstance`s, o qué DOM `node`s corresponden a qué componentes.
 
-However, our implementation above only knows how to mount the initial tree. It can't perform updates on it because it doesn't store all the necessary information, such as all the `publicInstance`s, or which DOM `node`s correspond to which components.
+El código base del reconciliador de pila resuelve esto convirtiendo la función `mount()` en un método y poniéndolo en una clase. Hay inconvenientes con este enfoque, y estamos yendo en la dirección opuesta con la [reescritura en curso del reconciliador](/docs/codebase-overview.html#fiber-reconciler). A pesar de eso así es como funciona ahora.
 
-The stack reconciler codebase solves this by making the `mount()` function a method and putting it on a class. There are drawbacks to this approach, and we are going in the opposite direction in the [ongoing rewrite of the reconciler](/docs/codebase-overview.html#fiber-reconciler). Nevertheless this is how it works now.
+En vez de funciones `mountHost` y `mountComposite` separadas, crearemos dos clases: `DOMComponent` y `CompositeComponent`.
 
-Instead of separate `mountHost` and `mountComposite` functions, we will create two classes: `DOMComponent` and `CompositeComponent`.
-
-Both classes have a constructor accepting the `element`, as well as a `mount()` method returning the mounted node. We will replace a top-level `mount()` function with a factory that instantiates the correct class:
+Ambas clases tienen un constructor que acepta `element`, como también un método `mount()` que devuelve el nodo montado. Vamos a reemplazar la función `mount()` de mayor nivel por una fábrica que instanciará la clase correcta:
 
 ```js
 function instantiateComponent(element) {
   var type = element.type;
   if (typeof type === 'function') {
-    // User-defined components
+    // Componentes definidos por el usuario
     return new CompositeComponent(element);
   } else if (typeof type === 'string') {
-    // Platform-specific components
+    // Componentes específicos a la plataforma
     return new DOMComponent(element);
   }  
 }
 ```
 
-First, let's consider the implementation of `CompositeComponent`:
+Primero, consideremos la implementación de `CompositeComponent`:
 
 ```js
 class CompositeComponent {
@@ -271,7 +270,7 @@ class CompositeComponent {
   }
 
   getPublicInstance() {
-    // For composite components, expose the class instance.
+    // Para elementos compuestos, exponer la instancia de la clase.
     return this.publicInstance;
   }
 
@@ -283,31 +282,31 @@ class CompositeComponent {
     var publicInstance;
     var renderedElement;
     if (isClass(type)) {
-      // Component class
+      // Componente de clase
       publicInstance = new type(props);
-      // Set the props
+      // Establecer las props
       publicInstance.props = props;
-      // Call the lifecycle if necessary
+      // Llamar al ciclo de vida si es necesario
       if (publicInstance.componentWillMount) {
         publicInstance.componentWillMount();
       }
       renderedElement = publicInstance.render();
     } else if (typeof type === 'function') {
-      // Component function
+      // Componente de función
       publicInstance = null;
       renderedElement = type(props);
     }
 
-    // Save the public instance
+    // Guardar la instancia pública
     this.publicInstance = publicInstance;
 
-    // Instantiate the child internal instance according to the element.
-    // It would be a DOMComponent for <div /> or <p />,
-    // and a CompositeComponent for <App /> or <Button />:
+    // Instanciar la instancia interna hija acorde al elemento.
+    // Sería un DOMComponent para <div /> o <p />,
+    // y un CompositeComponent para <App /> o <Button />:
     var renderedComponent = instantiateComponent(renderedElement);
     this.renderedComponent = renderedComponent;
 
-    // Mount the rendered output
+    // Montar el resultado renderizado
     return renderedComponent.mount();
   }
 }
