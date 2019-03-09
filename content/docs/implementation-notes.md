@@ -22,7 +22,7 @@ El reconciliador de pila se usó en React 15 y también en versiones anteriores.
 
 Tanto este documento como su charla son simplificaciones del código base real por lo que obtendrás un mejor entendimiento familiarizándote con ambos.
 
-### Visión general {#overview}
+### Visión General {#overview}
 
 El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#stack-renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario. 
 
@@ -112,7 +112,7 @@ Hagamos un repaso de algunas ideas clave con el ejemplo anterior:
 * Los componentes definidos por el usuario (Por ej. `App`) pueden ser clases o funciones pero todos "se renderizan" como elementos.
 * El "montaje" es un proceso recursivo que crea un DOM o un árbol nativo dado el elemento de React de mayor nivel (Por ej. `<App />`).
 
-### Montando elementos principales {#mounting-host-elements}
+### Montando Elementos Principales {#mounting-host-elements}
 
 Este proceso sería inservible si no renderizáramos algo en la pantalla como resultado.
 
@@ -235,7 +235,7 @@ La característica clave de React es que puedes re-renderizar todo, y no recrear
 
 ```js
 ReactDOM.render(<App />, rootEl);
-// Debería reusar el DOM existente:
+// Debería reutilizar el DOM existente:
 ReactDOM.render(<App />, rootEl);
 ```
 Sin embargo, nuestra implementación anterior solo sabe cómo montar el árbol inicial. No puede realizar actualizaciones sobre él porque no guarda toda la información necesaria, como todas las `publicInstance`s, o qué DOM `node`s corresponden a qué componentes.
@@ -514,13 +514,13 @@ Ahora, ejecutando `unmountTree()`, o ejecutando `mountTree()` repetidamente, rem
 
 ### Actualizando {#updating}
 
-En la sección anterior, implementamos el desmontaje. Sin embargo React no sería muy útil si cada cambio en una prop desmontara y montara el árbol entero. El objetivo del reconciliador es el de reusar instancias existentes donde sea posible para preservar el DOM y el estado:
+En la sección anterior, implementamos el desmontaje. Sin embargo React no sería muy útil si cada cambio en una prop desmontara y montara el árbol entero. El objetivo del reconciliador es el de reutilizar instancias existentes donde sea posible para preservar el DOM y el estado:
 
 ```js
 var rootEl = document.getElementById('root');
 
 mountTree(<App />, rootEl);
-// Debería reusar el DOM existente:
+// Debería reutilizar el DOM existente:
 mountTree(<App />, rootEl);
 ```
 
@@ -548,7 +548,7 @@ Su trabajo es hacer lo necesario para mantener el componente (y a cualquiera de 
 
 Esta es la parte frecuentemente descripta como "diferenciación del virtual DOM" aunque lo que realmente sucede es que recorremos el árbol interno recursivamente y dejamos que cada instancia interna reciba una actualización.
 
-### Actualizando componentes compuestos {#updating-composite-components}
+### Actualizando Componentes Compuestos {#updating-composite-components}
 
 Cuando un componente compuesto recibe un nuevo elemento, ejecutamos el método de ciclo de vida `componentWillUpdate()`.
 
@@ -598,7 +598,7 @@ Por ejemplo, si devuelve `<Button color="red" />` la primera vez, y `<Button col
     // ...
 
     // Si el tipo del elemento renderizado no cambió,
-    // reusar la instancia existente del componente y salir.
+    // reutilizar la instancia existente del componente y salir.
     if (prevRenderedElement.type === nextRenderedElement.type) {
       prevRenderedComponent.receive(nextRenderedElement);
       return;
@@ -662,7 +662,7 @@ class DOMComponent {
 }
 ```
 
-### Actualizando componentes principales {#updating-host-components}
+### Actualizando Componentes Principales {#updating-host-components}
 
 Las implementaciones de componentes principales, como `DOMComponent`, se actualizan de manera diferente. Cuando reciben un elemento, necesitan actualizar la vista subyacente específica a la plataforma.
 
@@ -807,25 +807,25 @@ Como último paso, ejecutamos las operaciones del DOM. Nuevamente, el código de
 
 Y eso es todo para actualizar los componentes principales.
 
-### Top-Level Updates {#top-level-updates}
+### Actualizaciones de Mayor Nivel {#top-level-updates}
 
-Now that both `CompositeComponent` and `DOMComponent` implement the `receive(nextElement)` method, we can change the top-level `mountTree()` function to use it when the element `type` is the same as it was the last time:
+Ahora que tanto `CompositeComponent` como `DOMComponent` implementan el método `receive(nextElement)`, podemos cambiar la función de mayor nivel `mountTree()` para usarla cuando el `type` del elemento sea el mismo que la última vez:
 
 ```js
 function mountTree(element, containerNode) {
-  // Check for an existing tree
+  // Verificar por un árbol existente
   if (containerNode.firstChild) {
     var prevNode = containerNode.firstChild;
     var prevRootComponent = prevNode._internalInstance;
     var prevElement = prevRootComponent.currentElement;
 
-    // If we can, reuse the existing root component
+    // Si podemos, reutilizar el componente raíz existente
     if (prevElement.type === element.type) {
       prevRootComponent.receive(element);
       return;
     }
 
-    // Otherwise, unmount the existing tree
+    // En el otro caso, desmontar el árbol existente
     unmountTree(containerNode);
   }
 
@@ -834,61 +834,61 @@ function mountTree(element, containerNode) {
 }
 ```
 
-Now calling `mountTree()` two times with the same type isn't destructive:
+Si ahora llamamos a `mountTree()` dos veces con el mismo tipo no es destructivo:
 
 ```js
 var rootEl = document.getElementById('root');
 
 mountTree(<App />, rootEl);
-// Reuses the existing DOM:
+// Reutiliza el DOM existente:
 mountTree(<App />, rootEl);
 ```
 
-These are the basics of how React works internally.
+Esto es lo básico sobre cómo funciona React internamente.
 
-### What We Left Out {#what-we-left-out}
+### Lo Que Dejamos Fuera {#what-we-left-out}
 
-This document is simplified compared to the real codebase. There are a few important aspects we didn't address:
+Este documento está simplificado en comparación al código base real. Hay algunos aspectos importantes que no abordamos:
 
-* Components can render `null`, and the reconciler can handle "empty slots" in arrays and rendered output.
+* Los componentes pueden renderizar `null`, y el reconciliador puede aceptar "espacios vacíos" en *arrays* y resultados renderizados.
 
-* The reconciler also reads `key` from the elements, and uses it to establish which internal instance corresponds to which element in an array. A bulk of complexity in the actual React implementation is related to that.
+* El reconciliador también lee la `key` de los elementos, y la usa para establecer a qué instancia interna corresponde cada elemento en un *array*. Una gran parte de la complejidad en la implementación actual de React tiene que ver con eso.
 
-* In addition to composite and host internal instance classes, there are also classes for "text" and "empty" components. They represent text nodes and the "empty slots" you get by rendering `null`.
+* Además de clases de instancias internas principales y compuestas, también existen clases para componentes de "texto" y "vacíos". Representan nodos de texto y los "espacios vacíos" que se obtienen al renderizar `null`.
 
-* Renderers use [injection](/docs/codebase-overview.html#dynamic-injection) to pass the host internal class to the reconciler. For example, React DOM tells the reconciler to use `ReactDOMComponent` as the host internal instance implementation.
+* Los renderizadores usan [inyección](/docs/codebase-overview.html#dynamic-injection) para pasar la clase interna principal al reconciliador. Por ejemplo, React DOM le dice al reconciliador que use `ReactDOMComponent` como la implementación de una instancia interna principal.
 
-* The logic for updating the list of children is extracted into a mixin called `ReactMultiChild` which is used by the host internal instance class implementations both in React DOM and React Native.
+* La lógica para actualizar la lista de hijos es extraída a una mezcla llamada `ReactMultiChild` que es utilizada por las implementaciones de clases de instancias internas principales tanto para React DOM como para React Native.
 
-* The reconciler also implements support for `setState()` in composite components. Multiple updates inside event handlers get batched into a single update.
+* El reconciliador además implementa soporte para `setState()` en componentes compuestos. Múltiples actualizaciones dentro de escuchadores de eventos son procesadas por lote en una sola actualización.
 
-* The reconciler also takes care of attaching and detaching refs to composite components and host nodes.
+* El reconciliador también se encarga de adjuntar y desconectar las referencias a componentes compuestos y nodos principales.
 
-* Lifecycle methods that are called after the DOM is ready, such as `componentDidMount()` and `componentDidUpdate()`, get collected into "callback queues" and are executed in a single batch.
++ Los métodos de ciclo de vida que son llamados después de que el DOM está listo, como `componentDidMount()` and `componentDidUpdate()`, son recogidos en "colas de callbacks" y son ejecutados en un solo lote.
 
-* React puts information about the current update into an internal object called "transaction". Transactions are useful for keeping track of the queue of pending lifecycle methods, the current DOM nesting for the warnings, and anything else that is "global" to a specific update. Transactions also ensure React "cleans everything up" after updates. For example, the transaction class provided by React DOM restores the input selection after any update.
+* React pone información sobre la actualización en curso dentro de un objeto interno llamado "transacción". Las transacciones son útiles para hacer un seguimiento de la cola de métodos de ciclo de vida pendientes, la anidación actual del DOM para las alertas, y todo lo demás que sea "global" a una actualización específica. Las transacciones también aseguran que React "limpie todo" luego de las actualizaciones. Por ejemplo, la clase transacción provista por React DOM restaura la selección del *input* después de cada actualización.
 
-### Jumping into the Code {#jumping-into-the-code}
+### Metiéndose con el Código {#jumping-into-the-code}
 
-* [`ReactMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) is where the code like `mountTree()` and `unmountTree()` from this tutorial lives. It takes care of mounting and unmounting top-level components. [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) is its React Native analog.
-* [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) is the equivalent of `DOMComponent` in this tutorial. It implements the host component class for React DOM renderer. [`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) is its React Native analog.
-* [`ReactCompositeComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) is the equivalent of `CompositeComponent` in this tutorial. It handles calling user-defined components and maintaining their state.
-* [`instantiateReactComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/instantiateReactComponent.js) contains the switch that picks the right internal instance class to construct for an element. It is equivalent to `instantiateComponent()` in this tutorial.
+* [`ReactMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) es donde está el código de `mountTree()` y `unmountTree()` de este tutorial. Se encarga de montar y desmontar componentes de mayor nivel. [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) es su análogo en React Native.
+* [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) es el equivalente a `DOMComponent` en este tutorial. Implementa la clase de los componentes principales para el renderizador React DOM. [`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) es su análogo en React Native.
+* [`ReactCompositeComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) es el equivalente a `CompositeComponent` es este tutorial. Maneja las llamadas a componentes definidos por el usuario y el mantenimiento de su estado.
+* [`instantiateReactComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/instantiateReactComponent.js) contiene el interruptor que elige la clase correcta de una instancia interna a construir para un elemento. Es equivalente a `instantiateComponent()` en este tutorial.
 
-* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) is a wrapper with `mountComponent()`, `receiveComponent()`, and `unmountComponent()` methods. It calls the underlying implementations on the internal instances, but also includes some code around them that is shared by all internal instance implementations.
+* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) es un *wrapper* que contiene los métodos `mountComponent()`, `receiveComponent()`, y `unmountComponent()`. Llama a las implementaciones subyacentes en las instancias internas, pero también incluye código sobre ellas que es compartido por todas las implementaciones de instancias internas.
 
-* [`ReactChildReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactChildReconciler.js) implements the logic for mounting, updating, and unmounting children according to the `key` of their elements.
+* [`ReactChildReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactChildReconciler.js) implementa la lógica para montar, actualizar, y desmontar hijos de acuerdo a la `key` de sus elementos.
 
-* [`ReactMultiChild`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactMultiChild.js) implements processing the operation queue for child insertions, deletions, and moves independently of the renderer.
+* [`ReactMultiChild`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactMultiChild.js) implementa el procesamiento de la cola de operaciones para inserciones de hijos, supresiones, y movimientos independientemente del renderizador.
 
-* `mount()`, `receive()`, and `unmount()` are really called `mountComponent()`, `receiveComponent()`, and `unmountComponent()` in React codebase for legacy reasons, but they receive elements.
+* `mount()`, `receive()`, y `unmount()` son en realidad llamados `mountComponent()`, `receiveComponent()`, and `unmountComponent()` en el código base de React por razones de herencia, pero reciben elementos.
 
-* Properties on the internal instances start with an underscore, e.g. `_currentElement`. They are considered to be read-only public fields throughout the codebase.
+* Las propiedades en las instancias internas comienzan con un guión bajo, por ej. `_currentElement`. Son considerados campos públicos de sólo lectura a través del código base.
 
-### Future Directions {#future-directions}
+### Futuras Orientaciones {#future-directions}
 
-Stack reconciler has inherent limitations such as being synchronous and unable to interrupt the work or split it in chunks. There is a work in progress on the [new Fiber reconciler](/docs/codebase-overview.html#fiber-reconciler) with a [completely different architecture](https://github.com/acdlite/react-fiber-architecture). In the future, we intend to replace stack reconciler with it, but at the moment it is far from feature parity.
+El reconciliador de pila tiene limitaciones inherentes como ser sincrónico y no permitir interrumpir el trabajo o dividirlo en fragmentos. Hay trabajo en progreso en el [nuevo reconciliador Fiber](/docs/codebase-overview.html#fiber-reconciler) con una [arquitectura completamente diferente](https://github.com/acdlite/react-fiber-architecture). En el futuro, pretendemos reemplazar el reconciliador de pila con Fiber, pero por el momento está lejos de igualar sus características.
 
-### Next Steps {#next-steps}
+### Siguientes Pasos {#next-steps}
 
-Read the [next section](/docs/design-principles.html) to learn about the guiding principles we use for React development.
+Lee la [siguiente sección](/docs/design-principles.html) para aprender sobre los principios de guía que usamos para el desarrollo de React.
