@@ -45,7 +45,7 @@ El reconciliador comprobará si `App` es una clase o una función.
 
 Si `App` es una función, el reconciliador llamará `App(props)` para renderizar el elemento.
 
-Si `App` es una clase, el reconciliador instanciará una `App` con `new App(props)`, llamará al método del ciclo de vida `componentWillMount()`, y por último llamará al método `render()` para obtener el método renderizado.
+Si `App` es una clase, el reconciliador instanciará una `App` con `new App(props)`, llamará al método del ciclo de vida `componentWillMount()`, y por último llamará al método `render()` para obtener el elemento renderizado.
 
 De cualquier manera, el reconciliador averiguará a que elemento se renderizó `App`.
 
@@ -116,9 +116,9 @@ Hagamos un repaso de algunas ideas clave con el ejemplo anterior:
 
 Este proceso sería inservible si no renderizáramos algo en la pantalla como resultado.
 
-Sumados a los componentes definidos por el usuario ("compuestos"), los elementos de React también pueden representar componentes específicos a la plataforma ("principales"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
+Sumados a los componentes definidos por el usuario o ("compuestos"), los elementos de React también pueden representar componentes específicos a la plataforma o ("principales"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
 
-Si la propiedad `type` de un elemento es una *string*, estamos trabajando con un elemento principal:
+Si la propiedad `type` de un elemento es una *string*, sabemos que estamos trabajando con un elemento principal:
 
 ```js
 console.log(<div />);
@@ -229,7 +229,7 @@ rootEl.appendChild(node);
 
 Esto funciona pero todavía está lejos de ser la implementación real del reconciliador. El ingrediente faltante clave es el soporte para actualizaciones.
 
-### Introducción a Instancias Internas {#introducing-internal-instances}
+### Introduciendo Instancias Internas {#introducing-internal-instances}
 
 La característica clave de React es que puedes re-renderizar todo, y no recreará el DOM or reiniciará el estado:
 
@@ -834,7 +834,7 @@ function mountTree(element, containerNode) {
 }
 ```
 
-Si ahora llamamos a `mountTree()` dos veces con el mismo tipo no es destructivo:
+Ahora llamar a `mountTree()` dos veces con el mismo tipo no es destructivo:
 
 ```js
 var rootEl = document.getElementById('root');
