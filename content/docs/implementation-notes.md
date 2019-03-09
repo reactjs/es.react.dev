@@ -662,9 +662,9 @@ class DOMComponent {
 }
 ```
 
-### Updating Host Components {#updating-host-components}
+### Actualizando componentes principales {#updating-host-components}
 
-Host component implementations, such as `DOMComponent`, update differently. When they receive an element, they need to update the underlying platform-specific view. In case of React DOM, this means updating the DOM attributes:
+Las implementaciones de componentes principales, como `DOMComponent`, se actualizan de manera diferente. Cuando reciben un elemento, necesitan actualizar la vista subyacente específica a la plataforma.
 
 ```js
 class DOMComponent {
@@ -677,13 +677,13 @@ class DOMComponent {
     var nextProps = nextElement.props;    
     this.currentElement = nextElement;
 
-    // Remove old attributes.
+    // Remover atributos viejos.
     Object.keys(prevProps).forEach(propName => {
       if (propName !== 'children' && !nextProps.hasOwnProperty(propName)) {
         node.removeAttribute(propName);
       }
     });
-    // Set next attributes.
+    // Establecer los siguientes atributos
     Object.keys(nextProps).forEach(propName => {
       if (propName !== 'children') {
         node.setAttribute(propName, nextProps[propName]);
@@ -693,16 +693,16 @@ class DOMComponent {
     // ...
 ```
 
-Then, host components need to update their children. Unlike composite components, they might contain more than a single child.
+Luego, los componentes principales necesitan actualizar sus hijos. A diferencia de los componentes compuestos, pueden contener más de un hijo.
 
-In this simplified example, we use an array of internal instances and iterate over it, either updating or replacing the internal instances depending on whether the received `type` matches their previous `type`. The real reconciler also takes element's `key` in the account and track moves in addition to insertions and deletions, but we will omit this logic.
+En este ejemplo simplificado, usamos un *array* de instancias internas e iteramos sobre él, ya sea actualizándolo o reemplazando las instancias internas dependiendo de si el `type` recibido coincide con el `type` anterior. El reconciliador real además tiene en cuenta la `key` del elemento y rastrea los movimientos además de las inserciones y las supresiones, pero omitiremos esta lógica por ahora.
 
-We collect DOM operations on children in a list so we can execute them in batch:
+Recogemos las operaciones del DOM sobre hijos en una lista para poder ejecutarlas en lote:
 
 ```js
     // ...
 
-    // These are arrays of React elements:
+    // Estos son arrays de elementos de React:
     var prevChildren = prevProps.children || [];
     if (!Array.isArray(prevChildren)) {
       prevChildren = [prevChildren];
@@ -711,41 +711,41 @@ We collect DOM operations on children in a list so we can execute them in batch:
     if (!Array.isArray(nextChildren)) {
       nextChildren = [nextChildren];
     }
-    // These are arrays of internal instances:
+    // Estos son arrays de instancias internas:
     var prevRenderedChildren = this.renderedChildren;
     var nextRenderedChildren = [];
 
-    // As we iterate over children, we will add operations to the array.
+    // A medida que iteramos sobre los hijos, añadiremos operaciones al array.
     var operationQueue = [];
 
-    // Note: the section below is extremely simplified!
-    // It doesn't handle reorders, children with holes, or keys.
-    // It only exists to illustrate the overall flow, not the specifics.
+    // Nota: ¡la siguiente sección está extremadamente simplificada!
+    // No acepta reordenamientos, hijos con vacíos, o keys.
+    // Sólo existe para ilustrar el flujo en general, sin especificaciones.
 
     for (var i = 0; i < nextChildren.length; i++) {
-      // Try to get an existing internal instance for this child
+      // Tratar de obtener una instancia interna existente para este hijo
       var prevChild = prevRenderedChildren[i];
 
-      // If there is no internal instance under this index,
-      // a child has been appended to the end. Create a new
-      // internal instance, mount it, and use its node.
+      // Si no hay una instancia interna en este índice,
+      // un hijo ha sido anexado al final. Crear una nueva
+      // instancia interna, montarla, y usar su nodo.
       if (!prevChild) {
         var nextChild = instantiateComponent(nextChildren[i]);
         var node = nextChild.mount();
 
-        // Record that we need to append a node
+        // Registrar que necesitamos añadir un nodo
         operationQueue.push({type: 'ADD', node});
         nextRenderedChildren.push(nextChild);
         continue;
       }
 
-      // We can only update the instance if its element's type matches.
-      // For example, <Button size="small" /> can be updated to
-      // <Button size="large" /> but not to an <App />.
+      // Podemos actualizar la instancia solo si el type de su elemento coincide.
+      // Por ejemplo, <Button size="small" /> puede ser actualizado a
+      // <Button size="large" /> pero no a <App />.
       var canUpdate = prevChildren[i].type === nextChildren[i].type;
 
-      // If we can't update an existing instance, we have to unmount it
-      // and mount a new one instead of it.
+      // Si no podemos actualizar una instancia existente, tenemos que
+      // desmontarla y montar una nueva en su lugar.
       if (!canUpdate) {
         var prevNode = prevChild.getHostNode();
         prevChild.unmount();
@@ -753,40 +753,40 @@ We collect DOM operations on children in a list so we can execute them in batch:
         var nextChild = instantiateComponent(nextChildren[i]);
         var nextNode = nextChild.mount();
 
-        // Record that we need to swap the nodes
+        // Registar que necesitamos intercambiar los nodos
         operationQueue.push({type: 'REPLACE', prevNode, nextNode});
         nextRenderedChildren.push(nextChild);
         continue;
       }
 
-      // If we can update an existing internal instance,
-      // just let it receive the next element and handle its own update.
+      // Si podemos actualizar una instancia interna existente,
+      // permitirle recibir el siguiente elemento y manejar so propia actualización.
       prevChild.receive(nextChildren[i]);
       nextRenderedChildren.push(prevChild);
     }
 
-    // Finally, unmount any children that don't exist:
+    // Finalmente, desmontar cualquier hijo que no exista:
     for (var j = nextChildren.length; j < prevChildren.length; j++) {
       var prevChild = prevRenderedChildren[j];
       var node = prevChild.getHostNode();
       prevChild.unmount();
 
-      // Record that we need to remove the node
+      // Registar que necesitamos remover el nodo
       operationQueue.push({type: 'REMOVE', node});
     }
 
-    // Point the list of rendered children to the updated version.
+    // Marcar la lista de hijos renderizados como la versión actualizada.
     this.renderedChildren = nextRenderedChildren;
 
     // ...
 ```
 
-As the last step, we execute the DOM operations. Again, the real reconciler code is more complex because it also handles moves:
+Como último paso, ejecutamos las operaciones del DOM. Nuevamente, el código del reconciliador real es más complejos porque también maneja movimientos:
 
 ```js
     // ...
 
-    // Process the operation queue.
+    // Procesar la cola de operaciones.
     while (operationQueue.length > 0) {
       var operation = operationQueue.shift();
       switch (operation.type) {
@@ -805,7 +805,7 @@ As the last step, we execute the DOM operations. Again, the real reconciler code
 }
 ```
 
-And that is it for updating host components.
+Y eso es todo para actualizar los componentes principales.
 
 ### Top-Level Updates {#top-level-updates}
 
