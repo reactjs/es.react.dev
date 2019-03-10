@@ -177,7 +177,7 @@ Para hacer esto en Chrome:
 
 Para un tutorial mas detallado, consulte [este articulo por Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
 
-Note que **los números son relativos, así que los componentes se renderizarán mas rápido en producción**. Como quiera esto debería ayudarlo a darse cuenta cuando *UI* no relacionada se actualiza por error, la frecuencia y profundidad con la que se actualiza.
+Nota que **los números son relativos, así que los componentes se renderizarán mas rápido en producción**. Como quiera esto debería ayudarlo a darse cuenta cuando *UI* no relacionada se actualiza por error, la frecuencia y profundidad con la que se actualiza.
 
 Actualmente Chrome, Edge, y IE son los únicos navegadores que soportan esta funcionalidad, pero usamos el standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) asi que esperamos mas navegadores soporten esta funcionalidad.
 
@@ -216,19 +216,19 @@ Ahora puede visualizar estos re-renderizados del DOM virtual con React DevTools:
 - [Extensión del navegador Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
 - [Paquete independiente de Node](https://www.npmjs.com/package/react-devtools)
 
-En la consola del desarrollador seleccione la opción **Highlight Updates** en la pestaña de React:
+En la consola del desarrollador selecciona la opción **Highlight Updates** en la pestaña de React:
 
 <center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="How to enable highlight updates" /></center>
 
-Interactúe con su pagina y vera bordes coloreados que aparecen momentáneamente alrededor de los componentes que se han vuelto a renderizar. Esto le permite detectar re-renderizados que no fueron necesarios. Puede aprender mas acerca de esta característica de React DevTools en esta [entrada de blog](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) de [Ben Edelstein](https://blog.logrocket.com/@edelstein).
+Interactúa con tu página y verás bordes coloreados que aparecen momentáneamente alrededor de los componentes que se han vuelto a renderizar. Esto te permite detectar re-renderizados que no fueron necesarios. Puedes aprender más acerca de esta característica de React DevTools en esta [entrada de blog](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) de [Ben Edelstein](https://blog.logrocket.com/@edelstein).
 
-Considere este ejemplo:
+Considera este ejemplo:
 
 <center><img src="../images/blog/highlight-updates-example.gif" style="max-width:100%; margin-top:20px;" alt="React DevTools Highlight Updates example" /></center>
 
-Note que cuando entramos un segundo *todo*, primer *todo* también parpadea con cada entrada del teclado. Esto significa que esta siendo re-renderizado por React junto con la entrada de texto. Esto a veces se llama renderizado "desperdiciado". Sabemos que no es necesario porque el contenido de la primera entrada del *todo* no ha cambiado, pero React no lo sabe. 
+Nota que cuando entramos un segundo *todo*, primer *todo* también parpadea con cada entrada del teclado. Esto significa que esta siendo re-renderizado por React junto con la entrada de texto. Esto a veces se llama renderizado "desperdiciado". Sabemos que no es necesario porque el contenido de la primera entrada del *todo* no ha cambiado, pero React no lo sabe. 
 
-Aunque React solo actualiza los nodos DOM modificados, el re-renderizado aun lleva algo de tiempo. En muchos casos no es un problema, pero si la desaceleracion es notable puedes acelerar el proceso anulando la función del ciclo de vida `shouldComponentUpdate`, el cual se ejecuta antes de que el proceso de re-renderizado comience. La implementacion por defecto de esta función retorna `true`, permitiendo a React hacer la actualización.
+Aunque React solo actualiza los nodos DOM modificados, el re-renderizado aun lleva algo de tiempo. En muchos casos no es un problema, pero si la desaceleración es notable puedes acelerar el proceso anulando la función del ciclo de vida `shouldComponentUpdate`, el cual se ejecuta antes de que el proceso de re-renderizado comience. La implementación por defecto de esta función retorna `true`, permitiendo a React hacer la actualización.
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -252,7 +252,7 @@ Para C1 y C3, `shouldComponentUpdate` retornó `true`, así que React tuvo que d
 
 El último caso interesante es C8. React tuvo que representar este componente, pero como los elementos de React que devolvió eran iguales a los previamente renderizados, no tuvo que actualizar el DOM.
 
-Note que React solo tiene que hacer mutaciones DOM para C6, lo cual es inevitable. Para C8, se rescató mediante la comparación de los elementos React representados, y para el subárbol C2 y C7, ni siquiera tuvo que comparar los elementos ya que los rescatamos en `shouldComponentUpdate`, y `render` no fue llamado.
+Nota que React solo tiene que hacer mutaciones DOM para C6, lo cual es inevitable. Para C8, se rescató mediante la comparación de los elementos React representados, y para el subárbol C2 y C7, ni siquiera tuvo que comparar los elementos ya que los rescatamos en `shouldComponentUpdate`, y `render` no fue llamado.
 
 ## Ejemplos {#examples}
 
