@@ -12,7 +12,7 @@ Internamente, React utiliza diferentes técnicas inteligentes para minimizar el 
 
 Si estás haciendo análisis comparativos o experimentando problemas de rendimiento en tus aplicacions de React, asegúrate que estas probando con una *build* minificada.
 
-Por defecto, React incluye muchas alertas útiles. Estas alertas son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
+Por defecto, React incluye muchas alertas útiles. Estas advertencias son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
 
 Si no estás seguro si tu proceso de *build* está configurado correctamente, puedes revisarlo instalando [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). Si visitas un sitio con React en modo de producción, el ícono tendrá un fondo oscuro:
 
@@ -66,7 +66,7 @@ Entonces, para crear una *build* de producción, agrega la bandera `-p` al coman
 ```
 brunch build -p
 ```
-Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no deberías pasar la bandera `-p` o aplicar el plugin en desarrollo, por que ocultará las advertencias de React y hará las *builds* mucho mas lentas.
+Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no deberías pasar la bandera `-p` o aplicar el plugin en desarrollo, por que ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
 ### Browserify {#browserify}
 
@@ -103,7 +103,7 @@ Recuerda que solo necesitas hacer esto para las *builds* de producción. No debe
 
 ### Rollup {#rollup}
 
-Para la *build* de producción mas eficiente en Rollup, instala algunos plugins:
+Para la *build* de producción más eficiente con Rollup, instala algunos plugins:
 
 ```
 # Si usas npm
