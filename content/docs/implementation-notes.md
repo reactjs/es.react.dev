@@ -8,6 +8,7 @@ next: design-principles.html
 redirect_from:
   - "contributing/implementation-notes.html"
 ---
+
 Esta sección es una colección de notas de implementación para el [reconciliador de pila](/docs/codebase-overview.html#stack-reconciler).
 
 Es muy técnica y asume un gran entendimiento de la API pública de React como también sobre la división de React en núcleo, renderizadores y el reconciliador. Si no estás muy familiarizado con el código base de React, primero lee la [visión general del código base](/docs/codebase-overview.html).
@@ -124,6 +125,7 @@ Si la propiedad `type` de un elemento es una *string*, sabemos que estamos traba
 console.log(<div />);
 // { type: 'div', props: {} }
 ```
+
 No hay código definido por el usuario asociado con elementos principales.
 
 Cuando el reconciliador encuentra un elemento principal, deja que el renderizador se encargue de montarlo. Por ejemplo, React DOM podría crear un nodo del DOM.
@@ -238,6 +240,7 @@ ReactDOM.render(<App />, rootEl);
 // Debería reutilizar el DOM existente:
 ReactDOM.render(<App />, rootEl);
 ```
+
 Sin embargo, nuestra implementación anterior solo sabe cómo montar el árbol inicial. No puede realizar actualizaciones sobre él porque no guarda toda la información necesaria, como todas las `publicInstance`s, o qué DOM `node`s corresponden a qué componentes.
 
 El código base del reconciliador de pila resuelve esto convirtiendo la función `mount()` en un método y poniéndolo en una clase. Hay inconvenientes con este enfoque, y estamos yendo en la dirección opuesta con la [reescritura en curso del reconciliador](/docs/codebase-overview.html#fiber-reconciler). A pesar de eso así es como funciona ahora.
@@ -453,6 +456,7 @@ class CompositeComponent {
   }
 }
 ```
+
 Para `DomComponent`, el desmontaje le avisa a cada hijo que se debe desmontar:
 
 ```js
