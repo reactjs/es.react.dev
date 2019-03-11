@@ -53,7 +53,7 @@ Para preparar la asertividad en un componente, debes envolver el código que lo 
 Por ejemplo, digamos que tenemos este componente `Counter`:
 
 ```js
-class App extends React.Component {
+class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {count: 0};
