@@ -89,7 +89,7 @@ Recuerda que los `props` son de sólo lectura. No deben ser modificados de ningu
 props.number = 42;
 ```
 
-Si necesitas moficiar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa el `estado` en su lugar.
+Si necesitas modificar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa el `estado` en su lugar.
 
 ### `props.children` {#propschildren}
 
@@ -128,7 +128,7 @@ Para cada pieza particular de datos cambiantes, debería existir solo un compone
 
 Los métodos de ciclo de vida son funcionalidad personalizada que se ejecutan durante las diferentes fases de un componente. Existen métodos disponibles cuando el componente se crea y se inserta en el *DOM* ([*mounting*](/docs/react-component.html#mounting)), cuando el componente se actualiza, y cuando el componente es desmontado o removido del *DOM*. 
 
- ## [Componentes controlados](/docs/forms.html#controlled-components) vs. [Componentes no controlados](/docs/uncontrolled-components.html)
+ ## [Componentes controlados](/docs/forms.html#controlled-components) vs. [componentes no controlados](/docs/uncontrolled-components.html)
 
 React tiene dos enfoques distintos para tratar con las entradas de formularios.
 
