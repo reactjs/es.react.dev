@@ -23,7 +23,7 @@ El reconciliador de pila se usó en React 15 y también en versiones anteriores.
 
 Tanto este documento como su charla son simplificaciones del código base real por lo que obtendrás un mejor entendimiento familiarizándote con ambos.
 
-### Visión General {#overview}
+### Visión general {#overview}
 
 El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#stack-renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario. 
 
