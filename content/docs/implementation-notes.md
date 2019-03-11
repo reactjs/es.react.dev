@@ -74,7 +74,7 @@ function mount(element) {
   // o creando una instancia y llamando a render().
   var renderedElement;
   if (isClass(type)) {
-    // Componente de clase
+    // Clase componente
     var publicInstance = new type(props);
     // Establecer las props
     publicInstance.props = props;
