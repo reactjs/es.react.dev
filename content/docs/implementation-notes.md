@@ -48,7 +48,7 @@ Si `App` es una función, el reconciliador llamará `App(props)` para renderizar
 
 Si `App` es una clase, el reconciliador instanciará una `App` con `new App(props)`, llamará al método del ciclo de vida `componentWillMount()`, y por último llamará al método `render()` para obtener el elemento renderizado.
 
-De cualquier manera, el reconciliador averiguará a que elemento se renderizó `App`.
+De cualquier manera, el reconciliador averiguará a qué elemento se renderizó `App`.
 
 Este proceso es recursivo. `App` puede ser renderizado como `<Greeting />`, `<Greeting />` puede ser renderizado como `<Button />`, y así sucesivamente. El reconciliador examinará a fondo a través de los componentes definidos por el usuario de manera recursiva a medida que averigua a qué se renderiza cada componente.
 
@@ -64,7 +64,7 @@ function isClass(type) {
 }
 
 // Esta función toma un elemento de React (Por ej. <App />)
-// y devuelve un DOM o un nodo nativo que representa el árbol montado.
+// y devuelve un nodo DOM o nativo que representa el árbol montado.
 function mount(element) {
   var type = element.type;
   var props = element.props;
@@ -85,7 +85,7 @@ function mount(element) {
     // Obtener el elemento renderizado llamando a render()
     renderedElement = publicInstance.render();
   } else {
-    // Componente de función
+    // Función componente
     renderedElement = type(props);
   }
 
@@ -111,22 +111,22 @@ Hagamos un repaso de algunas ideas clave con el ejemplo anterior:
 
 * Los elementos de React son objetos simples que representan el tipo de un componente (Por ej. `App`) y las props.
 * Los componentes definidos por el usuario (Por ej. `App`) pueden ser clases o funciones pero todos "se renderizan" como elementos.
-* El "montaje" es un proceso recursivo que crea un DOM o un árbol nativo dado el elemento de React de mayor nivel (Por ej. `<App />`).
+* El "montaje" es un proceso recursivo que crea un árbol DOM o nativo dado el elemento de React de mayor nivel (Por ej. `<App />`).
 
-### Montando Elementos Principales {#mounting-host-elements}
+### Montaje de elementos anfitriones {#mounting-host-elements}
 
 Este proceso sería inservible si no renderizáramos algo en la pantalla como resultado.
 
-Sumados a los componentes definidos por el usuario o ("compuestos"), los elementos de React también pueden representar componentes específicos a la plataforma o ("principales"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
+Sumados a los componentes definidos por el usuario o ("compuestos"), los elementos de React también pueden representar componentes específicos a la plataforma o ("anfitriones"). Por ejemplo, `Button` puede devolver un `<div />` desde su método render.
 
-Si la propiedad `type` de un elemento es una *string*, sabemos que estamos trabajando con un elemento principal:
+Si la propiedad `type` de un elemento es una *string*, sabemos que estamos trabajando con un elemento anfitrión:
 
 ```js
 console.log(<div />);
 // { type: 'div', props: {} }
 ```
 
-No hay código definido por el usuario asociado con elementos principales.
+No hay código definido por el usuario asociado con elementos anfitriones.
 
 Cuando el reconciliador encuentra un elemento principal, deja que el renderizador se encargue de montarlo. Por ejemplo, React DOM podría crear un nodo del DOM.
 
@@ -319,7 +319,7 @@ Esto no es muy diferente de nuestra implementación previa de `mountComposite()`
 
 Ten en cuenta que una instancia de `CompositeComponent` no es lo mismo que una instancia del `element.type` proporcionado por el usuario. `CompositeComponent` es un detalle de la implementación de nuestro reconciliador, y nunca es expuesto al usuario. La clase definida por el usuario es la que leemos en `element.type`, y `CompositeComponent` crea una instancia de esa clase.
 
-Para evitar la confusión, llamaremos a las instancias de `CompositeComponent` y `DOMComponent` "instancias internas". Éstas existen para que podamos asociar datos antiguos a ellas. Sólo el renderizador y el reconciliador estan al tanto de que existen.
+Para evitar la confusión, llamaremos a las instancias de `CompositeComponent` y `DOMComponent` "instancias internas". Estas existen para que podamos asociar datos antiguos a ellas. Solo el renderizador y el reconciliador están al tanto de que existen.
 
 En contraste, llamamos "instancia pública" a una instancia de una clase definida por el usuario. La instancia pública es lo que ves como `this` en `render()` y en otros métodos de tus componentes personalizados.
 
@@ -358,7 +358,7 @@ class DOMComponent {
       }
     });
 
-    // Crear y guardar los hijos incluídos.
+    // Crear y guardar los hijos incluidos.
     // Cada uno de ellos puede ser un DOMComponent o un CompositeComponent,
     // dependiendo de si el tipo del elemento es un string o una función.
     var renderedChildren = children.map(instantiateComponent);
@@ -412,7 +412,7 @@ Si se te dificulta imaginar como está estructurado un árbol de instancias inte
 
  <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools tree" />
 
-Para completar este refactoreo, introduciremos una función que monta el árbol completo a un nodo contenedor, al igual que `ReactDOM.render()`. Devuelve una instancia pública, también como `ReactDOM.render()`:
+Para completar esta refactorización, introduciremos una función que monta el árbol completo a un nodo contenedor, al igual que `ReactDOM.render()`. Devuelve una instancia pública, también como `ReactDOM.render()`:
 
 ```js
 function mountTree(element, containerNode) {
@@ -862,9 +862,9 @@ Este documento está simplificado en comparación al código base real. Hay algu
 
 * Los renderizadores usan [inyección](/docs/codebase-overview.html#dynamic-injection) para pasar la clase interna principal al reconciliador. Por ejemplo, React DOM le dice al reconciliador que use `ReactDOMComponent` como la implementación de una instancia interna principal.
 
-* La lógica para actualizar la lista de hijos es extraída a una mezcla llamada `ReactMultiChild` que es utilizada por las implementaciones de clases de instancias internas principales tanto para React DOM como para React Native.
+* La lógica para actualizar la lista de hijos se extrae en un mixin llamado `ReactMultiChild` que es utilizado por las implementaciones de clases de instancias internas principales tanto para React DOM como para React Native.
 
-* El reconciliador además implementa soporte para `setState()` en componentes compuestos. Múltiples actualizaciones dentro de escuchadores de eventos son procesadas por lote en una sola actualización.
+* La implementación del reconciliador también permite el funcionamiento de `setState()` en componentes compuestos. Múltiples actualizaciones dentro de manejadores de eventos son procesadas por lote en una sola actualización.
 
 * El reconciliador también se encarga de adjuntar y desconectar las referencias a componentes compuestos y nodos principales.
 
@@ -879,7 +879,7 @@ Este documento está simplificado en comparación al código base real. Hay algu
 * [`ReactCompositeComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) es el equivalente a `CompositeComponent` es este tutorial. Maneja las llamadas a componentes definidos por el usuario y el mantenimiento de su estado.
 * [`instantiateReactComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/instantiateReactComponent.js) contiene el interruptor que elige la clase correcta de una instancia interna a construir para un elemento. Es equivalente a `instantiateComponent()` en este tutorial.
 
-* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) es un *wrapper* que contiene los métodos `mountComponent()`, `receiveComponent()`, y `unmountComponent()`. Llama a las implementaciones subyacentes en las instancias internas, pero también incluye código sobre ellas que es compartido por todas las implementaciones de instancias internas.
+* [`ReactReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactReconciler.js) es un *wrapper* que contiene los métodos `mountComponent()`, `receiveComponent()` y `unmountComponent()`. Llama a las implementaciones subyacentes en las instancias internas, pero también incluye código sobre ellas que es compartido por todas las implementaciones de instancias internas.
 
 * [`ReactChildReconciler`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/shared/stack/reconciler/ReactChildReconciler.js) implementa la lógica para montar, actualizar, y desmontar hijos de acuerdo a la `key` de sus elementos.
 
@@ -887,7 +887,7 @@ Este documento está simplificado en comparación al código base real. Hay algu
 
 * `mount()`, `receive()`, y `unmount()` son en realidad llamados `mountComponent()`, `receiveComponent()`, and `unmountComponent()` en el código base de React por razones de herencia, pero reciben elementos.
 
-* Las propiedades en las instancias internas comienzan con un guión bajo, por ej. `_currentElement`. Son considerados campos públicos de sólo lectura a través del código base.
+* Las propiedades en las instancias internas comienzan con un guión bajo, por ej. `_currentElement`. Son considerados campos públicos de solo lectura a través de la base de código.
 
 ### Futuras Orientaciones {#future-directions}
 
@@ -895,4 +895,4 @@ El reconciliador de pila tiene limitaciones inherentes como ser sincrónico y no
 
 ### Siguientes Pasos {#next-steps}
 
-Lee la [siguiente sección](/docs/design-principles.html) para aprender sobre los principios de guía que usamos para el desarrollo de React.
+Lee la [siguiente sección](/docs/design-principles.html) para aprender sobre los principios que nos guían en el desarrollo de React.
