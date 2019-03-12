@@ -51,7 +51,8 @@ const Languages = ({location}: Props) => (
 
           <div css={sharedStyles.markdown}>
             <p>
-              La documentación de React está disponible en los siguientes idiomas:
+              La documentación de React está disponible en los siguientes
+              idiomas:
             </p>
 
             <LanguagesGrid languages={complete} />
