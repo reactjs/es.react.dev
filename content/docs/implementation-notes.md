@@ -198,7 +198,7 @@ function mountHost(element) {
 
   // Montaje de los hijos
   children.forEach(childElement => {
-    // Los hijos pueden ser principiales (Por ej. <div />) o compuestos (Por ej. <Button />)
+    // Los hijos pueden ser anfitriones (Por ej. <div />) o compuestos (Por ej. <Button />)
     // También los montaremos de manera recursiva:
     var childNode = mount(childElement);
 
