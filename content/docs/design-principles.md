@@ -24,7 +24,7 @@ Por ejemplo, debería ser posible introducir algún estado local en un component
 
 No hay nada "malo" en usar estado o métodos del ciclo de vida en componentes. Como cualquier funcionalidad poderosa, deben ser usados con moderación, pero no tenemos intención de eliminarlos. Por el contrario, pensamos que son parte integral de lo que hace útil a React. Podríamos habilitar [patrones más funcionales](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) en el futuro, pero tanto el estado local como los métodos del ciclo de vida serán parte de ese modelo.
 
-Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](http://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
+Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](https://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
 
 ### Abstracciones comunes {#common-abstraction}
 
@@ -126,7 +126,7 @@ Sin embargo, sí proveemos alguna configuración global a nivel de compilación.
 
 ### Más allá del DOM {#beyond-the-dom}
 
-Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](http://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
+Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](https://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
 
 Ser agnóstico al renderizador es una restricción de diseño importante para React. Añade una sobrecarga en la representación interna. Por otra parte, cualquier mejora en el núcleo se traduce en una mejora a lo largo de todas las plataformas.
 
@@ -148,7 +148,7 @@ Optimizar para la búsqueda también es importante  por nuestra dependencia de [
 
 [JSX](/docs/introducing-jsx.html) juega un papel similar. Si bien no es requerido con React, lo utilizamos ampliamente en Facebook por razones estéticas y pragmáticas.
 
-En nuestra base de código, JSX provee una pista inequívoca a las herramientas de que están tratando con un árbol de elementos de React. Esto hace posible añadir optimizaciones en tiempo de compilación tales como [elevar elementos constantes](http://babeljs.io/docs/plugins/transform-react-constant-elements/), y de forma segura validar y aplicar *codemods* al uso interno de componentes, e [incluir la ubicación del código fuente JSX](https://github.com/facebook/react/pull/6771)  en las advertencias.
+En nuestra base de código, JSX provee una pista inequívoca a las herramientas de que están tratando con un árbol de elementos de React. Esto hace posible añadir optimizaciones en tiempo de compilación tales como [elevar elementos constantes](https://babeljs.io/docs/en/babel-plugin-transform-react-constant-elements/), y de forma segura validar y aplicar *codemods* al uso interno de componentes, e [incluir la ubicación del código fuente JSX](https://github.com/facebook/react/pull/6771)  en las advertencias.
 
 ### *Dogfooding* {#dogfooding}
 

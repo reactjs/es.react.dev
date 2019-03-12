@@ -15,13 +15,13 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 con npm
 
 ## Introducción {#overview}
 
-`ReactTestUtils` facilita probar los componentes de React en cualquiera de los frameworks de pruebas que elijas. En Facebook usamos [Jest](https://facebook.github.io/jest/) para realizar las pruebas de JavaScript sin problemas. Aprende como iniciar con Jest en el [tutorial para React](http://facebook.github.io/jest/docs/en/tutorial-react.html#content) que se encuentra en el sitio web de Jest.
+`ReactTestUtils` facilita probar los componentes de React en cualquiera de los frameworks de pruebas que elijas. En Facebook usamos [Jest](https://facebook.github.io/jest/) para realizar las pruebas de JavaScript sin problemas. Aprende como iniciar con Jest en el [tutorial para React](https://jestjs.io/docs/tutorial-react) que se encuentra en el sitio web de Jest.
 
 > Nota:
 >
 > Recomendamos utilizar [`react-testing-library`](https://git.io/react-testing-library) que está diseñada para permitir e incentivar la escritura de las pruebas para que usen los componentes de la misma forma en que lo harían los usuarios finales.
 >
-> Como otra opción, Airbnb ha liberado una utilidad de pruebas llamada [Enzyme](http://airbnb.io/enzyme/), que hace fácil asegurar, manipular y navegar por los resultados de tus Componentes de React.
+> Como otra opción, Airbnb ha liberado una utilidad de pruebas llamada [Enzyme](https://airbnb.io/enzyme/), que hace fácil asegurar, manipular y navegar por los resultados de tus Componentes de React.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -53,7 +53,7 @@ Para preparar la asertividad en un componente, debes envolver el código que lo 
 Por ejemplo, digamos que tenemos este componente `Counter`:
 
 ```js
-class App extends React.Component {
+class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {count: 0};
