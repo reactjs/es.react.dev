@@ -19,7 +19,7 @@ El reconciliador de pila se usó en React 15 y también en versiones anteriores.
 
 ### Video: Construyendo React desde 0 {#video-building-react-from-scratch}
 
-[Paul O'Shannessy](https://twitter.com/zpao) dió una charla sobre [construir React desde 0](https://www.youtube.com/watch?v=_MAD4Oly9yg) que inspiró este documento.
+[Paul O'Shannessy](https://twitter.com/zpao) dio una charla sobre [construir React desde 0](https://www.youtube.com/watch?v=_MAD4Oly9yg) que inspiró este documento.
 
 Tanto este documento como su charla son simplificaciones del código base real por lo que obtendrás un mejor entendimiento familiarizándote con ambos.
 
