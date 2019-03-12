@@ -46,7 +46,7 @@ const Languages = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>Languages</Header>
+          <Header>Idiomas</Header>
           <TitleAndMetaTags title="React - Languages" />
 
           <div css={sharedStyles.markdown}>
@@ -150,7 +150,7 @@ const Language = ({code, name, status, translatedName}) => {
           href={`https://github.com/reactjs/${prefix}reactjs.org/`}
           target="_blank"
           rel="noopener">
-          Contribuye
+          Contribuir
         </a>
       </div>
     </li>
