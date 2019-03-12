@@ -3,51 +3,51 @@
 # 1: Partially complete (50-99%)
 # 2: Complete (100%)
 
-- name: English
+- name: Inglés
   translated_name: English
   code: en
   status: 2
-- name: Arabic
+- name: Árabe
   translated_name: العربية
   code: ar
   status: 0
-- name: Azerbaijani
+- name: Azerí
   translated_name: Azərbaycanca
   code: az
   status: 0
-- name: Bulgarian
+- name: Búlgaro
   translated_name: Български
   code: bg
   status: 0
-- name: Bengali
+- name: Bengalí
   translated_name: বাংলা
   code: bn
   status: 0
-- name: German
+- name: Alemán
   translated_name: Deutsch
   code: de
   status: 0
-- name: Greek
+- name: Griego
   translated_name: Ελληνικά
   code: el
   status: 0
-- name: Spanish
+- name: Español
   translated_name: Español
   code: es
   status: 2
-- name: Persian
+- name: Persa
   translated_name: فارسی
   code: fa
   status: 0
-- name: French
+- name: Francés
   translated_name: Français
   code: fr
   status: 2
-- name: Gujarati
+- name: Guyaratí
   translated_name: ગુજરાતી
   code: gu
   status: 0
-- name: Hebrew
+- name: Hebreo
   translated_name: עברית
   code: he
   status: 0
@@ -55,35 +55,35 @@
   translated_name: हिन्दी
   code: hi
   status: 0
-- name: Armenian
+- name: Armenio
   translated_name: Հայերեն
   code: hy
   status: 0
-- name: Indonesian
+- name: Indonesio
   translated_name: Bahasa Indonesia
   code: id
   status: 0
-- name: Italian
+- name: Italiano
   translated_name: Italiano
   code: it
   status: 0
-- name: Japanese
+- name: Japonés
   translated_name: 日本語
   code: ja
   status: 2
-- name: Central Khmer
+- name: Jemer
   translated_name: ភាសាខ្មែរ
   code: km
   status: 0
-- name: Korean
+- name: Coreano
   translated_name: 한국어
   code: ko
   status: 0
-- name: Kurdish
+- name: Kurdo
   translated_name: کوردی‎
   code: ku
   status: 0
-- name: Lithuanian
+- name: Lituano
   translated_name: Lietuvių kalba
   code: lt
   status: 0
@@ -91,54 +91,54 @@
   translated_name: മലയാളം
   code: ml
   status: 0
-- name: Nepali
+- name: Nepalí
   translated_name: नेपाली
   code: ne
   status: 0
-- name: Dutch
+- name: Neerlandés
   translated_name: Nederlands
   code: nl
   status: 0
-- name: Polish
+- name: Polaco
   translated_name: Polski
   code: pl
   status: 0
-- name: Portuguese (Brazil)
+- name: Portugués de Brasil
   translated_name: Português do Brasil
   code: pt-br
   status: 1
-- name: Portuguese (Portugal)
+- name: Portugués europeo
   translated_name: Português europeu
   code: pt-pt
   status: 0
-- name: Romanian
+- name: Rumano
   translated_name: Română
   code: ro
   status: 0
-- name: Russian
+- name: Ruso
   translated_name: Русский
   code: ru
   status: 1
-- name: Sinhala
+- name: Singalés
   translated_name: සිංහල
   code: si
   status: 0
-- name: Swedish
+- name: Sueco
   translated_name: Svenska
   code: sv
 - name: Tamil
   translated_name: தமிழ்
   code: ta
   status: 0
-- name: Telugu
+- name: Télugu
   translated_name: తెలుగు
   code: te
   status: 0
-- name: Turkish
+- name: Turco
   translated_name: Türkçe
   code: tr
   status: 0
-- name: Ukrainian
+- name: Ucraniano
   translated_name: Українська
   code: uk
   status: 1
@@ -146,19 +146,19 @@
   translated_name: اردو
   code: ur
   status: 0
-- name: Uzbek
+- name: Uzbeko
   translated_name: Oʻzbekcha
   code: uz
   status: 0
-- name: Vietnamese
+- name: Vietnamita
   translated_name: Tiếng Việt
   code: vi
   status: 0
-- name: Simplified Chinese
+- name: Chino simplificado
   translated_name: 简体中文
   code: zh-hans
   status: 1
-- name: Traditional Chinese
+- name: Chino tradicional
   translated_name: 繁體中文
   code: zh-hant
   status: 0
