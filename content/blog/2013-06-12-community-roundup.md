@@ -3,45 +3,46 @@ title: "Community Round-up #1"
 author: [vjeux]
 ---
 
-React was open sourced two weeks ago and it's time for a little round-up of what has been going on.
+El código de React fue hecho público hace dos semanas y ya es hora de un pequeño resumén de lo que ha estado sucediendo.
 
-## Khan Academy Question Editor {#khan-academy-question-editor}
+## Editor de preguntas de Khan Academy {#khan-academy-question-editor}
 
-It looks like [Sophie Alpert](http://sophiebits.com/) is the first person outside of Facebook and Instagram to push React code to production. We are very grateful for her contributions in form of pull requests, bug reports and presence on IRC ([#reactjs on Freenode](irc://chat.freenode.net/reactjs)). Sophie wrote about her experience using React:
+Parece que [Sophie Alpert](http://sophiebits.com/) es la primera persona externa de Facebook e Instagram en publicar código de React a producción. Estamos muy agradecidos por sus contribuciones en forma de _pull requests_, reportes de bugs y presencia en IRC ([#reactjs en Freenode](irc://chat.freenode.net/reactjs)). Sophie escribió sobre su experiencia usando React:
 
-> I just rewrote a 2000-line project in React and have now made a handful of pull requests to React. Everything about React I've seen so far seems really well thought-out and I'm proud to be the first non-FB/IG production user of React.
+> Acabo de reescribir un proyecto de 2000 líneas en React y varios _pull requests_ para React. Todo lo que he visto hasta ahora sobre React parece muy bien pensado y estoy orgullosa de ser la primera usuaria en producción de React que no es de FB/IG.
 >
-> The project that I rewrote in React (and am continuing to improve) is the Khan Academy question editor which content creators can use to enter questions and hints that will be presented to students:
+> El proyecto que reescribí en React (y sigo mejorando) es el editor de preguntas de Khan Academy que los creadores de contenido pueden usar para ingresar preguntas y sugerencias que se le presentarán a los estudiantes: 
+
 > <figure><a href="http://sophiebits.com/2013/06/09/using-react-to-speed-up-khan-academy.html"><img src="../images/blog/khan-academy-editor.png"></a></figure>
 >
-> [Read the full post...](http://sophiebits.com/2013/06/09/using-react-to-speed-up-khan-academy.html)
+> [Leer el post completo...](http://sophiebits.com/2013/06/09/using-react-to-speed-up-khan-academy.html)
 
-## Pimp my Backbone.View (by replacing it with React) {#pimp-my-backboneview-by-replacing-it-with-react}
+## Pimp my Backbone.View (reemplazandolo con React) {#pimp-my-backboneview-by-replacing-it-with-react}
 
-[Paul Seiffert](https://blog.mayflower.de/) wrote a blog post that explains how to integrate React into Backbone applications.
+[Paul Seiffert](https://blog.mayflower.de/) escribió un _blog post_ que explica cómo integrar React con las aplicaciones en Backbone.
 
-> React has some interesting concepts for JavaScript view objects that can be used to eliminate this one big problem I have with Backbone.js.
+> React tiene algunos conceptos interesantes para los objetos de vista de JavaScript que pueden usarse para eliminar este gran problema que tengo con Backbone.js.
 >
-> As in most MVC implementations (although React is probably just a VC implementation), a view is one portion of the screen that is managed by a controlling object. This object is responsible for deciding when to re-render the view and how to react to user input. With React, these view-controllers objects are called components. A component knows how to render its view and how to handle to the user's interaction with it.
+> Como en la mayoría de las implementaciones de MVC (aunque React es probablemente solo una implementación de VC), una vista es una parte de la pantalla que está gestionada por un objeto de control. Este objeto es responsable de decidir cuándo volver a re-renderizar la vista y cómo reaccionar al _input_ del usuario. Con React, estos objetos controladores de vista se denominan componentes. Un componente sabe cómo representar su vista y cómo manejar la interacción del usuario con él.
 >
-> The interesting thing is that React is figuring out by itself when to re-render a view and how to do this in the most efficient way.
+> Lo interesante es que React está descubriendo por sí mismo cuándo volver a renderizar una vista y cómo hacerlo de la manera más eficiente.
 >
-> [Read the full post...](https://blog.mayflower.de/3937-Backbone-React.html)
+> [Leer el post completo...](https://blog.mayflower.de/3937-Backbone-React.html)
 
-## Using facebook's React with require.js {#using-facebooks-react-with-requirejs}
+## Usando React de Facebook con require.js {#using-facebooks-react-with-requirejs}
 
-[Mario Mueller](http://blog.xenji.com/) wrote a menu component in React and was able to easily integrate it with require.js, EventEmitter2 and bower.
+[Mario Mueller](http://blog.xenji.com/) escribió un componente de menú en React y pudo integrarlo fácilmente con require.js, EventEmitter2 y bower.
 
-> I recently stumbled upon facebook's React library, which is a JavaScript library for building reusable frontend components. Even if this lib is only at version 0.3.x it behaves very stable, it is fast and is fun to code. I'm a big fan of require.js, so I tried to use React within the require.js eco system. It was not as hard as expected and here are some examples and some thoughts about it.
+> Recientemente me topé con la biblioteca React de Facebook; una biblioteca de JavaScript para crear componentes para el frontend reutilizables. Incluso si esta versión solo está en la versión 0.3.x se comporta de forma muy estable, es rápido y es divertido de  codificar. Soy un aficionado de require.js, así que intenté usar React dentro del ecosistema (entorno) de require.js. No fue tan difícil como se esperaba y aquí hay algunos ejemplos y algunas ideas al respecto.
+> 
+> [Leer el post completo...](http://blog.xenji.com/2013/06/facebooks-react-require-js.html)
+
+## Los orígenes de React {#origins-of-react}
+
+[Pete Hunt](http://www.petehunt.net/blog/) explicó lo que diferencia a React de otras bibliotecas de JavaScript en [una publicación previa del blog](/blog/2013/06/05/why-react.html). [Lee Byron](http://leebyron.com/) da otra perspectiva en Quora: 
+
+> React no es como ninguna otra biblioteca de JavaScript popular, y resuelve un problema muy específico: la renderización compleja de la interfaz de usuario. También está destinado a ser utilizado junto a muchas otras bibliotecas populares. Por ejemplo, React funciona bien con Backbone.js, entre muchos otros. 
 >
-> [Read the full post...](http://blog.xenji.com/2013/06/facebooks-react-require-js.html)
-
-## Origins of React {#origins-of-react}
-
-[Pete Hunt](http://www.petehunt.net/blog/) explained what differentiates React from other JavaScript libraries in [a previous blog post](/blog/2013/06/05/why-react.html). [Lee Byron](http://leebyron.com/) gives another perspective on Quora:
-
-> React isn't quite like any other popular JavaScript libraries, and it solves a very specific problem: complex UI rendering. It's also intended to be used along side many other popular libraries. For example, React works well with Backbone.js, amongst many others.
+> React nació de las frustraciones con el patrón común de escribir enlaces de datos bidireccionales en aplicaciones MVC complejas. React es una implementación de enlaces de datos unidireccionales. 
 >
-> React was born out of frustrations with the common pattern of writing two-way data bindings in complex MVC apps. React is an implementation of one-way data bindings.
->
-> [Read the full post...](https://www.quora.com/React-JS-Library/How-is-Facebooks-React-JavaScript-library/answer/Lee-Byron?srid=3DcX)
+> [Leer el post completo...](https://www.quora.com/React-JS-Library/How-is-Facebooks-React-JavaScript-library/answer/Lee-Byron?srid=3DcX)
