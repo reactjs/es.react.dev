@@ -150,7 +150,7 @@ const Language = ({code, name, status, translatedName}) => {
           href={`https://github.com/reactjs/${prefix}reactjs.org/`}
           target="_blank"
           rel="noopener">
-          Contribute
+          Contribuye
         </a>
       </div>
     </li>
