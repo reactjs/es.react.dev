@@ -11,7 +11,7 @@ redirect_from:
 
 Esta sección es una colección de notas de implementación para el [reconciliador de pila](/docs/codebase-overview.html#stack-reconciler).
 
-Es muy técnica y asume un gran entendimiento de la API pública de React como también sobre la división de React en núcleo, renderizadores y el reconciliador. Si no estás muy familiarizado con el código base de React, primero lee la [visión general del código base](/docs/codebase-overview.html).
+Es muy técnica y asume un gran entendimiento de la API pública de React como también sobre la división de React en núcleo, renderizadores y el reconciliador. Si no estás muy familiarizado con la base de código de React, primero lee la [visión general de la base de código](/docs/codebase-overview.html).
 
 Además se asume una buena comprensión de las [diferencias entre componentes de React, sus instancias y sus elementos](/blog/2015/12/18/react-components-elements-and-instances.html).
 
@@ -27,7 +27,7 @@ Tanto este documento como su charla son simplificaciones del código base real p
 
 El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#stack-renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario. 
 
-### Montando como un Proceso Recursivo {#mounting-as-a-recursive-process}
+### El montaje como un proceso recursivo {#mounting-as-a-recursive-process}
 
 Consideremos la primera vez que montas un componente:
 
