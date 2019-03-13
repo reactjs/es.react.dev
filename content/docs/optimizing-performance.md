@@ -10,7 +10,7 @@ Internamente, React utiliza diferentes técnicas inteligentes para minimizar el 
 
 ## Usar la *Build* de Producción {#use-the-production-build}
 
-Si estás haciendo análisis comparativos o experimentando problemas de rendimiento en tus aplicacions de React, asegúrate que estas probando con una *build* minificada.
+Si estás haciendo análisis comparativos o experimentando problemas de rendimiento en tus aplicaciones de React, asegúrate que estás probando con el compilado minificado.
 
 Por defecto, React incluye muchas alertas útiles. Estas advertencias son muy útiles en desarrollo. Sin embargo, estas hacen a React más pesado y lento, así que debes asegurarte de usar la versión de producción cuando desplieges la aplicación.
 
