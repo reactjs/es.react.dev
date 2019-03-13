@@ -200,7 +200,7 @@ Si aun no ha instalado *React DevTools*, puede encontrarlo aquí:
 
 ## Virtualizar Listas Largas {#virtualize-long-lists}
 
-Si su aplicación renderiza largas listas de datos (cientos o miles de filas), recomendamos que use una técnica conocida como *"windowing"*. Esta técnica solo renderiza un pequeño subconjunto de tus filas en un momento dado, y puede reducir dramáticamente el tiempo que demora en re-renderizar los componentes, así como el numero de nodos creados en el *DOM*.
+Si su aplicación renderiza largas listas de datos (cientos o miles de filas), recomendamos que uses una técnica conocida como *"windowing"*. Esta técnica solo renderiza un pequeño subconjunto de tus filas en un momento dado, y puede reducir dramáticamente el tiempo que demora en re-renderizar los componentes, así como el numero de nodos creados en el *DOM*.
 
 [react-window](https://react-window.now.sh/) y [react-virtualized](https://bvaughn.github.io/react-virtualized/) son bibliotecas de *windowing* populares. Estas proveen varios componentes reusables para mostrar listas, *grids* y datos tabulares. También puedes crear tu propio componente "windowing*, como [hizo Twitter](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3), si quieres algo mas a la medida para tu aplicación.
 
