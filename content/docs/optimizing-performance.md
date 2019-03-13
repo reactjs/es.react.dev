@@ -240,7 +240,7 @@ Si sabes que en algunas situaciones tu componente no necesita actualizarse, pued
 
 En la mayoría de los casos, en vez de escribir `shouldComponentUpdate()`, puedes heredar [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). Esto es equivalente a implementar `shouldComponentUpdate()` con una comparación superficial del las propiedades y estados previos y actuales.
 
-## shouldComponentUpdate En Accion {#shouldcomponentupdate-in-action}
+## shouldComponentUpdate en Acción {#shouldcomponentupdate-in-action}
 
 Aquí hay un subárbol de componentes. Para cada uno, `SCU` indica que `shouldComponentUpdate` devolvió, y `vDOMEq` indica si los elementos React renderizados fueron equivalentes. Finalmente, el color de los círculos indica si el componente tiene que ser reconciliado o no.
 
