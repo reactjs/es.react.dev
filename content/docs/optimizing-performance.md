@@ -153,7 +153,7 @@ new webpack.optimize.UglifyJsPlugin()
 
 Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production-build/).
 
-Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, por que ocultaran las advertencias de React y hará las *builds* mucho más lentas.
+Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, porque ocultaran las advertencias de React y hará las *builds* mucho más lentas.
 
 ## Perfilando Componentes con la pestaña Chrome Performance{#profiling-components-with-the-chrome-performance-tab}
 
