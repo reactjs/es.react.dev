@@ -210,7 +210,7 @@ React construye y mantiene una representación interna de la interfaz de usuario
 
 Cuando una propiedad o estado de un componente cambia, React decide si es necesario actualizar el DOM comparando el elemento recién retornado con el previamente renderizado. Sino son iguales, React actualizara el DOM.
 
-Ahora puede visualizar estos re-renderizados del DOM virtual con React DevTools:
+Ahora puedes visualizar estos re-renderizados del DOM virtual con React DevTools:
 
 - [Extensión del navegador Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [Extensión del navegador Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
