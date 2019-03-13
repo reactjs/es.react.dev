@@ -360,7 +360,7 @@ handleClick() {
 }
 ```
 
-ES6 admite [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) para matrices, lo cual puede hacer esto mas fácil. Si estas usando *Create React App*, esta sintaxis está disponible por defecto.
+ES6 soporta [operador de propagación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) para matrices, lo cual puede hacer esto mas fácil. Si estas usando *Create React App*, esta sintaxis está disponible por defecto.
 
 ```js
 handleClick() {
