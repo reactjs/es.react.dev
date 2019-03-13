@@ -97,7 +97,7 @@ browserify ./index.js \
 >**Nota:**
 >
 >El nombre del paquete es `uglify-js`, pero el binario que proporciona se llama `uglifyjs`.<br>
->Estoy no es un error de imprenta.
+>Esto no es un error de tipografía.
 
 Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberías aplicar estos plugins en desarrollo por que ocultaran las advertencias de React, y haran las *builds* mucho mas lentas.
 
