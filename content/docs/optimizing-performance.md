@@ -155,7 +155,7 @@ Puedes aprender más acerca de esto en la [documentación de webpack](https://we
 
 Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, porque ocultaran las advertencias de React y hará las *builds* mucho más lentas.
 
-## Perfilando Componentes con la pestaña Chrome Performance{#profiling-components-with-the-chrome-performance-tab}
+## Perfilando Componentes con la pestaña de Performance de Chrome{#profiling-components-with-the-chrome-performance-tab}
 
 En el modo de **desarrollo**, puedes visualizar como montar componentes, actualizarlos y desmontarlos usando las herramientas para rendimiento soportadas por los navegadores. Por ejemplo:
 
