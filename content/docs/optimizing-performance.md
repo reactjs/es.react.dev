@@ -163,7 +163,7 @@ En el modo de **desarrollo**, puedes visualizar como montar componentes, actuali
 
 Para hacer esto en Chrome:
 
-1. Temporalmente, **Deshabilita todas la extensiones de Chrome, especialmente React DevTools**, ¡Ellas pueden sesgar significativamente los resultados!
+1. Temporalmente, **deshabilita todas la extensiones de Chrome, especialmente React DevTools**, ¡Ellas pueden sesgar significativamente los resultados!
 
 2. Asegúrate de estar ejecutando la aplicación en modo de desarrollo.
 
