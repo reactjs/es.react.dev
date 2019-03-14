@@ -66,6 +66,7 @@ Entonces, para crear un compilado de producción, agrega la bandera `-p` al coma
 ```
 brunch build -p
 ```
+
 Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no deberías pasar la bandera `-p` o aplicar el plugin en desarrollo, por que ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
 ### Browserify {#browserify}
@@ -79,6 +80,7 @@ npm install --save-dev envify uglify-js uglifyify
 # Si usas Yarn
 yarn add --dev envify uglify-js uglifyify 
 ```
+
 Para crear un compilado de producción, asegúrate de agregar estas transformaciones **(El orden es importante)**:
 
 * La transformación [`envify`](https://github.com/hughsk/envify) asegura que el ambiente del compilado sea correcto. Hazlo global (`-g`).
@@ -370,8 +372,7 @@ handleClick() {
 };
 ```
 
-También puedes reescribir el código que muta los objetos para evitar la mutación, de forma similar.
-Por ejemplo, digamos que tenemos un objeto llamado `colormap` y queremos escribir una función que cambie `colormap.right` para que sea `'blue'`. Podríamos escribir:
+También puedes reescribir el código que muta los objetos para evitar la mutación, de forma similar.Por ejemplo, digamos que tenemos un objeto llamado `colormap` y queremos escribir una función que cambie `colormap.right` para que sea `'blue'`. Podríamos escribir:
 
 ```js
 function updateColorMap(colormap) {
