@@ -15,13 +15,13 @@ Nos emociona poder anunciar un esfuerzo continuo para mantener traducciones ofic
 
 ## Por qué importa la localización {#why-localization-matters}
 
-React tiene ya muchos encuentros y conferencias alrededor del mundo, pero muchos programadores no usan el inglés como su idioma principal. Nos encantaría apoyar a las comunidades locales que utilizan React al hacer disponible nuestra documentación en los idiomas más populares.
+React tiene ya muchos *meetups* y conferencias alrededor del mundo, pero muchos programadores no usan el inglés como su idioma principal. Nos encantaría apoyar a las comunidades locales que utilizan React al hacer disponible nuestra documentación en los idiomas más populares.
 
-En el pasado, los miembros de la comunidad de React han creado traducciones no oficiales para el [chino](https://github.com/discountry/react), [árabe](https://wiki.hsoub.com/React) y [koreano](https://github.com/reactjs/ko.reactjs.org/issues/4). Al crear un canal oficial para estas traducciones, esperamos que sean más fáciles de encontrar y ayudar a conseguir que los usuarios de React que no hablan inglés no sean dejados de lado.
+En el pasado, los miembros de la comunidad de React han creado traducciones no oficiales para el [chino](https://github.com/discountry/react), [árabe](https://wiki.hsoub.com/React) y [coreano](https://github.com/reactjs/ko.reactjs.org/issues/4). Al crear un canal oficial para estas traducciones, esperamos que sean más fáciles de encontrar y ayudar a conseguir que los usuarios de React que no hablan inglés no sean dejados de lado.
 
 ## Contribuir {#contributing}
 
-Se te gustaría ayudar con una traducción en curso, revisa la página de [Idiomas](/languages) y haz clic en el enlace «Contribuir» correspondiente a tu idioma.
+Si te gustaría ayudar con una traducción en curso, revisa la página de [Idiomas](/languages) y haz clic en el enlace «Contribuir» correspondiente a tu idioma.
 
 ¿No encuentras tu idioma? Si te gustaría mantener la bifurcación de tu idioma, ¡sigue las instrucciones en el [repositorio de traducción](https://github.com/reactjs/reactjs.org-translation#starting-a-new-translation)!
 
