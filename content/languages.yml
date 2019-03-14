@@ -26,13 +26,8 @@
 - name: Alemán
   translated_name: Deutsch
   code: de
-<<<<<<< HEAD
-  status: 0
-- name: Griego
-=======
   status: 1
-- name: Greek
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+- name: Griego
   translated_name: Ελληνικά
   code: el
   status: 0
@@ -83,13 +78,8 @@
 - name: Coreano
   translated_name: 한국어
   code: ko
-<<<<<<< HEAD
-  status: 0
-- name: Kurdo
-=======
   status: 1
-- name: Kurdish
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+- name: Kurdo
   translated_name: کوردی‎
   code: ku
   status: 0
@@ -112,21 +102,12 @@
 - name: Polaco
   translated_name: Polski
   code: pl
-<<<<<<< HEAD
-  status: 0
+  status: 1
 - name: Portugués de Brasil
   translated_name: Português do Brasil
   code: pt-br
-  status: 1
-- name: Portugués europeo
-=======
-  status: 1
-- name: Portuguese (Brazil)
-  translated_name: Português do Brasil
-  code: pt-br
   status: 2
-- name: Portuguese (Portugal)
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+- name: Portugués europeo
   translated_name: Português europeu
   code: pt-pt
   status: 0
@@ -137,13 +118,8 @@
 - name: Ruso
   translated_name: Русский
   code: ru
-<<<<<<< HEAD
-  status: 1
-- name: Singalés
-=======
   status: 2
-- name: Sinhala
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+- name: Singalés
   translated_name: සිංහල
   code: si
   status: 0
@@ -161,13 +137,8 @@
 - name: Turco
   translated_name: Türkçe
   code: tr
-<<<<<<< HEAD
-  status: 0
-- name: Ucraniano
-=======
   status: 1
-- name: Ukrainian
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+- name: Ucraniano
   translated_name: Українська
   code: uk
   status: 1
