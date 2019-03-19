@@ -26,7 +26,7 @@
 - name: Alemán
   translated_name: Deutsch
   code: de
-  status: 0
+  status: 1
 - name: Griego
   translated_name: Ελληνικά
   code: el
@@ -50,7 +50,7 @@
 - name: Hebreo
   translated_name: עברית
   code: he
-  status: 0
+  status: 1
 - name: Hindi
   translated_name: हिन्दी
   code: hi
@@ -78,7 +78,7 @@
 - name: Coreano
   translated_name: 한국어
   code: ko
-  status: 0
+  status: 1
 - name: Kurdo
   translated_name: کوردی‎
   code: ku
@@ -102,11 +102,11 @@
 - name: Polaco
   translated_name: Polski
   code: pl
-  status: 0
+  status: 1
 - name: Portugués de Brasil
   translated_name: Português do Brasil
   code: pt-br
-  status: 1
+  status: 2
 - name: Portugués europeo
   translated_name: Português europeu
   code: pt-pt
@@ -118,7 +118,7 @@
 - name: Ruso
   translated_name: Русский
   code: ru
-  status: 1
+  status: 2
 - name: Singalés
   translated_name: සිංහල
   code: si
@@ -137,7 +137,7 @@
 - name: Turco
   translated_name: Türkçe
   code: tr
-  status: 0
+  status: 1
 - name: Ucraniano
   translated_name: Українська
   code: uk
