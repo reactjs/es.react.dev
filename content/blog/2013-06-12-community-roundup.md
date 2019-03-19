@@ -17,7 +17,7 @@ Parece que [Sophie Alpert](http://sophiebits.com/) es la primera persona externa
 >
 > [Leer el post completo...](http://sophiebits.com/2013/06/09/using-react-to-speed-up-khan-academy.html)
 
-## Pimp my Backbone.View (reemplazandolo con React) {#pimp-my-backboneview-by-replacing-it-with-react}
+## Mejora mi Backbone.View (reemplazándolo con React) {#pimp-my-backboneview-by-replacing-it-with-react}
 
 [Paul Seiffert](https://blog.mayflower.de/) escribió un _blog post_ que explica cómo integrar React con las aplicaciones en Backbone.
 
