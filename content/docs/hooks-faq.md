@@ -9,7 +9,6 @@ Los *Hooks* son una adición nueva en React 16.8. Te permiten usar el estado y o
 
 Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](/docs/hooks-overview.html).
 
-
 <!--
   if you ever need to regenerate this, this snippet in the devtools console might help:
 
@@ -210,7 +209,7 @@ Hay algunas heurísticas más, y podrían cambiar con el tiempo mientras ajustam
 * `componentDidCatch` y `getDerivedStateFromError`: Aún no hay Hooks equivalentes a estos métodos, pero serán añadidos pronto.
 
 ### ¿Cómo puedo obtener datos con los Hooks? {#how-can-i-do-data-fetching-with-hooks}
-Consulta este [artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) para aprender más acerca de la obtención de datos con los Hooks.
+Aquí hay un [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) a modo introductorio. Para aprender más, consulta este [artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) acerca de la obtención de datos con los Hooks.
 
 ### ¿Existe algo similar a las variables de instancia? {#is-there-something-like-instance-variables}
 
@@ -481,7 +480,7 @@ function Example() {
 Es difícil recordar cuáles props o estado son usadas por funciones fuera del efecto. Es por ello que **usualmente querrás declarar las funciones que necesita el efecto *dentro* de él.** De esta manera es fácil ver los valores del ámbito del componente de los que depende ese efecto:
 
 ```js{4,8}
-function Example() {
+function Example({ someProp }) {
   useEffect(() => {
     function doSomething() {
       console.log(someProp);
@@ -571,7 +570,7 @@ Movimos la función dentro del efecto, de manera tal que no necesite estar en su
 
 >Consejo
 >
->Consulta [este artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) para aprender más sobre la obtención de datos con Hooks.
+>Consulta este [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) y [este artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) para aprender más sobre la obtención de datos con Hooks.
 
 **Si por alguna razón _no puedes_ mover una funció dentro de un efecto, hay otras opciones:**
 

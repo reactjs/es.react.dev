@@ -319,7 +319,7 @@ Pasa una función de "crear" y un arreglo de dependencias. `useMemo` solo volver
 
 Recuerde que la función pasada a `useMemo` se ejecuta durante el renderizado. No hagas nada allí que normalmente no harías al renderizar. Por ejemplo, los efectos secundarios pertenecen a `useEffect`, no a` useMemo`.
 
-Si no se proporciona un arreglo, se calculará un nuevo valor cada vez que se pase una nueva instancia de función como primer argumento. (Con una función en línea, en cada render).
+Si no se proporciona un arreglo, se calculará un nuevo valor en cada renderizado.
 
 **Puede confiar en `useMemo` como una optimización del rendimiento, no como una garantía semántica.** En el futuro, React puede elegir "olvidar" algunos valores previamente memorizados y recalcularlos en el próximo renderizado, por ejemplo para liberar memoria para componentes fuera de pantalla. Escribe tu código para que aún funcione sin `useMemo` - y luego agrégalo para optimizar el rendimiento.
 
