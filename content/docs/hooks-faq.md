@@ -9,7 +9,6 @@ Los *Hooks* son una adición nueva en React 16.8. Te permiten usar el estado y o
 
 Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](/docs/hooks-overview.html).
 
-
 <!--
   if you ever need to regenerate this, this snippet in the devtools console might help:
 
