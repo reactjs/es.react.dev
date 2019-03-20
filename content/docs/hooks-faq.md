@@ -479,7 +479,7 @@ No escogimos `useRef` para este ejemplo porque un objeto de referencia no notifi
 
 Recuerda que pasamos `[]` como un arreglo de dependencias a `useCallback`. Esto asegura que nuestro callback por referencia no cambie entre renderizados, y de esta manera React no lo llamara innecesariamente.
 
-Sí quieres, puedes [extraer esta lógica](https://codesandbox.io/s/m5o42082xy) a un Hook reusable:
+Si quieres, puedes [extraer esta lógica](https://codesandbox.io/s/m5o42082xy) a un Hook reusable:
 
 ```js{2}
 function MeasureExample() {
