@@ -399,7 +399,7 @@ function Example() {
 }
 ```
 
-Si hiciste clic primero en "Show alert" y luego incrementas el contador, la alerta mostrará la variable `count` **en el momento en que hiciste click el botón "Show alert". Esto previene errores causados por código que asume que los props y estado no cambian.
+Si hiciste clic primero en "Show alert" y luego incrementas el contador, la alerta mostrará la variable `count` **en el momento en que hiciste click el botón "Show alert". Esto previene errores causados por código que asume que los props y estado no cambian**.
 
 Si quieres intencionalmente leer el *último* estado de un callback asíncrono, podrías guardarla en [una ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mutarla y leer de ella.
 
