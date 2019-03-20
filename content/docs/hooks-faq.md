@@ -18,7 +18,6 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   ).join('\n')
 -->
 
-<<<<<<< HEAD
 * **[Estrategia de adopción](#adoption-strategy)**
   * [¿Qué versiones de React incluyen Hooks?](#which-versions-of-react-include-hooks)
   * [¿Necesito reescribir todos mis componentes que ya sean clases?](#do-i-need-to-rewrite-all-my-class-components)
@@ -42,6 +41,7 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Cómo implemento getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [¿Hay algo similar a forceUpdate?](#is-there-something-like-forceupdate)
   * [¿Puedo crear una referencia (ref) a un Componente de función?](#can-i-make-a-ref-to-a-function-component)
+  * [¿Cómo puedo medir un nodo del DOM?](#how-can-i-measure-a-dom-node)
   * [¿Qué significa [thing, setThing] = useState()?](#what-does-const-thing-setthing--usestate-mean)
 * **[Optimizaciones de desempeño](#performance-optimizations)**
   * [¿Puedo saltarme un efecto durante las actualizaciones?](#can-i-skip-an-effect-on-updates)
@@ -62,52 +62,6 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
 ### ¿Qué versiones de React incluyen Hooks? {#which-versions-of-react-include-hooks}
 
 Empezando con React 16.8.0, se incluye una implementación estable de Hooks para:
-=======
-* **[Adoption Strategy](#adoption-strategy)**
-  * [Which versions of React include Hooks?](#which-versions-of-react-include-hooks)
-  * [Do I need to rewrite all my class components?](#do-i-need-to-rewrite-all-my-class-components)
-  * [What can I do with Hooks that I couldn't with classes?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
-  * [How much of my React knowledge stays relevant?](#how-much-of-my-react-knowledge-stays-relevant)
-  * [Should I use Hooks, classes, or a mix of both?](#should-i-use-hooks-classes-or-a-mix-of-both)
-  * [Do Hooks cover all use cases for classes?](#do-hooks-cover-all-use-cases-for-classes)
-  * [Do Hooks replace render props and higher-order components?](#do-hooks-replace-render-props-and-higher-order-components)
-  * [What do Hooks mean for popular APIs like Redux connect() and React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
-  * [Do Hooks work with static typing?](#do-hooks-work-with-static-typing)
-  * [How to test components that use Hooks?](#how-to-test-components-that-use-hooks)
-  * [What exactly do the lint rules enforce?](#what-exactly-do-the-lint-rules-enforce)
-* **[From Classes to Hooks](#from-classes-to-hooks)**
-  * [How do lifecycle methods correspond to Hooks?](#how-do-lifecycle-methods-correspond-to-hooks)
-  * [How can I do data fetching with Hooks?](#how-can-i-do-data-fetching-with-hooks)
-  * [Is there something like instance variables?](#is-there-something-like-instance-variables)
-  * [Should I use one or many state variables?](#should-i-use-one-or-many-state-variables)
-  * [Can I run an effect only on updates?](#can-i-run-an-effect-only-on-updates)
-  * [How to get the previous props or state?](#how-to-get-the-previous-props-or-state)
-  * [Why am I seeing stale props or state inside my function?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
-  * [How do I implement getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
-  * [Is there something like forceUpdate?](#is-there-something-like-forceupdate)
-  * [Can I make a ref to a function component?](#can-i-make-a-ref-to-a-function-component)
-  * [How can I measure a DOM node?](#how-can-i-measure-a-dom-node)
-  * [What does const [thing, setThing] = useState() mean?](#what-does-const-thing-setthing--usestate-mean)
-* **[Performance Optimizations](#performance-optimizations)**
-  * [Can I skip an effect on updates?](#can-i-skip-an-effect-on-updates)
-  * [Is it safe to omit functions from the list of dependencies?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
-  * [What can I do if my effect dependencies change too often?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
-  * [How do I implement shouldComponentUpdate?](#how-do-i-implement-shouldcomponentupdate)
-  * [How to memoize calculations?](#how-to-memoize-calculations)
-  * [How to create expensive objects lazily?](#how-to-create-expensive-objects-lazily)
-  * [Are Hooks slow because of creating functions in render?](#are-hooks-slow-because-of-creating-functions-in-render)
-  * [How to avoid passing callbacks down?](#how-to-avoid-passing-callbacks-down)
-  * [How to read an often-changing value from useCallback?](#how-to-read-an-often-changing-value-from-usecallback)
-* **[Under the Hood](#under-the-hood)**
-  * [How does React associate Hook calls with components?](#how-does-react-associate-hook-calls-with-components)
-  * [What is the prior art for Hooks?](#what-is-the-prior-art-for-hooks)
-
-## Adoption Strategy {#adoption-strategy}
-
-### Which versions of React include Hooks? {#which-versions-of-react-include-hooks}
-
-Starting with 16.8.0, React includes a stable implementation of React Hooks for:
->>>>>>> b1bc193dbad464f7c659b10f3f57e37e265a063e
 
 * React DOM
 * React DOM Server
@@ -256,6 +210,7 @@ Hay algunas heurísticas más, y podrían cambiar con el tiempo mientras ajustam
 * `componentDidCatch` y `getDerivedStateFromError`: Aún no hay Hooks equivalentes a estos métodos, pero serán añadidos pronto.
 
 ### ¿Cómo puedo obtener datos con los Hooks? {#how-can-i-do-data-fetching-with-hooks}
+
 Aquí hay un [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) a modo introductorio. Para aprender más, consulta este [artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) acerca de la obtención de datos con los Hooks.
 
 ### ¿Existe algo similar a las variables de instancia? {#is-there-something-like-instance-variables}
@@ -497,12 +452,9 @@ Intenta evitar este patrón de ser posible.
 
 A pesar de que no deberías necesitar esto muy seguido, podrías exponer algunos métodos imperativos a un componente padre con con el Hook [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
 
-<<<<<<< HEAD
-### ¿Qué significa [thing, setThing] = useState()? {#what-does-const-thing-setthing--usestate-mean}
-=======
-### How can I measure a DOM node? {#how-can-i-measure-a-dom-node}
+### ¿Cómo puedo medir un nodo del DOM? {#how-can-i-measure-a-dom-node}
 
-In order to measure the position or size of a DOM node, you can use a [callback ref](/docs/refs-and-the-dom.html#callback-refs). React will call that callback whenever the ref gets attached to a different node. Here is a [small demo](https://codesandbox.io/s/l7m0v5x4v9):
+Para medir la posición o el tamaño de un nodo del DOM, puedes usar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs). React llamara el callback cuando la referencia sea agregada a un nodo diferente. Aqui hay un [pequeño demo](https://codesandbox.io/s/l7m0v5x4v9):
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -523,11 +475,11 @@ function MeasureExample() {
 }
 ```
 
-We didn't choose `useRef` in this example because an object ref doesn't notify us about *changes* to the current ref value. Using a callback ref ensures that [even if a child component displays the measured node later](https://codesandbox.io/s/818zzk8m78) (e.g. in response to a click), we still get notified about it in the parent component and can update the measurements.
+No escogimos `useRef` para este ejemplo porque un objeto de referencia no nos notifica sobre los *cambios* al valor actual de la referencia. Usando una referencia mediante callback lo aseguramos [incluso si un componente hijo muestra el nodo medido despues](https://codesandbox.io/s/818zzk8m78) (por ejemplo, en respuesta a un click), aun somos notificados al respecto en el componente padre y podemos actualizar las medidas.
 
-Note that we pass `[]` as a dependency array to `useCallback`. This ensures that our ref callback doesn't change between the re-renders, and so React won't call it unnecessarily.
+Recuerda que pasamos `[]` como un arreglo de dependencias a `useCallback`. Esto asegura que nuestro callback por referencia no cambie entre renderizados, y de esta manera React no lo llamara innecesariamente.
 
-If you want, you can [extract this logic](https://codesandbox.io/s/m5o42082xy) into a reusable Hook:
+Si quieres, puedes [extraer esta lógica](https://codesandbox.io/s/m5o42082xy) a un Hook reusable:
 
 ```js{2}
 function MeasureExample() {
@@ -554,8 +506,7 @@ function useClientRect() {
 ```
 
 
-### What does `const [thing, setThing] = useState()` mean? {#what-does-const-thing-setthing--usestate-mean}
->>>>>>> b1bc193dbad464f7c659b10f3f57e37e265a063e
+### ¿Qué significa [thing, setThing] = useState()? {#what-does-const-thing-setthing--usestate-mean}
 
 Si no estás familiarizado con esta sintaxis, mira la [explicación](/docs/hooks-state.html#tip-what-do-square-brackets-mean) en la documentación de los Hooks de estado.
 
@@ -957,13 +908,8 @@ function Form() {
   const [text, updateText] = useState('');
   const textRef = useRef();
 
-<<<<<<< HEAD
-  useLayoutEffect(() => {
-    textRef.current = text; // Se escribe en la ref
-=======
   useEffect(() => {
-    textRef.current = text; // Write it to the ref
->>>>>>> b1bc193dbad464f7c659b10f3f57e37e265a063e
+    textRef.current = text; // Se escribe en la referencia
   });
 
   const handleSubmit = useCallback(() => {
