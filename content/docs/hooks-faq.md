@@ -41,6 +41,7 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
   * [¿Cómo implemento getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [¿Hay algo similar a forceUpdate?](#is-there-something-like-forceupdate)
   * [¿Puedo crear una referencia (ref) a un Componente de función?](#can-i-make-a-ref-to-a-function-component)
+  * [¿Cómo puedo medir un nodo del DOM?](#how-can-i-measure-a-dom-node)
   * [¿Qué significa [thing, setThing] = useState()?](#what-does-const-thing-setthing--usestate-mean)
 * **[Optimizaciones de desempeño](#performance-optimizations)**
   * [¿Puedo saltarme un efecto durante las actualizaciones?](#can-i-skip-an-effect-on-updates)
@@ -209,6 +210,7 @@ Hay algunas heurísticas más, y podrían cambiar con el tiempo mientras ajustam
 * `componentDidCatch` y `getDerivedStateFromError`: Aún no hay Hooks equivalentes a estos métodos, pero serán añadidos pronto.
 
 ### ¿Cómo puedo obtener datos con los Hooks? {#how-can-i-do-data-fetching-with-hooks}
+
 Aquí hay un [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) a modo introductorio. Para aprender más, consulta este [artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) acerca de la obtención de datos con los Hooks.
 
 ### ¿Existe algo similar a las variables de instancia? {#is-there-something-like-instance-variables}
@@ -397,7 +399,7 @@ function Example() {
 }
 ```
 
-Si hiciste clic primero en "Show alert" y luego incrementas el contador, la alerta mostrará la variable `count` **en el momento en que hiciste click el botón "Show alert". Esto previene errores causados por código que asume que los props y estado no cambian.
+Si hiciste clic primero en "Show alert" y luego incrementas el contador, la alerta mostrará la variable `count` **en el momento en que hiciste click el botón "Show alert". Esto previene errores causados por código que asume que los props y estado no cambian**.
 
 Si quieres intencionalmente leer el *último* estado de un callback asíncrono, podrías guardarla en [una ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mutarla y leer de ella.
 
@@ -449,6 +451,60 @@ Intenta evitar este patrón de ser posible.
 ### ¿Puedo crear una referencia (ref) a un Componente de función? {#can-i-make-a-ref-to-a-function-component}
 
 A pesar de que no deberías necesitar esto muy seguido, podrías exponer algunos métodos imperativos a un componente padre con con el Hook [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
+
+### ¿Cómo puedo medir un nodo del DOM? {#how-can-i-measure-a-dom-node}
+
+Para medir la posición o el tamaño de un nodo del DOM, puedes usar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs). React llamara el callback cuando la referencia sea agregada a un nodo diferente. Aquí hay un [pequeño demo](https://codesandbox.io/s/l7m0v5x4v9):
+
+```js{4-8,12}
+function MeasureExample() {
+  const [height, setHeight] = useState(0);
+
+  const measuredRef = useCallback(node => {
+    if (node !== null) {
+      setHeight(node.getBoundingClientRect().height);
+    }
+  }, []);
+
+  return (
+    <>
+      <h1 ref={measuredRef}>Hello, world</h1>
+      <h2>The above header is {Math.round(height)}px tall</h2>
+    </>
+  );
+}
+```
+
+No escogimos `useRef` para este ejemplo porque un objeto de referencia no notifica sobre los *cambios* al valor actual de la referencia. Usando una referencia mediante callback lo aseguramos [incluso si un componente hijo muestra el nodo medido después](https://codesandbox.io/s/818zzk8m78) (por ejemplo, en respuesta a un click), aun somos notificados al respecto en el componente padre y podemos actualizar las medidas.
+
+Recuerda que pasamos `[]` como un arreglo de dependencias a `useCallback`. Esto asegura que nuestro callback por referencia no cambie entre renderizados, y de esta manera React no lo llamara innecesariamente.
+
+Si quieres, puedes [extraer esta lógica](https://codesandbox.io/s/m5o42082xy) a un Hook reusable:
+
+```js{2}
+function MeasureExample() {
+  const [rect, ref] = useClientRect();
+  return (
+    <>
+      <h1 ref={ref}>Hello, world</h1>
+      {rect !== null &&
+        <h2>The above header is {Math.round(rect.height)}px tall</h2>
+      }
+    </>
+  );
+}
+
+function useClientRect() {
+  const [rect, setRect] = useState(null);
+  const ref = useCallback(node => {
+    if (node !== null) {
+      setRect(node.getBoundingClientRect());
+    }
+  }, []);
+  return [rect, ref];
+}
+```
+
 
 ### ¿Qué significa [thing, setThing] = useState()? {#what-does-const-thing-setthing--usestate-mean}
 
@@ -852,8 +908,8 @@ function Form() {
   const [text, updateText] = useState('');
   const textRef = useRef();
 
-  useLayoutEffect(() => {
-    textRef.current = text; // Se escribe en la ref
+  useEffect(() => {
+    textRef.current = text; // Se escribe en la referencia
   });
 
   const handleSubmit = useCallback(() => {
@@ -893,7 +949,7 @@ function useEventCallback(fn, dependencies) {
     throw new Error('Cannot call an event handler while rendering.');
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     ref.current = fn;
   }, [fn, ...dependencies]);
 
