@@ -1,6 +1,6 @@
 ---
 id: support
-title: Donde Obtener Soporte
+title: Dónde obtener asistencia
 layout: community
 sectionid: community
 permalink: community/support.html
@@ -14,10 +14,10 @@ En esta página hemos listado algunas de las comunidades relacionadas con React 
 
 ## Stack Overflow {#stack-overflow}
 
-Stack Overflow es un foro muy popular para hacer preguntas a nivel de código o si estás atascado con un error en específico. Lee las [preguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) etiquetadas con **reactjs** o [has tu pregunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
+Stack Overflow es un foro muy popular para hacer preguntas a nivel de código o si estás atascado con un error en específico. Lee las [preguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) etiquetadas con **reactjs** o [haz tu pregunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
 
-## Foros de Discusión Popular {#popular-discussion-forums}
+## Foros de discusión populares {#popular-discussion-forums}
 
 Hay muchos foros en línea los cuales son un buen lugar para discutir tanto acerca de buenas prácticas y arquitectura de aplicaciones, como también sobre el futuro de React. Si tienes una pregunta a nivel de código, usualmente irá mejor en Stack Overflow.
 
