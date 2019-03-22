@@ -1,12 +1,12 @@
 ---
 id: meetups
-title: Encuentros alrededor del mundo
+title: Meetups alrededor del mundo
 layout: community
 sectionid: community
 permalink: community/meetups.html
 ---
 
-¿Tienes un encuentro local de React.js? ¡Agrégalo aquí! (Por favor mantener la lista en orden alfabético)
+¿Tienes un meetup local de React.js? ¡Agrégalo aquí! (Por favor mantener la lista en orden alfabético)
 
 ## Australia {#australia}
 * [Brisbane](https://www.meetup.com/reactbris/)
