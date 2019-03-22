@@ -6,42 +6,42 @@ sectionid: community
 permalink: community/courses.html
 ---
 
-## Free Courses {#free-courses}
+## Cursos gratuitos {#free-courses}
 
-- [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - Codecademy's introductory course for React.
+- [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - El curso introductorio a React de Codeacademy.
 
-- [Egghead.io: Start Learning React](https://egghead.io/courses/start-learning-react) - This series will explore the basic fundamentals of React to get you started.
+- [Egghead.io: Start Learning React](https://egghead.io/courses/start-learning-react) - Esta serie explora los fundamentos básicos de React para que empieces.
 
-- [React Crash Course 2018](https://www.youtube.com/watch?v=Ke90Tje7VS0) - A beginner-friendly crash course through the most important React topics.
+- [React Crash Course 2018](https://www.youtube.com/watch?v=Ke90Tje7VS0) - Un curso apto para principiantes sobre los conceptos más importantes de React.
 
-- [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - With React Armory, you can learn React without the buzzwords.
+- [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - Con React Armory, puedes aprender React sin las palabras complicadas.
 
-- [The Road to Learn React](https://www.robinwieruch.de/the-road-to-learn-react/) - Build a real world application in plain React without complicated tooling.
+- [The Road to Learn React](https://www.robinwieruch.de/the-road-to-learn-react/) - Construye una aplicación real en React plano sin herramientas complicadas.
 
-- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Free course for React newbies and those looking to get a better understanding of React fundamentals.
+- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Curso gratuito para principiantes en React y para aquellos que busquen entender mejor los fundamentos de React.
 
-- [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Recordings from three days of a free online React bootcamp.
+- [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Grabaciones de tres días de un *bootcamp* online gratuito de React.
 
-## Paid Courses {#paid-courses}
+## Cursos pagos {#paid-courses}
 
-- [Egghead.io](https://egghead.io/browse/frameworks/react) - Short instructional videos on React and many other topics.
+- [Egghead.io](https://egghead.io/browse/frameworks/react) - Videos cortos instructivos sobre React y muchos otros temas
 
-- [Frontend Masters](https://frontendmasters.com/courses/) - Video courses on React and other frontend frameworks.
+- [Frontend Masters](https://frontendmasters.com/courses/) - Cursos en video de React y otros *frameworks* de *frontend*.
 
-- [Fullstack React](https://www.fullstackreact.com/) - The up-to-date, in-depth, complete guide to React and friends.
+- [Fullstack React](https://www.fullstackreact.com/) - La guía actualizada, en profundiad y completa de React y sus amigos.
 
-- [Pure React](https://daveceddia.com/pure-react/) - A step-by-step guide to mastering React.
+- [Pure React](https://daveceddia.com/pure-react/) - Una guía paso a paso para dominar React.
 
-- [React for Beginners](https://reactforbeginners.com/) - Learn React in just a couple of afternoons.
+- [React for Beginners](https://reactforbeginners.com/) - Aprende React en solo un par de tardes.
 
-- [React for Designers](https://designcode.io/react) - A 6-hour React course for designers, by designers.
+- [React for Designers](https://designcode.io/react) - Un curso de React de 6 horas para diseñadores, por diseñadores.
 
-- [React Essentials for Designers](https://learnreact.design) - React courses tailored for designers: the fundamentals, capabilities, limitations and how they relate to design.
+- [React Essentials for Designers](https://learnreact.design) - Cursos de React hechos a la medida para diseñadores: Los fundamentos, capacidades, limitaciones y cómo se relacionan con el diseño.
 
-- [Essential React](https://learnreact.com/lessons/2018-essential-react-1-overview) - A crash course for doers, moving fast from "Hello World" to advanced component composition.
+- [Essential React](https://learnreact.com/lessons/2018-essential-react-1-overview) - Un curso para realizadores, pasando rápidamente de "Hola mundo" a composición avanzada de componentes.
 
-- [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - Take your React skills to the next level.
+- [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - Lleva tus conocimientos de React al siguiente nivel.
 
-- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis provides access to his courses for a monthly fee. Courses include "React Fundamentals" and "Universal React".
+- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis provee acceso a sus cursos por una tarifa mensual. Entre ellos se incluyen "React Fundamentals" y "Universal React".
 
-- [Mastering React](https://codewithmosh.com/p/mastering-react/) - Build professional interactive apps with React.
+- [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construye aplicaciones interactivas profesionales con React.
