@@ -22,7 +22,7 @@ permalink: community/meetups.html
 ## Brasil {#brazil}
 * [Belo Horizonte](https://www.meetup.com/reactbh/)
 * [Curitiba](https://www.meetup.com/pt-br/ReactJS-CWB/)
-* [Rio de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
+* [Río de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
 * [São Paulo](https://www.meetup.com/pt-BR/ReactJS-SP/)
 
 ## Bolivia {#bolivia}
@@ -45,7 +45,7 @@ permalink: community/meetups.html
 * [Aarhus](https://www.meetup.com/Aarhus-ReactJS-Meetup/)
 
 ## Inglaterra (UK) {#england-uk}
-* [Manchester](https://www.meetup.com/Manchester-React-User-Group/)
+* [Mánchester](https://www.meetup.com/Manchester-React-User-Group/)
 * [React.JS Girls London](https://www.meetup.com/ReactJS-Girls-London/)
 
 ## Francia {#france}
@@ -76,8 +76,8 @@ permalink: community/meetups.html
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
 
-## Paises Bajos {#netherlands}
-* [Amsterdam](https://www.meetup.com/React-Amsterdam/)
+## Países Bajos {#netherlands}
+* [Ámsterdam](https://www.meetup.com/React-Amsterdam/)
 
 ## Nueva Zelanda {#new-zealand}
 * [Wellington](https://www.meetup.com/React-Wellington/)
@@ -102,13 +102,13 @@ permalink: community/meetups.html
 * [Lisboa](https://www.meetup.com/JavaScript-Lisbon/)
 
 ## Escocia (UK) {#scotland-uk}
-* [Edinburgo](https://www.meetup.com/React-Scotland/)
+* [Edimburgo](https://www.meetup.com/React-Scotland/)
 
 ## España {#spain}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 
 ## Suecia {#sweden}
-* [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
+* [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
 
 ## Ucrania {#ukraine}
 * [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
@@ -124,8 +124,8 @@ permalink: community/meetups.html
 * [Irvine, CA - ReactJS](https://www.meetup.com/ReactJS-OC/)
 * [Las Vegas, NV - ReactJS](https://www.meetup.com/ReactVegas/)
 * [Leesburg, VA - ReactJS](https://www.meetup.com/React-NOVA/)
-* [Los Angeles, CA - ReactJS](https://www.meetup.com/socal-react/)
-* [Los Angeles, CA - React Native](https://www.meetup.com/React-Native-Los-Angeles/)
+* [Los Ángeles, CA - ReactJS](https://www.meetup.com/socal-react/)
+* [Los Ángeles, CA - React Native](https://www.meetup.com/React-Native-Los-Angeles/)
 * [Nashville, TN - ReactJS](https://www.meetup.com/NashReact-Meetup/)
 * [Nueva York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
