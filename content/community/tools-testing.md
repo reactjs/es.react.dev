@@ -5,9 +5,9 @@ layout: community
 permalink: community/testing.html
 ---
 
-* **[Enzyme](https://github.com/airbnb/enzyme/):** a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
-* **[Jest](https://facebook.github.io/jest/):** Delightful JavaScript testing used by Facebook to test all JavaScript code including React applications.
-* **[react-testing-library](https://github.com/kentcdodds/react-testing-library):** 🐐 Simple and complete React DOM testing utilities that encourage good testing practices.
-* **[React-unit](https://github.com/pzavolinsky/react-unit):** a lightweight unit test library for ReactJS with very few (js-only) dependencies.
-* **[Skin-deep](https://github.com/glenjamin/skin-deep):** Testing helpers for use with React's shallowRender test utils.
-* **[Unexpected-react](https://github.com/bruderstein/unexpected-react/):** Plugin for the [unexpected](https://unexpected.js.org/) assertion library that makes it easy to assert over your React Components and trigger events.
+* **[Enzyme](https://github.com/airbnb/enzyme/):** una utilidad de pruebas JavaScript para React que hace más fácil afirmar, manipular y atravesar la salida de tus componentes de React.
+* **[Jest](https://facebook.github.io/jest/):** Excelente utilidad de pruebas JavaScript ulizada por Facebook para probar todo código JavaScript incluyendo aplicaciones React.
+* **[react-testing-library](https://github.com/kentcdodds/react-testing-library):** 🐐 Simple y completo set de utilidades del DOM React para incentivar buenas prácticas de pruebas.
+* **[React-unit](https://github.com/pzavolinsky/react-unit):** una biblioteca liviana de pruebas para ReactJS con muy pocas dependencias JavaScript.
+* **[Skin-deep](https://github.com/glenjamin/skin-deep):** *helpers* de pruebas para usar con las utilidades de pruebas del *shallowRender* de React.
+* **[Unexpected-react](https://github.com/bruderstein/unexpected-react/):** Plugin para la biblioteca de aserciones [unexpected](https://unexpected.js.org/) que facilita hacer aserciones sobre tus componentes de React y disparar eventos.
