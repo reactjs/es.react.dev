@@ -66,25 +66,16 @@
 - name: Italiano
   translated_name: Italiano
   code: it
-<<<<<<< HEAD
-  status: 0
+  status: 1
 - name: Japonés
   translated_name: 日本語
   code: ja
   status: 2
-- name: Jemer
-=======
-  status: 1
-- name: Japanese
-  translated_name: 日本語
-  code: ja
-  status: 2
-- name: Georgian
+- name: Georgiano
   translated_name: ქართული
   code: ka
   status: 0
-- name: Central Khmer
->>>>>>> 1f2dbb7a4f531d1c9d70ae69e025eac992b37c6a
+- name: Jemer
   translated_name: ភាសាខ្មែរ
   code: km
   status: 0
@@ -148,15 +139,11 @@
   translated_name: తెలుగు
   code: te
   status: 0
-<<<<<<< HEAD
-- name: Turco
-=======
-- name: Thai
+- name: Tailandés
   translated_name: ไทย
   code: th
   status: 0
-- name: Turkish
->>>>>>> 1f2dbb7a4f531d1c9d70ae69e025eac992b37c6a
+- name: Turco
   translated_name: Türkçe
   code: tr
   status: 1
@@ -179,13 +166,8 @@
 - name: Chino simplificado
   translated_name: 简体中文
   code: zh-hans
-<<<<<<< HEAD
-  status: 1
-- name: Chino tradicional
-=======
   status: 2
-- name: Traditional Chinese
->>>>>>> 1f2dbb7a4f531d1c9d70ae69e025eac992b37c6a
+- name: Chino tradicional
   translated_name: 繁體中文
   code: zh-hant
   status: 0
