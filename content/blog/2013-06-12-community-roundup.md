@@ -3,7 +3,7 @@ title: "Community Round-up #1"
 author: [vjeux]
 ---
 
-El código de React fue hecho público hace dos semanas y ya es hora de un pequeño resumén de lo que ha estado sucediendo.
+El código de React fue hecho público hace dos semanas y ya es hora de un pequeño resumen de lo que ha estado sucediendo.
 
 ## Editor de preguntas de Khan Academy {#khan-academy-question-editor}
 
@@ -23,7 +23,7 @@ Parece que [Sophie Alpert](http://sophiebits.com/) es la primera persona externa
 
 > React tiene algunos conceptos interesantes para los objetos de vista de JavaScript que pueden usarse para eliminar este gran problema que tengo con Backbone.js.
 >
-> Como en la mayoría de las implementaciones de MVC (aunque React es probablemente solo una implementación de VC), una vista es una parte de la pantalla que está gestionada por un objeto de control. Este objeto es responsable de decidir cuándo volver a re-renderizar la vista y cómo reaccionar al _input_ del usuario. Con React, estos objetos controladores de vista se denominan componentes. Un componente sabe cómo representar su vista y cómo manejar la interacción del usuario con él.
+> Como en la mayoría de las implementaciones de MVC (aunque React es probablemente solo una implementación de VC), una vista es una parte de la pantalla que está gestionada por un objeto de control. Este objeto es responsable de decidir cuándo volver a renderizar la vista y cómo reaccionar al _input_ del usuario. Con React, estos objetos controladores de vista se denominan componentes. Un componente sabe cómo representar su vista y cómo manejar la interacción del usuario con él.
 >
 > Lo interesante es que React está descubriendo por sí mismo cuándo volver a renderizar una vista y cómo hacerlo de la manera más eficiente.
 >
