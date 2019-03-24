@@ -22,7 +22,7 @@ permalink: community/courses.html
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Grabaciones de tres días de un *bootcamp* online gratuito de React.
 
-## Cursos pagos {#paid-courses}
+## Cursos pagados {#paid-courses}
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Videos cortos instructivos sobre React y muchos otros temas
 
