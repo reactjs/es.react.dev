@@ -38,7 +38,7 @@ permalink: community/courses.html
 
 - [React Essentials for Designers](https://learnreact.design) - Cursos de React hechos a la medida para diseñadores: Los fundamentos, capacidades, limitaciones y cómo se relacionan con el diseño.
 
-- [Essential React](https://learnreact.com/lessons/2018-essential-react-1-overview) - Un curso para quienes les gusta aprender haciendo, pasando rápidamente de "Hola mundo" a composición avanzada de componentes.
+- [Essential React](https://learnreact.com/lessons/2018-essential-react-1-overview) - Un curso intensivo para quienes les gusta aprender haciendo, pasando rápidamente de "Hola mundo" a composición avanzada de componentes.
 
 - [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - Lleva tus conocimientos de React al siguiente nivel.
 
