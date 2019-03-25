@@ -1,6 +1,6 @@
 ---
 id: testing
-title: Probando
+title: Pruebas
 layout: community
 permalink: community/testing.html
 ---
