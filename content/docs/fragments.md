@@ -17,7 +17,7 @@ render() {
 }
 ```
 
-También hay una nueva [sintaxis corta](#sintaxis-corta) para declararlos, pero aún no es soportada por todas las herramientas populares.
+También hay una nueva [sintaxis corta](#short-syntax) para declararlos, pero aún no es soportada por todas las herramientas populares.
 
 ## Motivación {#motivation}
 

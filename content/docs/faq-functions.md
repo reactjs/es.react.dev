@@ -108,7 +108,7 @@ Los métodos de enlace nos aseguran que el segundo fragmento funcione de la mism
 
 Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
  
-[Este artículo creado por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
+[Este artículo creado por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
 
 ### ¿Por qué mi función está siendo llamada cada vez que mi componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
 

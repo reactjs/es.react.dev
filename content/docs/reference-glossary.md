@@ -11,7 +11,7 @@ permalink: docs/glossary.html
 
 Una aplicación de página única (single-page application) es una aplicación que carga una única página HTML y todos los componentes necesarios (tales como JavaScript y CSS) para que se ejecute la aplicación. Cualquier interacción con la página o páginas subsecuentes no requiere hacer solicitudes al servidor lo que significa que la página no es recargada.
 
-Aunque puedes construir una aplicación de página única en React, esto no es un requerimiento. React también puede ser utilizado para mejorar pequeñas partes de sitios web existentes con interactividad adicional. El código escrito en React puede coexistir pacíficamente con páginas renderizadas de lado del servidor por lenguajes como PHP, ó cualquier otra biblioteca del lado del cliente. De hecho, así es como React está siendo utilizado en Facebook.
+Aunque puedes construir una aplicación de página única con React, esto no es un requerimiento. React también puede ser utilizado para mejorar pequeñas partes de sitios web existentes con interactividad adicional. El código escrito en React puede coexistir pacíficamente con páginas renderizadas de lado del servidor por lenguajes como PHP, ó cualquier otra biblioteca del lado del cliente. De hecho, así es como React está siendo utilizado en Facebook.
 
 ## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
@@ -27,15 +27,15 @@ Los *bundlers* toman el código JavaScript y CSS escrito como módulos separados
 
 ## Package managers {#package-managers}
 
-Los *package managers* son herramientas que te permiten administrar las dependencias de tu proyecto. [npm](https://www.npmjs.com/) y [Yarn](http://yarnpkg.com/) son dos *package managers* comúnmente usados en aplicaciones de React. Ambos son clientes para el mismo registro de paquetes npm.
+Los *package managers* son herramientas que te permiten administrar las dependencias de tu proyecto. [npm](https://www.npmjs.com/) y [Yarn](https://yarnpkg.com/) son dos *package managers* comúnmente usados en aplicaciones de React. Ambos son clientes para el mismo registro de paquetes npm.
 
 ## CDN {#cdn}
 
-CDN son las siglas de *Content Delivery Network* (Red de Entrega de Contenido). Los *CDN* entregan contenido estático en caché desde una red de servidores alrededor del mundo.
+CDN son las siglas en inglés de *Content Delivery Network* (Red de Entrega de Contenido). Los *CDN* entregan contenido estático en caché desde una red de servidores alrededor del mundo.
 
 ## JSX {#jsx}
 
-JSX es una extensión de sintaxis para JavaScript. Es similar a un *template language*, pero tiene todo el poder de JavaScript. JSX es compilado a llamadas `React.createElement()` que regresan simples objetos de JavaScript llamados *"React elements"*. Puedes encontrar una introducción básica a JSX en la documentación [aquí](/docs/introducing-jsx.html) y un tutorial más completo de JSX [aquí](/docs/jsx-in-depth.html).
+JSX es una extensión de sintaxis para JavaScript. Es similar a un *template language*, pero tiene todo el poder de JavaScript. JSX es compilado a llamadas `React.createElement()` que regresan simples objetos de JavaScript llamados *"elementos de React"*. Puedes encontrar una introducción básica a JSX en la documentación [aquí](/docs/introducing-jsx.html) y un tutorial más completo de JSX [aquí](/docs/jsx-in-depth.html).
 
 *React DOM* usa una convención de nombres en *camelCase* para las propiedades en lugar de nombres de atributos HTML. Por ejemplo, `tabindex` se vuelve `tabIndex` en JSX. El atributo `class` se escribe como `className` ya que `class` es una palabra reservada en JavaScript:
 
@@ -76,7 +76,7 @@ class Welcome extends React.Component {
 }
 ```
 
-Los componentes pueden ser divididos en distintas piezas de funcionalidad y usados en otros componentes. Los componentes pueden regresar otros componentes, arreglos, cadenas de texto y números. Una buena regla es que si una parte de tu interfaz es usada varias veces (Botón, Panel, Avatar), o es lo suficientemente compleja (App, Noticias, Comentario), es un buen candidato para ser un componente reusable. Los nombres de los componentes deberían también comenzar con una letra mayúscula (`<Wrapper/>` **not** `<wrapper/>`). Consulte [esta documentación](/docs/components-and-props.html#rendering-a-component) para obtener más información sobre el renderizado de componentes.
+Los componentes pueden ser divididos en distintas piezas de funcionalidad y usados en otros componentes. Los componentes pueden regresar otros componentes, arreglos, cadenas de texto y números. Una buena regla es que si una parte de tu interfaz es usada varias veces (Botón, Panel, Avatar), o es lo suficientemente compleja (App, Noticias, Comentario), es un buen candidato para ser un componente reusable. Los nombres de los componentes deberían también comenzar con una letra mayúscula (`<Wrapper/>` **no** `<wrapper/>`). Consulta [esta documentación](/docs/components-and-props.html#rendering-a-component) para obtener más información sobre el renderizado de componentes.
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
@@ -89,7 +89,7 @@ Recuerda que los `props` son de sólo lectura. No deben ser modificados de ningu
 props.number = 42;
 ```
 
-Si necesitas moficiar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa el `estado` en su lugar.
+Si necesitas modificar algún valor en respuesta de una entrada del usuario o una respuesta de red, usa el `estado` en su lugar.
 
 ### `props.children` {#propschildren}
 
@@ -128,7 +128,7 @@ Para cada pieza particular de datos cambiantes, debería existir solo un compone
 
 Los métodos de ciclo de vida son funcionalidad personalizada que se ejecutan durante las diferentes fases de un componente. Existen métodos disponibles cuando el componente se crea y se inserta en el *DOM* ([*mounting*](/docs/react-component.html#mounting)), cuando el componente se actualiza, y cuando el componente es desmontado o removido del *DOM*. 
 
- ## [Componentes controlados](/docs/forms.html#controlled-components) vs. [Componentes no controlados](/docs/uncontrolled-components.html)
+ ## [Componentes controlados](/docs/forms.html#controlled-components) vs. [componentes no controlados](/docs/uncontrolled-components.html)
 
 React tiene dos enfoques distintos para tratar con las entradas de formularios.
 
@@ -146,7 +146,7 @@ Las *keys* sólo tienen que ser únicas entre elementos hermanos en el mismo arr
 
 No pases algo como `Math.random()` a las *keys*. Es importante que las *keys* tengan una "indentidad estable" a través de múltiples renderizados así React puede determinar cuales elementos fueron agregados, removidos o re-ordenados. Idealmente, las *keys* deberían corresponder a un identificador único y estable que venga desde los datos, por ejemplo: `post.id`.
 
-## [Refs](/docs/refs-and-the-dom.html) {#refs}
+## [Referencias](/docs/refs-and-the-dom.html) {#refs}
 
 React admite un atributo especial que se puede agregar a cualquier componente. El atributo `ref` puede ser un objeto creado por [la función `React.createRef()`](/docs/react-api.html#reactcreateref) o una función *callback*, o una cadena de texto (en la API antigua). Cuando el atributo `ref` es una función de *callback*, la función recibe el elemento *DOM* subyacente o la instancia de clase (dependiendo del tipo de elemento) como argumento. Esto permite tener acceso directo al *DOM* del elemento o a la instancia del componente.
 

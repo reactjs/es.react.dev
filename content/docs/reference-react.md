@@ -88,7 +88,7 @@ Los *Hooks* son una nueva adición en React 16.8. Permiten usar el estado y otra
 
 ### `React.Component` {#reactcomponent}
 
-`React.Component` es la clase base para los componentes de React cuando estos son definidos usando [clases ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+`React.Component` es la clase base para los componentes de React cuando estos son definidos usando [clases ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
 class Greeting extends React.Component {
@@ -186,7 +186,7 @@ Clona y retorna un elemento React usando `element` como punto de partida. El ele
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-Sin embargo, también preserva los `ref`s. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
+Sin embargo, también preserva los `refs`. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
 
 Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithProps()`.
 
@@ -312,7 +312,7 @@ En el ejemplo anterior, React pasa un `ref` dado a un elemento `<FancyButton ref
 
 Como resultado, después que React adjunte el ref, `ref.current` apuntará directamente a la instancia del elemento DOM `<button>`.
 
-Para más información, ver [enviando refs](/docs/forwarding-refs.html).
+Para más información, ver [reenvío de refs](/docs/forwarding-refs.html).
 
 ### `React.lazy` {#reactlazy}
 

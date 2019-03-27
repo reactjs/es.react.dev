@@ -10,7 +10,7 @@ React proporciona una API declarativa para que no tengas que preocuparte sobre q
 
 Cuando usas React, en un momento dado puedes pensar que la función `render()` crea un árbol de elementos de React. En la siguiente actualización de estado o propiedades, esa función `render()` devolverá un árbol diferente de elementos de React. React luego debe descubrir cómo actualizar de manera eficiente la interfaz de usuario para que coincida con el árbol más reciente.
 
-Existen algunas soluciones genéricas para este problema algorítmico de generar el número mínimo de operaciones para transformar un árbol en otro. Sin embargo, los [algoritmos de vanguardia](http://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) tienen una complejidad en el orden de O(n<sup>3</sup>) donde n es el número de elementos en el árbol.
+Existen algunas soluciones genéricas para este problema algorítmico de generar el número mínimo de operaciones para transformar un árbol en otro. Sin embargo, los [algoritmos de vanguardia](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) tienen una complejidad en el orden de O(n<sup>3</sup>) donde n es el número de elementos en el árbol.
 
 Si utilizamos esto en React, mostrar 1000 elementos requeriría del orden de mil millones de comparaciones. Esto sería demasiado costoso. En su lugar, React implementa un algoritmo heurístico O(n) basado en dos suposiciones.
 
@@ -136,9 +136,9 @@ En la práctica, encontrar una clave no suele ser difícil. Es posible que el el
 <li key={item.id}>{item.name}</li>
 ```
 
-Cuando ese no sea el caso, puede agregar una nueva propiedad de ID a su modelo o marcar algunas partes del contenido para generar una clave. La clave solo tiene que ser única entre sus hermanos, no globalmente única.
+Cuando ese no sea el caso, puedes agregar una nueva propiedad de ID a su modelo o marcar algunas partes del contenido para generar una clave. La clave solo tiene que ser única entre sus hermanos, no globalmente única.
 
-Como último recurso, puede pasar el índice de un elemento en la matriz como una clave. Esto puede funcionar bien si los ítems nunca se reordenan, pero los reordenamientos serán lentos.
+Como último recurso, puedes pasar el índice de un elemento en la matriz como una clave. Esto puede funcionar bien si los ítems nunca se reordenan, pero los reordenamientos serán lentos.
 
 Reorganizar también puede causar problemas de estado del componente cuando los índices se utilizan como claves. Si la clave es un índice, mover un elemento lo cambia. Como resultado, el estado el componente para cosas como entradas no controladas pueden mezclarse y actualizarse de manera inesperada.
 

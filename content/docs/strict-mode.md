@@ -4,7 +4,7 @@ title: Modo estricto
 permalink: docs/strict-mode.html
 ---
 
-`StrictMode` es una herramienta para destacar problemas potenciales en la aplicación. Al igual que `Fragment`, `StrictMode` no renderiza nada en la UI. Este modo también activa advertencias y comprobaciones adicionales para sus descendientes.
+`StrictMode` es una herramienta para destacar problemas potenciales en la aplicación. Al igual que `Fragment`, `StrictMode` no renderiza nada en la interfaz de usuario. Este modo también activa advertencias y comprobaciones adicionales para sus descendientes.
 
 > Nota:
 >
@@ -75,7 +75,7 @@ class MyComponent extends React.Component {
 
 > Nota:
 >
-> En CSS, el atributo [`display: contents`](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_contents) puede ser usado si no quieres que el nodo sea parte de la estructura.
+> En CSS, el atributo [`display: contents`](https://developer.mozilla.org/es/docs/Web/CSS/display#display_contents) puede ser usado si no quieres que el nodo sea parte de la estructura.
 
 ### Detectar efectos secundarios inesperados {#detecting-unexpected-side-effects}
 
@@ -95,7 +95,7 @@ El ciclo de vida de la fase de renderizado incluye los siguientes métodos de lo
 * `render`
 * Funciones de actualización de `setState` (el primer argumento)
 
-Ya que los métodos arriba mencionados pueden ser llamados más de una vez, es importante que estos no contengan ningún efecto secundario. Ignorar esta regla puede llevar a una cantidad de problemas, incluyendo fugas de memoria y estados de aplicación inválido. Desafortunadamente, puede ser muy difícil el detectar estos problemas ya con frecuencia pueden ser [no deterministas](https://en.wikipedia.org/wiki/Deterministic_algorithm).
+Ya que los métodos arriba mencionados pueden ser llamados más de una vez, es importante que estos no contengan ningún efecto secundario. Ignorar esta regla puede llevar a una cantidad de problemas, incluyendo fugas de memoria y estados de aplicación inválido. Desafortunadamente, puede ser muy difícil el detectar estos problemas ya con frecuencia pueden ser [no deterministas](https://es.wikipedia.org/wiki/Algoritmo_determinista).
 
 El modo estricto no puede detectar efectos secundarios de forma automática por ti, pero te puede ayudar a encontrarlos al hacerlos un poco más deterministas. Esto se logra al invocar dos veces los siguientes métodos:
 
@@ -111,7 +111,7 @@ El modo estricto no puede detectar efectos secundarios de forma automática por 
 Por ejemplo, considera el siguiente código:
 `embed:strict-mode/side-effects-in-constructor.js`
 
-En primera instancia, este código no debería parecer problemático. Pero si `SharedApplicationState.recordEvent` no es [idempotente](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning), entonces al instanciar este componente múltiples veces puede llevar a que tenga un estado de aplicación inválido. Estos tipo de bug sutiles pueden no manifestarse durante el desarrollo, o quizas sí lo hagan pero de forma inconsistente y se pase por alto.
+En primera instancia, este código no debería parecer problemático. Pero si `SharedApplicationState.recordEvent` no es [idempotente](https://es.wikipedia.org/wiki/Idempotencia_(inform%C3%A1tica)), entonces al instanciar este componente múltiples veces puede llevar a que tenga un estado de aplicación inválido. Estos tipo de bug sutiles pueden no manifestarse durante el desarrollo, o quizas sí lo hagan pero de forma inconsistente y se pase por alto.
 
 Al invocar los métodos dos veces, como el constructor del componente, el modo estricto hace que patrones como estos sean más fáciles de encontrar.
 

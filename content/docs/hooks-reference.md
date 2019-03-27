@@ -45,6 +45,10 @@ setState(newState);
 
 En las renderizaciones siguientes, el primer valor devuelto por `useState` será siempre el estado más reciente después de aplicar las actualizaciones.
 
+>Nota
+>
+>React garantiza que la identidad de la función `setState` es estable y no cambiará en subsecuentes renderizados. Es por eso que es seguro omitirla de la lista de dependencias de `useEffect` o `useCallback`.
+
 #### Actualizaciones funcionales {#functional-updates}
 
 Si el nuevo estado se calcula utilizando el estado anterior, puede pasar una función a `setState`. La función recibirá el valor anterior y devolverá un valor actualizado. Aquí hay un ejemplo de un componente contador que usa ambas formas de `setState`:
@@ -93,6 +97,8 @@ const [state, setState] = useState(() => {
 
 Si se actualiza un Hook de estado con el mismo valor que el estado actual, React evitará la renderización de los hijos y disparar los efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
+Recuerda que React puede necesitar renderizar ese componente en específico de nuevo antes de evitarlo. Esto no debería ser un problema ya que React no irá innecesariamente "más profundo" en el árbol. Sí estas realizando calculos costosos mientras renderizas, puedes optimizarlos con `useMemo`.
+
 ### `useEffect` {#useeffect}
 
 ```js
@@ -133,7 +139,7 @@ Aunque `useEffect` se aplaza hasta después de que el navegador se haya pintado,
 
 #### Disparar un efecto condicionalmente. {#conditionally-firing-an-effect}
 
-El comportamiento predeterminado para los efectos es ejecutar el efecto después de cada render completo. De esa manera, siempre se recrea un efecto si cambia uno de sus inputs.
+El comportamiento predeterminado para los efectos es ejecutar el efecto después de cada renderizado que se completa. De esa manera, siempre se recrea un efecto si cambia una de sus dependencias.
 
 Sin embargo, esto puede ser excesivo en algunos casos, como el ejemplo de suscripción de la sección anterior. No necesitamos crear una nueva suscripción en cada actualización, solo si las propiedades de `source` han cambiado.
 
@@ -153,21 +159,42 @@ useEffect(
 
 Ahora la suscripción solo se volverá a crear cuando cambie `props.source`.
 
-Pasar en un arreglo vacío `[]` de entradas le dice a React que su efecto no depende de ningún valor del componente, por lo que ese efecto se ejecutaría solo en el montaje y la limpieza en el desmontaje; no se ejecutará en las actualizaciones.
-
 > Nota
 >
-> El arreglo de entradas no se pasa como argumentos a la función de efecto. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro de la función de efecto también debería aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear esta matriz automáticamente.
+>Si usas esta optimización, asegúrate de que incluyes **todos los valores del ámbito del componente (como props y estado) que cambien a lo largo del tiempo y que sean usado por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Aprende más [cómo tratar con funciones](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) y [qué hacer cuando el array cambia con mucha frecuencia](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
+>
+>Si quieres ejecutar un efecto y sanearlo solamente una vez (al montar y desmontar), puedes pasar un array vacío (`[]`) como segundo argumento. Esto le indica a React que el efecto no depende de *ningún* valor proviniente de las props o el estado, de modo que no necesita volver a ejecutarse. Esto no se gestiona como un caso especial, obedece directamente al modo en el que siempre funcionan los arrays. 
+>
+>Si pasas un array vacío (`[]`), las props y el estado dentro del efecto siempre tendrán sus valores iniciales. Si bien pasar `[]` como segundo argumento se acerca al conocido modelo mental de `componentDidMount` y `componentWillUnmount`, a menudo hay [mejores](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [soluciones](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) para evitar volver a ejecutar los efectos con demasiada frecuencia. Además, no olvides que React pospone la ejecución de `useEffect` hasta que el navegador finaliza el trazado, de modo que hacer algún trabajo extra no es tan problemático.
+>
+>
+>Recomendamos usar la regla [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) que forma parte de nuestro paquete [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Esta regla advierte cuando las dependencias se especifican incorrectamente y sugiere una solución.
+
+El arreglo de entradas no se pasa como argumentos a la función de efecto. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro de la función de efecto también debería aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear este arreglo automáticamente.
 
 ### `useContext` {#usecontext}
 
 ```js
-const context = useContext(Context);
+const value = useContext(MyContext);
 ```
 
-Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devuelve el valor de contexto actual, como lo proporciona el proveedor de contexto más cercano para el contexto dado.
+Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devuelve el valor de contexto actual. El valor actual del contexto es determinado por la propiedad `value` del `<MyContext.Provider>` más cercano arriba de la llamada del componente en el árbol.
 
-Cuando el proveedor se actualiza, este Hook activará un render extra con el último valor de contexto.
+Cuando el `<MyContext.Provider>` más cercano arriba del componente se actualiza, el Hook activa una renderización con el `value` del contexto pasado a ese proveedor `MyContext`.
+
+No olvides que el argumento a `useContext` debe ser el *objeto del contexto en sí mismo*:
+
+ * **Correcto:** `useContext(MyContext)`
+ * **Incorrecto:** `useContext(MyContext.Consumer)`
+ * **Incorrecto:** `useContext(MyContext.Provider)`
+
+Un componente que llama a `useContext` siempre se volverá a renderizar cuando el valor del contexto cambie. Si volver a renderizar el componente es costoso, puedes [optimizar esto usando memorización](https://github.com/facebook/react/issues/15156#issuecomment-474590693).
+
+>Consejo
+>
+>Si estás familiarizado con el API de contexto antes de Hooks, `useContext(MyContext)` es el equivalente a `static contextType = MyContext` en una clase, o a `<MyContext.Consumer>`.
+>
+>`useContext(MyContext)` solo te permite *leer* el contexto y suscribirte a sus cambios. Aun necesitas un `<MyContext.Provider>` arriba en el árbol para *proveer* el valor para este contexto.
 
 ## Hooks adicionales {#additional-hooks}
 
@@ -210,6 +237,10 @@ function Counter({initialState}) {
   );
 }
 ```
+
+>Nota
+>
+>React garantiza que la identidad de la función `dispatch` es estable y no cambiará en subsecuentes renderizados. Es por eso que es seguro omitirla de la lista de dependencias de `useEffect` o `useCallback`.
 
 #### Especificar el estado inicial {#specifying-the-initial-state}
 
@@ -270,6 +301,8 @@ function Counter({initialCount}) {
 
 Si devuelves el mismo valor del estado actual desde un Hook reductor, React evitará el renderizado de los hijos y disparar efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
+Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+
 ### `useCallback` {#usecallback}
 
 ```js
@@ -283,13 +316,15 @@ const memoizedCallback = useCallback(
 
 Retorna un callback [memorizado](https://en.wikipedia.org/wiki/Memoization).
 
-Pase un callback en línea y un arreglo de entradas. `useCallback` devolverá una versión memorizada del callback que solo cambia si una de las entradas ha cambiado. Esto es útil cuando se transfieren callbacks a componentes hijos optimizados que dependen de la igualdad de referencia para evitar renders innecesarias (por ejemplo, `shouldComponentUpdate`).
+Pasa un callback en línea y un arreglo de dependencias. `useCallback` devolverá una versión memorizada del callback que solo cambia si una de las dependencias ha cambiado. Esto es útil cuando se transfieren callbacks a componentes hijos optimizados que dependen de la igualdad de referencia para evitar renders innecesarias (por ejemplo, `shouldComponentUpdate`).
 
-`useCallback(fn, inputs)` es igual a `useMemo(() => fn, inputs)`.
+`useCallback(fn, deps)` es igual a `useMemo(() => fn, deps)`.
 
 > Nota
 >
-> El arreglo de entradas no se pasa como argumentos al callback. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro del callback también debe aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear esta matriz automáticamente.
+> El arreglo de dependencias no se pasa como argumentos al callback. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro del callback también debe aparecer en el arreglo de dependencias. En el futuro, un compilador lo suficientemente avanzado podría crear este arreglo automáticamente.
+>
+>Recomendamos usar la regla [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) que forma parte de nuestro paquete [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Esta regla advierte cuando las dependencias se especifican incorrectamente y sugiere una solución.
 
 ### `useMemo` {#usememo}
 
@@ -299,17 +334,19 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
 Devuelve un valor [memorizado](https://en.wikipedia.org/wiki/Memoization).
 
-Pasa una función de "crear" y un arreglo de entradas. `useMemo` solo volverá a calcular el valor memorizado cuando una de las entradas haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada render.
+Pasa una función de "crear" y un arreglo de dependencias. `useMemo` solo volverá a calcular el valor memorizado cuando una de las dependencias haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada render.
 
 Recuerde que la función pasada a `useMemo` se ejecuta durante el renderizado. No hagas nada allí que normalmente no harías al renderizar. Por ejemplo, los efectos secundarios pertenecen a `useEffect`, no a` useMemo`.
 
-Si no se proporciona un arreglo, se calculará un nuevo valor cada vez que se pase una nueva instancia de función como primer argumento. (Con una función en línea, en cada render).
+Si no se proporciona un arreglo, se calculará un nuevo valor en cada renderizado.
 
 **Puede confiar en `useMemo` como una optimización del rendimiento, no como una garantía semántica.** En el futuro, React puede elegir "olvidar" algunos valores previamente memorizados y recalcularlos en el próximo renderizado, por ejemplo para liberar memoria para componentes fuera de pantalla. Escribe tu código para que aún funcione sin `useMemo` - y luego agrégalo para optimizar el rendimiento.
 
 > Nota
 >
-> El arreglo de entradas no se pasa como argumentos a la función. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro de la función también debe aparecer en el arreglo de entradas. En el futuro, un compilador lo suficientemente avanzado podría crear este arreglo automáticamente.
+> El arreglo de dependencias no se pasa como argumentos a la función. Sin embargo, conceptualmente, eso es lo que representan: cada valor al que se hace referencia dentro de la función también debe aparecer en el arreglo de dependencias. En el futuro, un compilador lo suficientemente avanzado podría crear este arreglo automáticamente.
+>
+>Recomendamos usar la regla [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) que forma parte de nuestro paquete [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Esta regla advierte cuando las dependencias se especifican incorrectamente y sugiere una solución.
 
 ### `useRef` {#useref}
 
@@ -337,12 +374,21 @@ function TextInputWithFocusButton() {
 }
 ```
 
-Tenga en cuenta que `useRef()` es mas útil que el atributo `ref`. Es [útil para mantener cualquier valor mutable en torno a](/docs/hooks-faq.html#is-there-something-like-instance-variables) similar a cómo utilizarías los campos de instancia en las clases.
+En esencia, `useRef` es como una "caja" que puedes mantener en una variable mutable en su propiedad `.current`.
+
+Puede que estes familiarizado con las referencias principalmente como un medio para [acceder al DOM](/docs/refs-and-the-dom.html). Si pasas un objeto de referencia a React con `<div ref={myRef} />`, React configurará su propiedad `.current` al nodo del DOM correspondiente cuando sea que el nodo cambie.
+
+Sin embargo, `useRef()` es útil para más que el atributo `ref`. Es [conveniente para mantener cualquier valor mutable](/docs/hooks-faq.html#is-there-something-like-instance-variables) que es similiar a como usarías campos de instancia en las clases.
+
+Esto funciona debido a que `useRef()` crea un objeto Javascript plano. La única diferencia entre `useRef()` y crear un objeto `{current: ...}` tu mismo es que `useRef` te dará el mismo objeto de referencia en cada renderizado.
+
+Ten en cuenta que `useRef` *no* notifica cuando su contenido cambia. Mutar la propiedad `.current` no causa otro renderizado. Si quieres correr algún codigo cuando React agregue o quite una referencia de un nodo del DOM, puede que quieras utilizar en su lugar una [referencia mediante callback](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
+
 
 ### `useImperativeHandle` {#useimperativehandle}
 
 ```js
-useImperativeHandle(ref, createHandle, [inputs])
+useImperativeHandle(ref, createHandle, [deps])
 ```
 
 `useImperativeHandle` personaliza el valor de instancia que se expone a los componentes padres cuando se usa` ref`. Como siempre, el código imperativo que usa refs debe evitarse en la mayoría de los casos. `useImperativeHandle` debe usarse con `forwardRef`:
@@ -370,7 +416,11 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 
 > Consejo
 >
-> Si está migrando código de un componente de clase, `useLayoutEffect` se dispara en la misma fase que` componentDidMount` y `componentDidUpdate`, por lo que si no está seguro de qué effect Hook usar, este es probablemente el menos riesgoso.
+> Sí estas migrando código de un componente de clase, recuerda que `useLayoutEffect` se activa la misma fase que `componentDidMount` y `componentDidUpdate`. Sin embargo, **recomendamos empezar con `useEffect` primero** y solo intentar con `useLayoutEffect` sí el anterior causa problemas.
+>
+>Sí usas renderizado mediante servidor, ten en cuenta que *ninguno* `useLayoutEffect` o `useEffect` pueden correr hasta que Javascript sea descargado. Esto es por lo que React advierte cuando un componente renderizado mediante servidor contiene `useLayoutEffect`. Para corregir esto, puedes o bien mover la lógica a `useEffect` (sí no es necesaria para el primer renderizado), o retrasar mostrar el componente hasta después de que el cliente haya renderizado (sí el HTML parece roto hasta que `useLayoutEffect` corre). 
+>
+>Para excluir un componente que necesita efectos de marco del HTML renderizado mediante servidor, renderizalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no parecera rota antes de la hidratación.
 
 ### `useDebugValue` {#usedebugvalue}
 
@@ -407,6 +457,7 @@ En algunos casos, formatear un valor para mostrar puede ser una operación costo
 Por esta razón, `useDebugValue` acepta una función de formato como un segundo parámetro opcional. Esta función solo se llama si se inspeccionan los Hooks. Recibe el valor de depuración como parámetro y debe devolver un valor de visualización formateado.
 
 Por ejemplo, un Hook personalizado que devolvió un valor de `Date` podría evitar llamar a la función `toDateString` innecesariamente al pasar el siguiente formateador:
+
 ```js
 useDebugValue(date, date => date.toDateString());
 ```

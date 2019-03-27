@@ -41,7 +41,7 @@ class NameForm extends React.Component {
 
 Ya que un componente es la fuente de la verdad en el DOM, a veces es más fácil integrar el código React y el código no React cuando usas componentes no controlados. También puede haber menos código si optas por una solución rápida y sin muchos miramientos. De lo contrario, deberías por lo general utilizar componentes controlados.
 
-Si aún no tienes claro qué tipo de componente debes usar para una situación en particular, puedes encontrar [este artículo sobre entradas controladas y no controladas](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) que puede ser útil.
+Si aún no tienes claro qué tipo de componente debes usar para una situación en particular, puedes encontrar [este artículo sobre entradas controladas y no controladas](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) que puede ser útil.
 
 ### Valores predeterminados {#default-values}
 
@@ -68,7 +68,7 @@ Del mismo modo, `<input type="checkbox">` e `<input type="radio">` admiten `defa
 
 ## La etiqueta de entrada de archivo {#the-file-input-tag}
 
-En HTML, un `<input type="file">` permite al usuario elegir uno o más archivos del almacenamiento en sus dispositivos para cargarlos a un servidor o manipularlos mediante JavaScript a través de la [API File](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
+En HTML, un `<input type="file">` permite al usuario elegir uno o más archivos del almacenamiento en sus dispositivos para cargarlos a un servidor o manipularlos mediante JavaScript a través de la [API de archivos](https://developer.mozilla.org/es/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />

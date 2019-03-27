@@ -100,7 +100,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // Porque `this.handleClick` está vinculada, podemos utilizarla como un *event handler*
+    // Porque `this.handleClick` está vinculada, podemos utilizarla como un manejador de evento
     return (
       <button onClick={this.handleClick}>
         Say hello
@@ -132,7 +132,7 @@ var SayHello = createReactClass({
 });
 ```
 
-Esto significa que las clases de ES6 traen consigo la necesidad de escribir un poco más de código repetitivo para utilizar *event handlers*, pero la ventaja radica en una ligera mejora del rendimiento en aplicaciones grandes.
+Esto significa que las clases de ES6 traen consigo la necesidad de escribir un poco más de código repetitivo para utilizar *manejadores de eventos*, pero la ventaja radica en una ligera mejora del rendimiento en aplicaciones grandes.
 
 Si el código repetitivo no es atractivo para ti, puedes activar la propuesta de sintaxis **experimental** [Propiedades de Clases](https://babeljs.io/docs/plugins/transform-class-properties/) con Babel:
 
