@@ -132,7 +132,7 @@ permalink: community/meetups.html
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
 * [Nueva York, NY - React Native](https://www.meetup.com/React-Native-NYC/)
 * [Palo Alto, CA - React Native](https://www.meetup.com/React-Native-Silicon-Valley/)
-* [Philadelphia, PA - ReactJS](https://www.meetup.com/RQ-React/)
+* [Filadelfia, PA - ReactJS](https://www.meetup.com/RQ-React/)
 * [Phoenix, AZ - ReactJS](https://www.meetup.com/ReactJS-Phoenix/)
 * [Pittsburgh, PA - ReactJS/React Native](https://www.meetup.com/ReactPgh/)
 * [Portland, OR - ReactJS](https://www.meetup.com/Portland-ReactJS/)
