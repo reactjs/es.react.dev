@@ -88,6 +88,7 @@ permalink: community/meetups.html
 
 ## Pakistán {#pakistan}
 * [Karachi](https://www.facebook.com/groups/902678696597634/)
+* [Lahore](https://www.facebook.com/groups/ReactjsLahore/)
 
 ## Perú {#peru}
 * [Lima](https://www.meetup.com/ReactJS-Peru/)
@@ -130,8 +131,8 @@ permalink: community/meetups.html
 * [Nueva York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
 * [Nueva York, NY - React Native](https://www.meetup.com/React-Native-NYC/)
-* [Nueva York, NY - ReactNYC](https://www.meetup.com/ReactNYC/)
 * [Palo Alto, CA - React Native](https://www.meetup.com/React-Native-Silicon-Valley/)
+* [Filadelfia, PA - ReactJS](https://www.meetup.com/RQ-React/)
 * [Phoenix, AZ - ReactJS](https://www.meetup.com/ReactJS-Phoenix/)
 * [Pittsburgh, PA - ReactJS/React Native](https://www.meetup.com/ReactPgh/)
 * [Portland, OR - ReactJS](https://www.meetup.com/Portland-ReactJS/)

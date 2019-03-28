@@ -430,6 +430,6 @@ x === z; // true
 
 En este caso, como una nueva referencia se retorna al mutar `x`, podemos usar una verificación de igualdad de referencia `(x === y)` para verificar que el nuevo valor almacenado en `y` sea diferente del valor original almacenado en `x`.
 
-Otras dos librerías que pueden ayudar a usar datos inmutables son [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) y [immutability-helper](https://github.com/kolodny/immutability-helper).
+Otras bibliotecas que pueden ayudar a usar datos inmutables son [Immer](https://github.com/mweststrate/immer), [immutability-helper](https://github.com/kolodny/immutability-helper) y [seamless-immutable](https://github.com/rtfeldman/seamless-immutable).
 
 Las estructuras de datos inmutables proporcionan una forma económica de rastrear los cambios en los objetos, que es todo lo que necesitamos para implementar `shouldComponentUpdate`. Esto a menudo puede proporcionarte un buen aumento de rendimiento.
