@@ -6,7 +6,7 @@ sectionid: community
 permalink: community/examples.html
 ---
 
-Hay muchos proyectos ejemplo creados por la comunidad React. Siéntete libre de añadir tu propio proyecto. Si agregas un proyecto, comprométete a mantenerlo actualizado con las últimas versiones de React.
+Hay muchos proyectos de ejemplo creados por la comunidad de React. Siéntete libre de añadir tu propio proyecto. Si agregas un proyecto, por favor, comprométete a mantenerlo actualizado con las últimas versiones de React.
 
 
 * **[Calculadora](https://github.com/ahfarmer/calculator)** Implementación de la calculadora iOS incorporada en React.
