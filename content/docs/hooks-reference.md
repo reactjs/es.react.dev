@@ -67,7 +67,7 @@ function Counter({initialCount}) {
 }
 ```
 
-Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se basa en el valor anterior. Pero el botón "Restablecer" usa la forma normal, porque siempre vuelve a establecer la cuenta en 0.
+Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se basa en el valor anterior. Pero el botón "Reset" usa la forma normal, porque siempre vuelve a establecer la cuenta al valor inicial.
 
 > Nota
 >
