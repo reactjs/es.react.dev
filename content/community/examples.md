@@ -10,7 +10,7 @@ Hay muchos proyectos de ejemplo creados por la comunidad de React. Siéntete lib
 
 
 * **[Calculadora](https://github.com/ahfarmer/calculator)** Implementación de la calculadora iOS incorporada en React.
-* **[Búsqueda de Emoji](https://github.com/ahfarmer/emoji-search)** Sencilla aplicación React para buscar emoji.
+* **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Sencilla aplicación en React para buscar emojis.
 * **[Aplicación Github Battle](https://github.com/ReactTraining/react-fundamentals/tree/hosting)** Pon a Luchar dos usuarios de Github y ve los proyectos más populares de Github para cualquier idioma.
 * **[Cliente HackerNews impulsado por React](https://github.com/insin/react-hn)** Una implementación de Hacker News basada en React & react-router que utiliza API Firebase.
 * **[Pokedex](https://github.com/alik0211/pokedex)** La lista de Pokémon con búsqueda en vivo.
