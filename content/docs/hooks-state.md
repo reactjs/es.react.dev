@@ -269,11 +269,11 @@ En el componente de arriba tenemos `age`, `fruit`, y `todos` como variables loca
 
 *No tienes que usar obligatoriamente* tantas variables de estado: las variables de estado pueden contener objetos y arrays para que puedas agrupar la información relacionada. Sin embargo, al contrario que en una clase, actualizar una variable de estado siempre *la reemplaza* en lugar de combinarla. 
 
- Damos más recomendaciones sobre como separar distintas variables de estado[en la FAQ](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
+ Damos más recomendaciones sobre como separar distintas variables de estado [en la FAQ](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
 
 ## Siguientes pasos {#next-steps}
 
-En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", Nos permite añadir un estado locas a los componentes funcionales de React
+En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", Nos permite añadir un estado local a los componentes funcionales de React
 
 También hemos aprendido un poco más sobre que son los Hooks. Son funciones que te permiten "conectarte" a las características de React desde componentes funcionales. Sus nombres siempre empieza con `use` y hay más Hooks que aún no hemos visto.
 
