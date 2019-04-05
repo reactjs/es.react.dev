@@ -273,7 +273,7 @@ En el componente de arriba tenemos `age`, `fruit`, y `todos` como variables loca
 
 ## Siguientes pasos {#next-steps}
 
-En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", Nos permite añadir un estado local a los componentes funcionales de React
+En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", nos permite añadir un estado local a los componentes funcionales de React
 
 También hemos aprendido un poco más sobre que son los Hooks. Son funciones que te permiten "conectarte" a las características de React desde componentes funcionales. Sus nombres siempre empieza con `use` y hay más Hooks que aún no hemos visto.
 
