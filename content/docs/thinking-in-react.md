@@ -117,7 +117,7 @@ Para cada parte del estado de tu aplicación:
   * Identifica que componentes muestran algo con base a este estado.
   * Busca un componente común a estos más arriba en la jerarquía.
   * Este componente o uno más arriba en la jerarquía debería poseer el estado.
-  * Si no puedes crear un nuevo componente que tenga sentido que posea el estado, crea un nuevo componente simplemente para posee el estado y agregégalo en la jerarquía sobre los componente que lo necesitan.
+  * Si no puedes crear un nuevo componente que tenga sentido que posea el estado, crea un nuevo componente simplemente para poseer el estado y agrégalo en la jerarquía sobre los componentes que lo necesitan.
 
 Usemos esta estrategia para nuestra aplicación:
 
