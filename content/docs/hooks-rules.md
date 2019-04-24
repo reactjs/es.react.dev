@@ -28,7 +28,7 @@ Siguiendo esta regla, te aseguras de que toda la lógica del estado de un compon
 Lanzamos un plugin de ESLint llamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que refuerza estas dos reglas. Puedes añadir este plugin a tu proyecto si quieres probarlo:
 
 ```bash
-npm install eslint-plugin-react-hooks
+npm install eslint-plugin-react-hooks --save-dev
 ```
 
 ```js
