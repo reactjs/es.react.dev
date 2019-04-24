@@ -198,11 +198,7 @@ Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithPr
 React.createFactory(type)
 ```
 
-<<<<<<< HEAD
 Retorna una función que produce elementos React de un tipo dado. Como [`React.createElement()`](#createElement), el tipo del argumento puede ser un string de nombre de etiqueta (como `'div'` o `'span'`), un tipo de [componente React](/docs/components-and-props.html) (una clase o una función) o un [fragmento React](#reactfragment).
-=======
-Return a function that produces React elements of a given type. Like [`React.createElement()`](#createelement), the type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
->>>>>>> 6bc6e7b1411d4befc3ecfbe45b898ca474116020
 
 Este auxiliar es considerado antiguo y en su lugar fomentamos el uso de JSX o de `React.createElement()`.
 
