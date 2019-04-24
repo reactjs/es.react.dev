@@ -149,7 +149,7 @@ return (
 
 Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la interfaz de usuario -- ya sea usando React o con otras bibliotecas.
 
-Puedes experimentar con JSX usando [este conversor en línea](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
+Puedes experimentar con JSX usando [este conversor en línea](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
 
 ### Prueba JSX de forma rápida {#quickly-try-jsx}
 
