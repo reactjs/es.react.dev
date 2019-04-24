@@ -53,11 +53,7 @@ npm start
 
 Create React App no se encarga de la lógica de `backend` o de bases de datos; tan solo crea un flujo de construcción para `frontend`, de manera que lo puedes usar con cualquier `backend`. Para ello internamente usa [Babel](https://babeljs.io/) y [webpack](https://webpack.js.org/), pero no necesitas saber nada de estas herramientas para usar Create React App.
 
-<<<<<<< HEAD
-Cuando estés listo para desplegar a producción, ejecuta `npm run build` lo cual crea una compilación optimizada de tu aplicación en el directorio `build`. Puedes aprender más acerca de **Create React App** [en su archivo README](https://github.com/facebookincubator/create-react-app#create-react-app-) y en la [Guía del Usuario](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
-=======
-When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app--) and the [User Guide](https://facebook.github.io/create-react-app/).
->>>>>>> 6bc6e7b1411d4befc3ecfbe45b898ca474116020
+Cuando estés listo para desplegar a producción, ejecuta `npm run build` lo cual crea una compilación optimizada de tu aplicación en el directorio `build`. Puedes aprender más acerca de **Create React App** [en su archivo README](https://github.com/facebookincubator/create-react-app#create-react-app--) y en la [Guía del Usuario](https://facebook.github.io/create-react-app/).
 
 ### Next.js {#nextjs}
 
@@ -73,11 +69,7 @@ Aprende Gatsby de [su guía oficial](https://www.gatsbyjs.org/docs/) y de [la ga
 
 ### Cadenas de herramientas más flexibles {#more-flexible-toolchains}
 
-<<<<<<< HEAD
 Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las recomendamos para los usuarios con más experiencia:
-=======
-The following toolchains offer more flexibility and choice. We recommend them to more experienced users:
->>>>>>> 6bc6e7b1411d4befc3ecfbe45b898ca474116020
 
 - **[Neutrino](https://neutrinojs.org/)** combina el poder de [webpack](https://webpack.js.org/) con la simplicidad de los *presets* (configuraciones preempaquetadas), e incluye *presets* para [aplicaciones React](https://neutrinojs.org/packages/react/) y [componentes React](https://neutrinojs.org/packages/react-components/).
 
