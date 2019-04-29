@@ -100,7 +100,11 @@ A veces las personas consiguen libros de terceros o recursos de video más útil
 
 ### Conceptos avanzados {#advanced-concepts}
 
+<<<<<<< HEAD
 Una vez que te sientas cómodo con los [conceptos principales](/docs/hello-world.html) y hayas jugado con React un poco, puede que estés interesado en temas más avanzados. Esta sección te presentará funcionalidades poderosas, pero menos conocidas de React como [contexto](/docs/context.html) o [referencias](/docs/refs-and-the-dom.html).
+=======
+Once you're comfortable with the [main concepts](/docs/hello-world.html) and played with React a little bit, you might be interested in more advanced topics. This section will introduce you to the powerful, but less commonly used React features like [context](/docs/context.html) and [refs](/docs/refs-and-the-dom.html).
+>>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
 
 ### Referencia de la API {#api-reference}
 

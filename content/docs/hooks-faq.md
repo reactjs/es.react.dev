@@ -209,7 +209,11 @@ Hay algunas heurísticas más, y podrían cambiar con el tiempo mientras ajustam
 
 * `componentDidCatch` y `getDerivedStateFromError`: Aún no hay Hooks equivalentes a estos métodos, pero serán añadidos pronto.
 
+<<<<<<< HEAD
 ### ¿Cómo puedo obtener datos con los Hooks? {#how-can-i-do-data-fetching-with-hooks}
+=======
+### How can I do data fetching with Hooks? {#how-can-i-do-data-fetching-with-hooks}
+>>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
 
 Aquí hay un [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) a modo introductorio. Para aprender más, consulta este [artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) acerca de la obtención de datos con los Hooks.
 
@@ -654,7 +658,11 @@ function ProductDetails({ fetchProduct })
 
 Nota que en el ejemplo de arriba **necesitamos** mantener la función en la lista de dependencias. Esto asegura que un cambio en la prop `productId` de `ProductPage` automáticamente desencadena una nueva obtención de datos en el componente `ProductDetails`.
 
+<<<<<<< HEAD
 ### ¿Qué puedo hacer si las dependencias de un efecto cambian con mucha frecuencia?
+=======
+### What can I do if my effect dependencies change too often? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
+>>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
 
 A veces, tu efecto puede estar usando un estado que cambia con demasiada frecuencia. Puedes estar tentado a omitir ese estado de una lista de dependencias, pero es usualmente conduce a errores:
 
