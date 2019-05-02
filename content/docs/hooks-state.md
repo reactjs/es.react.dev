@@ -100,7 +100,7 @@ function Example() {
 
 **¿Qué es un Hook?**  Un Hook es una función especial que permite "conectarse" a características de React. Por ejemplo, `useState` es un Hook que te permite añadir el estado de React a un componente funcional. Más adelante hablaremos sobre otros Hooks
 
-**¿Cuándo debería usar un Hook?** Si creas un componente funcional y descubres que necesitas añadirle estado, antes había que crear una clase. Ahora puedes un Hook dentro de un componente funcional existente.¡Vamos a hacerlo ahora mismo!
+**¿Cuándo debería usar un Hook?** Si creas un componente funcional y descubres que necesitas añadirle estado, antes había que crear una clase. Ahora puedes usar un Hook dentro de un componente funcional existente.¡Vamos a hacerlo ahora mismo!
 
 >Nota:
 >
