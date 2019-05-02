@@ -23,28 +23,19 @@
   translated_name: বাংলা
   code: bn
   status: 0
-<<<<<<< HEAD
-- name: Alemán
-=======
-- name: Catalan
+- name: Catalán
   translated_name: Català
   code: ca
   status: 0
-- name: German
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Alemán
   translated_name: Deutsch
   code: de
   status: 1
 - name: Griego
   translated_name: Ελληνικά
   code: el
-<<<<<<< HEAD
-  status: 0
-- name: Español
-=======
   status: 1
-- name: Spanish
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Español
   translated_name: Español
   code: es
   status: 2
@@ -112,15 +103,11 @@
   translated_name: മലയാളം
   code: ml
   status: 0
-<<<<<<< HEAD
-- name: Nepalí
-=======
-- name: Mongolian
+- name: Mongol
   translated_name: Монгол хэл
   code: mn
   status: 0
-- name: Nepali
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Nepalí
   translated_name: नेपाली
   code: ne
   status: 0
@@ -131,13 +118,8 @@
 - name: Polaco
   translated_name: Polski
   code: pl
-<<<<<<< HEAD
-  status: 1
-- name: Portugués de Brasil
-=======
   status: 2
-- name: Portuguese (Brazil)
->>>>>>> b8b3db7acbba117addeea8a7fb86957eb046d7ce
+- name: Portugués de Brasil
   translated_name: Português do Brasil
   code: pt-br
   status: 2
