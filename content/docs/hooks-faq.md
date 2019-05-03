@@ -654,7 +654,7 @@ function ProductDetails({ fetchProduct })
 
 Nota que en el ejemplo de arriba **necesitamos** mantener la función en la lista de dependencias. Esto asegura que un cambio en la prop `productId` de `ProductPage` automáticamente desencadena una nueva obtención de datos en el componente `ProductDetails`.
 
-### ¿Qué puedo hacer si las dependencias de un efecto cambian con mucha frecuencia?
+### ¿Qué puedo hacer si las dependencias de un efecto cambian con mucha frecuencia? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
 A veces, tu efecto puede estar usando un estado que cambia con demasiada frecuencia. Puedes estar tentado a omitir ese estado de una lista de dependencias, pero es usualmente conduce a errores:
 
