@@ -23,7 +23,15 @@
   translated_name: বাংলা
   code: bn
   status: 0
+<<<<<<< HEAD
 - name: Alemán
+=======
+- name: Catalan
+  translated_name: Català
+  code: ca
+  status: 0
+- name: German
+>>>>>>> b1691780aa3178d39694264863210d34ad5a5f81
   translated_name: Deutsch
   code: de
   status: 1
@@ -99,7 +107,15 @@
   translated_name: മലയാളം
   code: ml
   status: 0
+<<<<<<< HEAD
 - name: Nepalí
+=======
+- name: Mongolian
+  translated_name: Монгол хэл
+  code: mn
+  status: 0
+- name: Nepali
+>>>>>>> b1691780aa3178d39694264863210d34ad5a5f81
   translated_name: नेपाली
   code: ne
   status: 0
@@ -110,8 +126,13 @@
 - name: Polaco
   translated_name: Polski
   code: pl
+<<<<<<< HEAD
   status: 1
 - name: Portugués de Brasil
+=======
+  status: 2
+- name: Portuguese (Brazil)
+>>>>>>> b1691780aa3178d39694264863210d34ad5a5f81
   translated_name: Português do Brasil
   code: pt-br
   status: 2

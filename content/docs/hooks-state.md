@@ -8,7 +8,11 @@ prev: hooks-overview.html
 
 Los *Hooks* son una caracteristica futura que permite usar el estado y otras características de React sin tener que crear una clase. Están disponibles actualmente en React v16.8.0-alpha.1.
 
+<<<<<<< HEAD
 La [página anterior](/docs/hooks-intro.html) introdujo los Hooks con este ejemplo:
+=======
+The [introduction page](/docs/hooks-intro.html) used this example to get familiar with Hooks:
+>>>>>>> b1691780aa3178d39694264863210d34ad5a5f81
 
 ```js{4-5}
 import React, { useState } from 'react';
