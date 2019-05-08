@@ -1,46 +1,46 @@
 ---
-title: "You Probably Don't Need Derived State"
+title: "Probablemente no necesitas estado derivado"
 author: [bvaughn]
 ---
 
-React 16.4 included a [bugfix for getDerivedStateFromProps](/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops) which caused some existing bugs in React components to reproduce more consistently. If this release exposed a case where your application was using an anti-pattern and didn't work properly after the fix, we're sorry for the churn. In this post, we will explain some common anti-patterns with derived state and our preferred alternatives.
+React 16.4 incluyó una [solución para un error en getDerivedStateFromProps](/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops) que causó que algunos errores existentes en componentes de React se reprodujeran con mayor consistencia. Si esta versión expuso un caso en el que tu aplicación estaba usando un antipatrón y dejó de funcionar correctamente después de la solución, lo sentimos por la confusión creada. En este artículo, explicaremos algunos antipatrones comunes que involucran estado derivado y nuestras alternativas preferidas.
 
-For a long time, the lifecycle `componentWillReceiveProps` was the only way to update state in response to a change in props without an additional render. In version 16.3, [we introduced a replacement lifecycle, `getDerivedStateFromProps`](/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes) to solve the same use cases in a safer way. At the same time, we've realized that people have many misconceptions about how to use both methods, and we've found anti-patterns that result in subtle and confusing bugs. The `getDerivedStateFromProps` bugfix in 16.4 [makes derived state more predictable](https://github.com/facebook/react/issues/12898), so the results of misusing it are easier to notice.
+Por mucho tiempo, el método de ciclo de vida `componentWillReceiveProps` era la única forma de actualizar el estado en respuesta a un cambio en las props sin un renderizado adicional. En la versión 16.3, [introdujimos un reemplazo, `getDerivedStateFromProps`](/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes) para resolver los mismos casos de uso de forma más segura. Al mismo tiempo, nos hemos dado cuenta que se tienen muchas concepciones erróneas sobre cómo usar ambos métodos, y hemos encontrado antipatrones que terminan en errores sutiles y confusos. La solución del error en `getDerivedStateFromProps` en la versión 16.4 [hace que el estado derivado sea más predecible](https://github.com/facebook/react/issues/12898), de manera que los resultados de usarlo incorrectamente sean más fáciles de detectar.
 
-> Note
+> Nota
 >
-> All of the anti-patterns described in this post apply to both the older `componentWillReceiveProps` and the newer `getDerivedStateFromProps`.
+> Todos los antipatrones descritos en este artículo se pueden aplicar tanto al antiguo `componentWillReceiveProps` como al más nuevo `getDerivedStateFromProps`.
 
- This blog post will cover the following topics:
-* [When to use derived state](#when-to-use-derived-state)
-* [Common bugs when using derived state](#common-bugs-when-using-derived-state)
-  * [Anti-pattern: Unconditionally copying props to state](#anti-pattern-unconditionally-copying-props-to-state)
-  * [Anti-pattern: Erasing state when props change](#anti-pattern-erasing-state-when-props-change)
-* [Preferred solutions](#preferred-solutions)
-* [What about memoization?](#what-about-memoization)
+ Este artículo cubrirá los siguientes temas:
+* [¿Cuándo usar estado derivado?](#when-to-use-derived-state)
+* [Errores comunes al usar estado derivado](#common-bugs-when-using-derived-state)
+  * [Antipatrón: Copiar incondicionalmente las props al estado](#anti-pattern-unconditionally-copying-props-to-state)
+  * [Antipatrón: Borrar el estado cuando cambian las props](#anti-pattern-erasing-state-when-props-change)
+* [Soluciones preferidas](#preferred-solutions)
+* [¿Y qué pasa con la memoización?](#what-about-memoization)
 
-## When to Use Derived State {#when-to-use-derived-state}
+## ¿Cuándo usar estado derivado? {#when-to-use-derived-state}
 
-`getDerivedStateFromProps` exists for only one purpose. It enables a component to update its internal state as the result of **changes in props**. Our previous blog post provided some examples, like [recording the current scroll direction based on a changing offset prop](/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props) or [loading external data specified by a source prop](/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change).
+`getDerivedStateFromProps` existe solamente con un propósito. Permite a un componente actualizar su estado interno como resultado de **cambios en las props**. Nuestro artículo anterior en el blog proporcionaba algunos ejemplos, como [guardar la dirección actual del desplazamiento con base en una prop de los cambios de intervalos de desplazamiento](/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props) o [cargar datos externos especificados por una prop fuente](/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change).
 
-We did not provide many examples, because as a general rule, **derived state should be used sparingly**. All problems with derived state that we have seen can be ultimately reduced to either (1) unconditionally updating state from props or (2) updating state whenever props and state don't match. (We'll go over both in more detail below.)
+No proporcionamos muchos ejemplos, porque por regla general, **el estado derivado debe ser usado con moderación**. Todos los problemas con el estado derivado que hemos visto pueden reducirse en última instancia o bien (1) a actualizar incondicionalmente el estado a partir de las props o (2) a actualizar el estado cuando las props y el estado no coinciden. (Veremos ambos con mayor detalle más adelante).
 
-* If you're using derived state to memoize some computation based only on the current props, you don't need derived state. See [What about memoization?](#what-about-memoization) below.
-* If you're updating derived state unconditionally or updating it whenever props and state don't match, your component likely resets its state too frequently. Read on for more details.
+* Si estás usando estado derivado para memoizar algún cálculo basado solo en las props actuales, no necesitas estado derivado. Ve debajo [¿Y qué pasa con la memoización?](#what-about-memoization).
+* Si estás actualizando el estado derivado incondicionalmente o actualizándolo cuando las props y el estado no coinciden, es probable que tu componente reinicie su estado con demasiada frecuencia. Continúa leyendo para mayores detalles.
 
-## Common Bugs When Using Derived State {#common-bugs-when-using-derived-state}
+## Errores comunes cuando se usa estado derivado {#common-bugs-when-using-derived-state}
 
-The terms ["controlled"](/docs/forms.html#controlled-components) and ["uncontrolled"](/docs/uncontrolled-components.html) usually refer to form inputs, but they can also describe where any component's data lives. Data passed in as props can be thought of as **controlled** (because the parent component _controls_ that data). Data that exists only in internal state can be thought of as **uncontrolled** (because the parent can't directly change it).
+Los términos [«controlado»](/docs/forms.html#controlled-components) y [«no controlado»](/docs/uncontrolled-components.html) a menudo hacen referencia a las entradas de un formulario, pero también pueden describir donde residen los datos de un componente cualquiera. Los datos que se pasan como props se pueden ver como **controlados** (porque el componente padre _controla_ los datos). Los datos que existen solo en el estado interno se pueden ver como **no controlados** (porque el padre no puede cambiarlos directamente).
 
-The most common mistake with derived state is mixing these two; when a derived state value is also updated by `setState` calls, there isn't a single source of truth for the data. The [external data loading example](/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change) mentioned above may sound similar, but it's different in a few important ways. In the loading example, there is a clear source of truth for both the "source" prop and the "loading" state. When the source prop changes, the loading state should **always** be overridden. Conversely, the state is overridden only when the prop **changes** and is otherwise managed by the component.
+El error más común con el estado derivado es mezclar ambos. Cuando un valor del estado derivado también se actualiza por llamadas a `setState`, no existe una sola fuente de verdad para los datos. El [ejemplo de la carga de datos externos](/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change) que se mencionó arriba puede parecer similar, pero es diferente en varias aspectos importantes. En el ejemplo de la carga, hay una clara fuente de verdad tanto para la prop «fuente» y el estado «de carga». Cuando la prop fuente cambia, el estado de carga **siempre** debería sobrescribirse. A la inversa, el estado se sobrescribe solo cuando la prop **cambia** y de otra manera es manejada por el componente.
 
-Problems arise when any of these constraints are changed. This typically comes in two forms. Let's take a look at both.
+Los problemas surgen cuando cualquiera de estas restricciones cambian. Esto suele suceder de dos formas. Veamos ambas.
 
-### Anti-pattern: Unconditionally copying props to state {#anti-pattern-unconditionally-copying-props-to-state}
+### Antipatrón: Copiar incondicionalmente las props al estado {#anti-pattern-unconditionally-copying-props-to-state}
 
-A common misconception is that `getDerivedStateFromProps` and `componentWillReceiveProps` are only called when props "change". These lifecycles are called any time a parent component rerenders, regardless of whether the props are "different" from before. Because of this, it has always been unsafe to _unconditionally_ override state using either of these lifecycles. **Doing so will cause state updates to be lost.**
+Una concepción errónea que se encuentra a menudo es que `getDerivedStateFromProps` y `componentWillReceiveProps` se llaman solo cuando las props «cambian». Estos métodos de ciclo de vida se llaman cada vez que el componente padre se vuelve a renderizar, sin importar si las props son «diferentes» a las anteriores. Debido a esto, siempre ha sido inseguro sobrescribir _incondicionalmente_ el estado usando cualquiera de estos métodos de ciclo de vida. **Hacerlo causará que las actualizaciones al estado se pierdan.**
 
-Let’s consider an example to demonstrate the problem. Here is a `EmailInput` component that "mirrors" an email prop in state:
+Consideremos un ejemplo para demostrar el problema. Se tiene un componente `EmailInput` que «refleja» una prop email en el estado:
 ```js
 class EmailInput extends Component {
   state = { email: this.props.email };
@@ -54,22 +54,22 @@ class EmailInput extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    // This will erase any local state updates!
-    // Do not do this.
+    // ¡Esto borrará cualquier actualización del estado local!
+    // No lo hagas.
     this.setState({ email: nextProps.email });
   }
 }
 ```
 
-At first, this component might look okay. State is initialized to the value specified by props and updated when we type into the `<input>`. But if our component's parent rerenders, anything we've typed into the `<input>` will be lost! ([See this demo for an example.](https://codesandbox.io/s/m3w9zn1z8x)) This holds true even if we were to compare `nextProps.email !== this.state.email` before resetting.
+Al principio, este componente puede que sea vea bien. El estado se inicializa con el valor especificado por las props y se actualiza cuando escribimos en el `<input>`. Pero si nuestro componente padre se rerenderiza, ¡cualquier cosa que hayamos escrito en el `<input>` se perderá! ([Encuentra un ejemplo en esta demo](https://codesandbox.io/s/m3w9zn1z8x)). Esto es cierto incluso si fuéramos a comparar `nextProps.email !== this.state.email` antes de reiniciar.
 
-In this simple example, adding `shouldComponentUpdate` to rerender only when the email prop has changed could fix this. However in practice, components usually accept multiple props; another prop changing would still cause a rerender and improper reset. Function and object props are also often created inline, making it hard to implement a `shouldComponentUpdate` that reliably returns true only when a material change has happened. [Here is a demo that shows that happening.](https://codesandbox.io/s/jl0w6r9w59) As a result, `shouldComponentUpdate` is best used as a performance optimization, not to ensure correctness of derived state.
+En este ejemplo sencillo, para solucionar esto se puede añadir `shouldComponenteUpdate` para rerenderizar solo cuando la prop email ha cambiado. Sin embargo, en la práctica, los componentes usualmente aceptan múltiples props, otra prop que cambie aún podría causar un rerenderizado y un reinicio inadecuado. Las props que son funciones u objetos a menudo se crean en línea, dificultando la implementación de `shouldComponentUpdate` que devuelva verdadero de forma confiable solo cuando un cambio material ha ocurrido. [Aquí hay una demo que muestra cómo ocurre.](https://codesandbox.io/s/jl0w6r9w59) Como resultado, `shouldComponentUpdate` es mejor usarlo como una optimización del rendimiento, no para asegurar la corrección del estado derivado.
 
-Hopefully it's clear by now why **it is a bad idea to unconditionally copy props to state**. Before reviewing possible solutions, let's look at a related problematic pattern: what if we were to only update the state when the email prop changes?
+Esperamos que quede claro en este punto por qué **es una mala idea copiar incondicionalmente las props al estado**. Antes de analizar posibles soluciones, miremos otro patrón problemático que guarda relación con este: ¿Y si fuéramos a actualizar el estado solamente cuando la prop email cambia?
 
-### Anti-pattern: Erasing state when props change {#anti-pattern-erasing-state-when-props-change}
+### Antipatrón: Borrar el estado cuando las props cambian {#anti-pattern-erasing-state-when-props-change}
 
-Continuing the example above, we could avoid accidentally erasing state by only updating it when `props.email` changes:
+Continuando con el ejemplo de arriba, podríamos evitar accidentalmente borrar el estado si solo actualizamos cuando `props.email` cambia:
 
 ```js
 class EmailInput extends Component {
@@ -78,7 +78,7 @@ class EmailInput extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    // Any time props.email changes, update state.
+    // Cada vez que props.email cambia, actualiza el estado.
     if (nextProps.email !== this.props.email) {
       this.setState({
         email: nextProps.email
@@ -90,32 +90,32 @@ class EmailInput extends Component {
 }
 ```
 
-> Note
+> Nota
 >
-> Even though the example above shows `componentWillReceiveProps`, the same anti-pattern applies to `getDerivedStateFromProps`.
+> Aún cuando el ejemplo de arriba muestra `componentWillReceiveProps`, el mismo antipatrón se aplica a  `getDerivedStateFromProps`.
 
-We've just made a big improvement. Now our component will erase what we've typed only when the props actually change.
+Acabamos de hacer una gran mejora. Ahora nuestro componente borrará lo que hemos escrito solo cuando las props cambian en realidad.
 
-There is still a subtle problem. Imagine a password manager app using the above input component. When navigating between details for two accounts with the same email, the input would fail to reset. This is because the prop value passed to the component would be the same for both accounts! This would be a surprise to the user, as an unsaved change to one account would appear to affect other accounts that happened to share the same email. ([See demo here.](https://codesandbox.io/s/mz2lnkjkrx))
+Aún hay un problema sutil. Imagina una aplicación de gestión de contraseñas que use el componente de entrada de arriba. Cuando se navega entre los detalles para dos cuentas con el mismo correo, la entrada fallará en reiniciarse. ¡Esto ocurre porque el valor de la prop que se pasa al componente sería el mismo para ambas cuentas! Esto sería una sorpresa para el usuario, dado que un cambio sin guardar en una cuenta parecería afectar otras cuentas que comparten el mismo correo. ([Mira la demo aquí](https://codesandbox.io/s/mz2lnkjkrx)).
 
-This design is fundamentally flawed, but it's also an easy mistake to make. ([I've made it myself!](https://twitter.com/brian_d_vaughn/status/959600888242307072)) Fortunately there are two alternatives that work better. The key to both is that **for any piece of data, you need to pick a single component that owns it as the source of truth, and avoid duplicating it in other components.** Let's take a look at each of the alternatives.
+Este es un diseño fallido desde la base, pero es también un error fácil de cometer. ([¡A mí también me pasó!](https://twitter.com/brian_d_vaughn/status/959600888242307072)). Afortunadamente hay dos alternativas que funcionan mejor. La clave para ambas es que **para cualquier dato, necesitas elegir un solo componente que lo posea como la fuente de verdad y evita duplicarlo en otros componentes.** Veamos cada una de las alternativas.
 
-## Preferred Solutions {#preferred-solutions}
+## Soluciones preferidas {#preferred-solutions}
 
-### Recommendation: Fully controlled component {#recommendation-fully-controlled-component}
+### Recomendación: Componente completamente controlado {#recommendation-fully-controlled-component}
 
-One way to avoid the problems mentioned above is to remove state from our component entirely. If the email address only exists as a prop, then we don't have to worry about conflicts with state. We could even convert `EmailInput` to a lighter-weight function component:
+Una forma de evitar los problemas mencionados anteriormente consiste en eliminar completamente el estado de nuestro componente. Si la dirección de correo solo existe como una prop, entonces no tenemos que preocuparnos por los conflictos con el estado. Podríamos incluso convertir `EmailInput` a un componente de función más ligero:
 ```js
 function EmailInput(props) {
   return <input onChange={props.onChange} value={props.email} />;
 }
 ```
 
-This approach simplifies the implementation of our component, but if we still want to store a draft value, the parent form component will now need to do that manually. ([Click here to see a demo of this pattern.](https://codesandbox.io/s/7154w1l551))
+Este enforque simplifica la implementación de nuestro componente, pero si todavía quisiéramos almacenar un valor a modo de borrador, el componente padre del formulario necesitaría hacerlo ahora manualmente. ([Haz clic aquí para ver una demo de este patrón.](https://codesandbox.io/s/7154w1l551))
 
-### Recommendation: Fully uncontrolled component with a `key` {#recommendation-fully-uncontrolled-component-with-a-key}
+### Recomendación: Componente completamente no controlado con una `key` {#recommendation-fully-uncontrolled-component-with-a-key}
 
-Another alternative would be for our component to fully own the "draft" email state. In that case, our component could still accept a prop for the _initial_ value, but it would ignore subsequent changes to that prop:
+Otra alternativa sería que nuestro componente se encargara completamente del estado del «borrador» del correo. En este caso, nuestro componente seguiría aceptando una prop para el valor _inicial_, pero ignoraría los cambios sucesivos a esa prop:
 
 ```js
 class EmailInput extends Component {
@@ -131,7 +131,7 @@ class EmailInput extends Component {
 }
 ```
 
-In order to reset the value when moving to a different item (as in our password manager scenario), we can use the special React attribute called `key`. When a `key` changes, React will [_create_ a new component instance rather than _update_ the current one](/docs/reconciliation.html#keys). Keys are usually used for dynamic lists but are also useful here. In our case, we could use the user ID to recreate the email input any time a new user is selected:
+Para poder reiniciar el valor cuando nos movemos a un elemento diferente (como en el ejemplo del gestor de contraseñas), podemos utilizar el atributo especial de React llamado `key`. Cuando un atributo `key` cambia, React [_creará_ una nueva instancia del componente en lugar de _actualizar_ el actual](/docs/reconciliation.html#keys). El atributo `key` se utiliza a menudo para listas dinámicas, pero también es útil aquí. En nuestro caso, podríamos utilizar el ID de usuario para recrear el campo email cada vez que se seleccione un nuevo usuario:
 
 ```js
 <EmailInput
@@ -140,17 +140,17 @@ In order to reset the value when moving to a different item (as in our password 
 />
 ```
 
-Each time the ID changes, the `EmailInput` will be recreated and its state will be reset to the latest `defaultEmail` value. ([Click here to see a demo of this pattern.](https://codesandbox.io/s/6v1znlxyxn)) With this approach, you don't have to add `key` to every input. It might make more sense to put a `key` on the whole form instead. Every time the key changes, all components within the form will be recreated with a freshly initialized state.
+Cada vez que el ID cambia, el componente `EmailInput` será recreado y su estado se reiniciará al último valor `defaultEmail`. ([Haz clic aquí para ver una demo de este patrón.](https://codesandbox.io/s/6v1znlxyxn)) Con este enfoque, no tienes que añadir `key` a cada campo. Tendría más sentido poner un atributo `key` en todo el formulario. Cada vez que el campo `key` cambia, todos los componentes dentro del formulario serán recreados con un estado nuevo.
 
-In most cases, this is the best way to handle state that needs to be reset.
+En la mayoría de los casos, este es la mejor forma de manejar estado que necesita reiniciarse.
 
-> Note
+> Nota
 >
-> While this may sound slow, the performance difference is usually insignificant. Using a key can even be faster if the components have heavy logic that runs on updates since diffing gets bypassed for that subtree.
+> Si bien esto puede parecer lento, la diferencia en el rendimiento usualmente es insignificante. Usar un atributo `key` incluso puede ser más rápido si los componentes tienen una lógica compleja que se ejecuta en las actualizaciones, dado que se evita ejecutar el algoritmo de *diferenciación* para ese subárbol.
 
-#### Alternative 1: Reset uncontrolled component with an ID prop {#alternative-1-reset-uncontrolled-component-with-an-id-prop}
+#### Alternativa 1: Reiniciar un componente controlado con una prop ID {#alternative-1-reset-uncontrolled-component-with-an-id-prop}
 
-If `key` doesn't work for some reason (perhaps the component is very expensive to initialize), a workable but cumbersome solution would be to watch for changes to "userID" in `getDerivedStateFromProps`:
+Si `key` no funciona por alguna razón (quizá la inicialización del componente es muy costosa), una solución que funciona, aunque engorrosa, consistiría en observar los cambios a «userID» en `getDerivedStateFromProps`:
 
 ```js
 class EmailInput extends Component {
@@ -160,9 +160,9 @@ class EmailInput extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    // Any time the current user changes,
-    // Reset any parts of state that are tied to that user.
-    // In this simple example, that's just the email.
+    // Cada vez que el usuario actual cambia,
+    // Reiniciar cualquier parte del estado que esté atada a ese usuario.
+    // En este ejemplo, es solo email.
     if (props.userID !== state.prevPropsUserID) {
       return {
         prevPropsUserID: props.userID,
@@ -176,15 +176,15 @@ class EmailInput extends Component {
 }
 ```
 
-This also provides the flexibility to only reset parts of our component's internal state if we so choose. ([Click here to see a demo of this pattern.](https://codesandbox.io/s/rjyvp7l3rq))
+Esto también proporciona la flexibilidad de solo reiniciar partes del estado interno de nuestro componente si elegimos que así sea. ([Haz clic aquí para ver una demo de este patrón.](https://codesandbox.io/s/rjyvp7l3rq))
 
-> Note
+> Nota
 >
-> Even though the example above shows `getDerivedStateFromProps`, the same technique can be used with `componentWillReceiveProps`.
+> Si bien el ejemplo de arriba muestra `getDerivedStateFromProps`, la misma técnica se puede usar con `componentWillReceiveProps`.
 
-#### Alternative 2: Reset uncontrolled component with an instance method {#alternative-2-reset-uncontrolled-component-with-an-instance-method}
+#### Alternativa 2: Reiniciar un componente no controlado con un método de instancia {#alternative-2-reset-uncontrolled-component-with-an-instance-method}
 
-More rarely, you may need to reset state even if there's no appropriate ID to use as `key`. One solution is to reset the key to a random value or autoincrementing number each time you want to reset. One other viable alternative is to expose an instance method to imperatively reset the internal state:
+En contadas ocasiones, puedes necesitar reiniciar el estado incluso si no hay un ID apropiado para usarse como `key`. Una solución consiste en reiniciar el atributo `key` con un valor aleatorio o un número que se autoincremente cada vez que se quiera reiniciar el estado. Otra alternativa viable consiste en exponer un método de instancia para reiniciar imperativamente el estado interno:
 
 ```js
 class EmailInput extends Component {
@@ -200,30 +200,30 @@ class EmailInput extends Component {
 }
 ```
 
-The parent form component could then [use a `ref` to call this method](/docs/glossary.html#refs). ([Click here to see a demo of this pattern.](https://codesandbox.io/s/l70krvpykl))
+El componente padre del formulario podría entonces [usar una `ref` para llamar este método](/docs/glossary.html#refs). ([Haz clic aquí para ver una demo de este patrón.](https://codesandbox.io/s/l70krvpykl))
 
-Refs can be useful in certain cases like this one, but generally we recommend you use them sparingly. Even in the demo, this imperative method is nonideal because two renders will occur instead of one.
+Las refs pueden ser útiles en algunos casos como este, pero generalmente te recomendamos usarlas con moderación. Incluso en la demo, este método imperativo no es ideal, porque ocurrirán dos renderizados en lugar de uno.
 
 -----
 
-### Recap {#recap}
+### Resumiendo {#recap}
 
-To recap, when designing a component, it is important to decide whether its data will be controlled or uncontrolled.
+Para resumir, cuando se diseña un componente, es importante decidir si sus datos serán controlados o no controlados.
 
-Instead of trying to **"mirror" a prop value in state**, make the component **controlled**, and consolidate the two diverging values in the state of some parent component. For example, rather than a child accepting a "committed" `props.value` and tracking a "draft" `state.value`, have the parent manage both `state.draftValue` and `state.committedValue` and control the child's value directly. This makes the data flow more explicit and predictable.
+En lugar de intentar **«reflejar» el valor de una prop en el estado**, haz que el componente sea **controlado**, y consolidar los dos valores divergentes en el estado de un componente padre. Por ejemplo, en lugar de que un hijo acepte un `props.valor` confirmado y monitoree un `state.valor` «temporal», que el padre maneje tanto `state.valorTemporal` y `state.valorConfirmado` y controle el valor del hijo directamente. Esto hace que el flujo de datos se más explícito y predecible.
 
-For **uncontrolled** components, if you're trying to reset state when a particular prop (usually an ID) changes, you have a few options:
-* **Recommendation: To reset _all internal state_, use the `key` attribute.**
-* Alternative 1: To reset _only certain state fields_, watch for changes in a special property (e.g. `props.userID`).
-* Alternative 2: You can also consider fall back to an imperative instance method using refs.
+Para componentes **no controlados**, si intentas reiniciar el estado cuando una prop en particular (usualmente un ID) cambia, tienes varias opciones:
+* **Recomendación: Reiniciar _todo el estado interno_, usar el atributo `key`.**
+* Alternativa 1: Reiniciar _solo algunos campos de estado_, monitorear cambios en una propiedad especial (p. ej. `props.userID`).
+* Alternativa 2: Puedes considerar también recurrir a un método de instancia imperativo usando refs.
 
-## What about memoization? {#what-about-memoization}
+## ¿Y qué pasa con la memoización? {#what-about-memoization}
 
-We've also seen derived state used to ensure an expensive value used in `render` is recomputed only when the inputs change. This technique is known as [memoization](https://en.wikipedia.org/wiki/Memoization).
+También hemos visto el uso de estado derivado para asegurar que un valor costoso que se usa en `render` sea recalculado solo cuando las entradas cambian. Esta técnica se conoce como [memoización](https://en.wikipedia.org/wiki/Memoization).
 
-Using derived state for memoization isn't necessarily bad, but it's usually not the best solution. There is inherent complexity in managing derived state, and this complexity increases with each additional property. For example, if we add a second derived field to our component state then our implementation would need to separately track changes to both.
+El uso de estado derivado para memoización no está necesariamente mal, pero a menudo no es la mejor solución. Existe una complejidad intrínseca en el manejo de estado derivado, y esta complejidad crece con cada propiedad adicional. Por ejemplo, si añadimos un segundo campo derivado al estado de nuestro componente, entonces nuestra implementación necesitaría monitorear independientemente los cambios de ambos.
 
-Let's look at an example of one component that takes one prop—a list of items—and renders the items that match a search query entered by the user. We could use derived state to store the filtered list:
+Veamos un ejemplo de un componente que toma una prop (una lista de elementos) y renderiza los elementos que cumplan una consulta de búsqueda introducida por el usuario. Podríamos usar estado derivado para almacenar la lista filtrada:
 
 ```js
 class Example extends Component {
@@ -232,13 +232,13 @@ class Example extends Component {
   };
 
   // *******************************************************
-  // NOTE: this example is NOT the recommended approach.
-  // See the examples below for our recommendations instead.
+  // NOTA: este ejemplo NO usa el enfoque recomendado.
+  // Consulta los ejemplos de abajo para ver nuestras recomendaciones.
   // *******************************************************
 
   static getDerivedStateFromProps(props, state) {
-    // Re-run the filter whenever the list array or filter text change.
-    // Note we need to store prevPropsList and prevFilterText to detect changes.
+    // Volver a ejcutar el filtrado cada vez que la lista o el texto del filtro cambian.
+    // Observa que necesitamos almacenar prevPropsList y prevFilterText para detectar cambios.
     if (
       props.list !== state.prevPropsList ||
       state.prevFilterText !== state.filterText
@@ -267,13 +267,13 @@ class Example extends Component {
 }
 ```
 
-This implementation avoids recalculating `filteredList` more often than necessary. But it is more complicated than it needs to be, because it has to separately track and detect changes in both props and state in order to properly update the filtered list. In this example, we could simplify things by using `PureComponent` and moving the filter operation into the render method: 
+Esta implementación evita recalcular `filteredList` con más frecuencia de la necesaria. Pero es demasiado complicada, porque tiene que monitorerar y detectar cambios independientemente tanto en las props como en el estado para poder actualizar adecuadamente la lista filtrada. En este ejemplo, podríamos lograr una simplificación si usáramos `PureComponent` y moviéramos la operación de filtrado al método render:
 
 ```js
-// PureComponents only rerender if at least one state or prop value changes.
-// Change is determined by doing a shallow comparison of state and prop keys.
+// Un PureComponent solo se rerenderiza si al menos un valor de estado o prop cambia.
+// Se determina si cambió haciendo una comparación superficial de los elementos del estado y las props.
 class Example extends PureComponent {
-  // State only needs to hold the current filter text value:
+  // El estado solo necesita almacenar el texto del filtro actual:
   state = {
     filterText: ""
   };
@@ -283,8 +283,8 @@ class Example extends PureComponent {
   };
 
   render() {
-    // The render method on this PureComponent is called only if
-    // props.list or state.filterText has changed.
+    // El método render en este PureComponent se llama solo si
+    // props.list o state.filterText han cambiado.
     const filteredList = this.props.list.filter(
       item => item.text.includes(this.state.filterText)
     )
@@ -299,16 +299,16 @@ class Example extends PureComponent {
 }
 ```
 
-The above approach is much cleaner and simpler than the derived state version. Occasionally, this won't be good enough—filtering may be slow for large lists, and `PureComponent` won't prevent rerenders if another prop were to change. To address both of these concerns, we could add a memoization helper to avoid unnecessarily re-filtering our list:
+El enfoque de arriba es mucho más claro y simple que la versión con estado derivado. En ocasiones, sin embargo, no será lo suficientemente bueno. El filtrado pueder ser lento para listas grandes, y `PureComponent` no prevendría que se rerenderizara si otra prop cambiara. Para manejar ambas preocupaciones, podríamos añadir una utilidad de memoización para evitar refiltrar innecesariamente nuestra lista:
 
 ```js
 import memoize from "memoize-one";
 
 class Example extends Component {
-  // State only needs to hold the current filter text value:
+  // El estado solo necesita almacenar el texto del filtro actual:
   state = { filterText: "" };
 
-  // Re-run the filter whenever the list array or filter text changes:
+  // Volver a ejecutar el filtrado cada vez que cambia la lista o el texto del filtro:
   filter = memoize(
     (list, filterText) => list.filter(item => item.text.includes(filterText))
   );
@@ -318,8 +318,8 @@ class Example extends Component {
   };
 
   render() {
-    // Calculate the latest filtered list. If these arguments haven't changed
-    // since the last render, `memoize-one` will reuse the last return value.
+    // Calcular la última lista filtrada. Si estos argumentos no han cambiado desde 
+    // el último renderizado, `memoize-one` reutilizará el último valor de retorno.
     const filteredList = this.filter(this.props.list, this.state.filterText);
 
     return (
@@ -332,16 +332,16 @@ class Example extends Component {
 }
 ```
 
-This is much simpler and performs just as well as the derived state version!
+¡Esto es mucho más simple y el rendimiento es tan bueno como el de la versión con estado derivado!
 
-When using memoization, remember a couple of constraints:
+Cuando utilizamos memoización, recuerda un par de restricciones:
 
-1. In most cases, you'll want to **attach the memoized function to a component instance**. This prevents multiple instances of a component from resetting each other's memoized keys.
-1. Typically you'll want to use a memoization helper with a **limited cache size** in order to prevent memory leaks over time. (In the example above, we used `memoize-one` because it only caches the most recent arguments and result.)
-1. None of the implementations shown in this section will work if `props.list` is recreated each time the parent component renders. But in most cases, this setup is appropriate.
+1. En la mayoría de los casos, querrás **adjuntar la función memoizada a una instancia de componente**. Esto previene que múltiples intancias de un componente se reinicien entre ellas las llaves memoizadas.
+1. Normalmente querrás usar una utilidad de memoización con un **tamaño limitado de caché** para prevenir fugas de memoria con el tiempo. (En el ejemplo de arriba usamos `memoized-one`, porque solo guarda en caché los argumentos y el resultado más recientes).
+1. Ninguna de las implementaciones mostradas en esta sección funcionarán si `props.list` se recrea cada vez que el componente padre se renderiza. Pero en la mayoría de los casos, esta configuración es apropiada.
 
-## In closing {#in-closing}
+## Conclusión {#in-closing}
 
-In real world applications, components often contain a mix of controlled and uncontrolled behaviors. This is okay! If each value has a clear source of truth, you can avoid the anti-patterns mentioned above.
+En aplicaciones del mundo real, los componentes a menudo contienen una mezcla de comportamientos controlados y no controlados. ¡Eso está bien! Si cada valor tiene una clara fuente de verdad, puedes evitar los antipatrones que se mencionaron anteriormente.
 
-It is also worth re-iterating that `getDerivedStateFromProps` (and derived state in general) is an advanced feature and should be used sparingly because of this complexity. If your use case falls outside of these patterns, please share it with us on [GitHub](https://github.com/reactjs/reactjs.org/issues/new) or [Twitter](https://twitter.com/reactjs)!
+También vale la pena reiterar que `getDerivedStateFromProps` (y en general el estado derivado) es una funcionalidad avanzada y debe usarse con moderación dada su complejidad. Si tu caso de uso se aparta de estos patrones, por favor, ¡compártelo con nosotros en [GitHub](https://github.com/reactjs/reactjs.org/issues/new) o [Twitter](https://twitter.com/reactjs)!
