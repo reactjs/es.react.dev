@@ -228,7 +228,7 @@ const App = () => (
 
 ## Exports con nombres {#named-exports}
 
-`React.lazy` actualmente solo admite *exports* tipo `default`. Si el módulo que desea importar utiliza *exports* con nombre, puede crear un módulo intermedio que lo vuelva a exportar como `default`. Esto garantiza que el *treeshaking* siga funcionando y que no importes componentes no utilizados.
+`React.lazy` actualmente solo admite *exports* tipo `default`. Si el módulo que desea importar utiliza *exports* con nombre, puede crear un módulo intermedio que lo vuelva a exportar como `default`. Esto garantiza que el *tree shaking* siga funcionando y que no importes componentes no utilizados.
 
 
 ```js
