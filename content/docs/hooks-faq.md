@@ -740,11 +740,7 @@ El Hook [`useMemo`](/docs/hooks-reference.html#usememo) te deja cachear cálculo
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-<<<<<<< HEAD
-Este código llama a `computeExpensiveValue(a, b)`. Pero si los valores `[a, b]` no han cambiado `useMemo` evita llamarle de nuevo y simplemente reusa el último valor que había retornado.
-=======
-This code calls `computeExpensiveValue(a, b)`. But if the dependencies `[a, b]` haven't changed since the last value, `useMemo` skips calling it a second time and simply reuses the last value it returned.
->>>>>>> b91049c05702b53445367e54a1652053b6081c1d
+Este código llama a `computeExpensiveValue(a, b)`. Pero si las dependencias `[a, b]` no han cambiado `useMemo` evita llamarle de nuevo y simplemente reusa el último valor que había retornado.
 
 Recuerda que la función que se pasa a `useMemo` corre durante el renderizado. No hagas nada allí que no harías durante el renderizado. Por ejemplo, los efectos secundarios deberían estar en `useEffect`, no en `useMemo`.
 
@@ -771,11 +767,7 @@ Ten en cuenta que este método no funcionará en un ciclo porque las llamadas a 
 
 ### ¿Cómo crear objetos costosos de manera diferida (lazy)? {#how-to-create-expensive-objects-lazily}
 
-<<<<<<< HEAD
-`useMemo` te permite [memorizar un cálculo costoso](#how-to-memoize-calculations) si las entradas son las mismas, sin embargo, solo funciona como un indicio, y no *garantiza* que el cálculo no se correrá de nuevo. Pero a veces necesitas estar seguro que un objeto sólo se cree una vez.
-=======
-`useMemo` lets you [memoize an expensive calculation](#how-to-memoize-calculations) if the dependencies are the same. However, it only serves as a hint, and doesn't *guarantee* the computation won't re-run. But sometimes you need to be sure an object is only created once.
->>>>>>> b91049c05702b53445367e54a1652053b6081c1d
+`useMemo` te permite [memorizar un cálculo costoso](#how-to-memoize-calculations) si las dependencias son las mismas, sin embargo, solo funciona como un indicio, y no *garantiza* que el cálculo no se correrá de nuevo. Pero a veces necesitas estar seguro que un objeto sólo se cree una vez.
 
 **El primer caso de uso común es cuando crear el estado inicial es costoso:**
 
