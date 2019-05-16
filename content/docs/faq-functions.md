@@ -83,7 +83,7 @@ class Foo extends Component {
 
 >**Nota:**
 >
->Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componente, lo cual podría implicar problemas de rendimiento (ver abajo)
+>Usar una función flecha en el renderizado crea una nueva función cada vez que se renderiza el componente, lo cual podría arruinar optimizaciones basadas en comparación estricta de identidad.
 
 ### ¿Está bien utilizar funciones flecha en los métodos de renderizado? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
