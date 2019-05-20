@@ -153,11 +153,7 @@ new webpack.DefinePlugin({
 new webpack.optimize.UglifyJsPlugin()
 ```
 
-<<<<<<< HEAD
-Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production-build/).
-=======
-You can learn more about this in [webpack documentation](https://webpack.js.org/guides/production/).
->>>>>>> 7b217c701075b1af7ddabd6a237ed847df98853c
+Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production/).
 
 Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, porque ocultaran las advertencias de React y hará las *builds* mucho más lentas.
 

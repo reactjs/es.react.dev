@@ -844,15 +844,9 @@ Tradicionalmente, las preocupaciones de desempeño alrededor de funciones inline
     }, [a, b]);
     ```
 
-<<<<<<< HEAD
-* El [Hook `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) hace más fácil controlar cuando se deberían actualizar hijos individualmente, reduciendo la necesidad de componentes puros.
+* El Hook [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) hace más fácil controlar cuando se deberían actualizar hijos individualmente, reduciendo la necesidad de componentes puros.
 
-* Finalmente el Hook `useReducer` reduce la necesidad de pasar callbacks profundamente, como se explica en la siguiente sección.
-=======
-* The [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) Hook makes it easier to control when individual children update, reducing the need for pure components.
-
-* Finally, the [`useReducer`](/docs/hooks-reference.html#usereducer) Hook reduces the need to pass callbacks deeply, as explained below.
->>>>>>> 7b217c701075b1af7ddabd6a237ed847df98853c
+* Finalmente el Hook [`useReducer`](/docs/hooks-reference.html#usereducer) reduce la necesidad de pasar callbacks profundamente, como se explica en la siguiente sección.
 
 ### ¿Cómo evitar pasar callbacks hacia abajo? {#how-to-avoid-passing-callbacks-down}
 
