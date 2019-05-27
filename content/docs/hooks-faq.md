@@ -656,7 +656,11 @@ Nota que en el ejemplo de arriba **necesitamos** mantener la función en la list
 
 ### ¿Qué puedo hacer si las dependencias de un efecto cambian con mucha frecuencia? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
+<<<<<<< HEAD
 A veces, tu efecto puede estar usando un estado que cambia con demasiada frecuencia. Puedes estar tentado a omitir ese estado de una lista de dependencias, pero es usualmente conduce a errores:
+=======
+Sometimes, your effect may be using state that changes too often. You might be tempted to omit that state from a list of dependencies, but that usually leads to bugs:
+>>>>>>> 23b242edc4c7eeee5798953ba205e36cc71016b8
 
 ```js{6,9}
 function Counter() {
