@@ -200,8 +200,7 @@ Entonces podemos enfocarlo en otro lugar de nuestro componente cuando sea necesa
  }
  ```
 
-A veces, un componente padre debe establecer el foco en un elemento dentro de un componente hijo. Podemos hacer esto [exponiendo las referencias del DOM a los componentes padre](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components)
-a través de una prop especial en el componente hijo que envía la referencia del padre al nodo DOM del hijo.
+A veces, un componente padre debe establecer el foco en un elemento dentro de un componente hijo. Podemos hacer esto [exponiendo las referencias del DOM a los componentes padre](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) a través de una prop especial en el componente hijo que envía la referencia del padre al nodo DOM del hijo.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -230,7 +229,6 @@ this.inputElement.current.focus();
 
 Cuando se utiliza un HOC para extender componentes, se recomienda [reenviar la referencia](/docs/forwarding-refs.html) al componente envuelto usando la función `forwardRef` de React. Si un HOC de un tercero no implementa el reenvío de ref, el patrón anterior se puede utilizar como una alternativa de todas formas.
 
-
 Un gran ejemplo de gestión de foco es el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este es un ejemplo relativamente raro de una ventana modal totalmente accesible. No solo establece el foco inicial en el botón de cancelación (lo que evita que el usuario de teclado active accidentalmente la acción exitosa) y atrapa el foco del teclado dentro del modal, sino que también restablece el foco hacia el elemento que inicialmente activó el modal.
 
 >Nota:
@@ -240,7 +238,7 @@ Un gran ejemplo de gestión de foco es el [react-aria-modal](https://github.com/
 
 ## Eventos de ratón y puntero {#mouse-and-pointer-events}
 
-Asegúrate que también se puede acceder a todas las funciones expuestas a través de un mouse o evento de puntero utilizando solo el teclado. Dependiendo solo del dispositivo puntero llevará a muchos casos donde Los usuarios de teclado no pueden usar tu aplicación.
+Asegúrate que también se puede acceder a todas las funciones expuestas a través de un evento de mouse o puntero utilizando solo el teclado. Dependiendo solo del dispositivo puntero llevará a muchos casos donde Los usuarios de teclado no pueden usar tu aplicación.
 
 Para ilustrar esto, veamos un ejemplo prolífico de accesibilidad rota causada por eventos de clic. Este es el patrón de clic externo, donde un usuario puede deshabilitar una ventana emergente abierta haciendo clic fuera del elemento.
 
@@ -297,7 +295,7 @@ constructor(props) {
 }
 ```
 
-Esto puede funcionar bien para los usuarios con dispositivos de puntero, como un ratón, pero si lo hace solo con el teclado la funcionalidad se rompe al pasar al elemento siguiente, ya que el objeto `window` nunca recibe el evento` click`. Esto puede llevar a una funcionalidad oculta que impide que los usuarios utilicen su aplicación
+Esto puede funcionar bien para los usuarios con dispositivos de puntero, como un ratón, pero si lo hace solo con el teclado la funcionalidad se rompe al pasar al elemento siguiente, ya que el objeto `window` nunca recibe el evento` click`. Esto puede llevar a una funcionalidad oculta que impide que los usuarios utilicen tu aplicación
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
@@ -423,10 +421,10 @@ Hay una serie de herramientas que podemos utilizar para ayudar en la creación d
 
 La comprobación más fácil y también una de las más importantes es, por mucho, comprobar si se puede acceder a todo el sitio web y usarlo solo con el teclado. Hágalo de la siguiente forma:
 
-1. Desconectando su ratón.
+1. Desconectando tu ratón.
 1. Usando `Tab` y `Shift + Tab` para navegar.
 1. Usando `Enter` para activar elementos.
-1. Cuando sea necesario, utilice las teclas de flecha del teclado para interactuar con algunos elementos, como menús y menús desplegables.
+1. Cuando sea necesario, utiliza las teclas de flecha del teclado para interactuar con algunos elementos, como menús y menús desplegables.
 
 ### Asistencia para el desarrollo {#development-assistance}
 
