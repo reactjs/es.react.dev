@@ -248,7 +248,7 @@ Esto se implementa normalmente adjuntando un evento `click` al objeto` window` q
 
 ```javascript{12-14,26-30}
 class OuterClickExample extends React.Component {
-constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = { isOpen: false };
