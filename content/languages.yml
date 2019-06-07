@@ -90,8 +90,13 @@
 - name: Coreano
   translated_name: 한국어
   code: ko
+<<<<<<< HEAD
   status: 1
 - name: Kurdo
+=======
+  status: 2
+- name: Kurdish
+>>>>>>> 2d9c2785dd9bd1d2876dd2c5b1e3bc233b115f3e
   translated_name: کوردی‎
   code: ku
   status: 0
