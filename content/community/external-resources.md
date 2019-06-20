@@ -12,7 +12,7 @@ Existen un gran número de recursos fantásticos reunidos por la comunidad de Re
 
 - [React-Redux Links](https://github.com/markerikson/react-redux-links) - La lista curada de Mark Erikson con tutoriales y recursos para React/Redux/ES6 y más.
 
-- [Awesome React](https://github.com/enaqx/awesome-react) - Una colección de cosas asombrosas relacionadas al ecosistema de React.
+- [Awesome React](https://github.com/enaqx/awesome-react) - Una colección de cosas asombrosas relacionadas con el ecosistema de React.
 
 - [Awesome React Components](https://github.com/brillout/awesome-react-components) - Una lista curada de componentes de React.
 
