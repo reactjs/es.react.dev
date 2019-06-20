@@ -1,6 +1,6 @@
 ---
 id: external-resources
-title: Recursos externos
+title: Recursos Externos
 layout: community
 sectionid: community
 permalink: community/external-resources.html
