@@ -8,7 +8,7 @@ permalink: community/external-resources.html
 
 Existen un gran número de recursos fantásticos reunidos por la comunidad de React.
 
-- [Reactiflux](https://www.reactiflux.com/) - Una comunidad de más de 20,000 desarrolladores que trabajan con React. Ellos mantienen una muy bien cuarada [sección de aprendizaje](https://www.reactiflux.com/learning/).
+- [Reactiflux](https://www.reactiflux.com/) - Una comunidad de más de 20 000 desarrolladores que trabajan con React. Mantienen una [sección de aprendizaje](https://www.reactiflux.com/learning/) con una selección muy bien cuidada.
 
 - [React-Redux Links](https://github.com/markerikson/react-redux-links) - La lista curada de Mark Erikson con tutoriales y recursos para React/Redux/ES6 y más.
 
