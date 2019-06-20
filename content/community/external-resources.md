@@ -6,7 +6,7 @@ sectionid: community
 permalink: community/external-resources.html
 ---
 
-Existen fantásticos y bien trabajados recursos que la comunidad de React a realizado.
+Existen un gran número de recursos fantásticos reunidos por la comunidad de React.
 
 - [Reactiflux](https://www.reactiflux.com/) - Una comunidad de más de 20,000 desarrolladores que trabajan con React. Ellos mantienen una muy bien cuarada [sección de aprendizaje](https://www.reactiflux.com/learning/).
 
