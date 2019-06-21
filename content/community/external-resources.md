@@ -1,19 +1,19 @@
 ---
 id: external-resources
-title: External Resources
+title: Recursos Externos
 layout: community
 sectionid: community
 permalink: community/external-resources.html
 ---
 
-There are many wonderful curated resources the React community has put together.
+Existe un gran número de recursos fantásticos reunidos por la comunidad de React.
 
-- [Reactiflux](https://www.reactiflux.com/) - A community of 20,000+ React developers. They keep a well curated [learning section](https://www.reactiflux.com/learning/).
+- [Reactiflux](https://www.reactiflux.com/) - Una comunidad de más de 20 000 desarrolladores que trabajan con React. Mantienen una [sección de aprendizaje](https://www.reactiflux.com/learning/) con una selección muy bien cuidada.
 
-- [React-Redux Links](https://github.com/markerikson/react-redux-links) - Mark Erikson's highly curated list of tutorials and resources for React/Redux/ES6 and more.
+- [React-Redux Links](https://github.com/markerikson/react-redux-links) - La lista curada de Mark Erikson con tutoriales y recursos para React/Redux/ES6 y más.
 
-- [Awesome React](https://github.com/enaqx/awesome-react) - A collection of awesome things regarding React ecosystem.
+- [Awesome React](https://github.com/enaqx/awesome-react) - Una colección de cosas asombrosas relacionadas con el ecosistema de React.
 
-- [Awesome React Components](https://github.com/brillout/awesome-react-components) - A curated list of React components.
+- [Awesome React Components](https://github.com/brillout/awesome-react-components) - Una lista curada de componentes de React.
 
-- [Awesome React Talks](https://github.com/tiaanduplessis/awesome-react-talks) - A curated list of React talks.
+- [Awesome React Talks](https://github.com/tiaanduplessis/awesome-react-talks) - Una lista curada de charlas de React.
