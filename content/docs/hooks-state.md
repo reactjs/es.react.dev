@@ -146,7 +146,7 @@ function Example() {
   const [count, setCount] = useState(0);
 ```
 
-Declaramos una variable de estado llamada `count` y le asignamos a `0`. React recordará su valor actual entre re-renderizados, y devolverá el valor más reciente a nuestra función. Si se quiere actualzar el valor de `count` actual, podemos llamar a `setCount`
+Declaramos una variable de estado llamada `count` y le asignamos a `0`. React recordará su valor actual entre re-renderizados, y devolverá el valor más reciente a nuestra función. Si se quiere actualizar el valor de `count` actual, podemos llamar a `setCount`
 
 >Nota:
 >
@@ -171,7 +171,7 @@ En una función podemos usar `count` directamente:
 
 ## Actualizando el estado {#updating-state}
 
-En unsa clase, necesitamos llamar a `this.setState()` para actualizar el estado `count`:
+En una clase, necesitamos llamar a `this.setState()` para actualizar el estado `count`:
 
 ```js{1}
   <button onClick={() => this.setState({ count: this.state.count + 1 })}>
@@ -275,6 +275,6 @@ En el componente de arriba tenemos `age`, `fruit`, y `todos` como variables loca
 
 En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", nos permite añadir un estado local a los componentes funcionales de React
 
-También hemos aprendido un poco más sobre que son los Hooks. Son funciones que te permiten "conectarte" a las características de React desde componentes funcionales. Sus nombres siempre empieza con `use` y hay más Hooks que aún no hemos visto.
+También hemos aprendido un poco más sobre que son los Hooks. Son funciones que te permiten "conectarte" a las características de React desde componentes funcionales. Sus nombres siempre empiezan con `use` y hay más Hooks que aún no hemos visto.
 
 **Ahora continua [aprendiendo el siguiente Hook: `useEffect`.](/docs/hooks-effect.html)** Te permite utilizar side effects en componentes y es similar a los métodos del ciclo de vida en las clases.
