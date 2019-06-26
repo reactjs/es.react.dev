@@ -610,7 +610,7 @@ function ProductPage({ productId }) {
 
 Esto también te permite manejar respuestas fuera de orden con una variable local dentro del efecto:
 
-```js{2,6,8}
+```js{2,6,10}
   useEffect(() => {
     let ignore = false;
     async function fetchProduct() {
@@ -618,6 +618,8 @@ Esto también te permite manejar respuestas fuera de orden con una variable loca
       const json = await response.json();
       if (!ignore) setProduct(json);
     }
+    
+    fetchProduct();
     return () => { ignore = true };
   }, [productId]);
 ```
