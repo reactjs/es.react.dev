@@ -37,7 +37,7 @@ Lo primero que vas a querer hacer es dibujar cajas alrededor de cada componente 
 
 ¿Pero cómo sabes qué debería ser su propio componente? Usa las mismas técnicas para decidir si deberías crear una función u objeto nuevo. Una técnica es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica), esto significa que un componente debe, idealmente, hacer solo una cosa. Si termina creciendo entonces debería ser dividido en componentes más pequeños.
 
-Dado a que normalmente estarás mostrando modelos de datos JSON de un API al usuario descubrirás que, si tu modelo fue construido correctamente, tu interfaz de usuario (y por lo tanto tu estructura de componentes) mapeará muy bien. Eso es porque la interfaz de usuario y el modelo de datos tienden a adherirse a la misma *arquitectura de información*, lo que significa que el trabajo de separar tu interfaz de usuario en componentes es normalmente trivial. Divide tus componentes para representar exactamente una parte de tu modelo de datos.
+Dado a que normalmente estarás mostrando modelos de datos JSON de una API al usuario descubrirás que, si tu modelo fue construido correctamente, tu interfaz de usuario (y por lo tanto tu estructura de componentes) mapeará muy bien. Eso es porque la interfaz de usuario y el modelo de datos tienden a adherirse a la misma *arquitectura de información*. Separa tu interfaz de usuario en componentes de forma tal que cada componente se corresponda con una parte de tu modelo de datos.
 
 ![Diagrama de componentes](../images/blog/thinking-in-react-components.png)
 
