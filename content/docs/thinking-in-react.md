@@ -80,7 +80,7 @@ Hay dos tipos de datos en React: props y estado. Es importante entender la difer
 
 ## Paso 3: Identificar la versión mínima (pero completa) del estado de tu interfaz de usuario  {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios en tu modelo de datos interno. React hace esto fácil gracias a su **estado**.
+Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios en tu modelo de datos interno. React lo logra gracias a su **estado**.
 
 Para armar tu aplicación de forma correcta necesitas primero pensar en la mínima cantidad de estado mutable que necesita la aplicación. Lo importante acá es que [*no te repitas*](https://es.wikipedia.org/wiki/No_te_repitas) (DRY: Don't Repeat Yourself). Necesitas descubrir la mínima representación del estado que tu aplicación va a necesitar y calcular el resto bajo demanda. Por ejemplo, si estás creando una lista de tareas pendientes, solo mantén un array de las tareas, no mantengas una variable a parte en el estado para contar cuantas hay. En vez de eso, cuando vayas a mostrar cuantas hay simplemente obtén el largo del array de tareas.
 
@@ -145,4 +145,4 @@ Aunque parece complejo, es en realidad una pocas línas de código. Y se vuelve 
 
 ## Eso es todo {#and-thats-it}
 
-Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es extremadamente fácil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
+Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
