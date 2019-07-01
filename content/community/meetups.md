@@ -69,6 +69,7 @@ permalink: community/meetups.html
 * [Bangalore](https://www.meetup.com/ReactJS-Bangalore/)
 * [Chennai](https://www.meetup.com/React-Chennai/)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
+* [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
 
 ## Irlanda {#ireland}
 * [Dublín](https://www.meetup.com/ReactJS-Dublin/)

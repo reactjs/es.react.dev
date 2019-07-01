@@ -39,7 +39,11 @@ Este enfoque nos gustó por varias razones:
 * Animaba la existencia de mantenedores activos por cada repositorio para asegurar la calidad.
 * Los contribuidores ya comprenden a Github como una plataforma y están motivados a contribuir directamente a la organización de React.
 
+<<<<<<< HEAD
 Iniciamos un periodo de pruebas inicial con tres idiomas: español, japonés y chino simplificado. Esto nos permitió trabajar en cualquier problema en nuestro proceso y asegurarnos de que las traducciones futuras estuvieran organizadas para el éxito. Quise darles libertad a los equipos de traducción para que escogieran las herramientas con las que se sintieran más cómodos. El único requerimiento es una [lista de tareas](https://github.com/reactjs/reactjs.org-translation/blob/master/PROGRESS.template.md) que recoge el orden de importancia para la traducción de las páginas.
+=======
+We started off with an initial trial period of three languages: Spanish, Japanese, and Simplified Chinese. This allowed us to work out any kinks in our process and make sure future translations are set up for success. I wanted to give the translation teams freedom to choose whatever tools they felt comfortable with. The only requirement is a [checklist](https://github.com/reactjs/reactjs.org-translation/blob/master/PROGRESS.template.md) that outlines the order of importance for translating pages. 
+>>>>>>> c024001caf50180a896c09467d06b2ad7b2fb8f4
 
 Después del periodo de prueba estábamos listos para aceptar más idiomas. Creé un [*script*](https://github.com/reactjs/reactjs.org-translation/blob/master/scripts/create.js) para automatizar la creación de un nuevo repositorio de idioma, y un sitio, [*Is React Translated Yet?*](https://isreacttranslatedyet.com), para seguir el progreso de las diferentes traducciones. ¡Iniciamos *10* nuevas traducciones solo en nuestro primer día!
 
