@@ -49,8 +49,13 @@ Facebook tiene un [programa de recompensas](https://www.facebook.com/whitehat/) 
 
 ### Cómo entrar en contacto {#how-to-get-in-touch}
 
+<<<<<<< HEAD
 * IRC: [#reactjs en freenode](https://webchat.freenode.net/?channels=reactjs)
 * Foro de discusión: [discuss.reactjs.org](https://discuss.reactjs.org/)
+=======
+* IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
+* [Discussion forums](https://reactjs.org/community/support.html#popular-discussion-forums)
+>>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 También hay [una comunidad activa de usuarios de React en la plataforma de chat Discord](https://www.reactiflux.com/) en caso de que necesites ayuda con React.
 

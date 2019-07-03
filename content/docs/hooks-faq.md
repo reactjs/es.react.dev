@@ -675,7 +675,13 @@ function Counter() {
 }
 ```
 
+<<<<<<< HEAD
 Especificar `[count]` como una lista de dependencia solucionaría el error, pero causaría que el intervalo se reiniciara con cada cambio. Esto puede no ser deseable. Para solucionarlo, podemos usar la [forma de actualización funcional de `setState`](/docs/hooks-reference.html#functional-updates). Nos permite especificar *cómo* el estado necesita cambiar sin referenciar el estado *actual*:
+=======
+The empty set of dependencies, `[]`, means that the effect will only run once when the component mounts, and not on every re-render. The problem is that inside the `setInterval` callback, the value of `count` does not change, because we've created a closure with the value of `count` set to `0` as it was when the effect callback ran. Every second, this callback then calls `setCount(0 + 1)`, so the count never goes above 1.
+
+Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
+>>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 ```js{6,9}
 function Counter() {
@@ -694,7 +700,13 @@ function Counter() {
 
 (La identidad de la función `setCount` se garantiza que sea estable, por lo que es seguro omitirla.)
 
+<<<<<<< HEAD
 En casos más complejos (como en el que un estado depende de otro estado), intenta mover la lógica de actualización del estado fuera del efecto con el Hook [`useReducer`](/docs/hooks-reference.html#usereducer). [Este artículo](https://adamrackis.dev/state-and-use-reducer/) ofrece un ejemplo de cómo puedes hacerlo. **La identidad de la función `dispatch` de `useReducer` es siempre estable**, incluso si la función reductora se declara dentro del componente y lee sus props.
+=======
+Now, the `setInterval` callback executes once a second, but each time the inner call to `setCount` can use an up-to-date value for `count` (called `c` in the callback here.)
+
+In more complex cases (such as if one state depends on another state), try moving the state update logic outside the effect with the [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [This article](https://adamrackis.dev/state-and-use-reducer/) offers an example of how you can do this. **The identity of the `dispatch` function from `useReducer` is always stable** — even if the reducer function is declared inside the component and reads its props.
+>>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 Como último recurso, si quieres algo como `this` en una clase, puedes [usar una ref](/docs/hooks-faq.html#is-there-something-like-instance-variables) para tener una variable mutable. Luego puedes escribirla y leerla. Por ejemplo:
 
