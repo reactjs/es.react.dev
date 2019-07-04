@@ -51,25 +51,15 @@ Recuerda que solo los archivos de React que terminan con `production.min.js` son
 
 ### Brunch {#brunch}
 
-<<<<<<< HEAD
-Para el compilado de producción de Brunch más eficiente, instala el plugin [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch):
+Para el compilado de producción de Brunch más eficiente, instala el plugin [`terser-brunch`](https://github.com/brunch/terser-brunch):
 
 ```
 # Si usas npm
-npm install --save-dev uglify-js-brunch
-
-# Si usas Yarn
-yarn add --dev uglify-js-brunch
-=======
-For the most efficient Brunch production build, install the [`terser-brunch`](https://github.com/brunch/terser-brunch) plugin:
-
-```
-# If you use npm
 npm install --save-dev terser-brunch
 
-# If you use Yarn
+# Si usas Yarn
+
 yarn add --dev terser-brunch
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 ```
 
 Entonces, para crear un compilado de producción, agrega la bandera `-p` al comando `build`:
@@ -85,32 +75,18 @@ Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no d
 Para el compilado de producción con Browserify más eficiente, instala estos plugins:
 
 ```
-<<<<<<< HEAD
 # Si usas npm
-npm install --save-dev envify uglify-js uglifyify 
+npm install --save-dev envify terser uglifyify
 
 # Si usas Yarn
-yarn add --dev envify uglify-js uglifyify 
-=======
-# If you use npm
-npm install --save-dev envify terser uglifyify 
-
-# If you use Yarn
-yarn add --dev envify terser uglifyify 
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+yarn add --dev envify terser uglifyify  
 ```
 
 Para crear un compilado de producción, asegúrate de agregar estas transformaciones **(El orden es importante)**:
 
-<<<<<<< HEAD
 * La transformación [`envify`](https://github.com/hughsk/envify) asegura que el ambiente del compilado sea correcto. Hazlo global (`-g`).
 * La transformación [`uglifyify`](https://github.com/hughsk/uglifyify) remueve los *import* de desarollo. Hazlo global también (`-g`).
-* Finalmente, el *bundle* resultante es pasado a [`uglify-js`](https://github.com/mishoo/UglifyJS2) para el proceso de *mangling* ([Lee por qué](https://github.com/hughsk/uglifyify#motivationusage)).
-=======
-* The [`envify`](https://github.com/hughsk/envify) transform ensures the right build environment is set. Make it global (`-g`).
-* The [`uglifyify`](https://github.com/hughsk/uglifyify) transform removes development imports. Make it global too (`-g`).
-* Finally, the resulting bundle is piped to [`terser`](https://github.com/terser-js/terser) for mangling ([read why](https://github.com/hughsk/uglifyify#motivationusage)).
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+* Finalmente, el *bundle* resultante es pasado a [`terser`](https://github.com/terser-js/terser) para el proceso de *mangling* ([Lee por qué](https://github.com/hughsk/uglifyify#motivationusage)).
 
 Por ejemplo:
 
@@ -121,49 +97,25 @@ browserify ./index.js \
   | terser --compress --mangle > ./bundle.js
 ```
 
-<<<<<<< HEAD
->**Nota:**
->
->El nombre del paquete es `uglify-js`, pero el binario que proporciona se llama `uglifyjs`.<br>
->Esto no es un error de tipografía.
-
-Recuerda que solo necesitas hacer esto para los compilados de producción. No deberías aplicar estos plugins en desarrollo por que ocultaran las advertencias de React, y harán los compilados mucho más lento.
-=======
-Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+Recuerda que solo necesitas hacer esto para los compilados de producción. No deberías aplicar estos plugins en desarrollo por que ocultaran advertencias útiles de React, y harán los compilados mucho más lentos.
 
 ### Rollup {#rollup}
 
 Para un compilado de producción más eficiente con Rollup, instala algunos plugins:
 
-<<<<<<< HEAD
 ```
 # Si usas npm
-npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
-
-# Si usas Yarn
-yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
-=======
-```bash
-# If you use npm
 npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 
-# If you use Yarn
+# Si usas Yarn
 yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 ```
 
 Para crear un compilado de producción, asegúrate de agregar estos plugins **(el orden es importante)**:
 
-<<<<<<< HEAD
 * El plugin [`replace`](https://github.com/rollup/rollup-plugin-replace) asegura que el ambiente correcto para el compilado de producción sea establecido.
 * El pluglin [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) proporciona soporte para CommonJS en Rollup.
-* El plugin [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) comprime y realiza *mangle* sobre el compilado final.
-=======
-* The [`replace`](https://github.com/rollup/rollup-plugin-replace) plugin ensures the right build environment is set.
-* The [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plugin provides support for CommonJS in Rollup.
-* The [`terser`](https://github.com/TrySound/rollup-plugin-terser) plugin compresses and mangles the final bundle.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+* El plugin [`terser`](https://github.com/TrySound/rollup-plugin-terser) comprime y realiza *mangle* sobre el compilado final.
 
 ```js
 plugins: [
@@ -179,11 +131,7 @@ plugins: [
 
 Para un ejemplo de configuración completa [mira este gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
-<<<<<<< HEAD
-Recuerda que solo necesitas esto para los compilados de producción. No deberías aplicar el plugin `uglify` o el plugin `replace` con el valor `'production'` en desarrollo, por que esto ocultará las advertencias de React y hará los compilados mucho más lentos.
-=======
-Remember that you only need to do this for production builds. You shouldn't apply the `terser` plugin or the `replace` plugin with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+Recuerda que solo necesitas esto para los compilados de producción. No deberías aplicar el plugin `terser` o el plugin `replace` con el valor `'production'` en desarrollo, por que esto ocultará las advertencias de React y hará los compilados mucho más lentos.
 
 ### webpack {#webpack}
 
@@ -192,11 +140,7 @@ Remember that you only need to do this for production builds. You shouldn't appl
 >Si estás usando Create React App, por favor sigue [las instrucciones arriba](#create-react-app).<br>
 >Esta sección solo es relevante si configuras webpack directamente.
 
-<<<<<<< HEAD
-Para el compilado de producción más eficiente en webpack, asegúrate de incluir estos plugins en tu configuración de producción:
-=======
-Webpack v4+ will minify your code by default in production mode.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+Webpack v4+ va a minificar tu código por defecto en el modo producción.
 
 ```js
 const TerserPlugin = require('terser-webpack-plugin');
@@ -211,11 +155,7 @@ module.exports = {
 
 Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production/).
 
-<<<<<<< HEAD
-Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `UglifyJsPlugin` o `DefinePlugin` con valor `'production'` en desarrollo, porque ocultaran las advertencias de React y hará las *builds* mucho más lentas.
-=======
-Remember that you only need to do this for production builds. You shouldn't apply `TerserPlugin` in development because it will hide useful React warnings, and make the builds much slower.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberías aplicar `TerserPlugin` en desarrollo, porque ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
 ## Perfilando Componentes con la pestaña de Performance de Chrome{#profiling-components-with-the-chrome-performance-tab}
 

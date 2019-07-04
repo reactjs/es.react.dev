@@ -17,11 +17,7 @@ render() {
 }
 ```
 
-<<<<<<< HEAD
-También hay una nueva [sintaxis corta](#short-syntax) para declararlos, pero aún no es soportada por todas las herramientas populares.
-=======
-There is also a new [short syntax](#short-syntax) for declaring them.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+También hay una nueva [sintaxis corta](#short-syntax) para declararlos.
 
 ## Motivación {#motivation}
 
@@ -116,13 +112,7 @@ class Columns extends React.Component {
 
 Puedes utilizar `<></>` de la misma manera que usarías cualquier otro elemento, excepto que este no soporta llaves o atributos.
 
-<<<<<<< HEAD
-Considera que: **[muchas herramientas no lo soportan aún](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**, por lo que podrías escribir explícitamente `<React.Fragment>` hasta que las herramientas se pongan al día.
-
 ### Fragmentos incrustados {#keyed-fragments}
-=======
-### Keyed Fragments {#keyed-fragments}
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 Fragmentos declarados con la sintaxis explícita `<React.Fragment>` pueden tener llaves. Un caso de uso para esto es el mapeo de una colección a un arreglo de fragmentos -- por ejemplo, para crear una lista de descripción:
 
