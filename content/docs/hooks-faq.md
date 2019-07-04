@@ -675,7 +675,9 @@ function Counter() {
 }
 ```
 
-Especificar `[count]` como una lista de dependencia solucionaría el error, pero causaría que el intervalo se reiniciara con cada cambio. Esto puede no ser deseable. Para solucionarlo, podemos usar la [forma de actualización funcional de `setState`](/docs/hooks-reference.html#functional-updates). Nos permite especificar *cómo* el estado necesita cambiar sin referenciar el estado *actual*:
+El conjunto vacío de dependencias, `[]`, significa que el efecto solo se ejecutará cuando el componente se monte, y no en cada rerenderizado. El problema es que dentro del *callback* de `setInterval`, el valor de `count` no cambia, porque hemos creado una clausura con el valor de `count` en `0` como estaba cuando la función *callback* del efecto se ejecutó. Cada segundo, esta función llama a `setCount(0 + 1)`, por lo que el contador `count` nunca sube de 1.
+
+Especificar `[count]` como una lista de dependencias solucionaría el error, pero causaría que el intervalo se reiniciara con cada cambio. Efectivamente, cada `setInterval` tendría una oportunidad para ejecutarse antes de limpiarse (de forma similar a `setTimeout`). Esto puede no ser deseable. Para solucionarlo, podemos usar la [forma de actualización funcional de `setState`](/docs/hooks-reference.html#functional-updates). Nos permite especificar *cómo* el estado necesita cambiar sin referenciar el estado *actual*:
 
 ```js{6,9}
 function Counter() {
@@ -693,6 +695,8 @@ function Counter() {
 ```
 
 (La identidad de la función `setCount` se garantiza que sea estable, por lo que es seguro omitirla.)
+
+Ahora, el callback de `setInterval` se ejecuta una vez cada segundo, pero cada vez la llamada interna a `setCount` puede utilizar un valor actualizado para `count` (llamado `c` en este callback).
 
 En casos más complejos (como en el que un estado depende de otro estado), intenta mover la lógica de actualización del estado fuera del efecto con el Hook [`useReducer`](/docs/hooks-reference.html#usereducer). [Este artículo](https://adamrackis.dev/state-and-use-reducer/) ofrece un ejemplo de cómo puedes hacerlo. **La identidad de la función `dispatch` de `useReducer` es siempre estable**, incluso si la función reductora se declara dentro del componente y lee sus props.
 

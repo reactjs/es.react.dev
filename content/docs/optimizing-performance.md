@@ -58,6 +58,7 @@ Para el compilado de producción de Brunch más eficiente, instala el plugin [`t
 npm install --save-dev terser-brunch
 
 # Si usas Yarn
+
 yarn add --dev terser-brunch
 ```
 
@@ -96,7 +97,7 @@ browserify ./index.js \
   | terser --compress --mangle > ./bundle.js
 ```
 
-Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
+Recuerda que solo necesitas hacer esto para los compilados de producción. No deberías aplicar estos plugins en desarrollo por que ocultaran advertencias útiles de React, y harán los compilados mucho más lentos.
 
 ### Rollup {#rollup}
 
@@ -154,7 +155,7 @@ module.exports = {
 
 Puedes aprender más acerca de esto en la [documentación de webpack](https://webpack.js.org/guides/production/).
 
-Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberias aplicar `TerserPlugin` en desarrollo, porque ocultaran las advertencias de React y hará las *builds* mucho más lentas.
+Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberías aplicar `TerserPlugin` en desarrollo, porque ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
 ## Perfilando Componentes con la pestaña de Performance de Chrome{#profiling-components-with-the-chrome-performance-tab}
 
