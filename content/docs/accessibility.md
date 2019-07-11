@@ -466,7 +466,7 @@ La [Herramienta de evaluación de accesibilidad web](http://wave.webaim.org/exte
 En algunos navegadores podemos ver fácilmente la información de accesibilidad para cada elemento en el árbol de accesibilidad:
 
 - [Usando el inspector de accesibilidad en Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Activar el inspector de accesibilidad en Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
+- [Activar el inspector de accesibilidad en Chrome](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [Usando el inspector de accesibilidad en OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
 ### Lectores de pantalla {#screen-readers}

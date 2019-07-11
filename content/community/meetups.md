@@ -55,9 +55,10 @@ permalink: community/meetups.html
 * [Düsseldorf](https://www.meetup.com/de-DE/ReactJS-Meetup-Dusseldorf/)
 * [Hamburgo](https://www.meetup.com/Hamburg-React-js-Meetup/)
 * [Karlsruhe](https://www.meetup.com/react_ka/)
-* [Múnich](https://www.meetup.com/ReactJS-Meetup-Munich/)
-* [React Berlín](https://www.meetup.com/React-Berlin/)
-* [React.JS Girls Berlín](https://www.meetup.com/ReactJS-Girls-Berlin/)
+* [Kiel](https://www.meetup.com/Kiel-React-Native-Meetup/)
+* [Munich](https://www.meetup.com/ReactJS-Meetup-Munich/)
+* [React Berlin](https://www.meetup.com/React-Berlin/)
+* [React.JS Girls Berlin](https://www.meetup.com/ReactJS-Girls-Berlin/)
 
 ## Grecia {#greece}
 * [Thessaloniki](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
