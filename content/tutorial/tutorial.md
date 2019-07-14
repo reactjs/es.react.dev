@@ -553,7 +553,7 @@ La inmutabilidad hace que funcionalidades complejas sean mucho más fácil de im
 
 #### Detectar cambios {#detecting-changes}
 
-Detectar cambios en objetos mutables es difícil porque son modificados directmante. Esta detección requiere que los objetos mutables sean comparados a la copia previa del mismo y que el árbol entero del objeto sea recorrido.
+Detectar cambios en objetos mutables es difícil porque son modificados directamente. Esta detección requiere que los objetos mutables sean comparados a la copia previa del mismo y que el árbol entero del objeto sea recorrido.
 
 Detectar cambios en objetos inmutables es considerablemente más sencillo. Si el objeto inmutable que está siendo referenciado es diferente del anterior, significa que el objeto ha cambiado.
 
