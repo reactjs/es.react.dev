@@ -56,7 +56,7 @@ function ExampleWithManyStates() {
 }
 ```
 
-La sintaxis de [desestructuración de un array] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment) nos permite dar diferentes nombres a las variables de estado que declaramos llamando a `useState `. Estos nombres no forman parte de la API `useState`. En su lugar, React asume que si llamas a `useState` muchas veces, lo haces en el mismo orden durante cada renderizado. Volveremos a explicar por qué esto funciona y cuándo será útil más adelante.
+La sintaxis de [desestructuración de un array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment) nos permite dar diferentes nombres a las variables de estado que declaramos llamando a `useState `. Estos nombres no forman parte de la API `useState`. En su lugar, React asume que si llamas a `useState` muchas veces, lo haces en el mismo orden durante cada renderizado. Volveremos a explicar por qué esto funciona y cuándo será útil más adelante.
 
 #### Pero qué es un Hook? {#but-what-is-a-hook}
 
