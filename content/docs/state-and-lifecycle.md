@@ -244,7 +244,7 @@ El método `componentDidMount()` se ejecuta después que la salida del component
   }
 ```
 
-Nota como guardamos el ID del temporizador en `this`.
+Nota como guardamos el ID del temporizador en `this` (`this.timerID`).
 
 Si bien `this.props` es configurado por el mismo React y `this.state` tiene un significado especial, eres libre de añadir campos adicionales a la clase manualmente si necesitas almacenar algo que no participa en el flujo de datos (como el ID de un temporizador).
 
