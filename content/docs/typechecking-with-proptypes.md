@@ -57,7 +57,7 @@ MyComponent.propTypes = {
   // Un elemento de React
   optionalElement: PropTypes.element,
 
-  // Un elemento de tipo React (ej. MyComponent).
+  // Un tipo de elemento React (ej. MyComponent).
   optionalElementType: PropTypes.elementType,
 
   // Además puedes declarar que una prop es una instancia de una clase. Este usa
