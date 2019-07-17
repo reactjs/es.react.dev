@@ -79,7 +79,6 @@ export default function deprecated(propType, explanation) {
 }
 ```
 
-In order to fix the false positive, make sure you pass **all** arguments down to the wrapped PropType. This is easy to do with the ES6 `...rest` notation:
 Para corregir el falso positivo, asegurate de pasar **todos** los argumentos al PropType envuelto. Esto es fácil de hacer con la notación ES6 `...rest`:
 
 ```javascript
