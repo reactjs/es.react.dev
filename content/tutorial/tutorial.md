@@ -168,7 +168,7 @@ Si tienes curiosidad, `createElement()` está descrito en más detalle en la [re
 
 JSX viene con todo el poder de JavaScript. Puedes poner *cualquier* expresión de JavaScript en el interior de las llaves dentro de JSX. Cada elemento de React es un objeto de JavaScript que puedes almacenar en una variable o pasar alrededor de tu programa.
 
-El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componer y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirmos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir IUs complejas desde componentes simples.
+El componente anterior `ShoppingList` solo renderiza componentes pre-construidos del DOM como `<div />` y `<li />`. Pero, también puedes componer y renderizar componentes personalizados de React. Por ejemplo, ahora podemos referirnos al listado de compras completo escribiendo `<ShoppingList />`. Cada componente de React está encapsulado y puede operar independientemente; esto te permite construir IUs complejas desde componentes simples.
 
 ## Inspeccionando el código inicial {#inspecting-the-starter-code}
 
@@ -519,7 +519,7 @@ Luego de estos cambios, podemos nuevamente clickear en los cuadrados para rellen
 
 Debido a que el componente Square ahora no mantiene estado, los componentes Square reciben valores del  componente Board e informan al mismo cuando son clickeados. En términos de React, los componentes Square ahora son **componentes controlados**. El componente Board tiene control completo sobre ellos.
 
-Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicareomos porqué crear una copia del array `squares` en la siguiente sección.
+Notar cómo en `handleClick`, llamamos `.slice()` para crear una copia del array de `squares` para modificarlo en vez de modificar el array existente. Ahora explicaremos porqué crear una copia del array `squares` en la siguiente sección.
 
 ### ¿Por qué es importante la inmutabilidad? {#why-immutability-is-important}
 
@@ -956,7 +956,7 @@ Dado que el componente ahora está renderizando el estado del juego, podemos eli
   }
 ```
 
-Por último, necesitamos mover el método `handleClick` del componente Board al componente Game. También encesitamos modificar `handleClick` porque el estado del componente Game está estructurado diferente. En el método `handleClick` de Game, concatenamos la nueva entrada del historial en `history`.
+Por último, necesitamos mover el método `handleClick` del componente Board al componente Game. También necesitamos modificar `handleClick` porque el estado del componente Game está estructurado diferente. En el método `handleClick` de Game, concatenamos la nueva entrada del historial en `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -997,7 +997,7 @@ const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Usando el método `map`, podemos mapear nuestro historial de movimientos a elementos de React representando botones en la pantalla, y mostrando una lista de potones para "saldar" a movimientos anteriores.
+Usando el método `map`, podemos mapear nuestro historial de movimientos a elementos de React representando botones en la pantalla, y mostrando una lista de botones para "saltar" a movimientos anteriores.
 
 Vamos a `mapear` sobre el `historial` en el método `render` del componente Game:
 
@@ -1078,9 +1078,9 @@ Además de los contadores actualizados, un humano leyendo esto probablemente dir
 
 Cuando una lista es re-renderizada, React toma cada key del elemento de la lista y busca el elemento de la lista anterior que coincida el key. Si la lista actual tiene un key que no existía antes, React crea un componente. Si a la lista actual le falta un key que existía en la lista anterior, React destruye el componente previo. Si dos keys coinciden, el componente correspondiente es movido. Los keys le dicen a React acerca de la identidad de cada componente lo cual permite a React mantener su estado entre re-renderizados. Si el key de un componente cambia, el componente será destruido y re-creado con un nuevo estado.
 
-`key` es una propiedad especial y reservada en React (al igual que con `ref`, una característica más avanzada). Cuando un elementoes creado, React extrae la propiedad `key` y la almacena directamente en el elemento retornado. Aun cuando el `key` puede verse que pertenece a las `props`, `key` no puede ser referenciado usando `this.props.key`. React automáticamente usa `key` para decidir qué componentes actualizar. Un componente no puede averiguar sobre su `key`.
+`key` es una propiedad especial y reservada en React (al igual que con `ref`, una característica más avanzada). Cuando un elemento es creado, React extrae la propiedad `key` y la almacena directamente en el elemento retornado. Aun cuando el `key` puede verse que pertenece a las `props`, `key` no puede ser referenciado usando `this.props.key`. React automáticamente usa `key` para decidir qué componentes actualizar. Un componente no puede averiguar sobre su `key`.
 
-**Se recomienda fuertemente que uses keys apropiado cuando construyas listas dinámicas**. Si no tienes un key apropiado, quizás quieras considerar reestruturar tus datos para que puedas tenerla.
+**Se recomienda fuertemente que uses keys apropiado cuando construyas listas dinámicas**. Si no tienes un key apropiado, quizás quieras considerar reestructurar tus datos para que puedas tenerla.
 
 Si el key no está especificado, React presentará una advertencia y usará el índice del array como índice por defecto. Usando el índice del array como un key es problemático cuando intentas reordenar los elementos de una lista ó insertar/eliminar elementos de la lista. Pasar explícitamente `key={i}` silencia la advertencia pero tiene los mismos problemas que los índices del array y no es recomendado en la mayoría de los casos.
 
@@ -1194,7 +1194,7 @@ Si clickeamos en cualquier paso de la historia del juego, el tablero tic-tac-toe
 * Almacena el historial del juego como va progresando,
 * Permite a los jugadores revisar el historial del juego y ver versiones anteriores del tablero de juego.
 
-¡Buen trabajo! Esperamos que ahora te sientas que tienes un entendimiento descente sobre cómo funciona React.
+¡Buen trabajo! Esperamos que ahora te sientas que tienes un entendimiento decente sobre cómo funciona React.
 
 Revisa el resultado final aquí: **[Resultado final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
