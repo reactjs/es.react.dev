@@ -76,7 +76,7 @@ Dividimos JSX en varias líneas para facilitar la lectura. Aunque no es necesari
 
 Después de compilarse, las expresiones JSX se convierten en llamadas a funciones JavaScript regulares y se evalúan en objetos JavaScript.
 
-Esto significa que puedes usar JSX dentro de declaraciones if y bucles for, asignarlo a variables, aceptarlo como argumento, y retornarlo desde dentro de funciones:
+Esto significa que puedes usar JSX dentro de declaraciones `if` y bucles `for`, asignarlo a variables, aceptarlo como argumento, y retornarlo desde dentro de funciones:
 
 ```js{3,5}
 function getGreeting(user) {
