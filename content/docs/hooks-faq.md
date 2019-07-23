@@ -401,7 +401,7 @@ function Example() {
 
 Si hiciste clic primero en "Show alert" y luego incrementas el contador, la alerta mostrará la variable `count` **en el momento en que hiciste click el botón "Show alert". Esto previene errores causados por código que asume que los props y estado no cambian**.
 
-Si quieres intencionalmente leer el *último* estado de un callback asíncrono, podrías guardarla en [una ref](#is-there-something-like-instance-variables), mutarla y leer de ella.
+Si quieres intencionalmente leer el *último* estado de un callback asíncrono, podrías guardarla en [una ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mutarla y leer de ella.
 
 Finalmente, otra razón posible para que veas props o estado obsoletos es que hayas usado la optimización del "array de dependencias" pero no especificaste correctamente todas las dependencias. Por ejemplo, si un efecto especifica `[]` como segundo argumento pero lee `someProp` dentro, continuará "viendo" el valor inicial de `someProp`. La solución pasa por o bien eliminar el array de dependencias, o arreglarlo. Aquí se explica [como puedes lidiar con funciones](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), y aquí hay [otras estrategias comunes](#what-can-i-do-if-my-effect-dependencies-change-too-often) para ejecutar efectos con menos frecuencia sin dejar de especifica despendencias incorrectamente.
 
@@ -446,7 +446,7 @@ Usualmente, no deberías mutar el estado local en React. Sin embargo, como una s
   }
 ```
 
-Intenta evitar este patrón de ser posible ya que puede derivar en bugs y problemas de desempeño. 
+Intenta evitar este patrón de ser posible. 
 
 ### ¿Puedo crear una referencia (ref) a un Componente de función? {#can-i-make-a-ref-to-a-function-component}
 
@@ -509,6 +509,7 @@ function useClientRect() {
 ### ¿Qué significa [thing, setThing] = useState()? {#what-does-const-thing-setthing--usestate-mean}
 
 Si no estás familiarizado con esta sintaxis, mira la [explicación](/docs/hooks-state.html#tip-what-do-square-brackets-mean) en la documentación de los Hooks de estado.
+
 
 ## Optimizaciones de desempeño {#performance-optimizations}
 
@@ -699,7 +700,7 @@ Ahora, el callback de `setInterval` se ejecuta una vez cada segundo, pero cada v
 
 En casos más complejos (como en el que un estado depende de otro estado), intenta mover la lógica de actualización del estado fuera del efecto con el Hook [`useReducer`](/docs/hooks-reference.html#usereducer). [Este artículo](https://adamrackis.dev/state-and-use-reducer/) ofrece un ejemplo de cómo puedes hacerlo. **La identidad de la función `dispatch` de `useReducer` es siempre estable**, incluso si la función reductora se declara dentro del componente y lee sus props.
 
-Como último recurso, si quieres algo como `this` en una clase, puedes [usar una ref](#is-there-something-like-instance-variables) para tener una variable mutable. Luego puedes escribirla y leerla. Por ejemplo:
+Como último recurso, si quieres algo como `this` en una clase, puedes [usar una ref](/docs/hooks-faq.html#is-there-something-like-instance-variables) para tener una variable mutable. Luego puedes escribirla y leerla. Por ejemplo:
 
 ```js{2-6,10-11,16}
 function Example(props) {
@@ -735,7 +736,7 @@ const Button = React.memo((props) => {
 
 No es un Hook porque no se compone como lo hacen los Hooks. `React.memo` es equivalente a `PureComponent`, pero solo compara las props. Puedes añadir un segundo argumento para especificar una función de comparación personalizada, que reciba las props viejas y las nuevas. Si retorna `true`, se obvia la actualización.
 
-`React.memo` no compara el estado porque no existe un único objeto de estado para comparar. Pero puedes hacer los hijos puros también, o incluso [optimizar hijos individualmente con `useMemo`](#how-to-memoize-calculations).
+`React.memo` no compara el estado porque no existe un único objeto de estado para comparar. Pero puedes hacer los hijos puros también, o incluso [optimizar hijos individualmente con `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
 
 ### ¿Cómo memorizar (memoize) los cálculos? {#how-to-memoize-calculations}
 
