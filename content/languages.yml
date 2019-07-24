@@ -10,8 +10,13 @@
 - name: Árabe
   translated_name: العربية
   code: ar
+<<<<<<< HEAD
   status: 0
 - name: Azerí
+=======
+  status: 1
+- name: Azerbaijani
+>>>>>>> d00058b1f922438cd9a6ac858cf4c0883c28eddc
   translated_name: Azərbaycanca
   code: az
   status: 0

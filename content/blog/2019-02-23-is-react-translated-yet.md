@@ -23,7 +23,11 @@ En el pasado, los miembros de la comunidad de React han creado traducciones no o
 
 Si te gustaría ayudar con una traducción en curso, revisa la página de [Idiomas](/languages) y haz clic en el enlace «Contribuir» correspondiente a tu idioma.
 
+<<<<<<< HEAD
 ¿No encuentras tu idioma? Si te gustaría mantener la bifurcación de tu idioma, ¡sigue las instrucciones en el [repositorio de traducción](https://github.com/reactjs/reactjs.org-translation#starting-a-new-translation)!
+=======
+Can't find your language? If you'd like to maintain your language's translation fork, follow the instructions in the [translation repo](https://github.com/reactjs/reactjs.org-translation#starting-a-new-translation)!
+>>>>>>> d00058b1f922438cd9a6ac858cf4c0883c28eddc
 
 ## Historia de fondo {#backstory}
 

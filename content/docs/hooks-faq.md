@@ -567,7 +567,11 @@ En dependencia de tu caso de uso, hay otras opciones descritas debajo:
 
 Veamos por qué esto importa.
 
+<<<<<<< HEAD
 Si especificas un [lista de dependencias](/docs/hooks-reference.html#conditionally-firing-an-effect) como el último argumento de `useEffect`, `useMemo`, `useCallback`, o `useImperativeHandle`, debe incluir todos los valores usados dentro que participan en el flujo de datos de React. Aquí se incluyen props, estado y todo lo que esté derivado de ellos.
+=======
+If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.
+>>>>>>> d00058b1f922438cd9a6ac858cf4c0883c28eddc
 
 *Únicamente* es seguro omitir una función de la lista de dependencias si nada dentro (o las funciones a las que se llama) referencia props, estado, o valores de ellos. Este ejemplo tiene un error:
 
@@ -618,7 +622,7 @@ Esto también te permite manejar respuestas fuera de orden con una variable loca
       const json = await response.json();
       if (!ignore) setProduct(json);
     }
-    
+
     fetchProduct();
     return () => { ignore = true };
   }, [productId]);
@@ -677,7 +681,11 @@ function Counter() {
 
 El conjunto vacío de dependencias, `[]`, significa que el efecto solo se ejecutará cuando el componente se monte, y no en cada rerenderizado. El problema es que dentro del *callback* de `setInterval`, el valor de `count` no cambia, porque hemos creado una clausura con el valor de `count` en `0` como estaba cuando la función *callback* del efecto se ejecutó. Cada segundo, esta función llama a `setCount(0 + 1)`, por lo que el contador `count` nunca sube de 1.
 
+<<<<<<< HEAD
 Especificar `[count]` como una lista de dependencias solucionaría el error, pero causaría que el intervalo se reiniciara con cada cambio. Efectivamente, cada `setInterval` tendría una oportunidad para ejecutarse antes de limpiarse (de forma similar a `setTimeout`). Esto puede no ser deseable. Para solucionarlo, podemos usar la [forma de actualización funcional de `setState`](/docs/hooks-reference.html#functional-updates). Nos permite especificar *cómo* el estado necesita cambiar sin referenciar el estado *actual*:
+=======
+Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimeout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
+>>>>>>> d00058b1f922438cd9a6ac858cf4c0883c28eddc
 
 ```js{6,9}
 function Counter() {
