@@ -76,7 +76,7 @@ Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
 ### Una pequeña pausa: Props vs. estado {#a-brief-interlude-props-vs-state}
 
-Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/interactivity-and-dynamic-uis.html) si no estás seguro de la diferencia entre ambos.
+Hay dos tipos de datos en React: props y estado. Es importante entender la diferencia entre estos dos; ojea la [documentación oficial de React](/docs/state-and-lifecycle.html) si no estás seguro de la diferencia entre ambos. Consulta también [¿Cuál es la diferencia entre state y props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
 ## Paso 3: Identificar la versión mínima (pero completa) del estado de tu interfaz de usuario  {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
