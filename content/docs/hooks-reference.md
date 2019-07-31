@@ -301,7 +301,7 @@ function Counter({initialCount}) {
 
 Si devuelves el mismo valor del estado actual desde un Hook reductor, React evitará el renderizado de los hijos y disparar efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Ten en cuenta que React podría aún necesitar renderizar ese componente específico nuevamente antes de evitar el renderizado. Esto no debería ser una preocupación ya que React no va "más adentro" del árbol de forma innecesaria. Si estás haciendo cálculos muy costosos mientras renderizas, puedes optimizarlos con `useMemo`.
 
 ### `useCallback` {#usecallback}
 
@@ -314,7 +314,7 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Retorna un callback [memorizado](https://en.wikipedia.org/wiki/Memoization).
+Devuelve un callback [memorizado](https://en.wikipedia.org/wiki/Memoization).
 
 Pasa un callback en línea y un arreglo de dependencias. `useCallback` devolverá una versión memorizada del callback que solo cambia si una de las dependencias ha cambiado. Esto es útil cuando se transfieren callbacks a componentes hijos optimizados que dependen de la igualdad de referencia para evitar renders innecesarias (por ejemplo, `shouldComponentUpdate`).
 
@@ -418,9 +418,9 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 >
 > Sí estas migrando código de un componente de clase, recuerda que `useLayoutEffect` se activa la misma fase que `componentDidMount` y `componentDidUpdate`. Sin embargo, **recomendamos empezar con `useEffect` primero** y solo intentar con `useLayoutEffect` sí el anterior causa problemas.
 >
->Sí usas renderizado mediante servidor, ten en cuenta que *ninguno* `useLayoutEffect` o `useEffect` pueden correr hasta que Javascript sea descargado. Esto es por lo que React advierte cuando un componente renderizado mediante servidor contiene `useLayoutEffect`. Para corregir esto, puedes o bien mover la lógica a `useEffect` (sí no es necesaria para el primer renderizado), o retrasar mostrar el componente hasta después de que el cliente haya renderizado (sí el HTML parece roto hasta que `useLayoutEffect` corre). 
+> Sí usas renderizado mediante servidor, ten en cuenta que *ninguno* `useLayoutEffect` o `useEffect` pueden correr hasta que Javascript sea descargado. Esto es por lo que React advierte cuando un componente renderizado mediante servidor contiene `useLayoutEffect`. Para corregir esto, puedes o bien mover la lógica a `useEffect` (sí no es necesaria para el primer renderizado), o retrasar mostrar el componente hasta después de que el cliente haya renderizado (sí el HTML parece roto hasta que `useLayoutEffect` corre). 
 >
->Para excluir un componente que necesita efectos de marco del HTML renderizado mediante servidor, renderizalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no parecera rota antes de la hidratación.
+> Para excluir un componente que necesita efectos de marco del HTML renderizado mediante servidor, renderizalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no parecera rota antes de la hidratación.
 
 ### `useDebugValue` {#usedebugvalue}
 
