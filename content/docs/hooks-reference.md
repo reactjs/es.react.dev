@@ -301,7 +301,7 @@ function Counter({initialCount}) {
 
 Si devuelves el mismo valor del estado actual desde un Hook reductor, React evitará el renderizado de los hijos y disparar efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
-Ten en cuenta que React podría aún necesitar renderizar ese componente específico nuevamente antes de rescatarlo. Esto no debería ser una preocupación ya que React no va "más adentro"del arbol de forma innecesaria. Si estás haciendo calculos muy costosos mientras renderizas, puedes optimizarlos con `useMemo`.
+Ten en cuenta que React podría aún necesitar renderizar ese componente específico nuevamente antes de evitar el renderizado. Esto no debería ser una preocupación ya que React no va "más adentro" del árbol de forma innecesaria. Si estás haciendo cálculos muy costosos mientras renderizas, puedes optimizarlos con `useMemo`.
 
 ### `useCallback` {#usecallback}
 
