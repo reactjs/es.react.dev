@@ -120,7 +120,7 @@ class Example extends React.Component {
   }
 ```
 
-En un componente funcional no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro compoente
+En un componente funcional no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro componente
 
 ```js{4,5}
 import React, { useState } from 'react';
