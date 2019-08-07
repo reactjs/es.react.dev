@@ -49,11 +49,7 @@ Verás que tenemos cinco componentes en nuestra aplicación de ejemplo. Hemos es
   4. **`ProductCategoryRow` (turquoise):** muestra el encabezado de cada *categoría*
   5. **`ProductRow` (red):** muestra una fila por cada *producto*
 
-<<<<<<< HEAD
-Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Name" y "Price") no son sus propios componentes. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
-=======
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
->>>>>>> 986381c56879983269c52863d9c205c7a7ba0174
+Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Name" y "Price") no es su propio componente. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sean su propio componente `ProductTableHeader`.
 
 Ahora que hemos identificado los componentes en nuestro mock, vamos a ordenarlos jerárquicamente. Esto es fácil. Los componentes que aparecen dentro de otro componente en nuestro mock deberían aparecer como hijos en la jerarquía.
 
