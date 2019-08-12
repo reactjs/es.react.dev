@@ -22,7 +22,12 @@ permalink: community/meetups.html
 ## Brasil {#brazil}
 * [Belo Horizonte](https://www.meetup.com/reactbh/)
 * [Curitiba](https://www.meetup.com/pt-br/ReactJS-CWB/)
+<<<<<<< HEAD
 * [Río de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
+=======
+* [Joinville](https://www.meetup.com/pt-BR/React-Joinville/)
+* [Rio de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
+>>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
 * [São Paulo](https://www.meetup.com/pt-BR/ReactJS-SP/)
 
 ## Bolivia {#bolivia}
@@ -107,8 +112,16 @@ permalink: community/meetups.html
 ## Escocia (UK) {#scotland-uk}
 * [Edimburgo](https://www.meetup.com/React-Scotland/)
 
+<<<<<<< HEAD
 ## España {#spain}
+=======
+## Singapore {#singapore}
+* [Singapore - React Knowledgeable](https://reactknowledgeable.org/)
+
+## Spain {#spain}
+>>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
+* [Canarias](https://www.meetup.com/React-Canarias/)
 
 ## Suecia {#sweden}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
@@ -128,8 +141,14 @@ permalink: community/meetups.html
 * [Kansas City, MO - ReactJS](https://www.meetup.com/Kansas-City-React-Meetup/)
 * [Las Vegas, NV - ReactJS](https://www.meetup.com/ReactVegas/)
 * [Leesburg, VA - ReactJS](https://www.meetup.com/React-NOVA/)
+<<<<<<< HEAD
 * [Los Ángeles, CA - ReactJS](https://www.meetup.com/socal-react/)
 * [Los Ángeles, CA - React Native](https://www.meetup.com/React-Native-Los-Angeles/)
+=======
+* [Los Angeles, CA - ReactJS](https://www.meetup.com/socal-react/)
+* [Los Angeles, CA - React Native](https://www.meetup.com/React-Native-Los-Angeles/)
+* [Miami, FL - ReactJS](https://www.meetup.com/React-Miami/)
+>>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
 * [Nashville, TN - ReactJS](https://www.meetup.com/NashReact-Meetup/)
 * [Nueva York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
