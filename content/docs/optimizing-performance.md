@@ -212,6 +212,7 @@ React construye y mantiene una representación interna de la interfaz de usuario
 
 Cuando una propiedad o estado de un componente cambia, React decide si es necesario actualizar el DOM comparando el elemento recién retornado con el previamente renderizado. Sino son iguales, React actualizará el DOM.
 
+<<<<<<< HEAD
 Ahora puedes visualizar estos re-renderizados del DOM virtual con React DevTools:
 
 - [Extensión de navegador para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
@@ -231,6 +232,9 @@ Considera este ejemplo:
 Nota que cuando entramos un segundo *todo*, primer *todo* también parpadea con cada entrada del teclado. Esto significa que esta siendo re-renderizado por React junto con la entrada de texto. Esto a veces se llama renderizado "desperdiciado". Sabemos que no es necesario porque el contenido de la primera entrada del *todo* no ha cambiado, pero React no lo sabe. 
 
 Aunque React solo actualiza los nodos DOM modificados, el re-renderizado aun lleva algo de tiempo. En muchos casos no es un problema, pero si la desaceleración es notable puedes acelerar el proceso anulando la función del ciclo de vida `shouldComponentUpdate`, el cual se ejecuta antes de que el proceso de re-renderizado comience. La implementación por defecto de esta función retorna `true`, permitiendo a React hacer la actualización.
+=======
+Even though React only updates the changed DOM nodes, re-rendering still takes some time. In many cases it's not a problem, but if the slowdown is noticeable, you can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -400,6 +404,7 @@ function updateColorMap(colormap) {
 
 Si estás utilizando la aplicación *Create React App*, tanto `Object.assign` y *la sintaxis de propagación en objetos* están disponibles por defecto.
 
+<<<<<<< HEAD
 ## Usando estructuras de datos inmutables {#using-immutable-data-structures}
 
 [Immutable.js](https://github.com/facebook/immutable-js) es otra forma de resolver este problema. Proporciona colecciones inmutables y permanentes que funcionan a través del intercambio estructural:
@@ -433,3 +438,6 @@ En este caso, como una nueva referencia se retorna al mutar `x`, podemos usar un
 Otras bibliotecas que pueden ayudar a usar datos inmutables son [Immer](https://github.com/mweststrate/immer), [immutability-helper](https://github.com/kolodny/immutability-helper) y [seamless-immutable](https://github.com/rtfeldman/seamless-immutable).
 
 Las estructuras de datos inmutables proporcionan una forma económica de rastrear los cambios en los objetos, que es todo lo que necesitamos para implementar `shouldComponentUpdate`. Esto a menudo puede proporcionarte un buen aumento de rendimiento.
+=======
+When you deal with deeply nested objects, updating them in an immutable way can feel convoluted. If you run into this problem, check out [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). These libraries let you write highly readable code without losing the benefits of immutability.
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b

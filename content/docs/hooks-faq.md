@@ -64,13 +64,18 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
 Empezando con React 16.8.0, se incluye una implementación estable de Hooks para:
 
 * React DOM
+* React Native
 * React DOM Server
 * React Test Renderer
 * React Shallow Renderer
 
 Nótese que **para habilitar los Hooks, todos los paquetes de React deben estar en la versión 16.8.0 o superior**. Los Hooks no van a funcionar si olvidas, por ejemplo, actualizar React DOM.
 
+<<<<<<< HEAD
 React Native 0.59 y versiones superiores son compatibles con Hooks.
+=======
+[React Native 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) and above support Hooks.
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ### ¿Necesito reescribir todos mis componentes que ya sean clases? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -106,7 +111,13 @@ En muchas ocasiones, render props y los componentes de orden superior, renderiza
 
 Puedes seguir usando exactamente las mismas APIs que siempre has usado, seguirán funcionando.
 
+<<<<<<< HEAD
 En el futuro, nuevas versiones de estas librerías también podrían exportar Hooks personalizados como `useRedux()` or `useRouter()`, que te permitan usar las mismas características sin necesidad de usar componentes que los envuelvan.
+=======
+React Redux since v7.1.0 [supports Hooks API](https://react-redux.js.org/api/hooks) and exposes hooks like `useDispatch` or `useSelector`.
+
+Libraries like React Router might support hooks in the future.
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ### ¿Funcionan los Hooks con tipado estático? {#do-hooks-work-with-static-typing}
 
@@ -118,7 +129,15 @@ Aún más importante, los Hooks personalizados tienen el poder de restringir la 
 
 Desde el punto de vista de React, un componente que use Hooks, sigue siendo un componente normal. Si las herramientas de prueba que utilizas no dependen de los mecanismos internos de React, probar los componentes que usen Hooks, no debería ser diferente de probar cualquier otro componente.
 
+<<<<<<< HEAD
 Por ejemplo, asumamos que tenemos este componente de Conteo:
+=======
+>Note
+>
+>[Testing Recipes](/docs/testing-recipes.html) include many examples that you can copy and paste.
+
+For example, let's say we have this counter component:
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ```js
 function Example() {
@@ -180,7 +199,13 @@ Las llamadas a `act()` también resolverán los efectos adentro de ellas.
 
 Si necesitas probar un Hook personalizado, puedes hacerlo creando un componente en tu prueba, y usando tu Hook desde el mismo. Luego puedes probar el componente que escribiste.
 
+<<<<<<< HEAD
 Para reducir el boilerplate, recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que está diseñada para promover pruebas que utilicen tus componentes como lo harían los usuarios finales.
+=======
+To reduce the boilerplate, we recommend using [React Testing Library](https://testing-library.com/react) which is designed to encourage writing tests that use your components as the end users do.
+
+For more information, check out [Testing Recipes](/docs/testing-recipes.html).
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ### ¿Qué hacen cumplir las [reglas de lint](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
@@ -563,7 +588,11 @@ En dependencia de tu caso de uso, hay otras opciones descritas debajo:
 
 >Nota
 >
+<<<<<<< HEAD
 >Proporcionamos una regla de ESLint llamada [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte de nuestro paquete [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Esta regla te ayuda a encontrar componentes que no manejan las actualizaciones consistentemente.
+=======
+>We provide the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It helps you find components that don't handle updates consistently.
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 Veamos por qué esto importa.
 
