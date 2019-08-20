@@ -88,13 +88,13 @@ Si configuraste manualmente Babel en tu proyecto, deberás instalar un *preset* 
 Si usas Yarn, ejecuta:
 
 ```bash
-yarn add --dev babel-preset-flow
+yarn add --dev @babel/preset-flow
 ```
 
 Si usas npm, ejecuta:
 
 ```bash
-npm install --save-dev babel-preset-flow
+npm install --save-dev @babel/preset-flow
 ```
 
 Luego agrega el *preset* `flow` a tu [configuración de Babel](https://babeljs.io/docs/usage/babelrc/). Por ejemplo, si configuraste Babel a través del archivo `.babelrc`, podría verse así:
@@ -102,7 +102,7 @@ Luego agrega el *preset* `flow` a tu [configuración de Babel](https://babeljs.i
 ```js{3}
 {
   "presets": [
-    "flow",
+    "@babel/preset-flow",
     "react"
   ]
 }

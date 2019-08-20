@@ -122,7 +122,9 @@ it('can render and update a counter', () => {
 });
 ```
 
-No olvides que la ejecución de eventos del DOM solo funciona cuando el contenedor del DOM es agregado al `document`. Puedes utilizar un ayudante como [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) para reducir todo el código repetitivo.
+No olvides que la ejecución de eventos del DOM solo funciona cuando el contenedor del DOM es agregado al `document`. Puedes utilizar una biblioteca como [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) para reducir todo el código repetitivo.
+
+- El documento de [`recetas`](/docs/testing-recipes.html) contiene más detalles de cómo funciona `act()`, con ejemplos y usos.
 
 * * *
 
@@ -139,7 +141,7 @@ Pasa un módulo de un componente a simular a este método para mejorarlo con mé
 
 > Nota:
 >
-> `mockComponent()` es una API heredada. En su lugar, recomendamos usar [renderizado superficial](/docs/shallow-renderer.html) o [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> `mockComponent()` es una API heredada. En su lugar, recomendamos usar [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 
