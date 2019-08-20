@@ -212,29 +212,7 @@ React construye y mantiene una representación interna de la interfaz de usuario
 
 Cuando una propiedad o estado de un componente cambia, React decide si es necesario actualizar el DOM comparando el elemento recién retornado con el previamente renderizado. Sino son iguales, React actualizará el DOM.
 
-<<<<<<< HEAD
-Ahora puedes visualizar estos re-renderizados del DOM virtual con React DevTools:
-
-- [Extensión de navegador para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Extensión de navegador para Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Paquete independiente para Node](https://www.npmjs.com/package/react-devtools)
-
-En la consola del desarrollador selecciona la opción **Highlight Updates** en la pestaña de React:
-
-<center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="How to enable highlight updates" /></center>
-
-Interactúa con tu página y verás bordes coloreados que aparecen momentáneamente alrededor de los componentes que se han vuelto a renderizar. Esto te permite detectar re-renderizados que no fueron necesarios. Puedes aprender más acerca de esta característica de React DevTools en esta [entrada de blog](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) de [Ben Edelstein](https://blog.logrocket.com/@edelstein).
-
-Considera este ejemplo:
-
-<center><img src="../images/blog/highlight-updates-example.gif" style="max-width:100%; margin-top:20px;" alt="React DevTools Highlight Updates example" /></center>
-
-Nota que cuando entramos un segundo *todo*, primer *todo* también parpadea con cada entrada del teclado. Esto significa que esta siendo re-renderizado por React junto con la entrada de texto. Esto a veces se llama renderizado "desperdiciado". Sabemos que no es necesario porque el contenido de la primera entrada del *todo* no ha cambiado, pero React no lo sabe. 
-
 Aunque React solo actualiza los nodos DOM modificados, el re-renderizado aun lleva algo de tiempo. En muchos casos no es un problema, pero si la desaceleración es notable puedes acelerar el proceso anulando la función del ciclo de vida `shouldComponentUpdate`, el cual se ejecuta antes de que el proceso de re-renderizado comience. La implementación por defecto de esta función retorna `true`, permitiendo a React hacer la actualización.
-=======
-Even though React only updates the changed DOM nodes, re-rendering still takes some time. In many cases it's not a problem, but if the slowdown is noticeable, you can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
->>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -404,40 +382,4 @@ function updateColorMap(colormap) {
 
 Si estás utilizando la aplicación *Create React App*, tanto `Object.assign` y *la sintaxis de propagación en objetos* están disponibles por defecto.
 
-<<<<<<< HEAD
-## Usando estructuras de datos inmutables {#using-immutable-data-structures}
-
-[Immutable.js](https://github.com/facebook/immutable-js) es otra forma de resolver este problema. Proporciona colecciones inmutables y permanentes que funcionan a través del intercambio estructural:
-
-* *Immutable*: una vez creada, una colección no puede ser alterada en otro momento.
-* *Persistent*: nuevas colecciones se pueden crear a partir de una colección previa y una mutación como *set*. La colección original sigue siendo válida después de que se crea la nueva colección.
-* *Structural Sharing*: las nuevas colecciones se crean usando una estructura lo mas parecida posible a la colección original, reduciendo al mínimo el copiado para mejorar el rendimiento.
-
-La inmutabilidad hace que el seguimiento de cambios sea barato. Un cambio siempre resultará en un nuevo objeto por lo que solo necesitamos comprobar si la referencia al objeto ha cambiado. Por ejemplo, en este código JavaScript regular:
-
-```javascript
-const x = { foo: 'bar' };
-const y = x;
-y.foo = 'baz';
-x === y; // true
-```
-
-Aunque `y` fue editada, ya que es una referencia al mismo objeto `x`, esta comparación retorna `true`. Puedes escribir un código similar con immutable.js:
-
-```javascript
-const SomeRecord = Immutable.Record({ foo: null });
-const x = new SomeRecord({ foo: 'bar' });
-const y = x.set('foo', 'baz');
-const z = x.set('foo', 'bar');
-x === y; // false
-x === z; // true
-```
-
-En este caso, como una nueva referencia se retorna al mutar `x`, podemos usar una verificación de igualdad de referencia `(x === y)` para verificar que el nuevo valor almacenado en `y` sea diferente del valor original almacenado en `x`.
-
-Otras bibliotecas que pueden ayudar a usar datos inmutables son [Immer](https://github.com/mweststrate/immer), [immutability-helper](https://github.com/kolodny/immutability-helper) y [seamless-immutable](https://github.com/rtfeldman/seamless-immutable).
-
-Las estructuras de datos inmutables proporcionan una forma económica de rastrear los cambios en los objetos, que es todo lo que necesitamos para implementar `shouldComponentUpdate`. Esto a menudo puede proporcionarte un buen aumento de rendimiento.
-=======
-When you deal with deeply nested objects, updating them in an immutable way can feel convoluted. If you run into this problem, check out [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). These libraries let you write highly readable code without losing the benefits of immutability.
->>>>>>> de497e250340ff597ce4964279369f16315b8b4b
+Cuando te encuentras ante objetos anidados, actualizarlos de manera inmutable puede sentirse complicado. Si te ves ante este problema, échale un vistazo a [Immer](https://github.com/mweststrate/immer) o [immutability-helper](https://github.com/kolodny/immutability-helper). Estas bibliotecas te permiten escribir código altamente legible sin perder los beneficios de la inmutabilidad.

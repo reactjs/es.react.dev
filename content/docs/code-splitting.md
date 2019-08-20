@@ -6,19 +6,12 @@ permalink: docs/code-splitting.html
 
 ## *Bundling* {#bundling}
 
-<<<<<<< HEAD
 La mayoría de las aplicaciones React tendrán sus archivos "empaquetados" o *bundled* con herramientas como
-[Webpack](https://webpack.js.org/) o [Browserify](http://browserify.org/).
-El *bundling* es el proceso de seguir los archivos importados y fusionarlos en un
-archivo único: un *bundle* o "paquete". Este *bundle* se puede incluir en una página web para cargar una aplicación completa de una sola vez.
-=======
-Most React apps will have their files "bundled" using tools like
-[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) or 
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) o 
 [Browserify](http://browserify.org/).
-Bundling is the process of following imported files and merging them into a
-single file: a "bundle". This bundle can then be included on a webpage to load
-an entire app at once.
->>>>>>> de497e250340ff597ce4964279369f16315b8b4b
+El *bundling* es el proceso de seguir los archivos importados y fusionarlos en un
+archivo único: un *bundle* o "paquete". Este *bundle* se puede incluir en una página web para cargar 
+una aplicación completa de una sola vez.
 
 #### Ejemplo {#example}
 

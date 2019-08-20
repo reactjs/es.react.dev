@@ -10,29 +10,16 @@
 - name: Árabe
   translated_name: العربية
   code: ar
-<<<<<<< HEAD
-  status: 1
+  status: 2
 - name: Azerí
   translated_name: Azərbaycanca
   code: az
-  status: 0
+  status: 1
 - name: Búlgaro
   translated_name: Български
   code: bg
-  status: 0
+  status: 1
 - name: Bengalí
-=======
-  status: 2
-- name: Azerbaijani
-  translated_name: Azərbaycanca
-  code: az
-  status: 1
-- name: Bulgarian
-  translated_name: Български
-  code: bg
-  status: 1
-- name: Bengali
->>>>>>> de497e250340ff597ce4964279369f16315b8b4b
   translated_name: বাংলা
   code: bn
   status: 0
@@ -79,13 +66,8 @@
 - name: Indonesio
   translated_name: Bahasa Indonesia
   code: id
-<<<<<<< HEAD
-  status: 0
-- name: Italiano
-=======
   status: 1
-- name: Italian
->>>>>>> de497e250340ff597ce4964279369f16315b8b4b
+- name: Italiano
   translated_name: Italiano
   code: it
   status: 2
@@ -124,13 +106,8 @@
 - name: Mongol
   translated_name: Монгол хэл
   code: mn
-<<<<<<< HEAD
-  status: 0
-- name: Nepalí
-=======
   status: 1
-- name: Nepali
->>>>>>> de497e250340ff597ce4964279369f16315b8b4b
+- name: Nepalí
   translated_name: नेपाली
   code: ne
   status: 0
