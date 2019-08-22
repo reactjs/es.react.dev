@@ -24,7 +24,7 @@ Cuando estás eligiendo las herramientas para realizar las pruebas, vale la pena
 * **Velocidad de iteración vs Entorno realista:** Algunas herramientas ofrecen un ciclo de retroalimentación muy rápido entre hacer un cambio y ver el resultado, pero no modelan el comportamiento del navegador con precisión. Otras herramientas pueden usar un entorno de navegador real, pero reducen la velocidad de iteración y son menos confiables en un servidor de integración continua.
 * **Cuanto abarcar:** Cuando pruebas componentes la diferencia entre Prueba Unitaria y Prueba de Integración puede ser borrosa. Si estas probando un formulario, se deben probar los botones del formulario en esta prueba? O el componente del botón debe tener su propia suit de pruebas? Debería la refactorización del botón afectar el resultado de las pruebas del formulario?
 
-Disferentes respuestas deben funcionar para disferentes equipos y disferentes productos.
+Diferentes respuestas pueden funcionar para diferentes equipos y diferentes productos.
 
 ### Herramientas recomendadas {#tools}
 
