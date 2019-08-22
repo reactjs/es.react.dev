@@ -38,4 +38,4 @@ Disferentes respuestas deben funcionar para disferentes equipos y disferentes pr
 Esta sección esta dividida en dos paginas:
 
 - [Recipes](/docs/testing-recipes.html): Patrones comunes cuando escribes Pruebas para los componentes React.
-- [Environments](/docs/testing-environments.html): Que debes conciderar cuando estes configurando un entorno de pruebas para componentes React.
+- [Entornos](/docs/testing-environments.html): Que debes considerar cuando estes configurando un entorno de pruebas para componentes React.
