@@ -36,5 +36,5 @@ Diferentes respuestas pueden funcionar para diferentes equipos y diferentes prod
 
 Esta sección esta dividida en dos paginas:
 
-- [Recipes](/docs/testing-recipes.html): Patrones comunes cuando escribes Pruebas para los componentes React.
+- [Recetas](/docs/testing-recipes.html): Patrones comunes cuando escribes pruebas para componentes React.
 - [Entornos](/docs/testing-environments.html): Que debes considerar cuando estes configurando un entorno de pruebas para componentes React.
