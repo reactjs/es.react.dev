@@ -9,7 +9,6 @@ next: testing-recipes.html
 
 Puedes probar un componente de React similar a como pruebas otro código JavaScript.
 
-
 Hay varias formas de probar un componente React, la mayoría se agrupan en dos categorías:
 
 * **Renderizado del árbol de componentes** en un entorno de prueba simplificado y comprobación de sus salidas.
