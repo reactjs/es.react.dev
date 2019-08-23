@@ -11,7 +11,7 @@ Puedes probar un componente de React similar a como pruebas otro código JavaScr
 
 Hay varias formas de probar un componente React, la mayoría se agrupan en dos categorías:
 
-* **Renderizado del árbol de componentes** en un entorno de prueba simplificado y comprobación de sus salidas.
+* **Renderizado del árbol de componentes** en un entorno de prueba simplificado y comprobando sus salidas.
 * **Ejecutando la aplicación completa** en un entorno de prueba más realista utilizando un navegador web (más conocido como pruebas “end-to-end”).
 
 Esta sección de la documentación está enfocada en estrategias de prueba para el primer caso. Mientras las pruebas de tipo “end-to-end” pueden ser muy útiles para prever regresiones a flujos de trabajos importantes, estas pruebas no están relacionadas con los componentes React particularmente y están fuera del alcance de esta sección.
