@@ -7,21 +7,21 @@ prev: testing-recipes.html
 
 <!-- This document is intended for folks who are comfortable with JavaScript, and have probably written tests with it. It acts as a reference for the differences in testing environments for React components, and how those differences affect the tests that they write. This document also assumes a slant towards web-based react-dom components, but has notes for other renderers. -->
 
-This document goes through the factors that can affect your environment and recommendations for some scenarios.
+Este documento repasa los factores que pueden afectar tu ambiente de desarrollo y recomendaciones para algunos escenarios.
 
-### Test runners {#test-runners}
+### Bibliotecas de ejecución de pruebas {#test-runners}
 
-Test runners like [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) let you write test suites as regular JavaScript, and run them as part of your development process. Additionally, test suites are run as part of continuous integration.
+Bibliotecas para ejecución de pruebas como [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) permiten escribir suit de pruebas en JavasScript regular y correrlas como parte de tu proceso de desarrollo. Adicionalmente, los suits de pruebas son ejecutados como parte de integraciones continuas.
 
-- Jest is widely compatible with React projects, supporting features like mocked [modules](#mocking-modules) and [timers](#mocking-timers), and [`jsdom`](#mocking-a-rendering-surface) support. **If you use Create React App, [Jest is already included out of the box](https://facebook.github.io/create-react-app/docs/running-tests) with useful defaults.**
-- Libraries like [mocha](https://mochajs.org/#running-mocha-in-the-browser) work well in real browser environments, and could help for tests that explicitly need it.
-- End-to-end tests are used for testing longer flows across multiple pages, and require a [different setup](#end-to-end-tests-aka-e2e-tests).
+- Jest es altamente compatible con projectos de React, soportando características como [modulos simulados](#mocking-modules) y [temporizadores](#mocking-timers), y soporte [`jsdom`](#mocking-a-rendering-surface). **Si usas Create React App, [Jest ya esta incluido para correr](https://facebook.github.io/create-react-app/docs/running-tests) con una configuracion por defecto útil.**
+- Librerias como [mocha](https://mochajs.org/#running-mocha-in-the-browser) funcionan bien en un entorno de navegador real, y puede ayudar con pruebas que necesiten de ello explicitamente.
+- Pruebas extremo a extremo son usadas para probar flujos más largos a través de múltiples páginas y requieren una [configuración diferente](#end-to-end-tests-aka-e2e-tests).
 
-### Mocking a rendering surface {#mocking-a-rendering-surface}
+### Simulando una superficie de renderizado {#mocking-a-rendering-surface}
 
-Tests often run in an environment without access to a real rendering surface like a browser. For these environments, we recommend simulating a browser with [`jsdom`](https://github.com/jsdom/jsdom), a lightweight browser implementation that runs inside Node.js.
+Las pruebas usualmente son ejecutadas en un ambiente sin acceso a una superficie de renderizado real como un navegador. Para estos ambientes, recomendamos simular el navegador usando [`jsdom`](https://github.com/jsdom/jsdom), una implementacion de navegador que se ejecuta sobre Node.js.
 
-In most cases, jsdom behaves like a regular browser would, but doesn't have features like [layout and navigation](https://github.com/jsdom/jsdom#unimplemented-parts-of-the-web-platform). This is still useful for most web-based component tests, since it runs quicker than having to start up a browser for each test. It also runs in the same process as your tests, so you can write code to examine and assert on the rendered DOM.
+En la mayoría de los casos, jsdom se comporta como lo haría un navegador normal, pero no tiene características como [navegación y maquetado](https://github.com/jsdom/jsdom#unimplemented-parts-of-the-web-platform). Aún así es útil para la mayoría de las pruebas de componentes web, al correr más rápido por no tener que iniciar un navegador para cada prueba. También se ejecuta en el mismo proceso que tus pruebas, así que puedes escribir código para examinar y comprobar en el DOM renderizado.
 
 Just like in a real browser, jsdom lets us model user interactions; tests can dispatch events on DOM nodes, and then observe and assert on the side effects of these actions [<small>(example)</small>](/docs/testing-recipes.html#events).
 
