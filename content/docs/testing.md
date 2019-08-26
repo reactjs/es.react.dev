@@ -28,7 +28,11 @@ Diferentes respuestas pueden funcionar para diferentes equipos y diferentes prod
 
 ### Herramientas recomendadas {#tools}
 
+<<<<<<< HEAD
 **[Jest](https://facebook.github.io/jest/)** Es una biblioteca de JavaScript para ejecución de pruebas que permite acceder al DOM mediante [`jsdom`](/docs/testing-environments.html#mocking-a-rendering-surface). Aunque JSDOM solo se aproxima a como realmente los navegadores web trabajan, usualmente es suficiente para probar los componentes React. Jest brinda una gran velocidad de iteración combinada con potentes funcionalidades como simular [módulos](/docs/testing-environments.html#mocking-modules) y [temporizadores](/docs/testing-environments.html#mocking-timers) esto permite tener mayor control sobre como se ejecuta el código.
+=======
+**[Jest](https://facebook.github.io/jest/)** is a JavaScript test runner that lets you access the DOM via [`jsdom`](/docs/testing-environments.html#mocking-a-rendering-surface). While jsdom is only an approximation of how the browser works, it is often good enough for testing React components. Jest provides a great iteration speed combined with powerful features like mocking [modules](/docs/testing-environments.html#mocking-modules) and [timers](/docs/testing-environments.html#mocking-timers) so you can have more control over how the code executes.
+>>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
 
 **[Biblioteca de Pruebas para React](https://testing-library.com/react)** es una biblioteca de utilidades que te ayudan a probar componentes React sin depender de los detalles de su implementación. Este enfoque simplifica la refactorización y también lo empuja hacia las mejores prácticas de accesibilidad, aunque no proporciona una forma de renderizar "superficialmente" un componente sin sus hijos, Jest te permite hacerlo  gracias a su funcionalidad para [simular](/docs/testing-recipes.html#mocking-modules).
 

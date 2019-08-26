@@ -14,7 +14,11 @@ Un componente con una `render prop` toma una función que devuelve un elemento d
 )}/>
 ```
 
+<<<<<<< HEAD
 Algunas bibliotecas que utilizan `render props` son [React Router](https://reacttraining.com/react-router/web/api/Route/render-func) y [Downshift](https://github.com/paypal/downshift).
+=======
+Libraries that use render props include [React Router](https://reacttraining.com/react-router/web/api/Route/render-func), [Downshift](https://github.com/paypal/downshift) and [Formik](https://github.com/jaredpalmer/formik).
+>>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
 
 En este documento, discutiremos por qué las `render props` son útiles y cómo escribir las tuyas.
 
