@@ -59,15 +59,11 @@
   translated_name: हिन्दी
   code: hi
   status: 0
-<<<<<<< HEAD
-- name: Armenio
-=======
-- name: Hungarian
+- name: Húngaro
   translated_name: magyar
   code: hu
   status: 0
-- name: Armenian
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+- name: Armenio
   translated_name: Հայերեն
   code: hy
   status: 0
@@ -182,13 +178,8 @@
 - name: Vietnamita
   translated_name: Tiếng Việt
   code: vi
-<<<<<<< HEAD
-  status: 0
-- name: Chino simplificado
-=======
   status: 1
-- name: Simplified Chinese
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+- name: Chino simplificado
   translated_name: 简体中文
   code: zh-hans
   status: 2
