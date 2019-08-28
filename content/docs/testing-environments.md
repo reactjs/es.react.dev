@@ -35,7 +35,7 @@ Frameworks como [Cypress](https://www.cypress.io/), [puppeteer](https://github.c
 
 ### Simulando funciones {#mocking-functions}
 
-Cuando se estan escribiendo pruebas, nos gustaria simular partes de nuestro código que no tienen un equivalente en nuestro entorno de pruebas (por ejemplo revisar el estado de `navigator.onLine` dentro de Node.js). Las pruebas también podrían espiar algunas funciones y observar como otras partes de la prueba interactúan con ellas. Es entonces útil ser capaz de simular selectivamente estas funciones con versiones más amigables para las pruebas.
+Cuando se están escribiendo pruebas, nos gustaría simular partes de nuestro código que no tienen un equivalente en nuestro entorno de pruebas (por ejemplo revisar el estado de `navigator.onLine` dentro de Node.js). Las pruebas también podrían espiar algunas funciones y observar como otras partes de la prueba interactúan con ellas. Es entonces útil ser capaz de simular selectivamente estas funciones con versiones más amigables para las pruebas.
 
 Esto es especialmente útil en los llamados para obtener datos. Es preferible usar datos "falsos" para estas pruebas para evitar la lentitud y lo engorroso de llamados a endpoints API reales [<small>(ejemplo)</small>](/docs/testing-recipes.html#data-fetching). Esto ayuda a que las pruebas sean predecibles. Librerías como [Jest](https://jestjs.io/) y [sinon](https://sinonjs.org/), entre otras, soportan funciones simuladas. Para pruebas "end-to-end", simular una red puede ser más complicado, pero también podrías querer probar los endpoints API reales en ellos igualmente.
 
