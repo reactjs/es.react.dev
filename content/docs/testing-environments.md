@@ -11,7 +11,7 @@ Este documento repasa los factores que pueden afectar tu entorno y contiene reco
 
 ### Bibliotecas de ejecución de pruebas {#test-runners}
 
-Bibliotecas para ejecución de pruebas como [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) permiten escribir suits de pruebas en JavasScript regular y correrlas como parte de tu proceso de desarrollo. Adicionalmente, los suits de pruebas son ejecutados como parte de integraciones continuas.
+Bibliotecas para ejecución de pruebas como [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) permiten escribir conjuntos de pruebas en JavasScript regular y correrlas como parte de tu proceso de desarrollo. Adicionalmente, los suits de pruebas son ejecutados como parte de integraciones continuas.
 
 - Jest es altamente compatible con proyectos de React, soportando características como [modulos simulados](#mocking-modules) y [temporizadores](#mocking-timers), y soporte [`jsdom`](#mocking-a-rendering-surface). **Si usas Create React App, [Jest ya esta incluido para usar fácilmente](https://facebook.github.io/create-react-app/docs/running-tests) con una configuracion por defecto útil.**
 - Bibliotecas como [mocha](https://mochajs.org/#running-mocha-in-the-browser) funcionan bien en un entorno de navegador real, y puede ayudar con pruebas que necesiten de ello explícitamente.
