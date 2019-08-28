@@ -25,7 +25,7 @@ En la mayoría de los casos, `jsdom` se comporta como lo haría un navegador nor
 
 Tal como en un navegador real, jsdom nos permite simular interacciones del usuario; las pruebas pueden llamar eventos en nodos del DOM, y entonces observar y comprobar los efectos resultantes de estas acciones [<small>(ejemplo)</small>](/docs/testing-recipes.html#events).
 
-Una gran parte de pruebas a la interfaz gráfica pueden ser escritas con la configuración descrita más arriba: usando Jest como biblioteca de prueba, renderizando en jsdom y con interacciones especificas del usuario como una secuencia de eventos del navegador, iniciadas por la función `act()` [<small>(ejemplo)</small>](/docs/testing-recipes.html). Por ejemplo, muchas de las propias pruebas de React estan escritas con esta combinación.
+Una gran parte de pruebas a la interfaz gráfica pueden ser escritas con la configuración descrita más arriba: usando Jest como biblioteca de prueba, renderizando en jsdom y con interacciones especificas del usuario como una secuencia de eventos del navegador, iniciadas por la función `act()` [<small>(ejemplo)</small>](/docs/testing-recipes.html). Por ejemplo, muchas de las propias pruebas de React están escritas con esta combinación.
 
 Si estas escribiendo una librería que prueba principalmente un comportamiento específico del navegador y requiere comportamiento nativo del navegador como la distribución o inputs reales, puedes usar un framewrok como [mocha.](https://mochajs.org/)
 
