@@ -1,58 +1,58 @@
 ---
 id: testing-environments
-title: Testing Environments
+title: Entornos de Pruebas
 permalink: docs/testing-environments.html
 prev: testing-recipes.html
 ---
 
 <!-- This document is intended for folks who are comfortable with JavaScript, and have probably written tests with it. It acts as a reference for the differences in testing environments for React components, and how those differences affect the tests that they write. This document also assumes a slant towards web-based react-dom components, but has notes for other renderers. -->
 
-This document goes through the factors that can affect your environment and recommendations for some scenarios.
+Este documento repasa los factores que pueden afectar tu entorno y contiene recomendaciones para algunos escenarios.
 
-### Test runners {#test-runners}
+### Bibliotecas de ejecución de pruebas {#test-runners}
 
-Test runners like [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) let you write test suites as regular JavaScript, and run them as part of your development process. Additionally, test suites are run as part of continuous integration.
+Bibliotecas para ejecución de pruebas como [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) permiten escribir conjuntos de pruebas en JavasScript regular y correrlas como parte de tu proceso de desarrollo. Adicionalmente, los suits de pruebas son ejecutados como parte de integraciones continuas.
 
-- Jest is widely compatible with React projects, supporting features like mocked [modules](#mocking-modules) and [timers](#mocking-timers), and [`jsdom`](#mocking-a-rendering-surface) support. **If you use Create React App, [Jest is already included out of the box](https://facebook.github.io/create-react-app/docs/running-tests) with useful defaults.**
-- Libraries like [mocha](https://mochajs.org/#running-mocha-in-the-browser) work well in real browser environments, and could help for tests that explicitly need it.
-- End-to-end tests are used for testing longer flows across multiple pages, and require a [different setup](#end-to-end-tests-aka-e2e-tests).
+- Jest es altamente compatible con proyectos de React, soportando características como [modulos simulados](#mocking-modules) y [temporizadores](#mocking-timers), y soporte [`jsdom`](#mocking-a-rendering-surface). **Si usas Create React App, [Jest ya esta incluido para usar fácilmente](https://facebook.github.io/create-react-app/docs/running-tests) con una configuracion por defecto útil.**
+- Bibliotecas como [mocha](https://mochajs.org/#running-mocha-in-the-browser) funcionan bien en un entorno de navegador real, y puede ayudar con pruebas que necesiten de ello explícitamente.
+- Las pruebas "end-to-end" son usadas para probar flujos más largos a través de múltiples páginas y que requieren una [configuración diferente](#end-to-end-tests-aka-e2e-tests).
 
-### Mocking a rendering surface {#mocking-a-rendering-surface}
+### Simulando una superficie de renderizado {#mocking-a-rendering-surface}
 
-Tests often run in an environment without access to a real rendering surface like a browser. For these environments, we recommend simulating a browser with [`jsdom`](https://github.com/jsdom/jsdom), a lightweight browser implementation that runs inside Node.js.
+Las pruebas usualmente son ejecutadas en un entorno sin acceso a una superficie de renderizado real como un navegador. Para estos entornos, recomendamos simular el navegador usando [`jsdom`](https://github.com/jsdom/jsdom), una implementación de navegador que se ejecuta sobre Node.js.
 
-In most cases, jsdom behaves like a regular browser would, but doesn't have features like [layout and navigation](https://github.com/jsdom/jsdom#unimplemented-parts-of-the-web-platform). This is still useful for most web-based component tests, since it runs quicker than having to start up a browser for each test. It also runs in the same process as your tests, so you can write code to examine and assert on the rendered DOM.
+En la mayoría de los casos, `jsdom` se comporta como lo haría un navegador normal, pero no tiene características como [navegación y layout](https://github.com/jsdom/jsdom#unimplemented-parts-of-the-web-platform). Aún así es útil para la mayoría de las pruebas de componentes web, al correr más rápido por no tener que iniciar un navegador para cada prueba. También se ejecuta en el mismo proceso que tus pruebas, así que puedes escribir código para examinar y comprobar resultados en el DOM renderizado.
 
-Just like in a real browser, jsdom lets us model user interactions; tests can dispatch events on DOM nodes, and then observe and assert on the side effects of these actions [<small>(example)</small>](/docs/testing-recipes.html#events).
+Tal como en un navegador real, jsdom nos permite simular interacciones del usuario; las pruebas pueden llamar eventos en nodos del DOM, y entonces observar y comprobar los efectos resultantes de estas acciones [<small>(ejemplo)</small>](/docs/testing-recipes.html#events).
 
-A large portion of UI tests can be written with the above setup: using Jest as a test runner, rendered to jsdom, with user interactions specified as sequences of browser events, powered by the `act()` helper [<small>(example)</small>](/docs/testing-recipes.html). For example, a lot of React's own tests are written with this combination.
+Una gran parte de pruebas a la interfaz gráfica pueden ser escritas con la configuración descrita más arriba: usando Jest como biblioteca de prueba, renderizando en jsdom y con interacciones especificas del usuario como una secuencia de eventos del navegador, iniciadas por la función `act()` [<small>(ejemplo)</small>](/docs/testing-recipes.html). Por ejemplo, muchas de las propias pruebas de React están escritas con esta combinación.
 
-If you're writing a library that tests mostly browser-specific behavior, and requires native browser behavior like layout or real inputs, you could use a framework like [mocha.](https://mochajs.org/)
+Si estas escribiendo una biblioteca que prueba principalmente un comportamiento específico del navegador y requiere comportamiento nativo del navegador como el layout o inputs reales, puedes usar un framewrok como [mocha.](https://mochajs.org/)
 
-In an environment where you _can't_ simulate a DOM (e.g. testing React Native components on Node.js), you could use [event simulation helpers](https://reactjs.org/docs/test-utils.html#simulate) to simulate interactions with elements. Alternately, you could use the `fireEvent` helper from [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
+En un entorno donde _no puedes_ simular el DOM (por ejemplo, probando componentes de React Native en Node.js), podrías usar [simuladores de eventos](https://reactjs.org/docs/test-utils.html#simulate) para simular interacciones con elementos. De manera alternativa, también puedes usar el _helper_ `fireEvent` de [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
 
-Frameworks like [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) and [webdriver](https://www.seleniumhq.org/projects/webdriver/) are useful for running [end-to-end tests](#end-to-end-tests-aka-e2e-tests).
+Frameworks como [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) y [webdriver](https://www.seleniumhq.org/projects/webdriver/) son útiles para ejecutar pruebas ["end-to-end"](#end-to-end-tests-aka-e2e-tests).
 
-### Mocking functions {#mocking-functions}
+### Simulando funciones {#mocking-functions}
 
-When writing tests, we'd like to mock out the parts of our code that don't have equivalents inside our testing environment (e.g. checking `navigator.onLine` status inside Node.js). Tests could also spy on some functions, and observe how other parts of the test interact with them. It is then useful to be able to selectively mock these functions with test-friendly versions.
+Cuando se están escribiendo pruebas, nos gustaría simular partes de nuestro código que no tienen un equivalente en nuestro entorno de pruebas (por ejemplo revisar el estado de `navigator.onLine` dentro de Node.js). Las pruebas también podrían espiar algunas funciones y observar como otras partes de la prueba interactúan con ellas. Es entonces útil ser capaz de simular selectivamente estas funciones con versiones más amigables para las pruebas.
 
-This is especially useful for data fetching. It is usually preferable to use "fake" data for tests to avoid the slowness and flakiness due to fetching from real API endpoints [<small>(example)</small>](/docs/testing-recipes.html#data-fetching). This helps make the tests predictable. Libraries like [Jest](https://jestjs.io/) and [sinon](https://sinonjs.org/), among others, support mocked functions. For end-to-end tests, mocking network can be more difficult, but you might also want to test the real API endpoints in them anyway.
+Esto es especialmente útil en los llamados para obtener datos. Es preferible usar datos "falsos" para estas pruebas para evitar la lentitud y lo engorroso de llamados a endpoints API reales [<small>(ejemplo)</small>](/docs/testing-recipes.html#data-fetching). Esto ayuda a que las pruebas sean predecibles. Bibliotecas como [Jest](https://jestjs.io/) y [sinon](https://sinonjs.org/), entre otras, soportan funciones simuladas. Para pruebas "end-to-end", simular una red puede ser más complicado, pero también podrías querer probar los endpoints API reales en ellos igualmente.
 
-### Mocking modules {#mocking-modules}
+### Simulando módulos {#mocking-modules}
 
-Some components have dependencies for modules that may not work well in test environments, or aren't essential to our tests. It can be useful to selectively mock these modules out with suitable replacements [<small>(example)</small>](/docs/testing-recipes.html#mocking-modules).
+Algunos componentes tienen dependencias de módulos que quizás no funcionen bien en entornos de prueba, o no son necesarios para nuestras pruebas. Puede ser útil simular de manera selectiva estos módulos con reemplazos adecuados [<small>(example)</small>](/docs/testing-recipes.html#mocking-modules).
 
-On Node.js, runners like Jest [support mocking modules](https://jestjs.io/docs/en/manual-mocks). You could also use libraries like [`mock-require`](https://www.npmjs.com/package/mock-require).
+En Node.js, bibliotecas como Jest soportan la [simulación de módulos](https://jestjs.io/docs/en/manual-mocks). También podrías usar bibliotecas como [`mock-require`](https://www.npmjs.com/package/mock-require).
 
-### Mocking timers {#mocking-timers}
+### Simulando temporizadores {#mocking-timers}
 
-Components might be using time-based functions like `setTimeout`, `setInterval`, or `Date.now`. In testing environments, it can be helpful to mock these functions out with replacements that let you manually "advance" time. This is great for making sure your tests run fast! Tests that are dependent on timers would still resolve in order, but quicker [<small>(example)</small>](/docs/testing-recipes.html#timers). Most frameworks, including [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) and [lolex](https://github.com/sinonjs/lolex), let you mock timers in your tests.
+Hay componentes que pudiesen estar usando funciones basadas en el tiempo como `setTimeout`, `setInterval`, or `Date.now`. En entornos de prueba, puede ser de ayuda simular estas funciones con reemplazos que te permitan "avanzar" manualmente el tiempo. ¡Esto es excelente para asegurar que tus pruebas se ejecuten rápidamente! Las pruebas que dependen de temporizadores aún podrian ser resueltas en orden, pero mas rápido [<small>(ejemplo)</small>](/docs/testing-recipes.html#timers). La mayoría de los frameworks, incluyendo [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) y [lolex](https://github.com/sinonjs/lolex), te permiten simular temporizadores en tus pruebas.
 
-Sometimes, you may not want to mock timers. For example, maybe you're testing an animation, or interacting with an endpoint that's sensitive to timing (like an API rate limiter). Libraries with timer mocks let you enable and disable them on a per test/suite basis, so you can explicitly choose how these tests would run.
+Algunas veces, podrías no querer simular los temporizadores. Por ejemplo, quizás estás probando una animación, o interactuando con un endpoint que es sensitivo al tiempo (como una API limitadora de peticiones). Bibliotecas con simuladores de temporizadores te permite habilitar y deshabilitarlas en base a pruebas o suits, de forma que tú puedas elegir como estas pruebas serán ejecutadas.
 
-### End-to-end tests {#end-to-end-tests-aka-e2e-tests}
+### Pruebas "end-to-end" {#end-to-end-tests-aka-e2e-tests}
 
-End-to-end tests are useful for testing longer workflows, especially when they're critical to your business (such as payments or signups). For these tests, you'd probably want to test both how a real browser renders the whole app, fetches data from the real API endpoints, uses sessions and cookies, navigates between different links. You might also likely want to make assertions not just on the DOM state, but on the backing data as well (e.g. to verify whether the updates have been persisted to the database).
+Las pruebas "end-to-end" son útiles para flujos más largos, especialmente si estos son críticos para tu negocio (como los pagos o registros). Para estas pruebas, probablemente quisieras probar como un navegador renderiza toda la aplicación, solicita datos de un endpoint API real, usa sesiones y cookies, navega entre diferentes enlaces. Podrías también querer hacer comprobaciones no solamente en el estado del DOM si no también en los datos que usa (por ejemplo, para verificar si las actualizaciones persisten en la base de datos).
 
-In this scenario, you would use a framework like [Cypress](https://www.cypress.io/) or a library like [puppeteer](https://github.com/GoogleChrome/puppeteer) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
+En este escenario, podrías usar un framework como [Cypress](https://www.cypress.io/) o una biblioteca como [puppeteer](https://github.com/GoogleChrome/puppeteer) de forma que puedas navegar entre diferentes rutas y comprobar los efectos no solo del navegador si no potencialmente del backend también.
