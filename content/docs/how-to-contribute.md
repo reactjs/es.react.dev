@@ -11,9 +11,15 @@ redirect_from:
 
 React es uno de los primeros proyectos de código abierto de Facebook que si bien está siendo desarrollado muy activamente, al mismo tiempo se utiliza para crear código que les llega a todos en [facebook.com](https://www.facebook.com). Todavía estamos trabajando en los problemas para hacer que la contribución a este proyecto sea lo más fácil y transparente posible, pero aún no hemos llegado a ese punto. Esperamos que este documento haga que el proceso de contribución sea claro y responda algunas preguntas que pueda tener.
 
+<<<<<<< HEAD
 ### [Código de conducta](https://code.facebook.com/codeofconduct) {#code-of-conduct}
 
 Facebook ha adoptado un código de conducta que esperamos que los participantes del proyecto cumplan. Lee [el texto completo](https://code.facebook.com/codeofconduct) para que puedas comprender qué acciones serán o no toleradas.
+=======
+### [Code of Conduct](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
+
+Facebook has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the full text](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+>>>>>>> 941f54180ef5e652221f54ef6d1f6f2e9e063597
 
 ### Desarrollo abierto {#open-development}
 
@@ -21,7 +27,11 @@ Todo el trabajo en React sucede directamente en [GitHub](https://github.com/face
 
 ### Organización de las ramas {#branch-organization}
 
+<<<<<<< HEAD
 Haremos todo lo posible por mantener la [rama `master`](https://github.com/facebook/react/tree/master) en buen estado, con pruebas que pasen todo el tiempo. Pero para avanzar rápidamente, realizaremos cambios en la API con los que tu aplicación podría no ser compatible. Recomendamos que uses [la última versión estable de React](/downloads.html).
+=======
+We will do our best to keep the [`master` branch](https://github.com/facebook/react/tree/master) in good shape, with tests passing at all times. But in order to move fast, we will make API changes that your application might not be compatible with. We recommend that you use [the latest stable version of React](/versions.html).
+>>>>>>> 941f54180ef5e652221f54ef6d1f6f2e9e063597
 
 Si envías un *pull request*, hazlo contra la rama `master`. Mantenemos ramas estables para las versiones principales por separado, pero no aceptamos *pull requests* directamente a ellas. En su lugar, seleccionamos cambios compatibles de la rama *master* y los pasamos a la última versión mayor estable.
 

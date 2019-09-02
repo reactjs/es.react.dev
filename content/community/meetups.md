@@ -141,9 +141,16 @@ permalink: community/meetups.html
 * [Los Ángeles, CA - React Native](https://www.meetup.com/React-Native-Los-Angeles/)
 * [Miami, FL - ReactJS](https://www.meetup.com/React-Miami/)
 * [Nashville, TN - ReactJS](https://www.meetup.com/NashReact-Meetup/)
+<<<<<<< HEAD
 * [Nueva York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
 * [Nueva York, NY - React Native](https://www.meetup.com/React-Native-NYC/)
+=======
+* [New York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
+* [New York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
+* [New York, NY - React Native](https://www.meetup.com/React-Native-NYC/)
+* [New York, NY - useReactNYC](https://www.meetup.com/useReactNYC/)
+>>>>>>> 941f54180ef5e652221f54ef6d1f6f2e9e063597
 * [Palo Alto, CA - React Native](https://www.meetup.com/React-Native-Silicon-Valley/)
 * [Filadelfia, PA - ReactJS](https://www.meetup.com/RQ-React/)
 * [Phoenix, AZ - ReactJS](https://www.meetup.com/ReactJS-Phoenix/)
