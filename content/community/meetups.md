@@ -22,6 +22,7 @@ permalink: community/meetups.html
 ## Brasil {#brazil}
 * [Belo Horizonte](https://www.meetup.com/reactbh/)
 * [Curitiba](https://www.meetup.com/pt-br/ReactJS-CWB/)
+* [Joinville](https://www.meetup.com/pt-BR/React-Joinville/)
 * [Río de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
 * [São Paulo](https://www.meetup.com/pt-BR/ReactJS-SP/)
 
@@ -68,6 +69,7 @@ permalink: community/meetups.html
 
 ## India {#india}
 * [Bangalore](https://www.meetup.com/ReactJS-Bangalore/)
+* [Chandigarh](https://www.meetup.com/Chandigarh-React-Developers/)
 * [Chennai](https://www.meetup.com/React-Chennai/)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
@@ -77,6 +79,9 @@ permalink: community/meetups.html
 
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
+
+## Malasia {#malaysia}
+* [Penang](https://www.facebook.com/groups/reactpenang/)
 
 ## Países Bajos {#netherlands}
 * [Ámsterdam](https://www.meetup.com/React-Amsterdam/)
@@ -107,8 +112,12 @@ permalink: community/meetups.html
 ## Escocia (UK) {#scotland-uk}
 * [Edimburgo](https://www.meetup.com/React-Scotland/)
 
+## Singapur {#singapore}
+* [Singapur - React Knowledgeable](https://reactknowledgeable.org/)
+
 ## España {#spain}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
+* [Canarias](https://www.meetup.com/React-Canarias/)
 
 ## Suecia {#sweden}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
@@ -130,6 +139,7 @@ permalink: community/meetups.html
 * [Leesburg, VA - ReactJS](https://www.meetup.com/React-NOVA/)
 * [Los Ángeles, CA - ReactJS](https://www.meetup.com/socal-react/)
 * [Los Ángeles, CA - React Native](https://www.meetup.com/React-Native-Los-Angeles/)
+* [Miami, FL - ReactJS](https://www.meetup.com/React-Miami/)
 * [Nashville, TN - ReactJS](https://www.meetup.com/NashReact-Meetup/)
 * [Nueva York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)

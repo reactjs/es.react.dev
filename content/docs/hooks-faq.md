@@ -64,13 +64,14 @@ Esta página responde algunas de las preguntas frecuentes acerca de los [Hooks](
 Empezando con React 16.8.0, se incluye una implementación estable de Hooks para:
 
 * React DOM
+* React Native
 * React DOM Server
 * React Test Renderer
 * React Shallow Renderer
 
 Nótese que **para habilitar los Hooks, todos los paquetes de React deben estar en la versión 16.8.0 o superior**. Los Hooks no van a funcionar si olvidas, por ejemplo, actualizar React DOM.
 
-React Native 0.59 y versiones superiores son compatibles con Hooks.
+[React Native 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) y versiones superiores son compatibles con Hooks.
 
 ### ¿Necesito reescribir todos mis componentes que ya sean clases? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -106,7 +107,9 @@ En muchas ocasiones, render props y los componentes de orden superior, renderiza
 
 Puedes seguir usando exactamente las mismas APIs que siempre has usado, seguirán funcionando.
 
-En el futuro, nuevas versiones de estas librerías también podrían exportar Hooks personalizados como `useRedux()` o `useRouter()`, que te permitan usar las mismas características sin necesidad de usar componentes que los envuelvan.
+React Redux desde v7.1.0 [tiene una API con Hooks](https://react-redux.js.org/api/hooks) y expone hooks como `useDispatch` o `useSelector`.
+
+Bibliotecas como React Router pueden ofrecer hooks en el futuro.
 
 ### ¿Funcionan los Hooks con tipado estático? {#do-hooks-work-with-static-typing}
 
@@ -118,7 +121,11 @@ Aún más importante, los Hooks personalizados tienen el poder de restringir la 
 
 Desde el punto de vista de React, un componente que use Hooks, sigue siendo un componente normal. Si las herramientas de prueba que utilizas no dependen de los mecanismos internos de React, probar los componentes que usen Hooks, no debería ser diferente de probar cualquier otro componente.
 
-Por ejemplo, asumamos que tenemos este componente de Conteo:
+>Nota
+>
+>[Recetas de pruebas](/docs/testing-recipes.html) incluye muchos ejemplo que puedes copiar y pegar.
+
+Por ejemplo, asumamos que tenemos este componente de conteo:
 
 ```js
 function Example() {
@@ -180,7 +187,9 @@ Las llamadas a `act()` también resolverán los efectos adentro de ellas.
 
 Si necesitas probar un Hook personalizado, puedes hacerlo creando un componente en tu prueba, y usando tu Hook desde el mismo. Luego puedes probar el componente que escribiste.
 
-Para reducir el boilerplate, recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que está diseñada para promover pruebas que utilicen tus componentes como lo harían los usuarios finales.
+Para reducir el _boilerplate_, recomendamos usar [React Testing Library](https://testing-library.com/react) que está diseñada para promover pruebas que utilicen tus componentes como lo harían los usuarios finales.
+
+Para más información, revisa [Recetas de pruebas](/docs/testing-recipes.html).
 
 ### ¿Qué hacen cumplir las [reglas de lint](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
@@ -562,11 +571,11 @@ En dependencia de tu caso de uso, hay otras opciones descritas debajo:
 
 >Nota
 >
->Proporcionamos una regla de ESLint llamada [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte de nuestro paquete [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Esta regla te ayuda a encontrar componentes que no manejan las actualizaciones consistentemente.
+>Proporcionamos la regla de ESLint [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte del paquete [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Esta regla ayuda a encontrar componentes que no manejan las actualizaciones consistentemente.
 
 Veamos por qué esto importa.
 
-Si especificas un [lista de dependencias](/docs/hooks-reference.html#conditionally-firing-an-effect) como el último argumento de `useEffect`, `useMemo`, `useCallback`, o `useImperativeHandle`, debe incluir todos los valores usados dentro que participan en el flujo de datos de React. Aquí se incluyen props, estado y todo lo que esté derivado de ellos.
+Si especificas una [lista de dependencias](/docs/hooks-reference.html#conditionally-firing-an-effect) como el último argumento de `useEffect`, `useMemo`, `useCallback`, o `useImperativeHandle`, debe incluir todos los valores usados dentro que participan en el flujo de datos de React. Aquí se incluyen props, estado y todo lo que esté derivado de ellos.
 
 *Únicamente* es seguro omitir una función de la lista de dependencias si nada dentro (o las funciones a las que se llama) referencia props, estado, o valores de ellos. Este ejemplo tiene un error:
 
@@ -617,7 +626,7 @@ Esto también te permite manejar respuestas fuera de orden con una variable loca
       const json = await response.json();
       if (!ignore) setProduct(json);
     }
-    
+
     fetchProduct();
     return () => { ignore = true };
   }, [productId]);

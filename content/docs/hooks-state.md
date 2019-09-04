@@ -120,7 +120,7 @@ class Example extends React.Component {
   }
 ```
 
-En un componente funcional no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro compoente
+En un componente funcional no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro componente
 
 ```js{4,5}
 import React, { useState } from 'react';
@@ -216,7 +216,7 @@ Ahora **recapitularemos lo que hemos aprendido línea por línea** y comprobarem
 * **Línea 4:** Dentro del componente `Example` declaramos una nueva variable de estado llamando al Hook `useState`. Este nos devuelve un par de valores, a los que damos un nombre. Llamamos `count` a nuestra variable porque guarda el número de clicks en el botón. La inicializamos a cero pasando `0` como único argumento a `useState`. El segundo elemento retornado es una función que nos permite actualizar `count`, por lo que le llamamos `setCount`.
 * **Línea 9:** Cuando el usuario hace click, llamamos a `setCount` con un nuevo valor. React actualizará entonces el componente `Example` pasandole el nuevo valor de `count`.
 
-Esto puede parecer mucho para empezar. ¡No tengas prisa! Si te pierdes con esta explicación repasa el código de arriba y trara de leerlo de arriba hacia abajo. Prometemos que una vez trates de "olvidar" como funciona el estado en las clases y mires a este código con la mente despejada cobrará sentido
+Esto puede parecer mucho para empezar. ¡No tengas prisa! Si te pierdes con esta explicación repasa el código de arriba y trata de leerlo de arriba hacia abajo. Prometemos que una vez trates de "olvidar" como funciona el estado en las clases y mires a este código con la mente despejada cobrará sentido
 
 ### Tip: ¿Qué significan los corchetes? {#tip-what-do-square-brackets-mean}
 

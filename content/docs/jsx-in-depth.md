@@ -423,7 +423,7 @@ Los hijos pasados a un componente personalizado pueden ser cualquier cosa, siemp
 <div>{true}</div>
 ```
 
-Esto puede ser útil para renderizar condicionalmente elementos React. Este JSX solo muestra un `<Header />` si `showHeader` es` true`:
+Esto puede ser útil para renderizar condicionalmente elementos React. Este JSX renderiza el componente `<Header />` solo si `showHeader` es` true`:
 
 ```js{2}
 <div>

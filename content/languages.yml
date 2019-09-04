@@ -10,15 +10,15 @@
 - name: Árabe
   translated_name: العربية
   code: ar
-  status: 0
+  status: 2
 - name: Azerí
   translated_name: Azərbaycanca
   code: az
-  status: 0
+  status: 1
 - name: Búlgaro
   translated_name: Български
   code: bg
-  status: 0
+  status: 1
 - name: Bengalí
   translated_name: বাংলা
   code: bn
@@ -59,6 +59,10 @@
   translated_name: हिन्दी
   code: hi
   status: 0
+- name: Húngaro
+  translated_name: magyar
+  code: hu
+  status: 0
 - name: Armenio
   translated_name: Հայերեն
   code: hy
@@ -66,7 +70,7 @@
 - name: Indonesio
   translated_name: Bahasa Indonesia
   code: id
-  status: 0
+  status: 1
 - name: Italiano
   translated_name: Italiano
   code: it
@@ -106,7 +110,7 @@
 - name: Mongol
   translated_name: Монгол хэл
   code: mn
-  status: 0
+  status: 1
 - name: Nepalí
   translated_name: नेपाली
   code: ne
@@ -174,7 +178,7 @@
 - name: Vietnamita
   translated_name: Tiếng Việt
   code: vi
-  status: 0
+  status: 1
 - name: Chino simplificado
   translated_name: 简体中文
   code: zh-hans
