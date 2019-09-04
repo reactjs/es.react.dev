@@ -454,7 +454,7 @@ A pesar de que no deberías necesitar esto muy seguido, podrías exponer algunos
 
 ### ¿Cómo puedo medir un nodo del DOM? {#how-can-i-measure-a-dom-node}
 
-Para medir la posición o el tamaño de un nodo del DOM, puedes usar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs). React llamara el callback cuando la referencia sea asocida a un nodo. Aquí hay un [pequeño demo](https://codesandbox.io/s/l7m0v5x4v9):
+Para medir la posición o el tamaño de un nodo del DOM, puedes usar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs). React llamara el callback cuando la referencia sea asocida a un nodo diferente. Aquí hay un [pequeño demo](https://codesandbox.io/s/l7m0v5x4v9):
 
 ```js{4-8,12}
 function MeasureExample() {
