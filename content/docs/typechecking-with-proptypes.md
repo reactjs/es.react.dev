@@ -68,7 +68,7 @@ MyComponent.propTypes = {
   // considera como enum.
   optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 
-  // Un objecto que puede ser de diferentes tipos
+  // Un objeto que puede ser de diferentes tipos
   optionalUnion: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -78,16 +78,16 @@ MyComponent.propTypes = {
   // Un array de determinado tipo
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
-  // Un objecto con valores de propiedad de determinado tipo
+  // Un objeto con valores de propiedad de determinado tipo
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
-  // Un objecto que tenga determinada estructura
+  // Un objeto que tenga determinada estructura
   optionalObjectWithShape: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number
   }),
   
-  // An object with warnings on extra properties
+  // Un objeto con advertencias sobre propiedades adicionales
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
     quantity: PropTypes.number
@@ -114,7 +114,7 @@ MyComponent.propTypes = {
 
   // También puedes suministrar un validador personalizado a `arrayOf` y `objectOf`.
   // Debe retornar un objeto Error si la validación falla. El validador se llamará
-  // por cada key en el array o el objecto. Los primeros dos arguments del validador
+  // por cada key en el array o el objeto. Los primeros dos arguments del validador
   // son el array o el objeto, y la key del elemento actual.
   customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
     if (!/matchme/.test(propValue[key])) {
