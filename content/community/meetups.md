@@ -29,7 +29,7 @@ permalink: community/meetups.html
 ## Bolivia {#bolivia}
 * [Bolivia](https://www.meetup.com/ReactBolivia/)
 
-## Canada {#canada}
+## Canadá {#canada}
 * [Montreal, QC - ReactJS](https://www.meetup.com/fr-FR/ReactMontreal/)
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
@@ -52,7 +52,7 @@ permalink: community/meetups.html
 ## Francia {#france}
 * [París](https://www.meetup.com/ReactJS-Paris/)
 
-## Germany {#germany}
+## Alemania {#germany}
 * [Düsseldorf](https://www.meetup.com/de-DE/ReactJS-Meetup-Dusseldorf/)
 * [Hamburgo](https://www.meetup.com/Hamburg-React-js-Meetup/)
 * [Karlsruhe](https://www.meetup.com/react_ka/)
@@ -144,6 +144,7 @@ permalink: community/meetups.html
 * [Nueva York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
 * [Nueva York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
 * [Nueva York, NY - React Native](https://www.meetup.com/React-Native-NYC/)
+* [Nueva York, NY - useReactNYC](https://www.meetup.com/useReactNYC/)
 * [Palo Alto, CA - React Native](https://www.meetup.com/React-Native-Silicon-Valley/)
 * [Filadelfia, PA - ReactJS](https://www.meetup.com/RQ-React/)
 * [Phoenix, AZ - ReactJS](https://www.meetup.com/ReactJS-Phoenix/)

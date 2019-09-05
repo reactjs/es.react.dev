@@ -149,7 +149,7 @@ Devuelve un objeto que representa el árbol renderizado en formato `JSON`. Este 
 testRenderer.toTree()
 ```
 
-Devuelve un objeto que representa el árbol renderizado. A diferencia de `toJSON()`, la representación es más detallada, e incluye los componentes escritos por el usuario. Probablemente no necesites de este método al menos que estes escribiendo tu propia biblioteca de afirmaciones sobre el renderizador de prueba.
+Devuelve un objeto que representa el árbol renderizado. La representación es más detallada que la que proporciona `toJSON()`, e incluye los componentes escritos por el usuario. Probablemente no necesites este método al menos que estés escribiendo tu propia biblioteca de afirmaciones sobre el renderizador de prueba.
 
 ### `testRenderer.update()` {#testrendererupdate}
 
