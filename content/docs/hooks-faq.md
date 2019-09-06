@@ -806,7 +806,7 @@ function Table(props) {
 
 React solo llama a esta función durante el primer renderizado. Mira el [manual de referencia de la API de `useState`](/docs/hooks-reference.html#usestate).
 
-**También podrías querer ocasionalmente evitar re-crear el valor inicial de `useRef`.** Por ejemplo, tal vez quieres asegurarte que que alguna instancia de una clase imperativa solo se cree una vez:
+**También podrías querer ocasionalmente evitar recrear el valor inicial de `useRef`.** Por ejemplo, tal vez quieres asegurarte de que alguna instancia de una clase imperativa solo se cree una vez:
 
 ```js
 function Image(props) {
