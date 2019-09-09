@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
-EL `Profiler` mide con qué frecuencia se procesa una aplicación React y cuál es el" costo "de la representación.
+El `Profiler` (perfilador o generador de perfiles) mide con qué frecuencia se renderiza una aplicación React y cuál es el "costo" del renderizado.
 Su propósito es ayudar a identificar partes de una aplicación que son lentas y pueden beneficiarse de [optimizaciones como la memoización](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations).
 
 > Nota:
