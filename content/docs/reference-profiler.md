@@ -19,7 +19,7 @@ Su propósito es ayudar a identificar partes de una aplicación que son lentas y
 ## Uso
 
 Se puede agregar un `Profiler` en cualquier parte de un árbol React para medir el costo de renderizar esa parte del árbol.
-Requiere dos props: un `id` (string) y un `onRender` callback (función) que React llama cada vez que un componente dentro del árbol "confirma" una actualización.
+Requiere dos props: un `id` (string) y un callback `onRender` (función) que React llama cada vez que un componente dentro del árbol "confirma" una actualización.
 
 Por ejemplo, para perfilar un componente `Navigation` y sus descendientes:
 
