@@ -70,7 +70,7 @@ render(
 >
 > Aunque `Profiler` es un componente liviano, debe usarse solo cuando sea necesario; cada uso agrega algo de sobrecarga de CPU y memoria a una aplicación.
 
-## `onRender` Callback
+## Callback `onRender`
 
 El `Profiler` requiere una función `onRender` como una prop.
 React llama a esta función cada vez que un componente dentro del árbol perfilado "confirma" una actualización.
