@@ -13,7 +13,7 @@ Su propósito es ayudar a identificar partes de una aplicación que son lentas y
 >
 > La creación de perfiles agrega una sobrecarga adicional, por lo que **está deshabilitada en [la compilación de producción](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
 >
-> Para optar por el perfil de producción, React proporciona una compilación de producción especial con el perfil habilitado.
+> Para acceder al análisis de rendimiento en producción, React proporciona una compilación de producción especial con la generación de perfiles habilitada.
 > Lea más sobre cómo usar esta compilación en [fb.me/react-profiling](https://fb.me/react-profiling)
 
 ## Uso
