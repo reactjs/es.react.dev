@@ -78,7 +78,7 @@ Recibe parámetros que describen lo que se procesó y cuánto tiempo tardó.
 
 ```js
 function onRenderCallback(
-  id, // la prop "id" del arbol Profiler que acaba de ser "confirmado"
+  id, // la prop "id" del árbol Profiler que acaba de ser "confirmado"
   phase, // ya sea "mount" (si el árbol acaba de ser montado) o "update" (si se volvió a renderizar)
   actualDuration, // tiempo dedicado a procesar la actualización confirmada
   baseDuration, // tiempo estimado para renderizar todo el subárbol sin memoización
