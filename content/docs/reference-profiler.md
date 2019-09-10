@@ -1,6 +1,6 @@
 ---
 id: profiler
-title: Profiler API
+title: API Profiler
 layout: docs
 category: Reference
 permalink: docs/profiler.html
