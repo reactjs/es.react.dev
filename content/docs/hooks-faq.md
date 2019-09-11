@@ -519,6 +519,7 @@ function useClientRect() {
 
 Si no estás familiarizado con esta sintaxis, mira la [explicación](/docs/hooks-state.html#tip-what-do-square-brackets-mean) en la documentación de los Hooks de estado.
 
+
 ## Optimizaciones de desempeño {#performance-optimizations}
 
 ### ¿Puedo saltarme un efecto durante las actualizaciones? {#can-i-skip-an-effect-on-updates}
