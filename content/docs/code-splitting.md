@@ -110,38 +110,17 @@ La función `React.lazy` te deja renderizar un *import* dinámico como un compon
 
 ```js
 import OtherComponent from './OtherComponent';
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
 **Después:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
-
-Esto va a cargar automáticamente el *bundle* que contiene a `OtherComponent` cuando este componente sea renderizado.
 
 `React.lazy` recibe una función que debe ejecutar un `import()` dinámico. Este debe retornar una `Promise` que se resuelve en un módulo con un *export* `default` que contenga un componente de React.
 
-
-### Suspense {#suspense}
-
-Si el módulo que contiene a `OtherComponent` aún no ha sido cargado cuando `MyComponent` es renderizado, debemos mostrar algún contenido por defecto mientras esperamos que cargue - como un indicador de carga. Esto se hace usando el componente `Suspense`.
+El componente lazy debería entonces ser renderizado adentro de un componente `Suspense`, lo que nos permite mostrar algun contenido predeterminado (como un indicador de carga) mientras estamos esperando a que el componente lazy cargue.
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
