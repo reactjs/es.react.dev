@@ -1046,8 +1046,8 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
 Por cada movimiento en el historial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
 
->  Warning:
->  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
+>  Advertencia:
+>  Cada hijo en un array o iterator debe tener una propiedad "key". Ve al método `render()` del componente "Game".
 
 Vamos a discutir que significa la advertencia anterior.
 
