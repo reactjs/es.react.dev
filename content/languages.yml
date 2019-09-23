@@ -14,8 +14,13 @@
 - name: Azerí
   translated_name: Azərbaycanca
   code: az
+<<<<<<< HEAD
   status: 1
 - name: Búlgaro
+=======
+  status: 2
+- name: Bulgarian
+>>>>>>> 8edfc7ce78cbf5b6024ab5f891f0eee69c792d1f
   translated_name: Български
   code: bg
   status: 1
@@ -110,8 +115,13 @@
 - name: Mongol
   translated_name: Монгол хэл
   code: mn
+<<<<<<< HEAD
   status: 1
 - name: Nepalí
+=======
+  status: 2
+- name: Nepali
+>>>>>>> 8edfc7ce78cbf5b6024ab5f891f0eee69c792d1f
   translated_name: नेपाली
   code: ne
   status: 0
@@ -186,4 +196,4 @@
 - name: Chino tradicional
   translated_name: 繁體中文
   code: zh-hant
-  status: 1
+  status: 2
