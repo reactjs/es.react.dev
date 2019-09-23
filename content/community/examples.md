@@ -21,3 +21,5 @@ Hay muchos proyectos de ejemplo creados por la comunidad de React. Siéntete lib
 * **[Bitcoin Price Index](https://github.com/mrkjlchvz/bitcoin-price-index)** Datos de índice de precios de bitcoin de la API de CoinDesk.
 * **[Builder Book](https://github.com/builderbook/builderbook)** Aplicación web de código abierto para escribir y alojar documentación o vender libros. Construido con React, Material-UI, Next, Express, Mongoose, MongoDB.
 * **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Un espacio que permite al usuario jugar con las fuentes de Google. Construido con React, Redux y React-Router.
+* **[Course Learn Page](https://github.com/ulearnpro/ulearn)** Script LMS de código abierto en Laravel 5.8 y ReactJS 16.9
+* **[Speedy math](https://github.com/pankajladhar/speedy-math)** Una aplicación que permite a los niños practicar matemática básica como sumas, restas, multiplicación y comparación. Es una PWA (aplicación web progresiva) con compatibilidad fuera de conexión e instalación como aplicación.
