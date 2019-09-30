@@ -109,13 +109,9 @@ Puedes seguir usando exactamente las mismas APIs que siempre has usado, seguirá
 
 React Redux desde v7.1.0 [tiene una API con Hooks](https://react-redux.js.org/api/hooks) y expone hooks como `useDispatch` o `useSelector`.
 
-<<<<<<< HEAD
-Bibliotecas como React Router pueden ofrecer hooks en el futuro.
-=======
-React Router [supports hooks](https://reacttraining.com/react-router/web/api/Hooks) since v5.1.
+React Router [tiene compatibilidad con hooks](https://reacttraining.com/react-router/web/api/Hooks) desde v5.1.
 
-Other libraries might support hooks in the future too.
->>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
+Otras bibliotecas pueden ofrecer compatibilidad con hooks en el futuro también.
 
 ### ¿Funcionan los Hooks con tipado estático? {#do-hooks-work-with-static-typing}
 
