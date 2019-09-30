@@ -118,7 +118,11 @@ Recomendamos seguir [estas instrucciones](https://babeljs.io/docs/editors/) para
 
 ### ¡Ayuda, estoy atorado! {#help-im-stuck}
 
+<<<<<<< HEAD
 Si te atoras, revisa los [recursos de soporte de la comunidad](/community/support.html). En particular, [el chat de Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) es una gran manera de obtener ayuda rápidamente. Si no recibes una respuesta, o sigues atorado, por favor crea un issue, y te ayudaremos.
+=======
+If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ## Visión General {#overview}
 

@@ -10,13 +10,25 @@ React sigue los principios de [versionado semántico (semver)](https://semver.or
 
 Esto significa que lo hace con un número de versión **x.y.z**:
 
+<<<<<<< HEAD
 * Al lanzar **cambios con rupturas**, hacemos un **lanzamiento importante** cambiando el número **x** (ej: 15.6.2 a 16.0.0).
 * Al lanzar una **nueva funcionalidad**, hacemos un **lanzamiento menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
 * Al lanzar **correcciones de errores**, hacemos el lanzamiento de un **parche** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
+=======
+* When releasing **critical bug fixes**, we make a **patch release** by changing the **z** number (ex: 15.6.2 to 15.6.3).
+* When releasing **new features** or **non-critical fixes**, we make a **minor release** by changing the **y** number (ex: 15.6.2 to 15.7.0).
+* When releasing **breaking changes**, we make a **major release** by changing the **x** number (ex: 15.6.2 to 16.0.0).
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 Los lanzamientos importantes también pueden contener nuevas funcionalidades, y cualquier lanzamiento puede incluir correcciones de errores.
 
+<<<<<<< HEAD
 ### Cambios con rupturas {#breaking-changes}
+=======
+Minor releases are the most common type of release.
+
+### Breaking Changes {#breaking-changes}
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 Los cambios con rupturas son inconvenientes para todos, por lo que intentamos minimizar el número de lanzamientos importantes – por ejemplo, React 15 fue lanzado en Abril de 2016 y React 16 fue lanzado en Septiembre de 2017; no esperamos lanzar React 17 hasta el 2019.
 
@@ -45,4 +57,22 @@ En general, *no publicamos* una versión importante por cambios a:
 
 Esta política está diseñada para ser pragmática: desde luego, no queremos causarte dolores de cabeza. Si publicáramos una nueva versión importante por cada uno de estos cambios, acabaríamos lanzando más versiones importantes y causaríamos más inconvenientes con el versionado a la comunidad. También significaría que no podríamos mejorar React tan rápido como nos gustaría.
 
+<<<<<<< HEAD
 Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar una guía de actualización gradual.
+=======
+That said, if we expect that a change on this list will cause broad problems in the community, we will still do our best to provide a gradual migration path.
+
+### If a Minor Release Includes No New Features, Why Isn't It a Patch? {#minors-versus-patches}
+
+It's possible that a minor release will not include new features. [This is allowed by semver](https://semver.org/#spec-item-7), which states **"[a minor version] MAY be incremented if substantial new functionality or improvements are introduced within the private code. It MAY include patch level changes."**
+
+However, it does raise the question of why these releases aren't versioned as patches instead.
+
+The answer is that any change to React (or other software) carries some risk of breaking in unexpected ways. Imagine a scenario where a patch release that fixes one bug accidentally introduces a different bug. This would not only be disruptive to developers, but also harm their confidence in future patch releases. It's especially regrettable if the original fix is for a bug that is rarely encountered in practice.
+
+We have a pretty good track record for keeping React releases free of bugs, but patch releases have an even higher bar for reliability because most developers assume they can be adopted without adverse consequences.
+
+For these reasons, we reserve patch releases only for the most critical bugs and security vulnerabilities.
+
+If a release includes non-essential changes — such as internal refactors, changes to implementation details, performance improvements, or minor bugfixes — we will bump the minor version even when there are no new features.
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc

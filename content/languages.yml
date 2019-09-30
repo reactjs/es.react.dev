@@ -22,8 +22,13 @@
 - name: Bengalí
   translated_name: বাংলা
   code: bn
+<<<<<<< HEAD
   status: 0
 - name: Catalán
+=======
+  status: 1
+- name: Catalan
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
   translated_name: Català
   code: ca
   status: 0
