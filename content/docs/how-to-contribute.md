@@ -31,7 +31,7 @@ Envía todos los cambios directo a la [rama de master](https://github.com/facebo
 
 El código que llega a `master` debe ser compatible con la última versión estable. Puede contener funcionalidades adicionales, pero no cambios disruptivos. Debemos ser capaces de lanzar una nueva versión menor desde la punta de `master` en cualquier momento.
 
-### Banderas de Funcionalidades {#feature-flags}
+### Banderas de funcionalidades {#feature-flags}
 
 Para mantener la rama `master` en un estado de lanzamiento, los cambios disruptivos y funcionalidades experimentales deben ser puestas ante una bandera de funcionalidad.
 
