@@ -19,7 +19,7 @@ Facebook ha adoptado el [Convenio del Contribuidor](https://www.contributor-cove
 
 Todo el trabajo en React sucede directamente en [GitHub](https://github.com/facebook/react). Tanto los miembros del equipo central como los colaboradores externos envían *pull requests* que pasan por el mismo proceso de revisión.
 
-### Versionado Semantico {#semantic-versioning}
+### Versionado semántico {#semantic-versioning}
 
 React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores ppara nuevas funcionalidades o cambios no escenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, tambien agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su codigo con antelación. Aprende mas sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](https://reactjs.org/docs/faq-versioning.html).
 
