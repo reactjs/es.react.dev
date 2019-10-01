@@ -27,7 +27,7 @@ Cada cambio significativo es documentado en el [archivo de cambios](https://gith
 
 ### Organización de Ramas {#branch-organization}
 
-Envia todos los cambios directo a la [rama de master](https://github.com/facebook/react/tree/master). No queremos ramas separadas para desarrollo o para lanzamientos futuros. Hacemos nuestro mejor esfuerzo para mantener `master` en buena forma. con todas las pruebas pasando.
+Envía todos los cambios directo a la [rama de master](https://github.com/facebook/react/tree/master). No utilizamos ramas separadas para desarrollo o para lanzamientos futuros. Hacemos nuestro mejor esfuerzo para mantener `master` en buena forma, con todas las pruebas pasando.
 
 El código que llega a `master` debe ser compatible con la última versión estable. Puede contener funcionalidades adicionales, pero no cambios disruptivos. Debemos ser capaces de lanzar una nueva versión menor desde la punta de `master` en cualquier momento.
 
