@@ -22,7 +22,7 @@
 - name: Bengalí
   translated_name: বাংলা
   code: bn
-  status: 0
+  status: 1
 - name: Catalán
   translated_name: Català
   code: ca

@@ -10,9 +10,9 @@ React sigue los principios de [versionado semántico (semver)](https://semver.or
 
 Esto significa que lo hace con un número de versión **x.y.z**:
 
+* Al lanzar **correcciones de errores críticos**, hacemos el lanzamiento de un **parche** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
+* Al lanzar una **nueva funcionalidad** o **correciones de errores no críticos**, hacemos un **lanzamiento menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
 * Al lanzar **cambios con rupturas**, hacemos un **lanzamiento importante** cambiando el número **x** (ej: 15.6.2 a 16.0.0).
-* Al lanzar una **nueva funcionalidad**, hacemos un **lanzamiento menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
-* Al lanzar **correcciones de errores**, hacemos el lanzamiento de un **parche** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
 
 Los lanzamientos importantes también pueden contener nuevas funcionalidades, y cualquier lanzamiento puede incluir correcciones de errores.
 
@@ -46,3 +46,17 @@ En general, *no publicamos* una versión importante por cambios a:
 Esta política está diseñada para ser pragmática: desde luego, no queremos causarte dolores de cabeza. Si publicáramos una nueva versión importante por cada uno de estos cambios, acabaríamos lanzando más versiones importantes y causaríamos más inconvenientes con el versionado a la comunidad. También significaría que no podríamos mejorar React tan rápido como nos gustaría.
 
 Dicho esto, si creemos que algún cambio en esta lista va a provocar grandes problemas en la comunidad, haremos todo lo posible para proporcionar una guía de actualización gradual.
+
+### Si un lanzamiento menor no incluye nuevas funcionalidades, por qué no es un parche? {#minors-versus-patches}
+
+Es posible que un lanzamiento menor no incluya nuevas funcionalidades. [Esto es permitido por semver](https://semver.org/#spec-item-7), que dice **"[un lanzamiento menor] PUEDE incrementarse si una funcionalidad substancial o mejoras son introducidas en el código privado. PUEDE incluir cambios a nivel de parche."**
+
+Sin embargo, sale a flote la pregunta de por qué estos lanzamientos no son versionados como parches.
+
+La respuesta es que cualquier cambio a React (o cualquier otro software) lleva cierto riesgo de romperse de maneras inesperadas. Imagina un escenario en el que el lanzamiento del parche que arregla un error accidentalmente crea un nuevo error. Esto no solo sería disruptivo para los desarrolladores, sino que también dañaría la confianza en futuros lanzamientos de parches. Es especialmente lamentable si el arreglo original es para un error que es raramente encontrado en la práctica.
+
+Tenemos un buen record de mantener los lanzamientos de React libres de errores, pero los lanzamientos de parches tienen un nivel mayor de confiabilidad ya que la mayoría de los desarrolladores asumen que pueden adoptarlos sin consecuencias adversas.
+
+Por estas razones, reservamos los lanzamientos de parches exclusivamente para los errores más críticos y vulnerabilidades de seguridad.
+
+Si el lanzamiento incluye cambios no esenciales - como por ejemplo refactorizados internos, cambios a los detalles de implementación, mejoras de rendimiento, o arreglos a errores menores - lanzaremos la versión menor incluso cuando no hay nuevas funcionalidades.

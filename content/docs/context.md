@@ -15,6 +15,7 @@ En una aplicación típica de React, los datos se pasan de arriba hacia abajo (d
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
+  - [Context.displayName](#contextdisplayname)
 - [Ejemplos](#examples)
   - [Context dinámico](#dynamic-context)
   - [Actualizando Context desde un componente anidado](#updating-context-from-a-nested-component)
@@ -196,6 +197,20 @@ Requiere una [función como hijo](/docs/render-props.html#using-props-other-than
 > Nota
 > 
 > Para más información sobre el patrón 'función como hijo', ver [render props](/docs/render-props.html).
+
+### `Context.displayName` {#contextdisplayname}
+
+El objeto Context acepta una propiedad de cadena de texto `displayName`. Las herramientas de desarrollo de React utilizan esta cadena de texto para determinar que mostrar para el Context.
+
+Por ejemplo, el componente a continuación aparecerá como "NombreAMostrar" en las herramientas de desarrollo:
+
+```js{2}
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'NombreAMostrar';
+
+<MyContext.Provider> // "NombreAMostrar.Provider" en las herramientas de desarrollo
+<MyContext.Consumer> // "NombreAMostrar.Consumer" en las herramientas de desarrollo
+```
 
 ## Ejemplos {#examples}
 

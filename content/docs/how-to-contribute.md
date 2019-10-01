@@ -19,19 +19,25 @@ Facebook ha adoptado el [Convenio del Contribuidor](https://www.contributor-cove
 
 Todo el trabajo en React sucede directamente en [GitHub](https://github.com/facebook/react). Tanto los miembros del equipo central como los colaboradores externos envían *pull requests* que pasan por el mismo proceso de revisión.
 
-### Organización de las ramas {#branch-organization}
-
-Haremos todo lo posible por mantener la [rama `master`](https://github.com/facebook/react/tree/master) en buen estado, con pruebas que pasen todo el tiempo. Pero para avanzar rápidamente, realizaremos cambios en la API con los que tu aplicación podría no ser compatible. Recomendamos que uses [la última versión estable de React](/versions.html).
-
-Si envías un *pull request*, hazlo contra la rama `master`. Mantenemos ramas estables para las versiones principales por separado, pero no aceptamos *pull requests* directamente a ellas. En su lugar, seleccionamos cambios compatibles de la rama *master* y los pasamos a la última versión mayor estable.
-
 ### Versionado semántico {#semantic-versioning}
 
-React sigue [el versionado semántico](https://semver.org/). Lanzamos versiones de parches para correcciones de errores, versiones menores para nuevas funciones y versiones mayores para cualquier cambio importante. Cuando hacemos cambios importantes, también introducimos advertencias de descontinuación en una versión menor para que nuestros usuarios conozcan los próximos cambios y migren su código de antemano.
+React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores para nuevas funcionalidades o cambios no esenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, también agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su código con antelación. Aprende más sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](https://reactjs.org/docs/faq-versioning.html).
 
-Etiquetamos cada *pull request* con un rótulo que indica si el cambio debería ir en la siguiente versión de [parche](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-patch), [menor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-minor), o [mayor](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-major). Lanzamos nuevas versiones de parches cada pocas semanas, versiones menores cada pocos meses y versiones mayores una o dos veces al año.
+Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
-Cada cambio significativo se documenta en el [archivo de registro de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+### Organización de ramas {#branch-organization}
+
+Envía todos los cambios directo a la [rama de master](https://github.com/facebook/react/tree/master). No utilizamos ramas separadas para desarrollo o para lanzamientos futuros. Hacemos nuestro mejor esfuerzo para mantener `master` en buena forma, con todas las pruebas pasando.
+
+El código que llega a `master` debe ser compatible con la última versión estable. Puede contener funcionalidades adicionales, pero no cambios disruptivos. Debemos ser capaces de lanzar una nueva versión menor desde la punta de `master` en cualquier momento.
+
+### Banderas de funcionalidades {#feature-flags}
+
+Para mantener la rama `master` en un estado de lanzamiento, los cambios disruptivos y funcionalidades experimentales deben ser puestas ante una bandera de funcionalidad.
+
+Las banderas de funcionalidad están definidas en [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Algunos compilados de React pueden habilitar diferentes conjuntos de banderas; por ejemplo, el compilado de React Native puede ser configurado diferente a como es configurado React DOM. Estas banderas son encontradas en [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Las banderas de funcionalidad son escritas estáticamente con Flow, por lo que puedes ejecutar `yarn flow` para confirmar que has actualizado los archivos necesarios.
+
+El sistema de compilado de React quitará las ramas de funcionalidades desactivadas antes de publicar. Un trabajo de integración continua se ejecuta con cada commit para comprobar los cambios en el tamaño del paquete. Puedes usar el cambio en el tamaño como una señal de que una funcionalidad fue puesta correctamente.
 
 ### Errores {#bugs}
 

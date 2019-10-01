@@ -118,7 +118,7 @@ Recomendamos seguir [estas instrucciones](https://babeljs.io/docs/editors/) para
 
 ### ¡Ayuda, estoy atorado! {#help-im-stuck}
 
-Si te atoras, revisa los [recursos de soporte de la comunidad](/community/support.html). En particular, [el chat de Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) es una gran manera de obtener ayuda rápidamente. Si no recibes una respuesta, o sigues atorado, por favor crea un issue, y te ayudaremos.
+Si te atoras, revisa los [recursos de soporte de la comunidad](/community/support.html). En particular, [el chat de Reactiflux](https://discord.gg/reactiflux) es una gran manera de obtener ayuda rápidamente. Si no recibes una respuesta, o sigues atorado, por favor crea un issue, y te ayudaremos.
 
 ## Visión General {#overview}
 
