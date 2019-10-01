@@ -53,7 +53,7 @@ Es posible que un lanzamiento menor no incluya nuevas funcionalidades. [Esto es 
 
 Sin embargo, sale a flote la pregunta de por qué estos lanzamientos no son versionados como parches.
 
-La respuesta es que cualquier cambio a React (o cualquier otro software) lleva cierto riesgo de romperse de maneras inesperadas. Imagina un escenario en el que el lanzamiento del parche que arregla un error accidentalmente crea un nuevo error. Esto no solo sería disruptivo para los desarrolladores, sino que tambien dañaria la confianza en futuros lanzamientos de parches. Es especialmente lamentable si el arreglo original es para un error que es raramente encontrado en la práctica.
+La respuesta es que cualquier cambio a React (o cualquier otro software) lleva cierto riesgo de romperse de maneras inesperadas. Imagina un escenario en el que el lanzamiento del parche que arregla un error accidentalmente crea un nuevo error. Esto no solo sería disruptivo para los desarrolladores, sino que también dañaría la confianza en futuros lanzamientos de parches. Es especialmente lamentable si el arreglo original es para un error que es raramente encontrado en la práctica.
 
 Tenemos un buen record de mantener los lanzamientos de React libres de errores, pero los lanzamientos de parches tienen un nivel mayor de confiabilidad ya que la mayoría de los desarrolladores asumen que pueden adoptarlos sin consecuencias adversas.
 
