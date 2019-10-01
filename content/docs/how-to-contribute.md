@@ -21,7 +21,7 @@ Todo el trabajo en React sucede directamente en [GitHub](https://github.com/face
 
 ### Versionado semántico {#semantic-versioning}
 
-React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores ppara nuevas funcionalidades o cambios no escenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, tambien agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su codigo con antelación. Aprende mas sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](https://reactjs.org/docs/faq-versioning.html).
+React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores para nuevas funcionalidades o cambios no esenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, también agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su código con antelación. Aprende más sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](https://reactjs.org/docs/faq-versioning.html).
 
 Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
