@@ -11,7 +11,7 @@ React sigue los principios de [versionado semántico (semver)](https://semver.or
 Esto significa que lo hace con un número de versión **x.y.z**:
 
 * Al lanzar **correcciones de errores críticos**, hacemos el lanzamiento de un **parche** cambiando el número **z** (ej: 15.6.2 a 15.6.3).
-* Al lanzar una **nueva funcionalidad**, hacemos un **lanzamiento menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
+* Al lanzar una **nueva funcionalidad** o **correciones de errores no críticos**, hacemos un **lanzamiento menor** cambiando el número **y** (ej: 15.6.2 a 15.7.0).
 * Al lanzar **cambios con rupturas**, hacemos un **lanzamiento importante** cambiando el número **x** (ej: 15.6.2 a 16.0.0).
 
 Los lanzamientos importantes también pueden contener nuevas funcionalidades, y cualquier lanzamiento puede incluir correcciones de errores.
