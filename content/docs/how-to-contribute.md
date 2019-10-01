@@ -25,7 +25,7 @@ React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones c
 
 Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
-### Organización de Ramas {#branch-organization}
+### Organización de ramas {#branch-organization}
 
 Envía todos los cambios directo a la [rama de master](https://github.com/facebook/react/tree/master). No utilizamos ramas separadas para desarrollo o para lanzamientos futuros. Hacemos nuestro mejor esfuerzo para mantener `master` en buena forma, con todas las pruebas pasando.
 
