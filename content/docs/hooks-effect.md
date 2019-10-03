@@ -45,7 +45,7 @@ Hay dos tipos de efectos secundarios en los componentes de React: aquellos que n
 
 ## Efectos sin saneamiento {#effects-without-cleanup}
 
-En ciertas ocasiones, queremos **ejecutar código adicional después de que React haya actualizado el DOM.** Peticiones de red, mutaciones manuales del DOM, y registros son ejemplos comunes de efectos que no requieren una acción de saneamiento. Decimos esto porque podemos ejecutarlos y olvidarnos de ellos inmediatamente. Vamos a comparar como las clases y los *Hooks* nos permiten expresar dichos efectos.
+En ciertas ocasiones, queremos **ejecutar código adicional después de que React haya actualizado el DOM.** Peticiones de red, mutaciones manuales del DOM y registros, son ejemplos comunes de efectos que no requieren una acción de saneamiento. Decimos esto porque podemos ejecutarlos y olvidarnos de ellos inmediatamente. Vamos a comparar cómo las clases y los *Hooks* nos permiten expresar dichos efectos.
 
 ### Ejemplo con clases {#example-using-classes}
 
@@ -83,11 +83,11 @@ class Example extends React.Component {
 }
 ```
 
-Fíjate en como **hemos duplicado el código en los dos métodos del ciclo de vida en la clase**
+Fíjate en cómo **hemos duplicado el código en los dos métodos del ciclo de vida en la clase**
 
 Esto es porque en muchas ocasiones queremos llevar a cabo el mismo efecto secundario sin importar si el componente acaba de montarse o si se ha actualizado. Conceptualmente, queremos que ocurra después de cada renderizado, pero las clases de React no tienen un método que haga eso. Podríamos extraer un método, pero aún así tendríamos que llamarlo en los dos sitios.
 
-Veamos ahora como podemos hacer lo mismo con el *Hook* `useEffect`.
+Veamos ahora cómo podemos hacer lo mismo con el *Hook* `useEffect`.
 
 ### Ejemplo con *Hooks* {#example-using-hooks}
 
@@ -118,7 +118,7 @@ function Example() {
 
 **¿Por qué se llama a `useEffect` dentro del componente?** Poner `useEffect` dentro del componente nos permite acceder a la variable de estado `count` (o a cualquier prop) directamente desde el efecto. No necesitamos una API especial para acceder a ella, ya que se encuentra en el ámbito de la función. Los *Hooks* aprovechan los closures de JavaScript y evitan introducir APIs específicas de React donde JavaScript ya proporciona una solución.
 
-**¿Se ejecuta `useEffect` después de cada renderizado?** ¡Sí! Por defecto se ejecuta después del primer renderizado *y* después de cada actualización. Más tarde explicaremos [como modificar este comportamiento](#tip-optimizing-performance-by-skipping-effects). En vez de pensar en términos de "montar" y "actualizar", puede resultarte más fácil pensar en efectos que ocurren "después del renderizado". React se asegura de que el DOM se ha actualizado antes de llevar a cabo el efecto.
+**¿Se ejecuta `useEffect` después de cada renderizado?** ¡Sí! Por defecto se ejecuta después del primer renderizado *y* después de cada actualización. Más tarde explicaremos [cómo modificar este comportamiento](#tip-optimizing-performance-by-skipping-effects). En vez de pensar en términos de "montar" y "actualizar", puede resultarte más fácil pensar en efectos que ocurren "después del renderizado". React se asegura de que el DOM se ha actualizado antes de llevar a cabo el efecto.
 
 ### Explicación detallada {#detailed-explanation}
 
@@ -136,7 +136,7 @@ function Example() {
 
 Declaramos la variable de estado `count` y le indicamos a React que necesitamos usar un efecto. Le pasamos una función al *Hook* `useEffect`. Esta función que pasamos *es* nuestro efecto. Dentro de nuestro efecto actualizamos el título del documento usando la API del navegador `document.title`. Podemos leer el valor más reciente de `count` dentro del efecto porque se encuentra en el ámbito de nuestra función. Cuando React renderiza nuestro componente, recordará este efecto y lo ejecutará después de actualizar el DOM. Esto sucede en cada renderizado, incluyendo el primero.
 
-Los desarrolladores experimentados en JavaScript se percatarán de que la función que le pasamos a `useEffect` es distinta en cada renderizado. Esto es intencionado. En realidad esto es lo que nos permite leer la variable `count` desde el interior de nuestro efecto sin preocuparnos de que su valor esté obsoleto. Cada vez que renderizamos, planificamos un _efecto_ diferente, reemplazando el anterior. En cierta manera, esto hace que los efectos funcionen más como parte del resultado del renderizado. Cada efecto pertenece a su correspondiente renderizado. [Más adelante](#explanation-why-effects-run-on-each-update) aclararemos porque esto es útil.
+Los desarrolladores experimentados en JavaScript se percatarán de que la función que le pasamos a `useEffect` es distinta en cada renderizado. Esto es intencionado. En realidad esto es lo que nos permite leer la variable `count` desde el interior de nuestro efecto sin preocuparnos de que su valor esté obsoleto. Cada vez que renderizamos, planificamos un _efecto_ diferente, reemplazando el anterior. En cierta manera, esto hace que los efectos funcionen más como parte del resultado del renderizado. Cada efecto pertenece a su correspondiente renderizado. [Más adelante](#explanation-why-effects-run-on-each-update) aclararemos por qué esto es útil.
 
 > Consejo
 >
@@ -144,7 +144,7 @@ Los desarrolladores experimentados en JavaScript se percatarán de que la funci�
 
 ## Efectos con saneamiento {#effects-with-cleanup}
 
-En el apartado anterior hemos visto como expresar efectos secundarios que no necesitan ningún saneamiento. Sin embargo, algunos efectos la necesitan. Por ejemplo, **si queremos establecer una suscripción** a alguna fuente de datos externa. En ese caso, ¡es importante sanear el efecto para no introducir una fuga de memoria! Comparemos como se puede hacer esto con clases y con *Hooks*.
+En el apartado anterior hemos visto cómo expresar efectos secundarios que no necesitan ningún saneamiento. Sin embargo, algunos efectos lo necesitan. Por ejemplo, **si queremos establecer una suscripción** a alguna fuente de datos externa. En ese caso, ¡es importante sanear el efecto para no introducir una fuga de memoria! Comparemos cómo se puede hacer esto con clases y con *Hooks*.
 
 ### Ejemplo con clases {#example-using-classes-1}
 
@@ -187,7 +187,7 @@ class FriendStatus extends React.Component {
 }
 ```
 
-Fíjate en como `componentDidMount` y `componentWillUnmount` necesitan ser un reflejo el uno del otro. Los métodos del ciclo de vida nos obligan a separar esta lógica incluso cuando, conceptualmente, el código de ambos está relacionado con el mismo efecto.
+Fíjate en cómo `componentDidMount` y `componentWillUnmount` necesitan ser un reflejo el uno del otro. Los métodos del ciclo de vida nos obligan a separar esta lógica incluso cuando, conceptualmente, el código de ambos está relacionado con el mismo efecto.
 
 >Nota
 >
@@ -195,7 +195,7 @@ Fíjate en como `componentDidMount` y `componentWillUnmount` necesitan ser un re
 
 ### Ejemplo usando *Hooks* {#example-using-hooks-1}
 
-Veamos como podemos escribir este componente con *Hooks*.
+Veamos cómo podemos escribir este componente con *Hooks*.
 
 Quizás puedas estar pensando que necesitaríamos un efecto aparte para llevar a cabo este saneamiento. Pero el código para añadir y eliminar una suscripción está tan estrechamente relacionado que `useEffect` está diseñado para mantenerlo unido. Si tu efecto devuelve una función, React la ejecutará en el momento de sanear el efecto:
 
@@ -211,7 +211,7 @@ function FriendStatus(props) {
     }
 
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
-    // Especifica como sanear este efecto:
+    // Especifica cómo sanear este efecto:
     return function cleanup() {
       ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
     };
@@ -226,7 +226,7 @@ function FriendStatus(props) {
 
 **¿Por qué hemos devuelto una función en nuestro efecto?** Este es un mecanismo opcional de los efectos. Todos los efectos pueden devolver una función que los sanea más tarde. Esto nos permite mantener la lógica de añadir y eliminar suscripciones cerca la una de la otra. ¡Son parte del mismo efecto!
 
-**¿Cuándo sanea React el efecto exactamente?** React sanea el efecto cuando el componente se desmonta. Sin embargo, como hemos aprendido anteriormente, los efectos no se ejecutan solo una vez, sino en cada renderizado. He aquí el motivo por el cual React *también* sanea los efectos de renderizados anteriores antes de ejecutar los efectos del renderizado actual. Más adelante analizaremos [porque esto ayuda a evitar errores](#explanation-why-effects-run-on-each-update) y [como omitir este funcionamiento en el caso de que provoque problemas de rendimiento](#tip-optimizing-performance-by-skipping-effects).
+**¿Cuándo sanea React el efecto exactamente?** React sanea el efecto cuando el componente se desmonta. Sin embargo, como hemos aprendido anteriormente, los efectos no se ejecutan solo una vez, sino en cada renderizado. He aquí el motivo por el cual React *también* sanea los efectos de renderizados anteriores antes de ejecutar los efectos del renderizado actual. Más adelante analizaremos [por qué esto ayuda a evitar errores](#explanation-why-effects-run-on-each-update) y [cómo omitir este funcionamiento en el caso de que provoque problemas de rendimiento](#tip-optimizing-performance-by-skipping-effects).
 
 >Nota
 >
@@ -271,7 +271,7 @@ Vamos a continuar profundizando en algunos aspectos de `useEffect` que les resul
 
 ### Consejo: Usa varios efectos para separar conceptos {#tip-use-multiple-effects-to-separate-concerns}
 
-Uno de los problemas que esbozamos en la [Motivación](/docs/hooks-intro.html#complex-components-become-hard-to-understand) para crear los *Hooks* es que los métodos del ciclo de vida de las clases suelen contener lógica que no está relacionada, pero la que lo esta se fragmenta en varios métodos. Este es un componente que combina la lógica del contador y el indicador de estado del amigo de los ejemplos anteriores:
+Uno de los problemas que esbozamos en la [Motivación](/docs/hooks-intro.html#complex-components-become-hard-to-understand) para crear los *Hooks* es que los métodos del ciclo de vida de las clases suelen contener lógica que no está relacionada, pero la que lo está, se fragmenta en varios métodos. Este es un componente que combina la lógica del contador y el indicador de estado del amigo de los ejemplos anteriores:
 
 ```js
 class FriendStatusWithCounter extends React.Component {
@@ -310,7 +310,7 @@ class FriendStatusWithCounter extends React.Component {
 
 Fíjate en como la lógica que asigna `document.title` se divide entre `componentDidMount` y `componentDidUpdate`. La lógica de la suscripción también se reparte entre `componentDidMount` y `componentWillUnmount`. Y `componentDidMount` contiene código de ambas tareas.
 
-Entonces, ¿como resuelven los *Hooks* este problema? Del mismo modo que [puedes usar el *Hook de estado* más de una vez](/docs/hooks-state.html#tip-using-multiple-state-variables), puedes usar varios efectos. Esto nos permite separar la lógica que no está relacionada en diferentes efectos:
+Entonces, ¿cómo resuelven los *Hooks* este problema? Del mismo modo que [puedes usar el *Hook de estado* más de una vez](/docs/hooks-state.html#tip-using-multiple-state-variables), puedes usar varios efectos. Esto nos permite separar la lógica que no está relacionada en diferentes efectos:
 
 ```js{3,8}
 function FriendStatusWithCounter(props) {
@@ -449,7 +449,7 @@ useEffect(() => {
 }, [count]); // Solo se vuelve a ejecutar si count cambia
 ```
 
-En el ejemplo anterior pasamos `[count]` como segundo argumento. ¿Qué significa esto? Si `count` es `5`, y cuando nuestro componente se vuelve a renderizar `count` continua siendo igual a `5`, React comparará el `[5]` del renderizado anterior con el `[5]` del siguiente renderizado. Dado que todos los elementos en el array (`5 === 5`), React omitirá el efecto. Esa es nuestra optimización.
+En el ejemplo anterior pasamos `[count]` como segundo argumento. ¿Qué significa esto? Si `count` es `5`, y cuando nuestro componente se vuelve a renderizar `count` continúa siendo igual a `5`, React comparará el `[5]` del renderizado anterior con el `[5]` del siguiente renderizado. Dado que todos los elementos en el array (`5 === 5`), React omitirá el efecto. Esa es nuestra optimización.
 
 Cuando renderizamos con `count` actualizado a `6`, React comparará los elementos en el array `[5]` del renderizado anterior con los elementos del array `[6]` del siguente renderizado. En esta ocasión, React volverá a aplicar el efecto dado que `5 !== 6`. Si el array contiene varios elementos, React volverá a ejecutar el efecto si cualquiera de los elementos es diferente.
 
@@ -472,7 +472,7 @@ En el futuro, el segundo argumento podría ser añadido automáticamente por una
 
 >Nota
 >
->Si usas esta optimización, asegúrate de que incluyes **todos los valores del ámbito del componente (como props y estado) que cambien a lo largo del tiempo y que sean usado por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Aprende más [cómo tratar con funciones](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) y [qué hacer cuando el array cambia con mucha frecuencia](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
+>Si usas esta optimización, asegúrate de que incluyes **todos los valores del ámbito del componente (como props y estado) que cambien a lo largo del tiempo y que sean usados por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Aprende más [cómo tratar con funciones](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) y [qué hacer cuando el array cambia con mucha frecuencia](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
 >
 >Si quieres ejecutar un efecto y sanearlo solamente una vez (al montar y desmontar), puedes pasar un array vacío (`[]`) como segundo argumento. Esto le indica a React que el efecto no depende de *ningún* valor proveniente de las props o el estado, de modo que no necesita volver a ejecutarse. Esto no se gestiona como un caso especial, obedece directamente al modo en el que siempre funciona el array de dependencias. 
 >
@@ -484,6 +484,6 @@ En el futuro, el segundo argumento podría ser añadido automáticamente por una
 
 ¡Enhorabuena! Esta página ha sido muy larga, pero esperamos que al final la mayoría de tus dudas sobre los efectos hayan sido resueltas. Has aprendido los *Hooks* de estado y de efecto, y puedes hacer *muchas* cosas combinándolos. Estos *Hooks* abarcan la mayoría de casos de uso de las clases. Y en el caso de no ser suficientes, existen [*Hooks* adicionales](/docs/hooks-reference.html) que pueden servirte de ayuda.
 
-También hemos empezado a ver como los *Hooks* solucionan problemas esbozados en [Motivación](/docs/hooks-intro.html#motivation). Hemos visto como el saneamiento de efectos evita la duplicidad en `componentDidUpdate` y `componentWillUnmount`, consolidando el código asociado y ayudándonos a evitar errores. Además hemos visto como podemos separar efectos por su propósito, que era algo que no podíamos hacer con clases.
+También hemos empezado a ver cómo los *Hooks* solucionan problemas esbozados en [Motivación](/docs/hooks-intro.html#motivation). Hemos visto cómo el saneamiento de efectos evita la duplicidad en `componentDidUpdate` y `componentWillUnmount`, consolidando el código asociado y ayudándonos a evitar errores. Además hemos visto cómo podemos separar efectos por su propósito, que era algo que no podíamos hacer con clases.
 
-Llegados a este punto puedes estar preguntándote como funcionan los *Hooks*. ¿Cómo puede saber React qué llamada a `useState` corresponde a qué variable de estado entre renderizados? ¿Como identifica React los efectos anteriores y posteriores en cada actualización? **En la siguiente página aprenderemos las [reglas de los *Hooks*](/docs/hooks-rules.html), las cuales son esenciales para que funcionen correctamente.**
+Llegados a este punto puedes estar preguntándote cómo funcionan los *Hooks*. ¿Cómo puede saber React qué llamada a `useState` corresponde a qué variable de estado entre renderizados? ¿Cómo identifica React los efectos anteriores y posteriores en cada actualización? **En la siguiente página aprenderemos las [reglas de los *Hooks*](/docs/hooks-rules.html), las cuales son esenciales para que funcionen correctamente.**
