@@ -41,7 +41,7 @@ render() {
 }
 ```
 
-Un caso de uso típico de los portales es cuando un componente principal tiene un estilo `overflow: hidden` or `z-index`, pero necesita que el elemento "salga" visualmente de su contenedor. Por ejemplo, cuadros de diálogo, *hovercards* y *tooltips*.
+Un caso de uso típico de los portales es cuando un componente principal tiene un estilo `overflow: hidden` o `z-index`, pero necesita que el elemento "salga" visualmente de su contenedor. Por ejemplo, cuadros de diálogo, *hovercards* y *tooltips*.
 
 > Nota:
 >
@@ -110,7 +110,7 @@ class Parent extends React.Component {
   }
 
   handleClick() {
-    // Esto se activará cuando el botón en el Child sea cliqueado,
+    // Esto se activará cuando el botón en el Child sea clicado,
     // actualizando el estado de Parent,
     // aunque el botón no sea descendiente directo en el DOM.
     this.setState(state => ({
@@ -121,12 +121,12 @@ class Parent extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <p>Number of clicks: {this.state.clicks}</p>
+        <p>Número de clics: {this.state.clicks}</p>
         <p>
-          Open up the browser DevTools
-          to observe that the button
-          is not a child of the div
-          with the onClick handler.
+          Abre las herramientas de desarrolador
+          del navegador para que observes que el botón
+          no es un hijo del div que tiene asignado
+          el evento onClick
         </p>
         <Modal>
           <Child />
@@ -137,7 +137,7 @@ class Parent extends React.Component {
 }
 
 function Child() {
-  // El evento de clic en este botón se convertirá en principal, 
+  // El evento de clic en este botón se propagará hasta Parent, 
   // porque no hay un atributo 'onClick' definido.
   return (
     <div className="modal">
