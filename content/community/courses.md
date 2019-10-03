@@ -10,7 +10,7 @@ permalink: community/courses.html
 
 - [Glitch: React Starter Kit](https://glitch.com/culture/react-starter-kit/) - Un curso en video gratuito en 5 partes con ejemplos de código interactivos que te ayudarán a aprender React.
 
-- [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - El curso introductorio a React de Codeacademy.
+- [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - El curso introductorio a React de Codecademy.
 
 - [Egghead.io: Start Learning React](https://egghead.io/courses/start-learning-react) - Esta serie explora los fundamentos básicos de React para que empieces.
 
@@ -32,7 +32,7 @@ permalink: community/courses.html
 
 - [Frontend Masters](https://frontendmasters.com/courses/) - Cursos en video de React y otros *frameworks* de *frontend*.
 
-- [Fullstack React](https://www.fullstackreact.com/) - La guía actualizada, en profundiad y completa de React y sus amigos.
+- [Fullstack React](https://www.fullstackreact.com/) - La guía actualizada, en profundidad y completa de React y sus amigos.
 
 - [Pure React](https://daveceddia.com/pure-react/) - Una guía paso a paso para dominar React.
 
