@@ -43,11 +43,11 @@ Dado a que normalmente estarás mostrando modelos de datos JSON de una API al us
 
 Verás que tenemos cinco componentes en nuestra aplicación de ejemplo. Hemos escrito en cursiva la información que representan cada uno.
 
-  1. **`FilterableProductTable` (orange):** contiene la totalidad del ejemplo
-  2. **`SearchBar` (blue):** recibe *lo que escriba el usuario*
-  3. **`ProductTable` (green):** muestra y filtra la *colección de datos* con base en *lo que escriba el usuario*
-  4. **`ProductCategoryRow` (turquoise):** muestra el encabezado de cada *categoría*
-  5. **`ProductRow` (red):** muestra una fila por cada *producto*
+  1. **`FilterableProductTable` (naranja):** contiene la totalidad del ejemplo
+  2. **`SearchBar` (azul):** recibe *lo que escriba el usuario*
+  3. **`ProductTable` (verde):** muestra y filtra la *colección de datos* con base en *lo que escriba el usuario*
+  4. **`ProductCategoryRow` (turquesa):** muestra el encabezado de cada *categoría*
+  5. **`ProductRow` (rojo):** muestra una fila por cada *producto*
 
 Si observas `ProductTable`, verás que el encabezado de la tabla (conteniendo las etiquetas "Name" y "Price") no es su propio componente. Esto es cuestión de preferencia, y hay argumentos para hacerlo de ambas formas. Para este ejemplo, decidimos dejarlos como parte de `ProductTable` porque es parte de representar la *colección de datos*, que es parte de las responsabilidades de `ProductTable`. De todas formas, si este encabezado crece hasta volverse demasiado complejo (por ejemplo, si tuviéramos que agregar una forma de ordenarlos), tendría sentido entonces que sea su propio componente `ProductTableHeader`.
 
