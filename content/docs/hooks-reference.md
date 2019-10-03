@@ -12,11 +12,11 @@ Esta página describe las API para los Hooks incorporados en React.
 
 Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descripción general](/docs/hooks-overview.html). También puedes encontrar información útil en la sección de [preguntas frecuentes](/docs/hooks-faq.html).
 
-- [Basic Hooks](#basic-hooks)
+- [Hooks Básicos](#basic-hooks)
   - [`useState`](#usestate)
   - [`useEffect`](#useeffect)
   - [`useContext`](#usecontext)
-- [Additional Hooks](#additional-hooks)
+- [Hooks Adicionales](#additional-hooks)
   - [`useReducer`](#usereducer)
   - [`useCallback`](#usecallback)
   - [`useMemo`](#usememo)
@@ -37,7 +37,7 @@ Devuelve un valor con estado y una función para actualizarlo.
 
 Durante el renderizado inicial, el estado devuelto (`state`) es el mismo que el valor pasado como primer argumento (`initialState`).
 
-La función `setState` se usa para actualizar el estado. Acepta un nuevo valor de estado y encola una nueva renderización del componente.
+La función `setState` se usa para actualizar el estado. Acepta un nuevo valor de estado y sitúa en la cola una nueva renderización del componente.
 
 ```js
 setState(newState);
@@ -71,7 +71,7 @@ Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se ba
 
 > Nota
 >
-> A diferencia del método `setState` que se encuentra en los componentes de la clase,`useState` no combina automáticamente los objetos. Puede replicar este comportamiento combinando la función de actualizador de función con la sintaxis spread de objetos:
+> A diferencia del método `setState` que se encuentra en los componentes de la clase,`useState` no combina automáticamente los objetos. Puede replicar este comportamiento combinando la función de actualizador de función con la sintaxis de propagación de objetos:
 >
 > ```js
 > setState(prevState => {
@@ -95,9 +95,9 @@ const [state, setState] = useState(() => {
 
 #### Evitar una actualización del estado {#bailing-out-of-a-state-update}
 
-Si se actualiza un Hook de estado con el mismo valor que el estado actual, React evitará la renderización de los hijos y disparar los efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
+Si se actualiza un Hook de estado con el mismo valor que el estado actual, React evitará renderizar los hijos y disparar los efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
-Recuerda que React puede necesitar renderizar ese componente en específico de nuevo antes de evitarlo. Esto no debería ser un problema ya que React no irá innecesariamente "más profundo" en el árbol. Sí estas realizando calculos costosos mientras renderizas, puedes optimizarlos con `useMemo`.
+Recuerda que React puede necesitar renderizar de nuevo ese componente en específico antes de evitarlo. Esto no debería ser un problema ya que React no irá innecesariamente "más profundo" en el árbol. Si estás realizando cálculos costosos mientras renderizas, puedes optimizarlos con `useMemo`.
 
 ### `useEffect` {#useeffect}
 
@@ -109,7 +109,7 @@ Acepta una función que contiene código imperativo, posiblemente código efecti
 
 Las mutaciones, suscripciones, temporizadores, registro y otros efectos secundarios no están permitidos dentro del cuerpo principal de un componente funcional (denominado como _render phase_ de React). Si lo hace, dará lugar a errores confusos e inconsistencias en la interfaz de usuario.
 
-En su lugar, use `useEffect`. La función pasada a `useEffect` se ejecutará después de que el renderizado es confirmado en la pantalla. Piense en los efectos como una escotilla de escape del mundo puramente funcional de React al mundo imperativo.
+En su lugar, use `useEffect`. La función pasada a `useEffect` se ejecutará después de que el renderizado es confirmado en la pantalla. Piense en los efectos como una escotilla de escape de React del mundo puramente funcional al mundo imperativo.
 
 Por defecto, los efectos se ejecutan después de cada renderizado completado, pero puede elegir ejecutarlo [solo cuando ciertos valores han cambiado](#conditionally-firing-an-effect).
 
@@ -133,7 +133,7 @@ useEffect(() => {
 
 A diferencia de `componentDidMount` y` componentDidUpdate`, la función enviada a `useEffect` se inicia **después** de la disposición y pintada de la página, durante un evento diferido. Esto lo hace adecuado para los muchos efectos secundarios comunes, como la configuración de suscripciones y los controladores de eventos, porque la mayoría de los tipos de trabajo no deben impedir que el navegador actualice la pantalla.
 
-Sin embargo, no todos los efectos pueden ser diferidos. Por ejemplo, una mutación de DOM que es visible para el usuario debe ejecutarse de manera sincrónica antes del siguiente render para que el usuario no perciba una inconsistencia visual. (La distinción es conceptualmente similar a la de los listeners de eventos pasivos y de los activos). Para estos tipos de efectos, React proporciona un Hook adicional llamado [`useLayoutEffect`](#uselayouteffect). Tiene la misma firma que `useEffect`, y solo difiere cuando se ejecuta.
+Sin embargo, no todos los efectos pueden ser diferidos. Por ejemplo, una mutación de DOM que es visible para el usuario debe ejecutarse de manera sincrónica antes del siguiente render para que el usuario no perciba una inconsistencia visual. (La distinción es conceptualmente similar a la de los listeners de eventos pasivos y de los activos). Para estos tipos de efectos, React proporciona un Hook adicional llamado [`useLayoutEffect`](#uselayouteffect). Tiene la misma firma que `useEffect` y solo difiere de este último en cuándo se ejecuta.
 
 Aunque `useEffect` se aplaza hasta después de que el navegador se haya pintado, se garantiza que se activará antes de cualquier nuevo render. React siempre eliminará los efectos de un render anterior antes de comenzar una nueva actualización.
 
@@ -143,7 +143,7 @@ El comportamiento predeterminado para los efectos es ejecutar el efecto después
 
 Sin embargo, esto puede ser excesivo en algunos casos, como el ejemplo de suscripción de la sección anterior. No necesitamos crear una nueva suscripción en cada actualización, solo si las propiedades de `source` han cambiado.
 
-Para implementar esto, pase un segundo argumento a `useEffect` que es el conjunto de valores de los que depende el efecto. Nuestro ejemplo actualizado ahora se ve así:
+Para implementar esto, pase un segundo argumento a `useEffect` que es el conjunto de valores de los que depende el efecto. Nuestro ejemplo actualizado se verá así:
 
 ```js
 useEffect(
@@ -161,7 +161,7 @@ Ahora la suscripción solo se volverá a crear cuando cambie `props.source`.
 
 > Nota
 >
->Si usas esta optimización, asegúrate de que incluyes **todos los valores del ámbito del componente (como props y estado) que cambien a lo largo del tiempo y que sean usado por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Aprende más [cómo tratar con funciones](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) y [qué hacer cuando el array cambia con mucha frecuencia](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
+>Si usas esta optimización, asegúrate de que incluyes **todos los valores del ámbito del componente (como props y estado) que cambien a lo largo del tiempo y que sean usados por el efecto**. De otra forma, tu código referenciará valores obsoletos de renderizados anteriores. Aprende más [cómo tratar con funciones](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) y [qué hacer cuando el array cambia con mucha frecuencia](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
 >
 >Si quieres ejecutar un efecto y sanearlo solamente una vez (al montar y desmontar), puedes pasar un array vacío (`[]`) como segundo argumento. Esto le indica a React que el efecto no depende de *ningún* valor proviniente de las props o el estado, de modo que no necesita volver a ejecutarse. Esto no se gestiona como un caso especial, obedece directamente al modo en el que siempre funcionan los arrays. 
 >
@@ -178,11 +178,11 @@ El arreglo de entradas no se pasa como argumentos a la función de efecto. Sin e
 const value = useContext(MyContext);
 ```
 
-Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devuelve el valor de contexto actual. El valor actual del contexto es determinado por la propiedad `value` del `<MyContext.Provider>` más cercano arriba de la llamada del componente en el árbol.
+Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devuelve el valor de contexto actual. El valor actual del contexto es determinado por la propiedad `value` del `<MyContext.Provider>` ascendentemente más cercano en el árbol al componente que hace la llamada.
 
-Cuando el `<MyContext.Provider>` más cercano arriba del componente se actualiza, el Hook activa una renderización con el `value` del contexto pasado a ese proveedor `MyContext`.
+Cuando el `<MyContext.Provider>` ascendentemente más cercano en el árbol se actualiza, el Hook activa una renderización con el `value` del contexto pasado a ese proveedor `MyContext`.
 
-No olvides que el argumento a `useContext` debe ser el *objeto del contexto en sí mismo*:
+No olvides que el argumento enviado a `useContext` debe ser el *objeto del contexto en sí mismo*:
 
  * **Correcto:** `useContext(MyContext)`
  * **Incorrecto:** `useContext(MyContext.Consumer)`
@@ -194,11 +194,11 @@ Un componente que llama a `useContext` siempre se volverá a renderizar cuando e
 >
 >Si estás familiarizado con el API de contexto antes de Hooks, `useContext(MyContext)` es el equivalente a `static contextType = MyContext` en una clase, o a `<MyContext.Consumer>`.
 >
->`useContext(MyContext)` solo te permite *leer* el contexto y suscribirte a sus cambios. Aun necesitas un `<MyContext.Provider>` arriba en el árbol para *proveer* el valor para este contexto.
+>`useContext(MyContext)` solo te permite *leer* el contexto y suscribirte a sus cambios. Aún necesitas un `<MyContext.Provider>` arriba en el árbol para *proveer* el valor para este contexto.
 
 ## Hooks adicionales {#additional-hooks}
 
-Los siguientes Hooks son variantes de los básicos de la sección anterior o solo son necesarios para casos de borde específicos. No te estreses por aprenderlos por adelantado.
+Los siguientes Hooks son variantes de los básicos de la sección anterior o solo son necesarios para casos extremos específicos. No te estreses por aprenderlos por adelantado.
 
 ### `useReducer` {#usereducer}
 
@@ -206,7 +206,7 @@ Los siguientes Hooks son variantes de los básicos de la sección anterior o sol
 const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
-Una alternativa a [`useState`](#usestate). Acepta un reducer de tipo `(state, action) => newState` y devuelve el estado actual emparejado con un método` dispatch`. (Si está familiarizado con Redux, ya sabe cómo funciona).
+Una alternativa a [`useState`](#usestate). Acepta un reducer de tipo `(state, action) => newState` y devuelve el estado actual emparejado con un método `dispatch`. (Si está familiarizado con Redux, ya sabe cómo funciona).
 
 `useReducer` a menudo es preferible a `useState` cuando se tiene una lógica compleja que involucra múltiples subvalores o cuando el próximo estado depende del anterior. `useReducer` además te permite optimizar el rendimiento para componentes que activan actualizaciones profundas, porque [puedes pasar hacia abajo `dispatch` en lugar de *callbacks*](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
@@ -244,7 +244,7 @@ function Counter() {
 
 #### Especificar el estado inicial {#specifying-the-initial-state}
 
-Hay dos formas diferentes de inicializar el estado de `useReducer`. Puedes elegir uno dependiendo de tu caso de uso. La forma más simple para pasar el estado inicial es como un segundo argumento:
+Hay dos formas diferentes de inicializar el estado de `useReducer`. Puedes elegir uno u otro dependiendo de tu caso. La forma más simple para pasar el estado inicial es como un segundo argumento:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -255,7 +255,7 @@ Hay dos formas diferentes de inicializar el estado de `useReducer`. Puedes elegi
 
 >Nota
 >
->React no utiliza la convención del argumento `state = initialState` popularizada por Redux. El valor inicial a veces necesita tener una dependencia en las props y por tanto se especifica en cambio en la llamada al Hook. Si te parece muy importante, puedes llamar a `useReducer(reducer, undefined, reducer)` para emular el comportamiento de Redux, pero no se recomienda
+>React no utiliza la convención del argumento `state = initialState` popularizada por Redux. El valor inicial a veces necesita tener una dependencia en las props y por lo tanto tanto se especifica en la llamada al Hook. Si te parece muy importante, puedes llamar a `useReducer(reducer, undefined, reducer)` para emular el comportamiento de Redux, pero no se recomienda
 
 #### Inicialización diferida {#lazy-initialization}
 
@@ -299,9 +299,9 @@ function Counter({initialCount}) {
 
 #### Evitar un *dispatch* {#bailing-out-of-a-dispatch}
 
-Si devuelves el mismo valor del estado actual desde un Hook reductor, React evitará el renderizado de los hijos y disparar efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
+Si devuelves el mismo valor del estado actual desde un Hook reductor, React evitará renderizar los hijos y disparar efectos. (React utiliza el [algoritmo de comparación `Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is#Description)).
 
-Ten en cuenta que React podría aún necesitar renderizar ese componente específico nuevamente antes de evitar el renderizado. Esto no debería ser una preocupación ya que React no va "más adentro" del árbol de forma innecesaria. Si estás haciendo cálculos muy costosos mientras renderizas, puedes optimizarlos con `useMemo`.
+Ten en cuenta que React podría aún necesitar renderizar nuevamente ese componente específico antes de evitar el renderizado. Esto no debería ser una preocupación ya que React no va "más adentro" del árbol de forma innecesaria. Si estás haciendo cálculos muy costosos mientras renderizas, puedes optimizarlos con `useMemo`.
 
 ### `useCallback` {#usecallback}
 
@@ -380,7 +380,7 @@ Puede que estes familiarizado con las referencias principalmente como un medio p
 
 Sin embargo, `useRef()` es útil para más que el atributo `ref`. Es [conveniente para mantener cualquier valor mutable](/docs/hooks-faq.html#is-there-something-like-instance-variables) que es similiar a como usarías campos de instancia en las clases.
 
-Esto funciona debido a que `useRef()` crea un objeto Javascript plano. La única diferencia entre `useRef()` y crear un objeto `{current: ...}` tu mismo es que `useRef` te dará el mismo objeto de referencia en cada renderizado.
+Esto funciona debido a que `useRef()` crea un objeto JavaScript plano. La única diferencia entre `useRef()` y crear un objeto `{current: ...}` por ti mismo es que `useRef` te dará el mismo objeto de referencia en cada renderizado.
 
 Ten en cuenta que `useRef` *no* notifica cuando su contenido cambia. Mutar la propiedad `.current` no causa otro renderizado. Si quieres correr algún codigo cuando React agregue o quite una referencia de un nodo del DOM, puede que quieras utilizar en su lugar una [referencia mediante callback](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
 
@@ -416,11 +416,11 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 
 > Consejo
 >
-> Sí estas migrando código de un componente de clase, recuerda que `useLayoutEffect` se activa la misma fase que `componentDidMount` y `componentDidUpdate`. Sin embargo, **recomendamos empezar con `useEffect` primero** y solo intentar con `useLayoutEffect` sí el anterior causa problemas.
+> Sí estas migrando código de un componente de clase, recuerda que `useLayoutEffect` se activa en la misma fase que `componentDidMount` y `componentDidUpdate`. Sin embargo, **recomendamos empezar con `useEffect` primero** y solo intentar con `useLayoutEffect` si el anterior causa problemas.
 >
-> Sí usas renderizado mediante servidor, ten en cuenta que *ninguno* `useLayoutEffect` o `useEffect` pueden correr hasta que Javascript sea descargado. Esto es por lo que React advierte cuando un componente renderizado mediante servidor contiene `useLayoutEffect`. Para corregir esto, puedes o bien mover la lógica a `useEffect` (sí no es necesaria para el primer renderizado), o retrasar mostrar el componente hasta después de que el cliente haya renderizado (sí el HTML parece roto hasta que `useLayoutEffect` corre). 
+> Si usas renderizado mediante servidor, ten en cuenta que *ninguno* `useLayoutEffect` o `useEffect` pueden correr hasta que el JavaScript sea descargado. Esto es por lo que React advierte cuando un componente renderizado mediante servidor contiene `useLayoutEffect`. Para corregir esto, puedes o bien mover la lógica a `useEffect` (si no es necesaria para el primer renderizado), o retrasar mostrar el componente hasta después de que el cliente haya renderizado (si el HTML parece roto hasta que `useLayoutEffect` corre). 
 >
-> Para excluir un componente que necesita efectos de marco del HTML renderizado mediante servidor, renderizalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no parecera rota antes de la hidratación.
+> Para excluir un componente que necesita efectos de marco del HTML renderizado mediante servidor, renderízalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no parecerá rota antes de la hidratación.
 
 ### `useDebugValue` {#usedebugvalue}
 
