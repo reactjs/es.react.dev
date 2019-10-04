@@ -312,7 +312,7 @@ Recapitulemos qué pasa cuando editamos una entrada:
 * React llama al método `render` del componente `Calculator` para saber cómo debe lucir la interfaz de usuario. Los valores de ambas entradas son recalculados en base a la temperatura actual y la escala activa. La conversión de temperatura es hecha aquí.
 * React llama a los métodos `render` de los componentes `TemperatureInput` de manera individual con sus nuevas propiedades especificadas por `Calculator`. Aprende como sus interfaces de usuario deberían verse.
 * React llama al método `render` del componente `BoilingVerdict`, pasando la temperatura en Celsius como una propiedad.
-* React DOM actualiza el DOM con el componente `BolingVerdict` y sincroniza los valores deseados para las entradas. La entrada que acabamos de actualizar recibe su valor actual, y la otra entrada es actualizada a su temperatura luego de hacer la conversión.
+* React DOM actualiza el DOM con el componente `BoilingVerdict` y sincroniza los valores deseados para las entradas. La entrada que acabamos de actualizar recibe su valor actual, y la otra entrada es actualizada a su temperatura luego de hacer la conversión.
 
 Toda actualización sigue los mismos pasos y las entradas se mantienen sincronizadas.
 
