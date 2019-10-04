@@ -69,7 +69,7 @@ Tradicionalmente en React, hemos tenido dos formas populares para compartir lóg
 
 ## Extrayendo un Hook personalizado {#extracting-a-custom-hook}
 
-Cuando queremos compartir lógica entre dos funciones de Javascript, lo extraemos en una tercera función. Ambos, componentes y Hooks, son funciones, así que esto funciona para ellos también!
+Cuando queremos compartir lógica entre dos funciones de JavaScript, lo extraemos en una tercera función. Ambos, componentes y Hooks, son funciones, ¡así que esto funciona para ellos también!
 
 **Un Hook personalizado es una función de JavaScript cuyo nombre comienza con "`use`" y que puede llamar a otros Hooks.** Por ejemplo, a continuación `useFriendStatus` es nuestro primer Hook personalizado:
 
@@ -145,7 +145,7 @@ function FriendListItem(props) {
 
 **¿Tengo que nombrar mis Hooks personalizados comenzando con "`use`"?** Por favor, hazlo. Esta convención es muy importante. Sin esta, no podríamos comprobar automáticamente violaciones de [ las reglas de los Hooks](/docs/hooks-rules.html) porque no podríamos decir si una cierta función contiene llamados a Hooks dentro de la misma.
 
-**¿Dos componentes usando el mismo Hook comparten estado?** No. Los Hooks personalizados son un mecanismo para reutilizar *lógica de estado * (como configurar una suscripción y recordar el valor actual), pero cada vez que usas un Hook personalizado, todo estado y efecto dentro de este son aislados completamente.
+**¿Dos componentes usando el mismo Hook comparten estado?** No. Los Hooks personalizados son un mecanismo para reutilizar *lógica de estado* (como configurar una suscripción y recordar el valor actual), pero cada vez que usas un Hook personalizado, todo estado y efecto dentro de este son aislados completamente.
 
 **¿Cómo un Hook personalizado obtiene un estado aislado?** Cada *llamada* al Hook obtiene un estado aislado. Debido a que llamamos `useFriendStatus` directamente, desde el punto de vista de React nuestro componente llama a `useState` y `useEffect`. Y como [ aprendimos](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) [anteriormente](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) podemos llamar a `useState` y a ` useEffect` muchas veces en un componente y ellos van a ser completamente independientes.
 
@@ -193,15 +193,15 @@ Como la llamada al Hook `useState` nos da el último valor de la variable de est
   const isRecipientOnline = useFriendStatus(recipientID);
 ```
 
-Esto nos permite saber cuando el amigo* actualmente seleccionado* está en línea. Si elegimos un amigo diferente y actualizamos la variable de estado `recipientID`, nuestro Hook `useFriendStatus` va a eliminara su suscripción del amigo previamente seleccionado, y se suscribirá al estado del nuevo seleccionado.
+Esto nos permite saber cuándo el amigo *actualmente seleccionado* está en línea. Si elegimos un amigo diferente y actualizamos la variable de estado `recipientID`, nuestro Hook `useFriendStatus` eliminará su suscripción del amigo previamente seleccionado, y se suscribirá al estado del nuevo seleccionado.
 
 ## `usaTuImaginación()` {#useyourimagination}
 
-Los Hooks personalizados ofrecen la flexibilidad de compartir lógica que no era posible antes con los componentes de React. Puedes escribir Hooks personalizados que cubran una amplia gama de casos de uso como manejo de formularios, animación, suscripciones declarativas, temporizadores y probablemente muchos más que no hemos considerado. Además, puedes construir Hooks que sean tan fáciles de usar como las características integradas de React.
+Los Hooks personalizados ofrecen la flexibilidad de compartir lógica que no era posible antes con los componentes de React. Puedes escribir Hooks personalizados que cubran una amplia gama de casos de uso, como manejo de formularios, animación, suscripciones declarativas, temporizadores y probablemente muchos más que no hemos considerado. Además, puedes construir Hooks que sean tan fáciles de usar como las características integradas de React.
 
 Intenta resistirte a añadir abstracción demasiado pronto. Ahora que los componentes funcionales pueden hacer más, es probable que el promedio de componentes funcionales en tu base de código se amplíe. Esto es normal, no te sientas como si *tuvieras* que dividirlo inmediatamente en Hooks. Pero también te animamos a empezar a descubrir casos donde un Hook personalizado podría ocultar la lógica compleja detrás de una interfaz simple, o ayudar a desenredar un componente desordenado.
 
-Por ejemplo, quizás tienes un componente complejo que contiene gran cantidad estado local que es gestionado en una forma *ad-hoc*. `useState` no hace más fácil la centralización de la lógica de actualización, así que podrías preferir escribirlo como un reductor [Redux](https://redux.js.org/):
+Por ejemplo, quizás tienes un componente complejo que contiene gran cantidad de estado local que es gestionado en una forma *ad-hoc*. `useState` no hace más fácil la centralización de la lógica de actualización, así que podrías preferir escribirlo como un reductor [Redux](https://redux.js.org/):
 
 ```js
 function todosReducer(state, action) {
@@ -218,7 +218,7 @@ function todosReducer(state, action) {
 }
 ```
 
-Los reductores son muy convenientes para probar en aislamiento y escalar para expresar una lógica de actualización compleja. Puedes separarlos aun más en reductores mas pequeños si es necesario. Sin embargo, es posible que también te gusten los beneficios de usar el estado local de React, o puedes no querer instalar otra biblioteca.
+Los reductores son muy convenientes para probar en aislamiento y escalar para expresar una lógica de actualización compleja. Puedes separarlos aun más en reductores más pequeños si es necesario. Sin embargo, es posible que también te gusten los beneficios de usar el estado local de React, o puedes no querer instalar otra biblioteca.
 
 ¿Y si pudiéramos escribir un Hook `useReducer` que nos permita manejar el estado *local* de nuestro componente con un reductor? Una versión simplificada de esto podría verse así:
 
