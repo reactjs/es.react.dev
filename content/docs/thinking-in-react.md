@@ -70,7 +70,7 @@ Para construir una versión estática de tu aplicación que muestre tu modelo de
 
 Puedes construir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
 
-Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver como se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
+Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver cómo se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
 
 Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
 
@@ -82,7 +82,7 @@ Hay dos tipos de datos en React: props y estado. Es importante entender la difer
 
 Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios en tu modelo de datos interno. React lo logra gracias a su **estado**.
 
-Para armar tu aplicación de forma correcta necesitas primero pensar en la mínima cantidad de estado mutable que necesita la aplicación. Lo importante acá es que [*no te repitas*](https://es.wikipedia.org/wiki/No_te_repitas) (DRY: Don't Repeat Yourself). Necesitas descubrir la mínima representación del estado que tu aplicación va a necesitar y calcular el resto bajo demanda. Por ejemplo, si estás creando una lista de tareas pendientes, solo mantén un array de las tareas, no mantengas una variable a parte en el estado para contar cuantas hay. En vez de eso, cuando vayas a mostrar cuantas hay simplemente obtén el largo del array de tareas.
+Para armar tu aplicación de forma correcta necesitas primero pensar en la mínima cantidad de estado mutable que necesita la aplicación. Lo importante acá es que [*no te repitas*](https://es.wikipedia.org/wiki/No_te_repitas) (DRY: Don't Repeat Yourself). Necesitas descubrir la mínima representación del estado que tu aplicación va a necesitar y calcular el resto bajo demanda. Por ejemplo, si estás creando una lista de tareas pendientes, solo mantén un array de las tareas, no mantengas una variable a parte en el estado para contar cuantas hay. En vez de eso, cuando vayas a mostrar cuántas hay simplemente obtén el largo del array de tareas.
 
 Piensa en todas la información que posee nuestra aplicación de ejemplo. Tenemos:
 
@@ -104,17 +104,17 @@ Finalmente, nuestro estado es:
   * El texto de búsqueda que el usuario ingresó
   * El valor del checkbox
 
-## Paso 4: Identificar donde debe vivir tu estado {#step-4-identify-where-your-state-should-live}
+## Paso 4: Identificar dónde debe vivir tu estado {#step-4-identify-where-your-state-should-live}
 
 <p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Revisa el código <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando en React: Paso 4</a> en <a href="https://codepen.io">CodePen</a>.</p>
 
-Bien, hemos identificado la mínima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar que componentes modifican o *son dueños* de este estado.
+Bien, hemos identificado la mínima cantidad de estado en la aplicación. Lo siguiente que necesitamos hacer es identificar qué componentes modifican o *son dueños* de este estado.
 
-Recuerda: React se trata de usar un flujo de datos en un sentido. Puede que no sea inmediatamente obvio cual componente debería poseer el estado. **Esta es normalmente la parte más complicada para quienes están arrancando con React**, así que sigue estos pasos para averiguarlo.
+Recuerda: React se trata de usar un flujo de datos en un sentido. Puede que no sea inmediatamente obvio cuál componente debería poseer el estado. **Esta es normalmente la parte más complicada para quienes están arrancando con React**, así que sigue estos pasos para averiguarlo.
 
 Para cada parte del estado de tu aplicación:
 
-  * Identifica que componentes muestran algo con base a este estado.
+  * Identifica qué componentes muestran algo con base a este estado.
   * Busca un componente común a estos más arriba en la jerarquía.
   * Este componente o uno más arriba en la jerarquía debería poseer el estado.
   * Si no puedes crear un nuevo componente que tenga sentido que posea el estado, crea un nuevo componente simplemente para poseer el estado y agrégalo en la jerarquía sobre los componentes que lo necesitan.
@@ -127,7 +127,7 @@ Usemos esta estrategia para nuestra aplicación:
 
 Genial, hemos decidido que nuestro estado viva en `FilterableProductTable`. Primero, agrega `this.state = {filterText: '', inStockOnly: false}` al `constructor` de `FilterableProductTable` para reflejar el estado inicial de tu aplicación. Entonces pasa `filterText` y `inStockOnly` a `ProductTable` y `SearchBar` como props. Finalmente usa estos props para filtrar las filas en `ProductTable` y establece el valor de los campos del formulario en `SearchBar`.
 
-Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a `"ball"` cómo valor inicial y recarga tu aplicación. Veras que la tabla de datos se actualizó correctamente.
+Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a `"ball"` como valor inicial y recarga tu aplicación. Verás que la tabla de datos se actualizó correctamente.
 
 ## Paso 5: Agregar flujo de datos inverso {#step-5-add-inverse-data-flow}
 
@@ -135,13 +135,13 @@ Ya puedes ir viendo como tu aplicación se va a comportar. Cambia `filterText` a
 
 Hasta ahora, hemos creado una aplicación que funciona correctamente como una función de los props y estado fluyendo hacia abajo en la jerarquía. Es momento entonces de empezar a soportar que los datos fluyan en el otro sentido: el componente de formulario ubicado más abajo en la jerarquía necesita actualizar el estado en `FilterableProductTable`.
 
-React hace de este flujo de datos explícito para que sea más fácil entender como funciona la aplicación, a cambio necesita un poco más de código que un flujo de datos en dos sentidos tradicional.
+React hace de este flujo de datos explícito para que sea más fácil entender cómo funciona la aplicación, a cambio necesita un poco más de código que un flujo de datos en dos sentidos tradicional.
 
-Si intentas escribir o marcar la caja en la versión actual del ejemplo, veras que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` de `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
+Si intentas escribir o marcar la caja en la versión actual del ejemplo, verás que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` del `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
 
 Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que cada vez que el usuario modifica el formulario, se actualiza el estado para reflejar lo que el usuario ingresó. Ya que los componentes solo pueden actualizar su propio estado, entonces `FilterableProductTable` necesita pasar funciones a `SearchBar` que este ejecutará cada vez que el estado deba actualizarse. Podemos usar el evento `onChange` del input para que nos notifique de esto. La función que pasa `FilterableProductTable` va a ejecutar entonces `setState()`, y la aplicación se va a actualizar.
 
-Aunque parece complejo, es en realidad una pocas línas de código. Y se vuelve realmente explícito como fluyen los datos a través de la aplicación.
+Aunque parece complejo, es en realidad una pocas líneas de código. Y se vuelve realmente explícito como fluyen los datos a través de la aplicación.
 
 ## Eso es todo {#and-thats-it}
 
