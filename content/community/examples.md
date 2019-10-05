@@ -23,3 +23,5 @@ Hay muchos proyectos de ejemplo creados por la comunidad de React. Siéntete lib
 * **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Un espacio que permite al usuario jugar con las fuentes de Google. Construido con React, Redux y React-Router.
 * **[Course Learn Page](https://github.com/ulearnpro/ulearn)** Script LMS de código abierto en Laravel 5.8 y ReactJS 16.9
 * **[Speedy math](https://github.com/pankajladhar/speedy-math)** Una aplicación que permite a los niños practicar matemática básica como sumas, restas, multiplicación y comparación. Es una PWA (aplicación web progresiva) con compatibilidad fuera de conexión e instalación como aplicación.
+* **[Unit Converter](https://github.com/KarthikeyanRanasthala/react-unit-converter)** Convertidor de unidades mínimo pero receptivo construido con React, UI de material y unidades de conversión.
+* **[BMI Calculator](https://github.com/GermaVinsmoke/bmi-calculator)** Una aplicación React Hooks para calcular el IMC
