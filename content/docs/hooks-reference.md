@@ -12,11 +12,11 @@ Esta página describe las API para los Hooks incorporados en React.
 
 Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descripción general](/docs/hooks-overview.html). También puedes encontrar información útil en la sección de [preguntas frecuentes](/docs/hooks-faq.html).
 
-- [Hooks Básicos](#basic-hooks)
+- [Hooks básicos](#basic-hooks)
   - [`useState`](#usestate)
   - [`useEffect`](#useeffect)
   - [`useContext`](#usecontext)
-- [Hooks Adicionales](#additional-hooks)
+- [Hooks adicionales](#additional-hooks)
   - [`useReducer`](#usereducer)
   - [`useCallback`](#usecallback)
   - [`useMemo`](#usememo)
@@ -25,7 +25,7 @@ Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descr
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
 
-## Hooks Básicos {#basic-hooks}
+## Hooks básicos {#basic-hooks}
 
 ### `useState` {#usestate}
 
