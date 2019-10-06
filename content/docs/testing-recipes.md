@@ -1,84 +1,84 @@
 ---
 id: testing-recipes
-title: Testing Recipes
+title: Recetas sobre pruebas
 permalink: docs/testing-recipes.html
 prev: testing.html
 next: testing-environments.html
 ---
 
-Common testing patterns for React components.
+Patrones comunes de pruebas para componenntes de React.
 
-> Note:
+> Nota:
 >
-> This page assumes you're using [Jest](https://jestjs.io/) as a test runner. If you use a different test runner, you may need to adjust the API, but the overall shape of the solution will likely be the same. Read more details on setting up a testing environment on the [Testing Environments](/docs/testing-environments.html) page.
+> Esta página asume que estás usando [Jest](https://jestjs.io/) como programa de ejecución de pruebas. Si estás usando uno distinto, puede que necesites ajustar la API, pero la forma general de la solución probablemente será la misma. Lee más detalles sobre como configurar un entorno de pruebas en la página de [Entornos de prueba](/docs/testing-environments.html).
 
-On this page, we will primarily use function components. However, these testing strategies don't depend on implementation details, and work just as well for class components too.
+En esta página utilizaremos principalmente componentes de función. Sin embargo, estas estrategias de prueba no dependen de detalles de implementación y funcionan igualmente en componentes de clase.
 
-- [Setup/Teardown](#setup--teardown)
+- [Configuración/limpieza](#setup--teardown)
 - [`act()`](#act)
-- [Rendering](#rendering)
-- [Data Fetching](#data-fetching)
-- [Mocking Modules](#mocking-modules)
-- [Events](#events)
-- [Timers](#timers)
-- [Snapshot Testing](#snapshot-testing)
-- [Multiple Renderers](#multiple-renderers)
-- [Something Missing?](#something-missing)
+- [Renderizado](#rendering)
+- [Obtención de datos](#data-fetching)
+- [Simulación de módulos](#mocking-modules)
+- [Eventos](#events)
+- [Temporizadores](#timers)
+- [Pruebas de instantánea](#snapshot-testing)
+- [Múltiples renderizadores](#multiple-renderers)
+- [¿Falta algo?](#something-missing)
 
 ---
 
-### Setup/Teardown {#setup--teardown}
+### Configuración/limpieza {#setup--teardown}
 
-For each test, we usually want to render our React tree to a DOM element that's attached to `document`. This is important so that it can receive DOM events. When the test ends, we want to "clean up" and unmount the tree from the `document`.
+Para cada prueba, usualmente queremos renderizar nuestro árbol de React en un elemento del DOM que esté asociado a `document`. Esto es importante para poder recibir eventos del DOM. Cuando la prueba termina, queremos "limpiar" y desmontar el árbol de `document`.
 
-A common way to do it is to use a pair of `beforeEach` and `afterEach` blocks so that they'll always run and isolate the effects of a test to itself:
+Una forma común de hacerlo es usar un par de bloques `beforeEach` y `afterEach` de manera tal que siempre ejecuten y separen los efectos de la prueba misma:
 
 ```jsx
 import { unmountComponentAtNode } from "react-dom";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpieza al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 ```
 
-You may use a different pattern, but keep in mind that we want to execute the cleanup _even if a test fails_. Otherwise, tests can become "leaky", and one test can change the behavior of another test. That makes them difficult to debug.
+Puedes usar un patrón diferente, pero ten en cuenta que queremos ejecutar la limpieza _incluso si falla una prueba_. De otro modo, las pruebas pueden tener "fugas" y una prueba puede cambiar el comportamiento de otra prueba. Eso dificulta la tarea de depurarlas.
 
 ---
 
 ### `act()` {#act}
 
-When writing UI tests, tasks like rendering, user events, or data fetching can be considered as "units" of interaction with a user interface. React provides a helper called `act()` that makes sure all updates related to these "units" have been processed and applied to the DOM before you make any assertions:
+Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse "unidades" de interacción con la interfaz de usuario. React proporciona una utilidad llamada `act()` que asegura que todas las actualizaciones relacionadas con estas "unidades" hayan sido procesadas y aplicadas al DOM antes de que hagas cualquier afirmación:
 
 ```js
 act(() => {
-  // render components
+  // renderizar componentes
 });
-// make assertions
+// hacer afirmaciones
 ```
 
-This helps make your tests run closer to what real users would experience when using your application. The rest of these examples use `act()` to make these guarantees.
+Esto ayuda a que tus pruebas se ejecutan de una manera más cercana a la experiencia de un usuario real que usa tu aplicación. El resto de estos ejemplos utilizan `act()` para asegurar estas garantías.
 
-You might find using `act()` directly a bit too verbose. To avoid some of the boilerplate, you could use a library like [React Testing Library](https://testing-library.com/react), whose helpers are wrapped with `act()`.
+Utilizar `act()` directamente puede parecerte demasiado verboso. Para evitar algo de este código repetitivo, puedes usar una biblioteca como [React Testing Library](https://testing-library.com/react), cuyas utilidades están envueltas con `act()`.
 
-> Note:
+> Nota:
 >
-> The name `act` comes from the [Arrange-Act-Assert](http://wiki.c2.com/?ArrangeActAssert) pattern.
+> El nombre `act` viene del patrón [Arrange-Act-Assert](http://wiki.c2.com/?ArrangeActAssert).
 
 ---
 
-### Rendering {#rendering}
+### Renderizado {#rendering}
 
-Commonly, you might want to test whether a component renders correctly for given props. Consider a simple component that renders a message based on a prop:
+Comúnmente, te gustaría probar si un componente se renderiza correctamente para unas props dadas. Considera un componente simple que renderiza un mensaje basado en una prop:
 
 ```jsx
 // hello.js
@@ -94,7 +94,7 @@ export default function Hello(props) {
 }
 ```
 
-We can write a test for this component:
+Podemos escribir una prueba para este componente:
 
 ```jsx{24-27}
 // hello.test.js
@@ -107,19 +107,19 @@ import Hello from "./hello";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpieza al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it("renders with or without a name", () => {
+it("renderiza con o sin nombre", () => {
   act(() => {
     render(<Hello />, container);
   });
@@ -139,9 +139,9 @@ it("renders with or without a name", () => {
 
 ---
 
-### Data Fetching {#data-fetching}
+### Obtención de datos {#data-fetching}
 
-Instead of calling real APIs in all your tests, you can mock requests with dummy data. Mocking data fetching with "fake" data prevents flaky tests due to an unavailable backend, and makes them run faster. Note: you may still want to run a subset of tests using an ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) framework that tells whether the whole app is working together.
+En lugar de llamar APIs reales en todas tus pruebas, puedes simular peticiones con datos falsos. Simular peticiones con datos "falsos" previene pruebas con resultados impredecibles debido a un _backend_ no disponible y permite ejecutarlas más rápidamente. Nota: aún puedes querer ejecutar un subconjunto de pruebas usando un framework de ["extremo a extremo"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) que te diga que toda tu aplicación está funcionando correctamente en su conjunto.
 
 ```jsx
 // user.js
@@ -175,7 +175,7 @@ export default function User(props) {
 }
 ```
 
-We can write tests for it:
+Podemos escribir pruebas para este componente:
 
 ```jsx{23-33,44-45}
 // user.test.js
@@ -187,19 +187,19 @@ import User from "./user";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpieza al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it("renders user data", async () => {
+it("renderiza datos de usuario", async () => {
   const fakeUser = {
     name: "Joni Baez",
     age: "32",
@@ -212,7 +212,7 @@ it("renders user data", async () => {
     })
   );
 
-  // Use the asynchronous version of act to apply resolved promises
+  // Usa la versión asíncrona de act para aplicar promesas resueltas
   await act(async () => {
     render(<User id="123" />, container);
   });
@@ -221,18 +221,18 @@ it("renders user data", async () => {
   expect(container.querySelector("strong").textContent).toBe(fakeUser.age);
   expect(container.textContent).toContain(fakeUser.address);
 
-  // remove the mock to ensure tests are completely isolated
+  // elimina la simulación para asegurar que las pruebas estén completamente aisladas
   global.fetch.mockRestore();
 });
 ```
 
 ---
 
-### Mocking Modules {#mocking-modules}
+### Simulación de módulos {#mocking-modules}
 
-Some modules might not work well inside a testing environment, or may not be as essential to the test itself. Mocking out these modules with dummy replacements can make it easier to write tests for your own code.
+Algunos módulos puede que no funcionen bien dentro de un entorno de pruebas, o puede que no sean esenciales para la prueba misma. Simular estos módulos con reemplazos "de imitación" puede hacer más fácil la escritura de pruebas para tu propio código.
 
-Consider a `Contact` component that embeds a third-party `GoogleMap` component:
+Considera un componente `Contacto` que incluye un componente `GoogleMap` de terceros:
 
 ```jsx
 // map.js
@@ -271,7 +271,7 @@ function Contact(props) {
 }
 ```
 
-If we don't want to load this component in our tests, we can mock out the dependency itself to a dummy component, and run our tests:
+Si no queremos cargar este componente en nuestras pruebas, podemos simular la dependencia misma como un componente simulado y correr nuestras pruebas:
 
 ```jsx{10-18}
 // contact.test.js
@@ -295,19 +295,19 @@ jest.mock("./map", () => {
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpieza al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it("should render contact information", () => {
+it("debe renderizar información de contacto", () => {
   const center = { lat: 0, long: 0 };
   act(() => {
     render(
@@ -337,9 +337,9 @@ it("should render contact information", () => {
 
 ---
 
-### Events {#events}
+### Eventos {#events}
 
-We recommend dispatching real DOM events on DOM elements, and then asserting on the result. Consider a `Toggle` component:
+Recomendamos enviar eventos reales del DOM en elementos del DOM y luego hacer afirmaciones sobre el resultado. Considera el componente `Toggle`:
 
 ```jsx
 // toggle.js
@@ -362,7 +362,7 @@ export default function Toggle(props) {
 }
 ```
 
-We could write tests for it:
+Podríamos escribir pruebas para este componente:
 
 ```jsx{13-14,35,43}
 // toggle.test.js
@@ -375,26 +375,26 @@ import Toggle from "./toggle";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
-  // container *must* be attached to document so events work correctly.
+  // container *debe* estar asociado a document para que los eventos funcionen correctamente.
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpiar al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it("changes value when clicked", () => {
+it("cambia el valor cuando se le hace clic", () => {
   const onChange = jest.fn();
   act(() => {
     render(<Toggle onChange={onChange} />, container);
   });
 
-  // get ahold of the button element, and trigger some clicks on it
+  // encuentra el elemento  del botón y dispara algunos clics en él
   const button = document.querySelector("[data-testid=toggle]");
   expect(button.innerHTML).toBe("Turn off");
 
@@ -416,17 +416,17 @@ it("changes value when clicked", () => {
 });
 ```
 
-Different DOM events and their properties are described in [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note that you need to pass `{ bubbles: true }` in each event you create for it to reach the React listener because React automatically delegates events to the document.
+Diferentes eventos del DOM y sus propiedades se describen en [MDN](https://developer.mozilla.org/es/docs/Web/API/MouseEvent). Nota que necesitas pasar `{ bubbles: true }` en cada evento que creas para que llegue al agente de escucha (_listener_) de React, porque React automáticamente delega los eventos al documento.
 
-> Note:
+> Nota:
 >
-> React Testing Library offers a [more concise helper](https://testing-library.com/docs/dom-testing-library/api-events) for firing events.
+> React Testing Library ofrece una [utilidad más concisa](https://testing-library.com/docs/dom-testing-library/api-events) para disparar eventos.
 
 ---
 
-### Timers {#timers}
+### Temporizadores {#timers}
 
-Your code might use timer-based functions like `setTimeout` to schedule more work in the future. In this example, a multiple choice panel waits for a selection and advances, timing out if a selection isn't made in 5 seconds:
+Tu código puede usar funciones basadas en temporizadores como `setTimeout` para programar más trabajo en el futuro. En este ejemplo, un panel de selección múltiple espera por una selección y avanza, terminando si una selección no se ha hecho en 5 segundos:
 
 ```jsx
 // card.js
@@ -455,7 +455,7 @@ export default function Card(props) {
 }
 ```
 
-We can write tests for this component by leveraging [Jest's timer mocks](https://jestjs.io/docs/en/timer-mocks), and testing the different states it can be in.
+Podemos escribir pruebas para este componente aprovechando las [simulaciones de temporizadores de Jest](https://jestjs.io/docs/en/timer-mocks), y probando los diferentes estados en que puede estar.
 
 ```jsx{7,31,37,49,59}
 // card.test.js
@@ -468,38 +468,38 @@ jest.useFakeTimers();
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpiar al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it("should select null after timing out", () => {
+it("debe seleccionar null después de acabarse el tiempo", () => {
   const onSelect = jest.fn();
   act(() => {
     render(<Card onSelect={onSelect} />, container);
   });
 
-  // move ahead in time by 100ms
+  // adelantarse 100ms en el tiempo
   act(() => {
     jest.advanceTimersByTime(100);
   });
   expect(onSelect).not.toHaveBeenCalled();
 
-  // and then move ahead by 5 seconds
+  // y luego adelantarse 5 segundos
   act(() => {
     jest.advanceTimersByTime(5000);
   });
   expect(onSelect).toHaveBeenCalledWith(null);
 });
 
-it("should cleanup on being removed", () => {
+it("debe limpiar al eliminarse", () => {
   const onSelect = jest.fn();
   act(() => {
     render(<Card onSelect={onSelect} />, container);
@@ -510,7 +510,7 @@ it("should cleanup on being removed", () => {
   });
   expect(onSelect).not.toHaveBeenCalled();
 
-  // unmount the app
+  // desmonta la aplicación
   act(() => {
     render(null, container);
   });
@@ -521,7 +521,7 @@ it("should cleanup on being removed", () => {
   expect(onSelect).not.toHaveBeenCalled();
 });
 
-it("should accept selections", () => {
+it("debe aceptar selecciones", () => {
   const onSelect = jest.fn();
   act(() => {
     render(<Card onSelect={onSelect} />, container);
@@ -537,15 +537,15 @@ it("should accept selections", () => {
 });
 ```
 
-You can use fake timers only in some tests. Above, we enabled them by calling `jest.useFakeTimers()`. The main advantage they provide is that your test doesn't actually have to wait five seconds to execute, and you also didn't need to make the component code more convoluted just for testing.
+Puedes escribir temporizadores falsos solo para algunas pruebas. Arriba, los habilitamos llamando a `jest.useFakeTimers()`. La mayor ventaja que proporcionan es que tu prueba no tiene que esperar realmente cinco segundos para ejecutarse, y tampoco hay necesidad de hacer el código del componente más complejo solo para probarlo.
 
 ---
 
-### Snapshot Testing {#snapshot-testing}
+### Pruebas de instantánea {#snapshot-testing}
 
-Frameworks like Jest also let you save "snapshots" of data with [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing). With these, we can "save" the rendered component output and ensure that a change to it has to be explicitly committed as a change to the snapshot.
+Frameworks como Jest también permiten guardar "instantáneas" de los datos con [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing). Con estas, podemos "guardar" el resultado del componente renderizado y asegurarnos que un cambio a él tiene que hacerse explícitamente como un cambio a la instantánea.
 
-In this example, we render a component and format the rendered HTML with the [`pretty`](https://www.npmjs.com/package/pretty) package, before saving it as an inline snapshot:
+En este ejemplo, renderizamos un componente y formateamos el HTML renderizado con el paquete [`pretty`](https://www.npmjs.com/package/pretty), antes de guardarlo como una instantánea en línea:
 
 ```jsx{29-31}
 // hello.test.js, again
@@ -559,26 +559,26 @@ import Hello from "./hello";
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
+  // configurar un elemento del DOM como objetivo del renderizado
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
+  // limpiar al salir
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it("should render a greeting", () => {
+it("debe renderizar un saludo", () => {
   act(() => {
     render(<Hello />, container);
   });
 
   expect(
     pretty(container.innerHTML)
-  ).toMatchInlineSnapshot(); /* ... gets filled automatically by jest ... */
+  ).toMatchInlineSnapshot(); /* ... jest lo llena automáticamente ... */
 
   act(() => {
     render(<Hello name="Jenny" />, container);
@@ -586,7 +586,7 @@ it("should render a greeting", () => {
 
   expect(
     pretty(container.innerHTML)
-  ).toMatchInlineSnapshot(); /* ... gets filled automatically by jest ... */
+  ).toMatchInlineSnapshot(); /* ... jest lo llena automáticamente ... */
 
   act(() => {
     render(<Hello name="Margaret" />, container);
@@ -594,17 +594,17 @@ it("should render a greeting", () => {
 
   expect(
     pretty(container.innerHTML)
-  ).toMatchInlineSnapshot(); /* ... gets filled automatically by jest ... */
+  ).toMatchInlineSnapshot(); /* ... jest lo llena automáticamente ... */
 });
 ```
 
-It's typically better to make more specific assertions than to use snapshots. These kinds of tests include implementation details so they break easily, and teams can get desensitized to snapshot breakages. Selectively [mocking some child components](#mocking-modules) can help reduce the size of snapshots and keep them readable for the code review.
+Generalmente es mejor hacer afirmaciones más específicas que usar instantáneas. Este tipo de pruebas incluyen detalles de implementación, por lo que pueden romperse con facilidad y los equipos pueden desensibilizarse ante las fallas de las instantáneas. [Simular algunos componentes hijos](#mocking-modules) de manera selectiva puede ayudar a reducir el tamaño de las instantáneas y mantenerlas más legibles para las revisiones de código.
 
 ---
 
-### Multiple Renderers {#multiple-renderers}
+### Múltiples renderizadores {#multiple-renderers}
 
-In rare cases, you may be running a test on a component that uses multiple renderers. For example, you may be running snapshot tests on a component with `react-test-renderer`, that internally uses `ReactDOM.render` inside a child component to render some content. In this scenario, you can wrap updates with `act()`s corresponding to their renderers.
+En casos poco comunes, puedes ejecutar una prueba en un componente que utiliza múltiples renderizadores. Por ejemplo, puedes ejecutar pruebas de instantánea en un componente con `react-test-renderer`, que internamente utiliza `ReactDOM.render` dentro de un componente hijo para renderizar algún contenido. En este escenario, puedes envolver las actualizaciones con los `act()`s correspondientes a sus renderizadores.
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";
@@ -621,6 +621,6 @@ expect(root).toMatchSnapshot();
 
 ---
 
-### Something Missing? {#something-missing}
+### ¿Falta algo? {#something-missing}
 
-If some common scenario is not covered, please let us know on the [issue tracker](https://github.com/reactjs/reactjs.org/issues) for the documentation website.
+Si algún escenario común no está cubierto, por favor, háznoslo saber en el [servicio de seguimiento de incidencias](https://github.com/reactjs/reactjs.org/issues) del sitio de la documentación.
