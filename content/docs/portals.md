@@ -110,7 +110,7 @@ class Parent extends React.Component {
   }
 
   handleClick() {
-    // Esto se activará cuando el botón en el Child sea clicado,
+    // Esto se activará cuando el botón en el Child sea cliqueado,
     // actualizando el estado de Parent,
     // aunque el botón no sea descendiente directo en el DOM.
     this.setState(state => ({
@@ -121,12 +121,12 @@ class Parent extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <p>Número de clics: {this.state.clicks}</p>
+        <p>Number of clicks: {this.state.clicks}</p>
         <p>
-          Abre las herramientas de desarrolador
-          del navegador para que observes que el botón
-          no es un hijo del div que tiene asignado
-          el evento onClick
+          Open up the browser DevTools
+          to observe that the button
+          is not a child of the div
+          with the onClick handler.
         </p>
         <Modal>
           <Child />
