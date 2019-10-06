@@ -137,7 +137,7 @@ class Parent extends React.Component {
 }
 
 function Child() {
-  // El evento de clic en este botón se propagará hasta Parent, 
+  // El evento de clic en este botón se propagará hasta el padre, 
   // porque no hay un atributo 'onClick' definido.
   return (
     <div className="modal">
