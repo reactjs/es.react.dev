@@ -69,21 +69,13 @@ Las primeras dos etiquetas cargan React. La tercera carga tu código del compone
 
 Crea un archivo llamado `like_button.js` en el mismo lugar donde tienes tu archivo HTML.
 
-<<<<<<< HEAD
-Abre **[este código inicial](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** y pégalo en el archivo que acabaste de crear.
-=======
-Open **[this starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** and paste it into the file you created.
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
+Abre **[este código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** y pégalo en el archivo que acabaste de crear.
 
 >Consejo
 >
 >Este código define un componente de React llamado `LikeButton`. No te preocupes si aún no lo entiendes -- vamos a cubrir los elementos básicos de React luego en nuestro [tutorial práctico](/tutorial/tutorial.html) y [guía de conceptos principal](/docs/hello-world.html). Por ahora, ¡vamos a hacer que se muestre en la pantalla!
 
-<<<<<<< HEAD
-Después **[en el código inicial](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, agrega las siguientes dos lineas al final de `like_button.js`:
-=======
-After **[the starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, add two lines to the bottom of `like_button.js`:
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
+Después **[en el código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, agrega las siguientes dos lineas al final de `like_button.js`:
 
 ```js{3,4}
 // ... el código inicial que pegaste ...
@@ -203,11 +195,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 No esperes hasta que termine -- este comando inicia un observador automático para JSX.
 
-<<<<<<< HEAD
-Si ahora creas un archivo llamado `src/like_button.js` con este **[código inicial de JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, el observador va a crear un `like_button.js` preprocesado con el código JavaScript original que es apto para el navegador. Cuando edites el código del archivo que tiene JSX, el transformador va a volver a ejecutarse de forma automática.
-=======
-If you now create a file called `src/like_button.js` with this **[JSX starter code](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, the watcher will create a preprocessed `like_button.js` with the plain JavaScript code suitable for the browser. When you edit the source file with JSX, the transform will re-run automatically.
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
+Si ahora creas un archivo llamado `src/like_button.js` con este **[código inicial de JSX](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, el observador va a crear un `like_button.js` preprocesado con el código JavaScript original que es apto para el navegador. Cuando edites el código del archivo que tiene JSX, el transformador va a volver a ejecutarse de forma automática.
 
 Como un bonus, esto también te permite utilizar características nuevas de la sintaxis de JavaScript, como las clases, sin que te preocupes de que no funcionen en navegadores antiguos. La herramienta que hemos usado se llama Babel, y puedes leer más sobre ella en [su documentación](https://babeljs.io/docs/en/babel-cli/).
 
