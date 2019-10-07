@@ -41,7 +41,7 @@ render() {
 }
 ```
 
-Un caso de uso típico de los portales es cuando un componente principal tiene un estilo `overflow: hidden` or `z-index`, pero necesita que el elemento "salga" visualmente de su contenedor. Por ejemplo, cuadros de diálogo, *hovercards* y *tooltips*.
+Un caso de uso típico de los portales es cuando un componente principal tiene un estilo `overflow: hidden` o `z-index`, pero necesita que el elemento "salga" visualmente de su contenedor. Por ejemplo, cuadros de diálogo, *hovercards* y *tooltips*.
 
 > Nota:
 >
@@ -137,7 +137,7 @@ class Parent extends React.Component {
 }
 
 function Child() {
-  // El evento de clic en este botón se convertirá en principal, 
+  // El evento de clic en este botón se propagará hasta el padre, 
   // porque no hay un atributo 'onClick' definido.
   return (
     <div className="modal">
