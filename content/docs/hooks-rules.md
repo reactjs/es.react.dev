@@ -12,7 +12,7 @@ Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando l
 
 ### Llama Hooks solo en el nivel superior {#only-call-hooks-at-the-top-level}
 
-**No llames Hooks dentro de ciclos, condicionales, or funciones anidadas.** En vez de eso, usa siempre Hooks en el nivel superior de tu función en React. Siguiendo esta regla, te aseguras de que los hooks se llamen en el mismo orden cada vez que un componente se renderiza. Esto es lo que permite a React preservar correctamente el estado de los hooks entre multiples llamados a `useState` y `useEffect`. (Si eres curioso, vamos a explicar esto en detalle [más abajo](#explicación).)
+**No llames Hooks dentro de ciclos, condicionales o funciones anidadas.** En vez de eso, usa siempre Hooks en el nivel superior de tu función en React. Siguiendo esta regla, te aseguras de que los hooks se llamen en el mismo orden cada vez que un componente se renderiza. Esto es lo que permite a React preservar correctamente el estado de los hooks entre multiples llamados a `useState` y `useEffect`. (Si eres curioso, vamos a explicar esto en detalle [más abajo](#explicación).)
 
 ### Llama Hooks solo en funciones de React {#only-call-hooks-from-react-functions}
 
@@ -46,13 +46,13 @@ npm install eslint-plugin-react-hooks --save-dev
 }
 ```
 
-En el futuro, tenemos la intención de incluir este plugin por defecto en Create React App y otros paquetes similares.
+En el futuro, tenemos la intención de incluir este plugin por defecto en [Create React App](https://github.com/facebook/create-react-app) y otros paquetes similares.
 
-**Puedes pasar a la siguiente página donde explicamos como escribir [tus propios Hooks](/docs/hooks-custom.html) ahora mismo.** En esta página, vamos a continuar explicando el razonamiento detrás de estas reglas.
+**Puedes pasar a la siguiente página donde explicamos cómo escribir [tus propios Hooks](/docs/hooks-custom.html) ahora mismo.** En esta página, vamos a continuar explicando el razonamiento detrás de estas reglas.
 
 ## Explicación {#explanation}
 
-Como [aprendimos anteriormente](/docs/hooks-state.html#tip-using-multiple-state-variables), podemos usar multiples Hooks de Estado o Hooks de Efecto en un solo componente:
+Como [aprendimos anteriormente](/docs/hooks-state.html#tip-using-multiple-state-variables), podemos usar múltiples Hooks de Estado o Hooks de Efecto en un solo componente:
 
 ```js
 function Form() {
@@ -76,7 +76,7 @@ function Form() {
 }
 ```
 
-Entonces, como hace React para saber cual estado corresponde a cual llamado del `useState`? La respuesta es que **React se basa en el orden en el cual los Hooks son llamados**. Nuestro ejemplo funciona porque el orden en los llamados de los Hooks son el mismo en cada render:
+Entonces, cómo hace React para saber cuál estado corresponde a cuál llamado del `useState`? La respuesta es que **React se basa en el orden en el cual los Hooks son llamados**. Nuestro ejemplo funciona porque el orden en los llamados de los Hooks son el mismo en cada render:
 
 ```js
 // ------------
@@ -98,7 +98,7 @@ useEffect(updateTitle)     // 4. Reemplaza el efecto de actualización del títu
 // ...
 ```
 
-Siempre y cuando el orden de los llamados a los Hooks sean los mismos entre renders, React puede asociar algún estado local con cada uno de ellos. Pero que pasa si ponemos la llamada a un Hook (por ejemplo, el efecto `persistForm`) dentro de una condición?
+Siempre y cuando el orden de los llamados a los Hooks sean los mismos entre renders, React puede asociar algún estado local con cada uno de ellos. Pero qué pasa si ponemos la llamada a un Hook (por ejemplo, el efecto `persistForm`) dentro de una condición?
 
 ```js
   // 🔴 Estamos rompiendo la primera regla al usar un Hook en una condición
@@ -118,7 +118,7 @@ useState('Poppins')        // 🔴 2 (pero era el 3). Falla la lectura de la var
 useEffect(updateTitle)     // 🔴 3 (pero era el 4). Falla el reemplazo del efecto
 ```
 
-React no sabría que devolver para la segunda llamada del Hook `useState`. React esperaba que la segunda llamada al Hook en este componente corresponda al efecto `persistForm`, igual que en el render anterior, pero ya no lo hace. A partir de este punto, cada siguiente llamada de un Hook después de la que nos saltamos también cambiaría de puesto por uno, lo que llevaría a la aparición de errores.
+React no sabría qué devolver para la segunda llamada del Hook `useState`. React esperaba que la segunda llamada al Hook en este componente correspondiera al efecto `persistForm`, igual que en el render anterior, pero ya no lo hace. A partir de este punto, cada siguiente llamada de un Hook después de la que nos saltamos también cambiaría de puesto por uno, lo que llevaría a la aparición de errores.
 
 **Es por esto que los Hooks deben ser utilizados en el nivel superior de nuestros componentes.** Si queremos ejecutar un efecto condicionalmente, podemos poner esa condición *dentro* de nuestro Hook:
 
