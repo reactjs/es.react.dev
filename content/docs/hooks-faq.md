@@ -373,7 +373,7 @@ Nota como esto podría funcionar para props, estado, o cualquier otro valor calc
 function Counter() {
   const [count, setCount] = useState(0);
 
-  const calculation = count * 100;
+  const calculation = count + 100;
   const prevCalculation = usePrevious(calculation);
   // ...
 ```
