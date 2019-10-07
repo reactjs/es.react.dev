@@ -8,7 +8,7 @@ prev: hooks-effect.html
 
 Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
-Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un [plugin de ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para hacer cumplir estas reglas automáticamente.
+Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para hacer cumplir estas reglas automáticamente.
 
 ### Llama Hooks solo en el nivel superior {#only-call-hooks-at-the-top-level}
 
