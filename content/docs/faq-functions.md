@@ -18,7 +18,7 @@ Si necesitas tener acceso al componente padre dentro del evento, también debes 
 
 ### ¿Cómo enlazo una función a la instancia de un componente? {#how-do-i-bind-a-function-to-a-component-instance}
 
-Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de que tipo de sintaxis o 
+Hay varias maneras de asegurarte que las funciones tengan acceso a los atributos del componente como `this.props` y `this.state`, dependiendo de qué tipo de sintaxis o 
 
 #### Enlazar dentro del constructor (ES2015) {#bind-in-constructor-es2015}
 
@@ -108,7 +108,7 @@ Los métodos de enlace nos aseguran que el segundo fragmento funcione de la mism
 
 Con React, normalmente solo necesitamos enlazar los métodos que *pasamos* a otros componentes. Por ejemplo: `<button onClick={this.handleClick}>` pasa `this.handleClick` por ende, se debería enlazar. Sin embargo, es innecesario enlazar el método `render` o los métodos de ciclo de vida: no los pasamos a otros componentes.
  
-[Este artículo creado por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle que es enlazar, y como funcionan las funciones en JavaScript.
+[Este artículo creado por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica a detalle qué es enlazar, y cómo funcionan las funciones en JavaScript.
 
 ### ¿Por qué mi función está siendo llamada cada vez que mi componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
 
@@ -304,11 +304,11 @@ class Searchbox extends React.Component {
 
 #### `requestAnimationFrame` throttling {#requestanimationframe-throttling}
 
-[`requestAnimationFrame`](https://developer.mozilla.org/es/docs/Web/API/Window/requestAnimationFrame) es una forma de poner una función en cola para ser ejecutada por el navegador en un tiempo óptimo para el rendimiento del renderizado. Una función en cola con `requestAnimationFrame` va a dispararse en el siguiente cuadro. El navegador se va a encargar de que hayan 60 cuadros por segundo (60fps). Sin embargo, si el navegador no puede, el mismo navegador naturalmente va a limitar la cantida de cuadros por segundo. Por ejemplo, un dispositivo podría solo manejar 30 fps, por ende, solo tendrás 30 cuadros por segundo. Usando `requestAnimationFrame` para throttle es una técnica muy útil ya que previene que tú mismo generes más de 60 actualizaciones por segundo. Si estás generando 100 actualizaciones por segundo, puedes crear esfuerzo adicional para el navegador que el usuario de todas formas no va a poder apreciar.
+[`requestAnimationFrame`](https://developer.mozilla.org/es/docs/Web/API/Window/requestAnimationFrame) es una forma de poner una función en cola para ser ejecutada por el navegador en un tiempo óptimo para el rendimiento del renderizado. Una función en cola con `requestAnimationFrame` va a dispararse en el siguiente cuadro. El navegador se va a encargar de que hayan 60 cuadros por segundo (60fps). Sin embargo, si el navegador no puede, el mismo navegador naturalmente va a limitar la cantidad de cuadros por segundo. Por ejemplo, un dispositivo podría solo manejar 30 fps, por ende, solo tendrás 30 cuadros por segundo. Usando `requestAnimationFrame` para throttle es una técnica muy útil ya que previene que tú mismo generes más de 60 actualizaciones por segundo. Si estás generando 100 actualizaciones por segundo, puedes crear esfuerzo adicional para el navegador que el usuario de todas formas no va a poder apreciar.
 
 >**Nota:**
 >
->Usando esta técnica podemos capturar el último valor capturado en un cuadro. Puedes ver a un ejemplo de como funciona este tipo de optimización en [`MDN`](https://developer.mozilla.org/es/docs/Web/Events/scroll)
+>Usando esta técnica podemos capturar el último valor capturado en un cuadro. Puedes ver a un ejemplo de cómo funciona este tipo de optimización en [`MDN`](https://developer.mozilla.org/es/docs/Web/Events/scroll)
 
 ```jsx
 import rafSchedule from 'raf-schd';
@@ -332,7 +332,7 @@ class ScrollListener extends React.Component {
   }
 
   componentWillUnmount() {
-    // Cancela cualquier actualizacion pendiente ya que estamos 'unmounting'.
+    // Cancela cualquier actualización pendiente ya que estamos 'unmounting'.
     this.scheduleUpdate.cancel();
   }
 
