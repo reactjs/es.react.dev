@@ -9,7 +9,6 @@ permalink: community/examples.html
 Hay muchos proyectos de ejemplo creados por la comunidad de React. Siéntete libre de añadir tu propio proyecto. Si agregas un proyecto, por favor, comprométete a mantenerlo actualizado con las últimas versiones de React.
 
 
-<<<<<<< HEAD
 * **[Calculator](https://github.com/ahfarmer/calculator)** Implementación de la calculadora de iOS en React.
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Sencilla aplicación en React para buscar emojis.
 * **[Github Battle App](https://github.com/ReactTraining/react-fundamentals/tree/hosting)** Pon a luchar a dos usuarios de Github y ve los proyectos más populares de Github para cualquier lenguaje.
