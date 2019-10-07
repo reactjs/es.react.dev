@@ -55,12 +55,21 @@ Si no, tú mismo vas a tener que configurar el *bundling*. Por ejemplo, revisa l
 El *Bundling* es genial, pero a medida que tu aplicación crezca, tu *bundle* también crecerá. Especialmente
 si incluyes grandes bibliotecas de terceros. Necesitas vigilar el código que incluyes en tu *bundle*, de manera que no lo hagas accidentalmente tan grande que tu aplicación se tome mucho tiempo en cargar.
 
+<<<<<<< HEAD
 Para evitar terminar con un *bundle* grande, es bueno adelantarse al problema
 y comenzar a dividir tu *bundle*. [División de código](https://webpack.js.org/guides/code-splitting/) es una funcionalidad disponible en *bundlers* como Webpack y Browserify (vía [factor-bundle](https://github.com/browserify/factor-bundle)) que puede crear múltiples *bundles* a ser cargados dinámicamente durante la ejecución de tu aplicación.
 
 Dividir el código de tu aplicación puede ayudarte a cargar solo lo necesario en cada momento para el usuario, lo cual puede mejorar dramáticamente el rendimiento de tu aplicación. Si bien no habrás reducido la cantidad total de código en tu aplicación,
 habrás evitado cargar código que el usuario podría no necesitar nunca, y reducido la cantidad necesaria
 de código durante la carga inicial.
+=======
+To avoid winding up with a large bundle, it's good to get ahead of the problem
+and start "splitting" your bundle.
+Code-Splitting is a feature
+supported by bundlers like [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) and Browserify (via
+[factor-bundle](https://github.com/browserify/factor-bundle)) which can create
+multiple bundles that can be dynamically loaded at runtime.
+>>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 
 ## `import()` {#import}
