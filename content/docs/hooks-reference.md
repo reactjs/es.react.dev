@@ -239,7 +239,7 @@ function ThemedButton() {
 }
 ```
 
-Este ejemplo está modificado para Hooks del ejemplo anterior en de la [guía avanzada de Context](/docs/context.html), donde puedes encontrar más información sobre cuando y Cómo usar Context.
+Este ejemplo está modificado para Hooks a partir del ejemplo anterior en de la [guía avanzada de Context](/docs/context.html), donde puedes encontrar más información sobre cuando y cómo usar Context.
 
 ## Hooks adicionales {#additional-hooks}
 
