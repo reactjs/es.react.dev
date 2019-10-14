@@ -196,7 +196,7 @@ Un componente que llama a `useContext` siempre se volverá a renderizar cuando e
 >
 >`useContext(MyContext)` solo te permite *leer* el contexto y suscribirte a sus cambios. Aún necesitas un `<MyContext.Provider>` arriba en el árbol para *proveer* el valor para este contexto.
 
-**Putting it together with Context.Provider**
+**Poniendo todo junto con Context.Provider**
 
 ```js{31-36}
 const themes = {
