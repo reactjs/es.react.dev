@@ -196,7 +196,55 @@ Un componente que llama a `useContext` siempre se volverá a renderizar cuando e
 >
 >`useContext(MyContext)` solo te permite *leer* el contexto y suscribirte a sus cambios. Aún necesitas un `<MyContext.Provider>` arriba en el árbol para *proveer* el valor para este contexto.
 
+<<<<<<< HEAD
 ## Hooks adicionales {#additional-hooks}
+=======
+**Putting it together with Context.Provider**
+```js{31-36}
+const themes = {
+  light: {
+    foreground: "#000000",
+    background: "#eeeeee"
+  },
+  dark: {
+    foreground: "#ffffff",
+    background: "#222222"
+  }
+};
+
+const ThemeContext = React.createContext(themes.light);
+
+function App() {
+  return (
+    <ThemeContext.Provider value={themes.dark}>
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <button style={{ background: theme.background, color: theme.foreground }}>
+      I am styled by theme context!
+    </button>
+  );
+}
+```
+This example is modified for hooks from a previous example in the [Context Advanced Guide](/docs/context.html), where you can find more information about when and how to use Context.
+
+
+## Additional Hooks {#additional-hooks}
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 Los siguientes Hooks son variantes de los básicos de la sección anterior o solo son necesarios para casos extremos específicos. No te estreses por aprenderlos por adelantado.
 

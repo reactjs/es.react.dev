@@ -333,7 +333,11 @@ Ten en cuenta que renderizar componentes `lazy` requiere que haya un componente 
 
 ### `React.Suspense` {#reactsuspense}
 
+<<<<<<< HEAD
 `React.Suspense` permite especificar el indicador de carga en caso de que algunos componentes en el árbol más abajo de él todavía no estén listos para renderizarse. Hoy en día, los componentes de carga diferida son el **único** caso compatible con `<React.Suspense>`:
+=======
+`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 ```js
 // Este componente está cargado dinámicamente

@@ -104,6 +104,7 @@ permalink: community/meetups.html
 
 ## Filipinas {#philippines}
 * [Manila](https://www.meetup.com/reactjs-developers-manila/)
+* [Manila - ReactJS PH](https://www.meetup.com/ReactJS-Philippines/)
 
 ## Polonia {#poland}
 * [Varsovia](https://www.meetup.com/React-js-Warsaw/)
