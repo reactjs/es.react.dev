@@ -324,6 +324,6 @@ Levantar el estado implica escribir más código *"boilerplate"* que los enfoque
 
 Si algo puede ser derivado de las propiedades o el estado, probablemente no debería estar en el estado. Por ejemplo, en vez de almacenar `celsiusValue` y `fahrenheitValue`, solamente almacenamos la última edición a `temperature` y `scale`. El valor de de la otra entrada siempre puede ser calculado desde el método `render()`. Esto nos permite limpiar o aplicar un redondeo a la otra entrada sin perder la precisión en la entrada del usuario.
 
-Cuando veas que algo está mal en la interfaz de usuario, puedes usar [React Developer Tools](https://github.com/facebook/react-devtools) para inspeccionar las propiedades y moverte hacia arriba en el árbol hasta encontrar el componente responsable de actualizar el estado. Esto te permite seguir un error hasta su fuente:
+Cuando veas que algo está mal en la interfaz de usuario, puedes usar [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) para inspeccionar las propiedades y moverte hacia arriba en el árbol hasta encontrar el componente responsable de actualizar el estado. Esto te permite seguir un error hasta su fuente:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
