@@ -4,7 +4,7 @@ title: Componentes no controlados
 permalink: docs/uncontrolled-components.html
 ---
 
-En la mayoría de los casos, te recomendamos usar [Componentes controlados](/docs/forms.html) para implementar formularios. En un componente controlado, los datos del formulario son manejados por un componente React. La alternativa son los componentes no controlados, donde los datos del formulario son manejados por el propio DOM.
+En la mayoría de los casos, te recomendamos usar [Componentes controlados](/docs/forms.html#controlled-components) para implementar formularios. En un componente controlado, los datos del formulario son manejados por un componente React. La alternativa son los componentes no controlados, donde los datos del formulario son manejados por el propio DOM.
 
 Para escribir un componente no controlado, en lugar de escribir un controlador de eventos para cada actualización de estado, puedes [usar una referencia](/docs/refs-and-the-dom.html) para que obtengas los valores del formulario desde el DOM.
 
