@@ -12,11 +12,11 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-Este tutorial no asume ningún conocimiento previo sobre React.
+Para realizar este tutorial no es necesario ningún conocimiento previo en React.
 
 ## Antes de empezar el tutorial {#before-we-start-the-tutorial}
 
-Vamos a construir un pequeño juego durante este tutorial. **Deberás estar tentado a obviarlo porque tú no estás construyendo juegos en el día a día, pero dale una oportunidad.** Las técnicas que aprenderás en el tutorial son fundamentales para construir cualquier aplicación de React, y dominarlo te dará un entendimiento profundo de React.
+En este tutorial vamos a desarrollor un juego. **Quizás estés tentado en obviarlo al no desarrollar juegos, pero deberías darle una oportunidad** Las técnicas que vas a aprender en el tutorial son fundamentales para desarrollar cualquier tipo de aplicación en React, y dominarlas te proporcionará un profundo entendimientode React.
 
 >Tip
 >
