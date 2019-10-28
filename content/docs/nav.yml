@@ -7,7 +7,9 @@
     - id: create-a-new-react-app
       title: Crear una nueva aplicación React
     - id: cdn-links
-      title: Enlaces CDN
+      title: CDN Links
+    - id: release-channels
+      title: Canales de lanzamientos
 - title: Conceptos principales
   isOrdered: true
   items:
@@ -133,16 +135,29 @@
       title: Recetas de pruebas
     - id: testing-environments
       title: Entornos de prueba
+- title: Modo Concurrente (Experimental)
+  isOrdered: true
+  items:
+    - id: concurrent-mode-intro
+      title: Presentando modo concurrente
+    - id: concurrent-mode-suspense
+      title: Suspense para obtener de datos
+    - id: concurrent-mode-patterns
+      title: Patrones UI concurrentes
+    - id: concurrent-mode-adoption
+      title: Adoptando modo concurrente
+    - id: concurrent-mode-reference
+      title: Referencia del API del modo concurrente
 - title: Contribuir
   items:
-  - id: how-to-contribute
-    title: Cómo contribuir
-  - id: codebase-overview
-    title: Visión general de la base de código
-  - id: implementation-notes
-    title: Notas de implementación
-  - id: design-principles
-    title: Principios de diseño
+    - id: how-to-contribute
+      title: Cómo contribuir
+    - id: codebase-overview
+      title: Visión general de la base de código
+    - id: implementation-notes
+      title: Notas de implementación
+    - id: design-principles
+      title: Principios de diseño
 - title: Preguntas frecuentes
   items:
     - id: faq-ajax

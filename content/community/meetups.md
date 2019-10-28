@@ -52,8 +52,8 @@ permalink: community/meetups.html
 
 ## Francia {#france}
 * [París](https://www.meetup.com/ReactJS-Paris/)
+* [Nantes](https://www.meetup.com/React-Nantes/)
 * [Lille](https://www.meetup.com/ReactBeerLille/)
-* [Paris](https://www.meetup.com/ReactJS-Paris/)
 
 ## Alemania {#germany}
 * [Düsseldorf](https://www.meetup.com/de-DE/ReactJS-Meetup-Dusseldorf/)

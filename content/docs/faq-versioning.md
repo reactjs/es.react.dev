@@ -16,6 +16,10 @@ Esto significa que lo hace con un número de versión **x.y.z**:
 
 Los lanzamientos importantes también pueden contener nuevas funcionalidades, y cualquier lanzamiento puede incluir correcciones de errores.
 
+Los lanzamientos menores son el tipo de lanzamiento más común.
+
+> Esta política de versiones no aplica a compilados de pre-lanzamientos en los canales de "Next" o "Experimental". [Aprende más sobre pre-lanzamientos.](/docs/release-channels.html)
+
 ### Cambios con rupturas {#breaking-changes}
 
 Los cambios con rupturas son inconvenientes para todos, por lo que intentamos minimizar el número de lanzamientos importantes – por ejemplo, React 15 fue lanzado en Abril de 2016 y React 16 fue lanzado en Septiembre de 2017; no esperamos lanzar React 17 hasta el 2019.

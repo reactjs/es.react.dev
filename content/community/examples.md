@@ -23,5 +23,7 @@ Hay muchos proyectos de ejemplo creados por la comunidad de React. Siéntete lib
 * **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Un espacio que permite al usuario jugar con las fuentes de Google. Construido con React, Redux y React-Router.
 * **[Course Learn Page](https://github.com/ulearnpro/ulearn)** Script LMS de código abierto en Laravel 5.8 y ReactJS 16.9
 * **[Speedy math](https://github.com/pankajladhar/speedy-math)** Una aplicación que permite a los niños practicar matemática básica como sumas, restas, multiplicación y comparación. Es una PWA (aplicación web progresiva) con compatibilidad fuera de conexión e instalación como aplicación.
-* **[Unit Converter](https://github.com/KarthikeyanRanasthala/react-unit-converter)** Convertidor de unidades mínimo pero poderoso hecho con React, Material-UI y Convert-Units.
+* **[Unit Converter](https://github.com/KarthikeyanRanasthala/react-unit-converter)** Convertidor de unidades minimalista pero poderoso hecho con React, Material-UI y Convert-Units.
 * **[BMI Calculator](https://github.com/GermaVinsmoke/bmi-calculator)** Una aplicación con React Hooks para calcular índice de masa corporal.
+* **[ReactJS Juego del ahorcado](https://github.com/vetrivelcsamy/reactjs-hangman)** ReactJS El juego del ahorcado encuentra un lenguaje de programación.
+* **[Radix Converter](https://github.com/kumom/radix-converter)** Una pequeña herramienta que convierte números en base 2 a 36 con precisión arbitraria.

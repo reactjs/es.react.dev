@@ -16,7 +16,7 @@ Su propósito es ayudar a identificar partes de una aplicación que son lentas y
 > Para acceder al análisis de rendimiento en producción, React proporciona una compilación de producción especial con la generación de perfiles habilitada.
 > Lea más sobre cómo usar esta compilación en [fb.me/react-profiling](https://fb.me/react-profiling)
 
-## Uso
+## Uso {#usage}
 
 Se puede agregar un `Profiler` en cualquier parte de un árbol React para medir el costo de renderizar esa parte del árbol.
 Requiere dos props: un `id` (string) y un callback `onRender` (función) que React llama cada vez que un componente dentro del árbol "confirma" una actualización.
@@ -70,7 +70,7 @@ render(
 >
 > Aunque `Profiler` es un componente liviano, debe usarse solo cuando sea necesario; cada uso agrega algo de sobrecarga de CPU y memoria a una aplicación.
 
-## Callback `onRender`
+## Callback `onRender` {#onrender-callback}
 
 El `Profiler` requiere una función `onRender` como una prop.
 React llama a esta función cada vez que un componente dentro del árbol perfilado "confirma" una actualización.
