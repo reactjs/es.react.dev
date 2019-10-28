@@ -151,13 +151,13 @@
 - title: Contribuir
   items:
     - id: how-to-contribute
-        title: Cómo contribuir
+      title: Cómo contribuir
     - id: codebase-overview
-        title: Visión general de la base de código
+      title: Visión general de la base de código
     - id: implementation-notes
-        title: Notas de implementación
+      title: Notas de implementación
     - id: design-principles
-        title: Principios de diseño
+      title: Principios de diseño
 - title: Preguntas frecuentes
   items:
     - id: faq-ajax
