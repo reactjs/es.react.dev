@@ -7,15 +7,10 @@
     - id: create-a-new-react-app
       title: Crear una nueva aplicación React
     - id: cdn-links
-<<<<<<< HEAD
-      title: Enlaces CDN
-- title: Conceptos principales
-=======
       title: CDN Links
     - id: release-channels
-      title: Release Channels
-- title: Main Concepts
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+      title: Canales de lanzamientos
+- title: Conceptos principales
   isOrdered: true
   items:
     - id: hello-world
@@ -112,7 +107,6 @@
     - id: javascript-environment-requirements
       title: Requerimientos del entorno de JS
     - id: glossary
-<<<<<<< HEAD
       title: Glosario
 - title: Hooks (nuevo)
   isOrdered: true
@@ -137,75 +131,34 @@
   items:
     - id: testing 
       title: Visión general de las pruebas
-=======
-      title: Glossary
-- title: Hooks
-  isOrdered: true
-  items:
-    - id: hooks-intro
-      title: Introducing Hooks
-    - id: hooks-overview
-      title: Hooks at a Glance
-    - id: hooks-state
-      title: Using the State Hook
-    - id: hooks-effect
-      title: Using the Effect Hook
-    - id: hooks-rules
-      title: Rules of Hooks
-    - id: hooks-custom
-      title: Building Your Own Hooks
-    - id: hooks-reference
-      title: Hooks API Reference
-    - id: hooks-faq
-      title: Hooks FAQ
-- title: Testing
-  items:
-    - id: testing
-      title: Testing Overview
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
     - id: testing-recipes
       title: Recetas de pruebas
     - id: testing-environments
-<<<<<<< HEAD
       title: Entornos de prueba
-- title: Contribuir
-  items:
-  - id: how-to-contribute
-    title: Cómo contribuir
-  - id: codebase-overview
-    title: Visión general de la base de código
-  - id: implementation-notes
-    title: Notas de implementación
-  - id: design-principles
-    title: Principios de diseño
-- title: Preguntas frecuentes
-=======
-      title: Testing Environments
-- title: Concurrent Mode (Experimental)
+- title: Modo Concurrente (Experimental)
   isOrdered: true
   items:
     - id: concurrent-mode-intro
-      title: Introducing Concurrent Mode
+      title: Presentando modo concurrente
     - id: concurrent-mode-suspense
-      title: Suspense for Data Fetching
+      title: Suspense para obtener de datos
     - id: concurrent-mode-patterns
-      title: Concurrent UI Patterns
+      title: Patrones UI concurrentes
     - id: concurrent-mode-adoption
-      title: Adopting Concurrent Mode
+      title: Adoptando modo concurrente
     - id: concurrent-mode-reference
-      title: Concurrent Mode API Reference
-- title: Contributing
+      title: Referencia del API del modo concurrente
+- title: Contribuir
   items:
     - id: how-to-contribute
-      title: How to Contribute
+        title: Cómo contribuir
     - id: codebase-overview
-      title: Codebase Overview
+        title: Visión general de la base de código
     - id: implementation-notes
-      title: Implementation Notes
+        title: Notas de implementación
     - id: design-principles
-      title: Design Principles
-- title: FAQ
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+        title: Principios de diseño
+- title: Preguntas frecuentes
   items:
     - id: faq-ajax
       title: AJAX y APIs
@@ -222,8 +175,4 @@
     - id: faq-versioning
       title: Política de versiones
     - id: faq-internals
-<<<<<<< HEAD
       title: DOM virtual y detalles de implementación
-=======
-      title: Virtual DOM and Internals
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
