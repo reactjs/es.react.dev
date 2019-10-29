@@ -145,7 +145,7 @@
     - id: concurrent-mode-patterns
       title: Patrones UI concurrentes
     - id: concurrent-mode-adoption
-      title: Adoptando modo concurrente
+      title: Adopción del Modo concurrente
     - id: concurrent-mode-reference
       title: Referencia del API del modo concurrente
 - title: Contribuir
