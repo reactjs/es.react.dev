@@ -141,7 +141,7 @@
     - id: concurrent-mode-intro
       title: Presentando modo concurrente
     - id: concurrent-mode-suspense
-      title: Suspense para obtener de datos
+      title: Suspense para la carga de datos
     - id: concurrent-mode-patterns
       title: Patrones UI concurrentes
     - id: concurrent-mode-adoption
