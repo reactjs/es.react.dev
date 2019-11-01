@@ -667,9 +667,9 @@ Atrapará tanto errores de renderizado *como* errores de carga de datos con Susp
 Suspense responde algunas preguntas, pero también plantea algunas nuevas:
 
 * Si algún componente se "suspende", ¿se congela la apliación? ¿Cómo evitarlo?
-* ¿Y si quisiéramos mostrar un spinner en un lugar diferente al componente de "encima" en el árbol?
+* ¿Y si quisiéramos mostrar un _spinner_ en un lugar diferente al componente de "encima" en el árbol?
 * Si intencionalmente *quisiéramos* mostrar una interfaz inconsistente por un pequeño espacio de tiempo, ¿Podríamos hacerlo?
-* En lugar de mostrar un spinner, ¿podemos añadir un efecto visual como "oscurecer" la pantalla actual?
+* En lugar de mostrar un _spinner_, ¿podemos añadir un efecto visual como "oscurecer" la pantalla actual?
 * ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) emitió una advertencia al hacer click en el botón "Next"?
 
 Para responder a estas preguntas, nos referiremos a la próxima sección dedicada a [Patrones de interfaces de usuario concurrentes](/docs/concurrent-mode-patterns.html).
