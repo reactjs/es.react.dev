@@ -6,11 +6,11 @@ prev: concurrent-mode-intro.html
 next: concurrent-mode-patterns.html
 ---
 
->Cuidado:
+> Advertencia:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+> Esta página describe **funcionalidades experimentales que [aún no están disponibles](/docs/concurrent-mode-adoption.html) en una versión estable**. No dependas de compilados experimentales de React en aplicaciones en producción. Estas funcionalidades pueden cambiar significativamente y sin advertencia antes de formar parte de React.
 >
->This documentation is aimed at early adopters and people who are curious. If you're new to React, don't worry about these features -- you don't need to learn them right now.
+> Esta documentación está dirigida a usuarios pioneros y personas que sienten curiosidad. Si te estás iniciando en React, no te preocupes por estas funcionalidades, no necesitas aprenderlas inmediatamente.
 
 
 React 16.6 añadió un componente `<Suspense>` que te permite "esperar" a que se cargue algún código y especificar declarativamente un estado de carga (como un _spinner_) mientras esperamos:
@@ -24,8 +24,7 @@ const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carga diferida
 </Suspense>
 ```
 
-Suspense para la carga de datos es una nueva funcionalidad que te
-permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoque en el caso de uso de la carga de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
+Suspense para la carga de datos es una nueva funcionalidad que te permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoque en el caso de uso de la carga de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
 
 - [¿Qué es Suspense, exactamente?](#what-is-suspense-exactly)
   - [Lo que Suspense no es](#what-suspense-is-not)
@@ -45,7 +44,6 @@ v  - [Approach 3: Renderizar mientras se carga (usando Suspense)](#approach-3-re
   - [Solución de las condiciones de carrera con Suspense](#solving-race-conditions-with-suspense)
 - [Manejo de errores](#handling-errors)
 - [Próximos pasos](#next-steps)
-
 
 ## ¿Qué es Suspense, exactamente? {#what-is-suspense-exactly}
 
@@ -72,7 +70,7 @@ function ProfileDetails() {
 }
 
 function ProfileTimeline() {
-  // Intenta leer las publicaciones aunque puede que aún no se hayan cargado 
+  // Intenta leer las publicaciones aunque puede que aún no se hayan cargado
   const posts = resource.posts.read();
   return (
     <ul>
@@ -88,7 +86,7 @@ function ProfileTimeline() {
 
 Este demo es una suerte de motivación. No te preocupes si aún no tiene sentido completamente. Hablaremos más sobre cómo funciona debajo. Ten en cuenta que Suspense es más un _mecanismo_, y ciertas API como `fetchProfileData()` o `resource.posts.read()` en el ejemplo de arriba no son muy importantes. Si tienes curiosidad, puedes encontrar sus definiciones en el _sandbox_ del demo.
 
-Suspense no es una biblioteca para la carga de datos. Es un *mecanismo para que las bibliotecas de carga de datos* le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y su nueva integración con Suspense. Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
+Suspense no es una biblioteca para la carga de datos. Es un **mecanismo para que las bibliotecas de carga de datos** le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y su nueva integración con Suspense. Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
 
 A largo plazo, esperamos que Suspense se vuelva la forma principal de leer datos asíncronos desde los componentes (sin importar de dónde vienen los datos).
 
@@ -124,19 +122,19 @@ Si no usas actualmente Relay, quizá debas esperar antes de que puedas probar Su
 
 En los próximos meses, muchas bibliotecas aparacerán con diferentes formas de API con Suspense. Si prefieres aprender cuando las cosas estén más estables, quizá quieras ignorar este trabajo por ahora, y volver cuando el ecosistema de Suspense esté más maduro.
 
-También puedes escribir tu propia integración para una biblioteca de obtención de datos, si quisieras.
+También puedes escribir tu propia integración para una biblioteca de carga de datos, si quisieras.
 
 ### Para autores de bibliotecas {#for-library-authors}
 
-Esperamos ver mucha experimentación en la comunidad con otras bibliotecas. Hay algo importante que deben notar los autores de bibliotecas de obtención de datos.
+Esperamos ver mucha experimentación en la comunidad con otras bibliotecas. Hay algo importante que deben notar los autores de bibliotecas de carga de datos.
 
 Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a usarse como una forma de comenzar a cargar datos cuando un componente se renderiza. En cambio, le permite a los componentes expresar que están "esperando" por datos que ya *se están cargando*. A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las APIs que favorezcan u obliguen a obtener los datos antes del renderizado. La documentación actual de la API de Suspense para Relay no profundiza aún en la precarga, pero planeamos publicar más acerca de estas técnicas en el futuro cercano.
 
-Nuestro mensaje acerca de esto ha sido muy consistente en el pasado. Suspense para la obtención de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
+Nuestro mensaje acerca de esto no ha sido muy consistente en el pasado. Suspense para la carga de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
 
 ## Enfoques tradicionales vs. Suspense {#traditional-approaches-vs-suspense}
 
-Podríamos introducir Suspense sin mencionar los enfoques populares de obtención de datos. Sin embargo, esto hace que sea más difícil ver qué problemas soluciona Suspense, por qué vale la pena resolver estos problemas, y como Suspense es diferente a las soluciones existentes.
+Podríamos introducir Suspense sin mencionar los enfoques populares de carga de datos. Sin embargo, esto hace que sea más difícil ver qué problemas soluciona Suspense, por qué vale la pena resolver estos problemas, y como Suspense es diferente a las soluciones existentes.
 
 En cambio, veremos a Suspense como el próximo paso lógico en una secuencia de enfoques:
 
