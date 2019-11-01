@@ -364,7 +364,6 @@ Esto tiene una implicación interesante. Incluso si usamos un cliente GraphQL qu
 
 Nota como hemos eliminado los chequeos `if (...)` "is loading" de nuestros componentes. Esto no solo elimina código repetitivo, sino que también simplifica el proceso de hacer cambios rápidos de diseño. Por ejemplo, si quisieramos que los detalles del perfil y las publicaciones siempre aparecieran juntos, podríamos eliminar la barrera `<Suspense>` entre ellos. O podríamos hacerlos independientes uno del otro dándole a cada uno *su propia* barrera `<Suspense>`. Suspense te permite cambiar la granularidad de nuestros estados de carga y coordinar la secuencia sin cambios invasivos al código.
 
-
 ### Aún no lo sabemos todo {#were-still-figuring-this-out}
 
 El propio Suspense como mecanimso es flexible y no tiene muchas restricciones. El código de productos necesita tener más restricciones para asegurar que no existan cascadas, pero hay formas distintas de proporcionar estas garantías. Algunas preguntas que aún estamos explorando incluyen:
