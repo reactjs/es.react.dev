@@ -673,4 +673,3 @@ Suspense responde algunas preguntas, pero también plantea algunas nuevas:
 * ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) emitió una advertencia al hacer click en el botón "Next"?
 
 Para responder a estas preguntas, nos referiremos a la próxima sección dedicada a [Patrones de interfaces de usuario concurrentes](/docs/concurrent-mode-patterns.html).
-
