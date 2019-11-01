@@ -1,54 +1,132 @@
-Suspense para la carga de datos (experimental)
+---
+id: concurrent-mode-suspense
+title: Suspense para la carga de datos (experimental)
+permalink: docs/concurrent-mode-suspense.html
+prev: concurrent-mode-intro.html
+next: concurrent-mode-patterns.html
+---
 
-React 16.6 añadió un componente `<Suspense>` que te permite "esperar" a que cargue algún código y especificar declarativamente un estado de carga (como un _spinner_) mientras esperamos:
+>Cuidado:
+>
+>This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>
+>This documentation is aimed at early adopters and people who are curious. If you're new to React, don't worry about these features -- you don't need to learn them right now.
 
-????code
 
-Suspense para la obtención de datos es una nueva funcionalidad que te permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoque en el caso de uso de la obtención de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
+React 16.6 añadió un componente `<Suspense>` que te permite "esperar" a que se cargue algún código y especificar declarativamente un estado de carga (como un _spinner_) mientras esperamos:
 
-## ¿Qué es Suspense, exactamente?
+```jsx
+const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carga diferida
 
-Suspense permite que tus componentes "esperen" por algo antes de que se puedan renderizar. En este ejemplo, dos componentes esperan por una llamada asíncrona a una API para obtener algunos datos:
+// Mostrar un spinner mientras se carga el perfil
+<Suspense fallback={<Spinner />}>
+  <ProfilePage />
+</Suspense>
+```
 
-??? Code
+Suspense para la carga de datos es una nueva funcionalidad que te
+permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoque en el caso de uso de la carga de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
 
-Este demo es un ???teaser. No te preocupes si aún no tiene sentido completamente. Hablaremos más sobre cómo funciona debajo. Ten en cuenta que Suspense es más un _mecanismo_, y ciertas API como `fetchProfileData()` o `resource.posts.read()` en el ejemplo de arriba no son muy importantes. Si tienes curiosidad, puedes encontrar sus definiciones en el sandbox del demo.
+- [¿Qué es Suspense, exactamente?](#what-is-suspense-exactly)
+  - [Lo que Suspense no es](#what-suspense-is-not)
+  - [Lo que Suspense te permite hacer](#what-suspense-lets-you-do)
+- [Uso de Suspense en la práctica](#using-suspense-in-practice)
+  - [¿Y si no uso Relay?](#what-if-i-dont-use-relay)
+  - [Para autores de bibliotecas](#for-library-authors)
+- [Enfoques tradicionales vs. Suspense](#traditional-approaches-vs-suspense)
+  - [Enfoque 1: Carga en el renderizado (sin usar Suspense)](#approach-1-fetch-on-render-not-using-suspense)
+  - [Enfoque 2: Carga y luego renderizado (sin usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
+v  - [Approach 3: Renderizar mientras se carga (usando Suspense)](#approach-3-render-as-you-fetch-using-suspense)
+  - [Aún no lo sabemos todo](#were-still-figuring-this-out)
+- [Suspense y las condiciones de carrera](#suspense-and-race-conditions)
+  - [Condiciones de carrera con useEffect](#race-conditions-with-useeffect)
+  - [Condiciones de carrera con componentDidUpdate](#race-conditions-with-componentdidupdate)
+  - [El problema](#the-problem)
+  - [Solución de las condiciones de carrera con Suspense](#solving-race-conditions-with-suspense)
+- [Manejo de errores](#handling-errors)
+- [Próximos pasos](#next-steps)
 
-Suspense no es una biblioteca para la obtención de datos. Es un *mecanismo para que las bibliotecas de obtención de datos* le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y su nueva integración con Suspense. Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
 
-A largo plazo, esperamos que Suspense se vuelva la forma principal de leer datos asíncronos desde los componentes (sin importar de donde vienen los datos).
+## ¿Qué es Suspense, exactamente? {#what-is-suspense-exactly}
 
-## Lo que no es Suspense
+Suspense permite que tus componentes "esperen" por algo antes de que se puedan renderizar. En este ejemplo, dos componentes esperan por una llamada asíncrona a una API para cargar algunos datos:
+
+```js
+const resource = fetchProfileData();
+
+function ProfilePage() {
+  return (
+    <Suspense fallback={<h1>Loading profile...</h1>}>
+      <ProfileDetails />
+      <Suspense fallback={<h1>Loading posts...</h1>}>
+        <ProfileTimeline />
+      </Suspense>
+    </Suspense>
+  );
+}
+
+function ProfileDetails() {
+  // Intenta leer información del usuario, aunque puede que aún no se haya cargado
+  const user = resource.user.read();
+  return <h1>{user.name}</h1>;
+}
+
+function ProfileTimeline() {
+  // Intenta leer las publicaciones aunque puede que aún no se hayan cargado 
+  const posts = resource.posts.read();
+  return (
+    <ul>
+      {posts.map(post => (
+        <li key={post.id}>{post.text}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/frosty-hermann-bztrp)**
+
+Este demo es una suerte de motivación. No te preocupes si aún no tiene sentido completamente. Hablaremos más sobre cómo funciona debajo. Ten en cuenta que Suspense es más un _mecanismo_, y ciertas API como `fetchProfileData()` o `resource.posts.read()` en el ejemplo de arriba no son muy importantes. Si tienes curiosidad, puedes encontrar sus definiciones en el _sandbox_ del demo.
+
+Suspense no es una biblioteca para la carga de datos. Es un *mecanismo para que las bibliotecas de carga de datos* le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y su nueva integración con Suspense. Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
+
+A largo plazo, esperamos que Suspense se vuelva la forma principal de leer datos asíncronos desde los componentes (sin importar de dónde vienen los datos).
+
+### Lo que Suspense no es {#what-suspense-is-not}
 
 Suspense es significativamente diferente a enfoques existentes para estos problemas, así que leer sobre esto por primera vez puede conducir a ideas equivocadas. Aclaremos las más comunes:
 
-- No es una implementación de obtención de datos. No asume que utilizas GraphQL, REST, u cualquier otro formato de datos, biblioteca, transporte o protocolo en particular.
-- No es un cliente listo para usarse. No puedes "reemplazar" `fetch` o Relay con Suspense. Pero puedes utilizar una biblioteca que esté integrada con Suspense (por ejemplo, las nuevas APIs de Relay).
-- No acopla la obtención de datos con la vista. Ayuda a coordinar la muestra de los estados de carga en tu interfaz de usuario, pero no ata tú lógica de red a los componentes de React.
+* **No es una implementación de carga de datos.** No asume que utilizas GraphQL, REST, u cualquier otro formato de datos, biblioteca, transporte o protocolo en particular.
 
-## Lo que Suspense te permite hacer
+* **No es un cliente listo para usarse.** No puedes "reemplazar" `fetch` o Relay con Suspense. Pero puedes utilizar una biblioteca que esté integrada con Suspense (por ejemplo, las [nuevas API de Relay](https://relay.dev/docs/en/experimental/api-reference)).
+
+* **No acopla la carga de datos con la vista.** Ayuda a coordinar la muestra de los estados de carga en tu interfaz de usuario, pero no ata tú lógica de red a los componentes de React.
+
+### Lo que Suspense te permite hacer {#what-suspense-lets-you-do}
 
 ¿Entonces, cuál es el punto de Suspense? Hay varias formas de responder esto:
 
-- Les permite a las bibliotecas de obtención de datos integrarse profundamente con React. Si una biblioteca de obtención de datos implementa compatibilidad con Suspense, usarla desde React es una experiencia muy natural.
-- Te permite coordinar estados de carga diseñados intencionalmente. No dice _como_ se obtienen los datos, pero te permite controlar con exactitud la secuencia visual de carga de tu aplicación.
-- Te permite evitar condiciones de carrera. Incluso con `await`, el código asíncrono es a menudo propenso a errores. Suspense se siente máas como leer datos _sincrónicamente_ (como si ya estuvieran cargados).
+* **Les permite a las bibliotecas de carga de datos integrarse profundamente con React.** Si una biblioteca de carga de datos implementa compatibilidad con Suspense, usarla desde React es una experiencia muy natural.
 
-## Uso de Suspense en la práctica
+* **Te permite coordinar estados de carga diseñados intencionalmente.** No dice _cómo_ se obtienen los datos, pero te permite controlar con exactitud la secuencia visual de carga de tu aplicación.
+
+* **Te permite evitar condiciones de carrera.** Incluso con `await`, el código asíncrono es a menudo propenso a errores. Suspense se siente más como leer datos _sincrónicamente_ (como si ya estuvieran cargados).
+
+## Uso de Suspense en la práctica {#using-suspense-in-practice}
 
 En Facebook, hasta ahora solo hemos usado en producción la integración de Suspense con Relay. **Si estás buscando una guía práctica de como iniciarte hoy, ¡revisa la guía de Relay! Demuestra patrones que nos han funcionado bien en producción.
 
 **Los demos de código en este página utilizan una implementación "falsa" de API en lugar de Relay.** Esto hace que sean más fáciles de comprender si no estás familiarizado con GraphQL, pero no te dirán la "forma correcta" de construir una aplicación con Suspense. Esta página es más conceptual y se propone ayudarte a ver _por qué_ Suspense funciona de cierta manera, y qué problemas soluciona.
 
-## ¿Y si no uso Relay?
+### ¿Y si no uso Relay? {#what-if-i-dont-use-relay}
 
-Si no usas actualmente Relay, quizá debas esperar antes de que puedas probar Suspense realmente en tu aplicación. Hasta ahora, es la única implementación que hemos probado en producción y de la que tenemos confianza????.
+Si no usas actualmente Relay, quizá debas esperar antes de que puedas probar Suspense realmente en tu aplicación. Hasta ahora, es la única implementación que hemos probado en producción y de la que podemos sentir seguros.
 
 En los próximos meses, muchas bibliotecas aparacerán con diferentes formas de API con Suspense. Si prefieres aprender cuando las cosas estén más estables, quizá quieras ignorar este trabajo por ahora, y volver cuando el ecosistema de Suspense esté más maduro.
 
 También puedes escribir tu propia integración para una biblioteca de obtención de datos, si quisieras.
 
-## Para autores de bibliotecas
+### Para autores de bibliotecas {#for-library-authors}
 
 Esperamos ver mucha experimentación en la comunidad con otras bibliotecas. Hay algo importante que deben notar los autores de bibliotecas de obtención de datos.
 
@@ -56,32 +134,84 @@ Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a 
 
 Nuestro mensaje acerca de esto ha sido muy consistente en el pasado. Suspense para la obtención de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
 
-## Enfoques tradicionales vs. Suspense
+## Enfoques tradicionales vs. Suspense {#traditional-approaches-vs-suspense}
 
 Podríamos introducir Suspense sin mencionar los enfoques populares de obtención de datos. Sin embargo, esto hace que sea más difícil ver qué problemas soluciona Suspense, por qué vale la pena resolver estos problemas, y como Suspense es diferente a las soluciones existentes.
 
 En cambio, veremos a Suspense como el próximo paso lógico en una secuencia de enfoques:
 
-- Carga en el renderizado (por ejemplo, fetch en useEffect): Se comienza renderizando los componentes. Cada uno de estos componentes pueden disparar cargas de datos en sus efectos y métodos de ciclo de vida. Este enfoque a menudo conduce a "cascadas".
-- Carga luego renderizado (por ejemplo, Relay sin Suspense): Se comienza cargando todos los datos para la próxima pantalla tan rápido como sea posible. Cuando los datos están listos, se renderiza la nueva pantalla. No podemos hacer nada hasta que lleguen los datos.
-- Renderizado mientras se carga (por ejemplo, Relay con Suspense): Se comienza a cargar los datos requeridos por la nueva pantalla tan pronto como sea posible, y se inicia a renderizar la nueva pantalla _inmediatamente_ (antes de que obtengamos una respuesta de red). Mientras los datos lleguan, React intenta renderizar los componentes que aún necesitan datos hasta que estén todos listos.
+* **Carga en el renderizado (por ejemplo, `fetch` en `useEffect`):** Se comienza renderizando los componentes. Cada uno de estos componentes pueden disparar cargas de datos en sus efectos y métodos de ciclo de vida. Este enfoque a menudo conduce a "cascadas".
 
-Nota
-Esta está un poco simplificado, y en la práctica las soluciones tienden a usar una mezcla de diferentes enfoques. Aún así, los analizaremos por separado para contrastar mejor sus puntos flacos?????.
+* **Carga y luego renderizado (por ejemplo, Relay sin Suspense):** Se comienza cargando todos los datos para la próxima pantalla tan rápido como sea posible. Cuando los datos están listos, se renderiza la nueva pantalla. No podemos hacer nada hasta que lleguen los datos.
+
+* **Renderizado mientras se carga** (por ejemplo, Relay con Suspense): Se comienza a cargar los datos requeridos por la nueva pantalla tan pronto como sea posible, y se inicia a renderizar la nueva pantalla _inmediatamente_ (antes de que obtengamos una respuesta de red). Mientras los datos lleguan, React intenta renderizar los componentes que aún necesitan datos hasta que estén todos listos.
+
+> Nota
+>
+> Esto está algo simplificado, y en la práctica las soluciones tienden a usar una mezcla de diferentes enfoques. Aún así, los analizaremos por separado para contrastar mejor las concesiones que hace cada una.
 
 Para comparar estos enfoques, implementaremos una página de perfil con cada uno de ellos.
 
-## Enfoque 1: Carga en el renderizado (sin usar Suspense)
+### Enfoque 1: Carga en el renderizado (sin usar Suspense) {#approach-1-fetch-on-render-not-using-suspense}
 
 Una forma común de cargar datos en las aplicaciones de React hoy en día es usar un efecto:
 
-????código
+```js
+// In a function component:
+useEffect(() => {
+  fetchSomething();
+}, []);
+
+// Or, in a class component:
+componentDidMount() {
+  fetchSomething();
+}
+```
 
 Denominamos este enfoque "carga en el renderizado" porque no comienza a cargar hasta después de que el componente se ha cargado en pantalla. Esto lleva a un problema conocido como "cascada".
 
 Considera los componentes `<ProfilePage>` (Página de Perfil) y `<ProfileTimeline>` (Historial del perfil):
 
-?? Code
+```js{4-6,22-24}
+function ProfilePage() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetchUser().then(u => setUser(u));
+  }, []);
+
+  if (user === null) {
+    return <p>Loading profile...</p>;
+  }
+  return (
+    <>
+      <h1>{user.name}</h1>
+      <ProfileTimeline />
+    </>
+  );
+}
+
+function ProfileTimeline() {
+  const [posts, setPosts] = useState(null);
+
+  useEffect(() => {
+    fetchPosts().then(p => setPosts(p));
+  }, []);
+
+  if (posts === null) {
+    return <h2>Loading posts...</h2>;
+  }
+  return (
+    <ul>
+      {posts.map(post => (
+        <li key={post.id}>{post.text}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/fragrant-glade-8huj6)**
 
 Si ejecutas este código y miras a los logs de la consola, notarás que la secuencia es:
 
@@ -96,7 +226,7 @@ Si cargar los detalles del usuario toma tres segundos, entonces, ¡solo _comenza
 
 las cascadas son comunes en código que carga datos en el renderizado. Son posibles de resolver, pero mientras el producto crece, muchas personas prefieren utilizar una solución que los proteja ante este problema.
 
-### Enfoque 2: Carga luego renderizado (sin usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
+### Enfoque 2: Carga y luego renderizado (sin usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
 
 Las bibliotecas pueden prevenir las cascadas al ofrecer una forma más centralizada de realizar la carga de datos. Por ejemplo, relay soluciona este problema al mover la información acerca de los datos que un componente necesita hacia *fragmentos* estáticamente analizables, que luego se componen en una sola consulta.
 
@@ -228,32 +358,32 @@ Aquí está lo que pasa cuando renderizamos `<ProfilePage>` en la pantalla:
 2. React intenta renderizar `<ProfilePage>`. Devuelve `<ProfileDetails>` y `<ProfileTimeline>` como hijos.
 3. React intenta renderizar `<ProfileDetails>`. Llama a `resource.user.read()`. Ninguno de los datos se han recibido aún, por lo que este componente se "suspende". React se lo salta, e intenta renderizar otros componentes en el árbol.
 4. React intenta renderizar `<ProfileTimeline>`. Llama a `resource.posts.read()`. De nuevo, aún no hay datos, por lo que este componente se "suspende". React también se lo salta, e intenta renderizar otros componentes en el árbol.
-5. No hay nada más que intentar renderizar. Dado que `<ProfileDetails>` se suspendió, React muestra el fallback??? más cercano de `<Suspense>` encima en el árbol: `<h1>Loading profile...</h1>`. Hemos terminado por ahora.
+5. No hay nada más que intentar renderizar. Dado que `<ProfileDetails>` se suspendió, React muestra el _fallback_ (componente temporal de reemplazo) del `<Suspense>` más cercano hacia arriba en el árbol: `<h1>Loading profile...</h1>`. Hemos terminado por ahora.
 
 Este objeto `resource` representa los datos que aún no están allí, pero que evenutalmente serán cargados. Cuando llamamos a `read()`, o bien obtenemos los datos, o el componente se "suspende".
 
-**Mientras llegan más datos, React intentará renderizar, y cada vez podrá ser capaz de progresar "más adentro".** Cuando `resource.user` se carga, el componente renderizará satisfactoriamente y no necesitará más el fallback `<h1>Loading profile...</h1>`. Eventualmente, obtendremos todos los datos, y no habrá más fallbacks en la pantalla.
+**Mientras llegan más datos, React intentará renderizar, y cada vez podrá ser capaz de progresar "más adentro".** Cuando `resource.user` se carga, el componente renderizará satisfactoriamente y no necesitará más el _fallback_ `<h1>Loading profile...</h1>`. Eventualmente, obtendremos todos los datos, y no habrá más _fallbacks_ en la pantalla.
 
-Esto tiene una implicación interesante. Incluso si usamos un cliente GraphQL que colecciona todos los requerimientos de datos en una sola petición, *streaming??? la respuesta nos permite mostrar más contenido con mayor rapidez*. Dado que renderizamos mientras cargamos (en oposición *después* de cargar), si `details` aparece en la respuesta antes que `posts`, seremos capaces de "desbloquear" la barrera exterior `<Suspense>` incluso antes de que la respuesta termine. Puede que no nos hayamos percatado de esto antes, pero incluso la solución de carga y luego renderizado contiene una cascada: entre la carga y el renderizado. Suspense no sufre en principio de esta cascada, y bibliotecas como Relay pueden aprovecharlo.
+Esto tiene una implicación interesante. Incluso si usamos un cliente GraphQL que colecciona todos los requerimientos de datos en una sola petición, *si la respuesta se devuelve en flujo nos permite mostrar más contenido con mayor rapidez*. Dado que renderizamos mientras cargamos (en oposición *después* de cargar), si `details` aparece en la respuesta antes que `posts`, seremos capaces de "desbloquear" la barrera exterior `<Suspense>` incluso antes de que la respuesta termine. Puede que no nos hayamos percatado de esto antes, pero incluso la solución de carga y luego renderizado contiene una cascada: entre la carga y el renderizado. Suspense no sufre en principio de esta cascada, y bibliotecas como Relay pueden aprovecharlo.
 
 Nota como hemos eliminado los chequeos `if (...)` "is loading" de nuestros componentes. Esto no solo elimina código repetitivo, sino que también simplifica el proceso de hacer cambios rápidos de diseño. Por ejemplo, si quisieramos que los detalles del perfil y las publicaciones siempre aparecieran juntos, podríamos eliminar la barrera `<Suspense>` entre ellos. O podríamos hacerlos independientes uno del otro dándole a cada uno *su propia* barrera `<Suspense>`. Suspense te permite cambiar la granularidad de nuestros estados de carga y coordinar la secuencia sin cambios invasivos al código.
 
 
 ### Aún no lo sabemos todo {#were-still-figuring-this-out}
 
-El propio Suspense como mecanimso es flexible y no tiene muchas constraints?????. El código de productos necesita tener más constraints?????? para asegurar que no existan cascadas, pero hay formas distintas de proporcionar estas garantías. Algunas preguntas que aún estamos explorando incluyen:
+El propio Suspense como mecanimso es flexible y no tiene muchas restricciones. El código de productos necesita tener más restricciones para asegurar que no existan cascadas, pero hay formas distintas de proporcionar estas garantías. Algunas preguntas que aún estamos explorando incluyen:
 
 * Cargar pronto puede ser complicado de expresar. ¿Cómo lo hacemos más fácil para evitar cascadas?
 * Cuando cargamos datos para una página. ¿Puede la API promover la inclusión de datos para transiciones instantáneas *desde* ella?
 * ¿Cuál es el tiempo de vida de una respuesta? La caché debe ser global o local? ¿Quién maneja la caché?
 * ¿Pueden los _Proxies_ ayudar a expresar API de carga diferida sin insertar llamadas a `read()` por todos lados? 
-* ¿Cuál luciría el equivalente a la composición de consultas GraphQL para datos arbitrarios con Suspense?
+* ¿Cómo luciría el equivalente a la composición de consultas GraphQL para datos arbitrarios con Suspense?
 
 Relay tiene sus propias respuestas para algunas de estas preguntas. Ciertamente hay más de una sola forma de hacerlo y estamos emocionados de poder ver las nuevas ideas que se le ocurrirán a la comunidad de React.
 
 ## Suspense y las condiciones de carrera {#suspense-and-race-conditions}
 
-Las condiciones de carrera son errores que ocurren por asumciones??? incorrectas que se hacen acerca del orden en el que nuestro código se ejecutará. Al cargar datos en el Hook `useEffect` o en un método de ciclo de vida de una clase como `componentDidUpdate` a menudo conduce a ellos. Suspense ayuda aquí también, veamos como.
+Las condiciones de carrera son errores que ocurren por suposiciones incorrectas que se hacen acerca del orden en el que nuestro código se ejecutará. Al cargar datos en el Hook `useEffect` o en un método de ciclo de vida de una clase como `componentDidUpdate` a menudo conduce a ellos. Suspense ayuda aquí también, veamos como.
 
 Para demonstrar el problema, añadiremos un componente de primer nivel `<App>` que renderiza nuestro `<ProfilePage>` con un botón que nos permite **cambiar entre diferentes pefiles**:
 
@@ -404,7 +534,7 @@ Este código es bien fácil de leer.
 
 Desafortunadamente, ni usando una clase, ni la sintaxis `async` / `await` nos ayudan a resolver este problema. Esta versión enfrenta las mismas condiciones de carrera, por las mismas razones.
 
-### El Problema {#the-problem}
+### El problema {#the-problem}
 
 Los componentes de React tienen su propio "ciclo de vida". Pueden recibir props o actualizar el estado en cualquier punto del tiempo. Sin embargo, cada petición asíncrona *también* tiene su propio *ciclo de vida*. Empieza cuando la realizamos, y termina cuando obtenemos una respuesta. La dificultad que experimentamos es la "sincronización" de varios procesos en el tiempo que se afectan entre sí. Esto es difícil de razonar.
 
@@ -496,7 +626,7 @@ Con Suspense, el manejo de errores de carga funciona de la misma forma que el ma
 Primero definiremos un componente de barrera de error para usarlo en nuestro proyecto:
 
 ```js
-// Error boundaries currently have to be classes.
+// Actualmente las barreras de error tienen que ser clases.
 class ErrorBoundary extends React.Component {
   state = { hasError: false, error: null };
   static getDerivedStateFromError(error) {
