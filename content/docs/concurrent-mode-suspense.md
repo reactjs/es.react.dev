@@ -139,9 +139,7 @@ Podríamos introducir Suspense sin mencionar los enfoques populares de carga de 
 En cambio, veremos a Suspense como el próximo paso lógico en una secuencia de enfoques:
 
 * **Carga en el renderizado (por ejemplo, `fetch` en `useEffect`):** Se comienza renderizando los componentes. Cada uno de estos componentes pueden disparar cargas de datos en sus efectos y métodos de ciclo de vida. Este enfoque a menudo conduce a "cascadas".
-
 * **Carga y luego renderizado (por ejemplo, Relay sin Suspense):** Se comienza cargando todos los datos para la próxima pantalla tan rápido como sea posible. Cuando los datos están listos, se renderiza la nueva pantalla. No podemos hacer nada hasta que lleguen los datos.
-
 * **Renderizado mientras se carga** (por ejemplo, Relay con Suspense): Se comienza a cargar los datos requeridos por la nueva pantalla tan pronto como sea posible, y se inicia a renderizar la nueva pantalla _inmediatamente_ (antes de que obtengamos una respuesta de red). Mientras los datos lleguan, React intenta renderizar los componentes que aún necesitan datos hasta que estén todos listos.
 
 > Nota
