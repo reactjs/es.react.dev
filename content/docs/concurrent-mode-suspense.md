@@ -120,7 +120,7 @@ En Facebook, hasta ahora solo hemos usado en producción la integración de Susp
 
 Si no usas actualmente Relay, quizá debas esperar antes de que puedas probar Suspense realmente en tu aplicación. Hasta ahora, es la única implementación que hemos probado en producción y de la que podemos sentir seguros.
 
-En los próximos meses, muchas bibliotecas aparacerán con diferentes formas de API con Suspense. Si prefieres aprender cuando las cosas estén más estables, quizá quieras ignorar este trabajo por ahora, y volver cuando el ecosistema de Suspense esté más maduro.
+En los próximos meses, muchas bibliotecas aparecerán con diferentes formas de API con Suspense. Si prefieres aprender cuando las cosas estén más estables, quizá quieras ignorar este trabajo por ahora, y volver cuando el ecosistema de Suspense esté más maduro.
 
 También puedes escribir tu propia integración para una biblioteca de carga de datos, si quisieras.
 
@@ -128,7 +128,7 @@ También puedes escribir tu propia integración para una biblioteca de carga de 
 
 Esperamos ver mucha experimentación en la comunidad con otras bibliotecas. Hay algo importante que deben notar los autores de bibliotecas de carga de datos.
 
-Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a usarse como una forma de comenzar a cargar datos cuando un componente se renderiza. En cambio, le permite a los componentes expresar que están "esperando" por datos que ya *se están cargando*. A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las APIs que favorezcan u obliguen a obtener los datos antes del renderizado. La documentación actual de la API de Suspense para Relay no profundiza aún en la precarga, pero planeamos publicar más acerca de estas técnicas en el futuro cercano.
+Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a usarse como una forma de comenzar a cargar datos cuando un componente se renderiza. En cambio, le permite a los componentes expresar que están "esperando" por datos que ya *se están cargando*. A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las API que favorezcan u obliguen a obtener los datos antes del renderizado. La documentación actual de la API de Suspense para Relay no profundiza aún en la precarga, pero planeamos publicar más acerca de estas técnicas en el futuro cercano.
 
 Nuestro mensaje acerca de esto no ha sido muy consistente en el pasado. Suspense para la carga de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
 
@@ -140,7 +140,7 @@ En cambio, veremos a Suspense como el próximo paso lógico en una secuencia de 
 
 * **Carga en el renderizado (por ejemplo, `fetch` en `useEffect`):** Se comienza renderizando los componentes. Cada uno de estos componentes pueden disparar cargas de datos en sus efectos y métodos de ciclo de vida. Este enfoque a menudo conduce a "cascadas".
 * **Carga y luego renderizado (por ejemplo, Relay sin Suspense):** Se comienza cargando todos los datos para la próxima pantalla tan rápido como sea posible. Cuando los datos están listos, se renderiza la nueva pantalla. No podemos hacer nada hasta que lleguen los datos.
-* **Renderizado mientras se carga** (por ejemplo, Relay con Suspense): Se comienza a cargar los datos requeridos por la nueva pantalla tan pronto como sea posible, y se inicia a renderizar la nueva pantalla _inmediatamente_ (antes de que obtengamos una respuesta de red). Mientras los datos lleguan, React intenta renderizar los componentes que aún necesitan datos hasta que estén todos listos.
+* **Renderizado mientras se carga** (por ejemplo, Relay con Suspense): Se comienza a cargar los datos requeridos por la nueva pantalla tan pronto como sea posible, y se inicia a renderizar la nueva pantalla _inmediatamente_ (antes de que obtengamos una respuesta de red). Mientras los datos llegan, React intenta renderizar los componentes que aún necesitan datos hasta que estén todos listos.
 
 > Nota
 >
@@ -242,7 +242,7 @@ function fetchProfileData() {
 En este ejemplo, `<ProfilePage>` espera por ambas peticiones, pero las inicia en paralelo:
 
 ```js{1,2,8-13}
-// Kick off fetching as early as possible
+// Empezar a cargar datos tan pronto como sea posible
 const promise = fetchProfileData();
 
 function ProfilePage() {
@@ -267,7 +267,7 @@ function ProfilePage() {
   );
 }
 
-// The child doesn't trigger fetching anymore
+// El hijo no ya no vuelve a iniciar una carga de datos
 function ProfileTimeline({ posts }) {
   if (posts === null) {
     return <h2>Loading posts...</h2>;
@@ -292,7 +292,7 @@ Las secuencia de eventos ahora sería así:
 4. Terminamos de cargar los detalles de usuario
 5. Terminamos de cargar las publicaciones
 
-Hemos resuelto la anterior "cascada" de red, pero accidentalmente hemos introducido otra distinta. Esperamos por que *todos* los datos vuelvan con `Promise.all()` dentro de `fetchProfileData`, por lo que ahor no podemos renderizar los detalles del perfil hasta que las publicaciones también se hayan cargado. Tenemos que esperar por ambas.
+Hemos resuelto la anterior "cascada" de red, pero accidentalmente hemos introducido otra distinta. Esperamos por que *todos* los datos vuelvan con `Promise.all()` dentro de `fetchProfileData`, por lo que ahora no podemos renderizar los detalles del perfil hasta que las publicaciones también se hayan cargado. Tenemos que esperar por ambas.
 
 Por supuesto, es posible resolverlo en este ejemplo en particular. Podríamos eliminar la llamada a `Promise.all()` y esperar por ambas promesas de forma separada. Sin embargo, este enfoque se vuelve progresivamente más difícil mientras crece la complejidad de nuestros datos y de nuestro árbol de componente. Es difícil escribir componentes confiables cuando partes arbitrarias del árbol de datos faltan o están viciadas. Por esta razón cargar todos los datos para la nueva pantalla y *luego* renderizar es a menudo una opción más práctica.
 
@@ -304,7 +304,7 @@ En el enfoque anterior, cargamos los datos antes de llamar a `setState`:
 2. Terminar de cargar
 3. Comenzar a renderizar
 
-Con Suspense, comenzaremos a cagar primero, pero intercabiaremos los otros dos pasos:
+Con Suspense, comenzaremos a cagar primero, pero intercambiaremos los otros dos pasos:
 
 1. Comenzar a cargar
 2. **Comenzar a renderizar**
@@ -313,7 +313,7 @@ Con Suspense, comenzaremos a cagar primero, pero intercabiaremos los otros dos p
 **Con Suspense, no esperamos por que retorne la respuesta antes de comenzar a renderizar.** De hecho, comenzamos a renderizar *básicamente de forma inmediata* después de hacer la petición de red:
 
 ```js{2,17,23}
-// This is not a Promise. It's a special object from our Suspense integration.
+// Esto no es una Promesa. Es un objeto especial de nuestra integración con con Suspense. 
 const resource = fetchProfileData();
 
 function ProfilePage() {
@@ -328,13 +328,13 @@ function ProfilePage() {
 }
 
 function ProfileDetails() {
-  // Try to read user info, although it might not have loaded yet
+  // Intenta leer la información del usuario, aunque puede no haberse cargado aún
   const user = resource.user.read();
   return <h1>{user.name}</h1>;
 }
 
 function ProfileTimeline() {
-  // Try to read posts, although they might not have loaded yet
+  // Intenta leer las publicaciones, aunque puede que no se hayan cargado aún
   const posts = resource.posts.read();
   return (
     <ul>
@@ -356,17 +356,17 @@ Aquí está lo que pasa cuando renderizamos `<ProfilePage>` en la pantalla:
 4. React intenta renderizar `<ProfileTimeline>`. Llama a `resource.posts.read()`. De nuevo, aún no hay datos, por lo que este componente se "suspende". React también se lo salta, e intenta renderizar otros componentes en el árbol.
 5. No hay nada más que intentar renderizar. Dado que `<ProfileDetails>` se suspendió, React muestra el _fallback_ (componente temporal de reemplazo) del `<Suspense>` más cercano hacia arriba en el árbol: `<h1>Loading profile...</h1>`. Hemos terminado por ahora.
 
-Este objeto `resource` representa los datos que aún no están allí, pero que evenutalmente serán cargados. Cuando llamamos a `read()`, o bien obtenemos los datos, o el componente se "suspende".
+Este objeto `resource` representa los datos que aún no están allí, pero que eventualmente serán cargados. Cuando llamamos a `read()`, o bien obtenemos los datos, o el componente se "suspende".
 
 **Mientras llegan más datos, React intentará renderizar, y cada vez podrá ser capaz de progresar "más adentro".** Cuando `resource.user` se carga, el componente renderizará satisfactoriamente y no necesitará más el _fallback_ `<h1>Loading profile...</h1>`. Eventualmente, obtendremos todos los datos, y no habrá más _fallbacks_ en la pantalla.
 
 Esto tiene una implicación interesante. Incluso si usamos un cliente GraphQL que colecciona todos los requerimientos de datos en una sola petición, *si la respuesta se devuelve en flujo nos permite mostrar más contenido con mayor rapidez*. Dado que renderizamos mientras cargamos (en oposición *después* de cargar), si `details` aparece en la respuesta antes que `posts`, seremos capaces de "desbloquear" la barrera exterior `<Suspense>` incluso antes de que la respuesta termine. Puede que no nos hayamos percatado de esto antes, pero incluso la solución de carga y luego renderizado contiene una cascada: entre la carga y el renderizado. Suspense no sufre en principio de esta cascada, y bibliotecas como Relay pueden aprovecharlo.
 
-Nota como hemos eliminado los chequeos `if (...)` "is loading" de nuestros componentes. Esto no solo elimina código repetitivo, sino que también simplifica el proceso de hacer cambios rápidos de diseño. Por ejemplo, si quisieramos que los detalles del perfil y las publicaciones siempre aparecieran juntos, podríamos eliminar la barrera `<Suspense>` entre ellos. O podríamos hacerlos independientes uno del otro dándole a cada uno *su propia* barrera `<Suspense>`. Suspense te permite cambiar la granularidad de nuestros estados de carga y coordinar la secuencia sin cambios invasivos al código.
+Nota como hemos eliminado los chequeos `if (...)` "is loading" de nuestros componentes. Esto no solo elimina código repetitivo, sino que también simplifica el proceso de hacer cambios rápidos de diseño. Por ejemplo, si quisiéramos que los detalles del perfil y las publicaciones siempre aparecieran juntos, podríamos eliminar la barrera `<Suspense>` entre ellos. O podríamos hacerlos independientes uno del otro dándole a cada uno *su propia* barrera `<Suspense>`. Suspense te permite cambiar la granularidad de nuestros estados de carga y coordinar la secuencia sin cambios invasivos al código.
 
 ### Aún no lo sabemos todo {#were-still-figuring-this-out}
 
-El propio Suspense como mecanimso es flexible y no tiene muchas restricciones. El código de productos necesita tener más restricciones para asegurar que no existan cascadas, pero hay formas distintas de proporcionar estas garantías. Algunas preguntas que aún estamos explorando incluyen:
+El propio Suspense como mecanismo es flexible y no tiene muchas restricciones. El código de productos necesita tener más restricciones para asegurar que no existan cascadas, pero hay formas distintas de proporcionar estas garantías. Algunas preguntas que aún estamos explorando incluyen:
 
 * Cargar pronto puede ser complicado de expresar. ¿Cómo lo hacemos más fácil para evitar cascadas?
 * Cuando cargamos datos para una página. ¿Puede la API promover la inclusión de datos para transiciones instantáneas *desde* ella?
@@ -380,7 +380,7 @@ Relay tiene sus propias respuestas para algunas de estas preguntas. Ciertamente 
 
 Las condiciones de carrera son errores que ocurren por suposiciones incorrectas que se hacen acerca del orden en el que nuestro código se ejecutará. Al cargar datos en el Hook `useEffect` o en un método de ciclo de vida de una clase como `componentDidUpdate` a menudo conduce a ellos. Suspense ayuda aquí también, veamos como.
 
-Para demonstrar el problema, añadiremos un componente de primer nivel `<App>` que renderiza nuestro `<ProfilePage>` con un botón que nos permite **cambiar entre diferentes pefiles**:
+Para demostrar el problema, añadiremos un componente de primer nivel `<App>` que renderiza nuestro `<ProfilePage>` con un botón que nos permite **cambiar entre diferentes perfiles**:
 
 ```js{9-11}
 function getNextId(id) {
@@ -449,7 +449,7 @@ function ProfileTimeline({ id }) {
 
 Nota cómo también cambiamos las dependencias del efecto de `[]` a `[id]`, porque queremos que el efecto se ejecute cuando cambie el `id`. De otra forma, no recargaríamos nuevos datos.
 
-Si intentamos este código, podría parecer que funciona en un inicio. Sin embargo si hacemos aleatorio el tiempo de espera de la implementación de nuestra "falsa API" y presionamos el botón "Next" lo suficientemente rápido, veremos por los logs de la consola que algo está muy mal. **Las peticiones de perfiles anteriores pueden a veces "retornar" después de que ya hemos cambiado el perfil a otro ID, y en ese caso pueden sobreescribir el nuevo estado con una respuesta viciada para un ID diferente.**
+Si intentamos este código, podría parecer que funciona en un inicio. Sin embargo si hacemos aleatorio el tiempo de espera de la implementación de nuestra "falsa API" y presionamos el botón "Next" lo suficientemente rápido, veremos por los logs de la consola que algo está muy mal. **Las peticiones de perfiles anteriores pueden a veces "retornar" después de que ya hemos cambiado el perfil a otro ID, y en ese caso pueden sobrescribir el nuevo estado con una respuesta viciada para un ID diferente.**
 
 Este problema se puede solucionar (puedes usar la función de limpieza del efecto para o bien ignorar o bien cancelar las respuestas viciadas), pero no es intuitivo y es difícil de depurar.
 
@@ -457,7 +457,7 @@ Este problema se puede solucionar (puedes usar la función de limpieza del efect
 
 Se podría pensar que este es un problema específico de `useEffect` o de los Hooks. ¿Quizá si trasladamos este código a las clases o usamos una sintaxis conveniente como `async` / `await` resolvamos el problema?
 
-Intentémosolo:
+Intentémoslo:
 
 ```js
 class ProfilePage extends React.Component {
@@ -614,7 +614,7 @@ Este código es muy legible, pero a diferencia de los ejemplos anteriores, la ve
 
 ## Manejo de errores {#handling-errors}
 
-Cuando escribimos código con Promesas, quizá querramos usar `catch()` para manejar errores. ¿Cómo funciona con Suspense, si no queremos *esperar* por las Promesas para empezar a renderizar?
+Cuando escribimos código con Promesas, quizá queramos usar `catch()` para manejar errores. ¿Cómo funciona con Suspense, si no queremos *esperar* por las Promesas para empezar a renderizar?
 
 Con Suspense, el manejo de errores de carga funciona de la misma forma que el manejo de errores de renderizado, puedes renderizar una [barrera de error](/docs/error-boundaries.html) en cualquier sitio para "atrapar" errores en los componentes que se encuentran debajo.
 
@@ -658,7 +658,7 @@ function ProfilePage() {
 
 **[Pruébalo en CodeSandbox](https://codesandbox.io/s/adoring-goodall-8wbn7)**
 
-Atrapará tanto errores de renderizado *como* errores de carga de datos con Suspense. Podemos tener tantas barreras de error como querramos, pero es mejor [ser intencional](https://aweary.dev/fault-tolerance-react/) acerca de su ubicación.
+Atrapará tanto errores de renderizado *como* errores de carga de datos con Suspense. Podemos tener tantas barreras de error como queramos, pero es mejor [ser intencional](https://aweary.dev/fault-tolerance-react/) acerca de su ubicación.
 
 ## Próximos pasos {#next-steps}
 
@@ -666,10 +666,10 @@ Atrapará tanto errores de renderizado *como* errores de carga de datos con Susp
 
 Suspense responde algunas preguntas, pero también plantea algunas nuevas:
 
-* Si algún componente se "suspende", ¿se congela la apliación? ¿Cómo evitarlo?
+* Si algún componente se "suspende", ¿se congela la aplicación? ¿Cómo evitarlo?
 * ¿Y si quisiéramos mostrar un _spinner_ en un lugar diferente al componente de "encima" en el árbol?
 * Si intencionalmente *quisiéramos* mostrar una interfaz inconsistente por un pequeño espacio de tiempo, ¿Podríamos hacerlo?
 * En lugar de mostrar un _spinner_, ¿podemos añadir un efecto visual como "oscurecer" la pantalla actual?
-* ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) emitió una advertencia al hacer click en el botón "Next"?
+* ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) emitió una advertencia al hacer clic en el botón "Next"?
 
 Para responder a estas preguntas, nos referiremos a la próxima sección dedicada a [Patrones de interfaces de usuario concurrentes](/docs/concurrent-mode-patterns.html).
