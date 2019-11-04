@@ -9,7 +9,7 @@ prev: concurrent-mode-adoption.html
 >
 >Esta página describe **funcionalidades experimentales que [aún no están disponibles](/docs/concurrent-mode-adoption.html) en una versión estable**. No dependas de compilados experimentales de React en aplicaciones en producción. Estas funcionalidades pueden cambiar significativamente y sin previo aviso antes de formar parte de React.
 >
->Esta documentación está dirigida a usuarios pioneros y personas curiosas. Si estás iniciando en React, no te preocupes por estas funcionalidades, no necesitas aprenderlas inmediatamente.
+>Esta documentación está dirigida a usuarios pioneros y personas curiosas. Si te estás iniciando en React, no te preocupes por estas funcionalidades, no necesitas aprenderlas inmediatamente.
 
 Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-mode-intro.html) de React. Si estás buscando una guía de introducción, revisa [Patrones concurrentes en interfaces de usuario](/docs/concurrent-mode-patterns.html).
 
@@ -96,7 +96,7 @@ Cuando varios componentes necesitan obtener datos, estos datos pueden llegar en 
     * `collapsed` solo muestra el siguiente contenido de respaldo en la lista.
     * `hidden` no muestra ningun contenido de respaldo.
 
-Tener en cuenta que `SuspenseList` solo funciona en los componentes `Suspense` y `SuspenseList` más cercanos debajo de él. No busca límites más profundos que un nivel. Sin embargo, es posible anidar multiples componentes `SuspenseList` entre sí para construir grillas.
+Tener en cuenta que `SuspenseList` solo funciona en los componentes `Suspense` y `SuspenseList` más cercanos debajo de él. No busca límites más profundos que un nivel. Sin embargo, es posible anidar múltiples componentes `SuspenseList` entre sí para construir grillas.
 
 ### `useTransition` {#usetransition}
 
