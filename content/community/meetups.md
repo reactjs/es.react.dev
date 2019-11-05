@@ -25,15 +25,11 @@ permalink: community/meetups.html
 * [Florianópolis](https://www.meetup.com/pt-br/ReactJS-Floripa/)
 * [Goiânia](https://www.meetup.com/pt-br/React-Goiania/)
 * [Joinville](https://www.meetup.com/pt-BR/React-Joinville/)
-<<<<<<< HEAD
-* [Río de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
-=======
 * [Juiz de Fora](https://www.meetup.com/pt-br/React-Juiz-de-Fora/)
 * [Maringá](https://www.meetup.com/pt-BR/React-Maringa/)
 * [Porto Alegre](https://www.meetup.com/pt-BR/React-Porto-Alegre/)
 * [Rio de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
 * [Salvador](https://www.meetup.com/pt-BR/ReactSSA)
->>>>>>> 3846b501066388c4d0bc84fc8389918d9080d5d2
 * [São Paulo](https://www.meetup.com/pt-BR/ReactJS-SP/)
 * [Vila Velha](https://www.meetup.com/pt-BR/React-ES/)
 
@@ -86,16 +82,11 @@ permalink: community/meetups.html
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
 
-<<<<<<< HEAD
 ## Irlanda {#ireland}
 * [Dublín](https://www.meetup.com/ReactJS-Dublin/)
-=======
+
 ## Indonesia {#indonesia}
 * [Indonesia](https://www.meetup.com/reactindonesia/)
-
-## Ireland {#ireland}
-* [Dublin](https://www.meetup.com/ReactJS-Dublin/)
->>>>>>> 3846b501066388c4d0bc84fc8389918d9080d5d2
 
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
