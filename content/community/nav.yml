@@ -17,28 +17,4 @@
     - id: videos
       title: Videos
     - id: external-resources
-<<<<<<< HEAD
       title: Recursos externos
-- title: Herramientas
-  items:
-    - id: debugging-tools
-      title: Depuración
-    - id: component-workbenches
-      title: Herramientas de trabajo para componentes
-    - id: jsx-integrations
-      title: Integraciones de JSX
-    - id: starter-kits
-      title: Kits de inicio
-    - id: routing
-      title: Enrutamiento
-    - id: model-management
-      title: Gestión de modelos
-    - id: data-fetching
-      title: Obtención de datos
-    - id: ui-components
-      title: Componentes de IU
-    - id: misc
-      title: Miscelánea
-=======
-      title: External Resources
->>>>>>> bbea52211971834d041e76871df8981066c42a3b
