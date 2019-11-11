@@ -177,7 +177,7 @@ Para hacer esto en Chrome:
 
 6. Los eventos de React se agruparan bajo la etiqueta **User Timing**.
 
-Para un tutorial mas detallado, consulta [este articulo por Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
+Para un tutorial mas detallado, consulta [este articulo por Ben Schwarz](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad).
 
 Nota que **los números son relativos, así que los componentes se renderizarán mas rápido en producción**. Como quiera esto debería ayudarte a darte cuenta cuando la *IU* no relacionada se actualiza por error, la frecuencia y profundidad con la que se actualiza.
 
