@@ -24,7 +24,7 @@ const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carga diferida
 </Suspense>
 ```
 
-Suspense para la carga de datos es una nueva funcionalidad que te permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoque en el caso de uso de la carga de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
+Suspense para la carga de datos es una nueva funcionalidad que te permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoca en el caso de uso de la carga de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
 
 - [¿Qué es Suspense, exactamente?](#what-is-suspense-exactly)
   - [Lo que Suspense no es](#what-suspense-is-not)
@@ -36,6 +36,7 @@ Suspense para la carga de datos es una nueva funcionalidad que te permite tambi�
   - [Enfoque 1: Carga en el renderizado (sin usar Suspense)](#approach-1-fetch-on-render-not-using-suspense)
   - [Enfoque 2: Carga y luego renderizado (sin usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
 v  - [Approach 3: Renderizar mientras se carga (usando Suspense)](#approach-3-render-as-you-fetch-using-suspense)
+  - [Comenzar a cargar con antelación](#start-fetching-early)
   - [Aún no lo sabemos todo](#were-still-figuring-this-out)
 - [Suspense y las condiciones de carrera](#suspense-and-race-conditions)
   - [Condiciones de carrera con useEffect](#race-conditions-with-useeffect)
@@ -47,7 +48,7 @@ v  - [Approach 3: Renderizar mientras se carga (usando Suspense)](#approach-3-re
 
 ## ¿Qué es Suspense, exactamente? {#what-is-suspense-exactly}
 
-Suspense permite que tus componentes "esperen" por algo antes de que se puedan renderizar. En este ejemplo, dos componentes esperan por una llamada asíncrona a una API para cargar algunos datos:
+Suspense permite que tus componentes "esperen" por algo antes de que se puedan renderizar. En [este ejemplo](https://codesandbox.io/s/frosty-hermann-bztrp), dos componentes esperan por una llamada asíncrona a una API para cargar algunos datos:
 
 ```js
 const resource = fetchProfileData();
@@ -86,7 +87,7 @@ function ProfileTimeline() {
 
 Este demo es una suerte de motivación. No te preocupes si aún no tiene sentido completamente. Hablaremos más sobre cómo funciona debajo. Ten en cuenta que Suspense es más un _mecanismo_, y ciertas API como `fetchProfileData()` o `resource.posts.read()` en el ejemplo de arriba no son muy importantes. Si tienes curiosidad, puedes encontrar sus definiciones en el _sandbox_ del demo.
 
-Suspense no es una biblioteca para la carga de datos. Es un **mecanismo para que las bibliotecas de carga de datos** le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y su nueva integración con Suspense. Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
+Suspense no es una biblioteca para la carga de datos. Es un **mecanismo para que las bibliotecas de carga de datos** le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y [su nueva integración con Suspense](https://relay.dev/docs/en/experimental/step-by-step). Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
 
 A largo plazo, esperamos que Suspense se vuelva la forma principal de leer datos asíncronos desde los componentes (sin importar de dónde vienen los datos).
 
@@ -112,7 +113,7 @@ Suspense es significativamente diferente a enfoques existentes para estos proble
 
 ## Uso de Suspense en la práctica {#using-suspense-in-practice}
 
-En Facebook, hasta ahora solo hemos usado en producción la integración de Suspense con Relay. **Si estás buscando una guía práctica de como iniciarte hoy, ¡revisa la guía de Relay! Demuestra patrones que nos han funcionado bien en producción.
+En Facebook, hasta ahora solo hemos usado en producción la integración de Suspense con Relay. **Si estás buscando una guía práctica de como iniciarte hoy, [¡revisa la guía de Relay!](https://relay.dev/docs/en/experimental/step-by-step) Demuestra patrones que nos han funcionado bien en producción.
 
 **Los demos de código en este página utilizan una implementación "falsa" de API en lugar de Relay.** Esto hace que sean más fáciles de comprender si no estás familiarizado con GraphQL, pero no te dirán la "forma correcta" de construir una aplicación con Suspense. Esta página es más conceptual y se propone ayudarte a ver _por qué_ Suspense funciona de cierta manera, y qué problemas soluciona.
 
@@ -128,9 +129,9 @@ También puedes escribir tu propia integración para una biblioteca de carga de 
 
 Esperamos ver mucha experimentación en la comunidad con otras bibliotecas. Hay algo importante que deben notar los autores de bibliotecas de carga de datos.
 
-Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a usarse como una forma de comenzar a cargar datos cuando un componente se renderiza. En cambio, le permite a los componentes expresar que están "esperando" por datos que ya *se están cargando*. A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las API que favorezcan u obliguen a obtener los datos antes del renderizado. La documentación actual de la API de Suspense para Relay no profundiza aún en la precarga, pero planeamos publicar más acerca de estas técnicas en el futuro cercano.
+Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a usarse como una forma de comenzar a cargar datos cuando un componente se renderiza. En cambio, le permite a los componentes expresar que están "esperando" por datos que ya *se están cargando*. **[Building Great User Experiences with Concurrent Mode and Suspense](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) describe por qué esto es importante y cómo implementar este patrón en la práctica.**
 
-Nuestro mensaje acerca de esto no ha sido muy consistente en el pasado. Suspense para la carga de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
+A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las API que favorezcan u obliguen a obtener los datos antes del renderizado. Por un ejemplo concreto, puede mirar la cómo la [API de Suspense de Relay](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) obliga la precarga. Nuestro mensaje acerca de esto no ha sido muy consistente en el pasado. Suspense para la carga de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
 
 ## Enfoques tradicionales vs. Suspense {#traditional-approaches-vs-suspense}
 
@@ -209,7 +210,7 @@ function ProfileTimeline() {
 
 **[Pruébalo en CodeSandbox](https://codesandbox.io/s/fragrant-glade-8huj6)**
 
-Si ejecutas este código y miras a los logs de la consola, notarás que la secuencia es:
+Si ejecutas este código y miras a los registros de la consola, notarás que la secuencia es:
 
 1. Comenzamos a cargar los detalles del usuario
 2. Esperamos...
@@ -364,6 +365,56 @@ Esto tiene una implicación interesante. Incluso si usamos un cliente GraphQL qu
 
 Nota como hemos eliminado los chequeos `if (...)` "is loading" de nuestros componentes. Esto no solo elimina código repetitivo, sino que también simplifica el proceso de hacer cambios rápidos de diseño. Por ejemplo, si quisiéramos que los detalles del perfil y las publicaciones siempre aparecieran juntos, podríamos eliminar la barrera `<Suspense>` entre ellos. O podríamos hacerlos independientes uno del otro dándole a cada uno *su propia* barrera `<Suspense>`. Suspense te permite cambiar la granularidad de nuestros estados de carga y coordinar la secuencia sin cambios invasivos al código.
 
+## Comenzar a cargar con antelación {#start-fetching-early}
+
+Si estás trabajando en una biblioteca de carga de datos, hay un aspecto crucial del renderizado mientras se carga que es necesario no olvidar. **Se comienza a cargar _antes_ de renderizar.** Mira este ejemplo de código con detenimiento:
+
+```js
+// ¡Comienza a cargar los datos con antelación!
+const resource = fetchProfileData();
+
+// ...
+
+function ProfileDetails() {
+  // Intenta leer la información del usuario
+  const user = resource.user.read();
+  return <h1>{user.name}</h1>;
+}
+```
+
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/frosty-hermann-bztrp)**
+
+Nota que la llamada a `read()` en este ejemplo no *inicia* la carga. Solo intenta leer los datos que ya se **están cargando**. Esta diferencia es crucial para la creación de aplicaciones rápidas con Suspense. No queremos demorar la carga de datos hasta que un componente comienza a renderizarse. Como un autor de una biblioteca de carga de datos, puedes forzar que esto ocurra haciendo imposible obtener un objeto `resource` sin que se inicie una carga. Todos los demos en esta página que usan nuestra "API falsa" lo hacen.
+
+Puedes objetar que cargar "en el nivel superior" como en este ejemplo no es práctico. ¿Qué hacemos si navegamos hacia otra página de perfil? Puede que queramos cargar datos basándonos en props. La respuesta a esto es que **en este caso queremos comenzar a cargar en los manejadores de eventos**. Aquí podemos ver un ejemplo simplificado de navegación entre páginas de usuario:
+
+```js{1,2,10,11}
+// Primera carga: tan pronto como sea posible
+const initialResource = fetchProfileData(0);
+
+function App() {
+  const [resource, setResource] = useState(initialResource);
+  return (
+    <>
+      <button onClick={() => {
+        const nextUserId = getNextId(resource.userId);
+        // Próxima carga: cuando el usuario hace click
+        setResource(fetchProfileData(nextUserId));
+      }}>
+        Next
+      </button>
+      <ProfilePage resource={resource} />
+    </>
+  );
+}
+```
+
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
+
+Con este enfoque, podemos **cargar el código y los datos en paralelo**. Cuando navegamos entre páginas no necesitamos esperar por que el código de la página cargue para comenzar a cargar sus datos. Podemos comenzar a cargar tanto el código como los datos al mismo tiempo (durante el clic al enlace), proveyendo una experiencia de usuario mucho mejor.
+
+Esto plantea la disyuntiva de cómo sabemos *qué* cargar antes de renderizar la próxima pantalla. Hay varias formas de resolver esto (por ejemplo, haciendo una integración más cercana entre la carga de datos y tu solución de enrutamiento). Si trabajas en una biblioteca de carga de datos [Building Great User Experiences with Concurrent Mode and Suspense](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) presenta una descripción profunda de como conseguirlo y por qué es importante.
+
 ### Aún no lo sabemos todo {#were-still-figuring-this-out}
 
 El propio Suspense como mecanismo es flexible y no tiene muchas restricciones. El código de productos necesita tener más restricciones para asegurar que no existan cascadas, pero hay formas distintas de proporcionar estas garantías. Algunas preguntas que aún estamos explorando incluyen:
@@ -449,7 +500,7 @@ function ProfileTimeline({ id }) {
 
 Nota cómo también cambiamos las dependencias del efecto de `[]` a `[id]`, porque queremos que el efecto se ejecute cuando cambie el `id`. De otra forma, no recargaríamos nuevos datos.
 
-Si intentamos este código, podría parecer que funciona en un inicio. Sin embargo si hacemos aleatorio el tiempo de espera de la implementación de nuestra "falsa API" y presionamos el botón "Next" lo suficientemente rápido, veremos por los logs de la consola que algo está muy mal. **Las peticiones de perfiles anteriores pueden a veces "retornar" después de que ya hemos cambiado el perfil a otro ID, y en ese caso pueden sobrescribir el nuevo estado con una respuesta viciada para un ID diferente.**
+Si intentamos este código, podría parecer que funciona en un inicio. Sin embargo si hacemos aleatorio el tiempo de espera de la implementación de nuestra "falsa API" y presionamos el botón "Next" lo suficientemente rápido, veremos por los registros de la consola que algo está muy mal. **Las peticiones de perfiles anteriores pueden a veces "retornar" después de que ya hemos cambiado el perfil a otro ID, y en ese caso pueden sobrescribir el nuevo estado con una respuesta viciada para un ID diferente.**
 
 Este problema se puede solucionar (puedes usar la función de limpieza del efecto para o bien ignorar o bien cancelar las respuestas viciadas), pero no es intuitivo y es difícil de depurar.
 
@@ -673,3 +724,26 @@ Suspense responde algunas preguntas, pero también plantea algunas nuevas:
 * ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) emitió una advertencia al hacer clic en el botón "Next"?
 
 Para responder a estas preguntas, nos referiremos a la próxima sección dedicada a [Patrones de interfaces de usuario concurrentes](/docs/concurrent-mode-patterns.html).
+
+<!--  LocalWords:  concurrent mode title permalink docs prev intro vs
+ -->
+<!--  LocalWords:  html next patterns traditional approaches start
+ -->
+<!--  LocalWords:  fetching early were still figuring this out race
+ -->
+<!--  LocalWords:  conditions useeffect componentDidUpdate the errors
+ -->
+<!--  LocalWords:  componentdidupdate problem solving handling steps
+ -->
+<!--  LocalWords:  Promise all promise setState read fallbacks props
+ -->
+<!--  LocalWords:  details loading initialResource App setResource
+ -->
+<!--  LocalWords:  button onClick nextUserId getNextId userId click
+ -->
+<!--  LocalWords:  Proxies Hook setId async extends state fetchData
+ -->
+<!--  LocalWords:  prevProps catch ErrorBoundary hasError false true
+ -->
+<!--  LocalWords:  static getDerivedStateFromError Could
+ -->

@@ -139,7 +139,7 @@
   isOrdered: true
   items:
     - id: concurrent-mode-intro
-      title: Presentando modo concurrente
+      title: Introducción al Modo concurrente
     - id: concurrent-mode-suspense
       title: Suspense para la carga de datos
     - id: concurrent-mode-patterns
