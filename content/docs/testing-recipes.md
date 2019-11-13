@@ -6,7 +6,7 @@ prev: testing.html
 next: testing-environments.html
 ---
 
-Patrones comunes de pruebas para componenntes de React.
+Patrones comunes de pruebas para componentes de React.
 
 > Nota:
 >
