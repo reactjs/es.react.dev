@@ -5,11 +5,30 @@ permalink: docs/concurrent-mode-reference.html
 prev: concurrent-mode-adoption.html
 ---
 
+<<<<<<< HEAD
 >Advertencia:
+=======
+<style>
+.scary > blockquote {
+  background-color: rgba(237, 51, 21, 0.2);
+  border-left-color: #ed3315;
+}
+</style>
+
+<div class="scary">
+
+>Caution:
+>>>>>>> 72775e97f9a5f26d93153f58e650eb8c604d207f
 >
 >Esta página describe **funcionalidades experimentales que [aún no están disponibles](/docs/concurrent-mode-adoption.html) en una versión estable**. No dependas de compilados experimentales de React en aplicaciones en producción. Estas funcionalidades pueden cambiar significativamente y sin previo aviso antes de formar parte de React.
 >
+<<<<<<< HEAD
 >Esta documentación está dirigida a usuarios pioneros y personas curiosas. Si te estás iniciando en React, no te preocupes por estas funcionalidades, no necesitas aprenderlas inmediatamente.
+=======
+>This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now.
+
+</div>
+>>>>>>> 72775e97f9a5f26d93153f58e650eb8c604d207f
 
 Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-mode-intro.html) de React. Si estás buscando una guía de introducción, revisa [Patrones concurrentes en interfaces de usuario](/docs/concurrent-mode-patterns.html).
 
