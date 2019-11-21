@@ -48,9 +48,9 @@ Puedes probar estos compilados en proyectos personales o en una rama, pero no re
 
 ### ¿Para quién es la versión experimental?  {#who-is-this-experimental-release-for}
 
-Esta versión está dirigida principalmente a los pioneros, autores de bibliotecaas y gente curiosa.
+Esta versión está dirigida principalmente a los pioneros, autores de bibliotecas y gente curiosa.
 
-Estamos usando este código en producción (y nos funciona), pero aún existen algunos errores, funcionalides que faltan, y lagunas en la documentación. Nos gustaría escuchar más acerca de qué se rompe en el Modo Concurrente para que lo podamos preparar mejor para una versión oficial estable en el futuro.
+Estamos usando este código en producción (y nos funciona), pero aún existen algunos errores, funcionalidades que faltan, y lagunas en la documentación. Nos gustaría escuchar más acerca de qué se rompe en el Modo Concurrente para que lo podamos preparar mejor para una versión oficial estable en el futuro.
 
 ### Habilitar el Modo Concurrente {#enabling-concurrent-mode}
 
@@ -58,18 +58,18 @@ Normalmente, cuando añadimos nuevas funcionalidades a React, puedes comenzar a 
 
 El Modo Concurrente es diferente. Introduce cambios semánticos a cómo React funciona. De otra forma, las [nuevas funcionalidades](/docs/concurrent-mode-patterns.html) que se habilitan *no serían posibles*. Es por eso que están agrupadas en un nuevo "modo" en lugar de ser lanzadas una por una por separado.
 
-No puedes optar por el Modo Concurrente en base a sub árboles. En cambio, para optar por él, tienes que hacerlo en el lugar donde hoy llamas a `ReactDOM.render()`.
+No puedes optar por el Modo Concurrente en base a subárboles. En cambio, para optar por él, tienes que hacerlo en el lugar donde hoy llamas a `ReactDOM.render()`.
 
 **Esto habilitará el Modo Concurrente para todo el árbol `<App />` :**
 
 ```js
 import ReactDOM from 'react-dom';
 
-// Si anteriormente tuvo:
+// Si anteriormente tenías:
 //
 // ReactDOM.render(<App />, document.getElementById('root'));
 //
-// Puede optar por el modo concurrente escribiendo:
+// Puedes optar por el modo concurrente escribiendo:
 
 ReactDOM.createRoot(
   document.getElementById('root')
@@ -80,17 +80,17 @@ ReactDOM.createRoot(
 >
 >Las API del Modo Concurrente como `createRoot` solo existen en los compilados experimentadles de React.
 
-En el Modo Concurrente, los métodos de ciclo de vida [previamente marcados](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) como "inseguras" de hecho son inseguras, y conducen aún a más errores que en React hoy en día. No recomendamos intentar el Modo Concurrente hasta que tu aplicación es compatible con el [Modo estricto](https://reactjs.org/docs/strict-mode.html).
+En el Modo Concurrente, los métodos de ciclo de vida [previamente marcados](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) como "inseguros" de hecho son inseguros, y conducen aún a más errores que en React hoy en día. No recomendamos intentar el Modo Concurrente hasta que tu aplicación sea compatible con el [Modo estricto](https://reactjs.org/docs/strict-mode.html).
 
 ## ¿Qué esperar? {#what-to-expect}
 
-Si tienes una aplicación grande existente, o si tu aplicación depende en muchos paquetes de terceros, por favor no esperes que seas capaz de usar el Modo Concurrente de forma inmediata. **Por ejemplo, en Facebook estamos usando el Modo concurrente para el nuevo sitio web, pero no tenemos planeado habilitarlo en el sitio antiguo.** Esto ocurre porque nuestro antiguo sitio web aún utiliza métodos de ciclo de vida inseguros en el código del producto, bibliotecas de terceros incompatibles y patrones que no funcionan bien en el Modo Concurrente.
+Si tienes una aplicación grande existente, o si tu aplicación depende de muchos paquetes de terceros, por favor no esperes que seas capaz de usar el Modo Concurrente de forma inmediata. **Por ejemplo, en Facebook estamos usando el Modo concurrente para el nuevo sitio web, pero no tenemos planeado habilitarlo en el sitio antiguo.** Esto ocurre porque nuestro antiguo sitio web aún utiliza métodos de ciclo de vida inseguros en el código del producto, bibliotecas de terceros incompatibles y patrones que no funcionan bien en el Modo Concurrente.
 
-En nuestra experiencia, el código que usa patrones idiomáticos de React y que no depende en soluciones del manejo de estado de forma externa es el más fácil de conseguir que se ejecute en el Modo Concurrente. Describiremos los problemas comunes que hemos visto y las soluciones a ellas de forma separada en las próximas semanas.
+En nuestra experiencia, el código que usa patrones idiomáticos de React y que no depende de soluciones del manejo de estado de forma externa es el más fácil de conseguir que se ejecute en el Modo Concurrente. Describiremos los problemas comunes que hemos visto y las soluciones a ellas de forma separada en las próximas semanas.
 
-### Paso de migracion: Modo de bloqueo {#migration-step-blocking-mode}
+### Paso de migración: Modo de bloqueo {#migration-step-blocking-mode}
 
-Para bases de código más antiguas, el Modo Concurrente pueden ser un paso que vaya demasiado lejos. Por eso es que también proporcionamos un nuevo "Modo de bloqueo" en los compilados experimentales de React. Puedes probarlos sustituyendo`createRoot` con `createBlockingRoot`.  Solo ofrece un *pequeño subconjunto* de la funcionalidades del Modo Concurrente, pero es más cercan a como React funciona hoy y puede servir como un paso de migración.
+Para bases de código más antiguas, el Modo Concurrente pueden ser un paso que vaya demasiado lejos. Por eso es que también proporcionamos un nuevo "Modo de bloqueo" en los compilados experimentales de React. Puedes probarlos sustituyendo`createRoot` con `createBlockingRoot`.  Solo ofrece un *pequeño subconjunto* de la funcionalidades del Modo Concurrente, pero es más cercano a como React funciona hoy y puede servir como un paso de migración.
 
 Para recapitular:
 
