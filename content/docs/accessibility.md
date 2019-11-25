@@ -490,7 +490,7 @@ Consulte las siguientes guías sobre cómo utilizar mejor NVDA:
 
 VoiceOver es un lector de pantalla integrado en dispositivos Apple.
 
-Consulte las siguientes guías sobre cómo activar y usar VoiceOver:
+Consulta las siguientes guías sobre cómo activar y usar VoiceOver:
 
 - [WebAIM - Uso de VoiceOver para evaluar la accesibilidad web](http://webaim.org/articles/voiceover/)
 - [Deque - VoiceOver para los atajos de teclado de OS X](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
