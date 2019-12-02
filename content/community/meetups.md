@@ -61,7 +61,12 @@ permalink: community/meetups.html
 * [Nantes](https://www.meetup.com/React-Nantes/)
 * [Lille](https://www.meetup.com/ReactBeerLille/)
 
+<<<<<<< HEAD
 ## Alemania {#germany}
+=======
+## Germany {#germany}
+* [Cologne](https://www.meetup.com/React-Cologne/)
+>>>>>>> e0a0ec3dad47804d0b41d4a7bb81841638dc79dd
 * [Düsseldorf](https://www.meetup.com/de-DE/ReactJS-Meetup-Dusseldorf/)
 * [Hamburgo](https://www.meetup.com/Hamburg-React-js-Meetup/)
 * [Karlsruhe](https://www.meetup.com/react_ka/)
