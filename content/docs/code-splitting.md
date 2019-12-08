@@ -45,7 +45,8 @@ console.log(add(16, 26)); // 42
 >
 > Tus *bundles* van a lucir muy diferente a esto.
 
-Si usas [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), o una herramienta similar, vas a tener una configuración de Webpack incluida para generar el *bundle* de tu aplicación.  
+Si usas [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), o una herramienta similar, vas a tener una configuración de Webpack incluida para generar el *bundle* de tu
+aplicación.
 
 Si no, tú mismo vas a tener que configurar el *bundling*. Por ejemplo, revisa las guías [Installation](https://webpack.js.org/guides/installation/) y
 [Getting Started](https://webpack.js.org/guides/getting-started/) en la documentación de Webpack.
@@ -82,13 +83,6 @@ import("./math").then(math => {
   console.log(math.add(16, 26));
 });
 ```
-
-> Nota:
->
-> La sintaxis de `import()` dinámico es una [propuesta](https://github.com/tc39/proposal-dynamic-import)
-> ECMAScript (JavaScript) que no es parte actual del estándar
-> del lenguaje. Se espera que sea aceptada en el
-> futuro cercano
 
 Cuando Webpack se encuentra esta sintaxis, comienza a dividir el código de tu
 aplicación automáticamente. Si estás usando Create React App, esto ya viene

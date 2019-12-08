@@ -197,6 +197,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+}
 ```
 
 Cambia el método `render` de Square para mostrar ese valor, reemplazando `{/* TODO */}` con `{this.props.value}`:
@@ -262,7 +263,7 @@ Si haces click en un cuadrado ahora, deberías ver una alerta en tu navegador.
 >
 >Ten en cuenta cómo con `onClick={() => alert('click')}`, estamos pasando *una función* como valor del prop `onClick`. React solo llamará a esta función después de un click. Olvidar `() =>` y escribir `onClick={alert('click')}` es un error común, y ejecutaría la alerta cada vez que el componente se re-renderice.
 
-Como un siguiente paso, queremos que el componente Square "recuerde" que fue clickeado, y se rellene con una marca de "X". Para "recordar" cosas, los componente usan **estado**.
+Como un siguiente paso, queremos que el componente Square "recuerde" que fue clickeado, y se rellene con una marca de "X". Para "recordar" cosas, los componentes usan **estado**.
 
 Los componentes de React pueden tener estado estableciendo `this.state` en sus constructores. `this.state` debe ser considerado como privado para un componente de React en el que es definido. Vamos a almacenar el valor actual de un cuadrado en `this.state`, y cambiarlo cuando el cuadrado es clickeado.
 
@@ -406,7 +407,7 @@ Ahora usaremos el prop pasando el mecanismo otra vez. Modificaremos el Board par
 
 Cada Square ahora recibirá un prop `value` que será `'X'`, `'O'`, ó `null` para cuadrados vacíos.
 
-Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualiza el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el estado de Board directamente desde Square.
+Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualice el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el estado de Board directamente desde Square.
 
 En cambio, pasaremos una función como prop desde Board a Square y haremos que Square llame a esa función cuando un cuadrado sea clickeado. Cambiaremos el método `renderSquare` en Board a:
 
@@ -834,7 +835,7 @@ class Game extends React.Component {
 }
 ```
 
-Luego, tenemos que el componente Board recibe los props `squares` y `onClick` del componente Game. Desde que ahora tenemos un solo manejador de click en Board para muchos Squares, necesitamos pasar la ubicación de cada Square en el manejador `onClick` para indicar qué cuadrado fue clickedo. Aquí están los pasos requeridos para transformar el componente Board:
+A continuación, haremos que el componente Board reciba los props `squares` y `onClick` del componente Game. Desde ahora tenemos un solo manejador de click en Board para muchos Squares, necesitamos pasar la ubicación de cada Square en el manejador `onClick` para indicar qué cuadrado fue clickeado. Aquí están los pasos requeridos para transformar el componente Board:
 
 * Eliminar el `constructor` en Board.
 * Reemplazar `this.state.squares[i]` por `this.props.squares[i]` en el método `renderSquare` del componente Board.
@@ -978,7 +979,7 @@ Por último, necesitamos mover el método `handleClick` del componente Board al 
 
 >Nota
 >
->A diferencia del método `push()` de los arrays que debes estar más familiarizado, el método `concat()` no mutal el array original, por eso lo preferimos.
+>A diferencia del método `push()` de los arrays que debes estar más familiarizado, el método `concat()` no muta el array original, por eso lo preferimos.
 
 En este punto, el componente Board solo necesita los métodos `renderSquare` y `render`. El estado del juego y el método `handleClick` deberían estar en el componente Game.
 

@@ -6,11 +6,22 @@ prev: concurrent-mode-suspense.html
 next: concurrent-mode-adoption.html
 ---
 
+<style>
+.scary > blockquote {
+  background-color: rgba(237, 51, 21, 0.2);
+  border-left-color: #ed3315;
+}
+</style>
+
+<div class="scary">
+
 >Caution:
 >
 >This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
 >
->This documentation is aimed at early adopters and people who are curious. If you're new to React, don't worry about these features -- you don't need to learn them right now.
+>This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now. For example, if you're looking for a data fetching tutorial that works today, read [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) instead.
+
+</div>
 
 Usualmente, cuando actualizamos el estado, esperamos ver los cambios en la pantalla inmediatamente. Esto tiene sentido, porque queremos mantener nuestra aplicación responsiva a la entrada del usuario. Sin embargo, hay casos en que quisiéramos **postergar la aparición de una actualización en la pantalla**.
 
