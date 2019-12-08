@@ -49,3 +49,5 @@ permalink: community/courses.html
 - [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis provee acceso a sus cursos por una tarifa mensual. Entre ellos se incluyen "React Fundamentals" y "Universal React".
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construye aplicaciones interactivas profesionales con React.
+
+- [Crea un Clon de Instagram con React.js](https://appdelante.com/cursos/descripcion/crea-un-clon-de-instagram-con-react-js) - Aprende a desarrollar un Clon de Instagram con React.js en Español.
