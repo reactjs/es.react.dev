@@ -10,7 +10,7 @@ prev: composition-vs-inheritance.html
 
 React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instagram.
 
-Una de las grandes ventaja de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalidad de búsqueda usando React.
+Una de las grandes ventajas de React es cómo te hace pensar acerca de la aplicación mientras la construyes. En esta oportunidad vamos a ver el proceso de pensamiento al construir una tabla de productos con una funcionalidad de búsqueda usando React.
 
 ## Empieza con un mock {#start-with-a-mock}
 
