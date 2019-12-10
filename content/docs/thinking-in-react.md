@@ -141,7 +141,7 @@ Si intentas escribir o marcar la caja en la versión actual del ejemplo, verás 
 
 Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que cada vez que el usuario modifica el formulario, se actualiza el estado para reflejar lo que el usuario ingresó. Ya que los componentes solo pueden actualizar su propio estado, entonces `FilterableProductTable` necesita pasar funciones a `SearchBar` que este ejecutará cada vez que el estado deba actualizarse. Podemos usar el evento `onChange` del input para que nos notifique de esto. La función que pasa `FilterableProductTable` va a ejecutar entonces `setState()`, y la aplicación se va a actualizar.
 
-Aunque parece complejo, es en realidad una pocas líneas de código. Y se vuelve realmente explícito como fluyen los datos a través de la aplicación.
+Aunque parece complejo, son en realidad unas pocas líneas de código. Y se vuelve realmente explícito como fluyen los datos a través de la aplicación.
 
 ## Eso es todo {#and-thats-it}
 
