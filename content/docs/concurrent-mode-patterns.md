@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-patterns
-title: Concurrent UI Patterns (Experimental)
+title: Patrones concurrentes en interfaces de usuario (Experimental)
 permalink: docs/concurrent-mode-patterns.html
 prev: concurrent-mode-suspense.html
 next: concurrent-mode-adoption.html
@@ -15,63 +15,63 @@ next: concurrent-mode-adoption.html
 
 <div class="scary">
 
->Caution:
+> Advertencia:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+> Esta página describe **funcionalidades experimentales que [aún no están disponibles](/docs/concurrent-mode-adoption.html) en una versión estable**. No dependas de compilados experimentales de React en aplicaciones en producción. Estas funcionalidades pueden cambiar significativamente y sin advertencia antes de formar parte de React.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now. For example, if you're looking for a data fetching tutorial that works today, read [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) instead.
+> Esta documentación está dirigida a usuarios pioneros y personas que sienten curiosidad. **Si te estás iniciando en React, no te preocupes por estas funcionalidades,** no necesitas aprenderlas inmediatamente. Por ejemplo, si estás buscando un tutorial para realizar carga de datos y que funcione hoy, lee, en cambio, [este artículo](https://www.robinwieruch.de/react-hooks-fetch-data/).
 
 </div>
 
-Usually, when we update the state, we expect to see changes on the screen immediately. This makes sense because we want to keep our app responsive to user input. However, there are cases where we might prefer to **defer an update from appearing on the screen**.
+Usualmente, cuando actualizamos el estado, esperamos ver los cambios en la pantalla inmediatamente. Esto tiene sentido, porque queremos que nuestra aplicación continúe respondiendo a la entrada del usuario. Sin embargo, hay casos en que quisiéramos **postergar la aparición de una actualización en la pantalla**.
 
-For example, if we switch from one page to another, and none of the code or data for the next screen has loaded yet, it might be frustrating to immediately see a blank page with a loading indicator. We might prefer to stay longer on the previous screen. Implementing this pattern has historically been difficult in React. Concurrent Mode offers a new set of tools to do that.
+Por ejemplo, si cambiamos de una página a otra, y ni nuestro código o datos para la próxima pantalla se han cargado, puede ser frustrante ver inmediatamente una página en blanco con un indicador de carga. Podemos preferir permanecer más tiempo en la pantalla anterior. La implementación de este patrón ha sido históricamente difícil con React. El Modo Concurrente ofrece un nuevo conjunto de herramientas para hacerlo.
 
-- [Transitions](#transitions)
-  - [Wrapping setState in a Transition](#wrapping-setstate-in-a-transition)
-  - [Adding a Pending Indicator](#adding-a-pending-indicator)
-  - [Reviewing the Changes](#reviewing-the-changes)
-  - [Where Does the Update Happen?](#where-does-the-update-happen)
-  - [Transitions Are Everywhere](#transitions-are-everywhere)
-  - [Baking Transitions Into the Design System](#baking-transitions-into-the-design-system)
-- [The Three Steps](#the-three-steps)
-  - [Default: Receded → Skeleton → Complete](#default-receded-skeleton-complete)
-  - [Preferred: Pending → Skeleton → Complete](#preferred-pending-skeleton-complete)
-  - [Wrap Lazy Features in `<Suspense>`](#wrap-lazy-features-in-suspense)
-  - [Suspense Reveal “Train”](#suspense-reveal-train)
-  - [Delaying a Pending Indicator](#delaying-a-pending-indicator)
-  - [Recap](#recap)
-- [Other Patterns](#other-patterns)
-  - [Splitting High and Low Priority State](#splitting-high-and-low-priority-state)
-  - [Deferring a Value](#deferring-a-value)
+- [Transiciones](#transitions)
+  - [Envolver setState en una transición](#wrapping-setstate-in-a-transition)
+  - [Añadir un indicador de espera](#adding-a-pending-indicator)
+  - [Revisión de los cambios](#reviewing-the-changes)
+  - [¿Cuándo ocurre la actualización?](#where-does-the-update-happen)
+  - [Las transiciones están en todos lados](#transitions-are-everywhere)
+  - [Incorporar las transiciones en el sistema de diseño](#baking-transitions-into-the-design-system)
+- [Los tres pasos](#the-three-steps)
+  - [Predeterminado: Retirada → Esqueleto → Completado](#default-receded-skeleton-complete)
+  - [Preferido: Pendiente → Esqueleto → Completado](#preferred-pending-skeleton-complete)
+  - [Envolver funcionalidad diferida en `<Suspense>`](#wrap-lazy-features-in-suspense)
+  - ["Tren" de revelación de Suspense](#suspense-reveal-train)
+  - [Demora de un indicador de estado Pendiente](#delaying-a-pending-indicator)
+  - [Recapitulación](#recap)
+- [Otros patrones](#other-patterns)
+  - [Separación del estado de alta y baja prioridad](#splitting-high-and-low-priority-state)
+  - [Postergar un valor](#deferring-a-value)
   - [SuspenseList](#suspenselist)
-- [Next Steps](#next-steps)
+- [Próximos pasos](#next-steps)
 
-## Transitions {#transitions}
+## Transiciones {#transitions}
 
-Let's revisit [this demo](https://codesandbox.io/s/infallible-feather-xjtbu) from the previous page about [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html).
+Revisitemos [este demo](https://codesandbox.io/s/infallible-feather-xjtbu) de la página anterior acerca de [Suspense para la carga de datos](/docs/concurrent-mode-suspense.html).
 
-When we click the "Next" button to switch the active profile, the existing page data immediately disappears, and we see the loading indicator for the whole page again. We can call this an "undesirable" loading state. **It would be nice if we could "skip" it and wait for some content to load before transitioning to the new screen.**
+Cuando hacemos clic en el botón "Next" para cambiar el perfil activo, los datos de la página existente desaparecen inmediatamente y vemos el indicador de carga para todo la página nuevamente. Podemos llamar a esto un estado de carga "no deseable". **Sería bueno si pudiéramos "saltárnoslo" y esperar a que cargue algún contenido antes de hacer la transición a la nueva pantalla.**
 
-React offers a new built-in `useTransition()` Hook to help with this.
+React ofrece un nuevo Hook integrado llamado `useTransition()` para ayudar con esto.
 
-We can use it in three steps.
+Podemos usarlo en tres pasos.
 
-First, we'll make sure that we're actually using Concurrent Mode. We'll talk more about [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html) later, but for now it's sufficient to know that we need to use `ReactDOM.createRoot()` rather than `ReactDOM.render()` for this feature to work:
+Primero, nos aseguraremos de que estamos realmente usando el Modo Concurrente. Hablaremos más luego sobre como [adoptar el Modo Concurrente](/docs/concurrent-mode-adoption.html), pero por ahora es suficiente saber que necesitamos utilizar `ReactDOM.createRoot()` en lugar de `ReactDOM.render()` para que esto funcione:
 
 ```js
 const rootElement = document.getElementById("root");
-// Opt into Concurrent Mode
+// Optar por el Modo Concurrente
 ReactDOM.createRoot(rootElement).render(<App />);
 ```
 
-Next, we'll add an import for the `useTransition` Hook from React:
+A continuación, importaremos el Hook `useTransition` desde React:
 
 ```js
 import React, { useState, useTransition, Suspense } from "react";
 ```
 
-Finally, we'll use it inside the `App` component:
+Para finalizar, lo utilizaremos dentro del componente `App`:
 
 ```js{3-5}
 function App() {
@@ -82,18 +82,18 @@ function App() {
   // ...
 ```
 
-**By itself, this code doesn't do anything yet.** We will need to use this Hook's return values to set up our state transition. There are two values returned from `useTransition`:
+**Por sí solo, este código no hace nada aún.** Necesitaremos utilizar los valor de retorno de este Hook para establecer nuestra transición de estado. Hay dos valores retornados por `useTransition`:
 
-* `startTransition` is a function. We'll use it to tell React *which* state update we want to defer.
-* `isPending` is a boolean. It's React telling us whether that transition is ongoing at the moment.
+* `startTransition` es una función. La usaremos para decirle a React *qué* actualización de estado queremos postergar.
+* `isPending` es un booleano. Es React diciéndonos si esa transición está ocurriendo actualmente.
 
-We will use them right below.
+Los usaremos debajo.
 
-Note we passed a configuration object to `useTransition`. Its `timeoutMs` property specifies **how long we're willing to wait for the transition to finish**. By passing `{timeoutMs: 3000}`, we say "If the next profile takes more than 3 seconds to load, show the big spinner -- but before that timeout it's okay to keep showing the previous screen".
+Nota que pasamos un objeto de configuración para `useTransition`. Su propiedad `timeoutMs` especifica *cuánto tiempo estamos dispuestos a esperar para que la transición termine**. Al pasar `{timeoutMs: 3000}` estamos diciendo: "Si el próximo perfil toma más de 3 segundos en cargar, muestra este gran _spinner_, pero antes de ese tiempo está bien seguir mostrando la pantalla anterior".
 
-### Wrapping setState in a Transition {#wrapping-setstate-in-a-transition}
+### Envolver setState en una transición {#wrapping-setstate-in-a-transition}
 
-Our "Next" button click handler sets the state that switches the current profile in the state:
+Nuestro manejador del evento del clic del botón "Next" realiza la actualización que cambia el perfil actual en el estado:
 
 ```js{4}
 <button
@@ -104,7 +104,7 @@ Our "Next" button click handler sets the state that switches the current profile
 >
 ```
 
- We'll wrap that state update into `startTransition`. That's how we tell React **we don't mind React delaying that state update** if it leads to an undesirable loading state:
+Envolveremos esa actualización del estado en `startTransition`. De esa forma le decimos a React **que no nos importa que demore la actualización del estado** si conduce a un estado de carga no deseable:
 
 ```js{3,6}
 <button
@@ -117,23 +117,23 @@ Our "Next" button click handler sets the state that switches the current profile
 >
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/musing-driscoll-6nkie)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/musing-driscoll-6nkie)**
 
-Press "Next" a few times. Notice it already feels very different. **Instead of immediately seeing an empty screen on click, we now keep seeing the previous page for a while.** When the data has loaded, React transitions us to the new screen.
+Presiona "Next" varias veces. Notarás que ya se siente bien distinto. **En lugar de ver inmediatamente una pantalla vacía al hacer clic, ahora seguimos viendo la página anterior por un tiempo.** Cuando los datos se han cargado, React hace la transición hacia la nueva pantalla.
 
-If we make our API responses take 5 seconds, [we can confirm](https://codesandbox.io/s/relaxed-greider-suewh) that now React "gives up" and transitions anyway to the next screen after 3 seconds. This is because we passed `{timeoutMs: 3000}` to `useTransition()`. For example, if we passed `{timeoutMs: 60000}` instead, it would wait a whole minute.
+Si hacemos que las respuestas de nuestra API tarden 5 segundos, [podemos confirmar](https://codesandbox.io/s/relaxed-greider-suewh) que ahora React "se rinde" y hace de todas formas la transición hacia la próxima pantalla pasados los 3 segundos. Esto ocurre porque pasamos `{timeoutMs: 3000}` a `useTransition()`. Por ejemplo, si en cambio pasamos `{timeoutMs: 60000}`, esperaría todo un minuto.
 
-### Adding a Pending Indicator {#adding-a-pending-indicator}
+### Añadir un indicador de espera {#adding-a-pending-indicator}
 
-There's still something that feels broken about [our last example](https://codesandbox.io/s/musing-driscoll-6nkie). Sure, it's nice not to see a "bad" loading state. **But having no indication of progress at all feels even worse!** When we click "Next", nothing happens and it feels like the app is broken.
+Aún hay algo que se siente roto acerca de [nuestro último ejemplo](https://codesandbox.io/s/musing-driscoll-6nkie). Seguro, está bien no ver un estado de carga "malo". ¡**Pero no tener ninguna indicación de progreso se siente incluso peor!** Cuando hacemos clic en "Next", no pasa nada y parece que la aplicación está rota.
 
-Our `useTransition()` call returns two values: `startTransition` and `isPending`.
+Nuestra llamada a `useTransition()` devuelve dos valores: `startTransition` e `isPending`.
 
 ```js
   const [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
 ```
 
-We've already used `startTransition` to wrap the state update. Now we're going to use `isPending` too. React gives this boolean to us so we can tell whether **we're currently waiting for this transition to finish**. We'll use it to indicate that something is happening:
+Ya hemos usado `startTransition` para envolver la actualización del estado. Ahora vamos a utilizar también `isPending`. React nos da este booleano para que podamos saber si **actualmente estamos esperando para que termine esta transición**. Lo usaremos para indicar que algo está ocurriendo:
 
 ```js{4,14}
 return (
@@ -155,13 +155,13 @@ return (
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
 
-Now, this feels a lot better! When we click Next, it gets disabled because clicking it multiple times doesn't make sense. And the new "Loading..." tells the user that the app didn't freeze.
+Ahora, ¡esto se siente mucho mejor! Cuando hacemos clic en Next, se deshabilita porque hacerle clic varias veces no tiene sentido. Y el nuevo "Loading..." le dice al usuario que la aplicación no se ha congelado.
 
-### Reviewing the Changes {#reviewing-the-changes}
+### Revisión de los cambios {#reviewing-the-changes}
 
-Let's take another look at all the changes we've made since the [original example](https://codesandbox.io/s/infallible-feather-xjtbu):
+Veamos nuevamente todos los cambios que hemos hecho desde el [ejemplo original](https://codesandbox.io/s/infallible-feather-xjtbu):
 
 ```js{3-5,9,11,14,19}
 function App() {
@@ -189,40 +189,40 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
 
-It took us only seven lines of code to add this transition:
+Solo nos tomó siete líneas de código añadir esta transición:
 
-* We've imported the `useTransition` Hook and used it the component that updates the state.
-* We've passed `{timeoutMs: 3000}` to stay on the previous screen for at most 3 seconds.
-* We've wrapped our state update into `startTransition` to tell React it's okay to delay it.
-* We're using `isPending` to communicate the state transition progress to the user and to disable the button.
+* Hemos importado el Hook `useTransition` y usado en el componente que actualiza el estado.
+* Hemos pasado `{timeoutMs: 3000}` para mantenernos en la pantalla anterior un máximo de 3 segundos.
+* Hemos envuelto nuestra actualización de estado en `startTransition` para decirle a React que está bien postergarla.
+* Estamos usando `usePending` para comunicar el progreso de la transición de estado al usuario.
 
-As a result, clicking "Next" doesn't perform an immediate state transition to an "undesirable" loading state, but instead stays on the previous screen and communicates progress there.
+Como resultado, hacer clic en "Next" no realiza una transición de estado inmediata hacia un estado de carga "no deseable", pero en cambio se queda en la pantalla anterior y comunica su progreso ahí.
 
-### Where Does the Update Happen? {#where-does-the-update-happen}
+### ¿Cuándo ocurre la actualización? {#where-does-the-update-happen}
 
-This wasn't very difficult to implement. However, if you start thinking about how this could possibly work, it might become a little mindbending. If we set the state, how come we don't see the result right away? *Where* is the next `<ProfilePage>` rendering?
+Esto no era muy difícil de implementar. Sin embargo, si empiezas a pensar sobre cómo es posible que esto funcione, puede crear algunos pequeños cortocircuitos. Si actualizamos el estado, ¿cómo puede pasar que no veamos el resultado inmediatamente? ¿*Dónde* se está renderizando el nuevo <ProfilePage`?
 
-Clearly, both "versions" of `<ProfilePage>` exist at the same time. We know the old one exists because we see it on the screen and even display a progress indicator on it. And we know the new version also exists *somewhere*, because it's the one that we're waiting for!
+Claramente, ambas "versiones" de `<ProfilePage>` existen al mismo tiempo. Sabemos que la antigua existe, porque la vemos en la pantalla e incluso muestra un indicador de progreso en ella. Y sabemos que la nueva versión también existe *en algún sitio*, ¡porque es la que estamos esperando!
 
-**But how can two versions of the same component exist at the same time?**
+**¿Pero, cómo existen dos versiones del mismo componente al mismo tiempo?**
 
-This gets at the root of what Concurrent Mode is. We've [previously said](/docs/concurrent-mode-intro.html#intentional-loading-sequences) it's a bit like React working on state update on a "branch". Another way we can conceptualize is that wrapping a state update in `startTransition` begins rendering it *"in a different universe"*, much like in science fiction movies. We don't "see" that universe directly -- but we can get a signal from it that tells us something is happening (`isPending`). When the update is ready, our "universes" merge back together, and we see the result on the screen!
+Esto tiene que ver con la esencia del Modo Concurrente. [Anteriormente hemos dicho](/docs/concurrent-mode-intro.html#intentional-loading-sequences) es un poco como si React trabajara en la actualización del estado en una "rama". Otra forma de conceptualizarlo es que al envolver la actualización del estado en `startTransition` comienza a renderizarlo *"en un universo diferente"*, como en las películas de ciencia ficción. No "vemos" ese universo directamente, pero podemos obtener una señal desde él diciéndonos que algo está pasando (`isPending`). Cuando la actualización está lista, nuestros "universos" se mezclan, ¡y vemos el resultado en la pantalla!  
 
-Play a bit more with the [demo](https://codesandbox.io/s/jovial-lalande-26yep), and try to imagine it happening.
+Juega con poco más con el el [demo](https://codesandbox.io/s/jovial-lalande-26yep), e intenta imaginar que esto ocurre.
 
-Of course, two versions of the tree rendering *at the same time* is an illusion, just like the idea that all programs run on your computer at the same time is an illusion. An operating system switches between different applications very fast. Similarly, React can switch between the version of the tree you see on the screen and the version that it's "preparing" to show next.
+Por supuesto, dos versiones del árbol de renderizado *al mismo tiempo* es una ilusión, justo como la idea de que todos los programas se ejecutan en tu computadora al mismo tiempo es una ilusión. Un sistema operativo cambia entre diferentes aplicaciones muy rápidamente. De manera similar, React puede cambiar entre la versión del árbol que ves en la pantalla y la versión que está preparando para mostrar luego.
 
-An API like `useTransition` lets you focus on the desired user experience, and not think about the mechanics of how it's implemented. Still, it can be a helpful metaphor to imagine that updates wrapped in `startTransition` happen "on a branch" or "in a different world".
+Una API como `useTransition` te permite enfocarte en la experiencia de usuario deseada, y no pensar en los mecanismos de su implementación. Aún así, puede ser una metáfora útil imaginar que las actualizaciones envueltas en `startTransition` ocurren "en una rama" o "en un mundo diferente".
 
-### Transitions Are Everywhere {#transitions-are-everywhere}
+### Las transiciones están en todos lados {#transitions-are-everywhere}
 
-As we learned from the [Suspense walkthrough](/docs/concurrent-mode-suspense.html), any component can "suspend" any time if some data it needs is not ready yet. We can strategically place `<Suspense>` boundaries in different parts of the tree to handle this, but it won't always be enough.
+Como aprendimos del [paseo por Suspense](/docs/concurrent-mode-suspense.html), cualquier componente se puede "suspender" en cualquier momento si algunos datos que necesita no están listos todavía. Podemos ubicar estratégicamente barreras `<Suspense>` en diferentes partes del árbol para manejar esto, pero no siempre será suficiente.
 
-Let's get back to our [first Suspense demo](https://codesandbox.io/s/frosty-hermann-bztrp) where there was just one profile. Currently, it fetches the data only once. We'll add a "Refresh" button to check for server updates.
+Volvamos a nuestro [primer demo con Suspense](https://codesandbox.io/s/frosty-hermann-bztrp) donde solo había un perfil. Actualmente, carga los datos solo una vez. Añadiremos un botón "Refresh" para chequear por actualizaciones en el servidor.
 
-Our first attempt might look like this:
+Nuestro primer intento podría verse como esto:
 
 ```js{6-8,13-15}
 const initialResource = fetchUserAndPosts();
@@ -248,13 +248,13 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/boring-shadow-100tf)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/boring-shadow-100tf)**
 
-In this example, we start data fetching at the load *and* every time you press "Refresh". We put the result of calling `fetchUserAndPosts()` into state so that components below can start reading the new data from the request we just kicked off.
+En este ejemplo, comenzamos a cargar datos al inicio *y* cada vez que se presione "Refresh". Ponemos el resultado de llamar a `fetchUserAndPosts()` en el estado de forma tal que los componentes debajo puedan comenzar a renderizar los nuevos datos de la petición que acabamos de hacer.
 
-We can see in [this example](https://codesandbox.io/s/boring-shadow-100tf) that pressing "Refresh" works. The `<ProfileDetails>` and `<ProfileTimeline>` components receive a new `resource` prop that represents the fresh data, they "suspend" because we don't have a response yet, and we see the fallbacks. When the response loads, we can see the updated posts (our fake API adds them every 3 seconds).
+Podemos ver en [este ejemplo](https://codesandbox.io/s/boring-shadow-100tf) que presionar el botón "Refresh" funciona. Los componentes `<ProfileDetails>` y `<ProfileTimeline>` reciben una nueva prop `resource` que representa los datos nuevos, se "suspenden", porque no tenemos aún una respuesta, y vemos los componentes de respaldo. Cuando el componente carga, podemos ver las publicaciones actualizadas (nuestra API falsa los añade cada 3 segundos).
 
-However, the experience feels really jarring. We were browsing a page, but it got replaced by a loading state right as we were interacting with it. It's disorienting. **Just like before, to avoid showing an undesirable loading state, we can wrap the state update in a transition:**
+Sin embargo, la experiencia se siente discordante. Estamos navegando una página, pero fue reemplazada por un estado de carga como si estuviéramos interactuando con ella. Resulta desconcertante. **Como ocurrió anteriormente, para evitar un estado de carga no deseado, podemos envolver la actualización de estado en una transición:**
 
 ```js{2-5,9-11,21}
 function ProfilePage() {
@@ -287,15 +287,15 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/sleepy-field-mohzb)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/sleepy-field-mohzb)**
 
-This feels a lot better! Clicking "Refresh" doesn't pull us away from the page we're browsing anymore. We see something is loading "inline", and when the data is ready, it's displayed.
+¡Esto se siente mucho mejor! El hacer clic en "Refresh" ya no nos saca de la página que estamos navegando. Vemos que algo se está cargando "en línea", y cuando los datos están listos, se muestran.
 
-### Baking Transitions Into the Design System {#baking-transitions-into-the-design-system}
+### Incorporar las transiciones en el sistema de diseño {#baking-transitions-into-the-design-system}
 
-We can now see that the need for `useTransition` is *very* common. Pretty much any button click or interaction that can lead to a component suspending needs to be wrapped in `useTransition` to avoid accidentally hiding something the user is interacting with.
+Podemos ver ahora que la necesidad de `useTransition` es *muy* común. Básicamente cualquier clic a un botón o interacción que pueda llevar a que un componente se suspenda necesita ser envuelto en `useTransition` para evitar accidentalmente esconder al usuario algo con lo que está interactuando.
 
-This can lead to a lot of repetitive code across components. This is why **we generally recommend to bake `useTransition` into the *design system* components of your app**. For example, we can extract the transition logic into our own `<Button>` component:
+Esto puede llevar a mucho código repetitivo a lo largo de nuestros componentes. Por eso es que **generalmente recomendamos incluir `useTransition` en los componentes del *sistema de diseño* de tu aplicación. Por ejemplo, podemos extraer la lógica de transición en nuestro componente `<Button>`:
 
 ```js{7-9,20,24}
 function Button({ children, onClick }) {
@@ -327,9 +327,9 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-Note that the button doesn't care *what* state we're updating. It's wrapping *any* state updates that happen during its `onClick` handler into a transition. Now that our `<Button>` takes care of setting up the transition, the `<ProfilePage>` component doesn't need to set up its own:
+Nota que al botón no le importa *qué* estamos actualizando. Está envolviendo *cualquier* actualización de estado que ocurra durante su manejador `onClick` en una transición. Ahora que nuestro `<Button>` se encarga de configurar la transición, el componente `<ProfilerPage>` no necesita hacerlo desde su parte:
 
 ```js{4-6,11-13}
 function ProfilePage() {
@@ -353,50 +353,50 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-When a button gets clicked, it starts a transition and calls `props.onClick()` inside of it -- which triggers `handleRefreshClick` in the `<ProfilePage>` component. We start fetching the fresh data, but it doesn't trigger a fallback because we're inside a transition, and the 10 second timeout specified in the `useTransition` call hasn't passed yet. While a transition is pending, the button displays an inline loading indicator.
+Cuando a un botón se le hace clic, comienza una transición y llama a `props.onClick()` dentro de ella, lo que dispara `handleRefreshClick` en el componente `<ProfilePage>`. Comenzamos a cargar los datos nuevos, pero no activa un _fallback_ o componente de respaldo, porque estamos dentro de una transición, y el tiempo de espera de 10 segundos especificado en la llamada a `useTransition` no ha transcurrido todavía. Mientras una transición está pendiente, el botón muestra un indicador de carga en línea.
 
-We can see now how Concurrent Mode helps us achieve a good user experience without sacrificing isolation and modularity of components. React coordinates the transition.
+Podemos ver ahora como el Modo Concurrente nos ayuda a lograr una buena experiencia de usuario sin sacrificar la separación y modularidad de los componentes. React coordina la transición.
 
-## The Three Steps {#the-three-steps}
+## Los tres pasos {#the-three-steps}
 
-By now we have discussed all of the different visual states that an update may go through. In this section, we will give them names and talk about the progression between them.
+Hasta ahora hemos analizado todos los diferentes estados visuales por los que puede atravesar una actualización. En esta sección les daremos nombres y hablaremos sobre la progresión entre ellos.
 
 <br>
 
 <img src="../images/docs/cm-steps-simple.png" alt="Three steps" />
 
-At the very end, we have the **Complete** state. That's where we want to eventually get to. It represents the moment when the next screen is fully rendered and isn't loading more data.
+Justo al final, tenemos el estado *Completado* (_Complete_). Ahí es a donde queremos llegar eventualmente. Representa el momento en que la próxima pantalla se ha renderizado completamente y no está cargando más datos.
 
-But before our screen can be Complete, we might need to load some data or code. When we're on the next screen, but some parts of it are still loading, we call that a **Skeleton** state.
+Pero antes de que nuestra pantalla pueda estar Completada, podemos necesitar cargar algunos datos o código. Cuando estamos en la próxima pantalla, pero algunas partes de ella todavía se están cargando, tenemos un estado de **Esqueleto** (_Skeleton_).
 
-Finally, there are two primary ways that lead us to the Skeleton state. We will illustrate the difference between them with a concrete example.
+Finalmente, hay dos formas principales que nos llevan al estado de Esqueleto. Ilustraremos la diferencia entre ellos con ejemplos concretos.
 
-### Default: Receded → Skeleton → Complete {#default-receded-skeleton-complete}
+### Predeterminado: Retirado → Esqueleto → Completado {#default-receded-skeleton-complete}
 
-Open [this example](https://codesandbox.io/s/prod-grass-g1lh5) and click "Open Profile". You will see several visual states one by one:
+Abre [este ejemplo](https://codesandbox.io/s/prod-grass-g1lh5) y haz clic en "Open Profile". Verás varios estados visuales uno por uno.
 
-* **Receded**: For a second, you will see the `<h1>Loading the app...</h1>` fallback.
-* **Skeleton:** You will see the `<ProfilePage>` component with `<h2>Loading posts...</h2>` inside.
-* **Complete:** You will see the `<ProfilePage>` component with no fallbacks inside. Everything was fetched.
+* **Retirada**: Por un segundo, verás el _fallback_ `<h1>Loading the app...</h1>`.
+* **Esqueleto:** Verás el componente `<ProfilePage>` y dentro `<h2>Loading posts...</h2>`.
+* **Completado:** Verás el componente `<ProfilePage>` sin componentes de respaldo dentro. Todo fue cargado.
 
-How do we separate the Receded and the Skeleton states? The difference between them is that the **Receded** state feels like "taking a step back" to the user, while the **Skeleton** state feels like "taking a step forward" in our progress to show more content.
+¿Cómo separamos el estado de Retirada (_Receded_) y el de Esqueleto? La diferencia entre ellos es que el estado de **Retirada** se siente como "un paso hacia atrás" para el usuario, mientras el estado **Esqueleto** se siente como "un paso hacia adelante" en nuestro progreso para mostrar más contenido.
 
-In this example, we started our journey on the `<HomePage>`:
+En este ejemplo, comenzamos nuestro viaje en el componente `<HomePage>`:
 
 ```js
 <Suspense fallback={...}>
-  {/* previous screen */}
+  {/* pantalla anterior */}
   <HomePage />
 </Suspense>
 ```
 
-After the click, React started rendering the next screen:
+Después del clic, React comenzó a renderizar la próxima pantalla:
 
 ```js
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* próxima pantalla */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={...}>
@@ -406,30 +406,30 @@ After the click, React started rendering the next screen:
 </Suspense>
 ```
 
-Both `<ProfileDetails>` and `<ProfileTimeline>` need data to render, so they suspend:
+Tanto `<ProfileDetails>` y `<ProfileTimeline>` necesitan datos para renderizarse, así que se suspenden:
 
 ```js{4,6}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* próxima pantalla */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
+    <ProfileDetails /> {/* ¡se suspende! */}
     <Suspense fallback={<h2>Loading posts...</h2>}>
-      <ProfileTimeline /> {/* suspends! */}
+      <ProfileTimeline /> {/* ¡se suspende! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-When a component suspends, React needs to show the closest fallback. But the closest fallback to `<ProfileDetails>` is at the top level:
+Cuando un componente se suspende, React necesita mostrar el _fallback_ más cercano. Pero el _fallback_ más cercano a `<ProfileDetails>` está en el nivel superior:
 
 ```js{2,3,7}
 <Suspense fallback={
-  // We see this fallback now because of <ProfileDetails>
+  // Vemos ahora este fallback a causa de <ProfileDetails>
   <h1>Loading the app...</h1>
 }>
-  {/* next screen */}
+  {/* próxima pantalla */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
+    <ProfileDetails /> {/* ¡se suspende! */}
     <Suspense fallback={...}>
       <ProfileTimeline />
     </Suspense>
@@ -437,45 +437,45 @@ When a component suspends, React needs to show the closest fallback. But the clo
 </Suspense>
 ```
 
-This is why when we click the button, it feels like we've "taken a step back". The `<Suspense>` boundary which was previously showing useful content (`<HomePage />`) had to "recede" to showing the fallback (`<h1>Loading the app...</h1>`). We call that a **Receded** state.
+Es por eso que cuando damos clic al botón, se siente como si "diéramos un paso atrás". La barrera `<Suspense>` que estaba mostrando previamente contenido útil (`<Homepage />`) tuvo que "retirarse" para mostrar el _fallback_ (`<h1>Loading the app...</h1>`). Llamamos a este estado **Retirada**.
 
-As we load more data, React will retry rendering, and `<ProfileDetails>` can render successfully. Finally, we're in the **Skeleton** state. We see the new page with missing parts:
+Mientras cargamos más datos, React volverá a intentar renderizar, y `<ProfileDetails>` puede renderizar satisfactoriamente. Finalmente, estamos en el estado **Esqueleto**. Vemos la nueva página con las partes faltantes:
 
 ```js{6,7,9}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* próxima pantalla */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={
-      // We see this fallback now because of <ProfileTimeline>
+      // Vemos este fallback a causa de <ProfileTimeline>
       <h2>Loading posts...</h2>
     }>
-      <ProfileTimeline /> {/* suspends! */}
+      <ProfileTimeline /> {/* ¡se suspende! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-Eventually, they load too, and we get to the **Complete** state.
+Eventualmente, también se cargarán, y tenemos el estado **Completado**.
 
-This scenario (Receded → Skeleton → Complete) is the default one. However, the Receded state is not very pleasant because it "hides" existing information. This is why React lets us opt into a different sequence (**Pending** → Skeleton → Complete) with `useTransition`.
+Este escenario (Retirada → Esqueleto → Completado) es el predeterminado. Sin embargo, el estado de Retirada no es muy placentero, porque "esconde" información existente. Es por eso que React nos deja optar por una secuencia diferente (**Pendiente** → Esqueleto → Completado) con `useTransition`.
 
-### Preferred: Pending → Skeleton → Complete {#preferred-pending-skeleton-complete}
+### Preferido: Pendiente → Esqueleto → Completado {#preferred-pending-skeleton-complete}
 
-When we `useTransition`, React will let us "stay" on the previous screen -- and show a progress indicator there. We call that a **Pending** state. It feels much better than the Receded state because none of our existing content disappears, and the page stays interactive.
+Cuando utilizamos `useTransition`, React nos dejará "permanecer" en la pantalla anterior y mostrar allí un indicador de progreso. Lo llamamos un estado **Pendiente**. Se siente mucho mejor que el estado de Retirada, porque ninguno de nuestro contenido existente desaparece, y la página permanece interactiva.
 
-You can compare these two examples to feel the difference:
+Puedes comparar estos dos ejemplos para sentir la diferencia:
 
-* Default: [Receded → Skeleton → Complete](https://codesandbox.io/s/prod-grass-g1lh5)
-* **Preferred: [Pending → Skeleton → Complete](https://codesandbox.io/s/focused-snow-xbkvl)**
+* Predeterminado: [Retirada → Esqueleto → Completado](https://codesandbox.io/s/prod-grass-g1lh5)
+* **Preferido: [Pendiente → Esqueleto → Completado](https://codesandbox.io/s/focused-snow-xbkvl)**
 
-The only difference between these two examples is that the first uses regular `<button>`s, but the second one uses our custom `<Button>` component with `useTransition`.
+La única diferencia entre estos dos ejemplos es que el primero utiliza `<button>`s corrientes, pero el segundo utiliza nuestro componente `<Button>` personalizado con `useTransition`.
 
-### Wrap Lazy Features in `<Suspense>` {#wrap-lazy-features-in-suspense}
+### Envolver funcionalidad diferida en `<Suspense>` {#wrap-lazy-features-in-suspense}
 
-Open [this example](https://codesandbox.io/s/nameless-butterfly-fkw5q). When you press a button, you'll see the Pending state for a second before moving on. This transition feels nice and fluid.
+Abre [este ejemplo](https://codesandbox.io/s/nameless-butterfly-fkw5q). Cuando presiones un botón, verás el estado Pendiente por un segundo antes de continuar. Esta transición se siente bien y fluida.
 
-We will now add a brand new feature to the profile page -- a list of fun facts about a person:
+Ahora añadiremos una funcionalidad completamente nueva a la página de perfil, una lista de datos curiosos sobre una persona:
 
 ```js{8,13-25}
 function ProfilePage({ resource }) {
@@ -505,13 +505,13 @@ function ProfileTrivia({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-If you press "Open Profile" now, you can tell something is wrong. It takes whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
+Si presionas ahora "Open Profile", puedes ver que hay algo mal. ¡Toma siete segundos completos para hacer la transición! Esto es porque nuestra API de juguete es demasiado lenta. Digamos que no podemos hacer nuestra API más rápida. ¿Cómo podemos mejorar la experiencia de usuario con esta restricción?
 
-If we don't want to stay in the Pending state for too long, our first instinct might be to set `timeoutMs` in `useTransition` to something smaller, like `3000`. You can try this [here](https://codesandbox.io/s/practical-kowalevski-kpjg4). This lets us escape the prolonged Pending state, but we still don't have anything useful to show!
+Si no queremos permanecer en el estado de Espera por demasiado tiempo, nuestro primer instinto podría ser establecer un `timeoutMs` en `useTransition` a algo más pequeño, como `3000`. Puedes probarlo [aquí](https://codesandbox.io/s/practical-kowalevski-kpjg4). Esto nos permite escapar del prolongado estado Pendiente, pero aún no tenemos nada útil que mostrar.
 
-There is a simpler way to solve this. **Instead of making the transition shorter, we can "disconnect" the slow component from the transition** by wrapping it into `<Suspense>`:
+Hay una forma más sencilla de resolverlo. **En lugar de hacer la transición más corta, podemos "desconectar" el componente lento de la transición** al envolverlo en `<Suspense>`:
 
 ```js{8,10}
 function ProfilePage({ resource }) {
@@ -529,21 +529,21 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
 
-This reveals an important insight. React always prefers to go to the Skeleton state as soon as possible. Even if we use transitions with long timeouts everywhere, React will not stay in the Pending state for longer than necessary to avoid the Receded state.
+Esto permite comprender algo importante. React siempre prefiere ir al estado Esqueleto tan pronto como sea posible. Aún si usamos transiciones con largos tiempos de espera en todos lados, React no permanecerá en el estado Pendiente por más tiempo del que sea necesario para evitar el estado de Retirada.
 
-**If some feature isn't a vital part of the next screen, wrap it in `<Suspense>` and let it load lazily.** This ensures we can show the rest of the content as soon as possible. Conversely, if a screen is *not worth showing* without some component, such as `<ProfileDetails>` in our example, do *not* wrap it in `<Suspense>`. Then the transitions will "wait" for it to be ready.
+**Si alguna funcionalidad no es una parte vital de la nueva pantalla, envuélvela en `<Suspense>` y deja que sea cargada diferidamente.** Esto permite que podamos mostrar el resto del contenido tan rápido como sea posible. En el caso contrario, si *no vale la pena mostrar* una pantalla sin algún componente, como `<ProfileDetails>` en nuestro ejemplo, no la envuelvas en `<Suspense>`. De esta manera las transiciones "esperarán" por que esté lista.
 
-### Suspense Reveal "Train" {#suspense-reveal-train}
+### "Tren" de revelación de Suspense {#suspense-reveal-train}
 
-When we're already on the next screen, sometimes the data needed to "unlock" different `<Suspense>` boundaries arrives in quick succession. For example, two different responses might arrive after 1000ms and 1050ms, respectively. If you've already waited for a second, waiting another 50ms is not going to be perceptible. This is why React reveals `<Suspense>` boundaries on a schedule, like a "train" that arrives periodically. This trades a small delay for reducing the layout thrashing and the number of visual changes presented to the user.
+Cuando ya estamos en la próxima pantalla, a veces los datos que se necesitan para "desbloquear" diferentes barreras `<Suspense>` llegan en una rápida sucesión. Por ejemplo, dos respuestas diferentes pueden llegar después de 1000 ms y 1050 ms, respectivamente. Si ya has esperado un segundo, esperar por 50 ms no va a ser perceptible. Es por eso que React revela las barreras `<Suspense>` con un horario, como un "tren" que arriba periódicamente. Así se intercambia una pequeña demora por la reducción de los desechos de la maquetación y del número de cambios visuales presentados al usuario.
 
-You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together. 
+Puedes ver un demo [aquí](https://codesandbox.io/s/admiring-mendeleev-y54mk). Las respuestas de publicaciones ("posts") y hechos curiosos ("fun facts") llegan con 100ms entre ellas. Pero React las une y "revela" de forma conjunta sus barreras Suspense. 
 
-### Delaying a Pending Indicator {#delaying-a-pending-indicator}
+### Demora de un indicador de estado Pendiente {#delaying-a-pending-indicator}
 
-Our `Button` component will immediately show the Pending state indicator on click:
+Nuestro componente `Button` inmediatamente mostrará el indicador del estado Pendiente al hacer clic sobre él:
 
 ```js{2,13}
 function Button({ children, onClick }) {
@@ -564,11 +564,11 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
 
-This signals to the user that some work is happening. However, if the transition is relatively short (less than 500ms), it might be too distracting and make the transition itself feel *slower*.
+Aquí se le señala al usuario que está ocurriendo algún trabajo. Sin embargo, si la transición es relativamente corta (menos de 500 ms), podría ser una distracción innecesaria y hacer que la transición se sintiera *más lenta*.
 
-One possible solution to this is to *delay the spinner itself* from displaying:
+Una posible solución es *demorar la muestra del propio indicador*.
 
 ```css
 .DelayedSpinner {
@@ -598,29 +598,29 @@ return (
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
 
-With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/thirsty-liskov-1ygph) and [after](https://codesandbox.io/s/hardcore-http-s18xr) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
+Con este cambio, aunque estamos en el estado Pendiente, no mostramos ninguna indicación al usuario hasta que no hayan pasado los 500 ms. Esto puede parecer que no es es una gran mejora cuando las respuestas de la API son lentas. Pero compara cómo se siente [antes](https://codesandbox.io/s/thirsty-liskov-1ygph) y [después](https://codesandbox.io/s/hardcore-http-s18xr) cuando la llamada a la API es rápida. Aún cuando el resto del código no ha cambiado, la eliminación de un indicador de carga que se muestra "demasiado rápido" mejora el rendimiento percibido al no llamar la atención sobre la demora.
 
-### Recap {#recap}
+### Recapitulación {#recap}
 
-The most important things we learned so far are:
+Lo más importante que hemos aprendido hasta ahora es que:
 
-* By default, our loading sequence is Receded → Skeleton → Complete.
-* The Receded state doesn't feel very nice because it hides existing content.
-* With `useTransition`, we can opt into showing a Pending state first instead. This will keep us on the previous screen while the next screen is being prepared.
-* If we don't want some component to delay the transition, we can wrap it in its own `<Suspense>` boundary.
-* Instead of doing `useTransition` in every other component, we can build it into our design system.
+* Por defecto, nuestra secuencia de carga es Retirada → Esqueleto → Completado.
+* El estado de Retirada no se percibe muy bien porque esconde contenido existente.
+* Con `useTransition`, podemos optar por mostrar en su lugar primero un estado Pendiente. Esto nos mantendrá en la pantalla anterior mientras se prepara la pantalla siguiente.
+* Si no queremos que algún componente retrase la transición, podemos envolverlo en su propia barrera `<Suspense>`.
+* En lugar de llamar a `useTransition` en cada componente, podemos incluirlo dentro de nuestro sistema de diseño.
 
-## Other Patterns {#other-patterns}
+## Otros patrones {#other-patterns}
 
-Transitions are probably the most common Concurrent Mode pattern you'll encounter, but there are a few more patterns you might find useful.
+Las transiciones son probablemente el patrón más común que te encontrarás en el Modo Concurrente, pero hay otros más que puedes encontrar de utilidad.
 
-### Splitting High and Low Priority State {#splitting-high-and-low-priority-state}
+### Separación del estado de alta y baja prioridad {#splitting-high-and-low-priority-state}
 
-When you design React components, it is usually best to find the "minimal representation" of state. For example, instead of keeping `firstName`, `lastName`, and `fullName` in state, it's usually better keep only `firstName` and `lastName`, and then calculate `fullName` during rendering. This lets us avoid mistakes where we update one state but forget the other state.
+Cuando diseñas componentes de React, comúnmente es mejor encontrar la "representación mínima" del estado. Por ejemplo, en lugar de mantener `nombre`, `apellido` y `nombreCompleto` en el estado, a menudo es mejor mantener solo `nombre` y `apellido`, y luego calcular `nombreCompleto` en el renderizado. Esto nos permite evitar errores donde actualizamos un estado, pero olvidamos el otro.
 
-However, in Concurrent Mode there are cases where you might *want* to "duplicate" some data in different state variables. Consider this tiny translation app:
+Sin embargo, en Modo Concurrente hay casos en los que quizá *quieras* "duplicar" algunos datos en diferentes variables de estado. Considera esta pequeña aplicación de traducción:
 
 ```js
 const initialQuery = "Hello, world";
@@ -658,11 +658,11 @@ function Translation({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
 
-Notice how when you type into the input, the `<Translation>` component suspends, and we see the `<p>Loading...</p>` fallback until we get fresh results. This is not ideal. It would be better if we could see the *previous* translation for a bit while we're fetching the next one.
+Nota cómo cuando escribes en la entrada de texto, el componente `<Translation>` se suspende, y vemos el _fallback_ `<p>Loading...</p>` hasta que obtenemos resultados nuevos. Esto no es ideal. Sería mejor si pudiéramos ver la traducción *anterior* por un tiempo mientras estamos cargando la nueva.
 
-In fact, if we open the console, we'll see a warning:
+De hecho, si abrimos la consola, veremos una advertencia:
 
 ```
 Warning: App triggered a user-blocking update that suspended.
@@ -672,7 +672,7 @@ The fix is to split the update into multiple parts: a user-blocking update to pr
 Refer to the documentation for useTransition to learn how to implement this pattern.
 ```
 
-As we mentioned earlier, if some state update causes a component to suspend, that state update should be wrapped in a transition. Let's add `useTransition` to our component:
+Como mencionamos antes, si alguna actualización de estado causa que un componente se suspenda, la actualización del estado debería estar envuelta por una transición. Agreguemos `useTransition` a nuestro componente:
 
 ```js{4-6,10,13}
 function App() {
@@ -695,39 +695,39 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
 
-Try typing into the input now. Something's wrong! The input is updating very slowly.
+Intenta escribir ahora en la entrada de texto. ¡Algo anda mal! La entrada de texto se está actualizando muy lentamente.
 
-We've fixed the first problem (suspending outside of a transition). But now because of the transition, our state doesn't update immediately, and it can't "drive" a controlled input!
+Resolvimos el primer problema (la suspensión fuera de una transición). Pero ahora a causa de la transición, nuestro estado no se actualiza inmediatamente. ¡Y no puede "manejar" una entrada de texto controlada!
 
-The answer to this problem **is to split the state in two parts:** a "high priority" part that updates immediately, and a "low priority" part that may wait for a transition.
+La respuesta a este problema **es separar el estado en dos partes** una parte con "alta prioridad" que se actualiza inmediatamente y otra parte con "baja prioridad" que puede esperar por una transición.
 
-In our example, we already have two state variables. The input text is in `query`, and we read the translation from `resource`. We want changes to the `query` state to happen immediately, but changes to the `resource` (i.e. fetching a new translation) should trigger a transition.
+En nuestro ejemplo, ya tenemos dos variables de estado. La texto de la entrada está en `query`, y leemos la traducción de `resource`. Queremos cambiar el estado `query` para que ocurra inmediatamente, pero los cambios a `resource` (o sea, cargar una nueva traducción) deben disparar una transición.
 
-So the correct fix is to put `setQuery` (which doesn't suspend) *outside* the transition, but `setResource` (which will suspend) *inside* of it.
+Así la solución correcta sería poner a `setQuery` (que no se suspende) *fuera* de la transición, y a `setResource` (que se suspenderá) *dentro* de ella.
 
 ```js{4,5}
 function handleChange(e) {
   const value = e.target.value;
   
-  // Outside the transition (urgent)
+  // Fuera de la transición (urgente)
   setQuery(value);
 
   startTransition(() => {
-    // Inside the transition (may be delayed)
+    // Dentro de la transición (puede ser postergado)
     setResource(fetchTranslation(value));
   });
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
 
-With this change, it works as expected. We can type into the input immediately, and the translation later "catches up" to what we have typed.
+Con este cambio, funciona como se espera. Podemos escribir en la entrada de texto inmediatamente, y la traducción luego "se pone al día" con lo que hemos escrito.
 
-### Deferring a Value {#deferring-a-value}
+### Postergar un valor {#deferring-a-value}
 
-By default, React always renders a consistent UI. Consider code like this:
+Por defecto, React siempre renderiza una interfaz consistente. Considera un código como este:
 
 ```js
 <>
@@ -736,11 +736,11 @@ By default, React always renders a consistent UI. Consider code like this:
 </>
 ```
 
-React guarantees that whenever we look at these components on the screen, they will reflect data from the same `user`. If a different `user` is passed down because of a state update, you would see them changing together. You can't ever record a screen and find a frame where they would show values from different `user`s. (If you ever run into a case like this, file a bug!)
+React garantiza que en cualquier momento que miremos a estos componentes en la pantalla, reflejarán los datos del mismo `user` (usuario). Si se pasa un `user` distinto debido a una actualización del estado, los verías cambiar al unísono. No podrás nunca grabar una pantalla y encontrar un fotograma en el que se mostraran valores de distintos `user`s. (¡Si se te presenta un caso como este, reporta el error!)
 
-This makes sense in the vast majority of situations. Inconsistent UI is confusing and can mislead users. (For example, it would be terrible if a messenger's Send button and the conversation picker pane "disagreed" about which thread is currently selected.)
+Esto tiene sentido en la gran mayoría de las situaciones. Una interfaz inconsistente genera confusión y puede darle la impresión equivocada a los usuarios. (Por ejemplo, sería terrible si el botón de envío de la mensajería y el selector de conversación "no estuvieran de acuerdo" sobre qué hilo de conversación está seleccionado actualmente)
 
-However, sometimes it might be helpful to intentionally introduce an inconsistency. We could do it manually by "splitting" the state like above, but React also offers a built-in Hook for this:
+Sin embargo, en ocasiones podría ser de ayuda la introducción intencional de una inconsistencia. Podríamos hacerlo manualmente "separando" el estado como hicimos arriba, pero React también ofrece un Hook integrado para esto:
 
 ```js
 import { useDeferredValue } from 'react';
@@ -750,11 +750,11 @@ const deferredValue = useDeferredValue(value, {
 });
 ```
 
-To demonstrate this feature, we'll use [the profile switcher example](https://codesandbox.io/s/musing-ramanujan-bgw2o). Click the "Next" button and notice how it takes 1 second to do a transition.
+Para demostrar esta funcionalidad, usaremos [el ejemplo del cambio de perfil](https://codesandbox.io/s/musing-ramanujan-bgw2o). Haz clic en el botón "Next" y nota como toma un segundo para hacer una transición.
 
-Let's say that fetching the user details is very fast and only takes 300 milliseconds. Currently, we're waiting a whole second because we need both user details and posts to display a consistent profile page. But what if we want to show the details faster?
+Digamos que la carga de los detalles de usuarios es muy rápida y toma solo 300 milisegundos. Actualmente, estamos esperando todo un segundo, porque necesitamos tanto los detalles como las publicaciones para mostrar una página de perfil consistente. ¿Pero, y si queremos mostrar los detalles más rápidamente?
 
-If we're willing to sacrifice consistency, we could **pass potentially stale data to the components that delay our transition**. That's what `useDeferredValue()` lets us do:
+Si estamos dispuestos a sacrificar la consistencia, podemos **pasar potencialmente datos viciados a los componentes que retrasan nuestra transición**. Eso es lo que nos permite hacer `useDeferredValue()`:
 
 ```js{2-4,10,11,21}
 function ProfilePage({ resource }) {
@@ -786,15 +786,15 @@ function ProfileTimeline({ isStale, resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
 
-The tradeoff we're making here is that `<ProfileTimeline>` will be inconsistent with other components and potentially show an older item. Click "Next" a few times, and you'll notice it. But thanks to that, we were able to cut down the transition time from 1000ms to 300ms.
+La concesión que estamos haciendo aquí consiste en que `<ProfileTimeline>` será inconsistente respecto a otros componentes y potencialmente mostrará un elemento más antiguo. Haz clic en "Next" varias veces, y lo notarás. Pero gracias a eso, fuimos capaces de acortar el tiempo de la transición de 1000 ms a 300 ms.
 
-Whether or not it's an appropriate tradeoff depends on the situation. But it's a handy tool, especially when the content doesn't change very visible between items, and the user might not even realize they were looking at a stale version for a second.
+Que sea una concesión apropiada o no depende de la situación. Pero es una herramienta útil, especialmente cuando el contenido no cambia de forma muy visible entre los elementos, y el usuario puede ni siquiera darse cuenta de que están mirando a una versión viciada por un segundo.
 
-It's worth noting that `useDeferredValue` is not *only* useful for data fetching. It also helps when an expensive component tree causes an interaction (e.g. typing in an input) to be sluggish. Just like we can "defer" a value that takes too long to fetch (and show its old value despite others components updating), we can do this with trees that take too long to render.
+Es válido hacer notar que `useDeferredValue` no es *solo* útil para la carga de datos. También ayuda cuando un árbol de componentes costoso causa que una interacción (como escribir en una entrada de texto) resulte lenta. Tal como podemos "postergar" un valor que toma mucho tiempo en cargar los datos (y mostrar su valor antiguo a pesar de que los otros componentes se actualizan), podemos hacer esto con los árboles que toman mucho tiempo para renderizarse.
 
-For example, consider a filterable list like this:
+Por ejemplo, considera una lista filtrable como esta:
 
 ```js
 function App() {
@@ -817,11 +817,11 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
 
-In this example, **every item in `<MySlowList>` has an artificial slowdown -- each of them blocks the thread for a few milliseconds**. We'd never do this in a real app, but this helps us simulate what can happen in a deep component tree with no single obvious place to optimize.
+En este ejemplo **cada elemento en `<MySlowList>` tiene una ralentización artificial; cada uno de ellos bloquea el hilo por unos milisegundos**. Nunca haríamos esto en una aplicación real, pero esto nos ayuda a simular lo que puede ocurrir en un árbol de componentes profundo sin un lugar obvio que optimizar.
 
-We can see how typing in the input causes stutter. Now let's add `useDeferredValue`:
+Podemos ver ahora como cuando escribimos en la entrada de texto causa demoras. Agreguemos ahora `useDeferredValue`:
 
 ```js{3-5,18}
 function App() {
@@ -847,19 +847,19 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
 
-Now typing has a lot less stutter -- although we pay for this by showing the results with a lag.
+Ahora si escribimos hay menos intermitencia (aunque pagamos por esto mostrando los resultados con una demora).
 
-How is this different from debouncing? Our example has a fixed artificial delay (3ms for every one of 80 items), so there is always a delay, no matter how fast our computer is. However, the `useDeferredValue` value only "lags behind" if the rendering takes a while. There is no minimal lag imposed by React. With a more realistic workload, you can expect the lag to adjust to the user’s device. On fast machines, the lag would be smaller or non-existent, and on slow machines, it would be more noticeable. In both cases, the app would remain responsive. That’s the advantage of this mechanism over debouncing or throttling, which always impose a minimal delay and can't avoid blocking the thread while rendering.
+¿Cuál es la diferencia entre esto y usar *debounce*? Nuestro ejemplo tiene una demora fija artificial (3 ms por cada uno de los 80 elementos), por lo que siempre va a existir una demora, sin importar cuán rápida sea nuestra computadora. Sin embargo, el valor de `useDeferredValue` solo "va detrás" si el renderizado se toma un tiempo. No hay una espera mínima impuesta por React. Con una carga de trabajo más realista, puedes esperar que la espera se ajuste al dispositivo del usuario. En máquinas rápidas, la espera podría ser menor o no existir, en máquinas lentas, sería más notable. En ambos casos, la aplicación se mantendría con la capacidad de responder. Esa es la ventaja de este mecanismo sobre _debounce_ o _throttle_, que siempre imponen una espera mínima y que no impiden que se bloquee el hilo mientras se renderiza.
 
-Even though there is an improvement in responsiveness, this example isn't as compelling yet because Concurrent Mode is missing some crucial optimizations for this use case. Still, it is interesting to see that features like `useDeferredValue` (or `useTransition`) are useful regardless of whether we're waiting for network or for computational work to finish.
+Aún cuando hay una mejora en la respuesta, este ejemplo aún no es atractivo, porque le falta al Modo Concurrente algunas optimizaciones cruciales para este caso de uso. Aún así, es interesante ver que funcionalidades como `useDeferredValue` (o `useTransition`) son útiles sin importar si estamos esperando por la red o por que termine un trabajo computacional.
 
 ### SuspenseList {#suspenselist}
 
-`<SuspenseList>` is the last pattern that's related to orchestrating loading states.
+`<SuspenseList>` es el último patrón relacionado con la coordinación de los estados de carga.
 
-Consider this example:
+Considera este ejemplo:
 
 ```js{5-10}
 function ProfilePage({ resource }) {
@@ -877,13 +877,13 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
 
-The API call duration in this example is randomized. If you keep refreshing it, you will notice that sometimes the posts arrive first, and sometimes the "fun facts" arrive first.
+La duración de la llamada a la API en este es ejemplo es aleatoria. Si sigues refrescándola, notarás que algunas veces las publicaciones llegan primero, y a veces lo hacen los "hechos curiosos".
 
-This presents a problem. If the response for fun facts arrives first, we'll see the fun facts below the `<h2>Loading posts...</h2>` fallback for posts. We might start reading them, but then the *posts* response will come back, and shift all the facts down. This is jarring.
+Esto representa un problema. Si la respuesta para los hechos curiosos llega primero, los veremos debajo del _fallback_ `<h2>Loading posts...</h2>` de las publicaciones. Puede que comencemos a leerlos, pero entonces llegará la respuesta de las *publicaciones*, y los hechos se moverán hacia abajo. Esto es discordante.
 
-One way we could fix it is by putting them both in a single boundary:
+Una forma en la que podríamos solucionarlo es poniéndolos a ambos en una sola barrera:
 
 ```js
 <Suspense fallback={<h2>Loading posts and fun facts...</h2>}>
@@ -892,19 +892,19 @@ One way we could fix it is by putting them both in a single boundary:
 </Suspense>
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
 
-The problem with this is that now we *always* wait for both of them to be fetched. However, if it's the *posts* that came back first, there's no reason to delay showing them. When fun facts load later, they won't shift the layout because they're already below the posts.
+El problema con esto es que ahora *siempre* esperamos por que ambos se carguen. Sin embargo, si son las *publicaciones* las primeras que llegan, no hay razón para esperar a mostrarlas. Cuando los hechos curiosos se cargan luego, no cambiarán la disposición de los elementos, porque ya están debajo de las publicaciones.
 
-Other approaches to this, such as composing Promises in a special way, are increasingly difficult to pull off when the loading states are located in different components down the tree.
+Otros enfoques a esto mismo, como componer Promesas en una forma especial, son incrementalmente difíciles de lograr cuando los estados de carga están localizados en diferentes componentes por debajo del árbol.
 
-To solve this, we will import `SuspenseList`:
+Para solucionarlo importaremos `SuspenseList`:
 
 ```js
 import { SuspenseList } from 'react';
 ```
 
-`<SuspenseList>` coordinates the "reveal order" of the closest `<Suspense>` nodes below it:
+`<SuspenseList>` coordina el "orden de revelación" de los nodos `<Suspense>` más cercanos debajo de ella:
 
 ```js{3,11}
 function ProfilePage({ resource }) {
@@ -922,16 +922,16 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
 
-The `revealOrder="forwards"` option means that the closest `<Suspense>` nodes inside this list **will only "reveal" their content in the order they appear in the tree -- even if the data for them arrives in a different order**. `<SuspenseList>` has other interesting modes: try changing `"forwards"` to `"backwards"` or `"together"` and see what happens.
+La opción `revealOrder="forwards"` significa que los nodos `<Suspense>` más cercanos dentro de la lista **solo "revelarán" su contenido en el orden en que aparecen en el árbol, incluso si sus datos arriban en orden distintos**. `<SuspenseList>` tiene otros modos interesantes: intenta cambiar `"forwards"` a `"backwards"` o `"together"` y mira lo que pasa.
 
-You can control how many loading states are visible at once with the `tail` prop. If we specify `tail="collapsed"`, we'll see *at most one* fallback at the time. You can play with it [here](https://codesandbox.io/s/adoring-almeida-1zzjh).
+Puedes controlar cuántos estados de carga están visibles de una vez con la prop `tail`. Si especificamos `tail="collapsed"`, veremos *como máximo un* fallback a la vez. Puedes jugar con ella [aquí](https://codesandbox.io/s/adoring-almeida-1zzjh).
 
-Keep in mind that `<SuspenseList>` is composable, like anything in React. For example, you can create a grid by putting several `<SuspenseList>` rows inside a `<SuspenseList>` table.
+Ten presente que `<SuspenseList>` se puede componer, como cualquier cosa en React. Por ejemplo, puedes crear una matriz al poner varias filas de `<SuspenseList>` dentro de una tabla `<SuspenseList>`.
 
-## Next Steps {#next-steps}
+## Próximos pasos {#next-steps}
 
-Concurrent Mode offers a powerful UI programming model and a set of new composable primitives to help you orchestrate delightful user experiences.
+El Modo Concurrente ofrece un poderoso modelo de programación de interfaces de usuario y un conjunto de nuevas primitivas con la propiedad de composición que ayudan a coordinar experiencias de usuario placenteras.
 
-It's a result of several years of research and development, but it's not finished. In the section on [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html), we'll describe how you can try it and what you can expect.
+Es el resultado de varios años de investigación y desarrollo, pero no ha concluido. En la sección de [adopción del Modo Concurrente](/docs/concurrent-mode-adoption.html), describiremos como puedes probarlo y qué puedes esperar.
