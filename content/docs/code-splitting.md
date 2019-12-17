@@ -96,7 +96,7 @@ Cuando uses [Babel](https://babeljs.io/), tienes que asegurarte de que Babel rec
 
 > Nota:
 >
-> `React.lazy` y Suspense aún no están disponibles para hacer renderización del lado del servidor. Si quieres hacer división de código en una aplicación renderizada en el servidor, recomendamos [Loadable Components](https://github.com/smooth-code/loadable-components). Tiene una buena [guía para dividir bundles con renderización del lado del servidor](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/).
+> `React.lazy` y Suspense aún no están disponibles para hacer renderización del lado del servidor. Si quieres hacer división de código en una aplicación renderizada en el servidor, recomendamos [Loadable Components](https://github.com/gregberge/loadable-components). Tiene una buena [guía para dividir bundles con renderización del lado del servidor](https://loadable-components.com/docs/server-side-rendering/).
 
 La función `React.lazy` te deja renderizar un *import* dinámico como un componente regular.
 
