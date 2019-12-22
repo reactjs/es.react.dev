@@ -1171,7 +1171,7 @@ También reemplazaremos `this.state.history` por `this.state.history.slice(0, th
   }
 ```
 
-Finalmente, modificaremos el método `render` del componente Game de siempre renderizar el último movimiento a renderizar el movimiento seleccionado actualmente de acuerdo a `stepNumber`:
+Finalmente, modificaremos el método `render` del componente Game para renderizar el movimiento seleccionado actualmente de acuerdo a `stepNumber`:
 
 ```javascript{3}
   render() {
