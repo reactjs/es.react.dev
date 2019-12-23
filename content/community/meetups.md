@@ -138,16 +138,11 @@ permalink: community/meetups.html
 ## Suecia {#sweden}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
 
-<<<<<<< HEAD
-## Ucrania {#ukraine}
-* [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
-=======
-## Switzerland {#switzerland}
+## Suiza {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
-## Ukraine {#ukraine}
-* [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
->>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
+## Ucrania {#ukraine}
+* [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
 
 ## Estados Unidos {#us}
 * [Atlanta, GA - ReactJS](https://www.meetup.com/React-ATL/)
