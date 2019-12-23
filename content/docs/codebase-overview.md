@@ -221,6 +221,6 @@ React implementa un sistema de eventos sintético que es agnóstico de los rende
 
 Aquí hay un [video con una muestra en profundidad del código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
 
-### Qué sigue? {#what-next}
+### ¿Qué sigue? {#what-next}
 
 Lee la [próxima sección](/docs/implementation-notes.html) para aprender en más detalle acerca de la implementación del reconciliador antes de React 16. No hemos documentado los aspectos internos del nuevo reconciliador aún.
