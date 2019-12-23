@@ -25,7 +25,7 @@ Tanto este documento como su charla son simplificaciones de la base de código r
 
 ### Visión general {#overview}
 
-El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#stack-renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario. 
+El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/docs/codebase-overview.html#renderers) como React DOM y React Native lo usan para actualizar de manera eficiente la interfaz de usuario acorde a los componentes de React diseñados por el usuario.
 
 ### El montaje como un proceso recursivo {#mounting-as-a-recursive-process}
 

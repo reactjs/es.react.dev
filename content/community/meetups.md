@@ -8,6 +8,9 @@ permalink: community/meetups.html
 
 ¿Tienes un meetup local de React.js? ¡Agrégalo aquí! (Por favor mantener la lista en orden alfabético)
 
+## Argentina {#argentina}
+* [Rosario](https://www.meetup.com/es/reactrosario)
+
 ## Australia {#australia}
 * [Brisbane](https://www.meetup.com/reactbris/)
 * [Melbourne](https://www.meetup.com/React-Melbourne/)
@@ -134,6 +137,9 @@ permalink: community/meetups.html
 
 ## Suecia {#sweden}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
+
+## Suiza {#switzerland}
+* [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
 ## Ucrania {#ukraine}
 * [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
