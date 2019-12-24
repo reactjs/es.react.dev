@@ -210,7 +210,7 @@ Claramente, ambas "versiones" de `<ProfilePage>` existen al mismo tiempo. Sabemo
 
 Esto tiene que ver con la esencia del Modo Concurrente. [Anteriormente hemos dicho](/docs/concurrent-mode-intro.html#intentional-loading-sequences) es un poco como si React trabajara en la actualización del estado en una "rama". Otra forma de conceptualizarlo es que al envolver la actualización del estado en `startTransition` comienza a renderizarlo *"en un universo diferente"*, como en las películas de ciencia ficción. No "vemos" ese universo directamente, pero podemos obtener una señal desde él diciéndonos que algo está pasando (`isPending`). Cuando la actualización está lista, nuestros "universos" se mezclan, ¡y vemos el resultado en la pantalla!  
 
-Juega con poco más con el el [demo](https://codesandbox.io/s/jovial-lalande-26yep), e intenta imaginar que esto ocurre.
+Juega con poco más con el [demo](https://codesandbox.io/s/jovial-lalande-26yep), e intenta imaginar que esto ocurre.
 
 Por supuesto, dos versiones del árbol de renderizado *al mismo tiempo* es una ilusión, justo como la idea de que todos los programas se ejecutan en tu computadora al mismo tiempo es una ilusión. Un sistema operativo cambia entre diferentes aplicaciones muy rápidamente. De manera similar, React puede cambiar entre la versión del árbol que ves en la pantalla y la versión que está preparando para mostrar luego.
 
@@ -879,7 +879,7 @@ function ProfilePage({ resource }) {
 
 **[Pruébalo en CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
 
-La duración de la llamada a la API en este es ejemplo es aleatoria. Si sigues refrescándola, notarás que algunas veces las publicaciones llegan primero, y a veces lo hacen los "hechos curiosos".
+La duración de la llamada a la API en este ejemplo es aleatoria. Si sigues refrescándola, notarás que algunas veces las publicaciones llegan primero, y a veces lo hacen los "hechos curiosos".
 
 Esto representa un problema. Si la respuesta para los hechos curiosos llega primero, los veremos debajo del _fallback_ `<h2>Loading posts...</h2>` de las publicaciones. Puede que comencemos a leerlos, pero entonces llegará la respuesta de las *publicaciones*, y los hechos se moverán hacia abajo. Esto es discordante.
 
