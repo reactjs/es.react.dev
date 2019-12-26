@@ -1,102 +1,102 @@
 ---
 id: team
-title: Team
+title: Equipo
 layout: community
 sectionid: community
 permalink: community/team.html
 ---
 
-React development is led by a small dedicated team working full time at Facebook. It also receives contributions from people all over the world.
+El desarrollo de React está dirigido por un pequeño equipo dedicado a tiempo completo en Facebook. También recibe contribuciones de personas alrededor del mundo.
 
-## Meet the React Team {#meet-the-react-team}
+## Conoce al equipo de React {#meet-the-react-team}
 
-The React team members work full time on the core component APIs, the engine that powers React DOM and React Native, React DevTools, and the React documentation website.
+Los miembros del equipo de React trabajan a tiempo completo en las APIs de los componentes del núcleo, el motor que hace funcionar a React DOM y React Native, React DevTools y el sitio de la documentación de React.
 
-Current members of the React team are listed in alphabetical order below.
+Los miembros actuales del equipo de React se listan debajo en orden alfabético.
 
 ### Andrew Clark {#andrew-clark}
 
 ![Andrew Clark](../images/team/acdlite.jpg)
 
-[@acdlite on GitHub](https://github.com/acdlite) &middot; [@acdlite on Twitter](https://twitter.com/acdlite)
+[@acdlite en GitHub](https://github.com/acdlite) &middot; [@acdlite en Twitter](https://twitter.com/acdlite)
 
-Andrew got started with web development by making sites with WordPress, and eventually tricked himself into doing JavaScript. His favorite pastime is karaoke. Andrew is either a Disney villain or a Disney princess, depending on the day.
+Andrew se inició en el desarrollo web haciendo sitios con WordPress y eventualmente consiguió convencerse en comenzar a escribir JavaScript. Su pasatiempo favorito es el karaoke. Andrew es o bien un villano de Disney o bien una princesa de Disney, en dependencia del día.
 
 ### Brian Vaughn {#brian-vaughn}
 
 ![Brian Vaughn](../images/team/bvaughn.jpg)
 
-[@bvaughn on GitHub](https://github.com/bvaughn) &middot; [@brian\_d\_vaughn on Twitter](https://twitter.com/brian_d_vaughn)
+[@bvaughn en GitHub](https://github.com/bvaughn) &middot; [@brian\_d\_vaughn en Twitter](https://twitter.com/brian_d_vaughn)
 
-Brian studied art in college and did programming on the side to pay for his education. Eventually, he realized that he enjoys working on open source. Brian has one [one-person band](https://soundcloud.com/brianvaughn/) and two [two-person](https://soundcloud.com/pilotlessdrone) [bands](https://soundcloud.com/pinwurm). He also takes care of the cutest cat in the world.
+Brian estudió arte en la universidad e hizo programación al mismo tiempo para pagar su educación. Eventualmente, se dio cuenta de que disfruta trabajar en el código abierto. Brian tiene una [banda de una sola persona](https://soundcloud.com/brianvaughn/) y dos [bandas](https://soundcloud.com/pilotlessdrone) [de dos personas](https://soundcloud.com/pinwurm). También cuida al gato más hermoso del mundo.
 
 ### Dan Abramov {#dan-abramov}
 
 ![Dan Abramov](../images/team/gaearon.jpg)
 
-[@gaearon on GitHub](https://github.com/gaearon) &middot; [@dan_abramov on Twitter](https://twitter.com/dan_abramov)
+[@gaearon en GitHub](https://github.com/gaearon) &middot; [@dan_abramov en Twitter](https://twitter.com/dan_abramov)
 
-Dan got into programming after he accidentally discovered Visual Basic inside Microsoft PowerPoint. He has found his true calling in turning [Sebastian](#sebastian-markbage)'s tweets into long-form blog posts. Dan occasionally wins at Fortnite by hiding in a bush until the game ends.
+Dan entró a la programación después de descubrir accidentalmente Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación en convertir los tuits de [Sebastian](#sebastian-markbage) en grandes publicaciones de blog. En ocasiones gana en Fortnite escondiéndose en un arbusto hasta que se acabe el juego.
 
 ### Dominic Gannaway {#dominic-gannaway}
 
 ![Dominic](../images/team/trueadm.jpg)
 
-[@trueadm on GitHub](https://github.com/trueadm) &middot; [@trueadm on Twitter](https://twitter.com/trueadm)
+[@trueadm en GitHub](https://github.com/trueadm) &middot; [@trueadm on Twitter](https://twitter.com/trueadm)
 
-Dominic is interested in travelling, drum and bass, stand-up comedy and spending time with the family. He most enjoys hacking on new unexplored ideas around UIs and accessibility and has a passion for tweaking and optimizing code to get the most performance out of things.
+Dominic está interesado en viajar, la batería y el bajo, la comedia de _stand-up_ y en pasar tiempo con su familia. Disfruta al máximo probar ideas nuevas y sin explorar sobre las interfaces de usuario y la accesibilidad. Tiene una pasión por cambiar y optimizar el código para obtener el mayor rendimiento de las cosas.
 
 ### Luna Ruan {#luna-ruan}
 
 ![Luna](../images/team/lunaruan.jpg)
 
-[@lunaruan on GitHub](https://github.com/lunaruan) &middot; [@lunaruan on Twitter](https://twitter.com/lunaruan)
+[@lunaruan en GitHub](https://github.com/lunaruan) &middot; [@lunaruan en Twitter](https://twitter.com/lunaruan)
 
-Luna learned programming because she thought it meant creating video games. Instead, she ended up working on the Pinterest web app, and now on React itself. Luna doesn't want to make video games anymore, but she plans to do creative writing if she ever gets bored.
+Luna aprendió a programar, porque pensó que significaba crear videojuegos. En cambio, terminó trabajando en la aplicación web de Pinterest y ahora en el mismo React. Luna ya no quiere hacer videojuegos, pero planea hacer escritura creativa si alguna vez se aburre.
 
 ### Nicolas Gallagher {#nicolas-gallagher}
 
 ![Nicolas](../images/team/necolas.jpg)
 
-[@necolas on GitHub](https://github.com/necolas) &middot; [@necolas on Twitter](https://twitter.com/necolas)
+[@necolas en GitHub](https://github.com/necolas) &middot; [@necolas en Twitter](https://twitter.com/necolas)
 
-Nicolas has majored in anthropology. He started in web development by building a website for a friend, and eventually found himself rebuilding the Twitter website with React. Nicolas describes himself as boring on paper, not much better in real life.
+Nicolas se especializó en antropología. Comenzó en el desarrollo web al construir un sitio web para un amigo y eventualmente se encontró reconstruyendo el sitio web de Twitter en React. Nicolas se describe como aburrido en el papel, no mucho mejor en la vida real.
 
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
 
-[@rachelnabors on GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors on Twitter](https://twitter.com/rachelnabors)
+[@rachelnabors en GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors en Twitter](https://twitter.com/rachelnabors)
 
-Rachel wrote a [book about UI animation](https://abookapart.com/products/animation-at-work) once and worked with MDN and the W3C on the web animations API. Now she is busy with education materials and community engineering on the React team. Secretly, she is an award-winning cartoonist for teenage girls. Catch her making fancy tea with lukewarm water in the microkitchen.
+Rachel escribió una vez un [libro sobre animación de interfaces de usuario](https://abookapart.com/products/animation-at-work) y trabajó con MDN y el W3C en la API de animaciones web. Ahora está ocupada con materiales educacionales e ingeniería de comunidad en el equipo de React. Secretamente, es una dibujante galardonada de historietas para chicas adolescentes. Atrápala haciendo té fino con agua tibia en la micrococina.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
 ![Sebastian](../images/team/sebmarkbage.jpg)
 
-[@sebmarkbage on GitHub](https://github.com/sebmarkbage) &middot; [@sebmarkbage on Twitter](https://twitter.com/sebmarkbage)
+[@sebmarkbage en GitHub](https://github.com/sebmarkbage) &middot; [@sebmarkbage en Twitter](https://twitter.com/sebmarkbage)
 
-Sebastian majored in psychology. He's usually quiet. Even when he says something, it often doesn't make sense to the rest of us until a few months later. The correct way to pronounce his surname is "mark-boa-geh" but he settled for "mark-beige" out of pragmatism -- and that's how he approaches React.
+Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice algo, con frecuencia no tiene sentido para el resto de nosotros hasta algunos meses después. La forma correcta de pronunciar su apellido es "mark-bo-gue", pero se ha conformado con "mark-beish" por pragmatismo, y así mismo es su enfoque en React.
 
 ### Sunil Pai {#sunil-pai}
 
 ![Sunil](../images/team/threepointone.jpg)
 
-[@threepointone on GitHub](https://github.com/threepointone) &middot; [@threepointone on Twitter](https://twitter.com/threepointone)
+[@threepointone en GitHub](https://github.com/threepointone) &middot; [@threepointone en Twitter](https://twitter.com/threepointone)
 
-Sunil started writing JavaScript for IE6 and still has some regrets about it. He worked in consulting, design, and product firms, before joining the React team to help others do the same. Sunil plays a blue Les Paul guitar, loves London, and would appreciate a response to his last ping, please and thank you!
+Sunil comenzó escribiendo JavaScript para IE6 y todavía a veces lo lamenta. Trabajó en firmas de consultoría, diseño y producto antes de unirse al equipo de React para ayudar a otros a hacer lo mismo. Sunil toca una guitarra azul Les Paul, ama Londres y apreciaría una respuesta a su último _ping_, por favor y ¡gracias!
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)
 
-[@yuzhi on GitHub](https://github.com/yuzhi) &middot; [@yuzhiz on Twitter](https://twitter.com/yuzhiz)
+[@yuzhi en GitHub](https://github.com/yuzhi) &middot; [@yuzhiz en Twitter](https://twitter.com/yuzhiz)
 
-Yuzhi studied Computer Science in school. She liked the instant gratification of seeing code come to life without having to physically be in a laboratory. Now she manages the React team. Before management, she used to work on the Relay data fetching framework. In her spare time, Yuzhi enjoys optimizing her life via gardening and home improvement projects.
+Yuzhi estudió Ciencias de la Computación en la escuela. Le gustó la gratificación instantánea de ver el código cobrar vida sin tener que estar físicamente en un laboratorio. Ahora dirige el equipo de React. Antes de esta función, trabajaba en el framework de carga de datos Relay. En su tiempo libre, Yuzhi disfruta optimizar su vida mediante la jardinería y proyectos de mejoras para la casa.
 
-## Acknowledgements {#acknowledgements}
+## Agradecimientos {#acknowledgements}
 
-React was originally created by [Jordan Walke](https://github.com/jordwalke). Today, React has over a thousand open source contributors. We'd like to recognize a few people who have made significant contributions to React and its documentation in the past and have helped maintain them over the years:
+React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke). Hoy, React tiene más de mil contribuidores de código abierto. Nos gustaría reconocer a algunas personas que han hecho contribuciones significativas a React y su documentación en el pasado y que han ayudado a su mantenimiento a lo largo de los años:
 
 * [Almero Steyn](https://github.com/AlmeroSteyn)
 * [Andreas Svensson](https://github.com/syranide)
@@ -128,6 +128,6 @@ React was originally created by [Jordan Walke](https://github.com/jordwalke). To
 * [Sasha Aickin](https://github.com/aickin)
 * [Tim Yung](https://github.com/yungsters)
 
-This list is not exhaustive.
+Esta lista no es exhaustiva.
 
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We'd also like to thank all the volunteers who [translated React into other languages](https://isreacttranslatedyet.com/).
+Nos gustaría agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) y [Adam Wolff](https://github.com/wolffiex) por su guía y apoyo a lo largo de los años. También nos gustaría agradecer a todos los voluntarios que [tradujeron React a otros idiomas](https://isreacttranslatedyet.com/).
