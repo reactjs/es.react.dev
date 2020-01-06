@@ -182,11 +182,7 @@ const value = useContext(MyContext);
 
 Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devuelve el valor de contexto actual. El valor actual del contexto es determinado por la propiedad `value` del `<MyContext.Provider>` ascendentemente más cercano en el árbol al componente que hace la llamada.
 
-<<<<<<< HEAD
-Cuando el `<MyContext.Provider>` ascendentemente más cercano en el árbol se actualiza, el Hook activa una renderización con el `value` del contexto pasado a ese proveedor `MyContext`.
-=======
-When the nearest `<MyContext.Provider>` above the component updates, this Hook will trigger a rerender with the latest context `value` passed to that `MyContext` provider. Even if an ancestor uses [`React.memo`](/docs/react-api.html#reactmemo) or [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), a rerender will still happen starting at the component itself using `useContext`.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Cuando el `<MyContext.Provider>` ascendentemente más cercano en el árbol se actualiza, el Hook activa una renderización con el `value` mas reciente del contexto pasado a ese proveedor `MyContext`. Incluso si un ancestro utiliza [`React.memo`](/docs/react-api.html#reactmemo) o [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), una nueva renderización aún pasará empezando con el componente en si mismo usando `useContext`.
 
 No olvides que el argumento enviado a `useContext` debe ser el *objeto del contexto en sí mismo*:
 
