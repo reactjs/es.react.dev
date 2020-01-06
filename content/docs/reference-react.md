@@ -104,7 +104,11 @@ Consulta [Referencia API React.Component](/docs/react-component.html) para ver u
 
 ### `React.PureComponent` {#reactpurecomponent}
 
+<<<<<<< HEAD
 `React.PureComponent` es similar a [`React.Component`](#reactcomponent). La diferencia entre ellos es que [`React.Component`](#reactcomponent) no implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), pero `React.PureComponent` lo implementa con un prop superficial y una comparación del estado. 
+=======
+`React.PureComponent` is similar to [`React.Component`](#reactcomponent). The difference between them is that [`React.Component`](#reactcomponent) doesn't implement [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), but `React.PureComponent` implements it with a shallow prop and state comparison.
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 Si la función `render()` del componente de React renderiza el mismo resultado dados los mismos props y estado, se puede usar `React.PureComponent` para una mejora en el desempeño en algunos casos.
 
@@ -128,7 +132,13 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Si el componente de función renderiza el mismo resultado dados los mismos props, se puede envolver en una llamada a `React.memo` para una mejora en el desempeño en algunos casos memoizando el resultado. Esto significa que React omitirá renderizar el componente y reusará el último resultado renderizado.
 
+<<<<<<< HEAD
 Por defecto solo comparará superficialmente objetos complejos en el objeto de props. Si se desea controlar la comparación, se puede proporcionar también una función de comparación personalizada como el segundo argumento.
+=======
+`React.memo` only affects props changes. If your function component wrapped in `React.memo` has a [`useState`](/docs/hooks-state.html) or [`useContext`](/docs/hooks-reference.html#usecontext) Hook in its implementation, it will still rerender when state or context change.
+
+By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ```javascript
 function MyComponent(props) {

@@ -69,7 +69,13 @@ function Counter({initialCount}) {
 
 Los botones "+" y "-" usan la forma funcional, porque el valor actualizado se basa en el valor anterior. Pero el botón "Reset" usa la forma normal, porque siempre vuelve a establecer la cuenta al valor inicial.
 
+<<<<<<< HEAD
 > Nota
+=======
+If your update function returns the exact same value, the subsequent rerender will be skipped completely.
+
+> Note
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 >
 > A diferencia del método `setState` que se encuentra en los componentes de la clase,`useState` no combina automáticamente los objetos. Puede replicar este comportamiento combinando la función de actualizador de función con la sintaxis de propagación de objetos:
 >
@@ -180,7 +186,11 @@ const value = useContext(MyContext);
 
 Acepta un objeto de contexto (el valor devuelto de `React.createContext`) y devuelve el valor de contexto actual. El valor actual del contexto es determinado por la propiedad `value` del `<MyContext.Provider>` ascendentemente más cercano en el árbol al componente que hace la llamada.
 
+<<<<<<< HEAD
 Cuando el `<MyContext.Provider>` ascendentemente más cercano en el árbol se actualiza, el Hook activa una renderización con el `value` del contexto pasado a ese proveedor `MyContext`.
+=======
+When the nearest `<MyContext.Provider>` above the component updates, this Hook will trigger a rerender with the latest context `value` passed to that `MyContext` provider. Even if an ancestor uses [`React.memo`](/docs/react-api.html#reactmemo) or [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), a rerender will still happen starting at the component itself using `useContext`.
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 No olvides que el argumento enviado a `useContext` debe ser el *objeto del contexto en sí mismo*:
 
