@@ -107,11 +107,7 @@ function Page(props) {
 
 Este patrón es suficiente para muchos casos cuando necesitas separar a un componente hijo de sus componentes padres inmediatos. Puedes llevarlo aún más lejos con [render props](/docs/render-props.html) si el hijo necesita comunicarse con el padre antes de renderizar.
 
-<<<<<<< HEAD
 Sin embargo, a veces, los mismos datos deben ser accesibles por muchos componentes en el árbol y a diferentes niveles de anidamiento. Context te permite "transmitir" dichos datos, y los cambios, a todos los componentes de abajo. Los ejemplos comunes en los que el uso de Context podría ser más simple que otras alternativas incluyen la administración de la configuración de localización, el tema o un caché de datos.
-=======
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ## API {#api}
 
@@ -135,23 +131,13 @@ Cada objeto Context viene con un componente `Provider` de React que permite que 
 
 Acepta un prop `value` que se pasará a los componentes consumidores que son descendientes de este `Provider`. Un `Provider` puede estar conectado a muchos consumidores. Los `Providers` pueden estar anidados para sobreescribir los valores más profundos dentro del árbol.
 
-<<<<<<< HEAD
-Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia el prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
+Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia el prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes (incluyendo [`.contextType`](#classcontexttype) y [`useContext`](/docs/hooks-reference.html#usecontext)) no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
 
 Los cambios se determinan comparando los valores nuevos y antiguos utilizando el mismo algoritmo que [`Object.is`](//developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
 
 > Nota
 > 
 > La forma en que se determinan los cambios puede causar algunos problemas al pasar objetos como `value`: mira las [Advertencias](#caveats).
-=======
-All consumers that are descendants of a Provider will re-render whenever the Provider's `value` prop changes. The propagation from Provider to its descendant consumers (including [`.contextType`](#classcontexttype) and [`useContext`](/docs/hooks-reference.html#usecontext)) is not subject to the `shouldComponentUpdate` method, so the consumer is updated even when an ancestor component skips an update.
-
-Changes are determined by comparing the new and old values using the same algorithm as [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
-
-> Note
->
-> The way changes are determined can cause some issues when passing objects as `value`: see [Caveats](#caveats).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ### `Class.contextType` {#classcontexttype}
 
@@ -208,15 +194,9 @@ Un componente de React que se suscribe a cambios de contexto. Esto le permite su
 
 Requiere una [función como hijo](/docs/render-props.html#using-props-other-than-render). La función recibe el valor de contexto actual y devuelve un nodo de React. El argumento `value` pasado a la función será igual al prop `value` del `Provider` más cercano para este contexto en el árbol. Si no hay un `Proveedor` superior para este contexto, el argumento `value` será igual al `defaultValue` que se pasó a `createContext()`.
 
-<<<<<<< HEAD
 > Nota
 > 
 > Para más información sobre el patrón 'función como hijo', ver [render props](/docs/render-props.html).
-=======
-> Note
->
-> For more information about the 'function as a child' pattern, see [render props](/docs/render-props.html).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ### `Context.displayName` {#contextdisplayname}
 
@@ -262,11 +242,7 @@ A menudo es necesario actualizar el contexto desde un componente que está anida
 
 ### Consumir múltiples Context {#consuming-multiple-contexts}
 
-<<<<<<< HEAD
 Para mantener el renderizado de Context rápido, React necesita hacer que cada consumidor de contexto sea un nodo separado en el árbol.
-=======
-To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 `embed:context/multiple-contexts.js`
 
@@ -285,14 +261,7 @@ Para evitar esto, levanta el valor al estado del padre:
 
 ## API antigua {#legacy-api}
 
-<<<<<<< HEAD
 > Nota
 > 
 > React previamente había liberado el API experimental de Context. La antigua API será compatible con todas las versiones 16.x, pero las aplicaciones que la utilicen deberían migrar a la nueva versión. La API antigua se eliminará en una futura versión importante de React. Lee la [documentación antigua de Context aquí](/docs/legacy-context.html).
  
-=======
-> Note
->
-> React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the [legacy context docs here](/docs/legacy-context.html).
-
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
