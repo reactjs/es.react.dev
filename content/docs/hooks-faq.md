@@ -428,8 +428,8 @@ Aquí, guardamos el valor anterior del prop `row` en una variable de estado para
 
 ```js
 function ScrollView({row}) {
-  let [isScrollingDown, setIsScrollingDown] = useState(false);
-  let [prevRow, setPrevRow] = useState(null);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
     // Row changed since last render. Update isScrollingDown.
@@ -465,7 +465,7 @@ A pesar de que no deberías necesitar esto muy seguido, podrías exponer algunos
 
 ### ¿Cómo puedo medir un nodo del DOM? {#how-can-i-measure-a-dom-node}
 
-Para medir la posición o el tamaño de un nodo del DOM, puedes usar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs). React llamara el callback cuando la referencia sea asocida a un nodo diferente. Aquí hay un [pequeño demo](https://codesandbox.io/s/l7m0v5x4v9):
+Una manera rudimentaria para medir la posición o el tamaño de un nodo del DOM es usar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs). React llamara el callback cuando la referencia sea asocida a un nodo diferente. Aquí hay un [pequeño demo](https://codesandbox.io/s/l7m0v5x4v9):
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -489,6 +489,8 @@ function MeasureExample() {
 No escogimos `useRef` para este ejemplo porque un objeto de referencia no notifica sobre los *cambios* al valor actual de la referencia. Usando una referencia mediante callback lo aseguramos [incluso si un componente hijo muestra el nodo medido después](https://codesandbox.io/s/818zzk8m78) (por ejemplo, en respuesta a un click), aun somos notificados al respecto en el componente padre y podemos actualizar las medidas.
 
 Recuerda que pasamos `[]` como un arreglo de dependencias a `useCallback`. Esto asegura que nuestro callback por referencia no cambie entre renderizados, y de esta manera React no lo llamara innecesariamente.
+
+En este ejemplo, el callback ref será llamado solo cuando el componente se monta y se desmonta, ya que el componente `<h1>` permanece presente durante cualquier renderizado. Si quieres ser notificado cada vez que un componente se redimensiona, podrías usar [`ResizeObserver`](https://developer.mozilla.org/es/docs/Web/API/ResizeObserver) o un Hook de terceros que ya implemente esta función.
 
 Si quieres, puedes [extraer esta lógica](https://codesandbox.io/s/m5o42082xy) a un Hook reusable:
 
@@ -716,7 +718,7 @@ Como último recurso, si quieres algo como `this` en una clase, puedes [usar una
 ```js{2-6,10-11,16}
 function Example(props) {
   // Mantener las últimas props en una ref.
-  let latestProps = useRef(props);
+  const latestProps = useRef(props);
   useEffect(() => {
     latestProps.current = props;
   });
