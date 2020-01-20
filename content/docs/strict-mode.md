@@ -87,9 +87,9 @@ La fase de **confirmación** es muy rápida generalmente, pero el renderizado pu
 
 El ciclo de vida de la fase de renderizado incluye los siguientes métodos de los componentes en clases:
 * `constructor`
-* `componentWillMount`
-* `componentWillReceiveProps`
-* `componentWillUpdate`
+* `componentWillMount` (or `UNSAFE_componentWillMount`)
+* `componentWillReceiveProps` (or `UNSAFE_componentWillReceiveProps`)
+* `componentWillUpdate` (or `UNSAFE_componentWillUpdate`)
 * `getDerivedStateFromProps`
 * `shouldComponentUpdate`
 * `render`
