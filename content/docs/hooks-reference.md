@@ -143,11 +143,7 @@ Aunque `useEffect` se aplaza hasta después de que el navegador se haya pintado,
 
 El comportamiento predeterminado para los efectos es ejecutar el efecto después de cada renderizado que se completa. De esa manera, siempre se recrea un efecto si cambia una de sus dependencias.
 
-<<<<<<< HEAD
 Sin embargo, esto puede ser excesivo en algunos casos, como el ejemplo de suscripción de la sección anterior. No necesitamos crear una nueva suscripción en cada actualización, solo si las propiedades de `source` han cambiado.
-=======
-However, this may be overkill in some cases, like the subscription example from the previous section. We don't need to create a new subscription on every update, only if the `source` prop has changed.
->>>>>>> c8aef5dc0dc340e800fbb7963a94adb97da9803b
 
 Para implementar esto, pase un segundo argumento a `useEffect` que es el conjunto de valores de los que depende el efecto. Nuestro ejemplo actualizado se verá así:
 
