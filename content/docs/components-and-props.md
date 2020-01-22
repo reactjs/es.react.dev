@@ -246,9 +246,9 @@ function sum(a, b) {
 }
 ```
 
-Tales funciones son llamadas ["puras"](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional#Funciones_puras) por que no tratan de cambiar sus entradas, y siempre devuelven el mismo resultado para las mismas entradas.
+Tales funciones son llamadas ["puras"](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional#Funciones_puras) porque no tratan de cambiar sus entradas, y siempre devuelven el mismo resultado para las mismas entradas.
 
-En contraste, esta función es impura por que cambia su propia entrada:
+En contraste, esta función es impura porque cambia su propia entrada:
 
 ```js
 function withdraw(account, amount) {
