@@ -87,7 +87,7 @@ También te animamos a que uses servicios de reporte de errores de JS (o crees e
 
 ## Trazas de la pila de componentes {#component-stack-traces}
 
-React 16 muestra todos los errores que ocurrieron durante el rendering por consola en desarrollo, incluso si la aplicación se los traga accidentalmente. Además de las pilas de mensajes de error y de JavaScript, tambieén provee trazas de la pila de componentes. Ahora puedes ver en qué parte exactamente del árbol de componentes ha ocurrido el fallo:
+React 16 muestra todos los errores que ocurrieron durante el rendering por consola en desarrollo, incluso si la aplicación se los traga accidentalmente. Además de las pilas de mensajes de error y de JavaScript, también provee trazas de la pila de componentes. Ahora puedes ver en qué parte exactamente del árbol de componentes ha ocurrido el fallo:
 
 <img src="../images/docs/error-boundaries-stack-trace.png" style="max-width:100%" alt="Error capturado por componente Límite de Errores">
 
@@ -126,7 +126,7 @@ Los límites de errores preservan la naturaleza declarativa de React, y se compo
 
 Los límites de errores **no** capturan errores en los manejadores de eventos.
 
-React no necesita límites de errores para recuperarse de errores en los manejadores de eventos. Al diferencia del método render y de los métodos del ciclo de vida, los manejadores de eventos no ocurren durante el renderizado, por lo que, si lanzan una excepción, React sigue sabiendo qué mostrar en la pantalla.
+React no necesita límites de errores para recuperarse de errores en los manejadores de eventos. A diferencia del método render y de los métodos del ciclo de vida, los manejadores de eventos no ocurren durante el renderizado, por lo que, si lanzan una excepción, React sigue sabiendo qué mostrar en la pantalla.
 
 Si necesitas capturar un error dentro de un manejador de eventos, usa la sentencia de `try` / `catch` normal de JavaScript.
 
