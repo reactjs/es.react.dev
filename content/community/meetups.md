@@ -96,6 +96,7 @@ permalink: community/meetups.html
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
 
 ## Malasia {#malaysia}
+* [Kuala Lumpur](https://www.kl-react.com/)
 * [Penang](https://www.facebook.com/groups/reactpenang/)
 
 ## Países Bajos {#netherlands}

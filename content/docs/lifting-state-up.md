@@ -318,7 +318,7 @@ Toda actualización sigue los mismos pasos y las entradas se mantienen sincroniz
 
 ## Lecciones aprendidas {#lessons-learned}
 
-Debe hacer una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes levantar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en el [flujo de datos descendente](/docs/state-and-lifecycle.html#the-data-flows-down).
+Debe haber una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes levantar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en el [flujo de datos descendente](/docs/state-and-lifecycle.html#the-data-flows-down).
 
 Levantar el estado implica escribir más código *"boilerplate"* que los enfoques *"two-way binding"*, pero como beneficio, toma menos tiempo encontrar un error. Como todo estado "vive" en algún componente y sólo ese componente puede cambiar, el margen de error se ve reducido grandemente. De manera adicional, puedes implementar lógica adicional para transformar o rechazar algún cambio en la entrada del usuario.
 
