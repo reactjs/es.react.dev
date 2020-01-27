@@ -103,9 +103,16 @@ Para aceptar tu pull request, necesitamos que envíes un CLA. Solo necesitas hac
 
 ### Prerequisitos para contribuir {#contribution-prerequisites}
 
+<<<<<<< HEAD
 * Tienes [Node](https://nodejs.org) instalado con v8.0.0+ y [Yarn](https://yarnpkg.com/en/) con v1.2.0+.
 * Tienes `gcc` instalado o te sientes cómodo instalando un compilador si es necesario. Algunas de nuestras dependencias pueden requerir un paso de compilación. En OS X, las herramientas de línea de comandos de Xcode cubrirán esto. En Ubuntu, `apt-get install build-essential` instalará los paquetes necesarios. Comandos similares deberían funcionar en otras distribuciones de Linux. Windows requerirá algunos pasos adicionales, consulta las [instrucciones de instalación de `node-gyp`](https://github.com/nodejs/node-gyp#installation) para obtener más información.
 * Estás familiarizado con Git.
+=======
+* You have [Node](https://nodejs.org) installed at v8.0.0+ and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
+* You have [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
+* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
+* You are familiar with Git.
+>>>>>>> 335d64336234bcb7ba527ff94919a07da27f8549
 
 ### Flujo de trabajo de desarrollo {#development-workflow}
 
@@ -154,6 +161,7 @@ Puedes verificar el estado de tu estilo de código simplemente ejecutando `yarn 
 
 Sin embargo, todavía hay algunos estilos que el *linter* no puede recoger. Si no estás seguro de algo, consulta la [Guía de estilo de Airbnb](https://github.com/airbnb/javascript) que te guiará en la dirección correcta.
 
+<<<<<<< HEAD
 ### Video introductorio {#introductory-video}
 
 Es posible que te interese ver [este breve video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos) que brinda una introducción sobre cómo contribuir a React.
@@ -168,6 +176,9 @@ Es posible que te interese ver [este breve video](https://www.youtube.com/watch?
 Para obtener una descripción realista de lo que se _siente_ contribuir a React por primera vez, echa un vistazo a [esta entretenida charla de ReactNYC](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
 ### Solicitud de comentarios (RFC) {#request-for-comments-rfc}
+=======
+### Request for Comments (RFC) {#request-for-comments-rfc}
+>>>>>>> 335d64336234bcb7ba527ff94919a07da27f8549
 
 Muchos cambios, incluyendo correcciones de errores y mejoras en la documentación, se pueden implementar y revisar a través del flujo de trabajo normal de *pull request* de GitHub.
 
