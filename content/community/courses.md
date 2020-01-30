@@ -49,3 +49,5 @@ permalink: community/courses.html
 - [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis provee acceso a sus cursos por una tarifa mensual. Entre ellos se incluyen "React Fundamentals" y "Universal React".
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construye aplicaciones interactivas profesionales con React.
+
+- [Curso Práctico de React JS](https://platzi.com/cursos/react-ejs/) - Aprende a través de la creación de la interfaz de PlatziVideo todo lo que necesitas para crear increíbles componentes con React
