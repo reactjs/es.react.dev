@@ -113,14 +113,10 @@ permalink: community/meetups.html
 * [Karachi](https://www.facebook.com/groups/902678696597634/)
 * [Lahore](https://www.facebook.com/groups/ReactjsLahore/)
 
-<<<<<<< HEAD
-## Perú {#peru}
-=======
-## Panama {#panama}
-* [Panama](https://www.meetup.com/React-Panama/)
+## Panamá {#panama}
+* [Panamá](https://www.meetup.com/React-Panama/)
 
-## Peru {#peru}
->>>>>>> 12eaa7a95df236dc19f9d36893519f2cc2500828
+## Perú {#peru}
 * [Lima](https://www.meetup.com/ReactJS-Peru/)
 
 ## Filipinas {#philippines}
