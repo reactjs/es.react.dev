@@ -37,7 +37,7 @@ Pete Hunt discute flux y renderizado en el lado del servidor en React - (2014 �
 
 ### Repensando el Desarrollo de Aplicaciones Web en Facebook {#rethinking-web-app-development-at-facebook}
 
-Facebook F8 2014 charla para aprender cómo abandonamos el tradicional paradigma MVC en favor de una arquitectura de aplicaciones más funcional - (2014 - 0h44m).
+Charla en Facebook F8 2014 para aprender cómo abandonamos el tradicional paradigma MVC en favor de una arquitectura de aplicaciones más funcional - (2014 - 0h44m).
 <iframe title="Hacker Way: Rethinking Web App Development at Facebook" width="650" height="366" src="https://www.youtube-nocookie.com/embed/nYkdrAPrdcw" frameborder="0" allowfullscreen></iframe>
 
 ### Introducción a React {#introduction-to-react}
