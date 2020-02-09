@@ -57,7 +57,7 @@ Areeb Malik investiga cómo React se comporta en una situación de alto estrés,
 
 ### Repensando las Mejores Prácticas {#rethinking-best-practices}
 
-La charla de Pete Hunt en JSConf EU 2013 abarca tres temas: lanza la noción de plantillas y la construcción de vistas con JavaScript, el “re-renderizado” de tu aplicación completa cuando tus datos cambian, y una ligera implementación del DOM y los eventos - (2013 - 0h30m).
+La charla de Pete Hunt en JSConf EU 2013 abarca tres temas: lanza la noción de plantillas y la construcción de vistas con JavaScript, el “rerenderizado” de tu aplicación completa cuando tus datos cambian, y una ligera implementación del DOM y los eventos - (2013 - 0h30m).
 <iframe title="Pete Hunt: React: Rethinking Best Practices - JSConf EU 2013" width="650" height="366" src="https://www.youtube-nocookie.com/embed/x7cQ3mrcKaY" frameborder="0" allowfullscreen></iframe>
 
 ### Programación Funcional del DOM de Alto Desempeño {#high-performance-functional-dom-programming}
