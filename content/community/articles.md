@@ -8,7 +8,7 @@ permalink: community/articles.html
 
 - [React cómo se hace](https://github.com/petehunt/react-howto) - Guía de Pete Hunt para el ecosistema de React.
 - [9 cosas todo React.js principiante debería conocer](https://camjackson.net/post/9-things-every-reactjs-beginner-should-know) - Guía de Cam Jackson para principiantes en React.
-- [React "Ajá" momentos](https://tylermcginnis.com/react-aha-moments/) - Artículo de Tyler McGinnis en su colección de "Ajá" momentos con React.
+- [React "Ajá" momentos](https://tylermcginnis.com/react-aha-moments/) - Artículo de Tyler McGinnis en su colección de momentos "Ajá" con React.
 - [Tú te estás perdiendo el punto de React](https://medium.com/@dan_abramov/youre-missing-the-point-of-react-a20e34a51e1a) - Artículo de Dan Abramov sobre las mejores partes de React.
 - [Cronograma para Aprender React](https://daveceddia.com/timeline-for-learning-react/) - Cronograma recomendado por Dave Ceddia para aprender React y el ecosistema de React.
 - [ Desarrollo con React Simple en 2017](https://hackernoon.com/simple-react-development-in-2017-113bd563691f) - Guía de Joshua Comeau para mostrar cuán fácil puede ser comenzar el desarrollo moderno con React.
