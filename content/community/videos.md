@@ -35,7 +35,7 @@ En  Mountain West JavaScript 2014 Pete Hunt discute porqué se construyó un DOM
 Pete Hunt discute flux y renderizado en el lado del servidor en React - (2014 – 0h55m).
 <iframe title="YUI Open Roundtable with Pete Hunt" width="650" height="366" src="https://www.youtube-nocookie.com/embed/ZLfe0i2RDtY" frameborder="0" allowfullscreen></iframe>
 
-### Repensando el Desarrollo de Aplicaciones Web en Facebook {#rethinking-web-app-development-at-facebook}
+### Repensando el desarrollo de aplicaciones web en Facebook {#rethinking-web-app-development-at-facebook}
 
 Charla en Facebook F8 2014 para aprender cómo abandonamos el tradicional paradigma MVC en favor de una arquitectura de aplicaciones más funcional - (2014 - 0h44m).
 <iframe title="Hacker Way: Rethinking Web App Development at Facebook" width="650" height="366" src="https://www.youtube-nocookie.com/embed/nYkdrAPrdcw" frameborder="0" allowfullscreen></iframe>
@@ -45,7 +45,7 @@ Charla en Facebook F8 2014 para aprender cómo abandonamos el tradicional paradi
 Stoyan Stefanov imparte una introducción a React en el LAWebSpeed meetup - (2014 - 0h51m).
 <iframe title="Joe Dev on Tech - Stoyan Stefanov - Introduction to React" width="650" height="366" src="https://www.youtube-nocookie.com/embed/SMMRJif5QW0" frameborder="0" allowfullscreen></iframe>
 
-### React y Flux: Construyendo Aplicaciones con un Flujo de Datos Unidireccional {#react-and-flux-building-applications-with-a-unidirectional-data-flow}
+### React y Flux: construyendo aplicaciones con un flujo de datos unidireccional {#react-and-flux-building-applications-with-a-unidirectional-data-flow}
 
 Los ingenieros de Facebook Bill Fisher y Jing Chen hablan sobre Flux y React en Forward JS 2014, y cómo el usar una arquitectura de aplicación con un flujo de datos unidireccional limpia mucho su código.
 <iframe title="React and Flux: Building Applications with a Unidirectional Data Flow" width="650" height="366" src="https://www.youtube-nocookie.com/embed/i__969noyAM" frameborder="0" allowfullscreen></iframe>
@@ -55,16 +55,16 @@ Los ingenieros de Facebook Bill Fisher y Jing Chen hablan sobre Flux y React en 
 Areeb Malik investiga cómo React se comporta en una situación de alto estrés, y cómo ayudó a su equipo a desarrollar código seguro en una escala masiva - (2014 - 0h31m).
 <iframe title="Areeb Malik : Going big with React" width="650" height="366" src="https://www.youtube-nocookie.com/embed/9qcBlN6-qwY" frameborder="0" allowfullscreen></iframe>
 
-### Repensando las Mejores Prácticas {#rethinking-best-practices}
+### Repensando las mejores prácticas {#rethinking-best-practices}
 
 La charla de Pete Hunt en JSConf EU 2013 abarca tres temas: lanza la noción de plantillas y la construcción de vistas con JavaScript, el “rerenderizado” de tu aplicación completa cuando tus datos cambian, y una ligera implementación del DOM y los eventos - (2013 - 0h30m).
 <iframe title="Pete Hunt: React: Rethinking Best Practices - JSConf EU 2013" width="650" height="366" src="https://www.youtube-nocookie.com/embed/x7cQ3mrcKaY" frameborder="0" allowfullscreen></iframe>
 
-### Programación Funcional del DOM de Alto Desempeño {#high-performance-functional-dom-programming}
+### Programación funcional del DOM de alto desempeño {#high-performance-functional-dom-programming}
 Pete Hunt discute la programación funcional de alto desempeño con React en Meteor DevShop 11 - (2013 - 0h31m).
 <iframe title="Pete Hunt: High performance functional programming with React and Meteor" width="650" height="366" src="https://www.youtube-nocookie.com/embed/qqVbr_LaCIo" frameborder="0" allowfullscreen></iframe>
 
-### Desarrollo de Interfaces de Usuario con React {#developing-user-interfaces-with-react}
+### Desarrollo de interfaces de usuario con React {#developing-user-interfaces-with-react}
 
 Steven Luscher habla sobre el desarrollo de interfaces de usuario en Super VanJS 2013 - (2013 - 0h29m).
 <iframe title="SuperVanJS 2013: Steven Luscher - Developing User Interfaces with Facebook's React" width="650" height="366" src="https://www.youtube-nocookie.com/embed/1OeXsL5mr4g" frameborder="0" allowfullscreen></iframe>
