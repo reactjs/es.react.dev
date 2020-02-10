@@ -6,12 +6,21 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
+<<<<<<< HEAD
 El `Profiler` (perfilador o generador de perfiles) mide con qué frecuencia se renderiza una aplicación React y cuál es el "costo" del renderizado.
 Su propósito es ayudar a identificar partes de una aplicación que son lentas y pueden beneficiarse de [optimizaciones como la memoización](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations).
+=======
+The `Profiler` measures how often a React application renders and what the "cost" of rendering is.
+Its purpose is to help identify parts of an application that are slow and may benefit from [optimizations such as memoization](/docs/hooks-faq.html#how-to-memoize-calculations).
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 > Nota:
 >
+<<<<<<< HEAD
 > La creación de perfiles agrega una sobrecarga adicional, por lo que **está deshabilitada en [la compilación de producción](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
+=======
+> Profiling adds some additional overhead, so **it is disabled in [the production build](/docs/optimizing-performance.html#use-the-production-build)**.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 >
 > Para acceder al análisis de rendimiento en producción, React proporciona una compilación de producción especial con la generación de perfiles habilitada.
 > Lea más sobre cómo usar esta compilación en [fb.me/react-profiling](https://fb.me/react-profiling)

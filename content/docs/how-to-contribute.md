@@ -21,7 +21,11 @@ Todo el trabajo en React sucede directamente en [GitHub](https://github.com/face
 
 ### Versionado semántico {#semantic-versioning}
 
+<<<<<<< HEAD
 React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores para nuevas funcionalidades o cambios no esenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, también agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su código con antelación. Aprende más sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](https://reactjs.org/docs/faq-versioning.html).
+=======
+React follows [semantic versioning](https://semver.org/). We release patch versions for critical bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance. Learn more about our commitment to stability and incremental migration in [our versioning policy](/docs/faq-versioning.html).
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
@@ -55,8 +59,13 @@ Facebook tiene un [programa de recompensas](https://www.facebook.com/whitehat/) 
 
 ### Cómo entrar en contacto {#how-to-get-in-touch}
 
+<<<<<<< HEAD
 * IRC: [#reactjs en freenode](https://webchat.freenode.net/?channels=reactjs)
 * Foro de discusión: [discuss.reactjs.org](https://es.reactjs.org/community/support.html#popular-discussion-forums)
+=======
+* IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
+* [Discussion forums](/community/support.html#popular-discussion-forums)
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 También hay [una comunidad activa de usuarios de React en la plataforma de chat Discord](https://www.reactiflux.com/) en caso de que necesites ayuda con React.
 
