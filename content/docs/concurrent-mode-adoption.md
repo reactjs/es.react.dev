@@ -80,7 +80,7 @@ ReactDOM.createRoot(
 >
 >Las API del Modo Concurrente como `createRoot` solo existen en los compilados experimentadles de React.
 
-En el Modo Concurrente, los métodos de ciclo de vida [previamente marcados](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) como "inseguros" de hecho son inseguros, y conducen aún a más errores que en React hoy en día. No recomendamos intentar el Modo Concurrente hasta que tu aplicación sea compatible con el [Modo estricto](https://reactjs.org/docs/strict-mode.html).
+En el Modo Concurrente, los métodos de ciclo de vida [previamente marcados](/blog/2018/03/27/update-on-async-rendering.html) como "inseguros" de hecho son inseguros, y conducen aún a más errores que en React hoy en día. No recomendamos intentar el Modo Concurrente hasta que tu aplicación sea compatible con el [Modo estricto](/docs/strict-mode.html).
 
 ## ¿Qué esperar? {#what-to-expect}
 

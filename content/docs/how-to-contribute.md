@@ -21,7 +21,7 @@ Todo el trabajo en React sucede directamente en [GitHub](https://github.com/face
 
 ### Versionado semántico {#semantic-versioning}
 
-React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores para nuevas funcionalidades o cambios no esenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, también agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su código con antelación. Aprende más sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](https://reactjs.org/docs/faq-versioning.html).
+React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores para nuevas funcionalidades o cambios no esenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, también agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su código con antelación. Aprende más sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](/docs/faq-versioning.html).
 
 Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
@@ -56,7 +56,7 @@ Facebook tiene un [programa de recompensas](https://www.facebook.com/whitehat/) 
 ### Cómo entrar en contacto {#how-to-get-in-touch}
 
 * IRC: [#reactjs en freenode](https://webchat.freenode.net/?channels=reactjs)
-* Foro de discusión: [discuss.reactjs.org](https://es.reactjs.org/community/support.html#popular-discussion-forums)
+* Foro de discusión: [discuss.reactjs.org](/community/support.html#popular-discussion-forums)
 
 También hay [una comunidad activa de usuarios de React en la plataforma de chat Discord](https://www.reactiflux.com/) en caso de que necesites ayuda con React.
 
