@@ -142,7 +142,11 @@ Como último recurso, puedes pasar el índice de un elemento en la matriz como u
 
 Reorganizar también puede causar problemas de estado del componente cuando los índices se utilizan como claves. Si la clave es un índice, mover un elemento lo cambia. Como resultado, el estado el componente para cosas como entradas no controladas pueden mezclarse y actualizarse de manera inesperada.
 
+<<<<<<< HEAD
 [Aquí](codepen://reconciliation/index-used-as-key) hay un ejemplo de los problemas que pueden ser causados por el uso de índices como claves en Codepen, y [aquí](codepen://reconciliation/no-index-used-as-key) es una versión actualizada del mismo ejemplo que muestra cómo no usar los índices como claves solucionará estos problemas de reordenación, clasificación y preparación.
+=======
+Here is [an example of the issues that can be caused by using indexes as keys](codepen://reconciliation/index-used-as-key) on CodePen, and here is [an updated version of the same example showing how not using indexes as keys will fix these reordering, sorting, and prepending issues](codepen://reconciliation/no-index-used-as-key).
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 ## Compensaciones {#tradeoffs}
 
