@@ -32,11 +32,7 @@ Cuando el modo estricto está habilitado, React reúne en una lista todos los co
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
-<<<<<<< HEAD
 Solucionar los problemas identificados por el modo estricto _ahora_, hará que sea más fácil para ti aprovechar el renderizado asíncrono en futuras versiones de React.
-=======
-Addressing the issues identified by strict mode _now_ will make it easier for you to take advantage of concurrent rendering in future releases of React.
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 ### Advertencia sobre el uso de la API legado de string ref {#warning-about-legacy-string-ref-api-usage}
 
@@ -87,11 +83,7 @@ Conceptualmente, React funciona en dos fases:
 * La fase de **renderizado** determina que cambios deben ser hechos a p.ej. el DOM. Durante esta fase, React llama a `render` y compara su resultado con los del renderizado anterior.
 * La fase de **confirmación** es aquella donde React aplica cualquiera de los cambios. (En el caso de React en el DOM, esto es cuando React inserta, actualiza y remueve nodos del DOM.) React también llama ciclos de vida tales como `componentDidMount` y `componentDidUpdate` durante esta fase.
 
-<<<<<<< HEAD
 La fase de **confirmación** es muy rápida generalmente, pero el renderizado puede ser lento. Por esta razón, el próximo modo asíncrono (que no está habilitado por defecto aún) separa el trabajo de renderizado en diferentes etapas, pausando y reanudando el trabajo para prevenir bloquear el navegador. Esto significa que React puede que invoque los ciclos de vida presentes en la fase de renderizado múltiples veces antes de terminar la confirmación, o puede invocarlos todos sin terminar la confirmación (porque ocurrió algún error o una interrupción de alta prioridad).
-=======
-The commit phase is usually very fast, but rendering can be slow. For this reason, the upcoming concurrent mode (which is not enabled by default yet) breaks the rendering work into pieces, pausing and resuming the work to avoid blocking the browser. This means that React may invoke render phase lifecycles more than once before committing, or it may invoke them without committing at all (because of an error or a higher priority interruption).
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 El ciclo de vida de la fase de renderizado incluye los siguientes métodos de los componentes en clases:
 * `constructor`
