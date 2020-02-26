@@ -70,10 +70,6 @@ Puedes verificar esto inspeccionando el [último ejemplo](codepen://rendering-el
 
 ![inspector del DOM mostrando actualizaciones diminutas](../images/docs/granular-dom-updates.gif)
 
-<<<<<<< HEAD
 Aunque creamos un elemento que describe el árbol de la interfaz de usuario en su totalidad en cada instante, React DOM solo actualiza el texto del nodo cuyo contenido cambió.
-=======
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 En nuestra experiencia, pensar en cómo la interfaz de usuario debería verse en un momento dado y no en cómo cambiarla en el tiempo, elimina toda una clase de errores.
