@@ -31,7 +31,7 @@ En esta guía, examinaremos los componentes básicos de las aplicaciones React: 
 
 Este es el primer capítulo en una guía paso a paso sobre los principales conceptos de React. Puedes encontrar una lista de todos los capítulos en la barra de navegación lateral. Si estás leyendo esto desde un dispositivo móvil, puedes acceder a la navegación presionando el botón en la esquina inferior derecha de tu pantalla.
 
-Cada capítulo en esta guía se construye en base al conocimiento presentado en capítulos anteriores. **Puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
+Cada capítulo en esta guía se construye con base en el conocimiento presentado en capítulos anteriores. **Puedes aprender la mayoría de React leyendo la guía de conceptos "Conceptos Principales" en el orden que aparecen en la barra lateral.** Por ejemplo, ["Introducción a JSX”](/docs/introducing-jsx.html) es el siguiente capítulo después de este.
 
 ## Suposiciones del nivel de conocimiento {#knowledge-level-assumptions}
 
