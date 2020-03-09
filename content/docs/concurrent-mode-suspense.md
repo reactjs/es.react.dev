@@ -113,13 +113,21 @@ Suspense es significativamente diferente a enfoques existentes para estos proble
 
 ### Lo que Suspense te permite hacer {#what-suspense-lets-you-do}
 
+<<<<<<< HEAD
 ¿Entonces, cuál es el punto de Suspense? Hay varias formas de responder esto:
+=======
+So what's the point of Suspense? There are a few ways we can answer this:
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 * **Les permite a las bibliotecas de carga de datos integrarse profundamente con React.** Si una biblioteca de carga de datos implementa compatibilidad con Suspense, usarla desde React es una experiencia muy natural.
 
 * **Te permite coordinar estados de carga diseñados intencionalmente.** No dice _cómo_ se obtienen los datos, pero te permite controlar con exactitud la secuencia visual de carga de tu aplicación.
 
+<<<<<<< HEAD
 * **Te permite evitar condiciones de carrera.** Incluso con `await`, el código asíncrono es a menudo propenso a errores. Suspense se siente más como leer datos _sincrónicamente_ (como si ya estuvieran cargados).
+=======
+* **It helps you avoid race conditions.** Even with `await`, asynchronous code is often error-prone. Suspense feels more like reading data *synchronously* — as if it were already loaded.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ## Uso de Suspense en la práctica {#using-suspense-in-practice}
 
@@ -231,7 +239,11 @@ Si ejecutas este código y miras a los registros de la consola, notarás que la 
 
 Si cargar los detalles del usuario toma tres segundos, entonces, ¡solo _comenzaremos_ a cargar las publicaciones hasta después de tres segundos! Eso es una "cascada": una _secuencia_ no intencional que pudo haber sido paralelizada.
 
+<<<<<<< HEAD
 las cascadas son comunes en código que carga datos en el renderizado. Son posibles de resolver, pero mientras el producto crece, muchas personas prefieren utilizar una solución que los proteja ante este problema.
+=======
+Waterfalls are common in code that fetches data on render. They're possible to solve, but as the product grows, many people prefer to use a solution that guards against this problem.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ### Enfoque 2: Carga y luego renderizado (sin usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
 
@@ -250,7 +262,11 @@ function fetchProfileData() {
 }
 ```
 
+<<<<<<< HEAD
 En este ejemplo, `<ProfilePage>` espera por ambas peticiones, pero las inicia en paralelo:
+=======
+In this example, `<ProfilePage>` waits for both requests but starts them in parallel:
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ```js{1,2,8-13}
 // Empezar a cargar datos tan pronto como sea posible

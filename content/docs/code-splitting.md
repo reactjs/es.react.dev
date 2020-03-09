@@ -117,6 +117,8 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 El componente lazy debería entonces ser renderizado adentro de un componente `Suspense`, lo que nos permite mostrar algún contenido predeterminado (como un indicador de carga) mientras estamos esperando a que el componente lazy cargue.
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
@@ -133,6 +135,8 @@ function MyComponent() {
 El prop `fallback` acepta cualquier elemento de React que quieras renderizar mientras esperas que `OtherComponent` cargue. Puedes poner el componente `Suspense` en cualquier parte sobre el componente lazy. Incluso puedes envolver múltiples componentes lazy con un solo componente `Suspense`.   
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -155,7 +159,9 @@ function MyComponent() {
 Si el otro módulo no se carga (por ejemplo, debido a un fallo de la red), se generará un error. Puedes manejar estos errores para mostrar una buena experiencia de usuario y manejar la recuperación con [Límites de error](/docs/error-boundaries.html). Una vez hayas creado tu límite de error (Error Boundary) puedes usarlo en cualquier parte sobre tus componentes lazy para mostrar un estado de error cuando haya un error de red.
 
 ```js
+import React, { Suspense } from 'react';
 import MyErrorBoundary from './MyErrorBoundary';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -183,8 +189,8 @@ Este es un ejemplo de cómo configurar la división de código basada en rutas e
 bibliotecas como [React Router](https://reacttraining.com/react-router/) con `React.lazy`.
 
 ```js
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));

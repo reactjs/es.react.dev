@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -62,6 +63,7 @@ function onClick(event) {
 
 > Nota:
 >
+<<<<<<< HEAD
 > Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
 ## Eventos Soportados {#supported-events}
@@ -86,6 +88,33 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 - [Eventos de Animación](#animation-events)
 - [Eventos de Transición](#transition-events)
 - [Otros Eventos](#other-events)
+=======
+> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+
+## Supported Events {#supported-events}
+
+React normalizes events so that they have consistent properties across different browsers.
+
+The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+
+- [Clipboard Events](#clipboard-events)
+- [Composition Events](#composition-events)
+- [Keyboard Events](#keyboard-events)
+- [Focus Events](#focus-events)
+- [Form Events](#form-events)
+- [Generic Events](#generic-events)
+- [Mouse Events](#mouse-events)
+- [Pointer Events](#pointer-events)
+- [Selection Events](#selection-events)
+- [Touch Events](#touch-events)
+- [UI Events](#ui-events)
+- [Wheel Events](#wheel-events)
+- [Media Events](#media-events)
+- [Image Events](#image-events)
+- [Animation Events](#animation-events)
+- [Transition Events](#transition-events)
+- [Other Events](#other-events)
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 * * *
 
@@ -176,14 +205,28 @@ DOMEventTarget relatedTarget
 Nombres de Eventos:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 Para obtener más información sobre el evento onChange, consulte [Formularios](/docs/forms.html).
 
 * * *
 
+<<<<<<< HEAD
 ### Eventos del Ratón {#mouse-events}
+=======
+### Generic Events {#generic-events}
+
+Event names:
+
+```
+onError onLoad
+```
+
+* * *
+
+### Mouse Events {#mouse-events}
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 Nombres de Eventos:
 
