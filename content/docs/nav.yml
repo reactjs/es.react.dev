@@ -100,8 +100,6 @@
       title: SyntheticEvent
     - id: test-utils
       title: Utilidades para pruebas
-    - id: shallow-renderer
-      title: Renderizador superficial
     - id: test-renderer
       title: Renderizador de prueba
     - id: javascript-environment-requirements
