@@ -103,6 +103,7 @@ El modo estricto no puede detectar efectos secundarios de forma automática por 
 * El método `render`
 * Funciones de actualización de `setState` (el primer argumento)
 * El ciclo de vida estático `getDerivedStateFromProps`
+* El método `shouldComponentUpdate`
 
 > Nota:
 >

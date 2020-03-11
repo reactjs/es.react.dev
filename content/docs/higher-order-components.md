@@ -177,9 +177,9 @@ Resiste la tentación de modificar el prototipo de un componente (o de mutarlo d
 
 ```js
 function logProps(InputComponent) {
-  InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
     console.log('Current props: ', this.props);
-    console.log('Next props: ', nextProps);
+    console.log('Previous props: ', prevProps);
   };
   // El hecho de que estamos devolviendo la entrada original es una pista
   // de que ha sido mutada.
@@ -190,7 +190,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Existen varios problemas con esto. Uno es que el componente de entrada no podrá ser usado aparte del componente mejorado. Más importante aún, si aplicas otro *HOC* al `EnhancedComponent` que **también** mute `componentWillReceiveProps`, ¡la funcionalidad del primer *HOC* será sobrescrita!. Este *HOC* tampoco funcionará con componentes funcionales, los cuales no poseen los métodos del ciclo de vida.
+Existen varios problemas con esto. Uno es que el componente de entrada no podrá ser usado aparte del componente mejorado. Más importante aún, si aplicas otro *HOC* al `EnhancedComponent` que **también** mute `componentDidUpdate`, ¡la funcionalidad del primer *HOC* será sobrescrita!. Este *HOC* tampoco funcionará con componentes funcionales, los cuales no poseen los métodos del ciclo de vida.
 
 Mutar *HOCs* es una abstracción con fugas, el consumidor tiene que saber como están implementados para evitar conflictos con otros *HOCs*.
 
@@ -199,9 +199,9 @@ En lugar de mutaciones, los *HOCs* deben usar composición, al envolver el compo
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(prevProps) {
       console.log('Current props: ', this.props);
-      console.log('Next props: ', nextProps);
+      console.log('Previous props: ', prevProps);
     }
     render() {
       // Envuelve el componente de entrada en un contenedor, sin mutarlo. ¡Bien!

@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -62,19 +63,20 @@ function onClick(event) {
 
 > Nota:
 >
-> Si desea acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
+> Si deseas acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
 
 ## Eventos Soportados {#supported-events}
 
 React normaliza los eventos para que tengan propiedades consistentes en diferentes navegadores.
 
-Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos llamado en la fase de captura, agregue `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de click en la fase de captura.
+Los controladores de eventos a continuación se activan por un evento en la fase de propagación. Para registrar un controlador de eventos llamado en la fase de captura, agrega `Capture` al nombre del evento; por ejemplo, en lugar de usar `onClick`, usarías` onClickCapture` para manejar el evento de click en la fase de captura.
 
 - [Eventos del Portapapeles](#clipboard-events)
 - [Eventos de Composición](#composition-events)
 - [Eventos del Teclado](#keyboard-events)
 - [Eventos de Enfoque](#focus-events)
 - [Formar Eventos](#form-events)
+- [Eventos genéricos](#generic-events)
 - [Eventos del Ratón](#mouse-events)
 - [Eventos del Puntero](#pointer-events)
 - [Eventos de Selección](#selection-events)
@@ -176,10 +178,20 @@ DOMEventTarget relatedTarget
 Nombres de Eventos:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 Para obtener más información sobre el evento onChange, consulte [Formularios](/docs/forms.html).
+
+* * *
+
+### Eventos genéricos {#generic-events}
+
+Nombres de eventos:
+
+```
+onError onLoad
+```
 
 * * *
 

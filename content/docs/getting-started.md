@@ -36,7 +36,7 @@ React ha sido diseñado desde su inicio para ser adoptado gradualmente, así pue
 
 ### Área de juegos {#online-playgrounds}
 
-Si estás interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) o [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
+Si estás interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template) o [Stackblitz](https://stackblitz.com/fork/react).
 
 Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editarlo, y abrirlo desde tu sistema de archivos al navegador. Esto realiza una transformación de código lenta, así que solo recomendamos esto para pruebas simples.
 
@@ -84,7 +84,7 @@ Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.or
 
 ### Tutorial práctico {#practical-tutorial}
 
-Si prefieres **aprender mediante práctica**, mira nuestro [tutorial práctico](/tutorial/tutorial.html). En este tutorial  construimos el juego *tres en raya* en React. Puede que te sientas tentado a saltártelo porque no desarrollas juegos, pero dale una oportunidad. Las técnicas que aprenderás en el tutorial son fundamentales para desarrollar cualquier aplicación con React, y dominarlas te dará un entendimiento mucho más profundo.
+Si prefieres **aprender mediante la práctica** mira nuestro [tutorial práctico](/tutorial/tutorial.html). En este tutorial  construimos el juego *tres en raya* en React. Puede que te sientas tentado a saltártelo porque no te interesa mucho el desarrollo de juegos, pero dale una oportunidad. Las técnicas que aprenderás en el tutorial son fundamentales para desarrollar cualquier aplicación con React, y dominarlas te dará un entendimiento mucho más profundo.
 
 ### Guía paso a paso {#step-by-step-guide}
 

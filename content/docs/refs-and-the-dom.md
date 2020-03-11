@@ -167,8 +167,8 @@ Sin embargo, puedes **usar el atributo `ref` dentro de un componente de función
 
 ```javascript{2,3,6,13}
 function CustomTextInput(props) {
-  // textInput debe estar declarado aquí para que *ref* pueda hacer referencia a este
-  let textInput = React.createRef();
+  // textInput debe estar declarado aquí para que la ref pueda hacer referencia a este
+  let textInput = useRef(null);
 
   function handleClick() {
     textInput.current.focus();
