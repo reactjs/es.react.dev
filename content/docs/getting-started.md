@@ -36,11 +36,7 @@ React ha sido diseñado desde su inicio para ser adoptado gradualmente, así pue
 
 ### Área de juegos {#online-playgrounds}
 
-<<<<<<< HEAD
-Si estás interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) o [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
-=======
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template), or [Stackblitz](https://stackblitz.com/fork/react).
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+Si estás interesado en jugar un poco con React, puedes usar un editor de código online. Prueba la plantilla "Hola mundo" en [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template) o [Stackblitz](https://stackblitz.com/fork/react).
 
 Si prefieres usar tu propio editor, también puedes [descargar este archivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editarlo, y abrirlo desde tu sistema de archivos al navegador. Esto realiza una transformación de código lenta, así que solo recomendamos esto para pruebas simples.
 
@@ -88,11 +84,7 @@ Recomendamos pasar por este [resumen de Javascript](https://developer.mozilla.or
 
 ### Tutorial práctico {#practical-tutorial}
 
-<<<<<<< HEAD
-Si prefieres **aprender mediante práctica**, mira nuestro [tutorial práctico](/tutorial/tutorial.html). En este tutorial  construimos el juego *tres en raya* en React. Puede que te sientas tentado a saltártelo porque no desarrollas juegos, pero dale una oportunidad. Las técnicas que aprenderás en el tutorial son fundamentales para desarrollar cualquier aplicación con React, y dominarlas te dará un entendimiento mucho más profundo.
-=======
-If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not into building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+Si prefieres **aprender mediante la práctica** mira nuestro [tutorial práctico](/tutorial/tutorial.html). En este tutorial  construimos el juego *tres en raya* en React. Puede que te sientas tentado a saltártelo porque no te interesa mucho el desarrollo de juegos, pero dale una oportunidad. Las técnicas que aprenderás en el tutorial son fundamentales para desarrollar cualquier aplicación con React, y dominarlas te dará un entendimiento mucho más profundo.
 
 ### Guía paso a paso {#step-by-step-guide}
 

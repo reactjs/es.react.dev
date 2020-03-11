@@ -110,11 +110,7 @@ Marca de tiempo cuando React comenzó a procesar la actualización actual.
 Marca de tiempo cuando React confirmó la actualización actual.
 Este valor se comparte entre todos los perfiladores en una confirmación, lo que les permite agruparse si lo desean.
 * **`interactions: Set`** -
-<<<<<<< HEAD
-Conjunto de ["interacciones"](https://fb.me/react-interaction-tracing) que se estaban rastreando, la actualización estaba programada (por ejemplo, cuando se llamó a `render` o` setState`).
-=======
-Set of ["interactions"](https://fb.me/react-interaction-tracing) that were being traced when the update was scheduled (e.g. when `render` or `setState` were called).
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+Conjunto de ["interacciones"](https://fb.me/react-interaction-tracing) que se estaban rastreando cuando la actualización estaba programada (por ejemplo, cuando se llamó a `render` o` setState`).
 
 > Nota
 >

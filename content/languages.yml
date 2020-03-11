@@ -66,13 +66,8 @@
 - name: Húngaro
   translated_name: magyar
   code: hu
-<<<<<<< HEAD
-  status: 0
-- name: Armenio
-=======
   status: 1
-- name: Armenian
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+- name: Armenio
   translated_name: Հայերեն
   code: hy
   status: 0

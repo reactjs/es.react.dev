@@ -190,11 +190,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-<<<<<<< HEAD
-Existen varios problemas con esto. Uno es que el componente de entrada no podrá ser usado aparte del componente mejorado. Más importante aún, si aplicas otro *HOC* al `EnhancedComponent` que **también** mute `componentWillReceiveProps`, ¡la funcionalidad del primer *HOC* será sobrescrita!. Este *HOC* tampoco funcionará con componentes funcionales, los cuales no poseen los métodos del ciclo de vida.
-=======
-There are a few problems with this. One is that the input component cannot be reused separately from the enhanced component. More crucially, if you apply another HOC to `EnhancedComponent` that *also* mutates `componentDidUpdate`, the first HOC's functionality will be overridden! This HOC also won't work with function components, which do not have lifecycle methods.
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+Existen varios problemas con esto. Uno es que el componente de entrada no podrá ser usado aparte del componente mejorado. Más importante aún, si aplicas otro *HOC* al `EnhancedComponent` que **también** mute `componentDidUpdate`, ¡la funcionalidad del primer *HOC* será sobrescrita!. Este *HOC* tampoco funcionará con componentes funcionales, los cuales no poseen los métodos del ciclo de vida.
 
 Mutar *HOCs* es una abstracción con fugas, el consumidor tiene que saber como están implementados para evitar conflictos con otros *HOCs*.
 

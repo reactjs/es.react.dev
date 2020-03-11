@@ -146,16 +146,11 @@ permalink: community/meetups.html
 ## Suiza {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
-<<<<<<< HEAD
+## Turquía {#turkey}
+* [Estambul](https://www.meetup.com/ReactJS-Istanbul/)
+
 ## Ucrania {#ukraine}
 * [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
-=======
-## Turkey {#turkey}
-* [Istanbul](https://www.meetup.com/ReactJS-Istanbul/)
-
-## Ukraine {#ukraine}
-* [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ## Estados Unidos {#us}
 * [Ann Arbor, MI - ReactJS](https://www.meetup.com/AnnArbor-jsx/)
