@@ -55,7 +55,11 @@ La creación del [*script* de sincronización](https://github.com/reactjs/reactj
 
 El problema era encontrar un lugar para que se ejecutara el bot. Soy una desarrolladora *frontend* por una razón. Heroku y compañía me son ajenos y son para mí un motivo de *eterna* frustración. ¡De hecho, hasta el pasado martes, estaba ejecutando el *script* a mano en mi computadora local!
 
+<<<<<<< HEAD
 El mayor desafío era el espacio. Cada bifurcación del repositorio tiene alrededor de 100MB, lo que toma minutos para clonar en mi computadora local. Tenemos *32* bifurcaciones, y las opciones gratuitas dentro de la mayoría de las plataformas de despliegue que comprobé te limitan a 512MB de almacenamiento.
+=======
+The biggest challenge was space. Each fork of the repo is around 100MB -- which takes minutes to clone on my local machine. We have *32* forks, and the free tiers of most deployment platforms I checked limited you to 512MB of storage. 
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Después de varios cálculos con el bloc de notas, encontré una solución: eliminar cada repositorio una vez que termina el *script* y limitar la concurrencia de los *scripts* de sincronización que se ejecutan a la vez para que estén dentro de los requerimientos de almacenamiento. Afortunadamente, los dynos de Heroku tienen una conexión a internet mucho más rápida y son capaces de clonar rápidamente incluso el repositorio de React.
 
