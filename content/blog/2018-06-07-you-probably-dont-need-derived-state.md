@@ -40,7 +40,11 @@ Los problemas surgen cuando cualquiera de estas restricciones cambian. Esto suel
 
 Una concepción errónea que se encuentra a menudo es que `getDerivedStateFromProps` y `componentWillReceiveProps` se llaman solo cuando las props «cambian». Estos métodos de ciclo de vida se llaman cada vez que el componente padre se vuelve a renderizar, sin importar si las props son «diferentes» a las anteriores. Debido a esto, siempre ha sido inseguro sobrescribir _incondicionalmente_ el estado usando cualquiera de estos métodos de ciclo de vida. **Hacerlo causará que las actualizaciones al estado se pierdan.**
 
+<<<<<<< HEAD
 Consideremos un ejemplo para demostrar el problema. Se tiene un componente `EmailInput` que «refleja» una prop email en el estado:
+=======
+Let’s consider an example to demonstrate the problem. Here is an `EmailInput` component that "mirrors" an email prop in state:
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 ```js
 class EmailInput extends Component {
   state = { email: this.props.email };
