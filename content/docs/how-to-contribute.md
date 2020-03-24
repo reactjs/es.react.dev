@@ -143,7 +143,7 @@ yarn link
 cd build/node_modules/react-dom
 yarn link
 
-cd ~/path/to/your/project
+cd ~/ruta/a/tu/proyecto
 yarn link react react-dom
 ```
 
