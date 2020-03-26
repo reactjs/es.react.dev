@@ -71,11 +71,7 @@ Empezando con React 16.8.0, se incluye una implementación estable de Hooks para
 
 Nótese que **para habilitar los Hooks, todos los paquetes de React deben estar en la versión 16.8.0 o superior**. Los Hooks no van a funcionar si olvidas, por ejemplo, actualizar React DOM.
 
-<<<<<<< HEAD
-[React Native 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059) y versiones superiores son compatibles con Hooks.
-=======
-[React Native 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) and above support Hooks.
->>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
+[React Native 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) y versiones superiores son compatibles con Hooks.
 
 ### ¿Necesito reescribir todos mis componentes que ya sean clases? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -593,11 +589,7 @@ function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-<<<<<<< HEAD
-    const response = await fetch('http://myapi/product' + productId); // Usa la prop productId
-=======
-    const response = await fetch('http://myapi/product/' + productId); // Uses productId prop
->>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
+    const response = await fetch('http://myapi/product/' + productId); // Usa la prop productId
     const json = await response.json();
     setProduct(json);
   }

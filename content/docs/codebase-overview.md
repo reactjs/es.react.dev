@@ -15,17 +15,7 @@ Si quieres [contribuir a React](/docs/how-to-contribute.html) esperamos que esta
 
 No recomendamos necesariamente alguna de estas convenciones en aplicaciones de React. Muchas de ellas existen por razones históricas y pueden cambiar con el tiempo.
 
-<<<<<<< HEAD
-### Dependencias Externas {#external-dependencies}
-
-React casi no tiene dependencias externas. Por lo general, un `require()` apunta a un archivo en el código base de React. Sin embargo, hay algunas excepciones relativamente raras.
-
-El [repositorio fbjs](https://github.com/facebook/fbjs) existe porque React comparte algunas pequeñas utilidades con bibliotecas como [Relay](https://github.com/facebook/relay), y las mantenemos sincronizadas. No dependemos de pequeños módulos en el ecosistema de Node porque queremos que los ingenieros de Facebook puedan realizar cambios cuando sean necesarios. Ninguna de las utilidades de fbjs son consideradas como una API pública, y solo están destinadas para ser usadas en proyectos de Facebook como React.
-
 ### Carpetas principales {#top-level-folders}
-=======
-### Top-Level Folders {#top-level-folders}
->>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 Después de clonar el [repositorio de React](https://github.com/facebook/react), verás algunas carpetas principales en él.
 
@@ -175,11 +165,7 @@ El código del núcleo de React está ubicado en [`packages/react`](https://gith
 
 ### Renderizadores {#renderers}
 
-<<<<<<< HEAD
-React fue creado originalmente para el DOM pero fue adaptado para dar soporte a plataformas nativas con [React Native](https://facebook.github.io/react-native/). Esto introdujo el concepto de "renderizadores" en React.
-=======
-React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](https://reactnative.dev/). This introduced the concept of "renderers" to React internals.
->>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
+React fue creado originalmente para el DOM pero fue adaptado para dar soporte a plataformas nativas con [React Native](https://reactnative.dev/). Esto introdujo el concepto de "renderizadores" en React.
 
 **Los renderizadores gestionan cómo un árbol de React se convierte en llamados de la plataforma subyacente.**
 

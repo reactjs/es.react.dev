@@ -171,18 +171,10 @@ render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-<<<<<<< HEAD
-      {isLoggedIn ? (
-        <LogoutButton onClick={this.handleLogoutClick} />
-      ) : (
-        <LoginButton  onClick={this.handleLoginClick} />
-      )}
-=======
       {isLoggedIn
         ? <LogoutButton onClick={this.handleLogoutClick} />
         : <LoginButton onClick={this.handleLoginClick} />
       }
->>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
     </div>
   );
 }
