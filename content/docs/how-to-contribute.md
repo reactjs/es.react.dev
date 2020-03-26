@@ -149,7 +149,7 @@ yarn link react react-dom
 
 Cada vez que ejecutes `yarn build` en la carpeta React, las versiones actualizadas aparecerán dentro de `node_modules` en tu proyecto. A continuación, puedes reconstruir tu proyecto para probar tus cambios.
 
-Sí algún paquete aun esta perdido (por ejemplo, puede que uses `react-dom/server` en tu proyecto), siempre puedes hacer un compilado completo con `yarn build`. Recuerda que ejecutar `yarn build` sin opciones tarda mas.
+Si algún paquete aún está perdido (por ejemplo, puede que uses `react-dom/server` en tu proyecto), siempre puedes hacer un compilado completo con `yarn build`. Recuerda que ejecutar `yarn build` sin opciones tarda mas.
 
 Aún requerimos que tu *pull request* contenga pruebas unitarias para cualquier funcionalidad nueva. De esta manera podemos asegurarnos de que tu código no falle en el futuro.
 
