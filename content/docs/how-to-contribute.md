@@ -130,18 +130,26 @@ En primer lugar, ejecuta `yarn build`. Esto producirá paquetes precompilados en
 
 La forma más fácil de probar tus cambios es ejecutar `yarn build react/index,react-dom/index --type=UMD` y luego abrir `fixtures/packaging/babel-standalone/dev.html`. Este archivo ya utiliza `react.development.js` de la carpeta` build` por lo que recogerá tus cambios.
 
-Si deseas probar los cambios en tu proyecto React existente, puedes copiar `build/dist/react.development.js`,`build/dist/react-dom.development.js`, o cualquier otro producto de compilación en tu aplicación y usarlos en lugar de la versión estable. Si tu proyecto usa React desde npm, puedes eliminar `react` y` react-dom` en sus dependencias y usar `yarn link` para apuntarlos a tu carpeta local `build`:
+Si deseas probar los cambios en tu proyecto React existente, puedes copiar `build/dist/react.development.js`, `build/dist/react-dom.development.js`, o cualquier otro producto de compilación en tu aplicación y usarlos en lugar de la versión estable. 
+
+Si tu proyecto usa React desde npm, puedes eliminar `react` y` react-dom` en sus dependencias y usar `yarn link` para apuntarlos a tu carpeta local `build`. Recuerda que **en lugar de `--type=UMD` quieres pasar `--type=NODE` cuando compiles**. Tambien necesitarás compilar el paquete `scheduler`:
 
 ```sh
-cd ~/ruta_a_tu_clon_react/build/node_modules/react
+cd ~/ruta_a_tu_clon_de_react/
+yarn build react/index,react-dom/index,scheduler --type=NODE
+
+cd build/node_modules/react
 yarn link
-cd ~/ruta_a_tu_clon_react/build/node_modules/react-dom
+cd build/node_modules/react-dom
 yarn link
-cd /ruta/a/tu/proyecto
+
+cd ~/ruta/a/tu/proyecto
 yarn link react react-dom
 ```
 
 Cada vez que ejecutes `yarn build` en la carpeta React, las versiones actualizadas aparecerán dentro de `node_modules` en tu proyecto. A continuación, puedes reconstruir tu proyecto para probar tus cambios.
+
+Sí algún paquete aun esta perdido (por ejemplo, puede que uses `react-dom/server` en tu proyecto), siempre puedes hacer un compilado completo con `yarn build`. Recuerda que ejecutar `yarn build` sin opciones tarda mas.
 
 Aún requerimos que tu *pull request* contenga pruebas unitarias para cualquier funcionalidad nueva. De esta manera podemos asegurarnos de que tu código no falle en el futuro.
 

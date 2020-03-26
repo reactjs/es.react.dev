@@ -126,7 +126,7 @@ Sin embargo, sí proveemos alguna configuración global a nivel de compilación.
 
 ### Más allá del DOM {#beyond-the-dom}
 
-Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](https://facebook.github.io/react-native/) es igual de importante tanto para Facebook como para la comunidad.
+Vemos el valor de React en la forma en que nos permite escribir componentes con menos fallas y componerlos mejor. El DOM es la plataforma original de renderizado para React, pero [React Native](https://reactnative.dev/) es igual de importante tanto para Facebook como para la comunidad.
 
 Ser agnóstico al renderizador es una restricción de diseño importante para React. Añade una sobrecarga en la representación interna. Por otra parte, cualquier mejora en el núcleo se traduce en una mejora a lo largo de todas las plataformas.
 

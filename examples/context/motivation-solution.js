@@ -21,7 +21,7 @@ class App extends React.Component {
 // highlight-range{1,2}
 // Un componente en el medio no tiene que
 // pasar el tema hacia abajo explícitamente.
-function Toolbar(props) {
+function Toolbar() {
   return (
     <div>
       <ThemedButton />
