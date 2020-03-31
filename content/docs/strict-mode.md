@@ -97,13 +97,13 @@ El ciclo de vida de la fase de renderizado incluye los siguientes métodos de lo
 
 Ya que los métodos arriba mencionados pueden ser llamados más de una vez, es importante que estos no contengan ningún efecto secundario. Ignorar esta regla puede llevar a una cantidad de problemas, incluyendo fugas de memoria y estados de aplicación inválido. Desafortunadamente, puede ser muy difícil el detectar estos problemas ya con frecuencia pueden ser [no deterministas](https://es.wikipedia.org/wiki/Algoritmo_determinista).
 
-El modo estricto no puede detectar efectos secundarios de forma automática por ti, pero te puede ayudar a encontrarlos al hacerlos un poco más deterministas. Esto se logra al invocar dos veces los siguientes métodos:
+El modo estricto no puede detectar efectos secundarios de forma automática por ti, pero te puede ayudar a encontrarlos al hacerlos un poco más deterministas. Esto se logra al invocar dos veces las siguientes funciones:
 
-* El método `constructor` en los componentes de clases
-* El método `render`
-* Funciones de actualización de `setState` (el primer argumento)
-* El ciclo de vida estático `getDerivedStateFromProps`
-* El método `shouldComponentUpdate`
+* Los métodos `constructor`, `render` y `shouldComponentUpdate` de los componentes de clase
+* El método estático `getDerivedStateFromProps` de los componentes de clase
+* El cuerpo de los componentes de función
+* Funciones de actualización del estado (el primer argumento de `setState`)
+* Las funciones que se pasan a `useState`, `useMemo` o `useReducer`
 
 > Nota:
 >
