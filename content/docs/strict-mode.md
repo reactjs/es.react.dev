@@ -104,7 +104,6 @@ El modo estricto no puede detectar efectos secundarios de forma automática por 
 * El cuerpo de los componentes de función
 * Funciones de actualización del estado (el primer argumento de `setState`)
 * Las funciones que se pasan a `useState`, `useMemo` o `useReducer`
-* El método `shouldComponentUpdate`
 
 > Nota:
 >
