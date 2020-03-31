@@ -41,7 +41,7 @@ Peticiones de datos, establecimiento de suscripciones y actualizaciones manuales
 >
 >Si estás familiarizado con el ciclo de vida de las clases de React y sus métodos, el *Hook* `useEffect` equivale a `componentDidMount`, `componentDidUpdate` y `componentWillUnmount` combinados.
 
-Hay dos tipos de efectos secundarios en los componentes de React: aquellos que no necesitan una operación de saneamiento y los que si la necesitan. Vamos a profundizar más en esta distinción.
+Hay dos tipos de efectos secundarios en los componentes de React: aquellos que no necesitan una operación de saneamiento y los que sí la necesitan. Vamos a profundizar más en esta distinción.
 
 ## Efectos sin saneamiento {#effects-without-cleanup}
 
