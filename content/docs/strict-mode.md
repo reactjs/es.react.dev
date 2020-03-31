@@ -99,7 +99,7 @@ Ya que los métodos arriba mencionados pueden ser llamados más de una vez, es i
 
 El modo estricto no puede detectar efectos secundarios de forma automática por ti, pero te puede ayudar a encontrarlos al hacerlos un poco más deterministas. Esto se logra al invocar dos veces las siguientes funciones:
 
-* Lost métodos `constructor`, `render` y `shouldComponentUpdate` de los componentes de clase
+* Los métodos `constructor`, `render` y `shouldComponentUpdate` de los componentes de clase
 * El método estático `getDerivedStateFromProps` de los componentes de clase
 * El cuerpo de los componentes de función
 * Funciones de actualización del estado (el primer argumento de `setState`)
