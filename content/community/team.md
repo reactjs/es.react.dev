@@ -78,17 +78,6 @@ Rachel escribió una vez un [libro sobre animación de interfaces de usuario](ht
 
 Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice algo, con frecuencia no tiene sentido para el resto de nosotros hasta algunos meses después. La forma correcta de pronunciar su apellido es "mark-bo-gue", pero se ha conformado con "mark-beish" por pragmatismo, y así mismo es su enfoque en React.
 
-<<<<<<< HEAD
-### Sunil Pai {#sunil-pai}
-
-![Sunil](../images/team/threepointone.jpg)
-
-[@threepointone en GitHub](https://github.com/threepointone) &middot; [@threepointone en Twitter](https://twitter.com/threepointone)
-
-Sunil comenzó escribiendo JavaScript para IE6 y todavía a veces lo lamenta. Trabajó en firmas de consultoría, diseño y producto antes de unirse al equipo de React para ayudar a otros a hacer lo mismo. Sunil toca una guitarra azul Les Paul, ama Londres y apreciaría una respuesta a su último _ping_, por favor y ¡gracias!
-
-=======
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)
