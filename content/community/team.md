@@ -78,14 +78,6 @@ Rachel escribió una vez un [libro sobre animación de interfaces de usuario](ht
 
 Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice algo, con frecuencia no tiene sentido para el resto de nosotros hasta algunos meses después. La forma correcta de pronunciar su apellido es "mark-bo-gue", pero se ha conformado con "mark-beish" por pragmatismo, y así mismo es su enfoque en React.
 
-### Sunil Pai {#sunil-pai}
-
-![Sunil](../images/team/threepointone.jpg)
-
-[@threepointone en GitHub](https://github.com/threepointone) &middot; [@threepointone en Twitter](https://twitter.com/threepointone)
-
-Sunil comenzó escribiendo JavaScript para IE6 y todavía a veces lo lamenta. Trabajó en firmas de consultoría, diseño y producto antes de unirse al equipo de React para ayudar a otros a hacer lo mismo. Sunil toca una guitarra azul Les Paul, ama Londres y apreciaría una respuesta a su último _ping_, por favor y ¡gracias!
-
 ### Yuzhi Zheng {#yuzhi-zheng}
 
 ![Yuzhi](../images/team/yuzhi.jpg)
@@ -124,9 +116,10 @@ React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke).
 * [Pete Hunt](https://github.com/petehunt)
 * [Philipp Spiess](https://github.com/philipp-spiess)
 * [Sander Spies](https://github.com/sanderspies)
+* [Sasha Aickin](https://github.com/aickin)
 * [Sophia Shoemaker](https://github.com/mrscobbler)
 * [Sophie Alpert](https://github.com/sophiebits)
-* [Sasha Aickin](https://github.com/aickin)
+* [Sunil Pai](https://github.com/threepointone)
 * [Tim Yung](https://github.com/yungsters)
 
 Esta lista no es exhaustiva.
