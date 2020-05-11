@@ -54,6 +54,7 @@ Dominic está interesado en viajar, la batería y el bajo, la comedia de _stand-
 
 Luna aprendió a programar, porque pensó que significaba crear videojuegos. En cambio, terminó trabajando en la aplicación web de Pinterest y ahora en el mismo React. Luna ya no quiere hacer videojuegos, pero planea hacer escritura creativa si alguna vez se aburre.
 
+<<<<<<< HEAD
 ### Nicolas Gallagher {#nicolas-gallagher}
 
 ![Nicolas](../images/team/necolas.jpg)
@@ -62,6 +63,8 @@ Luna aprendió a programar, porque pensó que significaba crear videojuegos. En 
 
 Nicolas se especializó en antropología. Comenzó en el desarrollo web al construir un sitio web para un amigo y eventualmente se encontró reconstruyendo el sitio web de Twitter en React. Nicolas se describe como aburrido en el papel, no mucho mejor en la vida real.
 
+=======
+>>>>>>> bc91fe4101420f98454a59ac34c1cf1d4d4f4476
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
@@ -112,6 +115,7 @@ React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke).
 * [Keyan Zhang](https://github.com/keyz)
 * [Nat Alison](https://github.com/tesseralis)
 * [Nathan Hunzaker](https://github.com/nhunzaker)
+* [Nicolas Gallagher](https://github.com/necolas)
 * [Paul O'Shannessy](https://github.com/zpao)
 * [Pete Hunt](https://github.com/petehunt)
 * [Philipp Spiess](https://github.com/philipp-spiess)
