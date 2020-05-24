@@ -199,7 +199,7 @@ function Comment(props) {
 }
 ```
 
-A continuacion, vamos a extraer un componente `UserInfo` que renderiza un `Avatar` al lado del nombre del usuario:
+A continuación, vamos a extraer un componente `UserInfo` que renderiza un `Avatar` al lado del nombre del usuario:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -214,7 +214,7 @@ function UserInfo(props) {
 }
 ```
 
-Esto nos permite simplificar `Comment` aun más:
+Esto nos permite simplificar `Comment` aún más:
 
 ```js{4}
 function Comment(props) {
@@ -234,7 +234,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general es que si una parte de su interfaz de usuario se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
+Extraer componentes puede parecer un trabajo pesado al principio, pero tener una paleta de componentes reutilizables vale la pena en aplicaciones más grandes. Una buena regla en general, es que si una parte de su interfaz de usuario se usa varias veces (`Button`, `Panel`, `Avatar`), o es lo suficientemente compleja por sí misma (`App`, `FeedStory`, `Comment`), es buen candidato para ser un componente reutilizable.
 
 ## Las props son de solo lectura {#props-are-read-only}
 
