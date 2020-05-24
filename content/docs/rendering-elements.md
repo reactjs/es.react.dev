@@ -64,7 +64,7 @@ Este llama a [`ReactDOM.render()`](/docs/react-dom.html#render) cada segundo des
 
 ## React solo actualiza lo que es necesario {#react-only-updates-whats-necessary}
 
-React DOM compara el elemento y su hijos con el elemento anterior, y solo aplica las actualizaciones del DOM que son necesarias para que el DOM esté en el estado deseado.
+React DOM compara el elemento y sus hijos con el elemento anterior, y solo aplica las actualizaciones del DOM que son necesarias para que el DOM esté en el estado deseado.
 
 Puedes verificar esto inspeccionando el [último ejemplo](codepen://rendering-elements/update-rendered-element) con las herramientas del navegador:
 
