@@ -73,12 +73,9 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 
 - **[Neutrino](https://neutrinojs.org/)** combina el poder de [webpack](https://webpack.js.org/) con la simplicidad de los *presets* (configuraciones preempaquetadas), e incluye *presets* para [aplicaciones React](https://neutrinojs.org/packages/react/) y [componentes React](https://neutrinojs.org/packages/react-components/).
 
-<<<<<<< HEAD
-- **[Parcel](https://parceljs.org/)** es un empaquetador de aplicaciones web rápido y de cero configuración que [funciona con React](https://parceljs.org/recipes.html#react).
-=======
-- **[Nx](https://nx.dev/react)** is a toolkit for full-stack monorepo development, with built-in support for React, Next.js, [Express](https://expressjs.com/), and more.
+- **[Nx](https://nx.dev/react)** es un conjunto de herramientas para para el desarrollo full-stack en monorepos, con compatibilidad incluida con React, Next.js, [Express](https://expressjs.com/), y más.
 
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+- **[Parcel](https://parceljs.org/)** es un empaquetador de aplicaciones web rápido y de cero configuración que [funciona con React](https://parceljs.org/recipes.html#react).
 >>>>>>> f81b909ce97dc253998a192f367551cb2b40d66f
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** es un framework de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
