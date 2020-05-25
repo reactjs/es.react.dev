@@ -76,7 +76,6 @@ Las siguientes cadenas de herramientas ofrecen más opciones y flexibilidad. Las
 - **[Nx](https://nx.dev/react)** es un conjunto de herramientas para para el desarrollo full-stack en monorepos, con compatibilidad incluida con React, Next.js, [Express](https://expressjs.com/), y más.
 
 - **[Parcel](https://parceljs.org/)** es un empaquetador de aplicaciones web rápido y de cero configuración que [funciona con React](https://parceljs.org/recipes.html#react).
->>>>>>> f81b909ce97dc253998a192f367551cb2b40d66f
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** es un framework de renderizado en servidor que no requiere ninguna configuración, pero ofrece más flexibilidad que Next.js.
 
