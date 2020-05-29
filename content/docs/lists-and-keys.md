@@ -33,7 +33,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-Incluimos entero el array `listItems` dentro de un elemento `<ul>`, y [lo renderizamos al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+Incluimos el array entero `listItems` dentro de un elemento `<ul>`, y [lo renderizamos al DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
 ReactDOM.render(
