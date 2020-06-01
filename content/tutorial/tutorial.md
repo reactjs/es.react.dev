@@ -1195,11 +1195,7 @@ Si clickeamos en cualquier paso de la historia del juego, el tablero tic-tac-toe
 * Almacena el historial del juego como va progresando,
 * Permite a los jugadores revisar el historial del juego y ver versiones anteriores del tablero de juego.
 
-<<<<<<< HEAD
 ¡Buen trabajo! Esperamos que ahora te sientas que tienes un entendimiento decente sobre cómo funciona React.
-=======
-Nice work! We hope you now feel like you have a decent grasp of how React works.
->>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 Revisa el resultado final aquí: **[Resultado final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 

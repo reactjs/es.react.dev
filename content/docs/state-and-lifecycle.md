@@ -418,15 +418,6 @@ Por eso es que el estado a menudo se le denomina local o encapsulado. No es acce
 Un componente puede elegir pasar su estado como props a sus componentes hijos:
 
 ```js
-<<<<<<< HEAD
-<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-```
-
-Esto también funciona para componentes definidos por el usuario:
-
-```js
-=======
->>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 <FormattedDate date={this.state.date} />
 ```
 
