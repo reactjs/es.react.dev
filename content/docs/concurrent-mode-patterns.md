@@ -26,6 +26,7 @@ next: concurrent-mode-adoption.html
 Usualmente, cuando actualizamos el estado, esperamos ver los cambios en la pantalla inmediatamente. Esto tiene sentido, porque queremos que nuestra aplicación continúe respondiendo a la entrada del usuario. Sin embargo, hay casos en que quisiéramos **postergar la aparición de una actualización en la pantalla**.
 
 Por ejemplo, si cambiamos de una página a otra, y ni nuestro código o datos para la próxima pantalla se han cargado, puede ser frustrante ver inmediatamente una página en blanco con un indicador de carga. Podemos preferir permanecer más tiempo en la pantalla anterior. La implementación de este patrón ha sido históricamente difícil con React. El Modo Concurrente ofrece un nuevo conjunto de herramientas para hacerlo.
+
 - [Transiciones](#transitions)
   - [Envolver setState en una transición](#wrapping-setstate-in-a-transition)
   - [Añadir un indicador de espera](#adding-a-pending-indicator)
