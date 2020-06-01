@@ -26,15 +26,25 @@ next: concurrent-mode-adoption.html
 Usualmente, cuando actualizamos el estado, esperamos ver los cambios en la pantalla inmediatamente. Esto tiene sentido, porque queremos que nuestra aplicación continúe respondiendo a la entrada del usuario. Sin embargo, hay casos en que quisiéramos **postergar la aparición de una actualización en la pantalla**.
 
 Por ejemplo, si cambiamos de una página a otra, y ni nuestro código o datos para la próxima pantalla se han cargado, puede ser frustrante ver inmediatamente una página en blanco con un indicador de carga. Podemos preferir permanecer más tiempo en la pantalla anterior. La implementación de este patrón ha sido históricamente difícil con React. El Modo Concurrente ofrece un nuevo conjunto de herramientas para hacerlo.
-
-- [Transiciones {#transitions}](#transiciones-transitions)
-  - [¿Cuándo ocurre la actualización? {#where-does-the-update-happen}](#cuándo-ocurre-la-actualización-where-does-the-update-happen)
-  - [Las transiciones están en todos lados {#transitions-are-everywhere}](#las-transiciones-están-en-todos-lados-transitions-are-everywhere)
-  - [Incorporar las transiciones en el sistema de diseño {#baking-transitions-into-the-design-system}](#incorporar-las-transiciones-en-el-sistema-de-diseño-baking-transitions-into-the-design-system)
-- [Los tres pasos {#the-three-steps}](#los-tres-pasos-the-three-steps)
-  - [Predeterminado: Retirado → Esqueleto → Completado {#default-receded-skeleton-complete}](#predeterminado-retirado--esqueleto--completado-default-receded-skeleton-complete)
-  - [Postergar un valor {#deferring-a-value}](#postergar-un-valor-deferring-a-value)
-- [Próximos pasos {#next-steps}](#próximos-pasos-next-steps)
+- [Transiciones](#transitions)
+  - [Envolver setState en una transición](#wrapping-setstate-in-a-transition)
+  - [Añadir un indicador de espera](#adding-a-pending-indicator)
+  - [Revisión de los cambios](#reviewing-the-changes)
+  - [¿Cuándo ocurre la actualización?](#where-does-the-update-happen)
+  - [Las transiciones están en todos lados](#transitions-are-everywhere)
+  - [Incorporar las transiciones en el sistema de diseño](#baking-transitions-into-the-design-system)
+- [Los tres pasos](#the-three-steps)
+  - [Predeterminado: Retirada → Esqueleto → Completado](#default-receded-skeleton-complete)
+  - [Preferido: Pendiente → Esqueleto → Completado](#preferred-pending-skeleton-complete)
+  - [Envolver funcionalidad diferida en `<Suspense>`](#wrap-lazy-features-in-suspense)
+  - ["Tren" de revelación de Suspense](#suspense-reveal-train)
+  - [Demora de un indicador de estado Pendiente](#delaying-a-pending-indicator)
+  - [Recapitulación](#recap)
+- [Otros patrones](#other-patterns)
+  - [Separación del estado de alta y baja prioridad](#splitting-high-and-low-priority-state)
+  - [Postergar un valor](#deferring-a-value)
+  - [SuspenseList](#suspenselist)
+- [Próximos pasos](#next-steps)
 
 ## Transiciones {#transitions}
 
