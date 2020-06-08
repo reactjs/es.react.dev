@@ -28,7 +28,10 @@ const Container = ({
       paddingRight: 20,
       marginLeft: 'auto',
       marginRight: 'auto',
+<<<<<<< HEAD
       filter: grayscale ? 'grayscale(100%)' : '',
+=======
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
       [media.greaterThan('medium')]: {
         width: '90%',
       },

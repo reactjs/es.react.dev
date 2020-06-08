@@ -41,24 +41,41 @@ const Header = ({location}: {location: Location}) => (
           padding: 20,
           textAlign: 'center',
           [media.between('small', 'large')]: {
+<<<<<<< HEAD
+=======
+            fontSize: 22,
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
             height: 60,
           },
           [media.lessThan('small')]: {
             height: 80,
           },
+<<<<<<< HEAD
+=======
+          [media.greaterThan('medium')]: {
+            fontSize: 25,
+          },
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
         }}>
         Black Lives Matter.{' '}
         <a
           style={{color: colors.brand}}
           target="_blank"
           rel="noopener"
+<<<<<<< HEAD
           rel="noreferrer"
+=======
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
           href="https://support.eji.org/give/153413/#!/donation/checkout">
           Support&nbsp;the&nbsp;Equal&nbsp;Justice&nbsp;Initiative.
         </a>
       </div>
     </Container>
+<<<<<<< HEAD
     <Container grayscale={true}>
+=======
+    <Container>
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
       <div
         css={{
           display: 'flex',
