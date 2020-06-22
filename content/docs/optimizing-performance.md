@@ -372,7 +372,7 @@ function updateColorMap(colormap) {
 
 `updateColorMap` ahora devuelve un nuevo objeto, en lugar de mutar el anterior. `Object.assign` está en ES6 y requiere un *polyfill*.
 
-[La sintaxis de propagación de objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Sintaxis_Spread) también hace más fácil la actualización de objetos sin mutación:
+[La sintaxis de propagación de objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Sintaxis_Spread) hace más fácil la actualización de objetos sin mutación:
 
 ```js
 function updateColorMap(colormap) {
