@@ -12,7 +12,11 @@ React no tiene opiniones sobre cómo poner los archivos en carpetas. Dicho esto,
 
 #### Agrupación por funcionalidades o rutas {#grouping-by-features-or-routes}
 
+<<<<<<< HEAD
 Una forma común de estructurar proyectos es ubicar CSS, JS y tests juntos dentro de carpetas agrupadas por funcionalidad o ruta.
+=======
+One common way to structure projects is to locate CSS, JS, and tests together inside folders grouped by feature or route.
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
 
 ```
 common/
