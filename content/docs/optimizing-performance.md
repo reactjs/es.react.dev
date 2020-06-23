@@ -372,7 +372,7 @@ function updateColorMap(colormap) {
 
 `updateColorMap` ahora devuelve un nuevo objeto, en lugar de mutar el anterior. `Object.assign` está en ES6 y requiere un *polyfill*.
 
-Hay una propuesta de JavaScript para agregar [propiedades de objeto mediante propagación](https://github.com/sebmarkbage/ecmascript-rest-spread) para hacer más fácil la actualización de objetos sin mutación:
+[La sintaxis de propagación de objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Sintaxis_Spread) hace más fácil la actualización de objetos sin mutación:
 
 ```js
 function updateColorMap(colormap) {
@@ -380,6 +380,6 @@ function updateColorMap(colormap) {
 }
 ```
 
-Si estás utilizando la aplicación *Create React App*, tanto `Object.assign` y *la sintaxis de propagación en objetos* están disponibles por defecto.
+Si estás utilizando *Create React App*, tanto `Object.assign` y *la sintaxis de propagación en objetos* están disponibles por defecto.
 
 Cuando te encuentras ante objetos anidados, actualizarlos de manera inmutable puede sentirse complicado. Si te ves ante este problema, échale un vistazo a [Immer](https://github.com/mweststrate/immer) o [immutability-helper](https://github.com/kolodny/immutability-helper). Estas bibliotecas te permiten escribir código altamente legible sin perder los beneficios de la inmutabilidad.
