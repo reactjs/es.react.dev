@@ -38,17 +38,6 @@ Brian estudió arte en la universidad e hizo programación al mismo tiempo para 
 
 Dan entró a la programación después de descubrir accidentalmente Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación en convertir los tuits de [Sebastian](#sebastian-markbage) en grandes publicaciones de blog. En ocasiones gana en Fortnite escondiéndose en un arbusto hasta que se acabe el juego.
 
-<<<<<<< HEAD
-### Dominic Gannaway {#dominic-gannaway}
-
-![Dominic](../images/team/trueadm.jpg)
-
-[@trueadm en GitHub](https://github.com/trueadm) &middot; [@trueadm on Twitter](https://twitter.com/trueadm)
-
-Dominic está interesado en viajar, la batería y el bajo, la comedia de _stand-up_ y en pasar tiempo con su familia. Disfruta al máximo probar ideas nuevas y sin explorar sobre las interfaces de usuario y la accesibilidad. Tiene una pasión por cambiar y optimizar el código para obtener el mayor rendimiento de las cosas.
-
-=======
->>>>>>> ee75c297574468f888574aae2d9620d64bb5b5a1
 ### Luna Ruan {#luna-ruan}
 
 ![Luna](../images/team/lunaruan.jpg)
@@ -69,9 +58,9 @@ Rachel escribió una vez un [libro sobre animación de interfaces de usuario](ht
 
 ![Ricky](../images/team/rickhanlonii.jpg)
 
-[@rickhanlonii on GitHub](https://github.com/rickhanlonii) &middot; [@rickhanlonii on Twitter](https://twitter.com/rickhanlonii)
+[@rickhanlonii on GitHub](https://github.com/rickhanlonii) &middot; [@rickhanlonii en Twitter](https://twitter.com/rickhanlonii)
 
-Ricky majored in theoretical math and somehow found himself on the React Native team for a couple years before joining the React team. When he's not programming you can find him snowboarding, biking, climbing, golfing, or closing GitHub issues that do not match the issue template.
+Ricky se especializó en matemática teórica y de alguna forma terminó en el equipo de React Native por un par de años hasta unirse al equipo de React. Cuando no está programando lo puedes encontrar practicando snowboard, ciclismo, escalada, golf o cerrando *issues* en GitHub que no se ajustan a la plantilla.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
@@ -83,15 +72,9 @@ Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice 
 
 ### Seth Webster {#seth-webster}
 
-<<<<<<< HEAD
-[@yuzhi en GitHub](https://github.com/yuzhi) &middot; [@yuzhiz en Twitter](https://twitter.com/yuzhiz)
-
-Yuzhi estudió Ciencias de la Computación en la escuela. Le gustó la gratificación instantánea de ver el código cobrar vida sin tener que estar físicamente en un laboratorio. Ahora dirige el equipo de React. Antes de esta función, trabajaba en el framework de carga de datos Relay. En su tiempo libre, Yuzhi disfruta optimizar su vida mediante la jardinería y proyectos de mejoras para la casa.
-=======
 ![Seth](../images/team/sethwebster.jpg)
 
-Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
->>>>>>> ee75c297574468f888574aae2d9620d64bb5b5a1
+Seth comenzó a programar cuando era un niño en Tucson, Arizona. Luego de la escuela, le picó el bichito de la música y por 10 años fue un músico de gira antes de retornar a *trabajar*, comenzando con Intuit. En su tiempo libre, le encanta [tomar fotos](https://www.sethwebster.com) y volar para rescatar animales en el noreste de los Estados Unidos.
 
 ## Agradecimientos {#acknowledgements}
 
