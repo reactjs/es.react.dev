@@ -117,7 +117,7 @@ Si bien declarar una variable y usar una sentencia `if` es una buena forma de re
 
 ### If en una línea con operador lógico && {#inline-if-with-logical--operator}
 
-Puedes [embeber cualquier expresión en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndola en llaves. Esto incluye al operador lógico `&&` de JavaScript. Puede ser útil para incluir condicionalmente un elemento:
+Puedes [incluir expresiones en JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) envolviéndolas en llaves. Esto incluye el operador lógico `&&` de JavaScript. Puede ser útil para incluir condicionalmente un elemento:
 
 ```js{6-10}
 function Mailbox(props) {
