@@ -23,8 +23,13 @@ También ofrece soporte completo para los Hooks de React, incluyendo la inspecci
 * `16.x`: Soportada
 
 **`react-native`**
+<<<<<<< HEAD
 * `0`-`0.61`: No soportada
 * `0.62`: Será soportada (cuando 0.62 sea liberada)
+=======
+* `0`-`0.61.x`: Not supported
+* `0.62`: Supported
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 ## ¿Cómo obtengo las nuevas DevTools? {#how-do-i-get-the-new-devtools}
 
