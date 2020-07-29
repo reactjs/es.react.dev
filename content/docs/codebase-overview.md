@@ -35,37 +35,15 @@ Por ejemplo, una prueba para [`setInnerHTML.js`](https://github.com/facebook/rea
 
 ### Advertencias e Invariantes {#warnings-and-invariants}
 
-El código base de React usa el módulo `warning` para mostrar advertencias:
+El código base de React utiliza `console.error` para mostrar advertencias:
 
 ```js
-var warning = require('warning');
-
-warning(
-  2 + 2 === 4,
-  'Math is not working today.'
-);
-```
-
-**La advertencia se muestra cuando la condición `warning` es `false`.**
-
-Una forma de pensar al respecto es que la condición debe reflejar la situación normal más no una condición excepcional.
-
-Es una buena idea evitar duplicar advertencias en la consola.
-
-```js
-var warning = require('warning');
-
-var didWarnAboutMath = false;
-if (!didWarnAboutMath) {
-  warning(
-    2 + 2 === 4,
-    'Math is not working today.'
-  );
-  didWarnAboutMath = true;
+if (__DEV__) {
+  console.error('Something is wrong.');
 }
 ```
 
-Las advertencias solo están disponibles en desarrollo. En producción, son removidas. Si necesitas prohibir la ejecución de un código, usa el módulo `invariant`:
+Las advertencias solo están disponibles en desarrollo. En producción, se eliminan. Si necesitas prohibir la ejecución de un código, usa el módulo `invariant`:
 
 ```js
 var invariant = require('invariant');
@@ -113,39 +91,6 @@ ReactRef.detachRefs = function(
 
 Cuando sea posible, el nuevo código debería usar anotaciones Flow.
 Puedes usar `yarn flow` localmente para verificar tu código con Flow.
-
-### Inyección Dinámica {#dynamic-injection}
-
-React usa inyección dinámica en algunos módulos. Mientras esta función se específica de forma explícita, no deja de ser inoportuna porque dificulta la comprensión del código. La razón principal de su existencia es que React originalmente soportaba el DOM como objetivo. React Native empezó como un fork de React. Tuvimos que agregar inyección dinámica para permitir que React Native sobreescribiera algunos comportamientos.
-
-Puedes ver módulos declarando sus dependencias dinámicas de la siguiente manera:
-
-```js
-// Inyectado dinámicamente
-var textComponentClass = null;
-
-// Depende de un valor inyectado dinámicamente
-function createInstanceForText(text) {
-  return new textComponentClass(text);
-}
-
-var ReactHostComponent = {
-  createInstanceForText,
-
-  // Da una oportunidad para la inyección dinamica
-  injection: {
-    injectTextComponentClass: function(componentClass) {
-      textComponentClass = componentClass;
-    },
-  },
-};
-
-module.exports = ReactHostComponent;
-```
-
-El campo `injection` no se maneja de alguna forma en especial. Pero por convención, significa que el módulo quiere tener algunas (presuntamente específicas a la plataforma) dependencias inyectadas al momento de su ejecución.
-
-Hay múltiples puntos de inyección en el código base. En el futuro, pretendemos remover el mecanismo de inyección dinámica y conectar todas las piezas de forma estática durante la compilación.
 
 ### Múltiples paquetes {#multiple-packages}
 
@@ -211,9 +156,7 @@ Su código fuente está ubicado en [`packages/react-reconciler`](https://github.
 
 ### Sistema de Eventos {#event-system}
 
-React implementa un sistema de eventos sintético que es agnóstico de los renderizadores y funciona con React DOM y React Native. Su código fuente está localizado en [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
-
-Aquí hay un [video con una muestra en profundidad del código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
+React implementa una capa sobre los eventos nativos para minimizar las diferencias entre navegadores. Su código fuente está localizado en [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/master/packages/react-dom/src/events).
 
 ### ¿Qué sigue? {#what-next}
 

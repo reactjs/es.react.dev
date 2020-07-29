@@ -229,7 +229,7 @@ function FriendListItem(props) {
 }
 ```
 
-El estado de estos componentes es completamente independiente. Los Hooks son una forma de reutilizar *la lógica de estado*, no el estado en sí. De hecho, cada *llamada* a un Hook tiene un estado completamente aislado -- por lo que incluso puedes usar el mismo Hook personalizado dos veces en un componente.
+El estado de cada componente es completamente independiente. Los Hooks son una forma de reutilizar *la lógica de estado*, no el estado en sí. De hecho, cada *llamada* a un Hook tiene un estado completamente aislado -- por lo que incluso puedes usar el mismo Hook personalizado dos veces en un componente.
 
 Los Hooks personalizados son más una convención que una funcionalidad. Si el nombre de una función comienza con "`use`" y llama a otros Hooks, decimos que es un Hook personalizado. La convención de nomenclatura `useSomething` es cómo nuestro plugin de linter puede encontrar errores en el código usando Hooks.
 

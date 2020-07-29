@@ -560,7 +560,7 @@ Detectar cambios en objetos inmutables es considerablemente más sencillo. Si el
 
 #### Determinar cuando re-renderizar en React {#determining-when-to-re-render-in-react}
 
-El beneficio principal de inmutabilidad es que te ayuda a construir _componentes puros_ en React. Datos inmutables pueden determinar fácilmente si se han realizado cambios, que ayuda también a determinar cuando un componente requiere ser re-renderizado.
+El beneficio principal de la inmutabilidad es que te ayuda a construir _componentes puros_ en React. Con datos inmutables se puede determinar fácilmente si se han realizado cambios, lo que ayuda también a determinar cuando un componente requiere ser re-renderizado.
 
 Puedes aprender más acerca de `shouldComponentUpdate()` y cómo puedes construir *componentes puros* leyendo [Optimizando el rendimiento](/docs/optimizing-performance.html#examples).
 
