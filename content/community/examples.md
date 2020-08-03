@@ -22,5 +22,4 @@ Si agregas un proyecto, por favor ten el compromiso de mantenerlo al día con la
 
 ## Aplicaciones completas
 
-* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clon de Hacker News reescrito con Javascript universal, usando React y GraphQL
 * **[Builder Book](https://github.com/builderbook/builderbook)** Aplicación web de código abierto para escribir y almacenar documentación o vender libros. Hecha con React, Material-UI, Next, Express, Mongoose, MongoDB
