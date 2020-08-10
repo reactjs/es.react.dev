@@ -10,7 +10,7 @@ Hay muchos proyectos de ejemplo creados por la comunidad de React. Mantenemos es
 
 Si agregas un proyecto, por favor ten el compromiso de mantenerlo al día con las últimas versiones de React.
 
-## Ejemplos pequeños
+## Ejemplos pequeños {#small-examples}
 
 * **[Calculator](https://github.com/ahfarmer/calculator)** Implementación de la calculadora de iOs hecha con React
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** Aplicación de React para buscar emojis
@@ -20,6 +20,6 @@ Si agregas un proyecto, por favor ten el compromiso de mantenerlo al día con la
 * **[Counter App](https://github.com/arnab-datta/counter-app)** Un ejemplo pequeño de un carro de compras
 * **[Tutorial Solutions](https://github.com/harman052/react-tutorial-solutions)** Soluciones a los desafíos mencionados al final del tutorial de React
 
-## Aplicaciones completas
+## Aplicaciones completas {#complete-apps}
 
 * **[Builder Book](https://github.com/builderbook/builderbook)** Aplicación web de código abierto para escribir y almacenar documentación o vender libros. Hecha con React, Material-UI, Next, Express, Mongoose, MongoDB
