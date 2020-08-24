@@ -2,6 +2,8 @@
 id: portals
 title: Portales
 permalink: docs/portals.html
+prev: fragments.html
+next: error-boundaries.html
 ---
 
 Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del componente padre.

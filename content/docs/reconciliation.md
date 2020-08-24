@@ -2,6 +2,8 @@
 id: reconciliation
 title: Reconciliación
 permalink: docs/reconciliation.html
+prev: react-without-jsx.html
+next: context.html
 ---
 
 React proporciona una API declarativa para que no tengas que preocuparte sobre qué cambia exactamente en cada actualización. Esto facilita mucho la escritura de aplicaciones, pero podría no ser obvio cómo se implementa esto dentro de React. Este artículo explica las elecciones que hicimos en el algoritmo "diferencial" de React para que las actualizaciones de los componentes sean predecibles y al mismo tiempo sean lo suficiente rápidas para las aplicaciones de alto rendimiento.

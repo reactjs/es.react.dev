@@ -2,6 +2,8 @@
 id: context
 title: Context
 permalink: docs/context.html
+prev: reconciliation.html
+next: fragments.html
 ---
 
 Context provee una forma de pasar datos a través del árbol de componentes sin tener que pasar *props* manualmente en cada nivel.

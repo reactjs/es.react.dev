@@ -56,7 +56,12 @@ El evento `onChange` se comporta según lo esperado: cuando el campo de un formu
 
 ### selected {#selected}
 
+<<<<<<< HEAD
 El atributo `selected` es compatible con los componentes tipo `<option>`. Puedes usarlo para establecer si el elemento está seleccionado, lo cual es útil para construir componentes controlados.
+=======
+If you want to mark an `<option>` as selected, reference the value of that option in the `value` of its `<select>` instead.
+Check out ["The select Tag"](/docs/forms.html#the-select-tag) for detailed instructions.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 ### style {#style}
 
@@ -120,7 +125,11 @@ Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sob
 
 ### value {#value}
 
+<<<<<<< HEAD
 El atributo `value` es compatible con los componentes` <input> `y` <textarea> `. Puedes usarlo para establecer el valor del componente. Esto es útil para construir componentes controlados. `defaultValue` es el equivalente no controlado, que establece el valor del componente cuando se monta por primera vez.
+=======
+The `value` attribute is supported by `<input>`, `<select>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 ## Todos los atributos HTML admitidos {#all-supported-html-attributes}
 
