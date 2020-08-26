@@ -2,6 +2,8 @@
 id: error-boundaries
 title: Límites de errores
 permalink: docs/error-boundaries.html
+prev: portals.html
+next: web-components.html
 ---
 
 En el pasado, los errores de JavaScript dentro de los componentes solían corromper el estado interno de React y hacían que [emitiera](https://github.com/facebook/react/issues/4026) [errores](https://github.com/facebook/react/issues/6895) [crípticos](https://github.com/facebook/react/issues/8579) en siguientes renderizados. Estos errores siempre eran causados por un error previo en el código de aplicación, pero React no proveía una manera de gestionarlos elegantemente en componentes, y no podía recuperarse de ellos.
@@ -95,7 +97,7 @@ También puedes ver los nombres de los ficheros y los números de línea en la t
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Error capturado por componente Límite de Errores con números de línea">
 
-Si no usas Create React App, puedes añadir manualmente [este plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) a tu configuración de Babel. Ten en cuenta que está pensado sólo para desarrollo y **debe ser desabilitado en producción**.
+Si no usas Create React App, puedes añadir manualmente [este plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) a tu configuración de Babel. Ten en cuenta que está pensado sólo para desarrollo y **debe ser deshabilitado en producción**.
 
 > Nota
 >
