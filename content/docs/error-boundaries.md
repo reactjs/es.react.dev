@@ -97,11 +97,7 @@ También puedes ver los nombres de los ficheros y los números de línea en la t
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Error capturado por componente Límite de Errores con números de línea">
 
-<<<<<<< HEAD
-Si no usas Create React App, puedes añadir manualmente [este plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) a tu configuración de Babel. Ten en cuenta que está pensado sólo para desarrollo y **debe ser desabilitado en producción**.
-=======
-If you don’t use Create React App, you can add [this plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) manually to your Babel configuration. Note that it’s intended only for development and **must be disabled in production**.
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+Si no usas Create React App, puedes añadir manualmente [este plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) a tu configuración de Babel. Ten en cuenta que está pensado sólo para desarrollo y **debe ser deshabilitado en producción**.
 
 > Nota
 >
