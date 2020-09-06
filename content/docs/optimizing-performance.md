@@ -212,7 +212,7 @@ Si su aplicación renderiza largas listas de datos (cientos o miles de filas), r
 
 React construye y mantiene una representación interna de la interfaz de usuario renderizada. Esta incluye los elementos React que retornas de tus componentes. Esta representación permite a React evitar crear nodos DOM y acceder a los existentes más allá de lo necesario, ya que puede ser más lento que las operaciones en objetos JavaScript. A veces a esto se le llama "DOM Virtual", pero funciona de la misma forma en React Native.
 
-Cuando una propiedad o estado de un componente cambia, React decide si es necesario actualizar el DOM comparando el elemento recién retornado con el previamente renderizado. Sino son iguales, React actualizará el DOM.
+Cuando una propiedad o estado de un componente cambia, React decide si es necesario actualizar el DOM comparando el elemento recién retornado con el previamente renderizado. Si no son iguales, React actualizará el DOM.
 
 Aunque React solo actualiza los nodos DOM modificados, el re-renderizado aun lleva algo de tiempo. En muchos casos no es un problema, pero si la desaceleración es notable puedes acelerar el proceso anulando la función del ciclo de vida `shouldComponentUpdate`, el cual se ejecuta antes de que el proceso de re-renderizado comience. La implementación por defecto de esta función retorna `true`, permitiendo a React hacer la actualización.
 
