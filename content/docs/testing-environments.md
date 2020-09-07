@@ -29,7 +29,11 @@ Una gran parte de pruebas a la interfaz gráfica pueden ser escritas con la conf
 
 Si estas escribiendo una biblioteca que prueba principalmente un comportamiento específico del navegador y requiere comportamiento nativo del navegador como el layout o inputs reales, puedes usar un framewrok como [mocha.](https://mochajs.org/)
 
+<<<<<<< HEAD
 En un entorno donde _no puedes_ simular el DOM (por ejemplo, probando componentes de React Native en Node.js), podrías usar [simuladores de eventos](/docs/test-utils.html#simulate) para simular interacciones con elementos. De manera alternativa, también puedes usar el _helper_ `fireEvent` de [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
+=======
+In an environment where you _can't_ simulate a DOM (e.g. testing React Native components on Node.js), you could use [event simulation helpers](/docs/test-utils.html#simulate) to simulate interactions with elements. Alternately, you could use the `fireEvent` helper from [`@testing-library/react-native`](https://testing-library.com/docs/react-native-testing-library/intro).
+>>>>>>> 657658aa1f19c65e35055ddca4452c98d569552f
 
 Frameworks como [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) y [webdriver](https://www.seleniumhq.org/projects/webdriver/) son útiles para ejecutar pruebas ["end-to-end"](#end-to-end-tests-aka-e2e-tests).
 
