@@ -57,7 +57,7 @@ Puedes usar un patrón diferente, pero ten en cuenta que queremos ejecutar la li
 
 ### `act()` {#act}
 
-Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse "unidades" de interacción con la interfaz de usuario. React proporciona una utilidad llamada `act()` que asegura que todas las actualizaciones relacionadas con estas "unidades" hayan sido procesadas y aplicadas al DOM antes de que hagas cualquier afirmación:
+Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse "unidades" de interacción con la interfaz de usuario. `react-dom/test-utils` proporciona una utilidad llamada [`act()`](/docs/test-utils.html#act) que asegura que todas las actualizaciones relacionadas con estas "unidades" hayan sido procesadas y aplicadas al DOM antes de que hagas cualquier afirmación:
 
 ```js
 act(() => {
