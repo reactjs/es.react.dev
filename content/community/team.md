@@ -74,6 +74,8 @@ Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice 
 
 ![Seth](../images/team/sethwebster.jpg)
 
+[@sethwebster on GitHub](https://github.com/sethwebster) &middot; [@sethwebster on Twitter](https://twitter.com/sethwebster)
+
 Seth comenzó a programar cuando era un niño en Tucson, Arizona. Luego de la escuela, le picó el bichito de la música y por 10 años fue un músico de gira antes de retornar a *trabajar*, comenzando con Intuit. En su tiempo libre, le encanta [tomar fotos](https://www.sethwebster.com) y volar para rescatar animales en el noreste de los Estados Unidos.
 
 ## Agradecimientos {#acknowledgements}

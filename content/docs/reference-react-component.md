@@ -57,7 +57,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 
 #### Actualización {#updating}
 
-Una actualización puede ser causada por cambios en los props o el estado. Estos métodos se llaman en el siguiente orden cuando un componente se vuelve a renderizar:
+Una actualización puede ser causada por cambios en las props o el estado. Estos métodos se llaman en el siguiente orden cuando un componente se vuelve a renderizar:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -169,7 +169,7 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 
 > Nota
 >
-> **¡Evita copiar los props en el estado! Es un error muy común:**
+> **¡Evita copiar las props en el estado! Es un error muy común:**
 >
 >```js
 >constructor(props) {
@@ -179,11 +179,11 @@ Evita introducir cualquier efecto secundario o suscripciones en el constructor. 
 >}
 >```
 >
-> El problema es que es innecesario (puedes usar `this.props.color` directamente en su lugar), esto crea errores (actualizaciones al prop `color` no se reflejarán en el estado).
+> El problema es que es innecesario (puedes usar `this.props.color` directamente en su lugar), esto crea errores (actualizaciones a la prop `color` no se reflejarán en el estado).
 >
-> **Sólo utiliza este patrón si deseas ignorar intencionalmente las actualizaciones de prop.** En ese caso, tiene sentido renombrar el prop a `initialColor` o `defaultColor`. Puedes forzar al componente a "limpiar" su estado interno [cambiando su `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) cuando sea necesario.
+> **Sólo utiliza este patrón si deseas ignorar intencionalmente las actualizaciones de prop.** En ese caso, tiene sentido renombrar la prop a `initialColor` o `defaultColor`. Puedes forzar al componente a "limpiar" su estado interno [cambiando su `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) cuando sea necesario.
 >
-> Lee nuestro [post en el blog sobre como evitar estados derivados](/blog/2018/06/07/you-probably-dont-need-derived-state.html) para aprender qué hacer si crees que necesitas algún estado que dependa de los props.
+> Lee nuestro [post en el blog sobre como evitar estados derivados](/blog/2018/06/07/you-probably-dont-need-derived-state.html) para aprender qué hacer si crees que necesitas algún estado que dependa de las props.
 
 * * *
 
@@ -209,18 +209,18 @@ componentDidUpdate(prevProps, prevState, snapshot)
 
 ` componentDidUpdate()` se invoca inmediatamente después de que la actualización ocurra. Este método no es llamado para el renderizador inicial.
 
-Use esto como una oportunidad para operar en DOM cuando el componente se haya actualizado. Este es también un buen lugar para hacer solicitudes de red siempre y cuando compare los accesorios actuales con los anteriores (por ejemplo, una solicitud de red puede no ser necesaria si los props no han cambiado).
+Use esto como una oportunidad para operar en DOM cuando el componente se haya actualizado. Este es también un buen lugar para hacer solicitudes de red siempre y cuando compare los accesorios actuales con los anteriores (por ejemplo, una solicitud de red puede no ser necesaria si las props no han cambiado).
 
 ```js
 componentDidUpdate(prevProps) {
-  // Uso tipico (no olvides de comparar los props):
+  // Uso tipico (no olvides de comparar las props):
   if (this.props.userID !== prevProps.userID) {
     this.fetchData(this.props.userID);
   }
 }
 ```
 
-**Puedes llamar `setState()` inmediatamente** en `componentDidUpdate()` pero ten en cuenta que **debe ser envuelto en una condición** como en el ejemplo anterior, o causará un bucle infinito. También causaría una renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente. Si estás intentando crear un "espejo" desde un estado a un prop que viene desde arriba, considera usar el prop directamente en su lugar. Lee más sobre [por qué copiar props en el estado causa errores](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+**Puedes llamar `setState()` inmediatamente** en `componentDidUpdate()` pero ten en cuenta que **debe ser envuelto en una condición** como en el ejemplo anterior, o causará un bucle infinito. También causaría una renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente. Si estás intentando crear un "espejo" desde un estado a una prop que viene desde arriba, considera usar la prop directamente en su lugar. Lee más sobre [por qué copiar props en el estado causa errores](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 Si tu componente implementa el ciclo de vida `getSnapshotBeforeUpdate()`(que es raro), el valor que devuelve se pasará como un tercer parámetro "snapshot" a `componentDidUpdate()`. De lo contrario, este parámetro será indefinido.
 
@@ -272,20 +272,20 @@ Actualmente, si `shouldComponentUpdate()` devuelve `false`, entonces [`component
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o nulo para actualizar nada.
+`getDerivedStateFromProps` se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o `null` para no actualizar nada.
 
 Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) donde el estado depende de los cambios en props con el tiempo. Por ejemplo, puede ser util para implementar un componente `<Transition>` que compare su anterior hijo y el siguiente para decidir cual de los dos animar en la entrada y salida.
 
 Derivar el estado conduce al código verboso y hace que tus componentes sean difíciles de pensar.
 [Asegúrate de que estás familiarizado con alternativas más simples](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza [`componentDidUpdate`](#componentdidupdate).
+* Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en las props, utiliza [`componentDidUpdate`](#componentdidupdate).
 
-* Si quieres **recalcular algunos datos solo cuando un prop cambie**,[usa memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Si quieres **recalcular algunos datos solo cuando una prop cambie**,[usa memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* Si quieres **restablecer algún estado cuando un prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
+* Si quieres **restablecer algún estado cuando una prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 
-Este método no tiene acceso a la instancia del componente. Si quieres, puedes reutilizar algún código entre `getDerivedStateFromProps()` y los otros métodos de clase mediante la extracción de funciones puras de los props del componente y el estado fuera de la definición de clase.
+Este método no tiene acceso a la instancia del componente. Si quieres, puedes reutilizar algún código entre `getDerivedStateFromProps()` y los otros métodos de clase mediante la extracción de funciones puras de las props del componente y el estado fuera de la definición de clase.
 
 Ten en cuenta que este método se activa en *cada* renderizado, independientemente de la causa. En caso contrario, `UNSAFE_componentWillReceiveProps`, que sólo se dispara cuando el padre causa un nuevo renderizado y no como resultado de un `setState` local.
 
@@ -450,17 +450,17 @@ UNSAFE_componentWillReceiveProps(nextProps)
 >
 > El uso de este método de ciclo de vida a menudo conduce a errores e inconsistencias
 >
-> * Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza [`componentDidUpdate`](#componentdidupdate).
-> * Si usaste `componentWillReceiveProps` para **re-calcular algunos datos cuando un prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * Si quieres **restablecer algún state cuando un prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
+> * Si necesitas **realizar un efecto secundario** (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en las props, utiliza [`componentDidUpdate`](#componentdidupdate).
+> * Si usaste `componentWillReceiveProps` para **re-calcular algunos datos cuando una prop cambie**, [utiliza memoization](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Si quieres **restablecer algún state cuando una prop cambie** considera hacer un [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [un componente no controlado con una `key/clave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
 > Para otros casos de uso, [sigue las recomendaciones en este blog sobre estado derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-`UNSAFE_componentWillReceiveProps()` se invoca antes de que un componente montado reciba nuevos props. Si necesita actualizar el estado en respuesta a cambios de accesorios (por ejemplo, para restablecerlo), puede comparar `this.props` y `nextProps` y realizar transiciones de estado usando `this.setState ()` en este método.
+`UNSAFE_componentWillReceiveProps()` se invoca antes de que un componente montado reciba nuevas props. Si necesita actualizar el estado en respuesta a cambios de accesorios (por ejemplo, para restablecerlo), puede comparar `this.props` y `nextProps` y realizar transiciones de estado usando `this.setState ()` en este método.
 
-Ten en cuenta que si un componente principal hace que su componente se vuelva a generar, se llamará a este método incluso si los props no han cambiado. Asegúrate de comparar los valores actuales y los siguientes solo si deseas manejar los cambios.
+Ten en cuenta que si un componente principal hace que su componente se vuelva a generar, se llamará a este método incluso si las props no han cambiado. Asegúrate de comparar los valores actuales y los siguientes solo si deseas manejar los cambios.
 
-React no llama `UNSAFE_componentWillReceiveProps()` con props inicial durante su [mounting](#mounting). Solo llama a este método si algunos de los props de los componentes deben ser actualizados. Normalmente, llamar a `this.setState()` no provoca `UNSAFE_componentWillReceiveProps()
+React no llama `UNSAFE_componentWillReceiveProps()` con props inicial durante su [mounting](#mounting). Solo llama a este método si algunas de las props de los componentes deben ser actualizadas. Normalmente, llamar a `this.setState()` no provoca `UNSAFE_componentWillReceiveProps()
 `.
 
 * * *
@@ -475,7 +475,7 @@ UNSAFE_componentWillUpdate(nextProps, nextState)
 >
 > This lifecycle was previously named `componentWillUpdate`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
 
-`UNSAFE_componentWillUpdate()` se invoca justo antes de renderizar cuando llegan nuevos props o se esta recibiendo el estado. Use esto como una oportunidad para realizar la preparación antes de que ocurra una actualización. Este método no es llamado para el renderizador inicial.
+`UNSAFE_componentWillUpdate()` se invoca justo antes de renderizar cuando llegan nuevas props o se está recibiendo el estado. Usa esto como una oportunidad para realizar la preparación antes de que ocurra una actualización. Este método no es llamado para el renderizador inicial.
 
 No puedes llamar aquí a `this.setState()`; tampoco deberias hacer nada más (por ejemplo, enviar una acción de Redux) que activaría una actualización de un componente React antes de que devuelva el método `UNSAFE_componentWillUpdate ()`.
 
@@ -521,7 +521,7 @@ this.setState((state, props) => {
 });
 ```
 
-Ambos `state` y `props` recibidos por la función de actualizador están garantizados de estar actualizados. La salida del actualizador se fusiona poco con el `state`.
+Ambos `state` y `props` recibidos por la función de actualizador están garantizados de estar actualizados. La salida del actualizador se fusiona de forma superficial (_shallow_) con `state`.
 
 El segundo parámetro para `setState()` es una devolución de llamada opcional que será ejecutada una vez `setState` sea completada y el componente sea re-renderizado. Generalmente recomendamos usar `componentDidUpdate()` para dicha lógica.
 
@@ -582,7 +582,7 @@ Normalmente, debes intentar evitar todos los usos de `forceUpdate()` y solo leer
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` puede ser definido como una propiedad en la propia clase de componente, para establecer los props predeterminados para la clase. Esto se utiliza para props no definidos, pero no para props nulos. Por ejemplo:
+`defaultProps` puede ser definida como una propiedad en la propia clase de componente, para establecer las props predeterminadas para la clase. Esto se utiliza para props con valor `undefined`, pero no para props con valor `null`. Por ejemplo:
 
 ```js
 class CustomButton extends React.Component {
@@ -594,15 +594,15 @@ CustomButton.defaultProps = {
 };
 ```
 
-Si `props.color` no es proporcionado, se establecerá por defecto a `'blue'`:
+Si no se proporciona `props.color`, se establecerá por defecto a `'blue'`:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color será asignado a azul
+    return <CustomButton /> ; // props.color será asignada a azul
   }
 ```
 
-Si `props.color` es null, permanecerá null:
+Si `props.color` es `null`, permanecerá `null`:
 
 ```js
   render() {
@@ -622,9 +622,9 @@ La cadena `displayName` es usada en la depuración de mensajes. Por lo general, 
 
 ### `props` {#props}
 
-`this.props`contiene los props que fueron definidos por el encargado de llamar al componente. Mira [Componentes y Props](/docs/components-and-props.html) para una introducción a los props.
+`this.props`contiene las props que fueron definidas por el encargado de llamar al componente. Mira [Componentes y Props](/docs/components-and-props.html) para una introducción a las props.
 
-En particular, `this.props.children` es un accesorio especial, tipicamente definido por las etiquetas hijas en la expresión JSX en vez de en la etiqueta como tal.
+En particular, `this.props.children` es una prop especial, típicamente definida por las etiquetas hijas en la expresión JSX en vez de en la etiqueta como tal.
 
 ### `Estado` {#state}
 
