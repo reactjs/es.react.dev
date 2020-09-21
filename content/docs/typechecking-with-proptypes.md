@@ -2,8 +2,6 @@
 id: typechecking-with-proptypes
 title: Verificación de tipos con PropTypes
 permalink: docs/typechecking-with-proptypes.html
-prev: jsx-in-depth.html
-next: static-type-checking.html
 redirect_from:
   - "docs/react-api.html#typechecking-with-proptypes"
 ---
