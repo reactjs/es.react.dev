@@ -2,7 +2,6 @@
 id: code-splitting
 title: División de código
 permalink: docs/code-splitting.html
-prev: accessibility.html
 ---
 
 ## *Bundling* {#bundling}

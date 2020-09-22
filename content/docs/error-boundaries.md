@@ -2,8 +2,6 @@
 id: error-boundaries
 title: Límites de errores
 permalink: docs/error-boundaries.html
-prev: portals.html
-next: web-components.html
 ---
 
 En el pasado, los errores de JavaScript dentro de los componentes solían corromper el estado interno de React y hacían que [emitiera](https://github.com/facebook/react/issues/4026) [errores](https://github.com/facebook/react/issues/6895) [crípticos](https://github.com/facebook/react/issues/8579) en siguientes renderizados. Estos errores siempre eran causados por un error previo en el código de aplicación, pero React no proveía una manera de gestionarlos elegantemente en componentes, y no podía recuperarse de ellos.
