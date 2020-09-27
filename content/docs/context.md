@@ -255,7 +255,7 @@ Debido a que `Context` usa la identidad por referencia para determinar cuándo s
 `embed:context/reference-caveats-problem.js`
 
 
-Para evitar esto, levanta el valor al estado del padre:
+Para evitar esto, eleva el valor al estado del padre:
 
 `embed:context/reference-caveats-solution.js`
 

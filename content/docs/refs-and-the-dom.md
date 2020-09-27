@@ -29,7 +29,7 @@ Por ejemplo, en lugar de exponer los métodos `open()` y `close()` en un compone
 
 ### No abuses de las referencias {#dont-overuse-refs}
 
-Tu primer pensamiento puede ser usar referencias para "hacer que las cosas funcionen" en tu aplicación. De ser este el caso, espera un momento, y piensa críticamente donde debe estar el estado en la jerarquía de componentes. Frecuentemente, se vuelve mas claro que el lugar donde debería "estar" el estado, es en el nivel más alto de la jerarquía. Mira la guía [Levantando El Estado](/docs/lifting-state-up.html) para ejemplos de esto.
+Tu primer pensamiento puede ser usar referencias para "hacer que las cosas funcionen" en tu aplicación. De ser este el caso, espera un momento, y piensa críticamente donde debe estar el estado en la jerarquía de componentes. Frecuentemente, se vuelve mas claro que el lugar donde debería "estar" el estado, es en el nivel más alto de la jerarquía. Mira la guía [Elevando El Estado](/docs/lifting-state-up.html) para ejemplos de esto.
 
 > Nota
 >

@@ -32,7 +32,7 @@
     - id: forms
       title: Formularios
     - id: lifting-state-up
-      title: Levantando el estado
+      title: Elevando el estado
     - id: composition-vs-inheritance
       title: Composición vs. herencia
     - id: thinking-in-react

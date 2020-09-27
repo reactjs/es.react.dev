@@ -1,6 +1,6 @@
 ---
 id: lifting-state-up
-title: Levantando el estado
+title: Elevando el estado
 permalink: docs/lifting-state-up.html
 prev: forms.html
 next: composition-vs-inheritance.html
@@ -148,7 +148,7 @@ function tryConvert(temperature, convert) {
 
 Por ejemplo, `tryConvert('abc', toCelsius)` retorna una cadena vacía, y `tryConvert('10.22', toFahrenheit)` retorna `'50.396'`.
 
-## Levantando el estado {#lifting-state-up}
+## Elevandos el estado {#lifting-state-up}
 
 Actualmente, ambos componentes `TemperatureInput` mantienen de manera independiente sus valores en el estado local:
 
@@ -171,7 +171,7 @@ class TemperatureInput extends React.Component {
 
 Sin embargo, queremos que estas dos entradas estén sincronizadas. Cuando actualicemos la entrada de Celsius, la entrada de Fahrenheit debe reflejar la conversión de temperatura, y viceversa.
 
-En React, la compartición del estado puede lograrse moviendo el estado hacia arriba al ancestro común más cercano de los componentes que lo necesitan. A esto se le llama "levantar el estado". Eliminaremos el estado local de `TemperatureInput` y lo moveremos hacia `Calculator`.
+En React, la compartición del estado puede lograrse moviendo el estado hacia arriba al ancestro común más cercano de los componentes que lo necesitan. A esto se le llama "elevar el estado". Eliminaremos el estado local de `TemperatureInput` y lo moveremos hacia `Calculator`.
 
 Si `Calculator` posee el estado compartido, entonces se convierte en la "fuente de verdad" para la temperatura actual en ambas entradas. Este puede instruir a ambos a tener valores consistentes entre sí. Puesto que las propiedades de ambos componentes `TemperatureInput` vienen del mismo componente `Calculator`, las dos entradas siempre estarán sincronizadas.
 
@@ -234,7 +234,7 @@ class TemperatureInput extends React.Component {
 
 Ahora miremos el componente `Calculator`.
 
-Guardaremos `temperature` y `scale` en su estado local. Este es el estado que hemos "levantado" de las entradas, y servirá como la "fuente de verdad" para ambos. Es la representación mínima de todos los datos que debemos conocer para renderizar ambas entradas.
+Guardaremos `temperature` y `scale` en su estado local. Este es el estado que hemos "elevado" de las entradas, y servirá como la "fuente de verdad" para ambos. Es la representación mínima de todos los datos que debemos conocer para renderizar ambas entradas.
 
 Por ejemplo, si insertamos 37 en la entrada de Celsius, el estado del componente `Calculator` será:
 
@@ -318,9 +318,9 @@ Toda actualización sigue los mismos pasos y las entradas se mantienen sincroniz
 
 ## Lecciones aprendidas {#lessons-learned}
 
-Debe haber una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes levantar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en el [flujo de datos descendente](/docs/state-and-lifecycle.html#the-data-flows-down).
+Debe haber una sola "fuente de verdad" para cada dato que cambie en una aplicación de React. Usualmente, el estado se agrega primeramente al componente que lo necesita para su renderización. Luego, si otro componente también lo necesita, puedes elevar el estado hacia el ancestro común más cercano. En vez de tratar de sincronizar el estado entre distintos componentes, deberías confiar en el [flujo de datos descendente](/docs/state-and-lifecycle.html#the-data-flows-down).
 
-Levantar el estado implica escribir más código *"boilerplate"* que los enfoques *"two-way binding"*, pero como beneficio, toma menos tiempo encontrar un error. Como todo estado "vive" en algún componente y sólo ese componente puede cambiar, el margen de error se ve reducido grandemente. De manera adicional, puedes implementar lógica adicional para transformar o rechazar algún cambio en la entrada del usuario.
+Elevar el estado implica escribir más código *"boilerplate"* que los enfoques *"two-way binding"*, pero como beneficio, toma menos tiempo encontrar un error. Como todo estado "vive" en algún componente y sólo ese componente puede cambiar, el margen de error se ve reducido grandemente. De manera adicional, puedes implementar lógica adicional para transformar o rechazar algún cambio en la entrada del usuario.
 
 Si algo puede ser derivado de las propiedades o el estado, probablemente no debería estar en el estado. Por ejemplo, en vez de almacenar `celsiusValue` y `fahrenheitValue`, solamente almacenamos la última edición a `temperature` y `scale`. El valor de la otra entrada siempre puede ser calculado desde el método `render()`. Esto nos permite limpiar o aplicar un redondeo a la otra entrada sin perder la precisión en la entrada del usuario.
 
