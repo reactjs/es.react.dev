@@ -49,13 +49,9 @@ permalink: community/meetups.html
 * [Pekín](https://www.meetup.com/Beijing-ReactJS-Meetup/)
 
 ## Colombia {#colombia}
-<<<<<<< HEAD
-* [Medellín](https://www.meetup.com/React-Medellin/)
-=======
 * [Bogotá](https://www.meetup.com/meetup-group-iHIeHykY/)
 * [Medellin](https://www.meetup.com/React-Medellin/)
 * [Cali](https://www.meetup.com/reactcali/)
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 ## Dinamarca {#denmark}
 * [Aalborg](https://www.meetup.com/Aalborg-React-React-Native-Meetup/)
@@ -153,13 +149,8 @@ permalink: community/meetups.html
 ## Suiza {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
-<<<<<<< HEAD
-## Turquía {#turkey}
-* [Estambul](https://www.meetup.com/ReactJS-Istanbul/)
-=======
 ## Turkey {#turkey}
-* [Istanbul](https://kommunity.com/reactjs-istanbul)
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
+* [Estambul](https://kommunity.com/reactjs-istanbul)
 
 ## Ucrania {#ukraine}
 * [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
