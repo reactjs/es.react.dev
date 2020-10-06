@@ -1,34 +1,34 @@
 ---
-title: "Introducing the New JSX Transform"
+title: "Introducción a la nueva transformación de JSX"
 author: [lunaruan]
 ---
 
-Although React 17 [doesn't contain new features](/blog/2020/08/10/react-v17-rc.html), it will provide support for a new version of the JSX transform. In this post, we will describe what it is and how to try it.
+Aunque React 17 [no tiene nuevas funciones](/blog/2020/08/10/react-v17-rc.html), brindará soporte para la nueva transformación de JSX. En este post, describiremos qué es y cómo probarlo.
 
-## What's a JSX Transform? {#whats-a-jsx-transform}
+## Qué es una transformación de JSX? {#whats-a-jsx-transform}
 
-Browsers don't understand JSX out of the box, so most React users rely on a compiler like Babel or TypeScript to **transform JSX code into regular JavaScript**. Many preconfigured toolkits like Create React App or Next.js also include a JSX transform under the hood.
+Los navegadores no entienden JSX por defecto, por lo que la mayoría de usuarios de React utilizan un compilador como Babel o TypeScript para **transformar el código JSX en JavaScript normal**. Muchos kit de herramientas preconfigurados como Create React App o Next.js también incluyen una transformación de JSX bajo el capó.
 
-Together with the React 17 release, we've wanted to make a few improvements to the JSX transform, but we didn't want to break existing setups. This is why we [worked with Babel](https://babeljs.io/blog/2020/03/16/7.9.0#a-new-jsx-transform-11154httpsgithubcombabelbabelpull11154) to **offer a new, rewritten version of the JSX transform** for people who would like to upgrade.
+Junto con el lanzamiento de React 17, queríamos hacer algunas mejoras en la transformación de JSX, pero no queríamos romper las configuraciones existentes. Es por eso que [trabajamos con Babel](https://babeljs.io/blog/2020/03/16/7.9.0#a-new-jsx-transform-11154httpsgithubcombabelbabelpull11154) para **ofrecer una nueva versión reescrita de la transformación de JSX** para las personas que quisieran actualizar.
 
-Upgrading to the new transform is completely optional, but it has a few benefits:
+La actualización a la nueva transformación es opcional, pero tiene algunos beneficios:
 
-* With the new transform, you can **use JSX without importing React**.
-* Depending on your setup, its compiled output may **slightly improve the bundle size**.
-* It will enable future improvements that **reduce the number of concepts** you need to learn React.
+* Con la nueva transformación, puede **usar JSX sin importar React**.
+* Dependiendo de su configuración, su salida compilada puede **mejorar ligeramente el tamaño del paquete**.
+* Permitirá futuras mejoras que **reducen la cantidad de conceptos** que necesita para aprender React.
 
-**This upgrade will not change the JSX syntax and is not required.** The old JSX transform will keep working as usual, and there are no plans to remove the support for it.
+**Esta actualización no cambiará la sintaxis de JSX y no es necesaria.** La antigua transformación de JSX seguirá funcionando como de costumbre y no hay planes para quitarle el soporte.
 
 
-[React 17 RC](/blog/2020/08/10/react-v17-rc.html) already includes support for the new transform, so go give it a try! To make it easier to adopt, after React 17 is released, we also plan to backport its support to React 16.x, React 15.x, and React 0.14.x. You can find the upgrade instructions for different tools [below](#how-to-upgrade-to-the-new-jsx-transform).
+[React 17 RC](/blog/2020/08/10/react-v17-rc.html) ya incluye soporte para la nueva transformación, ¡así que pruébalo! Para que sea más fácil de adoptar, después del lanzamiento de React 17, también planeamos respaldar su soporte a React 16.x, React 15.x, y React 0.14.x. Puede encontrar las instrucciones de actualización para diferentes herramientas a [continuación](#how-to-upgrade-to-the-new-jsx-transform).
 
-Now let's take a closer look at the differences between the old and the new transform.
+Ahora echemos un vistazo más de cerca a las diferencias entre la transformación antigua y la nueva.
 
-## What’s Different in the New Transform? {#whats-different-in-the-new-transform}
+## Qué es diferente en la nueva transformación? {#whats-different-in-the-new-transform}
 
-When you use JSX, the compiler transforms it into React function calls that the browser can understand. **The old JSX transform** turned JSX into `React.createElement(...)` calls.
+Cuando usa JSX, el compilador lo transforma en llamadas a la función React que el navegador pueda entender. **La antigua transformación de JSX** convirtió JSX en llamadas a `React.createElement(...)`.
 
-For example, let's say your source code looks like this:
+Por ejemplo, digamos que su código fuente se ve así:
 
 ```js
 import React from 'react';
@@ -38,7 +38,7 @@ function App() {
 }
 ```
 
-Under the hood, the old JSX transform turns it into regular JavaScript:
+Bajo el capó, la antigua transformación de JSX lo convierte en JavaScript normal:
 
 ```js
 import React from 'react';
@@ -48,18 +48,18 @@ function App() {
 }
 ```
 
->Note
+>Nota
 >
->**Your source code doesn't need to change in any way.** We're describing how the JSX transform turns your JSX source code into the JavaScript code a browser can understand.
+>**Su código fuente no necesita cambiar de ninguna manera.** Estamos describiendo cómo la tranformación de JSX convierte su código fuente JSX en código JavaScript que un navegador puede entender.
 
-However, this is not perfect:
+Sin embargo, esto no es perfecto:
 
-* Because JSX compiled into `React.createElement`, `React` needed to be in scope if you use JSX.
-* There are some [performance improvements and simplifications](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation) that `React.createElement` does not allow.
+* Debido a que JSX se compiló en `React.createElement`, `React` bebe estar dentro del alcance si usa JSX.
+* Hay algunas [mejoras de rendimiento y simplicaciones](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation) que `React.createElement` no permiten.
 
-To solve these issues, React 17 introduces two new entry points to the React package that are intended to only be used by compilers like Babel and TypeScript. Instead of transforming JSX to `React.createElement`, **the new JSX transform** automatically imports special functions from those new entry points in the React package and calls them.
+Para resolver estos problemas, React 17 introduce dos nuevos puntos de entrada al paquete React que están destinados a ser utilizados solo por compiladores como Babel y TypeScript. En lugar de transformar JSX en `React.createElement`, **la nueva transformación de JSX** importa automáticamente funciones especiales de esos nuevos puntos de entrada en el paquete de React y las llama.
 
-Let's say that your source code looks like this:
+Digamos que su código fuente se ve así:
 
 ```js
 function App() {
@@ -67,7 +67,7 @@ function App() {
 }
 ```
 
-This is what the new JSX transform compiles it to:
+Esto es lo que compila la nueva transformación de JSX:
 
 ```js
 // Inserted by a compiler (don't import it yourself!)
@@ -78,48 +78,48 @@ function App() {
 }
 ```
 
-Note how our original code **did not need to import React** to use JSX anymore! (But we would still need to import React in order to use Hooks or other exports that React provides.)
+¡Tenga en cuenta que nuestro código original **ya no necesita importar React** para usar JSX! (Pero aún necesitaríamos importar React para poder usar Hooks u otras exportaciones que proporciona React.)
 
-**This change is fully compatible with all of the existing JSX code**, so you won't have to change your components. If you're curious, you can check out the [technical RFC](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design) for more details about how the new transform works.
+**Este cambio es totalmente compatible con todo el código JSX existente**, por lo que no tendrá que cambiar sus componentes. Si tiene curiosidad, puede consultar el [RFC técnico](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design) para obtener más detalles sobre cómo funciona la nueva transformación.
 
-> Note
+> Nota
 >
-> The functions inside `react/jsx-runtime` and `react/jsx-dev-runtime` must only be used by the compiler transform. If you need to manually create elements in your code, you should keep using `React.createElement`. It will continue to work and is not going away.
+> Las funciones dentro de `react/jsx-runtime` y `react/jsx-dev-runtime` solo deben ser usadas por la transformación del compilador. Si necesita crear elementos manualmente en su código, debe seguir usando `React.createElement`. Seguirá funcionando y no desaparecerá.
 
-## How to Upgrade to the New JSX Transform {#how-to-upgrade-to-the-new-jsx-transform}
+## Cómo actualizar a la nueva transformación de JSX {#how-to-upgrade-to-the-new-jsx-transform}
 
-If you aren't ready to upgrade to the new JSX transform or if you are using JSX for another library, don't worry. The old transform will not be removed and will continue to be supported.
+Si no está listo para actualizar a la nueva transformación de JSX o si está utilizando JSX para otra biblioteca, no se preocupe. La transformación anterior no se eliminará y seguirá siendo compatible.
 
-If you want to upgrade, you will need two things:
+Si desea actualizar, necesitará dos cosas:
 
-* **A version of React that supports the new transform** (currently, only [React 17 RC](/blog/2020/08/10/react-v17-rc.html) supports it, but after React 17.0 has been released, we plan to make additional compatible releases for 0.14.x, 15.x, and 16.x).
-* **A compatible compiler** (see instructions for different tools below).
+* **Una versión de React que admita la nueva transformación** (actualmente, solo [React 17 RC](/blog/2020/08/10/react-v17-rc.html) lo admite, pero después de que se haya lanzado React 17.0, planeamos hacer versiones compatibles adicionales para 0.14.x, 15.x y 16.x).
+* **Un compilador compatible** (consulte las instrucciones para las diferentes herramientas a continuación).
 
-Since the new JSX transform doesn't require React to be in scope, [we've also prepared an automated script](#removing-unused-react-imports) that will remove the unnecessary imports from your codebase.
+Dado que la nueva transformación de JSX no requiere que React esté dentro del alcance, [también hemos preparado un script automatizado](#removing-unused-react-imports) que eliminará las importaciones innecesarias de su código base.
 
 ### Create React App {#create-react-app}
 
-Create React App support [has been added](https://github.com/facebook/create-react-app/pull/9645) and will be available in the [upcoming v4.0 release](https://gist.github.com/iansu/4fab7a9bfa5fa6ebc87a908c62f5340b) which is currently in beta testing.
+[Se ha agregado](https://github.com/facebook/create-react-app/pull/9645) compatibilidad con Create React Appp y estará disponible en la [próxima versión v4.0](https://gist.github.com/iansu/4fab7a9bfa5fa6ebc87a908c62f5340b) que actualmente se encuentra en prueba beta.
 
 ### Next.js {#nextjs}
 
-Next.js [v9.5.3](https://github.com/vercel/next.js/releases/tag/v9.5.3)+ uses the new transform for compatible React versions.
+Next.js [v9.5.3](https://github.com/vercel/next.js/releases/tag/v9.5.3)+ usa la nueva transformación para versiones compatibles de React.
 
 ### Gatsby {#gatsby}
 
-Gatsby [v2.24.5](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/CHANGELOG.md#22452-2020-08-28)+ uses the new transform for compatible React versions.
+Gatsby [v2.24.5](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/CHANGELOG.md#22452-2020-08-28)+ usa la nueva transformación para versiones compatibles de React.
 
->Note
+>Nota
 >
->If you get [this Gatsby error](https://github.com/gatsbyjs/gatsby/issues/26979) after upgrading to React `17.0.0-rc.2`, run `npm update` to fix it.
+>Si recibe [este error de Gatsby](https://github.com/gatsbyjs/gatsby/issues/26979) después de actualizar a React `17.0.0-rc.2`, ejecute `npm update` para solucionarlo.
 
-### Manual Babel Setup {#manual-babel-setup}
+### Configuración manual de Babel {#manual-babel-setup}
 
-Support for the new JSX transform is available in Babel [v7.9.0](https://babeljs.io/blog/2020/03/16/7.9.0) and above.
+El soporte para la nueva transformación de JSX está disponible en Babel [v7.9.0](https://babeljs.io/blog/2020/03/16/7.9.0) y superior.
 
-First, you'll need to update to the latest Babel and plugin transform.
+Primero, deberá actualizar a la última transformación de Babel y complementos.
 
-If you are using `@babel/plugin-transform-react-jsx`:
+Si está usando `@babel/plugin-transform-react-jsx`:
 
 ```bash
 # for npm users
@@ -131,7 +131,7 @@ npm update @babel/core @babel/plugin-transform-react-jsx
 yarn upgrade @babel/core @babel/plugin-transform-react-jsx
 ```
 
-If you are using `@babel/preset-react`:
+Si está usando `@babel/preset-react`:
 
 ```bash
 # for npm users
@@ -143,7 +143,7 @@ npm update @babel/core @babel/preset-react
 yarn upgrade @babel/core @babel/preset-react
 ```
 
-Currently, the old transform (`"runtime": "classic"`) is the default option. To enable the new transform, you can pass `{"runtime": "automatic"}` as an option to `@babel/plugin-transform-react-jsx` or `@babel/preset-react`:
+Actualmente, la antigua transformación (`"runtime": "classic"`) es la opción predeterminada. Para habilitar la nueva transformación, puede pasar `{"runtime": "automatic"}` como una opción a `@babel/plugin-transform-react-jsx` o `@babel/preset-react`:
 
 ```js
 // If you are using @babel/preset-react
@@ -167,15 +167,15 @@ Currently, the old transform (`"runtime": "classic"`) is the default option. To 
 }
 ```
 
-Starting from Babel 8, `"automatic"` will be the default runtime for both plugins. For more information, check out the Babel documentation for [@babel/plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx) and [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react).
+A partir de Babel 8, `"automatic"` será el tiempo de ejecución para ambos complementos. Para obtener más información, consulte la documentación de Babel para [@babel/plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx) y [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react).
 
-> Note
+> Nota
 >
-> If you use JSX with a library other than React, you can use [the `importSource` option](https://babeljs.io/docs/en/babel-preset-react#importsource) to import from that library instead -- as long as it provides the necessary entry points. Alternatively, you can keep using the classic transform which will continue to be supported.
+> Si usa JSX con una biblioteca que no sea React, puede usar [la opción `importSource`](https://babeljs.io/docs/en/babel-preset-react#importsource) para importar desde esa biblioteca -- siempre que proporcione los puntos de entrada necesarios. Alternativamente, puede seguir usando la transformación clásica que seguirá siendo compatible.
 
 ### ESLint {#eslint}
 
-If you are using [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react), the `react/jsx-uses-react` and `react/react-in-jsx-scope` rules are no longer necessary and can be turned off or removed.
+Si está utilizando [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react), las reglas `react/jsx-uses-react` y `react/react-in-jsx-scope` ya no son necesarias y se pueden desactivar o eliminar.
 
 ```js
 {
@@ -190,34 +190,34 @@ If you are using [eslint-plugin-react](https://github.com/yannickcr/eslint-plugi
 
 ### TypeScript {#typescript}
 
-TypeScript supports the JSX transform in [v4.1 beta](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories).
+TypeScript adminte la transformación de JSX en [v4.1 beta](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories).
 
 ### Flow {#flow}
 
-Flow supports the new JSX transform in [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) and up.
+Flow admite la transformación de JSX en [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) y posteriores.
 
-## Removing Unused React Imports {#removing-unused-react-imports}
+## Eliminación de importaciones React no utilizadas {#removing-unused-react-imports}
 
-Because the new JSX transform will automatically import the necessary `react/jsx-runtime` functions, React will no longer need to be in scope when you use JSX. This might lead to unused React imports in your code. It doesn't hurt to keep them, but if you'd like to remove them, we recommend running a [“codemod”](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) script to remove them automatically:
+Debido a que la nueva transformación de JSX importará automáticamente las funciones `react/jsx-runtime` necesarias, React no necesitará estar dentro del alcance cuando use JSX. Esto podría dar lugar a importaciones de React no utilizadas en su código. No está de más conservarlos, pero si desea eliminarlos, le recomendamos que ejecute un script [“codemod”](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) para eliminarlos automáticamente:
 
 ```bash
 cd your_project
 npx react-codemod update-react-imports
 ```
 
->Note
+>Nota
 >
->If you're getting errors when running the codemod, try specifying a different JavaScript dialect when `npx react-codemod update-react-imports` asks you to choose one. In particular, at this moment the "JavaScript with Flow" setting supports newer syntax than the "JavaScript" setting even if you don't use Flow. [File an issue](https://github.com/reactjs/react-codemod/issues) if you run into problems.
+>Si recibe errores al ejecutar el codificador, intente especificar un dialecto de JavaScript diferente cuando `npx react-codemod update-react-imports` le pida que elija uno. En particular, en este momento, la configuración "JavaScript con Flow" admite una sintaxis más nueva que la configuración de "JavaScript", incluso si no usa Flow. [Incluye un issue](https://github.com/reactjs/react-codemod/issues) si tienes problemas.
 >
->Keep in mind that the codemod output will not always match your project's coding style, so you might want to run [Prettier](https://prettier.io/) after the codemod finishes for consistent formatting.
+>Tenga en cuenta que la salida de codificación no siempre coincidirá con el estilo de codificación de su proyecto, por lo que es posible que desee ejecutar [Prettier](https://prettier.io/) después de que finalice la codificación para lograr un formateo coherente.
 
 
-Running this codemod will:
+Ejecutar este codificador:
 
-* Remove all unused React imports as a result of upgrading to the new JSX transform.
-* Change all default React imports (i.e. `import React from "react"`) to destructured named imports (ex. `import { useState } from "react"`) which is the preferred style going into the future. This codemod **will not** affect the existing namespace imports (i.e. `import * as React from "react"`) which is also a valid style. The default imports will keep working in React 17, but in the longer term we encourage moving away from them.
+* Elimine todas las importaciones de React no utilizadas como resultado de la actualización a la nueva transformación JSX.
+* Cambie todas las importaciones de React predeterminadas (es decir `import React from "react"`) a importaciones con nombre desestructuradas (ej. `import { useState } from "react"`), que será el estilo preferido en el futuro. Este código codificado **no** afectará las importaciones de namespaces existentes (es decir `import * as React from "react"`) que también es un estilo válido. Las importaciones predeterminadas seguirán funcionando en React 17, pero a largo plazo recomendamos alejarse de ellas.
 
-For example,
+Por ejemplo,
 
 ```js
 import React from 'react';
@@ -227,7 +227,7 @@ function App() {
 }
 ```
 
-will be replaced with
+será reemplazado con
 
 ```js
 function App() {
@@ -235,9 +235,9 @@ function App() {
 }
 ```
 
-If you use some other import from React — for example, a Hook — then the codemod will convert it to a named import.
+Si usa alguna otra importación de React, por ejemplo, un Hook, entonces el codificador lo convertirá en una importación con nombre.
 
-For example,
+por ejemplo,
 
 ```js
 import React from 'react';
@@ -248,7 +248,7 @@ function App() {
 }
 ```
 
-will be replaced with
+será reemplazado con
 
 ```js
 import { useState } from 'react';
@@ -259,8 +259,8 @@ function App() {
 }
 ```
 
-In addition to cleaning up unused imports, this will also help you prepare for a future major version of React (not React 17) which will support ES Modules and not have a default export.
+Además de limpiar las importaciones no utilizadas, esto también lo ayudará a prepararse para una futura versión principal de React (no React 17) que admitirá los módulos ES y no tendrá una exportación predeterminada.
 
-## Thanks {#thanks}
+## Gracias {#thanks}
 
-We'd like to thank Babel, TypeScript, Create React App, Next.js, Gatsby, ESLint, and Flow maintainers for their help implementing and integrating the new JSX transform. We also want to thank the React community for their feedback and discussion on the related [technical RFC](https://github.com/reactjs/rfcs/pull/107).
+Nos gustaría agradecer a los mantenedores de Babel, TypeScript, Create React App, Next.js, Gatsby, ESLint y Flow por su ayuda para implementar e integrar la nueva transformación de JSX. También queremos agradecer a la comunidad React por sus comentarios y discusiones sobre el [RFC técnico](https://github.com/reactjs/rfcs/pull/107) relacionado.
