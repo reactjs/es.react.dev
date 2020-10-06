@@ -318,7 +318,7 @@ function getDisplayName(WrappedComponent) {
 
 Los componentes de orden superior vienen con algunas consideraciones que no son obvias inmediatamente si eres nuevo en React.
 
-### No uses *HOCs* dentro del método *render* 
+### No uses *HOCs* dentro del método *render*
 
 El algoritmo de detección de diferencias de React (llamado reconciliación) utiliza la identidad del componente para determinar si debe actualizar el subárbol existente o desecharlo y montar uno nuevo. Si el componente devuelto por `render` es idéntico (`===`) al componente de la llamada a `render` previa, React actualiza el subárbol calculando las diferencias con el nuevo. Si no son iguales, el subárbol anterior es desmontado completamente.
 
@@ -340,7 +340,7 @@ En su lugar, aplica los *HOCs* por fuera de la definición del componente de man
 
 En aquellos casos extraños donde necesites aplicar un *HOC* de forma dinámica, también puedes hacerlo en los métodos del ciclo de vida, o en su constructor.
 
-### Los métodos estáticos deben ser copiados 
+### Los métodos estáticos deben ser copiados
 
 A veces resulta útil definir un método estático en un componente React. Por ejemplo, los contenedores de *Relay* exponen el método estático `getFragment` para facilitar la composición de fragmentos *GraphQL*.
 
