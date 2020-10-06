@@ -50,7 +50,7 @@ permalink: community/meetups.html
 
 ## Colombia {#colombia}
 * [Bogotá](https://www.meetup.com/meetup-group-iHIeHykY/)
-* [Medellin](https://www.meetup.com/React-Medellin/)
+* [Medellín](https://www.meetup.com/React-Medellin/)
 * [Cali](https://www.meetup.com/reactcali/)
 
 ## Dinamarca {#denmark}
