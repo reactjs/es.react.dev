@@ -149,7 +149,7 @@ permalink: community/meetups.html
 ## Suiza {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
-## Turkey {#turkey}
+## Turquía {#turkey}
 * [Estambul](https://kommunity.com/reactjs-istanbul)
 
 ## Ucrania {#ukraine}
