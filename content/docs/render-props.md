@@ -18,7 +18,7 @@ Algunas bibliotecas que utilizan `render props` son [React Router](https://react
 
 En este documento, discutiremos por qué las `render props` son útiles y cómo escribir las tuyas.
 
-## Usa Render Props para preocupaciones transversales {#usa-render-props-para-preocupaciones-transversales}
+## Usa Render Props para preocupaciones transversales 
 
 Los componentes son la unidad primaria de reutilización de código en React, pero no siempre es obvio cómo compartir el estado o el comportamiento que un componente encapsula en otros componentes que necesitan ese mismo estado.
 
