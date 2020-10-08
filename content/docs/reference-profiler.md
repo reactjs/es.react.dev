@@ -48,13 +48,8 @@ render(
 );
 ```
 
-<<<<<<< HEAD
 Los componentes `Profiler` también se pueden anidar para medir diferentes componentes dentro del mismo subárbol:
-```js{2,6,8}
-=======
-`Profiler` components can also be nested to measure different components within the same subtree:
 ```js{3,5,8}
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 render(
   <App>
     <Profiler id="Panel" onRender={callback}>
