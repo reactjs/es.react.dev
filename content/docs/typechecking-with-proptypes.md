@@ -30,7 +30,7 @@ Greeting.propTypes = {
 };
 ```
 
-En este ejemplo, estamos usando un componente de clase, pero la misma funcionalidad también se podría aplicar a componentes de función, o componentes creados por [`React.memo`](https://es.reactjs.org/docs/react-api.html#reactmemo) o [`React.forwardRef`](https://es.reactjs.org/docs/react-api.html#reactforwardref).
+En este ejemplo, estamos usando un componente de clase, pero la misma funcionalidad también se podría aplicar a componentes de función, o componentes creados por [`React.memo`](/docs/react-api.html#reactmemo) o [`React.forwardRef`](/docs/react-api.html#reactforwardref).
 
 `PropTypes` exporta un rango de validadores que pueden ser usados para estar seguros que la información recibida sea válida. En este ejemplo, usamos `PropTypes.string`. Cuando un valor inválido se asigna a una prop, se muestra una advertencia en la consola de Javascript. Por razones de desempeño, `PropTypes` solo se verifica en modo desarrollo.
 

@@ -23,4 +23,4 @@ Podcasts dedicados a React y episodios individuales de podcast con discusiones d
 - [CodeWinds Episode 4](https://codewinds.com/podcast/004.html) - Pete Hunt habla con Jeff Barczewski acerca de React.
 
 
-- [JavaScript Jabber 73](https://devchat.tv/js-jabber/073-jsj-react-with-pete-hunt-and-jordan-walke) - Pete Hunt and Jordan Walke hablan de React.
+- [JavaScript Jabber 73](https://devchat.tv/js-jabber/073-jsj-react-with-pete-hunt-and-jordan-walke) - Pete Hunt y Jordan Walke hablan de React.
