@@ -11,7 +11,7 @@ Este año estamos emocionados de traer de vuelta la beca, pero hemos reservado *
 
 Esto es algo de lo que personalmente estoy muy emocionado de ser parte. Sé que el resto del equipo también lo está. Estamos muy orgullosos de que todos en Facebook brinden apoyo y financiamiento para esto.
 
-Los detalles de la beca se proporcionan a continuación (o puede [ir directamente a la solicitud] (http://goo.gl/forms/PEmKj8oUp4)). ¡Te animo a postularte! Si crees que no eres elegible, aún puedes ayudar: envía esto a amigos, familiares, compañeros de trabajo, conocidos o cualquier persona que pueda estar interesada. E incluso si no has hablado antes, considera [enviar una propuesta para una charla] (http://conf.reactjs.com/) (ya sea 30 minutos o solo 5 minutos); esperamos tener un muy diverso grupo de disertantes además de asistentes.
+Los detalles de la beca se proporcionan a continuación (o puedes [ir directamente a la solicitud] (http://goo.gl/forms/PEmKj8oUp4)). ¡Te animo a postularte! Si crees que no eres elegible, aún puedes ayudar: envía esto a amigos, familiares, compañeros de trabajo, conocidos o cualquier persona que pueda estar interesada. E incluso si no has hablado antes, considera [enviar una propuesta para una charla] (http://conf.reactjs.com/) (ya sea 30 minutos o solo 5 minutos); esperamos tener un muy diverso grupo de disertantes además de asistentes.
 
 
 - - -
@@ -20,11 +20,11 @@ Los detalles de la beca se proporcionan a continuación (o puede [ir directament
 
 A partir de hoy, aquellos que estudian o trabajan en ciencias de la computación o un campo relacionado pueden solicitar una beca parcial para asistir a la React.js Conf en San Francisco, CA, el 22 y 23 de febrero de 2016.
 
-React abre un mundo de nuevas posibilidades, como la renderizado del lado del servidor, actualizaciones en tiempo real, diferentes objetivos de renderizado como SVG y canvas. React Native facilita el uso de los mismos conceptos y tecnologías para crear experiencias móviles nativas en iOS y Android. ¡Únete a nosotros en React.js Conf para dar forma al futuro de las aplicaciones del lado del cliente! Para obtener más información sobre la conferencia React.js, consulte [el sitio web] (http://conf.reactjs.com/).
+React abre un mundo de nuevas posibilidades, como el renderizado del lado del servidor, actualizaciones en tiempo real, diferentes objetivos de renderizado como SVG y canvas. React Native facilita el uso de los mismos conceptos y tecnologías para crear experiencias móviles nativas en iOS y Android. ¡Únete a nosotros en React.js Conf para dar forma al futuro de las aplicaciones del lado del cliente! Para obtener más información sobre la conferencia React.js, consulta [el sitio web] (http://conf.reactjs.com/).
 
 En Facebook, creemos que cualquier persona en cualquier lugar puede tener un impacto positivo al desarrollar productos para hacer que el mundo sea más abierto y conectado con las personas y las cosas que les importan. Dadas las realidades actuales de la industria de la tecnología y la falta de representación de las comunidades a las que buscamos servir, a los aplicantes actualmente subrepresentados en ciencias de la computación y campos relacionados se les recomienda encarecidamente aplicar. Facebook tomará decisiones sobre los beneficiarios de las becas a su exclusivo criterio. Facebook cumple con todas las leyes de igualdad de oportunidades.
 
-Para solicitar la beca, visite la página de solicitud: **<http://goo.gl/forms/PEmKj8oUp4>**
+Para solicitar la beca, visita la página de solicitud: **<http://goo.gl/forms/PEmKj8oUp4>**
 
 ## El premio incluye {#award-includes}
 
@@ -39,7 +39,7 @@ Para solicitar la beca, visite la página de solicitud: **<http://goo.gl/forms/P
 
 ## Elegibilidad {#eligibility}
 
-* Debe estar estudiando o trabajando actualmente en Ciencias de la Computación o un campo relacionado
-* Los solicitantes internacionales son bienvenidos, pero usted será responsable de obtener su propia visa para asistir a la conferencia.
-* Debe poder proporcionar su propio transporte a San Francisco
+* Debes estar estudiando o trabajando actualmente en Ciencias de la Computación o un campo relacionado
+* Los solicitantes internacionales son bienvenidos, pero serás responsable de obtener tu propia visa para asistir a la conferencia.
+* Debes poder proporcionar tu propio transporte a San Francisco
 * Debes estar disponible para asistir a la duración completa de React.js Conf el 22 y 23 de febrero en San Francisco, CA
