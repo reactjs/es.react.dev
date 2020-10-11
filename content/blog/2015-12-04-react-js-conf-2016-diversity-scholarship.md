@@ -1,45 +1,45 @@
 ---
-title: React.js Conf 2016 Diversity Scholarship
+title: Beca de diversidad de React.js Conf 2016
 author: [zpao]
 ---
 
-I am thrilled to announced that we will be organizing another diversity scholarship program for the upcoming React.js Conf! The tech industry is suffering from a lack of diversity, but it's important to us that we have a thriving community that is made up of people with a variety of experiences and viewpoints.
+¡Estoy encantado de anunciar que estaremos organizando otro programa de becas de diversidad para la próxima React.js Conf! La industria de la tecnología sufre de falta de diversidad, pero es importante para nosotros que tengamos una comunidad próspera formada por personas con una variedad de experiencias y puntos de vista.
 
-When we ran this program last year, we had *over 200* people apply for only 10 tickets. There were so many people that we wanted to bring in but we couldn't. The results were still awesome, and we had bright individuals from around the world attending who would have otherwise been unable to. These attendees took part in discussions at the conference and brought perspectives that we might not have otherwise seen there.
+Cuando ejecutamos este programa el año pasado, teníamos *más de 200* personas que solicitaron para solo 10 boletos. Había tanta gente que queríamos traer pero no pudimos. Los resultados aún fueron asombrosos, y asistieron personas brillantes de todo el mundo que de otra manera no hubieran podido hacerlo. Estos asistentes participaron en los debates de la conferencia y aportaron perspectivas que de otro modo no hubiéramos visto allí.
 
-This year we're excited to bring back the scholarship, but we've set aside **40 tickets** because we really believe that it's important to do our best to make sure we have an even more diverse audience.
+Este año estamos emocionados de traer de vuelta la beca, pero hemos reservado **40 boletos** porque realmente creemos que es importante hacer nuestro mejor esfuerzo para asegurarnos de tener una audiencia aún más diversa.
 
-This is something I'm personally really excited to be a part of. I know the rest of the team is as well. We're really proud to have everyone at Facebook providing support and funding for this.
+Esto es algo de lo que personalmente estoy muy emocionado de ser parte. Sé que el resto del equipo también lo está. Estamos muy orgullosos de que todos en Facebook brinden apoyo y financiamiento para esto.
 
-The details of the scholarship are provided below (or you can [go directly to the application](http://goo.gl/forms/PEmKj8oUp4)). I encourage you to apply! If you don't feel like you are eligible yourself, you can still help – send this along to friends, family, coworkers, acquaintances, or anybody who might be interested. And even if you haven't spoken before, please consider [submitting a proposal for a talk](http://conf.reactjs.com/) (either 30 minutes or just 5 minutes) - we're hoping to have a very diverse group of speakers in addition to attendees.
+Los detalles de la beca se proporcionan a continuación (o puedes [ir directamente a la solicitud] (http://goo.gl/forms/PEmKj8oUp4)). ¡Te animo a postularte! Si crees que no eres elegible, aún puedes ayudar: envía esto a amigos, familiares, compañeros de trabajo, conocidos o cualquier persona que pueda estar interesada. E incluso si no has hablado antes, considera [enviar una propuesta para una charla] (http://conf.reactjs.com/) (ya sea 30 minutos o solo 5 minutos); esperamos tener un muy diverso grupo de disertantes además de asistentes.
 
 
 - - -
 
-Facebook is excited to announce that we are now accepting applications for the React.js Conf Diversity Scholarship!
+¡Facebook se complace en anunciar que ahora estamos aceptando solicitudes para la Beca de diversidad de React.js Conf!
 
-Beginning today, those studying or working in computer science or a related field can apply for a partial scholarship to attend the React.js Conf in San Francisco, CA on February 22 & 23, 2016.
+A partir de hoy, aquellos que estudian o trabajan en ciencias de la computación o un campo relacionado pueden solicitar una beca parcial para asistir a la React.js Conf en San Francisco, CA, el 22 y 23 de febrero de 2016.
 
-React opens a world of new possibilities such as server-side rendering, real-time updates, different rendering targets like SVG and canvas. React Native makes is easy to use the same concepts and technologies to build native mobile experiences on iOS and Android. Join us at React.js Conf to shape the future of client-side applications! For more information about the React.js conference, please see [the website](http://conf.reactjs.com/).
+React abre un mundo de nuevas posibilidades, como el renderizado del lado del servidor, actualizaciones en tiempo real, diferentes objetivos de renderizado como SVG y canvas. React Native facilita el uso de los mismos conceptos y tecnologías para crear experiencias móviles nativas en iOS y Android. ¡Únete a nosotros en React.js Conf para dar forma al futuro de las aplicaciones del lado del cliente! Para obtener más información sobre la conferencia React.js, consulta [el sitio web] (http://conf.reactjs.com/).
 
-At Facebook, we believe that anyone anywhere can make a positive impact by developing products to make the world more open and connected to the people and things they care about. Given the current realities of the tech industry and the lack of representation of communities we seek to serve, applicants currently under-represented in Computer Science and related fields are strongly encouraged to apply. Facebook will make determinations on scholarship recipients in its sole discretion. Facebook complies with all equal opportunity laws.
+En Facebook, creemos que cualquier persona en cualquier lugar puede tener un impacto positivo al desarrollar productos para hacer que el mundo sea más abierto y conectado con las personas y las cosas que les importan. Dadas las realidades actuales de la industria de la tecnología y la falta de representación de las comunidades a las que buscamos servir, a los aplicantes actualmente subrepresentados en ciencias de la computación y campos relacionados se les recomienda encarecidamente aplicar. Facebook tomará decisiones sobre los beneficiarios de las becas a su exclusivo criterio. Facebook cumple con todas las leyes de igualdad de oportunidades.
 
-To apply for the scholarship, please visit the application page: **<http://goo.gl/forms/PEmKj8oUp4>**
+Para solicitar la beca, visita la página de solicitud: **<http://goo.gl/forms/PEmKj8oUp4>**
 
-## Award Includes {#award-includes}
+## El premio incluye {#award-includes}
 
-* Paid registration fee for the React.js Conf February 22 & 23 in downtown San Francisco, CA
-* Paid lodging expenses for February 21, 22, 23
+* Tarifa de registro pagada para React.js Conf para el 22 y 23 de febrero en el centro de San Francisco, CA
+* Gastos de hospedaje pagados los días 21, 22, 23 de febrero
 
-## Important Dates {#important-dates}
+## Fechas importantes {#important-dates}
 
-* Sunday December 13th 2015 - 11:59 PST: Applications for the React.js Conf Scholarship must be submitted in full
-* Wednesday, December 16th, 2015: Award recipients will be notified by email of their acceptance
-* Monday & Tuesday, February 22 & 23, 2016: React.js Conf
+* Domingo 13 de diciembre de 2015 - 11:59 PST: las solicitudes para la beca React.js Conf deben enviarse en su totalidad
+* Miércoles 16 de diciembre de 2015: Los ganadores del premio serán notificados por correo electrónico de su aceptación.
+* Lunes y martes, 22 y 23 de febrero de 2016: React.js Conf
 
-## Eligibility {#eligibility}
+## Elegibilidad {#eligibility}
 
-* Must currently be studying or working in Computer Science or a related field
-* International applicants are welcome, but you will be responsible for securing your own visa to attend the conference
-* You must be able to provide your own transportation to San Francisco
-* You must be available to attend the full duration of React.js Conf on February 22 & 23 in San Francisco, CA
+* Debes estar estudiando o trabajando actualmente en Ciencias de la Computación o un campo relacionado
+* Los solicitantes internacionales son bienvenidos, pero serás responsable de obtener tu propia visa para asistir a la conferencia.
+* Debes poder proporcionar tu propio transporte a San Francisco
+* Debes estar disponible para asistir a la duración completa de React.js Conf el 22 y 23 de febrero en San Francisco, CA
