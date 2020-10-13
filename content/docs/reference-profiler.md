@@ -49,7 +49,7 @@ render(
 ```
 
 Los componentes `Profiler` también se pueden anidar para medir diferentes componentes dentro del mismo subárbol:
-```js{2,6,8}
+```js{3,5,8}
 render(
   <App>
     <Profiler id="Panel" onRender={callback}>

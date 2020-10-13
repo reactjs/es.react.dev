@@ -38,7 +38,7 @@ El único método que *debes* definir en una subclase de `React.Component` es [`
 
 ### El ciclo de vida del componente {#the-component-lifecycle}
 
-Cada componente tiene varios "métodos de ciclo de vida" que puedes sobrescribir para ejecutar código en momentos particulares del proceso. **Puedes usar [este diagrama de ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) como una hoja de referencia.** En la lista de abajo, los métodos de ciclo de vida comúnmente usados están marcados en **negrita**. El resto de ellos existen para casos de uso relativamente raros.
+Cada componente tiene varios "métodos de ciclo de vida" que puedes sobrescribir para ejecutar código en momentos particulares del proceso. **Puedes usar [este diagrama de ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) como una hoja de referencia.** En la lista de abajo, los métodos de ciclo de vida comúnmente usados están marcados en **negrita**. El resto de ellos existen para casos de uso relativamente raros.
 
 #### Montaje {#mounting}
 
@@ -108,7 +108,7 @@ Cada componente también proporciona algunas otras APIs:
 
 ### Funciones del ciclo de vida usadas comúnmente {#commonly-used-lifecycle-methods}
 
-Los métodos que verás en esta sección cubren la gran mayoría de casos de uso que encontrarás cuando crees componentes en React. **Para una referencia visual, revisa [este diagrama de los ciclos de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
+Los métodos que verás en esta sección cubren la gran mayoría de casos de uso que encontrarás cuando crees componentes en React. **Para una referencia visual, revisa [este diagrama de los ciclos de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
 
@@ -244,7 +244,7 @@ componentWillUnmount()
 
 ### Métodos de ciclo de vida raramente utilizados {#rarely-used-lifecycle-methods}
 
-Los métodos de esta sección corresponden a casos de uso poco común. Son útiles alguna vez, pero la mayoría de sus componentes probablemente no necesitan ninguno de ellos. **Puedes ver la mayoría de los métodos a continuación en [este diagrama de ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) si haces clic en la casilla de verificación "Mostrar ciclos de vida menos comunes" en la parte superior de él.**
+Los métodos de esta sección corresponden a casos de uso poco común. Son útiles alguna vez, pero la mayoría de sus componentes probablemente no necesitan ninguno de ellos. **Puedes ver la mayoría de los métodos a continuación en [este diagrama de ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) si haces clic en la casilla de verificación "Mostrar ciclos de vida menos comunes" en la parte superior de él.**
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
 

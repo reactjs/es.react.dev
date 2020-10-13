@@ -92,7 +92,7 @@ Tenemos un chiste interno en el equipo de React acerca de que debería haberse l
 
 Proveer una buena experiencia de desarrollador es importante para nosotros.
 
-Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
+Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
 
 También tratamos de dar un extra para proveer advertencias útiles a los desarrolladores. Por ejemplo, React te advierte en desarrollo si anidas etiquetas de una forma que el navegador no las entiende, o si cometes un error de transcripción en la API. Las advertencias a desarrolladores y los chequeos relacionados son la razón principal por la que la versión de desarrollo de React es más lenta que la versión de producción.
 
