@@ -67,7 +67,7 @@ Hay muchos puntos débiles asociados con el anidamiento profundo de directorios 
 
 #### No lo pienses demasiado {#avoid-too-much-nesting}
 
-Si estás comenzando un proyecto, [no gastes más de cinco minutos] (https://es.wikipedia.org/wiki/Par%C3%A1lisis_del_an%C3%A1lisis) en elegir una estructura de archivos. ¡Elige cualquiera de los enfoques anteriores (o crea uno propio) y comienza a escribir código! Probablemente querrás volver a pensarlo de todos modos después de haber escrito código real.
+Si estás comenzando un proyecto, [no gastes más de cinco minutos](https://es.wikipedia.org/wiki/Par%C3%A1lisis_del_an%C3%A1lisis) en elegir una estructura de archivos. ¡Elige cualquiera de los enfoques anteriores (o crea uno propio) y comienza a escribir código! Probablemente querrás volver a pensarlo de todos modos después de haber escrito código real.
 
 Si te sientes completamente atascado, comienza por mantener todos los archivos en una sola carpeta. Eventualmente crecerá lo suficiente como para que quieras separar algunos archivos del resto. Para ese momento, tendrás suficiente conocimientos para saber qué archivos editas juntos con mayor frecuencia. En general, es una buena idea mantener los archivos que a menudo cambian juntos cerca unos de otros. Este principio se llama "colocación".
 
