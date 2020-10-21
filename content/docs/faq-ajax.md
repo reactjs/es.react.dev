@@ -100,7 +100,7 @@ function MyComponent() {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result.items);
+          setItems(result);
         },
         // Nota: es importante manejar errores aquí y no en 
         // un bloque catch() para que no interceptemos errores

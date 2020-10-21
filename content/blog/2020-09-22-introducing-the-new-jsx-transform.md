@@ -20,7 +20,7 @@ La actualización a la nueva transformación es opcional, pero tiene algunos ben
 **Esta actualización no cambiará la sintaxis de JSX y no es obligatoria.** La antigua transformación de JSX seguirá funcionando como de costumbre y no hay planes para quitarle el soporte.
 
 
-[React 17 RC](/blog/2020/08/10/react-v17-rc.html) ya incluye soporte para la nueva transformación, ¡así que pruébalo! Para que sea más fácil de adoptar, después del lanzamiento de React 17, también planeamos extender su soporte a React 16.x, React 15.x, y React 0.14.x. Puedes encontrar las instrucciones de actualización para diferentes herramientas a [continuación](#how-to-upgrade-to-the-new-jsx-transform).
+[React 17 RC](/blog/2020/08/10/react-v17-rc.html) ya permite utilizar la nueva transformación, ¡así que pruébalo! Para que sea más fácil de adoptar, **también lo hemos extendido** a React 16.14.0, React 15.7.0, y React 0.14.10. Puedes encontrar las instrucciones de actualización para diferentes herramientas a [continuación](#how-to-upgrade-to-the-new-jsx-transform).
 
 Ahora echemos un vistazo más de cerca a las diferencias entre la transformación antigua y la nueva.
 
@@ -92,7 +92,7 @@ Si no estás listo para actualizar a la nueva transformación de JSX o si estás
 
 Si deseas actualizar, necesitarás dos cosas:
 
-* **Una versión de React que admita la nueva transformación** (actualmente, solo [React 17 RC](/blog/2020/08/10/react-v17-rc.html) lo admite, pero después de que se haya lanzado React 17.0, planeamos hacer versiones compatibles adicionales para 0.14.x, 15.x y 16.x).
+* **Una versión de React que admita la nueva transformación** ([React 17 RC](/blog/2020/08/10/react-v17-rc.html) y superior lo admite, pero también hemos publicado React 16.14.0, React 15.7.0, and React 0.14.10 para las personas que aún utilizan versiones mayores anteriores).
 * **Un compilador compatible** (consulta las instrucciones para las diferentes herramientas a continuación).
 
 Dado que la nueva transformación de JSX no requiere que React esté dentro del alcance, [también hemos preparado un script automatizado](#removing-unused-react-imports) que eliminará las importaciones innecesarias de tu código base.
@@ -111,7 +111,7 @@ Gatsby [v2.24.5](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/
 
 >Nota
 >
->Si recibes [este error de Gatsby](https://github.com/gatsbyjs/gatsby/issues/26979) después de actualizar a React `17.0.0-rc.2`, ejecuta `npm update` para solucionarlo.
+>Si recibes [este error de Gatsby](https://github.com/gatsbyjs/gatsby/issues/26979) después de actualizar a React 17 RC, ejecuta `npm update` para solucionarlo.
 
 ### Configuración manual de Babel {#manual-babel-setup}
 
@@ -172,6 +172,8 @@ A partir de Babel 8, `"automatic"` será el tiempo de ejecución para ambos comp
 > Nota
 >
 > Si usas JSX con una biblioteca que no sea React, puedes usar [la opción `importSource`](https://babeljs.io/docs/en/babel-preset-react#importsource) para importar desde esa biblioteca -- siempre que proporcione los puntos de entrada necesarios. Alternativamente, puedes seguir usando la transformación clásica que seguirá siendo compatible.
+>
+> Si eres autor de una biblioteca y estás implementando el punto de entrad `/jsx-runtime` para ella, ten en cuenta que [hay un caso](https://github.com/facebook/react/issues/20031#issuecomment-710346866) en el que incluso la nueva transformación tiene que recurrir a `createElement` por motivos de retrocompatibilidad. En este caso, autoimportará `createElement` directamente del punto de entrada *raíz* especificado por `importSource`.
 
 ### ESLint {#eslint}
 

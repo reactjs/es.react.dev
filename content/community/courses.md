@@ -51,3 +51,5 @@ permalink: community/courses.html
 - [React Tutorial](https://react-tutorial.app) - Aprende React paso a paso en un entorno interactivo con flashcards.
 
 - [Road to React](https://www.roadtoreact.com/) - Tu viaje hacia el dominio de React en JavaScript.
+
+- [Epic React](https://epicreact.dev/) - Publica con confianza aplicaciones bien diseñadas y listas para producción como un pro.
