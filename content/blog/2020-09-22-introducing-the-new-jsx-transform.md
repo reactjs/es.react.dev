@@ -207,15 +207,15 @@ npx react-codemod update-react-imports
 
 >Nota
 >
->Si recibes errores al ejecutar el codemon, intenta especificar un dialecto de JavaScript diferente cuando `npx react-codemod update-react-imports` te pida que elijas uno. En particular, en este momento, la configuración "JavaScript con Flow" admite una sintaxis más nueva que la configuración de "JavaScript", incluso si no usas Flow. [Crea un _issue_](https://github.com/reactjs/react-codemod/issues) si tienes problemas.
+>Si recibes errores al ejecutar el codemod, intenta especificar un dialecto de JavaScript diferente cuando `npx react-codemod update-react-imports` te pida que elijas uno. En particular, en este momento, la configuración "JavaScript con Flow" admite una sintaxis más nueva que la configuración de "JavaScript", incluso si no usas Flow. [Crea un _issue_](https://github.com/reactjs/react-codemod/issues) si tienes problemas.
 >
 >Ten en cuenta que la salida de codificación no siempre coincidirá con el estilo de codificación de tu proyecto, por lo que es posible que desees ejecutar [Prettier](https://prettier.io/) después de que finalice la codificación para lograr un formateo coherente.
 
 
-Ejecutar este codemon:
+Ejecutar este codemod:
 
 * Eliminará todas las importaciones de React no utilizadas como resultado de la actualización a la nueva transformación JSX.
-* Cambiará todas las importaciones de React predeterminadas (es decir `import React from "react"`) a importaciones con nombre desestructuradas (ej. `import { useState } from "react"`), que será el estilo preferido en el futuro. Este codemon **no** afectará las importaciones de espacios de nombre existentes (es decir `import * as React from "react"`) que también es un estilo válido. Las importaciones predeterminadas seguirán funcionando en React 17, pero a largo plazo recomendamos alejarse de ellas.
+* Cambiará todas las importaciones de React predeterminadas (es decir `import React from "react"`) a importaciones con nombre desestructuradas (ej. `import { useState } from "react"`), que será el estilo preferido en el futuro. Este codemod **no** afectará las importaciones de espacios de nombre existentes (es decir `import * as React from "react"`) que también es un estilo válido. Las importaciones predeterminadas seguirán funcionando en React 17, pero a largo plazo recomendamos alejarse de ellas.
 
 Por ejemplo,
 
