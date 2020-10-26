@@ -52,10 +52,17 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
 ```html{5,6,9}
   <!-- ... más HTML ... -->
 
+<<<<<<< HEAD
   <!-- Cargar React. -->
   <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+=======
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
   <!-- Cargamos nuestro componente de React. -->
   <script src="like_button.js"></script>
@@ -84,7 +91,11 @@ const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 ```
 
+<<<<<<< HEAD
 Estas dos lineas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
+=======
+These two lines of code find the `<div>` we added to our HTML in the first step, and then display our "Like" button React component inside of it.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 ### ¡Eso es todo! {#thats-it}
 
@@ -115,8 +126,8 @@ Antes de desplegar tu sitio web a producción, debes ser consciente que no compa
 Si ya has compactado los scripts de tu aplicación, **tu sitio estará listo para producción** si aseguras que el HTML desplegado carga las versiones de React finalizadas en `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Si no tienes un paso para compactar tus scripts, [aquí hay una forma en que puedes establecerlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).

@@ -43,8 +43,8 @@ Recuerda que esto es solo una necesidad antes de desplegar a producción. Para e
 Ofrecemos versiones listas para producción de React y React DOM como un solo archivo:
 
 ```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
 Recuerda que solo los archivos de React que terminan con `production.min.js` son apropiados para producción.
@@ -75,11 +75,19 @@ Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no d
 Para el compilado de producción con Browserify más eficiente, instala estos plugins:
 
 ```
+<<<<<<< HEAD
 # Si usas npm
 npm install --save-dev envify terser uglifyify
 
 # Si usas Yarn
 yarn add --dev envify terser uglifyify  
+=======
+# If you use npm
+npm install --save-dev envify terser uglifyify
+
+# If you use Yarn
+yarn add --dev envify terser uglifyify
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 ```
 
 Para crear un compilado de producción, asegúrate de agregar estas transformaciones **(El orden es importante)**:
@@ -380,6 +388,12 @@ function updateColorMap(colormap) {
 }
 ```
 
+<<<<<<< HEAD
 Si estás utilizando *Create React App*, tanto `Object.assign` y *la sintaxis de propagación en objetos* están disponibles por defecto.
+=======
+This feature was added to JavaScript in ES2018.
+
+If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 Cuando te encuentras ante objetos anidados, actualizarlos de manera inmutable puede sentirse complicado. Si te ves ante este problema, échale un vistazo a [Immer](https://github.com/mweststrate/immer) o [immutability-helper](https://github.com/kolodny/immutability-helper). Estas bibliotecas te permiten escribir código altamente legible sin perder los beneficios de la inmutabilidad.
