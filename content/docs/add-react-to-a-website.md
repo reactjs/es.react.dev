@@ -54,8 +54,8 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
 
   <!-- Cargar React. -->
   <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Cargamos nuestro componente de React. -->
   <script src="like_button.js"></script>
@@ -84,7 +84,7 @@ const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 ```
 
-Estas dos lineas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
+Estas dos líneas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
 
 ### ¡Eso es todo! {#thats-it}
 
@@ -115,8 +115,8 @@ Antes de desplegar tu sitio web a producción, debes ser consciente que no compa
 Si ya has compactado los scripts de tu aplicación, **tu sitio estará listo para producción** si aseguras que el HTML desplegado carga las versiones de React finalizadas en `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Si no tienes un paso para compactar tus scripts, [aquí hay una forma en que puedes establecerlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).

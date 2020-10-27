@@ -34,36 +34,11 @@ string type
 
 > Nota:
 >
-> A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation()` o `e.preventDefault()` deben activarse manualmente, según corresponda.
-
-### Agrupación de eventos {#event-pooling}
-
-El `SyntheticEvent` está agrupado. Esto significa que el objeto `SyntheticEvent` se reutilizará y todas las propiedades se anularán después de que se haya invocado la devolución de llamada del evento.
-Esto es por razones de rendimiento.
-Como tal, no puede acceder al evento de forma asíncrona.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => objeto nulo.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // No funcionará. this.state.clickEvent solo contendrá valores nulos.
-  this.setState({clickEvent: event});
-
-  // Todavía puedes exportar propiedades de eventos.
-  this.setState({eventType: event.type});
-}
-```
+> A partir de la versión 17, `e.persist()` no hace nada porque `SyntheticEvent` ya no se [reutiliza](/docs/legacy-event-pooling.html).
 
 > Nota:
 >
-> Si deseas acceder a las propiedades del evento de forma asíncrona, debe llamar a `event.persist()` en el evento, lo que eliminará el evento sintético del grupo y permitirá que el código de usuario retenga las referencias al evento.
+> A partir de la versión 0.14, devolver `false` desde un controlador de eventos ya no detendrá la propagación de eventos. En su lugar, `e.stopPropagation()` o `e.preventDefault()` deben activarse manualmente, según corresponda.
 
 ## Eventos Soportados {#supported-events}
 
@@ -167,9 +142,83 @@ Estos eventos de enfoque funcionan en todos los elementos en React DOM, no sólo
 
 Propiedades:
 
-```javascript
+```js
 DOMEventTarget relatedTarget
 ```
+
+#### onFocus
+
+El manejador de evento `onFocus` se llama cuando el elemento (o algún elemento dentro de él) recibe el foco. Por ejemplo, se llama cuando el usuario hace clic en una entrad de texto.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onFocus={(e) => {
+        console.log('Focused on input');
+      }}
+      placeholder="onFocus is triggered when you click this input."
+    />
+  )
+}
+```
+
+#### onBlur
+
+El manejador de evento `onBlur` se llama cuando el foco ha dejado el elemento (o ha dejado algún elemento dentro de él). Por ejemplo, se llama cuando el usuario hace clic fuera de una entrada de texto que tiene el foco.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onBlur={(e) => {
+        console.log('Triggered because this input lost focus');
+      }}
+      placeholder="onBlur is triggered when you click this input and then you click outside of it."
+    />
+  )
+}
+```
+
+#### Detectar la entrada y salida del foco
+
+Puedes usar `currentTarget` y `relatedTarget` para diferenciar si los eventos de foco y pérdida de foco se originan desde _fuera_ del elemento padre. Aquí hay una demo que puedes copiar y pegar que muestra como detectar el foco en un hijo, el foco sobre el propio elemento y cuando el foco entra o sale de todo el subárbol.
+
+```javascript
+function Example() {
+  return (
+    <div
+      tabIndex={1}
+      onFocus={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('focused self');
+        } else {
+          console.log('focused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus entered self');
+        }
+      }}
+      onBlur={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('unfocused self');
+        } else {
+          console.log('unfocused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus left self');
+        }
+      }}
+    >
+      <input id="1" />
+      <input id="2" />
+    </div>
+  );
+}
+```
+
 
 * * *
 
@@ -305,7 +354,11 @@ Nombres de Eventos:
 onScroll
 ```
 
-Propiedades:
+>Nota
+>
+>A partir de React 17, el event `onScroll` **no hace _bubbling_** en React. Esto se alinea con el comportamiento del navegador y previene confusiones cuando un elemento anidado con _scroll_ dispara eventos en un padre distante.
+
+Properties:
 
 ```javascript
 number detail

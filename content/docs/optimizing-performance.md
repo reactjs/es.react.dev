@@ -43,8 +43,8 @@ Recuerda que esto es solo una necesidad antes de desplegar a producción. Para e
 Ofrecemos versiones listas para producción de React y React DOM como un solo archivo:
 
 ```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
 Recuerda que solo los archivos de React que terminan con `production.min.js` son apropiados para producción.
@@ -58,7 +58,6 @@ Para el compilado de producción de Brunch más eficiente, instala el plugin [`t
 npm install --save-dev terser-brunch
 
 # Si usas Yarn
-
 yarn add --dev terser-brunch
 ```
 
@@ -68,7 +67,7 @@ Entonces, para crear un compilado de producción, agrega la bandera `-p` al coma
 brunch build -p
 ```
 
-Recuerda que solo necesitas hacer esto para las *build* de producción. Tú no deberías pasar la bandera `-p` o aplicar el plugin en desarrollo, por que ocultará las advertencias de React y hará las *builds* mucho más lentas.
+Recuerda que solo necesitas hacer esto para los compilados de producción. No deberías pasar la bandera `-p` o aplicar el plugin en desarrollo, porque ocultará las advertencias de React y hará las compilaciones mucho más lentas.
 
 ### Browserify {#browserify}
 
@@ -379,6 +378,8 @@ function updateColorMap(colormap) {
   return {...colormap, right: 'blue'};
 }
 ```
+
+Esta funcionalidad fue añadida a JavaScript en ES2018.
 
 Si estás utilizando *Create React App*, tanto `Object.assign` y *la sintaxis de propagación en objetos* están disponibles por defecto.
 
