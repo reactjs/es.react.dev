@@ -289,12 +289,6 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
-<<<<<<< HEAD
-    // React reune a los eventos, por ende leemos su valor antes del debounce
-    // Alternativamente, podemos llamar `event.persist()` y pasa todo el evento.
-    // Para mas información acerca de éste tema reactjs.org/docs/events.html#event-pooling
-=======
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
     this.emitChangeDebounced(e.target.value);
   }
 

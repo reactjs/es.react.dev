@@ -20,11 +20,7 @@ Las versiones anteriores son solo para el uso en desarrollo, y no son adecuadas 
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
-<<<<<<< HEAD
-Para usar una versión específica de `react` y `react-dom`, cambia el `16` con el número de versión.
-=======
-To load a specific version of `react` and `react-dom`, replace `17` with the version number.
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+Para usar una versión específica de `react` y `react-dom`, cambia el `17` con el número de versión.
 
 ### ¿Por qué el atributo `crossorigin`? {#why-the-crossorigin-attribute}
 
