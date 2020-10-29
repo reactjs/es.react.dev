@@ -265,7 +265,7 @@ function Todos() {
 
 ## Próximos pasos {#next-steps}
 
-¡Uf, eso fue rápido! Si algunas cosas no te hacen mucho sentido o si te gustaría aprender más en detalle, puedes leer las siguientes páginas, comenzando con la documentación de [Hook de estado](/docs/hooks-state.html).
+¡Uf, eso fue rápido! Si algunas cosas no tienen mucho sentido o si te gustaría aprender más en detalle, puedes leer las siguientes páginas, comenzando con la documentación de [Hook de estado](/docs/hooks-state.html).
 
 También puede consultar la [Referencia de la Hooks API](/docs/hooks-reference.html) y las [Preguntas Frecuentes sobre Hooks](/docs/hooks-faq.html).
 
