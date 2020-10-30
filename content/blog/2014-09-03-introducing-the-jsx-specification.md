@@ -1,14 +1,14 @@
 ---
-title: "Introducing the JSX Specification"
+title: "Introduciendo la especificación de JSX"
 author: [sebmarkbage]
 ---
 
-At Facebook we've been using JSX for a long time. We originally introduced it to the world last year alongside React, but we actually used it in another form before that to create native DOM nodes. We've also seen some similar efforts grow out of our work in order to be used with other libraries and in interesting ways. At this point React JSX is just one of many implementations.
+En Facebook hemos estado usando JSX por un largo tiempo. Originalmente lo introdujimos al mundo el año pasado junto con React, pero en realidad lo usábamos de otra forma anteriormente para crear nodos nativos del DOM. También hemos visto esfuerzos similares surgir de nuestro trabajo para ser utilizado con otras bibliotecas de maneras interesantes. En este punto React JSX es solo una de muchas implementaciones.
 
-In order to make it easier to implement new versions and to make sure that the syntax remains compatible, we're now formalizing the syntax of JSX in a stand-alone spec without any semantic meaning. It's completely stand-alone from React itself.
+Para que sea más fácil de implementar nuevas versiones y asegurar que la sintaxis se mantenga compatible, estamos formalizando la sintaxis de JSX como una especificación independiente sin ningún significado semántico. Es completamente independiente del propio React.
 
-Read the spec now at <https://facebook.github.io/jsx/>.
+Lee la especificación ahora en <https://facebook.github.io/jsx/>.
 
-This is not a proposal to be standardized in ECMAScript. It's just a reference document that transpiler writers and syntax highlighters can agree on. It's currently in a draft stage and will probably continue to be a living document.
+Esta no es una propuesta que deba estandarizarse en ECMAScript. Es solo un documento de referencia en donde los escritores de transpiladores y los resaltadores de sintaxis puedan concordar. Está actualmente en una etapa de boceto pero probablemente continúe hasta convertirse en un documento.
 
-Feel free to [open an Issue](https://github.com/facebook/jsx/issues/new) or Pull Request if you find something wrong.
+Siéntete libre de abrir un [reporte en GitHub](https://github.com/facebook/jsx/issues/new) o una Pull Request si encuentras algo que está incorrecto.
