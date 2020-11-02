@@ -193,10 +193,17 @@ function App() {
 
 Solo nos tomó siete líneas de código añadir esta transición:
 
+<<<<<<< HEAD
 * Hemos importado el Hook `useTransition` y usado en el componente que actualiza el estado.
 * Hemos pasado `{timeoutMs: 3000}` para mantenernos en la pantalla anterior un máximo de 3 segundos.
 * Hemos envuelto nuestra actualización de estado en `startTransition` para decirle a React que está bien postergarla.
 * Estamos usando `usePending` para comunicar el progreso de la transición de estado al usuario.
+=======
+* We've imported the `useTransition` Hook and used it in the component that updates the state.
+* We've passed `{timeoutMs: 3000}` to stay on the previous screen for at most 3 seconds.
+* We've wrapped our state update into `startTransition` to tell React it's okay to delay it.
+* We're using `isPending` to communicate the state transition progress to the user and to disable the button.
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Como resultado, hacer clic en "Next" no realiza una transición de estado inmediata hacia un estado de carga "no deseable", pero en cambio se queda en la pantalla anterior y comunica su progreso ahí.
 

@@ -129,7 +129,11 @@ El argumento `defaultValue` es usado **únicamente** cuando un componente no tie
 
 Cada objeto Context viene con un componente `Provider` de React que permite que los componentes que lo consumen se suscriban a los cambios del contexto.
 
+<<<<<<< HEAD
 Acepta un prop `value` que se pasará a los componentes consumidores que son descendientes de este `Provider`. Un `Provider` puede estar conectado a muchos consumidores. Los `Providers` pueden estar anidados para sobreescribir los valores más profundos dentro del árbol.
+=======
+The Provider component accepts a `value` prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia el prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes (incluyendo [`.contextType`](#classcontexttype) y [`useContext`](/docs/hooks-reference.html#usecontext)) no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
 
