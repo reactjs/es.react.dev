@@ -88,7 +88,7 @@ Para resolver estos problemas, **Hooks te permiten usar más de las funciones de
 
 >Ejemplos
 >
->[Hooks a simple vista](/docs/hooks-overview.html) es un buen lugar para comenzar a aprender Hooks.
+>[Un vistazo a los Hooks](/docs/hooks-overview.html) es un buen lugar para comenzar a aprender Hooks.
 
 ## Estrategia de adopción gradual {#gradual-adoption-strategy}
 
