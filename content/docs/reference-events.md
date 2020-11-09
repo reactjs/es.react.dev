@@ -146,7 +146,7 @@ Propiedades:
 DOMEventTarget relatedTarget
 ```
 
-#### onFocus
+#### onFocus {#onfocus}
 
 El manejador de evento `onFocus` se llama cuando el elemento (o algún elemento dentro de él) recibe el foco. Por ejemplo, se llama cuando el usuario hace clic en una entrad de texto.
 
@@ -163,7 +163,7 @@ function Example() {
 }
 ```
 
-#### onBlur
+#### onBlur {#onblur}
 
 El manejador de evento `onBlur` se llama cuando el foco ha dejado el elemento (o ha dejado algún elemento dentro de él). Por ejemplo, se llama cuando el usuario hace clic fuera de una entrada de texto que tiene el foco.
 
@@ -180,7 +180,11 @@ function Example() {
 }
 ```
 
+<<<<<<< HEAD
 #### Detectar la entrada y salida del foco
+=======
+#### Detecting Focus Entering and Leaving {#detecting-focus-entering-and-leaving}
+>>>>>>> 255497f12fa00d231b5af5d5aa34fa5beffac9e4
 
 Puedes usar `currentTarget` y `relatedTarget` para diferenciar si los eventos de foco y pérdida de foco se originan desde _fuera_ del elemento padre. Aquí hay una demo que puedes copiar y pegar que muestra como detectar el foco en un hijo, el foco sobre el propio elemento y cuando el foco entra o sale de todo el subárbol.
 
@@ -218,7 +222,6 @@ function Example() {
   );
 }
 ```
-
 
 * * *
 

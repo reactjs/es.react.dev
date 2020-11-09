@@ -99,7 +99,11 @@ Dado que la nueva transformación de JSX no requiere que React esté dentro del 
 
 ### Create React App {#create-react-app}
 
+<<<<<<< HEAD
 [Se ha agregado](https://github.com/facebook/create-react-app/pull/9645) compatibilidad con Create React Appp y estará disponible en la [próxima versión v4.0](https://gist.github.com/iansu/4fab7a9bfa5fa6ebc87a908c62f5340b) que actualmente se encuentra en prueba beta.
+=======
+Create React App [4.0.0](https://github.com/facebook/create-react-app/releases/tag/v4.0.0)+ uses the new transform for compatible React versions.
+>>>>>>> 255497f12fa00d231b5af5d5aa34fa5beffac9e4
 
 ### Next.js {#nextjs}
 
@@ -143,7 +147,11 @@ npm update @babel/core @babel/preset-react
 yarn upgrade @babel/core @babel/preset-react
 ```
 
+<<<<<<< HEAD
 Actualmente, la antigua transformación (`"runtime": "classic"`) es la opción predeterminada. Para habilitar la nueva transformación, puede pasar `{"runtime": "automatic"}` como una opción a `@babel/plugin-transform-react-jsx` o `@babel/preset-react`:
+=======
+Currently, the old transform `{"runtime": "classic"}` is the default option. To enable the new transform, you can pass `{"runtime": "automatic"}` as an option to `@babel/plugin-transform-react-jsx` or `@babel/preset-react`:
+>>>>>>> 255497f12fa00d231b5af5d5aa34fa5beffac9e4
 
 ```js
 // If you are using @babel/preset-react
@@ -192,11 +200,19 @@ Si estás utilizando [eslint-plugin-react](https://github.com/yannickcr/eslint-p
 
 ### TypeScript {#typescript}
 
+<<<<<<< HEAD
 TypeScript adminte la transformación de JSX en [v4.1 beta](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories).
 
 ### Flow {#flow}
 
 Flow admite la transformación de JSX en [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) y posteriores.
+=======
+TypeScript supports the new JSX transform in [v4.1 beta](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories).
+
+### Flow {#flow}
+
+Flow supports the new JSX transform in [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) and up, by adding `react.runtime=automatic` to your Flow configuration options. 
+>>>>>>> 255497f12fa00d231b5af5d5aa34fa5beffac9e4
 
 ## Eliminación de importaciones React no utilizadas {#removing-unused-react-imports}
 
@@ -213,8 +229,12 @@ npx react-codemod update-react-imports
 >
 >Ten en cuenta que la salida de codificación no siempre coincidirá con el estilo de codificación de tu proyecto, por lo que es posible que desees ejecutar [Prettier](https://prettier.io/) después de que finalice la codificación para lograr un formateo coherente.
 
+<<<<<<< HEAD
 
 Ejecutar este codemod:
+=======
+Running this codemod will:
+>>>>>>> 255497f12fa00d231b5af5d5aa34fa5beffac9e4
 
 * Eliminará todas las importaciones de React no utilizadas como resultado de la actualización a la nueva transformación JSX.
 * Cambiará todas las importaciones de React predeterminadas (es decir `import React from "react"`) a importaciones con nombre desestructuradas (ej. `import { useState } from "react"`), que será el estilo preferido en el futuro. Este codemod **no** afectará las importaciones de espacios de nombre existentes (es decir `import * as React from "react"`) que también es un estilo válido. Las importaciones predeterminadas seguirán funcionando en React 17, pero a largo plazo recomendamos alejarse de ellas.
