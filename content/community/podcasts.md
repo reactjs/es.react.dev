@@ -16,7 +16,7 @@ Podcasts dedicados a React y episodios individuales de podcast con discusiones d
 
 - [React 30](https://react30.com/) - Un podcast de 30 minutos con todo acerca de React (movido a [The React Podcast](https://reactpodcast.simplecast.fm/)).
 
-- [React Native Radio](https://reactnativeradio.com) - Exploring React Native Together, hosted by [Infinite Red](https://infinite.red)
+- [React Native Radio](https://reactnativeradio.com) - Explorando juntos React Native, presentado por [Infinite Red](https://infinite.red)
 
 ## Episodios {#episodes}
 
