@@ -180,11 +180,7 @@ function Example() {
 }
 ```
 
-<<<<<<< HEAD
-#### Detectar la entrada y salida del foco
-=======
-#### Detecting Focus Entering and Leaving {#detecting-focus-entering-and-leaving}
->>>>>>> 255497f12fa00d231b5af5d5aa34fa5beffac9e4
+#### Detectar la entrada y salida del foco {#detecting-focus-entering-and-leaving}
 
 Puedes usar `currentTarget` y `relatedTarget` para diferenciar si los eventos de foco y pérdida de foco se originan desde _fuera_ del elemento padre. Aquí hay una demo que puedes copiar y pegar que muestra como detectar el foco en un hijo, el foco sobre el propio elemento y cuando el foco entra o sale de todo el subárbol.
 
