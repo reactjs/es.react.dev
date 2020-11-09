@@ -99,7 +99,7 @@ Dado que la nueva transformación de JSX no requiere que React esté dentro del 
 
 ### Create React App {#create-react-app}
 
-[Se ha agregado](https://github.com/facebook/create-react-app/pull/9645) compatibilidad con Create React Appp y estará disponible en la [próxima versión v4.0](https://gist.github.com/iansu/4fab7a9bfa5fa6ebc87a908c62f5340b) que actualmente se encuentra en prueba beta.
+Create React App [4.0.0](https://github.com/facebook/create-react-app/releases/tag/v4.0.0)+ usa la nueva transformación para versiones compatibles de React.
 
 ### Next.js {#nextjs}
 
@@ -143,7 +143,7 @@ npm update @babel/core @babel/preset-react
 yarn upgrade @babel/core @babel/preset-react
 ```
 
-Actualmente, la antigua transformación (`"runtime": "classic"`) es la opción predeterminada. Para habilitar la nueva transformación, puede pasar `{"runtime": "automatic"}` como una opción a `@babel/plugin-transform-react-jsx` o `@babel/preset-react`:
+Actualmente, la antigua transformación `{"runtime": "classic"}` es la opción predeterminada. Para habilitar la nueva transformación, puedes pasar `{"runtime": "automatic"}` como una opción a `@babel/plugin-transform-react-jsx` o `@babel/preset-react`:
 
 ```js
 // If you are using @babel/preset-react
@@ -196,7 +196,7 @@ TypeScript adminte la transformación de JSX en [v4.1 beta](https://devblogs.mic
 
 ### Flow {#flow}
 
-Flow admite la transformación de JSX en [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) y posteriores.
+Flow admite la transformación de JSX en [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) y posteriores al añadir `react.runtime-automatic` a tus opciones de configuración de Flow.
 
 ## Eliminación de importaciones React no utilizadas {#removing-unused-react-imports}
 
@@ -212,7 +212,6 @@ npx react-codemod update-react-imports
 >Si recibes errores al ejecutar el codemod, intenta especificar un dialecto de JavaScript diferente cuando `npx react-codemod update-react-imports` te pida que elijas uno. En particular, en este momento, la configuración "JavaScript con Flow" admite una sintaxis más nueva que la configuración de "JavaScript", incluso si no usas Flow. [Crea un _issue_](https://github.com/reactjs/react-codemod/issues) si tienes problemas.
 >
 >Ten en cuenta que la salida de codificación no siempre coincidirá con el estilo de codificación de tu proyecto, por lo que es posible que desees ejecutar [Prettier](https://prettier.io/) después de que finalice la codificación para lograr un formateo coherente.
-
 
 Ejecutar este codemod:
 

@@ -76,6 +76,7 @@ permalink: community/meetups.html
 * [React Berlin](https://www.meetup.com/React-Open-Source/)
 
 ## Grecia {#greece}
+* [Atenas](https://www.meetup.com/React-To-React-Athens-MeetUp/)
 * [Thessaloniki](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
 
 ## Hungría {#hungary}

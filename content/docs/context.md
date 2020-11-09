@@ -6,7 +6,7 @@ permalink: docs/context.html
 
 Context provee una forma de pasar datos a través del árbol de componentes sin tener que pasar *props* manualmente en cada nivel.
 
-En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, el tema de la interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente un *prop* a través de cada nivel del árbol.
+En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, el tema de la interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente una *prop* a través de cada nivel del árbol.
 
 - [Cuándo usar Context](#when-to-use-context)
 - [Antes de usar Context](#before-you-use-context)
@@ -25,7 +25,7 @@ En una aplicación típica de React, los datos se pasan de arriba hacia abajo (d
 
 ## Cuándo usar Context {#when-to-use-context}
 
-Context está diseñado para compartir datos que pueden considerarse "globales" para un árbol de componentes en React, como el usuario autenticado actual, el tema o el idioma preferido. Por ejemplo, en el código a continuación, pasamos manualmente un *prop* de "tema" para darle estilo al componente *Button*:
+Context está diseñado para compartir datos que pueden considerarse "globales" para un árbol de componentes en React, como el usuario autenticado actual, el tema o el idioma preferido. Por ejemplo, en el código a continuación, pasamos manualmente una *prop* de "tema" para darle estilo al componente *Button*:
 
 `embed:context/motivation-problem.js`
 
@@ -39,7 +39,7 @@ Context se usa principalmente cuando algunos datos tienen que ser accesibles por
 
 **Si solo deseas evitar pasar algunos props a través de muchos niveles, la [composición de componentes](/docs/composition-vs-inheritance.html) suele ser una solución más simple que Context.**
 
-Por ejemplo, considera un componente `Page` que pasa un prop `user` y `avatarSize` varios niveles hacia abajo para que los componentes anidados `Link` y `Avatar` puedan leerlo:
+Por ejemplo, considera un componente `Page` que pasa una prop `user` y `avatarSize` varios niveles hacia abajo para que los componentes anidados `Link` y `Avatar` puedan leerlo:
 
 ```js
 <Page user={user} avatarSize={avatarSize} />
@@ -129,9 +129,9 @@ El argumento `defaultValue` es usado **únicamente** cuando un componente no tie
 
 Cada objeto Context viene con un componente `Provider` de React que permite que los componentes que lo consumen se suscriban a los cambios del contexto.
 
-Acepta un prop `value` que se pasará a los componentes consumidores que son descendientes de este `Provider`. Un `Provider` puede estar conectado a muchos consumidores. Los `Providers` pueden estar anidados para sobreescribir los valores más profundos dentro del árbol.
+El componente `Provider` acepta una prop `value` que se pasará a los componentes consumidores que son descendientes de este `Provider`. Un `Provider` puede estar conectado a muchos consumidores. Los `Providers` pueden estar anidados para sobreescribir los valores más profundos dentro del árbol.
 
-Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia el prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes (incluyendo [`.contextType`](#classcontexttype) y [`useContext`](/docs/hooks-reference.html#usecontext)) no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
+Todos los consumidores que son descendientes de un `Provider` se vuelven a renderizar cada vez que cambia la prop `value` del `Provider`. La propagación del `Provider` a sus consumidores descendientes (incluyendo [`.contextType`](#classcontexttype) y [`useContext`](/docs/hooks-reference.html#usecontext)) no está sujeta al método `shouldComponentUpdate`, por lo que el consumidor se actualiza incluso cuando un componente padre evita la actualización.
 
 Los cambios se determinan comparando los valores nuevos y antiguos utilizando el mismo algoritmo que [`Object.is`](//developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
 
@@ -192,7 +192,7 @@ class MyClass extends React.Component {
 
 Un componente de React que se suscribe a cambios de contexto. Esto le permite suscribirse a un contexto dentro de un [componente de función](/docs/components-and-props.html#function-and-class-components).
 
-Requiere una [función como hijo](/docs/render-props.html#using-props-other-than-render). La función recibe el valor de contexto actual y devuelve un nodo de React. El argumento `value` pasado a la función será igual al prop `value` del `Provider` más cercano para este contexto en el árbol. Si no hay un `Proveedor` superior para este contexto, el argumento `value` será igual al `defaultValue` que se pasó a `createContext()`.
+Requiere una [función como hijo](/docs/render-props.html#using-props-other-than-render). La función recibe el valor de contexto actual y devuelve un nodo de React. El argumento `value` pasado a la función será igual a la prop `value` del `Provider` más cercano para este contexto en el árbol. Si no hay un `Proveedor` superior para este contexto, el argumento `value` será igual al `defaultValue` que se pasó a `createContext()`.
 
 > Nota
 > 
