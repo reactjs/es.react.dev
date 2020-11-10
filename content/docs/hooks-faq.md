@@ -414,7 +414,7 @@ Si hiciste clic primero en "Show alert" y luego incrementas el contador, la aler
 
 Si quieres intencionalmente leer el *último* estado de un callback asíncrono, podrías guardarla en [una ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mutarla y leer de ella.
 
-Finalmente, otra razón posible para que veas props o estado obsoletos es que hayas usado la optimización del "array de dependencias" pero no especificaste correctamente todas las dependencias. Por ejemplo, si un efecto especifica `[]` como segundo argumento pero lee `someProp` dentro, continuará "viendo" el valor inicial de `someProp`. La solución pasa por o bien eliminar el array de dependencias, o arreglarlo. Aquí se explica [como puedes lidiar con funciones](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), y aquí hay [otras estrategias comunes](#what-can-i-do-if-my-effect-dependencies-change-too-often) para ejecutar efectos con menos frecuencia sin dejar de especifica despendencias incorrectamente.
+Finalmente, otra razón posible para que veas props o estado obsoletos es que hayas usado la optimización del "array de dependencias" pero no especificaste correctamente todas las dependencias. Por ejemplo, si un efecto especifica `[]` como segundo argumento pero lee `someProp` dentro, continuará "viendo" el valor inicial de `someProp`. La solución pasa por o bien eliminar el array de dependencias, o arreglarlo. Aquí se explica [como puedes lidiar con funciones](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), y aquí hay [otras estrategias comunes](#what-can-i-do-if-my-effect-dependencies-change-too-often) para ejecutar efectos con menos frecuencia sin dejar de especificar dependencias incorrectamente.
 
 >Nota
 >
