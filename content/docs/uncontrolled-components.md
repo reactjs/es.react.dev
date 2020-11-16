@@ -45,7 +45,11 @@ Si aún no tienes claro qué tipo de componente debes usar para una situación e
 
 ### Valores predeterminados {#default-values}
 
+<<<<<<< HEAD
 En el ciclo de vida de renderizado de React, el atributo `value` en los elementos del formulario reemplazará el valor en el DOM con un componente no controlado, a menudo quieres React para especificar el valor inicial, pero dejas las actualizaciones posteriores sin control. Para manejar este caso, puedes especificar un `defaultValue` en lugar de `value`.
+=======
+In the React rendering lifecycle, the `value` attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a `defaultValue` attribute instead of `value`. Changing the value of `defaultValue` attribute after a component has mounted will not cause any update of the value in the DOM.
+>>>>>>> 957276e1e92bb48e5bb6b1c17fd0e7a559de0748
 
 ```javascript{7}
 render() {
