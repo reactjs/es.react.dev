@@ -407,6 +407,12 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
+Los compilados de producción y desarrollo de React difieren ligeramente en la forma en que `componentDidCatch` maneja los errores.
+
+En desarrollo, los errores subirán hacia `window`, esto significa que cualquier `window.onerror` o `window.addEventListener('error', callback)` interceptará los errores que han sido atrapados por `componentDitCatch`.
+
+En producción, en cambio, los errores no subirán, lo que significa que cualquier manejador de errores ancestro solo recibirá errores que no hayan sido explícitamente atrapados por `componentDidCatch()`.
+
 > Nota
 >
 > En el evento de un error, puedes renderizar una interfaz de usuario con `componentDidCatch()` llamando a `setState()`, pero esto estará obsoleto en una futura versión. Usa `static getDerivedStateFromError()` para controlar el plan de renderizado.

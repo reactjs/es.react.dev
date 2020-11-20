@@ -99,7 +99,7 @@ MyComponent.propTypes = {
   // que se muestre una advertencia si la prop no se suministra.
   requiredFunc: PropTypes.func.isRequired,
 
-  // Un valor de cualquier tipo
+  // Un valor requerido de cualquier tipo de datos
   requiredAny: PropTypes.any.isRequired,
 
   // También puedes suministrar un validador personalizado. Debe retornar un objeto Error

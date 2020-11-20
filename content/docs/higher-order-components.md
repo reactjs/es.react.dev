@@ -320,7 +320,7 @@ Los componentes de orden superior vienen con algunas consideraciones que no son 
 
 ### No uses *HOCs* dentro del método *render*
 
-El algoritmo de detección de diferencias de React (llamado reconciliación) utiliza la identidad del componente para determinar si debe actualizar el subárbol existente o desecharlo y montar uno nuevo. Si el componente devuelto por `render` es idéntico (`===`) al componente de la llamada a `render` previa, React actualiza el subárbol calculando las diferencias con el nuevo. Si no son iguales, el subárbol anterior es desmontado completamente.
+El algoritmo de detección de diferencias de React (llamado [reconciliación](/docs/reconciliation.html)) utiliza la identidad del componente para determinar si debe actualizar el subárbol existente o desecharlo y montar uno nuevo. Si el componente devuelto por `render` es idéntico (`===`) al componente de la llamada a `render` previa, React actualiza el subárbol calculando las diferencias con el nuevo. Si no son iguales, el subárbol anterior es desmontado completamente.
 
 Normalmente no es necesario pensar acerca de esto. Pero importa para los *HOCs* porque significa que no puedes aplicar un *HOC* a un componente dentro del método `render` de otro componente:
 
