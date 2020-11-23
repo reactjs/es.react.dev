@@ -8,6 +8,9 @@ permalink: community/meetups.html
 
 ¿Tienes un meetup local de React.js? ¡Agrégalo aquí! (Por favor mantener la lista en orden alfabético)
 
+## Albania {#albania}
+* [Tirana](https://www.meetup.com/React-User-Group-Albania/)
+
 ## Argentina {#argentina}
 * [Rosario](https://www.meetup.com/es/reactrosario)
 

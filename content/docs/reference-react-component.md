@@ -411,7 +411,11 @@ Los compilados de producción y desarrollo de React difieren ligeramente en la f
 
 En desarrollo, los errores subirán hacia `window`, esto significa que cualquier `window.onerror` o `window.addEventListener('error', callback)` interceptará los errores que han sido atrapados por `componentDitCatch`.
 
+<<<<<<< HEAD
 En producción, en cambio, los errores no subirán, lo que significa que cualquier manejador de errores ancestro solo recibirá errores que no hayan sido explícitamente atrapados por `componentDidCatch()`.
+=======
+On production, instead, the errors will not bubble up, which means any ancestor error handler will only receive errors not explicitly caught by `componentDidCatch()`.
+>>>>>>> 8f9ef00db1b36ee3e5a0e6072eb601257a6f8ccb
 
 > Nota
 >
