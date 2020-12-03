@@ -28,7 +28,7 @@ class Welcome extends React.Component {
 }
 ```
 
-El único método que *debes* definir en una subclase de `React.Component` es [`render()`](#render). Todos demás los métodos descritos en esta página son opcionales.
+El único método que *debes* definir en una subclase de `React.Component` es [`render()`](#render). Todos los demás métodos descritos en esta página son opcionales.
 
 **Recomendamos encarecidamente no crear tus propias clases de componentes base.** En los componentes de React, [la re utilización de código se consigue principalmente a través de la composición en lugar de la herencia](/docs/composition-vs-inheritance.html).
 
