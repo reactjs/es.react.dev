@@ -195,3 +195,47 @@ class Greeting extends React.Component {
 ```
 
 `defaultProps` se usa para asegurar que `this.props.name` tendrá un valor si no fue especificado por el componente padre. La verificación de tipo de `propTypes` sucede después de resolver `defaultProps`, así que la verificación de tipo también se aplica a `defaultProps`.
+
+### Componentes de función
+
+Si estás usando componentes de función en tu flujo común de desarrollo, es conveniente que hagas algunos cambios para permitir que los PropTypes se apliquen correctamente.
+
+Digamos que tienes un componentes que luce así:
+
+```javascript
+export default function HelloWorldComponent({ name }) {
+  return (
+    <div>Hello, {name}</div>
+  )
+}
+```
+
+Para añadir PropTypes, se puede declarar el componente en una función independiente antes de exportarlo, de esta forma:
+
+```javascript
+function HelloWorldComponent({ name }) {
+  return (
+    <div>Hello, {name}</div>
+  )
+}
+
+export default HelloWorldComponent
+```
+
+Luego, puedes añadir PropTypes directamente al componente `HelloWorldComponent`:
+
+```javascript
+import PropTypes from 'prop-types'
+
+function HelloWorldComponent({ name }) {
+  return (
+    <div>Hello, {name}</div>
+  )
+}
+
+HelloWorldComponent.propTypes = {
+  name: PropTypes.string
+}
+
+export default HelloWorldComponent
+```

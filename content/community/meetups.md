@@ -47,6 +47,7 @@ permalink: community/meetups.html
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
+* [Toronto, ON](https://www.meetup.com/Toronto-React-Native/events/)
 
 ## China {#china}
 * [Pekín](https://www.meetup.com/Beijing-ReactJS-Meetup/)
@@ -102,6 +103,9 @@ permalink: community/meetups.html
 
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
+
+## Italia {#italy}
+* [Milán](https://www.meetup.com/React-JS-Milano/)
 
 ## Malasia {#malaysia}
 * [Kuala Lumpur](https://www.kl-react.com/)
