@@ -54,7 +54,7 @@ function App() {
 
 Sin embargo, esto no es perfecto:
 
-* Debido a que JSX se compiló en `React.createElement`, `React` bebe estar dentro del alcance si usas JSX.
+* Debido a que JSX se compiló en `React.createElement`, `React` debe estar dentro del alcance si usas JSX.
 * Hay algunas [mejoras de rendimiento y simplicaciones](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation) que `React.createElement` no permiten.
 
 Para resolver estos problemas, React 17 introduce dos nuevos puntos de entrada al paquete React que están destinados a ser utilizados solo por compiladores como Babel y TypeScript. En lugar de transformar JSX en `React.createElement`, **la nueva transformación de JSX** importa automáticamente funciones especiales de esos nuevos puntos de entrada en el paquete de React y las llama.
