@@ -22,7 +22,11 @@ Los lanzamientos menores son el tipo de lanzamiento más común.
 
 ### Cambios con rupturas {#breaking-changes}
 
+<<<<<<< HEAD
 Los cambios con rupturas son inconvenientes para todos, por lo que intentamos minimizar el número de lanzamientos importantes – por ejemplo, React 15 fue lanzado en Abril de 2016 y React 16 fue lanzado en Septiembre de 2017; no esperamos lanzar React 17 hasta algún momento en el 2020.
+=======
+Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017, and React 17 was released in October 2020.
+>>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
 
 En cambio, lanzamos nuevas funcionalidades en versiones menores. Esto significa que los lanzamientos menores son a menudo más interesantes que los lanzamientos importantes, a pesar de su modesto nombre.
 
