@@ -116,9 +116,13 @@ En primera instancia, este código no debería parecer problemático. Pero si `S
 
 Al invocar los métodos dos veces, como el constructor del componente, el modo estricto hace que patrones como estos sean más fáciles de encontrar.
 
-### Detectar el uso de la API legado para el contexto {#detecting-legacy-context-api}
+> Nota:
+>
+> A partir de React 17, React modifica automáticamente los métodos de consola como `console.log()` para silenciar los logs en la segunda llamada a las funciones de ciclo de vida. Sin embargo, esto puede causar comportamientos no deseados en algunos casos para los que se puede [usar una solución alternativa](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
 
-La API legado para el contexto es propensa a errores, y será eliminada en una versión principal a futuro. Aún está funcionando para todas las versiones 16.x pero mostrará el siguiente mensaje de advertencia si se usa en modo estricto:
+### Detectar el uso de la API legada para el contexto {#detecting-legacy-context-api}
+
+La API legada para el contexto es propensa a errores, y será eliminada en una versión principal a futuro. Aún está funcionando para todas las versiones 16.x pero mostrará el siguiente mensaje de advertencia si se usa en modo estricto:
 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 

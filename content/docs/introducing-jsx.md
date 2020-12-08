@@ -92,7 +92,7 @@ function getGreeting(user) {
 Puedes utilizar comillas para especificar strings literales como atributos:
 
 ```js
-const element = <div tabIndex={0}></div>;
+const element = <div tabIndex="0"></div>;
 ```
 
 También puedes usar llaves para insertar una expresión JavaScript en un atributo:
