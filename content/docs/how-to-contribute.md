@@ -124,7 +124,11 @@ A continuación, puedes ejecutar varios comandos:
 * `yarn build` crea una carpeta` build` con todos los paquetes.
 * `yarn build react/index,react-dom/index --type=UMD` crea las compilaciones UMD solo de React y ReactDOM.
 
+<<<<<<< HEAD
 Recomendamos ejecutar `yarn test` (o sus variaciones anteriores) para asegurarte de no introducir ninguna regresión mientras trabajas en tu cambio. Sin embargo, puede ser útil probar tu compilación de React en un proyecto real.
+=======
+We recommend running `yarn test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However, it can be handy to try your build of React in a real project.
+>>>>>>> 923629258fce174a89231c88c90805d9e5b0278d
 
 En primer lugar, ejecuta `yarn build`. Esto producirá paquetes precompilados en la carpeta `build`, así como también preparará paquetes npm dentro de `build/packages`.
 
