@@ -196,11 +196,7 @@ class Greeting extends React.Component {
 
 `defaultProps` se usa para asegurar que `this.props.name` tendrá un valor si no fue especificado por el componente padre. La verificación de tipo de `propTypes` sucede después de resolver `defaultProps`, así que la verificación de tipo también se aplica a `defaultProps`.
 
-<<<<<<< HEAD
-### Componentes de función
-=======
-### Function Components {#function-components}
->>>>>>> 923629258fce174a89231c88c90805d9e5b0278d
+### Componentes de función {#function-components}
 
 Si estás usando componentes de función en tu flujo común de desarrollo, es conveniente que hagas algunos cambios para permitir que los PropTypes se apliquen correctamente.
 
