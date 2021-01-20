@@ -27,11 +27,7 @@ Al diferenciar dos árboles, React primero compara dos elementos raíz. El compo
 
 Cada vez que los elementos raíz tienen diferentes tipos, React derribará el árbol viejo y construirá el nuevo árbol desde cero. Pasando de `<a>` a `<img>`, o de `<Article>` a `<Comment>`, o de `<Button>` a `<div>` - cualquiera de esos conducirá a una reconstrucción completa.
 
-<<<<<<< HEAD
-Al derribar un árbol, los nodos antiguos del DOM se destruyen. Las instacias de los componentes reciben `componentWillUnmount()`. Al construir un nuevo árbol, los nuevos elementos del DOM se insertan. Las instancias de componentes reciben `componentWillMount()` y luego `componentDidMount()`. Cualquier estado asociado al árbol viejo se pierde.
-=======
-When tearing down a tree, old DOM nodes are destroyed. Component instances receive `componentWillUnmount()`. When building up a new tree, new DOM nodes are inserted into the DOM. Component instances receive `UNSAFE_componentWillMount()` and then `componentDidMount()`. Any state associated with the old tree is lost.
->>>>>>> 3844da103db4c2dea4783f5b3a2a0b53708d04ab
+Al derribar un árbol, los nodos antiguos del DOM se destruyen. Las instacias de los componentes reciben `componentWillUnmount()`. Al construir un nuevo árbol, los nuevos elementos del DOM se insertan. Las instancias de componentes reciben `UNSAFE_componentWillMount()` y luego `componentDidMount()`. Cualquier estado asociado al árbol viejo se pierde.
 
 Cualquier componente debajo de la raíz también se desmontará y se destruirá su estado. Por ejemplo, cuando difiere:
 
@@ -47,17 +43,13 @@ Cualquier componente debajo de la raíz también se desmontará y se destruirá 
 
 Esto destruirá el `Counter` viejo y volvera a montar uno nuevo.
 
-<<<<<<< HEAD
-### Elementos del DOM del mismo tipo {#dom-elements-of-the-same-type}
-=======
->Note:
+>Nota:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Estos métodos se consideran obsoletos y deberías [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
 >- `UNSAFE_componentWillMount()`
 
-### DOM Elements Of The Same Type {#dom-elements-of-the-same-type}
->>>>>>> 3844da103db4c2dea4783f5b3a2a0b53708d04ab
+### Elementos del DOM del mismo tipo {#dom-elements-of-the-same-type}
 
 Al comparar dos elementos elementos React DOM del mismo tipo, React analiza los atributos de ambos, mantiene el mismo nodo DOM subyacente, y solo actualiza los atributos modificados. Por ejemplo:
 
@@ -83,26 +75,18 @@ Después de manejar el nodo DOM, React recurre a los hijos.
 
 ### Componentes del mismo tipo {#component-elements-of-the-same-type}
 
-<<<<<<< HEAD
-Cuando se actualiza un componente, la instancia permanece igual, por lo que el estado se mantiene en todas las representaciones. React actualiza las propiedades de la instancia del componente subyacente para que coincida con el nuevo elemento, y llama a `componentWillReceiveProps()` y `componentWillUpdate()` en la instancia subyacente.
-=======
-When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` and `componentDidUpdate()` on the underlying instance.
->>>>>>> 3844da103db4c2dea4783f5b3a2a0b53708d04ab
+Cuando se actualiza un componente, la instancia permanece igual, por lo que el estado se mantiene en todas las representaciones. React actualiza las propiedades de la instancia del componente subyacente para que coincida con el nuevo elemento, y llama a `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` y `componentDidUpdate()` en la instancia subyacente.
 
 A continuación, se llama al método `render()` y al algoritmo de diferenciación en el resultado anterior y el nuevo resultado.
 
-<<<<<<< HEAD
-### Recursión en hijos {#recursing-on-children}
-=======
->Note:
+>Nota:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Estos métodos se consideran obsoletos y deberías [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
 >- `UNSAFE_componentWillUpdate()`
 >- `UNSAFE_componentWillReceiveProps()`
 
-### Recursing On Children {#recursing-on-children}
->>>>>>> 3844da103db4c2dea4783f5b3a2a0b53708d04ab
+### Recursión en hijos {#recursing-on-children}
 
 De forma predeterminada, cuando hay recursión en los hijos de un nodo DOM, React simplemente itera sobre ambas listas de hijos al mismo tiempo y genera una mutación siempre que haya diferencia. 
 
