@@ -27,7 +27,7 @@ Al diferenciar dos árboles, React primero compara dos elementos raíz. El compo
 
 Cada vez que los elementos raíz tienen diferentes tipos, React derribará el árbol viejo y construirá el nuevo árbol desde cero. Pasando de `<a>` a `<img>`, o de `<Article>` a `<Comment>`, o de `<Button>` a `<div>` - cualquiera de esos conducirá a una reconstrucción completa.
 
-Al derribar un árbol, los nodos antiguos del DOM se destruyen. Las instacias de los componentes reciben `componentWillUnmount()`. Al construir un nuevo árbol, los nuevos elementos del DOM se insertan. Las instancias de componentes reciben `componentWillMount()` y luego `componentDidMount()`. Cualquier estado asociado al árbol viejo se pierde.
+Al derribar un árbol, los nodos antiguos del DOM se destruyen. Las instacias de los componentes reciben `componentWillUnmount()`. Al construir un nuevo árbol, los nuevos elementos del DOM se insertan. Las instancias de componentes reciben `UNSAFE_componentWillMount()` y luego `componentDidMount()`. Cualquier estado asociado al árbol viejo se pierde.
 
 Cualquier componente debajo de la raíz también se desmontará y se destruirá su estado. Por ejemplo, cuando difiere:
 
@@ -42,6 +42,12 @@ Cualquier componente debajo de la raíz también se desmontará y se destruirá 
 ```
 
 Esto destruirá el `Counter` viejo y volvera a montar uno nuevo.
+
+>Nota:
+>
+>Estos métodos se consideran obsoletos y deberías [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
+>
+>- `UNSAFE_componentWillMount()`
 
 ### Elementos del DOM del mismo tipo {#dom-elements-of-the-same-type}
 
@@ -69,9 +75,16 @@ Después de manejar el nodo DOM, React recurre a los hijos.
 
 ### Componentes del mismo tipo {#component-elements-of-the-same-type}
 
-Cuando se actualiza un componente, la instancia permanece igual, por lo que el estado se mantiene en todas las representaciones. React actualiza las propiedades de la instancia del componente subyacente para que coincida con el nuevo elemento, y llama a `componentWillReceiveProps()` y `componentWillUpdate()` en la instancia subyacente.
+Cuando se actualiza un componente, la instancia permanece igual, por lo que el estado se mantiene en todas las representaciones. React actualiza las propiedades de la instancia del componente subyacente para que coincida con el nuevo elemento, y llama a `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` y `componentDidUpdate()` en la instancia subyacente.
 
 A continuación, se llama al método `render()` y al algoritmo de diferenciación en el resultado anterior y el nuevo resultado.
+
+>Nota:
+>
+>Estos métodos se consideran obsoletos y deberías [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
+>
+>- `UNSAFE_componentWillUpdate()`
+>- `UNSAFE_componentWillReceiveProps()`
 
 ### Recursión en hijos {#recursing-on-children}
 

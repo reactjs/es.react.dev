@@ -88,7 +88,7 @@ El equipo principal está monitoreando los *pull requests*. Revisaremos tu *pull
 2. Ejecuta `yarn` en la raíz del repositorio.
 3. Si has corregido un error o has agregado un código que debería probarse, ¡agrega pruebas!
 4. Asegúrate de que el conjunto de pruebas pasa (`yarn test`). Consejo: `yarn test --watch TestName` es útil en desarrollo.
-5. Ejecuta `yarn test-prod` para probar en el entorno de producción. Es compatible con las mismas opciones que `yarn test`.
+5. Ejecuta `yarn test --prod` para probar en el entorno de producción.
 6. Si necesitas un depurador, ejecuta `yarn debug-test --watch TestName`, abre `chrome://inspect` y presiona "Inspeccionar".
 7. Formatea tu código con [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
 8. Asegúrate de ejecutar lint en tu código (`yarn lint`). Consejo: `yarn linc` para verificar solo los archivos modificados.
@@ -117,8 +117,8 @@ A continuación, puedes ejecutar varios comandos:
 * `yarn linc` es como` yarn lint` pero más rápido, porque solo verifica los archivos que difieren en tu rama.
 * `yarn test` ejecuta el conjunto total de pruebas.
 * `yarn test --watch` ejecuta un observador de pruebas interactivo.
+* `yarn test --prod` ejecuta pruebas en el entorno de producción.
 * `yarn test <pattern>` ejecuta pruebas con nombres de archivos que coincidan.
-* `yarn test-prod` ejecuta pruebas en el entorno de producción. Es compatible con todas las mismas opciones que `yarn test`.
 * `yarn debug-test` es igual que` yarn test` pero con un depurador. Abre `chrome://inspect` y presiona "Inspeccionar".
 * `yarn flow` ejecuta todas las comprobaciones de tipos de [Flow](https://flowtype.org/).
 * `yarn build` crea una carpeta` build` con todos los paquetes.
