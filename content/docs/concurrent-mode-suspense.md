@@ -315,7 +315,7 @@ En el enfoque anterior, cargamos los datos antes de llamar a `setState`:
 2. Terminar de cargar
 3. Comenzar a renderizar
 
-Con Suspense, comenzaremos a cagar primero, pero intercambiaremos los otros dos pasos:
+Con Suspense, comenzaremos a cargar primero, pero intercambiaremos los otros dos pasos:
 
 1. Comenzar a cargar
 2. **Comenzar a renderizar**
