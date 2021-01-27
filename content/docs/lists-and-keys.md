@@ -1,6 +1,6 @@
 ---
 id: lists-and-keys
-title: Listas y keys
+title: Listas y llaves
 permalink: docs/lists-and-keys.html
 prev: conditional-rendering.html
 next: forms.html
@@ -70,9 +70,9 @@ ReactDOM.render(
 );
 ```
 
-Cuando ejecutes este código, serás advertido que una key debería ser proporcionada para ítems de lista. Una "key" es un atributo especial string que debes incluir al crear listas de elementos. Vamos a discutir por qué esto es importante en la próxima sección.
+Cuando ejecutes este código, serás advertido que una llave debería ser proporcionada para ítems de lista. Una llave "key" es un atributo especial string que debes incluir al crear listas de elementos. Vamos a discutir por qué esto es importante en la próxima sección.
 
-Vamos a asignar una `key` a nuestra lista de ítems dentro de `numbers.map()` y arreglar el problema de la falta de key.
+Vamos a asignar una llave `key` a nuestra lista de ítems dentro de `numbers.map()` y arreglar el problema de la falta de llave.
 
 ```javascript{4}
 function NumberList(props) {
@@ -96,9 +96,9 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
 
-## Keys {#keys}
+## Llaves {#keys}
 
-Las keys ayudan a React a identificar que ítems han cambiado, son agregados, o son eliminados. Las keys deben ser dadas a los elementos dentro del array para darle a los elementos una identidad estable:
+Las llaves ayudan a React a identificar que ítems han cambiado, son agregados, o son eliminados. Las llaves deben ser dadas a los elementos dentro del array para darle a los elementos una identidad estable:
 
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
@@ -109,7 +109,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-La mejor forma de elegir una key es usando un string que identifique únicamente a un elemento de la lista entre sus hermanos. Habitualmente vas a usar IDs de tus datos como key:
+La mejor forma de elegir una llave es usando un string que identifique únicamente a un elemento de la lista entre sus hermanos. Habitualmente vas a usar IDs de tus datos como llave:
 
 ```js{2}
 const todoItems = todos.map((todo) =>
@@ -119,7 +119,7 @@ const todoItems = todos.map((todo) =>
 );
 ```
 
-Cuando no tengas IDs estables para renderizar, puedes usar el índice del ítem como una key como último recurso:
+Cuando no tengas IDs estables para renderizar, puedes usar el índice del ítem como una llave como último recurso:
 
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
@@ -130,23 +130,23 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-No recomendamos usar índices para keys si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el artículo de Robin Pokorny para una [explicación en profundidad de los impactos negativos de usar un índice como key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si eliges no asignar una key explícita a la lista de ítems, React por defecto usará índices como keys.
+No recomendamos usar índices para llaves si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el artículo de Robin Pokorny para una [explicación en profundidad de los impactos negativos de usar un índice como llave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si eliges no asignar una llave explícita a la lista de ítems, React por defecto usará índices como llaves.
 
-Aquí hay una [explicación en profundidad sobre por qué las keys son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
+Aquí hay una [explicación en profundidad sobre por qué las llaves son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
 
-### Extracción de componentes con keys {#extracting-components-with-keys}
+### Extracción de componentes con llaves {#extracting-components-with-keys}
 
-Las keys solo tienen sentido en el contexto del array que las envuelve.
+Las llaves solo tienen sentido en el contexto del array que las envuelve.
 
-Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la key en los elementos `<ListItem />` del array en lugar de en el elemento `<li>` del propio `ListItem`.
+Por ejemplo, si [extraes](/docs/components-and-props.html#extracting-components) un componente `ListItem`, deberías mantener la llave en los elementos `<ListItem />` del array en lugar de en el elemento `<li>` del propio `ListItem`.
 
-**Ejemplo: Uso Incorrecto de Key**
+**Ejemplo: Uso Incorrecto de la llave**
 
 ```javascript{4,5,14,15}
 function ListItem(props) {
   const value = props.value;
   return (
-    // Mal! No hay necesidad de especificar la key aquí:
+    // Mal! No hay necesidad de especificar la llave (key) aquí:
     <li key={value.toString()}>
       {value}
     </li>
@@ -156,7 +156,7 @@ function ListItem(props) {
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Mal! La key debería haber sido especificada aquí:
+    // Mal! La llave (key) debería haber sido especificada aquí:
     <ListItem value={number} />
   );
   return (
@@ -173,18 +173,18 @@ ReactDOM.render(
 );
 ```
 
-**Ejemplo: Uso Correcto de Key**
+**Ejemplo: Uso Correcto de la llave**
 
 ```javascript{2,3,9,10}
 function ListItem(props) {
-  // Correcto! No hay necesidad de especificar la key aquí:
+  // Correcto! No hay necesidad de especificar la llave (key) aquí:
   return <li>{props.value}</li>;
 }
 
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Correcto! La key debería ser especificada dentro del array.
+    // Correcto! La llave (key) debería ser especificada dentro del array.
     <ListItem key={number.toString()} value={number} />
   );
   return (
@@ -203,11 +203,11 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-Una buena regla es que los elementos dentro de `map()` necesitan keys.
+Una buena regla es que los elementos dentro de `map()` necesitan llaves.
 
-### Las keys deben ser únicas solo entre hermanos {#keys-must-only-be-unique-among-siblings}
+### Las llaves deben ser únicas solo entre hermanos {#keys-must-only-be-unique-among-siblings}
 
-Las keys usadas dentro de arrays deberían ser únicas entre sus hermanos. Sin embargo, no necesitan ser únicas globalmente. Podemos usar las mismas keys cuando creamos dos arrays diferentes:
+Las llaves usadas dentro de arrays deberían ser únicas entre sus hermanos. Sin embargo, no necesitan ser únicas globalmente. Podemos usar las mismas llaves cuando creamos dos arrays diferentes:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -247,7 +247,7 @@ ReactDOM.render(
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Las keys sirven como una sugerencia para React pero no son pasadas a tus componentes. Si necesitas usar el mismo valor en tu componente, pásasela explícitamente como una propiedad con un nombre diferente:
+Las llaves sirven como una sugerencia para React pero no son pasadas a tus componentes. Si necesitas usar el mismo valor en tu componente, pásasela explícitamente como una propiedad con un nombre diferente:
 
 ```js{3,4}
 const content = posts.map((post) =>
