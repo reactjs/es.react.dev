@@ -28,7 +28,7 @@
     - id: conditional-rendering
       title: Renderizado condicional
     - id: lists-and-keys
-      title: Listas y keys
+      title: Listas y llaves
     - id: forms
       title: Formularios
     - id: lifting-state-up
