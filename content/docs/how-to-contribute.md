@@ -70,7 +70,11 @@ Si solo estás solucionando un error, está bien enviar un *pull request* de inm
 
 ¿Trabajando en tu primer *pull request*? Puedes aprender cómo en esta serie de videos gratis:
 
+<<<<<<< HEAD
 **[Cómo contribuir a un proyecto de código abierto en GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+=======
+**[How to Contribute to an Open Source Project on GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
 
 Para ayudarte a familiarizarte con nuestro proceso de contribución, tenemos una lista de **[incidencias adecuadas para comenzar](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** que contienen errores que tienen un alcance relativamente limitado. Este es un gran lugar para empezar.
 
@@ -135,8 +139,13 @@ Si deseas probar los cambios en tu proyecto React existente, puedes copiar `buil
 Si tu proyecto usa React desde npm, puedes eliminar `react` y` react-dom` en sus dependencias y usar `yarn link` para apuntarlos a tu carpeta local `build`. Recuerda que **en lugar de `--type=UMD` quieres pasar `--type=NODE` cuando compiles**. Tambien necesitarás compilar el paquete `scheduler`:
 
 ```sh
+<<<<<<< HEAD
 cd ~/ruta_a_tu_clon_de_react/
 yarn build react/index,react-dom/index,scheduler --type=NODE
+=======
+cd ~/path_to_your_react_clone/
+yarn build react/index,react/jsx,react-dom/index,scheduler --type=NODE
+>>>>>>> 35179e85933265cb7a4f5d51c10fbe70deba3787
 
 cd build/node_modules/react
 yarn link
