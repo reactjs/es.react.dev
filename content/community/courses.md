@@ -16,9 +16,15 @@ permalink: community/courses.html
 
 - [React Crash Course 2018](https://www.youtube.com/watch?v=Ke90Tje7VS0) - Un curso apto para principiantes sobre los conceptos más importantes de React.
 
+<<<<<<< HEAD
 - [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - Con React Armory, puedes aprender React sin las palabras complicadas.
 
 - [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Curso gratuito para principiantes en React y para aquellos que busquen entender mejor los fundamentos de React.
+=======
+- [Frontend Armory: React Fundamentals](https://frontarm.com/courses/react-fundamentals/) - Learn React without the buzzwords.
+
+- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-react) - Free course for React newbies and those looking to get a better understanding of React fundamentals.
+>>>>>>> 888d9eae7a33ec1a48c18f28e82c26d048d885be
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Grabaciones de tres días de un *bootcamp* online gratuito de React.
 

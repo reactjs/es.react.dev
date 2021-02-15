@@ -198,7 +198,11 @@ class Greeting extends React.Component {
 
 ### Componentes de función {#function-components}
 
+<<<<<<< HEAD
 Si estás usando componentes de función en tu flujo común de desarrollo, es conveniente que hagas algunos cambios para permitir que los PropTypes se apliquen correctamente.
+=======
+If you are using function components in your regular development, you may want to make some small changes to allow PropTypes to be properly applied.
+>>>>>>> 888d9eae7a33ec1a48c18f28e82c26d048d885be
 
 Digamos que tienes un componentes que luce así:
 
