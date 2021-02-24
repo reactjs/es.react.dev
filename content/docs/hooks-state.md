@@ -62,7 +62,7 @@ El estado empieza como `{ count:0 }` y se incrementa `state.count` cuando el usu
 >
 >Puedes estar preguntándote por qué estamos usando un contador en lugar de un ejemplo más realista. Esto es porque ayuda a centrarse en la API mientras seguimos dando nuestros primeros pasos con los Hooks.
 
-## Hooks and Function Components {#hooks-and-function-components}
+## Hooks y Componentes Funcionales {#hooks-and-function-components}
 
 Como recordatorio, un componente funcional en React se ve así:
 
