@@ -38,7 +38,7 @@ function Example() {
 }
 ```
 
-Aquí, `useState` es un *Hook* (hablaremos de lo que esto significa en un momento). Lo llamamos dentro de un componente funcional para agregarle un estado local. React mantendrá este estado entre re-renderizados. `useState` devuelve un par: el valor de estado *actual* y una función que le permite actualizarlo. Puedes llamar a esta función desde un controlador de eventos o desde otro lugar. Es similar a `this.setState` en una clase, excepto que no combina el estado antiguo y el nuevo. (Mostraremos un ejemplo comparando `useState` con `this.state` en [Usando el Hook de estado](/docs/hooks-state.html)).
+Aquí, `useState` es un *Hook* (hablaremos de lo que esto significa en un momento). Lo llamamos dentro de un componente de función para agregarle un estado local. React mantendrá este estado entre re-renderizados. `useState` devuelve un par: el valor de estado *actual* y una función que le permite actualizarlo. Puedes llamar a esta función desde un controlador de eventos o desde otro lugar. Es similar a `this.setState` en una clase, excepto que no combina el estado antiguo y el nuevo. (Mostraremos un ejemplo comparando `useState` con `this.state` en [Usando el Hook de estado](/docs/hooks-state.html)).
 
 El único argumento para `useState` es el estado inicial. En el ejemplo anterior, es `0` porque nuestro contador comienza desde cero. Ten en cuenta que a diferencia de `this.state`, el estado aquí no tiene que ser un objeto -- aunque puede serlo si quisieras. El argumento de estado inicial solo se usa durante el primer renderizado.
 
@@ -60,7 +60,7 @@ La sintaxis de [desestructuración de un array](https://developer.mozilla.org/es
 
 #### ¿Pero qué es un Hook? {#but-what-is-a-hook}
 
-Los Hooks son funciones que te permiten "enganchar" el estado de React y el ciclo de vida desde componentes funcionales. Los hooks no funcionan dentro de las clases -- te permiten usar React sin clases. ([No recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescribir tus componentes existentes de la noche a la mañana, pero puedes comenzar a usar Hooks en los nuevos si quieres).
+Los Hooks son funciones que te permiten "enganchar" el estado de React y el ciclo de vida desde componentes de función. Los hooks no funcionan dentro de las clases -- te permiten usar React sin clases. ([No recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescribir tus componentes existentes de la noche a la mañana, pero puedes comenzar a usar Hooks en los nuevos si quieres).
 
 React proporciona algunos Hooks incorporados como `useState`. También puedes crear tus propios Hooks para reutilizar el comportamiento con estado entre diferentes componentes. Primero veremos los Hooks incorporados.
 
@@ -72,7 +72,7 @@ React proporciona algunos Hooks incorporados como `useState`. También puedes cr
 
 Es probable que hayas realizado recuperación de datos, suscripciones o modificación manual del DOM desde los componentes de React. Llamamos a estas operaciones "efectos secundarios" (o "efectos" para abreviar) porque pueden afectar a otros componentes y no se pueden hacer durante el renderizado.
 
-El Hook de efecto, `useEffect`, agrega la capacidad de realizar efectos secundarios desde un componente funcional. Tiene el mismo propósito que `componentDidMount`,` componentDidUpdate` y `componentWillUnmount` en las clases React, pero unificadas en una sola API. (Mostraremos ejemplos comparando `useEffect` con estos métodos en [Usando el Hook de efecto](/docs/hooks-effect.html)).
+El Hook de efecto, `useEffect`, agrega la capacidad de realizar efectos secundarios desde un componente de función. Tiene el mismo propósito que `componentDidMount`,` componentDidUpdate` y `componentWillUnmount` en las clases React, pero unificadas en una sola API. (Mostraremos ejemplos comparando `useEffect` con estos métodos en [Usando el Hook de efecto](/docs/hooks-effect.html)).
 
 Por ejemplo, este componente establece el título del documento después de que React actualiza el DOM:
 
@@ -164,7 +164,7 @@ Los Hooks te permiten organizar efectos secundarios en un componente según qué
 Los Hooks son funciones de JavaScript, pero imponen dos reglas adicionales:
 
 * Solo llamar Hooks **en el nivel superior**. No llames Hooks dentro de loops, condiciones o funciones anidadas.
-* Solo llamar Hooks **desde componentes funcionales de React**. No llames Hooks desde las funciones regulares de JavaScript. (Solo hay otro lugar válido para llamar Hooks: tus propios Hooks personalizados. En un momento aprenderemos sobre estos).
+* Solo llamar Hooks **desde componentes de función de React**. No llames Hooks desde las funciones regulares de JavaScript. (Solo hay otro lugar válido para llamar Hooks: tus propios Hooks personalizados. En un momento aprenderemos sobre estos).
 
 Proporcionamos un [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para forzar estas reglas automáticamente. Entendemos que estas reglas pueden parecer limitantes o confusas al principio, pero son esenciales para hacer que los Hooks funcionen bien.
 

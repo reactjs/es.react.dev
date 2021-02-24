@@ -22,16 +22,16 @@ Puede que estés usando una versión de `react-dom` (< 16.8.0) o `react-native` 
 
 ## Rompiendo las reglas de los Hooks {#rompiendo-las-reglas-de-los-hooks}
 
-Solamente puedes llamar Hooks **mientras React está renderizando un componente funcional**:
+Solamente puedes llamar Hooks **mientras React está renderizando un componente de función**:
 
-* ✅ Llámalos en el nivel superior en el cuerpo de un componente funcional.
+* ✅ Llámalos en el nivel superior en el cuerpo de un componente de función.
 * ✅ Llámalos en el nivel superior en el cuerpo de un [Hook personalizado](/docs/hooks-custom.html).
 
 **Lee más acerca de esto en las [Reglas de los Hooks](/docs/hooks-rules.html).**
 
 ```js{2-3,8-9}
 function Counter() {
-  // ✅ Bien: nivel superior en un componente funcional
+  // ✅ Bien: nivel superior en un componente de función
   const [count, setCount] = useState(0);
   // ...
 }
@@ -82,7 +82,7 @@ Puedes usar el [plugin `eslint-plugin-react-hooks`](https://www.npmjs.com/packag
 
 >Nota
 >
->[Los Hooks personalizados](/docs/hooks-custom.html) *podrían* llamar otros Hooks (ese es su propósito). Esto funciona porque los Hooks personalizados también se supone que deben llamarse únicamente mientras un componente funcional se está renderizando.
+>[Los Hooks personalizados](/docs/hooks-custom.html) *podrían* llamar otros Hooks (ese es su propósito). Esto funciona porque los Hooks personalizados también se supone que deben llamarse únicamente mientras un componente de función se está renderizando.
 
 
 ## React duplicado {#duplicate-react}

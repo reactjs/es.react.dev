@@ -173,7 +173,7 @@ Desmonta el árbol en memoria, generando los eventos apropiados del ciclo de vid
 testRenderer.getInstance()
 ```
 
-Devuelve la instancia correspondiente a la raíz del elemento, si está disponible. Este método no funciona si el elemento raíz es un componente funcional, ya que los mismos no poseen instancias.
+Devuelve la instancia correspondiente a la raíz del elemento, si está disponible. Este método no funciona si el elemento raíz es un componente de función, ya que los mismos no poseen instancias.
 
 ### `testRenderer.root` {#testrendererroot}
 
@@ -237,7 +237,7 @@ Busca todos los objetos `test instance` descendientes con los `props` pasados co
 testInstance.instance
 ```
 
-La instancia de componente correspondiente a este objeto `test instance`. Está únicamente disponible para componentes de clase, ya que los componentes funcionales no poseen instancias. Es equivalente al valor de `this` dentro del componente.
+La instancia de componente correspondiente a este objeto `test instance`. Está únicamente disponible para componentes de clase, ya que los componentes de función no poseen instancias. Es equivalente al valor de `this` dentro del componente.
 
 ### `testInstance.type` {#testinstancetype}
 

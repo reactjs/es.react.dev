@@ -62,9 +62,9 @@ El estado empieza como `{ count:0 }` y se incrementa `state.count` cuando el usu
 >
 >Puedes estar preguntándote por qué estamos usando un contador en lugar de un ejemplo más realista. Esto es porque ayuda a centrarse en la API mientras seguimos dando nuestros primeros pasos con los Hooks.
 
-## Hooks y Componentes Funcionales {#hooks-and-function-components}
+## Hooks y componentes de función {#hooks-and-function-components}
 
-Como recordatorio, un componente funcional en React se ve así:
+Como recordatorio, un componente de función en React se ve así:
 
 ```js
 const Example = (props) => {
@@ -82,7 +82,7 @@ function Example(props) {
 }
 ```
 
-Puedes haber conocido previamente estos componentes como "componentes sin estado". Actualmente estamos presentando la habilidad de usar el estado de React desde ellos por lo que preferimos el nombre "componentes funcionales".
+Puedes haber conocido previamente estos componentes como "componentes sin estado". Actualmente estamos presentando la habilidad de usar el estado de React desde ellos por lo que preferimos el nombre "componentes de función".
 
 Los Hooks **no** funcionan en clases, pero los puedes usar en lugar de escribir clases.
 
@@ -98,9 +98,9 @@ function Example() {
 }
 ```
 
-**¿Qué es un Hook?** Un Hook es una función especial que permite "conectarse" a características de React. Por ejemplo, `useState` es un Hook que te permite añadir el estado de React a un componente funcional. Más adelante hablaremos sobre otros Hooks.
+**¿Qué es un Hook?** Un Hook es una función especial que permite "conectarse" a características de React. Por ejemplo, `useState` es un Hook que te permite añadir el estado de React a un componente de función. Más adelante hablaremos sobre otros Hooks.
 
-**¿Cuándo debería usar un Hook?** Si creas un componente funcional y descubres que necesitas añadirle estado, antes había que crear una clase. Ahora puedes usar un Hook dentro de un componente funcional existente. ¡Vamos a hacerlo ahora mismo!
+**¿Cuándo debería usar un Hook?** Si creas un componente de función y descubres que necesitas añadirle estado, antes había que crear una clase. Ahora puedes usar un Hook dentro de un componente de función existente. ¡Vamos a hacerlo ahora mismo!
 
 >Nota:
 >
@@ -120,7 +120,7 @@ class Example extends React.Component {
   }
 ```
 
-En un componente funcional no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro componente:
+En un componente de función no existe `this` por lo que no podemos asignar o leer `this.state`. En su lugar, usamos el Hook `useState` directamente dentro de nuestro componente:
 
 ```js{4,5}
 import React, { useState } from 'react';
@@ -212,7 +212,7 @@ Ahora **recapitularemos lo que hemos aprendido línea por línea** y comprobarem
 14:  }
 ```
 
-* **Línea 1:** Importamos el Hook `useState` desde React que nos permite mantener un estado local en un componente funcional.
+* **Línea 1:** Importamos el Hook `useState` desde React que nos permite mantener un estado local en un componente de función.
 * **Línea 4:** Dentro del componente `Example` declaramos una nueva variable de estado llamando al Hook `useState`. Este nos devuelve un par de valores, a los que damos un nombre. Llamamos `count` a nuestra variable porque guarda el número de clicks en el botón. La inicializamos a cero pasando `0` como único argumento a `useState`. El segundo elemento retornado es una función que nos permite actualizar `count`, por lo que le llamamos `setCount`.
 * **Línea 9:** Cuando el usuario hace click, llamamos a `setCount` con un nuevo valor. React actualizará entonces el componente `Example` pasándole el nuevo valor de `count`.
 
@@ -273,8 +273,8 @@ En el componente de arriba tenemos `age`, `fruit`, y `todos` como variables loca
 
 ## Siguientes pasos {#next-steps}
 
-En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", nos permite añadir un estado local a los componentes funcionales de React.
+En esta página hemos aprendido sobre uno de los Hooks proporcionado por React, llamado `useState`. También nos vamos a referir a él como "Hook de estado", nos permite añadir un estado local a los componentes de función de React.
 
-También hemos aprendido un poco más sobre qué son los Hooks. Son funciones que te permiten "conectarte" a las características de React desde componentes funcionales. Sus nombres siempre empiezan con `use` y hay más Hooks que aún no hemos visto.
+También hemos aprendido un poco más sobre qué son los Hooks. Son funciones que te permiten "conectarte" a las características de React desde componentes de función. Sus nombres siempre empiezan con `use` y hay más Hooks que aún no hemos visto.
 
 **Ahora continúa [aprendiendo el siguiente Hook: `useEffect`.](/docs/hooks-effect.html)** Te permite utilizar side effects en componentes y es similar a los métodos del ciclo de vida en las clases.
