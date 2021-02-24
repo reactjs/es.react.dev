@@ -6,7 +6,7 @@ permalink: docs/context.html
 
 Context provee una forma de pasar datos a través del árbol de componentes sin tener que pasar *props* manualmente en cada nivel.
 
-En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esto puede ser complicado para ciertos tipos de *props* (por ejemplo, localización, el tema de la interfaz) que son necesarios para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente una *prop* a través de cada nivel del árbol.
+En una aplicación típica de React, los datos se pasan de arriba hacia abajo (de padre a hijo) a través de *props*, pero esta forma puede resultar incómoda para ciertos tipos de *props* (por ejemplo, localización, el tema de la interfaz) que son necesarias para muchos componentes dentro de una aplicación. Context proporciona una forma de compartir valores como estos entre componentes sin tener que pasar explícitamente una *prop* a través de cada nivel del árbol.
 
 - [Cuándo usar Context](#when-to-use-context)
 - [Antes de usar Context](#before-you-use-context)
@@ -80,7 +80,7 @@ function Page(props) {
 
 Con este cambio, solo el componente más importante Page necesita saber sobre el uso de `user` y `avatarSize` de los componentes `Link` y `Avatar`.
 
-Esta *inversión de control* puede hacer que tu código, en muchos casos, sea más limpio al reducir la cantidad de props que necesitas pasar a través de tu aplicación y dar más control a los componentes raíz. Sin embargo, esta no es la opción correcta en todos los casos: mover más complejidad más arriba en el árbol hace que esos componentes de nivel superior sean más complicados y obliga a los componentes de nivel inferior a ser más flexibles de lo que tu podrías desear.
+Esta *inversión de control* puede hacer que tu código, en muchos casos, sea más limpio al reducir la cantidad de props que necesitas pasar a través de tu aplicación y dar más control a los componentes raíz. Sin embargo, esta inversión no es la opción correcta en todos los casos. Al mover más complejidad a niveles superiores del árbol, esos componentes en los niveles superiores resultan más complicados y obliga a los componentes en niveles inferiores a ser más flexibles de lo que podría ser deseable.
 
 No estás limitado a un solo hijo por componente. Puede pasar varios hijos, o incluso tener varios “huecos” (slots) separados para los hijos, [como se documenta aquí](/docs/composition-vs-inheritance.html#contenering):
 
@@ -119,7 +119,7 @@ const MyContext = React.createContext(defaultValue);
 
 Crea un objeto Context. Cuando React renderiza un componente que se suscribe a este objeto Context, este leerá el valor de contexto actual del `Provider` más cercano en el árbol.
 
-El argumento `defaultValue` es usado **únicamente** cuando un componente no tiene un `Provider` superior a él en el árbol. Esto puede ser útil para probar componentes de forma aislada sin contenerlos. Nota: pasar `undefined` como valor al `Provider` no hace que los componentes que lo consumen utilicen `defaultValue`.
+El argumento `defaultValue` es usado **únicamente** cuando un componente no tiene un `Provider` superior a él en el árbol. Este valor por defecto puede ser útil para probar componentes de forma aislada sin contenerlos. Nota: pasar `undefined` como valor al `Provider` no hace que los componentes que lo consumen utilicen `defaultValue`.
 
 ### `Context.Provider` {#contextprovider}
 
@@ -163,7 +163,7 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
-A la propiedad `contextType` en una clase se le puede asignar un objeto Context creado por [`React.createContext()`](#reactcreatecontext). Esto te permite consumir el valor actual más cercano de ese Context utilizando `this.context`. Puedes hacer referencia a esto en cualquiera de los métodos del ciclo de vida, incluida la función de renderizado.
+A la propiedad `contextType` en una clase se le puede asignar un objeto Context creado por [`React.createContext()`](#reactcreatecontext). Al usar esta propiedad puedes consumir el valor actual más cercano de ese Context utilizando `this.context`. Puedes hacer referencia a ella en cualquiera de los métodos del ciclo de vida, incluida la función de renderizado.
 
 > Nota:
 >
@@ -190,7 +190,7 @@ class MyClass extends React.Component {
 </MyContext.Consumer>
 ```
 
-Un componente de React que se suscribe a cambios de contexto. Esto le permite suscribirse a un contexto dentro de un [componente de función](/docs/components-and-props.html#function-and-class-components).
+Un componente de React que se suscribe a cambios de contexto. Al usare este componente puedes suscribirte a un contexto dentro de un [componente de función](/docs/components-and-props.html#function-and-class-components).
 
 Requiere una [función como hijo](/docs/render-props.html#using-props-other-than-render). La función recibe el valor de contexto actual y devuelve un nodo de React. El argumento `value` pasado a la función será igual a la prop `value` del `Provider` más cercano para este contexto en el árbol. Si no hay un `Proveedor` superior para este contexto, el argumento `value` será igual al `defaultValue` que se pasó a `createContext()`.
 
