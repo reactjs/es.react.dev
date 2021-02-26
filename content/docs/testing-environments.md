@@ -27,7 +27,7 @@ Tal como en un navegador real, jsdom nos permite simular interacciones del usuar
 
 Una gran parte de pruebas a la interfaz gráfica pueden ser escritas con la configuración descrita más arriba: usando Jest como biblioteca de prueba, renderizando en jsdom y con interacciones especificas del usuario como una secuencia de eventos del navegador, iniciadas por la función `act()` [<small>(ejemplo)</small>](/docs/testing-recipes.html). Por ejemplo, muchas de las propias pruebas de React están escritas con esta combinación.
 
-Si estas escribiendo una biblioteca que prueba principalmente un comportamiento específico del navegador y requiere comportamiento nativo del navegador como el layout o inputs reales, puedes usar un framewrok como [mocha.](https://mochajs.org/)
+Si estas escribiendo una biblioteca que prueba principalmente un comportamiento específico del navegador y requiere comportamiento nativo del navegador como el layout o inputs reales, puedes usar un framework como [mocha.](https://mochajs.org/)
 
 En un entorno donde _no puedes_ simular el DOM (por ejemplo, probando componentes de React Native en Node.js), podrías usar [simuladores de eventos](/docs/test-utils.html#simulate) para simular interacciones con elementos. De manera alternativa, también puedes usar el _helper_ `fireEvent` de [`@testing-library/react-native`](https://testing-library.com/docs/react-native-testing-library/intro).
 
