@@ -68,7 +68,11 @@ Ten en cuenta que **los límites de errores sólo capturan errores en los compon
 Mira [este ejemplo de declaración y uso de un límite de errores](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) con [React 16](/blog/2017/09/26/react-v16.0.html).
 
 
+<<<<<<< HEAD
 ## Dónde poner Límites de Errores {#where-to-place-error-boundaries}
+=======
+The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like how server-side frameworks often handle crashes. You may also wrap individual widgets in an error boundary to protect them from crashing the rest of the application.
+>>>>>>> df2fbde3b52336229eee550debd692184c427691
 
 La granularidad de los límites de errores depende de tí. Puedes envolver los componentes de enrutado de alto nivel para mostrar un mensaje de "Algo ha ido mal" al usuario, tal como a menudo gestionan los errores los frameworks del lado del servidor. También puedes envolver widgets aisladas en un límite de error para evitar que hagan fallar el resto de la aplicación.
 
@@ -128,7 +132,11 @@ Los límites de errores **no** capturan errores en los manejadores de eventos.
 
 React no necesita límites de errores para recuperarse de errores en los manejadores de eventos. A diferencia del método render y de los métodos del ciclo de vida, los manejadores de eventos no ocurren durante el renderizado, por lo que, si lanzan una excepción, React sigue sabiendo qué mostrar en la pantalla.
 
+<<<<<<< HEAD
 Si necesitas capturar un error dentro de un manejador de eventos, usa la sentencia de `try` / `catch` normal de JavaScript.
+=======
+If you need to catch an error inside an event handler, use the regular JavaScript `try` / `catch` statement:
+>>>>>>> df2fbde3b52336229eee550debd692184c427691
 
 ```js{9-13,17-20}
 class MyComponent extends React.Component {
