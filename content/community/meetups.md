@@ -50,6 +50,9 @@ permalink: community/meetups.html
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
 * [Toronto, ON](https://www.meetup.com/Toronto-React-Native/events/)
 
+## Chile {#chile}
+* [Santiago](https://www.meetup.com/es-ES/react-santiago/)
+
 ## China {#china}
 * [Pekín](https://www.meetup.com/Beijing-ReactJS-Meetup/)
 
