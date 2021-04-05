@@ -51,7 +51,7 @@ Esto destruirá el `Counter` viejo y volvera a montar uno nuevo.
 
 ### Elementos del DOM del mismo tipo {#dom-elements-of-the-same-type}
 
-Al comparar dos elementos elementos React DOM del mismo tipo, React analiza los atributos de ambos, mantiene el mismo nodo DOM subyacente, y solo actualiza los atributos modificados. Por ejemplo:
+Al comparar dos elementos React DOM del mismo tipo, React analiza los atributos de ambos, mantiene el mismo nodo DOM subyacente, y solo actualiza los atributos modificados. Por ejemplo:
 
 ```xml
 <div className="before" title="stuff" />
