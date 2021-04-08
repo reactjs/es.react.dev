@@ -429,7 +429,7 @@ Sin embargo, `useRef()` es útil para más que el atributo `ref`. Es [convenient
 
 Esto funciona debido a que `useRef()` crea un objeto JavaScript plano. La única diferencia entre `useRef()` y crear un objeto `{current: ...}` por ti mismo es que `useRef` te dará el mismo objeto de referencia en cada renderizado.
 
-Ten en cuenta que `useRef` *no* notifica cuando su contenido cambia. Mutar la propiedad `.current` no causa otro renderizado. Si quieres correr algún codigo cuando React agregue o quite una referencia de un nodo del DOM, puede que quieras utilizar en su lugar una [referencia mediante callback](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
+Ten en cuenta que `useRef` *no* notifica cuando su contenido cambia. Mutar la propiedad `.current` no causa otro renderizado. Si quieres correr algún código cuando React agregue o quite una referencia de un nodo del DOM, puede que quieras utilizar en su lugar una [referencia mediante callback](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
 
 
 ### `useImperativeHandle` {#useimperativehandle}
