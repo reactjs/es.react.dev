@@ -17,7 +17,6 @@ Sophie Alpert y Dan Abramov iniciaron el día 1 con su discurso de apertura, Rea
 
 En la mañana del día 2, Andrew Clark y Brian Vaughn presentaron el renderizado concurrente en React. Andrew cubrió la [API React.lazy para la división de código](/blog/2018/10/23/react-v-16-6.html) recientemente anunciada y mostró una vista previa de dos funciones próximas: modo concurrente y Suspense. Brian demostró cómo usar [las nuevas herramientas de creación de perfiles de React](/blog/2018/09/10/introducing-the-react-profiler.html) para hacer que las aplicaciones creadas en React se ejecuten más rápido.
 
-
 <br>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UcqRXTriUVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
