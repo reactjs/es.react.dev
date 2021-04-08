@@ -1,6 +1,6 @@
 ---
 title: "Descripción general de la React Conf: Hooks, Suspense y renderizado concurrente"
-autor: [tomocchino]
+author: [tomocchino]
 ---
 
 Este año [React Conf](https://conf.reactjs.org/) se llevó a cabo el 25 y 26 de octubre en Henderson, Nevada, donde más de 600 asistentes se reunieron para discutir lo último en ingeniería de UI.
