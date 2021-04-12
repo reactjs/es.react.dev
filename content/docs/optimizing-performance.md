@@ -156,6 +156,7 @@ Puedes aprender más acerca de esto en la [documentación de webpack](https://we
 
 Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberías aplicar `TerserPlugin` en desarrollo, porque ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
+<<<<<<< HEAD
 ## Perfilando Componentes con la pestaña de Performance de Chrome{#profiling-components-with-the-chrome-performance-tab}
 
 En el modo de **desarrollo**, puedes visualizar como montar componentes, actualizarlos y desmontarlos usando las herramientas para rendimiento soportadas por los navegadores. Por ejemplo:
@@ -183,6 +184,9 @@ Nota que **los números son relativos, así que los componentes se renderizarán
 Actualmente Chrome, Edge, e IE son los únicos navegadores que soportan esta funcionalidad, pero usamos el estándar [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) así que esperamos que más navegadores soporten esta funcionalidad. 
 
 ## Perfilando componentes con DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+=======
+## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 `react-dom` 16.5+ y `react-native` 0.57+ proveen capacidades de perfilación mejoradas en modo *DEV* con *React DevTools Profiler*.
 Un resumen del perfilador puede ser encontrado en la publicación ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
@@ -199,7 +203,16 @@ Si aun no has instalado *React DevTools*, puedes encontrarlo aquí:
 > Un *bundle* de perfilado para producción de `react-dom` está disponible como`react-dom/profiling`.
 > Lee más sobre esto en [fb.me/react-profiling](https://fb.me/react-profiling)
 
+<<<<<<< HEAD
 ## Virtualizar listas largas {#virtualize-long-lists}
+=======
+> Note
+>
+> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab. 
+> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
+
+## Virtualize Long Lists {#virtualize-long-lists}
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 Si su aplicación renderiza largas listas de datos (cientos o miles de filas), recomendamos que uses una técnica conocida como *"windowing"*. Esta técnica solo renderiza un pequeño subconjunto de tus filas en un momento dado, y puede reducir dramáticamente el tiempo que demora en re-renderizar los componentes, así como el numero de nodos creados en el *DOM*.
 
