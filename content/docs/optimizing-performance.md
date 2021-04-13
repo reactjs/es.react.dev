@@ -156,43 +156,13 @@ Puedes aprender más acerca de esto en la [documentación de webpack](https://we
 
 Recuerda que solo necesitas hacer esto para las *builds* de producción. No deberías aplicar `TerserPlugin` en desarrollo, porque ocultará las advertencias de React y hará las *builds* mucho más lentas.
 
-<<<<<<< HEAD
-## Perfilando Componentes con la pestaña de Performance de Chrome{#profiling-components-with-the-chrome-performance-tab}
+## Análisis de rendimiento de componentes con DevTools Profiler {#profiling-components-with-the-devtools-profiler}
 
-En el modo de **desarrollo**, puedes visualizar como montar componentes, actualizarlos y desmontarlos usando las herramientas para rendimiento soportadas por los navegadores. Por ejemplo:
+`react-dom` 16.5+ y `react-native` 0.57+ proveen capacidades de análisis de rendimiento (_profiling_) mejoradas en modo *DEV* con *React DevTools Profiler*.
+Un resumen del profiler puede ser encontrado en la publicación ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
+Un video tutorial del profiler está [disponible en YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
 
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="React components in Chrome timeline" /></center>
-
-Para hacer esto en Chrome:
-
-1. Temporalmente, **deshabilita todas la extensiones de Chrome, especialmente React DevTools**, ¡Ellas pueden sesgar significativamente los resultados!
-
-2. Asegúrate de estar ejecutando la aplicación en modo de desarrollo.
-
-3. Abre la pestaña de **[rendimiento](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** de las herramientas de desarrollo de Chrome y presiona **Record**.
-
-4. Define las acciones que quieres medir. No grabes mas de 20 segundos o Chrome podría colgarse.
-
-5. Para de grabar.
-
-6. Los eventos de React se agruparan bajo la etiqueta **User Timing**.
-
-Para un tutorial mas detallado, consulta [este articulo por Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
-
-Nota que **los números son relativos, así que los componentes se renderizarán mas rápido en producción**. Como quiera esto debería ayudarte a darte cuenta cuando la *IU* no relacionada se actualiza por error, la frecuencia y profundidad con la que se actualiza.
-
-Actualmente Chrome, Edge, e IE son los únicos navegadores que soportan esta funcionalidad, pero usamos el estándar [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) así que esperamos que más navegadores soporten esta funcionalidad. 
-
-## Perfilando componentes con DevTools Profiler {#profiling-components-with-the-devtools-profiler}
-=======
-## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
->>>>>>> 968f09159512b59afd5246a928789ae52592c923
-
-`react-dom` 16.5+ y `react-native` 0.57+ proveen capacidades de perfilación mejoradas en modo *DEV* con *React DevTools Profiler*.
-Un resumen del perfilador puede ser encontrado en la publicación ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
-Un video tutorial del perfilador está [disponible en YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
-
-Si aun no has instalado *React DevTools*, puedes encontrarlo aquí:
+Si aún no has instalado *React DevTools*, puedes encontrarlo aquí:
 
 - [Extensión de navegador para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [Extensión de navegador para Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
@@ -200,19 +170,15 @@ Si aun no has instalado *React DevTools*, puedes encontrarlo aquí:
 
 > Nota
 >
-> Un *bundle* de perfilado para producción de `react-dom` está disponible como`react-dom/profiling`.
+> Un *bundle* para análisis de rendimiento en producción de `react-dom` está disponible como`react-dom/profiling`.
 > Lee más sobre esto en [fb.me/react-profiling](https://fb.me/react-profiling)
 
-<<<<<<< HEAD
-## Virtualizar listas largas {#virtualize-long-lists}
-=======
-> Note
+> Nota
 >
-> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab. 
-> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
+> Antes de React 17, usábamos la [API estándar User Timing](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) para realizar el análisis de rendimiento de componentes con la pestaña de rendimiento de Chrome.
+> Para una explicación más detallada, consulta [este artículo de Ben Schwarz (en inglés)](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
-## Virtualize Long Lists {#virtualize-long-lists}
->>>>>>> 968f09159512b59afd5246a928789ae52592c923
+## Virtualizar listas largas {#virtualize-long-lists}
 
 Si su aplicación renderiza largas listas de datos (cientos o miles de filas), recomendamos que uses una técnica conocida como *"windowing"*. Esta técnica solo renderiza un pequeño subconjunto de tus filas en un momento dado, y puede reducir dramáticamente el tiempo que demora en re-renderizar los componentes, así como el numero de nodos creados en el *DOM*.
 
@@ -236,7 +202,7 @@ Si sabes que en algunas situaciones tu componente no necesita actualizarse, pued
 
 En la mayoría de los casos, en vez de escribir `shouldComponentUpdate()`, puedes heredar [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). Esto es equivalente a implementar `shouldComponentUpdate()` con una comparación superficial del las propiedades y estados previos y actuales.
 
-## shouldComponentUpdate en Acción {#shouldcomponentupdate-in-action}
+## shouldComponentUpdate en acción {#shouldcomponentupdate-in-action}
 
 Aquí hay un subárbol de componentes. Para cada uno, `SCU` indica que `shouldComponentUpdate` devolvió, y `vDOMEq` indica si los elementos React renderizados fueron equivalentes. Finalmente, el color de los círculos indica si el componente tiene que ser reconciliado o no.
 
