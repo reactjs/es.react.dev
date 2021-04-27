@@ -28,7 +28,6 @@ Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-m
 
 - [Habilitando el modo concurrente](#concurrent-mode)
     - [`createRoot`](#createroot)
-    - [`createBlockingRoot`](#createblockingroot)
 - [Suspense](#suspense)
     - [`Suspense`](#suspensecomponent)
     - [`SuspenseList`](#suspenselist)
@@ -46,18 +45,6 @@ ReactDOM.createRoot(rootNode).render(<App />);
 Reemplaza `ReactDOM.render(<App />, rootNode)` y habilita el Modo concurrente.
 
 Para más información del Modo concurrente, revisa la [documentación del modo concurrente.](/docs/concurrent-mode-intro.html)
-
-### `createBlockingRoot` {#createblockingroot}
-
-```js
-ReactDOM.createBlockingRoot(rootNode).render(<App />)
-```
-
-Reemplaza `ReactDOM.render(<App />, rootNode)` y habilita el [Modo de bloqueo](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode).
-
-Optar por el Modo concurrente introduce cambios semánticos en como React funciona. Esto siginifca que no puedes usar el Modo concurrente en solo algunos componentes. Por lo tanto, algunas aplicaciones no estarían aptas de realizar una migración directa hacia el Modo concurrente.
-
-El Modo de bloqueo solo contiene pequeños subconjuntos de las características del Modo concurrente y está pensado como un paso de migración intermedia para aplicaciones que no puedan migrar directamente.
 
 ## API de Suspense {#suspense}
 
