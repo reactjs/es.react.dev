@@ -53,3 +53,5 @@ permalink: community/courses.html
 - [Road to React](https://www.roadtoreact.com/) - Tu viaje hacia el dominio de React en JavaScript.
 
 - [Epic React](https://epicreact.dev/) - Publica con confianza aplicaciones bien diseñadas y listas para producción como un pro.
+
+- [Curso de React](https://platzi.com/cursos/react/) - Aprende desde la creación y diseño de componentes hasta traer datos de un API. Puedes empezar gratis.
