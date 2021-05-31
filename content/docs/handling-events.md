@@ -29,11 +29,7 @@ En React es algo diferente:
 </button>
 ```
 
-<<<<<<< HEAD
-Otra diferencia es que en React no puedes retornar `false` para prevenir el comportamiento por defecto. Debes, explícitamente, llamar `preventDefault`. Por ejemplo, en un HTML plano, para prevenir el comportamiento por defecto de un enlace de abrir una nueva página, puedes escribir:
-=======
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
->>>>>>> ec2d0adcb44d6394f4e6282d8bf52f0e25dbfec3
+Otra diferencia es que en React no puedes retornar `false` para prevenir el comportamiento por defecto. Debes, explícitamente, llamar `preventDefault`. Por ejemplo, en un HTML plano, para prevenir el comportamiento por defecto de enviar un formulario, puedes escribir:
 
 ```html
 <form onsubmit="console.log('You clicked submit.'); return false">
