@@ -31,7 +31,7 @@ Esta es también **la manera más fácil de integrar React en un sitio web exist
 El equipo de React principalmente recomienda las siguientes soluciones:
 
 - Si estás **aprendiendo React** o **creando una nueva [aplicación de página única](/docs/glossary.html#single-page-application),** usa [Create React App](#create-react-app).
-- Si estás construyendo un **sito web renderizado en servidor con Node.js,** prueba [Next.js](#nextjs).
+- Si estás construyendo un **sitio web renderizado en servidor con Node.js,** prueba [Next.js](#nextjs).
 - Si estás construyendo un **sitio web orientado a contenido estático,** prueba [Gatsby](#gatsby).
 - Si estás construyendo una **biblioteca de componentes** o **integrando una base de código existente**, prueba [Cadenas de Herramientas más Flexibles](#more-flexible-toolchains).
 
