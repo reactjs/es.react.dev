@@ -39,12 +39,7 @@ React es una biblioteca Javascript, y vamos a asumir que tienes un entendimiento
 
 >Nota
 >
-<<<<<<< HEAD
 > Esta guía ocasionalmente usa la nueva sintaxis de JavaScript en los ejemplos. Si no has trabajado con JavaScript en los últimos años, [estos tres puntos](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) son un buen resumen.
-=======
->This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
-
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 ## Empecemos! {#lets-get-started}
 

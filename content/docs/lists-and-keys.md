@@ -207,11 +207,7 @@ Una buena regla es que los elementos dentro de `map()` necesitan keys.
 
 ### Las keys deben ser únicas solo entre hermanos {#keys-must-only-be-unique-among-siblings}
 
-<<<<<<< HEAD
 Las keys usadas dentro de arrays deberían ser únicas entre sus hermanos. Sin embargo, no necesitan ser únicas globalmente. Podemos usar las mismas keys cuando creamos dos arrays diferentes:
-=======
-Keys used within arrays should be unique among their siblings. However, they don't need to be globally unique. We can use the same keys when we produce two different arrays:
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {

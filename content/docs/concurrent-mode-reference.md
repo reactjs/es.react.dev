@@ -59,11 +59,7 @@ Para más información del Modo concurrente, revisa la [documentación del modo 
 
 `Suspense` permite que tus componentes "esperen" algo antes de que puedan renderizar, mostrando un contenido de respaldo mientras esperan.
 
-<<<<<<< HEAD
 En este ejemplo, `ProfileDetails` está esperando una llamada asíncrona del API para obtener algunos datos. Mientras esperamos a `ProfileDetails` y `ProfilePhoto`, vamos a ir mostrando `Loading...` como contenido de respaldo mientras tanto. Es importante tener en cuenta que hasta que todos los hijos de `<Suspense>` hayan cargado, continuaremos mostrando el contenido de respaldo.
-=======
-In this example, `ProfileDetails` is waiting for an asynchronous API call to fetch some data. While we wait for `ProfileDetails` and `ProfilePhoto`, we will show the `Loading...` fallback instead. It is important to note that until all children inside `<Suspense>` have loaded, we will continue to show the fallback.
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 `Suspense` lleva dos props:
 * **fallback** lleva un indicador de carga. El contenido de respaldo es mostrado hasta que todos los hijos de `Suspense` hayan terminado de renderizar.

@@ -84,11 +84,7 @@ Para hacer tu interfaz de usuario interactiva vas a necesitar realizar cambios e
 
 Para armar tu aplicación de forma correcta necesitas primero pensar en la mínima cantidad de estado mutable que necesita la aplicación. Lo importante acá es que [*no te repitas*](https://es.wikipedia.org/wiki/No_te_repitas) (DRY: Don't Repeat Yourself). Necesitas descubrir la mínima representación del estado que tu aplicación va a necesitar y calcular el resto bajo demanda. Por ejemplo, si estás creando una lista de tareas pendientes, solo mantén un array de las tareas, no mantengas una variable a parte en el estado para contar cuantas hay. En vez de eso, cuando vayas a mostrar cuántas hay simplemente obtén el largo del array de tareas.
 
-<<<<<<< HEAD
 Piensa en toda la información que posee nuestra aplicación de ejemplo. Tenemos:
-=======
-Think of all the pieces of data in our example application. We have:
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
   * La lista original de productos
   * El texto de búsqueda que el usuario ingresó
