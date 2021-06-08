@@ -297,7 +297,7 @@ La función utilitaria `compose` es provista por muchas bibliotecas de terceros,
 
 ## Convención: Envuelve el nombre a mostrar para una depuración fácil
 
-Los componentes contenedores creados por los *HOCs* se muestran en las [Herramientas de Desarrollo de React](https://github.com/facebook/react-devtools) como cualquier otro componente. Para facilitar la depuración elige que se muestre un nombre que comunique que es el resultado de un *HOC*.
+Los componentes contenedores creados por los *HOCs* se muestran en las [Herramientas de Desarrollo de React](https://github.com/facebook/react/tree/master/packages/react-devtools) como cualquier otro componente. Para facilitar la depuración elige que se muestre un nombre que comunique que es el resultado de un *HOC*.
 
 La técnica más común consiste en envolver el `displayName` del componente envuelto. De esta forma si tu componente de orden superior se llama `withSubscription`, y el `displayName` del componente envuelto es `CommentList`, usa como nombre a mostrar `WithSubscription(CommentList)`:
 
