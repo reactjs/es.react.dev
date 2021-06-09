@@ -459,7 +459,7 @@ Cuando un cuadrado es clickeado, la función `onClick` provista por el component
 
 >Nota
 >
->El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. Para componentes personalizados como Square, la nomenclatura la decides tú. Podríamos darle cualquier nombre al prop `onClick` de Square o al método `handleClick` de Board, y el código funcionaría de la misma forma. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Event]` para los métodos que manejan los eventos.
+>El atributo `onClick` del elemento `<button>` del DOM tiene un significado especial para React porque es un componente pre-construido. Para componentes personalizados como Square, la nomenclatura la decides tú. Podríamos darle cualquier nombre al prop `onClick` de Square o al método `handleClick` de Board, y el código funcionaría de la misma forma. En React, sin embargo, es una convención usar los nombres `on[Evento]` para props que representan eventos y `handle[Evento]` para los métodos que manejan los eventos.
 
 Cuando intentamos clickear un cuadrado, deberíamos obtener un error porque no hemos definido `handleClick` aun. Vamos ahora a agregar `handleClick` a la clase Board:
 
