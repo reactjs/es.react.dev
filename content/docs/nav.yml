@@ -132,26 +132,8 @@
     - id: testing-recipes
       title: Recetas de pruebas
     - id: testing-environments
-<<<<<<< HEAD
       title: Entornos de prueba
-- title: Modo Concurrente (Experimental)
-  isOrdered: true
-  items:
-    - id: concurrent-mode-intro
-      title: Introducción al Modo concurrente
-    - id: concurrent-mode-suspense
-      title: Suspense para la carga de datos
-    - id: concurrent-mode-patterns
-      title: Patrones concurrentes en interfaces de usuario
-    - id: concurrent-mode-adoption
-      title: Adopción del Modo concurrente
-    - id: concurrent-mode-reference
-      title: Referencia del API del modo concurrente
 - title: Contribuir
-=======
-      title: Testing Environments
-- title: Contributing
->>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
   items:
     - id: how-to-contribute
       title: Cómo contribuir

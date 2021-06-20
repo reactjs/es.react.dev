@@ -16,18 +16,12 @@ next: concurrent-mode-suspense.html
 
 > Advertencia:
 >
-<<<<<<< HEAD
-> Esta página describe **funcionalidades experimentales que [aún no están disponibles](/docs/concurrent-mode-adoption.html) en una versión estable**. No dependas de compilados experimentales de React en aplicaciones en producción. Estas funcionalidades pueden cambiar significativamente y sin advertencia antes de formar parte de React.
+>Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
 >
-> Esta documentación está dirigida a usuarios pioneros y personas que sienten curiosidad. **Si te estás iniciando en React, no te preocupes por estas funcionalidades,** no necesitas aprenderlas inmediatamente.
-=======
->This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
+>Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html
+) para obtener información actualizada.**
 >
->Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
-) for the up-to-date information.**
->
->Before React 18 is released, we will replace this page with stable documentation.
->>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
+>Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
 
 </div>
 
