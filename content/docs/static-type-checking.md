@@ -312,9 +312,15 @@ declare module 'querystring' {
 
 ¡Ya estás listo para codificar! Recomendamos consultar los siguientes recursos para obtener más información sobre TypeScript:
 
+<<<<<<< HEAD
 * [Documentación de TypeScript: Tipos Básicos](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 * [Documentación de TypeScript: Migración desde Javascript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
 * [Documentación de TypeScript: React y Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+=======
+* [TypeScript Documentation: Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+* [TypeScript Documentation: Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+* [TypeScript Documentation: React and Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
 ## Reason {#reason}
 
