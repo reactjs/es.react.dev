@@ -196,7 +196,7 @@ TypeScript admite la transformación de JSX en [v4.1](https://devblogs.microsoft
 
 ### Flow {#flow}
 
-Flow admite la transformación de JSX en [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) y posteriores al añadir `react.runtime-automatic` a tus opciones de configuración de Flow.
+Flow admite la transformación de JSX en [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) y posteriores al añadir `react.runtime=automatic` a tus opciones de configuración de Flow.
 
 ## Eliminación de importaciones React no utilizadas {#removing-unused-react-imports}
 
