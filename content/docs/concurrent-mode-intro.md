@@ -40,7 +40,11 @@ Estas funcionalidades aún son experimentales y sujetas a cambios. Todavía no s
 
 ## Bloqueo vs. renderizado interrumpible {#blocking-vs-interruptible-rendering}
 
+<<<<<<< HEAD
 **Para explicar el Modo concurrente, usaremos el control de versiones como una metáfora.** Si trabajas en un equipo, probablemente usas un sistema de control de versiones como Git y trabajas en ramas. Cuando una rama está lista, puedes mezclar tu trabajo en *master* de manera tal que otras personas puedan obtenerlos.
+=======
+**To explain Concurrent Mode, we'll use version control as a metaphor.** If you work on a team, you probably use a version control system like Git and work on branches. When a branch is ready, you can merge your work into main so that other people can pull it.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Antes de que existiera el control de versiones, el flujo de desarrollo era muy diferente. No había concepto de ramas. Si querías editar algunos archivos, tenías que decirle a todo el mundo que no tocara esos archivos hasta que terminaras tu trabajo. Ni siquiera podías comenzar a trabajar en esos archivos concurrentemente con esa persona, literalmente estabas *bloqueado* por ellos.
 
@@ -64,7 +68,11 @@ Las técnicas del Modo concurrente reducen la necesidad de *debounce* y *throttl
 
 ### Secuencias de carga intencionales {#intentional-loading-sequences}
 
+<<<<<<< HEAD
 Anteriormente hemos mencionado que el Modo concurrente es similar a React trabajando "en una rama". Las ramas son útiles no solo para arreglos a corto plazo, sino también para funcionalidades que requieren tiempo. En ocasiones te puedes encontrar trabajando en una funcionalidad, pero puede tardar semanas antes de que esté en un "estado lo suficientemente bueno" como para mezclarlo en *master*. Esta parte de nuestra metáfora del control de versiones también se aplica al renderizado.
+=======
+We've said before that Concurrent Mode is like React working "on a branch". Branches are useful not only for short-term fixes, but also for long-running features. Sometimes you might work on a feature, but it could take weeks before it's in a "good enough state" to merge into main. This side of our version control metaphor applies to rendering too.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Imagina que estamos navegando entre dos pantallas de una aplicación. A veces, no tenemos suficiente código y datos cargados para mostrar al usuario un estado de carga lo "suficientemente bueno" en la nueva pantalla. La transición hacia una pantalla en blanco o un gran *spinner* puede resultar una experiencia disonante. Sin embargo, también es común que no tome mucho tiempo cargar el código y los datos necesarios. **¿No sería mucho mejor si React pudiera permanecer en la pantalla anterior por un poco de tiempo más y "saltarse" el "estado de carga malo" antes de mostrar la nueva pantalla?**
 
