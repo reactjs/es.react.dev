@@ -991,22 +991,12 @@ Hay una lista interna de "celdas de memoria" asociadas con cada componente. Son 
 
 Los Hook sintetizan ideas de muchas fuentes diferentes:
 
-<<<<<<< HEAD
-* Nuestros viejos experimentos con APIs funcionales en el repositorio [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State).
+* Nuestros viejos experimentos con APIs funcionales en el repositorio [react-future](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State).
 * Los experimentos de la comunidad con las APIs de render props, incluyendo [Reactions Component](https://github.com/reactions/component) de [Ryan Florence](https://github.com/ryanflorence).
 * [La palabra clave `adopt`](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) de [Dominic Gannaway](https://github.com/trueadm), que se propuso como sintaxis azucarada para las render props.
 * Las variables y celdas de estado en [DisplayScript](http://displayscript.org/introduction.html).
 * [Los componentes Reductores](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) en ReasonReact.
 * [Las suscripciones](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) en Rx.
 * [Los efectos algebraicos](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) en Multicore OCaml.
-=======
-* Our old experiments with functional APIs in the [react-future](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State) repository.
-* React community's experiments with render prop APIs, including [Ryan Florence](https://github.com/ryanflorence)'s [Reactions Component](https://github.com/reactions/component).
-* [Dominic Gannaway](https://github.com/trueadm)'s [`adopt` keyword](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) proposal as a sugar syntax for render props.
-* State variables and state cells in [DisplayScript](http://displayscript.org/introduction.html).
-* [Reducer components](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) in ReasonReact.
-* [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) in Rx.
-* [Algebraic effects](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) in Multicore OCaml.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 [Sebastian Markbåge](https://github.com/sebmarkbage) propuso el diseño original de los Hooks, luego refinado por [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm), y otros miembros del equipo de React.

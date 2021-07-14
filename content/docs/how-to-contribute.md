@@ -11,15 +11,9 @@ redirect_from:
 
 React es uno de los primeros proyectos de código abierto de Facebook que si bien está siendo desarrollado muy activamente, al mismo tiempo se utiliza para crear código que les llega a todos en [facebook.com](https://www.facebook.com). Todavía estamos trabajando en los problemas para hacer que la contribución a este proyecto sea lo más fácil y transparente posible, pero aún no hemos llegado a ese punto. Esperamos que este documento haga que el proceso de contribución sea claro y responda algunas preguntas que pueda tener.
 
-<<<<<<< HEAD
-### [Código de conducta](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
+### [Código de conducta](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) {#code-of-conduct}
 
-Facebook ha adoptado el [Convenio del Contribuidor](https://www.contributor-covenant.org/) como su Código de Conducta, que esperamos que los participantes del proyecto cumplan. Por favor, lee [el texto completo](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) para que puedas comprender qué acciones serán o no toleradas.
-=======
-### [Code of Conduct](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) {#code-of-conduct}
-
-Facebook has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the full text](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+Facebook ha adoptado el [Convenio del Contribuidor](https://www.contributor-covenant.org/) como su Código de Conducta, que esperamos que los participantes del proyecto cumplan. Por favor, lee [el texto completo](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) para que puedas comprender qué acciones serán o no toleradas.
 
 ### Desarrollo abierto {#open-development}
 
@@ -29,35 +23,19 @@ Todo el trabajo en React sucede directamente en [GitHub](https://github.com/face
 
 React utiliza [versionado semántico](https://semver.org/). Lanzamos versiones con parches para arreglos de errores críticos, versiones menores para nuevas funcionalidades o cambios no esenciales, y versiones mayores para cualquier cambio disruptivo. Cuando creamos cambios disruptivos, también agregamos alertas de obsolescencia para que los usuarios aprendan sobre los cambios que vienen y migren su código con antelación. Aprende más sobre nuestro compromiso con la estabilidad y la migración incremental en [nuestra política de versionado](/docs/faq-versioning.html).
 
-<<<<<<< HEAD
-Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/master/CHANGELOG.md).
-=======
-Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/main/CHANGELOG.md).
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+Cada cambio significativo es documentado en el [archivo de cambios](https://github.com/facebook/react/blob/main/CHANGELOG.md).
 
 ### Organización de ramas {#branch-organization}
 
-<<<<<<< HEAD
-Envía todos los cambios directo a la [rama de master](https://github.com/facebook/react/tree/master). No utilizamos ramas separadas para desarrollo o para lanzamientos futuros. Hacemos nuestro mejor esfuerzo para mantener `master` en buena forma, con todas las pruebas pasando.
+Envía todos los cambios directo a la [rama de main](https://github.com/facebook/react/tree/main). No utilizamos ramas separadas para desarrollo o para lanzamientos futuros. Hacemos nuestro mejor esfuerzo para mantener `main` en buena forma, con todas las pruebas pasando.
 
-El código que llega a `master` debe ser compatible con la última versión estable. Puede contener funcionalidades adicionales, pero no cambios disruptivos. Debemos ser capaces de lanzar una nueva versión menor desde la punta de `master` en cualquier momento.
-=======
-Submit all changes directly to the [`main branch`](https://github.com/facebook/react/tree/main). We don't use separate branches for development or for upcoming releases. We do our best to keep `main` in good shape, with all tests passing.
-
-Code that lands in `main` must be compatible with the latest stable release. It may contain additional features, but no breaking changes. We should be able to release a new minor version from the tip of `main` at any time.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+El código que llega a `main` debe ser compatible con la última versión estable. Puede contener funcionalidades adicionales, pero no cambios disruptivos. Debemos ser capaces de lanzar una nueva versión menor desde la punta de `main` en cualquier momento.
 
 ### Banderas de funcionalidades {#feature-flags}
 
-<<<<<<< HEAD
-Para mantener la rama `master` en un estado de lanzamiento, los cambios disruptivos y funcionalidades experimentales deben ser puestas ante una bandera de funcionalidad.
+Para mantener la rama `main` en un estado de lanzamiento, los cambios disruptivos y funcionalidades experimentales deben ser puestas ante una bandera de funcionalidad.
 
-Las banderas de funcionalidad están definidas en [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Algunos compilados de React pueden habilitar diferentes conjuntos de banderas; por ejemplo, el compilado de React Native puede ser configurado diferente a como es configurado React DOM. Estas banderas son encontradas en [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Las banderas de funcionalidad son escritas estáticamente con Flow, por lo que puedes ejecutar `yarn flow` para confirmar que has actualizado los archivos necesarios.
-=======
-To keep the `main` branch in a releasable state, breaking changes and experimental features must be gated behind a feature flag.
-
-Feature flags are defined in [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/main/packages/shared/ReactFeatureFlags.js). Some builds of React may enable different sets of feature flags; for example, the React Native build may be configured differently than React DOM. These flags are found in [`packages/shared/forks`](https://github.com/facebook/react/tree/main/packages/shared/forks). Feature flags are statically typed by Flow, so you can run `yarn flow` to confirm that you've updated all the necessary files.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+Las banderas de funcionalidad están definidas en [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/main/packages/shared/ReactFeatureFlags.js). Algunos compilados de React pueden habilitar diferentes conjuntos de banderas; por ejemplo, el compilado de React Native puede ser configurado diferente a como es configurado React DOM. Estas banderas son encontradas en [`packages/shared/forks`](https://github.com/facebook/react/tree/main/packages/shared/forks). Las banderas de funcionalidad son escritas estáticamente con Flow, por lo que puedes ejecutar `yarn flow` para confirmar que has actualizado los archivos necesarios.
 
 El sistema de compilado de React quitará las ramas de funcionalidades desactivadas antes de publicar. Un trabajo de integración continua se ejecuta con cada commit para comprobar los cambios en el tamaño del paquete. Puedes usar el cambio en el tamaño como una señal de que una funcionalidad fue puesta correctamente.
 
@@ -106,8 +84,7 @@ El equipo principal está monitoreando los *pull requests*. Revisaremos tu *pull
 
 **Antes de enviar un _pull request_**, asegúrate de que se haga lo siguiente:
 
-<<<<<<< HEAD
-1. Haz un *fork* [del repositorio](https://github.com/facebook/react) y crea tu rama a partir de `master`.
+1. Haz un *fork* [del repositorio](https://github.com/facebook/react) y crea tu rama a partir de `main`.
 2. Ejecuta `yarn` en la raíz del repositorio.
 3. Si has corregido un error o has agregado un código que debería probarse, ¡agrega pruebas!
 4. Asegúrate de que el conjunto de pruebas pasa (`yarn test`). Consejo: `yarn test --watch TestName` es útil en desarrollo.
@@ -117,18 +94,6 @@ El equipo principal está monitoreando los *pull requests*. Revisaremos tu *pull
 8. Asegúrate de ejecutar lint en tu código (`yarn lint`). Consejo: `yarn linc` para verificar solo los archivos modificados.
 9. Ejecuta los controles de tipo de [Flow](https://flowtype.org/) (`yarn flow`).
 10. Si aún no lo has hecho, completa el CLA.
-=======
-1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.
-2. Run `yarn` in the repository root.
-3. If you've fixed a bug or added code that should be tested, add tests!
-4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
-5. Run `yarn test --prod` to test in the production environment.
-6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
-7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
-8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
-9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
-10. If you haven't already, complete the CLA.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ### Acuerdo de Licencia de Contribuidor (CLA) {#contributor-license-agreement-cla}
 

@@ -22,11 +22,7 @@ La característica clave de React es la composición de componentes. Los compone
 
 Por ejemplo, debería ser posible introducir algún estado local en un componente sin cambiar ninguno de los componentes que lo usen. Igualmente, debería ser posible añadir código de inicialización y destrucción a cualquier componente cuando sea necesario.
 
-<<<<<<< HEAD
-No hay nada "malo" en usar estado o métodos del ciclo de vida en componentes. Como cualquier funcionalidad poderosa, deben ser usados con moderación, pero no tenemos intención de eliminarlos. Por el contrario, pensamos que son parte integral de lo que hace útil a React. Podríamos habilitar [patrones más funcionales](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) en el futuro, pero tanto el estado local como los métodos del ciclo de vida serán parte de ese modelo.
-=======
-There is nothing "bad" about using state or lifecycle methods in components. Like any powerful feature, they should be used in moderation, but we have no intention to remove them. On the contrary, we think they are integral parts of what makes React useful. We might enable [more functional patterns](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State) in the future, but both local state and lifecycle methods will be a part of that model.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+No hay nada "malo" en usar estado o métodos del ciclo de vida en componentes. Como cualquier funcionalidad poderosa, deben ser usados con moderación, pero no tenemos intención de eliminarlos. Por el contrario, pensamos que son parte integral de lo que hace útil a React. Podríamos habilitar [patrones más funcionales](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State) en el futuro, pero tanto el estado local como los métodos del ciclo de vida serán parte de ese modelo.
 
 Los componentes son a menudo descritos como "solo funciones", pero desde nuestro punto de vista necesitan ser más que eso para ser útiles. En React, los componentes describen cualquier comportamiento componible, y esto incluye el renderizado, el ciclo de vida y el estado. Algunas bibliotecas externas como [Relay](https://facebook.github.io/relay/) aumentan los componentes con otras responsabilidades tales como describir las dependencias de datos. Es posible que esas ideas también sean integradas en React de alguna manera.
 
@@ -96,11 +92,7 @@ Tenemos un chiste interno en el equipo de React acerca de que debería haberse l
 
 Proveer una buena experiencia de desarrollador es importante para nosotros.
 
-<<<<<<< HEAD
-Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
-=======
-For example, we maintain [React DevTools](https://github.com/facebook/react/tree/main/packages/react-devtools) which let you inspect the React component tree in Chrome and Firefox. We have heard that it brings a big productivity boost both to the Facebook engineers and to the community.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+Por ejemplo, mantenemos las herramientas de desarrollo de React ([React DevTools](https://github.com/facebook/react/tree/main/packages/react-devtools)) las cuales te permiten inspeccionar el árbol de componentes de React en Chrome y Firefox. Hemos oído que proveen un gran incremento de productividad a los ingenieros de Facebook y a la comunidad.
 
 También tratamos de dar un extra para proveer advertencias útiles a los desarrolladores. Por ejemplo, React te advierte en desarrollo si anidas etiquetas de una forma que el navegador no las entiende, o si cometes un error de transcripción en la API. Las advertencias a desarrolladores y los chequeos relacionados son la razón principal por la que la versión de desarrollo de React es más lenta que la versión de producción.
 
