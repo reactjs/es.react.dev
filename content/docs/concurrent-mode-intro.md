@@ -40,7 +40,7 @@ Estas funcionalidades aún son experimentales y sujetas a cambios. Todavía no s
 
 ## Bloqueo vs. renderizado interrumpible {#blocking-vs-interruptible-rendering}
 
-**Para explicar el Modo concurrente, usaremos el control de versiones como una metáfora.** Si trabajas en un equipo, probablemente usas un sistema de control de versiones como Git y trabajas en ramas. Cuando una rama está lista, puedes mezclar tu trabajo en *master* de manera tal que otras personas puedan obtenerlos.
+**Para explicar el Modo concurrente, usaremos el control de versiones como una metáfora.** Si trabajas en un equipo, probablemente usas un sistema de control de versiones como Git y trabajas en ramas. Cuando una rama está lista, puedes mezclar tu trabajo en *main* de manera tal que otras personas puedan obtenerlos.
 
 Antes de que existiera el control de versiones, el flujo de desarrollo era muy diferente. No había concepto de ramas. Si querías editar algunos archivos, tenías que decirle a todo el mundo que no tocara esos archivos hasta que terminaras tu trabajo. Ni siquiera podías comenzar a trabajar en esos archivos concurrentemente con esa persona, literalmente estabas *bloqueado* por ellos.
 
@@ -64,7 +64,7 @@ Las técnicas del Modo concurrente reducen la necesidad de *debounce* y *throttl
 
 ### Secuencias de carga intencionales {#intentional-loading-sequences}
 
-Anteriormente hemos mencionado que el Modo concurrente es similar a React trabajando "en una rama". Las ramas son útiles no solo para arreglos a corto plazo, sino también para funcionalidades que requieren tiempo. En ocasiones te puedes encontrar trabajando en una funcionalidad, pero puede tardar semanas antes de que esté en un "estado lo suficientemente bueno" como para mezclarlo en *master*. Esta parte de nuestra metáfora del control de versiones también se aplica al renderizado.
+Anteriormente hemos mencionado que el Modo concurrente es similar a React trabajando "en una rama". Las ramas son útiles no solo para arreglos a corto plazo, sino también para funcionalidades que requieren tiempo. En ocasiones te puedes encontrar trabajando en una funcionalidad, pero puede tardar semanas antes de que esté en un "estado lo suficientemente bueno" como para mezclarlo en *main*. Esta parte de nuestra metáfora del control de versiones también se aplica al renderizado.
 
 Imagina que estamos navegando entre dos pantallas de una aplicación. A veces, no tenemos suficiente código y datos cargados para mostrar al usuario un estado de carga lo "suficientemente bueno" en la nueva pantalla. La transición hacia una pantalla en blanco o un gran *spinner* puede resultar una experiencia disonante. Sin embargo, también es común que no tome mucho tiempo cargar el código y los datos necesarios. **¿No sería mucho mejor si React pudiera permanecer en la pantalla anterior por un poco de tiempo más y "saltarse" el "estado de carga malo" antes de mostrar la nueva pantalla?**
 
