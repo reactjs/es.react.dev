@@ -1054,7 +1054,7 @@ Vamos a discutir que significa la advertencia anterior.
 
 ### Escogiendo una key {#picking-a-key}
 
-Cuando renderizamos una lista, React almacena información acerca de cada elemento de la lista renderizado. Cuando actualizamos una lista, React necesita determinar que ha cambiado. Podríamos haber añadido, eliminado, reacomodado, o actualizado los elementos de la lista.
+Cuando renderizamos una lista, React almacena información acerca de cada elemento de la lista renderizado. Cuando actualizamos una lista, React necesita determinar qué ha cambiado. Podríamos haber añadido, eliminado, reacomodado, o actualizado los elementos de la lista.
 
 Imagina cambiar de
 
