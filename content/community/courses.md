@@ -8,6 +8,9 @@ permalink: community/courses.html
 
 ## Cursos gratuitos {#free-courses}
 
+
+- [Código Facilito: Curso de Fundamentos de React](https://codigofacilito.com/cursos/react-intro-gratis) - Un curso para conocer el funcionamiento base, los conceptos clave y escribir tus primeros componentes de React.
+
 - [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit) - Un curso en video gratuito en 5 partes con ejemplos de código interactivos que te ayudarán a aprender React.
 
 - [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - El curso introductorio a React de Codecademy.
@@ -25,6 +28,8 @@ permalink: community/courses.html
 - [Scrimba: Learn React for free](https://scrimba.com/g/glearnreact) - 48 videotutoriales prácticos para construir aplicaciones en React.
 
 ## Cursos pagados {#paid-courses}
+
+- [Código Facilito](https://codigofacilito.com/categories/especialidad-de-react) - Un plan de estudios con 5 cursos para especializarte en React.
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Videos cortos instructivos sobre React y muchos otros temas
 
