@@ -50,7 +50,7 @@ Los controladores de eventos a continuación se activan por un evento en la fase
 - [Eventos de Composición](#composition-events)
 - [Eventos del Teclado](#keyboard-events)
 - [Eventos de Enfoque](#focus-events)
-- [Formar Eventos](#form-events)
+- [Eventos de Formulario](#form-events)
 - [Eventos genéricos](#generic-events)
 - [Eventos del Ratón](#mouse-events)
 - [Eventos del Puntero](#pointer-events)
