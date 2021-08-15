@@ -14,7 +14,11 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Mientras que un componente transforma _props_ en interfaz de usuario, un componente de orden superior transforma un componente en otro.
 
+<<<<<<< HEAD
 Los *HOCs* son comunes en bibliotecas de terceros usadas en React, tales como [`connect`](https://github.com/reduxjs/react-redux/blob/main/docs/api/connect.md#connect) en *Redux* y [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) en *Relay*.
+=======
+HOCs are common in third-party React libraries, such as Redux's [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 En este documento discutiremos por qué los componentes de orden superior son útiles y como escribir tus propios *HOCs*.
 
@@ -297,7 +301,11 @@ La función utilitaria `compose` es provista por muchas bibliotecas de terceros,
 
 ## Convención: Envuelve el nombre a mostrar para una depuración fácil
 
+<<<<<<< HEAD
 Los componentes contenedores creados por los *HOCs* se muestran en las [Herramientas de Desarrollo de React](https://github.com/facebook/react/tree/master/packages/react-devtools) como cualquier otro componente. Para facilitar la depuración elige que se muestre un nombre que comunique que es el resultado de un *HOC*.
+=======
+The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 La técnica más común consiste en envolver el `displayName` del componente envuelto. De esta forma si tu componente de orden superior se llama `withSubscription`, y el `displayName` del componente envuelto es `CommentList`, usa como nombre a mostrar `WithSubscription(CommentList)`:
 
