@@ -123,7 +123,11 @@ Si no tienes un paso para compactar tus scripts, [aquí hay una forma en que pue
 
 ## Opcional: Prueba React con JSX {#optional-try-react-with-jsx}
 
+<<<<<<< HEAD
 En los ejemplos anteriores, hemos dependido solamente de características que son soportadas de forma nativa por los navegadores. Es por esto que usamos una llamada a una función de JavaScript para decirle a React que mostrar:
+=======
+In the examples above, we only relied on features that are natively supported by browsers. This is why we used a JavaScript function call to tell React what to display:
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 ```js
 const e = React.createElement;

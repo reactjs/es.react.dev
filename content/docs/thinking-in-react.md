@@ -39,9 +39,15 @@ Lo primero que vas a querer hacer es dibujar cajas alrededor de cada componente 
 
 Dado a que normalmente estarás mostrando modelos de datos JSON de una API al usuario descubrirás que, si tu modelo fue construido correctamente, tu interfaz de usuario (y por lo tanto tu estructura de componentes) mapeará muy bien. Eso es porque la interfaz de usuario y el modelo de datos tienden a adherirse a la misma *arquitectura de información*. Separa tu interfaz de usuario en componentes de forma tal que cada componente se corresponda con una parte de tu modelo de datos.
 
+<<<<<<< HEAD
 ![Diagrama de componentes](../images/blog/thinking-in-react-components.png)
 
 Verás que tenemos cinco componentes en nuestra aplicación de ejemplo. Hemos escrito en cursiva la información que representan cada uno.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
   1. **`FilterableProductTable` (naranja):** contiene la totalidad del ejemplo
   2. **`SearchBar` (azul):** recibe *lo que escriba el usuario*

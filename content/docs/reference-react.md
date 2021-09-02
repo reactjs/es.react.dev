@@ -175,12 +175,16 @@ El código escrito con [JSX](/docs/introducing-jsx.html) será convertido para u
 ```
 React.cloneElement(
   element,
-  [props],
+  [config],
   [...children]
 )
 ```
 
+<<<<<<< HEAD
 Clona y retorna un elemento React usando `element` como punto de partida. El elemento resultante tendrá los props del elemento original con los nuevos props combinados superficialmente. Los nuevos hijos reemplazarán los hijos existentes. `key` y `ref` del elemento original serán preservados.
+=======
+Clone and return a new React element using `element` as the starting point. `config` should contain all new props, `key`, or `ref`. The resulting element will have the original element's props with the new props merged in shallowly. New children will replace existing children. `key` and `ref` from the original element will be preserved if no `key` and `ref` present in the `config`.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 `React.cloneElement()` es casi equivalente a:
 
@@ -188,7 +192,11 @@ Clona y retorna un elemento React usando `element` como punto de partida. El ele
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
+<<<<<<< HEAD
 Sin embargo, también preserva los `refs`. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
+=======
+However, it also preserves `ref`s. This means that if you get a child with a `ref` on it, you won't accidentally steal it from your ancestor. You will get the same `ref` attached to your new element. The new `ref` or `key` will replace old ones if present.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithProps()`.
 
