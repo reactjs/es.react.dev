@@ -180,11 +180,7 @@ React.cloneElement(
 )
 ```
 
-<<<<<<< HEAD
-Clona y retorna un elemento React usando `element` como punto de partida. El elemento resultante tendrá los props del elemento original con los nuevos props combinados superficialmente. Los nuevos hijos reemplazarán los hijos existentes. `key` y `ref` del elemento original serán preservados.
-=======
-Clone and return a new React element using `element` as the starting point. `config` should contain all new props, `key`, or `ref`. The resulting element will have the original element's props with the new props merged in shallowly. New children will replace existing children. `key` and `ref` from the original element will be preserved if no `key` and `ref` present in the `config`.
->>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
+Clona y retorna un elemento React usando `element` como punto de partida. `config` debe contener todas las nuevas props, `key`, o `ref`. El elemento resultante tendrá las props del elemento original con las nuevas props combinadas superficialmente. Los nuevos hijos reemplazarán los hijos existentes. `key` y `ref` del elemento original serán preservadas si `key` y `ref` no están presentes en la configuración.
 
 `React.cloneElement()` es casi equivalente a:
 
@@ -192,11 +188,7 @@ Clone and return a new React element using `element` as the starting point. `con
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-<<<<<<< HEAD
-Sin embargo, también preserva los `refs`. Esto significa que, si se obtiene un hijo con un `ref` en él, no lo robará accidentalmente de su precedente. Se obtendrá el mismo `ref` adjunto al nuevo elemento.
-=======
-However, it also preserves `ref`s. This means that if you get a child with a `ref` on it, you won't accidentally steal it from your ancestor. You will get the same `ref` attached to your new element. The new `ref` or `key` will replace old ones if present.
->>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
+Sin embargo, también preserva las `refs`. Esto significa que, si se obtiene un hijo con una `ref` en él, no la robará accidentalmente de su ancestro. Se obtendrá la misma `ref` adjunta al nuevo elemento. Las nuevas `ref` o `key` reemplazarán a las antiguas si estuviesen presentes.
 
 Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithProps()`.
 

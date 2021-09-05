@@ -107,11 +107,7 @@ Next.js [v9.5.3](https://github.com/vercel/next.js/releases/tag/v9.5.3)+ usa la 
 
 ### Gatsby {#gatsby}
 
-<<<<<<< HEAD
 Gatsby [v2.24.5](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/CHANGELOG.md#22437-2020-08-08)+ usa la nueva transformación para versiones compatibles de React.
-=======
-Gatsby [v2.24.5](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/CHANGELOG.md#22452-2020-08-28)+ uses the new transform for compatible React versions.
->>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 >Nota
 >

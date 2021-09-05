@@ -98,11 +98,7 @@ Sabemos que los desarrolladores de React están enfocados en la creación de pro
 
 También entendemos que la barra para añadir una nueva primitiva a React es extremadamente alta. Para los lectores curiosos, hemos preparado un [RFC detallado](https://github.com/reactjs/rfcs/pull/68) que se sumerge en la motivación con más detalles y proporciona una perspectiva extra sobre las decisiones de diseño específicas y el estado de la técnica relacionado.
 
-<<<<<<< HEAD
 **Es crucial, que los Hooks trabajen codo a codo con el código existente para que puedas adoptarlos gradualmente.** No hay prisa por migrar a los Hooks. Recomendamos evitar cualquier "gran reescritura", especialmente para componentes de clase complejos que ya existan. Se necesita un poco de cambio de mentalidad para empezar a "pensar en Hooks". En nuestra experiencia, es mejor practicar primero el uso de Hooks en componentes nuevos y no críticos, y asegurarnos de que todos los miembros del equipo se sientan cómodos con ellos. Después de que le des una oportunidad a Hooks, por favor siéntete libre de [enviarnos tus comentarios](https://github.com/facebook/react/issues/new), positivos o negativos.
-=======
-**Crucially, Hooks work side-by-side with existing code so you can adopt them gradually.** There is no rush to migrate to Hooks. We recommend avoiding any "big rewrites", especially for existing, complex class components. It takes a bit of a mind shift to start "thinking in Hooks". In our experience, it's best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. After you give Hooks a try, please feel free to [send us feedback](https://github.com/facebook/react/issues/new), positive or negative.
->>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
 Pretendemos que Hooks cubra todos los casos de uso existentes para las clases, pero **seguiremos soportando los componentes de clase en un futuro previsible.** En Facebook, tenemos decenas de miles de componentes escritos como clases, y no tenemos absolutamente ningún plan para reescribirlos. En su lugar, estamos empezando a usar Hooks en el nuevo código junto con las clases.
 
