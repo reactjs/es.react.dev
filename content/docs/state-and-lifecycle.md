@@ -199,7 +199,7 @@ A continuación, haremos que `Clock` configure su propio temporizador y se actua
 
 En aplicaciones con muchos componentes, es muy importante liberar recursos tomados por los componentes cuando se destruyen.
 
-Queremos [configurar un temporizador](`https://developer.mozilla.org/es/docs/Web/API/WindowTimers/setInterval`) cada vez que `Clock` se renderice en el DOM por primera vez. Esto se llama «montaje» en React.
+Queremos [configurar un temporizador](https://developer.mozilla.org/es/docs/Web/API/WindowTimers/setInterval) cada vez que `Clock` se renderice en el DOM por primera vez. Esto se llama «montaje» en React.
 
 También queremos [borrar ese temporizador](https://developer.mozilla.org/es/docs/Web/API/WindowTimers/clearInterval) cada vez que el DOM producido por `Clock` se elimine. Esto se llama «desmontaje» en React.
 
