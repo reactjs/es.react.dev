@@ -991,7 +991,7 @@ Hay una lista interna de "celdas de memoria" asociadas con cada componente. Son 
 
 Los Hook sintetizan ideas de muchas fuentes diferentes:
 
-* Nuestros viejos experimentos con APIs funcionales en el repositorio [react-future](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State).
+* Nuestros viejos experimentos con APIs funcionales en el repositorio [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State).
 * Los experimentos de la comunidad con las APIs de render props, incluyendo [Reactions Component](https://github.com/reactions/component) de [Ryan Florence](https://github.com/ryanflorence).
 * [La palabra clave `adopt`](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) de [Dominic Gannaway](https://github.com/trueadm), que se propuso como sintaxis azucarada para las render props.
 * Las variables y celdas de estado en [DisplayScript](http://displayscript.org/introduction.html).

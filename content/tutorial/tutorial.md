@@ -235,7 +235,7 @@ Primero, cambia la etiqueta button que es retornada del método `render()` del c
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <button className="square" onClick={function() { console.log('click'); }}>
         {this.props.value}
       </button>
     );
@@ -243,7 +243,7 @@ class Square extends React.Component {
 }
 ```
 
-Si haces click en un cuadrado ahora, deberías ver una alerta en tu navegador.
+Si haces click en un cuadrado ahora, deberías ver 'click' en la consola de desarrollo de tu navegador.
 
 >Nota
 >
@@ -253,7 +253,7 @@ Si haces click en un cuadrado ahora, deberías ver una alerta en tu navegador.
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => console.log('click')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -261,7 +261,7 @@ Si haces click en un cuadrado ahora, deberías ver una alerta en tu navegador.
 >}
 >```
 >
->Ten en cuenta cómo con `onClick={() => alert('click')}`, estamos pasando *una función* como valor del prop `onClick`. React solo llamará a esta función después de un click. Olvidar `() =>` y escribir `onClick={alert('click')}` es un error común, y ejecutaría la alerta cada vez que el componente se re-renderice.
+>Ten en cuenta cómo con `onClick={() => console.log('click')}`, estamos pasando *una función* como valor de la prop `onClick`. React solo llamará a esta función después de un click. Olvidar `() =>` y escribir `onClick={console.log('click')}` es un error común, y se ejecutaría cada vez que el componente se re-renderice.
 
 Como un siguiente paso, queremos que el componente Square "recuerde" que fue clickeado, y se rellene con una marca de "X". Para "recordar" cosas, los componentes usan **estado**.
 
@@ -280,7 +280,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );
