@@ -100,7 +100,7 @@ function ProfileTimeline() {
 
 Este demo es una suerte de motivación. No te preocupes si aún no tiene sentido completamente. Hablaremos más sobre cómo funciona debajo. Ten en cuenta que Suspense es más un _mecanismo_, y ciertas API como `fetchProfileData()` o `resource.posts.read()` en el ejemplo de arriba no son muy importantes. Si tienes curiosidad, puedes encontrar sus definiciones en el _sandbox_ del demo.
 
-Suspense no es una biblioteca para la carga de datos. Es un **mecanismo para que las bibliotecas de carga de datos** le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y [su nueva integración con Suspense](https://relay.dev/docs/en/experimental/step-by-step). Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
+Suspense no es una biblioteca para la carga de datos. Es un **mecanismo para que las bibliotecas de carga de datos** le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y [su nueva integración con Suspense](https://relay.dev/docs/getting-started/step-by-step-guide/). Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
 
 A largo plazo, esperamos que Suspense se vuelva la forma principal de leer datos asíncronos desde los componentes (sin importar de dónde vienen los datos).
 
@@ -110,7 +110,7 @@ Suspense es significativamente diferente a enfoques existentes para estos proble
 
 * **No es una implementación de carga de datos.** No asume que utilizas GraphQL, REST, u cualquier otro formato de datos, biblioteca, transporte o protocolo en particular.
 
-* **No es un cliente listo para usarse.** No puedes "reemplazar" `fetch` o Relay con Suspense. Pero puedes utilizar una biblioteca que esté integrada con Suspense (por ejemplo, las [nuevas API de Relay](https://relay.dev/docs/en/experimental/api-reference)).
+* **No es un cliente listo para usarse.** No puedes "reemplazar" `fetch` o Relay con Suspense. Pero puedes utilizar una biblioteca que esté integrada con Suspense (por ejemplo, las [nuevas API de Relay](https://relay.dev/docs/api-reference/relay-environment-provider/).
 
 * **No acopla la carga de datos con la vista.** Ayuda a coordinar la muestra de los estados de carga en tu interfaz de usuario, pero no ata tú lógica de red a los componentes de React.
 
@@ -126,7 +126,7 @@ Suspense es significativamente diferente a enfoques existentes para estos proble
 
 ## Uso de Suspense en la práctica {#using-suspense-in-practice}
 
-En Facebook, hasta ahora solo hemos usado en producción la integración de Suspense con Relay. **Si estás buscando una guía práctica de como iniciarte hoy, [¡revisa la guía de Relay!](https://relay.dev/docs/en/experimental/step-by-step) Demuestra patrones que nos han funcionado bien en producción.
+En Facebook, hasta ahora solo hemos usado en producción la integración de Suspense con Relay. **Si estás buscando una guía práctica de como iniciarte hoy, [¡revisa la guía de Relay!](https://relay.dev/docs/getting-started/step-by-step-guide/) Demuestra patrones que nos han funcionado bien en producción.
 
 **Los demos de código en este página utilizan una implementación "falsa" de API en lugar de Relay.** Esto hace que sean más fáciles de comprender si no estás familiarizado con GraphQL, pero no te dirán la "forma correcta" de construir una aplicación con Suspense. Esta página es más conceptual y se propone ayudarte a ver _por qué_ Suspense funciona de cierta manera, y qué problemas soluciona.
 
@@ -144,7 +144,7 @@ Esperamos ver mucha experimentación en la comunidad con otras bibliotecas. Hay 
 
 Aunque técnicamente se puede hacer, Suspense actualmente *no* está dirigida a usarse como una forma de comenzar a cargar datos cuando un componente se renderiza. En cambio, le permite a los componentes expresar que están "esperando" por datos que ya *se están cargando*. **[Building Great User Experiences with Concurrent Mode and Suspense](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) describe por qué esto es importante y cómo implementar este patrón en la práctica.**
 
-A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las API que favorezcan u obliguen a obtener los datos antes del renderizado. Por un ejemplo concreto, puede mirar la cómo la [API de Suspense de Relay](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) obliga la precarga. Nuestro mensaje acerca de esto no ha sido muy consistente en el pasado. Suspense para la carga de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
+A menos que tengas una idea para una solución que ayude a prevenir las cascadas, sugerimos preferir las API que favorezcan u obliguen a obtener los datos antes del renderizado. Por un ejemplo concreto, puede mirar la cómo la [API de Suspense de Relay](https://relay.dev/docs/api-reference/use-preloaded-query/) obliga la precarga. Nuestro mensaje acerca de esto no ha sido muy consistente en el pasado. Suspense para la carga de datos es aún experimental, por lo que puedes esperar que nuestras recomendaciones cambien con el tiempo mientras aprendemos más a través del uso en producción y comprendamos mejor el espacio problémico.
 
 ## Enfoques tradicionales vs. Suspense {#traditional-approaches-vs-suspense}
 

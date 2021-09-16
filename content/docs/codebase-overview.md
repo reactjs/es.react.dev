@@ -98,7 +98,7 @@ React es un [monorepo](https://danluu.com/monorepo/). Su repositorio contiene m�
 
 ### Núcleo de React {#react-core}
 
-El "núcleo" de React incluye todas las [APIs principales de React](/docs/top-level-api.html#react), por ejemplo:
+El "núcleo" de React incluye todas las [APIs principales de React](/docs/react-api.html#react), por ejemplo:
 
 * `React.createElement()`
 * `React.Component`
