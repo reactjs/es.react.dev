@@ -227,11 +227,7 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
-<<<<<<< HEAD
-Cuando se utiliza un HOC para extender componentes, se recomienda [reenviar la referencia](/docs/forwarding-refs.html) al componente envuelto usando la función `forwardRef` de React. Si un HOC de un tercero no implementa el reenvío de ref, el patrón anterior se puede utilizar como una alternativa de todas formas.
-=======
-When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
->>>>>>> f0a9793dff9f8e86ec365bfadb0b4b23c6f618ce
+Cuando se utiliza un [HOC](/docs/higher-order-components.html) para extender componentes, se recomienda [reenviar la referencia](/docs/forwarding-refs.html) al componente envuelto usando la función `forwardRef` de React. Si un HOC de un tercero no implementa el reenvío de ref, el patrón anterior se puede utilizar como una alternativa de todas formas.
 
 Un gran ejemplo de gestión de foco es el [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este es un ejemplo relativamente raro de una ventana modal totalmente accesible. No solo establece el foco inicial en el botón de cancelación (lo que evita que el usuario de teclado active accidentalmente la acción exitosa) y atrapa el foco del teclado dentro del modal, sino que también restablece el foco hacia el elemento que inicialmente activó el modal.
 
