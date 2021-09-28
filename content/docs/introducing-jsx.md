@@ -12,7 +12,7 @@ Considera la declaración de esta variable:
 const element = <h1>Hello, world!</h1>;
 ```
 
-Esta curiosa sintaxis de etiquetas no es ni un string ni HTML.
+Esta curiosa sintaxis de etiquetas no es ni un string, ni HTML.
 
 Se llama JSX, y es una extensión de la sintaxis de JavaScript. Recomendamos usarlo con React para describir cómo debería ser la interfaz de usuario. JSX puede recordarte a un lenguaje de plantillas, pero viene con todo el poder de JavaScript.
 
