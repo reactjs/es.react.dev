@@ -11,7 +11,7 @@ Para introducir los componentes de React en servidor, hemos preparado una charla
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQQPAU21ZUw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**Los componentes de React en servidor siguen en investigación y desarrollo.** Estamos compartiendo este trabajo con el espíritu de transparencia y para obtener retroalimentación inicial por parte de la comunidad de React. Habra suficiente tiempo para eso, por lo que **¡no sientas que necesitas ponerte al corriente ahora mismo!**
+**Los componentes de React en servidor siguen en investigación y desarrollo.** Estamos compartiendo este trabajo con el espíritu de transparencia y para obtener retroalimentación inicial por parte de la comunidad de React. Habrá suficiente tiempo para eso, por lo que **¡no sientas que necesitas ponerte al corriente ahora mismo!**
 
 Si quieres revisarlos, recomendamos ir en el siguiente orden:
 
