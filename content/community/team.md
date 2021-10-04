@@ -50,9 +50,9 @@ Luna aprendió a programar, porque pensó que significaba crear videojuegos. En 
 
 ![Marco](../images/team/salazarm.jpeg)
 
-[@salazarm on GitHub](https://github.com/salazarm) &middot; [@BkOptimism on Twitter](https://twitter.com/BkOptimism)
+[@salazarm en GitHub](https://github.com/salazarm) &middot; [@BkOptimism en Twitter](https://twitter.com/BkOptimism)
 
-Marco's first programming language was Assembly because he could use it to hack video games. Now online games are much more secure so he settles for playing fairly (mostly). In his spare time he plays games on his treadmill desk and makes art that he never finishes. Hopefully his PRs don't have the same fate.
+El primer lenguaje de de programación de Marco fue Ensamblador, porque lo podía usar para piratear videojuegos. Ahora los juegos en línea son mucho más seguros, por lo que se conforma con jugar (mayormenete) sin trampas. En su tiempo libre juega en su mesa de correr y hace arte que nunca termina. Esperemos que sus PRs no corran la misma suerte.
 
 ### Rachel Nabors {#rachel-nabors}
 
