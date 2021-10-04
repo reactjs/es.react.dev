@@ -296,7 +296,7 @@ Ahora vamos a cambiar el método `render` de Square para mostrar el valor del es
 
 * Reemplaza `this.props.value` por `this.state.value` dentro de la etiqueta `<button>`.
 * Reemplaza el manejador de evento `onClick={...}` por `onClick={() => this.setState({value: 'X'})}`.
-* Pon los props `className` y `onClick` en líneas separadas para mejor legibilidad.
+* Pon las props `className` y `onClick` en líneas separadas para mejor legibilidad.
 
 Luego de estos cambios, la etiqueta `<button>` que es retornada del método `render` de Square se ve así:
 
@@ -334,7 +334,7 @@ La extensión de React Devtools para [Chrome](https://chrome.google.com/webstore
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-React DevTools te permite revisar los props y el estado de tus componentes de React.
+React DevTools te permite revisar las props y el estado de tus componentes de React.
 
 Después de instalar React DevTools, puedes hacer click derecho en cualquier elemento de la página, click en "Inspeccionar elemento" para abrir las herramientas de desarrollo, y la pestaña de React aparecerá como la última pestaña a la derecha. Usa "⚛️ Components" para inspeccionar el árbol de componentes.
 
@@ -353,7 +353,7 @@ Ahora tenemos los bloques de construcción básicos para nuestro juego tic-tac-t
 
 Actualmente, cada componente Square mantiene el estado del juego. Para determinar un ganador, necesitamos mantener el valor de cada uno de los 9 cuadrados en un solo lugar.
 
-Podemos pensar que el tablero debería solo preguntar a cada cuadrado por su estado. Aunque este enfoque es posible en React, te incentivamos a que no lo uses porque el código se vuelve difícil de ententer, susceptible a errores, y difícil de refactorizar. En su lugar, el mejor enfoque es almacenar el estado del juego en el componente padre Board en vez de cada componente Square. El componente Board puede decirle a cada cuadrado que mostrar pasándole un prop [tal cual hicimos cuando pasamos un número a cada cuadrado](#passing-data-through-props).
+Podemos pensar que el tablero debería solo preguntar a cada cuadrado por su estado. Aunque este enfoque es posible en React, te incentivamos a que no lo uses porque el código se vuelve difícil de ententer, susceptible a errores, y difícil de refactorizar. En su lugar, el mejor enfoque es almacenar el estado del juego en el componente padre Board en vez de cada componente Square. El componente Board puede decirle a cada cuadrado que mostrar pasándole una prop [tal cual hicimos cuando pasamos un número a cada cuadrado](#passing-data-through-props).
 
 **Para recopilar datos de múltiples hijos, o tener dos componentes hijos comunicados entre sí, necesitas declarar el estado compartido en su componente padre. El componente padre puede pasar el estado hacia los hijos usando props; esto mantiene los componentes hijos sincronizados entre ellos y con su componente padre.**
 
@@ -393,9 +393,9 @@ El método `renderSquare` del componente Board actualmente se ve así:
   }
 ```
 
-Al principio, [pasamos el prop `value`](#passing-data-through-props) desde el Board para mostrar los números de 0 a 8 en cada cuadrado. En un paso previo, reemplazamos los números con una marca "X" [determinado por el estado del propio Square](#making-an-interactive-component). Esto es porque el cuadrado actualmente ignora el prop `value` pasado por el Board.
+Al principio, [pasamos la prop `value`](#passing-data-through-props) desde el Board para mostrar los números de 0 a 8 en cada cuadrado. En un paso previo, reemplazamos los números con una marca "X" [determinado por el estado del propio Square](#making-an-interactive-component). Esto es porque el cuadrado actualmente ignora la prop `value` pasado por el Board.
 
-Ahora usaremos el prop pasando el mecanismo otra vez. Modificaremos el Board para instruir cada Square acerca de su valor actual (`'X'`, `'O'`, ó `null`). Ya tenemos definido el arreglo `squares` en  el constructor del Board, y modificaremos el método `renderSquare` para que lo lea desde allí:
+Ahora usaremos la prop pasando el mecanismo otra vez. Modificaremos el Board para instruir cada Square acerca de su valor actual (`'X'`, `'O'`, ó `null`). Ya tenemos definido el arreglo `squares` en  el constructor del Board, y modificaremos el método `renderSquare` para que lo lea desde allí:
 
 ```javascript{2}
   renderSquare(i) {
@@ -405,7 +405,7 @@ Ahora usaremos el prop pasando el mecanismo otra vez. Modificaremos el Board par
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Cada Square ahora recibirá un prop `value` que será `'X'`, `'O'`, ó `null` para cuadrados vacíos.
+Cada Square ahora recibirá una prop `value` que será `'X'`, `'O'`, ó `null` para cuadrados vacíos.
 
 Luego, necesitamos cambiar lo que sucede cuando un cuadrado es clickeado. El componente Board ahora mantiene qué cuadrados están rellenos. Necesitamos crear una forma para que el cuadrado actualice el estado del componente Board. Debido a que el estado es considerado privado al componente que lo define, no podemos actualizar el estado de Board directamente desde Square.
 
@@ -426,7 +426,7 @@ En cambio, pasaremos una función como prop desde Board a Square y haremos que S
 >
 >Dividimos el elemento retornado en múltiples líneas por legibilidad, y agregamos paréntesis para que JavaScript no inserte un punto y coma después del `return` y rompa nuestro código.
 
-Ahora estamos pasando dos props desde Board a Square: `value` y `onClick`. El prop `onClick` es una función que Square puede llamar cuando sea clickeado. Haremos los siguientes cambios a Square:
+Ahora estamos pasando dos props desde Board a Square: `value` y `onClick`. la prop `onClick` es una función que Square puede llamar cuando sea clickeado. Haremos los siguientes cambios a Square:
 
 * Reemplazar `this.state.value` por `this.props.value` en el método `render` de Square
 * Reemplazar `this.setState()` por `this.props.onClick()` en el método `render` de Square
@@ -451,19 +451,11 @@ class Square extends React.Component {
 
 Cuando un cuadrado es clickeado, la función `onClick` provista por el componente Board es llamada. Aquí un repaso de cómo esto fue logrado:
 
-<<<<<<< HEAD
-1. El prop `onClick` en el componente pre-construido del DOM `<button>` le dice a React para establecer un escuchador del evento click.
+1. La prop `onClick` en el componente pre-construido del DOM `<button>` le dice a React para establecer un escuchador del evento click.
 2. Cuando el botón es clickeado, React llamará al manejador de evento `onClick` que está definido en el método `render()` de Square.
-3. Este manejador de evento llama a `this.props.onClick()`. El prop `onClick` del componente Square fue especificado por el componente Board.
-4. Debido a que el Board pasó `onClick={() => this.handleClick(i)}` a Square, el componente Square llama a `this.handleClick(i)` cuando es clickeado.
+3. Este manejador de evento llama a `this.props.onClick()`. la prop `onClick` del componente Square fue especificado por el componente Board.
+4. Debido a que el Board pasó `onClick={() => this.handleClick(i)}` a Square, el componente Square llama al `handleClick(i)` de Board cuando es clickeado.
 5. No tenemos definido el método `handleClick()` aun, así que nuestro código falla. Si haces click ahora verás una pantalla roja de error que dice algo como *"this.handleClick is not a function"* (this.handleClick no es una función).
-=======
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 >Nota
 >
@@ -843,7 +835,7 @@ class Game extends React.Component {
 }
 ```
 
-A continuación, haremos que el componente Board reciba los props `squares` y `onClick` del componente Game. Desde ahora tenemos un solo manejador de click en Board para muchos Squares, necesitamos pasar la ubicación de cada Square en el manejador `onClick` para indicar qué cuadrado fue clickeado. Aquí están los pasos requeridos para transformar el componente Board:
+A continuación, haremos que el componente Board reciba las props `squares` y `onClick` del componente Game. Desde ahora tenemos un solo manejador de click en Board para muchos Squares, necesitamos pasar la ubicación de cada Square en el manejador `onClick` para indicar qué cuadrado fue clickeado. Aquí están los pasos requeridos para transformar el componente Board:
 
 * Eliminar el `constructor` en Board.
 * Reemplazar `this.state.squares[i]` por `this.props.squares[i]` en el método `renderSquare` del componente Board.
@@ -1053,13 +1045,9 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-<<<<<<< HEAD
-Por cada movimiento en el historial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
-=======
-As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We only interested in `move` here, hence `step` is not getting assigned to anything.
+Mientras iteramos por el array `history`, la variable `step` hace referencia al valor del elemento actual de `history`, y `move` hace referencia al índice del elemento actual de `history`. Aquí solo nos interesa `move`, por lo que no se asigna `step` a nada.
 
-For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
+Por cada movimiento en el historial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
 
 >  Atención:
 >  Cada hijo de un array o iterador debe tener una prop única "key". Revisa el método render de "Game".
