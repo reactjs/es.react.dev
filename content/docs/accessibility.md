@@ -453,7 +453,7 @@ Deque Systems offers [aXe-core](https://github.com/dequelabs/axe-core) for autom
 
 [El Motor de Accesibilidad](https://www.deque.com/products/axe/) o aXe (por sus siglas en inglés), es una extensión inspectora de accesibilidad del navegador construida sobre `aXe-core`.
 
-También puede usar el módulo [react-axe](https://github.com/dylanb/react-axe) para informar estos hallazgos de accesibilidad directamente a la consola mientras desarrolla y depura.
+También puede usar el módulo [react-axe](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) para informar estos hallazgos de accesibilidad directamente a la consola mientras desarrolla y depura.
 
 #### WebAIM WAVE {#webaim-wave}
 

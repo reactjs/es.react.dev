@@ -61,7 +61,7 @@ Luego puedes usarlo como un componente normal:
 
 Los límites de errores funcionan como un bloque catch{} de JavaScript, pero para componentes. Sólo los componentes de clase (class components) pueden ser límites de errores. En la práctica, la mayor parte del tiempo declararás un límite de errores una vez y lo usarás a lo largo de tu aplicación.
 
-Ten en cuenta que **los límites de errores sólo capturan errores en los componentes bajo ellos en el árbol**. Un límite de errores no puede capturar un error dentro de sí mismo. Si un límite de errores falla tratando de renderizar el mensaje de error, el error se propagará al límite de errores más cercano por encima de él. Esto también es similar al funcionamiento de los bloques catch{} en JavaScript.
+Ten en cuenta que **los límites de errores sólo capturan errores en los componentes bajo ellos en el árbol**. Un límite de errores no puede capturar un error dentro de sí mismo. Si un límite de errores falla tratando de renderizar el mensaje de error, el error se propagará al límite de errores más cercano por encima de él. Esto también es similar al funcionamiento de los bloques `catch{}` en JavaScript.
 
 ## Live Demo {#live-demo}
 

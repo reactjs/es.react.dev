@@ -914,8 +914,6 @@ Ten en cuenta que aún puedes decidir si quieres pasar el *estado* de la aplicac
 >Nota
 >
 >Recomendamos [pasar `dispatch` a través del contexto](#how-to-avoid-passing-callbacks-down) en vez de callbacks individuales en las props. El siguiente método sólo se menciona para efectos de completitud y como una salida de emergencia.
->
->También ten en cuenta que este patrón puede causar problemas en el [modo concurrente](/blog/2018/03/27/update-on-async-rendering.html). Planeamos proveer alternativas más ergonómicas en el futuro, pero la solución más segura en este momento es siempre invalidar el callback si alguno de los valores de los que depende cambia.
 
 En algunos extraños casos puede que necesites memorizar un callback con [`useCallback`](/docs/hooks-reference.html#usecallback), pero la memorización no funciona muy bien, debido a que la función interna debe ser re-creada muy seguido. Si la función que estás memorizando es un manejador de eventos y no se usa durante el renderizado, puedes utilizar [ref como una variable de estado](/docs/hooks-reference.html#usecallback) y guardar el último valor manualmente:
 
