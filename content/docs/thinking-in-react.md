@@ -137,11 +137,7 @@ Hasta ahora, hemos creado una aplicación que funciona correctamente como una fu
 
 React hace de este flujo de datos explícito para que sea más fácil entender cómo funciona la aplicación, a cambio necesita un poco más de código que un flujo de datos en dos sentidos tradicional.
 
-<<<<<<< HEAD
-Si intentas escribir o marcar la caja en la versión actual del ejemplo, verás que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` del `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
-=======
-If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
+Si intentas escribir o marcar la caja en la versión anterior del ejemplo (paso 4), verás que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` del `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
 
 Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que cada vez que el usuario modifica el formulario, se actualiza el estado para reflejar lo que el usuario ingresó. Ya que los componentes solo pueden actualizar su propio estado, entonces `FilterableProductTable` necesita pasar funciones a `SearchBar` que este ejecutará cada vez que el estado deba actualizarse. Podemos usar el evento `onChange` del input para que nos notifique de esto. La función que pasa `FilterableProductTable` va a ejecutar entonces `setState()`, y la aplicación se va a actualizar.
 

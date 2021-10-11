@@ -31,7 +31,7 @@ Si estas escribiendo una biblioteca que prueba principalmente un comportamiento 
 
 En un entorno donde _no puedes_ simular el DOM (por ejemplo, probando componentes de React Native en Node.js), podrías usar [simuladores de eventos](/docs/test-utils.html#simulate) para simular interacciones con elementos. De manera alternativa, también puedes usar el _helper_ `fireEvent` de [`@testing-library/react-native`](https://testing-library.com/docs/react-native-testing-library/intro).
 
-Frameworks como [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) y [webdriver](https://www.seleniumhq.org/projects/webdriver/) son útiles para ejecutar pruebas ["end-to-end"](#end-to-end-tests-aka-e2e-tests).
+Frameworks como [Cypress](https://www.cypress.io/), [Puppeteer](https://pptr.dev/) y [webdriver](https://www.seleniumhq.org/projects/webdriver/) son útiles para ejecutar pruebas ["end-to-end"](#end-to-end-tests-aka-e2e-tests).
 
 ### Simulando funciones {#mocking-functions}
 
@@ -55,4 +55,4 @@ Algunas veces, podrías no querer simular los temporizadores. Por ejemplo, quiz�
 
 Las pruebas "end-to-end" son útiles para flujos más largos, especialmente si estos son críticos para tu negocio (como los pagos o registros). Para estas pruebas, probablemente quisieras probar cómo un navegador real renderiza toda la aplicación, solicita datos de un endpoint API real, usa sesiones y cookies, navega entre diferentes enlaces. Podrías también querer hacer comprobaciones no solamente en el estado del DOM sino también en los datos que usa (por ejemplo, para verificar si las actualizaciones persisten en la base de datos).
 
-En este escenario, podrías usar un framework como [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) o una biblioteca como [puppeteer](https://github.com/GoogleChrome/puppeteer) de forma que puedas navegar entre diferentes rutas y comprobar los efectos no solo del navegador sino potencialmente del backend también.
+En este escenario, podrías usar un framework como [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) o una biblioteca como [Puppeteer](https://pptr.dev/) de forma que puedas navegar entre diferentes rutas y comprobar los efectos no solo del navegador sino potencialmente del backend también.
