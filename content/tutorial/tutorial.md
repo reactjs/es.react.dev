@@ -451,11 +451,19 @@ class Square extends React.Component {
 
 Cuando un cuadrado es clickeado, la función `onClick` provista por el componente Board es llamada. Aquí un repaso de cómo esto fue logrado:
 
+<<<<<<< HEAD
 1. El prop `onClick` en el componente pre-construido del DOM `<button>` le dice a React para establecer un escuchador del evento click.
 2. Cuando el botón es clickeado, React llamará al manejador de evento `onClick` que está definido en el método `render()` de Square.
 3. Este manejador de evento llama a `this.props.onClick()`. El prop `onClick` del componente Square fue especificado por el componente Board.
 4. Debido a que el Board pasó `onClick={() => this.handleClick(i)}` a Square, el componente Square llama a `this.handleClick(i)` cuando es clickeado.
 5. No tenemos definido el método `handleClick()` aun, así que nuestro código falla. Si haces click ahora verás una pantalla roja de error que dice algo como *"this.handleClick is not a function"* (this.handleClick no es una función).
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 >Nota
 >
@@ -1045,7 +1053,13 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 Por cada movimiento en el historial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
+=======
+As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We only interested in `move` here, hence `step` is not getting assigned to anything.
+
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 >  Atención:
 >  Cada hijo de un array o iterador debe tener una prop única "key". Revisa el método render de "Game".

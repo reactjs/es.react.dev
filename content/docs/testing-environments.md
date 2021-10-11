@@ -55,4 +55,8 @@ Algunas veces, podrías no querer simular los temporizadores. Por ejemplo, quiz�
 
 Las pruebas "end-to-end" son útiles para flujos más largos, especialmente si estos son críticos para tu negocio (como los pagos o registros). Para estas pruebas, probablemente quisieras probar cómo un navegador real renderiza toda la aplicación, solicita datos de un endpoint API real, usa sesiones y cookies, navega entre diferentes enlaces. Podrías también querer hacer comprobaciones no solamente en el estado del DOM sino también en los datos que usa (por ejemplo, para verificar si las actualizaciones persisten en la base de datos).
 
+<<<<<<< HEAD
 En este escenario, podrías usar un framework como [Cypress](https://www.cypress.io/) o una biblioteca como [puppeteer](https://github.com/GoogleChrome/puppeteer) de forma que puedas navegar entre diferentes rutas y comprobar los efectos no solo del navegador sino potencialmente del backend también.
+=======
+In this scenario, you would use a framework like [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) or a library like [Puppeteer](https://pptr.dev/) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
