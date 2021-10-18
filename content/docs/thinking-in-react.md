@@ -72,7 +72,7 @@ Puedes construir tu aplicación de arriba para abajo o de abajo para arriba. Est
 
 Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver cómo se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
 
-Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
+Revisa la [documentación de React](/docs/getting-started.html) si necesitas ayuda con este paso.
 
 ### Una pequeña pausa: Props vs. estado {#a-brief-interlude-props-vs-state}
 
