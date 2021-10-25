@@ -112,14 +112,10 @@ permalink: community/meetups.html
 ## Italia {#italy}
 * [Milán](https://www.meetup.com/React-JS-Milano/)
 
-<<<<<<< HEAD
-## Malasia {#malaysia}
-=======
-## Kenya {#kenya}
+## Kenia {#kenya}
 * [Nairobi - Reactdevske](https://kommunity.com/reactjs-developer-community-kenya-reactdevske)
 
-## Malaysia {#malaysia}
->>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
+## Malasia {#malaysia}
 * [Kuala Lumpur](https://www.kl-react.com/)
 * [Penang](https://www.facebook.com/groups/reactpenang/)
 

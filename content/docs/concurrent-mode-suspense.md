@@ -100,11 +100,7 @@ function ProfileTimeline() {
 
 Este demo es una suerte de motivación. No te preocupes si aún no tiene sentido completamente. Hablaremos más sobre cómo funciona debajo. Ten en cuenta que Suspense es más un _mecanismo_, y ciertas API como `fetchProfileData()` o `resource.posts.read()` en el ejemplo de arriba no son muy importantes. Si tienes curiosidad, puedes encontrar sus definiciones en el _sandbox_ del demo.
 
-<<<<<<< HEAD
 Suspense no es una biblioteca para la carga de datos. Es un **mecanismo para que las bibliotecas de carga de datos** le comuniquen a React que *los datos que un componente está leyendo aún no están listos*. React puede entonces esperar a que estén listos y actualizar la interfaz de usuario. En Facebook, utilizamos Relay y [su nueva integración con Suspense](https://relay.dev/docs/getting-started/step-by-step-guide/). Esperamos que otras bibliotecas como Apollo puedan proporcionar integraciones similares.
-=======
-Suspense is not a data fetching library. It's a **mechanism for data fetching libraries** to communicate to React that *the data a component is reading is not ready yet*. React can then wait for it to be ready and update the UI. At Facebook, we use Relay and its [new Suspense integration](https://relay.dev/docs/getting-started/step-by-step-guide/). We expect that other libraries like Apollo can provide similar integrations.
->>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 
 A largo plazo, esperamos que Suspense se vuelva la forma principal de leer datos asíncronos desde los componentes (sin importar de dónde vienen los datos).
 
