@@ -52,7 +52,7 @@ Luna aprendió a programar, porque pensó que significaba crear videojuegos. En 
 
 [@salazarm en GitHub](https://github.com/salazarm) &middot; [@BkOptimism en Twitter](https://twitter.com/BkOptimism)
 
-El primer lenguaje de de programación de Marco fue Ensamblador, porque lo podía usar para piratear videojuegos. Ahora los juegos en línea son mucho más seguros, por lo que se conforma con jugar (mayormenete) sin trampas. En su tiempo libre juega en su mesa de correr y hace arte que nunca termina. Esperemos que sus PRs no corran la misma suerte.
+El primer lenguaje de de programación de Marco fue Ensamblador, porque lo podía usar para piratear videojuegos. Ahora los juegos en línea son mucho más seguros, por lo que se conforma con jugar (mayormente) sin trampas. En su tiempo libre juega en su mesa de correr y hace arte que nunca termina. Esperemos que sus PRs no corran la misma suerte.
 
 ### Rachel Nabors {#rachel-nabors}
 
