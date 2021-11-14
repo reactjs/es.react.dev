@@ -464,11 +464,11 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 
 > Consejo
 >
-> Sí estas migrando código de un componente de clase, recuerda que `useLayoutEffect` se activa en la misma fase que `componentDidMount` y `componentDidUpdate`. Sin embargo, **recomendamos empezar con `useEffect` primero** y solo intentar con `useLayoutEffect` si el anterior causa problemas.
+> Si estas migrando código de un componente de clase, recuerda que `useLayoutEffect` se activa en la misma fase que `componentDidMount` y `componentDidUpdate`. Sin embargo, **recomendamos empezar con `useEffect` primero** y solo intentar con `useLayoutEffect` si lo anterior causa problemas.
 >
-> Si usas renderizado mediante servidor, ten en cuenta que *ninguno* `useLayoutEffect` o `useEffect` pueden correr hasta que el JavaScript sea descargado. Esto es por lo que React advierte cuando un componente renderizado mediante servidor contiene `useLayoutEffect`. Para corregir esto, puedes o bien mover la lógica a `useEffect` (si no es necesaria para el primer renderizado), o retrasar mostrar el componente hasta después de que el cliente haya renderizado (si el HTML parece roto hasta que `useLayoutEffect` corre). 
+> Si usas renderizado en el servidor, ten en cuenta que *ni* `useLayoutEffect` ni `useEffect` pueden ejecutarse hasta que no se haya descargado el código JavaScript. Por eso es que React advierte cuando un componente renderizado en el servidor contiene `useLayoutEffect`. Para corregirlo, puedes o bien mover la lógica a `useEffect` (si no es necesaria para el primer renderizado), o retrasar el momento de mostrar el componente hasta después de que se haya renderizado el cliente (si el HTML luciera roto, hasta que se ejecute `useLayoutEffect`). 
 >
-> Para excluir un componente que necesita efectos de marco del HTML renderizado mediante servidor, renderízalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no parecerá rota antes de la hidratación.
+> Para excluir del HTML renderizado en el servidor a un componente que necesita efectos de *layout*, renderízalo condicionalmente con `showChild && <Child />` y retrasa mostrarlo con `useEffect(() => { setShowChild(true); }, [])`. De esta manera, la interfaz de usuario no lucirá rota antes de la hidratación.
 
 ### `useDebugValue` {#usedebugvalue}
 
