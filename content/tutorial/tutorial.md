@@ -1045,11 +1045,7 @@ Vamos a `mapear` sobre el `historial` en el método `render` del componente Game
 
 **[Ver el código completo en este punto](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-<<<<<<< HEAD
 Mientras iteramos por el array `history`, la variable `step` hace referencia al valor del elemento actual de `history`, y `move` hace referencia al índice del elemento actual de `history`. Aquí solo nos interesa `move`, por lo que no se asigna `step` a nada.
-=======
-As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We are only interested in `move` here, hence `step` is not getting assigned to anything.
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 Por cada movimiento en el historial del juego de tic-tac-toe, creamos un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un manejador `onClick` que invoca a un método llamado `this.jumpTo()`. No hemos implementado el método `jumpTo()` aun. Por ahora, debemos ver una lista de los movimientos que han ocurrido en el juego y una advertencia en la consola de las herramientas de desarrollador que dice:
 
@@ -1151,12 +1147,7 @@ Luego, definiremos el método `jumpTo` en el componente Game para actualizar el 
     //  este método no ha cambiado
   }
 ```
-<<<<<<< HEAD
 Nota que en el método `jumpTo` no hemos actualizado la propiedad `history` del estado. No lo hacemos que porque las actualizaciones de estado se mezclan, o en términos más simples, React solo actualizará las propiedades mencionadas en el método `setState` dejando el resto del estado como estaba. Para más información **[consulta la documentación](/docs/state-and-lifecycle.html#state-updates-are-merged)**
-=======
-
-Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as that is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 Ahora haremos unos pequeños cambios al método `handleClick` de Game, el cuál se dispara cuando haces click en un cuadrado.
 
