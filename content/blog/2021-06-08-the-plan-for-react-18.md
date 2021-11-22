@@ -3,6 +3,10 @@ title: "El plan para React 18"
 author: [acdlite, bvaughn, abernathyca, gaearon, rachelnabors, rickhanlonii, sebmarkbage, sethwebster]
 ---
 
+> Actualización del 15 de noviembre de 2021
+>
+> React 18 está ahora en beta. Más información acerca del estado de la versión está [disponible en la publicación del Grupo de Trabajo de React 18](https://github.com/reactwg/react-18/discussions/112).
+
 El equipo de React está emocionado por compartir algunas novedades:
 
 1. Empezamos a trabajar en el lanzamiento de React 18, el cual será nuestra próxima versión mayor.
