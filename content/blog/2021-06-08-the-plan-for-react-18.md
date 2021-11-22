@@ -17,7 +17,7 @@ Cuando sea publicado, React 18 incluirá mejoras listas para usar (como [procesa
 
 Estas características son posibles gracias a un nuevo mecanismo de suscripción que estamos agregando en React 18. Se llama “renderizado concurrente” y permite a React preparar múltiples versiones de la interfaz de usuario al mismo tiempo. Este cambio se produce principalmente entre bastidores, pero abre nuevas posibilidades para mejorar el rendimiento real y percibido de su aplicación.
 
-Si ha estado siguiendo nuestra investigación sobre el futuro de React (¡no esperamos que lo hagas!), es posible que haya oído hablar de algo llamado “modo concurrente” que podría romper su aplicación. En respuesta a estos comentarios de la comunidad, hemos rediseñado la estrategia de actualización por una adopción gradual. En lugar de un “modo” de todo o nada, el renderizado concurrente solo se habilitará para las actualizaciones activadas por una de las nuevas funciones. En la práctica, esto significa **que podrá adoptar React 18 sin reescribir y probar las nuevas funciones a su propio ritmo.**
+Si ha estado siguiendo nuestra investigación sobre el futuro de React (¡no esperamos que lo hagas!), es posible que haya oído hablar de algo llamado “modo concurrente” que podría romper su aplicación. En respuesta a estos comentarios de la comunidad, hemos rediseñado la estrategia de actualización para una adopción gradual. En lugar de un “modo” de todo o nada, el renderizado concurrente solo se habilitará para las actualizaciones activadas por una de las nuevas funciones. En la práctica, esto significa **que podrá adoptar React 18 sin reescribir y probar las nuevas funciones a su propio ritmo.**
 
 ## Una estrategia de adopción gradual
 
