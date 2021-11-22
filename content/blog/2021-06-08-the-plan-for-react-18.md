@@ -27,7 +27,7 @@ Enviamos con éxito características concurrentes a decenas de miles de componen
 
 ## Trabajando con la comunidad
 
-Estamos probando algo nuevo para esta versión: hemos invitado a un grupo de expertos, desarrolladores, autores de librerías y educadores de toda la comunidad de React para participar en nuestro [React 18 Working Group](https://github.com/reactwg/react-18) para proporcionar comentarios, hacer preguntas y colaborar en la versión. No pudimos invitar a todos los que queríamos a este pequeño grupo inicial, pero si este experimento funciona, ¡esperamos que haya más en el futuro!
+Estamos probando algo nuevo para esta versión: hemos invitado a un panel de expertos, desarrolladores, autores de librerías y educadores de toda la comunidad de React para participar en nuestro [React 18 Working Group](https://github.com/reactwg/react-18) para proporcionar comentarios, hacer preguntas y colaborar en el lanzamiento. No pudimos invitar a todos los que queríamos a este pequeño grupo inicial, pero si este experimento funciona, ¡esperamos que haya más en el futuro!
 
 **El objetivo del React 18 Working Group es preparar el ecosistema para una adopción gradual y sin problemas de React 18 por parte de las aplicaciones y librerías existentes.** El Working Group está alojado en [GitHub Discussions](https://github.com/reactwg/react-18/discussions) y está disponible para su lectura pública. Los miembros del grupo de trabajo pueden dejar comentarios, hacer preguntas y compartir ideas. El equipo central también utilizará el repositorio de discusiones para compartir los hallazgos de nuestra investigación. A medida que se acerque la versión estable, también se publicará en este blog cualquier información importante.
 
