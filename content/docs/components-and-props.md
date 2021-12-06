@@ -18,7 +18,7 @@ next: state-and-lifecycle.html
 Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada. Esta página proporciona una introducción a la idea de los componentes.
 Puedes encontrar una [API detallada sobre componentes aquí](/docs/react-component.html).
 
-Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y devuelven a React elementos que describen lo que debe aparecer en la pantalla.
+Conceptualmente, los componentes son como las funciones de JavaScript. Aceptan entradas arbitrarias (llamadas "props") y retornan elementos de React que describen lo que debe aparecer en la pantalla.
 
 ## Componentes funcionales y de clase {#function-and-class-components}
 
