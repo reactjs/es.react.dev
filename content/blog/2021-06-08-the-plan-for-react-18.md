@@ -15,7 +15,7 @@ El equipo de React está emocionado por compartir algunas novedades:
 
 Estas actualizaciones son principalmente apuntado a los mantenedores de otras librerías. Si estás aprendiendo, enseñando o usando React para construir aplicaciones para usuarios, puedes ignorar esta publicación de manera segura. ¡Pero eres bienvenido de seguir las discusiones en el React 18 Working Group si eres curioso!
 
-## Qué viene en React 18
+## Qué viene en React 18 {#whats-coming-in-react-18}
 
 Cuando sea publicado, React 18 incluirá mejoras listas para usar (como [procesamiento por lotes automático](https://github.com/reactwg/react-18/discussions/21)), nuevos APIs (como [`startTransition`](https://github.com/reactwg/react-18/discussions/41)), y una [nueva transmisión para el renderizado en el servidor](https://github.com/reactwg/react-18/discussions/37) con soporte incorporado para `React.lazy`.
 
@@ -23,13 +23,13 @@ Estas características son posibles gracias a un nuevo mecanismo de suscripción
 
 Si ha estado siguiendo nuestra investigación sobre el futuro de React (¡no esperamos que lo hagas!), es posible que haya oído hablar de algo llamado “modo concurrente” que podría romper su aplicación. En respuesta a estos comentarios de la comunidad, hemos rediseñado la estrategia de actualización para una adopción gradual. En lugar de un “modo” de todo o nada, el renderizado concurrente solo se habilitará para las actualizaciones activadas por una de las nuevas funciones. En la práctica, esto significa **que podrá adoptar React 18 sin reescribir y probar las nuevas funciones a su propio ritmo.**
 
-## Una estrategia de adopción gradual
+## Una estrategia de adopción gradual {#a-gradual-adoption-strategy}
 
 Dado que la concurrencia en React 18 es opcional, no hay cambios significativos en el comportamiento de los componentes. **Puedes actualizar a React 18 con cambios mínimos o sin cambios en el código de su aplicación, con un nivel de esfuerzo comparable al de una versión principal típica de React**. Según nuestra experiencia en la conversión de varias aplicaciones a React 18, esperamos que muchos usuarios puedan actualizar en una sola tarde.
 
 Enviamos con éxito características concurrentes a decenas de miles de componentes en Facebook y, en nuestra experiencia, hemos descubierto que la mayoría de los componentes de React “simplemente funcionan” sin cambios adicionales. Estamos comprometidos a asegurarnos de que esta sea una actualización sin problemas para toda la comunidad, por lo que hoy anunciamos el React 18 Working Group.
 
-## Trabajando con la comunidad
+## Trabajando con la comunidad {#working-with-the-community}
 
 Estamos probando algo nuevo para esta versión: hemos invitado a un panel de expertos, desarrolladores, autores de librerías y educadores de toda la comunidad de React para participar en nuestro [React 18 Working Group](https://github.com/reactwg/react-18) para proporcionar comentarios, hacer preguntas y colaborar en el lanzamiento. No pudimos invitar a todos los que queríamos a este pequeño grupo inicial, pero si este experimento funciona, ¡esperamos que haya más en el futuro!
 
@@ -37,7 +37,7 @@ Estamos probando algo nuevo para esta versión: hemos invitado a un panel de exp
 
 Para obtener más información sobre la actualización a React 18, o recursos adicionales sobre el lanzamiento, consulte la [publicación del anuncio de React 18](https://github.com/reactwg/react-18/discussions/4).
 
-## Accediendo al React 18 Working Group
+## Accediendo al React 18 Working Group {#accessing-the-react-18-working-group}
 
 Todos pueden leer las discusiones en el [repositorio del React 18 Working Group](https://github.com/reactwg/react-18).
 
@@ -45,13 +45,13 @@ Debido a que esperamos un aumento inicial de interés en el Working Group, solo 
 
 Como siempre, puedes subir reportes de bugs, preguntas y comentarios en general a nuestro [issue tracker](https://github.com/facebook/react/issues).
 
-## Cómo probar React 18 hoy
+## Cómo probar React 18 Alpha hoy {#how-to-try-react-18-alpha-today}
 
 Nuevas versiones alphas se [publican regularmente en npm usando la etiqueta `@alpha`](https://github.com/reactwg/react-18/discussions/9). Estas versiones se crean utilizando el commit más reciente de nuestro repositorio principal. Cuando se fusiona una característica o una corrección de errores, aparecerá en el alpha al siguiente día de la semana.
 
 Puede haber cambios significativos de comportamiento o de API entre las versiones alpha. Recuerde que **las versiones alpha no se recomiendan para aplicaciones de producción orientadas al usuario**.
 
-## Cronograma de lanzamiento proyectado para React 18
+## Cronograma de lanzamiento proyectado para React 18 {#projected-react-18-release-timeline}
 
 No tenemos programada una fecha de lanzamiento específica, pero esperamos que sean necesarios varios meses de comentarios e iteraciones antes de que React 18 esté listo para la mayoría de las aplicaciones de producción.
 
