@@ -33,7 +33,11 @@ function MyDiv(props) {
 }
 ```
 
+<<<<<<< HEAD
 **Bueno:** El operador de propagación se puede usar para sacar variables de los props y colocar los props restantes en una variable.
+=======
+**Good:** The spread syntax can be used to pull variables off props, and put the remaining props into a variable.
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 
 ```js
 function MyDiv(props) {

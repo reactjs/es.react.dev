@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Dividimos JSX en varias líneas para facilitar la lectura. Aunque no es necesario, cuando hagas esto también te recomendamos envolverlo entre paréntesis para evitar errores por la [inserción automática del punto y coma](https://stackoverflow.com/q/2846283).
 
@@ -92,7 +92,7 @@ function getGreeting(user) {
 Puedes utilizar comillas para especificar strings literales como atributos:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 También puedes usar llaves para insertar una expresión JavaScript en un atributo:
