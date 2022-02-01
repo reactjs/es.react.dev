@@ -231,11 +231,7 @@ En general, no recomendamos usarlo porque puede confundirse con la [notación si
 
 ### Atributos de propagación {#spread-attributes}
 
-<<<<<<< HEAD
-Si ya tienes `props` como objeto, y quiere pasarlo en JSX, puedes usar `...` como operador de “propagación” para pasar el objeto de props completo. Estos dos componentes son equivalentes:
-=======
-If you already have `props` as an object, and you want to pass it in JSX, you can use `...` as a "spread" syntax to pass the whole props object. These two components are equivalent:
->>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
+Si ya tienes `props` como objeto, y quiere pasarlo en JSX, puedes usar `...` como sintaxis de “propagación” para pasar el objeto de props completo. Estos dos componentes son equivalentes:
 
 ```js{7}
 function App1() {
@@ -248,11 +244,7 @@ function App2() {
 }
 ```
 
-<<<<<<< HEAD
-También puedes elegir props específicos que su componente consumirá al pasar todos los demás props utilizando el operador de propagación.
-=======
-You can also pick specific props that your component will consume while passing all other props using the spread syntax.
->>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
+También puedes elegir props específicos que su componente consumirá al pasar todos los demás props utilizando la sintaxis de propagación.
 
 ```js{2}
 const Button = props => {
