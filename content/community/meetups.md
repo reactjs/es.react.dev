@@ -161,6 +161,7 @@ permalink: community/meetups.html
 
 ## Suecia {#sweden}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
+* [Estocolmo](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
 
 ## Suiza {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
