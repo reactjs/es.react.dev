@@ -159,14 +159,9 @@ permalink: community/meetups.html
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 * [Canarias](https://www.meetup.com/React-Canarias/)
 
-<<<<<<< HEAD
 ## Suecia {#sweden}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
-=======
-## Sweden {#sweden}
-* [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
-* [Stockholm](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
->>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
+* [Estocolmo](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
 
 ## Suiza {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
