@@ -97,9 +97,13 @@ No puedes usar Hooks *dentro* de un componente de clase, pero definitivamente pu
 
 Nuestra meta es que los Hooks cubran todos los casos de uso de las clases lo más pronto posible. En este momento no existen equivalentes de los ciclos de vida poco comunes `getSnapshotBeforeUpdate`, `getDerivedStateFromError` y `componentDidCatch`, pero planeamos añadirlos pronto.
 
+<<<<<<< HEAD
 Los Hooks aún son jóvenes, y algunas librerías  de terceros podrían no ser compatibles con Hooks de momento.
 
 ### ¿Reemplazan los hooks a los render props y los Componentes de Orden Superior (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
+=======
+### Do Hooks replace render props and higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+>>>>>>> 71cc6be6182418dec43b72f2a9ef464619cb7025
 
 En muchas ocasiones, render props y los componentes de orden superior, renderizan un sólo hijo. Pensamos que los Hooks son una forma más sencilla de soportar este caso de uso. Aún hay lugar para ambos patrones (por ejemplo, un scroller virtual podría tener un prop `renderItem`, o un componente que sea un contenedor visual podría tener su propia estructura de DOM). Pero en la mayoría de los casos, los Hooks serán suficiente y ayudaran a reducir la anidación en tu arbol.
 
