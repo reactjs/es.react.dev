@@ -90,6 +90,9 @@ html.dark .sp-tabs .sp-tab-button[data-active='true'] {
 .sp-code-editor .cm-errorLine {
   background-color: rgba(255, 107, 99, 0.1);
   position: relative;
+  padding-right: 2em !important;
+  display: inline-block;
+  min-width: 100%;
 }
 
 .sp-code-editor .cm-errorLine:after {
@@ -98,7 +101,7 @@ html.dark .sp-tabs .sp-tab-button[data-active='true'] {
   top: 0;
   content: '\26A0';
   font-size: 22px;
-  line-height: 16px;
+  line-height: 20px;
   color: #ff3d3d;
 }
 
@@ -129,7 +132,6 @@ html.dark .sp-tabs .sp-tab-button[data-active='true'] {
   font-size: 13.6px !important;
   line-height: 24px !important;
   height: 100%;
-  overflow: scroll;
 }
 .text-xl .sp-pre-placeholder {
   font-size: 16px !important;
@@ -163,6 +165,9 @@ html.dark .sp-layout > :not(:first-child) {
 }
 html.dark .sp-layout {
   background-color: #343a46;
+}
+html .sp-loading {
+  background-color: transparent;
 }
 html.dark .sp-loading {
   background-color: #23272f;
@@ -225,7 +230,6 @@ html.dark .sp-devtools > div {
 }
 .sp-cm:focus-visible {
   box-shadow: inset 0 0 0 4px rgba(20, 158, 202, 0.4) !important;
-  padding-left: 0px !important;
 }
 .cm-line {
   padding: 0 var(--sp-space-3) !important;
@@ -247,6 +251,9 @@ html.dark .sp-devtools > div {
   }
 }
 
+.sp-cm {
+  padding-left: 8px !important;
+}
 .sp-layout {
   min-height: 216px;
 }
