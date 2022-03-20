@@ -82,9 +82,17 @@ Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice 
 
 ![Seth](../images/team/sethwebster.jpg)
 
-[@sethwebster on GitHub](https://github.com/sethwebster) &middot; [@sethwebster on Twitter](https://twitter.com/sethwebster)
+[@sethwebster en GitHub](https://github.com/sethwebster) &middot; [@sethwebster en Twitter](https://twitter.com/sethwebster)
 
 Seth comenzó a programar cuando era un niño en Tucson, Arizona. Luego de la escuela, le picó el bichito de la música y por 10 años fue un músico de gira antes de retornar a *trabajar*, comenzando con Intuit. En su tiempo libre, le encanta [tomar fotos](https://www.sethwebster.com) y volar para rescatar animales en el noreste de los Estados Unidos.
+
+### Xuan Huang {#xuan-huang}
+
+![Xuan](../images/team/huxpro.jpg)
+
+[@huxpro en GitHub](https://github.com/huxpro) &middot; [@huxpro en Twitter](https://twitter.com/huxpro)
+
+Xuan conoció la programación en la infancia para hacer juegos en Flash. Hizo artes de medios digitales en la universidad, pero finalmente lo engañaron para que hiciera compiladores y, por alguna razón, React necesita uno. Fuera del trabajo, sirve terribles artes de latte y juega al tenis en una mesa o fuera de ella.
 
 ## Agradecimientos {#acknowledgements}
 
