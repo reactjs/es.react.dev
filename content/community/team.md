@@ -82,23 +82,19 @@ Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice 
 
 ![Seth](../images/team/sethwebster.jpg)
 
-[@sethwebster on GitHub](https://github.com/sethwebster) &middot; [@sethwebster on Twitter](https://twitter.com/sethwebster)
+[@sethwebster en GitHub](https://github.com/sethwebster) &middot; [@sethwebster en Twitter](https://twitter.com/sethwebster)
 
 Seth comenzó a programar cuando era un niño en Tucson, Arizona. Luego de la escuela, le picó el bichito de la música y por 10 años fue un músico de gira antes de retornar a *trabajar*, comenzando con Intuit. En su tiempo libre, le encanta [tomar fotos](https://www.sethwebster.com) y volar para rescatar animales en el noreste de los Estados Unidos.
 
-<<<<<<< HEAD
-## Agradecimientos {#acknowledgements}
-=======
 ### Xuan Huang {#xuan-huang}
 
 ![Xuan](../images/team/huxpro.jpg)
 
-[@huxpro on GitHub](https://github.com/huxpro) &middot; [@huxpro on Twitter](https://twitter.com/huxpro)
+[@huxpro en GitHub](https://github.com/huxpro) &middot; [@huxpro en Twitter](https://twitter.com/huxpro)
 
-Xuan met with programming in childhood to make games in Flash. He did digital media arts in college but eventually got tricked into making compilers, and somehow React needs one. Out of work, he pours terrible latte arts and plays tennis either on or off a table.
+Xuan conoció la programación en la infancia para hacer juegos en Flash. Hizo artes de medios digitales en la universidad, pero finalmente lo engañaron para que hiciera compiladores y, por alguna razón, React necesita uno. Fuera del trabajo, sirve terribles artes de latte y juega al tenis en una mesa o fuera de ella.
 
-## Acknowledgements {#acknowledgements}
->>>>>>> 7994045415a9066f8663ee5403e874edbb4c5f83
+## Agradecimientos {#acknowledgements}
 
 React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke). Hoy, React tiene más de mil contribuidores de código abierto. Nos gustaría reconocer a algunas personas que han hecho contribuciones significativas a React y su documentación en el pasado y que han ayudado a su mantenimiento a lo largo de los años:
 
@@ -139,8 +135,4 @@ React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke).
 
 Esta lista no es exhaustiva.
 
-<<<<<<< HEAD
 Nos gustaría agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) y [Adam Wolff](https://github.com/wolffiex) por su guía y apoyo a lo largo de los años. También nos gustaría agradecer a todos los voluntarios que [tradujeron React a otros idiomas](https://translations.reactjs.org/).
-=======
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We'd also like to thank all the volunteers who [translated React into other languages](https://translations.reactjs.org/).
->>>>>>> 7994045415a9066f8663ee5403e874edbb4c5f83
