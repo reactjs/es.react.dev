@@ -70,7 +70,7 @@ Si solo estás solucionando un error, está bien enviar un *pull request* de inm
 
 ¿Trabajando en tu primer *pull request*? Puedes aprender cómo en esta serie de videos gratis:
 
-**[Cómo contribuir a un proyecto de código abierto en GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+**[Cómo contribuir a un proyecto de código abierto en GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
 
 Para ayudarte a familiarizarte con nuestro proceso de contribución, tenemos una lista de **[incidencias adecuadas para comenzar](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** que contienen errores que tienen un alcance relativamente limitado. Este es un gran lugar para empezar.
 
