@@ -1149,11 +1149,21 @@ Luego, definiremos el método `jumpTo` en el componente Game para actualizar el 
 ```
 Nota que en el método `jumpTo` no hemos actualizado la propiedad `history` del estado. No lo hacemos que porque las actualizaciones de estado se mezclan, o en términos más simples, React solo actualizará las propiedades mencionadas en el método `setState` dejando el resto del estado como estaba. Para más información **[consulta la documentación](/docs/state-and-lifecycle.html#state-updates-are-merged)**
 
+<<<<<<< HEAD
 Ahora haremos unos pequeños cambios al método `handleClick` de Game, el cuál se dispara cuando haces click en un cuadrado.
+=======
+Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 El estado `stepNumber` que hemos añadido ahora refleja el movimiento mostrado al usuario. Después de hacer un nuevo movimiento, necesitamos actualizar `stepNumber` añadiendo `stepNumber: history.length` como parte del argumento de `this.setState`. Esto asegura que no nos estanquemos mostrando el mismo movimiento después de uno nuevo realizado.
 
+<<<<<<< HEAD
 También reemplazaremos `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Esto asegura que si "volvemos en el tiempo" y luego hacemos un nuevo movimiento desde ese punto, tiramos todo la historia "futura" que ahora sería incorrecta.
+=======
+The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+
+We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now be incorrect.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 ```javascript{2,13}
   handleClick(i) {
