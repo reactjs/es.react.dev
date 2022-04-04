@@ -190,9 +190,9 @@ class Chosen extends React.Component {
 
 ## Integración con otras bibliotecas de vista {#integrating-with-other-view-libraries}
 
-React puede integrarse en otras aplicaciones gracias a la flexibilidad de [`ReactDOM.render()`](/docs/react-dom.html#render).
+React puede integrarse en otras aplicaciones gracias a la flexibilidad de [`createRoot()`](/docs/react-dom-client.html#createRoot).
 
-Aunque React se usa comúnmente en el inicio para cargar un solo componente React raíz en el DOM, `ReactDOM.render()` también se puede llamar varias veces para partes independientes de la interfaz de usuario que pueden ser tan pequeñas como un botón, o tan grandes como una aplicación.
+Aunque React se usa comúnmente en el inicio para cargar un solo componente React raíz en el DOM, `root.render()` también se puede llamar varias veces para partes independientes de la interfaz de usuario que pueden ser tan pequeñas como un botón, o tan grandes como una aplicación.
 
 De hecho, así es exactamente cómo se utiliza React en Facebook. Esto nos permite escribir aplicaciones en React pieza por pieza y combinarlas con nuestras plantillas existentes generadas por el servidor y otros códigos del lado del cliente.
 
@@ -216,15 +216,9 @@ function Button() {
   return <button id="btn">Say Hello</button>;
 }
 
-ReactDOM.render(
-  <Button />,
-  document.getElementById('container'),
-  function() {
-    $('#btn').click(function() {
-      alert('Hello!');
-    });
-  }
-);
+$('#btn').click(function() {
+  alert('Hello!');
+});
 ```
 
 Desde aquí, puedes comenzar a mover más lógica al componente y comenzar a adoptar prácticas de React más comunes. Por ejemplo, en los componentes es mejor no confiar en las ID porque el mismo componente se puede representar varias veces. En su lugar, usaremos el [sistema de eventos de React](/docs/handling-events.html) y registraremos el controlador de clic directamente en el elemento React `<button>`:
@@ -240,24 +234,19 @@ function HelloButton() {
   }
   return <Button onClick={handleClick} />;
 }
-
-ReactDOM.render(
-  <HelloButton />,
-  document.getElementById('container')
-);
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
-Puedes tener tantos componentes aislados como desees y usar `ReactDOM.render()` para renderizarlos a diferentes contenedores DOM. Gradualmente, a medida que conviertas más de tu aplicación a React, podrás combinarlos en componentes más grandes y mover algunos de los `ReactDOM.render()` mas arriba en la jerarquía.
+Puedes tener tantos componentes aislados como desees y usar `ReactDOM.createRoot()` para renderizarlos a diferentes contenedores DOM. Gradualmente, a medida que conviertas más de tu aplicación a React, podrás combinarlos en componentes más grandes y mover algunos de las llamadas a `ReactDOM.createRoot()` más arriba en la jerarquía.
 
 ### Incrustación de React en una vista de Backbone {#embedding-react-in-a-backbone-view}
 
 Las vistas de [Backbone](https://backbonejs.org/) suelen utilizar strings HTML, o funciones plantillas que producen strings, para crear el contenido de sus elementos DOM. Este proceso, también, puede reemplazarse con la representación de un componente React.
 
-A continuación, crearemos una vista de Backbone llamada `ParagraphView`. Anulará la función `render()` de Backbone para renderizar un componente React `<Paragraph>` en el elemento DOM proporcionado por Backbone (`this.el`). Aquí también estamos usando [`ReactDOM.render()`](/docs/react-dom.html#render):
+A continuación, crearemos una vista de Backbone llamada `ParagraphView`. Anulará la función `render()` de Backbone para renderizar un componente React `<Paragraph>` en el elemento DOM proporcionado por Backbone (`this.el`). Aquí también estamos usando [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot):
 
-```js{1,5,8,12}
+```js{1,5,8-9,13}
 function Paragraph(props) {
   return <p>{props.text}</p>;
 }
@@ -265,11 +254,12 @@ function Paragraph(props) {
 const ParagraphView = Backbone.View.extend({
   render() {
     const text = this.model.get('text');
-    ReactDOM.render(<Paragraph text={text} />, this.el);
+    this.root = ReactDOM.createRoot(this.el);
+    this.root.render(<Paragraph text={text} />);
     return this;
   },
   remove() {
-    ReactDOM.unmountComponentAtNode(this.el);
+    this.root.unmount();
     Backbone.View.prototype.remove.call(this);
   }
 });
@@ -277,7 +267,7 @@ const ParagraphView = Backbone.View.extend({
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
-Es importante que también llamemos a `ReactDOM.unmountComponentAtNode()` en el método `remove` para que React anule el registro de los controladores de eventos y otros recursos asociados con el árbol de componentes cuando se desconecta.
+Es importante que también llamemos a `root.unmount()` en el método `remove` para que React anule el registro de los controladores de eventos y otros recursos asociados con el árbol de componentes cuando se desconecta.
 
 Cuando se elimina un componente *desde dentro de* un árbol de React, la limpieza se realiza automáticamente, pero como estamos eliminando todo el árbol a mano, debemos llamar a este método.
 
@@ -428,10 +418,8 @@ function Example(props) {
 }
 
 const model = new Backbone.Model({ firstName: 'Frodo' });
-ReactDOM.render(
-  <Example model={model} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Example model={model} />);
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/PmWwwa?editors=0010)

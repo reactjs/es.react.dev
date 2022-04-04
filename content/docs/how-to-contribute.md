@@ -103,7 +103,7 @@ Para aceptar tu pull request, necesitamos que envíes un CLA. Solo necesitas hac
 
 ### Prerequisitos para contribuir {#contribution-prerequisites}
 
-* Tienes [Node](https://nodejs.org) instalado con v8.0.0+ y [Yarn](https://yarnpkg.com/en/) con v1.2.0+.
+* Tienes [Node](https://nodejs.org) instalado con la versión LTS y [Yarn](https://yarnpkg.com/en/) con v1.2.0+.
 * Tienes [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) instalado.
 * Tienes `gcc` instalado o te sientes cómodo instalando un compilador si es necesario. Algunas de nuestras dependencias pueden requerir un paso de compilación. En OS X, las herramientas de línea de comandos de Xcode cubrirán esto. En Ubuntu, `apt-get install build-essential` instalará los paquetes necesarios. Comandos similares deberían funcionar en otras distribuciones de Linux. Windows requerirá algunos pasos adicionales, consulta las [instrucciones de instalación de `node-gyp`](https://github.com/nodejs/node-gyp#installation) para obtener más información.
 * Estás familiarizado con Git.

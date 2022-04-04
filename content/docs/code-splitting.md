@@ -81,10 +81,6 @@ Cuando uses [Babel](https://babeljs.io/), tienes que asegurarte de que Babel rec
 
 ## `React.lazy` {#reactlazy}
 
-> Nota:
->
-> `React.lazy` y Suspense aún no están disponibles para hacer renderización del lado del servidor. Si quieres hacer división de código en una aplicación renderizada en el servidor, recomendamos [Loadable Components](https://github.com/gregberge/loadable-components). Tiene una buena [guía para dividir bundles con renderización del lado del servidor](https://loadable-components.com/docs/server-side-rendering/).
-
 La función `React.lazy` te deja renderizar un *import* dinámico como un componente regular.
 
 **Antes:**
@@ -119,7 +115,7 @@ function MyComponent() {
 }
 ```
 
-El prop `fallback` acepta cualquier elemento de React que quieras renderizar mientras esperas que `OtherComponent` cargue. Puedes poner el componente `Suspense` en cualquier parte sobre el componente lazy. Incluso puedes envolver múltiples componentes lazy con un solo componente `Suspense`.   
+La prop `fallback` acepta cualquier elemento de React que quieras renderizar mientras esperas que `OtherComponent` cargue. Puedes poner el componente `Suspense` en cualquier parte sobre el componente lazy. Incluso puedes envolver múltiples componentes lazy con un solo componente `Suspense`.   
 
 ```js
 import React, { Suspense } from 'react';
@@ -141,6 +137,51 @@ function MyComponent() {
 }
 ```
 
+### Evitar el fallback {#avoiding-fallbacks}
+Cualquier componente puede suspenderse como resultado del renderizado, incluso componentes que ya se mostraron al usuario. Para que el contenido de la pantalla siempre sea consistente, si un componete que ya se ha mostrado se suspende, React trata de esconder su árbol hacia arriba hasta la barrera `<Suspense>` más cercana. Sin embargo, desde la perspectiva del usuario esto puede desorientar.
+
+Considera este componente para cambiar de pestaña:
+
+```js
+import React, { Suspense } from 'react';
+import Tabs from './Tabs';
+import Glimmer from './Glimmer';
+
+const Comments = React.lazy(() => import('./Comments'));
+const Photos = React.lazy(() => import('./Photos'));
+
+function MyComponent() {
+  const [tab, setTab] = React.useState('photos');
+  
+  function handleTabSelect(tab) {
+    setTab(tab);
+  };
+
+  return (
+    <div>
+      <Tabs onTabSelect={handleTabSelect} />
+      <Suspense fallback={<Glimmer />}>
+        {tab === 'photos' ? <Photos /> : <Comments />}
+      </Suspense>
+    </div>
+  );
+}
+
+```
+
+En este ejemplo, si la pestaña se cambia de `'photos'` a `'comments'`, pero `Comments` se suspende, el usuario solo verá un destello. Esto tiene sentido porque el usuario no quiere ya ver `Photos`, el componente `Comments` aún no está listo para renderizar nada, y React necesita mantener la experiencia de usuario de forma consistente, así que no tiene otra opción que mostrar el componente `Glimmer` de arriba.
+
+Sin embar, a veces esta experiencia de usuario no es deseable. En particular, a veces es mejor mostrar la IU "vieja" mientras se prepara la nueva IU. Puedes usar la nueva API [`startTransition`](/docs/react-api.html#starttransition) para que React haga esto:
+
+```js
+function handleTabSelect(tab) {
+  startTransition(() => {
+    setTab(tab);
+  });
+}
+```
+
+Aquí, le dices a React que poner la pestaña en `'comments'` no es una actualización urgente, sino que es una [transición](/docs/react-api.html#transitions) que puede tomar algún tiempo. React mantendrá entonces la IU anterior en su lugar y aún interactiva, y cambiará a mostrar `<Comments />` cuando esté lista. Mira [Transiciones](/docs/react-api.html#transitions) para más información.
 ### Límites de error {#error-boundaries}
 
 Si el otro módulo no se carga (por ejemplo, debido a un fallo de la red), se generará un error. Puedes manejar estos errores para mostrar una buena experiencia de usuario y manejar la recuperación con [Límites de error](/docs/error-boundaries.html). Una vez hayas creado tu límite de error (Error Boundary) puedes usarlo en cualquier parte sobre tus componentes lazy para mostrar un estado de error cuando haya un error de red.

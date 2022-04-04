@@ -59,7 +59,7 @@ Las pruebas superficiales tienen algunas limitaciones, es decir, no soportan ref
 
 Puedes ver el shallowRenderer como un "lugar" para renderizar el componente que quieres probar, y del cual quieres extraer el resultado del componente.
 
-`shallowRenderer.render()` es parecido a [`ReactDOM.render()`](/docs/react-dom.html#render) pero no necesita DOM y solamente renderiza un único nivel de profundidad. Esto quiere decir que se pueden probar componentes sin tener en cuenta como sus hijos son implementados.
+`shallowRenderer.render()` es parecido a [`root.render()`](/docs/react-dom-client.html#createroot) pero no necesita DOM y solamente renderiza un único nivel de profundidad. Esto quiere decir que se pueden probar componentes sin tener en cuenta como sus hijos son implementados.
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 

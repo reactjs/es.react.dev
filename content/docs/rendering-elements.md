@@ -34,7 +34,7 @@ Lo llamamos un nodo "raíz" porque todo lo que esté dentro de él será manejad
 
 Las aplicaciones construidas solamente con React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, puedes tener tantos nodos raíz del DOM aislados como quieras.
 
-Para renderizar un elemento de React en un nodo raíz del DOM, pasa ambos a [`ReactDOM.render()`](/docs/react-dom.html#render):
+To render a React element, first pass the DOM element to [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), then pass the React element to `root.render()`:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +46,7 @@ Esto muestra "Hello, world" en la página.
 
 Los elementos de React son [inmutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un fotograma solitario en una película: este representa la interfaz de usuario en cierto punto en el tiempo.
 
-Con nuestro conocimiento hasta este punto, la única manera de actualizar la interfaz de usuario es creando un nuevo elemento, y pasarlo a [`ReactDOM.render()`](/docs/react-dom.html#render).
+Con nuestro conocimiento hasta este punto, la única manera de actualizar la interfaz de usuario es creando un nuevo elemento, y pasarlo a `root.render()`.
 
 Considera este ejemplo de un reloj en marcha:
 
@@ -54,11 +54,11 @@ Considera este ejemplo de un reloj en marcha:
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
-Este llama a [`ReactDOM.render()`](/docs/react-dom.html#render) cada segundo desde un callback del [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+Este llama a [`root.render()`](/docs/react-dom.html#render) cada segundo desde un callback del [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
 >**Nota:**
 >
->En la práctica, la mayoría de las aplicaciones de React solo llaman a [`ReactDOM.render()`](/docs/react-dom.html#render) una vez. En las siguientes secciones aprenderemos cómo el código se puede encapsular en [componentes con estado](/docs/state-and-lifecycle.html).
+>En la práctica, la mayoría de las aplicaciones de React solo llaman a `root.render()` una vez. En las siguientes secciones aprenderemos cómo el código se puede encapsular en [componentes con estado](/docs/state-and-lifecycle.html).
 >
 >Recomendamos que no te saltes ningún tema porque estos se relacionan entre ellos.
 

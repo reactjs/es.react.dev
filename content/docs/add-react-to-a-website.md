@@ -54,8 +54,8 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
 
   <!-- Cargar React. -->
   <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Cargamos nuestro componente de React. -->
   <script src="like_button.js"></script>
@@ -77,14 +77,15 @@ Abre **[este código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd9
 
 Después **[en el código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, agrega las siguientes dos lineas al final de `like_button.js`:
 
-```js{3,4}
+```js{3,4,5}
 // ... el código inicial que pegaste ...
 
 const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
 ```
 
-Estas dos líneas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
+Estas tres líneas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
 
 ### ¡Eso es todo! {#thats-it}
 
@@ -115,8 +116,8 @@ Antes de desplegar tu sitio web a producción, debes ser consciente que no compa
 Si ya has compactado los scripts de tu aplicación, **tu sitio estará listo para producción** si aseguras que el HTML desplegado carga las versiones de React finalizadas en `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Si no tienes un paso para compactar tus scripts, [aquí hay una forma en que puedes establecerlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
