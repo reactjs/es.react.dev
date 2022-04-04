@@ -70,7 +70,11 @@ Para construir una versión estática de tu aplicación que muestre tu modelo de
 
 Puedes construir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
 
+<<<<<<< HEAD
 Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver cómo se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 Revisa la [documentación de React](/docs/getting-started.html) si necesitas ayuda con este paso.
 

@@ -605,7 +605,11 @@ Generalmente es mejor hacer afirmaciones más específicas que usar instantánea
 
 ### Múltiples renderizadores {#multiple-renderers}
 
+<<<<<<< HEAD
 En casos poco comunes, puedes ejecutar una prueba en un componente que utiliza múltiples renderizadores. Por ejemplo, puedes ejecutar pruebas de instantánea en un componente con `react-test-renderer`, que internamente utiliza `ReactDOM.render` dentro de un componente hijo para renderizar algún contenido. En este escenario, puedes envolver las actualizaciones con los `act()`s correspondientes a sus renderizadores.
+=======
+In rare cases, you may be running a test on a component that uses multiple renderers. For example, you may be running snapshot tests on a component with `react-test-renderer`, that internally uses `render` from `react-dom` inside a child component to render some content. In this scenario, you can wrap updates with `act()`s corresponding to their renderers.
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";

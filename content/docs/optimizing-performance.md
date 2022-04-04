@@ -43,8 +43,8 @@ Recuerda que esto es solo una necesidad antes de desplegar a producción. Para e
 Ofrecemos versiones listas para producción de React y React DOM como un solo archivo:
 
 ```html
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
 Recuerda que solo los archivos de React que terminan con `production.min.js` son apropiados para producción.
@@ -175,8 +175,13 @@ Si aún no has instalado *React DevTools*, puedes encontrarlo aquí:
 
 > Nota
 >
+<<<<<<< HEAD
 > Antes de React 17, usábamos la [API estándar User Timing](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) para realizar el análisis de rendimiento de componentes con la pestaña de rendimiento de Chrome.
 > Para una explicación más detallada, consulta [este artículo de Ben Schwarz (en inglés)](https://calibreapp.com/blog/react-performance-profiling-optimization).
+=======
+> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab.
+> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ## Virtualizar listas largas {#virtualize-long-lists}
 

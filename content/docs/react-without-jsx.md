@@ -17,10 +17,8 @@ class Hello extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Hello toWhat="World" />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Hello toWhat="World" />);
 ```
 
 se puede compilar a este que no usa JSX:
@@ -32,10 +30,8 @@ class Hello extends React.Component {
   }
 }
 
-ReactDOM.render(
-  React.createElement(Hello, {toWhat: 'World'}, null),
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(Hello, {toWhat: 'World'}, null));
 ```
 
 Si tienes curiosidad por ver más ejemplos de cómo JSX se convierte a Javascript, puedes probar el [compilador en línea de Babel](babel://jsx-simple-example).
@@ -47,10 +43,8 @@ Si te cansas de escribir tanto `React.createElement`, un patrón común es asign
 ```js
 const e = React.createElement;
 
-ReactDOM.render(
-  e('div', null, 'Hello World'),
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(e('div', null, 'Hello World'));
 ```
 
 Si usas esta forma abreviada para `React.createElement`, puede ser casi tan conveniente usar React sin JSX.

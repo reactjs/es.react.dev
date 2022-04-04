@@ -116,7 +116,11 @@ Normalmente, hay una advertencia cuando un elemento con hijos también se marca 
 
 Si usas renderización de React del lado del servidor, normalmente hay una advertencia cuando el servidor y el cliente presentan contenido diferente. Sin embargo, en algunos casos raros, es muy difícil o imposible garantizar una coincidencia exacta. Por ejemplo, se espera que las marcas de tiempo difieran en el servidor y en el cliente. 
 
+<<<<<<< HEAD
 Si estableces `suppressHydrationWarning` como `true`, React no te advertirá sobre los desajustes en los atributos y el contenido de ese elemento. Solo funciona a un nivel de profundidad y está diseñado para ser utilizado como una vía de escape. No lo uses en exceso. Puedes leer más sobre hidratación en la [documentación de `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ### value {#value}
 
