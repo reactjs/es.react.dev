@@ -144,17 +144,13 @@ A diferencia de `componentDidMount` y` componentDidUpdate`, la función enviada 
 
 Sin embargo, no todos los efectos pueden ser diferidos. Por ejemplo, una mutación de DOM que es visible para el usuario debe ejecutarse de manera sincrónica antes del siguiente render para que el usuario no perciba una inconsistencia visual. (La distinción es conceptualmente similar a la de los listeners de eventos pasivos y de los activos). Para estos tipos de efectos, React proporciona un Hook adicional llamado [`useLayoutEffect`](#uselayouteffect). Tiene la misma firma que `useEffect` y solo difiere de este último en cuándo se ejecuta.
 
-<<<<<<< HEAD
-Aunque `useEffect` se aplaza hasta después de que el navegador se haya pintado, se garantiza que se activará antes de cualquier nuevo render. React siempre eliminará los efectos de un render anterior antes de comenzar una nueva actualización.
-=======
-Additionally, starting in React 18, the function passed to `useEffect` will fire synchronously **before** layout and paint when it's the result of a discrete user input such as a click, or when it's the result of an update wrapped in [`flushSync`](/docs/react-dom.html#flushsync). This behavior allows the result of the effect to be observed by the event system, or by the caller of [`flushSync`](/docs/react-dom.html#flushsync).
+Adicionalmente, a partir de React 18, la función que se pasa a `useEffect` se ejecutará sincrónicamente **antes** de las etapas de *layout* y pintura cuando es el resulta de una entrada discreta del usuario como un clic, o cuando el resultado de una actualización envuelta en [`flushSync`](/docs/react-dom.html#flushsync). Este comportamiento permite que el resultado del efecto sea observado por un sistema de eventos o por quien llama a [`flushSync`](/docs/react-dom.html#flushsync).
 
-> Note
+> Nota
 > 
-> This only affects the timing of when the function passed to `useEffect` is called - updates scheduled inside these effects are still deferred. This is different than [`useLayoutEffect`](#uselayouteffect), which fires the function and processes the updates inside of it immediately.
+> Esto solo afecta el tiempo de llamada de la función pasada a `useEffect` - las actualizaciones que se programan dentro de estos efectos aún se difieren. Esto es diferente a [`useLayoutEffect`](#uselayouteffect), que invoca la función y procesa las actualizaciones dentro de ella inmediatamente.
 
-Even in cases where `useEffect` is deferred until after the browser has painted, it's guaranteed to fire before any new renders. React will always flush a previous render's effects before starting a new update.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Aún en los casos en que `useEffect` se aplaza hasta después de que el navegador haya pintado, se garantiza que se activará antes de cualquier nuevo render. React siempre eliminará los efectos de un render anterior antes de comenzar una nueva actualización.
 
 #### Disparar un efecto condicionalmente. {#conditionally-firing-an-effect}
 

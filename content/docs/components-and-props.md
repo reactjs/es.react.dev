@@ -79,17 +79,10 @@ root.render(element);
 
 Recapitulemos lo que sucede en este ejemplo:
 
-<<<<<<< HEAD
-1. Llamamos a `ReactDOM.render()` con el elemento `<Welcome name="Sara" />`.
+1. Llamamos a `root.render()` con el elemento `<Welcome name="Sara" />`.
 2. React llama al componente `Welcome` con `{name: 'Sara'}` como "props".
 3. Nuestro componente `Welcome` devuelve un elemento `<h1>Hello, Sara</h1>` como resultado.
 4. React DOM actualiza eficientemente el DOM para que coincida con `<h1>Hello, Sara</h1>`.
-=======
-1. We call `root.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 > **Nota:** Comienza siempre los nombres de componentes con una letra mayúscula.
 > 

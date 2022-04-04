@@ -342,21 +342,11 @@ const SomeComponent = React.lazy(() => import('./SomeComponent'));
 
 Ten en cuenta que renderizar componentes `lazy` requiere que haya un componente `<React.Suspense>` más alto en el árbol de renderización. Así es como se especifica un indicador de carga.
 
-<<<<<<< HEAD
-> **Nota**
->
-> Usar `React.lazy` con importación dinámica requiere que Promises esté disponible en el entorno JS. Esto requiere un polyfill en IE versión 11 e inferiores.
-
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` permite especificar el indicador de carga en caso de que algunos componentes en el árbol más abajo de él todavía no estén listos para renderizarse. Hoy en día, los componentes de carga diferida son el **único** caso compatible con `<React.Suspense>`:
-=======
-### `React.Suspense` {#reactsuspense}
+`React.Suspense` permite especificar el indicador de carga en caso de que algunos componentes en el árbol más abajo de él todavía no estén listos para renderizarse. En el futuro planeamos permitir a `Suspense` manejar más escenarios como la carga de datos. Puedes leer más sobre este tema en [nuestra hoja de ruta](/blog/2018/11/27/react-16-roadmap.html).
 
-`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. In the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html).
-
-Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Hoy en día, los componentes de carga diferida son el **único** caso compatible con `<React.Suspense>`:
 
 ```js
 // Este componente está cargado dinámicamente
@@ -376,13 +366,6 @@ function MyComponent() {
 
 Esto está documentado en nuestra [guía de división de código](/docs/code-splitting.html#reactlazy). Ten en cuenta que los componentes `lazy` pueden estar muy profundo en el árbol `Suspense` -- no tiene que envolverlos a todos. La mejor práctica es colocar `<Suspense>` donde se desee ver un indicador de carga y usar `lazy()` para hacer división de código.
 
-<<<<<<< HEAD
-Aunque esto no es soportado actualmente, en el futuro planeamos dejar que `Suspense` maneje más escenarios como la captura de datos. Puedes leer sobre esto en nuestro [plan de ruta](/blog/2018/11/27/react-16-roadmap.html).
-
->Nota:
->
->`React.lazy()` y `<React.Suspense>` aún no son soportados por `ReactDOMServer`. Esto es una limitación conocida que será resuelta en el futuro.
-=======
 > Note
 > 
 > For content that is already shown to the user, switching back to a loading indicator can be disorienting. It is sometimes better to show the "old" UI while the new UI is being prepared. To do this, you can use the new transition APIs [`startTransition`](#starttransition) and [`useTransition`](/docs/hooks-reference.html#usetransition) to mark updates as transitions and avoid unexpected fallbacks.
@@ -409,4 +392,3 @@ React.startTransition(callback)
 > Updates in a transitions will not show a fallback for re-suspended content, allowing the user to continue interacting while rendering the update.
 >
 > `React.startTransition` does not provide an `isPending` flag. To track the pending status of a transition see [`React.useTransition`](/docs/hooks-reference.html#usetransition).
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1

@@ -34,11 +34,7 @@ Lo llamamos un nodo "raíz" porque todo lo que esté dentro de él será manejad
 
 Las aplicaciones construidas solamente con React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, puedes tener tantos nodos raíz del DOM aislados como quieras.
 
-<<<<<<< HEAD
-Para renderizar un elemento de React en un nodo raíz del DOM, pasa ambos a [`ReactDOM.render()`](/docs/react-dom.html#render):
-=======
 To render a React element, first pass the DOM element to [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), then pass the React element to `root.render()`:
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -50,11 +46,7 @@ Esto muestra "Hello, world" en la página.
 
 Los elementos de React son [inmutables](https://es.wikipedia.org/wiki/Objeto_inmutable). Una vez creas un elemento, no puedes cambiar sus hijos o atributos. Un elemento es como un fotograma solitario en una película: este representa la interfaz de usuario en cierto punto en el tiempo.
 
-<<<<<<< HEAD
-Con nuestro conocimiento hasta este punto, la única manera de actualizar la interfaz de usuario es creando un nuevo elemento, y pasarlo a [`ReactDOM.render()`](/docs/react-dom.html#render).
-=======
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `root.render()`.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Con nuestro conocimiento hasta este punto, la única manera de actualizar la interfaz de usuario es creando un nuevo elemento, y pasarlo a `root.render()`.
 
 Considera este ejemplo de un reloj en marcha:
 
@@ -62,19 +54,11 @@ Considera este ejemplo de un reloj en marcha:
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
-<<<<<<< HEAD
-Este llama a [`ReactDOM.render()`](/docs/react-dom.html#render) cada segundo desde un callback del [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
-=======
-It calls [`root.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Este llama a [`root.render()`](/docs/react-dom.html#render) cada segundo desde un callback del [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
 >**Nota:**
 >
-<<<<<<< HEAD
->En la práctica, la mayoría de las aplicaciones de React solo llaman a [`ReactDOM.render()`](/docs/react-dom.html#render) una vez. En las siguientes secciones aprenderemos cómo el código se puede encapsular en [componentes con estado](/docs/state-and-lifecycle.html).
-=======
->In practice, most React apps only call `root.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+>En la práctica, la mayoría de las aplicaciones de React solo llaman a `root.render()` una vez. En las siguientes secciones aprenderemos cómo el código se puede encapsular en [componentes con estado](/docs/state-and-lifecycle.html).
 >
 >Recomendamos que no te saltes ningún tema porque estos se relacionan entre ellos.
 

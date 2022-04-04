@@ -81,15 +81,7 @@ Cuando uses [Babel](https://babeljs.io/), tienes que asegurarte de que Babel rec
 
 ## `React.lazy` {#reactlazy}
 
-<<<<<<< HEAD
-> Nota:
->
-> `React.lazy` y Suspense aún no están disponibles para hacer renderización del lado del servidor. Si quieres hacer división de código en una aplicación renderizada en el servidor, recomendamos [Loadable Components](https://github.com/gregberge/loadable-components). Tiene una buena [guía para dividir bundles con renderización del lado del servidor](https://loadable-components.com/docs/server-side-rendering/).
-
 La función `React.lazy` te deja renderizar un *import* dinámico como un componente regular.
-=======
-The `React.lazy` function lets you render a dynamic import as a regular component.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 **Antes:**
 
@@ -123,7 +115,7 @@ function MyComponent() {
 }
 ```
 
-El prop `fallback` acepta cualquier elemento de React que quieras renderizar mientras esperas que `OtherComponent` cargue. Puedes poner el componente `Suspense` en cualquier parte sobre el componente lazy. Incluso puedes envolver múltiples componentes lazy con un solo componente `Suspense`.   
+La prop `fallback` acepta cualquier elemento de React que quieras renderizar mientras esperas que `OtherComponent` cargue. Puedes poner el componente `Suspense` en cualquier parte sobre el componente lazy. Incluso puedes envolver múltiples componentes lazy con un solo componente `Suspense`.   
 
 ```js
 import React, { Suspense } from 'react';
@@ -145,13 +137,10 @@ function MyComponent() {
 }
 ```
 
-<<<<<<< HEAD
-### Límites de error {#error-boundaries}
-=======
-### Avoiding fallbacks {#avoiding-fallbacks}
-Any component may suspend as a result of rendering, even components that were already shown to the user. In order for screen content to always be consistent, if an already shown component suspends, React has to hide its tree up to the closest `<Suspense>` boundary. However, from the user's perspective, this can be disorienting.
+### Evitar el fallback {#avoiding-fallbacks}
+Cualquier componente puede suspenderse como resultado del renderizado, incluso componentes que ya se mostraron al usuario. Para que el contenido de la pantalla siempre sea consistente, si un componete que ya se ha mostrado se suspende, React trata de esconder su árbol hacia arriba hasta la barrera `<Suspense>` más cercana. Sin embargo, desde la perspectiva del usuario esto puede desorientar.
 
-Consider this tab switcher:
+Considera este componente para cambiar de pestaña:
 
 ```js
 import React, { Suspense } from 'react';
@@ -180,9 +169,9 @@ function MyComponent() {
 
 ```
 
-In this example, if tab gets changed from `'photos'` to `'comments'`, but `Comments` suspends, the user will see a glimmer. This makes sense because the user no longer wants to see `Photos`, the `Comments` component is not ready to render anything, and React needs to keep the user experience consistent, so it has no choice but to show the `Glimmer` above.
+En este ejemplo, si la pestaña se cambia de `'photos'` a `'comments'`, pero `Comments` se suspende, el usuario solo verá un destello. Esto tiene sentido porque el usuario no quiere ya ver `Photos`, el componente `Comments` aún no está listo para renderizar nada, y React necesita mantener la experiencia de usuario de forma consistente, así que no tiene otra opción que mostrar el componente `Glimmer` de arriba.
 
-However, sometimes this user experience is not desirable. In particular, it is sometimes better to show the "old" UI while the new UI is being prepared. You can use the new [`startTransition`](/docs/react-api.html#starttransition) API to make React do this:
+Sin embar, a veces esta experiencia de usuario no es deseable. En particular, a veces es mejor mostrar la IU "vieja" mientras se prepara la nueva IU. Puedes usar la nueva API [`startTransition`](/docs/react-api.html#starttransition) para que React haga esto:
 
 ```js
 function handleTabSelect(tab) {
@@ -192,10 +181,8 @@ function handleTabSelect(tab) {
 }
 ```
 
-Here, you tell React that setting tab to `'comments'` is not an urgent update, but is a [transition](/docs/react-api.html#transitions) that may take some time. React will then keep the old UI in place and interactive, and will switch to showing `<Comments />` when it is ready. See [Transitions](/docs/react-api.html#transitions) for more info.
-
-### Error boundaries {#error-boundaries}
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Aquí, le dices a React que poner la pestaña en `'comments'` no es una actualización urgente, sino que es una [transición](/docs/react-api.html#transitions) que puede tomar algún tiempo. React mantendrá entonces la IU anterior en su lugar y aún interactiva, y cambiará a mostrar `<Comments />` cuando esté lista. Mira [Transiciones](/docs/react-api.html#transitions) para más información.
+### Límites de error {#error-boundaries}
 
 Si el otro módulo no se carga (por ejemplo, debido a un fallo de la red), se generará un error. Puedes manejar estos errores para mostrar una buena experiencia de usuario y manejar la recuperación con [Límites de error](/docs/error-boundaries.html). Una vez hayas creado tu límite de error (Error Boundary) puedes usarlo en cualquier parte sobre tus componentes lazy para mostrar un estado de error cuando haya un error de red.
 
