@@ -1,29 +1,29 @@
 ---
-title: Describing the UI
+title: Describir la IU
 ---
 
 <Intro>
 
-React is a JavaScript library for rendering user interfaces (UI). UI is built from small units like buttons, text, and images. React lets you combine them into reusable, nestable *components.* From web sites to phone apps, everything on the screen can be broken down into components. In this chapter, you'll learn to create, customize, and conditionally display React components.
+React es una biblioteca de JavaScript para renderizar interfaces de usuario (IU). La IU se construye a partir de pequeñas unidades como botones, texto e imágenes. React te permite combinarlas en *componentes* reutilizables y anidables. Desde sitios web hasta aplicaciones de teléfonos, todo en la pantalla se puede descomponer en componentes. En este capítulo aprenderás a crear, adaptar y mostrar de forma condicional componentes de React.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to write your first React component](/learn/your-first-component)
-* [When and how to create multi-component files](/learn/importing-and-exporting-components)
-* [How to add markup to JavaScript with JSX](/learn/writing-markup-with-jsx)
-* [How to use curly braces with JSX to access JavaScript functionality from your components](/learn/javascript-in-jsx-with-curly-braces)
-* [How to configure components with props](/learn/passing-props-to-a-component)
-* [How to conditionally render components](/learn/conditional-rendering)
-* [How to render multiple components at a time](/learn/rendering-lists)
-* [How to avoid confusing bugs by keeping components pure](/learn/keeping-components-pure)
+* [Cómo escribir tu primer componente de React](/learn/your-first-component)
+* [Cuándo y cómo crear archivos con múltiples componentes](/learn/importing-and-exporting-components)
+* [Cómo añadir marcado a JavaScript con JSX](/learn/writing-markup-with-jsx)
+* [Cómo añadir llaves con JSX para acceder a funcionalidades de JavaScript desde tus componentes](/learn/javascript-in-jsx-with-curly-braces)
+* [Cómo configurar componentes con props](/learn/passing-props-to-a-component)
+* [Cómo renderiza componentes condicionalmente](/learn/conditional-rendering)
+* [Cómo renderizar múltiples componentes a la vez](/learn/rendering-lists)
+* [Cómo evitar errores confusos manteniendo los componentes puros](/learn/keeping-components-pure)
 
 </YouWillLearn>
 
-## Your first component {/*your-first-component*/}
+## Tú primer componente {/*your-first-component*/}
 
-React applications are built from isolated pieces of UI called "components". A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a `Gallery` component rendering three `Profile` components:
+Las aplicaciones de React se construyen a partir de piezas independientes de IU llamadas «componentes». Un componente de React es una función de JavaScript a la que le puedes agregar un poco de marcado. Los componentes puede ser tan pequeños como un botón, o tan grandes como una página entera. Aquí vemos un componente `Gallery` que renderiza tres components `Profile`:
 
 <Sandpack>
 
@@ -57,14 +57,13 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 <LearnMore path="/learn/your-first-component">
 
-Read **[Your First Component](/learn/your-first-component)** to learn how to declare and use React components.
+Lee **[Tu primer componente](/learn/your-first-component)** para que aprendas cómo declarar y utilizar componentes de React.
 
 </LearnMore>
 
-## Importing and exporting components {/*importing-and-exporting-components*/}
+## Importar y exportar componentes {/*importing-and-exporting-components*/}
 
-You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can *export* a component into its own file, and then *import* that component from another file:
-
+Puedes declarar muchos componentes en un archivo, pero archivos grandes pueden resultar difíciles de navegar. Como solución, puedes *exportar* un componente a su propio archivo, y luego *importar* ese componente desde otro archivo:
 
 <Sandpack>
 
@@ -112,15 +111,15 @@ img { margin: 0 10px 10px 0; }
 
 <LearnMore path="/learn/importing-and-exporting-components">
 
-Read **[Importing and Exporting Components](/learn/importing-and-exporting-components)** to learn how to split components into their own files.
+Lee **[Importar y exportar componentes](/learn/importing-and-exporting-components)** para que aprendas como dividir componentes en archivos propios.
 
 </LearnMore>
 
-## Writing markup with JSX {/*writing-markup-with-jsx*/}
+## Escribir marcado con JSX {/*writing-markup-with-jsx*/}
 
-Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.
+Cada componente de React es una función de JavaScript que puede contener algo de marcado que React renderiza en el navegador. Los componentes de React utilizan una sintaxis extendida que se llama JSX para representar ese marcado. JSX se parece muchísimo a HTML, pero es un poco más estricto y puede mostrar información dinámica.
 
-If we paste existing HTML markup into a React component, it won't always work:
+Si pegamos marcado existente HTML en un componente de React, no funcionará siempre:
 
 <Sandpack>
 
@@ -149,7 +148,7 @@ img { height: 90px; }
 
 </Sandpack>
 
-If you have existing HTML like this, you can fix it using a [converter](https://transform.tools/html-to-jsx):
+Si tienes HTML existente como este, puedes arreglarlo usando un [convertidor](https://transform.tools/html-to-jsx):
 
 <Sandpack>
 
@@ -181,13 +180,13 @@ img { height: 90px; }
 
 <LearnMore path="/learn/writing-markup-with-jsx">
 
-Read **[Writing Markup with JSX](/learn/writing-markup-with-jsx)** to learn how to write valid JSX.
+Lee **[Escribir marcado con JSX](/learn/writing-markup-with-jsx)** para aprender cómo escribir JSX válido.
 
 </LearnMore>
 
-## JavaScript in JSX with curly braces {/*javascript-in-jsx-with-curly-braces*/}
+## JavaScript en JSX con llaves {/*javascript-in-jsx-with-curly-braces*/}
 
-JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to "open a window" to JavaScript:
+JSX te permite escribir markup similar a HTML dentro de un archivo JavaScript, manteniendo la lógica de renderizado y el contenido en el mismo lugar. En ocasiones será deseable añadir un poco de lógica en JavaScript o referenciar una propiedad dinámica dentro del marcado. En esta situación, puedes utilizar llaves en tu JSX para «abrir una ventana» hacia JavaScript:
 
 <Sandpack>
 
@@ -229,13 +228,13 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Read **[JavaScript in JSX with Curly Braces](/learn/javascript-in-jsx-with-curly-braces)** to learn how to access JavaScript data from JSX.
+Lee **[JavaScript y JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
 
 </LearnMore>
 
-## Passing props to a component {/*passing-props-to-a-component*/}
+## Pasar props a un componente {/*passing-props-to-a-component*/}
 
-React components use *props* to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!
+Los componentes de React utilizan *props* para comunicarse entre ellos. Cada componente padre puede pasar alguna información a sus componentes hijos dándoles props. Las props pueden recodarte a los atributos de HTML, pero puedes pasar cualquier valor de JavaScript con ellas, incluyendo objetos, arreglos, funciones, ¡e incluso JSX!
 
 <Sandpack>
 
@@ -310,15 +309,15 @@ export function getImageUrl(person, size = 's') {
 
 <LearnMore path="/learn/passing-props-to-a-component">
 
-Read **[Passing Props to a Component](/learn/passing-props-to-a-component)** to learn how to pass and read props.
+Lee **[Pasar props a un componente](/learn/passing-props-to-a-component)** para aprender cómo pasar y leer props.
 
 </LearnMore>
 
-## Conditional rendering {/*conditional-rendering*/}
+## Renderizado condicional {/*conditional-rendering*/}
 
-Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `? :` operators.
+Tus componentes a menudo necesitarán mostrar algo distinto en diferentes condiciones. En React, puedes renderizar JSX de forma condicional usando sintaxis de JavaScript como las sentencias `if`, y los operadores `&&` y `? :`.
 
-In this example, the JavaScript `&&` operator is used to conditionally render a checkmark:
+En este ejemplo, el operador `&&` se utiliza para renderizar condicionalmente una marca:
 
 <Sandpack>
 
@@ -358,15 +357,15 @@ export default function PackingList() {
 
 <LearnMore path="/learn/conditional-rendering">
 
-Read **[Conditional Rendering](/learn/conditional-rendering)** to learn the different ways to render content conditionally.
+Lee **[Renderizado condicional](/learn/conditional-rendering)** para aprender las diferentes formas de renderizar contenido condicionalmente.
 
 </LearnMore>
 
-## Rendering lists {/*rendering-lists*/}
+## Renderizado de listas {/*rendering-lists*/}
 
-You will often want to display multiple similar components from a collection of data. You can use JavaScript's `filter()` and `map()` with React to filter and transform your array of data into an array of components.
+A menudo querrás mostrar múltiples componentes similares a partir de una colección de datos. Puedes utilizar `filter()` y `map()` de JavaScript junto con React para filtrar y transformar tus arreglos de datos en un arreglo de componentes.
 
-For each array item, you will need to specify a `key`. Usually, you will want to use an ID from the database as a `key`. Keys let React keep track of each item's place in the list even if the list changes.
+Para cada elemento del arreglo, deberás especificar una llave (la prop `key`). Usualmente, querrás usar un ID de la base de datos como `key`. Las llaves le permiten a React mantener el registro del lugar de cada elemento en la lista aún cuando la lista cambie.
 
 <Sandpack>
 
@@ -458,18 +457,18 @@ h2 { font-size: 20px; }
 
 <LearnMore path="/learn/rendering-lists">
 
-Read **[Rendering Lists](/learn/rendering-lists)** to learn how to render a list of components, and how to choose a key.
+Lee **[Renderizado de listas](/learn/rendering-lists)** para aprender cómo renderizar una lista de componentes, y cómo elegir una llave.
 
 </LearnMore>
 
-## Keeping components pure {/*keeping-components-pure*/}
+## Mantener los componentes puros {/*keeping-components-pure*/}
 
-Some JavaScript functions are “pure.” A pure function:
+Algunas funciones de JavaScript son «puras». Una función pura:
 
-* **Minds its own business.** It does not change any objects or variables that existed before it was called.
-* **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+* **Se ocupa de sus propios asuntos.** No cambia ningún objeto o variable que haya existido antes de ser llamada.
+* **Misma entrada, misma salida.** Dada la misma entrada, una función pura debería devolver siempre el mismo resultado.
 
-By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:
+Si de forma estricta solo escribes tus componentes como funciones puras, puedes evitar toda una clase de errores desconcertantes y comportamientos impredecibles a medida que tu base de código crece. Aquí hay un ejemplo de un componente impuro:
 
 <Sandpack>
 
@@ -495,7 +494,7 @@ export default function TeaSet() {
 
 </Sandpack>
 
-You can make this component pure by passing a prop instead of modifying a preexisting variable:
+Puedes hacer este componente puro pasando una prop en lugar de modificar una variable ya existente:
 
 <Sandpack>
 
@@ -519,12 +518,12 @@ export default function TeaSet() {
 
 <LearnMore path="/learn/keeping-components-pure">
 
-Read **[Keeping Components Pure](/learn/keeping-components-pure)** to learn how to write components as pure, predictable functions.
+Lee **[Mantener los componentes puros](/learn/keeping-components-pure)** para aprender a escribir componentes como funciones puras y predecibles.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## ¿Qué sigue? {/*whats-next*/}
 
-Head over to [Your First Component](/learn/your-first-component) to start reading this chapter page by page!
+¡Dirígete a [Tu primer componente](/learn/your-first-component) para que comiences a leer este capítulo página por página!
 
-Or, if you're already familiar with these topics, why not read about [Adding Interactivity](/learn/adding-interactivity)?
+O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Añadir interactividad](/learn/adding-interactivity)?
