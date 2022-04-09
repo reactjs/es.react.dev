@@ -1,10 +1,10 @@
 ---
-title: Describir la IU
+title: Describir la UI
 ---
 
 <Intro>
 
-React es una biblioteca de JavaScript para renderizar interfaces de usuario (IU). La IU se construye a partir de pequeñas unidades como botones, texto e imágenes. React te permite combinarlas en *componentes* reutilizables y anidables. Desde sitios web hasta aplicaciones de teléfonos, todo en la pantalla se puede descomponer en componentes. En este capítulo aprenderás a crear, adaptar y mostrar de forma condicional componentes de React.
+React es una biblioteca de JavaScript para renderizar interfaces de usuario (UI por sus siglas en inglés). La UI se construye a partir de pequeñas unidades como botones, texto e imágenes. React te permite combinarlas en *componentes* reutilizables y anidables. Desde sitios web hasta aplicaciones de teléfonos, todo en la pantalla se puede descomponer en componentes. En este capítulo aprenderás a crear, adaptar y mostrar de forma condicional componentes de React.
 
 </Intro>
 
@@ -23,7 +23,7 @@ React es una biblioteca de JavaScript para renderizar interfaces de usuario (IU)
 
 ## Tú primer componente {/*your-first-component*/}
 
-Las aplicaciones de React se construyen a partir de piezas independientes de IU llamadas «componentes». Un componente de React es una función de JavaScript a la que le puedes agregar un poco de marcado. Los componentes puede ser tan pequeños como un botón, o tan grandes como una página entera. Aquí vemos un componente `Gallery` que renderiza tres components `Profile`:
+Las aplicaciones de React se construyen a partir de piezas independientes de UI llamadas «componentes». Un componente de React es una función de JavaScript a la que le puedes agregar un poco de marcado. Los componentes puede ser tan pequeños como un botón, o tan grandes como una página entera. Aquí vemos un componente `Gallery` que renderiza tres components `Profile`:
 
 <Sandpack>
 
