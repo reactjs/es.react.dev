@@ -15,15 +15,15 @@ React es una biblioteca de JavaScript para renderizar interfaces de usuario (UI 
 * [Cómo añadir marcado a JavaScript con JSX](/learn/writing-markup-with-jsx)
 * [Cómo añadir llaves con JSX para acceder a funcionalidades de JavaScript desde tus componentes](/learn/javascript-in-jsx-with-curly-braces)
 * [Cómo configurar componentes con props](/learn/passing-props-to-a-component)
-* [Cómo renderiza componentes condicionalmente](/learn/conditional-rendering)
+* [Cómo renderizar componentes condicionalmente](/learn/conditional-rendering)
 * [Cómo renderizar múltiples componentes a la vez](/learn/rendering-lists)
 * [Cómo evitar errores confusos manteniendo los componentes puros](/learn/keeping-components-pure)
 
 </YouWillLearn>
 
-## Tú primer componente {/*your-first-component*/}
+## Tu primer componente {/*your-first-component*/}
 
-Las aplicaciones de React se construyen a partir de piezas independientes de UI llamadas «componentes». Un componente de React es una función de JavaScript a la que le puedes agregar un poco de marcado. Los componentes puede ser tan pequeños como un botón, o tan grandes como una página entera. Aquí vemos un componente `Gallery` que renderiza tres components `Profile`:
+Las aplicaciones de React se construyen a partir de piezas independientes de UI llamadas «componentes». Un componente de React es una función de JavaScript a la que le puedes agregar un poco de marcado (*markup*). Los componentes pueden ser tan pequeños como un botón, o tan grandes como una página entera. Aquí vemos un componente `Gallery` que renderiza tres components `Profile`:
 
 <Sandpack>
 
@@ -63,7 +63,7 @@ Lee **[Tu primer componente](/learn/your-first-component)** para que aprendas c�
 
 ## Importar y exportar componentes {/*importing-and-exporting-components*/}
 
-Puedes declarar muchos componentes en un archivo, pero archivos grandes pueden resultar difíciles de navegar. Como solución, puedes *exportar* un componente a su propio archivo, y luego *importar* ese componente desde otro archivo:
+Es posible declarar muchos componentes en un archivo, pero los archivos grandes pueden resultar difíciles de navegar. Como solución, puedes *exportar* un componente a su propio archivo, y luego *importar* ese componente desde otro archivo:
 
 <Sandpack>
 
@@ -186,7 +186,7 @@ Lee **[Escribir marcado con JSX](/learn/writing-markup-with-jsx)** para aprender
 
 ## JavaScript en JSX con llaves {/*javascript-in-jsx-with-curly-braces*/}
 
-JSX te permite escribir markup similar a HTML dentro de un archivo JavaScript, manteniendo la lógica de renderizado y el contenido en el mismo lugar. En ocasiones será deseable añadir un poco de lógica en JavaScript o referenciar una propiedad dinámica dentro del marcado. En esta situación, puedes utilizar llaves en tu JSX para «abrir una ventana» hacia JavaScript:
+JSX te permite escribir marcado similar a HTML dentro de un archivo JavaScript, manteniendo la lógica de renderizado y el contenido en el mismo lugar. En ocasiones será deseable añadir un poco de lógica en JavaScript o referenciar una propiedad dinámica dentro del marcado. En esta situación, puedes utilizar llaves en tu JSX para «abrir una ventana» hacia JavaScript:
 
 <Sandpack>
 
@@ -365,7 +365,7 @@ Lee **[Renderizado condicional](/learn/conditional-rendering)** para aprender la
 
 A menudo querrás mostrar múltiples componentes similares a partir de una colección de datos. Puedes utilizar `filter()` y `map()` de JavaScript junto con React para filtrar y transformar tus arreglos de datos en un arreglo de componentes.
 
-Para cada elemento del arreglo, deberás especificar una llave (la prop `key`). Usualmente, querrás usar un ID de la base de datos como `key`. Las llaves le permiten a React mantener el registro del lugar de cada elemento en la lista aún cuando la lista cambie.
+Para cada elemento del arreglo, deberás especificar una llave (la prop `key`). Usualmente, querrás usar un ID de la base de datos como `key`. Las llaves le permiten a React seguir el lugar de cada elemento en la lista aún cuando la lista cambie.
 
 <Sandpack>
 
