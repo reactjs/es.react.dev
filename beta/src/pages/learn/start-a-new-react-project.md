@@ -10,7 +10,7 @@ Si estás aprendiendo React o estás considerando añadirlo a un proyecto existe
 
 ## Escoge tu propia aventura {/*choose-your-own-adventure*/}
 
-React es una biblioteca que te permite organizar código de IU al separarla en piezas que se nombran componentes. React no se preocupa por el enrutamiento o el manejo de datos. Para estas funcionalidades necesitarás usar bibliotecas de terceros o escribir tus propias soluciones. Esto significa que hay varias formas de comenzar un proyecto en React:
+React es una biblioteca que te permite organizar código de UI al separarla en piezas que se nombran componentes. React no se preocupa por el enrutamiento o el manejo de datos. Para estas funcionalidades necesitarás usar bibliotecas de terceros o escribir tus propias soluciones. Esto significa que hay varias formas de comenzar un proyecto en React:
 
 * Comenzar con una **configuración mínima con solo una cadena de herramientas (_toolchain_)** y añadir funcionalidades a tu proyecto mientras se hagan necesarias.
 * Comenzar con un **framework más rígido** con funcionalidades comunes ya incluidas.

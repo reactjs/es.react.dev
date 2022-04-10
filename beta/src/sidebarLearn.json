@@ -1,5 +1,5 @@
 {
-  "title": "Learn React",
+  "title": "Aprende React",
   "heading": true,
   "path": "/learn",
   "routes": [
@@ -8,37 +8,37 @@
       "path": "",
       "routes": [
         {
-          "title": "Installation",
+          "title": "Instalación",
           "path": "/learn/installation",
           "routes": [
             {
-              "title": "Start a New React Project",
+              "title": "Iniciar un nuevo proyecto de React",
               "path": "/learn/start-a-new-react-project"
             },
             {
-              "title": "Add React to a Website",
+              "title": "Añadir React a un sitio web",
               "path": "/learn/add-react-to-a-website"
             },
             {
-              "title": "Editor Setup",
+              "title": "Configurar un editor",
               "path": "/learn/editor-setup"
             },
             {
-              "title": "React Developer Tools",
+              "title": "Herramientas de Desarrollo de React",
               "path": "/learn/react-developer-tools"
             }
           ]
         },
         {
-          "title": "Quick Start",
+          "title": "Inicio rápido",
           "path": "/learn",
           "routes": [{
-            "title": "Thinking in React",
+            "title": "Pensar en React",
             "path": "/learn/thinking-in-react"
           }]
         },
         {
-          "title": "Describing the UI",
+          "title": "Describir la UI",
           "tags": [],
           "path": "/learn/describing-the-ui",
           "routes": [

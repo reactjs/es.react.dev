@@ -177,10 +177,10 @@ export default function Nav() {
       </div>
       <div className="px-0 pt-2 w-full 2xl:max-w-xs hidden lg:flex items-center self-center border-b-0 lg:border-b border-border dark:border-border-dark">
         <NavLink href="/" isActive={section === 'home'}>
-          Home
+          Inicio
         </NavLink>
         <NavLink href="/learn" isActive={section === 'learn'}>
-          Learn
+          Aprende
         </NavLink>
         <NavLink href="/apis" isActive={section === 'apis'}>
           API

@@ -21,7 +21,7 @@ title: Inicio rápido
 
 ## Crear y anidar componentes {/*components*/}
 
-Las aplicaciones de React están hechas a partir de componentes. Un componente es una pieza de IU (interfaz de usuario) que tiene su propia lógica y apariencia. Un componente puede ser tan pequeño como un botón, o tan grande como toda una página.
+Las aplicaciones de React están hechas a partir de componentes. Un componente es una pieza de UI (siglas en inglés de interfaz de usuario) que tiene su propia lógica y apariencia. Un componente puede ser tan pequeño como un botón, o tan grande como toda una página.
 
 Los componentes de React son funciones de JavaScript que retornan marcado (*markup*):
 
@@ -535,4 +535,4 @@ button {
 
 ¡En este punto ya conoces los elementos básicos de como escribir código en React!
 
-Dirígete a [Pensar en React](/learn/thinking-in-react) para que veas como se siente en la práctica construir una IU con React.
+Dirígete a [Pensar en React](/learn/thinking-in-react) para que veas como se siente en la práctica construir una interfaz de usuario con React.

@@ -52,4 +52,4 @@ Si estás listo para [iniciar un proyecto completamente](/learn/start-a-new-reac
 
 ## Próximos pasos {/*next-steps*/}
 
-¡Por dónde comiences depende de cómo te gusta aprender, qué necesitas lograr y adónde quieres dirigirte luego! ¿Por qué no leer [Pensar en React](/learn/thinking-in-react)--nuestro tutorial introductorio? O puedes saltar a [Describir la IU](/learn/describing-the-ui) para jugar con más ejemplos y aprender cada tema paso a paso. ¡No hay una forma incorrecta de aprender React!
+¡Por dónde comiences depende de cómo te gusta aprender, qué necesitas lograr y adónde quieres dirigirte luego! ¿Por qué no leer [Pensar en React](/learn/thinking-in-react)--nuestro tutorial introductorio? O puedes saltar a [Describir la UI](/learn/describing-the-ui) para jugar con más ejemplos y aprender cada tema paso a paso. ¡No hay una forma incorrecta de aprender React!

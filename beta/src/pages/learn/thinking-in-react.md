@@ -4,7 +4,7 @@ title: Pensar en React
 
 <Intro>
 
-React puede cambiar tu forma de pensar en los diseños que miras y las aplicaciones que construyes. Donde antes puede que vieras un bosque, después de trabajar con React, apreciarás los árboles individuales. React facilita pensar en términos de sistemas de diseño y estados de la interfaz de usuario (UI). En este tutorial, te guiaremos en el proceso de pensamiento para construir una tabla de datos de productos con una funcionalidad de búsqueda usando React.
+React puede cambiar tu forma de pensar en los diseños que miras y las aplicaciones que construyes. Donde antes puede que vieras un bosque, después de trabajar con React, apreciarás los árboles individuales. React facilita pensar en términos de sistemas de diseño y estados de la interfaz de usuario (UI por sus siglas en inglés). En este tutorial, te guiaremos en el proceso de pensamiento para construir una tabla de datos de productos con una funcionalidad de búsqueda usando React.
 
 </Intro>
 
@@ -29,9 +29,9 @@ El boceto luce así:
 
 <img src="/images/docs/s_thinking-in-react_ui.png" width="300" style={{margin: '0 auto'}} />
 
-Para implementar una IU en React, a menudo seguirás los mismos cinco pasos.
+Para implementar una UI en React, a menudo seguirás los mismos cinco pasos.
 
-## Paso 1: Separa la IU en una jerarquía de componentes {/*step-1-break-the-ui-into-a-component-hierarchy*/}
+## Paso 1: Separa la UI en una jerarquía de componentes {/*step-1-break-the-ui-into-a-component-hierarchy*/}
 
 Comienza por dibujar cuadros alrededor de cada componente y subcomponente en el boceto y nómbralos. Si trabajas con un diseñador puede que ya les haya dado nombres a estos componentes en su herramienta de diseño. ¡Chequea primero!
 
@@ -41,7 +41,7 @@ En dependencia de tu formación y experiencia, puedes pensar sobre la separació
 * **CSS**--considera para qué cosas hubieras creado selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
 * **Diseño**--considera cómo organizarías las capas del diseño.
 
-Si tu JSON está bien estructurado, a menudo encontrarás que se corresponde naturalmente con la estructura de componentes de tu IU. Esto ocurre porque la IU y los modelos de datos a menudo tienen la misma arquitectura de información--o sea, la misma forma. Separa tu IU en componentes, de manera que cada componente se corresponda con una pieza de tu modelo de datos.
+Si tu JSON está bien estructurado, a menudo encontrarás que se corresponde naturalmente con la estructura de componentes de tu UI. Esto ocurre porque la UI y los modelos de datos a menudo tienen la misma arquitectura de información--o sea, la misma forma. Separa tu UI en componentes, de manera que cada componente se corresponda con una pieza de tu modelo de datos.
 
 Hay cinco componentes en esta pantalla:
 
@@ -73,7 +73,7 @@ Ahora que has identificado los componentes en el boceto, ordénalos en una jerar
 
 ## Paso 2: Construye una versión estática en React {/*step-2-build-a-static-version-in-react*/}
 
-Ahora que tienes tu jerarquía de componentes, es momento de implementar tu aplicación. El enfoque más sencillo consiste en construir una versión que renderiza la IU a partir de tu modelo de datos sin añadir ninguna interactividad... ¡Aún! A menudo es más fácil construir primero la versión estática y luego añadir la interactividad de forma independiente. Construir una versión estática requiere mucha escritura y poco pensamiento, pero añadir interactividad requiere mucho pensamiento y no mucha escritura.
+Ahora que tienes tu jerarquía de componentes, es momento de implementar tu aplicación. El enfoque más sencillo consiste en construir una versión que renderiza la UI a partir de tu modelo de datos sin añadir ninguna interactividad... ¡Aún! A menudo es más fácil construir primero la versión estática y luego añadir la interactividad de forma independiente. Construir una versión estática requiere mucha escritura y poco pensamiento, pero añadir interactividad requiere mucho pensamiento y no mucha escritura.
 
 Para construir la versión estática de tu aplicación que renderiza tu modelo de datos querrás construir [componentes](/learn/your-first-component) que reutilicen otros componentes y pasen datos usando [props](/learn/passing-props-to-a-component). Las props son una forma de pasar datos de padres a hijos. (Si estás familiarizado con el concepto de [estado](/learn/state-a-components-memory) no utilices nada de estado para construir esta versión estática. El estado se reserva solo para la interactividad, o sea, datos que cambian con el tiempo. Dado que esto es una versión estática de la aplicación, no lo necesitas).
 
@@ -205,9 +205,9 @@ En este punto, no deberías estar usando ningún valor de estado. ¡Eso es para 
 
 </Gotcha>
 
-## Paso 3: Encuentra la representación mínima pero completa del estado de la IU {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
+## Paso 3: Encuentra la representación mínima pero completa del estado de la UI {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
-Para hacer la IU interactiva, necesitas dejar que los usuarios cambien tu modelo de datos. Para esto utilizarás *estado*.
+Para hacer la UI interactiva, necesitas dejar que los usuarios cambien tu modelo de datos. Para esto utilizarás *estado*.
 
 Piensa en el estado como el conjunto mínimo de datos cambiantes que la aplicación necesita recordar. El principio más importante para estructurar datos es mantenerlos [DRY (*Don't Repeat Yourself* o No te repitas)](https://es.wikipedia.org/wiki/No_te_repitas). Encuentra la representación absolutamente mínima del estado que tu aplicación necesita y calcula lo demás bajo demanda. Por ejemplo, si estás construyendo una lista de compra, puedes almacenar los elementos en un arreglo en el estado. Si también quieres mostrar el número de elementos en la lista, no almacenes el número de elementos como otro valor de estado--en cambio, lee el tamaño de tu arreglo.
 
