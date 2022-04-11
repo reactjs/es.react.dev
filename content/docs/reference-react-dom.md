@@ -62,11 +62,18 @@ Crea un portal. Los portales proporcionan una forma de [renderizar hijos en un n
 flushSync(callback)
 ```
 
-Obliga a React a realizar cualquier actualización dentro del *callback* provisto de manera sincrónica. Este método es útil para ser capaz de leer el resultado de esas actualizaciones inmediatamente.
+Obliga a React a ejecutar síncronamente todas las actualizaciones dentro del *callback* proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
+
+```javascript
+// Obliga a que esta actualización del estado sea síncrona.
+flushSync(() => {
+  setCount(count + 1);
+});
+// En este punto, el DOM está actualizado.
 
 > Nota:
 > 
-> `flushSync` puede tener un impacto significativo en el rendimiento. Úsalo con moderación.
+> `flushSync` puede afectar significativamente el rendimiento. Úsalo con moderación.
 > 
 > `flushSync` puede obligar a las barreras Suspense pendientes a que muestren su estado `fallback`.
 > 

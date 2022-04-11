@@ -507,7 +507,7 @@ setState(updater, [callback])
 
 `setState()` hace cambios al estado del componente y le dice a React que este componente y sus elementos secundarios deben volverse a procesar con el estado actualizado. Este es el método principal que utiliza para actualizar la interfaz de usuario en respuesta a los manejadores de eventos y las respuestas del servidor.
 
-Considera `setState()` como una *solicitud* en lugar de un comando para actualizar el componente. Para un mejor rendimiento percibido, React puede retrasarlo, y luego actualizar varios componentes en una sola pasada. React no garantiza que los cambios de estado se apliquen de inmediato.
+Considera `setState()` como una *solicitud* en lugar de un comando para actualizar el componente. Para que se perciba un mejor rendimiento, React puede retrasarlo, y luego actualizar varios componentes en una sola pasada. En el caso inusual que necesites forzar a que la actualización del DOM se aplique de manera síncrona, puedes envolverlo en [`flushSync`](/docs/react-dom.html#flushsync), pero esto puede afectar el rendimiento.
 
 `setState()` no siempre actualiza inmediatamente el componente. Puede procesar por lotes o diferir la actualización hasta más tarde. Esto hace que leer `this.state` después de llamar a `setState()` sea una trampa potencial. En su lugar, usa `componentDidUpdate` o un callback `setState` (`setState(updater, callback)`), se garantiza que cualquiera de los dos se activará una vez la actualización haya sido aplicada. Si necesitas establecer el estado en función del estado anterior, lee a continuación sobre el argumento `updater`.
 
