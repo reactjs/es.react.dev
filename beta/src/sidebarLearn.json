@@ -43,7 +43,7 @@
           "path": "/learn/describing-the-ui",
           "routes": [
             {
-              "title": "Your First Component",
+              "title": "Tu primer componente",
               "path": "/learn/your-first-component"
             },
             {

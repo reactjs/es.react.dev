@@ -1,24 +1,24 @@
 ---
-title: Your First Component
+title: Tu primer componente
 ---
 
 <Intro>
 
-Components are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI), which makes them the perfect place to start your React journey!
+Los componentes son uno de los conceptos esenciales de React. Constituyen los cimientos sobre los que construyes interfaces de usuario (UIs por sus siglas en inglés). ¡Y eso los convierte en el lugar perfecto para comenzar tu recorrido por React!
 
 </Intro>
 
 <YouWillLearn>
 
-* What a component is
-* What role components play in a React application
-* How to write your first React component
+* Qué es un componente
+* Qué papel desempeñan los componentes en una aplicación de React
+* Cómo escribir tu primer componente de React
 
 </YouWillLearn>
 
-## Components: UI building blocks {/*components-ui-building-blocks*/}
+## Componentes: Elementos básicos para construir UIs {/*components-ui-building-blocks*/}
 
-On the Web, HTML lets us create rich structured documents with its built-in set of tags like `<h1>` and `<li>`:
+En la Web, HTML nos permite crear documentos estructurados con su conjunto integrado de etiquetas como `<h1>` y `<li>`:
 
 ```html
 <article>
@@ -31,11 +31,11 @@ On the Web, HTML lets us create rich structured documents with its built-in set 
 </article>
 ```
 
-This markup represents this article `<article>`, its heading `<h1>`, and an (abbreviated) table of contents as an ordered list `<ol>`. Markup like this, combined with CSS for style, and JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown—every piece of UI you see on the Web.
+Este marcado representa este artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
 
-React lets you combine your markup, CSS, and JavaScript into custom "components," **reusable UI elements for your app.** The table of contents code you saw above could be turned into a `<TableOfContents />` component you could render on every page. Under the hood, it still uses the same HTML tags like `<article>`, `<h1>`, etc.
+React te permite combinar tu marcado, CSS y JavaScript en «componentes» personalizados, **elementos reutilizables de UI para tu aplicación.** El código de la tabla de contenidos que viste arriba pudo haberse transformado en un componente `<TableOfContents />` que podrías renderizar en cada página. Por detrás, seguiría utilizando las mismas etiquetas HTML como `<article>`, `<h1>`, etc.
 
-Just like with HTML tags, you can compose, order and nest components to design whole pages. For example, the documentation page you're reading is made out of React components:
+De la misma forma que con las etiquetas HTML, puedes componer, ordenar y anidar componentes para diseñar páginas completas. Por ejemplo la página de documentación que estás leyendo está hecha de componentes de React:
 
 ```js
 <PageLayout>
@@ -51,11 +51,10 @@ Just like with HTML tags, you can compose, order and nest components to design w
 </PageLayout>
 ```
 
-As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development. Our table of contents above could be added to any screen with `<TableOfContents />`! You can even jumpstart your project with the thousands of components shared by the React open source community like [Chakra UI](https://chakra-ui.com/) and [Material UI](https://material-ui.com/).
+En la medida en que tu proyecto crece, notarás que muchos de tus diseños se pueden componer mediante la reutilización de componentes que ya escribiste, acelerando el desarrollo. ¡Nuestra tabla de contenido de arriba podría añadirse a cualquier pantalla con `<TableOfContents />`! Incluso puedes montar tu proyecto con los miles de componentes compartidos por la comunidad de código abierto de React como [Chakra UI](https://chakra-ui.com/) y [Material UI](https://material-ui.com/).
+## Definir un componente {/*defining-a-component*/}
 
-## Defining a component {/*defining-a-component*/}
-
-Traditionally when creating web pages, web developers marked up their content and then added interaction by sprinkling on some JavaScript. This worked great when interaction was a nice-to-have on the web. Now it is expected for many sites and all apps. React puts interactivity first while still using the same technology: **a React component is a JavaScript function that you can _sprinkle with markup_**. Here's what that looks like (you can edit the example below):
+Tradicionalmente cuando se crean páginas web, los desarrolladores web usaban lenguaje de marcado para describir el contenido y luego añadían interacciones agregando un poco de JavaScript. Esto funcionaba perfectamente cuando las interacciones eran algo *deseable, pero no imprescindible* en la web. Ahora es algo que se espera de muchos sitios y de todas las aplicaciones. React pone la interactividad primero usando aún la misma tecnología: **un componente de React es una función de JavaScript a la que puedes _agregar markup_**. Aquí vemos cómo luce esto (puede editar el ejemplo de abajo):
 
 <Sandpack>
 
@@ -76,9 +75,9 @@ img { height: 200px; }
 
 </Sandpack>
 
-And here's how to build a component:
+Y aquí veremos cómo construir un componente:
 
-### Step 1: Export the component {/*step-1-export-the-component*/}
+### Paso 1: Exporta el componente {/*step-1-export-the-component*/}
 
 The `export default` prefix is a [standard JavaScript syntax](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (not specific to React). It lets you mark the main function in a file so that you can later import it from other files. (More on importing in [Importing and Exporting Components](/learn/importing-and-exporting-components)!)
 
