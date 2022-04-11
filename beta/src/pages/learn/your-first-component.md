@@ -31,7 +31,7 @@ En la Web, HTML nos permite crear documentos estructurados con su conjunto integ
 </article>
 ```
 
-Este marcado representa este artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
+Este marcado representa este artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Un marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
 
 React te permite combinar tu marcado, CSS y JavaScript en «componentes» personalizados, **elementos reutilizables de UI para tu aplicación.** El código de la tabla de contenidos que viste arriba pudo haberse transformado en un componente `<TableOfContents />` que podrías renderizar en cada página. Por detrás, seguiría utilizando las mismas etiquetas HTML como `<article>`, `<h1>`, etc.
 
@@ -79,7 +79,7 @@ Y aquí veremos cómo construir un componente:
 
 ### Paso 1: Exporta el componente {/*step-1-export-the-component*/}
 
-El prefijo `export default` es parte de la sintaxis [estándar de Javascript](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (no es específico de React). Te permite marcar la función principal en un archivo para que lue puedas importarlas en otros archivos. (¡Más sobre importar en [Importar y exportar componentes](/learn/importing-and-exporting-components)!).
+El prefijo `export default` es parte de la sintaxis [estándar de Javascript](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (no es específico de React). Te permite marcar la función principal en un archivo para que luego puedas importarlas en otros archivos. (¡Más sobre importar en [Importar y exportar componentes](/learn/importing-and-exporting-components)!).
 
 ### Paso 2: Define la función {/*step-2-define-the-function*/}
 
@@ -171,13 +171,13 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 ### Anidar y organizar componentes {/*nesting-and-organizing-components*/}
 
-Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a una archivo separado. Aprenderás como hacer esto pronto en la [página sobre imports](/learn/importing-and-exporting-components).
+Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a una archivo separado. Aprenderás como hacer esto pronto en la [página sobre *imports*](/learn/importing-and-exporting-components).
 
 Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un «hijo». Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
 <DeepDive title="Componentes de arriba a abajo">
 
-Tu aplicación de React comienza un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
+Tu aplicación de React comienza en un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
 
 La mayoría de las aplicaciones de React utilizan componentes de arriba a abajo. Esto significa que no solo usarás componentes para las piezas reutilizables como los botones, pero también para piezas más grandes como barras laterales, listas, ¡y en última instancia, páginas completas! Los componentes son una forma útil de organizar código de UI y marcado, incluso cuando algunos de ellos solo se utilicen una vez.
 
@@ -325,7 +325,7 @@ img { height: 180px; }
 
 ### Detecta el error {/*spot-the-mistake*/}
 
-Hay algo mal con cómo se declara y usar el componente `Profile`. ¿Puedes detectar el error? (¡Trata de recordar cómo distingue React los componentes de las etiquetas regulares de HTML!).
+Hay algo mal con cómo se declara y usa el componente `Profile`. ¿Puedes detectar el error? (¡Trata de recordar cómo distingue React los componentes de las etiquetas regulares de HTML!).
 
 <Sandpack>
 
