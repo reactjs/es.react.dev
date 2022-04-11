@@ -12,11 +12,6 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 
 ## Upcoming Conferences {#upcoming-conferences}
 
-### React Live 2022 {#react-live-2022}
-April 1, 2022. Amsterdam, The Netherlands
-
-[Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
-
 ### React Miami 2022 🌴 {#react-miami-2022}
 April 18 - 19, 2022. Miami, Florida
 [Website](https://www.reactmiami.com/)
@@ -60,6 +55,11 @@ September 1-2, 2022 - Remote event
 [Facebook](https://www.facebook.com/reactnativeeu/) - 
 [Instagram](https://www.instagram.com/reactnative_eu/)
 
+### React Finland 2022 {#react-finland-2022}
+September 12 - 16, 2022. In-person in Helsinki, Finland
+
+[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland) - [Schedule](https://react-finland.fi/schedule/) - [Speakers](https://react-finland.fi/speakers/)
+
 ### React India 2022 {#react-india-2022}
 September 22 - 24, 2022. In-person in Goa, India + remote (hybrid event)
 
@@ -71,6 +71,11 @@ September 29 - October 1, 2022. In-person in Alicante, Spain + remote (hybrid ev
 [Website](http://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante) - [Videos](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
 
 ## Past Conferences {#past-conferences}
+
+### React Live 2022 {#react-live-2022}
+April 1, 2022. Amsterdam, The Netherlands
+
+[Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
 ### AgentConf 2022 {#agent-conf-2022} 
 
