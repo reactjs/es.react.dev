@@ -34,7 +34,7 @@ Lo llamamos un nodo "raíz" porque todo lo que esté dentro de él será manejad
 
 Las aplicaciones construidas solamente con React usualmente tienen un único nodo raíz en el DOM. Dado el caso que estés integrando React en una aplicación existente, puedes tener tantos nodos raíz del DOM aislados como quieras.
 
-To render a React element, first pass the DOM element to [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), then pass the React element to `root.render()`:
+Para renderizar un elemento de React, primero pasamos el elemento del DOM a [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), luego pasamos el elemento de React a `root.render()`:
 
 `embed:rendering-elements/render-an-element.js`
 
