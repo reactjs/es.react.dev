@@ -66,7 +66,7 @@ Cada componente de React es una función de JavaScript que puede contener algún
 
 ## Convirtiendo HTML a JSX {/*converting-html-to-jsx*/}
 
-Suponga que tiene algo de HTML (perfectamente válido):
+Supongamos que tienes algo de HTML (perfectamente válido):
 
 
 ```html
@@ -83,7 +83,7 @@ Suponga que tiene algo de HTML (perfectamente válido):
 </ul>
 ```
 
-Y quiere ponerlo en su componente:
+Y quieres ponerlo en tu componente:
 
 ```js
 export default function TodoList() {
@@ -93,7 +93,7 @@ export default function TodoList() {
 }
 ```
 
-Si lo copia y pega tal como está, no funcionará:
+Si lo copias y pegas tal como está, no funcionará:
 
 
 <Sandpack>
@@ -123,11 +123,11 @@ img { height: 90px }
 
 </Sandpack>
 
-¡Esto se debe a que JSX es más estricto y tiene algunas restricciones más que HTML! Si lee los mensajes de error anteriores, lo guiarán a corregir el marcado, o puedes seguir la guía a continuación.
+¡Esto se debe a que JSX es más estricto y tiene algunas restricciones más que HTML! Si lees los mensajes de error anteriores, te guiarán a corregir el marcado, o puedes seguir la guía a continuación.
 
 <Note>
 
-La mayoría de las veces, los mensajes de error en pantalla de React lo ayudarán a encontrar donde está el problema. ¡Dales una lectura si te quedas atascado!.
+La mayoría de las veces, los mensajes de error en pantalla de React te ayudarán a encontrar donde está el problema. ¡Dales una lectura si te quedas atascado!.
 
 </Note>
 
@@ -137,7 +137,7 @@ La mayoría de las veces, los mensajes de error en pantalla de React lo ayudará
 
 Para devolver múltiples elementos de un componente, **envuélvelos con una sola etiqueta principal**.
 
-Por ejemplo, puede usar un `<div>`:
+Por ejemplo, puedes usar un `<div>`:
 
 ```js {1,11}
 <div>
@@ -154,7 +154,7 @@ Por ejemplo, puede usar un `<div>`:
 ```
 
 
-Si no desea agregar un `<div>` adicional a su marcado, puede escribir `<>` and `</>` en su lugar:
+Si no deseas agregar un `<div>` adicional a tu marcado, puedes escribir `<>` y `</>` en su lugar:
 
 ```js {1,11}
 <>
@@ -170,11 +170,11 @@ Si no desea agregar un `<div>` adicional a su marcado, puede escribir `<>` and `
 </>
 ```
 
-Esta etiqueta vacía se llama *[Fragmento de React](TODO)*. Los fragmentos de React le permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
+Esta etiqueta vacía se llama *[Fragmento de React](TODO)*. Los fragmentos de React te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
 
 <DeepDive title="Why do multiple JSX tags need to be wrapped?">
 
-JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puede devolver dos objetos de una función sin envolverlos en un array. Esto explica por qué tampoco puede devolver dos etiquetas JSX sin envolverlas en otra etiqueta o fragmento.
+JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puedes devolver dos objetos de una función sin envolverlos en un array. Esto explica por qué tampoco puedes devolver dos etiquetas JSX sin envolverlas en otra etiqueta o fragmento.
 
 </DeepDive>
 
@@ -201,7 +201,7 @@ Así es como la imagen y los elementos de la lista de Hedy Lamarr se ven cerrado
 
 ### 3. ¡camelCase <s>todo</s> la mayoría de las cosas! {/*3-camelcase-salls-most-of-the-things*/}
 
-JSX se convierte en JavaScript y los atributos escritos en JSX se convierten en keys de objetos JavaScript. En sus propios componentes, a menudo querrá leer esos atributos en variables. Pero JavaScript tiene limitaciones en los nombres de variables. Por ejemplo, sus nombres no pueden contener guiones ni ser palabras reservadas como `class`.
+JSX se convierte en JavaScript y los atributos escritos en JSX se convierten en keys de objetos JavaScript. En tus propios componentes, a menudo vas a querer leer esos atributos en variables. Pero JavaScript tiene limitaciones en los nombres de variables. Por ejemplo, sus nombres no pueden contener guiones ni ser palabras reservadas como `class`.
 
 Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por ejemplo, en lugar de `stroke-width` usa `strokeWidth`. Dado que `class` es una palabra reservada, en React escribes `className` en su lugar, con el nombre de la [propiedad DOM correspondiente](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
@@ -213,7 +213,7 @@ Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por
 />
 ```
 
-Puede [encontrar todos estos atributos en React DOM Elements](TODO). Si se equivoca en uno, no se preocupe, React imprimirá un mensaje con una posible corrección en la [consola del navegador](https://developer.mozilla.org/docs/Tools/Browser_Console).
+Puedes [encontrar todos estos atributos en React DOM Elements](TODO). Si te equivocas en uno, no te preocupes, React imprimirá un mensaje con una posible corrección en la [consola del navegador](https://developer.mozilla.org/docs/Tools/Browser_Console).
 
 <Gotcha>
 
@@ -221,11 +221,11 @@ Por razones históricas, los atributos [`aria-*`](https://developer.mozilla.org/
 
 </Gotcha>
 
-### Consejo profesional: use un convertidor JSX {/*pro-tip-use-a-jsx-converter*/}
+### Consejo profesional: usa un convertidor JSX {/*pro-tip-use-a-jsx-converter*/}
 
 ¡Convertir todos estos atributos en marcas existentes puede ser tedioso! Recomendamos usar un [convertidor](https://transform.tools/html-to-jsx) para traducir su HTML y SVG existente a JSX. Los convertidores son muy útiles en la práctica, pero aun así vale la pena entender lo que sucede así puedes escribir JSX cómodamente por tu cuenta.
 
-Aquí está su resultado final:
+Aquí está tu resultado final:
 
 <Sandpack>
 
@@ -257,11 +257,11 @@ img { height: 90px }
 
 <Recap>
 
-Ahora sabe por qué existe JSX y cómo usarlo en componentes:
+Ahora sabes por qué existe JSX y cómo usarlo en componentes:
 
 * Los componentes de React agrupan la lógica de renderización junto con el marcado porque están relacionados.
 * JSX es similar a HTML, con algunas diferencias. Puede usar un [convertidor](https://transform.tools/html-to-jsx) si lo necesita.
-* Los mensajes de error a menudo lo guiarán en la dirección correcta para corregir su marcado.
+* Los mensajes de error a menudo te guiarán en la dirección correcta para corregir tu marcado.
 
 </Recap>
 
