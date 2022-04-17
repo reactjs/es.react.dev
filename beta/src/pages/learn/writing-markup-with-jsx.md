@@ -135,7 +135,7 @@ La mayoría de las veces, los mensajes de error en pantalla de React lo ayudará
 
 ### 1. Devolver un solo elemento raíz {/*1-return-a-single-root-element*/}
 
-Para devolver múltiples elementos de un componente, **envuelvelos con una sola etiqueta principal**.
+Para devolver múltiples elementos de un componente, **envuélvelos con una sola etiqueta principal**.
 
 Por ejemplo, puede usar un `<div>`:
 
