@@ -18,7 +18,7 @@ JSX es una extensión de sintaxis para JavaScript que permite escribir marcas si
 
 ## JSX: Poniendo marcado dentro de JavaScript {/*jsx-putting-markup-into-javascript*/}
 
-La Web se ha construido sobre HTML, CSS, y JavaScript. Durante muchos años, los desarrolladores web mantuvieron el contenido en HTML, el diseño en CSS, y lógica en JavaScript, ¡a menudo en archivos separados! El contenido se marcó dentro del HTML mientras que la lógica de la pagina vivía separado en JavaScript:
+La Web se ha construido sobre HTML, CSS, y JavaScript. Durante muchos años, los desarrolladores web mantuvieron el contenido en HTML, el diseño en CSS, y la lógica en JavaScript, ¡a menudo en archivos separados! El contenido se marcó dentro del HTML mientras que la lógica de la pagina vivía por separado en JavaScript:
 
 <DiagramGroup>
 
