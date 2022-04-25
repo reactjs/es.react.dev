@@ -40,9 +40,8 @@ render(<App tab="home" />, container);
 // After
 import { createRoot } from 'react-dom/client';
 const container = document.getElementById('app');
-const root = createRoot(container);
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(<App tab="home" />);
-
 ```
 
 We’ve also changed `unmountComponentAtNode` to `root.unmount`:
@@ -60,7 +59,7 @@ We've also removed the callback from render, since it usually does not have the 
 ```js
 // Before
 const container = document.getElementById('app');
-ReactDOM.render(<App tab="home" />, container, () => {
+render(<App tab="home" />, container, () => {
   console.log('rendered');
 });
 
@@ -74,7 +73,7 @@ function AppWithCallbackAfterRender() {
 }
 
 const container = document.getElementById('app');
-const root = ReactDOM.createRoot(container);
+const root = createRoot(container);
 root.render(<AppWithCallbackAfterRender />);
 ```
 
