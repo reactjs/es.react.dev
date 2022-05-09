@@ -4,7 +4,11 @@ title: Tu primer componente
 
 <Intro>
 
+<<<<<<< HEAD
 Los componentes son uno de los conceptos esenciales de React. Constituyen los cimientos sobre los que construyes interfaces de usuario (UIs por sus siglas en inglés). ¡Y eso los convierte en el lugar perfecto para comenzar tu recorrido por React!
+=======
+*Components* are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI), which makes them the perfect place to start your React journey!
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 </Intro>
 

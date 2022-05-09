@@ -367,7 +367,7 @@ function MyComponent() {
 Esto está documentado en nuestra [guía de división de código](/docs/code-splitting.html#reactlazy). Ten en cuenta que los componentes `lazy` pueden estar muy profundo en el árbol `Suspense` -- no tiene que envolverlos a todos. La mejor práctica es colocar `<Suspense>` donde se desee ver un indicador de carga y usar `lazy()` para hacer división de código.
 
 > Note
-> 
+>
 > For content that is already shown to the user, switching back to a loading indicator can be disorienting. It is sometimes better to show the "old" UI while the new UI is being prepared. To do this, you can use the new transition APIs [`startTransition`](#starttransition) and [`useTransition`](/docs/hooks-reference.html#usetransition) to mark updates as transitions and avoid unexpected fallbacks.
 
 #### `React.Suspense` in Server Side Rendering {#reactsuspense-in-server-side-rendering}
@@ -375,7 +375,7 @@ During server side rendering Suspense Boundaries allow you to flush your applica
 When a component suspends we schedule a low priority task to render the closest Suspense boundary's fallback. If the component unsuspends before we flush the fallback then we send down the actual content and throw away the fallback.
 
 #### `React.Suspense` during hydration {#reactsuspense-during-hydration}
-Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before its hydrated will cause the boundary to hydrate at 
+Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before its hydrated will cause the boundary to hydrate at
 a higher priority than neighboring boundaries. [Read more](https://github.com/reactwg/react-18/discussions/130)
 
 ### `React.startTransition` {#starttransition}
@@ -389,6 +389,6 @@ React.startTransition(callback)
 >
 > Updates in a transition yield to more urgent updates such as clicks.
 >
-> Updates in a transitions will not show a fallback for re-suspended content, allowing the user to continue interacting while rendering the update.
+> Updates in a transition will not show a fallback for re-suspended content, allowing the user to continue interacting while rendering the update.
 >
 > `React.startTransition` does not provide an `isPending` flag. To track the pending status of a transition see [`React.useTransition`](/docs/hooks-reference.html#usetransition).
