@@ -12,10 +12,6 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 
 ## Upcoming Conferences {#upcoming-conferences}
 
-### < React Global > Online Summit 2022 by Geekle {#react-global-2022}
-April 20 - 21, 2022 - Online Summit
-
-[Website](https://events.geekle.us/react2/) - [LinkedIn](https://www.linkedin.com/events/reactglobalonlinesummit-226887417664541614081/) 
 
 ### Reactathon 2022 {#reactathon-2022} 
 May 3 - 5, 2022. Berkeley, CA
@@ -47,6 +43,11 @@ June 24, 2022. In-person at Farris Bad Hotel in Larvik, Norway and online (hybri
 
 [Website](https://reactnorway.com/) - [Twitter](https://twitter.com/ReactNorway)
 
+### ReactNext 2022 {#react-next-2022}
+June 28, 2022. Tel-Aviv, Israel
+
+[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/c/ReactNext)
+
 ### React Native EU 2022: Powered by {callstack} {#react-native-eu-2022-powered-by-callstack}
 September 1-2, 2022 - Remote event
 
@@ -72,6 +73,12 @@ September 29 - October 1, 2022. In-person in Alicante, Spain + remote (hybrid ev
 [Website](http://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante) - [Videos](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
 
 ## Past Conferences {#past-conferences}
+
+
+### < React Global > Online Summit 2022 by Geekle {#react-global-2022}
+April 20 - 21, 2022 - Online Summit
+
+[Website](https://events.geekle.us/react2/) - [LinkedIn](https://www.linkedin.com/events/reactglobalonlinesummit-226887417664541614081/)
 
 ### React Miami 2022 🌴 {#react-miami-2022}
 April 18 - 19, 2022. Miami, Florida

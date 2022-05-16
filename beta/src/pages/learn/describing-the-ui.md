@@ -23,7 +23,11 @@ React es una biblioteca de JavaScript para renderizar interfaces de usuario (UI 
 
 ## Tu primer componente {/*your-first-component*/}
 
+<<<<<<< HEAD
 Las aplicaciones de React se construyen a partir de piezas independientes de UI llamadas «componentes». Un componente de React es una función de JavaScript a la que le puedes agregar un poco de marcado (*markup*). Los componentes pueden ser tan pequeños como un botón, o tan grandes como una página entera. Aquí vemos un componente `Gallery` que renderiza tres components `Profile`:
+=======
+React applications are built from isolated pieces of UI called *components*. A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a `Gallery` component rendering three `Profile` components:
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 <Sandpack>
 
@@ -463,7 +467,11 @@ Lee **[Renderizado de listas](/learn/rendering-lists)** para aprender cómo rend
 
 ## Mantener los componentes puros {/*keeping-components-pure*/}
 
+<<<<<<< HEAD
 Algunas funciones de JavaScript son «puras». Una función pura:
+=======
+Some JavaScript functions are *pure.* A pure function:
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 * **Se ocupa de sus propios asuntos.** No cambia ningún objeto o variable que haya existido antes de ser llamada.
 * **Misma entrada, misma salida.** Dada la misma entrada, una función pura debería devolver siempre el mismo resultado.

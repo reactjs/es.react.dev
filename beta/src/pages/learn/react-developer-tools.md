@@ -8,7 +8,17 @@ Utiliza las Herramientas de Desarrollo de React (*React Developer Tools*) para i
 
 </Intro>
 
+<<<<<<< HEAD
 ## Extensión del navegador {/*browser-extension*/}
+=======
+<YouWillLearn>
+
+* How to install React Developer Tools
+
+</YouWillLearn>
+
+## Browser extension {/*browser-extension*/}
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 La forma más fácil de depurar sitios web construidos con React es instalar la extensión de las Herramientas de Desarrollo de React. Está disponible para varios de los navegadores más populares:
 

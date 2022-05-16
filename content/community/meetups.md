@@ -143,8 +143,14 @@ permalink: community/meetups.html
 * [Manila](https://www.meetup.com/reactjs-developers-manila/)
 * [Manila - ReactJS PH](https://www.meetup.com/ReactJS-Philippines/)
 
+<<<<<<< HEAD
 ## Polonia {#poland}
 * [Varsovia](https://www.meetup.com/React-js-Warsaw/)
+=======
+## Poland {#poland}
+* [Warsaw](https://www.meetup.com/React-js-Warsaw/)
+* [Wrocław](https://www.meetup.com/ReactJS-Wroclaw/)
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 ## Portugal {#portugal}
 * [Lisboa](https://www.meetup.com/JavaScript-Lisbon/)
