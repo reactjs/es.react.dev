@@ -88,7 +88,7 @@ export default function TodoList() {
 
 Intenta cambiar el valor de `name` de `'Gregorio Y. Zara'` a `'Hedy Lamarr'`. ¿Ves cómo cambia el título de la lista de tareas pendientes?
 
-Cualquier expresión JavaScript funcionara entre llaves, incluidas las llamadas a funciones como `formatDate()`:
+Cualquier expresión JavaScript funcionará entre llaves, incluidas las llamadas a funciones como `formatDate()`:
 
 <Sandpack>
 
