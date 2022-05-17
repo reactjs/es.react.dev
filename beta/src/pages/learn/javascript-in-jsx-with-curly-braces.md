@@ -116,7 +116,6 @@ export default function TodoList() {
 Solo puedes usar llaves de dos maneras dentro de JSX:
 
 1. **Como texto** directamente dentro de una etiqueta JSX: `<h1>{name}'s To Do List</h1>` funciona, pero `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` no lo hará.
-
 2. **Como atributos** inmediatamente después del signo `=`: `src={avatar}` leerá la variable `avatar`, pero `src="{avatar}"` pasará el string `{avatar}`.  
 
 ## Usando "llaves dobles": CSS y otros objetos en JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
