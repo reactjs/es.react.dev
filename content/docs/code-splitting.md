@@ -171,7 +171,7 @@ function MyComponent() {
 
 En este ejemplo, si la pestaña se cambia de `'photos'` a `'comments'`, pero `Comments` se suspende, el usuario solo verá un destello. Esto tiene sentido porque el usuario no quiere ya ver `Photos`, el componente `Comments` aún no está listo para renderizar nada, y React necesita mantener la experiencia de usuario de forma consistente, así que no tiene otra opción que mostrar el componente `Glimmer` de arriba.
 
-Sin embar, a veces esta experiencia de usuario no es deseable. En particular, a veces es mejor mostrar la IU "vieja" mientras se prepara la nueva IU. Puedes usar la nueva API [`startTransition`](/docs/react-api.html#starttransition) para que React haga esto:
+Sin embargo, a veces esta experiencia de usuario no es deseable. En particular, a veces es mejor mostrar la IU "vieja" mientras se prepara la nueva IU. Puedes usar la nueva API [`startTransition`](/docs/react-api.html#starttransition) para que React haga esto:
 
 ```js
 function handleTabSelect(tab) {
