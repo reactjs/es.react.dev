@@ -21,11 +21,7 @@ title: Inicio rápido
 
 ## Crear y anidar componentes {/*components*/}
 
-<<<<<<< HEAD
-Las aplicaciones de React están hechas a partir de componentes. Un componente es una pieza de UI (siglas en inglés de interfaz de usuario) que tiene su propia lógica y apariencia. Un componente puede ser tan pequeño como un botón, o tan grande como toda una página.
-=======
-React apps are made out of *components*. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Las aplicaciones de React están hechas a partir de *componentes*. Un componente es una pieza de UI (siglas en inglés de interfaz de usuario) que tiene su propia lógica y apariencia. Un componente puede ser tan pequeño como un botón, o tan grande como toda una página.
 
 Los componentes de React son funciones de JavaScript que retornan marcado (*markup*):
 
@@ -81,11 +77,7 @@ Las palabras clave `export default` especifican el componente principal en el ar
 
 ## Escribir marcado con JSX {/*writing-markup-with-jsx*/}
 
-<<<<<<< HEAD
-La sintaxis de marcado que viste arriba se llama JSX. Es totalmente opcional, pero la mayoría de los proyectos de React usan JSX por la comodidad que ofrece. Todas las [herramientas que recomendamos para el desarrollo local](/learn/installation) son compatibles con JSX sin ningún tipo de configuración.
-=======
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+La sintaxis de marcado que viste arriba se llama *JSX*. Es totalmente opcional, pero la mayoría de los proyectos de React usan JSX por la comodidad que ofrece. Todas las [herramientas que recomendamos para el desarrollo local](/learn/installation) son compatibles con JSX sin ningún tipo de configuración.
 
 JSX es más estricto que HTML. Tienes que cerrar etiquetas como `<br />`. Tu componente tampoco puede devolver múltiples etiquetas de JSX. Debes envolverlas en un padre compartido, como `<div>...</div>` o en un envoltorio vacío `<>...</>`:
 
@@ -288,11 +280,7 @@ export default function ShoppingList() {
 
 ## Responder a eventos {/*responding-to-events*/}
 
-<<<<<<< HEAD
-Puedes responder a eventos declarando funciones de manejo de eventos dentro de tus componentes:
-=======
-You can respond to events by declaring *event handler* functions inside your components:
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Puedes responder a eventos declarando *manejadores de eventos* dentro de tus componentes:
 
 ```js {2-4,7}
 function MyButton() {
@@ -394,11 +382,7 @@ Nota que cada botón «recuerda» su propio estado `count` y que no afecta a otr
 
 ## El uso de los Hooks {/*using-hooks*/}
 
-<<<<<<< HEAD
-Las funciones que comienzan con `use` se llaman Hooks. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/apis). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
-=======
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis). You can also write your own Hooks by combining the existing ones.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/apis). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
 
 Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar a los Hooks *en el primer nivel* de tus componentes (u otros Hooks). Si quisieras utilizar `useState` en una condicional o en un bucle, extrae un nuevo componente y ponlo ahí.
 
@@ -408,27 +392,15 @@ En el ejemplo anterior, cada `MyButton` tenía su propio `count` independiente, 
 
 <DiagramGroup>
 
-<<<<<<< HEAD
-<Diagram name="sharing_data_child" height={734} width={814} alt="Diagrama que muestra un árbol de tres componentes, un padre etiquetado como MyApp y dos hijos etiquetados como MyButton. Ambos componentes MyButton contienen una variable count con valor cero.">
+<Diagram name="sharing_data_child" height={367} width={407} alt="Diagrama que muestra un árbol de tres componentes, un padre etiquetado como MyApp y dos hijos etiquetados como MyButton. Ambos componentes MyButton contienen una variable count con valor cero.">
 
-Antes de hacer clic, cada MyButton tiene un valor de count puesto en cero.
-
-</Diagram>
-
-<Diagram name="sharing_data_child_clicked" height={734} width={814} alt="El mismo diagrama anterior, con la variable count del primero hijo MyButton señalada indicando un clic con el valor de count incrementado a uno. El segundo componente MyButton aún contiene el valor cero." >
-
-Luego de hacer click solo un count de MyButton se actualiza.
-=======
-<Diagram name="sharing_data_child" height={367} width={407} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.">
-
-Initially, each `MyButton`'s `count` state is `0`
+Inicialmente, cada estado `count` de `MyButton` es `0`.
 
 </Diagram>
 
-<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." >
+<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="El mismo diagrama anterior, con la variable count del primero hijo MyButton señalada indicando un clic con el valor de count incrementado a uno. El segundo componente MyButton aún contiene el valor cero." >
 
-The first `MyButton` updates its `count` to `1`
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+El primer `MyButton` actualiza su `count` a `1`.
 
 </Diagram>
 
@@ -442,27 +414,15 @@ En este ejemplo, es `MyApp`:
 
 <DiagramGroup>
 
-<<<<<<< HEAD
-<Diagram name="sharing_data_parent" height={770} width={820} alt="Diagrama que muestra un árbol de tres componentes, un padre etiquetado como MyApp y dos hijos etiquetados como MyButton. MyApp contiene count con valor cero que se pasa hacia abajo a los dos componentes MyButton, que también tienen valor cero." >
+<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagrama que muestra un árbol de tres componentes, un padre etiquetado como MyApp y dos hijos etiquetados como MyButton. MyApp contiene count con valor cero que se pasa hacia abajo a los dos componentes MyButton, que también tienen valor cero." >
 
-Antes de hacer clic, count se almacena en MyApp y se pasa hacia abajo a los dos hijos como props.
-
-</Diagram>
-
-<Diagram name="sharing_data_parent_clicked" height={770} width={820} alt="El mismo diagrama anterior con la variable count del componente padre MyApp señalada indicando un clic con el valor incrementado a uno. El flujo de ambos componentes hijo MyButton también está señalado y el valor de count en cada hijo está en uno indicando que el valor se pasó hacia abajo." >
-
-Luego de hacer clic, count se actualiza en MyApp y el valor nuevo se pasa a ambos hijos como props.
-=======
-<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." >
-
-Initially, `MyApp`'s `count` state is `0` and is passed down to both children
+Inicialmente, el estado `count` en `MyApp` es `0` y se pasa hacia abajo a los dos hijos.
 
 </Diagram>
 
-<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
+<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="El mismo diagrama anterior con la variable count del componente padre MyApp señalada indicando un clic con el valor incrementado a uno. El flujo de ambos componentes hijo MyButton también está señalado y el valor de count en cada hijo está en uno indicando que el valor se pasó hacia abajo." >
 
-On click, `MyApp` updates its `count` state to `1` and passes it down to both children
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Al hacer clic, `MyApp` actualiza su estado `count` a `1` y se lo pasa hacia abajo a ambos hijos.
 
 </Diagram>
 
