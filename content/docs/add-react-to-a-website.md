@@ -25,7 +25,11 @@ En esta sección, vamos a mostrarte como agregar un componente de React a una p�
 
 No habrá necesidad de usar herramientas complicadas u otros requerimientos para instalar -- **para completar esta sección, sólo necesitas de una conexión a internet y un minuto de tu tiempo.**
 
+<<<<<<< HEAD
 Opcional: [Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
+=======
+Optional: [Download the full example (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/87f0b6f34238595b44308acfb86df6ea43669c08.zip)
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
 ### Paso 1: Agrega un contenedor del DOM al HTML {#step-1-add-a-dom-container-to-the-html}
 
@@ -75,7 +79,11 @@ Abre **[este código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd9
 >
 >Este código define un componente de React llamado `LikeButton`. No te preocupes si aún no lo entiendes -- vamos a cubrir los elementos básicos de React luego en nuestro [tutorial práctico](/tutorial/tutorial.html) y [guía de conceptos principal](/docs/hello-world.html). Por ahora, ¡vamos a hacer que se muestre en la pantalla!
 
+<<<<<<< HEAD
 Después **[en el código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, agrega las siguientes dos lineas al final de `like_button.js`:
+=======
+After **[the starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, add three lines to the bottom of `like_button.js`:
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
 ```js{3,4,5}
 // ... el código inicial que pegaste ...
@@ -95,7 +103,11 @@ Dale un vistazo a las siguientes secciones para más consejos sobre como integra
 
 **[Mira el código fuente del ejemplo completo](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
+<<<<<<< HEAD
 **[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
+=======
+**[Download the full example (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/87f0b6f34238595b44308acfb86df6ea43669c08.zip)**
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
 ### Consejo: Reusar un componente {#tip-reuse-a-component}
 
@@ -103,7 +115,11 @@ Por lo general, es deseado mostrar componentes de React en múltiples lugares de
 
 [Mira el código fuente del ejemplo completo](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
 
+<<<<<<< HEAD
 [Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
+=======
+[Download the full example (2KB zipped)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/279839cb9891bd41802ebebc5365e9dec08eeb9f.zip)
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
 >Nota
 >
@@ -184,7 +200,7 @@ En tu terminal, ve a la carpeta que contiene tu proyecto y pega estos dos comand
 
 Crea una carpeta llamada `src` y ejecuta este comando en la terminal:
 
-```
+```console
 npx babel --watch src --out-dir . --presets react-app/prod
 ```
 

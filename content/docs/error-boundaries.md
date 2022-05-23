@@ -65,7 +65,11 @@ Ten en cuenta que **los límites de errores sólo capturan errores en los compon
 
 ## Live Demo {#live-demo}
 
+<<<<<<< HEAD
 Mira [este ejemplo de declaración y uso de un límite de errores](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) con [React 16](/blog/2017/09/26/react-v16.0.html).
+=======
+Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010).
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
 
 ## Dónde poner Límites de Errores {#where-to-place-error-boundaries}
