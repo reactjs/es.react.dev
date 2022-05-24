@@ -35,17 +35,9 @@ function Greeting(props) {
   return <GuestGreeting />;
 }
 
-<<<<<<< HEAD
-ReactDOM.render(
-  // Intentar cambiando isLoggedIn={true}:
-  <Greeting isLoggedIn={false} />,
-  document.getElementById('root')
-);
-=======
 const root = ReactDOM.createRoot(document.getElementById('root')); 
-// Try changing to isLoggedIn={true}:
+// Intentar cambiando isLoggedIn={true}:
 root.render(<Greeting isLoggedIn={false} />);
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)

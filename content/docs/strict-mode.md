@@ -15,23 +15,13 @@ Puedes habilitar el modo estricto para cualquier parte de tu aplicación. Por ej
 
 En el ejemplo anterior, las comprobaciones del modo estricto *no* va a correr en los componentes de `Header` y `Footer`. Sin embargo, `ComponentOne` y `ComponentTwo`, así como todos sus descendientes, tendrán las comprobaciones.
 
-<<<<<<< HEAD
 `StrictMode` en la actualidad ayuda a:
 * [Identificar ciclos de vida inseguros](#identifying-unsafe-lifecycles)
 * [Advertencia sobre el uso de la API legado de string ref](#warning-about-legacy-string-ref-api-usage)
 * [Advertencia sobre el uso del método obsoleto findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Detectar efectos secundarios inesperados](#detecting-unexpected-side-effects)
 * [Detectar el uso de la API legado para el contexto](#detecting-legacy-context-api)
-* [Detectar el uso de efectos no seguros](#detecting-unsafe-effects)
-=======
-`StrictMode` currently helps with:
-* [Identifying components with unsafe lifecycles](#identifying-unsafe-lifecycles)
-* [Warning about legacy string ref API usage](#warning-about-legacy-string-ref-api-usage)
-* [Warning about deprecated findDOMNode usage](#warning-about-deprecated-finddomnode-usage)
-* [Detecting unexpected side effects](#detecting-unexpected-side-effects)
-* [Detecting legacy context API](#detecting-legacy-context-api)
-* [Ensuring reusable state](#ensuring-reusable-state)
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+* [Asegurar estado reutilizable](#ensuring-reusable-state)
 
 Funcionalidades adicionales serán agregadas en futuras versiones de React.
 
