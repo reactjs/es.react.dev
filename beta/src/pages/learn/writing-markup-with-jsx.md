@@ -4,7 +4,7 @@ title: Escribir marcado con JSX
 
 <Intro>
 
-JSX es una extensión de sintaxis para JavaScript que permite escribir marcas similares a HTML dentro de una archivo JavaScript. Aunque hay otras formas de escribir componentes, la mayoría de los desarrolladores de React prefieren la concisión de JSX, y la mayoría de las bases de código lo usan.
+*JSX* es una extensión de sintaxis para JavaScript que permite escribir marcas similares a HTML dentro de una archivo JavaScript. Aunque hay otras formas de escribir componentes, la mayoría de los desarrolladores de React prefieren la concisión de JSX, y la mayoría de las bases de código lo usan.
 
 </Intro>
 
@@ -36,19 +36,19 @@ JavaScript
 
 </DiagramGroup>
 
-Pero, a medida que la Web se volvió más interactiva, la lógica determinó cada vez más el contenido. ¡JavaScript estaba a cargo del HTML! Esto es la razón por la que **en React, la lógica de renderizado y el marcado viven juntos en el mismo lugar: ¡componentes!**
+Pero, a medida que la Web se volvió más interactiva, la lógica determinó cada vez más el contenido. ¡JavaScript estaba a cargo del HTML! Esto es la razón por la que **en React, la lógica de renderizado y el marcado viven juntos en el mismo lugar: componentes.**
 
 <DiagramGroup>
 
 <Diagram name="writing_jsx_sidebar" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Sidebar which calls the function isLoggedIn, highlighted in yellow. Nested inside the function highlighted in purple is the p tag from before, and a Form tag referencing the component shown in the next diagram.">
 
-Sidebar.js
+Componente de React `Sidebar.js`
 
 </Diagram>
 
 <Diagram name="writing_jsx_form" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Form containing two handlers onClick and onSubmit highlighted in yellow. Following the handlers is HTML highlighted in purple. The HTML contains a form element with a nested input element, each with an onClick prop.">
 
-Form.js
+Componente de React `Form.js`
 
 </Diagram>
 

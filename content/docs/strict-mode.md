@@ -21,7 +21,7 @@ En el ejemplo anterior, las comprobaciones del modo estricto *no* va a correr en
 * [Advertencia sobre el uso del método obsoleto findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Detectar efectos secundarios inesperados](#detecting-unexpected-side-effects)
 * [Detectar el uso de la API legado para el contexto](#detecting-legacy-context-api)
-* [Detectar el uso de efectos no seguros](#detecting-unsafe-effects)
+* [Asegurar estado reutilizable](#ensuring-reusable-state)
 
 Funcionalidades adicionales serán agregadas en futuras versiones de React.
 
@@ -171,6 +171,14 @@ When the component unmounts, effects are destroyed as normal:
   * Layout effects are destroyed.
   * Effect effects are destroyed.
 ```
+
+Unmounting and remounting includes:
+
+- `componentDidMount`
+- `componentWillUnmount`
+- `useEffect`
+- `useLayoutEffect`
+- `useInsertionEffect`
 
 > Note:
 >
