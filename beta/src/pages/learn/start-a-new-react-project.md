@@ -71,7 +71,6 @@ El tutorial [*Next.js Foundations*](https://nextjs.org/learn/foundations/about-n
 
 Puede que prefieras crear y configurar tu propia cadena de herramientas. Una cadena de herramientas generalmente está compuesta por:
 
-<<<<<<< HEAD
 * Un **manejador de paquetes** te permite instalar, actualizar y manejar paquetes de terceros. Manejadores de paquetes populares: [npm](https://www.npmjs.com/) (integrado en Node.js), [Yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/).
 * Un **compilador** te permite compilar para los navegadores funcionalidades modernas del lenguaje y sintaxis adicional como JSX o anotaciones de tipo. Compiladores populares: [Babel](https://babeljs.io/), [TypeScript](http://typescript.org/), [swc](https://swc.rs/).
 * Un **bundler (empaquetador)** te permite escribir código modular y mezclarlo en paquetes más pequeños para optimizar el tiempo de carga. *Bundlers* populares: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/), [swc](https://swc.rs/).
@@ -79,16 +78,5 @@ Puede que prefieras crear y configurar tu propia cadena de herramientas. Una cad
 * Un **servidor** maneja las peticiones al servidor para que puedas renderizar componentes en HTML. Servidores populares: [Express](https://expressjs.com/).
 * Un **linter** chequea tu código buscando errores comunes. Linters populares: [ESLint](https://eslint.org/).
 * Un **test runner (sistema de ejecución de pruebas)** te permite ejecutar tus pruebas contra tu código. Test runners populares: [Jest](https://jestjs.io/).
-=======
-* A **package manager** lets you install, update, and manage third-party packages. Popular package managers: [npm](https://www.npmjs.com/) (built into Node.js), [Yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/).
-* A **compiler** lets you compile modern language features and additional syntax like JSX or type annotations for the browsers. Popular compilers: [Babel](https://babeljs.io/), [TypeScript](http://typescript.org/), [swc](https://swc.rs/).
-* A **bundler** lets you write modular code and bundle it together into small packages to optimize load time. Popular bundlers: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/), [swc](https://swc.rs/).
-* A **minifier** makes your code more compact so that it loads faster. Popular minifiers: [Terser](https://terser.org/), [swc](https://swc.rs/).
-* A **server** handles server requests so that you can render components to HTML. Popular servers: [Express](https://expressjs.com/).
-* A **linter** checks your code for common mistakes. Popular linters: [ESLint](https://eslint.org/).
-* A **test runner** lets you run tests against your code. Popular test runners: [Jest](https://jestjs.io/).
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality. A framework will usually also provide a routing and a data fetching solution. In a larger project, you might also want to manage multiple packages in a single repository with a tool like [Nx](https://nx.dev/react) or [Turborepo](https://turborepo.org/).
->>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
-
-Si prefieres configurar tu propia cadena de herramientas desde cero, [consulta esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea algunas de las funcionalidades de Create React App. Un *framework* usualmente también proporcionará una solución para enrutamiento y carga de datos. En un proyecto más grande, puede que también quieras manejar múltiples paquetes en un solo repositorio con una herramienta como [Nx](https://nx.dev/react).
+Si prefieres configurar tu propia cadena de herramientas desde cero, [consulta esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea algunas de las funcionalidades de Create React App. Un *framework* usualmente también proporcionará una solución para enrutamiento y carga de datos. En un proyecto más grande, puede que también quieras manejar múltiples paquetes en un solo repositorio con una herramienta como [Nx](https://nx.dev/react) o [Turborepo](https://turborepo.org/).
