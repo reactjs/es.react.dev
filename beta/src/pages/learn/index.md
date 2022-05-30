@@ -28,7 +28,7 @@ Los componentes de React son funciones de JavaScript que retornan marcado (*mark
 ```js
 function MyButton() {
   return (
-    <button>Click me</button>
+    <button>I'm a button</button>
   );
 }
 ```
@@ -56,7 +56,7 @@ Mira el resultado:
 function MyButton() {
   return (
     <button>
-      Click me
+      I'm a button
     </button>
   );
 }
