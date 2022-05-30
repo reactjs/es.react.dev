@@ -18,7 +18,10 @@ import {IconChevron} from 'components/Icon/IconChevron';
 import {NavigationBar} from './NavigationBar';
 import {Preview} from './Preview';
 import {CustomTheme} from './Themes';
-import {useSandpackLint} from './utils';
+import {useSandpackLint} from './useSandpackLint';
+
+// Workaround for https://github.com/reactjs/reactjs.org/issues/4686#issuecomment-1137402613.
+const emptyArray: Array<any> = [];
 
 export function CustomPreset({
   isSingleFile,
@@ -31,7 +34,7 @@ export function CustomPreset({
   devToolsLoaded: boolean;
   onDevToolsLoad: () => void;
 }) {
-  const {lintErrors, onLint} = useSandpackLint();
+  const {lintErrors, lintExtensions} = useSandpackLint();
   const lineCountRef = React.useRef<{[key: string]: number}>({});
   const containerRef = React.useRef<HTMLDivElement>(null);
   const {sandpack} = useSandpack();
@@ -64,7 +67,8 @@ export function CustomPreset({
               showInlineErrors
               showTabs={false}
               showRunButton={false}
-              extensions={[onLint]}
+              extensions={lintExtensions}
+              extensionsKeymap={emptyArray}
             />
             <Preview
               className="order-last xl:order-2"
