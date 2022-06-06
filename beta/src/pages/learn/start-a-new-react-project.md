@@ -72,7 +72,7 @@ El tutorial [*Next.js Foundations*](https://nextjs.org/learn/foundations/about-n
 Puede que prefieras crear y configurar tu propia cadena de herramientas. Una cadena de herramientas generalmente está compuesta por:
 
 * Un **manejador de paquetes** te permite instalar, actualizar y manejar paquetes de terceros. Manejadores de paquetes populares: [npm](https://www.npmjs.com/) (integrado en Node.js), [Yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/).
-* Un **compilador** te permite compilar para los navegadores funcionalidades modernas del lenguaje y sintaxis adicional como JSX o anotaciones de tipo. Compiladores populares: [Babel](https://babeljs.io/), [TypeScript](http://typescript.org/), [swc](https://swc.rs/).
+* Un **compilador** te permite compilar para los navegadores funcionalidades modernas del lenguaje y sintaxis adicional como JSX o anotaciones de tipo. Compiladores populares: [Babel](https://babeljs.io/), [TypeScript](https://www.typescriptlang.org/), [swc](https://swc.rs/).
 * Un **bundler (empaquetador)** te permite escribir código modular y mezclarlo en paquetes más pequeños para optimizar el tiempo de carga. *Bundlers* populares: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/), [swc](https://swc.rs/).
 * Un **minificador** hace tu código más compacto para que cargue más rápido. Minificadores populares: [Terser](https://terser.org/), [swc](https://swc.rs/).
 * Un **servidor** maneja las peticiones al servidor para que puedas renderizar componentes en HTML. Servidores populares: [Express](https://expressjs.com/).
