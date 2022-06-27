@@ -92,15 +92,23 @@ Tienes que tener mucho cuidado en cuanto al significado de `this` en los callbac
 
 Esto no es un comportamiento especifico de React; esto hace parte de [como operan las funciones JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalmente, si refieres un método sin usar `()` después de este, tal como `onClick={this.handleClick}`, deberías ligar ese método.
 
+<<<<<<< HEAD
 Si te molesta llamar `bind`, existen dos maneras de evitarlo. Si usas la sintaxis experimental [campos públicos de clases](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar los campos de clases para ligar los callbacks correctamente:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
   // Esta sintaxis nos asegura que `this` está ligado dentro de handleClick
   // Peligro: esto es una sintaxis *experimental*
+=======
+If calling `bind` annoys you, there are two ways you can get around this. You can use [public class fields syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) to correctly bind callbacks:
+
+```js{2-6}
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (
