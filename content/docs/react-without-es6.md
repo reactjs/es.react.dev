@@ -134,11 +134,7 @@ var SayHello = createReactClass({
 
 Esto significa que las clases de ES6 traen consigo la necesidad de escribir un poco más de código repetitivo para utilizar *manejadores de eventos*, pero la ventaja radica en una ligera mejora del rendimiento en aplicaciones grandes.
 
-<<<<<<< HEAD
-Si el código repetitivo no es atractivo para ti, puedes activar la propuesta de sintaxis **experimental** [Propiedades de Clases](https://babeljs.io/docs/plugins/transform-class-properties/) con Babel:
-=======
-If the boilerplate code is too unattractive to you, you may use [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) syntax:
->>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
+Si el código repetitivo no es atractivo para ti, puedes usar la sintaxis de [propiedades de clases de ES2022](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Public_class_fields#campos_de_instancia_p%C3%BAblicos):
 
 
 ```javascript
@@ -147,13 +143,7 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-<<<<<<< HEAD
-  // ADVERTENCIA: esta sintaxis es experimental!
   // Al usar una función de flecha aquí, el método queda vinculado:
-=======
-  
-  // Using an arrow here binds the method:
->>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
   handleClick = () => {
     alert(this.state.message);
   };
@@ -168,13 +158,7 @@ class SayHello extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-Por favor, ten en cuenta que la sintaxis anterior es **experimental** y podría cambiar, o la propuesta podría no llegar a formar parte del lenguaje.
-
-Si prefieres jugar a lo seguro, tienes algunas opciones:
-=======
-You also have a few other options:
->>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
+También tienes otras opciones:
 
 * Vincular los métodos a la instancia desde el constructor.
 * Usar funciones flecha, e.g. `onClick={(e) => this.handleClick(e)}`.
