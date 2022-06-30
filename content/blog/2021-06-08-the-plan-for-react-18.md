@@ -11,9 +11,9 @@ El equipo de React está emocionado por compartir algunas novedades:
 
 1. Empezamos a trabajar en el lanzamiento de React 18, el cual será nuestra próxima versión mayor.
 2. Creamos un Working Group para preparar a la comunidad ante una adopción gradual de las nuevas características en React 18.
-3. Publicamos React 18 Alpha para que los autores de librerías puedan probarlo y dar feedback.
+3. Publicamos React 18 Alpha para que los autores de bibliotecas puedan probarlo y dar feedback.
 
-Estas actualizaciones son principalmente apuntado a los mantenedores de otras librerías. Si estás aprendiendo, enseñando o usando React para construir aplicaciones para usuarios, puedes ignorar esta publicación de manera segura. ¡Pero eres bienvenido de seguir las discusiones en el React 18 Working Group si eres curioso!
+Estas actualizaciones son principalmente apuntado a los mantenedores de otras bibliotecas. Si estás aprendiendo, enseñando o usando React para construir aplicaciones para usuarios, puedes ignorar esta publicación de manera segura. ¡Pero eres bienvenido de seguir las discusiones en el React 18 Working Group si eres curioso!
 
 ## Qué viene en React 18 {#whats-coming-in-react-18}
 
@@ -31,9 +31,9 @@ Enviamos con éxito características concurrentes a decenas de miles de componen
 
 ## Trabajando con la comunidad {#working-with-the-community}
 
-Estamos probando algo nuevo para esta versión: hemos invitado a un panel de expertos, desarrolladores, autores de librerías y educadores de toda la comunidad de React para participar en nuestro [React 18 Working Group](https://github.com/reactwg/react-18) para proporcionar comentarios, hacer preguntas y colaborar en el lanzamiento. No pudimos invitar a todos los que queríamos a este pequeño grupo inicial, pero si este experimento funciona, ¡esperamos que haya más en el futuro!
+Estamos probando algo nuevo para esta versión: hemos invitado a un panel de expertos, desarrolladores, autores de bibliotecas y educadores de toda la comunidad de React para participar en nuestro [React 18 Working Group](https://github.com/reactwg/react-18) para proporcionar comentarios, hacer preguntas y colaborar en el lanzamiento. No pudimos invitar a todos los que queríamos a este pequeño grupo inicial, pero si este experimento funciona, ¡esperamos que haya más en el futuro!
 
-**El objetivo del React 18 Working Group es preparar el ecosistema para una adopción gradual y sin problemas de React 18 por parte de las aplicaciones y librerías existentes.** El Working Group está alojado en [GitHub Discussions](https://github.com/reactwg/react-18/discussions) y está disponible para su lectura pública. Los miembros del grupo de trabajo pueden dejar comentarios, hacer preguntas y compartir ideas. El equipo central también utilizará el repositorio de discusiones para compartir los hallazgos de nuestra investigación. A medida que se acerque la versión estable, también se publicará en este blog cualquier información importante.
+**El objetivo del React 18 Working Group es preparar el ecosistema para una adopción gradual y sin problemas de React 18 por parte de las aplicaciones y bibliotecas existentes.** El Working Group está alojado en [GitHub Discussions](https://github.com/reactwg/react-18/discussions) y está disponible para su lectura pública. Los miembros del grupo de trabajo pueden dejar comentarios, hacer preguntas y compartir ideas. El equipo central también utilizará el repositorio de discusiones para compartir los hallazgos de nuestra investigación. A medida que se acerque la versión estable, también se publicará en este blog cualquier información importante.
 
 Para obtener más información sobre la actualización a React 18, o recursos adicionales sobre el lanzamiento, consulte la [publicación del anuncio de React 18](https://github.com/reactwg/react-18/discussions/4).
 
@@ -55,7 +55,7 @@ Puede haber cambios significativos de comportamiento o de API entre las versione
 
 No tenemos programada una fecha de lanzamiento específica, pero esperamos que sean necesarios varios meses de comentarios e iteraciones antes de que React 18 esté listo para la mayoría de las aplicaciones de producción.
 
-* Librería Alpha: Disponible hoy
+* Biblioteca Alpha: Disponible hoy
 * Beta público: Al menos en varios meses
 * Candidato de lanzamiento (RC): Al menos varias semanas después del Beta
 * General Availability: Al menos varias semanas después de RC
