@@ -126,7 +126,7 @@ Ahora que está tu entorno configurado, ¡vamos a obtener una visión general de
 
 ### ¿Qué es React? {#what-is-react}
 
-React es una librería de JavaScript declarativa, eficiente y flexible para construir interfaces de usuario. Permite componer IUs complejas de pequeñas y aisladas piezas de código llamadas "componentes".
+React es una biblioteca de JavaScript declarativa, eficiente y flexible para construir interfaces de usuario. Permite componer IUs complejas de pequeñas y aisladas piezas de código llamadas "componentes".
 
 React tiene pocos tipos diferentes de componentes, pero vamos a empezar con la subclase `React.Component`:
 
