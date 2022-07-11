@@ -331,13 +331,9 @@ Este es un caso de uso poco común. Si lo necesitas, puedes usar [una referencia
 
 ### ¿Cómo obtengo las props o el estado previo? {#how-to-get-the-previous-props-or-state}
 
-<<<<<<< HEAD
-Actualmente lo puedes hacer manualmente [con una referencia](#is-there-something-like-instance-variables):
-=======
-There are two cases in which you might want to get previous props or state.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
+Hay dos casos en que pudieras querer tener acceso a las props o estado anteriores.
 
-Sometimes, you need previous props to **clean up an effect.** For example, you might have an effect that subscribes to a socket based on the `userId` prop. If the `userId` prop changes, you want to unsubscribe from the _previous_ `userId` and subscribe to the _next_ one. You don't need to do anything special for this to work:
+En ocasiones, necesitas las props anteriores para **limpiar un efecto.** Por ejemplo, podrías tener un efecto que se suscribe a un socket con base en la prop `userId`. Si la prop `userId` cambia, deberías cancelar la suscripción del `userId` _anterior_ y suscribirte al _próximo_. No necesitas hacer nada especial para que esto funcione:
 
 ```js
 useEffect(() => {
@@ -346,41 +342,11 @@ useEffect(() => {
 }, [props.userId]);
 ```
 
-<<<<<<< HEAD
-Esto podría ser un poco complicado, pero puedes extraer la funcionalidad en un Hook personalizado:
-=======
-In the above example, if `userId` changes from `3` to `4`, `ChatAPI.unsubscribeFromSocket(3)` will run first, and then `ChatAPI.subscribeToSocket(4)` will run. There is no need to get "previous" `userId` because the cleanup function will capture it in a closure.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
+En el ejemplo de arriba, si `userId` cambia de `3` a `4`, se ejecutará primero `ChatAPI.unsubscribeFromSocket(3)` y luego se ejecutará `ChatAPI.subscribeToSocket(4)`. No hay necesidad de un `userId` "anterior" porque la función de limpieza lo capturará en una clausura.
 
-Other times, you might need to **adjust state based on a change in props or other state**. This is rarely needed and is usually a sign you have some duplicate or redundant state. However, in the rare case that you need this pattern, you can [store previous state or props in state and update them during rendering](#how-do-i-implement-getderivedstatefromprops).
+En otras ocasiones, podrías necesitar **ajustar estado con base a cambios en las props u en otro estado**. No es muy común que exista esa necesidad y generalmente es una señal de que tienes algún estado duplicado o redundante. Sin embargo, en los casos muy poco frecuentes en que necesites este patrón, puedes [almacenar el estado o las props anteriores y actualizarlos durante el renderizado](#how-do-i-implement-getderivedstatefromprops).
 
-<<<<<<< HEAD
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-```
-
-Nota como esto podría funcionar para props, estado, o cualquier otro valor calculado.
-
-```js{5}
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  const calculation = count + 100;
-  const prevCalculation = usePrevious(calculation);
-  // ...
-```
-
-Es posible que en el futuro React provea un Hook `usePrevious` por defecto, ya que es un caso de uso relativamente común.
-
-Mira también [el patrón recomendado para un estado derivado](#how-do-i-implement-getderivedstatefromprops).
-=======
-We have previously suggested a custom Hook called `usePrevious` to hold the previous value. However, we've found that most use cases fall into the two patterns described above. If your use case is different, you can [hold a value in a ref](#is-there-something-like-instance-variables) and manually update it when needed. Avoid reading and updating refs during rendering because this makes your component's behavior difficult to predict and understand.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
+Con anterioridad habíamos sugerido utilizar un Hook personalizado llamado `usePrevious` para almacenar el valor anterior. Sin embargo, hemos encontrado que la mayoría de los casos de uso se adecuan a los dos patrones descritos arriba. Si tu caso de uso es diferente, puedes [almacenar un valor en una ref](#is-there-something-like-instance-variables) y actualizarlo manualmente cuando lo necesites. Evita leer y actualizar refs durante el renderizado porque esto hace que el comportamiento de tu componente sea difícil de predecir y entender.
 
 ### ¿Por qué estoy viendo props o estado obsoletos dentro de mi función? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
