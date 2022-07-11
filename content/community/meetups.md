@@ -153,9 +153,6 @@ permalink: community/meetups.html
 ## Escocia (UK) {#scotland-uk}
 * [Edimburgo](https://www.meetup.com/React-Scotland/)
 
-## Singapur {#singapore}
-* [Singapur - React Knowledgeable](https://reactknowledgeable.org/)
-
 ## España {#spain}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 * [Canarias](https://www.meetup.com/React-Canarias/)

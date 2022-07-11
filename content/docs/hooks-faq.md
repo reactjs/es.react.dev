@@ -331,54 +331,22 @@ Este es un caso de uso poco común. Si lo necesitas, puedes usar [una referencia
 
 ### ¿Cómo obtengo las props o el estado previo? {#how-to-get-the-previous-props-or-state}
 
-Actualmente lo puedes hacer manualmente [con una referencia](#is-there-something-like-instance-variables):
+Hay dos casos en que pudieras querer tener acceso a las props o estado anteriores.
 
-```js{6,8}
-function Counter() {
-  const [count, setCount] = useState(0);
+En ocasiones, necesitas las props anteriores para **limpiar un efecto.** Por ejemplo, podrías tener un efecto que se suscribe a un socket con base en la prop `userId`. Si la prop `userId` cambia, deberías cancelar la suscripción del `userId` _anterior_ y suscribirte al _próximo_. No necesitas hacer nada especial para que esto funcione:
 
-  const prevCountRef = useRef();
-  useEffect(() => {
-    prevCountRef.current = count;
-  });
-  const prevCount = prevCountRef.current;
-
-  return <h1>Now: {count}, before: {prevCount}</h1>;
-}
+```js
+useEffect(() => {
+  ChatAPI.subscribeToSocket(props.userId);
+  return () => ChatAPI.unsubscribeFromSocket(props.userId);
+}, [props.userId]);
 ```
 
-Esto podría ser un poco complicado, pero puedes extraer la funcionalidad en un Hook personalizado:
+En el ejemplo de arriba, si `userId` cambia de `3` a `4`, se ejecutará primero `ChatAPI.unsubscribeFromSocket(3)` y luego se ejecutará `ChatAPI.subscribeToSocket(4)`. No hay necesidad de un `userId` "anterior" porque la función de limpieza lo capturará en una clausura.
 
-```js{3,7}
-function Counter() {
-  const [count, setCount] = useState(0);
-  const prevCount = usePrevious(count);
-  return <h1>Now: {count}, before: {prevCount}</h1>;
-}
+En otras ocasiones, podrías necesitar **ajustar estado con base a cambios en las props u en otro estado**. No es muy común que exista esa necesidad y generalmente es una señal de que tienes algún estado duplicado o redundante. Sin embargo, en los casos muy poco frecuentes en que necesites este patrón, puedes [almacenar el estado o las props anteriores y actualizarlos durante el renderizado](#how-do-i-implement-getderivedstatefromprops).
 
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-```
-
-Nota como esto podría funcionar para props, estado, o cualquier otro valor calculado.
-
-```js{5}
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  const calculation = count + 100;
-  const prevCalculation = usePrevious(calculation);
-  // ...
-```
-
-Es posible que en el futuro React provea un Hook `usePrevious` por defecto, ya que es un caso de uso relativamente común.
-
-Mira también [el patrón recomendado para un estado derivado](#how-do-i-implement-getderivedstatefromprops).
+Con anterioridad habíamos sugerido utilizar un Hook personalizado llamado `usePrevious` para almacenar el valor anterior. Sin embargo, hemos encontrado que la mayoría de los casos de uso se adecuan a los dos patrones descritos arriba. Si tu caso de uso es diferente, puedes [almacenar un valor en una ref](#is-there-something-like-instance-variables) y actualizarlo manualmente cuando lo necesites. Evita leer y actualizar refs durante el renderizado porque esto hace que el comportamiento de tu componente sea difícil de predecir y entender.
 
 ### ¿Por qué estoy viendo props o estado obsoletos dentro de mi función? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 

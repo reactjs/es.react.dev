@@ -107,7 +107,7 @@ Si se suministra el *callback* opcional, será ejecutado después de que el comp
 > y debe ser evitada debido a que en futuras versiones de React puede que los componentes se rendericen de manera asíncrona en algunos casos. Si deseas obtener una referencia a la instancia `ReactComponent` raíz,
 > la solución preferida es agregar una [referencia mediante callback](/docs/refs-and-the-dom.html#callback-refs) al elemento raíz.
 >
-> El uso de `render()` para hidratar un contenedor renderizado por servidor esta despreciado. Usa en su lugar [`hydrateRoot()`](#hydrateroot).
+> Using `render()` to hydrate a server-rendered container is deprecated. Use [`hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) instead.
 
 * * *
 
