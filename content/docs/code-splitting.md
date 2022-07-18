@@ -138,7 +138,7 @@ function MyComponent() {
 ```
 
 ### Evitar el fallback {#avoiding-fallbacks}
-Cualquier componente puede suspenderse como resultado del renderizado, incluso componentes que ya se mostraron al usuario. Para que el contenido de la pantalla siempre sea consistente, si un componete que ya se ha mostrado se suspende, React trata de esconder su árbol hacia arriba hasta la barrera `<Suspense>` más cercana. Sin embargo, desde la perspectiva del usuario esto puede desorientar.
+Cualquier componente puede suspenderse como resultado del renderizado, incluso componentes que ya se mostraron al usuario. Para que el contenido de la pantalla siempre sea consistente, si un componente que ya se ha mostrado se suspende, React trata de esconder su árbol hacia arriba hasta la barrera `<Suspense>` más cercana. Sin embargo, desde la perspectiva del usuario esto puede desorientar.
 
 Considera este componente para cambiar de pestaña:
 
