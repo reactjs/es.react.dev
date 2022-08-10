@@ -609,7 +609,7 @@ Movimos la función dentro del efecto, de manera tal que no necesite estar en su
 >
 >Consulta este [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) y [este artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) para aprender más sobre la obtención de datos con Hooks.
 
-**Si por alguna razón _no puedes_ mover una funció dentro de un efecto, hay otras opciones:**
+**Si por alguna razón _no puedes_ mover una función dentro de un efecto, hay otras opciones:**
 
 * **Puedes intentar mover esa función fuera de tu componente**. En ese caso, se garantiza que la función no referencie ningúna prop o estado, y además no necesita estar en la lista de dependencias.
 * Si la función que estás llamando es un cálculo puro y es seguro llamarla mientras se renderiza, puedes **llamarla fuera del efecto,** y hacer que el efecto dependa del valor devuelto.
