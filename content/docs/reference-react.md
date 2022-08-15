@@ -123,7 +123,11 @@ Si la función `render()` del componente de React renderiza el mismo resultado d
 
 > Nota
 >
+<<<<<<< HEAD
 > `shouldComponentUpdate()` del `React.PureComponent` solo compara superficialmente los objetos. Si estos contienen estructuras de datos complejos pueden producir falsos negativos para diferencias más profundas. Solo se extiende `PureComponent` cuando se espera tener los props y el estado simples o usar [`forceUpdate()`](/docs/react-component.html#forceupdate) cuando se sabe que las estructuras de datos profundos han cambiado. O considera usar [objetos inmutables](https://facebook.github.io/immutable-js/) para facilitar comparaciones rápidas de los datos anidados.
+=======
+> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use [`forceUpdate()`](/docs/react-component.html#forceupdate) when you know deep data structures have changed. Or, consider using [immutable objects](https://immutable-js.com/) to facilitate fast comparisons of nested data.
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 >
 > Además, `shouldComponentUpdate()` del `React.PureComponent` omite las actualizaciones de los props para todo el componente del subárbol. Asegúrate que todos los componentes hijos también sean “puros”.
 

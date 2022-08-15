@@ -65,8 +65,16 @@ permalink: community/meetups.html
 * [Aalborg](https://www.meetup.com/Aalborg-React-React-Native-Meetup/)
 * [Aarhus](https://www.meetup.com/Aarhus-ReactJS-Meetup/)
 
+<<<<<<< HEAD
 ## Inglaterra (UK) {#england-uk}
 * [Mánchester](https://www.meetup.com/Manchester-React-User-Group/)
+=======
+## Egypt {#egypt}
+* [Cairo](https://www.meetup.com/react-cairo/)
+
+## England (UK) {#england-uk}
+* [Manchester](https://www.meetup.com/Manchester-React-User-Group/)
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 * [React.JS Girls London](https://www.meetup.com/ReactJS-Girls-London/)
 * [React London : Bring Your Own Project](https://www.meetup.com/React-London-Bring-Your-Own-Project/)
 
