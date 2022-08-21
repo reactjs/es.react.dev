@@ -119,11 +119,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-<<<<<<< HEAD
-No recomendamos usar índices para keys si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el artículo de Robin Pokorny para una [explicación en profundidad de los impactos negativos de usar un índice como key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Si eliges no asignar una key explícita a la lista de ítems, React por defecto usará índices como keys.
-=======
-We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
->>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
+No recomendamos usar índices para keys si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el artículo de Robin Pokorny para una [explicación en profundidad de los impactos negativos de usar un índice como key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Si eliges no asignar una key explícita a la lista de ítems, React por defecto usará índices como keys.
 
 Aquí hay una [explicación en profundidad sobre por qué las keys son necesarias](/docs/reconciliation.html#recursing-on-children) si estás interesado en aprender más.
 

@@ -27,7 +27,7 @@ Al diferenciar dos árboles, React primero compara dos elementos raíz. El compo
 
 Cada vez que los elementos raíz tienen diferentes tipos, React derribará el árbol viejo y construirá el nuevo árbol desde cero. Pasando de `<a>` a `<img>`, o de `<Article>` a `<Comment>`, o de `<Button>` a `<div>` - cualquiera de esos conducirá a una reconstrucción completa.
 
-Al derribar un árbol, los nodos antiguos del DOM se destruyen. Las instacias de los componentes reciben `componentWillUnmount()`. Al construir un nuevo árbol, los nuevos elementos del DOM se insertan. Las instancias de componentes reciben `UNSAFE_componentWillMount()` y luego `componentDidMount()`. Cualquier estado asociado al árbol viejo se pierde.
+Al derribar un árbol, los nodos antiguos del DOM se destruyen. Las instancias de los componentes reciben `componentWillUnmount()`. Al construir un nuevo árbol, los nuevos elementos del DOM se insertan. Las instancias de componentes reciben `UNSAFE_componentWillMount()` y luego `componentDidMount()`. Cualquier estado asociado al árbol viejo se pierde.
 
 Cualquier componente debajo de la raíz también se desmontará y se destruirá su estado. Por ejemplo, cuando difiere:
 
@@ -41,15 +41,11 @@ Cualquier componente debajo de la raíz también se desmontará y se destruirá 
 </span>
 ```
 
-Esto destruirá el `Counter` viejo y volvera a montar uno nuevo.
+Esto destruirá el `Counter` viejo y volverá a montar uno nuevo.
 
 >Nota:
 >
-<<<<<<< HEAD
->Estos métodos se consideran obsoletos y deberías [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
-=======
->This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
->>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
+>Este método se considera obsoleto y deberías [evitarlo](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
 >- `UNSAFE_componentWillMount()`
 
