@@ -51,7 +51,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 
 > Nota:
 >
-> Estos métodos están considerados *legacy* (deprecados) y debes [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
+> Este método se considera obsoleto y deberías [evitarlo](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
