@@ -226,13 +226,8 @@ Si te empiezas a sentir cómodo con las herramientas de construcción y quieres 
 
 Originalmente JSX se introdujo para que escribir componentes con React se sintiera tan familiar como escribir HTML. Desde entonces, la sintaxis se ha generalizado. Sin embargo, hay momentos en que no quieres o no puedes usar JSX. Tienes dos opciones:
 
-<<<<<<< HEAD
 - Usar una alternativa a JSX como [htm](https://github.com/developit/htm) que utiliza [plantillas de cadena](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals) en lugar de un compilador.
-- Usar [`React.createElement()`](/apis/createelement) que tiene una estructura especial que se explica debajo.
-=======
-- Use a JSX alternative like [htm](https://github.com/developit/htm) which uses JavaScript [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of a compiler.
-- Use [`React.createElement()`](/apis/react/createElement) which has a special structure explained below.
->>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
+- Usar [`React.createElement()`](/apis/react/createElement) que tiene una estructura especial que se explica debajo.
 
 Con JSX, escribirías un componente de esta forma:
 
