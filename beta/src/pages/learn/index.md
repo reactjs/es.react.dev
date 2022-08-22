@@ -302,7 +302,11 @@ function MyButton() {
 
 A menudo, querrás que tu componente «recuerde» alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
 
+<<<<<<< HEAD
 Primero, importa [`useState`](/apis/usestate) de React:
+=======
+First, import [`useState`](/apis/react/useState) from React:
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 ```js {1,4}
 import { useState } from 'react';
@@ -382,7 +386,11 @@ Nota que cada botón «recuerda» su propio estado `count` y que no afecta a otr
 
 ## El uso de los Hooks {/*using-hooks*/}
 
+<<<<<<< HEAD
 Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/apis). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
+=======
+Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis/react). You can also write your own Hooks by combining the existing ones.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar a los Hooks *en el primer nivel* de tus componentes (u otros Hooks). Si quisieras utilizar `useState` en una condicional o en un bucle, extrae un nuevo componente y ponlo ahí.
 
