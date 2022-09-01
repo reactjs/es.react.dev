@@ -156,7 +156,7 @@ En la práctica, devolver `null` en un componente no es común porque podría so
 
 ## Exclusión condicional de JSX {/*conditionally-including-jsx*/}
 
-En el ejemplo anterior, controlabar qué árbol JSX (si es que había alguno) era devuelto por el componente. Es posible que ya hayas notado alguna duplicación en la salida de la renderización:
+En el ejemplo anterior, controlabas qué árbol JSX (si es que había alguno) era devuelto por el componente. Es posible que ya hayas notado alguna duplicación en la salida de la renderización:
 
 ```js
 <li className="item">{name} ✔</li>
@@ -630,7 +630,7 @@ En esta solución, se utilizan dos condiciones distintas para insertar un espaci
 
 ### Refactorizar una serie de `? :` a `if` y variables {/*refactor-a-series-of---to-if-and-variables*/}
 
-Este componente `Drink` utiliza una serie de condiciones `? :` para mostrar diferente información dependiendo de si la prop `name` es `te` o `café`. El problema es que la información sobre cada bebida está repartida entre varias condiciones. Refactoriza este código para utilizar una única sentencia `if` en lugar de tres condiciones `? :`.
+Este componente `Drink` utiliza una serie de condiciones `? :` para mostrar diferente información dependiendo de si la prop `name` es `té` o `café`. El problema es que la información sobre cada bebida está repartida entre varias condiciones. Refactoriza este código para utilizar una única sentencia `if` en lugar de tres condiciones `? :`.
 
 <Sandpack>
 
