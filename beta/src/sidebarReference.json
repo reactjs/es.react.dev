@@ -52,8 +52,7 @@
             },
             {
               "title": "Fragment",
-              "path": "/apis/react/Fragment",
-              "wip": true
+              "path": "/apis/react/Fragment"
             },
             {
               "title": "isValidElement",
@@ -183,8 +182,7 @@
             },
             {
               "title": "hydrate",
-              "path": "/apis/react-dom/hydrate",
-              "wip": true
+              "path": "/apis/react-dom/hydrate"
             },
             {
               "title": "hydrateRoot",

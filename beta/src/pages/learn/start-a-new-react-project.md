@@ -53,7 +53,7 @@ Para más información, [consulta la guía oficial](https://create-react-app.dev
 ### Alternativas populares {/*popular-alternatives*/}
 
 * [Vite](https://vitejs.dev/guide/)
-* [Parcel](https://parceljs.org/)
+* [Parcel](https://parceljs.org/getting-started/webapp/)
 
 ## Construir con un framework con todas las funcionalidades {/*building-with-a-full-featured-framework*/}
 
