@@ -143,10 +143,6 @@ Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que 
 
 Aunque parece complejo, son en realidad unas pocas líneas de código. Y se vuelve realmente explícito como fluyen los datos a través de la aplicación.
 
-<<<<<<< HEAD
 ## Eso es todo {#and-thats-it}
 
-Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
-=======
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more often than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
->>>>>>> 42561f013aa0f6008cd1c5b811d8bacfc66a0779
+Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee código con más frecuencia de la que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
