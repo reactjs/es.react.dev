@@ -145,4 +145,4 @@ Aunque parece complejo, son en realidad unas pocas líneas de código. Y se vuel
 
 ## Eso es todo {#and-thats-it}
 
-Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
+Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee código con más frecuencia de la que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
