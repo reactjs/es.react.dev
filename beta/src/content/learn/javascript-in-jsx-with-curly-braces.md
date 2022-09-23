@@ -115,13 +115,8 @@ export default function TodoList() {
 
 Solo puedes usar llaves de dos maneras dentro de JSX:
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
 1. **Como texto** directamente dentro de una etiqueta JSX: `<h1>{name}'s To Do List</h1>` funciona, pero `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` no lo hará.
 2. **Como atributos** inmediatamente después del signo `=`: `src={avatar}` leerá la variable `avatar`, pero `src="{avatar}"` pasará el string `{avatar}`.  
-=======
-1. **As text** directly inside a JSX tag: `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>`  will not.
-2. **As attributes** immediately following the `=` sign: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `"{avatar}"`.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
 
 ## Usando "llaves dobles": CSS y otros objetos en JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
@@ -250,11 +245,7 @@ Ahora ya sabes casi todo sobre JSX:
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
-### Arreglar el error {/*fix-the-mistake*/}
-=======
-#### Fix the mistake {/*fix-the-mistake*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
+#### Arreglar el error {/*fix-the-mistake*/}
 
 Este código se bloquea con un error que dice `Objects are not valid as a React child`:
 
@@ -346,11 +337,7 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
-### Extraer información en un objeto {/*extract-information-into-an-object*/}
-=======
-#### Extract information into an object {/*extract-information-into-an-object*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
+#### Extraer información en un objeto {/*extract-information-into-an-object*/}
 
 Extrae la URL de la imagen en el objeto `person`.
 
@@ -437,15 +424,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
-### Escribe una expresión dentro de llaves JSX {/*write-an-expression-inside-jsx-curly-braces*/}
+#### Escribe una expresión dentro de llaves JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: base URL, `imageId`, `imageSize` y la extensión del archivo.
-=======
-#### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
-
-In the object below, the full image URL is split into four parts: base URL, `imageId`, `imageSize`, and file extension.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
+En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: URL base, `imageId`, `imageSize` y la extensión del archivo.
 
 Queremos que la URL de la imagen combine esos atributos juntos: base URL (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
 

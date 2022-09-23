@@ -63,11 +63,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Si la prop `isPacked` es `true`, este código **devuelve un árbol JSX diferente**. Con este cambio, algunos de los elementos obtienen una marca de verificación al final:
-=======
-If the `isPacked` prop is `true`, this code **returns a different JSX tree.** With this change, some of the items get a checkmark at the end:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 <Sandpack>
 
@@ -181,19 +177,11 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Aunque esta duplicación no es perjudicial, podría hacer que tu código sea más difícil de mantener. ¿Qué pasa si quieres cambiar el `className`? ¡Tendrías que hacerlo en dos lugares en tu código! En tal situación, podrías incluir condicionalmente un poco de JSX para hacer tu código más [DRY](https://es.wikipedia.org/wiki/No_te_repitas).
-=======
-While this duplication isn't harmful, it could make your code harder to maintain. What if you want to change the `className`? You'd have to do it in two places in your code! In such a situation, you could conditionally include a little JSX to make your code more [DRY.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 ### Operador condicional (ternario) (`? :`) {/*conditional-ternary-operator--*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 JavaScript tiene una sintaxis compacta para escribir una expresión condicional -- el [operador condicional](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) u "operador ternario".
-=======
-JavaScript has a compact syntax for writing a conditional expression -- the [conditional operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 En lugar de esto:
 
@@ -214,11 +202,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Puedes leerlo como *"si `isPacked` es verdadero, entonces (`?`) renderiza `name + ' ✔'`, de lo contrario (`:`) renderiza `name`"*)
-=======
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✔'`, otherwise (`:`) render `name`"*.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 <DeepDive title="Are these two examples fully equivalent?">
 
@@ -274,11 +258,7 @@ Este estilo funciona bien para condiciones simples, pero utilízalo con moderaci
 
 ### Operador lógico AND (`&&`) {/*logical-and-operator-*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Otro atajo común que encontrarás es el [operador lógico AND (`&&`) de JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Dentro de los componentes de React, a menudo surge cuando quieres renderizar algún JSX cuando la condición es verdadera, **o no renderizar nada en caso contrario.** Con `&&`, podrías renderizar condicionalmente la marca de verificación sólo si `isPacked` es `true`:
-=======
-Another common shortcut you'll encounter is the [JavaScript logical AND (`&&`) operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) Inside React components, it often comes up when you want to render some JSX when the condition is true, **or render nothing otherwise.** With `&&`, you could conditionally render the checkmark only if `isPacked` is `true`:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 ```js
 return (
@@ -288,11 +268,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Puedes leer esto como *"si `isPacked`, entonces (`&&`) renderiza la marca de verificación, si no, no renderiza nada."*
-=======
-You can read this as *"if `isPacked`, then (`&&`) render the checkmark, otherwise, render nothing"*.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 Aquí está en acción:
 
@@ -476,11 +452,7 @@ Si no estás familiarizado con JavaScript, esta variedad de estilos puede parece
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 ### Mostrar un icono para los elementos incompletos con `? :` {/*show-an-icon-for-incomplete-items-with--*/}
-=======
-#### Show an icon for incomplete items with `? :` {/*show-an-icon-for-incomplete-items-with--*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 Utiliza el operador condicional (`cond ? a : b`) para renderizar un ❌ si `isPacked` no es `true`.
 
@@ -560,11 +532,7 @@ export default function PackingList() {
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 ### Mostrar la importancia del elemento con `&&` {/*show-the-item-importance-with-*/}
-=======
-#### Show the item importance with `&&` {/*show-the-item-importance-with-*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 En este ejemplo, cada "elemento" recibe una "importancia" numérica. Utiliza el operador `&&` para mostrar "_(Importance: X)_" en cursiva, pero sólo para los elementos que tienen una importancia distinta de cero. Tu lista de elementos debería tener este aspecto:
 
@@ -660,11 +628,7 @@ En esta solución, se utilizan dos condiciones distintas para insertar un espaci
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-### Refactorizar una serie de `? :` a `if` y variables {/*refactor-a-series-of---to-if-and-variables*/}
-=======
-#### Refactor a series of `? :` to `if` and variables {/*refactor-a-series-of---to-if-and-variables*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+#### Refactorizar una serie de `? :` a `if` y variables {/*refactor-a-series-of---to-if-and-variables*/}
 
 Este componente `Drink` utiliza una serie de condiciones `? :` para mostrar diferente información dependiendo de si la prop `name` es `té` o `café`. El problema es que la información sobre cada bebida está repartida entre varias condiciones. Refactoriza este código para utilizar una única sentencia `if` en lugar de tres condiciones `? :`.
 

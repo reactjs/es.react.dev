@@ -21,27 +21,15 @@ Si estás iniciando un nuevo proyecto, recomendamos usar una cadena de herramien
 
 React es una biblioteca que te permite organizar código de UI al separarla en piezas llamadas componentes. React no se preocupa por el enrutamiento o el manejo de datos. Esto significa que hay varias formas de comenzar un proyecto en React:
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 * [Comenzar con un archivo **HTML y una etiqueta script**.](/learn/add-react-to-a-website) Esto no requiere una configuración de Node.js, pero ofrece funcionalidades limitadas.
 * Comenzar con una **configuración mínima con solo una cadena de herramientas (_toolchain_)** y añadir funcionalidades a tu proyecto mientras se hagan necesarias. (Estupendo para aprender)!
 * Comenzar con un **framework más rígido** con funcionalidades comunes ya incluidas.
-=======
-* [Start with an **HTML file and a script tag.**](/learn/add-react-to-a-website) This doesn't require Node.js setup but offers limited features.
-* Start with a **minimal toolchain,** adding more features to your project as you go. (Great for learning!)
-* Start with an **opinionated framework** that has common features like data fetching and routing built-in.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 ## Iniciándote con una cadena de herramientas de React {/*getting-started-with-a-react-toolchain*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 Si **estás aprendiendo React,** te recomendamos [Create React App](https://create-react-app.dev/). Es la forma más popular de probar React y de construir una nueva aplicación de una sola página del lado del cliente. Está hecha para React pero sin opiniones para el enrutamiento o la carga de datos:
 
 Primero, instala [Node.js](https://nodejs.org/en/). Luego abre tu terminal y ejecuta esta línea para crear un proyecto:
-=======
-If you're **learning React,** we recommend [Create React App.](https://create-react-app.dev/) It is the most popular way to try out React and build a new single-page, client-side application. It's made for React but isn't opinionated about routing or data fetching.
-
-First, install [Node.js.](https://nodejs.org/en/) Then open your terminal and run this line to create a project:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 <TerminalBlock>
 
@@ -58,11 +46,7 @@ npm start
 
 </TerminalBlock>
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 Para más información, [consulta la guía oficial](https://create-react-app.dev/docs/getting-started).
-=======
-For more information, [check out the official guide.](https://create-react-app.dev/docs/getting-started)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 > Create React App no maneja la lógica del *backend* o las bases de datos. Puedes usarla con cualquier *backend*. Cuando construyes un proyecto, obtendrás una carpeta con código estático de HTML, CSS y JS. Dado que Create React App no puede beneficiarse de lo que ofrece el servidor, no proporciona el mejor rendimiento. Si buscas mejores tiempos de carga y funcionalidades integradas como enrutamiento y lógica del lado de servidor, recomendamos que uses en su lugar un *framework*.
 
@@ -87,7 +71,6 @@ El tutorial [*Next.js Foundations*](https://nextjs.org/learn/foundations/about-n
 
 Puede que prefieras crear y configurar tu propia cadena de herramientas. Una cadena de herramientas generalmente está compuesta por:
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 * Un **manejador de paquetes** te permite instalar, actualizar y manejar paquetes de terceros. Manejadores de paquetes populares: [npm](https://www.npmjs.com/) (integrado en Node.js), [Yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/).
 * Un **compilador** te permite compilar para los navegadores funcionalidades modernas del lenguaje y sintaxis adicional como JSX o anotaciones de tipo. Compiladores populares: [Babel](https://babeljs.io/), [TypeScript](https://www.typescriptlang.org/), [swc](https://swc.rs/).
 * Un **bundler (empaquetador)** te permite escribir código modular y mezclarlo en paquetes más pequeños para optimizar el tiempo de carga. *Bundlers* populares: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/), [swc](https://swc.rs/).
@@ -95,16 +78,5 @@ Puede que prefieras crear y configurar tu propia cadena de herramientas. Una cad
 * Un **servidor** maneja las peticiones al servidor para que puedas renderizar componentes en HTML. Servidores populares: [Express](https://expressjs.com/).
 * Un **linter** chequea tu código buscando errores comunes. Linters populares: [ESLint](https://eslint.org/).
 * Un **test runner (sistema de ejecución de pruebas)** te permite ejecutar tus pruebas contra tu código. Test runners populares: [Jest](https://jestjs.io/).
-=======
-* A **package manager** lets you install, update, and manage third-party packages. Popular package managers: [npm](https://www.npmjs.com/) (built into Node.js), [Yarn](https://yarnpkg.com/), [pnpm.](https://pnpm.io/)
-* A **compiler** lets you compile modern language features and additional syntax like JSX or type annotations for the browsers. Popular compilers: [Babel](https://babeljs.io/), [TypeScript](https://www.typescriptlang.org/), [swc.](https://swc.rs/)
-* A **bundler** lets you write modular code and bundle it together into small packages to optimize load time. Popular bundlers: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/), [swc.](https://swc.rs/)
-* A **minifier** makes your code more compact so that it loads faster. Popular minifiers: [Terser](https://terser.org/), [swc.](https://swc.rs/)
-* A **server** handles server requests so that you can render components to HTML. Popular servers: [Express.](https://expressjs.com/)
-* A **linter** checks your code for common mistakes. Popular linters: [ESLint.](https://eslint.org/)
-* A **test runner** lets you run tests against your code. Popular test runners: [Jest.](https://jestjs.io/)
-
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality. A framework will usually also provide a routing and a data fetching solution. In a larger project, you might also want to manage multiple packages in a single repository with a tool like [Nx](https://nx.dev/react) or [Turborepo.](https://turborepo.org/)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 Si prefieres configurar tu propia cadena de herramientas desde cero, [consulta esta guía](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recrea algunas de las funcionalidades de Create React App. Un *framework* usualmente también proporcionará una solución para enrutamiento y carga de datos. En un proyecto más grande, puede que también quieras manejar múltiples paquetes en un solo repositorio con una herramienta como [Nx](https://nx.dev/react) o [Turborepo](https://turborepo.org/).

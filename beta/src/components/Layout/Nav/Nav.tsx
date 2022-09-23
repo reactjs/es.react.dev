@@ -306,25 +306,6 @@ export default function Nav() {
             </button>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-      <div className="px-0 pt-2 w-full 2xl:max-w-xs hidden lg:flex items-center self-center border-b-0 lg:border-b border-border dark:border-border-dark">
-        <NavLink href="/" isActive={section === 'home'}>
-          Inicio
-        </NavLink>
-        <NavLink href="/learn" isActive={section === 'learn'}>
-          Aprende
-        </NavLink>
-        <NavLink href="/apis/react" isActive={section === 'apis'}>
-          API
-        </NavLink>
-      </div>
-      <div className="flex my-4 h-10 mx-0 w-full lg:hidden justify-end lg:max-w-sm">
-        <Search />
-        <button
-          aria-label="Give feedback"
-          type="button"
-=======
       </nav>
 
       {isOpen && (
@@ -332,12 +313,12 @@ export default function Nav() {
           <TabButton
             isActive={tab === 'home'}
             onClick={() => selectTab('home')}>
-            Home
+            Inicio
           </TabButton>
           <TabButton
             isActive={tab === 'learn'}
             onClick={() => selectTab('learn')}>
-            Learn
+            Aprende
           </TabButton>
           <TabButton
             isActive={tab === 'apis'}
@@ -351,7 +332,6 @@ export default function Nav() {
         ref={scrollParentRef}
         className="overflow-y-scroll no-bg-scrollbar lg:w-[336px] grow bg-wash dark:bg-wash-dark">
         <aside
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
           className={cn(
             `lg:grow lg:flex flex-col w-full pb-8 lg:pb-0 lg:max-w-xs z-10`,
             isOpen ? 'block z-40' : 'hidden lg:block'

@@ -37,19 +37,11 @@ export default function App() {
 
 Puedes editarlo directamente of abrirlo en una nueva pestaña presionando el botón «Fork» en la esquina superior derecha.
 
-<<<<<<< HEAD:beta/src/pages/learn/installation.md
-La mayoría de las páginas de la documentación de React contienen ejemplos interactivos como este. Fuera de la documentación de React, también existen muchos *sandboxes* en línea que permiten usar React: por ejemplo, [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), o [CodePen](https://codepen.io/pen/?template=wvdqJJm).
-=======
-Most pages in the React documentation contain sandboxes like this. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/installation.md
+La mayoría de las páginas de la documentación de React contienen ejemplos interactivos como este. Fuera de la documentación de React, también existen muchos *sandboxes* en línea que permiten usar React: por ejemplo, [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), o [CodePen](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb).
 
 ### Prueba React localmente {/*try-react-locally*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/installation.md
 Para probar React de forma local en tu computadora, [descarga esta página HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html). ¡Ábrela en tu editor y en tu navegador!
-=======
-To try React locally on your computer, [download this HTML page.](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) Open it in your editor and in your browser!
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/installation.md
 
 ## Añade React a una página {/*add-react-to-a-page*/}
 

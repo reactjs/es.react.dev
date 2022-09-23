@@ -4,11 +4,7 @@ title: Pensar en React
 
 <Intro>
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
-React puede cambiar tu forma de pensar en los diseños que miras y las aplicaciones que construyes. Donde antes puede que vieras un bosque, después de trabajar con React, apreciarás los árboles individuales. React facilita pensar en términos de sistemas de diseño y estados de la interfaz de usuario (UI por sus siglas en inglés). En este tutorial, te guiaremos en el proceso de pensamiento para construir una tabla de datos de productos con una funcionalidad de búsqueda usando React.
-=======
-React can change how you think about the designs you look at and the apps you build. When you build a user interface with React, you will first break it apart into pieces called *components.* Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them. In this tutorial, we'll guide you through the thought process of building a searchable product data table with React.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
+React puede cambiar tu forma de pensar en los diseños que miras y las aplicaciones que construyes. Cuando construyes una interfaz de usuario (UI) con React, primero la separarás en piezas denominadas *componentes*. Luego, describirás los diferentes estados visuales para cada uno de tus componentes. Para finalizar, conectarás tus componentes de forma tal que los datos fluyan por ellos. En este tutorial, te guiaremos en el proceso de pensamiento para construir una tabla de datos de productos con una funcionalidad de búsqueda usando React.
 
 </Intro>
 
@@ -79,11 +75,7 @@ Ahora que has identificado los componentes en el boceto, ordénalos en una jerar
 
 Ahora que tienes tu jerarquía de componentes, es momento de implementar tu aplicación. El enfoque más sencillo consiste en construir una versión que renderiza la UI a partir de tu modelo de datos sin añadir ninguna interactividad... ¡Aún! A menudo es más fácil construir primero la versión estática y luego añadir la interactividad de forma independiente. Construir una versión estática requiere mucha escritura y poco pensamiento, pero añadir interactividad requiere mucho pensamiento y no mucha escritura.
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 Para construir la versión estática de tu aplicación que renderiza tu modelo de datos querrás construir [componentes](/learn/your-first-component) que reutilicen otros componentes y pasen datos usando [props](/learn/passing-props-to-a-component). Las props son una forma de pasar datos de padres a hijos. (Si estás familiarizado con el concepto de [estado](/learn/state-a-components-memory) no utilices nada de estado para construir esta versión estática. El estado se reserva solo para la interactividad, o sea, datos que cambian con el tiempo. Dado que esto es una versión estática de la aplicación, no lo necesitas).
-=======
-To build a static version of your app that renders your data model, you'll want to build [components](/learn/your-first-component) that reuse other components and pass data using [props.](/learn/passing-props-to-a-component) Props are a way of passing data from parent to child. (If you're familiar with the concept of [state](/learn/state-a-components-memory), don't use state at all to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 Puedes o bien construir de «arriba a abajo» comenzando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) or de «abajo a arriba» trabajando con los componentes más abajo (como `ProductRow`). En ejemplos más simples, usualmente es más fácil ir de arriba a abajo, y en proyectos más grandes, es más fácil ir de abajo a arriba.
 
@@ -217,11 +209,7 @@ En este punto, no deberías estar usando ningún valor de estado. ¡Eso es para 
 
 Para hacer la UI interactiva, necesitas dejar que los usuarios cambien tu modelo de datos. Para esto utilizarás *estado*.
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 Piensa en el estado como el conjunto mínimo de datos cambiantes que la aplicación necesita recordar. El principio más importante para estructurar datos es mantenerlos [DRY (*Don't Repeat Yourself* o No te repitas)](https://es.wikipedia.org/wiki/No_te_repitas). Encuentra la representación absolutamente mínima del estado que tu aplicación necesita y calcula lo demás bajo demanda. Por ejemplo, si estás construyendo una lista de compra, puedes almacenar los elementos en un arreglo en el estado. Si también quieres mostrar el número de elementos en la lista, no almacenes el número de elementos como otro valor de estado--en cambio, lee el tamaño de tu arreglo.
-=======
-Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it [DRY (Don't Repeat Yourself).](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you're building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don't store the number of items as another state value--instead, read the length of your array.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 Ahora piensa en todas la piezas de datos en esta aplicación de ejemplo:
 
@@ -240,17 +228,10 @@ Lo que queda probablemente es estado.
 
 Veámoslos uno por uno nuevamente:
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 1. La lista original de productos se **pasa como props, por lo que no es estado**.
 2. El texto de búsqueda parece ser estado dado que cambia con el tiempo y no puede ser calculado a partir de algo más.
 3. El valor del *checkbox* parece ser estado porque cambia con el tiempo y no puede ser calculado a partir de algo más.
 4. La lista filtrada de productos **no es estado porque puede ser calculada** tomando la lista original de productos y filtrándola de acuerdo al texto de búsqueda y el valor del *checkbox*.
-=======
-1. The original list of products is **passed in as props, so it's not state.** 
-2. The search text seems to be state since it changes over time and can't be computed from anything.
-3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
-4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 ¡Esto significa que solo el texto de búsqueda y el valor del *checkbox* son estado! ¡Bien hecho!
 
@@ -290,11 +271,7 @@ Ahora utilicemos nuestra estrategia para este estado:
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 Añade estado al componente con el [Hook `useState()`](/apis/react/useState). Los Hooks te permiten «engancharte» al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como «gancho»). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
-=======
-Add state to the component with the [`useState()` Hook.](/apis/react/useState) Hooks let you "hook into" a component's [render cycle.](/learn/render-and-commit) Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 ```js
 function FilterableProductTable({ products }) {
@@ -458,19 +435,15 @@ td {
 
 </Sandpack>
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
-En el ejemplo de código de arriba `ProductTable` y `SearchBar` leen las props `filterText` e `inStockOnly` para renderizar la tabla, el cuadro de texto, y el *checkbox*. Por ejemplo, aquí tenemos como `SearchBar` puebla el valor del cuadro de texto:
-=======
-Notice that editing the form doesn't work yet. There is a console error in the sandbox above explaining why:
+Nota que editar el formulario aún no funciona. Hay un error en la consola del _sandbox_ que explica por qué:
 
 <ConsoleBlock level="error">
 
-You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field.
+You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field. (Has proporcionado una prop \`value\` a un campo de un formulario sin el manejador de eventos \`onChange\`. Esto hará que se renderice un campo de solo lectura.)
 
 </ConsoleBlock>
 
-In the sandbox above, `ProductTable` and `SearchBar` read the `filterText` and `inStockOnly` props to render the table, the input, and the checkbox. For example, here is how `SearchBar` populates the input value:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
+En el ejemplo de código de arriba `ProductTable` y `SearchBar` leen las props `filterText` e `inStockOnly` para renderizar la tabla, el cuadro de texto, y el *checkbox*. Por ejemplo, aquí tenemos como `SearchBar` puebla el valor del cuadro de texto:
 
 ```js {1,6}
 function SearchBar({ filterText, inStockOnly }) {
@@ -482,12 +455,8 @@ function SearchBar({ filterText, inStockOnly }) {
         placeholder="Search..."/>
 ```
 
-However, you haven't added any code to respond to the user actions like typing yet. This will be your final step.
+Sin embargo, no has añadido ningún código para responder a las acciones del usuario como la escritura en el teclado. Este será tu último paso.
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
-Remítete a [Manejar estado](/learn/managing-state) para ver con mayor profundidad como React utiliza el estado y como puedes organizar tu aplicación con él.
-=======
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 ## Paso 5: Añade flujo de datos inverso {/*step-5-add-inverse-data-flow*/}
 

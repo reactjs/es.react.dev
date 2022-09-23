@@ -36,13 +36,9 @@ Las herramientas de análisis de código de tipo *linters* permiten encontrar pr
 * [Instala ESLint con la recomendación recomendada para React](https://www.npmjs.com/package/eslint-config-react-app) (¡asegúrate de tener [Node instalado!](https://nodejs.org/en/download/current/))
 * [Integra ESLint en VSCode con la extensión oficial](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-<<<<<<< HEAD:beta/src/pages/learn/editor-setup.md
-### Formateo {/*formatting*/}
-=======
-**Make sure that you've enabled all the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) rules for your project.** They are essential and catch the most severe bugs early. The recommended [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) preset already includes them.
+**Asegúrate de haber habilitado todas las reglas de [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) para tu proyecto.** Son esenciales para la detección temprana de los errores más severos. La configuración recomendada [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) ya las incluye.
 
-### Formatting {/*formatting*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/editor-setup.md
+### Formateo {/*formatting*/}
 
 ¡Lo último que quieres al compartir tu código con otro contribuidor es entrar en un debate sobre [tabuladores vs. espacios](https://www.google.com/search?q=tabs+vs+spaces)! Afortunadamente, [Prettier](https://prettier.io/) limpiará tu código al reformatearlo para que se ajuste a unas reglas predefinidas y configurables. Ejecuta Prettier y todas tus tabuladores se convertirán en espacios-y tu nivel de sangrado, comillas, etc. también se cambiarán para ajustarse a la configuración. En la configuración ideal, Prettier se ejecutará cuando guardas tu archivo, realizando estas ediciones rápidamente por ti.
 

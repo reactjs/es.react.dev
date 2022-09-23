@@ -107,19 +107,11 @@ img { margin: 0 10px 10px 0; height: 90px; }
 Nota cómo este ejemplo está ahora descompuesto en dos archivos:
 
 1. `Gallery.js`:
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
      - Define el componente `Profile` que se usa solo dentro del mismo archivo y no se exporta.
-     - Define el componente `Gallery` como un *export por defecto*.
+     - Define el componente `Gallery` como un **export por defecto**.
 2. `App.js`:
      - Importa `Gallery` como un **import por defecto** desde `Gallery.js`.
      - Exporta el componente raíz `App` como un **export por defecto**.
-=======
-     - Defines the `Profile` component which is only used within the same file and is not exported.
-     - Exports the `Gallery` component as a **default export.**
-2. `App.js`:
-     - Imports `Gallery` as a **default import** from `Gallery.js`.
-     - Exports the root `App` component as a **default export.**
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
 
 
 <Note>
@@ -134,11 +126,7 @@ Tanto `'./Gallery.js'` como `'./Gallery'` funcionarán con React, aunque la prim
 
 </Note>
 
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
 <DeepDive title="Exports por defecto vs. con nombre">
-=======
-<DeepDive title="Default vs named exports">
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
 
 Hay dos formas fundamentales de exportar valores con JavaScript: exports por defecto y exports con nombre. Hasta ahora nuestros ejemplos solo han usado exports por defecto. Pero puedes usar uno o ambos en el mismo archivo. **Un archivo no puede tener más de un export _por defecto_, pero puede tener tantos exports _con nombre_ como desees.**
 
@@ -231,21 +219,12 @@ img { margin: 0 10px 10px 0; height: 90px; }
 Ahora estás usando a una mezcla de exports por defecto y con nombre:
 
 * `Gallery.js`:
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
   - Exporta el componente `Profile` como un **export con nombre llamado `Profile`**.
   - Exporta el componente `Gallery` como un **export por defecto**.
 * `App.js`:
   - Importa `Profile` como un **import con nombre llamado `Profile`** desde `Gallery.js`.
   - Importa `Gallery` como un **import por defecto** desde `Gallery.js`.
   - Exporta el componente raíz `App` como un **export por defecto**.
-=======
-  - Exports the `Profile` component as a **named export called `Profile`.**
-  - Exports the `Gallery` component as a **default export.**
-* `App.js`:
-  - Imports `Profile` as a **named import called `Profile`** from `Gallery.js`.
-  - Imports `Gallery` as a **default import** from `Gallery.js`.
-  - Exports the root `App` component as a **default export.**
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
 
 <Recap>
 
@@ -262,11 +241,7 @@ En esta página aprendiste:
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
-### Separa los componentes aún más {/*split-the-components-further*/}
-=======
-#### Split the components further {/*split-the-components-further*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
+#### Separa los componentes aún más {/*split-the-components-further*/}
 
 Actualmente, `Gallery.js` exporta tanto `Profile` como `Gallery`, lo cual es un poco confuso.
 

@@ -22,11 +22,7 @@ La forma más fácil de depurar sitios web construidos con React es instalar la 
 * [Instálalas para **Firefox**](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 * [Instálalas para **Edge**](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 
-<<<<<<< HEAD:beta/src/pages/learn/react-developer-tools.md
 Ahora, si visitas un sitio web **construido con React**, verás los paneles de _Components_ (componentes) y _Profiler_ (perfilador o generador de perfiles).
-=======
-Now, if you visit a website **built with React,** you will see the _Components_ and _Profiler_ panels.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/react-developer-tools.md
 
 ![Extensión de las Herramientas de Desarrollo de React](/images/docs/react-devtools-extension.png)
 

@@ -60,11 +60,7 @@ Cada componente de React es una función de JavaScript que puede contener algún
 
 <Note>
 
-<<<<<<< HEAD:beta/src/pages/learn/writing-markup-with-jsx.md
-[JSX y React son dos cosas separadas](/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform) que se _pueden_ usar de forma independiente.
-=======
-JSX and React are two separate things. They're often used together, but you *can* [use them independently](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform) of each other. JSX is a syntax extension, while React is a JavaScript library.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/writing-markup-with-jsx.md
+JSX y React son independientes. A menudo se usan en conjunto, pero se *pueden* [usar de forma separada](https://es.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform). JSX es una extensión de sintaxis, mientras React es una biblioteca de JavaScript.
 
 </Note>
 
@@ -139,11 +135,7 @@ La mayoría de las veces, los mensajes de error en pantalla de React te ayudará
 
 ### 1. Devolver un solo elemento raíz {/*1-return-a-single-root-element*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/writing-markup-with-jsx.md
 Para devolver múltiples elementos de un componente, **envuélvelos con una sola etiqueta principal**.
-=======
-To return multiple elements from a component, **wrap them with a single parent tag.**
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/writing-markup-with-jsx.md
 
 Por ejemplo, puedes usar un `<div>`:
 
@@ -178,19 +170,11 @@ Si no deseas agregar un `<div>` adicional a tu marcado, puedes escribir `<>` y `
 </>
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/writing-markup-with-jsx.md
-Esta etiqueta vacía se llama *[Fragmento de React](TODO)*. Los fragmentos de React te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
+Esta etiqueta vacía se llama un *[Fragmento](/apis/react/Fragment)*. Los Fragmentos te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
 
-<DeepDive title="Why do multiple JSX tags need to be wrapped?">
+<DeepDive title="¿Por qué se necesita envolver múltiples etiquetas JSX?">
 
-JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puedes devolver dos objetos de una función sin envolverlos en un array. Esto explica por qué tampoco puedes devolver dos etiquetas JSX sin envolverlas en otra etiqueta o fragmento.
-=======
-This empty tag is called a *[Fragment.](/apis/react/Fragment)* Fragments let you group things without leaving any trace in the browser HTML tree.
-
-<DeepDive title="Why do multiple JSX tags need to be wrapped?">
-
-JSX looks like HTML, but under the hood it is transformed into plain JavaScript objects. You can't return two objects from a function without wrapping them into an array. This explains why you also can't return two JSX tags without wrapping them into another tag or a Fragment.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/writing-markup-with-jsx.md
+JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puedes devolver dos objetos de una función sin envolverlos en un array. Esto explica por qué tampoco puedes devolver dos etiquetas JSX sin envolverlas en otra etiqueta o Fragmento.
 
 </DeepDive>
 
@@ -229,11 +213,7 @@ Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por
 />
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/writing-markup-with-jsx.md
 Puedes [encontrar todos estos atributos en React DOM Elements](TODO). Si te equivocas en uno, no te preocupes, React imprimirá un mensaje con una posible corrección en la [consola del navegador](https://developer.mozilla.org/docs/Tools/Browser_Console).
-=======
-You can [find all these attributes in the React DOM Elements.](TODO) If you get one wrong, don't worry—React will print a message with a possible correction to the [browser console.](https://developer.mozilla.org/docs/Tools/Browser_Console)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/writing-markup-with-jsx.md
 
 <Gotcha>
 
@@ -289,11 +269,7 @@ Ahora sabes por qué existe JSX y cómo usarlo en componentes:
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/writing-markup-with-jsx.md
-### Convierte algo de HTML a JSX {/*convert-some-html-to-jsx*/}
-=======
-#### Convert some HTML to JSX {/*convert-some-html-to-jsx*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/writing-markup-with-jsx.md
+#### Convierte algo de HTML a JSX {/*convert-some-html-to-jsx*/}
 
 Este HTML se pegó en un componente, pero no es JSX válido. Arreglalo;
 

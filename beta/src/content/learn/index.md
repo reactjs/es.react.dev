@@ -92,11 +92,7 @@ function AboutPage() {
 }
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/index.md
 Si tienes mucho HTML que convertir a JSX, puedes utilizar un [convertidor en línea](https://transform.tools/html-to-jsx).
-=======
-If you have a lot of HTML to port to JSX, you can use an [online converter.](https://transform.tools/html-to-jsx)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/index.md
 
 ## Añadir estilos {/*adding-styles*/}
 
@@ -201,11 +197,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/index.md
 Si prefieres un código más compacto, puedes utilizar el [operador `?` condicional](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). A diferencia de `if`, funciona dentro de JSX:
-=======
-If you prefer more compact code, you can use the [conditional `?` operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Unlike `if`, it works inside JSX:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/index.md
 
 ```js
 <div>
@@ -390,11 +382,7 @@ Nota que cada botón «recuerda» su propio estado `count` y que no afecta a otr
 
 ## El uso de los Hooks {/*using-hooks*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/index.md
 Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/apis/react). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
-=======
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference.](/apis/react) You can also write your own Hooks by combining the existing ones.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/index.md
 
 Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar a los Hooks *en el primer nivel* de tus componentes (u otros Hooks). Si quisieras utilizar `useState` en una condicional o en un bucle, extrae un nuevo componente y ponlo ahí.
 
