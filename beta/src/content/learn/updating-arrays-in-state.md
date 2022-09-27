@@ -89,7 +89,7 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-Instead, create a *new* array which contains the existing items *and* a new item at the end. There are multiple ways to do this, but the easiest one is to use the `...` [array spread](TODO:/learn/a-javascript-refresher#array-spread) syntax:
+Instead, create a *new* array which contains the existing items *and* a new item at the end. There are multiple ways to do this, but the easiest one is to use the `...` [array spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) syntax:
 
 ```js
 setArtists( // Replace the state
@@ -214,7 +214,7 @@ Here, `artists.filter(a => a.id !== artist.id)` means "create an array that cons
 
 If you want to change some or all items of the array, you can use `map()` to create a **new** array. The function you will pass to `map` can decide what to do with each item, based on its data or its index (or both).
 
-In this example, an array holds coordinates of two circles and a square. When you press the button, it moves only the circles down by 100 pixels. It does this by producing a new array of data using `map()`:
+In this example, an array holds coordinates of two circles and a square. When you press the button, it moves only the circles down by 50 pixels. It does this by producing a new array of data using `map()`:
 
 <Sandpack>
 
@@ -459,8 +459,6 @@ Although `nextList` and `list` are two different arrays, **`nextList[0]` and `li
 ## Updating objects inside arrays {/*updating-objects-inside-arrays*/}
 
 Objects are not _really_ located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points". This is why you need to be careful when changing nested fields like `list[0]`. Another person's artwork list may point to the same element of the array!
-
-<!-- TODOODLE -->
 
 **When updating nested state, you need to create copies from the point where you want to update, and all the way up to the top level.** Let's see how this works.
 
