@@ -176,6 +176,37 @@ Los componentes son funciones regulares de JavaScript, por lo que puedes tener m
 
 Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un «hijo». Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
+<Gotcha>
+
+Los componentes pueden renderizar otros componentes, pero **nunca debes anidar sus definiciones:**
+
+```js {2-5}
+export default function Gallery() {
+  // 🔴 ¡Nunca definas un componente dentro de otro componente!
+  function Profile() {
+    // ...
+  }
+  // ...
+}
+```
+
+El fragmento de código de arriba es [muy lento y causa errores.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) En su lugar, define cada componente en el primer nivel:
+
+```js {5-8}
+export default function Gallery() {
+  // ...
+}
+
+// ✅ Declara los componentes en el primer nivel
+function Profile() {
+  // ...
+}
+```
+
+Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn/passing-props-to-a-component) en lugar de anidar las definiciones.
+
+</Gotcha>
+
 <DeepDive title="Componentes de arriba a abajo">
 
 Tu aplicación de React comienza en un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
