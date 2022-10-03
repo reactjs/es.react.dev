@@ -452,7 +452,7 @@ Si no estás familiarizado con JavaScript, esta variedad de estilos puede parece
 
 <Challenges>
 
-### Mostrar un icono para los elementos incompletos con `? :` {/*show-an-icon-for-incomplete-items-with--*/}
+#### Mostrar un icono para los elementos incompletos con `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
 Utiliza el operador condicional (`cond ? a : b`) para renderizar un ❌ si `isPacked` no es `true`.
 
@@ -532,7 +532,7 @@ export default function PackingList() {
 
 </Solution>
 
-### Mostrar la importancia del elemento con `&&` {/*show-the-item-importance-with-*/}
+#### Mostrar la importancia del elemento con `&&` {/*show-the-item-importance-with-*/}
 
 En este ejemplo, cada "elemento" recibe una "importancia" numérica. Utiliza el operador `&&` para mostrar "_(Importance: X)_" en cursiva, pero sólo para los elementos que tienen una importancia distinta de cero. Tu lista de elementos debería tener este aspecto:
 
