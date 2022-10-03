@@ -176,16 +176,13 @@ Los componentes son funciones regulares de JavaScript, por lo que puedes tener m
 
 Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un «hijo». Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
-<<<<<<< HEAD
-<DeepDive title="Componentes de arriba a abajo">
-=======
 <Gotcha>
 
-Components can render other components, but **you must never nest their definitions:**
+Los componentes pueden renderizar otros componentes, pero **nunca debes anidar sus definiciones:**
 
 ```js {2-5}
 export default function Gallery() {
-  // 🔴 Never define a component inside another component!
+  // 🔴 ¡Nunca definas un componente dentro de otro componente!
   function Profile() {
     // ...
   }
@@ -193,25 +190,24 @@ export default function Gallery() {
 }
 ```
 
-The snippet above is [very slow and causes bugs.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) Instead, define every component at the top level:
+El fragmento de código de arriba es [muy lento y causa errores.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) En su lugar, define cada componente en el primer nivel:
 
 ```js {5-8}
 export default function Gallery() {
   // ...
 }
 
-// ✅ Declare components at the top level
+// ✅ Declara los componentes en el primer nivel
 function Profile() {
   // ...
 }
 ```
 
-When a child component needs some data from a parent, [pass it by props](/learn/passing-props-to-a-component) instead of nesting definitions.
+Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn/passing-props-to-a-component) en lugar de anidar las definiciones.
 
 </Gotcha>
 
-<DeepDive title="Components all the way down">
->>>>>>> 664dd5736287e01a4557cd03c9a8736682911b34
+<DeepDive title="Componentes de arriba a abajo">
 
 Tu aplicación de React comienza en un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
 
