@@ -100,7 +100,7 @@ Para enlaces que no tienen un equivalente en español (Stack Overflow, videos de
 
 ## Usted, tú y vos
 
-Para mantener la consistencia y evitar regionalismos decidimos utilizar tú para la segunda persona del singular.
+Para mantener la consistencia decidimos utilizar tú para la segunda persona del singular.
 
 # Traducciones comunes
 
