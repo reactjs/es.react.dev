@@ -1,10 +1,10 @@
 ---
-title: Queueing a Series of State Updates
+title: Poner en cola una Serie de Actualizaciones del Estado
 ---
 
 <Intro>
 
-Setting a state variable will queue another render. But sometimes you might want to perform multiple operations on the value before queueing the next render. To do this, it helps to understand how React batches state updates.
+Al establecer una variable de estado se pondrá en cola otro render. Pero a veces, es posible que quieras realizar varias operaciones antes de poner en cola la siguiente renderización. Para hacer esto, ayuda entender cómo React pone en lotes las actualizaciones del estado.
 
 </Intro>
 
