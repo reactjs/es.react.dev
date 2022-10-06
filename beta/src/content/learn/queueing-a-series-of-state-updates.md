@@ -10,14 +10,14 @@ Al establecer una variable de estado se pondrá en cola otro render. Pero a vece
 
 <YouWillLearn>
 
-* What "batching" is and how React uses it to process multiple state updates
-* How to apply several updates to the same state variable in a row
+* Qué es el "batching" y cómo lo utiliza React para procesar múltiples actualizaciones de estado
+* Cómo aplicar varias actualizaciones a la misma variable de estado de forma consecutiva
 
 </YouWillLearn>
 
 ## React batches state updates {/*react-batches-state-updates*/}
 
-You might expect that clicking the "+3" button will increment the counter three times because it calls `setNumber(number + 1)` three times:
+Podrías esperar que al hacer clic en el botón "+3" el contador se incremente tres veces porque llama a `setNumber(number + 1)` tres veces:
 
 <Sandpack>
 
@@ -47,7 +47,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-However, as you might recall from the previous section, [each render's state values are fixed](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time), so the value of `number` inside the first render's event handler is always `0`, no matter how many times you call `setNumber(1)`:
+Sin embargo, como se puede recordar de la sección anterior, [los valores de estado de cada render son fijos](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time), para que el valor de `number` dentro del manejador de eventos del primer render sea siempre `0`, sin importar cuántas veces se llame a `setNumber(1)`:
 
 ```js
 setNumber(0 + 1);
@@ -55,13 +55,13 @@ setNumber(0 + 1);
 setNumber(0 + 1);
 ```
 
-But there is one other factor at work here to discuss. **React waits until *all* code in the event handlers has run before processing your state updates.** This is why the re-render only happens *after* all these `setNumber()` calls.
+Pero hay otro factor a discutir aquí. **React espera hasta que *todo* el código de los manejadores de eventos se haya ejecutado antes de procesar sus actualizaciones del estado.** Por ello, la re-renderizado sólo se produce *después* de todas las llamadas `setNumber()`.
 
-This might remind you of a waiter taking an order at the restaurant. A waiter doesn't run to the kitchen at the mention of your first dish! Instead, they let you finish your order, let you make changes to it, and even take orders from other people at the table.
+Esto puede recordarte a un camarero que toma nota de un pedido en un restaurante. El camarero no corre a la cocina al mencionar tu primer plato. En lugar de eso, te deja terminar tu pedido, te permite hacer cambios en él e incluso toma nota de los pedidos de las otras personas en la mesa.
 
-<Illustration src="/images/docs/illustrations/i_react-batching.png"  alt="An elegant cursor at a restaurant places and order multiple times with React, playing the part of the waiter. After she calls setState() multiple times, the waiter writes down the last one she requested as her final order." />
+<Illustration src="/images/docs/illustrations/i_react-batching.png"  alt="Un elegante cursor en un restaurante hace un pedido varias veces con React, haciendo el papel de camarero. Después de que ella llame a setState() múltiples veces, el camarero anota lo último que ella pidió como su pedido final." />
 
-This lets you update multiple state variables--even from multiple components--without triggering too many [re-renders.](/learn/render-and-commit#re-renders-when-state-updates) But this also means that the UI won't be updated until _after_ your event handler, and any code in it, completes. This behavior, also known as **batching,** makes your React app run much faster. It also avoids dealing with confusing "half-finished" renders where only some of the variables have been updated.
+Esto le permite actualizar múltiples variables de estado -incluso de múltiples componentes- sin realizar demasiados [re-renderizados.](/learn/render-and-commit#re-renders-when-state-updates) Pero esto también significa que la UI no se actualizará hasta _después_ de que tu controlador de eventos, y cualquier código en él, se complete. Este comportamiento, también conocido como **batching**, hace que tu aplicación de React se ejecute mucho más rápido. También evita tener que lidiar con confusos renderizados "a medio terminar" en los que sólo se han actualizado algunas de las variables.
 
 **React does not batch across *multiple* intentional events like clicks**--each click is handled separately. Rest assured that React only does batching when it's generally safe to do. This ensures that, for example, if the first button click disables a form, the second click would not submit it again.
 
