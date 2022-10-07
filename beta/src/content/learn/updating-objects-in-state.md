@@ -1,57 +1,57 @@
 ---
-title: Updating Objects in State
+title: Actualización de objetos en el estado
 ---
 
 <Intro>
 
-State can hold any kind of JavaScript value, including objects. But you shouldn't change objects that you hold in the React state directly. Instead, when you want to update an object, you need to create a new one (or make a copy of an existing one), and then set the state to use that copy.
+El estado puede contener cualquier tipo de valor JavaScript, incluyendo objetos. Pero no deberías cambiar los objetos que tienes en el estado de React directamente. En su lugar, cuando quieras actualizar un objeto, tienes que crear uno nuevo (o hacer una copia de uno existente), y luego configurar el estado para usar esa copia.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to correctly update an object in React state
-- How to update a nested object without mutating it
-- What immutability is, and how not to break it
-- How to make object copying less repetitive with Immer
+- Cómo actualizar correctamente un objeto en el estado de React
+- Cómo actualizar un objeto anidado sin mutarlo
+- Qué es la inmutabilidad y cómo no romperla
+- Cómo hacer que la copia de objetos sea menos repetitiva con Immer
 
 </YouWillLearn>
 
-## What's a mutation? {/*whats-a-mutation*/}
+## ¿Qué es una mutación? {/*whats-a-mutation*/}
 
-You can store any kind of JavaScript value in state.
+Puede almacenar cualquier tipo de valor de JavaScript en el estado.
 
 ```js
 const [x, setX] = useState(0);
 ```
 
-So far you've been working with numbers, strings, and booleans. These kinds of JavaScript values are "immutable", meaning unchangeable or "read-only". You can trigger a re-render to _replace_ a value:
+Hasta ahora has trabajado con números, cadenas y booleanos. Estos tipos de valores de JavaScript son "inmutables", es decir, inmutables o de "sólo lectura". Se puede activar un re-renderizado para _reemplazar_ un valor:
 
 ```js
 setX(5);
 ```
 
-The `x` state changed from `0` to `5`, but the _number `0` itself_ did not change. It's not possible to make any changes to the built-in primitive values like numbers, strings, and booleans in JavaScript.
+El estado `x` ha cambiado de `0` a `5`, pero el _número `0` en sí mismo_ no cambia. No es posible hacer ningún cambio en los valores primitivos incorporados como números, cadenas y booleanos en JavaScript.
 
-Now consider an object in state:
+Consideremos ahora un objeto en estado:
 
 ```js
 const [position, setPosition] = useState({ x: 0, y: 0 });
 ```
 
-Technically, it is possible to change the contents of _the object itself_. **This is called a mutation:**
+Técnicamente, es posible cambiar el contenido del _objeto mismo_. **Esto se denomina mutación:**.
 
 ```js
 position.x = 5;
 ```
 
-However, although objects in React state are technically mutable, you should treat them **as if** they were immutable--like numbers, booleans, and strings. Instead of mutating them, you should always replace them.
+Sin embargo, aunque los objetos en el estado de React son técnicamente mutables, deberías tratarlos **como si** fueran inmutables--como los números, booleanos y cadenas. En lugar de mutarlos, siempre debes reemplazarlos.
 
-## Treat state as read-only {/*treat-state-as-read-only*/}
+## Tratar el estado como de sólo lectura {/*treat-state-as-read-only*/}
 
-In other words, you should **treat any JavaScript object that you put into state as read-only.**
+En otras palabras, debes **tratar cualquier objeto JavaScript que pongas en estado como de sólo lectura.**
 
-This example holds an object in state to represent the current pointer position. The red dot is supposed to move when you touch or move the cursor over the preview area. But the dot stays in the initial position:
+Este ejemplo mantiene un objeto en el estado para representar la posición actual del puntero. Se supone que el punto rojo se mueve cuando se toca o se mueve el cursor, sobre el área de vista previa. Pero el punto permanece en la posición inicial:
 
 <Sandpack>
 
@@ -94,7 +94,7 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-The problem is with this bit of code.
+El problema está en este trozo de código.
 
 ```js
 onPointerMove={e => {
@@ -103,9 +103,9 @@ onPointerMove={e => {
 }}
 ```
 
-This code modifies the object assigned to `position` from [the previous render.](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time) But without using the state setting function, React has no idea that object has changed. So React does not do anything in response. It's like trying to change the order after you've already eaten the meal. While mutating state can work in some cases, we don't recommend it. You should treat the state value you have access to in a render as read-only.
+Este código modifica el objeto asignado a `position` desde [el renderizado anterior.](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time) Pero sin usar la función de ajuste de estado, React no tiene idea de que el objeto ha cambiado. Así que React no hace nada en respuesta. Es como intentar cambiar el orden de lo que has comido cuando ya has acabado. Aunque mutar el estado puede funcionar en algunos casos, no lo recomendamos. Debes tratar el valor del estado al que tienes acceso en un renderizado como de sólo lectura.
 
-To actually [trigger a re-render](/learn/state-as-a-snapshot#setting-state-triggers-renders) in this case, **create a *new* object and pass it to the state setting function:**
+Para realmente [conseguir un re-renderizado](/learn/state-as-a-snapshot#setting-state-triggers-renders) en este caso, **crea un objeto *nuevo* y pásalo a la función de configuración de estado:**
 
 ```js
 onPointerMove={e => {
