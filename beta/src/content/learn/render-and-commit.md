@@ -136,7 +136,6 @@ El renderizado debe ser siempre un [cálculo puro](/learn/keeping-components-pur
 
 De lo contrario, puedes encontrarte con errores confusos y un comportamiento impredecible a medida que tu código base crece en complejidad. Cuando se desarrolla en "Modo estricto", React llama dos veces a la función de cada componente, lo que puede ayudar a aflorar los errores causados por funciones impuras.
 
-
 </Gotcha>
 
 <DeepDive title="Optimización del rendimiento">
