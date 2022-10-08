@@ -4,22 +4,22 @@ title: El estado como una instantánea
 
 <Intro>
 
-Las variables de estado pueden parecerse a las variables normales de JavaScript en las que se puede leer y escribir. Sin embargo, el estado se comporta más como una instantánea. Establecerla no cambia la variable de estado que ya tienes, sino que desencadena una re-renderización.
+Las variables de estado pueden parecerse a las variables normales de JavaScript en las que se puede leer y escribir. Sin embargo, el estado se comporta más como una instantánea. Al asignarlo no se cambia la variable de estado que ya tienes, sino que se desencadena una re-renderización.
 
 </Intro>
 
 <YouWillLearn>
 
-* Cómo la fijación del estado desencadena las re-renderizaciones
-* Cuándo y cómo se actualiza el estado
-* Por qué el estado no se actualiza inmediatamente después de fijarlo
-* Cómo los controladores de eventos acceden a una "instantánea" del estado
+* Cómo la asignación del estado desencadena las re-renderizaciones.
+* Cuándo y cómo se actualiza el estado.
+* Por qué el estado no se actualiza inmediatamente después de asignarlo.
+* Cómo los controladores de eventos acceden a una "instantánea" del estado.
 
 </YouWillLearn>
 
-## Estableciendo disparadores de estado renderiza {/*setting-state-triggers-renders*/}
+## Asignando disparadores de estado renderiza {/*setting-state-triggers-renders*/}
 
-Podrías pensar que tu interfaz de usuario cambia directamente en respuesta al evento del usuario como un clic. En React, funciona un poco diferente de este modelo mental. En la página anterior, viste que [estableciendo un estado solicita una re-renderizacion](/learn/render-and-commit#step-1-trigger-a-render) de React. Esto significa que para que una interfaz reaccione al evento, es necesario *actualizar el estado*.
+Podrías pensar que tu interfaz de usuario cambia directamente en respuesta al evento del usuario como un clic. En React, funciona un poco diferente de este modelo mental. En la página anterior, viste que [asignando un estado solicita una re-renderizacion](/learn/render-and-commit#step-1-trigger-a-render) de React. Esto significa que para que una interfaz reaccione al evento, es necesario *actualizar el estado*.
 
 En este ejemplo, al pulsar "enviar", `setIsSent(true)` indica a React que vuelva a renderizar la UI:
 
@@ -64,7 +64,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 Esto es lo que ocurre cuando se hace clic en el botón:
 
 1. El `onSubmit` ejecuta el gestor de eventos.
-2. `setIsSent(true)` establece `isSent` a `true` y pone en cola una nueva renderización.
+2. `setIsSent(true)` asigna `isSent` a `true` y pone en cola una nueva renderización.
 3. React vuelve a renderizar el componente según el nuevo valor de `isSent`.
 
 Veamos con más detalle la relación entre el estado y la representación.
@@ -129,7 +129,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 Observa que `number` sólo se incrementa una vez por clic.
 
-**El establecimiento del estado sólo lo cambia para el *siguiente* renderizado.** Durante el primer renderizado, `number` era `0`. Esto es por qué, en *ese renderizado* el gestor `onClick`, el valor de `number` sigue siendo `0` incluso después de que `setNumber(number + 1)` haya sido llamado:
+**La asignacion del estado sólo lo cambia para el *siguiente* renderizado.** Durante el primer renderizado, `number` era `0`. Esto es por qué, en *ese renderizado* el gestor `onClick`, el valor de `number` sigue siendo `0` incluso después de que `setNumber(number + 1)` haya sido llamado:
 
 ```js
 <button onClick={() => {
@@ -148,7 +148,7 @@ Esto es lo que el gestor de clic de este botón le dice a React que haga:
 3. `setNumber(number + 1)`: `number` es `0` así que `setNumber(0 + 1)`.
     - React se prepara para el cambiar `number` a `1` en el siguiente renderizado.
 
-Aunque hayas llamado a `setNumber(number + 1)` tres veces, en *ese renderizado* el controlador de eventos `number` es siempre `0`, por lo que estableces el estado a `1` tres veces. Por eso, una vez que el gestor de eventos termina, React vuelve a renderizar el componente con `number` igual a `1` en lugar de `3`.
+Aunque hayas llamado a `setNumber(number + 1)` tres veces, en *ese renderizado* el controlador de eventos `number` es siempre `0`, por lo que asignas el estado a `1` tres veces. Por eso, una vez que el gestor de eventos termina, React vuelve a renderizar el componente con `number` igual a `1` en lugar de `3`.
 
 También puedes visualizarlo sustituyendo mentalmente las variables de estado por sus valores en tu código. Haciendo que la variable de estado `number` sea `0` para *ese renderizado*, su gestor de eventos se ve así:
 
@@ -252,7 +252,7 @@ setTimeout(() => {
 
 El estado almacenado en React puede haber cambiado en el momento en que se ejecuta la alerta, pero se programó utilizando una instantánea del estado en el momento en que el usuario interactuó con ella.
 
-**El valor de una variable de estado nunca cambia dentro de un renderizado,** incluso si el codigo de tu gestor de eventos sea asíncrono. Dentro de *ese renderizado* `onClick`, el valor de `number` sigue siendo `0` incluso después de `setNumber(number + 5)` fue llamado. Su valor se "fijó" cuando React "tomó la instantánea" de la UI al llamar a su componente.
+**El valor de una variable de estado nunca cambia dentro de un renderizado,** incluso si el codigo de tu gestor de eventos sea asíncrono. Dentro de *ese renderizado* `onClick`, el valor de `number` sigue siendo `0` incluso después de `setNumber(number + 5)` fue llamado. Su valor se "asignó" cuando React "tomó la instantánea" de la UI al llamar a su componente.
 
 Aquí hay un ejemplo de cómo eso hace que sus gestores de eventos sean menos propensos a errores de sincronización. A continuación se muestra un formulario que envía un mensaje con un retraso de cinco segundos. Imagina este escenario:
 
@@ -305,13 +305,13 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-**React mantiene los valores de estado "fijos" dentro de los gestores de eventos de un renderizado.** No hay que preocuparse de si el estado ha cambiado mientras se ejecuta el código.
+**React mantiene los valores de estado "asignados" dentro de los gestores de eventos de un renderizado.** No hay que preocuparse de si el estado ha cambiado mientras se ejecuta el código.
 
 Pero, ¿y si quieres leer el último estado antes de una nueva renderización? querrás usar una [función de actualización de estado](/learn/queueing-a-series-of-state-updates), ¡en la siguiente página!
 
 <Recap>
 
-* Estableciendo un estado solicita una re-renderizacion
+* Asignando un estado solicita una re-renderizacion
 * React almacena el estado fuera de su componente, como si estuviera en una estantería.
 * Cuando llamas `useState`, React te da una instantanea del estado *para esa renderizacion*.
 * Las variables y los gestores de eventos no "sobreviven" a las re-renderizaciones. Cada renderizado tiene sus propios gestores de eventos.
@@ -404,7 +404,7 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Ya sea que lo pongas antes o después del `setWalk` no hace ninguna diferencia. El valor de ese renderizado de `walk` es fijo. La llamada a `setWalk` sólo lo cambiará para el *siguiente* renderizado, pero no afectará al gestor de eventos del renderizado anterior.
+Ya sea que lo pongas antes o después del `setWalk` no hace ninguna diferencia. El valor de ese renderizado de `walk` ya fué asignado. La llamada a `setWalk` sólo lo cambiará para el *siguiente* renderizado, pero no afectará al gestor de eventos del renderizado anterior.
 
 Esta línea puede parecer contraintuitiva al principio:
 
