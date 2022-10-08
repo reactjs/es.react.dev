@@ -1,5 +1,5 @@
 ---
-title: Rrenderizar y confimar
+title: Renderizado y confimación
 ---
 
 <Intro>
@@ -21,22 +21,22 @@ Imagina que tus componentes son cocineros en la cocina, montando sabrosos platos
 
 1. **Disparador** de un renderizado (entrega del pedido del cliente a la cocina)
 2. **Renderización** del componente (preparación del pedido en la cocina)
-3. **Confirmar** con el DOM (poner el pedido sobre la mesa)
+3. **Confirmación** con el DOM (poner el pedido sobre la mesa)
 
 <IllustrationBlock sequential>
   <Illustration caption="Disparador" alt="React como un camarero en un restaurante, recogiendo los pedidos de los usuarios y entregándolos a la Cocina de Componentes." src="/images/docs/illustrations/i_render-and-commit1.png" />
-  <Illustration caption="Renderizar" alt="La tarjeta Chef da a React un nuevo componente tarjeta." src="/images/docs/illustrations/i_render-and-commit2.png" />
-  <Illustration caption="Confirmar" alt="React entrega la tarjeta al usuario en su mesa." src="/images/docs/illustrations/i_render-and-commit3.png" />
+  <Illustration caption="Renderizado" alt="La tarjeta Chef da a React un nuevo componente tarjeta." src="/images/docs/illustrations/i_render-and-commit2.png" />
+  <Illustration caption="Confirmación" alt="React entrega la tarjeta al usuario en su mesa." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
-## Paso 1: Disparar un render {/*step-1-trigger-a-render*/}
+## Paso 1: Disparar un renderizado {/*step-1-trigger-a-render*/}
 
 Hay dos razones por las que un componente debe ser renderizado:
 
-1. Es el **render inicial** del componente.
+1. Es el **renderizado inicial** del componente.
 2. El estado del componente (o de uno de sus ancestros)**ha sido actualizado..**
 
-### Render inicial {/*initial-render*/}
+### Renderizado inicial {/*initial-render*/}
 
 Cuando tu aplicación se inicie, necesitas activar el render inicial. Frameworks y sandboxes a veces ocultan este código, pero se hace llamando a [`createRoot`](https://beta.reactjs.org/apis/react-dom/client/createRoot) con el nodo DOM de destino, y luego llamar a su método `render` con su componente:
 
@@ -72,14 +72,14 @@ Una vez que el componente ha sido renderizado inicialmente, puede desencadenar m
 <IllustrationBlock sequential>
   <Illustration caption="Actualización del Estado..." alt="React como un camarero en un restaurante, sirviendo una tarjeta UI al usuario, representado como un patrón con un cursor para su cabeza. El cliente expresa que quiere una tarjeta rosa, no una negra!" src="/images/docs/illustrations/i_rerender1.png" />
   <Illustration caption="...Disparadores..." alt="React vuelve a la cocina de los componentes y le dice al cocinero de las tarjetas que necesitan una tarjeta rosa." src="/images/docs/illustrations/i_rerender2.png" />
-  <Illustration caption="...renderizar!" alt="El cocinero de cartas le da a React la carta rosa." src="/images/docs/illustrations/i_rerender3.png" />
+  <Illustration caption="...renderizado!" alt="El cocinero de cartas le da a React la carta rosa." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
 
 ## Paso 2: React renderiza sus componentes {/*step-2-react-renders-your-components*/}
 
-Después de activar un render, React llama a tus componentes para averiguar qué mostrar en la pantalla.**El "Render" es React llamando a tus componentes.**
+Después de activar un renderizado, React llama a tus componentes para averiguar qué mostrar en la pantalla.**El "Renderizado" es React llamando a tus componentes.**
 
-* **En el render inicial,** React llamará al componente raíz.
+* **En el renderizado inicial,** React llamará al componente raíz.
 * **Para los siguientes renderizados,** React llamará al componente de la función cuya actualización de estado desencadenó el renderizado.
 
 Este proceso es recursivo: si el componente actualizado devuelve algún otro componente, React renderizará _ese_ componente a continuación, y si ese componente también devuelve algo, renderizará _ese_ componente a continuación, y así sucesivamente. El proceso continuará hasta que no haya más componentes anidados y React sepa exactamente qué debe mostrarse en pantalla.
@@ -124,8 +124,8 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-* **Durante el render inicial,** React [creará los nodos del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) para `<section>`, `<h1>`, y tres etiquetas `<img>`. 
-* **Durante un re-render,** React calculará cuáles de sus propiedades, si es que hay alguna, han cambiado desde el renderizado anterior. No hará nada con esa información hasta el siguiente paso, la fase de confirmación.
+* **Durante el renderizado inicial,** React [creará los nodos del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) para `<section>`, `<h1>`, y tres etiquetas `<img>`. 
+* **Durante un re-renderizado,** React calculará cuáles de sus propiedades, si es que hay alguna, han cambiado desde el renderizado anterior. No hará nada con esa información hasta el siguiente paso, la fase de confirmación.
 
 <Gotcha>
 
@@ -148,10 +148,10 @@ El comportamiento por defecto de renderizar todos los componentes anidados dentr
 
 Después de renderizar (llamar) sus componentes, React modificará el DOM. 
 
-* **Para el render inicial,** React utilizará la función  [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API para poner en pantalla todos los nodos DOM que ha creado. 
-* **Para las re-renders,** React aplicará las operaciones mínimas necesarias (¡calculadas durante la renderización!) para hacer que el DOM coincida con la última salida de la renderización.
+* **Para el renderizado inicial,** React utilizará la función  [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API para poner en pantalla todos los nodos DOM que ha creado. 
+* **Para las re-renderizados,** React aplicará las operaciones mínimas necesarias (¡calculadas durante la renderización!) para hacer que el DOM coincida con la última salida de la renderización.
 
-**React sólo cambia los nodos del DOM si hay una diferencia entre los renders.**  Por ejemplo, este es un componente que vuelve a renderizar con diferentes accesorios pasados desde su padre cada segundo. Fíjate en que puedes añadir algún texto en el `<input>`, actualizando su `valor`, pero el texto no desaparece cuando el componente se vuelve a renderizar:
+**React sólo cambia los nodos del DOM si hay una diferencia entre los renderizados.**  Por ejemplo, este es un componente que vuelve a renderizar con diferentes accesorios pasados desde su padre cada segundo. Fíjate en que puedes añadir algún texto en el `<input>`, actualizando su `valor`, pero el texto no desaparece cuando el componente se vuelve a renderizar:
 
 <Sandpack>
 
@@ -201,9 +201,9 @@ Después de que el renderizado haya terminado y React haya actualizado el DOM, e
 <Recap>
 
 * Cualquier actualización de pantalla en una aplicación React ocurre en tres pasos:
-  1. Disparar
-  2. Renderizar
-  3. Confirmar
+  1. Disparador
+  2. Renderización
+  3. Confirmación
 * Puede utilizar el modo estricto para encontrar errores en sus componentes
 * React no toca el DOM si el resultado del renderizado es el mismo que la última vez
 
