@@ -4,7 +4,7 @@ title: Respondiendo a Eventos
 
 <Intro>
 
-React te permite añadir *manejadores de eventos* a tu JSX. Los manejadores de eventos son tus propias funciones que serán disparadas en respuesta a interacciones como hacer clic, hover, enfocar inputs en formularios, entre otros.
+React te permite añadir *manejadores de eventos* a tu JSX. Los manejadores de eventos son tus propias funciones que serán desencadenadas en respuesta a interacciones como hacer clic, hover, enfocar inputs en formularios, entre otros.
 
 </Intro>
 
@@ -18,7 +18,7 @@ React te permite añadir *manejadores de eventos* a tu JSX. Los manejadores de e
 
 ## Añadiendo manejadores de eventos {/*adding-event-handlers*/}
 
-Para agregar un manejador de eventos, primero definirás una función y luego [la pasarás como una prop](/learn/passing-props-to-a-component) a la etiqueta JSX apropiada. Por ejemplo, aquí está un botón que no hace nada todavía:
+Para agregar un manejador de eventos, primero definirás una función y luego [la pasarás como una prop](/learn/passing-props-to-a-component) a la etiqueta JSX apropiada. Por ejemplo, este es un botón que no hace nada todavía:
 
 <Sandpack>
 
@@ -26,7 +26,7 @@ Para agregar un manejador de eventos, primero definirás una función y luego [l
 export default function Button() {
   return (
     <button>
-      I don't do anything
+      No hago nada
     </button>
   );
 }
@@ -45,12 +45,12 @@ Puedes hacer que muestre un mensaje cuando un usuario haga clic siguiendo estos 
 ```js
 export default function Button() {
   function handleClick() {
-    alert('You clicked me!');
+    alert('Me cliqueaste!');
   }
 
   return (
     <button onClick={handleClick}>
-      Click me
+      Cliqueame
     </button>
   );
 }
@@ -73,7 +73,7 @@ Por otro lado, puedes definir un manejador de eventos en línea en el JSX:
 
 ```jsx
 <button onClick={function handleClick() {
-  alert('You clicked me!');
+  alert('Me cliequeaste!');
 }}>
 ```
 
@@ -81,7 +81,7 @@ O, de manera más corta, usando una función flecha:
 
 ```jsx
 <button onClick={() => {
-  alert('You clicked me!');
+  alert('Me cliqueaste!');
 }}>
 ```
 
@@ -110,13 +110,13 @@ Pasar codigo en línea así no lo ejecutará al hacer clic—lo ejecutará cada 
 
 ```jsx
 // Esta alerta se ejecuta cuando el componente se renderiza, no cuando se hace clic!
-<button onClick={alert('You clicked me!')}>
+<button onClick={alert('Me cliqueaste!')}>
 ```
 
 Si quieres definir un manejador de evento en línea, envuélvelo en una función anónima como tal:
 
 ```jsx
-<button onClick={() => alert('You clicked me!')}>
+<button onClick={() => alert('Me cliqueaste!')}>
 ```
 
 En lugar de ejecutar el código que está dentro cada vez que se renderiza, esto crea una función para que sea llamada más tarde.
@@ -132,7 +132,7 @@ En ambos casos, lo que quieres pasar es una función:
 
 ### Leyendo las props en manejadores de eventos {/*reading-props-in-event-handlers*/}
 
-Como los manejadores de eventos son declarados dentro de un componente, tienen acceso a las props del componente. Aquí está un botón que, cuando recibe el clic, muestra una alerta con su prop `message`:
+Como los manejadores de eventos son declarados dentro de un componente, tienen acceso a las props del componente. Este es  un botón que, cuando recibe el clic, muestra una alerta con su prop `message`:
 
 <Sandpack>
 
@@ -148,11 +148,11 @@ function AlertButton({ message, children }) {
 export default function Toolbar() {
   return (
     <div>
-      <AlertButton message="Playing!">
-        Play Movie
+      <AlertButton message="Reproduciendo!">
+        Reproducir película
       </AlertButton>
-      <AlertButton message="Uploading!">
-        Upload Image
+      <AlertButton message="Subiendo!">
+        Subir imagen
       </AlertButton>
     </div>
   );
@@ -186,20 +186,20 @@ function Button({ onClick, children }) {
 
 function PlayButton({ movieName }) {
   function handlePlayClick() {
-    alert(`Playing ${movieName}!`);
+    alert(`Reproduciendo ${movieName}!`);
   }
 
   return (
     <Button onClick={handlePlayClick}>
-      Play "{movieName}"
+      Reproducir "{movieName}"
     </Button>
   );
 }
 
 function UploadButton() {
   return (
-    <Button onClick={() => alert('Uploading!')}>
-      Upload Image
+    <Button onClick={() => alert('Subiendo!')}>
+      Subir imagen
     </Button>
   );
 }
@@ -225,13 +225,13 @@ Aquí, el componente `Toolbar` renderiza un `PlayButton` y un `UploadButton`:
 - `PlayButton` pasa `handlePlayClick` como la prop `onClick` al `Button` que está dentro.
 - `UploadButton` pasa `() => alert('Uploading!')` como la prop `onClick` al `Button` que está dentro.
 
-Finalmente, tu componente `Button` acepta una prop llamada `onClick`. Pasa esa prop directamente al `<button>` incorporado en el navegador con `onClick={onClick}`. Esto le dice a React que llame la función pasada cuando reciba un clic.
+Finalmente, tu componente `Button` acepta una prop llamada `onClick`. Pasa esa prop directamente al `<button>` integrado en el navegador con `onClick={onClick}`. Esto le dice a React que llame la función pasada cuando reciba un clic.
 
 Si usas un [sistema de diseño](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), es común para componentes como los botones que contengan estilos pero no especifiquen un comportamiento. En cambio, componentes como `PlayButton` y `UploadButton` pasarán los manejadores de eventos.
 
 ### Nombrando props de manejadores de eventos {/*naming-event-handler-props*/}
 
-Componentes incorporados como `<button>` y `<div>` solo soportan [nombres de eventos del navegador](TODO:/apis/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
+Componentes integrados como `<button>` y `<div>` solo soportan [nombres de eventos del navegador](TODO:/apis/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
 
 > Por convención, las props de manejadores de eventos deberían empezar con `on`, seguido de una letra mayúscula.
 
@@ -251,11 +251,11 @@ function Button({ onSmash, children }) {
 export default function App() {
   return (
     <div>
-      <Button onSmash={() => alert('Playing!')}>
-        Play Movie
+      <Button onSmash={() => alert('Reproduciendo!')}>
+        Reproducir película
       </Button>
-      <Button onSmash={() => alert('Uploading!')}>
-        Upload Image
+      <Button onSmash={() => alert('Subiendo!')}>
+        Subir imagen
       </Button>
     </div>
   );
@@ -278,8 +278,8 @@ Cuando tu componente soporta múltiples interacciones, podrías nombrar las prop
 export default function App() {
   return (
     <Toolbar
-      onPlayMovie={() => alert('Playing!')}
-      onUploadImage={() => alert('Uploading!')}
+      onPlayMovie={() => alert('Reproduciendo!')}
+      onUploadImage={() => alert('Subiendo!')}
     />
   );
 }
@@ -288,10 +288,10 @@ function Toolbar({ onPlayMovie, onUploadImage }) {
   return (
     <div>
       <Button onClick={onPlayMovie}>
-        Play Movie
+        Reproducir película
       </Button>
       <Button onClick={onUploadImage}>
-        Upload Image
+        Subir imagen
       </Button>
     </div>
   );
@@ -312,7 +312,7 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-Fíjate como el componente `App` no necesita saber *qué* `Toolbar` hará con `onPlayMovie` o `onUploadImage`. Eso es un detalle de implementación del `Toolbar`. Aquí, `Toolbar` los pasa como manejadores `onClick` en sus `Button`s, pero podría luego dispararlos con un atajo de teclado. Nombrar props después de interacciónes específicas de la aplicación como `onPlayMovie` te da la flexibilidad de cambiar como son usadas más tarde.
+Fíjate como el componente `App` no necesita saber *qué* `Toolbar` hará con `onPlayMovie` o `onUploadImage`. Eso es un detalle de implementación del `Toolbar`. Aquí, `Toolbar` los pasa como manejadores `onClick` en sus `Button`s, pero podría luego desencadenarlos con un atajo de teclado. Nombrar props después de interacciónes específicas de la aplicación como `onPlayMovie` te da la flexibilidad de cambiar como son usadas más tarde.
 
 ## Propagación de eventos {/*event-propagation*/}
 
@@ -326,13 +326,13 @@ Este `<div>` contiene dos botones. Tanto el `<div>` *como* cada botón tienen su
 export default function Toolbar() {
   return (
     <div className="Toolbar" onClick={() => {
-      alert('You clicked on the toolbar!');
+      alert('Cliqueaste el Toolbar!');
     }}>
-      <button onClick={() => alert('Playing!')}>
-        Play Movie
+      <button onClick={() => alert('Reproduciendo!')}>
+        Reproducir película
       </button>
-      <button onClick={() => alert('Uploading!')}>
-        Upload Image
+      <button onClick={() => alert('Subiendo!')}>
+        Subir imagen
       </button>
     </div>
   );
@@ -349,7 +349,7 @@ button { margin: 5px; }
 
 </Sandpack>
 
-Si haces clic en cualquiera de los botones, su `onClick` se ejecutará primero, seguido por el `onClick` del `<div>`. Así que dos mensajes aparecerán. Si haces clic en el toolbar como tal, solo el `onClick` del `<div>` padre se ejecutará.
+Si haces clic en cualquiera de los botones, su `onClick` se ejecutará primero, seguido por el `onClick` del `<div>`. Así que dos mensajes aparecerán. Si haces clic en el propio toolbar, solo el `onClick` del `<div>` padre se ejecutará.
 
 <Gotcha>
 
@@ -380,13 +380,13 @@ function Button({ onClick, children }) {
 export default function Toolbar() {
   return (
     <div className="Toolbar" onClick={() => {
-      alert('You clicked on the toolbar!');
+      alert('Cliqueaste el Toolbar!');
     }}>
-      <Button onClick={() => alert('Playing!')}>
-        Play Movie
+      <Button onClick={() => alert('Reproduciendo!')}>
+        Reproducir película
       </Button>
-      <Button onClick={() => alert('Uploading!')}>
-        Upload Image
+      <Button onClick={() => alert('Subiendo!')}>
+        Subir imagen
       </Button>
     </div>
   );
@@ -454,7 +454,7 @@ function Button({ onClick, children }) {
 
 También puede que añadas más codigo a este manejador antes de llamar al manejador de eventos `onClick` del padre. Este patrón proporciona una *alternativa* a la propagación. Le permite al componente hijo manejar el evento, mientras también le permite al componente padre especificar algún comportamiento adicional. A diferencia de la propagación, no es automático. Pero el beneficio de este patrón es que puedes seguir claramente la cadena de código completa que se ejecuta como resultado de algún evento.
 
-Si confías en la propagacion y es difícil rastrear cuales manejadores se ejecutaron y por qué, intenta este enfoque.
+Si dependes de la propagacion y es difícil rastrear cuales manejadores se ejecutaron y por qué, intenta este enfoque.
 
 ### Evitando comportamiento por defecto {/*preventing-default-behavior*/}
 
@@ -465,7 +465,7 @@ Algunos eventos del navegador tienen comportamientos por defecto asociados a ell
 ```js
 export default function Signup() {
   return (
-    <form onSubmit={() => alert('Submitting!')}>
+    <form onSubmit={() => alert('Enviando!')}>
       <input />
       <button>Send</button>
     </form>
@@ -488,10 +488,10 @@ export default function Signup() {
   return (
     <form onSubmit={e => {
       e.preventDefault();
-      alert('Submitting!');
+      alert('Enviando!');
     }}>
       <input />
-      <button>Send</button>
+      <button>Enviar</button>
     </form>
   );
 }
@@ -512,7 +512,7 @@ No confundas `e.stopPropagation()` y `e.preventDefault()`. Ambos son útiles, pe
 
 Absolutamente! Los manejadores de eventos son el mejor lugar para los efectos secundarios.
 
-A diferencia de las funciones de renderizado, los manejadores de eventos no necesitan ser [puros](/learn/keeping-components-pure), asi que es un buen lugar para *cambiar* algo—por ejemplo, cambiar el valor de un input en respuesta a la escritura, o cambiar una lista en respuesta a un botón presionado. Sin embargo, para cambiar una información, primero necesitas alguna manera de almacenarla. En React, esto se hace usando el [estado, la memoria de un componente.](/learn/state-a-components-memory) Aprenderás todo sobre ello en la siguiente página.
+A diferencia de las funciones de renderización, los manejadores de eventos no necesitan ser [puros](/learn/keeping-components-pure), asi que es un buen lugar para *cambiar* algo—por ejemplo, cambiar el valor de un input en respuesta a la escritura, o cambiar una lista en respuesta a un botón presionado. Sin embargo, para cambiar una información, primero necesitas alguna manera de almacenarla. En React, esto se hace usando el [estado, la memoria de un componente.](/learn/state-a-components-memory) Aprenderás todo sobre ello en la siguiente página.
 
 <Recap>
 
@@ -551,7 +551,7 @@ export default function LightSwitch() {
 
   return (
     <button onClick={handleClick()}>
-      Toggle the lights
+      Alterna las luces
     </button>
   );
 }
@@ -578,7 +578,7 @@ export default function LightSwitch() {
 
   return (
     <button onClick={handleClick}>
-      Toggle the lights
+      Alterna las luces
     </button>
   );
 }
@@ -603,7 +603,7 @@ export default function LightSwitch() {
 
   return (
     <button onClick={() => handleClick()}>
-      Toggle the lights
+      Alterna las luces
     </button>
   );
 }
@@ -627,7 +627,7 @@ export default function ColorSwitch({
 }) {
   return (
     <button>
-      Change color
+      Cambiar color
     </button>
   );
 }
@@ -661,7 +661,7 @@ export default function App() {
       <ColorSwitch onChangeColor={handleChangeColor} />
       <br />
       <br />
-      <h2>Clicks on the page: {clicks}</h2>
+      <h2>Clics en la página: {clicks}</h2>
     </div>
   );
 }
@@ -686,7 +686,7 @@ export default function ColorSwitch({
       e.stopPropagation();
       onChangeColor();
     }}>
-      Change color
+      Cambiar color
     </button>
   );
 }
@@ -720,7 +720,7 @@ export default function App() {
       <ColorSwitch onChangeColor={handleChangeColor} />
       <br />
       <br />
-      <h2>Clicks on the page: {clicks}</h2>
+      <h2>Clics en la página: {clicks}</h2>
     </div>
   );
 }
