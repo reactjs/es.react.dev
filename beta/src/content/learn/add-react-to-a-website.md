@@ -121,7 +121,7 @@ Si necesitas renderizar el mismo componente en muchos lugares puedes asignar un 
 
 El código no minificado de JavaScript puede ralentizar significativamente los tiempos de carga para tus usuarios. Antes de desplegar tu sitio web a producción es una buena idea minificar sus scripts.
 
-- **Si no tienes un paso de minificación** para tus scripts, [aquí hay una forma de configurarlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
+- **Si no tienes un paso de minificación** para tus scripts, [aquí hay una forma de configurarlo](https://gist.github.com/gaearon/ee0201910608f15df3f8cd66aa83f98e).
 - **Si ya estás minificando** los scripts de tu aplicación, tu sitio estará listo para producción si te aseguras de que el HTML desplegado carga las versiones de React que terminan en `production.min.js`, como estas:
 
 ```html
@@ -208,7 +208,7 @@ Puedes preprocesar JSX de forma tal que cada vez que guardes un archivo con JSX 
 
 1. Crea una carpeta llamada **`src`**.
 2. En tu terminal, ejecuta este comando: `npx babel --watch src --out-dir . --presets react-app/prod ` (¡No esperes a que termine! Este comando inicia un *watcher* (observador) automático para las ediciones de JSX dentro de `src`).
-3. Mueve tu **`like-button.js`** con JSX ([¡debería lucir así!](https://gist.githubusercontent.com/gaearon/1884acf8834f1ef9a574a953f77ed4d8/raw/dfc664bbd25992c5278c3bf3d8504424c1104ecf/like-button.js)) a la nueva carpeta **`src`**.
+3. Mueve tu **`like-button.js`** con JSX ([¡debería lucir así!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) a la nueva carpeta **`src`**.
 
 El *watcher* creará un **`like-button.js`** preprocesado con el código JavaScript simple que es adecuado para un navegador.
 
