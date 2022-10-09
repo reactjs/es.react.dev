@@ -117,6 +117,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | camelCase | *camelCase* |
 | controlled component | componente controlado |
 | debugging | depuración |
+| event handler | manejador de eventos |
 | DOM | DOM |
 | framework | *framework* |
 | function component | componente de función |
