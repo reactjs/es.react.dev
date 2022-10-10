@@ -1,6 +1,6 @@
 # Traducción
 
-Progreso actual: https://github.com/reactjs/es.reactjs.org/issues/4
+Progreso actual: https://github.com/reactjs/es.reactjs.org/issues/500
 
 # Guía de estilo
 
@@ -105,19 +105,19 @@ Cuando escribas los nombres de las páginas y de los encabezados, recuerda que s
 Ejemplo:
 
 ```md
-# Importing and Exporting Components
+## Importing and Exporting Components
 ```
 
 ✅ CORRECTO:
 
 ```md
-# Importar y exportar componentes
+## Importar y exportar componentes
 ```
 
 ❌ INCORRECTO:
 
 ```md
-# Importar y Exportar Componentes
+## Importar y Exportar Componentes
 ```
 
 ## Usted, tú y vos
