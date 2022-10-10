@@ -98,9 +98,53 @@ Los elementos de React son [inmutables](https://es.wikipedia.org/wiki/Objeto_inm
 
 Para enlaces que no tienen un equivalente en español (Stack Overflow, videos de YouTube, etcétera) mantén el enlace en inglés.
 
+## Uso de mayúsculas en el nombre de las páginas y los encabezados
+
+Cuando escribas los nombres de las páginas y de los encabezados, recuerda que solo debe empezar con mayúscula la primera palabra de la frase. 
+
+Ejemplo:
+
+```md
+# Importing and Exporting Components
+```
+
+✅ CORRECTO:
+
+```md
+# Importar y exportar componentes
+```
+
+❌ INCORRECTO:
+
+```md
+# Importar y Exportar Componentes
+```
+
 ## Usted, tú y vos
 
-Para mantener la consistencia decidimos utilizar tú para la segunda persona del singular.
+El uso de la segunda persona del singular varía en las diferentes variantes del español. Aunque todas son perfectamente válidas hemos optado por usar solo la forma «tú» para mantener la consistencia. Entre las razones para esta decisión se encuentra nuestro deseo de mantener el tono relativamente informal de la documentación original y evitar ambigüedades cuando se omite el pronombre.
+
+## El gerundio
+
+En inglés es común el uso del gerundio con función sustantiva en los títulos. Al traducirlo al español deberíamos evitar el calco, en este caso generalmente se puede usar el infinitivo:
+
+Ejemplo:
+
+```md
+## Thinking in React
+```
+
+✅ CORRECTO:
+
+```md
+## Pensar en React
+```
+
+❌ INCORRECTO:
+
+```md
+## Pensando en React
+```
 
 # Traducciones comunes
 
