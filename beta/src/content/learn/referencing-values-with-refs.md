@@ -233,6 +233,7 @@ export default function Counter() {
 </Sandpack>
 
 Esta es la razón por la que leer `ref.current` durante el renderizado conduce a un cógigo poco fiable. Si necesitas eso, en su lugar usa el estado.
+
 <DeepDive title="¿Cómo useRef funciona internamente?">
 
 A pesar de que tanto `useState` como `useRef` son proporcionados por React, en principio `useRef` podría ser implementado _por encima de_ `useState`. Puedes imaginar que internamente en React, `useRef` es implementado de esta manera:
