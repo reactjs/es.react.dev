@@ -150,7 +150,7 @@ Esto es lo que el manejador de clic de este botón le dice a React que haga:
 
 Aunque hayas llamado a `setNumber(number + 1)` tres veces, en el manejador de eventos de *ese renderizado* `number` es siempre `0`, por lo que asignas el estado a `1` tres veces. Por eso, una vez que el manejador de eventos termina, React vuelve a renderizar el componente con `number` igual a `1` en lugar de `3`.
 
-También puedes visualizarlo sustituyendo mentalmente las variables de estado por sus valores en tu código. Haciendo que la variable de estado `number` sea `0` para *ese renderizado*, su manejador de eventos se ve así:
+También puedes visualizarlo sustituyendo mentalmente las variables de estado por sus valores en tu código. Haciendo que la variable de estado `number` sea `0` para *ese renderizado*, tu manejador de eventos se ve así:
 
 ```js
 <button onClick={() => {
