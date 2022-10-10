@@ -116,12 +116,12 @@ onPointerMove={e => {
 }}
 ```
 
-With `setPosition`, you're telling React:
+Con `setPosition`, le estás diciendo a React:
 
-* Replace `position` with this new object
-* And render this component again
+* Reemplazar `posición` con este nuevo objeto
+* Y renderiza este componente de nuevo
 
-Notice how the red dot now follows your pointer when you touch or hover over the preview area:
+Observa cómo el punto rojo sigue ahora a tu puntero cuando tocas o pasas el ratón por encima del área de vista previa:
 
 <Sandpack>
 
@@ -168,7 +168,7 @@ body { margin: 0; padding: 0; height: 250px; }
 
 <DeepDive title="Local mutation is fine">
 
-Code like this is a problem because it modifies an *existing* object in state:
+Un código como este es un problema porque modifica un objeto *existente* en el estado:
 
 ```js
 position.x = e.clientX;
@@ -184,7 +184,7 @@ nextPosition.y = e.clientY;
 setPosition(nextPosition);
 ````
 
-In fact, it is completely equivalent to writing this:
+De hecho, es completamente equivalente a escribir this:
 
 ```js
 setPosition({
@@ -193,15 +193,15 @@ setPosition({
 });
 ```
 
-Mutation is only a problem when you change *existing* objects that are already in state. Mutating an object you've just created is okay because *no other code references it yet.* Changing it isn't going to accidentally impact something that depends on it. This is called a "local mutation". You can even do local mutation [while rendering.](/learn/keeping-components-pure#local-mutation-your-components-little-secret) Very convenient and completely okay!
+La mutación sólo es un problema cuando cambias objetos *existentes* que ya están en el estado. Mutar un objeto que acabas de crear está bien porque *ningún otro código hace referencia a él todavía.* Cambiarlo no va a afectar accidentalmente a algo que dependa de él. Esto se llama "mutación local". Incluso puedes hacer una mutación local [mientras renderizas.](/learn/keeping-components-pure#local-mutation-your-components-little-secret) ¡Muy conveniente y completamente bien!
 
 </DeepDive>  
 
-## Copying objects with the spread syntax {/*copying-objects-with-the-spread-syntax*/}
+## Copiar objetos con la sintaxis de propagación {/*copying-objects-with-the-spread-syntax*/}
 
-In the previous example, the `position` object is always created fresh from the current cursor position. But often, you will want to include *existing* data as a part of the new object you're creating. For example, you may want to update *only one* field in a form, but keep the previous values for all other fields.
+En el ejemplo anterior, el objeto `posición` se crea siempre de nuevo a partir de la posición actual del cursor. Pero a menudo, querrás incluir datos *existentes* como parte del nuevo objeto que estás creando. Por ejemplo, puedes querer actualizar *sólo un* campo de un formulario, pero mantener los valores anteriores de todos los demás campos.
 
-These input fields don't work because the `onChange` handlers mutate the state:
+Estos campos de entrada no funcionan porque los manejadores `onChange` mutan el estado:
 
 <Sandpack>
 
@@ -267,13 +267,13 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-For example, this line mutates the state from a past render:
+Por ejemplo, esta línea muta el estado de un render pasado:
 
 ```js
 person.firstName = e.target.value;
 ```
 
-The reliable way to get the behavior you're looking for is to create a new object and pass it to `setPerson`. But here, you want to also **copy the existing data into it** because only one of the fields has changed:
+La forma fiable de obtener el comportamiento que buscas es crear un nuevo objeto y pasarlo a `setPerson`. Pero aquí, quieres también **copiar los datos existentes en él** porque sólo uno de los campos ha cambiado:
 
 ```js
 setPerson({
@@ -283,7 +283,7 @@ setPerson({
 });
 ```
 
-You can use the `...` [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) syntax so that you don't need to copy every property separately.
+Se puede utilizar el `...` [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) para no tener que copiar cada propiedad por separado.
 
 ```js
 setPerson({
@@ -292,9 +292,9 @@ setPerson({
 });
 ```
 
-Now the form works! 
+¡Ahora el formulario funciona! 
 
-Notice how you didn't declare a separate state variable for each input field. For large forms, keeping all data grouped in an object is very convenient--as long as you update it correctly!
+Fíjate en que no has declarado una variable de estado distinta para cada campo de entrada. Para los formularios grandes, es muy conveniente mantener todos los datos agrupados - ¡siempre y cuando los actualice correctamente!
 
 <Sandpack>
 
@@ -369,11 +369,11 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-Note that the `...` spread syntax is "shallow"--it only copies things one level deep. This makes it fast, but it also means that if you want to update a nested property, you'll have to use it more than once. 
+Tenga en cuenta que la sintaxis del spread operator `...` es "superficial": sólo copia las cosas a un nivel de profundidad. Esto lo hace rápido, pero también significa que si quieres actualizar una propiedad anidada, tendrás que usarla más de una vez. 
 
 <DeepDive title="Using a single event handler for multiple fields">
 
-You can also use the `[` and `]` braces inside your object definition to specify a property with dynamic name. Here is the same example, but with a single event handler instead of three different ones:
+También puede utilizar las llaves `[` y `]` dentro de su definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
 
 <Sandpack>
 
@@ -437,13 +437,13 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-Here, `e.target.name` refers to the `name` property given to the `<input>` DOM element.
+Aquí, `e.target.name` se refiere a la propiedad `name` dada al elemento DOM `<input>`.
 
 </DeepDive>
 
 ## Updating a nested object {/*updating-a-nested-object*/}
 
-Consider a nested object structure like this:
+Considera una estructura de objetos anidados como esta:
 
 ```js
 const [person, setPerson] = useState({
@@ -456,13 +456,13 @@ const [person, setPerson] = useState({
 });
 ```
 
-If you wanted to update `person.artwork.city`, it's clear how to do it with mutation:
+Si quisieras actualizar `person.artwork.city`, está claro cómo hacerlo con la mutación:
 
 ```js
 person.artwork.city = 'New Delhi';
 ```
 
-But in React, you treat state as immutable! In order to change `city`, you would first need to produce the new `artwork` object (pre-populated with data from the previous one), and then produce the new `person` object which points at the new `artwork`:
+Pero en React, ¡se trata el estado como inmutable! Para cambiar la "ciudad", primero tendrías que producir el nuevo objeto "artwork" (pre-poblado con los datos de la anterior), y luego producir el nuevo objeto "person" que apunta a la nueva "artwork":
 
 ```js
 const nextArtwork = { ...person.artwork, city: 'New Delhi' };
@@ -470,7 +470,7 @@ const nextPerson = { ...person, artwork: nextArtwork };
 setPerson(nextPerson);
 ```
 
-Or, written as a single function call:
+O, escrito como una sola llamada a la función:
 
 ```js
 setPerson({
@@ -482,7 +482,7 @@ setPerson({
 });
 ```
 
-This gets a bit wordy, but it works fine for many cases:
+Esto es un poco complicado, pero funciona bien para muchos casos:
 
 <Sandpack>
 
