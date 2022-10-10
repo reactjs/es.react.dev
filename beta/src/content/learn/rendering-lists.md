@@ -93,7 +93,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-Aprenderás como arreglar este error más adelante en esta página . Antes de que lleguemos a eso, vamos a añadir algo de estructura a tus datos.
+Aprenderás como arreglar este error más adelante en esta página. Antes de que lleguemos a eso, vamos a añadir algo de estructura a tus datos.
 
 ## Filtrar arrays de objetos {/*filtering-arrays-of-items*/}
 
@@ -646,7 +646,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-En esta solución, las llamadas al `map` están puestas directamente en línea dentro de los elementos padre `<ul>` , pero podrías instroducir variables para ellos si eso te parece más legible.
+En esta solución, las llamadas al `map` están puestas directamente en línea dentro de los elementos padre `<ul>`, pero podrías introducir variables para ellos si eso te parece más legible.
 
 Aún hay un poco de repetición entre las listas renderizadas. Puedes ir más lejos aún y extraer las partes repetitivas en un componente `<ListSection>`:
 
@@ -760,9 +760,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-Un lector muy atento podría notar que con dos llamadas al `filter`, comprobamos la profesión de las personas dos veces. Comprobar una propiedad es muy rápido, asi que en este ejemplo está bien. Si tu lógica fuese más costosa que eso, podrías reemplazar las llamadas al `filter` con un bucle que manualmente construya los arrays y compruebe a cada persona una vez.
+Un lector muy atento podría notar que con dos llamadas al `filter`, comprobamos la profesión de las personas dos veces. Comprobar una propiedad es muy rápido, así que en este ejemplo está bien. Si tu lógica fuese más costosa que eso, podrías reemplazar las llamadas al `filter` con un bucle que manualmente construya los arrays y compruebe a cada persona una vez.
 
-De hecho, si `people` nunca cambia, podrías mover este código fuera del componente. Desde la prespectiva de React, lo único que importa es si le has dado un array de nodos JSX en el final. No importa como produces ese array:
+De hecho, si `people` nunca cambia, podrías mover este código fuera del componente. Desde la perspectiva de React, lo único que importa es si le has dado un array de nodos JSX en el final. No importa como produces ese array:
 
 <Sandpack>
 
@@ -974,7 +974,7 @@ Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle ext
 
 </Solution>
 
-#### Extraer un componente de elemento de lista{/*extracting-a-list-item-component*/}
+#### Extraer un componente de elemento de lista {/*extracting-a-list-item-component*/}
 
 Este componente `RecipeList` contiene dos llamadas `map` anidadas. Para simplificarlo, extrae un componente `Recipe` de el que aceptará las props `id`, `name`, y `ingredients`. ¿Dónde colocarías la `key` exterior y por qué?
 
