@@ -100,7 +100,7 @@ Para enlaces que no tienen un equivalente en español (Stack Overflow, videos de
 
 ## Usted, tú y vos
 
-Para mantener la consistencia y evitar regionalismos decidimos utilizar tú para la segunda persona del singular.
+Para mantener la consistencia decidimos utilizar tú para la segunda persona del singular.
 
 # Traducciones comunes
 
@@ -117,6 +117,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | camelCase | *camelCase* |
 | controlled component | componente controlado |
 | debugging | depuración |
+| event handler | manejador de eventos |
 | DOM | DOM |
 | framework | *framework* |
 | function component | componente de función |
