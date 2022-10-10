@@ -15,7 +15,7 @@ Al establecer una variable de estado se pondrá en cola otro render. Pero a vece
 
 </YouWillLearn>
 
-## React actualiza el estado por lotes {/*react-batches-state-updates*/}
+## React batches state updates {/*react-batches-state-updates*/}
 
 Podrías esperar que al hacer clic en el botón "+3" el contador se incremente tres veces porque llama a `setNumber(number + 1)` tres veces:
 
