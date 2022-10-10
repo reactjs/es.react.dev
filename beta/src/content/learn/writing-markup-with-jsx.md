@@ -215,11 +215,11 @@ Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por
 
 Puedes [encontrar todos estos atributos en React DOM Elements](TODO). Si te equivocas en uno, no te preocupes, React imprimirá un mensaje con una posible corrección en la [consola del navegador](https://developer.mozilla.org/docs/Tools/Browser_Console).
 
-<Gotcha>
+<Pitfall>
 
 Por razones históricas, los atributos [`aria-*`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) y [`data-*`](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) se escriben como en HTML, con guiones.
 
-</Gotcha>
+</Pitfall>
 
 ### Consejo profesional: usa un convertidor JSX {/*pro-tip-use-a-jsx-converter*/}
 
