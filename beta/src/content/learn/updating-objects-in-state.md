@@ -590,9 +590,9 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-<DeepDive title="Objects are not really nested">
+<DeepDive title="Los objetos no están realmente anidados">
 
-An object like this appears "nested" in code:
+Un objeto de este tipo aparece "anidado" en el código:
 
 ```js
 let obj = {
@@ -605,7 +605,7 @@ let obj = {
 };
 ```
 
-However, "nesting" is an inaccurate way to think about how objects behave. When the code executes, there is no such thing as a "nested" object. You are really looking at two different objects:
+Sin embargo, la "anidación" es una forma inexacta de pensar en el comportamiento de los objetos. Cuando el código se ejecuta, no existe tal cosa como un objeto "anidado". En realidad, se trata de dos objetos diferentes:
 
 ```js
 let obj1 = {
@@ -620,7 +620,7 @@ let obj2 = {
 };
 ```
 
-The `obj1` object is not "inside" `obj2`. For example, `obj3` could "point" at `obj1` too:
+El objeto `obj1` no está "dentro" de `obj2`. Por ejemplo, `obj3` también podría "apuntar" a `obj1`:
 
 ```js
 let obj1 = {
@@ -640,13 +640,13 @@ let obj3 = {
 };
 ```
 
-If you were to mutate `obj3.artwork.city`, it would affect both `obj2.artwork.city` and `obj1.city`. This is because `obj3.artwork`, `obj2.artwork`, and `obj1` are the same object. This is difficult to see when you think of objects as "nested". Instead, they are separate objects "pointing" at each other with properties.
+Si se muta `obj3.artwork.city`, afectaría tanto a `obj2.artwork.city` como a `obj1.city`. Esto se debe a que `obj3.artwork`, `obj2.artwork` y `obj1` son el mismo objeto. Esto es difícil de ver cuando se piensa en los objetos como "anidados". En cambio, son objetos separados que se "apuntan" unos a otros con propiedades.
 
 </DeepDive>  
 
-### Write concise update logic with Immer {/*write-concise-update-logic-with-immer*/}
+### Escribe una lógica de actualización concisa con Immer {/*write-concise-update-logic-with-immer*/}
 
-If your state is deeply nested, you might want to consider [flattening it.](/learn/choosing-the-state-structure#avoid-deeply-nested-state) But, if you don't want to change your state structure, you might prefer a shortcut to nested spreads. [Immer](https://github.com/immerjs/use-immer) is a popular library that lets you write using the convenient but mutating syntax and takes care of producing the copies for you. With Immer, the code you write looks like you are "breaking the rules" and mutating an object:
+Si su estado está profundamente anidado, podría considerar [aplanarlo.](/learn/choosing-the-state-structure#avoid-deeply-nested-state) Pero, si no quieres cambiar la estructura de tu estado, puede que prefieras un atajo a los spreads anidados. [Immer](https://github.com/immerjs/use-immer) es una popular librería que te permite escribir utilizando la sintaxis conveniente pero mutante y se encarga de producir las copias por ti. Con Immer, el código que escribes parece que estés "rompiendo las reglas" y mutando un objeto:
 
 ```js
 updatePerson(draft => {
@@ -654,21 +654,21 @@ updatePerson(draft => {
 });
 ```
 
-But unlike a regular mutation, it doesn't overwrite the past state!
+Pero a diferencia de una mutación normal, ¡no sobrescribe el estado anterior!
 
 <DeepDive title="How does Immer work?">
 
-The `draft` provided by Immer is a special type of object, called a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), that "records" what you do with it. This is why you can mutate it freely as much as you like! Under the hood, Immer figures out which parts of the `draft` have been changed, and produces a completely new object that contains your edits.
+El `borrador` proporcionado por Immer es un tipo especial de objeto, llamado [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), que "registra" lo que haces con él. Por eso, ¡puedes mutar libremente todo lo que quieras! Bajo el capó, Immer se da cuenta de qué partes del "borrador" han sido cambiadas, y produce un objeto completamente nuevo que contiene tus ediciones.
 
 </DeepDive>
 
-To try Immer:
+Para probar Immer:
 
-1. Add `use-immer` to your `package.json` as a dependency
-2. Run `npm install`
-3. Then replace `import { useState } from 'react'` with `import { useImmer } from 'use-immer'`
+1. Añade `use-immer` a tu `package.json` como dependencia
+2. Ejecute `npm install`.
+3. Luego sustituye `import { useState } de 'react'` por `import { useImmer } de 'use-immer'`.
 
-Here is the above example converted to Immer:
+Aquí está el ejemplo anterior convertido a Immer:
 
 <Sandpack>
 
@@ -781,31 +781,31 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-Notice how much more concise the event handlers have become. You can mix and match `useState` and `useImmer` in a single component as much as you like. Immer is a great way to keep the update handlers concise, especially if there's nesting in your state, and copying objects leads to repetitive code.
+Fíjate en lo mucho más concisos que se han vuelto los manejadores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los manejadores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
 
-<DeepDive title="Why is mutating state not recommended in React?">
+<DeepDive title="¿Por qué no se recomienda mutar el estado en React?">
 
-There are a few reasons:
+Hay algunas razones:
 
-* **Debugging:** If you use `console.log` and don't mutate state, your past logs won't get clobbered by the more recent state changes. So you can clearly see how state has changed between renders.
-* **Optimizations:** Common React [optimization strategies](/api/react/memo) rely on skipping work if previous props or state are the same as the next ones. If you never mutate state, it is very fast to check whether there were any changes. If `prevObj === obj`, you can be sure that nothing could have changed inside of it.
-* **New Features:** The new React features we're building rely on state being [treated like a snapshot.](/learn/state-as-a-snapshot) If you're mutating past versions of state, that may prevent you from using the new features.
-* **Requirement Changes:** Some application features, like implementing Undo/Redo, showing a history of changes, or letting the user reset a form to earlier values, are easier to do when nothing is mutated. This is because you can keep past copies of state in memory, and reuse them when appropriate. If you start with a mutative approach, features like this can be difficult to add later on.
-* **Simpler Implementation:** Because React does not rely on mutation, it does not need to do anything special with your objects. It does not need to hijack their properties, always wrap them into Proxies, or do other work at initialization as many "reactive" solutions do. This is also why React lets you put any object into state--no matter how large--without additional performance or correctness pitfalls.
+**Debugging:** Si usas `console.log` y no mutas el estado, tus registros anteriores no se verán afectados por los cambios de estado más recientes. Así puedes ver claramente cómo ha cambiado el estado entre renders.
+* **Optimizaciones:** React común [estrategias de optimización](/api/react/memo) se basan en omitir el trabajo si los props o el estado anteriores son los mismos que los siguientes. Si nunca se muta el estado, es muy rápido comprobar si ha habido algún cambio. Si `prevObj === obj`, puedes estar seguro de que nada ha podido cambiar en su interior.
+* **Nuevas características:** Las nuevas características de React que estamos construyendo dependen de que el estado sea [tratado como una instantánea.](/learn/state-as-a-snapshot) Si estás mutando versiones anteriores del estado, eso puede impedirte utilizar las nuevas funciones.
+* **Cambios de requisitos:** Algunas características de la aplicación, como la implementación de Deshacer/Rehacer, mostrar un historial de cambios, o permitir al usuario restablecer un formulario a valores anteriores, son más fáciles de hacer cuando no se muta nada. Esto se debe a que puedes mantener copias pasadas del estado en la memoria, y reutilizarlas cuando sea apropiado. Si empiezas con un enfoque mutativo, características como estas pueden ser difíciles de añadir más adelante.
+**Implementación más sencilla:** Como React no se basa en la mutación, no necesita hacer nada especial con tus objetos. No necesita apropiarse de sus propiedades, envolverlos siempre en Proxies, o hacer otro trabajo en la inicialización como hacen muchas soluciones "reactivas". Esta es también la razón por la que React te permite poner cualquier objeto en el estado - no importa lo grande que sea - sin problemas adicionales de rendimiento o corrección.
 
-In practice, you can often "get away" with mutating state in React, but we strongly advise you not to do that so that you can use new React features developed with this approach in mind. Future contributors and perhaps even your future self will thank you!
+En la práctica, a menudo puedes "salirte" con la mutación de estado en React, pero te aconsejamos encarecidamente que no lo hagas para que puedas utilizar las nuevas características de React desarrolladas con este enfoque en mente. Los futuros colaboradores y quizás incluso tu propio futuro te lo agradecerán.
 
 </DeepDive>
 
 <Recap>
 
-* Treat all state in React as immutable.
-* When you store objects in state, mutating them will not trigger renders and will change the state in previous render "snapshots".
-* Instead of mutating an object, create a *new* version of it, and trigger a re-render by setting state to it.
-* You can use the `{...obj, something: 'newValue'}` object spread syntax to create copies of objects.
-* Spread syntax is shallow: it only copies one level deep.
-* To update a nested object, you need to create copies all the way up from the place you're updating.
-* To reduce repetitive copying code, use Immer.
+* Tratar todo el estado en React como inmutable.
+* Cuando se almacenan objetos en el estado, la mutación de los mismos no desencadenará renderizados y cambiará el estado en las "instantáneas" de los renderizados anteriores.
+* En lugar de mutar un objeto, crea una *nueva* versión del mismo, y dispara un re-renderizado estableciendo el estado en él.
+* Puedes usar la sintaxis de propagación de objetos `{...obj, algo: 'newValue'}` para crear copias de objetos.
+* La sintaxis de propagación es superficial: sólo copia un nivel de profundidad.
+* Para actualizar un objeto anidado, necesitas crear copias desde el lugar que estás actualizando.
+* Para reducir el código de copia repetitivo, utilice Immer.
 
 </Recap>
 
@@ -813,11 +813,11 @@ In practice, you can often "get away" with mutating state in React, but we stron
 
 <Challenges>
 
-#### Fix incorrect state updates {/*fix-incorrect-state-updates*/}
+#### Corregir las actualizaciones de estado incorrectas {/*fix-incorrect-state-updates*/}
 
-This form has a few bugs. Click the button that increases the score a few times. Notice that it does not increase. Then edit the first name, and notice that the score has suddenly "caught up" with your changes. Finally, edit the last name, and notice that the score has disappeared completely.
+Este formulario tiene algunos errores. Haga clic en el botón que aumenta la puntuación unas cuantas veces. Observa que no aumenta. A continuación, edita el nombre, y observa que la puntuación se ha "puesto al día" con sus cambios. Por último, edita el apellido y observa que la puntuación ha desaparecido por completo.
 
-Your task is to fix all of these bugs. As you fix them, explain why each of them happens.
+Tu tarea es arreglar todos estos errores. A medida que los vayas arreglando, explica por qué ocurre cada uno de ellos.
 
 <Sandpack>
 
@@ -885,7 +885,7 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 <Solution>
 
-Here is a version with both bugs fixed:
+Aquí hay una versión con ambos errores corregidos:
 
 <Sandpack>
 
@@ -955,23 +955,23 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-The problem with `handlePlusClick` was that it mutated the `player` object. As a result, React did not know that there's a reason to re-render, and did not update the score on the screen. This is why, when you edited the first name, the state got updated, triggering a re-render which _also_ updated the score on the screen.
+El problema con `handlePlusClick` era que mutaba el objeto `player`. Como resultado, React no sabía que había una razón para volver a renderizar, y no actualizaba la puntuación en la pantalla. Por eso, cuando editabas el primer nombre, el estado se actualizaba, provocando un re-renderizado que _también_ actualizaba la puntuación en la pantalla.
 
-The problem with `handleLastNameChange` was that it did not copy the existing `...player` fields into the new object. This is why the score got lost after you edited the last name.
+El problema con `handleLastNameChange` era que no copiaba los campos existentes de `...player` en el nuevo objeto. Por eso la puntuación se perdía después de editar el último nombre.
 
 </Solution>
 
-#### Find and fix the mutation {/*find-and-fix-the-mutation*/}
+#### Encontrar y arreglar la mutación {/*find-and-fix-the-mutation*/}
 
-There is a draggable box on a static background. You can change the box's color using the select input.
+Hay una caja que se puede arrastrar sobre un fondo estático. Puedes cambiar el color de la caja usando la entrada de selección.
 
-But there is a bug. If you move the box first, and then change its color, the background (which isn't supposed to move!) will "jump" to the box position. But this should not happen: the `Background`'s `position` prop is set to `initialPosition`, which is `{ x: 0, y: 0 }`. Why is the background moving after the color change?
+Pero hay un error. Si mueves la caja primero, y luego cambias su color, el fondo (¡que se supone que no se mueve!) "saltará" a la posición de la caja. Pero esto no debería ocurrir: la proposición `position` del `Background` se establece en `initialPosition`, que es `{ x: 0, y: 0 }`. ¿Por qué se mueve el fondo después del cambio de color?
 
-Find the bug and fix it.
+Encuentra el error y arréglalo.
 
 <Hint>
 
-If something unexpected changes, there is a mutation. Find the mutation in `App.js` and fix it.
+Si algo inesperado cambia, hay una mutación. Encuentra la mutación en `App.js` y arréglala.
 
 </Hint>
 
@@ -1121,9 +1121,9 @@ select { margin-bottom: 10px; }
 
 <Solution>
 
-The problem was in the mutation inside `handleMove`. It mutated `shape.position`, but that's the same object that `initialPosition` points at. This is why both the shape and the background move. (It's a mutation, so the change doesn't reflect on the screen until an unrelated update--the color change--triggers a re-render.)
+El problema estaba en la mutación dentro de `handleMove`. Mutaba `shape.position`, pero ese es el mismo objeto al que apunta `initialPosition`. Por eso tanto la forma como el fondo se mueven. (Es una mutación, por lo que el cambio no se refleja en la pantalla hasta que una actualización no relacionada -el cambio de color- desencadena una nueva renderización).
 
-The fix is to remove the mutation from `handleMove`, and use the spread syntax to copy the shape. Note that `+=` is a mutation, so you need to rewrite it to use a regular `+` operation.
+La solución es eliminar la mutación de `handleMove`, y utilizar la sintaxis de propagación para copiar la forma. Ten en cuenta que `+=` es una mutación, así que tienes que reescribirlo para usar una operación regular `+`.
 
 <Sandpack>
 
@@ -1276,9 +1276,9 @@ select { margin-bottom: 10px; }
 
 </Solution>
 
-#### Update an object with Immer {/*update-an-object-with-immer*/}
+#### Actualizar un objeto con Immer {/*update-an-object-with-immer*/}
 
-This is the same buggy example as in the previous challenge. This time, fix the mutation by using Immer. For your convenience, `useImmer` is already imported, so you need to change the `shape` state variable to use it.
+Este es el mismo ejemplo con errores que en el desafío anterior. Esta vez, arregla la mutación usando Immer. Para tu comodidad, `useImmer` ya está importado, así que tienes que cambiar la variable de estado `shape` para utilizarlo.
 
 <Sandpack>
 
@@ -1445,7 +1445,7 @@ select { margin-bottom: 10px; }
 
 <Solution>
 
-This is the solution rewritten with Immer. Notice how the event handlers are written in a mutating fashion, but the bug does not occur. This is because under the hood, Immer never mutates the existing objects.
+Esta es la solución reescrita con Immer. Observa cómo los manejadores de eventos están escritos de forma mutante, pero el error no se produce. Esto se debe a que bajo el capó, Immer nunca muta los objetos existentes.
 
 <Sandpack>
 
