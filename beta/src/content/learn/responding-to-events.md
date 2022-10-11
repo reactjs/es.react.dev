@@ -87,11 +87,11 @@ O, de manera más corta, usando una función flecha:
 
 Todos estos estilos son equivalentes. Los manejadores de eventos en línea son convenientes para funciones cortas.
 
-<Gotcha>
+<Pitfall>
 
 Las funciones que se pasan a los manejadores de eventos deben ser pasadas, no llamadas. Por ejemplo:
 
-| pasando una función (correcto)           | llamando una función (incorrecto) |
+| pasar una función (correcto)           | llamar una función (incorrecto) |
 |----------------------------------------|--------------------------------|
 | `<button onClick={handleClick}>` | `<button onClick={handleClick()}>` |
 
@@ -101,7 +101,7 @@ En el segundo ejemplo, los `()` al final del `handleClick()` ejecutan la funció
 
 Cuando escribes código en línea, la misma trampa se presenta de otra manera:
 
-| pasando una función (correcto)           | llamando una función (incorrecto) |
+| pasar una función (correcto)           | llamar una función (incorrecto) |
 |----------------------------------------|--------------------------------|
 | `<button onClick={() => alert('...')}>` | `<button onClick={alert('...')}>` |
 
@@ -128,7 +128,7 @@ En ambos casos, lo que quieres pasar es una función:
 
 > [Lee más sobre las funciones flecha.](https://javascript.info/arrow-functions-basics)
 
-</Gotcha>
+</Pitfall>
 
 ### Leyendo las props en manejadores de eventos {/*reading-props-in-event-handlers*/}
 
@@ -351,11 +351,11 @@ button { margin: 5px; }
 
 Si haces clic en cualquiera de los botones, su `onClick` se ejecutará primero, seguido por el `onClick` del `<div>`. Así que dos mensajes aparecerán. Si haces clic en el propio toolbar, solo el `onClick` del `<div>` padre se ejecutará.
 
-<Gotcha>
+<Pitfall>
 
 Todos los eventos se propagan en React excepto `onScroll`, el cual solo funciona en la etiqueta JSX a la que lo agregues.
 
-</Gotcha>
+</Pitfall>
 
 ### Detener la propagación {/*stopping-propagation*/}
 
