@@ -4,7 +4,7 @@ title: Responder a Eventos
 
 <Intro>
 
-React te permite añadir *manejadores de eventos* a tu JSX. Los manejadores de eventos son tus propias funciones que se ejecutarán en respuesta a interacciones como hacer clic, _hover_, enfocar _input_s en formularios, entre otras.
+React te permite añadir *manejadores de eventos* a tu JSX. Los manejadores de eventos son tus propias funciones que se ejecutarán en respuesta a interacciones como hacer clic, _hover_, enfocar _inputs_ en formularios, entre otras.
 
 </Intro>
 
