@@ -1,10 +1,10 @@
 ---
-title: useEffect
+Título: useEffect
 ---
 
 <Intro>
 
-`useEffect` is a React Hook that lets you [synchronize a component with an external system.](/learn/synchronizing-with-effects)
+`useEffect` es un Hook de React que le permite [sincronizar un componente con un sistema externo.](/learn/synchronizing-with-effects)
 
 ```js
 useEffect(setup, dependencies?)
@@ -16,13 +16,13 @@ useEffect(setup, dependencies?)
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Connecting to an external system {/*connecting-to-an-external-system*/}
+### Conexión a un sistema externo {/*connecting-to-an-external-system*/}
 
-Sometimes, your component might need to stay connected to the network, some browser API, or a third-party library, while it is displayed on the page. Such systems aren't controlled by React, so they are called *external.*
+A veces, un componente puede necesitar permanecer conectado a la red, a alguna API del navegador, o a una librería de terceros, mientras se muestra en la página. Estos sistemas no están controlados por React, por lo que se denominan *externos.*
 
-To [connect your component to some external system,](/learn/synchronizing-with-effects) call `useEffect` at the top level of your component:
+Para [ conectar su componente a algún sistema externo,](/learn/synchronizing-with-effects) llame `useEffect` en el nivel superior de su componente:
 
 ```js [[1, 8, "const connection = createConnection(serverUrl, roomId);"], [1, 9, "connection.connect();"], [2, 11, "connection.disconnect();"], [3, 13, "[serverUrl, roomId]"]]
 import { useEffect } from 'react';
@@ -42,23 +42,23 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-You need to pass two arguments to `useEffect`:
+Tienes que pasar dos argumentos al `useEffect`:
 
-1. A *setup function* with <CodeStep step={1}>setup code</CodeStep> that connects to that system.
-   - It should return a *cleanup function* with <CodeStep step={2}>cleanup code</CodeStep> that disconnects from that system.
-2. A <CodeStep step={3}>list of dependencies</CodeStep> including every value from your component used inside of those functions.
+1. Una *función de configuración* con <CodeStep step={1}>código de configuración</CodeStep> que se conecta a ese sistema.
+   - Debería devolver una *función de limpieza* con <CodeStep step={2}>código de limpieza</CodeStep> que se desconecta de ese sistema.
+2. Una <CodeStep step={3}>Lista de dependecias</CodeStep> incluyendo cada valor de su componente utilizado dentro de esas funciones.
 
-**React calls your setup and cleanup functions whenever it's necessary, which may happen multiple times:**
+**React llama a sus funciones de configuración y limpieza siempre que es necesario, lo que puede ocurrir varias veces:**
 
-1. Your <CodeStep step={1}>setup code</CodeStep> runs when your component is added to the page *(mounts)*.
-2. After every re-render of your component where the <CodeStep step={3}>dependencies</CodeStep> have changed:
-   - First, your <CodeStep step={2}>cleanup code</CodeStep> runs with the old props and state.
-   - Then, your <CodeStep step={1}>setup code</CodeStep> runs with the new props and state.
-3. Your <CodeStep step={2}>cleanup code</CodeStep> runs one final time after your component is removed from the page *(unmounts).*
+1. Tú <CodeStep step={1}>código de configuración</CodeStep> se ejecuta cuando su componente se añade a la página *(se monta)*.
+2. Después de cada re-renderización de su componente donde las <CodeStep step={3}>dependencias</CodeStep> han cambiado:
+   - Primero, tú <CodeStep step={2}>código de limpieza</CodeStep> se ejecuta con las antiguas props y estados.
+   - Entonces, tú <CodeStep step={1}>código de configuración</CodeStep> se ejcutará con las nuevas props y estados.
+3. Tú <CodeStep step={2}>código de limpieza</CodeStep> se ejecutara una última vez después de que tú componente sea eliminado de la página *(se desmonta).*
 
-**Let's illustrate this sequence for the example above.**  
+**Vamos a mostrar esta secuencia para el ejemplo anterior.**  
 
-When the `ChatRoom` component above gets added to the page, it will connect to the chat room with the initial `serverUrl` and `roomId`. If either `serverUrl` or `roomId` change as a result of a re-render (say, if the user picks a different chat room in a dropdown), your Effect will *disconnect from the previous room, and connect to the next one.* When the `ChatRoom` component is finally removed from the page, your Effect will disconnect one last time.
+Cuando el componente `ChatRoom` se añade a la página, se conectará a la sala de conversación con el `serverUrl` y `roomId`. Si cualquiera de los dos `serverUrl` o `roomId` cambian como resultado de una re-renderización (digamos, si el usuario elige una sala de chat diferente en un desplegable), tú Efecto se *desconectará de la sala anterior, y se conectara a la siguiente.* Cuando el componente `ChatRoom` sea finalmente eliminado de la página, su efecto se desconectará por última vez. 
 
 **To [help you find bugs,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) in development React runs <CodeStep step={1}>setup</CodeStep> and <CodeStep step={2}>cleanup</CodeStep> one extra time before the actual <CodeStep step={1}>setup</CodeStep>.** This is a stress-test that verifies your Effect's logic is implemented correctly. If this causes visible issues, your cleanup function is missing some logic. The cleanup function should stop or undo whatever the setup function was doing. The rule of thumb is that the user shouldn't be able to distinguish between the setup being called once (as in production) and a *setup* → *cleanup* → *setup* sequence (as in development). [See common solutions.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
