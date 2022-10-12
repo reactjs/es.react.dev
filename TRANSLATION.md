@@ -169,6 +169,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | function component | componente de función |
 | hook | *hook* |
 | key | *key* |
+| indentation | sangrado o tabulación |
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
 | lowercase | minúscula(s) |
