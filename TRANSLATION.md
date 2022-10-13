@@ -159,14 +159,17 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | bundler | *bundler* |
 | callback | *callback* |
 | camelCase | *camelCase* |
+| codebase | base de código |
 | controlled component | componente controlado |
 | debugging | depuración |
 | event handler | manejador de eventos |
+| event handler function | función manejadora de eventos |
 | DOM | DOM |
 | framework | *framework* |
 | function component | componente de función |
 | hook | *hook* |
 | key | *key* |
+| indentation | sangrado o tabulación |
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
 | lowercase | minúscula(s) |
@@ -174,7 +177,9 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | React element | Elemento de React |
 | render | renderizar (verb), renderizado (noun)
 | shallow rendering | renderizado superficial |
+| set the state | asignar el estado |
 | state | estado |
 | string | *string* |
 | template literals | *template literals* |
 | uncontrolled component | componente no controlado |
+| update the state | actualizar el estado
