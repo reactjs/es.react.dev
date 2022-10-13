@@ -4,7 +4,7 @@ title: 'Eliminar dependencias de los Efectos'
 
 <Intro>
 
-Cuando escribes un efecto, el linter verificará que has incluido todos los valores reactivos (como las props y el estado) que tu efecto lee en la lista de dependencias de tu Efecto. Esto asegura que tu Efecto se mantiene sincronizado con las últimas props y el último estado de tu componente. Dependencias innecesarias pueden ocasionar que tu Efecto se ejecute demasiadas veces, o incluso crear un ciclo infinito. Sigue esta guía para revisar y eliminar dependencias innecesarias de tus Efectos.
+Cuando escribes un Efecto, el linter verificará que has incluido todos los valores reactivos (como las props y el estado) que tu Efecto lee en la lista de dependencias de tu Efecto. Esto asegura que tu Efecto se mantiene sincronizado con las últimas props y el último estado de tu componente. Dependencias innecesarias pueden ocasionar que tu Efecto se ejecute demasiadas veces, o incluso crear un ciclo infinito. Sigue esta guía para revisar y eliminar dependencias innecesarias de tus Efectos.
 
 </Intro>
 
@@ -12,7 +12,7 @@ Cuando escribes un efecto, el linter verificará que has incluido todos los valo
 
 - Cómo arreglar ciclos infinitos de dependencias de un Efecto
 - Qué hacer cuando quieres eliminar una dependencia
-- Cómo leer un valor en un efecto sin «reaccionar» a él
+- Cómo leer un valor en un Efecto sin «reaccionar» a él
 - Cómo y por qué evitar objectos y funciones como dependencias
 - Por qué suprimir la advertencia de la dependencia es peligroso, y qué hacer en su lugar
 
@@ -20,7 +20,7 @@ Cuando escribes un efecto, el linter verificará que has incluido todos los valo
 
 ## Las dependencias deben corresponderse con el código {/*dependencies-should-match-the-code*/}
 
-Cuando escribes un Efecto, primero debes especificar como [iniciar y parar](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect) lo que sea que tu efecto está haciendo.
+Cuando escribes un Efecto, primero debes especificar como [iniciar y parar](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect) lo que sea que tu Efecto está haciendo.
 
 ```js {5-7}
 const serverUrl = 'https://localhost:1234';
@@ -263,7 +263,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Por esto es que ahora podemos especificar una [lista de dependencias vacía (`[]`)](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means). Tu efecto *realmente no* depende y de ningún valor reactivo, por lo que *realmente no* necesita volverse a ejecutar cuando cualquiera de las props o el estado del componente cambie.
+Por esto es que ahora podemos especificar una [lista de dependencias vacía (`[]`)](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means). Tu Efecto *realmente no* depende y de ningún valor reactivo, por lo que *realmente no* necesita volverse a ejecutar cuando cualquiera de las props o el estado del componente cambie.
 
 ### Para cambiar las dependencias, cambia el código {/*to-change-the-dependencies-change-the-code*/}
 
@@ -413,9 +413,9 @@ function Form() {
 }
 ```
 
-Pero al hacer esto, has introducido un bug. Imagina que envías un formulario primero y luego cambias entre temas oscuros y claros. La variable `theme` cambiará, el efecto se volverá a ejecutar, ¡y por tanto mostrará la misma notificación nuevamente!
+Pero al hacer esto, has introducido un bug. Imagina que envías un formulario primero y luego cambias entre temas oscuros y claros. La variable `theme` cambiará, el Efecto se volverá a ejecutar, ¡y por tanto mostrará la misma notificación nuevamente!
 
-**El problema aquí es que no debió haber sido una un efecto**. Quieres enviar una petición POST y mostrar la notificación en respuesta al *envío del formulario*, que es una interacción particular. Cuando quieres ejecutar algún código en respuesta a una interacción particular, pon esa lógica directamente en el manejador de eventos correspondiente:
+**El problema aquí es que no debió haber sido nunca un Efecto**. Quieres enviar una petición POST y mostrar la notificación en respuesta al *envío del formulario*, que es una interacción particular. Cuando quieres ejecutar algún código en respuesta a una interacción particular, pon esa lógica directamente en el manejador de eventos correspondiente:
 
 ```js {6-7}
 function Form() {
@@ -433,7 +433,7 @@ function Form() {
 
 Ahora que el código está en un manejador de evento, no es reactivo --por lo que solo se ejecutará cuando el usuario envía el formulario--. Lee más acerca de [escoger entre manejadores de eventos y Efectos](/learn/separating-events-from-effects#reactive-values-and-reactive-logic) y [cómo eliminar Efectos innecesarios ](/learn/you-might-not-need-an-effect).
 
-### ¿Tú efecto hace varias cosas no relacionadas? {/*is-your-effect-doing-several-unrelated-things*/}
+### ¿Tú Efecto hace varias cosas no relacionadas? {/*is-your-effect-doing-several-unrelated-things*/}
 
 La próxima preguntas que te debes hacer es si tu Efecto está haciendo varias cosas no relacionadas.
 
@@ -461,7 +461,7 @@ function ShippingForm({ country }) {
   // ...
 ```
 
-Este es un buen ejemplo de [obtener dadtos en un Efecto](/learn/you-might-not-need-an-effect#fetching-data). Estás sincronizando el estado `cities` con la red de acuerdo a la prop `country`. No puedes hacer esto en un manejador de eventos porque necesitas obtener los datos tan pronto como se muestre `ShippingForm` y cada vez que cambie `country` (sin importar qué interacciones causa el cambio).
+Este es un buen ejemplo de [obtener datos en un Efecto](/learn/you-might-not-need-an-effect#fetching-data). Estás sincronizando el estado `cities` con la red de acuerdo a la prop `country`. No puedes hacer esto en un manejador de eventos porque necesitas obtener los datos tan pronto como se muestre `ShippingForm` y cada vez que cambie `country` (sin importar qué interacciones causa el cambio).
 
 Digamos ahora que estás añadiendo una segunda caja de selección para las areas de la ciudad, que debería obtener las `areas` para la ciudad `city` actualmente seleccionada. Podrías comenzar añadiendo una segunda llamada `fetch` para la lista de areas dentro del mismo Efecto:
 
@@ -498,7 +498,7 @@ function ShippingForm({ country }) {
   // ...
 ```
 
-Sin embargo, como ahora el Efecto usa la variable de estado `city`, tienes que añadir `city` a la lista de dependencias. Resulta que esto introduce un problema. Ahora, cada vez que el usuario seleccionar una ciudad diferente, el efecto volverá a ejecutarse y llamar a `fetchCities(country)`. Como resultado, obtendrás innecesariamente la lista de ciudades muchas veces.
+Sin embargo, como ahora el Efecto usa la variable de estado `city`, tienes que añadir `city` a la lista de dependencias. Resulta que esto introduce un problema. Ahora, cada vez que el usuario seleccionar una ciudad diferente, el Efecto volverá a ejecutarse y llamar a `fetchCities(country)`. Como resultado, obtendrás innecesariamente la lista de ciudades muchas veces.
 
 **El problema con este código es que estás sincronizando dos cosas que no guardan relación:**
 
@@ -786,7 +786,7 @@ Este objeto se declara en el cuerpo del componente, por lo que es un [valor reac
   // ...
   ```
 
-¡Es importante declararlo como una dependencia! Esto garantiza, por ejemplo, que si cambia `roomId`, luego tu efecto se volverá a conectar al chat con las nuevas opciones. Sin embargo, también hay un problema con el código de arriba. Para ver el problema, intenta escribir en la caja de texto del _sandbox_ de abajo y mira que pasa en la consola:
+¡Es importante declararlo como una dependencia! Esto garantiza, por ejemplo, que si cambia `roomId`, luego tu Efecto se volverá a conectar al chat con las nuevas opciones. Sin embargo, también hay un problema con el código de arriba. Para ver el problema, intenta escribir en la caja de texto del _sandbox_ de abajo y mira que pasa en la consola:
 
 <Sandpack>
 
@@ -1607,7 +1607,7 @@ label, button { display: block; margin-bottom: 5px; }
 
 Tu Efecto se vuelve a ejecutar porque depende en el objeto `options`. Los objetos se pueden recrear inintencionadamente, deberías intentar evitar tenerlos como dependencias de tus Efectos siempre que sea posible.
 
-La solución menos invasiva consiste en leer `roomId` y `serverUrl` fuera del Efecto y hacer que el Efecto dependa de esos valores primitivos (que no pueden cambiar inintencionadamente). Dentro del efecto, crea un objeto y pásalo a `createConnection`:
+La solución menos invasiva consiste en leer `roomId` y `serverUrl` fuera del Efecto y hacer que el Efecto dependa de esos valores primitivos (que no pueden cambiar inintencionadamente). Dentro del Efecto, crea un objeto y pásalo a `createConnection`:
 
 <Sandpack>
 
