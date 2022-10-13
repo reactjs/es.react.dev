@@ -311,7 +311,7 @@ export default function PackingList() {
 Una [expresión JavaScript &&](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) devuelve el valor de su lado derecho (en nuestro caso, la marca de verificación) si el lado izquierdo (nuestra condición) es `true`. Pero si la condición es `false`, toda la expresión se convierte en `false`. React considera `false` como un "agujero" en el árbol JSX, al igual que `null` o `undefined`, y no renderiza nada en su lugar.
 
 
-<Gotcha>
+<Pitfall>
 
 **No pongas números a la izquierda de `&&`.**
 
@@ -321,7 +321,7 @@ Por ejemplo, un error común es escribir código como `messageCount && <p>New me
 
 Para arreglarlo, haz que el lado izquierdo sea un booleano: `messageCount > 0 && <p>New messages</p>`.
 
-</Gotcha>
+</Pitfall>
 
 ### Asignación condicional de JSX a una variable {/*conditionally-assigning-jsx-to-a-variable*/}
 

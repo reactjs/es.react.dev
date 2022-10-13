@@ -76,8 +76,11 @@ const Divider = () => (
 const Wip = ({children}: {children: React.ReactNode}) => (
   <ExpandableCallout type="wip">{children}</ExpandableCallout>
 );
-const Gotcha = ({children}: {children: React.ReactNode}) => (
-  <ExpandableCallout type="gotcha">{children}</ExpandableCallout>
+const Pitfall = ({children}: {children: React.ReactNode}) => (
+  <ExpandableCallout type="pitfall">{children}</ExpandableCallout>
+);
+const Deprecated = ({children}: {children: React.ReactNode}) => (
+  <ExpandableCallout type="deprecated">{children}</ExpandableCallout>
 );
 const Note = ({children}: {children: React.ReactNode}) => (
   <ExpandableCallout type="note">{children}</ExpandableCallout>
@@ -368,7 +371,8 @@ export const MDXComponents = {
   MaxWidth({children}: {children: any}) {
     return <div className="max-w-4xl ml-0 2xl:mx-auto">{children}</div>;
   },
-  Gotcha,
+  Pitfall,
+  Deprecated,
   Wip,
   HomepageHero,
   Illustration,
