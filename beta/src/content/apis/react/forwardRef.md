@@ -4,7 +4,7 @@ title: forwardRef
 
 <Intro>
 
-`forwardRef` lets your component expose a DOM node to parent component with a [ref.](/learn/manipulating-the-dom-with-refs)
+`forwardRef` permite a su componente exponer un nodo DOM al componente padre con un [ref.](/learn/manipulating-the-dom-with-refs)
 
 ```js
 const SomeComponent = forwardRef(render)
@@ -16,11 +16,11 @@ const SomeComponent = forwardRef(render)
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Exposing a DOM node to the parent component {/*exposing-a-dom-node-to-the-parent-component*/}
+### Exponer un nodo DOM al componente padre {/*exposing-a-dom-node-to-the-parent-component*/}
 
-By default, each component's DOM nodes are private. However, sometimes it's useful to expose a DOM node to the parent--for example, to allow focusing it. To opt in, wrap your component definition into `forwardRef()`:
+Por defecto, los nodos DOM de cada componente son privados. Sin embargo, a veces es útil exponer un nodo DOM al padre, por ejemplo, para permitir su enfoque. Para optar por ello, envuelve la definición de su componente en `forwardRef()`:
 
 ```js {3,11}
 import { forwardRef } from 'react';
@@ -36,7 +36,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-You will receive a <CodeStep step={1}>ref</CodeStep> as the second argument after props. Pass it to the DOM node that you want to expose:
+Recibirás un <CodeStep step={1}>ref</CodeStep> como segundo argumento después de props. Pásalo al nodo DOM que quieras exponer:
 
 ```js {8} [[1, 3, "ref"], [1, 8, "ref", 30]]
 import { forwardRef } from 'react';
@@ -405,126 +405,15 @@ input {
 
 </Sandpack>
 
-The methods you expose via an imperative handle don't have to match the DOM methods exactly. For example, the `Post` component in the example below exposes a `scrollAndFocusAddComment` method via an imperative handle. This lets the parent `Page` scroll the list of comments *and* focus the input field when you click the button:
-
-<Sandpack>
-
-```js
-import { useRef } from 'react';
-import Post from './Post.js';
-
-export default function Page() {
-  const postRef = useRef(null);
-
-  function handleClick() {
-    postRef.current.scrollAndFocusAddComment();
-  }
-
-  return (
-    <>
-      <button onClick={handleClick}>
-        Write a comment
-      </button>
-      <Post ref={postRef} />
-    </>
-  );
-}
-```
-
-```js Post.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
-import CommentList from './CommentList.js';
-import AddComment from './AddComment.js';
-
-const Post = forwardRef((props, ref) => {
-  const commentsRef = useRef(null);
-  const addCommentRef = useRef(null);
-
-  useImperativeHandle(ref, () => {
-    return {
-      scrollAndFocusAddComment() {
-        commentsRef.current.scrollToBottom();
-        addCommentRef.current.focus();
-      }
-    };
-  }, []);
-
-  return (
-    <>
-      <article>
-        <p>Welcome to my blog!</p>
-      </article>
-      <CommentList ref={commentsRef} />
-      <AddComment ref={addCommentRef} />
-    </>
-  );
-});
-
-export default Post;
-```
-
-
-```js CommentList.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
-
-const CommentList = forwardRef(function CommentList(props, ref) {
-  const divRef = useRef(null);
-
-  useImperativeHandle(ref, () => {
-    return {
-      scrollToBottom() {
-        const node = divRef.current;
-        node.scrollTop = node.scrollHeight;
-      }
-    };
-  }, []);
-
-  let comments = [];
-  for (let i = 0; i < 50; i++) {
-    comments.push(<p key={i}>Comment #{i}</p>);
-  }
-
-  return (
-    <div className="CommentList" ref={divRef}>
-      {comments}
-    </div>
-  );
-});
-
-export default CommentList;
-```
-
-```js AddComment.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
-
-const AddComment = forwardRef(function AddComment(props, ref) {
-  return <input placeholder="Add comment..." ref={ref} />;
-});
-
-export default AddComment;
-```
-
-```css
-.CommentList {
-  height: 100px;
-  overflow: scroll;
-  border: 1px solid black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-```
-
-</Sandpack>
-
 [Read more about using imperative handles.](/apis/react/useImperativeHandle)
 
-<Gotcha>
+<Pitfall>
 
 **Do not overuse refs.** You should only use refs for *imperative* behaviors that you can't express as props: for example, scrolling to a node, focusing a node, triggering an animation, selecting text, and so on.
 
 **If you can express something as a prop, you should not use a ref.** For example, instead of exposing an imperative handle like `{ open, close }` from a `Modal` component, it is better to take `isOpen` as a prop like `<Modal isOpen={isOpen} />`. [Effects](/learn/synchronizing-with-effects) can help you expose imperative behaviors via props.
 
-</Gotcha>
+</Pitfall>
 
 ---
 
