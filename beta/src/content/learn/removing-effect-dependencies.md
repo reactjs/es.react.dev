@@ -4,7 +4,7 @@ title: 'Eliminar dependencias de los Efectos'
 
 <Intro>
 
-Cuando escribes un Efecto, el linter verificará que has incluido todos los valores reactivos (como las props y el estado) que tu Efecto lee en la lista de dependencias de tu Efecto. Esto asegura que tu Efecto se mantiene sincronizado con las últimas props y el último estado de tu componente. Dependencias innecesarias pueden ocasionar que tu Efecto se ejecute demasiadas veces, o incluso crear un ciclo infinito. Sigue esta guía para revisar y eliminar dependencias innecesarias de tus Efectos.
+Cuando escribes un Efecto, el linter verificará que has incluido todos los valores reactivos (como las props y el estado) que tu Efecto lee en la lista de dependencias de tu Efecto. Así se asegura que el Efecto se mantenga sincronizado con las últimas props y el último estado de tu componente. Dependencias innecesarias pueden ocasionar que tu Efecto se ejecute demasiadas veces, o incluso crear un ciclo infinito. Sigue esta guía para revisar y eliminar dependencias innecesarias de tus Efectos.
 
 </Intro>
 
