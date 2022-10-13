@@ -1,5 +1,5 @@
 ---
-title: Responder a Eventos
+title: Responder a eventos
 ---
 
 <Intro>
