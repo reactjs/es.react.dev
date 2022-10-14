@@ -4,7 +4,8 @@ title: useId
 
 <Intro>
 
-`useId` is a React Hook for generating unique IDs that can be passed to accessibility attributes.
+`useId` es un Hook de React para generar IDs unicos que se puede pasar a los atributos de accesibilidad.
+
 
 ```js
 const id = useId()
@@ -16,17 +17,17 @@ const id = useId()
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
 <Pitfall>
 
-**Do not call `useId` to generate keys in a list.** [Keys should be generated from your data.](/learn/rendering-lists#where-to-get-your-key)
+**No utilices `useId` para generar keys en una lista.** [Las keys deben generarse a partir de sus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 </Pitfall>
 
-### Generating unique IDs for accessibility attributes {/*generating-unique-ids-for-accessibility-attributes*/}
+### Generación de ID únicos para atributos de accesibilidad {/*generating-unique-ids-for-accessibility-attributes*/}
 
-Call `useId` at the top level of your component to generate a unique ID:
+Llame a `useId` en el nivel superior de su componente para generar una ID única:
 
 ```js [[1, 4, "passwordHintId"]]
 import { useId } from 'react';
@@ -36,7 +37,7 @@ function PasswordField() {
   // ...
 ```
 
-You can then pass the <CodeStep step={1}>generated ID</CodeStep> to different attributes:
+A continuación, puedes pasar el <CodeStep step={1}>ID generado</CodeStep> a los diferentes atributos:
 
 ```js [[1, 2, "passwordHintId"], [1, 3, "passwordHintId"]]
 <>
@@ -45,11 +46,11 @@ You can then pass the <CodeStep step={1}>generated ID</CodeStep> to different at
 </>
 ```
 
-**Let's walk through an example to see when this is useful.**
+**Veamos un ejemplo para ver cuándo es útil.**
 
-[HTML accessibility attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) like [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) let you specify that two tags are related to each other. For example, you can specify that a certain element (like an input) is described by another element (like a paragraph).
+[Atrbutos de accesibilidad HTML](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) como [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) le permite especificar que dos etiquetas están relacionadas entre sí. Por ejemplo, puede especificar que un determinado elemento (como una entrada) sea descrito por otro elemento (como un párrafo).
 
-In regular HTML, you would write it like this:
+En HTML normal, lo escribirías así:
 
 ```html {5,8}
 <label>
@@ -64,7 +65,7 @@ In regular HTML, you would write it like this:
 </p>
 ```
 
-However, hardcoding IDs like this is not a good practice in React. A component may be rendered more than once on the page--but IDs have to be unique! Instead of hardcoding an ID, you can generate a unique ID with `useId`:
+Sin embargo, utliziar identificaciones como este no es una buena práctica en React. Un componente puede representarse más de una vez en la página, ¡pero las ID tienen que ser únicas! En lugar de utliziar una ID, puede generar una ID única con `useId`:
 
 ```js {4,11,14}
 import { useId } from 'react';
@@ -88,7 +89,7 @@ function PasswordField() {
 }
 ```
 
-Now, even if `PasswordField` appears multiple times on the screen, the generated IDs won't clash.
+Ahora, incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
 
 <Sandpack>
 
@@ -131,31 +132,31 @@ input { margin: 5px; }
 
 </Sandpack>
 
-[Watch this video](https://www.youtube.com/watch?v=0dNzNcuEuOo) to see the difference in the user experience with assistive technologies.
+[Mira este video](https://www.youtube.com/watch?v=0dNzNcuEuOo) para ver la diferencia en la experiencia del usuario con tecnologías de asistencia.
 
 <Pitfall>
 
-**`useId` requires an identical component tree on the server and the client** when you use [server rendering](/apis/react-dom/server). If the trees you render on the server and the client don't match exactly, the generated IDs won't match.
+**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando cuando utiliza [server rendering](/apis/react-dom/server). Si los árboles que se representan en el servidor y el cliente no coinciden exactamente, las ID generadas no coincidirán.
 
 </Pitfall>
 
-<DeepDive title="Why is useId better than an incrementing counter?">
+<DeepDive title="Por qué useId es mejor que un contador incremental?">
 
-You might be wondering why `useId` is better than incrementing a global variable like `nextId++`.
+Quizás se pregunte por qué `useId` es mejor que incrementar una variable global como `nextId++`.
 
-The primary benefit of `useId` is that React ensures that it works with [server rendering.](/apis/react-dom/server) During server rendering, your components generate HTML output. Later, on the client, [hydration](/apis/react-dom/client/hydrateRoot) attaches your event handlers to the generated HTML. For hydration to work, the client output must match the server HTML.
+El principal beneficio de `useId` es que React asegura que funciona con [server rendering.](/apis/react-dom/server) Durante el server rendering, sus componentes generan salida HTML. Mas tarde, en el cliente [hydrate](/apis/react-dom/client/hydrateRoot) adjunta sus controladores de eventos al HTML generado. Para que la hidratación funcione, la salida del cliente debe coincidir con el HTML del servidor.
 
-This is very difficult to guarantee with an incrementing counter because the order in which the client components are hydrated may not match the order in which the server HTML was emitted. By calling `useId`, you ensure that hydration will work, and the output will match between the server and the client.
+Esto es muy difícil de garantizar con un contador incremental porque el orden en que se hidratan los componentes del cliente puede no coincidir con el orden en que se emitió el HTML del servidor. Al llamar a `useId`, te aseguras de que la hidratación funcionará y la salida coincidirá entre el servidor y el cliente.
 
-Inside React, `useId` is generated from the "parent path" of the calling component. This is why, if the client and the server tree are the same, the "parent path" will match up regardless of rendering order.
+Dentro de React, `useId` se genera a partir de la "ruta principal" del componente llamado. Esta es la razón por la que, si el cliente y el árbol del servidor son iguales, la "ruta principal" coincidirá independientemente del orden de representación.
 
 </DeepDive>
 
 ---
 
-### Generating IDs for several related elements {/*generating-ids-for-several-related-elements*/}
+### Generar ID para varios elementos relacionados {/*generating-ids-for-several-related-elements*/}
 
-If you need to give IDs to multiple related elements, you can call `useId` to generate a shared prefix for them: 
+Si necesita proporcionar ID a varios elementos relacionados, puede llamar a `useId` para generar un prefijo compartido para ellos:
 
 <Sandpack>
 
@@ -182,13 +183,13 @@ input { margin: 5px; }
 
 </Sandpack>
 
-This lets you avoid calling `useId` for every single element that needs a unique ID.
+Esto le permite evitar llamar a `useId` para cada elemento que necesita una identificación única.
 
 ---
 
-### Specifying a shared prefix for all generated IDs {/*specifying-a-shared-prefix-for-all-generated-ids*/}
+### Especificación de un prefijo compartido para todas las ID generadas {/*specifying-a-shared-prefix-for-all-generated-ids*/}
 
-If you render multiple independent React applications on a single page, you may pass `identifierPrefix` as an option to your [`createRoot`](/apis/react-dom/client/createRoot#parameters) or [`hydrateRoot`](/apis/react-dom/client/hydrateRoot) calls. This ensures that the IDs generated by the two different apps never clash because every identifier generated with `useId` will start with the distinct prefix you've specified.
+Si renderiza varias aplicaciones React independientes en una sola página, puede pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/apis/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/apis/react-dom/client/hydrateRoot). Esto garantiza que los ID generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que haya especificado.
 
 <Sandpack>
 
@@ -271,11 +272,11 @@ input { margin: 5px; }
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useId()` {/*useid*/}
 
-Call `useId` at the top level of your component to generate a unique ID:
+Llame a `useId` en el nivel superior de su componente para generar una ID única:
 
 ```js
 import { useId } from 'react';
@@ -285,18 +286,18 @@ function PasswordField() {
   // ...
 ```
 
-[See more examples above.](#usage)
+[Vea más ejemplos arriba.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parametros {/*parameters*/}
 
-`useId` does not take any parameters.
+`useId` no toma ningún parámetro.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`useId` returns a unique ID string associated with this particular `useId` call in this particular component.
+`useId` devuelve una cadena de ID única asociada con esta llamada `useId` llamado en un componente particular.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `useId` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
+* `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de su componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesita, extraiga un nuevo componente y mueva el estado a él.
 
-* `useId` **should not be used to generate keys** in a list. [Keys should be generated from your data.](/learn/rendering-lists#where-to-get-your-key)
+* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de sus datos.](/learn/rendering-lists#where-to-get-your-key)
