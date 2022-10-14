@@ -173,7 +173,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
 | lowercase | minúscula(s) |
-| props | *props* |
+| prop / props | prop / props (f) |
 | React element | Elemento de React |
 | render | renderizar (verb), renderizado (noun)
 | shallow rendering | renderizado superficial |
