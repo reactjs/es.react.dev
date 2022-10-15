@@ -234,7 +234,7 @@ React.cloneElement(element, props);
 
 <YouWillLearnCard title="isValidElement" path="/apis/react/isValidElement">
 
-Verifies the object is a React element:
+Verifica que el objeto es un elemento de React:
 
 ```js
 React.isValidElement(object);

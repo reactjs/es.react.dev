@@ -4,7 +4,7 @@ title: isValidElement
 
 <Intro>
 
-`isValidElement` checks whether a value is a React element.
+`isValidElement` comprueba si un valor es un elemento de React.
 
 ```js
 const isElement = isValidElement(value)
@@ -16,37 +16,37 @@ const isElement = isValidElement(value)
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Checking if something is a React element {/*checking-if-something-is-a-react-element*/}
+### Comprobar si algo es un elemento de React {/*checking-if-something-is-a-react-element*/}
 
-Call `isValidElement` to check if some value is a *React element.*
+Llama `isValidElement` para comprobar si algun valor es un *element de React.*
 
-React elements are:
+Los elementos de React son:
 
-- Values produced by writing a [JSX tag](/learn/writing-markup-with-jsx)
-- Values produced by calling [`createElement`](/api/react/createElement)
+- Los valores producidos al escribir una [etiqueta JSX](/learn/writing-markup-with-jsx)
+- Los valores producidos por llamar [`createElement`](/api/react/createElement)
 
-For React elements, `isValidElement` returns `true`:
+Para los elementos de React, `isValidElement` devuelve `true`:
 
 ```js
 import { isValidElement, createElement } from 'react';
 
-// ✅ JSX tags are React elements
+// ✅ Las etiquetas JSX son elementos de React
 console.log(isValidElement(<p />)); // true
 console.log(isValidElement(<MyComponent />)); // true
 
-// ✅ Values returned by createElement are React elements
+// ✅ Los valores devueltos por createElement son elementos de React
 console.log(isValidElement(createElement('p'))); // true
 console.log(isValidElement(createElement(MyComponent))); // true
 ```
 
-Any other values, such as strings, numbers, or arbitrary objects and arrays, are not React elements.
+Cualquier otro valor, como _strings_, números u objetos arbitrarios y _arrays_, no son elementos de React.
 
-For them, `isValidElement` returns `false`:
+Para ellos, `isValidElement` devuelve `false`:
 
 ```js
-// ❌ These are *not* React elements
+// ❌ Estos *no* son elementos de React
 console.log(isValidElement(null)); // false
 console.log(isValidElement(25)); // false
 console.log(isValidElement('Hello')); // false
@@ -55,72 +55,72 @@ console.log(isValidElement([<div />, <div />])); // false
 console.log(isValidElement(MyComponent)); // false
 ```
 
-It is very uncommon to need `isValidElement`. It's mostly useful if you're calling another API that *only* accepts elements (like [`cloneElement`](/api/react/cloneElement) does) and you want to avoid an error when your argument is not a React element.
+Es muy poco común necesitar `isValidElement`. Es más útil si estás llamando a otra API que *sólo* acepta elementos (como hace [`cloneElement`](/api/react/cloneElement) y quieres evitar un error cuando tu argumento no es un elemento de React.
 
-Unless you have some very specific reason to add an `isValidElement` check, you probably don't need it.
+A menos que tengas alguna razón muy específica para añadir una comprobación con `isValidElement`, probablemente no la necesites.
 
-<DeepDive title="React elements vs React nodes">
+<DeepDive title="Elementos de React vs nodos de React">
 
-When you write a component, you can return any kind of *React node* from it:
-
-```js
-function MyComponent() {
-  // ... you can return any React node ...
-}
-```
-
-A React node can be:
-
-- A React element created like `<div />` or `createElement('div')`
-- A portal created with [`createPortal`](/apis/react-dom/createPortal)
-- A string
-- A number
-- `true`, `false`, `null`, or `undefined` (which are not displayed)
-- An array of other React nodes
-
-**Note `isValidElement` checks whether the argument is a *React element,* not whether it's a React node.** For example, `42` is not a valid React element. However, it is a perfectly valid React node:
+Cuando escribas un component, puedes devolver cualquier tipo de *nodo React* de el:
 
 ```js
 function MyComponent() {
-  return 42; // It's ok to return a number from component
+  // ... puedes devolver cualquier nodo de React ...
 }
 ```
 
-This is why you shouldn't use `isValidElement` as a way to check whether something can be rendered.
+Un nodo de React puede ser:
+
+- Un elemento de React creado como `<div />` o `createElement('div')`
+- Un portal creado con [`createPortal`](/apis/react-dom/createPortal)
+- Un _string_
+- Un número
+- `true`, `false`, `null`, o `undefined` (que no se visualizan)
+- Un _array_ de otros nodos de React
+
+**Nota que `isValidElement` comprueba si el argumento es un *elemento de React,* no si es un nodo de React.** Por ejemplo, `42` no es un elemento de React válido. Sin embargo, es un nodo de React perfectamente válido:
+
+```js
+function MyComponent() {
+  return 42; // Está bien devolver un número del componente
+}
+```
+
+Por eso no deberías usar `isValidElement` como forma de comprobar si algo puede ser renderizado.
 
 </DeepDive>
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `isValidElement(value)` {/*isvalidelement*/}
 
-Call `isValidElement(value)` to check whether `value` is a React element.
+Llama a `isValidElement(value)` para comprobar si `value` es un elemento de React.
 
 ```js
 import { isValidElement } from 'react';
 
-// ✅ React elements
+// ✅ Elementos de React
 console.log(isValidElement(<p />)); // true
 console.log(isValidElement(createElement('p'))); // true
 
-// ❌ Not React elements
+// ❌ No son elementos de React
 console.log(isValidElement(25)); // false
 console.log(isValidElement('Hello')); // false
 console.log(isValidElement({ age: 42 })); // false
 ```
 
-[See more examples above.](#usage)
+[Ver más ejemplos arriba.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `value`: The `value` you want to check. It can be any a value of any type.
+* `value`: El `valor` que desea comprobar. Puede ser cualquier valor de cualquier tipo.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`isValidElement` returns `true` if the `value` is a React element. Otherwise, it returns `false`.
+`isValidElement` devuelve `true` si el `value` es un elemento de React. En caso contrario, devuelve `false`.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* **Only [JSX tags](/learn/writing-markup-with-jsx) and objects returned by [`createElement`](/api/react/createElement) are considered to be React elements.** For example, even though a number like `42` is a valid React *node* (and can be returned from a component), it is not a valid React element. Arrays and portals created with [`createPortal`](/apis/react-dom/createPortal) are also *not* considered to be React elements.
+* **Sólo las [etiquetas JSX](/learn/writing-markup-with-jsx) y los objetos devueltos por [`createElement`](/api/react/createElement) se consideran elementos de React.**  Por ejemplo, aunque un número como `42` es un *nodo* de React válido (y puede ser devuelto desde un componente), no es un elemento React válido. Los arrays y portales creados con [`createPortal`](/apis/react-dom/createPortal) tampoco se consideran elementos React.
