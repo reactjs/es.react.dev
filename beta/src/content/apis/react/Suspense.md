@@ -4,7 +4,7 @@ title: Suspense
 
 <Intro>
 
-`Suspense` is a React component that displays a fallback until its children have finished loading.
+`Suspense` es un componente de React que muestra un aviso hasta que sus hijos hayan terminado de cargar.
 
 
 ```js
@@ -19,11 +19,11 @@ title: Suspense
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Displaying a fallback while something is loading {/*displaying-a-fallback-while-something-is-loading*/}
+### Visualización de un aviso mientras algo se está cargando {/*displaying-a-fallback-while-something-is-loading*/}
 
-You can wrap any part of your application with a Suspense component. If either data or code in <CodeStep step={2}>its children</CodeStep> hasn't loaded yet, React will switch to rendering the <CodeStep step={1}>`fallback`</CodeStep> prop instead. For example:
+Puede envolver cualquier parte de su aplicación con un componente Suspense. Si los datos o el código en  <CodeStep step={2}>su hijo</CodeStep> aún no se ha cargado, React pasará a renderizar el <CodeStep step={1}>`fallback`</CodeStep> prop en su lugar. Por ejemplo:
 
 ```js [[1, 3, "<LoadingSpinner />"], [2, 4, "<Comments />"]]
 <>
@@ -34,11 +34,11 @@ You can wrap any part of your application with a Suspense component. If either d
 </>
 ```
 
-Suppose that `Comments` takes longer to load than `Post`. Without a Suspense boundary, React wouldn't be able to show either component until both have loaded — `Post` would be blocked by `Comments`.
+Supongamos que `Comments` tarda más en cargarse que `Post`. Sin un límite de suspensión, React no podría mostrar ninguno de los dos componentes hasta que ambos se hubieran cargado: `Post` estaría bloqueado por `Comments`.
 
-Because of the Suspense boundary, `Post` doesn't need to wait for `Comments`. React renders `LoadingSpinner` in its place. Once `Comments` finishes loading, React replaces `LoadingSpinner` with `Comments`.
+Debido al límite de Suspense, `Post` no necesita esperar a `Comments`. React renderiza `LoadingSpinner` en su lugar. Una vez que `Comments` termina de cargar, React reemplaza `LoadingSpinner` con `Comments`.
 
-Suspense will never show unintentional "holes" in your content. For example, if `PhotoAlbums` has loaded but `Notes` have not, with the structure below, it will still show a `LoadingSpinner` instead of the entire `Grid`:
+Suspense nunca mostrará 'agujeros' involuntarios en tu contenido. Por ejemplo, si `PhotoAlbums` se ha cargado pero las `Notes` no, con la estructura de abajo, seguirá mostrando un `LoadingSpinner` en lugar de toda la `Grid`:
 
 ```js {4-7}
 <>
@@ -52,28 +52,28 @@ Suspense will never show unintentional "holes" in your content. For example, if 
 </>
 ```
 
-To reveal nested content as it loads, you need to [add more Suspense boundaries.](#revealing-nested-content-as-it-loads)
+Para revelar el contenido anidado a medida que se carga, es necesario [añadir más límites de suspenso.](#revealing-nested-content-as-it-loads)
 
 <Gotcha>
 
-**Only Suspense-enabled data sources will activate a Suspense boundary.** These data sources are said to *suspend* when the data needed to render has not yet loaded. Currently, Suspense is only supported for:
+**Sólo las fuentes de datos habilitadas para la suspensión activarán un límite de suspensión.** Se dice que estas fuentes de datos están *suspendidas* cuando los datos necesarios para la renderización aún no se han cargado. Actualmente, la suspensión sólo es compatible con:
 
-- [Lazy-loading components](#suspense-for-code-splitting)
-- Data fetching with opinionated frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/), [Next.js](https://nextjs.org/docs/advanced-features/react-18), [Hydrogen](https://hydrogen.shopify.dev/), and [Remix](https://remix.run/)
+- [Componentes Lazy-loading](#suspense-for-code-splitting)
+- Obtención de datos conframeworks de confianza como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/), [Next.js](https://nextjs.org/docs/advanced-features/react-18), [Hydrogen](https://hydrogen.shopify.dev/), and [Remix](https://remix.run/)
 
-Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
+Suspense-enabled todavía no se admite la obtención de datos sin el uso de un frameworkde confianza. Los requisitos para implementar una fuente de datos habilitada para Suspense son inestables y no están documentados. En una futura versión de React se publicará una API oficial para integrar fuentes de datos con Suspense.
 
-Suspense does not detect when data is fetched inside an Effect or event handler.
+Suspense no detecta cuando los datos se obtienen dentro de un Effect o un handles de eventos.
 
 </Gotcha>
 
 ---
 
-### Revealing nested content as it loads {/*revealing-nested-content-as-it-loads*/}
+### Revelar el contenido anidado mientras se carga {/*revealing-nested-content-as-it-loads*/}
 
-When a component suspends, it activates the fallback of only the nearest parent Suspense boundary. This means you can nest multiple Suspense boundaries to create a loading sequence. Each Suspense boundary's fallback will be filled in as the next level of content becomes available.
+Cuando un componente se suspende, se activa el límite sólo del padre más cercano en el árbol. Esto significa que puede anidar varios límites de suspensión para crear una secuencia de carga. Cada límite de suspensión se rellenará a medida que el siguiente nivel de contenido esté disponible.
 
-To illustrate, consider the following example:
+Para ilustrarlo, considere el siguiente ejemplo:
 
 ```js {1,4}
 <Suspense fallback={<BigSpinner />}>
@@ -86,18 +86,19 @@ To illustrate, consider the following example:
 </Suspense>
 ```
 
-The sequence will be:
+La secuencia será:
 
-- If `Post` hasn't loaded yet, `BigSpinner` is shown in place of the entire main content area.
-- Once `Post` finishes loading, `BigSpinner` is replaced by the main content.
-- If `Comments` hasn't loaded yet, `CommentsGlimmer` is shown in its place.
-- Finally, once `Comments` finishes loading, it replaces `CommentsGlimmer`. 
+- Si `Post` aún no se ha cargado, `BigSpinner` se muestra en lugar de toda el área de contenido principal.
+- Una vez que `Post` termina de cargar, `BigSpinner` es reemplazado por el contenido principal.
+- Si aún no se ha cargado `Comments`, se muestra `CommentsGlimmer` en su lugar.
+- Finalmente, una vez que `Comments` termina de cargarse, reemplaza a `CommentsGlimmer`. 
+
 
 ---
 
-### Lazy-loading components with Suspense {/*lazy-loading-components-with-suspense*/}
+### Componentes Lazy-loading con Suspense {/*lazy-loading-components-with-suspense*/}
 
-The [`lazy`](/apis/react/lazy) API is powered by Suspense. When you render a component imported with `lazy`, it will suspend if it hasn't loaded yet. This allows you to display a loading indicator while your component's code is loading.
+La API [`lazy`](/apis/react/lazy) es potenciada por Suspense. Cuando se renderiza un componente importado con `lazy`, se suspenderá si no se ha cargado todavía. Esto le permite mostrar un indicador de carga mientras el código de su componente se está cargando.
 
 ```js {3,12-15}
 import { lazy, Suspense, useState } from 'react';
@@ -121,7 +122,7 @@ function MarkdownEditor() {
 }
 ```
 
-In this example, the code for `MarkdownPreview` won't be loaded until you attempt to render it. If `MarkdownPreview` hasn't loaded yet, `Loading` will be shown in its place. Try ticking the checkbox:
+En este ejemplo, el código de `MarkdownPreview` no se cargará hasta que intentes renderizarlo. Si `MarkdownPreview` no se ha cargado aún, se mostrará `Loading` en su lugar. Prueba a marcar la casilla de verificación:
 
 <Sandpack>
 
@@ -215,34 +216,34 @@ body {
 
 </Sandpack>
 
-This demo loads with an artificial delay. The next time you untick and tick the checkbox, `Preview` will be cached, so there will be no loading state displayed. To see the loading state again, click "Reset" on the sandbox.
+Esta demo se carga con un retraso artificial. La próxima vez que desmarque y marque la casilla de verificación, `Preview` se almacenará en la caché, por lo que no se mostrará el estado de carga. Para volver a ver el estado de carga, haz clic en "Reiniciar" en el sandbox.
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `Suspense` {/*suspense*/}
 
 #### Props {/*suspense-props*/}
-* `children`: The actual UI you intend to render. If `children` suspends while rendering, the Suspense boundary will switch to rendering `fallback`.
-* `fallback`: An alternate UI to render in place of the actual UI if it has not finished loading. Any valid React node is accepted, though in practice, a fallback is a lightweight placeholder view, such as a loading spinner or skeleton. Suspense will automatically switch to `fallback` when `children` suspends, and back to `children` when the data is ready. If `fallback` suspends while rendering, it will activate the closest parent Suspense boundary.
+* `children`: La UI actual que se pretende renderizar. Si `children` se suspende mientras se renderiza, el límite de suspensión pasará a renderizar `fallback`.
+* `fallback`: Un UI alternativo para renderizar en lugar del UI actual si no ha terminado de cargar. Se acepta cualquier nodo React válido, aunque en la práctica, un fallback es una vista ligera tipo placeholder, como un spinner de carga o un esqueleto. La suspensión cambiará automáticamente a `fallback` cuando `children` se suspenda, y volverá a `children` cuando los datos estén listos. Si `fallback` se suspende mientras se renderiza, activará el límite de Suspense padre más cercano.
 
-### Caveats {/*caveats*/}
+### Advertencias {/*caveats*/}
 
-- React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.
-- If Suspense was displaying content for the tree, but then it suspended again, the `fallback` will be shown again unless the update causing it was caused by [`startTransition`](/apis/react/startTransition) or [`useDeferredValue`](/apis/react/useDeferredValue).
-- If React needs to hide the already visible content because it suspended again, it will clean up [layout Effects](/apis/react/useLayoutEffect) in the content tree. When the content is ready to be shown again, React will fire the layout Effects again. This lets you make sure that Effects measuring the DOM layout don't try to do this while the content is hidden.
-- React includes under-the-hood optimizations like *Streaming Server Rendering* and *Selective Hydration* that are integrated with Suspense. Read [an architectural overview](https://github.com/reactwg/react-18/discussions/37) and watch [a technical talk](https://www.youtube.com/watch?v=pj5N-Khihgc) to learn more.
+- React no preserva ningún estado para los renders que se suspendieron antes de que pudieran montarse por primera vez. Cuando el componente se haya cargado, React volverá a intentar renderizar el árbol suspendido desde cero.
+-  Si la suspensión estaba mostrando contenido para el árbol, pero luego se suspendió de nuevo, el `fallback` se mostrará de nuevo a menos que la actualización que lo causó fue causada por [`startTransition`](/apis/react/startTransition) o [`useDeferredValue`](/apis/react/useDeferredValue).
+- Si React necesita ocultar el contenido ya visible porque se suspendió de nuevo, limpiará [layout Effects](/apis/react/useLayoutEffect) en el árbol de contenido. Cuando el contenido esté listo para ser mostrado de nuevo, React disparará los layout effects de nuevo. Esto le permite asegurarse de que los Effects que miden el diseño del DOM no intentan hacerlo mientras el contenido está oculto.
+- React incluye optimizaciones under-the-hood como *Streaming Server Rendering* y *Selective Hydration* que se integran con Suspense. Leer [una visión general de la arquitectura](https://github.com/reactwg/react-18/discussions/37) y reproduce [la charla técnica](https://www.youtube.com/watch?v=pj5N-Khihgc) para saber más.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solución de problemas {/*troubleshooting*/}
 
-### How do I prevent the UI from being replaced by a fallback during an update? {/*preventing-unwanted-fallbacks*/}
+### ¿Cómo puedo evitar que la interfaz de usuario sea sustituida por un fallback durante una actualización? {/*preventing-unwanted-fallbacks*/}
 
-Replacing visible UI with a fallback creates a jarring user experience. This can happen when an update causes a component to suspend, and the nearest Suspense boundary is already showing content to the user.
+Reemplazar la interfaz de usuario visible por una de reserva crea una experiencia de usuario discordante. Esto puede ocurrir cuando una actualización hace que un componente se suspenda, y el límite de suspensión más cercano ya está mostrando contenido al usuario.
 
-To prevent this from happening, mark the update as non-urgent using [`startTransition`](/apis/react/startTransition). During a transition, React will wait until enough data has loaded to prevent an unwanted fallback from appearing:
+Para evitar que esto ocurra, marque la actualización como no urgente utilizando [`startTransition`](/apis/react/startTransition). Durante una transición, React esperará hasta que se hayan cargado suficientes datos para evitar que aparezca un fallback no deseado:
 
 ```js {2-3,5}
 function handleNextPageClick() {
@@ -253,8 +254,8 @@ function handleNextPageClick() {
 }
 ```
 
-This will avoid hiding existing content. However, any newly rendered `Suspense` boundaries will still immediately display fallbacks to avoid blocking the UI and let the user see the content as it becomes available.
+Esto evitará ocultar el contenido existente. Sin embargo, cualquier límite de `Suspense` recién renderizado seguirá mostrando inmediatamente los fallbacks para evitar el bloqueo de la UI y dejar que el usuario vea el contenido a medida que esté disponible.
 
-**React will only prevent unwanted fallbacks during non-urgent updates**. It will not delay a render if it's the result of an urgent update. You must opt in with an API like [`startTransition`](/apis/react/startTransition) or [`useDeferredValue`](/apis/react/useDeferredValue).
+**React sólo evitará los "fallbacks" no deseados durante las actualizaciones no urgentes**. No retrasará una renderización si es el resultado de una actualización urgente. Debe optar por una API como [`startTransition`](/apis/react/startTransition) o [`useDeferredValue`](/apis/react/useDeferredValue).
 
-If your router is integrated with Suspense, it should wrap its updates into [`startTransition`](/apis/react/startTransition) automatically.
+Si su router está integrado con Suspense, debería envolver sus actualizaciones en [`startTransition`](/apis/react/startTransition) automáticamente.
