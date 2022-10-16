@@ -4,7 +4,7 @@ title: Gestión del estado
 
 <Intro>
 
-A medida que tu aplicación crece, ayuda a ser más intencional sobre cómo se organiza su estado y cómo los datos fluyen entre sus componentes. El estado redundante o duplicado es una fuente común de errores. En este capítulo, aprenderás cómo estructurar bien tu estado, cómo mantener la lógica de actualización de tu estado y cómo compartir el estado entre componentes distantes.
+A medida que tu aplicación crece, es de ayuda ser más intencional sobre cómo se organiza tu estado y cómo los datos fluyen entre tus componentes. El estado redundante o duplicado es una fuente común de errores. En este capítulo, aprenderás cómo estructurar bien tu estado, cómo mantener la lógica de actualización de estado y cómo compartir el estado entre componentes distantes.
 
 </Intro>
 
@@ -15,14 +15,14 @@ A medida que tu aplicación crece, ayuda a ser más intencional sobre cómo se o
 * [Cómo "levantar el estado" para compartirlo entre componentes](/learn/sharing-state-between-components)
 * [Cómo controlar si el estado se conserva o se restablece](/learn/preserving-and-resetting-state)
 * [Cómo consolidar una lógica de estado compleja en una función](/learn/extracting-state-logic-into-a-reducer)
-* [Cómo pasar la información sin "props drilling(taladro de props)"](/learn/passing-data-deeply-with-context)
+* [Cómo pasar la información sin "_prop drilling_ (taladro de props)"](/learn/passing-data-deeply-with-context)
 * [Cómo escalar la administración del estado a medida que crece tu aplicación](/learn/scaling-up-with-reducer-and-context)
 
 </YouWillLearn>
 
-## Reacción a la entrada de datos(input) con el estado {/*reacting-to-input-with-state*/}
+## Reacción a la entrada de datos con el estado {/*reacting-to-input-with-state*/}
 
-Con React, no modificarás la interfaz de usuario directamente desde el código. Por ejemplo, no escribirás comandos como "deshabilitar el botón", "habilitar el botón", "mostrar el mensaje de éxito", etc. En su lugar, describirás la interfaz de usuario que deseas ver para los diferentes estados visuales de su componente ("estado inicial", "estado de escritura", "estado de éxito"), y luego activar los cambios de estado en respuesta a la entrada del usuario. Esto es similar a cómo los diseñadores piensan sobre la interfaz de usuario.
+Con React, no modificarás la interfaz de usuario directamente desde el código. Por ejemplo, no escribirás comandos como "deshabilitar el botón", "habilitar el botón", "mostrar el mensaje de éxito", etc. En su lugar, describirás la interfaz de usuario que deseas ver para los diferentes estados visuales de tu componente ("estado inicial", "estado de escritura", "estado de éxito"), y luego activar los cambios de estado en respuesta a la entrada del usuario. Esto es similar a cómo los diseñadores piensan sobre la interfaz de usuario.
 
 Aquí tenemos un formulario de preguntas construido con React. Fíjate en cómo utiliza la variable de estado `status` para determinar si se activa o desactiva el botón de envío, y si se muestra el mensaje de éxito en su lugar.
 
@@ -108,7 +108,7 @@ function submitForm(answer) {
 
 <LearnMore path="/learn/reacting-to-input-with-state">
 
-Lee **[Reaccionando a la entrada de datos con el estado](/learn/reacting-to-input-with-state)** para aprender a enfocar las interacciones con una mentalidad basada en el estado.
+Lee **[Reaccionar a la entrada de datos con el estado](/learn/reacting-to-input-with-state)** para aprender a enfocar las interacciones con una mentalidad basada en el estado.
 
 </LearnMore>
 
@@ -140,7 +140,7 @@ export default function Form() {
 
   return (
     <>
-      <h2>Registrate</h2>
+      <h2>Regístrate</h2>
       <label>
         Nombre:{' '}
         <input
@@ -170,6 +170,7 @@ label { display: block; margin-bottom: 5px; }
 </Sandpack>
 
 Puedes eliminarlo y simplificar el código calculando `fullName` mientras el componente se está renderizando:
+
 <Sandpack>
 
 ```js
@@ -191,7 +192,7 @@ export default function Form() {
 
   return (
     <>
-      <h2>Registrate</h2>
+      <h2>Regístrate</h2>
       <label>
         Nombre:{' '}
         <input
@@ -232,7 +233,7 @@ Lee **[Elegir la estructura del estado](/learn/choosing-the-state-structure)** p
 
 A veces, quieres que el estado de dos componentes cambie a la vez siempre. Para hacerlo, quita el estado de ambos, muévelo a su padre común más cercano, y luego pásalo a ellos vía props. Esto se conoce como "levantar el estado", y es una de las cosas más comunes que harás escribiendo código React.
 
-En este ejemplo, sólo un panel debe estar activo a la vez. Para conseguirlo, en lugar de mantener el estado activo dentro de cada panel individual, el componente padre mantiene el estado y especifica los accesorios para sus hijos.
+En este ejemplo, sólo un panel debe estar activo a la vez. Para conseguirlo, en lugar de mantener el estado activo dentro de cada panel individual, el componente padre mantiene el estado y especifica las props para sus hijos.
 
 <Sandpack>
 
@@ -495,7 +496,7 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Lee **[Preservación y restablecimiento del estado](/learn/preserving-and-resetting-state)** para aprender la vida del estado y cómo controlarlo.
+Lee **[Preservación y restablecimiento del estado](/learn/preserving-and-resetting-state)** para aprender la vida del estado y cómo controlarla.
 
 </LearnMore>
 
@@ -698,7 +699,7 @@ Lee **[Extraer la lógica de estado en un reductor](/learn/extracting-state-logi
 
 ## Pasar datos en profundidad con el contexto {/*passing-data-deeply-with-context*/}
 
-Normalmente, se pasa información de un componente padre a un componente hijo a través de props. Pero pasar props puede ser un inconveniente si necesita pasar alguna prop a través de muchos componentes, o si muchos componentes necesitan la misma información. Context permite que el componente padre haga que cierta información esté disponible para cualquier componente en el árbol por debajo de él -sin importar lo profundo que sea- sin pasarla explícitamente a través de props.
+Normalmente, se pasa información de un componente padre a un componente hijo a través de props. Pero pasar props puede ser un inconveniente si necesitas pasar alguna prop a través de muchos componentes, o si muchos componentes necesitan la misma información. Context permite que el componente padre haga que cierta información esté disponible para cualquier componente en el árbol por debajo de él -sin importar lo profundo que sea- sin pasarla explícitamente a través de props.
 
 Aquí, el componente `Heading` determina su nivel de encabezamiento "preguntando" a la `Section` más cercana por su nivel. Cada `Section` rastrea su propio nivel preguntando a la `Section` padre y añadiéndole uno. Cada `Section` proporciona información a todos los componentes que se encuentran por debajo de ella sin necesidad de pasar props--lo hace a través del contexto.
 
