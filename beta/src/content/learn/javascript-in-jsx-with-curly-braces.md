@@ -1,5 +1,5 @@
 ---
-title: JavaScript in JSX with Curly Braces
+title: JavaScript en JSX con llaves
 ---
 
 <Intro>
@@ -12,7 +12,7 @@ JSX te permite escribir marcas similares a HTML dentro de un archivo JavaScript,
 
 * Cómo pasar strings con comillas
 * Cómo hacer referencia a una variable de JavaScript dentro de JSX con llaves
-* Cómo llamar una funcion de JavaScript dentro de JSX con llaves
+* Cómo llamar una función de JavaScript dentro de JSX con llaves
 * Cómo usar un objeto de JavaScript dentro de JSX con llaves
 
 </YouWillLearn>
