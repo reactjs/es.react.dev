@@ -4,7 +4,7 @@ title: useRef
 
 <Intro>
 
-`useRef` is a React Hook that lets you reference a value that's not needed for rendering.
+`useRef` es un React Hook que te permite referenciar un valor que no es necesario para el renderizado.
 
 ```js
 const ref = useRef(initialValue)
@@ -16,11 +16,11 @@ const ref = useRef(initialValue)
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Referencing a value with a ref {/*referencing-a-value-with-a-ref*/}
+### Referenciar un valor con una referencia {/*referencing-a-value-with-a-ref*/}
 
-Call `useRef` at the top level of your component to declare one or more [refs.](/learn/referencing-values-with-refs)
+Llame a `useRef` en el nivel superior de su componente para declarar uno o más [referencias.](/learn/referencing-values-with-refs)
 
 ```js [[1, 4, "intervalRef"], [3, 4, "0"]]
 import { useRef } from 'react';
@@ -30,11 +30,11 @@ function Stopwatch() {
   // ...
 ```
 
-`useRef` returns a <CodeStep step={1}>ref object</CodeStep> with a single <CodeStep step={2}>`current` property</CodeStep> initially set to the <CodeStep step={3}>initial value</CodeStep> you provided.
+`useRef` devuelve una <CodeStep step={1}>referencia al objeto</CodeStep> con una sola  <CodeStep step={2}>propiedad `actual` </CodeStep> Establecida inicialmente con el <CodeStep step={3}>Valor inicial</CodeStep> que usted proporcionó.
 
-On the next renders, `useRef` will return the same object. You can change its `current` property to store information and read it later. This might remind you of [state](/apis/react/useState), but there is an important difference.
+En los siguientes renderizados, `useRef` will devolverá el mismo objeto. Puedes cambiar su propiedad `actual` para almacenar información y leerla más tarde. Esto puede recordarte a [state](/apis/react/useState), pero hay una diferencia importante.
 
-**Changing a ref does not trigger a re-render.** This means refs are perfect for storing information that doesn't affect the visual output of your component. For example, if you need to store an [interval ID](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) and retrieve it later, you can put it in a ref. To update the value inside the ref, you need to manually change its <CodeStep step={2}>`current` property</CodeStep>:
+**El cambio de una referencia no provoca una nueva renderización.** Esto significa que las referencias son perfectas para almacenar información que no afecta a la salida visual de su componente. Por ejemplo, si necesita almacenar un [ID de intervalo](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) y recuperarlo más tarde, puedes ponerlo en una referencia. Para actualizar el valor dentro de la referencia, es necesario cambiar manualmente su<CodeStep step={2}>propiedad `actual`</CodeStep>:
 
 ```js [[2, 5, "intervalRef.current"]]
 function handleStartClick() {
@@ -45,7 +45,7 @@ function handleStartClick() {
 }
 ```
 
-Later, you can read that interval ID from the ref so that you can call [clear that interval](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval):
+Más tarde, puedes leer el ID de ese intervalo desde la referencia para poder llamar a [borrar ese intervalo](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval):
 
 ```js [[2, 2, "intervalRef.current"]]
 function handleStopClick() {
@@ -54,19 +54,19 @@ function handleStopClick() {
 }
 ```
 
-By using a ref, you ensure that:
+Al utilizar una referencia, te aseguras de que:
 
-- You can **store information** between re-renders (unlike regular variables, which reset on every render).
-- Changing it **does not trigger a re-render** (unlike state variables, which trigger a re-render).
-- The **information is local** to each copy of your component (unlike the variables outside, which are shared).
+- Puedes **almacenar información** entre renderizados (a diferencia de las variables regulares, que se reinician en cada renderizado).
+- El cambio de la misma **no desencadena un renderizado** (a diferencia de las variables de estado, que desencadenan un renderizado).
+- La **información es local** para cada copia de su componente (a diferencia de las variables externas, que son compartidas).
 
-Changing a ref does not trigger a re-render, so refs are not appropriate for storing information that you want to display on the screen. Use state for that instead. Read more about [choosing between `useRef` and `useState`.](/learn/referencing-values-with-refs#differences-between-refs-and-state)
+El cambio de una referencia no desencadena un renderizado, por lo que las referencias no son apropiadas para almacenar información que se quiere mostrar en la pantalla. Utiliza el estado para eso. Leer más sobre [elegir entre `useRef` y `useState`].(/learn/referencing-values-with-refs#differences-between-refs-and-state)
 
-<Recipes titleText="Examples of referencing a value with useRef" titleId="examples-value">
+<Recipes titleText="Ejemplos de referencia a un valor con useRef" titleId="ejemplos-valor">
 
-#### Click counter {/*click-counter*/}
+#### Contador de clics {/*click-counter*/}
 
-This component uses a ref to keep track of how many times the button was clicked. Note that it's okay to use a ref instead of state here because the click count is only read and written in an event handler.
+Este componente utiliza una referencia para llevar la cuenta de las veces que se ha pulsado el botón. Tenga en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un controlador de eventos.
 
 <Sandpack>
 
@@ -83,7 +83,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      Click me!
+      Haz clic en mí!
     </button>
   );
 }
@@ -91,13 +91,13 @@ export default function Counter() {
 
 </Sandpack>
 
-If you show `{ref.current}` in the JSX, the number won't update on click. This is because setting `ref.current` does not trigger a re-render. Information that's used for rendering should be state instead.
+Si muestra `{ref.current}` en el JSX, el número no se actualizará al hacer clic. Esto se debe a que el establecimiento de `ref.current` no desencadena un re-renderizado. La información que se utiliza para el renderizado debe ser el estado en su lugar.
 
 <Solution />
 
-#### A stopwatch {/*a-stopwatch*/}
+#### Un cronómetro {/*a-stopwatch*/}
 
-This example uses a combination of state and refs. Both `startTime` and `now` are state variables because they are used for rendering. But we also need to hold an [interval ID](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) so that we can stop the interval on button press. Since the interval ID is not used for rendering, it's appropriate to keep it in a ref, and manually update it.
+Este ejemplo utiliza una combinación de estado y referencias. Tanto `startTime` como `now` son variables de estado porque se utilizan para la renderización. Pero también necesitamos mantener un [ID de intervalo](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) para que podamos detener el intervalo al pulsar el botón. Dado que el ID del intervalo no se utiliza para el renderizado, es conveniente mantenerlo en una ref, y actualizarlo manualmente.
 
 <Sandpack>
 
@@ -130,12 +130,12 @@ export default function Stopwatch() {
 
   return (
     <>
-      <h1>Time passed: {secondsPassed.toFixed(3)}</h1>
+      <h1>El tiempo transcurre: {secondsPassed.toFixed(3)}</h1>
       <button onClick={handleStart}>
-        Start
+        Empezar
       </button>
       <button onClick={handleStop}>
-        Stop
+        Parar
       </button>
     </>
   );
@@ -591,4 +591,4 @@ export default MyInput;
 
 Then the parent component can get a ref to it.
 
-Read more about [accessing another component's DOM nodes.](/learn/manipulating-the-dom-with-refs#accessing-another-components-dom-nodes)
+Read more about [accessing another component's DOM nodes.](/learn/manipulating-the-dom-with-refs#accessing-another-
