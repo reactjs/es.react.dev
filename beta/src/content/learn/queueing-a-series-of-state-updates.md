@@ -364,7 +364,7 @@ Esto asegura que cuando se incrementa o disminuye un contador, se hace con relac
 
 </Solution>
 
-#### Implement the state queue yourself {/*implement-the-state-queue-yourself*/}
+#### Implementa la cola de estado tú mismo {/*implement-the-state-queue-yourself*/}
 
 ¡En este reto, reimplementarás una pequeña parte de React desde cero! No es tan difícil como parece.
 
