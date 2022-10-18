@@ -152,7 +152,7 @@ export default function Counter() {
       <button onClick={() => {
         setNumber(number + 5);
         setNumber(n => n + 1);
-      }}>Increase the number</button>
+      }}>Incrementa el número</button>
     </>
   )
 }
@@ -208,7 +208,7 @@ export default function Counter() {
         setNumber(number + 5);
         setNumber(n => n + 1);
         setNumber(42);
-      }}>Increase the number</button>
+      }}>Incrementa el número</button>
     </>
   )
 }
@@ -295,13 +295,13 @@ export default function RequestTracker() {
   return (
     <>
       <h3>
-        Pending: {pending}
+        Pendiente: {pending}
       </h3>
       <h3>
-        Completed: {completed}
+        Completado: {completed}
       </h3>
       <button onClick={handleClick}>
-        Buy     
+        Comprar     
       </button>
     </>
   );
@@ -339,13 +339,13 @@ export default function RequestTracker() {
   return (
     <>
       <h3>
-        Pending: {pending}
+        Pendiente: {pending}
       </h3>
       <h3>
-        Completed: {completed}
+        Completado: {completed}
       </h3>
       <button onClick={handleClick}>
-        Buy     
+        Comprar
       </button>
     </>
   );
@@ -384,9 +384,9 @@ export function getFinalState(baseState, queue) {
 
   for (let update of queue) {
     if (typeof update === 'function') {
-      // TODO: apply the updater function
+      // TODO: aplica la función de actualización
     } else {
-      // TODO: replace the state
+      // TODO: reemplaza el estado
     }
   }
 
@@ -404,7 +404,7 @@ export function getFinalState(baseState, queue) {
 export function getFinalState(baseState, queue) {
   let finalState = baseState;
 
-  // TODO: do something with the queue...
+  // TODO: haz algo con la cola...
 
   return finalState;
 }
@@ -467,9 +467,9 @@ function TestCase({
   const actual = getFinalState(baseState, queue);
   return (
     <>
-      <p>Base state: <b>{baseState}</b></p>
-      <p>Queue: <b>[{queue.join(', ')}]</b></p>
-      <p>Expected result: <b>{expected}</b></p>
+      <p>Estado base: <b>{baseState}</b></p>
+      <p>Cola: <b>[{queue.join(', ')}]</b></p>
+      <p>Resultado esperado: <b>{expected}</b></p>
       <p style={{
         color: actual === expected ?
           'green' :
@@ -478,8 +478,8 @@ function TestCase({
         Your result: <b>{actual}</b>
         {' '}
         ({actual === expected ?
-          'correct' :
-          'wrong'
+          'correcto' :
+          'erróneo'
         })
       </p>
     </>
@@ -501,10 +501,10 @@ export function getFinalState(baseState, queue) {
 
   for (let update of queue) {
     if (typeof update === 'function') {
-      // Apply the updater function.
+      // Aplica la función de actualización.
       finalState = update(finalState);
     } else {
-      // Replace the next state.
+      // Reemplaza el siguiente estado.
       finalState = update;
     }
   }
@@ -570,9 +570,9 @@ function TestCase({
   const actual = getFinalState(baseState, queue);
   return (
     <>
-      <p>Base state: <b>{baseState}</b></p>
-      <p>Queue: <b>[{queue.join(', ')}]</b></p>
-      <p>Expected result: <b>{expected}</b></p>
+      <p>Estado base: <b>{baseState}</b></p>
+      <p>Cola: <b>[{queue.join(', ')}]</b></p>
+      <p>Resultado esperado: <b>{expected}</b></p>
       <p style={{
         color: actual === expected ?
           'green' :
@@ -581,8 +581,8 @@ function TestCase({
         Your result: <b>{actual}</b>
         {' '}
         ({actual === expected ?
-          'correct' :
-          'wrong'
+          'correcto' :
+          'erróneo'
         })
       </p>
     </>
