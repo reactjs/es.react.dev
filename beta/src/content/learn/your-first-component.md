@@ -86,11 +86,11 @@ El prefijo `export default` es parte de la sintaxis [estándar de Javascript](ht
 
 Con `function Profile() { }` defines una función con el nombre `Profile`.
 
-<Gotcha>
+<Pitfall>
 
 ¡Los componentes de React son funciones regulares de JavaScript, pero **sus nombres deben comenzar con letra mayúscula** o no funcionarán!
 
-</Gotcha>
+</Pitfall>
 
 ### Paso 3: Añade marcado {/*step-3-add-markup*/}
 
@@ -112,11 +112,11 @@ return (
 );
 ```
 
-<Gotcha>
+<Pitfall>
 
 ¡Sin paréntesis, todo el código que está en las líneas posteriores al `return` [serán ignoradas](https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)!
 
-</Gotcha>
+</Pitfall>
 
 ## Usar un componente {/*using-a-component*/}
 
@@ -176,7 +176,7 @@ Los componentes son funciones regulares de JavaScript, por lo que puedes tener m
 
 Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un «hijo». Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
-<Gotcha>
+<Pitfall>
 
 Los componentes pueden renderizar otros componentes, pero **nunca debes anidar sus definiciones:**
 
@@ -205,7 +205,7 @@ function Profile() {
 
 Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn/passing-props-to-a-component) en lugar de anidar las definiciones.
 
-</Gotcha>
+</Pitfall>
 
 <DeepDive title="Componentes de arriba a abajo">
 
