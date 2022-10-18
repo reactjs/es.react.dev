@@ -118,7 +118,7 @@ Así es como funciona React a través de estas líneas de código mientras se ej
 
 Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de retorno de su función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
 
-|  queued update | `n` | returns |
+|  actualización en cola | `n` | devuelve |
 |--------------|---------|-----|
 | `n => n + 1` | `0` | `0 + 1 = 1` |
 | `n => n + 1` | `1` | `1 + 1 = 2` |
