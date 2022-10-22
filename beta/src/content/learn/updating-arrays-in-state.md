@@ -1,5 +1,5 @@
 ---
-title: Actualizar _arrays_ en el estado
+title: Actualizar arrays en el estado
 ---
 
 <Intro>
