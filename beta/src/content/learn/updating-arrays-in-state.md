@@ -1,52 +1,52 @@
 ---
-title: Actualizando arreglos en el estado
+title: Actualizar _arrays_ en el estado
 ---
 
 <Intro>
 
-Los arreglos son mutables en JavaScript, pero tú podrías tratarlos como inmutables cuando los almacenas en el estado. Justo como los objetos, cuando quieras actualizar un arreglo almacenado en el estado, necesitas crear uno nuevo ( o hacer una copia de uno existente), luego almacenarlo en el estado para hacer uso de este nuevo arreglo. 
+Los _arrays_ son mutables en JavaScript, pero deberían tratarse como inmutables cuando los almacenas en el estado. Al igual que los objetos, cuando quieras actualizar un _array_ almacenado en el estado, necesitas crear uno nuevo (o hacer una copia de uno existente) y luego asignar el estado para que utilice este nuevo _array_. 
 
 </Intro>
 
 <YouWillLearn>
 
-- Cómo añadir, remover, o cambiar items en un arreglo en el estado de React
-- Cómo actualizar un objeto dentro de un arreglo
-- Cómo copiar un arreglo de forma menos repetitiva con Immer
+- Cómo añadir, eliminar o cambiar elementos en un _array_ en el estado de React
+- Cómo actualizar un objeto dentro de un _array_
+- Cómo copiar un _array_ de forma menos repetitiva con Immer
 
 </YouWillLearn>
 
-## Actualizando arreglos sin mutación {/*updating-arrays-without-mutation*/}
+## Actualizar _arrays_ sin mutación {/*updating-arrays-without-mutation*/}
 
-En JavaScript, los arreglos son sólo otro tipo de objeto. [Como con los objetos](/learn/updating-objects-in-state), **deberías tratar los arreglos en estado React como solo lectura.** Esto significa que no deberías reasignar elementos dentro de un arreglo como `arr[0] = 'pájaro'`, y tampoco deberías usar métodos que puedan mutar el arreglo, como `push()` y `pop()`.
+En JavaScript, los _arrays_ son solo otro tipo de objeto. [Como con los objetos](/learn/updating-objects-in-state), **deberías tratar los _arrays_ en el estado de React como si fueran de solo lectura.** Esto significa que no deberías reasignar elementos dentro de un _array_ como `arr[0] = 'pájaro'`, y tampoco deberías usar métodos que puedan mutar el _array_, como `push()` y `pop()`.
 
-En su lugar, cada vez que quieras actualizar un arreglo, querrás pasar un, *nuevo* arreglo a su función de configuración de estado.Para hacer eso, puedes crear un nuevo arreglo a partir de el arreglo original en su estado llamando a sus métodos no mutantes como `filter()` por `map()`. Luego puede establecer su estado a partir de un nuevo arreglo.
+En su lugar, cada vez que quieras actualizar un _array_, querrás pasar un, *nuevo* _array_ a la función de asignación de estado. Para hacerlo, puedes crear un nuevo _array_ a partir del _array_ original en el estado si llamas a sus métodos que no lo muten como `filter()` y `map()`. Luego puedes asignar el estado a partir del nuevo _array_ resultante.
 
-Aquí hay una tabla de referencia con las operaciones más comunes con arreglos. Cuando se trata de arreglos dentro de el estado de React, necesitarás evitar los métodos de la columna izquierda, y en su lugar es preferible usar los métodos de la columna derecha.
+Aquí hay una tabla de referencia con las operaciones más comunes con _arrays_. Cuando se trata de _arrays_ dentro del estado de React, necesitarás evitar los métodos de la columna izquierda, y en su lugar es preferible usar los métodos de la columna derecha.
 
-|              | evita (muta el arreglo)                  | preferido (retorna un nuevo arreglo)                                         |
+|              | evita (muta el _array_)                  | preferido (retorna un nuevo _array_)                                         |
 |--------------|------------------------------------------|------------------------------------------------------------------------------|
-| añadiendo    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
-| removiendo   | `pop`, `shift`, `splice`                 | `filter`, `slice` ([ejemplo](#removing-from-an-array))                       |
-| reemplazando | `splice`, `arr[i] = ...` asigna          | `map` ([ejemplo](#replacing-items-in-an-array))                              |
-| ordenando    | `reverse`, `sort`                        | copia el arreglo primero ([ejemplo](#making-other-changes-to-an-array))      |
+| insertar    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
+| eliminar   | `pop`, `shift`, `splice`                 | `filter`, `slice` ([ejemplo](#removing-from-an-array))                       |
+| reemplazar | `splice`, `arr[i] = ...` asigna          | `map` ([ejemplo](#replacing-items-in-an-array))                              |
+| ordenar    | `reverse`, `sort`                        | copia el _array_ primero ([ejemplo](#making-other-changes-to-an-array))      |
 
-Alternativamente, tú puedes [usar Immer](#write-concise-update-logic-with-immer) el cual te permite usar métodos de ambas columnas.
+Como alternativa, puedes [usar Immer](#write-concise-update-logic-with-immer) el cual te permite usar métodos de ambas columnas.
 
 <Pitfall>
 
-Desafortunadamente, [`slice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) and [`splice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) están nombrados de forma similar pero estos son my diferentes:
+Desafortunadamente, [`slice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) y [`splice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) tienen nombres muy similares pero son muy diferentes:
 
-* `slice` te permite copiar un arreglo o una parte del mismo.
-* `splice` **muta** el arreglo (para insertar o eliminar elementos).
+* `slice` te permite copiar un _array_ o una parte del mismo.
+* `splice` **muta** el _array_ (para insertar o eliminar elementos).
 
-En React, estarás usando `slice` (no `p`!) mucho más seguido porque no quieres mutar objetos o arreglos en el estado. [Actualizando objetos](/learn/updating-objects-in-state) explica qué es mutación y por qué esto no es recomendado para el estado.
+En React, estarás usando `slice` (no `p`!) mucho más seguido porque no quieres mutar objetos o _arrays_ en el estado. [Actualizar objetos](/learn/updating-objects-in-state) explica qué es mutación y por qué no se recomienda para el estado.
 
 </Pitfall>
 
-### Añadiendo un arreglo {/*adding-to-an-array*/}
+### Añadir a un _array_ {/*adding-to-an-array*/}
 
-`push()` muta un arreglo, lo cual no queremos:
+`push()` muta un _array_, lo cual no queremos:
 
 <Sandpack>
 
@@ -89,11 +89,11 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-En su lugar, crea un *nuevo* arreglo el cual contenga los elementos existentes *y* un nuevo elemento al final. Hay multiples formas para hacer esto, pero la más fácil es usar la sintaxis `...` [operador de propagación en arreglos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals):
+En su lugar, crea un *nuevo* _array_ que contenga los elementos existentes *y* un nuevo elemento al final. Hay múltiples formas de hacerlo, pero la más fácil es usar la sintaxis `...` [de propagación en _arrays_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals):
 
 ```js
-setArtists( // Remplaza el estado
-  [ // con el nuevo arreglo
+setArtists( // Reemplaza el estado
+  [ // con el nuevo _array_
     ...artists, // el cual contiene todos los elementos antiguos
     { id: nextId++, name: name } // y un nuevo elemento al final
   ]
@@ -143,7 +143,7 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-El operador de propagación también te permite anteponer un elemento colocandolo *antes* de el original `...artists`:
+El operador de propagación también te permite anteponer un elemento al colocarlo *antes* del original `...artists`:
 
 ```js
 setArtists([
@@ -152,11 +152,11 @@ setArtists([
 ]);
 ```
 
-De esta forma, el operador de propagación puede hacer el trabajo tanto de `push()` añadiendo en el final del arreglo como de `unshift()` agregando al comienzo de el arreglo. ¡Pruebalo en el editor de arriba!
+De esta forma, el operador de propagación puede hacer el trabajo tanto de `push()` añadiendo al final del _array_ como de `unshift()` agregando al comienzo del _array_. ¡Pruébalo en el editor de arriba!
 
-### Eliminando elementos de un arreglo {/*removing-from-an-array*/}
+### Eliminar elementos de un _array_ {/*removing-from-an-array*/}
 
-La forma más fácil de remover un elemento de un arreglo es *filtrarlo*. En otras palabras, producirás un nuevo arreglo el cual no contendrá ese elemento. Para hacer esto, usa el método `filter`, por ejemplo:
+La forma más fácil de eliminar un elemento de un _array_ es *filtrarlo*. En otras palabras, producirás un nuevo _array_ que no contendrá ese elemento. Para hacerlo, usa el método `filter`, por ejemplo:
 
 <Sandpack>
 
@@ -200,7 +200,7 @@ export default function List() {
 
 </Sandpack>
 
-Haz click en el botón de "Eliminar" varias veces, y mira su controlador de clics.
+Haz click en el botón "Eliminar" varias veces, y mira su manejador de clics.
 
 ```js
 setArtists(
@@ -208,13 +208,13 @@ setArtists(
 );
 ```
 
-Aquí, `artists.filter(a => a.id !== artist.id)` significa "crea un nuevo arreglo el cual consista de aquellos `artists` cuyos IDs son diferentes de `artist.id`". En otras palabras, el botón "Eliminar" de cada artista filtrará a _ese_ artista de el arreglo y luego solicitará una nueva representación con el arreglo resultante. Ten en cuenta que `filter` no modifica el arreglo original.
+Aquí, `artists.filter(a => a.id !== artist.id)` significa "crea un nuevo _array_ conformado por aquellos `artists` cuyos IDs son diferentes de `artist.id`". En otras palabras, el botón "Eliminar" de cada artista filtrará a _ese_ artista del _array_ y luego solicitará un rerenderizado con el _array_ resultante. Ten en cuenta que `filter` no modifica el _array_ original.
 
-### Transformando un arreglo {/*transforming-an-array*/}
+### Transformar un _array_ {/*transforming-an-array*/}
 
-Si deseas cambiar algunos o todos los elementos de el arreglo, puedes usar `map()` para crear un **nuevo** arreglo. La función que pasará a `map` puede decidir qué hacer con cada elemento, en función de sus datos o su índice (o ambos).
+Si deseas cambiar algunos o todos los elementos del _array_, puedes usar `map()` para crear un **nuevo** _array_. La función que pasarás a `map` puede decidir qué hacer con cada elemento, en función de sus datos o su índice (o ambos).
 
-En este ejemplo, un arreglo contiene las coordenadas de dos círculos y un cuadrado. Cuando presiona el botón, mueve solo los círculos 50 píxeles hacia abajo. Lo hace produciendo un nuevo arreglo de datos usando `map()`:
+En este ejemplo, un _array_ contiene las coordenadas de dos círculos y un cuadrado. Cuando presionas el botón, mueve solo los círculos 50 píxeles hacia abajo. Lo hace produciendo un nuevo _array_ de datos usando `map()`:
 
 <Sandpack>
 
@@ -245,7 +245,7 @@ export default function ShapeEditor() {
         };
       }
     });
-    // Vuelve a renderizar con el nuevo arreglo
+    // Vuelve a renderizar con el nuevo _array_
     setShapes(nextShapes);
   }
 
@@ -280,11 +280,11 @@ body { height: 300px; }
 
 </Sandpack>
 
-### Reemplazo de elementos en un arreglo {/*replacing-items-in-an-array*/}
+### Reemplazar elementos en un _array_ {/*replacing-items-in-an-array*/}
 
-Es particularmente común querer reemplazar uno o más elementos en un arreglo. Las asignaciones como `arr[0] = 'pájaro'` están mutando el arreglo original, por lo que también querrás usar `map` para esto.
+Es particularmente común querer reemplazar uno o más elementos en un _array_. Las asignaciones como `arr[0] = 'pájaro'` están mutando el _array_ original, por lo que para esto también querrás usar `map`.
 
-Para reemplazar un elemento, crea una un nuevo arreglo con `map`. Dentro de su llamada `map`, recibirá el índice del elemento como segundo argumento. Úsalo para decidir si devolver el elemento original (el primer argumento) o algo más:
+Para reemplazar un elemento, crea una un nuevo _array_ con `map`. Dentro de la llamada a `map`, recibirás el índice del elemento como segundo argumento. Úsalo para decidir si devolver el elemento original (el primer argumento) o algo más:
 
 <Sandpack>
 
@@ -334,9 +334,9 @@ button { margin: 5px; }
 
 </Sandpack>
 
-### Insertando en un arreglo {/*inserting-into-an-array*/}
+### Insertar en un _array_ {/*inserting-into-an-array*/}
 
-A veces, es posible que desees insertar un elemento en una posición particular que no esté ni al principio ni al final. Para hacer esto, puedes usar la sintaxis de propagación para arreglos `...` junto con el método `slice()`. El método `slice()` te permite cortar una "rebanada" de el arreglo. Para insertar un elemento, crearás un arreglo que extienda el segmento _antes_ del punto de inserción, luego el nuevo elemento y luego el resto de el arreglo original.
+A veces, es posible que desees insertar un elemento en una posición particular que no esté ni al principio ni al final. Para hacer esto, puedes usar la sintaxis de propagación para _arrays_ `...` junto con el método `slice()`. El método `slice()` te permite cortar una "rebanada" del _array_. Para insertar un elemento, crearás un _array_ que extienda el segmento _antes_ del punto de inserción, luego el nuevo elemento y luego el resto del _array_ original.
 
 En este ejemplo, el botón "Insertar" siempre inserta en el índice `1`:
 
@@ -398,11 +398,11 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-### Hacer otros cambios en un arreglo {/*making-other-changes-to-an-array*/}
+### Hacer otros cambios en un _array_ {/*making-other-changes-to-an-array*/}
 
-Hay algunas cosas que no puedes hacer con la sintaxis extendida y los métodos que no mutan como `map()` y `filter()` solos. Por ejemplo, es posible que desees invertir u ordenar un arreglo. Los métodos JavaScript `reverse()` y `sort()` están mutando el arreglo original, por lo que no puede usarlos directamente.
+Hay algunas cosas que no puedes hacer con la sintaxis extendida y los métodos que no mutan como `map()` y `filter()`. Por ejemplo, es posible que desees invertir u ordenar un _array_. Los métodos JavaScript `reverse()` y `sort()` mutan el _array_ original, por lo que no puedes usarlos directamente.
 
-**Sin embargo, puedes copiar el arreglo primero y luego realizar cambios en él.**
+**Sin embargo, puedes copiar el _array_ primero y luego realizar cambios en él.**
 
 Por ejemplo:
 
@@ -444,9 +444,9 @@ export default function List() {
 
 </Sandpack>
 
-Aquí, usa la sintaxis de propagación `[...list]` para crear primero una copia de el arreglo original. Ahora que tienes una copia, puedes usar métodos de mutación como `nextList.reverse()` o `nextList.sort()`, o incluso asignar elementos individuales con `nextList[0] = "algo"`.
+Aquí, usas la sintaxis de propagación `[...list]` para crear primero una copia del _array_ original. Ahora que tienes una copia, puedes usar métodos de mutación como `nextList.reverse()` o `nextList.sort()`, o incluso asignar elementos individuales con `nextList[0] = "algo"`.
 
-Sin embargo, **incluso si copias un arreglo, no puede mutar los elementos existentes _dentro_ de éste directamente.** Esto se debe a que la copia es superficial: el nuevo arreglo contendrá los mismos elementos que la original. Entonces, si modificas un objeto dentro de el arreglo copiado, estás mutando el estado existente. Por ejemplo, un código como este es un problema.
+Sin embargo, **incluso si copias un _array_, no puedes mutar los elementos existentes _dentro_ de éste directamente.** Esto se debe a que la copia es superficial: el nuevo _array_ contendrá los mismos elementos que el original. Entonces, si modificas un objeto dentro del _array_ copiado, estás mutando el estado existente. Por ejemplo, un código como este es un problema.
 
 ```js
 const nextList = [...list];
@@ -454,11 +454,11 @@ nextList[0].seen = true; // Problema: muta list[0]
 setList(nextList);
 ```
 
-Aunque `nextList` y `list` son dos arreglos diferentes, **`nextList[0]` y `list[0]` apuntan al mismo objeto.** Entonces, al cambiar `nextList[0].seen`, está también cambiando `list[0].seen`. ¡Esta es una mutación de estado que debes evitar! Puedes resolver este problema de forma similar a [actualizar objetos JavaScript anidados](/learn/updating-objects-in-state#updating-a-nested-object): copiando elementos individuales que deseas cambiar en lugar de mutarlos. Así es cómo.
+Aunque `nextList` y `list` son dos _arrays_ diferentes, **`nextList[0]` y `list[0]` apuntan al mismo objeto.** Entonces, al cambiar `nextList[0].seen`, está también cambiando `list[0].seen`. ¡Esta es una mutación de estado que debes evitar! Puedes resolver este problema de forma similar a [actualizar objetos JavaScript anidados](/learn/updating-objects-in-state#updating-a-nested-object): copiando elementos individuales que deseas cambiar en lugar de mutarlos. Así es cómo.
 
-## Actualizando objetos dentro de arreglos {/*updating-objects-inside-arrays*/}
+## Actualizar objetos dentro de _arrays_ {/*updating-objects-inside-arrays*/}
 
-Los objetos no están _realmente_ ubicados "dentro" de los arreglos. Puede parecer que están "dentro" del código, pero cada objeto en un arreglo es un valor separado, al que "apunta" el arreglo. Es por eso que debe tener cuidado al cambiar campos anidados como `list[0]`. ¡La lista de obras de arte de otra persona puede apuntar al mismo elemento de el arreglo!
+Los objetos no están _realmente_ ubicados "dentro" de los _arrays_. Puede parecer que están "dentro" del código, pero cada objeto en un _array_ es un valor separado, al que "apunta" el _array_. Es por eso que debe tener cuidado al cambiar campos anidados como `list[0]`. ¡La lista de obras de arte de otra persona puede apuntar al mismo elemento del _array_!
 
 **Al actualizar el estado anidado, debe crear copias desde el punto en el que desea actualizar y hasta el nivel superior.** Veamos cómo funciona esto.
 
@@ -502,12 +502,12 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Bucket de arte</h1>
-      <h2>Mi lista de arte para ver:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={myList}
         onToggle={handleToggleMyList} />
-      <h2>Tu lista de arte para ver:</h2>
+      <h2>Tu lista de obras de arte para ver:</h2>
       <ItemList
         artworks={yourList}
         onToggle={handleToggleYourList} />
@@ -551,7 +551,7 @@ artwork.seen = nextSeen; // Problema: muta un elemento existente
 setMyList(myNextList);
 ```
 
-Aunque el arreglo `myNextList` en sí mismo es nuevo, los *elementos iguales* son los mismos que en el arreglo `myList` original. Entonces, cambiar `artwork.seen` cambia el elemento de la obra de arte *original*. Ese elemento de la obra de arte también está en `yourArtworks`, lo que causa el error. Errores como este pueden ser difíciles de pensar, pero afortunadamente desaparecen si evitas el estado de mutación.
+Aunque el _array_ `myNextList` en sí mismo es nuevo, los *propios elementos* son los mismos que en el _array_ `myList` original. Entonces, cambiar `artwork.seen` cambia el elemento de la obra de arte *original*. Ese elemento de la obra de arte también está en `yourArtworks`, lo que causa el error. Puede ser difícil pensar en errores como este, pero afortunadamente desaparecen si evitas mutar el estado.
 
 **Puedes usar `map` para sustituir un elemento antiguo con su versión actualizada sin mutación.**
 
@@ -615,12 +615,12 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Bucket de arte</h1>
-      <h2>Mi lista de arte para ver:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={myList}
         onToggle={handleToggleMyList} />
-      <h2>Tu lista de arte para ver:</h2>
+      <h2>Tu lista de obras de arte para ver:</h2>
       <ItemList
         artworks={yourList}
         onToggle={handleToggleYourList} />
@@ -655,16 +655,16 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-En general, **solo debes mutar objetos que acaba de crear.** Si estuvieras insertando una *nueva* obra de arte, podría mutarla, pero si se trata de algo que ya está en estado, debes hacer una copia.
+En general, **solo debes mutar objetos que acabas de crear.** Si estuvieras insertando una *nueva* obra de arte, podrías mutarla, pero si se trata de algo que ya está en el estado, debes hacer una copia.
 
 ### Escribe una lógica de actualización concisa con Immer {/*write-concise-update-logic-with-immer*/}
 
-Al actualizar arreglos anidados sin mutación puede volverse un poco repetitivo. [Al igual que con los objetos](/learn/updating-objects-in-state#write-concise-update-logic-with-immer):
+Actualizar _arrays_ anidados sin mutación puede volverse un poco repetitivo. [Al igual que con los objetos](/learn/updating-objects-in-state#write-concise-update-logic-with-immer):
 
-- En general, no deberías de necesitar actualizar el estado más de un par de niveles de profundidad. Si tus objetos de estado son muy profundos, es posible que desees [reestructurarlos de manera diferente](/learn/choosing-the-state-structure#avoid-deeply-nested-state) para que sean planos.
-- Si no deseas cambiar su estructura de estado, puedes preferir usar [Immer](https://github.com/immerjs/use-immer), que te permite escribir usando la sintaxis conveniente pero cambiante y se encarga de producir las copias para usted.
+- En general, no deberías necesitar actualizar el estado más de un par de niveles de profundidad. Si tus objetos de estado son muy profundos, es posible que desees [reestructurarlos de manera diferente](/learn/choosing-the-state-structure#avoid-deeply-nested-state) para que sean planos.
+- Si no deseas cambiar la estructura de tu estado, puedes preferir usar [Immer](https://github.com/immerjs/use-immer), que te permite escribir usando la sintaxis conveniente, pero que realiza mutaciones, y se encarga de producir las copias por ti.
 
-Aquí está el ejemplo de un Bucket de arte reescrito con Immer:
+Aquí está el ejemplo de una Lista de deseos de arte reescrito con Immer:
 
 <Sandpack>
 
@@ -707,12 +707,12 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Bucket de arte</h1>
-      <h2>Mi lista de arte para ver:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={myList}
         onToggle={handleToggleMyList} />
-      <h2>Tu lista de arte para ver:</h2>
+      <h2>Tu lista de obras de arte para ver:</h2>
       <ItemList
         artworks={yourArtworks}
         onToggle={handleToggleYourList} />
@@ -776,15 +776,15 @@ updateMyTodos(draft => {
 
 Esto se debe a que no está mutando el estado _original_, sino que está mutando un objeto `draft` especial proporcionado por Immer. Del mismo modo, puedes aplicar métodos de mutación como `push()` y `pop()` al contenido del `draft`.
 
-Detrás de escena, Immer siempre construye el siguiente estado desde cero de acuerdo con los cambios que ha realizado en el `draft`. Esto mantiene sus controladores de eventos muy concisos sin cambiar nunca el estado.
+Tras bambalinas, Immer siempre construye el siguiente estado desde cero de acuerdo con los cambios que ha realizado en el `draft`. Esto mantiene tus controladores de eventos muy concisos sin mutar nunca el estado.
 
 <Recap>
 
-- Puedes poner arreglos en el estado, pero no puedes cambiarlos.
-- En lugar de mutar un arreglo, crea una *nueva* versión y actualiza el estado.
-- Puedes usar la sintaxis de propagación `[...arr, newItem]` para crear arreglos con nuevos elementos.
-- Puedes usar `filter()` y `map()` para crear nuevos arreglos con elementos filtrados o transformados.
-- Puedes usar Immer para mantener su código conciso.
+- Puedes poner _arrays_ en el estado, pero no puedes cambiarlos.
+- En lugar de mutar un _array_, crea una *nueva* versión y actualiza el estado.
+- Puedes usar la sintaxis de propagación `[...arr, newItem]` para crear _arrays_ con nuevos elementos.
+- Puedes usar `filter()` y `map()` para crear nuevos _arrays_ con elementos filtrados o transformados.
+- Puedes usar Immer para mantener tu código conciso.
 
 </Recap>
 
@@ -852,7 +852,7 @@ button { margin: 5px; }
 
 <Solution>
 
-Puedes usar la función `map` para crear un nuevo arreglo, y luego usar la sintaxis del operador de propagación de objetos `...` para crear una copia del objeto modificado para el nuevo arreglo:
+Puedes usar la función `map` para crear un nuevo _array_, y luego usar la sintaxis del operador de propagación de objetos `...` para crear una copia del objeto modificado para el nuevo _array_:
 
 <Sandpack>
 
@@ -991,7 +991,7 @@ button { margin: 5px; }
 
 <Solution>
 
-Primero puedes usar `map` para producir un nuevo arreglo, y luego `filter` para eliminar productos con un `count` establecido en `0`:
+Primero puedes usar `map` para producir un nuevo _array_, y luego `filter` para eliminar productos con un `count` establecido en `0`:
 
 <Sandpack>
 
@@ -1080,9 +1080,9 @@ button { margin: 5px; }
 
 </Solution>
 
-#### Repara las mutaciones usando métodos no mutativos {/*fix-the-mutations-using-non-mutative-methods*/}
+#### Repara las mutaciones usando métodos que no muten {/*fix-the-mutations-using-non-mutative-methods*/}
 
-En este ejemplo, todos los controladores de eventos en `App.js` usan mutación. Como resultado, la edición y eliminación de todos no funciona. Vuelva a escribir `handleAddTodo`, `handleChangeTodo` y `handleDeleteTodo` para usar los métodos no mutativos:
+En este ejemplo, todos los controladores de eventos en `App.js` usan mutación. Como resultado, la edición y eliminación de tareas no funciona. Vuelve a escribir `handleAddTodo`, `handleChangeTodo` y `handleDeleteTodo` para usar los métodos no que no realicen mutaciones:
 
 <Sandpack>
 
@@ -1245,7 +1245,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-En `handleAddTodo`, puedes usar el operador de propagación de arreglos. En `handleChangeTodo`, puedes crear un nuevo arreglo con `map`. En `handleDeleteTodo`, puedes crear un nuevo arreglo con `filter`. Ahora la lista funciona correctamente:
+En `handleAddTodo`, puedes usar el operador de propagación de _arrays_. En `handleChangeTodo`, puedes crear un nuevo _array_ con `map`. En `handleDeleteTodo`, puedes crear un nuevo _array_ con `filter`. Ahora la lista funciona correctamente:
 
 <Sandpack>
 
@@ -1415,7 +1415,7 @@ ul, li { margin: 0; padding: 0; }
 
 #### Arregla las mutaciones usando Immer {/*fix-the-mutations-using-immer*/}
 
-Este es el mismo ejemplo que en el desafío anterior. Esta vez, arregla las mutaciones usando Immer. Para tú comodidad, `useImmer` ya está importado, por lo que debes cambiar la variable de estado `todos` para usarlo.
+Este es el mismo ejemplo que en el desafío anterior. Esta vez, arregla las mutaciones usando Immer. Para tu comodidad, `useImmer` ya está importado, por lo que debes cambiar la variable de estado `todos` para usarlo.
 
 <Sandpack>
 
@@ -1597,7 +1597,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-Con Immer, puedes escribir código de forma mutativa, siempre y cuando solo esté mutando partes del `draft` que Immer le proporciona. Aquí, todas las mutaciones se realizan en el `draft` para que el código funcione:
+Con Immer, puedes escribir código con estilo de mutación, siempre y cuando solo esté mutando partes del `draft` que Immer te proporciona. Aquí, todas las mutaciones se realizan en el `draft` para que el código funcione:
 
 <Sandpack>
 
@@ -1783,9 +1783,9 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-También puede mezclar y combinar los enfoques mutativos y no mutativos con Immer.
+También puede mezclar y combinar los enfoques de mutación y no mutación con Immer.
 
-Por ejemplo, en esta versión `handleAddTodo` es implementado usando Immer `draft`, mientras `handleChangeTodo` y `handleDeleteTodo` usa los métodos no mutativos `map` y `filter`:
+Por ejemplo, en esta versión `handleAddTodo` se implementa con la mutación del `draft` de Immer, mientras `handleChangeTodo` y `handleDeleteTodo` usa los métodos sin mutación `map` y `filter`:
 
 <Sandpack>
 
@@ -1968,7 +1968,7 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Con Immer, puedes elegir el estilo el cual se sienta más natural por cada caso separado.
+Con Immer, puedes elegir el estilo que se sienta más natural para cada caso individual.
 
 </Solution>
 
