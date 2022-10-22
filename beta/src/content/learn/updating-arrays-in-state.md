@@ -20,13 +20,13 @@ Los _arrays_ son mutables en JavaScript, pero deberían tratarse como inmutables
 
 En JavaScript, los _arrays_ son solo otro tipo de objeto. [Como con los objetos](/learn/updating-objects-in-state), **deberías tratar los _arrays_ en el estado de React como si fueran de solo lectura.** Esto significa que no deberías reasignar elementos dentro de un _array_ como `arr[0] = 'pájaro'`, y tampoco deberías usar métodos que puedan mutar el _array_, como `push()` y `pop()`.
 
-En su lugar, cada vez que quieras actualizar un _array_, querrás pasar un, *nuevo* _array_ a la función de asignación de estado. Para hacerlo, puedes crear un nuevo _array_ a partir del _array_ original en el estado si llamas a sus métodos que no lo muten como `filter()` y `map()`. Luego puedes asignar el estado a partir del nuevo _array_ resultante.
+En su lugar, cada vez que quieras actualizar un _array_, querrás pasar un *nuevo* _array_ a la función de asignación de estado. Para hacerlo, puedes crear un nuevo _array_ a partir del _array_ original en el estado si llamas a sus métodos que no lo muten como `filter()` y `map()`. Luego puedes asignar el estado a partir del nuevo _array_ resultante.
 
 Aquí hay una tabla de referencia con las operaciones más comunes con _arrays_. Cuando se trata de _arrays_ dentro del estado de React, necesitarás evitar los métodos de la columna izquierda, y en su lugar es preferible usar los métodos de la columna derecha.
 
 |              | evita (muta el _array_)                  | preferido (retorna un nuevo _array_)                                         |
 |--------------|------------------------------------------|------------------------------------------------------------------------------|
-| insertar    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
+| añadir    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
 | eliminar   | `pop`, `shift`, `splice`                 | `filter`, `slice` ([ejemplo](#removing-from-an-array))                       |
 | reemplazar | `splice`, `arr[i] = ...` asigna          | `map` ([ejemplo](#replacing-items-in-an-array))                              |
 | ordenar    | `reverse`, `sort`                        | copia el _array_ primero ([ejemplo](#making-other-changes-to-an-array))      |
