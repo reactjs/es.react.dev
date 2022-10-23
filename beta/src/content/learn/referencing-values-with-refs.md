@@ -581,7 +581,7 @@ button { display: block; margin: 10px; }
 
 En este ejemplo, después de que presionas "Enviar", hay un pequeño retraso antes de que el mensaje se muestre. Escribe "hola", presiona Enviar, y luego rápidamente edita el input otra vez. A pesar de tus cambios, la alerta seguirá mostrando "hola" (que fue el valor del estado [en el momento](/learn/state-as-a-snapshot#state-over-time) en que se presionó el botón).
 
-Normalmente, este es el comportamiento que quieres en una aplicación. Sin embargo, en ocasiones quieres que algún código asíncrono lea la *última* versión de algún estado. ¿Se te ocurre alguna manera de hacer que la alerta muestre el texto *actual* del input en lugar del que estaba en momento del clic?
+Normalmente, este es el comportamiento que quieres en una aplicación. Sin embargo, en ocasiones quieres que algún código asíncrono lea la *última* versión de algún estado. ¿Se te ocurre alguna manera de hacer que la alerta muestre el texto *actual* del input en lugar del que estaba en el momento del clic?
 
 <Sandpack>
 
