@@ -4,7 +4,7 @@ title: 'Referenciar valores con refs'
 
 <Intro>
 
-Cuando quieres que un componente "recuerde" alguna información, pero no quieres que esa información [active nuevos renderizados](/learn/render-and-commit), puedes usar una *ref*.
+Cuando quieres que un componente "recuerde" alguna información, pero no quieres que esa información [provoque nuevos renderizados](/learn/render-and-commit), puedes usar una *ref*.
 
 </Intro>
 
@@ -25,7 +25,7 @@ Puedes añadir una ref a tu componente importando el Hook `useRef` desde React:
 import { useRef } from 'react';
 ```
 
-Dentro de tu componente, llama al Hook `useRef` y pasa el valor inicial al que quieres hacer referencia como único parámetro. Por ejemplo, esta es una ref al valor `0`:
+Dentro de tu componente, llama al Hook `useRef` y pasa el valor inicial al que quieres hacer referencia como único argumento. Por ejemplo, esta es una ref al valor `0`:
 
 ```js
 const ref = useRef(0);
@@ -41,7 +41,7 @@ const ref = useRef(0);
 
 <Illustration src="/images/docs/illustrations/i_ref.png" alt="Una flecha con que tiene escrito 'current' metida en un bolsillo que tiene escrito 'ref'." />
 
-Puedes acceder al valor actual de esa ref a través de la propiedad `ref.current`. Este valor es mutable intencionalmente, lo que significa que puedes tanto leer como escribir en él. Es como un bolsillo secreto de tu componente que React no puede rastrear. (Esto es lo que lo hace una "puerta de escape" del flujo de datos de una vía de React: ¡Más sobre eso a continuación!)
+Puedes acceder al valor actual de esa ref a través de la propiedad `ref.current`. Este valor es mutable intencionalmente, lo que significa que puedes tanto leerlo como modificarlo. Es como un bolsillo secreto de tu componente que React no puede rastrear. (Esto es lo que lo hace una "puerta de escape" del flujo de datos de una vía de React: ¡Más sobre eso a continuación!)
 
 Aquí, un botón incrementará `ref.current` en cada clic:
 
@@ -68,13 +68,13 @@ export default function Counter() {
 
 </Sandpack>
 
-La ref apunta hacia un número, pero, al igual que [el estado](/learn/state-a-components-memory), podrías apuntar a cualquier cosa: un string, un objeto, o incluso una función. A diferencia del estado, la ref es un objeto plano de JavaScript con la propiedad `current` que puedes leer y modificar.
+La ref hace referencia a un número, pero, al igual que [el estado](/learn/state-a-components-memory), podrías hace referencia a cualquier cosa: un string, un objeto, o incluso una función. A diferencia del estado, la ref es un objeto plano de JavaScript con la propiedad `current` que puedes leer y modificar.
 
-Fíjate como **el componente no se rerenderiza con cada incremento.** Como el estado, React retiene las refs entre rerenderizados. Sin embargo, asignar el estado rerenderiza un componente. ¡Cambiar una ref no!
+Fíjate como **el componente no se rerenderiza con cada incremento.** React (al igual que con el estado) preserva las refs entre rerenderizados. Sin embargo, asignar el estado rerenderiza un componente. ¡Cambiar una ref no!
 
 ## Ejemplo: crear un cronómetro {/*example-building-a-stopwatch*/}
 
-Puedes combinar las refs y el estado en un solo componente. Por ejemplo, hagamos un cronómetro que el usuario pueda iniciar y detener al presionar un botón. Para poder mostrar cuánto tiempo ha pasado desde que el usuario pulsó "Iniciar", necesitarás mantener rastreado cuándo el botón de Iniciar fue presionado y cuál es el tiempo actual. **Esta información se usa para el renderizado, así que la guárdala en el estado:**
+Puedes combinar las refs y el estado en un solo componente. Por ejemplo, hagamos un cronómetro que el usuario pueda iniciar y detener al presionar un botón. Para poder mostrar cuánto tiempo ha pasado desde que el usuario pulsó "Iniciar", necesitarás mantener rastreado cuándo el botón de Iniciar fue presionado y cuál es el tiempo actual. **Esta información se usa para el renderizado, así que guárdala en el estado:**
 
 ```js
 const [startTime, setStartTime] = useState(null);
@@ -121,7 +121,7 @@ export default function Stopwatch() {
 
 </Sandpack>
 
-Cuando se presiona el botón "Detener", necesitas cancelar el intervalo existente para que deje de actualizar la variable `now` del estado. Puedes hacerlo llamando a [`clearInterval`](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval), pero necesitas pasarle el identificador del intervalo que fue previamente devuelto por la llamada a `setInterval` cuando el usuario presionó Iniciar. Necesitas guardar el identificador del intervalo en alguna parte. **Como el identificador de un intervalo no se usa para el renderizado, puedes guardarlo en una ref:**
+Cuando se presiona el botón "Detener", necesitas cancelar el intervalo existente para que deje de actualizar la variable de estado `now`. Puedes hacerlo con una llamada a [`clearInterval`](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval), pero necesitas pasarle el identificador del intervalo que fue previamente devuelto por la llamada a `setInterval` cuando el usuario presionó Iniciar. Necesitas guardar el identificador del intervalo en alguna parte. **Como el identificador de un intervalo no se usa para el renderizado, puedes guardarlo en una ref:**
 
 <Sandpack>
 
@@ -288,7 +288,7 @@ Puedes apuntar una ref hacia cualquier valor. Sin embargo, el caso de uso más c
 
 - Las refs son una puerta de escape para guardar valores que no se usan en el renderizado. No las necesitarás a menudo.
 - Una ref es un objeto plano de JavaScript con una sola propiedad llamada `current`, que puedes leer o asignarle un valor.
-- Puedes pedirle a React que te de una ref llamando al Hook `useRef`.
+- Puedes pedirle a React que te dé una ref llamando al Hook `useRef`.
 - Como el estado, las refs retienen información entre los rerenderizados de un componente.
 - A diferencia del estado, asignar el valor de `current` de una ref no desencadena un rerenderizado.
 - No leas o escribas `ref.current` durante el renderizado. Esto hace que tu componente sea difícil de predecir.
