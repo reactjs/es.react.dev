@@ -170,7 +170,7 @@ export default function App({counter}) {
 
 </Sandpack>
 
-No es muy común llamar a `render` varias veces. Por lo general [actualizarás el estado](/apis/react/useState) dentro de uno de los componentes.
+No es muy común llamar a `render` varias veces. Por lo general lo que debes hacer es [actualizar el estado](/apis/react/useState) dentro de uno de los componentes.
 
 ---
 
