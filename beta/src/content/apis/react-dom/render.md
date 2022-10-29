@@ -212,6 +212,6 @@ Una aplicación totalmente construida con React usualmente tendrá sólo un llam
 
 * Si llamas a `render` en el mismo `domNode` más de una vez, React actualizará el DOM según sea necesario para reflejar el JSX más reciente que hayas pasado. React decidirá qué partes del DOM se pueden reutilizar y cuáles necesitan ser recreadas ["haciendo una comparación"](/learn/preserving-and-resetting-state) con el árbol previamente renderizado. Llamar de nuevo a `render` en el mismo `domNode` es similar a llamar a la función [`set` ](/apis/react/useState#setstate) en el componente raíz: React evita actualizaciones innecesarias del DOM.
 
-* Si tu aplicación está totalmente construida con React, es probable que sólo tengas un llamado a `render` en tu aplicación. (Si usas un framework, éste puede hacer el llamado por ti.) Cuando quieras renderizar un fragmento de JSX en un lugar diferente del árbol DOM que no sea hijo de tu componente (por ejemplo, una modal o un tooltip), usa [`createPortal`](/apis/react-dom/createPortal) en lugar de `render`.
+* Si tu aplicación está totalmente construida con React, es probable que tengas una sola llamada a `render` en tu aplicación. (Si usas un framework, puede que haga esta llamada por ti.) Cuando quieras renderizar un fragmento de JSX en un lugar diferente del árbol del DOM que no sea hijo de tu componente (por ejemplo, un modal o un _tooltip_), usa [`createPortal`](/apis/react-dom/createPortal) en lugar de `render`.
 
 ---
