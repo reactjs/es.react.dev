@@ -56,7 +56,7 @@ export default function App() {
 
 </Sandpack>
 
-Generalmente no necesitas llamar a `render` de nuevo o llamarlo en otros lugares. En este punto, React manejará el DOM de tu aplicación. Si quieres actualizar la UI, tu componente puede hacer esto [usando state.](/apis/react/useState)
+Generalmente no necesitas llamar a `render` de nuevo o llamarlo en otros lugares. En este punto, React manejará el DOM de tu aplicación. Si quieres actualizar la UI, tu componente puede hacerlo [con el uso de estado.](/apis/react/useState)
 
 ---
 
