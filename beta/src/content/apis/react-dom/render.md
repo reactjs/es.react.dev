@@ -202,7 +202,7 @@ Una aplicación totalmente construida con React usualmente tendrá sólo un llam
 
 #### Retorno - Returns {/*returns*/}
 
-`render` Por lo general retorna `null`. Sin embargo, si el `reactNode` que pasas es de tipo *class component*, entonces este retornará una instancia de ese componente.
+`render` Por lo general retorna `null`. Sin embargo, si el `reactNode` que pasas es un *component de clase*, entonces retornará una instancia de ese componente.
 
 #### Advertencias {/*caveats*/}
 
