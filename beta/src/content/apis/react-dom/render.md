@@ -4,7 +4,7 @@ title: render
 
 <Pitfall>
 
-En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client/createRoot) Utilizando `render` en React 18 se te advertirá que tu aplicación se comportará como si estuviera ejecutándose en React 17. Aprende mas [aquí.](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
+En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client/createRoot) Al usar `render` en React 18 se te advertirá que tu aplicación se comportará como si estuviera ejecutándose en React 17. Aprende mas [aquí.](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
 
 </Pitfall>
 
