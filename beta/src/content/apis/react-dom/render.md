@@ -36,7 +36,7 @@ render(<App />, document.getElementById('root'));
 
 ### Renderiza el componente raíz {/*rendering-the-root-component*/}
 
-En aplicaciones totalmente construidas con React, **Por lo general sólo realizarás esto una vez al inicio**--para renderizar el componente "raíz" -- "root".
+En aplicaciones totalmente construidas con React, **por lo general sólo realizarás esto una vez al inicio** --para renderizar el componente "raíz".
 
 <Sandpack>
 
