@@ -1,41 +1,41 @@
 ---
-title: Keeping Components Pure
+title: Mantener los componentes puros
 ---
 
 <Intro>
 
-Some JavaScript functions are *pure.* Pure functions only perform a calculation and nothing more. By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. To get these benefits, though, there are a few rules you must follow.
+Algunas funciones de JavaScript son *puras.* Las funciones puras solo realizan un cálculo y nada más. Al escribir estrictamente tus componentes como funciones puras, puedes evitar una clase completa de errores desconcertantes y un comportamiento impredecible a medida que crece tu base de código. Sin embargo, para obtener estos beneficios, hay algunas reglas que debes seguir.
 
 </Intro>
 
 <YouWillLearn>
 
-* What purity is and how it helps you avoid bugs
-* How to keep components pure by keeping changes out of the render phase
-* How to use Strict Mode to find mistakes in your components
+* Qué es la pureza y cómo te ayuda a evitar errores
+* Cómo mantener los componentes puros manteniendo los cambios fuera de la fase de renderizado
+* Cómo usar el modo estricto para encontrar errores en tus componentes
 
 </YouWillLearn>
 
-## Purity: Components as formulas {/*purity-components-as-formulas*/}
+## Pureza: componentes como fórmulas {/*purity-components-as-formulas*/}
 
-In computer science (and especially the world of functional programming), [a pure function](https://wikipedia.org/wiki/Pure_function) is a function with the following characteristics:
+En informática (y especialmente en el mundo de la programación funcional), [una función pura](https://wikipedia.org/wiki/Pure_function) es una función con las siguientes características:
 
-* **It minds its own business.** It does not change any objects or variables that existed before it was called.
-* **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+* **Se ocupa de sus propios asuntos.** No cambia ningún objeto o variable que existiera antes de ser llamado.
+* **Las mismas entradas, la misma salida.** Dadas las mismas entradas, una función pura siempre debe devolver el mismo resultado.
 
-You might already be familiar with one example of pure functions: formulas in math.
+Es posible que ya estés familiarizado con un ejemplo de funciones puras: fórmulas en matemáticas.
 
-Consider this math formula: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
+Considera esta fórmula matemática: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
-If <Math><MathI>x</MathI> = 2</Math> then <Math><MathI>y</MathI> = 4</Math>. Always. 
+Si <Math><MathI>x</MathI> = 2</Math> entonces <Math><MathI>y</MathI> = 4</Math>. Siempre.
 
-If <Math><MathI>x</MathI> = 3</Math> then <Math><MathI>y</MathI> = 6</Math>. Always. 
+Si <Math><MathI>x</MathI> = 3</Math> entonces <Math><MathI>y</MathI> = 6</Math>. Siempre.
 
-If <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> won't sometimes be <Math>9</Math> or <Math>–1</Math> or <Math>2.5</Math> depending on the time of day or the state of the stock market. 
+Si <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> a veces no será <Math>9</Math> o <Math>–1</Math> o <Math>2.5</Math> dependiendo de la hora del día o del estado del mercado de valores.
 
-If <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> and <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> will _always_ be <Math>6</Math>. 
+Si <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> y <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> _siempre_ será <Math>6</Math>. 
 
-If we made this into a JavaScript function, it would look like this:
+Si convirtiéramos esto en una función de JavaScript, se vería así:
 
 ```js
 function double(number) {
@@ -43,9 +43,9 @@ function double(number) {
 }
 ```
 
-In the above example, `double` is a **pure function.** If you pass it `3`, it will return `6`. Always.
+En el ejemplo anterior, `double` es una **función pura.** Si le pasas `3`, devolverá `6`. Siempre.
 
-React is designed around this concept. **React assumes that every component you write is a pure function.** This means that React components you write must always return the same JSX given the same inputs:
+React está diseñado en torno a este concepto. **React supone que cada componente que escribes es una función pura.** Esto significa que los componentes que escribes en React siempre deben devolver el mismo JSX dadas las mismas entradas:
 
 <Sandpack>
 
@@ -75,21 +75,21 @@ export default function App() {
 
 </Sandpack>
 
-When you pass `drinkers={1}` to `Recipe`, it will return JSX containing `1 cups of milk`. Always. 
+Cuando pasas `drinkers={1}` a `Recipe`, devolverá el JSX que contiene `1 cups of milk`. Siempre.
 
-If you pass `drinkers={4}`, it will return JSX containing `4 cups of milk`. Always. 
+Si pasas `drinkers={4}`, devolverá el JSX que contiene `4 cups of milk`. Siempre.
 
-Just like a math formula. 
+Como una fórmula matemática.
 
-You could think of your components as recipes: if you follow them and don't introduce new ingredients during the cooking process, you will get the same dish every time. That "dish" is the JSX that the component serves to React to [render.](render-and-commit)
+Puedes pensar en tus componentes como recetas: si las sigues y no agregas nuevos ingredientes durante el proceso de cocción, obtendrás el mismo plato siempre. Ese "plato" es el JSX que el componente le pasa a React para [renderizar.](/learn/render-and-commit)
 
-<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add 2x spoons of spices, and x spoons of tea!" />
+<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="Una receta de té para x personas: toma x tazas de agua, añade 2x cucharadas de especias y x cucharadas de té!" />
 
-## Side Effects: (un)intended consequences {/*side-effects-unintended-consequences*/}
+## Efectos secundarios: consecuencias (no)deseadas {/*side-effects-unintended-consequences*/}
 
-React's rendering process must always be pure. Components should only *return* their JSX, and not *change* any objects or variables that existed before rendering—that would make them impure!
+El proceso de renderizado de React siempre debe ser puro. Los componentes solo deben *retornar* su JSX, y no *cambiar* cualquier objeto o variable que existiera antes de renderizar: ¡Eso los haría impuros!
 
-Here is a component that breaks this rule:
+Aquí hay un componente que rompe esta regla:
 
 <Sandpack>
 
@@ -97,7 +97,7 @@ Here is a component that breaks this rule:
 let guest = 0;
 
 function Cup() {
-  // Bad: changing a preexisting variable!
+  // Mal: ¡Cambiar una variable preexistente!
   guest = guest + 1;
   return <h2>Tea cup for guest #{guest}</h2>;
 }
@@ -115,11 +115,11 @@ export default function TeaSet() {
 
 </Sandpack>
 
-This component is reading and writing a `guest` variable declared outside of it. This means that **calling this component multiple times will produce different JSX!** And what's more, if _other_ components read `guest`, they will produce different JSX, too, depending on when they were rendered! That's not predictable.
+Este componente está leyendo y escribiendo una variable `guest` declarada fuera de ella. Esto significa que **llamar a este componente varias veces producirá diferente JSX!** Y lo que es más, si _otros_ componentes leen `guest`, también producirán diferente JSX, ¡dependiendo de cuándo se procesaron! Eso no es predecible.
 
-Going back to our formula <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, now even if <Math><MathI>x</MathI> = 2</Math>, we cannot trust that <Math><MathI>y</MathI> = 4</Math>. Our tests could fail, our users would be baffled, planes would fall out of the sky—you can see how this would lead to confusing bugs!
+Volviendo a nuestra fórmula <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, ahora incluso si <Math><MathI>x</MathI> = 2</Math>, no podemos confiar en que <Math><MathI>y</MathI> = 4</Math>. Nuestras pruebas podrían fallar, nuestros usuarios estarían desconcertados, los aviones se caerían del cielo —¡puedes ver cómo esto conduciría a errores confusos!
 
-You can fix this component by [passing `guest` as a prop instead](/learn/passing-props-to-a-component):
+Puedes arreglar este componente [pasando `guest` como prop en su lugar](/learn/passing-props-to-a-component):
 
 <Sandpack>
 
@@ -141,29 +141,29 @@ export default function TeaSet() {
 
 </Sandpack>
 
-Now your component is pure, as the JSX it returns only depends on the `guest` prop.
+Ahora tu componente ya es puro, ya que el JSX que devuelve solo depende de la prop `guest`.
 
-In general, you should not expect your components to be rendered in any particular order. It doesn't matter if you call <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> before or after <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: both formulas will resolve independently of each other. In the same way, each component should only "think for itself", and not attempt to coordinate with or depend upon others during rendering. Rendering is like a school exam: each component should calculate JSX on their own!
+En general, no debes esperar que tus componentes se rendericen en ningún orden en particular. No importa si llamas <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> antes o después <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: ambas fórmulas se resolverán independientemente una de la otra. Del mismo modo, cada componente solo debe "pensar por sí mismo" y no intentar coordinarse o depender de otros durante el renderizado. El renderizado es como un examen escolar: ¡cada componente debe calcular su JSX por su cuenta!
 
-<DeepDive title="Detecting impure calculations with StrictMode">
+<DeepDive title="Detección de cálculos impuros con Strict Mode">
 
-Although you might not have used them all yet, in React there are three kinds of inputs that you can read while rendering: [props](/learn/passing-props-to-a-component), [state](/learn/state-a-components-memory), and [context.](/learn/passing-data-deeply-with-context) You should always treat these inputs as read-only.
+Aunque es posible que aún no los hayas usado todos, en React hay tres tipos de entradas que puedes leer mientras se renderiza: [props](/learn/passing-props-to-a-component), [state](/learn/state-a-components-memory), y [context.](/learn/passing-data-deeply-with-context) Siempre debes tratar estas entradas como solo lectura.
 
-When you want to *change* something in response to user input, you should [set state](/learn/state-a-components-memory) instead of writing to a variable. You should never change preexisting variables or objects while your component is rendering.
+Cuando quieras *cambiar* algo en respuesta a la entrada del usuario, debes [asignar el estado](/learn/state-a-components-memory) en lugar de reescribir la variable. Nunca debes cambiar variables u objetos preexistentes mientras tu componente está renderizando.
 
-React offers a "Strict Mode" in which it calls each component's function twice during development. **By calling the component functions twice, Strict Mode helps find components that break these rules.**
+React ofrece un "Modo estricto" en el que llama a la función de cada componente dos veces durante el desarrollo. **Al llamar a las funciones del componente dos veces, el modo estricto ayuda a encontrar componentes que rompan estas reglas.**
 
-Notice how the original example displayed "Guest #2", "Guest #4", and "Guest #6" instead of "Guest #1", "Guest #2", and "Guest #3". The original function was impure, so calling it twice broke it. But the fixed pure version works even if the function is called twice every time. **Pure functions only calculate, so calling them twice won't change anything**--just like calling `double(2)` twice doesn't change what's returned, and solving <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> twice doesn't change what <MathI>y</MathI> is. Same inputs, same outputs. Always.
+Observa cómo el ejemplo original mostraba "Guest #2", "Guest #4", y "Guest #6" en lugar de "Guest #1", "Guest #2", y "Guest #3". La función original era impura, por lo que al llamarla dos veces se rompió. Pero la versión corregida funciona sin importar que la función sea llamada dos veces cada vez. **Las funciones puras solo se calculan, por lo que llamarlas dos veces no cambiará nada** —como llamar `double(2)` dos veces no cambia lo que se devuelve, y retorna <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> dos veces no cambia lo que <MathI>y</MathI> es. Las mismas entradas, las mismas salidas. Siempre.
 
-Strict Mode has no effect in production, so it won't slow down the app for your users. To opt into Strict Mode, you can wrap your root component into `<React.StrictMode>`. Some frameworks do this by default.
+El modo estricto no tiene ningún efecto en producción, por lo que no ralentizará la aplicación para tus usuarios. Para optar por el modo estricto, puedes envolver tu componente raíz en `<React.StrictMode>`. Algunos frameworks hacen esto por defecto.
 
 </DeepDive>
 
-### Local mutation: Your component's little secret {/*local-mutation-your-components-little-secret*/}
+### Mutación local: el pequeño secreto de tus componentes {/*local-mutation-your-components-little-secret*/}
 
-In the above example, the problem was that the component changed a *preexisting* variable while rendering. This is often called a **"mutation"** to make it sound a bit scarier. Pure functions don't mutate variables outside of the function's scope or objects that were created before the call—that makes them impure!
+En el ejemplo anterior, el problema era que el componente cambiaba una variable *preexistente* mientras renderizaba. Esto a menudo se llama **"mutación"** para que suene un poco más aterrador. ¡Las funciones puras no mutan las variables fuera del alcance de la función ni los objetos que se crearon antes de la llamada —¡Eso las hace impuras!
 
-However, **it's completely fine to change variables and objects that you've *just* created while rendering.** In this example, you create an `[]` array, assign it to a `cups` variable, and then `push` a dozen cups into it:
+Sin embargo, **está completamente bien cambiar variables y objetos que acabas de crear mientras renderizas.** En este ejemplo, creas un _array_ `[]`, lo asignas a la variable `cups`, y luego haces un `push` con una docena de tazas adentro:
 
 <Sandpack>
 
@@ -183,57 +183,57 @@ export default function TeaGathering() {
 
 </Sandpack>
 
-If the `cups` variable or the `[]` array were created outside the `TeaGathering` function, this would be a huge problem! You would be changing a *preexisting* object by pushing items into that array.
+¡Si la variable `cups` o el _array_ `[]` se crearon fuera de la función `TeaGathering`, este sería un gran problema! Estarías cambiando un objeto *preexistente* haciendo push a ese array.
 
-However, it's fine because you've created them *during the same render*, inside `TeaGathering`. No code outside of `TeaGathering` will ever know that this happened. This is called **"local mutation"**—it's like your component's little secret.
+Sin embargo, está bien porque los has creado *durante el mismo renderizado*, dentro de `TeaGathering`. Ningún código fuera de `TeaGathering` sabrá nunca que esto ha ocurrido. Esto se llama **"mutación local"** —es como el pequeño secreto de tu componente.
 
-## Where you _can_ cause side effects {/*where-you-_can_-cause-side-effects*/}
+## ¿Dónde _puedes_ causar efectos secundarios? {/*where-you-_can_-cause-side-effects*/}
 
-While functional programming relies heavily on purity, at some point, somewhere, _something_ has to change. That's kind of the point of programming! These changes—updating the screen, starting an animation, changing the data—are called **side effects.** They're things that happen _"on the side"_, not during rendering.
+Si bien la programación funcional depende en gran medida de la pureza, en algún momento, en algún lugar, _algo_ tiene que cambiar. ¡Ese es el punto en programación! Estos cambios —actualizar la pantalla, iniciar una animación, cambiar los datos— se llaman **efectos secundarios.** Son cosas que suceden _"a un lado"_, no durante el renderizado.
 
-In React, **side effects usually belong inside [event handlers.](/learn/responding-to-events)** Event handlers are functions that React runs when you perform some action—for example, when you click a button. Even though event handlers are defined *inside* your component, they don't run *during* rendering! **So event handlers don't need to be pure.**
+En React, **los efectos secundarios generalmente deberían estar dentro de los [manejadores de eventos.](/learn/responding-to-events)** Los manejadores de eventos son funciones que React ejecuta cuando realiza alguna acción (por ejemplo, cuando haces clic en un botón). ¡Aunque los manejadores de eventos están definidos *dentro* de tu componente, no corren *durante* el renderizado! **Por lo tanto, los manejadores de eventos no necesitan ser puros.**
 
-If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a [`useEffect`](/apis/react/useEffect) call in your component. This tells React to execute it later, after rendering, when side effects are allowed. **However, this approach should be your last resort.**
+Si has agotado todas las demás opciones y no puedes encontrar el controlador de eventos adecuado para tu efecto secundario, aún puedes adjuntarlo en el retorno del JSX con un llamado a [`useEffect`](/apis/react/useEffect) en tu componente. Esto le dice a React que lo ejecute más tarde, después del renderizado, cuando se permiten efectos secundarios. **Sin embargo, este enfoque debería ser tu último recurso.**
 
-When possible, try to express your logic with rendering alone. You'll be surprised how far this can take you!
+Cuando sea posible, intenta expresar tu lógica con un solo renderizado. ¡Te sorprenderá lo lejos que esto puede llevarte!
 
-<DeepDive title="Why does React care about purity?">
+<DeepDive title="¿Por qué a React le importa la pureza?">
 
-Writing pure functions takes some habit and discipline. But it also unlocks marvelous opportunities:
+Escribir funciones puras requiere cierto hábito y disciplina. Pero también desbloquea maravillosas oportunidades:
 
-* Your components could run in a different environment—for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.
-* You can improve performance by [skipping rendering](/apis/react/memo) components whose inputs have not changed. This is safe because pure functions always return the same results, so they are safe to cache.
-* If some data changes in the middle of rendering a deep component tree, React can restart rendering without wasting time to finish the outdated render. Purity makes it safe to stop calculating at any time.
+* ¡Tus componentes podrían ejecutarse en un entorno diferente (por ejemplo, en el servidor)! Como devuelven el mismo resultado para las mismas entradas, un componente puede atender muchas solicitudes de los usuarios.
+* Puedes mejorar el rendimiento [omitiendo el renderizado](/apis/react/memo) de componentes cuyas entradas no han cambiado. Esto es seguro porque las funciones puras siempre devuelven los mismos resultados, por lo que son seguras para almacenar en caché.
+* Si algunos datos cambian en medio del renderizado de un árbol de componentes profundos, React puede reiniciar el renderizado sin perder tiempo para terminar el renderizado desactualizado. La pureza hace que sea seguro dejar de calcular en cualquier momento.
 
-Every new React feature we're building takes advantage of purity. From data fetching to animations to performance, keeping components pure unlocks the power of the React paradigm.
+Cada nueva característica de React que estamos construyendo aprovecha la pureza. Desde la búsqueda de datos hasta las animaciones y el rendimiento, mantener los componentes puros desbloquea el poder del paradigma de React.
 
 </DeepDive>
 
 <Recap>
 
-* A component must be pure, meaning:
-  * **It minds its own business.** It should not change any objects or variables that existed before rendering.
-  * **Same inputs, same output.** Given the same inputs, a component should always return the same JSX. 
-* Rendering can happen at any time, so components should not depend on each others' rendering sequence.
-* You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, ["set" state](/learn/state-a-components-memory) instead of mutating preexisting objects.
-* Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can `useEffect`.
-* Writing pure functions takes a bit of practice, but it unlocks the power of React's paradigm.
+* Lo que significa que un componente debe ser puro:
+  * **Se ocupa de sus propios asuntos.** No debe cambiar ningún objeto o variable que existiera antes del renderizado.
+  * **Las mismas entradas, la misma salida.** Dadas las mismas entradas, un componente siempre debe devolver el mismo JSX.
+* El renderizado puede ocurrir en cualquier momento, por lo que los componentes no deben depender de la secuencia de renderizado de los demás.
+* No debe mutar ninguna de las entradas que usan sus componentes para renderizar. Eso incluye props, estado y contexto. Para actualizar la pantalla, ["asignar" el estado](/learn/state-a-components-memory) en lugar de mutar objetos preexistentes.
+* Esfuérzate por expresar la lógica de tu componente en el JSX. Cuando necesites "cambiar cosas", generalmente querrás hacerlo en un manejador de eventos. Como último recurso, puedes usar `useEffect`.
+* Escribir funciones puras requiere un poco de práctica, pero desbloquea el poder del paradigma de React.
 
 </Recap>
 
 
-  
+
 <Challenges>
 
-#### Fix a broken clock {/*fix-a-broken-clock*/}
+#### Arreglar un reloj roto {/*fix-a-broken-clock*/}
 
-This component tries to set the `<h1>`'s CSS class to `"night"` during the time from midnight to six hours in the morning, and `"day"` at all other times. However, it doesn't work. Can you fix this component?
+Este componente intenta establecer en el `<h1>` la clase `"night"` desde la media noche hasta las 6 de la mañana , y `"day"` para las otras horas. Sin embargo, no funciona. ¿Puedes arreglar este componente?
 
-You can verify whether your solution works by temporarily changing the computer's timezone. When the current time is between midnight and six in the morning, the clock should have inverted colors!
+Puedes verificar si tu solución funciona cambiando temporalmente la zona horaria de la computadora. Cuando la hora actual es entre la medianoche y las seis de la mañana, ¡el reloj debería tener colores invertidos!
 
 <Hint>
 
-Rendering is a *calculation*, it shouldn't try to "do" things. Can you express the same idea differently?
+Renderizar es un *cálculo*, no debería tratar de "hacer" cosas. ¿Puedes expresar la misma idea de manera diferente?
 
 </Hint>
 
@@ -297,7 +297,7 @@ body > * {
 
 <Solution>
 
-You can fix this component by calculating the `className` and including it in the render output:
+Puedes arreglar este componente calculando el `className` e incluirlo en la salida del renderizado:
 
 <Sandpack>
 
@@ -358,19 +358,19 @@ body > * {
 
 </Sandpack>
 
-In this example, the side effect (modifying the DOM) was not necessary at all. You only needed to return JSX.
+En este ejemplo, el efecto secundario (que modifica el DOM) no fue necesario en absoluto. Solo necesitabas devolver JSX.
 
 </Solution>
 
-#### Fix a broken profile {/*fix-a-broken-profile*/}
+#### Arreglar un perfil roto {/*fix-a-broken-profile*/}
 
-Two `Profile` components are rendered side by side with different data. Press "Collapse" on the first profile, and then "Expand" it. You'll notice that both profiles now show the same person. This is a bug.
+Dos componentes `Profile` son renderizados uno al lado del otro con datos diferentes. Presiona "Collapse" en el primer perfil, Y luego "Expand".  Notarás que ambos perfiles ahora muestran a la misma persona. Esto es un error.
 
-Find the cause of the bug and fix it.
+Encuentra la causa del error y arréglalo.
 
 <Hint>
 
-The buggy code is in `Profile.js`. Make sure you read it all from top to bottom!
+El código con errores está en `Profile.js`. ¡Asegúrate de leerlo todo de arriba a abajo!
 
 </Hint>
 
@@ -471,9 +471,9 @@ h1 { margin: 5px; font-size: 18px; }
 
 <Solution>
 
-The problem is that the `Profile` component writes to a preexisting variable called `currentPerson`, and the `Header` and `Avatar` components read from it. This makes *all three of them* impure and difficult to predict.
+El problema es que el componente `Profile` escribe en una variable preexistente llamada `currentPerson`, y los componentes `Header` y `Avatar` lo leen de él. Esto los convierte *a los tres* en impuros y difíciles de predecir.
 
-To fix the bug, remove the `currentPerson` variable. Instead, pass all information from `Profile` to `Header` and `Avatar` via props. You'll need to add a `person` prop to both components and pass it all the way down.
+Para corregir el error, elimine la variable `currentPerson`. En su lugar, pasa toda la información de `Profile` a `Header` y `Avatar` a través de props. Tendrás que agregar una prop `person` en ambos componentes y pasarla hacia abajo.
 
 <Sandpack>
 
@@ -567,15 +567,15 @@ h1 { margin: 5px; font-size: 18px; }
 
 </Sandpack>
 
-Remember that React does not guarantee that component functions will execute in any particular order, so you can't communicate between them by setting variables. All communication must happen through props.
+Recuerda que React no garantiza que las funciones de los componentes se ejecutarán en un orden en particular, por lo que no puedes comunicarte entre ellas estableciendo variables. Toda la comunicación debe realizarse a través de props.
 
 </Solution>
 
-#### Fix a broken story tray {/*fix-a-broken-story-tray*/}
+#### Arregla una bandeja de historias rota {/*fix-a-broken-story-tray*/}
 
-The CEO of your company is asking you to add "stories" to your online clock app, and you can't say no. You've written a `StoryTray` component that accepts a list of `stories`, followed by a "Create Story" placeholder.
+El CEO de su empresa te pide que agregues "historias" a tu aplicación de reloj en línea, y no puedes decir que no. Has escrito un componente `StoryTray` que acepta una lista de `stories`, seguido del placeholder "Create Story".
 
-You implemented the "Create Story" placeholder by pushing one more fake story at the end of the `stories` array that you receive as a prop. But for some reason, "Create Story" appears more than once. Fix the issue.
+Implementaste el placeholder "Create Story" para incluir más historias falsas al final del array `stories` que recibes por props. Pero por alguna razón, "Create Story" aparece más de una vez. Arregla el problema.
 
 <Sandpack>
 
@@ -611,8 +611,8 @@ export default function App() {
   let [stories, setStories] = useState([...initialStories])
   let time = useTime();
 
-  // HACK: Prevent the memory from growing forever while you read docs.
-  // We're breaking our own rules here.
+  // PISTA: Evita que la memoria crezca por siempre mientras lees documentos.
+  // Estamos rompiendo nuestras propias reglas aquí.
   if (stories.length > 100) {
     stories.length = 100;
   }
@@ -671,11 +671,11 @@ li {
 
 <Solution>
 
-Notice how whenever the clock updates, "Create Story" is added *twice*. This serves as a hint that we have a mutation during rendering--Strict Mode calls components twice to make these issues more noticeable.
+Observa cómo cada vez que se actualiza el reloj, se agrega "Create Story" *dos veces*. Esto sirve como una pista de que tenemos una mutación durante el renderizado —El modo estricto llama a los componentes dos veces para que estos problemas sean más notables.
 
-`StoryTray` function is not pure. By calling `push` on the received `stories` array (a prop!), it is mutating an object that was created *before* `StoryTray` started rendering. This makes it buggy and very difficult to predict.
+La función `StoryTray` no es pura. Al llamar `push` en el _array_ de `stories` recibido (¡como prop!), está mutando un objecto que fue creado *antes* de comenzar el renderizado de `StoryTray`. Esto lo hace defectuoso y muy difícil de predecir.
 
-The simplest fix is to not touch the array at all, and render "Create Story" separately:
+La solución más simple es no tocar el _array_ y renderizar "Create Story" por separado:
 
 <Sandpack>
 
@@ -707,8 +707,8 @@ export default function App() {
   let [stories, setStories] = useState([...initialStories])
   let time = useTime();
 
-  // HACK: Prevent the memory from growing forever while you read docs.
-  // We're breaking our own rules here.
+  // PISTA: Evita que la memoria crezca por siempre mientras lees documentos.
+  // Estamos rompiendo nuestras propias reglas aquí.
   if (stories.length > 100) {
     stories.length = 100;
   }
@@ -759,7 +759,7 @@ li {
 
 </Sandpack>
 
-Alternatively, you could create a _new_ array (by copying the existing one) before you push an item into it:
+Como alternativa, podrías crear un _nuevo_ array (copiando el existente) antes de agregarle un elemento (con `push`):
 
 <Sandpack>
 
@@ -799,8 +799,8 @@ export default function App() {
   let [stories, setStories] = useState([...initialStories])
   let time = useTime();
 
-  // HACK: Prevent the memory from growing forever while you read docs.
-  // We're breaking our own rules here.
+  // PISTA: Evita que la memoria crezca por siempre mientras lees documentos.
+  // Estamos rompiendo nuestras propias reglas aquí.
   if (stories.length > 100) {
     stories.length = 100;
   }
@@ -851,9 +851,9 @@ li {
 
 </Sandpack>
 
-This keeps your mutation local and your rendering function pure. However, you still need to be careful: for example, if you tried to change any of the array's existing items, you'd have to clone those items too.
+Esto mantiene tu mutación local y tu función de renderizado pura. Sin embargo, aún debes tener cuidado: por ejemplo, si intentaste cambiar alguno de los elementos existentes en el array, también tendrías que clonar esos elementos.
 
-It is useful to remember which operations on arrays mutate them, and which don't. For example, `push`, `pop`, `reverse`, and `sort` will mutate the original array, but `slice`, `filter`, and `map` will create a new one.
+Es útil recordar qué operaciones mutan arrays y cuáles no. Por ejemplo,  `push`, `pop`, `reverse`, y `sort` mutarán el _array_ original pero `slice`, `filter`, y `map` crearán uno nuevo.
 
 </Solution>
 
