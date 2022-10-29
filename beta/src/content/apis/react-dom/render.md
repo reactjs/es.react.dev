@@ -34,7 +34,7 @@ import App from './App.js';
 render(<App />, document.getElementById('root'));
 ````
 
-### Renderiza el componente raíz "Root component" {/*rendering-the-root-component*/}
+### Renderiza el componente raíz {/*rendering-the-root-component*/}
 
 En aplicaciones totalmente construidas con React, **Por lo general sólo realizarás esto una vez al inicio**--para renderizar el componente "raíz" -- "root".
 
