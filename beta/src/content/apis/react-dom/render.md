@@ -112,7 +112,7 @@ export function Comments() {
   return (
     <>
       <h2>Comments</h2>
-      <Comment text="Hola!" author="Sophie" />
+      <Comment text="¡Hola!" author="Sophie" />
       <Comment text="¿Cómo estás?" author="Sunil" />
     </>
   );
