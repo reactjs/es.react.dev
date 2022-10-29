@@ -193,7 +193,7 @@ Una aplicación totalmente construida con React tendrá usualmente una sola llam
 
 #### Parámetros {/*parameters*/}
 
-* `reactNode`: Un *React node* que tu quieras mostrar. Por lo general se trata de un fragmento o pieza de JSX `<App />`, pero también puedes pasar un elemento de React "React element" construido con [`createElement()`](/apis/react/createElement), una cadena de text "string", un número "number", `null`, or `undefined`.
+* `reactNode`: Un *nodo de React* que quieras mostrar. Por lo general se trata de una pieza de JSX como `<App />`, pero también puedes pasar un elemento de React construido con [`createElement()`](/apis/react/createElement), un _string_, un número, `null`, o `undefined`.
 
 * `domNode`: Un [elemento del DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React mostrará el `reactNode` que tú pases dentro de este elemento del DOM. Desde este momento, React administrará el DOM dentro de `domNode` y lo actualizará cuando tu árbol de React cambie.
 
