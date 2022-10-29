@@ -200,7 +200,7 @@ Una aplicación totalmente construida con React tendrá usualmente una sola llam
 * **Opcional** `callback`: Una función. Si se pasa, React la llamará luego de que tu componente sea colocado dentro del DOM.
 
 
-#### Retorno - Returns {/*returns*/}
+#### Retorno {/*returns*/}
 
 `render` Por lo general retorna `null`. Sin embargo, si el `reactNode` que pasas es un *component de clase*, entonces retornará una instancia de ese componente.
 
