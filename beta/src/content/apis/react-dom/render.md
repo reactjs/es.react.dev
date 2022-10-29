@@ -178,7 +178,7 @@ No es muy común llamar a `render` varias veces. Por lo general [actualizarás e
 
 ### `render(reactNode, domNode, callback?)` {/*render*/}
 
-Utiliza `render` para mostrar un componente de React dentro del navegador o elemento del DOM.
+Utiliza `render` para mostrar un componente de React dentro de un elemento del DOM del navegador.
 
 ```js
 const domNode = document.getElementById('root');
