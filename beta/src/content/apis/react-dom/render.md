@@ -197,7 +197,7 @@ Una aplicación totalmente construida con React tendrá usualmente una sola llam
 
 * `domNode`: Un [elemento del DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React mostrará el `reactNode` que pases dentro de este elemento del DOM. Desde este momento, React administrará el DOM dentro de `domNode` y lo actualizará cuando tu árbol de React cambie.
 
-* **Opcional** `callback`: Una función. Si se pasa, React la llamará luego de que tu componente sea colocado dentro del DOM.
+* `callback` **opcional**: Una función. Si se pasa, React la llamará luego de que tu componente sea colocado dentro del DOM.
 
 
 #### Retorno {/*returns*/}
