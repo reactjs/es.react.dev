@@ -60,7 +60,7 @@ Generalmente no necesitas llamar a `render` de nuevo o llamarlo en otros lugares
 
 ---
 
-### Renderlizando múltiples raices "roots"  {/*rendering-multiple-roots*/}
+### Renderizar múltiples raíces  {/*rendering-multiple-roots*/}
 
 Si tu página [no está totalmente construida con React](/learn/add-react-to-a-website), debes llamar a `render` por cada pieza de nivel superior "top-leve" de la UI administrada por React.
 
