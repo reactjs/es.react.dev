@@ -187,7 +187,7 @@ render(<App />, domNode);
 
 React mostrará `<App />`  en el `domNode`, y se encargará de gestionar el DOM dentro de él.
 
-Una aplicación totalmente construida con React usualmente tendrá sólo un llamado a `render` con su componente raíz "root". Una página que utiliza "sprinkles" de React para partes de la página puede tener tantas llamadas `render` como sean necesarias.
+Una aplicación totalmente construida con React tendrá usualmente una sola llamada a `render` con su componente raíz. Una página que utiliza React para partes de la página puede tener tantas llamadas a `render` como sean necesarias.
 
 [Vea los ejemplos anteriores.](#usage)
 
