@@ -161,7 +161,7 @@ setInterval(() => {
 export default function App({counter}) {
   return (
     <>
-      <h1>Hola, mundo! {counter}</h1>
+      <h1>¡Hola, mundo! {counter}</h1>
       <input placeholder="Escribe algo aquí" />
     </>
   );
