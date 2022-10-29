@@ -2,11 +2,11 @@
 title: render
 ---
 
-<Gotcha>
+<Pitfall>
 
 En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client/createRoot) Utilizando `render` en React 18 se te advertirá que tu aplicación se comportará como si estuviera ejecutándose en React 17. Aprende mas [aquí.](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
 
-</Gotcha>
+</Pitfall>
 
 
 <Intro>
@@ -206,7 +206,7 @@ Una aplicación totalmente construida con React usualmente tendrá sólo un llam
 
 #### Advertencias {/*caveats*/}
 
-* En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client/createRoot) Por favor úsalo para React 18 y versiones posteriores.
+* En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client/createRoot) Por favor usa `createRoot` para React 18 y versiones posteriores.
 
 * La primer ver que llamas a `render`, React limpiará todo el HTML contenido existente dentro del `domNode` antes de renderizar el componente de React dentro de este. Si tu `domNode` contiene HTML generado por React en el servidor o durante la construcción, usa [`hydrate()`](/apis/react-dom/hydrate) en lugar de, ya que este adjunta los manejadores de evento al HTML existente.
 
