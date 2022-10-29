@@ -189,7 +189,7 @@ React mostrará `<App />`  en el `domNode`, y se encargará de gestionar el DOM 
 
 Una aplicación totalmente construida con React tendrá usualmente una sola llamada a `render` con su componente raíz. Una página que utiliza React para partes de la página puede tener tantas llamadas a `render` como sean necesarias.
 
-[Vea los ejemplos anteriores.](#usage)
+[Mira los ejemplos anteriores.](#usage)
 
 #### Parámetros {/*parameters*/}
 
