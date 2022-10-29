@@ -11,7 +11,7 @@ En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client
 
 <Intro>
 
-`render` renderiza una pieza de [JSX](/learn/writing-markup-with-jsx) ("React node") en un nodo del DOM del navegador.
+`render` renderiza una pieza de [JSX](/learn/writing-markup-with-jsx) ("nodo de React") en un nodo del DOM del navegador.
 
 ```js
 render(reactNode, domNode, callback?)
