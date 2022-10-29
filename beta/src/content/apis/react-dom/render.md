@@ -136,7 +136,7 @@ Puedes destruir los árboles renderizados con [`unmountComponentAtNode()`.](/api
 
 ---
 
-### Actualizando el árbol renderizado {/*updating-the-rendered-tree*/}
+### Actualizar el árbol renderizado {/*updating-the-rendered-tree*/}
 
 Puedes llamar a `render` más de una vez en el mismo nodo del DOM. Siempre y cuando la estructura del árbol del componente coincida con lo renderizado previamente, React [preservará el estado.](/learn/preserving-and-resetting-state) Nota como puedes escribir en el input, lo que significa que las repetidas llamadas a `render` cada segundo en este ejemplo no son destructivas:
 
