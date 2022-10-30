@@ -1,10 +1,10 @@
 ---
-title: "El Estado: Como memoria de un componente"
+title: "El Estado: La memoria un componente"
 ---
 
 <Intro>
 
-Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como resultado de una interacción. Escribir dentro de un formulario debería actualizar el campo de texto, hacer clic en "siguiente" en la imagen de un carrusel debería cambiar la imagen que es mostrada; hacer click en "comprar" debería actualizar el carrito de compras. En React, este tipo de memoria de componentes se le conoce como estado.
+Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como resultado de una interacción. Escribir dentro de un formulario debería actualizar el campo de texto, hacer clic en "siguiente" en un carrusel de imágenes debería cambiar la imagen que es mostrada; hacer click en un botón para comprar un producto debería actualizar el carrito de compras. En los ejemplos anteriores los componentes deben "recordar" cosas: el campo de texto, la imagen actual, el carrito de compras. En React, a este tipo de memoria de los componentes se le conoce como estado.
 
 </Intro>
 
@@ -19,7 +19,7 @@ Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como re
 
 ## Cuando una variable regular no es suficiente {/*when-a-regular-variable-isnt-enough*/}
 
-Aquí hay un componente que renderiza una imagen de una escultura. Al hacer clic en el botón "Siguiente", debería mostrarse la siguiente escultura cambiando el `índice` a `1`, luego a `2`, y así sucesivamente. Sin embargo, esto **no funcionará** (¡puedes intentarlo!):
+Aquí hay un componente que renderiza una imagen de una escultura. Al hacer clic en el botón "Siguiente", debería mostrarse la siguiente escultura cambiando el índice `index` a `1`, luego a `2`, y así sucesivamente. Sin embargo, esto **no funcionará** (¡puedes intentarlo!):
 
 <Sandpack>
 
@@ -62,19 +62,19 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'TEsta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -122,7 +122,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
@@ -166,7 +166,7 @@ El Hook de [`useState`](/apis/react/useState) ofrece dos cosas:
 1. Una **variable de estado** para mantener los datos entre renderizados.
 2. Una **función que setea el estado** para actualizar la variable y provocar que React renderice el componente nuevamente.
 
-## Agregando una variable de estado {/*adding-a-state-variable*/}
+## Agregar una variable de estado {/*adding-a-state-variable*/}
 
 Para agregar una variable de estado, debemos importar el `useState` de React al inicio del archivo:
 
@@ -188,7 +188,7 @@ const [index, setIndex] = useState(0);
 
 `index` es una variable de estado y `setIndex` es la función que setea el estado.
 
-> La sintáxis de `[` y `]` se le conoce cómo [destructuración del array](https://javascript.info/destructuring-assignment) y es lo que permite leer los valores de un array. El array retornado por `useState` siempre contará con exactamente dos valores.
+> LA la sintaxis de `[` y `]` se le conoce cómo [desestructuración de un array](https://javascript.info/destructuring-assignment) y permite leer valores de un array. El array retornado por `useState` siempre contará con exactamente dos valores.
 
 Así es como funcionan juntos en el `handleClick`:
 
@@ -242,19 +242,19 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -302,7 +302,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
@@ -335,13 +335,13 @@ button {
 
 En React, `useState`, así como cualquier otra función que empiece con "`use`", se le conoce como Hook.
 
-Los *Hooks* son funciones especiales que sólo están disponibles mientras React está [renderizando](/learn/render-and-commit#step-1-trigger-a-render) (algo que veremos con más detalle en la página siguiente). Los Hooks permiten "engancharnos" a diferentes funciones de React.
+Los *Hooks* son funciones especiales que sólo están disponibles mientras React está [renderizando](/learn/render-and-commit#step-1-trigger-a-render) (algo que veremos con más detalle en la página siguiente). Los Hooks permiten "engancharnos" a diferentes características de React.
 
 El estado es solo una de esas características, pero conoceremos los otros Hooks más adelante.
 
 <Pitfall>
 
-**Las funciones-Hook que empiecen con `use` deben ser solo llamadas en el nivel superior de los componentes o [en tus propios Hooks.](/learn/reusing-logic-with-custom-hooks)** No podemos usar Hooks dentro de condicionales, bucles, u otras funciones anidadas. Los Hooks son funciones, pero es útil pensar en ellos como declaraciones incondicionales sobre las necesidades de nuestro componente. Las funciones de React se "usan" en la parte superior del componente de manera similar a cómo se "importan" módulos en la parte superior de un archivo.
+**Las funciones-Hook que empiecen con `use` deben ser solo llamadas en el nivel superior de los componentes o [en tus propios Hooks.](/learn/reusing-logic-with-custom-hooks)** No podemos usar Hooks dentro de condicionales, bucles, u otras funciones anidadas. Los Hooks son funciones, pero es útil pensar en ellos como declaraciones independientes de las necesidades de nuestro componente. Las funciones de React se "usan" en la parte superior del componente de manera similar a cómo se "importan" módulos en la parte superior de un archivo.
 
 </Pitfall>
 
@@ -355,13 +355,13 @@ const [index, setIndex] = useState(0);
 
 En este caso, queremos que React recuerde el `index`.
 
-> La convención es nombrar estas dos variables como `const [algo, establecerAlgo]`. Podemos nombrarlo como queramos, pero mantener las convenciones hacen que las cosas sean más fáciles de entender en todos los proyectos.
+> La convención es nombrar estas dos variables como `const [algo, setAlgo]`. Podemos nombrarlo como queramos, pero mantener las convenciones hacen que las cosas sean más fáciles de entender en todos los proyectos.
 
 El único argumento para `useState` es el **valor inicial** de su variable de estado. En este ejemplo, el valor inicial de `index` se establece en `0` con `useState(0)`.
 
-Cada vez que el componente se renderiza, el `useState` devuelve una matriz que contiene dos valores:
+Cada vez que el componente se renderiza, el `useState` devuelve un *array* que contiene dos valores:
 
-1. La **variable de estado** (`index`) con el valor que almacenó.
+1. La **variable de estado** (`index`) con el valor que almacenaste.
 2. La **función que establece el estado** (`setIndex`) que puede actualizar la variable de estado y alertar a React para que renderice el componente nuevamente.
 
 Así es como sucede en acción:
@@ -370,12 +370,12 @@ Así es como sucede en acción:
 const [index, setIndex] = useState(0);
 ```
 
-1. **Tu componente se renderiza la primera vez.** Debido a que pasamos `0` a `useState` como valor inicial para `index`, esto devolverá `[0, setIndex]`. React recuerda que `0` es el último valor de estado.
+1. **Tu componente se renderiza por primera vez.** Debido a que pasamos `0` a `useState` como valor inicial para `index`, esto devolverá `[0, setIndex]`. React recuerda que `0` es el último valor de estado.
 2. **Actualizas el estado.** Cuando un usuario hace clic en el botón, llama a `setIndex(index + 1)`. `index` es `0`, por lo tanto es `setIndex(1)`. Esto le dice a React que recuerde que `index` es `1` ahora y ejecuta otro renderizado.
 3. **El componente se renderiza por segunda vez.** React todavía ve `useState(0)`, pero debido a que React *recuerda* que estableció `index` en `1`, devuelve `[1, setIndex]` en su lugar.
 4. ¡Y así sucesivamente!
 
-## Colocando múltiples variables de estado a un componente {/*giving-a-component-multiple-state-variables*/}
+## Colocar múltiples variables de estado a un componente {/*giving-a-component-multiple-state-variables*/}
 
 Podemos tener más de una variable de estado de diferentes tipos en un componente. Este componente tiene dos variables de estado, un `index` numérico y un `showMore` booleano que se activa al hacer clic en "Mostrar detalles":
 
@@ -405,7 +405,7 @@ export default function Gallery() {
       </button>
       <h2>
         <i>{sculpture.name} </i> 
-        by {sculpture.artist}
+        por {sculpture.artist}
       </h2>
       <h3>  
         ({index + 1} de {sculptureList.length})
@@ -427,19 +427,19 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -487,7 +487,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
@@ -516,15 +516,15 @@ button {
 
 </Sandpack>
 
-Es una buena idea tener múltiples variables de estado si no se encuentran relacionadas entre sí, como `index` y `showMore` en este ejemplo. Pero si encontramso que a menudo cambiamos dos variables de estado juntas, podría ser mejor combinarlas en una sola. Por ejemplo, si tenemos un formulario con muchos campos, es más conveniente tener una única variable de estado que contenga un objeto que una variable de estado por campo. [Eligiendo la estructura del estado](/learn/choosing-the-state-structure) tiene más consejos sobre esto.
+Es una buena idea tener múltiples variables de estado si no se encuentran relacionadas entre sí, como `index` y `showMore` en este ejemplo. Pero si encontramso que a menudo cambiamos dos variables de estado juntas, podría ser mejor combinarlas en una sola. Por ejemplo, si tenemos un formulario con muchos campos, es más conveniente tener una única variable de estado que contenga un objeto que una variable de estado por campo. [Elegir la estructura del estado](/learn/choosing-the-state-structure) tiene más consejos sobre esto.
 
 <DeepDive title="¿Cómo sabe React qué estado devolver?">
 
-Es posible que hayas notado que la llamada `useState` no recibe ninguna información sobre *a qué* variable de estado se refiere. No hay un "identificador" que se pase a `useState`, entonces, ¿cómo sabe cuál de las variables de estado debería devolver? ¿Se basa en algún tipo de magia para esto? La respuesta es no.
+Es posible que hayas notado que la llamada a `useState` no recibe ninguna información sobre *a qué* variable de estado se refiere. No hay un "identificador" que se pase a `useState`, entonces, ¿cómo sabe cuál de las variables de estado debería devolver? ¿Se basa en algún tipo de magia para esto? La respuesta es no.
 
 En cambio, para habilitar su sintaxis concisa, los Hooks **se basan en un orden de llamada estable en cada representación del mismo componente.** Esto funciona bien en la práctica porque si seguimos la regla anterior ("solo llamar a los Hooks en el nivel superior"), los Hooks siempre se llamarán en el mismo orden. Además, este [complemento para el linter] (https://www.npmjs.com/package/eslint-plugin-react-hooks) detecta la mayoría de los errores.
 
-Internamente, React mantiene una matriz de pares de estados para cada componente. También mantiene el índice de par actual, el cual se establece en `0` antes de ser renderizado. Cada vez que llamamos a `useState`, React devuelve el siguiente par de estados e incrementa el índice. Puedes leer más sobre este mecanismo en [React Hooks: No es magia, sólo son Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
+Internamente, React mantiene un *array* de pares de estados para cada componente. También mantiene el índice de par actual, el cual se establece en `0` antes de ser renderizado. Cada vez que llamamos a `useState`, React devuelve el siguiente par de estados e incrementa el índice. Puedes leer más sobre este mecanismo en [React Hooks: No es magia, sólo son Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
 Este ejemplo **no usa React** pero nos da una idea de cómo funciona `useState` internamente:
 
@@ -546,7 +546,7 @@ function useState(initialState) {
   }
 
   // Esta es la primera vez que estamos renderizando,
-  // así que crea un arreglo de dos posiciones y guárdalo.
+  // así que crea un array de dos posiciones y guárdalo.
   pair = [initialState, setState];
 
   function setState(nextState) {
@@ -582,7 +582,7 @@ function Gallery() {
   return {
     onNextClick: handleNextClick,
     onMoreClick: handleMoreClick,
-    header: `${sculpture.name} by ${sculpture.artist}`,
+    header: `${sculpture.name} por ${sculpture.artist}`,
     counter: `${index + 1} of ${sculptureList.length}`,
     more: `${showMore ? 'Ocultar' : 'Mostrar'} detalles`,
     description: showMore ? sculpture.description : null,
@@ -621,19 +621,19 @@ let image = document.getElementById('image');
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -681,7 +681,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
@@ -768,7 +768,7 @@ export default function Gallery() {
       </button>
       <h2>
         <i>{sculpture.name} </i> 
-        by {sculpture.artist}
+        por {sculpture.artist}
       </h2>
       <h3>  
         ({index + 1} de {sculptureList.length})
@@ -790,19 +790,19 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -850,7 +850,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
@@ -887,7 +887,7 @@ button {
 
 Esto es lo que hace que el estado sea diferente de las variables regulares que declaramos en la parte superior de un módulo. El estado no está vinculado a una llamada de función en particular o a un lugar en el código, pero es "local" al lugar específico en la pantalla. Se han renderizado dos componentes `<Gallery />`, por lo que su estado se almacena por separado.
 
-También observemos cómo el componente de `Página` no "sabe" nada sobre el estado del componente `Galería` o incluso si tiene algún estado. A diferencia de las props, **el estado es totalmente privado para el componente que lo declara.** El componente padre no puede cambiarlo. Esto permite agregar el estado a cualquier componente o eliminarlo sin afectar al resto de los componentes.
+También observemos cómo el componente de la página `Page` no "sabe" nada sobre el estado del componente de la galería `Galery`, ni siquiera si es que posee algún estado. A diferencia de las props, **el estado es totalmente privado para el componente que lo declara.** El componente padre no puede cambiarlo. Esto permite agregar el estado a cualquier componente o eliminarlo sin afectar al resto de los componentes.
 
 ¿Qué pasaría si quisieramos que ambas galerías mantuvieran sus estados sincronizados? La forma correcta de hacerlo en React es *eliminar* el estado de los componentes secundarios y agregarlo a su padre más cercano. Las próximas páginas se centrarán en organizar el estado de un solo componente, pero volveremos a este tema en [Compartir estado entre componentes.](/learn/sharing-state-between-components)
 
@@ -896,8 +896,8 @@ También observemos cómo el componente de `Página` no "sabe" nada sobre el est
 * Debemos utilizar una variable de estado cuando necesitamos que un componente necesite "recordar" alguna información entre renderizaciones.
 * Las variables de estado se declaran llamando al Hook `useState`.
 * Los Hooks son funciones especiales que comienzan con `use`. Nos permiten "enlazarnos" a funciones de React como el estado.
-* Los Hooks se importan de la siguiente manera: deben llamarse incondicionalmente. Llamar Hooks, incluido `useState`, solo es válido en el nivel superior de un componente u otro Hook.
-* El Hook `useState` retorna un arreglo de dos valores: el estado actual y la función para actualizarlo.
+* Evita llamar a Hooks de manera anidada (por ejemplo, dentro de bucles o condicionales). Llamar a Hooks -incluyendo al useState- solo es válido en el nivel superior de un componente u otro Hook.
+* El Hook `useState` retorna un *array* de dos valores: el estado actual y la función para actualizarlo.
 * Puede tener más de una variable de estado. Internamente, React los empareja por orden.
 * El estado es privado para un componente. Si los renderizamos en dos lugares, cada componente lo maneja individualmente.
 
@@ -961,19 +961,19 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -1021,7 +1021,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
@@ -1123,19 +1123,19 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Aunque Colvin es predominantemente conocido por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
+  description: 'Aunque Colvin es predominantemente conocida por temas abstractos que aluden a símbolos prehispánicos, esta gigantesca escultura, un homenaje a la neurocirugía, es una de sus obras de arte público más reconocibles.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
   alt: 'Una estatua de bronce de dos manos cruzadas sosteniendo delicadamente un cerebro humano con la punta de sus dedos.'  
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Esta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -1183,7 +1183,7 @@ export const sculptureList = [{
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'SShettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad y una "fina síntesis de materiales inverosímiles.',
+  description: 'Shettar fusiona lo tradicional y lo moderno, lo natural y lo industrial. Su arte se centra en la relación entre el hombre y la naturaleza. Su trabajo fue descrito como convincente tanto abstracta como figurativamente, desafiando la gravedad, y una "fina síntesis de materiales inverosímiles.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
   alt: 'Una escultura parecida a un alambre montado en una pared de hormigón que desciende al suelo. Parece ligero.'
 }, {
