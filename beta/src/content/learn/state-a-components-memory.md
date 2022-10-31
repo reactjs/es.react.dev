@@ -68,7 +68,7 @@ export const sculptureList = [{
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'TEsta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
+  description: 'Tsta enorme flor plateada (75 pies o 23 m) se encuentra en Buenos Aires. Está diseñado para moverse, cerrando sus pétalos por la tarde o cuando soplan fuertes vientos y abriéndolos por la mañana.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
 }, {
@@ -188,7 +188,7 @@ const [index, setIndex] = useState(0);
 
 `index` es una variable de estado y `setIndex` es la función que setea el estado.
 
-> LA la sintaxis de `[` y `]` se le conoce cómo [desestructuración de un array](https://javascript.info/destructuring-assignment) y permite leer valores de un array. El array retornado por `useState` siempre contará con exactamente dos valores.
+> La sintaxis de `[` y `]` se le conoce cómo [desestructuración de un array](https://javascript.info/destructuring-assignment) y permite leer valores de un array. El array retornado por `useState` siempre contará con exactamente dos valores.
 
 Así es como funcionan juntos en el `handleClick`:
 
@@ -254,7 +254,7 @@ export const sculptureList = [{
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -439,7 +439,7 @@ export const sculptureList = [{
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -633,7 +633,7 @@ export const sculptureList = [{
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -802,7 +802,7 @@ export const sculptureList = [{
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -973,7 +973,7 @@ export const sculptureList = [{
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -1135,7 +1135,7 @@ export const sculptureList = [{
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal',
+  description: 'Wilson era conocido por su preocupación por la igualdad y la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Esta enorme pieza de bronce (de 7 pies o 2,13 metros) representa lo que él describió como "una presencia negra simbólica impregnada de un sentido de humanidad universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
   alt: 'La escultura que representa una cabeza humana parece omnipresente y solemne. Irradia calma y serenidad.'
 }, {
@@ -1319,7 +1319,7 @@ h1 { margin-top: 10px; }
 
 </Solution>
 
-#### Fix a crash {/*fix-a-crash*/}
+#### Arregla un error {/*fix-a-crash*/}
 
 Aquí hay un pequeño formulario que se supone que permite al usuario dejar algunos comentarios. Cuando se envía el comentario, se supone que debe mostrar un mensaje de agradecimiento. Sin embargo, falla con un mensaje de error que dice "Se generaron menos Hooks de los esperados". ¿Puedes detectar el error y corregirlo?
 
