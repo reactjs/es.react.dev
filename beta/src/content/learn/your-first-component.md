@@ -288,7 +288,7 @@ Puedes estar preguntándote por qué escribir solo `export` no es suficiente par
 
 </Solution>
 
-### Arregla la sentencia de retorno {/*fix-the-return-statement*/}
+#### Arregla la sentencia de retorno {/*fix-the-return-statement*/}
 
 Algo no está bien con esta sentencia `return`. ¿Puedes arreglarla?
 
