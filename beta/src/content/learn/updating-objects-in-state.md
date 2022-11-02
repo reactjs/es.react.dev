@@ -25,7 +25,7 @@ Puede almacenar cualquier tipo de valor de JavaScript en el estado.
 const [x, setX] = useState(0);
 ```
 
-Hasta ahora has trabajado con números, cadenas y booleanos. Estos tipos de valores de JavaScript son "inmutables", es decir, inmutables o de "sólo lectura". Se puede activar un re-renderizado para _reemplazar_ un valor:
+Hasta ahora has trabajado con números, _strings_ y booleanos. Estos tipos de valores de JavaScript son "inmutables", es decir, inmutables o de "sólo lectura". Se puede activar un re-renderizado para _reemplazar_ un valor:
 
 ```js
 setX(5);
