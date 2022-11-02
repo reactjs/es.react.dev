@@ -805,7 +805,7 @@ En la práctica, a menudo puedes "salirte con la tuya" con la mutación de estad
 * Puedes usar la sintaxis extendida de objetos `{...obj, algo: 'newValue'}` para crear copias de objetos.
 * La sintaxis extendida es superficial: sólo copia un nivel de profundidad.
 * Para actualizar un objeto anidado, necesitas crear copias desde el lugar que estás actualizando.
-* Para reducir el código de copia repetitivo, utilice Immer.
+* Para reducir el código de copia repetitivo, utiliza Immer.
 
 </Recap>
 
