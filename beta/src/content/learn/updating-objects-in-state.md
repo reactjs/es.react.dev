@@ -294,7 +294,7 @@ setPerson({
 
 ¡Ahora el formulario funciona! 
 
-Fíjate en que no has declarado una variable de estado distinta para cada campo de entrada. Para los formularios grandes, es muy conveniente mantener todos los datos agrupados - ¡siempre y cuando los actualice correctamente!
+Fíjate en que no has declarado una variable de estado distinta para cada campo de entrada. Para los formularios grandes, es muy conveniente mantener todos los datos agrupados - ¡siempre y cuando los actualices correctamente!
 
 <Sandpack>
 
