@@ -118,7 +118,7 @@ onPointerMove={e => {
 
 Con `setPosition`, le estás diciendo a React:
 
-* Reemplazar `posición` con este nuevo objeto
+* Reemplaza `position` con este nuevo objeto
 * Y renderiza este componente de nuevo
 
 Observa cómo el punto rojo sigue ahora a tu puntero cuando tocas o pasas el ratón por encima del área de vista previa:
