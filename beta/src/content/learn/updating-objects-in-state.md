@@ -1123,7 +1123,7 @@ select { margin-bottom: 10px; }
 
 El problema estaba en la mutación dentro de `handleMove`. Mutaba `shape.position`, pero ese es el mismo objeto al que apunta `initialPosition`. Por eso tanto la forma como el fondo se mueven. (Es una mutación, por lo que el cambio no se refleja en la pantalla hasta que una actualización no relacionada -el cambio de color- desencadena una nueva renderización).
 
-La solución es eliminar la mutación de `handleMove`, y utilizar la sintaxis de propagación para copiar la forma. Ten en cuenta que `+=` es una mutación, así que tienes que reescribirlo para usar una operación regular `+`.
+La solución es eliminar la mutación de `handleMove`, y utilizar la sintaxis extendida para copiar la forma. Ten en cuenta que `+=` es una mutación, así que tienes que reescribirlo para usar una operación regular `+`.
 
 <Sandpack>
 
