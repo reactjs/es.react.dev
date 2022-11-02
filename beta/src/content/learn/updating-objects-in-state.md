@@ -787,7 +787,7 @@ Fíjate en lo mucho más concisos que se han vuelto los manejadores de eventos. 
 
 Hay algunas razones:
 
-**Debugging:** Si usas `console.log` y no mutas el estado, tus registros anteriores no se verán afectados por los cambios de estado más recientes. Así puedes ver claramente cómo ha cambiado el estado entre renders.
+* **Debugging:** Si usas `console.log` y no mutas el estado, tus registros anteriores no se verán afectados por los cambios de estado más recientes. Así puedes ver claramente cómo ha cambiado el estado entre renders.
 * **Optimizaciones:** React común [estrategias de optimización](/api/react/memo) se basan en omitir el trabajo si los props o el estado anteriores son los mismos que los siguientes. Si nunca se muta el estado, es muy rápido comprobar si ha habido algún cambio. Si `prevObj === obj`, puedes estar seguro de que nada ha podido cambiar en su interior.
 * **Nuevas características:** Las nuevas características de React que estamos construyendo dependen de que el estado sea [tratado como una instantánea.](/learn/state-as-a-snapshot) Si estás mutando versiones anteriores del estado, eso puede impedirte utilizar las nuevas funciones.
 * **Cambios de requisitos:** Algunas características de la aplicación, como la implementación de Deshacer/Rehacer, mostrar un historial de cambios, o permitir al usuario restablecer un formulario a valores anteriores, son más fáciles de hacer cuando no se muta nada. Esto se debe a que puedes mantener copias pasadas del estado en la memoria, y reutilizarlas cuando sea apropiado. Si empiezas con un enfoque mutativo, características como estas pueden ser difíciles de añadir más adelante.
