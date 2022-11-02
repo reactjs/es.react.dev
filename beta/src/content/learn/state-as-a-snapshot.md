@@ -1,27 +1,27 @@
 ---
-title: State as a Snapshot
+title: El estado como una instantánea
 ---
 
 <Intro>
 
-State variables might look like regular JavaScript variables that you can read and write to. However, state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render.
+Las variables de estado pueden parecerse a las variables normales de JavaScript en las que se puede leer y escribir. Sin embargo, el estado se comporta más como una instantánea. Al asignarlo no se cambia la variable de estado que ya tienes, sino que se desencadena una rerenderizado.
 
 </Intro>
 
 <YouWillLearn>
 
-* How setting state triggers re-renders
-* When and how state updates
-* Why state does not update immediately after you set it
-* How event handlers access a "snapshot" of the state
+* Cómo la asignación del estado desencadena los rerenderizados.
+* Cuándo y cómo se actualiza el estado.
+* Por qué el estado no se actualiza inmediatamente después de asignarlo.
+* Cómo los controladores de eventos acceden a una "instantánea" del estado.
 
 </YouWillLearn>
 
-## Setting state triggers renders {/*setting-state-triggers-renders*/}
+## La asignación de estado desencadena renderizados {/*setting-state-triggers-renders*/}
 
-You might think of your user interface as changing directly in response to the user event like a click. In React, it works a little differently from this mental model. On the previous page, you saw that [setting state requests a re-render](/learn/render-and-commit#step-1-trigger-a-render) from React. This means that for an interface to react to the event, you need to *update the state*.
+Puedes hacerte la idea de tu interfaz de usuario como una que cambia directamente al evento del usuario como un clic. En React, funciona un poco diferente de este modelo mental. En la página anterior, viste que [al asignar estado se solicita un rerenderizado](/learn/render-and-commit#step-1-trigger-a-render) de React. Esto significa que para que una interfaz reaccione al evento, es necesario *actualizar el estado*.
 
-In this example, when you press "send", `setIsSent(true)` tells React to re-render the UI:
+En este ejemplo, al pulsar "Send", `setIsSent(true)` indica a React que vuelva a renderizar la UI:
 
 <Sandpack>
 
@@ -61,43 +61,43 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Here's what happens when you click the button:
+Esto es lo que ocurre cuando se hace clic en el botón:
 
-1. The `onSubmit` event handler executes.
-2. `setIsSent(true)` sets `isSent` to `true` and queues a new render.
-3. React re-renders the component according to the new `isSent` value.
+1. Se ejecuta el manejador de eventos `onSubmit`.
+2. `setIsSent(true)` asigna `isSent` a `true` y pone en cola un nuevo renderizado.
+3. React vuelve a renderizar el componente según el nuevo valor de `isSent`.
 
-Let's take a closer look at the relationship between state and rendering.
+Veamos con más detalle la relación entre estado y renderizado.
 
-## Rendering takes a snapshot in time {/*rendering-takes-a-snapshot-in-time*/}
+## El renderizado toma una instantánea en el tiempo {/*rendering-takes-a-snapshot-in-time*/}
 
-["Rendering"](/learn/render-and-commit#step-2-react-renders-your-components) means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers, and local variables were all calculated **using its state at the time of the render.**
+["Renderizado"](/learn/render-and-commit#step-2-react-renders-your-components) significa que React está llamando a tu componente, que es una función. El JSX que devuelves de esa función es como una instantánea de la UI en el tiempo. Tus props, manejadores de eventos y variables locales fueron todos calculados **usando su estado en el momento del renderizado.**
 
-Unlike a photograph or a movie frame, the UI "snapshot" you return is interactive. It includes logic like event handlers that specify what happens in response to inputs. React then updates the screen to match this snapshot and connects the event handlers. As a result, pressing a button will trigger the click handler from your JSX.
+A diferencia de una fotografía o un fotograma de una película, la "instantánea" de la interfaz de usuario que devuelves es interactiva. Incluye lógica como manejadores de eventos que especifican lo que sucede en respuesta a las entradas. React entonces actualiza la pantalla para que coincida con esta instantánea y conecta los manejadores de eventos. Como resultado, al pulsar un botón se activará el controlador de clic de tu JSX.
 
-When React re-renders a component:
+Cuando React vuelve a renderizar un componente:
 
-1. React calls your function again.
-2. Your function returns a new JSX snapshot.
-3. React then updates the screen to match the snapshot you've returned.
-
-<IllustrationBlock title="Re-rendering" sequential>
-    <Illustration caption="React executing the function" src="/images/docs/illustrations/i_render1.png" />
-    <Illustration caption="Calculating the snapshot" src="/images/docs/illustrations/i_render2.png" />
-    <Illustration caption="Updating the DOM tree" src="/images/docs/illustrations/i_render3.png" />
-</IllustrationBlock>
-
-As a component's memory, state is not like a regular variable that disappears after your function returns. State actually "lives" in React itself--as if on a shelf!--outside of your function. When React calls your component, it gives you a snapshot of the state for that particular render. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, all calculated **using the state values from that render!**
+1. React llama de nuevo a tu función.
+2. Tu función devuelve una nueva instantánea JSX.
+3. A continuación, React actualiza la pantalla para que coincida con la instantánea que has devuelto.
 
 <IllustrationBlock sequential>
-  <Illustration caption="You tell React to update the state" src="/images/docs/illustrations/i_state-snapshot1.png" />
-  <Illustration caption="React updates the state value" src="/images/docs/illustrations/i_state-snapshot2.png" />
-  <Illustration caption="React passes a snapshot of the state value into the component" src="/images/docs/illustrations/i_state-snapshot3.png" />
+    <Illustration caption="React ejecuta la función" src="/images/docs/illustrations/i_render1.png" />
+    <Illustration caption="Calcula la instantánea" src="/images/docs/illustrations/i_render2.png" />
+    <Illustration caption="Actualiza el árbol del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Here's a little experiment to show you how this works. In this example, you might expect that clicking the "+3" button would increment the counter three times because it calls `setNumber(number + 1)` three times.
+Como memoria de un componente, el estado no es como una variable regular que desaparece después de que tu función devuelva un valor. El estado en realidad "vive" en el propio React -como si estuviera en una estantería- fuera de tu función. Cuando React llama a tu componente, te da una instantánea del estado para ese renderizado en particular. Tu componente devuelve una instantánea de la interfaz de usuario con un nuevo conjunto de accesorios y manejadores de eventos en su JSX, todo calculado **usando los valores de estado de ese renderizado**.
 
-See what happens when you click the "+3" button:
+<IllustrationBlock sequential>
+  <Illustration caption="Le dices a React que actualice el estado" src="/images/docs/illustrations/i_state-snapshot1.png" />
+  <Illustration caption="React actualiza el valor del estado" src="/images/docs/illustrations/i_state-snapshot2.png" />
+  <Illustration caption="React pasa una instantánea del valor del estado al componente" src="/images/docs/illustrations/i_state-snapshot3.png" />
+</IllustrationBlock>
+
+He aquí un pequeño experimento para mostrarte cómo funciona esto. En este ejemplo, se podría esperar que al hacer clic en el botón "+3" se incrementara el contador tres veces porque se llama a `setNumber(number + 1)` tres veces.
+
+Mira lo que ocurre cuando haces clic en el botón "+3":
 
 <Sandpack>
 
@@ -127,9 +127,9 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Notice that `number` only increments once per click!
+Observa que `number` sólo se incrementa una vez por clic.
 
-**Setting state only changes it for the *next* render.** During the first render, `number` was `0`. This is why, in *that render's* `onClick` handler, the value of `number` is still `0` even after `setNumber(number + 1)` was called:
+**La asignación del estado sólo lo cambia para el *siguiente* renderizado.** Durante el primer renderizado, `number` era `0`. Es por eso que en el manejador `onClick` de *ese renderizado* el valor de `number` sigue siendo `0`, incluso después de que se llamara `setNumber(number + 1)`:
 
 ```js
 <button onClick={() => {
@@ -139,18 +139,18 @@ Notice that `number` only increments once per click!
 }}>+3</button>
 ```
 
-Here is what this button's click handler tells React to do:
+Esto es lo que el manejador de clic de este botón le dice a React que haga:
 
-1. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
-    - React prepares to change `number` to `1` on the next render.
-2. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
-    - React prepares to change `number` to `1` on the next render.
-3. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
-    - React prepares to change `number` to `1` on the next render.
+1. `setNumber(number + 1)`: `number` es `0` así que `setNumber(0 + 1)`.
+    - React se prepara para el cambiar `number` a `1` en el siguiente renderizado.
+2. `setNumber(number + 1)`: `number` es `0` así que `setNumber(0 + 1)`.
+    - React se prepara para el cambiar `number` a `1` en el siguiente renderizado.
+3. `setNumber(number + 1)`: `number` es `0` así que `setNumber(0 + 1)`.
+    - React se prepara para el cambiar `number` a `1` en el siguiente renderizado.
 
-Even though you called `setNumber(number + 1)` three times, in *this render's* event handler `number` is always `0`, so you set the state to `1` three times. This is why, after your event handler finishes, React re-renders the component with `number` equal to `1` rather than `3`.
+Aunque hayas llamado a `setNumber(number + 1)` tres veces, en el manejador de eventos de *ese renderizado* `number` es siempre `0`, por lo que asignas el estado a `1` tres veces. Por eso, una vez que el manejador de eventos termina, React vuelve a renderizar el componente con `number` igual a `1` en lugar de `3`.
 
-You can also visualize this by mentally substituting state variables with their values in your code. Since the `number` state variable is `0` for *this render*, its event handler looks like this:
+También puedes visualizarlo sustituyendo mentalmente las variables de estado por sus valores en tu código. Haciendo que la variable de estado `number` sea `0` para *ese renderizado*, tu manejador de eventos se ve así:
 
 ```js
 <button onClick={() => {
@@ -160,7 +160,7 @@ You can also visualize this by mentally substituting state variables with their 
 }}>+3</button>
 ```
 
-For the next render, `number` is `1`, so *that render's* click handler looks like this:
+Para el siguiente renderizado, `number` es `1`, así que en *ese renderizado* el manejador de clics luce así:
 
 ```js
 <button onClick={() => {
@@ -170,11 +170,11 @@ For the next render, `number` is `1`, so *that render's* click handler looks lik
 }}>+3</button>
 ```
 
-This is why clicking the button again will set the counter to `2`, then to `3` on the next click, and so on.
+Por eso, al pulsar de nuevo el botón, el contador se pone en `2`, y luego a `3` en el siguiente clic, y así sucesivamente.
 
-## State over time {/*state-over-time*/}
+## El estado a través del tiempo {/*state-over-time*/}
 
-Well, that was fun. Try to guess what clicking this button will alert:
+Bueno, eso fue divertido. Intenta adivinar que mostrará la alerta al hacer clic en este botón:
 
 <Sandpack>
 
@@ -203,14 +203,14 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-If you use the substitution method from before, you can guess that the alert shows "0":
+Si utilizas el método de sustitución de antes, puedes adivinar que la alerta mostrará "0":
 
 ```js
 setNumber(0 + 5);
 alert(0);
 ```
 
-But what if you put a timer on the alert, so it only fires _after_ the component re-rendered? Would it say "0" or "5"? Have a guess!
+¿Pero, qué pasa si pones un temporizador en la alerta, de modo que sólo se dispare _después_ de que el componente se vuelva a renderizar? ¿Diría "0" o "5"? Adivínalo.
 
 <Sandpack>
 
@@ -241,7 +241,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Surprised? If you use the substitution method, you can see the "snapshot" of the state passed to the alert.
+¿Sorprendido? Si se utiliza el método de sustitución, se puede ver la "instantánea" del estado que se pasa a la alerta.
 
 ```js
 setNumber(0 + 5);
@@ -250,16 +250,16 @@ setTimeout(() => {
 }, 3000);
 ```
 
-The state stored in React may have changed by the time the alert runs, but it was scheduled using a snapshot of the state at the time the user interacted with it!
+El estado almacenado en React puede haber cambiado en el momento en que se ejecuta la alerta, pero se programó utilizando una instantánea del estado en el momento en que el usuario interactuó con ella.
 
-**A state variable's value never changes within a render,** even if its event handler's code is asynchronous. Inside *that render's* `onClick`, the value of `number` continues to be `0` even after `setNumber(number + 5)` was called. Its value was "fixed" when React "took the snapshot" of the UI by calling your component.
+**El valor de una variable de estado nunca cambia dentro de un renderizado,** incluso si el código de tu manejador de eventos es asíncrono. Dentro del `onClick` de *ese renderizado*, el valor de `number` sigue siendo `0` incluso después de que se llama a `setNumber(number + 5)`. Su valor se "fijó" cuando React "tomó la instantánea" de la UI al llamar a tu componente.
 
-Here is an example of how that makes your event handlers less prone to timing mistakes. Below is a form that sends a message with a five-second delay. Imagine this scenario:
+Aquí hay un ejemplo de cómo eso hace que tus manejadores de eventos sean menos propensos a errores de sincronización. A continuación se muestra un formulario que envía un mensaje con un retraso de cinco segundos. Imagina este escenario:
 
-1. You press the "Send" button, sending "Hello" to Alice.
-2. Before the five-second delay ends, you change the value of the "To" field to "Bob".
+1. Pulsas el botón "Send", enviando "Hello" a Alice.
+2. Antes de que termine la demora de cinco segundos, cambia el valor del campo "To" a "Bob".
 
-What do you expect the `alert` to display? Would it display, "You said Hello to Alice"? Or would it display, "You said Hello to Bob"? Make a guess based on what you know, and then try it:
+¿Qué esperas que muestre la alerta (`alert`)? ¿Mostrará "You said Hello to Alice"? ¿O será "You said Hello to Bob"? Haz una suposición con base en lo que sabes y luego pruébalo:
 
 <Sandpack>
 
@@ -305,19 +305,19 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-**React keeps the state values "fixed" within one render's event handlers.** You don't need to worry whether the state has changed while the code is running.
+**React mantiene los valores de estado "fijados" dentro de los manejadores de eventos de un renderizado.** No hay que preocuparse de si el estado ha cambiado mientras se ejecuta el código.
 
-But what if you wanted to read the latest state before a re-render? You'll want to use a [state updater function](/learn/queueing-a-series-of-state-updates), covered on the next page!
+Pero, ¿y si quieres leer el último estado antes de un nuevo renderizado? Necesitarás usar una [función de actualización de estado](/learn/queueing-a-series-of-state-updates), ¡tratada en la siguiente página!
 
 <Recap>
 
-* Setting state requests a new render.
-* React stores state outside of your component, as if on a shelf.
-* When you call `useState`, React gives you a snapshot of the state *for that render*.
-* Variables and event handlers don't "survive" re-renders. Every render has its own event handlers.
-* Every render (and functions inside it) will always "see" the snapshot of the state that React gave to *that* render.
-* You can mentally substitute state in event handlers, similarly to how you think about the rendered JSX.
-* Event handlers created in the past have the state values from the render in which they were created.
+* Asignar un estado solicita un rerenderizado
+* React almacena el estado fuera de tu componente, como si estuviera en una estantería.
+* Cuando llamas a `useState`, React te da una instantánea del estado *para ese renderizado*.
+* Las variables y los manejadores de eventos no "sobreviven" a los rerenderizados. Cada renderizado tiene sus propios manejadores de eventos.
+* Cada renderizado (y las funciones dentro de él) siempre "verán" la instantánea del estado que React dio a *ese* renderizado.
+* Puedes sustituir mentalmente el estado en los manejadores de eventos, de forma similar a como piensas en el JSX renderizado.
+* Los manejadores de eventos creados en el pasado tienen los valores de estado del renderizado en el que fueron creados.
 
 </Recap>
 
@@ -325,9 +325,9 @@ But what if you wanted to read the latest state before a re-render? You'll want 
 
 <Challenges>
 
-#### Implement a traffic light {/*implement-a-traffic-light*/}
+#### Implementar un semáforo {/*implement-a-traffic-light*/}
 
-Here is a crosswalk light component that toggles on when the button is pressed:
+Aquí hay un componente de luz de paso de peatones que cambia cuando se pulsa el botón:
 
 <Sandpack>
 
@@ -362,13 +362,13 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Add an `alert` to the click handler. When the light is green and says "Walk", clicking the button should say "Stop is next". When the light is red and says "Stop", clicking the button should say "Walk is next".
+Añade un `alert` al manejador de clics. Cuando la luz es verde y dice "Walk", al hacer clic en el botón debe decir "Stop is next". Cuando la luz es roja y dice "Stop", al hacer clic en el botón debe decir "Walk is next".
 
-Does it make a difference whether you put the `alert` before or after the `setWalk` call?
+¿Hay alguna diferencia si se pone el `alert` antes o después de la llamada a `setWalk`?
 
 <Solution>
 
-Your `alert` should look like this:
+Tu `alert` debería ser así:
 
 <Sandpack>
 
@@ -404,17 +404,17 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Whether you put it before or after the `setWalk` call makes no difference. That render's value of `walk` is fixed. Calling `setWalk` will only change it for the *next* render, but will not affect the event handler from the previous render.
+Ya sea que lo pongas antes o después del `setWalk` no hace ninguna diferencia. El valor del renderizado de `walk` queda fijo. La llamada a `setWalk` sólo lo cambiará para el *siguiente* renderizado, pero no afectará al gestor de eventos del renderizado anterior.
 
-This line might seem counter-intuitive at first:
+Esta línea puede parecer paradójica en un inicio:
 
 ```js
 alert(walk ? 'Stop is next' : 'Walk is next');
 ```
 
-But it makes sense if you read it as: "If the traffic light shows 'Walk now', the message should say 'Stop is next.'" The `walk` variable inside your event handler matches that render's value of `walk` and does not change.
+Pero tiene sentido si lo lees como: "Si el semáforo muestra 'Walk now', el mensaje debería decir 'Stop is next'". La variable `walk` dentro de tu manejador de eventos coincide con el valor de `walk` de ese renderizado y no cambia.
 
-You can verify that this is correct by applying the substitution method. When `walk` is `true`, you get:
+Puedes comprobar que es correcto aplicando el método de sustitución. Cuando `walk` es `true`, obtienes:
 
 ```js
 <button onClick={() => {
@@ -428,7 +428,7 @@ You can verify that this is correct by applying the substitution method. When `w
 </h1>
 ```
 
-So clicking "Change to Stop" queues a render with `walk` set to `false`, and alerts "Stop is next".
+Así, al hacer clic en "Change to Stop" se pone en cola un renderizado con `walk` ajustado a `false`, y avisa de que "Stop is next".
 
 </Solution>
 
