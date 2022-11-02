@@ -31,7 +31,7 @@ Hasta ahora has trabajado con números, _strings_ y booleanos. Estos tipos de va
 setX(5);
 ```
 
-El estado `x` ha cambiado de `0` a `5`, pero el _número `0` en sí mismo_ no cambia. No es posible hacer ningún cambio en los valores primitivos incorporados como números, cadenas y booleanos en JavaScript.
+El estado `x` ha cambiado de `0` a `5`, pero el _número `0` en sí mismo_ no cambia. No es posible hacer ningún cambio en los valores primitivos incorporados como números, _strings_ y booleanos en JavaScript.
 
 Consideremos ahora un objeto en estado:
 
