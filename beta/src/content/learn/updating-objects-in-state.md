@@ -184,7 +184,7 @@ nextPosition.y = e.clientY;
 setPosition(nextPosition);
 ````
 
-De hecho, es completamente equivalente a escribir this:
+De hecho, es completamente equivalente a escribir lo siguiente:
 
 ```js
 setPosition({
