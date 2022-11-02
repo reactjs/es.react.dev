@@ -802,7 +802,7 @@ En la práctica, a menudo puedes "salirte con la tuya" con la mutación de estad
 * Tratar todo el estado en React como inmutable.
 * Cuando se almacenan objetos en el estado, la mutación de los mismos no desencadenará renderizados y cambiará el estado en las "instantáneas" de los renderizados anteriores.
 * En lugar de mutar un objeto, crea una *nueva* versión del mismo, y dispara un re-renderizado estableciendo el estado en él.
-* Puedes usar la sintaxis de propagación de objetos `{...obj, algo: 'newValue'}` para crear copias de objetos.
+* Puedes usar la sintaxis extendida de objetos `{...obj, algo: 'newValue'}` para crear copias de objetos.
 * La sintaxis de propagación es superficial: sólo copia un nivel de profundidad.
 * Para actualizar un objeto anidado, necesitas crear copias desde el lugar que estás actualizando.
 * Para reducir el código de copia repetitivo, utilice Immer.
