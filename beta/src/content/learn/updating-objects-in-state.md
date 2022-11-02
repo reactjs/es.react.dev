@@ -197,7 +197,7 @@ La mutación sólo es un problema cuando cambias objetos *existentes* que ya est
 
 </DeepDive>  
 
-## Copiar objetos con la sintaxis de propagación {/*copying-objects-with-the-spread-syntax*/}
+## Copiar objetos con la sintaxis extendida {/*copying-objects-with-the-spread-syntax*/}
 
 En el ejemplo anterior, el objeto `posición` se crea siempre de nuevo a partir de la posición actual del cursor. Pero a menudo, querrás incluir datos *existentes* como parte del nuevo objeto que estás creando. Por ejemplo, puedes querer actualizar *sólo un* campo de un formulario, pero mantener los valores anteriores de todos los demás campos.
 
