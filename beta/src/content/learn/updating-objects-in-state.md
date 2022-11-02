@@ -1,5 +1,5 @@
 ---
-title: Actualización de objetos en el estado
+title: Actualizar objetos en el estado
 ---
 
 <Intro>
