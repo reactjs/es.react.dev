@@ -373,7 +373,7 @@ Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las
 
 <DeepDive title="Using a single event handler for multiple fields">
 
-También puede utilizar las llaves `[` y `]` dentro de su definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
+También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
 
 <Sandpack>
 
