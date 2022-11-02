@@ -45,7 +45,7 @@ Técnicamente, es posible cambiar el contenido del _objeto mismo_. **Esto se den
 position.x = 5;
 ```
 
-Sin embargo, aunque los objetos en el estado de React son técnicamente mutables, deberías tratarlos **como si** fueran inmutables--como los números, booleanos y cadenas. En lugar de mutarlos, siempre debes reemplazarlos.
+Sin embargo, aunque los objetos en el estado de React son técnicamente mutables, deberías tratarlos **como si** fueran inmutables--como los números, booleanos y _strings_. En lugar de mutarlos, siempre debes reemplazarlos.
 
 ## Tratar el estado como de sólo lectura {/*treat-state-as-read-only*/}
 
