@@ -815,7 +815,7 @@ En la práctica, a menudo puedes "salirte con la tuya" con la mutación de estad
 
 #### Corregir las actualizaciones de estado incorrectas {/*fix-incorrect-state-updates*/}
 
-Este formulario tiene algunos errores. Haga clic en el botón que aumenta la puntuación unas cuantas veces. Observa que no aumenta. A continuación, edita el nombre, y observa que la puntuación se ha "puesto al día" con sus cambios. Por último, edita el apellido y observa que la puntuación ha desaparecido por completo.
+Este formulario tiene algunos errores. Haz clic en el botón que aumenta la puntuación unas cuantas veces. Observa que no aumenta. A continuación, edita el nombre, y observa que la puntuación se ha "puesto al día" con sus cambios. Por último, edita el apellido y observa que la puntuación ha desaparecido por completo.
 
 Tu tarea es arreglar todos estos errores. A medida que los vayas arreglando, explica por qué ocurre cada uno de ellos.
 
