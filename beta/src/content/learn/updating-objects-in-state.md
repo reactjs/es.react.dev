@@ -793,7 +793,7 @@ Hay algunas razones:
 * **Cambios de requisitos:** Algunas características de la aplicación, como la implementación de Deshacer/Rehacer, mostrar un historial de cambios, o permitir al usuario restablecer un formulario a valores anteriores, son más fáciles de hacer cuando no se muta nada. Esto se debe a que puedes mantener copias pasadas del estado en la memoria, y reutilizarlas cuando sea apropiado. Si empiezas con un enfoque mutativo, características como estas pueden ser difíciles de añadir más adelante.
 * **Implementación más sencilla:** Como React no se basa en la mutación, no necesita hacer nada especial con tus objetos. No necesita apropiarse de sus propiedades, envolverlos siempre en Proxies, o hacer otro trabajo en la inicialización como hacen muchas soluciones "reactivas". Esta es también la razón por la que React te permite poner cualquier objeto en el estado - no importa lo grande que sea - sin problemas adicionales de rendimiento o corrección.
 
-En la práctica, a menudo puedes "salirte" con la mutación de estado en React, pero te aconsejamos encarecidamente que no lo hagas para que puedas utilizar las nuevas características de React desarrolladas con este enfoque en mente. Los futuros colaboradores y quizás incluso tu propio futuro te lo agradecerán.
+En la práctica, a menudo puedes "salirte con la tuya" con la mutación de estado en React, pero te aconsejamos encarecidamente que no lo hagas para que puedas utilizar las nuevas características de React desarrolladas con este enfoque en mente. Los futuros colaboradores y quizás incluso tú mismo en el futuro te lo agradecerán.
 
 </DeepDive>
 
