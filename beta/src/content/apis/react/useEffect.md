@@ -1651,7 +1651,9 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
+
 **¿Qué pasa si quieres registrar una nueva visita a la página después de cada cambio de `url`, pero *no* si sólo cambia el `shoppingCart`?** No puedes excluir `shoppingCart` de las dependencias sin romper las [reglas de reactividad.](#specifying-reactive-dependencies) Sin embargo, puedes expresar que *no quieres* que una parte de código "reaccione" a los cambios aunque sea llamado desde dentro de un Efecto. Para hacer esto, [declare un *Event function*](/learn/separating-events-from-effects#declaring-an-event-function) con el Hook [`useEvent`](/api/react/useEvent), y mueva el código que lee `shoppingCart` dentro de ella:
+
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
