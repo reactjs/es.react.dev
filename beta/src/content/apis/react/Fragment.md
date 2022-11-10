@@ -4,7 +4,7 @@ title: Fragmento (<>...</>)
 
 <Intro>
 
-El componente `Fragment`, que es usualmente usado atraves de la sintaxis `<>...</>`, te permite renderizar múltiples elementos en lugar de uno, sin tener que envolverlos dentro de otro elemento contenedor.
+El componente `Fragment`, que es se suele utilizar a través de la sintaxis `<>...</>`, te permite renderizar múltiples elementos en lugar de uno, sin tener que envolverlos dentro de otro elemento contenedor.
 
 ```js
 <>
@@ -21,7 +21,7 @@ El componente `Fragment`, que es usualmente usado atraves de la sintaxis `<>...<
 
 ## Uso {/*usage*/}
 
-### Retornando múltiples elementos {/*returning-multiple-elements*/}
+### Retornar múltiples elementos {/*returning-multiple-elements*/}
 
 Usa `Fragment`, o la sintaxis equivalente `<>...</>`, para agrupar múltiples elementos. Puedes usarlo para poner múltiples elementos en cualquier lugar donde un solo elemento puede ir. Por ejemplo, un componente solo puede retornar un elemento, pero usando un Fragmento puedes agrupar múltiples elementos y retornarlos como un grupo:
 
@@ -36,7 +36,7 @@ function Post() {
 }
 ```
 
-Los Fragmentos son útiles por que al agrupar varios elementos con un Fragmento no tiene efecto en el diseño o los estilos, a diferencia de si tu envolviste los elementos dentro de cualquier otro contenedor tal como un elemento del DOM. Si tu inspeccionas este ejemplo con las herramientas del navegador, verás que todos los nodos del DOM `<h1>` y `<p>` aparecen como hermanos sin envoltorios alrededor de ellos:
+Los Fragmentos son útiles porque la agrupación de elementos con un Fragmento no tiene efecto en el diseño o los estilos, al contrario de cómo sería si envolvieras los elementos dentro de cualquier otro contenedor tal como un elemento del DOM. Si inspeccionas este ejemplo con las herramientas del navegador, verás que todos los nodos del DOM `<h1>` y `<p>` aparecen como hermanos sin envoltorios alrededor de ellos:
 
 <Sandpack>
 
@@ -97,7 +97,7 @@ Usualmente no necesitarás esto a menos que necesites [pasar una `key` a tu `Fra
 
 ---
 
-### Asignando múltiples elementos a una variable {/*assigning-multiple-elements-to-a-variable*/}
+### Asignar múltiples elementos a una variable {/*assigning-multiple-elements-to-a-variable*/}
 
 Como cualquier otro elemento, puedes asignar Fragmentos a variables, pasarlos como props, y así sucesivamente:
 
@@ -119,7 +119,7 @@ function CloseDialog() {
 
 ---
 
-### Agrupando elementos con texto {/*grouping-elements-with-text*/}
+### Agrupar elementos con texto {/*grouping-elements-with-text*/}
 
 Puedes usar `Fragment` para agrupar texto con componentes:
 
@@ -138,9 +138,9 @@ function DateRangePicker({ start, end }) {
 
 ---
 
-### Renderizando una lista de fragmentos {/*rendering-a-list-of-fragments*/}
+### Renderizar una lista de fragmentos {/*rendering-a-list-of-fragments*/}
 
-Esta es una situación donde necesitas escribir `Fragment` explicitamente en lugar de usar la sintaxis `<></>`. Cuando [renderizas múltiples elementos dentro de un bucle](/learn/rendering-lists), necesitas asignar una `key` a cada elemento. Si los elementos dentro del bucle son Fragmentos, necesitar usar la sintaxis normal de un elemnto JSX con el fin de proveer el atributo `key`:
+Esta es una situación donde necesitas escribir `Fragment` explicitamente en lugar de usar la sintaxis `<></>`. Cuando [renderizas múltiples elementos dentro de un bucle](/learn/rendering-lists), necesitas asignar una `key` a cada elemento. Si los elementos dentro del bucle son Fragmentos, necesitar usar la sintaxis habitual de un elemento JSX con el fin de proveer el atributo `key`:
 
 ```js {3,6}
 function Blog() {
@@ -195,16 +195,16 @@ function PostBody({ body }) {
 
 ### `Fragment` {/*fragment*/}
 
-Envolver elementos en un `<Fragment>` para agruparlos en situaciones donde necesitar un solo elemento. Agrupando elementos en `Fragment` no tiene efecto en el resultante del DOM; es lo mismo como si los elementos no estaban agrupados. La etiqueta JSX vacia `<></>` es la abreviatura de `<Fragment></Fragment>` en la mayoría de los casos.
+Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde necesites un solo elemento. Agrupar elementos en `Fragment` no tiene efecto en el DOM resultante; ya que quedará igual que si los elementos no estuvieran agrupados. La etiqueta JSX vacía `<></>` es la abreviatura de `<Fragment></Fragment>` en la mayoría de los casos.
 
 #### Props {/*fragment-props*/}
 
-- **Opcional** `key`: Fragmentos declarados con la sintaxis explicita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
 
 #### Advertencias {/*caveats*/}
 
-- Si quieres pasarle una `key` a un Fragmento, No puedes usar esta sintaxis `<>...</>`. Tienes que importar explicitamente `Fragment` desde `'react'` y renderizar `<Fragment key={yourKey}>...</Fragment>`.
+- Si quisieras pasarle una `key` a un Fragmento, no podrias usar la sintaxis `<>...</>`. Tendrias que importar explícitamente `Fragment` desde `'react'` y renderizar `<Fragment key={yourKey}>...</Fragment>`.
 
-- React no [restablece el estado](/learn/preserving-and-resetting-state) cuando vas desde renderizar `<><Child /></>` a `[<Child />]` o atrás, o cuando vas desde renderizar `<><Child /></>` a`<Child />` y atrás. Esto solo funciona a un nivel de profundidad: por ejemplo, yendo desde `<><><Child /></></>` a `<Child />` restablece el estado. Mira la sintaxis precisa [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
+- React no [restablece el estado](/learn/preserving-and-resetting-state) cuando renderizas desde un `<><Child /></>` a un `[<Child />]` y viceversa, o cuando renderizas desde un `<><Child /></>` a un `<Child />` y viceversa. Ten en cuenta de que esto sólo funciona a un nivel de profundidad: por ejemplo, ir desde un `<><><Child /></></>` a un `<Child />` restablece el estado. Échale un ojo a la sintaxis en detalle [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
 
