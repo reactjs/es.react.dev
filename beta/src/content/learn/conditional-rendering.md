@@ -1,5 +1,5 @@
 ---
-title: Renderizado Condicional
+title: Renderizado condicional
 ---
 
 <Intro>

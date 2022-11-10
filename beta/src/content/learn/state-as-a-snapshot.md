@@ -81,10 +81,10 @@ Cuando React vuelve a renderizar un componente:
 2. Tu función devuelve una nueva instantánea JSX.
 3. A continuación, React actualiza la pantalla para que coincida con la instantánea que has devuelto.
 
-<IllustrationBlock title="Rerenderizado" sequential>
-    <Illustration caption="React ejecutando la función" src="/images/docs/illustrations/i_render1.png" />
-    <Illustration caption="Calculando la instantánea" src="/images/docs/illustrations/i_render2.png" />
-    <Illustration caption="Actualizando el árbol del DOM" src="/images/docs/illustrations/i_render3.png" />
+<IllustrationBlock sequential>
+    <Illustration caption="React ejecuta la función" src="/images/docs/illustrations/i_render1.png" />
+    <Illustration caption="Calcula la instantánea" src="/images/docs/illustrations/i_render2.png" />
+    <Illustration caption="Actualiza el árbol del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
 Como memoria de un componente, el estado no es como una variable regular que desaparece después de que tu función devuelva un valor. El estado en realidad "vive" en el propio React -como si estuviera en una estantería- fuera de tu función. Cuando React llama a tu componente, te da una instantánea del estado para ese renderizado en particular. Tu componente devuelve una instantánea de la interfaz de usuario con un nuevo conjunto de accesorios y manejadores de eventos en su JSX, todo calculado **usando los valores de estado de ese renderizado**.
