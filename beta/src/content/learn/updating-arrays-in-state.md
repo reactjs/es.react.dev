@@ -1,52 +1,52 @@
 ---
-title: Updating Arrays in State
+title: Actualizar arrays en el estado
 ---
 
 <Intro>
 
-Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array.
+Los _arrays_ son mutables en JavaScript, pero deberían tratarse como inmutables cuando los almacenas en el estado. Al igual que los objetos, cuando quieras actualizar un _array_ almacenado en el estado, necesitas crear uno nuevo (o hacer una copia de uno existente) y luego asignar el estado para que utilice este nuevo _array_. 
 
 </Intro>
 
 <YouWillLearn>
 
-- How to add, remove, or change items in an array in React state
-- How to update an object inside of an array
-- How to make array copying less repetitive with Immer
+- Cómo añadir, eliminar o cambiar elementos en un _array_ en el estado de React
+- Cómo actualizar un objeto dentro de un _array_
+- Cómo copiar un _array_ de forma menos repetitiva con Immer
 
 </YouWillLearn>
 
-## Updating arrays without mutation {/*updating-arrays-without-mutation*/}
+## Actualizar _arrays_ sin mutación {/*updating-arrays-without-mutation*/}
 
-In JavaScript, arrays are just another kind of object. [Like with objects](/learn/updating-objects-in-state), **you should treat arrays in React state as read-only.** This means that you shouldn't reassign items inside an array like `arr[0] = 'bird'`, and you also shouldn't use methods that mutate the array, such as `push()` and `pop()`.
+En JavaScript, los _arrays_ son solo otro tipo de objeto. [Como con los objetos](/learn/updating-objects-in-state), **deberías tratar los _arrays_ en el estado de React como si fueran de solo lectura.** Esto significa que no deberías reasignar elementos dentro de un _array_ como `arr[0] = 'pájaro'`, y tampoco deberías usar métodos que puedan mutar el _array_, como `push()` y `pop()`.
 
-Instead, every time you want to update an array, you'll want to pass a *new* array to your state setting function. To do that, you can create a new array from the original array in your state by calling its non-mutating methods like `filter()` and `map()`. Then you can set your state to the resulting new array.
+En su lugar, cada vez que quieras actualizar un _array_, querrás pasar un *nuevo* _array_ a la función de asignación de estado. Para hacerlo, puedes crear un nuevo _array_ a partir del _array_ original en el estado si llamas a sus métodos que no lo muten como `filter()` y `map()`. Luego puedes asignar el estado a partir del nuevo _array_ resultante.
 
-Here is a reference table of common array operations. When dealing with arrays inside React state, you will need to avoid the methods in the left column, and instead prefer the methods in the right column:
+Aquí hay una tabla de referencia con las operaciones más comunes con _arrays_. Cuando se trata de _arrays_ dentro del estado de React, necesitarás evitar los métodos de la columna izquierda, y en su lugar es preferible usar los métodos de la columna derecha.
 
-|           | avoid (mutates the array)           | prefer (returns a new array)                                        |
-| --------- | ----------------------------------- | ------------------------------------------------------------------- |
-| adding    | `push`, `unshift`                   | `concat`, `[...arr]` spread syntax ([example](#adding-to-an-array)) |
-| removing  | `pop`, `shift`, `splice`            | `filter`, `slice` ([example](#removing-from-an-array))              |
-| replacing | `splice`, `arr[i] = ...` assignment | `map` ([example](#replacing-items-in-an-array))                     |
-| sorting   | `reverse`, `sort`                   | copy the array first ([example](#making-other-changes-to-an-array)) |
+|              | evita (muta el _array_)                  | preferido (retorna un nuevo _array_)                                         |
+|--------------|------------------------------------------|------------------------------------------------------------------------------|
+| añadir    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
+| eliminar   | `pop`, `shift`, `splice`                 | `filter`, `slice` ([ejemplo](#removing-from-an-array))                       |
+| reemplazar | `splice`, `arr[i] = ...` asigna          | `map` ([ejemplo](#replacing-items-in-an-array))                              |
+| ordenar    | `reverse`, `sort`                        | copia el _array_ primero ([ejemplo](#making-other-changes-to-an-array))      |
 
-Alternatively, you can [use Immer](#write-concise-update-logic-with-immer) which lets you use methods from both columns.
+Como alternativa, puedes [usar Immer](#write-concise-update-logic-with-immer) el cual te permite usar métodos de ambas columnas.
 
 <Pitfall>
 
-Unfortunately, [`slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) and [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) are named similarly but are very different:
+Desafortunadamente, [`slice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) y [`splice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) tienen nombres muy similares pero son muy diferentes:
 
-* `slice` lets you copy an array or a part of it.
-* `splice` **mutates** the array (to insert or delete items).
+* `slice` te permite copiar un _array_ o una parte del mismo.
+* `splice` **muta** el _array_ (para insertar o eliminar elementos).
 
-In React, you will be using `slice` (no `p`!) a lot more often because you don't want to mutate objects or arrays in state. [Updating Objects](/learn/updating-objects-in-state) explains what mutation is and why it's not recommended for state.
+En React, estarás usando `slice` (no `p`!) mucho más seguido porque no quieres mutar objetos o _arrays_ en el estado. [Actualizar objetos](/learn/updating-objects-in-state) explica qué es mutación y por qué no se recomienda para el estado.
 
 </Pitfall>
 
-### Adding to an array {/*adding-to-an-array*/}
+### Añadir a un _array_ {/*adding-to-an-array*/}
 
-`push()` will mutate an array, which you don't want:
+`push()` muta un _array_, lo cual no queremos:
 
 <Sandpack>
 
@@ -61,7 +61,7 @@ export default function List() {
 
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
+      <h1>Escultores inspiradores:</h1>
       <input
         value={name}
         onChange={e => setName(e.target.value)}
@@ -72,7 +72,7 @@ export default function List() {
           id: nextId++,
           name: name,
         });
-      }}>Add</button>
+      }}>Añadir</button>
       <ul>
         {artists.map(artist => (
           <li key={artist.id}>{artist.name}</li>
@@ -89,18 +89,18 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-Instead, create a *new* array which contains the existing items *and* a new item at the end. There are multiple ways to do this, but the easiest one is to use the `...` [array spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) syntax:
+En su lugar, crea un *nuevo* _array_ que contenga los elementos existentes *y* un nuevo elemento al final. Hay múltiples formas de hacerlo, pero la más fácil es usar la sintaxis `...` [de propagación en _arrays_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals):
 
 ```js
-setArtists( // Replace the state
-  [ // with a new array
-    ...artists, // that contains all the old items
-    { id: nextId++, name: name } // and one new item at the end
+setArtists( // Reemplaza el estado
+  [ // con el nuevo _array_
+    ...artists, // el cual contiene todos los elementos antiguos
+    { id: nextId++, name: name } // y un nuevo elemento al final
   ]
 );
 ```
 
-Now it works correctly:
+Ahora funciona correctamente:
 
 <Sandpack>
 
@@ -115,7 +115,7 @@ export default function List() {
 
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
+      <h1>Escultores inspiradores:</h1>
       <input
         value={name}
         onChange={e => setName(e.target.value)}
@@ -126,7 +126,7 @@ export default function List() {
           ...artists,
           { id: nextId++, name: name }
         ]);
-      }}>Add</button>
+      }}>Añadir</button>
       <ul>
         {artists.map(artist => (
           <li key={artist.id}>{artist.name}</li>
@@ -143,20 +143,20 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-The array spread syntax also lets you prepend an item by placing it *before* the original `...artists`:
+El operador de propagación también te permite anteponer un elemento al colocarlo *antes* del original `...artists`:
 
 ```js
 setArtists([
   { id: nextId++, name: name },
-  ...artists // Put old items at the end
+  ...artists // Coloca los elementos antiguos al final
 ]);
 ```
 
-In this way, spread can do the job of both `push()` by adding to the end of an array and `unshift()` by adding to the beginning of an array. Try it in the sandbox above!
+De esta forma, el operador de propagación puede hacer el trabajo tanto de `push()` añadiendo al final del _array_ como de `unshift()` agregando al comienzo del _array_. ¡Pruébalo en el editor de arriba!
 
-### Removing from an array {/*removing-from-an-array*/}
+### Eliminar elementos de un _array_ {/*removing-from-an-array*/}
 
-The easiest way to remove an item from an array is to *filter it out*. In other words, you will produce a new array that will not contain that item. To do this, use the `filter` method, for example:
+La forma más fácil de eliminar un elemento de un _array_ es *filtrarlo*. En otras palabras, producirás un nuevo _array_ que no contendrá ese elemento. Para hacerlo, usa el método `filter`, por ejemplo:
 
 <Sandpack>
 
@@ -176,7 +176,7 @@ export default function List() {
 
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
+      <h1>Escultores inspiradores:</h1>
       <ul>
         {artists.map(artist => (
           <li key={artist.id}>
@@ -188,7 +188,7 @@ export default function List() {
                 )
               );
             }}>
-              Delete
+              Eliminar
             </button>
           </li>
         ))}
@@ -200,7 +200,7 @@ export default function List() {
 
 </Sandpack>
 
-Click the "Delete" button a few times, and look at its click handler.
+Haz click en el botón "Eliminar" varias veces, y mira su manejador de clics.
 
 ```js
 setArtists(
@@ -208,13 +208,13 @@ setArtists(
 );
 ```
 
-Here, `artists.filter(a => a.id !== artist.id)` means "create an array that consists of those `artists` whose IDs are different from `artist.id`". In other words, each artist's "Delete" button will filter _that_ artist out of the array, and then request a re-render with the resulting array. Note that `filter` does not modify the original array.
+Aquí, `artists.filter(a => a.id !== artist.id)` significa "crea un nuevo _array_ conformado por aquellos `artists` cuyos IDs son diferentes de `artist.id`". En otras palabras, el botón "Eliminar" de cada artista filtrará a _ese_ artista del _array_ y luego solicitará un rerenderizado con el _array_ resultante. Ten en cuenta que `filter` no modifica el _array_ original.
 
-### Transforming an array {/*transforming-an-array*/}
+### Transformar un _array_ {/*transforming-an-array*/}
 
-If you want to change some or all items of the array, you can use `map()` to create a **new** array. The function you will pass to `map` can decide what to do with each item, based on its data or its index (or both).
+Si deseas cambiar algunos o todos los elementos del _array_, puedes usar `map()` para crear un **nuevo** _array_. La función que pasarás a `map` puede decidir qué hacer con cada elemento, en función de sus datos o su índice (o ambos).
 
-In this example, an array holds coordinates of two circles and a square. When you press the button, it moves only the circles down by 50 pixels. It does this by producing a new array of data using `map()`:
+En este ejemplo, un _array_ contiene las coordenadas de dos círculos y un cuadrado. Cuando presionas el botón, mueve solo los círculos 50 píxeles hacia abajo. Lo hace produciendo un nuevo _array_ de datos usando `map()`:
 
 <Sandpack>
 
@@ -235,24 +235,24 @@ export default function ShapeEditor() {
   function handleClick() {
     const nextShapes = shapes.map(shape => {
       if (shape.type === 'square') {
-        // No change
+        // No cambia
         return shape;
       } else {
-        // Return a new circle 50px below
+        // Devuelve un nuevo círculo 50px abajo
         return {
           ...shape,
           y: shape.y + 50,
         };
       }
     });
-    // Re-render with the new array
+    // Vuelve a renderizar con el nuevo _array_
     setShapes(nextShapes);
   }
 
   return (
     <>
       <button onClick={handleClick}>
-        Move circles down!
+        ¡Mueve los círculos hacia abajo!
       </button>
       {shapes.map(shape => (
         <div
@@ -280,11 +280,11 @@ body { height: 300px; }
 
 </Sandpack>
 
-### Replacing items in an array {/*replacing-items-in-an-array*/}
+### Reemplazar elementos en un _array_ {/*replacing-items-in-an-array*/}
 
-It is particularly common to want to replace one or more items in an array. Assignments like `arr[0] = 'bird'` are mutating the original array, so instead you'll want to use `map` for this as well.
+Es particularmente común querer reemplazar uno o más elementos en un _array_. Las asignaciones como `arr[0] = 'pájaro'` están mutando el _array_ original, por lo que para esto también querrás usar `map`.
 
-To replace an item, create a new array with `map`. Inside your `map` call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else:
+Para reemplazar un elemento, crea una un nuevo _array_ con `map`. Dentro de la llamada a `map`, recibirás el índice del elemento como segundo argumento. Úsalo para decidir si devolver el elemento original (el primer argumento) o algo más:
 
 <Sandpack>
 
@@ -303,10 +303,10 @@ export default function CounterList() {
   function handleIncrementClick(index) {
     const nextCounters = counters.map((c, i) => {
       if (i === index) {
-        // Increment the clicked counter
+        // Incrementa el contador de clics
         return c + 1;
       } else {
-        // The rest haven't changed
+        // El resto no ha cambiado
         return c;
       }
     });
@@ -334,11 +334,11 @@ button { margin: 5px; }
 
 </Sandpack>
 
-### Inserting into an array {/*inserting-into-an-array*/}
+### Insertar en un _array_ {/*inserting-into-an-array*/}
 
-Sometimes, you may want to insert an item at a particular position that's neither at the beginning nor at the end. To do this, you can use the `...` array spread syntax together with the `slice()` method. The `slice()` method lets you cut a "slice" of the array. To insert an item, you will create an array that spreads the slice _before_ the insertion point, then the new item, and then the rest of the original array.
+A veces, es posible que desees insertar un elemento en una posición particular que no esté ni al principio ni al final. Para hacer esto, puedes usar la sintaxis de propagación para _arrays_ `...` junto con el método `slice()`. El método `slice()` te permite cortar una "rebanada" del _array_. Para insertar un elemento, crearás un _array_ que extienda el segmento _antes_ del punto de inserción, luego el nuevo elemento y luego el resto del _array_ original.
 
-In this example, the Insert button always inserts at the index `1`:
+En este ejemplo, el botón "Insertar" siempre inserta en el índice `1`:
 
 <Sandpack>
 
@@ -359,13 +359,13 @@ export default function List() {
   );
 
   function handleClick() {
-    const insertAt = 1; // Could be any index
+    const insertAt = 1; // Podría ser cualquier índice
     const nextArtists = [
-      // Items before the insertion point:
+      // Elementos antes del punto de inserción:
       ...artists.slice(0, insertAt),
       // New item:
       { id: nextId++, name: name },
-      // Items after the insertion point:
+      // Elementos después del punto de inserción:
       ...artists.slice(insertAt)
     ];
     setArtists(nextArtists);
@@ -374,13 +374,13 @@ export default function List() {
 
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
+      <h1>Escultores inspiradores:</h1>
       <input
         value={name}
         onChange={e => setName(e.target.value)}
       />
       <button onClick={handleClick}>
-        Insert
+        Insertar
       </button>
       <ul>
         {artists.map(artist => (
@@ -398,13 +398,13 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-### Making other changes to an array {/*making-other-changes-to-an-array*/}
+### Hacer otros cambios en un _array_ {/*making-other-changes-to-an-array*/}
 
-There are some things you can't do with the spread syntax and non-mutating methods like `map()` and `filter()` alone. For example, you may want to reverse or sort an array. The JavaScript `reverse()` and `sort()` methods are mutating the original array, so you can't use them directly.
+Hay algunas cosas que no puedes hacer con la sintaxis extendida y los métodos que no mutan como `map()` y `filter()`. Por ejemplo, es posible que desees invertir u ordenar un _array_. Los métodos JavaScript `reverse()` y `sort()` mutan el _array_ original, por lo que no puedes usarlos directamente.
 
-**However, you can copy the array first, and then make changes to it.**
+**Sin embargo, puedes copiar el _array_ primero y luego realizar cambios en él.**
 
-For example:
+Por ejemplo:
 
 <Sandpack>
 
@@ -430,7 +430,7 @@ export default function List() {
   return (
     <>
       <button onClick={handleClick}>
-        Reverse
+        Inverso
       </button>
       <ul>
         {list.map(artwork => (
@@ -444,25 +444,25 @@ export default function List() {
 
 </Sandpack>
 
-Here, you use the `[...list]` spread syntax to create a copy of the original array first. Now that you have a copy, you can use mutating methods like `nextList.reverse()` or `nextList.sort()`, or even assign individual items with `nextList[0] = "something"`.
+Aquí, usas la sintaxis de propagación `[...list]` para crear primero una copia del _array_ original. Ahora que tienes una copia, puedes usar métodos de mutación como `nextList.reverse()` o `nextList.sort()`, o incluso asignar elementos individuales con `nextList[0] = "algo"`.
 
-However, **even if you copy an array, you can't mutate existing items _inside_ of it directly.** This is because copying is shallow--the new array will contain the same items as the original one. So if you modify an object inside the copied array, you are mutating the existing state. For example, code like this is a problem.
+Sin embargo, **incluso si copias un _array_, no puedes mutar los elementos existentes _dentro_ de éste directamente.** Esto se debe a que la copia es superficial: el nuevo _array_ contendrá los mismos elementos que el original. Entonces, si modificas un objeto dentro del _array_ copiado, estás mutando el estado existente. Por ejemplo, un código como este es un problema.
 
 ```js
 const nextList = [...list];
-nextList[0].seen = true; // Problem: mutates list[0]
+nextList[0].seen = true; // Problema: muta list[0]
 setList(nextList);
 ```
 
-Although `nextList` and `list` are two different arrays, **`nextList[0]` and `list[0]` point to the same object.** So by changing `nextList[0].seen`, you are also changing `list[0].seen`. This is a state mutation, which you should avoid! You can solve this issue in a similar way to [updating nested JavaScript objects](/learn/updating-objects-in-state#updating-a-nested-object)--by copying individual items you want to change instead of mutating them. Here's how.
+Aunque `nextList` y `list` son dos _arrays_ diferentes, **`nextList[0]` y `list[0]` apuntan al mismo objeto.** Entonces, al cambiar `nextList[0].seen`, está también cambiando `list[0].seen`. ¡Esta es una mutación de estado que debes evitar! Puedes resolver este problema de forma similar a [actualizar objetos JavaScript anidados](/learn/updating-objects-in-state#updating-a-nested-object): copiando elementos individuales que deseas cambiar en lugar de mutarlos. Así es cómo.
 
-## Updating objects inside arrays {/*updating-objects-inside-arrays*/}
+## Actualizar objetos dentro de _arrays_ {/*updating-objects-inside-arrays*/}
 
-Objects are not _really_ located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points". This is why you need to be careful when changing nested fields like `list[0]`. Another person's artwork list may point to the same element of the array!
+Los objetos no están _realmente_ ubicados "dentro" de los _arrays_. Puede parecer que están "dentro" del código, pero cada objeto en un _array_ es un valor separado, al que "apunta" el _array_. Es por eso que debe tener cuidado al cambiar campos anidados como `list[0]`. ¡La lista de obras de arte de otra persona puede apuntar al mismo elemento del _array_!
 
-**When updating nested state, you need to create copies from the point where you want to update, and all the way up to the top level.** Let's see how this works.
+**Al actualizar el estado anidado, debe crear copias desde el punto en el que desea actualizar y hasta el nivel superior.** Veamos cómo funciona esto.
 
-In this example, two separate artwork lists have the same initial state. They are supposed to be isolated, but because of a mutation, their state is accidentally shared, and checking a box in one list affects the other list:
+En este ejemplo, dos listas separadas de ilustraciones tienen el mismo estado inicial. Se supone que deben estar aislados, pero debido a una mutación, su estado se comparte accidentalmente y marcar una casilla en una lista afecta a la otra lista:
 
 <Sandpack>
 
@@ -502,12 +502,12 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={myList}
         onToggle={handleToggleMyList} />
-      <h2>Your list of art to see:</h2>
+      <h2>Tu lista de obras de arte para ver:</h2>
       <ItemList
         artworks={yourList}
         onToggle={handleToggleYourList} />
@@ -542,34 +542,34 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-The problem is in code like this:
+El problema está en un código como este:
 
 ```js
 const myNextList = [...myList];
 const artwork = myNextList.find(a => a.id === artworkId);
-artwork.seen = nextSeen; // Problem: mutates an existing item
+artwork.seen = nextSeen; // Problema: muta un elemento existente
 setMyList(myNextList);
 ```
 
-Although the `myNextList` array itself is new, the *items themselves* are the same as in the original `myList` array. So changing `artwork.seen` changes the *original* artwork item. That artwork item is also in `yourArtworks`, which causes the bug. Bugs like this can be difficult to think about, but thankfully they disappear if you avoid mutating state.
+Aunque el _array_ `myNextList` en sí mismo es nuevo, los *propios elementos* son los mismos que en el _array_ `myList` original. Entonces, cambiar `artwork.seen` cambia el elemento de la obra de arte *original*. Ese elemento de la obra de arte también está en `yourArtworks`, lo que causa el error. Puede ser difícil pensar en errores como este, pero afortunadamente desaparecen si evitas mutar el estado.
 
-**You can use `map` to substitute an old item with its updated version without mutation.**
+**Puedes usar `map` para sustituir un elemento antiguo con su versión actualizada sin mutación.**
 
 ```js
 setMyList(myList.map(artwork => {
   if (artwork.id === artworkId) {
-    // Create a *new* object with changes
+    // Crea un *nuevo* objeto con cambios
     return { ...artwork, seen: nextSeen };
   } else {
-    // No changes
+     // No cambia
     return artwork;
   }
 });
 ```
 
-Here, `...` is the object spread syntax used to [create a copy of an object.](/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax)
+Aquí, `...` es la sintaxis de propagación de objetos utilizada para [crear una copia de un objeto.](/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax)
 
-With this approach, none of the existing state items are being mutated, and the bug is fixed:
+Con este enfoque, ninguno de los elementos del estado existentes se modifica y el error se soluciona:
 
 <Sandpack>
 
@@ -592,10 +592,10 @@ export default function BucketList() {
   function handleToggleMyList(artworkId, nextSeen) {
     setMyList(myList.map(artwork => {
       if (artwork.id === artworkId) {
-        // Create a *new* object with changes
+        // Crea un *nuevo* objeto con cambios
         return { ...artwork, seen: nextSeen };
       } else {
-        // No changes
+        // No cambia
         return artwork;
       }
     }));
@@ -604,10 +604,10 @@ export default function BucketList() {
   function handleToggleYourList(artworkId, nextSeen) {
     setYourList(yourList.map(artwork => {
       if (artwork.id === artworkId) {
-        // Create a *new* object with changes
+        // Crea un *nuevo* objeto con cambios
         return { ...artwork, seen: nextSeen };
       } else {
-        // No changes
+        // No cambia
         return artwork;
       }
     }));
@@ -615,12 +615,12 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={myList}
         onToggle={handleToggleMyList} />
-      <h2>Your list of art to see:</h2>
+      <h2>Tu lista de obras de arte para ver:</h2>
       <ItemList
         artworks={yourList}
         onToggle={handleToggleYourList} />
@@ -655,16 +655,16 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-In general, **you should only mutate objects that you have just created.** If you were inserting a *new* artwork, you could mutate it, but if you're dealing with something that's already in state, you need to make a copy.
+En general, **solo debes mutar objetos que acabas de crear.** Si estuvieras insertando una *nueva* obra de arte, podrías mutarla, pero si se trata de algo que ya está en el estado, debes hacer una copia.
 
-### Write concise update logic with Immer {/*write-concise-update-logic-with-immer*/}
+### Escribe una lógica de actualización concisa con Immer {/*write-concise-update-logic-with-immer*/}
 
-Updating nested arrays without mutation can get a little bit repetitive. [Just as with objects](/learn/updating-objects-in-state#write-concise-update-logic-with-immer):
+Actualizar _arrays_ anidados sin mutación puede volverse un poco repetitivo. [Al igual que con los objetos](/learn/updating-objects-in-state#write-concise-update-logic-with-immer):
 
-- Generally, you shouldn't need to update state more than a couple of levels deep. If your state objects are very deep, you might want to [restructure them differently](/learn/choosing-the-state-structure#avoid-deeply-nested-state) so that they are flat.
-- If you don't want to change your state structure, you might prefer to use [Immer](https://github.com/immerjs/use-immer), which lets you write using the convenient but mutating syntax and takes care of producing the copies for you.
+- En general, no deberías necesitar actualizar el estado más de un par de niveles de profundidad. Si tus objetos de estado son muy profundos, es posible que desees [reestructurarlos de manera diferente](/learn/choosing-the-state-structure#avoid-deeply-nested-state) para que sean planos.
+- Si no deseas cambiar la estructura de tu estado, puedes preferir usar [Immer](https://github.com/immerjs/use-immer), que te permite escribir usando la sintaxis conveniente, pero que realiza mutaciones, y se encarga de producir las copias por ti.
 
-Here is the Art Bucket List example rewritten with Immer:
+Aquí está el ejemplo de una Lista de deseos de arte reescrito con Immer:
 
 <Sandpack>
 
@@ -707,12 +707,12 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={myList}
         onToggle={handleToggleMyList} />
-      <h2>Your list of art to see:</h2>
+      <h2>Tu lista de obras de arte para ver:</h2>
       <ItemList
         artworks={yourArtworks}
         onToggle={handleToggleYourList} />
@@ -765,7 +765,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-Note how with Immer, **mutation like `artwork.seen = nextSeen` is now okay:**
+Ten en cuenta cómo con Immer, **la mutación como `artwork.seen = nextSeen` ahora está bien:**
 
 ```js
 updateMyTodos(draft => {
@@ -774,17 +774,17 @@ updateMyTodos(draft => {
 });
 ```
 
-This is because you're not mutating the _original_ state, but you're mutating a special `draft` object provided by Immer. Similarly, you can apply mutating methods like `push()` and `pop()` to the content of the `draft`.
+Esto se debe a que no está mutando el estado _original_, sino que está mutando un objeto `draft` especial proporcionado por Immer. Del mismo modo, puedes aplicar métodos de mutación como `push()` y `pop()` al contenido del `draft`.
 
-Behind the scenes, Immer always constructs the next state from scratch according to the changes that you've done to the `draft`. This keeps your event handlers very concise without ever mutating state.
+Tras bambalinas, Immer siempre construye el siguiente estado desde cero de acuerdo con los cambios que ha realizado en el `draft`. Esto mantiene tus controladores de eventos muy concisos sin mutar nunca el estado.
 
 <Recap>
 
-- You can put arrays into state, but you can't change them.
-- Instead of mutating an array, create a *new* version of it, and update the state to it.
-- You can use the `[...arr, newItem]` array spread syntax to create arrays with new items.
-- You can use `filter()` and `map()` to create new arrays with filtered or transformed items.
-- You can use Immer to keep your code concise.
+- Puedes poner _arrays_ en el estado, pero no puedes cambiarlos.
+- En lugar de mutar un _array_, crea una *nueva* versión y actualiza el estado.
+- Puedes usar la sintaxis de propagación `[...arr, newItem]` para crear _arrays_ con nuevos elementos.
+- Puedes usar `filter()` y `map()` para crear nuevos _arrays_ con elementos filtrados o transformados.
+- Puedes usar Immer para mantener tu código conciso.
 
 </Recap>
 
@@ -792,9 +792,9 @@ Behind the scenes, Immer always constructs the next state from scratch according
 
 <Challenges>
 
-#### Update an item in the shopping cart {/*update-an-item-in-the-shopping-cart*/}
+#### Actualizar un artículo en el carrito de compras {/*update-an-item-in-the-shopping-cart*/}
 
-Fill in the `handleIncreaseClick` logic so that pressing "+" increases the corresponding number:
+Completa la lógica `handleIncreaseClick` para que al presionar "+" aumente el número correspondiente:
 
 <Sandpack>
 
@@ -807,11 +807,11 @@ const initialProducts = [{
   count: 1,
 }, {
   id: 1,
-  name: 'Cheese',
+  name: 'Queso',
   count: 5,
 }, {
   id: 2,
-  name: 'Spaghetti',
+  name: 'Espaguetis',
   count: 2,
 }];
 
@@ -852,7 +852,7 @@ button { margin: 5px; }
 
 <Solution>
 
-You can use the `map` function to create a new array, and then use the `...` object spread syntax to create a copy of the changed object for the new array:
+Puedes usar la función `map` para crear un nuevo _array_, y luego usar la sintaxis del operador de propagación de objetos `...` para crear una copia del objeto modificado para el nuevo _array_:
 
 <Sandpack>
 
@@ -865,11 +865,11 @@ const initialProducts = [{
   count: 1,
 }, {
   id: 1,
-  name: 'Cheese',
+  name: 'Queso',
   count: 5,
 }, {
   id: 2,
-  name: 'Spaghetti',
+  name: 'Espaguetis',
   count: 2,
 }];
 
@@ -919,9 +919,9 @@ button { margin: 5px; }
 
 </Solution>
 
-#### Remove an item from the shopping cart {/*remove-an-item-from-the-shopping-cart*/}
+#### Eliminar un artículo del carrito de compras {/*remove-an-item-from-the-shopping-cart*/}
 
-This shopping cart has a working "+" button, but the "–" button doesn't do anything. You need to add an event handler to it so that pressing it decreases the `count` of the corresponding product. If you press "–" when the count is 1, the product should automatically get removed from the cart. Make sure it never shows 0.
+Este carrito de compras tiene un botón "+" que funciona, pero el botón "–" no hace nada. Debes agregarle un controlador de eventos para que al presionarlo disminuya el `count` del producto correspondiente. Si presionas "–" cuando el conteo es 1, el producto debería eliminarse automáticamente del carrito. Asegúrate de que nunca muestre 0.
 
 <Sandpack>
 
@@ -934,11 +934,11 @@ const initialProducts = [{
   count: 1,
 }, {
   id: 1,
-  name: 'Cheese',
+  name: 'Queso',
   count: 5,
 }, {
   id: 2,
-  name: 'Spaghetti',
+  name: 'Espaguetis',
   count: 2,
 }];
 
@@ -991,7 +991,7 @@ button { margin: 5px; }
 
 <Solution>
 
-You can first use `map` to produce a new array, and then `filter` to remove products with a `count` set to `0`:
+Primero puedes usar `map` para producir un nuevo _array_, y luego `filter` para eliminar productos con un `count` establecido en `0`:
 
 <Sandpack>
 
@@ -1004,11 +1004,11 @@ const initialProducts = [{
   count: 1,
 }, {
   id: 1,
-  name: 'Cheese',
+  name: 'Queso',
   count: 5,
 }, {
   id: 2,
-  name: 'Spaghetti',
+  name: 'Espaguetis',
   count: 2,
 }];
 
@@ -1080,9 +1080,9 @@ button { margin: 5px; }
 
 </Solution>
 
-#### Fix the mutations using non-mutative methods {/*fix-the-mutations-using-non-mutative-methods*/}
+#### Repara las mutaciones usando métodos que no muten {/*fix-the-mutations-using-non-mutative-methods*/}
 
-In this example, all of the event handlers in `App.js` use mutation. As a result, editing and deleting todos doesn't work. Rewrite `handleAddTodo`, `handleChangeTodo`, and `handleDeleteTodo` to use the non-mutative methods:
+En este ejemplo, todos los controladores de eventos en `App.js` usan mutación. Como resultado, la edición y eliminación de tareas no funciona. Vuelve a escribir `handleAddTodo`, `handleChangeTodo` y `handleDeleteTodo` para usar los métodos no que no realicen mutaciones:
 
 <Sandpack>
 
@@ -1093,9 +1093,9 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, title: 'Buy milk', done: true },
-  { id: 1, title: 'Eat tacos', done: false },
-  { id: 2, title: 'Brew tea', done: false },
+  { id: 0, title: 'Comprar leche', done: true },
+  { id: 1, title: 'Comer tacos', done: false },
+  { id: 2, title: 'Preparar té', done: false },
 ];
 
 export default function TaskApp() {
@@ -1149,14 +1149,14 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Agregar tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddTodo(title);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -1200,7 +1200,7 @@ function Task({ todo, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -1209,7 +1209,7 @@ function Task({ todo, onChange, onDelete }) {
       <>
         {todo.title}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1228,7 +1228,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Delete
+        Eliminar
       </button>
     </label>
   );
@@ -1245,7 +1245,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-In `handleAddTodo`, you can use the array spread syntax. In `handleChangeTodo`, you can create a new array with `map`. In `handleDeleteTodo`, you can create a new array with `filter`. Now the list works correctly:
+En `handleAddTodo`, puedes usar el operador de propagación de _arrays_. En `handleChangeTodo`, puedes crear un nuevo _array_ con `map`. En `handleDeleteTodo`, puedes crear un nuevo _array_ con `filter`. Ahora la lista funciona correctamente:
 
 <Sandpack>
 
@@ -1256,9 +1256,9 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, title: 'Buy milk', done: true },
-  { id: 1, title: 'Eat tacos', done: false },
-  { id: 2, title: 'Brew tea', done: false },
+  { id: 0, title: 'Comprar leche', done: true },
+  { id: 1, title: 'Comer tacos', done: false },
+  { id: 2, title: 'Preparar té', done: false },
 ];
 
 export default function TaskApp() {
@@ -1316,14 +1316,14 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Añadir tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddTodo(title);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -1367,7 +1367,7 @@ function Task({ todo, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -1376,7 +1376,7 @@ function Task({ todo, onChange, onDelete }) {
       <>
         {todo.title}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1395,7 +1395,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Delete
+        Eliminar
       </button>
     </label>
   );
@@ -1413,9 +1413,9 @@ ul, li { margin: 0; padding: 0; }
 </Solution>
 
 
-#### Fix the mutations using Immer {/*fix-the-mutations-using-immer*/}
+#### Arregla las mutaciones usando Immer {/*fix-the-mutations-using-immer*/}
 
-This is the same example as in the previous challenge. This time, fix the mutations by using Immer. For your convenience, `useImmer` is already imported, so you need to change the `todos` state variable to use it.
+Este es el mismo ejemplo que en el desafío anterior. Esta vez, arregla las mutaciones usando Immer. Para tu comodidad, `useImmer` ya está importado, por lo que debes cambiar la variable de estado `todos` para usarlo.
 
 <Sandpack>
 
@@ -1427,9 +1427,9 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, title: 'Buy milk', done: true },
-  { id: 1, title: 'Eat tacos', done: false },
-  { id: 2, title: 'Brew tea', done: false },
+  { id: 0, title: 'Comprar leche', done: true },
+  { id: 1, title: 'Comer tacos', done: false },
+  { id: 2, title: 'Preparar té', done: false },
 ];
 
 export default function TaskApp() {
@@ -1483,14 +1483,14 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Agregar tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddTodo(title);
-      }}>Add</button>
+      }}>Añadir</button>
     </>
   )
 }
@@ -1534,7 +1534,7 @@ function Task({ todo, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardadr
         </button>
       </>
     );
@@ -1543,7 +1543,7 @@ function Task({ todo, onChange, onDelete }) {
       <>
         {todo.title}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1562,7 +1562,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Delete
+        Eliminar
       </button>
     </label>
   );
@@ -1597,7 +1597,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-With Immer, you can write code in the mutative fashion, as long as you're only mutating parts of the `draft` that Immer gives you. Here, all mutations are performed on the `draft` so the code works:
+Con Immer, puedes escribir código con estilo de mutación, siempre y cuando solo esté mutando partes del `draft` que Immer te proporciona. Aquí, todas las mutaciones se realizan en el `draft` para que el código funcione:
 
 <Sandpack>
 
@@ -1609,9 +1609,9 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, title: 'Buy milk', done: true },
-  { id: 1, title: 'Eat tacos', done: false },
-  { id: 2, title: 'Brew tea', done: false },
+  { id: 0, title: 'Comprar leche', done: true },
+  { id: 1, title: 'Comer tacos', done: false },
+  { id: 2, title: 'Preparar té', done: false },
 ];
 
 export default function TaskApp() {
@@ -1671,14 +1671,14 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Añadir tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddTodo(title);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -1722,7 +1722,7 @@ function Task({ todo, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -1731,7 +1731,7 @@ function Task({ todo, onChange, onDelete }) {
       <>
         {todo.title}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1750,7 +1750,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Delete
+        Eliminar
       </button>
     </label>
   );
@@ -1783,9 +1783,9 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-You can also mix and match the mutative and non-mutative approaches with Immer.
+También puede mezclar y combinar los enfoques de mutación y no mutación con Immer.
 
-For example, in this version `handleAddTodo` is implemented by mutating the Immer `draft`, while `handleChangeTodo` and `handleDeleteTodo` use the non-mutative `map` and `filter` methods:
+Por ejemplo, en esta versión `handleAddTodo` se implementa con la mutación del `draft` de Immer, mientras `handleChangeTodo` y `handleDeleteTodo` usa los métodos sin mutación `map` y `filter`:
 
 <Sandpack>
 
@@ -1797,9 +1797,9 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, title: 'Buy milk', done: true },
-  { id: 1, title: 'Eat tacos', done: false },
-  { id: 2, title: 'Brew tea', done: false },
+  { id: 0, title: 'Comprar leche', done: true },
+  { id: 1, title: 'Comer tacos', done: false },
+  { id: 2, title: 'Preparar té', done: false },
 ];
 
 export default function TaskApp() {
@@ -1856,14 +1856,14 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Nueva tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddTodo(title);
-      }}>Add</button>
+      }}>Añadir</button>
     </>
   )
 }
@@ -1907,7 +1907,7 @@ function Task({ todo, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -1916,7 +1916,7 @@ function Task({ todo, onChange, onDelete }) {
       <>
         {todo.title}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1935,7 +1935,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Delete
+        Eliminar
       </button>
     </label>
   );
@@ -1968,7 +1968,7 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-With Immer, you can pick the style that feels the most natural for each separate case.
+Con Immer, puedes elegir el estilo que se sienta más natural para cada caso individual.
 
 </Solution>
 
