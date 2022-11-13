@@ -163,13 +163,13 @@ function MyPage() {
 }
 ```
 
-Ahora cualquier `Button` dentro del proveedor recibirá el valor actual de `theme`. Si llamas `setTheme` para actualizar el valor de `theme` que pasaste al proveedor, todos los componentes `Button` se re-renderizarán con el nuevo valor `'light'`.
+Ahora cualquier `Button` dentro del proveedor recibirá el valor actual de `theme`. Si llamas `setTheme` para actualizar el valor de `theme` que pasaste al proveedor, todos los componentes `Button` se rerenderizarán con el nuevo valor `'light'`.
 
 <Recipes titleText="Ejemplos de actualizar el contexto" titleId="examples-basic">
 
 #### Actualizar un valor a través del contexto {/*updating-a-value-via-context*/}
 
-En este ejemplo, el componente `MyApp` guarda una variable de estado la cual es luego pasada al proveedor de `ThemeContext`. Marcar la casilla "Dark mode" actualiza el estado. Cambiar el valor proporcionado re-renderiza todos los componentes que utilizan ese contexto.
+En este ejemplo, el componente `MyApp` guarda una variable de estado la cual es luego pasada al proveedor de `ThemeContext`. Marcar la casilla "Dark mode" actualiza el estado. Cambiar el valor proporcionado rerenderiza todos los componentes que utilizan ese contexto.
 
 <Sandpack>
 
@@ -532,7 +532,7 @@ label {
 
 #### Extraer proveedores a un componente {/*extracting-providers-to-a-component*/}
 
-A medida que tu aplicación crece, se espera que tengas una "pirámide" de contextos cercanos al root de tu aplicación. No hay nada malo con eso. Sin embargo, si te disgusta estéticamente el anidamiento, puedes extraer los proveedores en un único componente. En este ejemplo, `MyProviders` oculta el "plumbing" y renderiza los componentes hijos pasados a él dentro de los proveedores necesarios. Fíjate que el estado de `theme` y `setTheme` es necesario en el propio `MyApp`, así que `MyApp` todavía posee esa pieza del estado.
+A medida que tu aplicación crece, se espera que tengas una "pirámide" de contextos cercanos a la raíz de tu aplicación. No hay nada malo con eso. Sin embargo, si te disgusta estéticamente el anidamiento, puedes extraer los proveedores en un único componente. En este ejemplo, `MyProviders` oculta el "plumbing" y renderiza los componentes hijos pasados a él dentro de los proveedores necesarios. Fíjate que el estado de `theme` y `setTheme` es necesario en el propio `MyApp`, así que `MyApp` todavía posee esa pieza del estado.
 
 <Sandpack>
 
@@ -915,9 +915,9 @@ ul, li { margin: 0; padding: 0; }
 
 ---
 
-### Especificar un valor por defecto del fallback {/*specifying-a-fallback-default-value*/}
+### Especificar un valor por defecto {/*specifying-a-fallback-default-value*/}
 
-Si React no puede encontrar ningún proveedor de ese <CodeStep step={1}>contexto</CodeStep> en particular en el árbol de padres, el valor del contexto devuelto por `useContext()` será igual al <CodeStep step={3}>valor por defecto</CodeStep> que especificaste cuando [creaste ese contexto](/apis/react/createContext):
+Si React no puede encontrar ningún proveedor de ese <CodeStep step={1}>contexto</CodeStep> en particular en el árbol padre, el valor del contexto devuelto por `useContext()` será igual al <CodeStep step={3}>valor por defecto</CodeStep> que especificaste cuando [creaste ese contexto](/apis/react/createContext):
 
 ```js [[1, 1, "ThemeContext"], [3, 1, "null"]]
 const ThemeContext = createContext(null);
@@ -933,7 +933,7 @@ const ThemeContext = createContext('light');
 
 De esta manera, si accidentalmente renderizas algún componente sin su proveedor correspondiente, no se romperá. Esto también ayuda a que tus componentes funcionen bien en un ambiente de pruebas sin configurar un montón de proveedores en las pruebas.
 
-En este ejemplo a continuación, el botón "Cambiar tema" siempre es claro, porque está **afuera de cualquier proveedor de context del tema** y el valor por defecto del contexto del tema es `'light'`. Intenta editar el tema por defecto para que sea `'dark'`.
+En este ejemplo a continuación, el botón "Cambiar tema" siempre es claro, porque está **afuera de cualquier proveedor de contexto del tema** y el valor por defecto del contexto del tema es `'light'`. Intenta editar el tema por defecto para que sea `'dark'`.
 
 <Sandpack>
 
@@ -1030,7 +1030,7 @@ function Button({ children, onClick }) {
 
 ---
 
-### Sobreescribiendo el contexto para una parte del árbol {/*overriding-context-for-a-part-of-the-tree*/}
+### Sobreescribir el contexto para una parte del árbol {/*overriding-context-for-a-part-of-the-tree*/}
 
 Puedes sobreescribir el contexto para una parte del árbol al envolver esa parte en un proveedor con un valor diferente.
 
@@ -1256,7 +1256,7 @@ export const LevelContext = createContext(0);
 
 ---
 
-### Optimizar re-renderizados al pasar objetos y funciones {/*optimizing-re-renders-when-passing-objects-and-functions*/}
+### Optimizar rerenderizados al pasar objetos y funciones {/*optimizing-re-renders-when-passing-objects-and-functions*/}
 
 Puedes pasar cualquier valor a través del contexto, incluyendo objetos y funciones.
 
@@ -1277,9 +1277,9 @@ function MyApp() {
 }
 ```
 
-Aquí, el <CodeStep step={2}>valor del contexto</CodeStep> es un objeto de JavaScript con dos propiedades, una de las cuales es una función. Siempre que `MyApp` se re-renderice (por ejemplo, en una actualización de ruta), este será un objeto *diferente* apuntando a una función *diferente*, así que React también tendrá que re-renderizar todos los componentes en lo profundo del árbol que llamen `useContext(AuthContext)`.
+Aquí, el <CodeStep step={2}>valor del contexto</CodeStep> es un objeto de JavaScript con dos propiedades, una de las cuales es una función. Siempre que `MyApp` se rerenderice (por ejemplo, en una actualización de ruta), este será un objeto *diferente* apuntando a una función *diferente*, así que React también tendrá que rerenderizar todos los componentes en lo profundo del árbol que llamen `useContext(AuthContext)`.
 
-En aplicaciones más pequeñas, esto no es un problema. Sin embargo, no hay necesidad de re-renderizarlas si los datos subyacentes, como `currentUser`, no han cambiado. Para ayudar a React a aprovechar esa información, puedes envolver la función `login` con [`useCallback`](/apis/react/useCallback) y envolver la creación del objeto en un [`useMemo`](/apis/react/useMemo). Esta es una optimización del rendimiento:
+En aplicaciones más pequeñas, esto no es un problema. Sin embargo, no hay necesidad de rerenderizarlas si los datos subyacentes, como `currentUser`, no han cambiado. Para ayudar a React a aprovechar esa información, puedes envolver la función `login` con [`useCallback`](/apis/react/useCallback) y envolver la creación del objeto en un [`useMemo`](/apis/react/useMemo). Esta es una optimización del rendimiento:
 
 ```js {6,9,11,14,17}
 import { useCallback, useMemo } from 'react';
@@ -1305,7 +1305,7 @@ function MyApp() {
 }
 ```
 
-Como resultado de este cambio, incluso si `MyApp` necesita re-renderizarse, los componentes que llaman `useContext(AuthProvider)` no se re-renderizarán a menos que `currentUser` haya cambiado. Lee más sobre [`useMemo`](/apis/react/useMemo#skipping-re-rendering-of-components) y [`useCallback`.](/apis/react/useCallback#skipping-re-rendering-of-components)
+Como resultado de este cambio, incluso si `MyApp` necesita rerenderizarse, los componentes que llaman `useContext(AuthProvider)` no se rerenderizarán a menos que `currentUser` haya cambiado. Lee más sobre [`useMemo`](/apis/react/useMemo#skipping-re-rendering-of-components) y [`useCallback`.](/apis/react/useCallback#skipping-re-rendering-of-components)
 
 ---
 
@@ -1331,12 +1331,12 @@ function MyComponent() {
 
 #### Salidas {/*returns*/}
 
-`useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/apis/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React re-renderiza automáticamente los componentes que leen algún contexto si este cambia.
+`useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/apis/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React rerenderiza automáticamente los componentes que leen algún contexto si este cambia.
 
 #### Advertencias {/*caveats*/}
 
 * La llamada de `useContext()` en un componente no es afectada por los proveedores devueltos desde el *mismo* componente. El `<Context.Provider>` correspondiente **necesita estar *arriba*** del componente que hace la llamada de `useContext()`.
-* React **re-renderiza automáticamente** todos los hijos que usen un contexto particular empezando desde el proveedor que recibe un `value` diferente. Los valores anteriores y los siguientes son comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Saltarse el re-renderizado con [`memo`](/apis/react/memo) no evita que los hijos reciban valores de contexto frescos de arriba.
+* React **rerenderiza automáticamente** todos los hijos que usen un contexto particular empezando desde el proveedor que recibe un `value` diferente. Los valores anteriores y los siguientes son comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Saltarse el rerenderizado con [`memo`](/apis/react/memo) no evita que los hijos reciban valores de contexto frescos de arriba.
 * Si tu sistema de compilación produce módulos duplicados en la salida (lo cual puede pasar si usas enlaces simbólicos), esto puede romper el contexto. Pasar algo a través del contexto solo funciona si `SomeContext` que usas para proporcionar el contexto y `SomeContext` que usas para leerlo son ***exactamente* el mismo objeto**, como está determinado por la comparación `===`.
 
 ---
@@ -1345,18 +1345,18 @@ function MyComponent() {
 
 ### Mi componente no ve el valor desde mi proveedor {/*my-component-doesnt-see-the-value-from-my-provider*/}
 
-Hay algunas maneras comúnes en que esto puede ocurrir:
+Hay algunas maneras comunes en que esto puede ocurrir:
 
-1. Estas renderizando `<SomeContext.Provider>` en el mismo componente (o debajo) como donde estás llamando `useContext()`. Mueve `<SomeContext.Provider>` *arriba y afuera* del componente que llama `useContext()`.
-2. Puede que hayas olvidado envoler tu componente con `<SomeContext.Provider>`, o quizás lo colocas en una parte diferente del árbol de la que pensabas. Revisa si la jerarquía está correcta utilizando [React DevTools.](/learn/react-developer-tools)
-3. Puede que tengas un problema de compilación con tus herramientas que provoque que `SomeContext` como es visto desde el componente proveedor y que `SomeContext` como es visto desde el componente que lee como dos objetos diferentes. Esto puede suceder si usas enlaces simbólicos, por ejemplo. Puedes verificar esto al asignarlos a variables globales como `window.SomeContext1` y `window.SomeContext2` y luego verificar si `window.SomeContext1 === window.SomeContext2` en la consola. Si no son el mismo, necesitas arreglar ese problema a nivel de herramienta de compilación.
+1. Estás renderizando `<SomeContext.Provider>` en el mismo componente (o debajo de) donde estás llamando `useContext()`. Mueve `<SomeContext.Provider>` *arriba y afuera* del componente que llama `useContext()`.
+2. Puede que hayas olvidado envolver tu componente con `<SomeContext.Provider>`, o quizás lo colocaste en una parte diferente del árbol de la que pensabas. Revisa si la jerarquía está correcta utilizando [React DevTools.](/learn/react-developer-tools)
+3. Puede que tengas un problema de compilación con tus herramientas que provoque que `SomeContext` como es visto desde el componente proveedor y que `SomeContext` como es visto desde el componente que lee sean dos objetos diferentes. Esto puede suceder si usas enlaces simbólicos, por ejemplo. Puedes verificar esto al asignarlos a variables globales como `window.SomeContext1` y `window.SomeContext2` y luego verificar si `window.SomeContext1 === window.SomeContext2` en la consola. Si no son el mismo, necesitas arreglar ese problema a nivel de herramienta de compilación.
 
 ### Siempre recibo `undefined` de mi contexto a pesar de que el valor por defecto es diferente {/*i-am-always-getting-undefined-from-my-context-although-the-default-value-is-different*/}
 
 Puede que tengas un proveedor sin un `value` en el árbol:
 
 ```js {1,2}
-// 🚩 No funciona: No hay prop de value
+// 🚩 No funciona: No hay prop value
 <ThemeContext.Provider>
    <Button />
 </ThemeContext.Provider>
