@@ -4,7 +4,7 @@ title: forwardRef
 
 <Intro>
 
-`forwardRef` permite a su componente exponer un nodo DOM al componente padre con un [ref.](/learn/manipulating-the-dom-with-refs)
+`forwardRef` le permite a tu componente exponer un nodo DOM al componente padre con una [ref.](/learn/manipulating-the-dom-with-refs)
 
 ```js
 const SomeComponent = forwardRef(render)
@@ -20,7 +20,7 @@ const SomeComponent = forwardRef(render)
 
 ### Exponer un nodo DOM al componente padre {/*exposing-a-dom-node-to-the-parent-component*/}
 
-Por defecto, los nodos DOM de cada componente son privados. Sin embargo, a veces es útil exponer un nodo DOM al padre, por ejemplo, para permitir su enfoque. Para optar por ello, envuelve la definición de su componente en `forwardRef()`:
+Por defecto, los nodos DOM de cada componente son privados. Sin embargo, a veces es útil exponer un nodo DOM al padre, por ejemplo, para permitir enfocarlo. Para permitirlo, envuelve la definición de tu componente con `forwardRef()`:
 
 ```js {3,11}
 import { forwardRef } from 'react';
@@ -36,7 +36,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-Recibirás un <CodeStep step={1}>ref</CodeStep> como segundo argumento después de props. Pásalo al nodo DOM que quieras exponer:
+Recibirás una <CodeStep step={1}>ref</CodeStep> como segundo argumento después de props. Pásala al nodo DOM que quieras exponer:
 
 ```js {8} [[1, 3, "ref"], [1, 8, "ref", 30]]
 import { forwardRef } from 'react';
@@ -73,15 +73,15 @@ function Form() {
 }
 ```
 
-Éste componente `Form` [pasa un ref](/apis/useref#manipulating-the-dom-with-a-ref) a `MyInput`. El componente `MyInput` *envía* esa referencia al tag `<input>` del navegador. Como resultado, el componente `Form` puede acceder a ese nodo DOM `<input>` y llamar a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él.
+Este componente `Form` [pasa una ref](/apis/useref#manipulating-the-dom-with-a-ref) a `MyInput`. El componente `MyInput` *pasa* esa ref a la etiqueta `<input>` del navegador. Como resultado, el componente `Form` puede acceder a ese nodo DOM `<input>` y llamar a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él.
 
-Ten en cuenta que al exponer una referencia al nodo DOM dentro de tu componente, estás dificultando la posibilidad de cambiar el interior de tu componente más adelante. Por lo general, expondrás los nodos DOM de los componentes reutilizables de bajo nivel como los botones o las entradas de texto, pero no lo harás para los componentes de nivel de aplicación como un avatar o un comentario.
+Ten en cuenta que al exponer una ref al nodo DOM dentro de tu componente, estás dificultando la posibilidad de cambiar el interior de tu componente más adelante. Por lo general, expondrás los nodos DOM de los componentes reutilizables de bajo nivel como los botones o las entradas de texto, pero no lo harás para los componentes de nivel de aplicación como un avatar o un comentario.
 
-<Recipes title="Examples of forwarding a ref">
+<Recipes title="Ejemplos del paso de una ref">
 
 #### Enfocar una entrada de texto {/*focusing-a-text-input*/}
 
-Al hacer clic en el botón se centrará la entrada. El componente `Form` define una referencia y la pasa al componente `MyInput`. El componente `MyInput` reenvía esa referencia al navegador `<input>`. Esto permite que el componente `Form` enfoque el `<input>`.
+Al hacer clic en el botón el campo de texto (_input_) tomará el foco. El componente `Form` define una ref y la pasa al componente `MyInput`. El componente `MyInput` la reenvía al elemento nativo `<input>`. Esto permite que el componente `Form` enfoque el `<input>`.
 
 <Sandpack>
 
@@ -135,7 +135,7 @@ input {
 
 #### Reproducir y pausar un vídeo {/*playing-and-pausing-a-video*/}
 
-Al hacer clic en el botón, se llamará a [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) en un `<video>` del nodo DOM. El componente `App` define un ref y lo pasa al componente `MyVideoPlayer`. El componente `MyVideoPlayer` reenvía esa referencia al nodo `<video>` del navegador. Esto permite al componente `App` reproducir y pausar el `<video>`.
+Al hacer clic en el botón, se llamará a [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) en un `<video>` del nodo DOM. El componente `App` define una ref y la pasa al componente `MyVideoPlayer`. El componente `MyVideoPlayer` pasa esa ref al nodo `<video>` del navegador. Esto permite al componente `App` reproducir y pausar el `<video>`.
 
 <Sandpack>
 
@@ -194,9 +194,9 @@ button { margin-bottom: 10px; margin-right: 10px; }
 
 ---
 
-### Reenvío de una referencia a través de múltiples componentes {/*forwarding-a-ref-through-multiple-components*/}
+### Pasar una ref a través de múltiples componentes {/*forwarding-a-ref-through-multiple-components*/}
 
-En lugar de reenviar un `ref` a un nodo DOM, puedes reenviarlo a tu propio componente como `MyInput`.:
+En lugar de pasar una `ref` a un nodo DOM, puedes pasarla a un componente propio como `MyInput`.:
 
 ```js {1,5}
 const FormField = forwardRef(function FormField(props, ref) {
@@ -210,7 +210,7 @@ const FormField = forwardRef(function FormField(props, ref) {
 });
 ```
 
-Si ese componente `MyInput` reenvía un ref a su `<input>`, un ref a `FormField` te dará ese `<input>`:
+Si ese componente `MyInput` pasa una ref a su `<input>`, una ref a `FormField` te dará ese `<input>`:
 
 ```js {2,5,10}
 function Form() {
@@ -231,7 +231,7 @@ function Form() {
 }
 ```
 
-El componente `Form` del formulario define una referencia y la pasa a `FormField`. El componente `FormField` reenvía esa referencia a `MyInput`, que reenvía esta referencia a un nodo DOM del navegador `<input>`. Así es como `Form` accede a ese nodo DOM.
+El componente `Form` del formulario define una ref y la pasa a `FormField`. El componente `FormField` pasa esa ref a `MyInput`, que a su vez la pasa a un nodo DOM `<input>`. Así es como `Form` accede a ese nodo DOM.
 
 
 <Sandpack>
@@ -311,7 +311,7 @@ input, button {
 
 ### Exposición de un manejador imperativo en lugar de un nodo DOM {/*exposing-an-imperative-handle-instead-of-a-dom-node*/}
 
-En lugar de exponer un nodo DOM completo, puedes exponer un objeto personalizado, llamado *imperative handle*, con un conjunto de métodos más restringido. Para hacer esto, tendrías que definir un ref separado para mantener el nodo DOM:
+En lugar de exponer un nodo DOM completo, puedes exponer un objeto personalizado, llamado manejador imperativo (*imperative handle*), con un conjunto de métodos más restringido. Para hacer esto, tendrías que definir una ref separada para guardar el nodo DOM:
 
 ```js {2,6}
 const MyInput = forwardRef(function MyInput(props, ref) {
@@ -346,7 +346,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-Si algún componente obtiene ahora un ref a `MyInput`, sólo recibirá su objeto `{ focus, scrollIntoView }` en lugar del nodo DOM. Esto le permite limitar la información que expone sobre su nodo DOM al mínimo.
+Si algún componente obtiene ahora una ref a `MyInput`, sólo recibirá su objeto `{ focus, scrollIntoView }` en lugar del nodo DOM. Esto te permite limitar la información que expones sobre tu nodo DOM al mínimo.
 
 <Sandpack>
 
@@ -405,13 +405,13 @@ input {
 
 </Sandpack>
 
-[Más información sobre el uso de asas imperativas.](/apis/react/useImperativeHandle)
+[Más información sobre el uso de manejadores imperativos.](/apis/react/useImperativeHandle)
 
 <Pitfall>
 
-**No abuses de los refs.** Sólo deberías usar refs para comportamientos *imperativos* que no puedes expresar como props: por ejemplo, desplazarse a un nodo, enfocar un nodo, disparar una animación, seleccionar texto, etc.
+**No abuses de las refs.** Sólo deberías usar refs para comportamientos *imperativos* que no puedes expresar como props: por ejemplo, desplazarse a un nodo, enfocar un nodo, desencadenar una animación, seleccionar texto, etc.
 
-**Si puedes expresar algo como un prop, no debes usar un ref.** Por ejemplo, en lugar de exponer un manejador imperativo como `{ open, close }` de un componente `Modal`, es mejor tomar `isOpen` como prop `<Modal isOpen={isOpen} />`. [Effects](/learn/synchronizing-with-effects) puede ayudarte a exponer comportamientos imperativos a través de props.
+**Si puedes expresar algo como una prop, no debes usar una ref.** Por ejemplo, en lugar de exponer un manejador imperativo como `{ open, close }` de un componente `Modal`, es mejor tomar `isOpen` como prop `<Modal isOpen={isOpen} />`. [Effects](/learn/synchronizing-with-effects) puede ayudarte a exponer comportamientos imperativos a través de props.
 
 </Pitfall>
 
@@ -421,7 +421,7 @@ input {
 
 ### `forwardRef(render)` {/*forwardref*/}
 
-Llama a `forwardRef()` para que su componente reciba un ref y lo reenvíe a un componente hijo:
+Llama a `forwardRef()` para que tu componente reciba un ref y la reenvíe a un componente hijo:
 
 ```js
 import { forwardRef } from 'react';
@@ -432,17 +432,17 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 ```
 
-#### Parametros {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `render`: La función de renderización de tu componente. React llama a esta función con los props y `ref` que tu componente recibió de su padre. El JSX que devuelve será la salida de tu componente.
+* `render`: La función de renderización de tu componente. React llama a esta función con las props y `ref` que tu componente recibió de su padre. El JSX que devuelve será la salida de tu componente.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`forwardRef` devuelve un componente de React que puedes renderizar en JSX. A diferencia de los componentes de React definidos como funciones simples, un componente devuelto por `forwardRef` también puede recibir una proposición `ref`.
+`forwardRef` devuelve un componente de React que puedes renderizar en JSX. A diferencia de los componentes de React definidos como funciones simples, un componente devuelto por `forwardRef` también puede recibir una prop `ref`.
 
 #### Advertencias {/*caveats*/}
 
-* En el modo estricto, React **llamará a su función de renderizado dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu función de renderizado es pura (como debería ser), esto no debería afectar a la lógica de tu componente. El resultado de una de las llamadas será ignorado.
+* En el modo estricto, React **llamará a tu función de renderizado dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twice) Este es un comportamiento sólo de desarrollo y no ocurre en producción. Si tu función de renderizado es pura (como debería ser), esto no debería afectar a la lógica de tu componente. El resultado de una de las llamadas será ignorado.
 
 
 ---
@@ -462,23 +462,23 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-#### Parametros {/*render-parameters*/}
+#### Parámetros {/*render-parameters*/}
 
-* `props`: Los accesorios pasados por el componente padre.
+* `props`: Las props pasadas por el componente padre.
 
-* `ref`:  El atributo `ref` pasado por el componente padre. El `ref` puede ser un objeto o una función. Si el componente padre no ha pasado un ref, será `null`. Deberá pasar el "ref" que reciba a otro componente, o pasarlo a [`useImperativeHandle`.](/apis/react/useImperativeHandle)
+* `ref`:  El atributo `ref` pasado por el componente padre. La `ref` puede ser un objeto o una función. Si el componente padre no ha pasado un ref, será `null`. Deberás pasar la "ref" que recibas o bien a otro componente, o bien a [`useImperativeHandle`.](/apis/react/useImperativeHandle)
 
-#### Returns {/*render-returns*/}
+#### Devuelve {/*render-returns*/}
 
-`forwardRef` devuelve un componente de React que puedes renderizar en JSX. A diferencia de los componentes de React definidos como funciones simples, el componente devuelto por `forwardRef` puede tomar una proposición `ref`.
+`forwardRef` devuelve un componente de React que puedes renderizar en JSX. A diferencia de los componentes de React definidos como funciones simples, el componente devuelto por `forwardRef` puede tomar una prop `ref`.
 
 ---
 
 ## Solución de problemas {/*troubleshooting*/}
 
-### Mi componente está envuelto en `forwardRef`, pero el `ref` a él es siempre `null`. {/*my-component-is-wrapped-in-forwardref-but-the-ref-to-it-is-always-null*/}
+### Mi componente está envuelto en `forwardRef`, pero la `ref` a él es siempre `null`. {/*my-component-is-wrapped-in-forwardref-but-the-ref-to-it-is-always-null*/}
 
-Esto suele significar que se ha olvidado de utilizar el `ref` que ha recibido.
+Esto suele significar que olvidaste utilizar la `ref` que recibiste.
 
 Por ejemplo, este componente no hace nada con su `ref`:
 
@@ -493,7 +493,7 @@ const MyInput = forwardRef(function MyInput({ label }, ref) {
 });
 ```
 
-Para solucionarlo, pasa el `ref` a un nodo DOM o a otro componente que pueda aceptar un ref:
+Para solucionarlo, pasa la `ref` a un nodo DOM o a otro componente que pueda aceptar una ref:
 
 ```js {1,5}
 const MyInput = forwardRef(function MyInput({ label }, ref) {
@@ -506,7 +506,7 @@ const MyInput = forwardRef(function MyInput({ label }, ref) {
 });
 ```
 
-El `ref` a `MyInput` también podría ser `null` si parte de la lógica es condicional:
+La `ref` a `MyInput` también podría ser `null` si parte de la lógica es condicional:
 
 ```js {1,5}
 const MyInput = forwardRef(function MyInput({ label, showInput }, ref) {
@@ -519,7 +519,7 @@ const MyInput = forwardRef(function MyInput({ label, showInput }, ref) {
 });
 ```
 
-Si `showInput` es `false`, el ref no será reenviado a ningún nodo, y un ref a `MyInput` permanecerá vacío. Esto es particularmente fácil de pasar por alto si la condición está oculta dentro de otro componente, como `Panel` en este ejemplo:
+Si `showInput` es `false`, la ref no será reenviada a ningún nodo, y una ref a `MyInput` permanecerá vacía. Esto es particularmente fácil de pasar por alto si la condición está oculta dentro de otro componente, como `Panel` en este ejemplo:
 
 ```js {5,7}
 const MyInput = forwardRef(function MyInput({ label, showInput }, ref) {
