@@ -25,7 +25,7 @@ Llama `isValidElement` para comprobar si algun valor es un *element de React.*
 Los elementos de React son:
 
 - Los valores producidos al escribir una [etiqueta JSX](/learn/writing-markup-with-jsx)
-- Los valores producidos por llamar [`createElement`](/api/react/createElement)
+- Los valores producidos por llamar [`createElement`](/apis/react/createElement)
 
 Para los elementos de React, `isValidElement` devuelve `true`:
 
@@ -55,7 +55,7 @@ console.log(isValidElement([<div />, <div />])); // false
 console.log(isValidElement(MyComponent)); // false
 ```
 
-Es muy poco común necesitar `isValidElement`. Es más útil si estás llamando a otra API que *sólo* acepta elementos (como hace [`cloneElement`](/api/react/cloneElement) y quieres evitar un error cuando tu argumento no es un elemento de React.
+Es muy poco común necesitar `isValidElement`. Es más útil si estás llamando a otra API que *sólo* acepta elementos (como hace [`cloneElement`](/apis/react/cloneElement) y quieres evitar un error cuando tu argumento no es un elemento de React.
 
 A menos que tengas alguna razón muy específica para añadir una comprobación con `isValidElement`, probablemente no la necesites.
 
@@ -123,4 +123,4 @@ console.log(isValidElement({ age: 42 })); // false
 
 #### Advertencias {/*caveats*/}
 
-* **Sólo las [etiquetas JSX](/learn/writing-markup-with-jsx) y los objetos devueltos por [`createElement`](/api/react/createElement) se consideran elementos de React.**  Por ejemplo, aunque un número como `42` es un *nodo* de React válido (y puede ser devuelto desde un componente), no es un elemento React válido. Los arrays y portales creados con [`createPortal`](/apis/react-dom/createPortal) tampoco se consideran elementos React.
+* **Sólo las [etiquetas JSX](/learn/writing-markup-with-jsx) y los objetos devueltos por [`createElement`](/apis/react/createElement) se consideran elementos de React.**  Por ejemplo, aunque un número como `42` es un *nodo* de React válido (y puede ser devuelto desde un componente), no es un elemento React válido. Los arrays y portales creados con [`createPortal`](/apis/react-dom/createPortal) tampoco se consideran elementos React.

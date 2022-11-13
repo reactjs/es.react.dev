@@ -110,7 +110,7 @@ Pasar código en línea así no lo ejecutará al hacer clic; lo ejecutará cada 
 
 ```jsx
 // Esta alerta se ejecuta cuando el componente se renderiza, ¡no cuando se hace clic!
-<button onClick={alert('Me cliqueaste!')}>
+<button onClick={alert('¡Me cliqueaste!')}>
 ```
 
 Si quieres definir un manejador de evento en línea, envuélvelo en una función anónima de esta forma:
@@ -148,10 +148,10 @@ function AlertButton({ message, children }) {
 export default function Toolbar() {
   return (
     <div>
-      <AlertButton message="Reproduciendo!">
+      <AlertButton message="¡Reproduciendo!">
         Reproducir película
       </AlertButton>
-      <AlertButton message="Subiendo!">
+      <AlertButton message="¡Subiendo!">
         Subir imagen
       </AlertButton>
     </div>
@@ -251,10 +251,10 @@ function Button({ onSmash, children }) {
 export default function App() {
   return (
     <div>
-      <Button onSmash={() => alert('Reproduciendo!')}>
+      <Button onSmash={() => alert('¡Reproduciendo!')}>
         Reproducir película
       </Button>
-      <Button onSmash={() => alert('Subiendo!')}>
+      <Button onSmash={() => alert('¡Subiendo!')}>
         Subir imagen
       </Button>
     </div>
