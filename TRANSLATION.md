@@ -126,25 +126,27 @@ El uso de la segunda persona del singular varía en las diferentes variantes del
 
 ## El gerundio
 
-En inglés es común el uso del gerundio con función sustantiva en los títulos. Al traducirlo al español deberíamos evitar el calco, en este caso generalmente se puede usar el infinitivo:
+El gerundio al inicio de los títulos es común en inglés. En la mayoría de los casos el calco debería evitarse y usar en su lugar formas más comunes en español como un sustantivo o el infinitivo:
 
-Ejemplo:
+Ejemplos:
 
 ```md
 ## Thinking in React
 ```
 
-✅ CORRECTO:
+✅ CORRECTO: Pensar en React
+
+❌ DESACONSEJADO: Pensando en React
 
 ```md
-## Pensar en React
+## Rendering Lists
 ```
 
-❌ INCORRECTO:
+✅ CORRECTO: Renderizado de listas
 
-```md
-## Pensando en React
-```
+✅ TAMBIÉN CORRECTO: Renderizar listas
+
+❌ DESACONSEJADO: Renderizando listas
 
 # Traducciones comunes
 
@@ -173,7 +175,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
 | lowercase | minúscula(s) |
-| props | *props* |
+| prop / props | prop / props (f) |
 | React element | Elemento de React |
 | render | renderizar (verb), renderizado (noun)
 | shallow rendering | renderizado superficial |
