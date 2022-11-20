@@ -283,7 +283,7 @@ Cuando el estado de `Accordion` en `activeIndex` cambia a `1`, el segundo `Panel
 
 </DiagramGroup>
 
-<DeepDive title="Controlled and uncontrolled components">
+<DeepDive title="Componentes controlados y no controlados">
 
 Es común llamar a un componente con algún estado local "no controlado". Por ejemplo, el componente original `Panel` con una variable de estado `isActive` no está controlado porque su padre no puede influir sobre el `Panel` si está activo o no.
 
@@ -297,11 +297,11 @@ Cuando escribas un componente, plantéate qué información debe ser controlada 
 
 </DeepDive>
 
-## A single source of truth for each state {/*a-single-source-of-truth-for-each-state*/}
+## Una única fuente de verdad para cada estado {/*a-single-source-of-truth-for-each-state*/}
 
 En una aplicación React, muchos componentes tendrán su propio estado. Algunos estados pueden "vivir" cerca de los componentes hoja (componentes en la parte inferior del árbol) como las entradas. Otros estados pueden "vivir" más cerca de la parte superior de la aplicación. Por ejemplo, incluso las bibliotecas de enrutamiento del lado del cliente suelen implementarse almacenando la ruta actual en el estado de React, y pasándola hacia abajo mediante props.
 
-**Para cada pieza única de estado, se elegirá el componente que lo "albergue". ** Este principio también se conoce como tener una ["single source of truth".](https://en.wikipedia.org/wiki/Single_source_of_truth) No significa que todo el estado viva en un solo lugar, sino que para _cada_ pieza de estado, hay un componente _específico_ que contiene esa pieza de información. En lugar de duplicar el estado compartido entre los componentes, lo *elevarás* a su padre común compartido, y lo *pasarás a los hijos*  que lo necesiten.
+Para cada estado individualizado, se elegirá el componente que lo "albergue". Este principio también se conoce como tener una ["single source of truth".](https://en.wikipedia.org/wiki/Single_source_of_truth) No significa que todo el estado viva en un solo lugar, sino que para _cada_ pieza de estado, hay un componente _específico_ que contiene esa pieza de información. En lugar de duplicar el estado compartido entre los componentes, lo *elevarás* a su padre común compartido, y lo *pasarás a los hijos*  que lo necesiten.
 
 Tu aplicación cambiará a medida que trabajes en ella. Es común que muevas el estado hacia abajo o hacia arriba mientras aún estás averiguando dónde "vive" cada pieza del estado. Todo esto forma parte del proceso.
 
@@ -426,7 +426,7 @@ label { display: block; }
 
 #### Filtrando una lista {/*filtering-a-list*/}
 
-En este ejemplo, la `SearchBar` tiene su propio estado `query` que controla la entrada de texto. Su componente padre `FilterableList` muestra una `List` de elementos, pero no tiene en cuenta la consulta de búsqueda. (**but it doesn't take the search query into account.**)
+En este ejemplo, la `SearchBar` tiene su propio estado `query` que controla la entrada de texto. Su componente padre `FilterableList` muestra una `List` de elementos, pero no tiene en cuenta la consulta de búsqueda. 
 
 Utilice la función `filterItems(foods, query)` para filtrar la lista según la consulta de búsqueda. Para probar los cambios, compruebe que al escribir "s" en la entrada se filtra la lista a "Sushi", "Shish kebab" y "Dim sum".
 
