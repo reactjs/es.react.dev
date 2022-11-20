@@ -4,7 +4,7 @@ title: useId
 
 <Intro>
 
-`useId` es un Hook de React para generar IDs unicos que se puede pasar a los atributos de accesibilidad.
+`useId` es un Hook de React para generar IDs únicos que se pueden pasar a los atributos de accesibilidad.
 
 
 ```js
@@ -21,13 +21,13 @@ const id = useId()
 
 <Pitfall>
 
-**No utilices `useId` para generar keys en una lista.** [Las keys deben generarse a partir de sus datos.](/learn/rendering-lists#where-to-get-your-key)
+**No utilices `useId` para generar keys en una lista.** [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 </Pitfall>
 
 ### Generación de ID únicos para atributos de accesibilidad {/*generating-unique-ids-for-accessibility-attributes*/}
 
-Llame a `useId` en el nivel superior de su componente para generar una ID única:
+Llama a `useId` en el nivel superior de tu componente para generar un ID único:
 
 ```js [[1, 4, "passwordHintId"]]
 import { useId } from 'react';
@@ -48,7 +48,7 @@ A continuación, puedes pasar el <CodeStep step={1}>ID generado</CodeStep> a los
 
 **Veamos un ejemplo para ver cuándo es útil.**
 
-[Atrbutos de accesibilidad HTML](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) como [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) le permite especificar que dos etiquetas están relacionadas entre sí. Por ejemplo, puede especificar que un determinado elemento (como una entrada) sea descrito por otro elemento (como un párrafo).
+[Atributos de accesibilidad HTML](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) como [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) te permiten especificar que dos etiquetas están relacionadas entre sí. Por ejemplo, puedes especificar que un determinado elemento (como una entrada de texto) sea descrito por otro elemento (como un párrafo).
 
 En HTML normal, lo escribirías así:
 
@@ -65,7 +65,7 @@ En HTML normal, lo escribirías así:
 </p>
 ```
 
-Sin embargo, utliziar identificaciones como este no es una buena práctica en React. Un componente puede representarse más de una vez en la página, ¡pero las ID tienen que ser únicas! En lugar de utliziar una ID, puede generar una ID única con `useId`:
+Sin embargo, escribir IDs fijos como este no es una buena práctica en React. Un componente puede renderizarse más de una vez en la página, ¡pero los IDs tienen que ser únicos! En lugar de utilizar un ID fijo, puedes generar un ID único con `useId`:
 
 ```js {4,11,14}
 import { useId } from 'react';
@@ -89,7 +89,7 @@ function PasswordField() {
 }
 ```
 
-Ahora, incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
+Ahora, incluso si `PasswordField` aparece varias veces en la pantalla, no habrá conflicto entre los IDs generados.
 
 <Sandpack>
 
@@ -132,31 +132,31 @@ input { margin: 5px; }
 
 </Sandpack>
 
-[Mira este video](https://www.youtube.com/watch?v=0dNzNcuEuOo) para ver la diferencia en la experiencia del usuario con tecnologías de asistencia.
+[Mira este video](https://www.youtube.com/watch?v=0dNzNcuEuOo) para ver la diferencia en la experiencia de usuario con tecnologías de asistencia.
 
 <Pitfall>
 
-**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando cuando utiliza [server rendering](/apis/react-dom/server). Si los árboles que se representan en el servidor y el cliente no coinciden exactamente, las ID generadas no coincidirán.
+**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando utilizas [renderizado en el servidor](/apis/react-dom/server). Si los árboles que se renderizan en el servidor y el cliente no coinciden exactamente, los IDs generados no coincidirán.
 
 </Pitfall>
 
-<DeepDive title="Por qué useId es mejor que un contador incremental?">
+<DeepDive title="¿Por qué useId es mejor que un contador incremental?">
 
-Quizás se pregunte por qué `useId` es mejor que incrementar una variable global como `nextId++`.
+Puede que te preguntes por qué `useId` es mejor que incrementar una variable global como `nextId++`.
 
-El principal beneficio de `useId` es que React asegura que funciona con [server rendering.](/apis/react-dom/server) Durante el server rendering, sus componentes generan salida HTML. Mas tarde, en el cliente [hydrate](/apis/react-dom/client/hydrateRoot) adjunta sus controladores de eventos al HTML generado. Para que la hidratación funcione, la salida del cliente debe coincidir con el HTML del servidor.
+El principal beneficio de `useId` es que React se asegura de que funcione con el [renderizado en el servidor.](/apis/react-dom/server) Durante el renderizado en el servidos, tus componentes generan salida HTML. Más tarde, en el cliente, [la hidratación](/apis/react-dom/client/hydrateRoot) adjunta tus controladores de eventos al HTML generado. Para que la hidratación funcione, la salida del cliente debe coincidir con el HTML del servidor.
 
 Esto es muy difícil de garantizar con un contador incremental porque el orden en que se hidratan los componentes del cliente puede no coincidir con el orden en que se emitió el HTML del servidor. Al llamar a `useId`, te aseguras de que la hidratación funcionará y la salida coincidirá entre el servidor y el cliente.
 
-Dentro de React, `useId` se genera a partir de la "ruta principal" del componente llamado. Esta es la razón por la que, si el cliente y el árbol del servidor son iguales, la "ruta principal" coincidirá independientemente del orden de representación.
+Dentro de React, `useId` se genera a partir de la "ruta del padre" del componente llamado. Esta es la razón por la que, si el cliente y el árbol del servidor son iguales, la "ruta del padre" coincidirá independientemente del orden del renderizado.
 
 </DeepDive>
 
 ---
 
-### Generar ID para varios elementos relacionados {/*generating-ids-for-several-related-elements*/}
+### Generar IDs para varios elementos relacionados {/*generating-ids-for-several-related-elements*/}
 
-Si necesita proporcionar ID a varios elementos relacionados, puede llamar a `useId` para generar un prefijo compartido para ellos:
+Si necesitas proporcionar IDs a varios elementos relacionados, puedes llamar a `useId` para generar un prefijo compartido para ellos:
 
 <Sandpack>
 
@@ -183,13 +183,13 @@ input { margin: 5px; }
 
 </Sandpack>
 
-Esto le permite evitar llamar a `useId` para cada elemento que necesita una identificación única.
+Esto te permite evitar llamar a `useId` para cada elemento que necesite un ID único.
 
 ---
 
-### Especificación de un prefijo compartido para todas las ID generadas {/*specifying-a-shared-prefix-for-all-generated-ids*/}
+### Especificación de un prefijo compartido para todos los IDs generados {/*specifying-a-shared-prefix-for-all-generated-ids*/}
 
-Si renderiza varias aplicaciones React independientes en una sola página, puede pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/apis/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/apis/react-dom/client/hydrateRoot). Esto garantiza que los ID generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que haya especificado.
+Si renderizas varias aplicaciones de React independientes en una sola página, puedes pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/apis/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/apis/react-dom/client/hydrateRoot). Esto garantiza que los IDs generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que hayas especificado.
 
 <Sandpack>
 
@@ -276,7 +276,7 @@ input { margin: 5px; }
 
 ### `useId()` {/*useid*/}
 
-Llame a `useId` en el nivel superior de su componente para generar una ID única:
+Llama a `useId` en el nivel superior de tu componente para generar un ID único:
 
 ```js
 import { useId } from 'react';
@@ -286,9 +286,9 @@ function PasswordField() {
   // ...
 ```
 
-[Vea más ejemplos arriba.](#usage)
+[Ve más ejemplos arriba.](#usage)
 
-#### Parametros {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
 `useId` no toma ningún parámetro.
 
@@ -298,6 +298,6 @@ function PasswordField() {
 
 #### Advertencias {/*caveats*/}
 
-* `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de su componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesita, extraiga un nuevo componente y mueva el estado a él.
+* `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si necesitas hacerlo, extrae un nuevo componente y mueve allí el estado.
 
-* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de sus datos.](/learn/rendering-lists#where-to-get-your-key)
+* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
