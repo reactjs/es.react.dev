@@ -278,17 +278,27 @@ We recommend to define components as functions instead of classes. [See how to m
 
 Typically, you will [define components as functions](/learn/your-first-component#defining-a-component) instead.
 
-For example, suppose you're converting this class to a function:
+For example, suppose you're converting this `Greeting` class component to a function:
 
 <Sandpack>
 
 ```js
 import { Component } from 'react';
 
-export default class Greeting extends Component {
+class Greeting extends Component {
   render() {
     return <h1>Hello, {this.props.name}!</h1>;
   }
+}
+
+export default function App() {
+  return (
+    <>
+      <Greeting name="Sara" />
+      <Greeting name="Cahal" />
+      <Greeting name="Edite" />
+    </>
+  );
 }
 ```
 
@@ -336,7 +346,7 @@ export default function App() {
 
 ### Migrating a component with state from a class to a function {/*migrating-a-component-with-state-from-a-class-to-a-function*/}
 
-Suppose you're converting this class to a function:
+Suppose you're converting this `Counter` class component to a function:
 
 <Sandpack>
 
@@ -458,7 +468,7 @@ button { display: block; margin-top: 10px; }
 
 ### Migrating a component with lifecycle methods from a class to a function {/*migrating-a-component-with-lifecycle-methods-from-a-class-to-a-function*/}
 
-Suppose you're converting this component with lifecycle methods to a function:
+Suppose you're converting this `ChatRoom` class component with lifecycle methods to a function:
 
 <Sandpack>
 
@@ -1435,6 +1445,12 @@ You should return a snapshot value of any type that you'd like, or `null`. The v
 #### Caveats {/*getsnapshotbeforeupdate-caveats*/}
 
 - `getSnapshotBeforeUpdate` will not get called if [`shouldComponentUpdate`](#shouldcomponentupdate) is defined and returns `false`.
+
+<Note>
+
+At the moment, there is no equivalent to `getSnapshotBeforeUpdate` for function components. This use case is very uncommon, but if you have the need for it, for now you'll have to write a class component.
+
+</Note>
 
 ---
 
