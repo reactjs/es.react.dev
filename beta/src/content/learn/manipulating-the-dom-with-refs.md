@@ -1,52 +1,52 @@
 ---
-title: 'Manipulating the DOM with Refs'
+title: 'Manipulación del DOM con Refs'
 ---
 
 <Intro>
 
-React automatically updates the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) to match your render output, so your components won't often need to manipulate it. However, sometimes you might need access to the DOM elements managed by React--for example, to focus a node, scroll to it, or measure its size and position. There is no built-in way to do those things in React, so you will need a *ref* to the DOM node.
+React actualiza automáticamente el [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) para que coincida con su salida de renderizado, por lo que sus componentes no necesitarán manipularlo con frecuencia. Sin embargo, a veces es posible que necesite acceder a los elementos DOM administrados por React, por ejemplo, para enfocar un nodo, desplazarse hasta él o medir su tamaño y posición. No hay una forma integrada de hacer esas cosas en React, por lo que necesitará una referencia al nodo DOM.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to access a DOM node managed by React with the `ref` attribute
-- How the `ref` JSX attribute relates to the `useRef` Hook
-- How to access another component's DOM node
-- In which cases it's safe to modify the DOM managed by React
+- Cómo acceder a un nodo DOM administrado por React con el `ref` atributo
+- Cómo  `ref` se relaciona el atributo JSX con el `useRef` Hook
+- Cómo acceder al nodo DOM de otro componente
+- En qué casos es seguro modificar el DOM administrado por React
 
 </YouWillLearn>
 
-## Getting a ref to the node {/*getting-a-ref-to-the-node*/}
+## Obtener una referencia al nodo {/*getting-a-ref-to-the-node*/}
 
-To access a DOM node managed by React, first, import the `useRef` Hook:
+Para acceder a un nodo DOM administrado por React, primero importa el`useRef` Hook:
 
 ```js
 import { useRef } from 'react';
 ```
 
-Then, use it to declare a ref inside your component:
+Luego, utilícelo para declarar una referencia dentro de su componente:
 
 ```js
 const myRef = useRef(null);
 ```
 
-Finally, pass it to the DOM node as the `ref` attribute:
+Finalmente, páselo al nodo DOM como el `ref` atributo:
 
 ```js
 <div ref={myRef}>
 ```
 
-The `useRef` Hook returns an object with a single property called `current`. Initially, `myRef.current` will be `null`. When React creates a DOM node for this `<div>`, React will put a reference to this node into `myRef.current`. You can then access this DOM node from your [event handlers](/learn/responding-to-events) and use the built-in [browser APIs](https://developer.mozilla.org/docs/Web/API/Element) defined on it.
+El `useRef` Hook devuelve un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` será `null`. Cuando React crea un nodo DOM para este `<div>`, React pondrá una referencia a este nodo en `myRef.current`.  Luego puede acceder a este nodo DOM desde sus controladores de [eventos](/learn/responding-to-events) y usar las [ APIs de navegador integrado](https://developer.mozilla.org/docs/Web/API/Element) definidas en él.
 
 ```js
-// You can use any browser APIs, for example:
+// Puede usar cualquier API del navegador, por ejemplo:
 myRef.current.scrollIntoView();
 ```
 
-### Example: Focusing a text input {/*example-focusing-a-text-input*/}
+### Ejemplo: enfocar una entrada de texto {/*example-focusing-a-text-input*/}
 
-In this example, clicking the button will focus the input:
+En este ejemplo, hacer clic en el botón enfocará la entrada:
 
 <Sandpack>
 
@@ -73,18 +73,18 @@ export default function Form() {
 
 </Sandpack>
 
-To implement this:
+Para implementar esto:
 
-1. Declare `inputRef` with the `useRef` Hook.
-2. Pass it as `<input ref={inputRef}>`. This tells React to **put this `<input>`'s DOM node into `inputRef.current`.**
-3. In the `handleClick` function, read the input DOM node from `inputRef.current` and call [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) on it with `inputRef.current.focus()`.
-4. Pass the `handleClick` event handler to `<button>` with `onClick`.
+1. Declara `inputRef` con el `useRef` Hook.
+2. Pasalo como `<input ref={inputRef}>`. Esto le dice a React que **coloque este `<input>`nodo DOM en `inputRef.current`.**
+3. En la `handleClick` función, lea el nodo DOM de entrada `inputRef.current` y llámelo [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) con `inputRef.current.focus()`.
+4. Pase el `handleClick` controlador de eventos a `<button>` con `onClick`.
 
-While DOM manipulation is the most common use case for refs, the `useRef` Hook can be used for storing other things outside React, like timer IDs. Similarly to state, refs remain between renders. Refs are like state variables that don't trigger re-renders when you set them. For an introduction to refs, see [Referencing Values with Refs.](/learn/referencing-values-with-refs)
+Si bien la manipulación de DOM es el caso de uso más común para las referencias,  `useRef` Hook se puede usar para almacenar otras cosas fuera de React, como ID de temporizadores. De manera similar al estado, las referencias permanecen entre los renderizados. Las referencias son como variables de estado que no desencadenan re-renderizaciones cuando las configura. Para obtener una introducción a las referencias, consulte  [Referenciar valores con refs.](/learn/referencing-values-with-refs)
 
-### Example: Scrolling to an element {/*example-scrolling-to-an-element*/}
+### Ejemplo: desplazarse a un elemento {/*example-scrolling-to-an-element*/}
 
-You can have more than a single ref in a component. In this example, there is a carousel of three images. Each button centers an image by calling the browser [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) method the corresponding DOM node:
+Puede tener más de una sola referencia en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen llamando al [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) método del navegador del nodo DOM correspondiente:
 
 <Sandpack>
 
@@ -191,27 +191,27 @@ li {
 
 </Sandpack>
 
-<DeepDive title="How to manage a list of refs using a ref callback">
+<DeepDive title="Cómo administrar una lista de referencias mediante una devolución de llamada de referencia">
 
-In the above examples, there is a predefined number of refs. However, sometimes you might need a ref to each item in the list, and you don't know how many you will have. Something like this **wouldn't work**:
+En los ejemplos anteriores, hay un número predefinido de referencias. Sin embargo, a veces es posible que necesite una referencia para cada elemento de la lista y no sabe cuántos tendrá. Algo como esto **no funcionaría**:
 
 ```js
 <ul>
   {items.map((item) => {
-    // Doesn't work!
+    // ¡No funciona!
     const ref = useRef(null);
     return <li ref={ref} />;
   })}
 </ul>
 ```
 
-This is because **Hooks must only be called at the top-level of your component.** You can't call `useRef` in a loop, in a condition, or inside a `map()` call.
+Esto se debe a que **los ganchos solo deben llamarse en el nivel superior de su componente.** No puede llamar `useRef` en un ciclo, en una condición o dentro de una `map()` llamada.
 
-One possible way around this is to get a single ref to their parent element, and then use DOM manipulation methods like [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) to "find" the individual child nodes from it. However, this is brittle and can break if your DOM structure changes.
+Una forma posible de evitar esto es obtener una sola referencia a su elemento principal y luego usar métodos [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) de manipulación DOM como "encontrar" los nodos secundarios individuales de él. Sin embargo, esto es frágil y puede romperse si cambia su estructura DOM.
 
-Another solution is to **pass a function to the `ref` attribute.** This is called a "ref callback". React will call your ref callback with the DOM node when it's time to set the ref, and with `null` when it's time to clear it. This lets you maintain your own array or a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), and access any ref by its index or some kind of ID.
+Otra solución es **pasar una función al `ref` atributo.** Esto se denomina "devolución de llamada de referencia". React llamará a su devolución de llamada de referencia con el nodo DOM cuando sea el momento de configurar la referencia y `null` cuando sea el momento de borrarla. Esto le permite mantener su propia matriz o [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier referencia por su índice o algún tipo de ID.
 
-This example shows how you can use this approach to scroll to an arbitrary node in a long list:
+Este ejemplo muestra cómo puede usar este enfoque para desplazarse a un nodo arbitrario en una lista larga:
 
 <Sandpack>
 
@@ -233,7 +233,7 @@ export default function CatFriends() {
 
   function getMap() {
     if (!itemsRef.current) {
-      // Initialize the Map on first usage.
+      // Inicialice el map en el primer uso.
       itemsRef.current = new Map();
     }
     return itemsRef.current;
@@ -316,7 +316,7 @@ li {
 
 </Sandpack>
 
-In this example, `itemsRef` doesn't hold a single DOM node. Instead, it holds a [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) from item ID to a DOM node. ([Refs can hold any values!](/learn/referencing-values-with-refs)) The `ref` callback on every list item takes care to update the Map:
+En este ejemplo, `itemsRef` no contiene un solo nodo DOM. En su lugar, contiene un [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) del ID del elemento a un nodo DOM ([¡Los refs pueden contener cualquier valor!](/learn/referencing-values-with-refs)) La `ref` devolución de llamada en cada elemento de la lista se encarga de actualizar el Map:
 
 ```js
 <li
@@ -324,25 +324,25 @@ In this example, `itemsRef` doesn't hold a single DOM node. Instead, it holds a 
   ref={node => {
     const map = getMap();
     if (node) {
-      // Add to the Map
+      // Añadir al Map
       map.set(cat.id, node);
     } else {
-      // Remove from the Map
+      // Eliminar de la carpeta Map
       map.delete(cat.id);
     }
   }}
 >
 ```
 
-This lets you read individual DOM nodes from the Map later.
+Esto le permite leer nodos DOM individuales del map más tarde.
 
 </DeepDive>
 
-## Accessing another component's DOM nodes {/*accessing-another-components-dom-nodes*/}
+## Acceder a los nodos DOM de otro componente {/*accessing-another-components-dom-nodes*/}
 
-When you put a ref on a built-in component that outputs a browser element like `<input />`, React will set that ref's `current` property to the corresponding DOM node (such as the actual `<input />` in the browser).
+Cuando coloca una referencia en un componente integrado que genera un elemento del navegador como `<input />`, React establecerá la `current` propiedad de esa referencia en el nodo DOM correspondiente (como el real `<input />` en el navegador).
 
-However, if you try to put a ref on **your own** component, like `<MyInput />`, by default you will get `null`. Here is an example demonstrating it. Notice how clicking the button **does not** focus the input:
+Sin embargo, si intenta poner una referencia en **su propio** componente, como `<MyInput />`, por defecto obtendrá `null`. Aquí hay un ejemplo que lo demuestra. Observe cómo hacer clic en el botón **no enfoca** la entrada:
 
 <Sandpack>
 
@@ -373,17 +373,17 @@ export default function MyForm() {
 
 </Sandpack>
 
-To help you notice the issue, React also prints an error to the console:
+Para ayudarlo a notar el problema, React también imprime un error en la consola:
 
 <ConsoleBlock level="error">
 
-Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+Advertencia: Los componentes de la función no pueden recibir referencias. Los intentos de acceder a esta referencia fallarán. ¿Querías usar React.forwardRef()?
 
 </ConsoleBlock>
 
-This happens because by default React does not let a component access the DOM nodes of other components. Not even for its own children! This is intentional. Refs are an escape hatch that should be used sparingly. Manually manipulating _another_ component's DOM nodes makes your code even more fragile.
+Esto sucede porque, de forma predeterminada, React no permite que un componente acceda a los nodos DOM de otros componentes. ¡Ni siquiera para sus propios hijos! Esto es intencional. Los refs son una escotilla de escape que debe usarse con moderación. La manipulación manual de los nodos DOM del componente _another_ hace que el código sea aún más frágil.
 
-Instead, components that _want_ to expose their DOM nodes have to **opt in** to that behavior. A component can specify that it "forwards" its ref to one of its children. Here's how `MyInput` can use the `forwardRef` API:
+En cambio, los componentes que desean exponer sus nodos DOM deben optar por ese comportamiento. Un componente puede especificar que "reenvía" su referencia a uno de sus hijos. Así es como`MyInput` se puede usar la `forwardRef` API:
 
 ```js
 const MyInput = forwardRef((props, ref) => {
@@ -391,13 +391,13 @@ const MyInput = forwardRef((props, ref) => {
 });
 ```
 
-This is how it works:
+Así es como funciona:
 
-1. `<MyInput ref={inputRef} />` tells React to put the corresponding DOM node into `inputRef.current`. However, it's up to the `MyInput` component to opt into that--by default, it doesn't.
-2. The `MyInput` component is declared using `forwardRef`. **This opts it into receiving the `inputRef` from above as the second `ref` argument** which is declared after `props`.
-3. `MyInput` itself passes the `ref` it received to the `<input>` inside of it.
+1. `<MyInput ref={inputRef} />` le dice a React que coloque el nodo DOM correspondiente en `inputRef.current`. Sin embargo, depende del `MyInput` componente optar por eso; de forma predeterminada, no lo hace.
+2. El `MyInput` componente se declara mediante `forwardRef`. **Esto opta por recibir el `inputRef` de arriba como el segundo `ref` argumento**  que se declara después `props`.
+3. `MyInput` mismo pasa lo `ref` que recibió al `<input>` interior de él.
 
-Now clicking the button to focus the input works:
+Ahora hacer clic en el botón para enfocar la entrada funciona:
 
 <Sandpack>
 
@@ -428,11 +428,11 @@ export default function Form() {
 
 </Sandpack>
 
-In design systems, it is a common pattern for low-level components like buttons, inputs, and so on, to forward their refs to their DOM nodes. On the other hand, high-level components like forms, lists, or page sections usually won't expose their DOM nodes to avoid accidental dependencies on the DOM structure.
+En los sistemas de diseño, es un patrón común que los componentes de bajo nivel, como botones, entradas, etc., reenvíen sus referencias a sus nodos DOM. Por otro lado, los componentes de alto nivel como formularios, listas o secciones de página generalmente no exponen sus nodos DOM para evitar dependencias accidentales en la estructura DOM.
 
-<DeepDive title="Exposing a subset of the API with an imperative handle">
+<DeepDive title="Exponer un subconjunto de la API con un identificador imperativo">
 
-In the above example, `MyInput` exposes the original DOM input element. This lets the parent component call `focus()` on it. However, this also lets the parent component do something else--for example, change its CSS styles. In uncommon cases, you may want to restrict the exposed functionality. You can do that with `useImperativeHandle`:
+En el ejemplo anterior, `MyInput` expone el elemento de entrada DOM original. Esto permite que el componente principa `focus()` lo llame. Sin embargo, esto también permite que el componente principal haga otra cosa, por ejemplo, cambiar sus estilos CSS. En casos poco comunes, es posible que desee restringir la funcionalidad expuesta. Puedes hacer eso con `useImperativeHandle`:
 
 <Sandpack>
 
@@ -474,11 +474,11 @@ export default function Form() {
 
 </Sandpack>
 
-Here, `realInputRef` inside `MyInput` holds the actual input DOM node. However, `useImperativeHandle` instructs React to provide your own special object as the value of a ref to the parent component. So `inputRef.current` inside the `Form` component will only have the `focus` method. In this case, the ref "handle" is not the DOM node, but the custom object you create inside `useImperativeHandle` call.
+Aquí, el `realInputRef` interior `MyInput` contiene el nodo DOM de entrada real. Sin embargo, `useImperativeHandle` le indica a React que proporcione su propio objeto especial como el valor de una referencia al componente principal. Entonces, `inputRef.current` dentro del `Form` componente solo tendrá el `focus` método. En este caso, el "controlador" de referencia no es el nodo DOM, sino el objeto personalizado que crea dentro de `useImperativeHandle` la llamada.
 
 </DeepDive>
 
-## When React attaches the refs {/*when-react-attaches-the-refs*/}
+## Cuando React adjunta las referencias {/*when-react-attaches-the-refs*/}
 
 In React, every update is split in [two phases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
 
