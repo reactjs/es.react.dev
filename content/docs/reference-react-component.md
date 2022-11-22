@@ -120,19 +120,11 @@ El método `render()` es el único método requerido en un componente de clase.
 
 Cuando se llama, debe examinar a `this.props` y `this.state` y devolver uno de los siguientes tipos:
 
-<<<<<<< HEAD
 - **Elementos de React.** normalmente creados a través de [JSX](/docs/introducing-jsx.html). Por ejemplo, `<div />` y `<MyComponent />` son elementos de React que enseñan a React a renderizar un nodo DOM, u otro componente definido por el usuario, respectivamente.
 - **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/fragments) para más detalles.
 - **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [portales](/docs/portals) para más detalles.
 - **String y números.** Estos son renderizados como nodos de texto en el DOM.
-- **Booleanos o `nulos`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
-=======
-- **React elements.** Typically created via [JSX](/docs/introducing-jsx.html). For example, `<div />` and `<MyComponent />` are React elements that instruct React to render a DOM node, or another user-defined component, respectively.
-- **Arrays and fragments.** Let you return multiple elements from render. See the documentation on [fragments](/docs/fragments.html) for more details.
-- **Portals**. Let you render children into a different DOM subtree. See the documentation on [portals](/docs/portals.html) for more details.
-- **String and numbers.** These are rendered as text nodes in the DOM.
-- **Booleans or `null` or `undefined`**. Render nothing. (Mostly exists to support `return test && <Child />` pattern, where `test` is boolean).
->>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
+- **Booleanos, `null` o `undefined`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
 
 La función `render ()` debe ser pura, lo que significa que no modifica el estado del componente, devuelve el mismo resultado cada vez que se invoca y no interactúa directamente con el navegador.
 
