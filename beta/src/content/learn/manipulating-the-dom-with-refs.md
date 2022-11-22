@@ -480,20 +480,20 @@ Aquí, el `realInputRef` interior `MyInput` contiene el nodo DOM de entrada real
 
 ## Cuando React adjunta las referencias {/*when-react-attaches-the-refs*/}
 
-In React, every update is split in [two phases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
+En React, cada actualización se divide en [dos fases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
 
-* During **render,** React calls your components to figure out what should be on the screen.
-* During **commit,** React applies changes to the DOM.
+* Durante el **renderizado,** React llama a sus componentes para averiguar qué debería estar en la pantalla.
+* Durante la **confirmación,** React aplica cambios al DOM.
 
-In general, you [don't want](/learn/referencing-values-with-refs#best-practices-for-refs) to access refs during rendering. That goes for refs holding DOM nodes as well. During the first render, the DOM nodes have not yet been created, so `ref.current` will be `null`. And during the rendering of updates, the DOM nodes haven't been updated yet. So it's too early to read them.
+En general, [no querrás](/learn/referencing-values-with-refs#best-practices-for-refs) acceder a las referencias durante el renderizado. Eso también se aplica a las referencias que tienen nodos DOM. Durante el primer renderizado, los nodos DOM aún no se han creado, por lo `ref.current` que se crearán `null`. Y durante la representación de las actualizaciones, los nodos DOM aún no se han actualizado. Así que es demasiado pronto para leerlos.
 
-React sets `ref.current` during the commit. Before updating the DOM, React sets the affected `ref.current` values to `null`. After updating the DOM, React immediately sets them to the corresponding DOM nodes.
+Conjuntos de reacciones`ref.current` durante la confirmación. Antes de actualizar el DOM, React establece los `ref.current` valores afectados en `null`. Después de actualizar el DOM, React los establece inmediatamente en los nodos DOM correspondientes.
 
-**Usually, you will access refs from event handlers.** If you want to do something with a ref, but there is no particular event to do it in, you might need an Effect. We will discuss effects on the next pages.
+**Por lo general, accederá a las referencias desde los controladores de eventos.** Si desea hacer algo con una referencia, pero no hay un evento en particular para hacerlo, es posible que necesite un efecto. Discutiremos los efectos en las próximas páginas.
 
-<DeepDive title="Flushing state updates synchronously with flushSync">
+<DeepDive title="Vaciado de actualizaciones de estado sincrónicamente con flushSync">
 
-Consider code like this, which adds a new todo and scrolls the screen down to the last child of the list. Notice how, for some reason, it always scrolls to the todo that was *just before* the last added one:
+Considere un código como este, que agrega una nueva tarea pendiente y desplaza la pantalla hacia abajo hasta el último elemento secundario de la lista. Observe cómo, por alguna razón, siempre se desplaza a la tarea que estaba  *justo antes* de la última agregada:
 
 <Sandpack>
 
@@ -547,16 +547,16 @@ for (let i = 0; i < 20; i++) {
 
 </Sandpack>
 
-The issue is with these two lines:
+El problema es con estas dos líneas:
 
 ```js
 setTodos([ ...todos, newTodo]);
 listRef.current.lastChild.scrollIntoView();
 ```
 
-In React, [state updates are queued.](/learn/queueing-a-series-of-state-updates) Usually, this is what you want. However, here it causes a problem because `setTodos` does not immediately update the DOM. So the time you scroll the list to its last element, the todo has not yet been added. This is why scrolling always "lags behind" by one item.
+En React, [las actualizaciones de estado están en cola.](/learn/queueing-a-series-of-state-updates) Por lo general, esto es lo que quieres. Sin embargo, aquí causa un problema porque `setTodos` no actualiza inmediatamente el DOM. Entonces, en el momento en que desplaza la lista hasta su último elemento, la tarea pendiente aún no se ha agregado. Esta es la razón por la que el desplazamiento siempre se "retrasa" en un elemento.
 
-To fix this issue, you can force React to update ("flush") the DOM synchronously. To do this, import `flushSync` from `react-dom` and **wrap the state update** into a `flushSync` call:
+Para solucionar este problema, puede obligar a React a actualizar ("vaciar") el DOM de forma síncrona. Para hacer esto, importa `flushSync` desde `react-dom` y **envuelve la actualización de estado** en una `flushSync` llamada:
 
 ```js
 flushSync(() => {
@@ -565,7 +565,7 @@ flushSync(() => {
 listRef.current.lastChild.scrollIntoView();
 ```
 
-This will instruct React to update the DOM synchronously right after the code wrapped in `flushSync` executes. As a result, the last todo will already be in the DOM by the time you try to scroll to it:
+`FlushSync` Esto le indicará a React que actualice el DOM sincrónicamente justo después de que se ejecute el código envuelto . Como resultado, la última tarea pendiente ya estará en el DOM cuando intente desplazarse hasta ella:
 
 <Sandpack>
 
@@ -624,15 +624,15 @@ for (let i = 0; i < 20; i++) {
 
 </DeepDive>
 
-## Best practices for DOM manipulation with refs {/*best-practices-for-dom-manipulation-with-refs*/}
+## Prácticas recomendadas para la manipulación de DOM con refs {/*best-practices-for-dom-manipulation-with-refs*/}
 
-Refs are an escape hatch. You should only use them when you have to "step outside React". Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose.
+Los árbitros son una escotilla de escape. Solo debe usarlos cuando tenga que "salir de React". Los ejemplos comunes de esto incluyen administrar el enfoque, la posición de desplazamiento o llamar a las API del navegador que React no expone.
 
-If you stick to non-destructive actions like focusing and scrolling, you shouldn't encounter any problems. However, if you try to **modify** the DOM manually, you can risk conflicting with the changes React is making.
+Si te limitas a acciones no destructivas como enfocar y desplazarte, no deberías encontrar ningún problema. Sin embargo, si intenta **modificar** el DOM manualmente, puede correr el riesgo de entrar en conflicto con los cambios que está realizando React.
 
-To illustrate this problem, this example includes a welcome message and two buttons. The first button toggles its presence using [conditional rendering](/learn/conditional-rendering) and [state](/learn/state-a-components-memory), as you would usually do in React. The second button uses the [`remove()` DOM API](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) to forcefully remove it from the DOM outside of React's control.
+Para ilustrar este problema, este ejemplo incluye un mensaje de bienvenida y dos botones. El primer botón alterna su presencia usando [la representación condicional](/learn/conditional-rendering) y el [estado](/learn/state-a-components-memory), como lo haría normalmente en React. El segundo botón usa la [`remove()` API DOM ](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) para eliminarlo a la fuerza del DOM fuera del control de React.
 
-Try pressing "Toggle with setState" a few times. The message should disappear and appear again. Then press "Remove from the DOM". This will forcefully remove it. Finally, press "Toggle with setState":
+Intente presionar "Alternar con setState" varias veces. El mensaje debería desaparecer y aparecer de nuevo. Luego presione "Eliminar del DOM". Esto lo eliminará a la fuerza. Finalmente, presiona “Alternar con setState”:
 
 <Sandpack>
 
@@ -673,20 +673,20 @@ button {
 
 </Sandpack>
 
-After you've manually removed the DOM element, trying to use `setState` to show it again will lead to a crash. This is because you've changed the DOM, and React doesn't know how to continue managing it correctly.
+Después de eliminar manualmente el elemento DOM, intentar usarlo `setState` para mostrarlo de nuevo provocará un bloqueo. Esto se debe a que ha cambiado el DOM y React no sabe cómo continuar administrándolo correctamente.
 
-**Avoid changing DOM nodes managed by React.** Modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes like above.
+**Evite cambiar los nodos DOM administrados por React.** Modificar, agregar elementos secundarios o eliminar elementos secundarios de los elementos administrados por React puede generar resultados visuales inconsistentes o bloqueos como el anterior.
 
-However, this doesn't mean that you can't do it at all. It requires caution. **You can safely modify parts of the DOM that React has _no reason_ to update.** For example, if some `<div>` is always empty in the JSX, React won't have a reason to touch its children list. Therefore, it is safe to manually add or remove elements there.
+Sin embargo, esto no significa que no puedas hacerlo en absoluto. Requiere precaución. **S Puede modificar de forma segura partes del DOM que React _no tiene_ motivos para actualizar.** Por ejemplo, si algo `<div>` siempre está vacío en JSX, React no tendrá ningún motivo para tocar su lista de elementos secundarios. Por lo tanto, es seguro agregar o eliminar elementos manualmente allí.
 
 <Recap>
 
-- Refs are a generic concept, but most often you'll use them to hold DOM elements.
-- You instruct React to put a DOM node into `myRef.current` by passing `<div ref={myRef}>`.
-- Usually, you will use refs for non-destructive actions like focusing, scrolling, or measuring DOM elements.
-- A component doesn't expose its DOM nodes by default. You can opt into exposing a DOM node by using `forwardRef` and passing the second `ref` argument down to a specific node.
-- Avoid changing DOM nodes managed by React.
-- If you do modify DOM nodes managed by React, modify parts that React has no reason to update.
+- Las referencias son un concepto genérico, pero la mayoría de las veces las usará para contener elementos DOM.
+- Le indicas a React que coloque un nodo DOM al `myRef.current` pasar `<div ref={myRef}>`.
+- Por lo general, usará refs para acciones no destructivas como enfocar, desplazar o medir elementos DOM.
+- Un componente no expone sus nodos DOM de forma predeterminada. Puede optar por exponer un nodo DOM usando `forwardRef` y pasando el segundo `ref` argumento a un nodo específico.
+- Evite cambiar los nodos DOM administrados por React.
+- Si modifica los nodos DOM administrados por React, modifique las partes que React no tiene motivos para actualizar.
 
 </Recap>
 
@@ -694,9 +694,9 @@ However, this doesn't mean that you can't do it at all. It requires caution. **Y
 
 <Challenges>
 
-#### Play and pause the video {/*play-and-pause-the-video*/}
+#### Reproducir y pausar el video {/*play-and-pause-the-video*/}
 
-In this example, the button toggles a state variable to switch between a playing and a paused state. However, in order to actually play or pause the video, toggling state is not enough. You also need to call [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) and [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) on the DOM element for the `<video>`. Add a ref to it, and make the button work.
+En este ejemplo, el botón alterna una variable de estado para alternar entre un estado de reproducción y de pausa. Sin embargo, para reproducir o pausar el video, cambiar el estado no es suficiente. También debe llamar [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para el `<video>`. Agregue una referencia y haga que el botón funcione.
 
 <Sandpack>
 
@@ -733,11 +733,11 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-For an extra challenge, keep the "Play" button in sync with whether the video is playing even if the user right-clicks the video and plays it using the built-in browser media controls. You might want to listen to `onPlay` and `onPause` on the video to do that.
+Para un desafío adicional, mantenga el botón "Reproducir" sincronizado con si el video se está reproduciendo, incluso si el usuario hace clic con el botón derecho en el video y lo reproduce usando los controles multimedia integrados del navegador. Es posible que desee escuchar `onPlay` y `onPause` en el video para hacer eso.
 
 <Solution>
 
-Declare a ref and put it on the `<video>` element. Then call `ref.current.play()` and `ref.current.pause()` in the event handler depending on the next state.
+Declare una referencia y colóquela en el `<video>` elemento. Luego llame `ref.current.play()` y `ref.current.pause()` en el controlador de eventos dependiendo del siguiente estado.
 
 <Sandpack>
 
@@ -786,13 +786,13 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-In order to handle the built-in browser controls, you can add `onPlay` and `onPause` handlers to the `<video>` element and call `setIsPlaying` from them. This way, if the user plays the video using the browser controls, the state will adjust accordingly.
+Para manejar los controles del navegador integrados, puede agregar controladores `onPlay` y `onPause` al elemento `<video>` y llamar a `setIsPlaying` desde ellos. De esta forma, si el usuario reproduce el video usando los controles del navegador, el estado se ajustará en consecuencia.
 
 </Solution>
 
-#### Focus the search field {/*focus-the-search-field*/}
+#### Centrar el campo de búsqueda {/*focus-the-search-field*/}
 
-Make it so that clicking the "Search" button puts focus into the field.
+Haga que al hacer clic en el botón "Buscar" se enfoque en el campo.
 
 <Sandpack>
 
@@ -819,7 +819,7 @@ button { display: block; margin-bottom: 10px; }
 
 <Solution>
 
-Add a ref to the input, and call `focus()` on the DOM node to focus it:
+Agregue una referencia a la entrada y llame `focus()` oal nodo DOM para enfocarlo:
 
 <Sandpack>
 
@@ -854,9 +854,9 @@ button { display: block; margin-bottom: 10px; }
 
 </Solution>
 
-#### Scrolling an image carousel {/*scrolling-an-image-carousel*/}
+#### Desplazamiento de un carrusel de imágenes {/*scrolling-an-image-carousel*/}
 
-This image carousel has a "Next" button that switches the active image. Make the gallery scroll horizontally to the active image on click. You will want to call [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) on the DOM node of the active image:
+Este carrusel de imágenes tiene un botón "Siguiente" que cambia la imagen activa. Haga que la galería se desplace horizontalmente a la imagen activa al hacer clic. Deberá llamar [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) al nodo DOM de la imagen activa:
 
 ```js
 node.scrollIntoView({
@@ -868,7 +868,7 @@ node.scrollIntoView({
 
 <Hint>
 
-You don't need to have a ref to every image for this exercise. It should be enough to have a ref to the currently active image, or to the list itself. Use `flushSync` to ensure the DOM is updated *before* you scroll.
+No necesita tener una referencia para cada imagen para este ejercicio. Debería ser suficiente tener una referencia a la imagen actualmente activa o a la lista misma. Úselo `flushSync` para asegurarse de que el DOM esté actualizado *antes* de desplazarse.
 
 </Hint>
 
@@ -963,15 +963,15 @@ img {
 
 <Solution>
 
-You can declare a `selectedRef`, and then pass it conditionally only to the current image:
+Puede declarar un `selectedRef` , y luego pasarlo condicionalmente solo a la imagen actual:
 
 ```js
 <li ref={index === i ? selectedRef : null}>
 ```
 
-When `index === i`, meaning that the image is the selected one, the `<li>` will receive the `selectedRef`. React will make sure that `selectedRef.current` always points at the correct DOM node.
+Cuando `index === i`, lo que significa que la imagen es la seleccionada, `<li>` recibirá el `selectedRef`. React se asegurará de que `selectedRef.current` siempre apunte al nodo DOM correcto.
 
-Note that the `flushSync` call is necessary to force React to update the DOM before the scroll. Otherwise, `selectedRef.current` would always point at the previously selected item.
+Tenga en cuenta que la `flushSync` llamada es necesaria para obligar a React a actualizar el DOM antes del desplazamiento. De lo contrario, `selectedRef.current` siempre apuntaría al elemento previamente seleccionado.
 
 <Sandpack>
 
@@ -1080,13 +1080,13 @@ img {
 
 </Solution>
 
-#### Focus the search field with separate components {/*focus-the-search-field-with-separate-components*/}
+#### Enfoque el campo de búsqueda con componentes separados {/*focus-the-search-field-with-separate-components*/}
 
-Make it so that clicking the "Search" button puts focus into the field. Note that each component is defined in a separate file and shouldn't be moved out of it. How do you connect them together?
+Haga que al hacer clic en el botón "Buscar" se enfoque en el campo. Tenga en cuenta que cada componente se define en un archivo separado y no debe sacarse de él. ¿Cómo los conectas entre sí?
 
 <Hint>
 
-You'll need `forwardRef` to opt into exposing a DOM node from your own component like `SearchInput`.
+Deberá `forwardRef` optar por exponer un nodo DOM de su propio componente como `SearchInput`.
 
 </Hint>
 
@@ -1136,7 +1136,7 @@ button { display: block; margin-bottom: 10px; }
 
 <Solution>
 
-You'll need to add an `onClick` prop to the `SearchButton`, and make the `SearchButton` pass it down to the browser `<button>`. You'll also pass a ref down to `<SearchInput>`, which will forward it to the real `<input>` and populate it. Finally, in the click handler, you'll call `focus` on the DOM node stored inside that ref.
+Necesitarás agregar un `onClick` accesorio al `SearchButton`, a y hacer que lo `SearchButton` pase al navegador `<button>`.  También pasará una referencia a `<SearchInput>`,  que la reenviará al real `<input>` y la completará. Finalmente, en el controlador de clics, llamará `focus` al nodo DOM almacenado dentro de esa referencia.
 
 <Sandpack>
 
