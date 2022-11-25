@@ -18,7 +18,7 @@ useDebugValue(value, format?)
 
 ## Uso {/*usage*/}
 
-### Añadiendo una etiqueta a un Hook personalizado {/*adding-a-label-to-a-custom-hook*/}
+### Añadir una etiqueta a un Hook personalizado {/*adding-a-label-to-a-custom-hook*/}
 
 Llama a `useDebugValue` al principio de tu [Hook personalizado](/learn/reusing-logic-with-custom-hooks) para mostrar un <CodeStep step={1}>valor de depuración</CodeStep> legible para las [herramientas de desarrollo de React.](/learn/react-developer-tools)
 
@@ -120,6 +120,6 @@ function useOnlineStatus() {
 * `format` **opcional**: Una función de formateo. Cuando la función es inspeccionada, las herramientas de desarrollo de React llamará la función de formateo con `value` como argumento, y mostrará el valor formateado que es retornado (que puede tener cualquier tipo). Si no especificas la función de formateo, el mismo valor `value` original se mostrará
 
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`useDebugValue` no retorna nada.
+`useDebugValue` no devuelve nada.
