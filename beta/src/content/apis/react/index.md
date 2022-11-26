@@ -80,7 +80,7 @@ function MyComponent() {
 
 </YouWillLearnCard>
 
-<YouWillLearnCard title="createContext" path="/apis/react/useContext">
+<YouWillLearnCard title="createContext" path="/apis/react/createContext">
 
 Creates a context that components can provide or read.
 
@@ -234,7 +234,7 @@ React.cloneElement(element, props);
 
 <YouWillLearnCard title="isValidElement" path="/apis/react/isValidElement">
 
-Verifies the object is a React element:
+Verifica que el objeto es un elemento de React:
 
 ```js
 React.isValidElement(object);

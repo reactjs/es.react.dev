@@ -39,7 +39,7 @@ In this example, notice that the `Greeting` component re-renders whenever `name`
 <Sandpack>
 
 ```js
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 export default function MyApp() {
   const [name, setName] = useState('');
@@ -109,7 +109,7 @@ Even when a component is memoized, it will still re-render when its own state ch
 <Sandpack>
 
 ```js
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 export default function MyApp() {
   const [name, setName] = useState('');
@@ -184,7 +184,7 @@ Even when a component is memoized, it will still re-render when a context that i
 <Sandpack>
 
 ```js
-import { createContext, memo, useContext, useEffect, useState } from 'react';
+import { createContext, memo, useContext, useState } from 'react';
 
 const ThemeContext = createContext(null);
 
@@ -331,7 +331,7 @@ Avoid doing deep equality checks inside `arePropsEqual` unless you are 100% sure
 
 ### `memo(Component, arePropsEqual?)` {/*memo*/}
 
-Call `memo` outside of any components to define a memoized version of a component. This memoized component will usually not be re-rendered when its component is re-rendered as long as its props have not changed. But React may still re-render it: memoization is only a performance optimization, not a guarantee.
+Call `memo` outside of any components to define a memoized version of a component. This memoized component will usually not be re-rendered when its parent component is re-rendered as long as its props have not changed. But React may still re-render it: memoization is only a performance optimization, not a guarantee.
 
 ```js
 import { memo } from 'react';
