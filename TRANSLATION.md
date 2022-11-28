@@ -170,7 +170,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | framework | *framework* |
 | function component | componente de función |
 | hook | *hook* |
-| key | *key* |
+| key | *key* (f) |
 | indentation | sangrado o tabulación |
 | lazy initialization | inicialización diferida |
 | library | biblioteca |
@@ -178,6 +178,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | prop / props | prop / props (f) |
 | React element | Elemento de React |
 | render | renderizar (verb), renderizado (noun)
+| ref / refs | ref / refs (f) |
 | shallow rendering | renderizado superficial |
 | set the state | asignar el estado |
 | state | estado |
