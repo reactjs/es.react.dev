@@ -93,7 +93,6 @@ La secuencia será:
 - Si aún no se ha cargado `Comments`, se muestra `CommentsGlimmer` en su lugar.
 - Finalmente, una vez que `Comments` termina de cargarse, reemplaza a `CommentsGlimmer`. 
 
-
 ---
 
 ### Componentes Lazy-loading con Suspense {/*lazy-loading-components-with-suspense*/}
