@@ -54,7 +54,7 @@ Suspense nunca mostrará 'agujeros' involuntarios en tu contenido. Por ejemplo, 
 
 Para revelar el contenido anidado a medida que se carga, es necesario [añadir más límites de suspenso.](#revealing-nested-content-as-it-loads)
 
-<Gotcha>
+<Pitfall>
 
 **Sólo las fuentes de datos habilitadas para la suspensión activarán un límite de suspensión.** Se dice que estas fuentes de datos están *suspendidas* cuando los datos necesarios para la renderización aún no se han cargado. Actualmente, la suspensión sólo es compatible con:
 
@@ -65,7 +65,7 @@ Suspense-enabled todavía no se admite la obtención de datos sin el uso de un f
 
 Suspense no detecta cuando los datos se obtienen dentro de un Effect o un handles de eventos.
 
-</Gotcha>
+</Pitfall>
 
 ---
 
