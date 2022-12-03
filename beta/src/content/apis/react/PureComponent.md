@@ -4,18 +4,18 @@ title: PureComponent
 
 <Pitfall>
 
-We recommend to define components as functions instead of classes. [See how to migrate.](#alternatives)
+Recomendamos definir los componentes como funciones en lugar de clases. [Ver cómo migrar.](#alternatives)
 
 </Pitfall>
 
 <Intro>
 
-`PureComponent` is similar to [`Component`](/apis/react/Component) but it skips re-renders for same props and state. Class components are still supported by React, but we don't recommend using them in new code.
+`PureComponent` es parecido a [`Component`](/apis/react/Component) pero se salta las re-renderizaciones para las mismas props y estado. Los componentes de clase todavía son compatibles con React, pero no recomendamos usarlos en código nuevo.
 
 ```js
 class Greeting extends PureComponent {
   render() {
-    return <h1>Hello, {this.props.name}!</h1>;
+    return <h1>Hola, {this.props.name}!</h1>;
   }
 }
 ```
@@ -26,23 +26,23 @@ class Greeting extends PureComponent {
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Skipping unnecessary re-renders for class components {/*skipping-unnecessary-re-renders-for-class-components*/}
+### Omitir renderizaciones innecesarias para componentes de clase {/*skipping-unnecessary-re-renders-for-class-components*/}
 
-React normally re-renders a component whenever its parent re-renders. As an optimization, you can create a component that React will not re-render when its parent re-renders so long as its new props and state are the same as the old props and state. [Class components](/apis/react/Component) can opt into this behavior by extending `PureComponent`:
+React normalmente vuelve a renderizar un componente cada vez que su elemento principal vuelve a renderizar. Como optimización, puede crear un componente que React no volverá a renderizar cuando su elemento principal vuelva a renderizar, siempre que sus nuevas props y estado sean los mismos que los antiguas props y estado. [Class components](/apis/react/Component) pueden optar por este comportamiento extendiendo `PureComponent`:
 
 ```js {1}
 class Greeting extends PureComponent {
   render() {
-    return <h1>Hello, {this.props.name}!</h1>;
+    return <h1>Hola, {this.props.name}!</h1>;
   }
 }
 ```
 
-A React component should always have [pure rendering logic.](/learn/keeping-components-pure) This means that it must return the same output if its props, state, and context haven't changed. By using `PureComponent`, you are telling React that your component complies with this requirement, so React doesn't need to re-render as long as its props and state haven't changed. However, your component will still re-render if a context that it's using changes.
+Un componente de React siempre debe tener [lógica de representación pura.](/learn/keeping-components-pure) Esto significa que debe devolver el mismo resultado si sus accesorios, estado y contexto no han cambiado. Al usar `PureComponent`, le está diciendo a React que su componente cumple con este requisito, por lo que React no necesita volver a renderizar siempre que sus accesorios y estado no hayan cambiado. Sin embargo, su componente aún se volverá a representar si cambia un contexto que está usando.
 
-In this example, notice that the `Greeting` component re-renders whenever `name` is changed (because that's one of its props), but not when `address` is changed (because it's not passed to `Greeting` as a prop):
+En este ejemplo, observe que el componente `Greeting` se vuelve a representar cada vez que se cambia `name` (porque ese es uno de sus accesorios), pero no cuando se cambia `address` (porque no se pasa a `Greeting` como accesorio) :
 
 <Sandpack>
 
@@ -51,8 +51,8 @@ import { PureComponent, useState } from 'react';
 
 class Greeting extends PureComponent {
   render() {
-    console.log("Greeting was rendered at", new Date().toLocaleTimeString());
-    return <h3>Hello{this.props.name && ', '}{this.props.name}!</h3>;
+    console.log("El saludo se brindó en", new Date().toLocaleTimeString());
+    return <h3>Hola{this.props.name && ', '}{this.props.name}!</h3>;
   }
 }
 
@@ -62,11 +62,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -86,17 +86,17 @@ label {
 
 <Pitfall>
 
-We recommend to define components as functions instead of classes. [See how to migrate.](#alternatives)
+Recomendamos definir los componentes como funciones en lugar de clases. [Ver cómo migrar.](#alternatives)
 
 </Pitfall>
 
 ---
 
-## Alternatives {/*alternatives*/}
+## Alternativas {/*alternatives*/}
 
-### Migrating from a `PureComponent` class component to a function {/*migrating-from-a-purecomponent-class-component-to-a-function*/}
+### Migración de un componente de clase `PureComponent` a una función {/*migrating-from-a-purecomponent-class-component-to-a-function*/}
 
-We recommend to use function components instead of [class components](/apis/react/Component) in the new code. If you have some existing class components using `PureComponent`, here is how you can convert them. This is the original code:
+Recomendamos usar componentes de función en lugar de [componentes de clase](/apis/react/Component) en el nuevo código. Si tiene algunos componentes de clase existentes que usan `PureComponent`, así es como puede convertirlos. Este es el código original:
 
 <Sandpack>
 
@@ -105,8 +105,8 @@ import { PureComponent, useState } from 'react';
 
 class Greeting extends PureComponent {
   render() {
-    console.log("Greeting was rendered at", new Date().toLocaleTimeString());
-    return <h3>Hello{this.props.name && ', '}{this.props.name}!</h3>;
+    console.log("El saludo se brindó en", new Date().toLocaleTimeString());
+    return <h3>Hola{this.props.name && ', '}{this.props.name}!</h3>;
   }
 }
 
@@ -116,11 +116,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -138,7 +138,7 @@ label {
 
 </Sandpack>
 
-When you [convert this component from a class to a function,](/apis/react/Component#alternatives) wrap it in [`memo`:](/apis/react/memo)
+Cuando [conviertes este componente de una clase a una función,](/apis/react/Component#alternatives) envuélvalo en [`memo`:](/apis/react/memo)
 
 <Sandpack>
 
@@ -146,8 +146,8 @@ When you [convert this component from a class to a function,](/apis/react/Compon
 import { memo, useState } from 'react';
 
 const Greeting = memo(function Greeting({ name }) {
-  console.log("Greeting was rendered at", new Date().toLocaleTimeString());
-  return <h3>Hello{name && ', '}{name}!</h3>;
+  console.log("El saludo se brindó en", new Date().toLocaleTimeString());
+  return <h3>Hola{name && ', '}{name}!</h3>;
 });
 
 export default function MyApp() {
@@ -156,11 +156,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -180,31 +180,28 @@ label {
 
 <Note>
 
-Unlike `PureComponent`, [`memo`](/apis/react/memo) does not compare the new and the old state. In function components, calling the [`set` function](/apis/react/useState#setstate) with the same state [already prevents re-renders by default,](/apis/react/memo#updating-a-memoized-component-using-state) even without `memo`.
+A diferencia de `PureComponent`, [`memo`](/apis/react/memo) no compara el nuevo y el viejo estado. En los componentes de función, llamando al[`set` function](/apis/react/useState#setstate) con el mismo estado [ya impide que se vuelvan a renderizar de forma predeterminada,](/apis/react/memo#updating-a-memoized-component-using-state) incluso sin `memo`.
 
 </Note>
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `PureComponent` {/*purecomponent*/}
 
-To skip re-rendering a class component for same props and state, extend `PureComponent` instead of [`Component`:](/apis/react/Component)
+Para omitir volver a renderizar un componente de clase para las mismas props y estado, extienda `PureComponent` en lugar de [`Component`:](/apis/react/Component)
 
 ```js
 import { PureComponent } from 'react';
 
 class Greeting extends PureComponent {
   render() {
-    return <h1>Hello, {this.props.name}!</h1>;
+    return <h1>Hola, {this.props.name}!</h1>;
   }
 }
 ```
 
-`PureComponent` is a subclass of `Component` and supports [all the `Component` APIs.](/apis/react/Component#reference) Extending `PureComponent` is equivalent to defining a custom [`shouldComponentUpdate`](/apis/react/Component#shouldcomponentupdate) method that shallowly compares props and state.
+`PureComponent` es una subclase de `Component` y admite [todas las API de `Component`.](/apis/react/Component#reference)Extender `PureComponent` es equivalente a definir un método personalizado [`shouldComponentUpdate`](/apis/react/Component#shouldcomponentupdate) que compara superficialmente las props y el estado.
 
-
-[See more examples.](#usage)
-
-
+[Ver más ejemplos.](#usage)
