@@ -145,7 +145,9 @@ Ahora tu componente ya es puro, ya que el JSX que devuelve solo depende de la pr
 
 En general, no debes esperar que tus componentes se rendericen en ningún orden en particular. No importa si llamas <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> antes o después <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: ambas fórmulas se resolverán independientemente una de la otra. Del mismo modo, cada componente solo debe "pensar por sí mismo" y no intentar coordinarse o depender de otros durante el renderizado. El renderizado es como un examen escolar: ¡cada componente debe calcular su JSX por su cuenta!
 
-<DeepDive title="Detección de cálculos impuros con Strict Mode">
+<DeepDive>
+
+#### Detección de cálculos impuros con Strict Mode {/*detecting-impure-calculations-with-strict-mode*/}
 
 Aunque es posible que aún no los hayas usado todos, en React hay tres tipos de entradas que puedes leer mientras se renderiza: [props](/learn/passing-props-to-a-component), [state](/learn/state-a-components-memory), y [context.](/learn/passing-data-deeply-with-context) Siempre debes tratar estas entradas como solo lectura.
 
@@ -197,7 +199,9 @@ Si has agotado todas las demás opciones y no puedes encontrar el controlador de
 
 Cuando sea posible, intenta expresar tu lógica con un solo renderizado. ¡Te sorprenderá lo lejos que esto puede llevarte!
 
-<DeepDive title="¿Por qué a React le importa la pureza?">
+<DeepDive>
+
+#### ¿Por qué a React le importa la pureza? {/*why-does-react-care-about-purity*/}
 
 Escribir funciones puras requiere cierto hábito y disciplina. Pero también desbloquea maravillosas oportunidades:
 

@@ -59,7 +59,9 @@ Es muy poco común necesitar `isValidElement`. Es más útil si estás llamando 
 
 A menos que tengas alguna razón muy específica para añadir una comprobación con `isValidElement`, probablemente no la necesites.
 
-<DeepDive title="Elementos de React vs nodos de React">
+<DeepDive>
+
+#### Elementos de React vs nodos de React {/*react-elements-vs-react-nodes*/}
 
 Cuando escribas un componente, puedes devolver cualquier tipo de *nodo de React* de él:
 

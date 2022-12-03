@@ -166,7 +166,9 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-<DeepDive title="La mutación local es correcta">
+<DeepDive>
+
+#### La mutación local es correcta {/*local-mutation-is-fine*/}
 
 Un código como este es un problema porque modifica un objeto *existente* en el estado:
 
@@ -371,7 +373,9 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las cosas a un nivel de profundidad. Esto lo hace rápido, pero también significa que si quieres actualizar una propiedad anidada, tendrás que usarla más de una vez. 
 
-<DeepDive title="Utilizar un único manejador de eventos para diversos campos">
+<DeepDive>
+
+#### Utilizar un único manejador de eventos para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
 También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
 
@@ -590,7 +594,9 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-<DeepDive title="Los objetos no están realmente anidados">
+<DeepDive>
+
+#### Los objetos no están realmente anidados {/*objects-are-not-really-nested*/}
 
 Un objeto de este tipo aparece "anidado" en el código:
 
@@ -656,7 +662,9 @@ updatePerson(draft => {
 
 Pero a diferencia de una mutación normal, ¡no sobrescribe el estado anterior!
 
-<DeepDive title="¿Cómo funciona Immer?">
+<DeepDive>
+
+#### ¿Cómo funciona Immer? {/*how-does-immer-work*/}
 
 El borrador (`draft`) proporcionado por Immer es un tipo especial de objeto, llamado [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), que "registra" lo que haces con él. Por eso, ¡puedes mutar libremente todo lo que quieras! Bajo el capó, Immer se da cuenta de qué partes del "borrador" han sido cambiadas, y produce un objeto completamente nuevo que contiene tus ediciones.
 
@@ -783,7 +791,9 @@ img { width: 200px; height: 200px; }
 
 Fíjate en lo mucho más concisos que se han vuelto los manejadores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los manejadores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
 
-<DeepDive title="¿Por qué no se recomienda mutar el estado en React?">
+<DeepDive>
+
+#### ¿Por qué no se recomienda mutar el estado en React? {/*why-is-mutating-state-not-recommended-in-react*/}
 
 Hay algunas razones:
 
