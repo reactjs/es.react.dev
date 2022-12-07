@@ -391,7 +391,6 @@ const [status, setStatus] = useState('typing'); // 'typing', 'submitting', or 's
 ```
 Sabes que son esenciales, porque no puedes eliminar ninguno de ellos sin romper la funcionalidad.
 
-<DeepDive title="Eliminando estados “imposibles” con un reducer">
 <DeepDive>
 
 #### Eliminando estados “imposibles” con un reducer {/*eliminating-impossible-states-with-a-reducer*/}
