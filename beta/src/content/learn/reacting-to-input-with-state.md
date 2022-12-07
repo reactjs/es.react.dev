@@ -314,30 +314,18 @@ Páginas como estas son comúnmente llamadas como "living styleguides" or "story
 
 ### Step 2: Determina qué produce esos cambios de estado {/*step-2-determine-what-triggers-those-state-changes*/}
 
-<<<<<<< Updated upstream
-You can trigger state updates in response to two kinds of inputs:
-=======
+
+Puedes desencadenar actualizaciones de estado en respuesta a dos tipos de entradas:
+
+* **Entradas humanas,** como hacer click en un botón, escribir en un campo, navegar a un link.
+* **Entradas del ordenador,** como recibir una respuesta del navegador, que se complete un timeout, una imagen cargando.
+
 <IllustrationBlock title="Types of inputs">
   <Illustration caption="Entradas humanas" alt="Un dedo." src="/images/docs/illustrations/i_inputs1.png" />
   <Illustration caption="Entradas del ordenador" alt="Unos y ceros." src="/images/docs/illustrations/i_inputs2.png" />
 </IllustrationBlock>
 
-Puedes desencadenar actualizaciones de estado en respuesta a dos tipos de entradas:
->>>>>>> Stashed changes
-
-* **Entradas humanas,** como hacer click en un botón, escribir en un campo, navegar a un link.
-* **Entradas del ordenador,** como recibir una respuesta del navegador, que se complete un timeout, una imagen cargando.
-
-<<<<<<< Updated upstream
-<IllustrationBlock>
-  <Illustration caption="Human inputs" alt="A finger." src="/images/docs/illustrations/i_inputs1.png" />
-  <Illustration caption="Computer inputs" alt="Ones and zeroes." src="/images/docs/illustrations/i_inputs2.png" />
-</IllustrationBlock>
-
-In both cases, **you must set [state variables](/learn/state-a-components-memory#anatomy-of-usestate) to update the UI.** For the form you're developing, you will need to change state in response to a few different inputs:
-=======
 En ambos casos, **debes declarar [variables de estado](/learn/state-a-components-memory#anatomy-of-usestate) para actualizar la UI.** Para el formulario que vas a desarrollar, necesitarás cambiar el estado en respuesta de diferentes entradas:
->>>>>>> Stashed changes
 
 * **Cambiar la entrada de texto** (humano) debería cambiar del estado *Vacío* al estado *Escribiendo* o al revés, dependiendo de si la caja de texto está vacía o no.
 * **Hacer click el el botón Enviar** (humano) debería cambiarlo al estado *Enviando* .
@@ -404,16 +392,12 @@ const [status, setStatus] = useState('typing'); // 'typing', 'submitting', or 's
 Sabes que son esenciales, porque no puedes eliminar ninguno de ellos sin romper la funcionalidad.
 
 <DeepDive title="Eliminando estados “imposibles” con un reducer">
-
-<<<<<<< Updated upstream
 <DeepDive>
 
-#### Eliminating “impossible” states with a reducer {/*eliminating-impossible-states-with-a-reducer*/}
+#### Eliminando estados “imposibles” con un reducer {/*eliminating-impossible-states-with-a-reducer*/}
 
-These three variables are a good enough representation of this form's state. However, there are still some intermediate states that don't fully make sense. For example, a non-null `error` doesn't make sense when `status` is `'success'`. To model the state more precisely, you can [extract it into a reducer.](/learn/extracting-state-logic-into-a-reducer) Reducers let you unify multiple state variables into a single object and consolidate all the related logic!
-=======
 Estas tres variables son una representación suficientemente buena del estado de este formulario. Sin embargo, todavía hay algunos estados intermedios que no tienen sentido. Por ejemplo, un `error` no nulo no tiene sentido cuando `status` es `'success'`. Para modelar el estado con más precisión, puede [extraerlo en un reducer.](/learn/extracting-state-logic-into-a-reducer) ¡Los reducers le permiten unificar múltiples variables de estado en un solo objeto y consolidar toda la lógica relacionada!
->>>>>>> Stashed changes
+
 
 </DeepDive>
 
