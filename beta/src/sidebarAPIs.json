@@ -1,5 +1,5 @@
 {
-  "title": "API Reference",
+  "title": "Referencia de la API",
   "heading": true,
   "path": "/apis",
   "routes": [
@@ -76,7 +76,7 @@
           ]
         },
         {
-          "title": "react: Other APIs",
+          "title": "react: Otras APIs",
           "path": "/apis/react/other",
           "routes": [
             {
@@ -199,7 +199,7 @@
           ]
         },
         {
-          "title": "react: Legacy APIs",
+          "title": "react: APIs legadas",
           "path": "/apis/react/legacy",
           "hasSeparator": true,
           "routes": [
