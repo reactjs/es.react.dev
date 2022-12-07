@@ -1,10 +1,10 @@
 ---
-title: Fragment (<>...</>)
+title: Fragmento (<>...</>)
 ---
 
 <Intro>
 
-The `Fragment` component, which is often used via the `<>...</>` syntax, lets you render multiple elements in place of one, without wrapping them in any other container element.
+El componente `Fragment`, que es se suele utilizar a través de la sintaxis `<>...</>`, te permite renderizar múltiples elementos en lugar de uno, sin tener que envolverlos dentro de otro elemento contenedor.
 
 ```js
 <>
@@ -19,11 +19,11 @@ The `Fragment` component, which is often used via the `<>...</>` syntax, lets yo
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Returning multiple elements {/*returning-multiple-elements*/}
+### Retornar múltiples elementos {/*returning-multiple-elements*/}
 
-Use `Fragment`, or the equivalent `<>...</>` syntax, to group multiple elements together. You can use it to put multiple elements in any place where a single element can go. For example, a component can only return one element, but by using a Fragment you can group multiple elements together and then return them as a group:
+Usa `Fragment`, o la sintaxis equivalente `<>...</>`, para agrupar múltiples elementos. Puedes usarlo para poner múltiples elementos en cualquier lugar donde un solo elemento puede ir. Por ejemplo, un componente solo puede retornar un elemento, pero usando un Fragmento puedes agrupar múltiples elementos y retornarlos como un grupo:
 
 ```js {3,6}
 function Post() {
@@ -36,7 +36,7 @@ function Post() {
 }
 ```
 
-Fragments are useful because grouping elements with a Fragment has no effect on layout or styles, unlike if you wrapped the elements in some other container such as a DOM element. If you inspect this example with the browser tools, you'll see that all `<h1>` and `<p>` DOM nodes appear as siblings without wrappers around them:
+Los Fragmentos son útiles porque la agrupación de elementos con un Fragmento no tiene efecto en el diseño o los estilos, al contrario de cómo sería si envolvieras los elementos dentro de cualquier otro contenedor tal como un elemento del DOM. Si inspeccionas este ejemplo con las herramientas del navegador, verás que todos los nodos del DOM `<h1>` y `<p>` aparecen como hermanos sin envoltorios alrededor de ellos:
 
 <Sandpack>
 
@@ -74,9 +74,11 @@ function PostBody({ body }) {
 
 </Sandpack>
 
-<DeepDive title="How to write a Fragment without the special syntax?">
+<DeepDive>
 
-The example above is equivalent to importing `Fragment` from React:
+#### ¿Como escribir un fragmento sin la sintaxis especial? {/*how-to-write-a-fragment-without-the-special-syntax*/}
+
+El ejemplo anterior es equivalente a importar `Fragment` de React:
 
 ```js {1,5,8}
 import { Fragment } from 'react';
@@ -91,15 +93,15 @@ function Post() {
 }
 ```
 
-Usually you won't need this unless you need to [pass a `key` to your `Fragment`.](#rendering-a-list-of-fragments)
+Usualmente no necesitarás esto a menos que necesites [pasar una `key` a tu `Fragment`.](#rendering-a-list-of-fragments)
 
 </DeepDive>
 
 ---
 
-### Assigning multiple elements to a variable {/*assigning-multiple-elements-to-a-variable*/}
+### Asignar múltiples elementos a una variable {/*assigning-multiple-elements-to-a-variable*/}
 
-Like any other element, you can assign Fragment elements to variables, pass them as props, and so on:
+Como cualquier otro elemento, puedes asignar Fragmentos a variables, pasarlos como props, y así sucesivamente:
 
 ```js
 function CloseDialog() {
@@ -119,9 +121,9 @@ function CloseDialog() {
 
 ---
 
-### Grouping elements with text {/*grouping-elements-with-text*/}
+### Agrupar elementos con texto {/*grouping-elements-with-text*/}
 
-You can use `Fragment` to group text together with components:
+Puedes usar `Fragment` para agrupar texto con componentes:
 
 ```js
 function DateRangePicker({ start, end }) {
@@ -138,9 +140,9 @@ function DateRangePicker({ start, end }) {
 
 ---
 
-### Rendering a list of Fragments {/*rendering-a-list-of-fragments*/}
+### Renderizar una lista de fragmentos {/*rendering-a-list-of-fragments*/}
 
-Here's a situation where you need to write `Fragment` explicitly instead of using the `<></>` syntax. When you [render multiple elements in a loop](/learn/rendering-lists), you need to assign a `key` to each element. If the elements within the loop are Fragments, you need to use the normal JSX element syntax in order to provide the `key` attribute:
+Esta es una situación donde necesitas escribir `Fragment` explicitamente en lugar de usar la sintaxis `<></>`. Cuando [renderizas múltiples elementos dentro de un bucle](/learn/rendering-lists), necesitas asignar una `key` a cada elemento. Si los elementos dentro del bucle son Fragmentos, necesitar usar la sintaxis habitual de un elemento JSX con el fin de proveer el atributo `key`:
 
 ```js {3,6}
 function Blog() {
@@ -153,7 +155,7 @@ function Blog() {
 }
 ```
 
-You can inspect the DOM to verify that there are no wrapper elements around the Fragment children:
+Puedes inspeccionar el DOM para verificar que no hay ningun envoltorio alrededor del Fragmento hijo:
 
 <Sandpack>
 
@@ -191,20 +193,20 @@ function PostBody({ body }) {
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `Fragment` {/*fragment*/}
 
-Wrap elements in `<Fragment>` to group them together in situations where you need a single element. Grouping elements in `Fragment` has no effect on the resulting DOM; it is the same as if the elements were not grouped. The empty JSX tag `<></>` is shorthand for `<Fragment></Fragment>` in most cases.
+Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde necesites un solo elemento. Agrupar elementos en `Fragment` no tiene efecto en el DOM resultante; ya que quedará igual que si los elementos no estuvieran agrupados. La etiqueta JSX vacía `<></>` es la abreviatura de `<Fragment></Fragment>` en la mayoría de los casos.
 
 #### Props {/*fragment-props*/}
 
-- **optional** `key`: Fragments declared with the explicit `<Fragment>` syntax may have [keys.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-- If you want to pass `key` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment key={yourKey}>...</Fragment>`.
+- Si quisieras pasarle una `key` a un Fragmento, no podrias usar la sintaxis `<>...</>`. Tendrias que importar explícitamente `Fragment` desde `'react'` y renderizar `<Fragment key={yourKey}>...</Fragment>`.
 
-- React does not [reset state](/learn/preserving-and-resetting-state) when you go from rendering `<><Child /></>` to `[<Child />]` or back, or when you go from rendering `<><Child /></>` to `<Child />` and back. This only works a single level deep: for example, going from `<><><Child /></></>` to `<Child />` resets the state. See the precise semantics [here.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
+- React no [restablece el estado](/learn/preserving-and-resetting-state) cuando renderizas desde un `<><Child /></>` a un `[<Child />]` y viceversa, o cuando renderizas desde un `<><Child /></>` a un `<Child />` y viceversa. Ten en cuenta de que esto sólo funciona a un nivel de profundidad: por ejemplo, ir desde un `<><><Child /></></>` a un `<Child />` restablece el estado. Échale un ojo a la sintaxis en detalle [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
 

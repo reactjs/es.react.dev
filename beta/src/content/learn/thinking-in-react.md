@@ -199,11 +199,11 @@ td {
 
 Después de construir tus componentes, tendrás una biblioteca de componentes reutilizables que renderizan tu modelo de datos. Dado que esta es una aplicación estática, los componentes solo devuelven JSX. El componente en la cima de la jerarquía (`FilterableProductTable`) tomará tu modelo de datos como una prop. Este se conoce como _flujo de datos en un sentido_, porque estos datos fluyen hacia abajo desde el componente en el nivel superior hacia aquellos que están al final del árbol.
 
-<Gotcha>
+<Pitfall>
 
 En este punto, no deberías estar usando ningún valor de estado. ¡Eso es para el próximo paso!
 
-</Gotcha>
+</Pitfall>
 
 ## Paso 3: Encuentra la representación mínima pero completa del estado de la UI {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
@@ -235,7 +235,9 @@ Veámoslos uno por uno nuevamente:
 
 ¡Esto significa que solo el texto de búsqueda y el valor del *checkbox* son estado! ¡Bien hecho!
 
-<DeepDive title="Props vs. estado">
+<DeepDive>
+
+#### Props vs. estado {/*props-vs-state*/}
 
 Hay dos formas de «modelar» datos en React: props y estado. Las dos son muy diferentes:
 

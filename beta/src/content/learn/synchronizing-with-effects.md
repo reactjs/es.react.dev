@@ -209,7 +209,7 @@ In this example, the "external system" you synchronized to React state was the b
 
 Note that controlling a video player is much more complex in practice. Calling `play()` may fail, the user might play or pause using the built-in browser controls, and so on. This example is very simplified and incomplete.
 
-<Gotcha>
+<Pitfall>
 
 By default, Effects run after *every* render. This is why code like this will **produce an infinite loop:**
 
@@ -224,7 +224,7 @@ Effects run as a *result* of rendering. Setting state *triggers* rendering. Sett
 
 Effects should usually synchronize your components with an *external* system. If there's no external system and you only want to adjust some state based on other state, [you might not need an Effect.](/learn/you-might-not-need-an-effect)
 
-</Gotcha>
+</Pitfall>
 
 ### Step 2: Specify the Effect dependencies {/*step-2-specify-the-effect-dependencies*/}
 
@@ -401,7 +401,7 @@ The dependency array can contain multiple dependencies. React will only skip re-
 
 **Notice that you can't "choose" your dependencies.** You will get a lint error if the dependencies you specified don't match what React expects based on the code inside your Effect. This helps catch many bugs in your code. If your Effect uses some value but you *don't* want to re-run the Effect when it changes, you'll need to [*edit the Effect code itself* to not "need" that dependency.](/learn/lifecycle-of-reactive-effects#what-to-do-when-you-dont-want-to-re-synchronize)
 
-<Gotcha>
+<Pitfall>
 
 The behaviors *without* the dependency array and with an *empty* `[]` dependency array are very different:
 
@@ -421,9 +421,11 @@ useEffect(() => {
 
 We'll take a close look at what "mount" means in the next step.
 
-</Gotcha>
+</Pitfall>
 
-<DeepDive title="Why was the ref omitted from the dependency array?">
+<DeepDive>
+
+#### Why was the ref omitted from the dependency array? {/*why-was-the-ref-omitted-from-the-dependency-array*/}
 
 This Effect uses _both_ `ref` and `isPlaying`, but only `isPlaying` is declared as a dependency:
 
@@ -688,7 +690,9 @@ function TodoList() {
 
 This will not only improve the development experience, but also make your application feel faster. For example, the user pressing the Back button won't have to wait for some data to load again because it will be cached. You can either build such a cache yourself or use one of the many existing alternatives to manual fetching in Effects.
 
-<DeepDive title="What are good alternatives to data fetching in Effects?">
+<DeepDive>
+
+#### What are good alternatives to data fetching in Effects? {/*what-are-good-alternatives-to-data-fetching-in-effects*/}
 
 Writing `fetch` calls inside Effects is a [popular way to fetch data](https://www.robinwieruch.de/react-hooks-fetch-data/), especially in fully client-side apps. This is, however, a very manual approach and it has significant downsides:
 
@@ -831,7 +835,9 @@ Finally, edit the component above and **comment out the cleanup function** so th
 
 Three seconds later, you should see a sequence of logs (`a`, `ab`, `abc`, `abcd`, and `abcde`) rather than five `abcde` logs. **Each Effect "captures" the `text` value from its corresponding render.**  It doesn't matter that the `text` state changed: an Effect from the render with `text = 'ab'` will always see `'ab'`. In other words, Effects from each render are isolated from each other. If you're curious how this works, you can read about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
 
-<DeepDive title="Each render has its own Effects">
+<DeepDive>
+
+#### Each render has its own Effects {/*each-render-has-its-own-effects*/}
 
 You can think of `useEffect` as "attaching" a piece of behavior to the render output. Consider this Effect:
 
