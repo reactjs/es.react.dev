@@ -239,13 +239,9 @@ export default function Form({
 
 </Sandpack>
 
-<<<<<<< Updated upstream
 <DeepDive>
 
-#### Displaying many visual states at once {/*displaying-many-visual-states-at-once*/}
-=======
-<DeepDive title="Mostrando muchos estados visuales a la vez">
->>>>>>> Stashed changes
+#### Mostrando muchos estados visuales a la vez {/*displaying-many-visual-states-at-once*/}
 
 Si un componente tiene un monton de estados visuales, puede resultar conveniente mostrarlos todos en una página:
 
