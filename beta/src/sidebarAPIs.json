@@ -1,5 +1,5 @@
 {
-  "title": "APIs",
+  "title": "Referencia de la API",
   "heading": true,
   "path": "/apis",
   "routes": [
@@ -25,17 +25,11 @@
             },
             {
               "title": "useDeferredValue",
-              "path": "/apis/react/useDeferredValue",
-              "wip": true
+              "path": "/apis/react/useDeferredValue"
             },
             {
               "title": "useEffect",
               "path": "/apis/react/useEffect"
-            },
-            {
-              "title": "useEvent",
-              "path": "/apis/react/useEvent",
-              "wip": true
             },
             {
               "title": "useId",
@@ -73,18 +67,16 @@
             },
             {
               "title": "useSyncExternalStore",
-              "path": "/apis/react/useSyncExternalStore",
-              "wip": true
+              "path": "/apis/react/useSyncExternalStore"
             },
             {
               "title": "useTransition",
-              "path": "/apis/react/useTransition",
-              "wip": true
+              "path": "/apis/react/useTransition"
             }
           ]
         },
         {
-          "title": "react: Other APIs",
+          "title": "react: Otras APIs",
           "path": "/apis/react/other",
           "routes": [
             {
@@ -93,7 +85,8 @@
             },
             {
               "title": "<StrictMode>",
-              "path": "/apis/react/StrictMode"
+              "path": "/apis/react/StrictMode",
+              "wip": true
             },
             {
               "title": "<Suspense>",
@@ -206,7 +199,7 @@
           ]
         },
         {
-          "title": "react: Legacy APIs",
+          "title": "react: APIs legadas",
           "path": "/apis/react/legacy",
           "hasSeparator": true,
           "routes": [

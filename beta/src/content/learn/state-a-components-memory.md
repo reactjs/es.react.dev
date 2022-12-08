@@ -516,9 +516,11 @@ button {
 
 </Sandpack>
 
-Es una buena idea tener múltiples variables de estado si no se encuentran relacionadas entre sí, como `index` y `showMore` en este ejemplo. Pero si encontramso que a menudo cambiamos dos variables de estado juntas, podría ser mejor combinarlas en una sola. Por ejemplo, si tenemos un formulario con muchos campos, es más conveniente tener una única variable de estado que contenga un objeto que una variable de estado por campo. [Elegir la estructura del estado](/learn/choosing-the-state-structure) tiene más consejos sobre esto.
+Es una buena idea tener múltiples variables de estado si no se encuentran relacionadas entre sí, como `index` y `showMore` en este ejemplo. Pero si encontramos que a menudo cambiamos dos variables de estado juntas, podría ser mejor combinarlas en una sola. Por ejemplo, si tenemos un formulario con muchos campos, es más conveniente tener una única variable de estado que contenga un objeto que una variable de estado por campo. [Elegir la estructura del estado](/learn/choosing-the-state-structure) tiene más consejos sobre esto.
 
-<DeepDive title="¿Cómo sabe React qué estado devolver?">
+<DeepDive>
+
+#### ¿Cómo sabe React qué estado devolver? {/*how-does-react-know-which-state-to-return*/}
 
 Es posible que hayas notado que la llamada a `useState` no recibe ninguna información sobre *a qué* variable de estado se refiere. No hay un "identificador" que se pase a `useState`, entonces, ¿cómo sabe cuál de las variables de estado debería devolver? ¿Se basa en algún tipo de magia para esto? La respuesta es no.
 

@@ -129,7 +129,9 @@ export default function App() {
 
 Ambos estilos de código están bien, por lo que puedes usar el que prefieras para tu proyecto. El principal beneficio de usar JSX en comparación con `createElement` es que es fácil ver qué etiqueta de cierre corresponde a qué etiqueta de apertura.
 
-<DeepDive title="Qué es exactamente un elemento React?">
+<DeepDive>
+
+#### ¿Qué es exactamente un elemento React? {/*what-is-a-react-element-exactly*/}
 
 Un elemento es una descripción ligera de una pieza de la interfaz de usuario. Por ejemplo, ambos `<Greeting name="Taylor" />` y `createElement(Greeting, { name: 'Taylor' })` producen un objeto como este:
 

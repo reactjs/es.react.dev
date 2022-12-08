@@ -377,7 +377,9 @@ Si todavía no te sientes cómodo con las sentencias switch, está bien usar if/
 
 </Note>
 
-<DeepDive title="¿Por qué los reducers se llaman de esta manera?">
+<DeepDive>
+
+#### ¿Por qué los reducers se llaman de esta manera? {/*why-are-reducers-called-this-way*/}
 
 Aunque los reducers pueden "reducir" la cantidad de código dentro de tu componente, son en realidad llamados así por la operación [`reduce()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) la cual se puede realizar en arrays.
 

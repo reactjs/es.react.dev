@@ -140,7 +140,9 @@ input { margin: 5px; }
 
 </Pitfall>
 
-<DeepDive title="¿Por qué useId es mejor que un contador incremental?">
+<DeepDive>
+
+#### ¿Por qué useId es mejor que un contador incremental? {/*why-is-useid-better-than-an-incrementing-counter*/}
 
 Puede que te preguntes por qué `useId` es mejor que incrementar una variable global como `nextId++`.
 
