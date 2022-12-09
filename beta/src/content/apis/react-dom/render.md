@@ -2,12 +2,13 @@
 title: render
 ---
 
-<Pitfall>
+<Deprecated>
 
 En React 18, `render` fue reemplazado por [`createRoot`.](/apis/react-dom/client/createRoot) Al usar `render` en React 18 se te advertirá que tu aplicación se comportará como si estuviera ejecutándose en React 17. Aprende mas [aquí.](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
 
-</Pitfall>
+This API will be removed in a future major version of React.
 
+</Deprecated>
 
 <Intro>
 
@@ -60,7 +61,7 @@ Generalmente no necesitas llamar a `render` de nuevo o llamarlo en otros lugares
 
 ---
 
-### Renderizar múltiples raíces  {/*rendering-multiple-roots*/}
+### Renderizar múltiples raíces {/*rendering-multiple-roots*/}
 
 Si tu página [no está totalmente construida con React](/learn/add-react-to-a-website), llama a `render` por cada pieza de UI de nivel superior que esté administrada por React.
 
@@ -177,6 +178,14 @@ No es muy común llamar a `render` varias veces. Por lo general lo que debes hac
 ## Referencia {/*reference*/}
 
 ### `render(reactNode, domNode, callback?)` {/*render*/}
+
+<Deprecated>
+
+En React 18, se reemplazó `render` con [`createRoot`.](/apis/react-dom/client/createRoot) Cuando se use `render` en React 18 se advertirá que tu aplicación se comportará como si se estuviera ejecutando en React 18. Más información [aquí.](https://es.reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
+
+Esta API se eliminará en una futura versión mayor de React.
+
+</Deprecated>
 
 Utiliza `render` para mostrar un componente de React dentro de un elemento del DOM del navegador.
 
