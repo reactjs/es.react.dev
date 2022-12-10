@@ -31,7 +31,7 @@ En la Web, HTML nos permite crear documentos estructurados con su conjunto integ
 </article>
 ```
 
-Este marcado representa este artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Un marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
+Este marcado representa un artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Un marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
 
 React te permite combinar tu marcado, CSS y JavaScript en «componentes» personalizados, **elementos reutilizables de UI para tu aplicación.** El código de la tabla de contenidos que viste arriba pudo haberse transformado en un componente `<TableOfContents />` que podrías renderizar en cada página. Por detrás, seguiría utilizando las mismas etiquetas HTML como `<article>`, `<h1>`, etc.
 
@@ -55,7 +55,7 @@ En la medida en que tu proyecto crece, notarás que muchos de tus diseños se pu
 
 ## Definir un componente {/*defining-a-component*/}
 
-Tradicionalmente cuando se crean páginas web, los desarrolladores web usaban lenguaje de marcado para describir el contenido y luego añadían interacciones agregando un poco de JavaScript. Esto funcionaba perfectamente cuando las interacciones eran algo *deseable, pero no imprescindible* en la web. Ahora es algo que se espera de muchos sitios y de todas las aplicaciones. React pone la interactividad primero usando aún la misma tecnología: **un componente de React es una función de JavaScript a la que puedes _agregar markup_**. Aquí vemos cómo luce esto (puede editar el ejemplo de abajo):
+Tradicionalmente, cuando se creaban páginas web, los desarrolladores web usaban lenguaje de marcado para describir el contenido y luego añadían interacciones agregando un poco de JavaScript. Esto funcionaba perfectamente cuando las interacciones eran algo *deseable, pero no imprescindible* en la web. Ahora es algo que se espera de muchos sitios y de todas las aplicaciones. React pone la interactividad primero usando aún la misma tecnología: **un componente de React es una función de JavaScript a la que puedes _agregar markup_**. Aquí vemos cómo luce esto (puede editar el ejemplo de abajo):
 
 <Sandpack>
 
@@ -172,7 +172,7 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 ### Anidar y organizar componentes {/*nesting-and-organizing-components*/}
 
-Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a una archivo separado. Aprenderás como hacer esto pronto en la [página sobre *imports*](/learn/importing-and-exporting-components).
+Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a un archivo separado. Aprenderás como hacer esto pronto en la [página sobre *imports*](/learn/importing-and-exporting-components).
 
 Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un «hijo». Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
@@ -207,7 +207,9 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 </Pitfall>
 
-<DeepDive title="Componentes de arriba a abajo">
+<DeepDive>
+
+#### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
 Tu aplicación de React comienza en un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
 
@@ -288,13 +290,13 @@ Puedes estar preguntándote por qué escribir solo `export` no es suficiente par
 
 </Solution>
 
-### Arregla la sentencia return {/*fix-the-return-statement*/}
+#### Arregla la sentencia de retorno {/*fix-the-return-statement*/}
 
 Algo no está bien con esta sentencia `return`. ¿Puedes arreglarla?
 
 <Hint>
 
-Puede que tengas un error «Unexpected token» mientras intentas arreglar este ejemplo. En ese caso, chequea que el punto y coma aparece *después* del paréntesis de cierre. Si dejas un punto y coma dentro de `return ( )` ocurrirá un error.
+Puede que tengas un error «Unexpected token» mientras intentas arreglar este ejemplo. Si te sucede, probablemente sea porque tienes algún punto y coma dentro de tu JSX, revisa que esté *después* del paréntesis de cierre. Si dejas un punto y coma dentro de un `return ( )` ocurrirá un error.
 
 </Hint>
 
@@ -316,7 +318,7 @@ img { height: 180px; }
 
 <Solution>
 
-Puedes arreglar este componente moviendo la sentencia return a una línea de esta forma:
+Puedes arreglar este componente moviendo la sentencia return a una sola línea de esta forma:
 
 <Sandpack>
 
@@ -332,7 +334,7 @@ img { height: 180px; }
 
 </Sandpack>
 
-O poniendo el marcado JSX que se va retornar dentro de paréntesis que se abren justo luego de `return`:
+O poniendo el marcado JSX que se va a retornar dentro de paréntesis que se abren justo luego del `return`:
 
 <Sandpack>
 

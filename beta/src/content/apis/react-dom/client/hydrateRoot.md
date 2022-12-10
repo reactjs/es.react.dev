@@ -96,6 +96,41 @@ React puede recuperarse de algunos errores de hidratación, pero **debes solucio
 
 </Pitfall>
 
+---
+
+### Hidratar un documento completo {/*hydrating-an-entire-document*/}
+
+Las aplicaciones construidas completamente con React pueden renderizar un documento completo a partir del componente raíz, incluyendo la etiqueta [`html`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html):
+
+```js {3,10}
+function App() {
+  return (
+    <html>
+      <head>
+        <title>My app</title>
+      </head>
+      <body>
+        <Page />
+      </body>
+    </html>
+  );
+}
+```
+
+Para hidratar el documento completo, pasa la variable global [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Window/document) como primer argumento a `hydrateRoot`:
+
+```js {5}
+import {hydrateRoot} from 'react-dom/client';
+import App from './App.js';
+
+hydrateRoot(
+  document,
+  <App />
+);
+```
+
+---
+
 ### Actualización de un componente raíz hidratado {/*updating-a-hydrated-root-component*/}
 
 Después de que la raíz haya terminado de hidratarse, puedes llamar a [`root.render`](#root-render) para actualizar el componente raíz de React. **Al contrario que con [`createRoot`](/apis/react-dom/client/createRoot), normalmente no es necesario hacerlo porque el contenido inicial ya se ha renderizado como HTML.**
@@ -177,6 +212,7 @@ React se unirá al HTML que existe dentro de `domNode`, y se encargará de gesti
 `hydrateRoot` devuelve un objeto con dos métodos: [`render`](#root-render) y [`unmount`.](#root-unmount)
 
 #### Advertencias {/*caveats*/}
+
 * `hydrateRoot()` espera que el contenido renderizado sea idéntico al contenido renderizado por el servidor. Deberías tratar los desajustes como errores y solucionarlos.
 * En el modo de desarrollo, React avisa de los desajustes durante la hidratación. No hay garantías de que las diferencias de atributos sean parcheadas en caso de desajustes. Esto es importante por razones de rendimiento, ya que en la mayoría de las aplicaciones, los desajustes son raros, por lo que validar todo el marcado sería prohibitivamente caro.
 * Es probable que sólo tengas una llamada a `hydrateRoot` en tu aplicación. Si utilizas un *framework*, puede que la haga por ti.
