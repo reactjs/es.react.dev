@@ -98,7 +98,7 @@ Esto permite evitar ejecutar una lógica de formateo potencialmente costosa a no
 
 ## Referencia {/*reference*/}
 
-### `useDebugValue(value, format?)` {/*usedebugvalue*/}
+### `useDebugValue(value, format?)` {/*usedebugvaluevalue-format*/}
 
 Llama a `useDebugValue` en el primer nivel de tu [Hook personalizado](/learn/reusing-logic-with-custom-hooks) para mostrar un valor de depuración legible:
 
