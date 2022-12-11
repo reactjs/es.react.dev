@@ -23,7 +23,7 @@ const root = hydrateRoot(domNode, reactNode, options?)
 Si el HTML de tu aplicación fue generado por [`react-dom/server`](/apis/react-dom/client/createRoot), hay que *hidratarlo* en el cliente.
 
 ```js [[1, 3, "document.getElementById('root')"], [2, 3, "<App />"]]
-import {hydrateRoot} from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
 
 hydrateRoot(document.getElementById('root'), <App />);
 ````
@@ -44,7 +44,7 @@ Para hidratar tu aplicación, React "adjuntará" la lógica de tus componentes a
 
 ```js index.js active
 import './styles.css';
-import {hydrateRoot} from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
 import App from './App.js';
 
 hydrateRoot(
@@ -102,15 +102,18 @@ React puede recuperarse de algunos errores de hidratación, pero **debes solucio
 
 Las aplicaciones construidas completamente con React pueden renderizar un documento completo a partir del componente raíz, incluyendo la etiqueta [`html`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html):
 
-```js {3,10}
+```js {3,13}
 function App() {
   return (
     <html>
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/styles.css"></link>
         <title>My app</title>
       </head>
       <body>
-        <Page />
+        <Router />
       </body>
     </html>
   );
@@ -119,15 +122,104 @@ function App() {
 
 Para hidratar el documento completo, pasa la variable global [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Window/document) como primer argumento a `hydrateRoot`:
 
-```js {5}
-import {hydrateRoot} from 'react-dom/client';
+```js {4}
+import { hydrateRoot } from 'react-dom/client';
 import App from './App.js';
 
-hydrateRoot(
-  document,
-  <App />
-);
+hydrateRoot(document, <App />);
 ```
+
+---
+
+### Suppressing unavoidable hydration mismatch errors {/*suppressing-unavoidable-hydration-mismatch-errors*/}
+
+If a single element’s attribute or text content is unavoidably different between the server and the client (for example, a timestamp), you may silence the hydration mismatch warning.
+
+To silence hydration warnings on an element, add `suppressHydrationWarning={true}`:
+
+<Sandpack>
+
+```html public/index.html
+<!--
+  HTML content inside <div id="root">...</div>
+  was generated from App by react-dom/server.
+-->
+<div id="root"><h1>Current Date: <!-- -->01/01/2020</h1></div>
+```
+
+```js index.js
+import './styles.css';
+import { hydrateRoot } from 'react-dom/client';
+import App from './App.js';
+
+hydrateRoot(document.getElementById('root'), <App />);
+```
+
+```js App.js active
+export default function App() {
+  return (
+    <h1 suppressHydrationWarning={true}>
+      Current Date: {new Date().toLocaleDateString()}
+    </h1>
+  );
+}
+```
+
+</Sandpack>
+
+This only works one level deep, and is intended to be an escape hatch. Don’t overuse it. Unless it’s text content, React still won’t attempt to patch it up, so it may remain inconsistent until future updates.
+
+---
+
+### Handling different client and server content {/*handling-different-client-and-server-content*/}
+
+If you intentionally need to render something different on the server and the client, you can do a two-pass rendering. Components that render something different on the client can read a [state variable](/apis/react/useState) like `isClient`, which you can set to `true` in an [Effect](/apis/react/useEffect):
+
+<Sandpack>
+
+```html public/index.html
+<!--
+  HTML content inside <div id="root">...</div>
+  was generated from App by react-dom/server.
+-->
+<div id="root"><h1>Is Server</h1></div>
+```
+
+```js index.js
+import './styles.css';
+import { hydrateRoot } from 'react-dom/client';
+import App from './App.js';
+
+hydrateRoot(document.getElementById('root'), <App />);
+```
+
+```js App.js active
+import { useState, useEffect } from "react";
+
+export default function App() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return (
+    <h1>
+      {isClient ? 'Is Client' : 'Is Server'}
+    </h1>
+  );
+}
+```
+
+</Sandpack>
+
+This way the initial render pass will render the same content as the server, avoiding mismatches, but an additional pass will happen synchronously right after hydration.
+
+<Pitfall>
+
+This approach makes hydration slower because your components have to render twice. Be mindful of the user experience on slow connections. The JavaScript code may load significantly later than the initial HTML render, so rendering a different UI immediately after hydration may also feel jarring to the user.
+
+</Pitfall>
 
 ---
 
@@ -148,7 +240,7 @@ Si llamas a `root.render` en algún momento después de la hidratación, y la es
 ```
 
 ```js index.js active
-import {hydrateRoot} from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
 import './styles.css';
 import App from './App.js';
 
@@ -179,11 +271,10 @@ export default function App({counter}) {
 
 Es poco común llamar a [`root.render`](#root-render) en una raíz hidratada. Por lo general, lo que deberías hacer es [actualizar el estado](/apis/react/useState) dentro de uno de los componentes.
 
-
 ---
 ## Referencia {/*reference*/}
 
-### `hydrateRoot(domNode, options?)` {/*hydrate-root*/}
+### `hydrateRoot(domNode, options?)` {/*hydrateroot*/}
 
 Llama a `hydrateRoot` para "adjuntar" React al HTML existente que ya fue renderizado por React en un entorno del servidor.
 
@@ -204,8 +295,9 @@ React se unirá al HTML que existe dentro de `domNode`, y se encargará de gesti
 
 * **opcional** `options`: Un objeto que contiene opciones para esta raíz de React.
 
-  * `onRecoverableError`: *callback* opcional que se llama cuando React se recupera automáticamente de los errores.
-  * `identifierPrefix`: prefijo opcional que React utiliza para los IDs generados por [`useId`.](/apis/react/useId) Útil para evitar conflictos cuando se utilizan varias raíces en la misma página. Debe ser el mismo prefijo que se utiliza en el servidor.
+  * **opcional** `onRecoverableError`: *Callback* que se llama cuando React se recupera automáticamente de los errores.
+  * **opcional** `identifierPrefix`: Prefijo que React utiliza para los IDs generados por [`useId`.](/apis/react/useId) Útil para evitar conflictos cuando se utilizan varias raíces en la misma página. Debe ser el mismo prefijo que se utiliza en el servidor.
+  * **opcional** `nonce`:
 
 #### Devuelve {/*returns*/}
 
