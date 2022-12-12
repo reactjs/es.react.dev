@@ -4,7 +4,7 @@ title: useSyncExternalStore
 
 <Intro>
 
-`useSyncExternalStore` is a React Hook that lets you subscribe to an external store.
+`useSyncExternalStore` es un Hook de React que te permite suscribirte a una fuente de almacenamiento de datos externa.
 
 ```js
 const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)
@@ -16,16 +16,16 @@ const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Subscribing to an external store {/*subscribing-to-an-external-store*/}
+### Subscribiéndose a una fuente de almacenamiento datos externa {/*subscribing-to-an-external-store*/}
 
-Most of your React components will only read data from their [props,](/learn/passing-props-to-a-component) [state,](/apis/react/useState) and [context.](/apis/react/useContext) However, sometimes a component needs to read some data from some store outside of React that changes over time. This includes:
+Normalmente la mayoría de tus componentes de React solo leerán datos de sus [propiedades,](/learn/passing-props-to-a-component), [estado,](/apis/react/useState) y [contexto.](/apis/react/useContext). Sin embargo, a veces un componente necesita leer algunos datos de alguna fuente de almacenamiento fuera de React que cambia con el tiempo. Esto incluye:
 
-* Third-party state management libraries that hold state outside of React.
-* Browser APIs that expose a mutable value and events to subscribe to its changes.
+* Bibliotecas de gestión de estado de terceros que mantienen el estado fuera de React.
+* APIs del navegador que exponen un valor mutable y eventos para suscribirse a sus cambios.
 
-Call `useSyncExternalStore` at the top level of your component to read a value from an external data store.
+Llama a `useSyncExternalStore` en el nivel mas alto de tu componente para leer un valor de una fuente de datos externa.
 
 ```js [[1, 5, "todosStore.subscribe"], [2, 5, "todosStore.getSnapshot"], [3, 5, "todos", 0]]
 import { useSyncExternalStore } from 'react';
@@ -37,14 +37,14 @@ function TodosApp() {
 }
 ```
 
-It returns the <CodeStep step={3}>snapshot</CodeStep> of the data in the store. You need to pass two functions as arguments:
+Esto devuelve la <CodeStep step={3}>instantánea</CodeStep> del dato en la fuente de almacenamiento de datos. Necesitas pasar dos funciones como argumentos:
 
-1. The <CodeStep step={1}>`subscribe` function</CodeStep> should subscribe to the store and return a function that unsubscribes.
-2. The <CodeStep step={2}>`getSnapshot` function</CodeStep> should read a snapshot of the data from the store.
+1. La <CodeStep step={1}>función `subscribe`</CodeStep> deberá suscribirse a la fuente de almacenamiento de datos y devolver una función que permita des suscribirse.
+2. La <CodeStep step={2}>función `getSnapshot`</CodeStep> deberá obtener una instantánea del dato de la fuente de almacenamiento de datos.
 
-React will use these functions to keep your component subscribed to the store and re-render it on changes.
+React utilizará estas funciones para mantener tu componente suscrito a la fuente de almacenamiento de datos y volver a renderizarlo con los cambios.
 
-For example, in the sandbox below, `todosStore` is implemented as an external store that stores data outside of React. The `TodosApp` component connects to that external store with the `useSyncExternalStore` Hook. 
+Por ejemplo, en el sandbox de a continuación, `todosStore` se implementa como una fuente de almacenamiento de datos externa que almacena datos fuera de React. El componente `TodosApp` se conecta a esta fuente de almacenamiento externa de datos con el Hook `useSyncExternalStore`.
 
 <Sandpack>
 
@@ -69,11 +69,11 @@ export default function TodosApp() {
 ```
 
 ```js todoStore.js
-// This is an example of a third-party store
-// that you might need to integrate with React.
+// Este es un ejemplo de una fuente de almacenamiento de datos de terceros
+// que podría necesitar integrar con React.
 
-// If your app is fully built with React,
-// we recommend using React state instead.
+// Si su aplicación está completamente construida con React,
+// recomendamos usar el control de estado de React en su lugar.
 
 let nextId = 0;
 let todos = [{ id: nextId++, text: 'Todo #1' }];
@@ -106,15 +106,15 @@ function emitChange() {
 
 <Note>
 
-When possible, we recommend to use the built-in React state with [`useState`](/apis/react/useState) and [`useReducer`](/apis/react/useReducer) instead. The `useExternalSyncStore` API is mostly useful if you need to integrate with existing non-React code.
+Cuando sea posible, recomendamos usar el control de estado incorporado en React con [`useState`](/apis/react/useState) y [`useReducer`](/apis/react/useReducer) en su lugar. La `useExternalSyncStore` API is principalmente útil si necesita integrarse con código existente que no sea de React.
 
 </Note>
 
 ---
 
-### Subscribing to a browser API {/*subscribing-to-a-browser-api*/}
+### Subscribiéndose a una API de navegador {/*subscribing-to-a-browser-api*/}
 
-Another reason to add `useSyncExternalStore` is when you want to subscribe to some value exposed by the browser that changes over time. For example, suppose that you want your component to display whether the network connection is active. The browser exposes this information via a property called [`navigator.onLine`.](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) This value can change over time without React's knowledge, so you need to read it with `useSyncExternalStore`.
+Otra razón para usar `useSyncExternalStore` es cuando desea suscribirse a algún valor expuesto por el navegador que cambia con el tiempo. Por ejemplo, suponga que desea que su componente muestre si la conexión de red está activa. El navegador expone esta información a través de una propiedad llamada [`navigator.onLine`.](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) Este valor puede cambiar con el tiempo sin que React sea notificado, por lo que necesitas leerlo con `useSyncExternalStore`.
 
 ```js
 import { useSyncExternalStore } from 'react';
@@ -124,8 +124,7 @@ function ChatIndicator() {
   // ...
 }
 ```
-
-To implement the `getSnapshot` function, read the current value from the browser API:
+Para implementar la función `getSnapshot`, lee el valor actual de la API del navegador:
 
 ```js
 function getSnapshot() {
@@ -133,7 +132,7 @@ function getSnapshot() {
 }
 ```
 
-Next, you need to implement the `subscribe` function. For example, when `navigator.onLine` changes, the browser fires the [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) and [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) events on the `window` object. You need to subscribe the `callback` argument to the corresponding events, and then return a function that cleans up the subscriptions:
+A continuación, debes implementar la función `subscribe`. Por ejemplo, cuando `navigator.onLine` cambia, el navegador activa los eventos [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) y [`offline` ](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) en el objeto `window`. Debe suscribir el argumento `callback` a los eventos correspondientes y luego devolver una función que limpie estas suscripciones:
 
 ```js
 function subscribe(callback) {
@@ -146,7 +145,7 @@ function subscribe(callback) {
 }
 ```
 
-Now React knows how to read the value from the external `navigator.onLine` API and how to subscribe to its changes. Try to disconnect your device from the network and notice that the component re-renders in response:
+Ahora React sabe cómo leer el valor de la API `navigator.onLine` externa y cómo suscribirse a sus cambios. Intente desconectar su dispositivo de la red y observe que el componente se vuelve a renderizar en respuesta:
 
 <Sandpack>
 
@@ -176,11 +175,11 @@ function subscribe(callback) {
 
 ---
 
-### Extracting the logic to a custom Hook {/*extracting-the-logic-to-a-custom-hook*/}
+### Extrayendo la lógica en un Hook personalizado {/*extracting-the-logic-to-a-custom-hook*/}
 
-Usually you won't write `useSyncExternalStore` directly in your components. Instead, you'll typically call it from your own custom Hook. This lets you use the same external store from different components.
+Por lo general, no deberías escribir `useSyncExternalStore` directamente en tus componentes. En su lugar, normalmente lo llamarás desde tu propio Hook personalizado. Esto te permite usar la misma fuente de almacenamiento externa desde diferentes componentes.
 
-For example, this custom `useOnlineStatus` Hook tracks whether the network is online:
+Por ejemplo, este Hook personalizado `useOnlineStatus` monitoriza si la red está en línea:
 
 ```js {3,6}
 import { useSyncExternalStore } from 'react';
@@ -199,7 +198,7 @@ function subscribe(callback) {
 }
 ```
 
-Now different components can call `useOnlineStatus` without repeating the underlying implementation:
+Ahora diferentes componentes pueden llamar a `useOnlineStatus` sin repetir la implementación subyacente:
 
 <Sandpack>
 
@@ -261,14 +260,14 @@ function subscribe(callback) {
 
 ---
 
-### Adding support for server rendering {/*adding-support-for-server-rendering*/}
+### Añadiendo soporte para la renderización en el servidor {/*adding-support-for-server-rendering*/}
 
-If your React app uses [server rendering,](/apis/react-dom/server) your React components will also run outside the browser environment to generate the initial HTML. This creates a few challenges when connecting to an external store:
+Si su aplicación React usa [renderización en el servidor,](/apis/react-dom/server), sus componentes React también se ejecutarán fuera del entorno del navegador para generar el HTML inicial. Esto crea algunos desafíos cuando se conecta a una fuente de datos externa:
 
-- If you're connecting to a browser-only API, it won't work because it does not exist on the server.
-- If you're connecting to a third-party data store, you'll need its data to match between the server and client.
+- Si se está conectando a una API unicamente de navegador, no funcionará porque no existe en el servidor.
+- Si se está conectando a una fuente de datos externa de terceros, necesitará que sus datos coincidan entre el servidor y el cliente.
 
-To solve these issues, pass a `getServerSnapshot` function as the third argument to `useSyncExternalStore`:
+Para resolver estos problemas, pase una función `getServerSnapshot` como tercer argumento a `useSyncExternalStore`:
 
 ```js {4,12-14}
 import { useSyncExternalStore } from 'react';
@@ -291,26 +290,26 @@ function subscribe(callback) {
 }
 ```
 
-The `getServerSnapshot` function is similar to `getSnapshot`, but it runs only in two situations:
+La función `getServerSnapshot` es similar a `getSnapshot`, pero solo se ejecuta en dos situaciones:
 
-- It runs on the server when generating the HTML.
-- It runs on the client during [hydration](/apis/react-dom/client/hydrateRoot), i.e. when React takes the server HTML and makes it interactive.
+- Se ejecuta en el servidor al generar el HTML.
+- Se ejecuta en el cliente durante la [hidratación](/apis/react-dom/client/hydrateRoot), es decir, cuando React toma el HTML del servidor y lo hace interactivo.
 
-This lets you provide the initial snapshot value which will be used before the app becomes interactive. If there is no meaningful initial value for the server rendering, you can [force the component to render only on the client.](/apis/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
+Esto le permite proporcionar la instantánea del valor inicial que se utilizará antes de que la aplicación se vuelva interactiva. Si no hay un valor inicial significativo para la representación del servidor, puede [forzar el componente para que se renderize solo en el cliente.](/apis/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
 
 <Note>
 
-Make sure that `getServerSnapshot` returns the same exact data on the initial client render as it returned on the server. For example, if `getServerSnapshot` returned some prepopulated store content on the server, you need to transfer this content to the client. One common way to do this is to emit a `<script>` tag that sets a global like `window.MY_STORE_DATA` during server rendering, and then read from that global on the client in `getServerSnapshot`. Your external store should provide instructions on how to do that.
+Asegúrate de que `getServerSnapshot` devuelva exactamente los mismos datos en el renderizado inicial del cliente que en el que es devuelto en el servidor. Por ejemplo, si `getServerSnapshot` devolvió algún contenido prepopulado de la fuente de almacenamiento externa en el servidor, debes transferir este contenido al cliente. Una forma común de hacer esto es emitir una etiqueta `<script>` que establece una propiedad global como `window.MY_STORE_DATA` durante la renderización del servidor, y que permitirá poder leer esa propiedad global desde el cliente en `getServerSnapshot`. Tu fuente de almacenamiento externa debería proporcionar instrucciones sobre cómo hacer esto.
 
 </Note>
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)` {/*usesyncexternalstore*/}
 
-Call `useSyncExternalStore` at the top level of your component to read a value from an external data store.
+Llame a `useSyncExternalStore` en el nivel superior de su componente para leer un valor de una fuente de almacenamiento de datos externa.
 
 ```js
 import { useSyncExternalStore } from 'react';
@@ -322,38 +321,38 @@ function TodosApp() {
 }
 ```
 
-It returns the snapshot of the data in the store. You need to pass two functions as arguments:
+Devuelve la instantánea de los datos en la fuente de almacenamiento de datos externa. Necesitas pasar dos funciones como argumentos:
 
-1. The `subscribe` function should subscribe to the store and return a function that unsubscribes.
-2. The `getSnapshot` function should read a snapshot of the data from the store.
+1. La función `subscribe` debe suscribirse a la fuente de almacenamiento de datos externa y devolver una función que cancela dicha suscripción.
+2. La función `getSnapshot` debería obtener una instantánea de los datos de la fuente de almacenamiento de datos externa.
 
-[See more examples above.](#usage)
+[Ver más ejemplos arriba.](#uso)
 
-#### Parameters {/*parameters*/}
+#### Parametros {/*parameters*/}
 
-* `subscribe`: A function that takes a single `callback` argument and subscribes it to the store. When the store changes, it should invoke the provided `callback`. This will cause the component to re-render. The `subscribe` function should return a function that cleans up the subscription.
+* `subscribe`: Una función que toma un solo argumento `callback` y lo suscribe a la fuente de almacenamiento de datos externa. Cuando la fuente de almacenamiento de datos externa cambia, debe invocar el `callback` proporcionado. Esto hará que el componente se vuelva a rerenderizar. La función `subscribe` debería devolver una función que limpia dicha suscripción.
 
-* `getSnapshot`: A function that returns a snapshot of the data in the store that's needed by the component. While the store has not changed, repeated calls to `getSnapshot` must return the same value. If the store changes and the returned value is different (as compared by [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React will re-render the component.
+* `getSnapshot`: Una función que devuelve una instantánea de los datos de la fuente de almacenamiento externa de datos que necesita el componente. Si bien la fuente de almacenamiento externa de datos no ha cambiado, las llamadas repetidas a `getSnapshot` deben devolver el mismo valor. Si la fuente de almacenamiento externa de datos cambia y el valor devuelto es diferente (usando para la comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) ), React volverá a rerenderizar el componente.
 
-* **optional** `getServerSnapshot`: A function that returns the initial snapshot of the data in the store. It will be used only during server rendering and during hydration of server-rendered content on the client. The server snapshot must be the same between the client and the server, and is usually serialized and passed from the server to the client. If this function is not provided, rendering the component on the server will throw an error.
+* **opcional** `getServerSnapshot`: Una función que devuelve la instantánea inicial de los datos de la fuente de almacenamiento externa de datos. Se usará solo durante la renderización desde el servidor y durante la hidratación del contenido renderizado por el servidor en el cliente. La instantánea del servidor debe ser la misma entre el cliente y el servidor, y generalmente se serializa y pasa del servidor al cliente. Si no se proporciona esta función, la representación del componente en el servidor generará un error.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-The current snapshot of the store which you can use in your rendering logic.
+La instantánea actual de la fuente de almacenamiento externa de datos que puede usar en su lógica de representación.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* The store snapshot returned by `getSnapshot` must be immutable. If the underlying store has mutable data, return a new immutable snapshot if the data has changed. Otherwise, return a cached last snapshot.
+* La instantánea de la fuente de almacenamiento externa de datos devuelta por `getSnapshot` debe ser inmutable. Si el almacén subyacente tiene datos mutables, devuelva una nueva instantánea inmutable si los datos han cambiado. De lo contrario, devuelva la última instantánea almacenada en caché.
 
-* If a different `subscribe` function is passed during a re-render, React will re-subscribe to the store using the newly passed `subscribe` function. You can prevent this by declaring `subscribe` outside the component.
+* Si se pasa una función `subscribe` diferente durante un re-renderizado, React se volverá a suscribir a la fuente de almacenamiento externa de datos usando la función `subscribe` recién pasada. Puede evitar esto declarando `subscribe` fuera del componente.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solución de problemas {/*troubleshooting*/}
 
-### I'm getting an error: "The result of `getSnapshot` should be cached" {/*im-getting-an-error-the-result-of-getsnapshot-should-be-cached*/}
+### Recibo un error: "El resultado de `getSnapshot` debería almacenarse en caché" {/*im-getting-an-error-the-result-of-getsnapshot-should-be-cached*/}
 
-If you get this error, it means your `getSnapshot` function returns a new object every time it's called, for example:
+Si obtiene este error, significa que su función `getSnapshot` devuelve un nuevo objeto cada vez que se llama, por ejemplo:
 
 ```js {2-5}
 function getSnapshot() {
@@ -364,9 +363,9 @@ function getSnapshot() {
 }
 ```
 
-React will re-render the component if `getSnapshot` return value is different from the last time. This is why, if you always return a different value, you will enter an infinite loop and get this error.
+React volverá a rerenderizar el componente si el valor de retorno de `getSnapshot` es diferente al de la última vez. Por eso, si siempre devuelves un valor diferente, entrarás en un bucle infinito y obtendrás este error.
 
-Your `getSnapshot` object should only return a different object if something has actually changed. If your store contains immutable data, you can return that data directly:
+Tu objeto `getSnapshot` solo debería devolver un objeto diferente si algo realmente ha cambiado. Si tu fuente de almacenamiento de datos externa contiene datos inmutables, puede devolver esos datos directamente:
 
 ```js {2-3}
 function getSnapshot() {
@@ -375,19 +374,19 @@ function getSnapshot() {
 }
 ```
 
-If your store data is mutable, your `getSnapshot` function should return an immutable snapshot of it. This means it *does* need to create new objects, but it shouldn't do this for every single call. Instead, it should store the last calculated snapshot, and return the same snapshot as the last time if the data in the store has not changed. How you determine whether mutable data has changed depends on how your mutable store is implemented.
+Si los datos de tu fuente de almacenamiento de datos externa son mutables, tu función `getSnapshot` debería devolver una instantánea inmutable de la misma. Esto significa que *sí* necesita crear nuevos objetos, pero no debería hacer esto en cada llamada. En su lugar, debe almacenar la última instantánea calculada y devolver la misma instantánea que la última vez si los datos almacenados no han cambiado. La forma en que determina si los datos mutables han cambiado depende de cómo se implemente tu fuente de almacenamiento de datos externa mutable.
 
 ---
 
-### My `subscribe` function gets called after every re-render {/*my-subscribe-function-gets-called-after-every-re-render*/}
+### Mi función `subscribe` se llama después de cada re-renderizado {/*my-subscribe-function-gets-called-after-every-re-render*/}
 
-This `subscribe` function is defined *inside* a component so it is different on every re-render:
+Esta función `subscribe` se define *dentro* de un componente, por lo que es diferente en cada re-renderizado:
 
 ```js {4-7}
 function ChatIndicator() {
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
-  
-  // 🚩 Always a different function, so React will resubscribe on every re-render
+
+  // 🚩 Siempre una función diferente, por lo que React se volverá a suscribir en cada re-renderizado
   function subscribe() {
     // ...
   }
@@ -395,8 +394,8 @@ function ChatIndicator() {
   // ...
 }
 ```
-  
-React will resubscribe to your store if you pass a different `subscribe` function between re-renders. If this causes performance issues and you'd like to avoid resubscribing to the store, move the `subscribe` function outside:
+
+React se volverá a suscribir a su fuente de almacenamiento de datos externa si pasa una función de `subscribe` diferente entre re-renderizaciones. Si esto causa problemas de rendimiento y desea evitar volver a suscribirse a la fuente de almacenamiento de datos externa, mueva la función `subscribe` fuera:
 
 ```js {6-9}
 function ChatIndicator() {
@@ -404,18 +403,18 @@ function ChatIndicator() {
   // ...
 }
 
-// ✅ Always the same function, so React won't need to resubscribe
+// ✅ Siempre la misma función, por lo que React no necesitará volver a suscribirse
 function subscribe() {
   // ...
 }
 ```
 
-Alternatively, wrap `subscribe` into [`useCallback`](/apis/react/useCallback) to only resubscribe when some argument changes:
+Alternativamente, puedes envolver `subscribe` con [`useCallback`](/apis/react/useCallback) para solo re-suscribirte cuando algún argumento cambie:
 
 ```js {4-8}
 function ChatIndicator({ userId }) {
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
-  
+
   // ✅ Same function as long as userId doesn't change
   const subscribe = useCallback(() => {
     // ...
