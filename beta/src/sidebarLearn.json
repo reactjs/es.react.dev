@@ -71,7 +71,7 @@
               "path": "/learn/rendering-lists"
             },
             {
-              "title": "Keeping Components Pure",
+              "title": "Mantener los componentes puros",
               "path": "/learn/keeping-components-pure"
             }
           ]
@@ -98,7 +98,7 @@
               "path": "/learn/state-as-a-snapshot"
             },
             {
-              "title": "Queueing a Series of State Updates",
+              "title": "Poner en cola una serie de actualizaciones del estado",
               "path": "/learn/queueing-a-series-of-state-updates"
             },
             {
@@ -106,7 +106,7 @@
               "path": "/learn/updating-objects-in-state"
             },
             {
-              "title": "Updating Arrays in State",
+              "title": "Actualizar arrays en el estado",
               "path": "/learn/updating-arrays-in-state"
             }
           ]
@@ -156,7 +156,7 @@
           ],
           "routes": [
             {
-              "title": "Referencing Values with Refs",
+              "title": "Referenciar valores con refs",
               "path": "/learn/referencing-values-with-refs"
             },
             {
@@ -188,6 +188,25 @@
               "path": "/learn/reusing-logic-with-custom-hooks"
             }
           ]
+        },
+        {
+          "title": "Community",
+          "hasSeparator": true,
+          "path": "/learn/community",
+          "routes": [{
+            "title": "Acknowledgements",
+            "path": "/learn/acknowledgements"
+          }, {
+            "title": "Docs Contributors",
+            "path": "/learn/docs-contributors"
+          }, {
+            "title": "Meet the Team",
+            "path": "/learn/meet-the-team"
+          }]
+        },
+        {
+          "title": "Blog",
+          "path": "https://reactjs.org/blog"
         }
       ]
     }

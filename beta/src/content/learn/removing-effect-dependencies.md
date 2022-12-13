@@ -293,7 +293,9 @@ useEffect(() => {
 
 </Pitfall>
 
-<DeepDive title="¿Por qué es tan peligroso suprimir la advertencia del linter sobre las dependencias?">
+<DeepDive>
+
+#### ¿Por qué es tan peligroso suprimir la advertencia del linter sobre las dependencias? {/*why-is-suppressing-the-dependency-linter-so-dangerous*/}
 
 Suprimir la advertencia del *linter* conduce a errores muy poco intuitivos que son difíciles de encontrar y corregir. Aquí hay un ejemplo:
 

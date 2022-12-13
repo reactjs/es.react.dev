@@ -235,7 +235,9 @@ Veámoslos uno por uno nuevamente:
 
 ¡Esto significa que solo el texto de búsqueda y el valor del *checkbox* son estado! ¡Bien hecho!
 
-<DeepDive title="Props vs. estado">
+<DeepDive>
+
+#### Props vs. estado {/*props-vs-state*/}
 
 Hay dos formas de «modelar» datos en React: props y estado. Las dos son muy diferentes:
 

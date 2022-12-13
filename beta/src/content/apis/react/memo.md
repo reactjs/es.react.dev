@@ -39,7 +39,7 @@ En este ejemplo, fíjate que el componente `Greeting` se re-renderiza siempre qu
 <Sandpack>
 
 ```js
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 export default function MyApp() {
   const [name, setName] = useState('');
@@ -80,7 +80,10 @@ label {
 
 </Note>
 
-<DeepDive title="¿Deberías añadir memo en todos lados?">
+
+<DeepDive>
+
+#### ¿Deberías añadir memo en todos lados? {/*should-you-add-memo-everywhere*/}
 
 Si tu aplicación es como este sitio, y la mayoría de las interacciones son bruscas (como reemplazar una página o una sección completa), la memoización es usualmente innecesaria. Por otro lado, si tu aplicación es más como un editor de dibujos, y la mayoría de las interraciones son granulares (como mover formas), entonces puede que la memoización sea de ayuda. 
 
@@ -109,7 +112,7 @@ Incluso cuando un componente es memoizado, todavía se re-renderizará cuando su
 <Sandpack>
 
 ```js
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 export default function MyApp() {
   const [name, setName] = useState('');
@@ -184,7 +187,7 @@ Incluso cuando un componente es memoizado, todavía se re-renderizará cuando un
 <Sandpack>
 
 ```js
-import { createContext, memo, useContext, useEffect, useState } from 'react';
+import { createContext, memo, useContext, useState } from 'react';
 
 const ThemeContext = createContext(null);
 
@@ -237,12 +240,14 @@ Para hacer que tu componente se re-renderice solo cuando una _parte_ de algún c
 
 ---
 
-### Minimizar los cambios en las props {/*minimizng-props-changes*/}
+
+### Minimizar los cambios en las props {/*minimizing-props-changes*/}
 
 Cuando usas `memo`, tu componente se re-renderiza siempre que cualquier prop no sea *superficialmente igual* a como era previamente. Esto significa que React compara cada prop en tu componente con el valor previo de esas prop utilizando la comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Fíjate que `Object.is(3, 3)` es `true`, pero `Object.is({}, {})` es `false`.
 
 
 Para aprovechar al máximo `memo`, minimiza las veces que las props cambian. Por ejemplo, si la prop es un objeto, evita que el padre vuelva a crear ese objeto cada vez usando [`useMemo`:](/api/react/useMemo)
+
 
 ```js {5-8}
 function Page() {
@@ -333,6 +338,7 @@ Evita hacer verificaciones profundas de igualdad dentro de `arePropsEqual` a men
 
 Llama `memo` afuera de cualquier componente para definir una versión memoizada de un componente. Este componente memoizado usualmente no se re-renderizará siempre y cuando sus props no hayan cambiado. Pero puede que React la re-renderice de todos modos: la memoización es una optimización de rendimiento, no una garantía.
 
+
 ```js
 import { memo } from 'react';
 
@@ -359,3 +365,4 @@ const MemoizedComponent = memo(SomeComponent);
 ### Mi componente se re-renderiza cuando una prop es un objeto, array, o una función {/*my-component-rerenders-when-a-prop-is-an-object-or-array*/}
 
 React compara las antiguas y las nuevas props por igualdad superficial: es decir, considera si cada nueva prop tiene la misma referencia que la prop antigua. Si creas un nuevo objeto o array cada vez que el padre se re-renderice, incluso si los elementos individuales son los mismos cada uno, React aún considerará que se ha cambiado. Similarmente, si creas una nueva función cuando renderizas el componente padre, React considerará que ha cambiado incluso si la función tiene la misma definición. Evita esto al [simplificar las props o memoizar las props en el componente padre](#minimizng-props-changes).
+

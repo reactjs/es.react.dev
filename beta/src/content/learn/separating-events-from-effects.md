@@ -705,7 +705,9 @@ In this example, `url` inside `onVisit` corresponds to the *latest* `url` (which
 
 </Note>
 
-<DeepDive title="Is it okay to suppress the dependency linter instead?">
+<DeepDive>
+
+#### Is it okay to suppress the dependency linter instead? {/*is-it-okay-to-suppress-the-dependency-linter-instead*/}
 
 In the existing codebases, you may sometimes see the lint rule suppressed like this:
 
@@ -795,6 +797,22 @@ The author of the original code has "lied" to React by saying that the Effect do
 With `useEvent`, there is no need to "lie" to the linter, and the code works as you would expect:
 
 <Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
 
 ```js
 import { useState, useEffect } from 'react';
