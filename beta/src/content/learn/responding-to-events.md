@@ -414,7 +414,9 @@ Cuando haces clic en un botón:
 
 Como resultado del `e.stopPropagation()`, al hacer clic en los botones ahora solo muestra una alerta (la del `<button>`) en lugar de las dos (la del `<button>` y la del `<div>` del toolbar padre). Hacer clic en un botón no es lo mismo que hacer clic en el toolbar que lo rodea, así que detener la propagación tiene sentido para esta interfaz.
 
-<DeepDive title="Eventos de la fase de captura">
+<DeepDive>
+
+#### Eventos de la fase de captura {/*capture-phase-events*/}
 
 En raros casos, puede que necesites capturar todos los eventos en elementos hijos, *incluso si pararon la propagación*. Por ejemplo, tal vez quieras hacer log de cada clic para un análisis, independientemente de la lógica de propagación. Puedes hacer esto agregando `Capture` al final del nombre del evento:
 

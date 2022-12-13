@@ -372,7 +372,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-<DeepDive title="Displaying several DOM nodes for each list item">
+<DeepDive>
+
+#### Displaying several DOM nodes for each list item {/*displaying-several-dom-nodes-for-each-list-item*/}
 
 ¿Qué haces cuándo cada objeto necesita renderizar no uno, sino varios nodos del DOM?
 
