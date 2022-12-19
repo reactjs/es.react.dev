@@ -1,10 +1,18 @@
 ---
+<<<<<<< HEAD
 title: Fragmento (<>...</>)
+=======
+title: <Fragment> (<>...</>)
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 ---
 
 <Intro>
 
+<<<<<<< HEAD
 El componente `Fragment`, que es se suele utilizar a través de la sintaxis `<>...</>`, te permite renderizar múltiples elementos en lugar de uno, sin tener que envolverlos dentro de otro elemento contenedor.
+=======
+`<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node.
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 ```js
 <>
@@ -195,11 +203,11 @@ function PostBody({ body }) {
 
 ## Referencia {/*reference*/}
 
-### `Fragment` {/*fragment*/}
+### `<Fragment>` {/*fragment*/}
 
 Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde necesites un solo elemento. Agrupar elementos en `Fragment` no tiene efecto en el DOM resultante; ya que quedará igual que si los elementos no estuvieran agrupados. La etiqueta JSX vacía `<></>` es la abreviatura de `<Fragment></Fragment>` en la mayoría de los casos.
 
-#### Props {/*fragment-props*/}
+#### Props {/*props*/}
 
 - **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
 

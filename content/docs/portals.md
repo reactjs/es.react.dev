@@ -47,7 +47,11 @@ Un caso de uso típico de los portales es cuando un componente principal tiene u
 >
 > Cuando trabajes con portales, recuerda que [administrar el foco del teclado](/docs/accessibility.html#programmatically-managing-focus) es muy importante.
 >
+<<<<<<< HEAD
 > Para los cuadros de diálogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+=======
+> For modal dialogs, ensure that everyone can interact with them by following the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
