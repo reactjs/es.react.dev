@@ -4,7 +4,7 @@ title: useTransition
 
 <Intro>
 
-`useTransition` is a React Hook that lets you update the state without blocking the UI.
+`useTransition` es un React Hook que te permite actualizar el estado sin bloquear la UI.
 
 ```js
 const [isPending, startTransition] = useTransition()
@@ -16,11 +16,11 @@ const [isPending, startTransition] = useTransition()
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Marking a state update as a non-blocking transition {/*marking-a-state-update-as-a-non-blocking-transition*/}
+### Marcar la actualizacion del estado como una transición sin bloqueo {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-Call `useTransition` at the top level of your component to mark some state updates as non-blocking *transitions*.
+Llama a `useTransition` en la parte superior de tu componente para marcar algunas actualizaciones de estado como *transiciones sin bloqueo*
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
 import { useState, useTransition } from 'react';
@@ -31,12 +31,12 @@ function TabContainer() {
 }
 ```
 
-`useTransition` returns an array with exactly two items:
+`useTransition` retorna un array con exactamente dos elementos:
 
-1. The <CodeStep step={1}>`isPending` flag</CodeStep> that tells you whether there is a pending transition.
-2. The <CodeStep step={2}>`startTransition` function</CodeStep> that lets you mark a state update as a transition.
+1. El indicador <CodeStep step={1}>`isPending`</CodeStep> que te indica si hay una transición pendiente
+2. La función <CodeStep step={2}>`startTransition`</CodeStep> que te permite marcar una actualización de estado como una transición
 
-You can then mark a state update as a transition like this:
+Luego puedes marcar una actualización de estado como una transición de esta forma:
 
 ```js {6,8}
 function TabContainer() {
@@ -52,9 +52,9 @@ function TabContainer() {
 }
 ```
 
-Transitions let you keep the user interface updates responsive even on slow devices.
+Las transiciones permiten mantener la capacidad de respuesta de las actualizaciones de la interfaz de usuario incluso en dispositivos lentos.
 
-With a transition, your UI stays responsive in the middle of a re-render. For example, if the user clicks a tab but then change their mind and click another tab, they can do that without waiting for the first re-render to finish.
+Con una transición, tu inferfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace click en una pestaña pero luego cambia de opinion y decide hacer click en otra pestaña, puede hacerlo sin esperar la primera renderización
 
 <Recipes titleText="The difference between useTransition and regular state updates" titleId="examples">
 
