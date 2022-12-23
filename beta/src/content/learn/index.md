@@ -344,6 +344,16 @@ Si renderizas el mismo componente varias veces, cada uno obtendrá su propio est
 ```js
 import { useState } from 'react';
 
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -355,16 +365,6 @@ function MyButton() {
     <button onClick={handleClick}>
       Clicked {count} times
     </button>
-  );
-}
-
-export default function MyApp() {
-  return (
-    <div>
-      <h1>Counters that update separately</h1>
-      <MyButton />
-      <MyButton />
-    </div>
   );
 }
 ```
@@ -432,11 +432,7 @@ Ahora cuando haces clic en cualquiera de los botones, `count` en `MyApp` cambiar
 
 Primero, *mueve el estado hacia arriba* desde `MyButton` hacia `MyApp`:
 
-```js {2,6-10}
-function MyButton() {
-  // ... we're moving code from here ...
-}
-
+```js {2-6,18}
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -452,6 +448,11 @@ export default function MyApp() {
     </div>
   );
 }
+
+function MyButton() {
+  // ... we're moving code from here ...
+}
+
 ```
 
 Luego, *pasa el estado hacia abajo* desde `MyApp` hacia cada `MyButton`, junto con la función compartida para manejar el evento de clic. Puedes pasar la información a `MyButton` usando las llaves de JSX, de la misma forma como lo hiciste anteriormente con las etiquetas nativas `<img>`:
@@ -497,14 +498,6 @@ Esto se llama «levantar el estado hacia arriba». Al mover el estado hacia arri
 ```js
 import { useState } from 'react';
 
-function MyButton({ count, onClick }) {
-  return (
-    <button onClick={onClick}>
-      Clicked {count} times
-    </button>
-  );
-}
-
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -518,6 +511,14 @@ export default function MyApp() {
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
+  );
+}
+
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
   );
 }
 ```
