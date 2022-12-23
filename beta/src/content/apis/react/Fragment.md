@@ -1,18 +1,10 @@
 ---
-<<<<<<< HEAD
-title: Fragmento (<>...</>)
-=======
 title: <Fragment> (<>...</>)
->>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 ---
 
 <Intro>
 
-<<<<<<< HEAD
-El componente `Fragment`, que es se suele utilizar a través de la sintaxis `<>...</>`, te permite renderizar múltiples elementos en lugar de uno, sin tener que envolverlos dentro de otro elemento contenedor.
-=======
-`<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node.
->>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
+`<Fragment>`, a menudo utilizado a través de la sintaxis `<>...</>`, te permite agrupar elementos sin hacer uso de un nodo que los envuelva.
 
 ```js
 <>

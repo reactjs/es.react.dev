@@ -4,11 +4,7 @@ title: <Suspense>
 
 <Intro>
 
-<<<<<<< HEAD
-`Suspense` es un componente de React que muestra una interfaz alternativa o *fallback* hasta que sus hijos hayan terminado de cargar.
-=======
-`<Suspense>` lets you displays a fallback until its children have finished loading.
->>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
+`<Suspense>` te permite mostrar una interfaz alternativa o *fallback* hasta que sus hijos hayan terminado de cargar.
 
 
 ```js
@@ -2529,15 +2525,9 @@ El HTML del servidor incluirá el indicador de carga. Este será reemplazado por
 
 ### `<Suspense>` {/*suspense*/}
 
-<<<<<<< HEAD
-#### Props {/*suspense-props*/}
+#### Props {/*props*/}
 * `children`: La interfaz que realmente se pretende renderizar. Si `children` se suspende mientras se renderiza, la barrera de Suspense pasará a renderizar `fallback`.
 * `fallback`: Una interfaz alternativa a renderizar en lugar de la interfaz real si esta no ha terminado de cargar. Se acepta cualquier nodo React válido, aunque en la práctica, un *fallback* es una vista ligera de relleno, como un *spinner* de carga o un esqueleto. Suspense cambiará automáticamente a `fallback` cuando `children` se suspenda, y volverá a `children` cuando los datos estén listos. Si `fallback` se suspende mientras se renderiza, activará la barrera de Suspense padre más cercana.
-=======
-#### Props {/*props*/}
-* `children`: The actual UI you intend to render. If `children` suspends while rendering, the Suspense boundary will switch to rendering `fallback`.
-* `fallback`: An alternate UI to render in place of the actual UI if it has not finished loading. Any valid React node is accepted, though in practice, a fallback is a lightweight placeholder view, such as a loading spinner or skeleton. Suspense will automatically switch to `fallback` when `children` suspends, and back to `children` when the data is ready. If `fallback` suspends while rendering, it will activate the closest parent Suspense boundary.
->>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 #### Advertencias {/*caveats*/}
 

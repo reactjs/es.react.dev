@@ -75,25 +75,15 @@ export default function App() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Cuando pasas `drinkers={1}` a `Recipe`, devolverá el JSX que contiene `1 cups of milk`. Siempre.
+Cuando pasas `drinkers={2}` a `Recipe`, devolverá el JSX que contiene `2 cups of water`. Siempre.
 
-Si pasas `drinkers={4}`, devolverá el JSX que contiene `4 cups of milk`. Siempre.
-=======
-When you pass `drinkers={2}` to `Recipe`, it will return JSX containing `2 cups of water`. Always. 
-
-If you pass `drinkers={4}`, it will return JSX containing `4 cups of water`. Always.
->>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
+Si pasas `drinkers={4}`, devolverá el JSX que contiene `4 cups of water`. Siempre.
 
 Como una fórmula matemática.
 
 Puedes pensar en tus componentes como recetas: si las sigues y no agregas nuevos ingredientes durante el proceso de cocción, obtendrás el mismo plato siempre. Ese "plato" es el JSX que el componente le pasa a React para [renderizar.](/learn/render-and-commit)
 
-<<<<<<< HEAD
-<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="Una receta de té para x personas: toma x tazas de agua, añade 2x cucharadas de especias y x cucharadas de té!" />
-=======
-<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add x spoons of tea and 0.5x spoons of spices, and 0.5x cups of milk" />
->>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
+<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="Una receta de té para x personas: toma x tazas de agua, añade x cucharadas de té y 0.5x cucharadas de especias y 0.5x tazas de leche" />
 
 ## Efectos secundarios: consecuencias (no)deseadas {/*side-effects-unintended-consequences*/}
 
