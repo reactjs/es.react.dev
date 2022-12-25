@@ -58,9 +58,9 @@ Con una transición, tu inferfaz de usuario mantiene su capacidad de respuesta e
 
 <Recipes titleText="The difference between useTransition and regular state updates" titleId="examples">
 
-#### Updating the current tab in a transition {/*updating-the-current-tab-in-a-transition*/}
+#### Actualizar la pestaña actual en una transición {/*updating-the-current-tab-in-a-transition*/}
 
-In this example, the "Posts" tab is **artificially slowed down** so that it takes at least a second to render.
+En este ejemplo, la pestaña de "Post" esta **artificialmente realentizada** para que pueda tarde al menos un segundo en rederizarse.
 
 Click "Posts" and then immediately click "Contact". Notice that this interrupts the slow render of "Posts". The "Contact" tab shows immediately. Because this state update is marked as a transition, a slow re-render did not freeze the user interface.
 
