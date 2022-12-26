@@ -1417,21 +1417,21 @@ button { margin: 10px; }
 
 </Sandpack>
 
-In general, you should be suspicious of functions like `onMount` that focus on the *timing* rather than the *purpose* of a piece of code. It may feel "more descriptive" at first but it obscures your intent. As a rule of thumb, Effect Events should correspond to something that happens from the *user's* perspective. For example, `onMessage`, `onTick`, `onVisit`, or `onConnected` are good Effect Event names. Code inside them would likely not need to be reactive. On the other hand, `onMount`, `onUpdate`, `onUnmount`, or `onAfterRender` are so generic that it's easy to accidentally put code that *should* be reactive into them. This is why you should name your Effect Events after *what the user thinks has happened,* not when some code happened to run.
+En general, debes ser sospechoso de funciones como `onMount` que se centran en el *momento* en lugar del propósito de un pedazo de código. Puede parecer "más descriptivo" al principio, pero oculta tu intención. Como regla general, los Eventos de Efecto deben corresponder a algo que sucede desde la perspectiva del usuario. Por ejemplo, `onMessage`, `onTick`, `onVisit`, o `onConnected` son buenos nombres de Eventos de Efecto. El código dentro de ellos probablemente no necesite ser reactivo. Por otro lado, `onMount`, `onUpdate`, `onUnmount`, o `onAfterRender` son tan genéricos que es fácil colocar accidentalmente código que *debería* ser reactivo en ellos. Es por eso que debes nombrar tus Eventos de Efecto *después de lo que el usuario cree que ha pasado,* no cuando algún código comenzó a ejecutarse.
 
 </Solution>
 
-#### Fix a delayed notification {/*fix-a-delayed-notification*/}
+#### Arregla una notificación retrasada {/*fix-a-delayed-notification*/}
 
-When you join a chat room, this component shows a notification. However, it doesn't show the notification immediately. Instead, the notification is artificially delayed by two seconds so that the user has a chance to look around the UI.
+Cuando te unes a una sala de chat, este componente muestra una notificación. Sin embargo, no muestra la notificación inmediatamente. En su lugar, la notificación se retrasa artificialmente dos segundos para que el usuario tenga la oportunidad de mirar alrededor de la interfaz de usuario.
 
-This almost works, but there is a bug. Try changing the dropdown from "general" to "travel" and then to "music" very quickly. If you do it fast enough, you will see two notifications (as expected!) but they will *both* say "Welcome to music".
+Esto casi funciona, pero hay un error. Intenta cambiar el menú desplegable de "general" a "viajes" y luego a "música" muy rápidamente. Si lo haces lo suficientemente rápido, verás dos notificaciones (¡como se esperaba!) pero *ambas* dirán "Bienvenido a la música".
 
-Fix it so that when you switch from "general" to "travel" and then to "music" very quickly, you see two notifications, the first one being "Welcome to travel" and the second one being "Welcome to music". (For an additional challenge, assuming you've *already* made the notifications show the correct rooms, change the code so that only the latter notification is displayed.)
+Arréglale para que cuando cambies de "general" a "viajes" y luego a "música" muy rápidamente, veas dos notificaciones, la primera siendo "Bienvenido a los viajes" y la segunda siendo "Bienvenido a la música". (Para un desafío adicional, asumiendo que ya has hecho que las notificaciones muestren las salas correctas, cambia el código para que solo se muestre la última notificación).
 
 <Hint>
 
-Your Effect knows which room it connected to. Is there any information that you might want to pass to your Effect Event?
+Tu Efecto sabe a qué sala se conectó. ¿Hay alguna información que puedas querer pasar a tu Evento de Efecto?
 
 </Hint>
 
@@ -1517,7 +1517,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real realmente se conectaría al servidor
   let connectedCallback;
   let timeout;
   return {
@@ -1570,11 +1570,13 @@ label { display: block; margin-top: 10px; }
 
 <Solution>
 
-Inside your Effect Event, `roomId` is the value *at the time Effect Event was called.*
+Dentro de tu Evento de Efecto, `roomId` es el valor *en el momento en que se llamó el Evento de Efecto*.
 
-Your Effect Event is called with a two second delay. If you're quickly switching from the travel to the music room, by the time the travel room's notification shows, `roomId` is already `"music"`. This is why both notifications say "Welcome to music".
+Tu evento de efecto es llamado con un retraso de dos segundos. Si estás cambiando rápidamente de la sala de viajes a la sala de música, cuando se muestra la notificación de la sala de viajes, `roomId` ya es `"música"`. Esto es por qué ambas notificaciones dicen "Bienvenido a la música".
 
 To fix the issue, instead of reading the *latest* `roomId` inside the Effect Event, make it a parameter of your Effect Event, like `connectedRoomId` below. Then pass `roomId` from your Effect by calling `onConnected(roomId)`:
+
+Para solucionar el problema, en lugar de leer el `roomId` más *reciente* dentro del Evento de Efecto, conviértelo en un parámetro de tu Evento de Efecto, como `connectedRoomI` a continuación. Luego pasa `roomId` desde tu Efecto llamando a `onConnected(roomId)`:
 
 <Sandpack>
 
@@ -1658,7 +1660,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real realmente se conectaría al servidor
   let connectedCallback;
   let timeout;
   return {
