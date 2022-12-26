@@ -1711,9 +1711,9 @@ label { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-The Effect that had `roomId` set to `"travel"` (so it connected to the `"travel"` room) will show the notification for `"travel"`. The Effect that had `roomId` set to `"music"` (so it connected to the `"music"` room) will show the notification for `"music"`. In other words, `connectedRoomId` comes from your Effect (which is reactive), while `theme` always uses the latest value.
+El Efecto que tenía `roomId` establecido en `"travel"` (por lo que se conectó a la sala `"travel"`) mostrará la notificación para `"travel"`. El Efecto que tenía `roomId` establecido en `"music"` (por lo que se conectó a la sala `"music"`) mostrará la notificación para `"music"`. En otras palabras, `connectedRoomId` proviene de tu Efecto (que es reactivo), mientras que `theme` siempre utiliza el último valor.
 
-To solve the additional challenge, save the notification timeout ID and clear it in the cleanup function of your Effect:
+Para resolver el desafío adicional, guarda el ID del temporizador de notificación y limpiado en la función de limpieza de tu Efecto:
 
 <Sandpack>
 
@@ -1803,7 +1803,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real en realidad se conectaría al servidor
   let connectedCallback;
   let timeout;
   return {
@@ -1854,7 +1854,7 @@ label { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-This ensures that already scheduled (but not yet displayed) notifications get cancelled when you change rooms.
+Esto asegura que las notificaciones ya programadas (pero aún no mostradas) se cancelen cuando cambias de habitación.
 
 </Solution>
 
