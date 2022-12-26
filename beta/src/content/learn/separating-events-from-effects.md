@@ -806,9 +806,9 @@ El problema con este código es suprimir el linter de dependencias. Si eliminas 
 El autor del código original ha "mentido" a React diciendo que el efecto no depende (`[]`) de ningún valor reactivo. Por eso React no volvió a sincronizar el efecto después de que `canMove` haya cambiado (y `handleMove` con él). Debido a que React no volvió a sincronizar el Efecto, el `handleMove` adjunto como oyente es la función `handleMove` creada durante el render inicial. Durante el render inicial, `canMove` era true, por lo que `handleMove` del render inicial siempre verá ese valor.
 
 
-**If you never suppress the linter, you will never see problems with stale values.**
+**Si nunca suprimimos el linter, nunca veremos problemas con valores obsoletos.**
 
-With `useEffectEvent`, there is no need to "lie" to the linter, and the code works as you would expect:
+Con `useEffectEvent`, no es necesario "mentir" al linter y el código funciona como se espera:
 
 <Sandpack>
 
@@ -882,26 +882,27 @@ body {
 
 </Sandpack>
 
-This doesn't mean that `useEffectEvent` is *always* the correct solution. You should only apply it to the lines of code that you don't want to be reactive. For example, in the above sandbox, you didn't want the Effect's code to be reactive with regards to `canMove`. That's why it made sense to extract an Effect Event.
+Esto no significa que `useEffectEvent` sea *siempre* la solución correcta. Solo debes aplicarlo a las líneas de código que no quieres que sean reactivas. Por ejemplo, en el sandbox anterior, no querías que el código del Efecto fuera reactivo con respecto a `canMove`. Por eso tenía sentido extraer un Evento de Efecto.
 
-Read [Removing Effect Dependencies](/learn/removing-effect-dependencies) for other correct alternatives to suppressing the linter.
+
+Lee [Removiendo dependencias del Efecto](/learn/removing-effect-dependencies) para conocer otras alternativas correctas a la supresión del linter.
 
 </DeepDive>
 
-### Limitations of Effect Events {/*limitations-of-effect-events*/}
+### Limitaciones de los Eventos de Efecto {/*limitations-of-effect-events*/}
 
 <Wip>
 
-This section describes an **experimental API that has not yet been added to React,** so you can't use it yet.
+Esta sección describe una **API experimental que aún no se ha agregado a React,** por lo que todavía no puedes usarla.
 
 </Wip>
 
-Effect Events are very limited in how you can use them:
+Los eventos de efecto tienen muy pocas opciones de uso:
 
-* **Only call them from inside Effects.**
-* **Never pass them to other components or Hooks.**
+* **Solo llámalos desde dentro de los efectos.**
+* **Nunca pásalos a otros componentes o Hooks.**
 
-For example, don't declare and pass an Effect Event like this:
+Por ejemplo, no declares y pases un Evento de Efecto de esta manera:
 
 ```js {4-6,8}
 function Timer() {
@@ -911,7 +912,7 @@ function Timer() {
     setCount(count + 1);
   });
 
-  useTimer(onTick, 1000); // 🔴 Avoid: Passing Effect Events
+  useTimer(onTick, 1000); // 🔴 Evita: Pasar eventos de efecto
 
   return <h1>{count}</h1>
 }
@@ -924,11 +925,11 @@ function useTimer(callback, delay) {
     return () => {
       clearInterval(id);
     };
-  }, [delay, callback]); // Need to specify "callback" in dependencies
+  }, [delay, callback]); // Necesita especificar "callback" en las dependencias
 }
 ```
 
-Instead, always declare Effect Events directly next to the Effects that use them:
+En su lugar, siempre declare los Eventos de Efecto directamente junto a los Efectos que los usen:
 
 ```js {10-12,16,21}
 function Timer() {
@@ -946,26 +947,26 @@ function useTimer(callback, delay) {
 
   useEffect(() => {
     const id = setInterval(() => {
-      onTick(); // ✅ Good: Only called locally inside an Effect
+      onTick(); // ✅ Bien: Solo llamado localmente dentro de un efecto
     }, delay);
     return () => {
       clearInterval(id);
     };
-  }, [delay]); // No need to specify "onTick" (an Effect Event) as a dependency
+  }, [delay]); // No necesita especificar "onTick" (un evento de efecto) como dependencia
 }
 ```
 
-Effect Events are non-reactive "pieces" of your Effect code. They should be next to the Effect using them.
+Los Eventos de Efecto son "piezas" no reactivas de tu código de Efecto. Deben estar junto al Efecto que los use.
 
 <Recap>
 
-- Event handlers run in response to specific interactions.
-- Effects run whenever synchronization is needed.
-- Logic inside event handlers is not reactive.
-- Logic inside Effects is reactive.
-- You can move non-reactive logic from Effects into Effect Events.
-- Only call Effect Events from inside Effects.
-- Don't pass Effect Events to other components or Hooks.
+- Los manejadores de eventos se ejecutan en respuesta a interacciones específicas.
+- Los Efectos se ejecutan siempre que se necesite sincronización.
+- La lógica dentro de los manejadores de eventos no es reactiva.
+- La lógica dentro de los Efectos es reactiva.
+- Puedes mover la lógica no reactiva de los Efectos a Eventos de Efecto.
+- Solo llama a los Eventos de Efecto desde dentro de los Efectos.
+- No pases Eventos de Efecto a otros componentes o Hooks.
 
 </Recap>
 
