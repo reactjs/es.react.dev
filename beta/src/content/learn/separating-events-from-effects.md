@@ -643,9 +643,9 @@ function Page({ url }) {
 }
 ```
 
-You used `numberOfItems` inside the Effect, so the linter asks you to add it as a dependency. However, you *don't* want the `logVisit` call to be reactive with respect to `numberOfItems`. If the user puts something into the shopping cart, and the `numberOfItems` changes, this *does not mean* that the user visited the page again. In other words, *visiting the page* feels similar to an event. You want to be very precise about *when* you say it's happened.
+Tu usaste "numbersOfItems" dentro del Efecto, asi que el linter te pide que lo agregues como dependencia. Como sea, tu *no* quieres que el llamado a "logVisit" sea reactivo con respecto a "numberOfItems". Si el usuario pone algo dentro del carrito de compras, y el "numberOfItems" cambia, esto *no significa* que el usuario ha visitado la pagina nuevamente. En otras palabras, *visitando la pagina* se siente similar a un evento. Tu necesitas ser muy preciso acerca de *cuando* decir que va a pasar.
 
-Split the code in two parts:
+Divide el código en dos partes:
 
 ```js {5-7,10}
 function Page({ url }) {
@@ -658,12 +658,13 @@ function Page({ url }) {
 
   useEffect(() => {
     onVisit(url);
-  }, [url]); // ✅ All dependencies declared
+  }, [url]); // ✅ Todas las dependencias declaradas.
   // ...
 }
 ```
 
 Here, `onVisit` is an Effect Event. The code inside it isn't reactive. This is why you can use `numberOfItems` (or any other reactive value!) without worrying that it will cause the surrounding code to re-execute on changes.
+
 
 On the other hand, the Effect itself remains reactive. Code inside the Effect uses the `url` prop, so the Effect will re-run after every re-render with a different `url`. This, in turn, will call the `onVisit` Effect Event.
 
