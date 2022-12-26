@@ -38,7 +38,7 @@ Hay dos razones por las que un componente debe ser renderizado:
 
 ### Renderizado inicial {/*initial-render*/}
 
-Cuando tu aplicación se inicia, necesitas activar el renderizado inicial. Frameworks y sandboxes a veces ocultan este código, pero se hace con una llamada a [`createRoot`](/apis/react-dom/client/createRoot) con el nodo DOM de destino, y luego con otra llamada a su método `render` con tu componente:
+Cuando tu aplicación se inicia, necesitas activar el renderizado inicial. Frameworks y sandboxes a veces ocultan este código, pero se hace con una llamada a [`createRoot`](/reference/react-dom/client/createRoot) con el nodo DOM de destino, y luego con otra llamada a su método `render` con tu componente:
 
 <Sandpack>
 
@@ -67,7 +67,7 @@ Prueba a comentar la llamada `root.render()` ¡y verás cómo desaparece el comp
 
 ### Rerenderizados cuando se actualiza el estado {/*re-renders-when-state-updates*/}
 
-Una vez que el componente ha sido renderizado inicialmente, puede desencadenar más renderizados actualizando su estado con la [función `set`.](/apis/react/useState#setstate) Al actualizar el estado de tu componente, se pone en cola automáticamente un renderizado. (Puedes imaginarte esto como un cliente de un restaurante que pide té, postre y todo tipo de cosas después de poner su primer pedido, dependiendo del estado de su sed o hambre).
+Una vez que el componente ha sido renderizado inicialmente, puede desencadenar más renderizados actualizando su estado con la [función `set`.](/reference/react/useState#setstate) Al actualizar el estado de tu componente, se pone en cola automáticamente un renderizado. (Puedes imaginarte esto como un cliente de un restaurante que pide té, postre y todo tipo de cosas después de poner su primer pedido, dependiendo del estado de su sed o hambre).
 
 <IllustrationBlock sequential>
   <Illustration caption="La actualización del estado..." alt="React como un camarero en un restaurante, sirviendo una UI tarjeta al usuario, representado como un cliente con un cursor como su cabeza. ¡El cliente expresa que quiere una tarjeta rosa, no una negra!" src="/images/docs/illustrations/i_rerender1.png" />
