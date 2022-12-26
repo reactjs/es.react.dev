@@ -231,7 +231,7 @@ Si usas un [sistema de diseño](https://uxdesign.cc/everything-you-need-to-know-
 
 ### Nombrar props de manejadores de eventos {/*naming-event-handler-props*/}
 
-Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](TODO:/apis/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
+Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](TODO:/reference/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
 
 > Por convención, las props de manejadores de eventos deberían empezar con `on`, seguido de una letra mayúscula.
 

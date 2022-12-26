@@ -414,7 +414,7 @@ Esta sección describe una **API experimental que aún no se ha agregado a React
 
 </Wip>
 
-Usa un Hook especial llamado [`useEffectEvent`](/apis/react/useEffectEvent) para extraer esta lógica no-reactiva fuera de tu Efecto:
+Usa un Hook especial llamado [`useEffectEvent`](/reference/react/useEffectEvent) para extraer esta lógica no-reactiva fuera de tu Efecto:
 
 ```js {1,4-6}
 import { useEffect, useEffectEvent } from 'react';
