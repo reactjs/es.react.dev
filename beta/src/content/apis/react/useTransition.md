@@ -18,7 +18,7 @@ const [isPending, startTransition] = useTransition()
 
 ## Uso {/*usage*/}
 
-### Marcar la actualizacion del estado como una transición sin bloqueo {/*marking-a-state-update-as-a-non-blocking-transition*/}
+### Marcar la actualización del estado como una transición sin bloqueo {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
 Llama a `useTransition` en la parte superior de tu componente para marcar algunas actualizaciones de estado como *transiciones sin bloqueo*
 
@@ -54,15 +54,15 @@ function TabContainer() {
 
 Las transiciones permiten mantener la capacidad de respuesta de las actualizaciones de la interfaz de usuario incluso en dispositivos lentos.
 
-Con una transición, tu inferfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace click en una pestaña pero luego cambia de opinion y decide hacer click en otra pestaña, puede hacerlo sin esperar la primera renderización
+Con una transición, tu interfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace click en una pestaña pero luego cambia de opinion y decide hacer click en otra pestaña, puede hacerlo sin esperar la primera renderización.
 
 <Recipes titleText="The difference between useTransition and regular state updates" titleId="examples">
 
 #### Actualizar la pestaña actual en una transición {/*updating-the-current-tab-in-a-transition*/}
 
-En este ejemplo, la pestaña de "Post" esta **artificialmente realentizada** para que pueda tarde al menos un segundo en rederizarse.
+En este ejemplo, la pestaña de "Post" esta **artificialmente ralentizada** para que pueda tarde al menos un segundo en renderizarse.
 
-Click "Posts" and then immediately click "Contact". Notice that this interrupts the slow render of "Posts". The "Contact" tab shows immediately. Because this state update is marked as a transition, a slow re-render did not freeze the user interface.
+Haz Click en "Post" e inmediatamente haz click en "Contact". Nota que eso interrumpe la renderización lenta de "Post". La pestaña de "Contact" se muestra inmediatamente. Porque esta actualización del estado esta marcada como una transición, una renderización lenta no congela la interfaz de usuario.
 
 <Sandpack>
 
@@ -197,11 +197,11 @@ b { display: inline-block; margin-right: 10px; }
 
 <Solution />
 
-#### Updating the current tab without a transition {/*updating-the-current-tab-without-a-transition*/}
+#### Actualizar la pestaña actual sin una transición {/*updating-the-current-tab-without-a-transition*/}
 
-In this example, the "Posts" tab is also **artificially slowed down** so that it takes at least a second to render. Unlike in the previous example, this state update is **not a transition.**
+En este ejemplo, la pestaña "Post" también esta **artificialmente ralentizada** entonces solo le tomara al menos un segundo en renderizarse. A diferencia del ejemplo anterior, la actualización del estado **no es una transición**.
 
-Click "Posts" and then immediately click "Contact". Notice that the app freezes while rendering the slowed down tab, and the UI becomes unresponsive. This state update is not a transition, so a slow re-render freezed the user interface.
+Haz click en "Posts" e inmediatamente haz click en "Contact". Notaras que la app se congela mientras renderiza la pestaña ralentizada , y la interfaz de usuario deja de responder. Esta actualización de estado no es una transición, entonces no es una transición, por lo que una renderización lenta congela la interfaz de usuario.
 
 <Sandpack>
 
