@@ -253,7 +253,7 @@ export default function Nav() {
             Aprende
           </NavLink>
           <NavLink href="/reference/react" isActive={section === 'reference'}>
-            Reference
+            Referencia
           </NavLink>
         </div>
         <div className="flex my-4 h-10 mx-0 w-full lg:hidden justify-end lg:max-w-sm">
@@ -320,7 +320,7 @@ export default function Nav() {
           <TabButton
             isActive={tab === 'reference'}
             onClick={() => selectTab('reference')}>
-            Reference
+            Referencia
           </TabButton>
         </div>
       )}
