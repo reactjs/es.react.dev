@@ -10,17 +10,10 @@ Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como re
 
 <YouWillLearn>
 
-<<<<<<< HEAD
-* Cómo agregar una variable de estado con el Hook de [`useState`](/apis/react/useState) 
+* Cómo agregar una variable de estado con el Hook de [`useState`](/reference/react/useState) 
 * Qué par de valores devuelve el hook de `useState`
 * Cómo agregar más de una variable de estado
 * Por qué se le llama local al estado
-=======
-* How to add a state variable with the [`useState`](/reference/react/useState) Hook
-* What pair of values the `useState` Hook returns
-* How to add more than one state variable
-* Why state is called local
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 </YouWillLearn>
 
@@ -168,11 +161,7 @@ Para actualizar un componente con datos nuevos, deben pasar las siguientes dos c
 1. **Conservar** los datos entre renderizaciones.
 2. **Provocar** que React renderice el componente con nuevos datos (re-renderizado).
 
-<<<<<<< HEAD
-El Hook de [`useState`](/apis/react/useState) ofrece dos cosas:
-=======
-The [`useState`](/reference/react/useState) Hook provides those two things:
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
+El Hook de [`useState`](/reference/react/useState) ofrece dos cosas:
 
 1. Una **variable de estado** para mantener los datos entre renderizados.
 2. Una **función que setea el estado** para actualizar la variable y provocar que React renderice el componente nuevamente.
@@ -358,11 +347,7 @@ El estado es solo una de esas características, pero conoceremos los otros Hooks
 
 ### Anatomía del `useState` {/*anatomy-of-usestate*/}
 
-<<<<<<< HEAD
-Cuando llamamos al [`useState`](/apis/react/useState), le estamos diciendo a React que debe recordar algo:
-=======
-When you call [`useState`](/reference/react/useState), you are telling React that you want this component to remember something:
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
+Cuando llamamos al [`useState`](/reference/react/useState), le estamos diciendo a React que debe recordar algo:
 
 ```js
 const [index, setIndex] = useState(0);

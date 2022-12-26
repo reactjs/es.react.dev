@@ -19,29 +19,25 @@ title: <Fragment> (<>...</>)
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react/Fragment.md
-## Uso {/*usage*/}
-=======
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `<Fragment>` {/*fragment*/}
 
-Wrap elements in `<Fragment>` to group them together in situations where you need a single element. Grouping elements in `Fragment` has no effect on the resulting DOM; it is the same as if the elements were not grouped. The empty JSX tag `<></>` is shorthand for `<Fragment></Fragment>` in most cases.
+Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde necesites un solo elemento. Agrupar elementos en `Fragment` no tiene efecto en el DOM resultante; ya que quedará igual que si los elementos no estuvieran agrupados. La etiqueta JSX vacía `<></>` es la abreviatura de `<Fragment></Fragment>` en la mayoría de los casos.
 
 #### Props {/*props*/}
 
-- **optional** `key`: Fragments declared with the explicit `<Fragment>` syntax may have [keys.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-- If you want to pass `key` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment key={yourKey}>...</Fragment>`.
+- Si quisieras pasarle una `key` a un Fragmento, no podrias usar la sintaxis `<>...</>`. Tendrias que importar explícitamente `Fragment` desde `'react'` y renderizar `<Fragment key={yourKey}>...</Fragment>`.
 
-- React does not [reset state](/learn/preserving-and-resetting-state) when you go from rendering `<><Child /></>` to `[<Child />]` or back, or when you go from rendering `<><Child /></>` to `<Child />` and back. This only works a single level deep: for example, going from `<><><Child /></></>` to `<Child />` resets the state. See the precise semantics [here.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
+- React no [restablece el estado](/learn/preserving-and-resetting-state) cuando renderizas desde un `<><Child /></>` a un `[<Child />]` y viceversa, o cuando renderizas desde un `<><Child /></>` a un `<Child />` y viceversa. Ten en cuenta de que esto sólo funciona a un nivel de profundidad: por ejemplo, ir desde un `<><><Child /></></>` a un `<Child />` restablece el estado. Échale un ojo a la sintaxis en detalle [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
 ---
 
-## Usage {/*usage*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Fragment.md
+## Uso {/*usage*/}
 
 ### Retornar múltiples elementos {/*returning-multiple-elements*/}
 
@@ -212,26 +208,3 @@ function PostBody({ body }) {
 ```
 
 </Sandpack>
-<<<<<<< HEAD:beta/src/content/apis/react/Fragment.md
-
----
-
-## Referencia {/*reference*/}
-
-### `<Fragment>` {/*fragment*/}
-
-Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde necesites un solo elemento. Agrupar elementos en `Fragment` no tiene efecto en el DOM resultante; ya que quedará igual que si los elementos no estuvieran agrupados. La etiqueta JSX vacía `<></>` es la abreviatura de `<Fragment></Fragment>` en la mayoría de los casos.
-
-#### Props {/*props*/}
-
-- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
-
-#### Advertencias {/*caveats*/}
-
-- Si quisieras pasarle una `key` a un Fragmento, no podrias usar la sintaxis `<>...</>`. Tendrias que importar explícitamente `Fragment` desde `'react'` y renderizar `<Fragment key={yourKey}>...</Fragment>`.
-
-- React no [restablece el estado](/learn/preserving-and-resetting-state) cuando renderizas desde un `<><Child /></>` a un `[<Child />]` y viceversa, o cuando renderizas desde un `<><Child /></>` a un `<Child />` y viceversa. Ten en cuenta de que esto sólo funciona a un nivel de profundidad: por ejemplo, ir desde un `<><><Child /></></>` a un `<Child />` restablece el estado. Échale un ojo a la sintaxis en detalle [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
-
-
-=======
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Fragment.md

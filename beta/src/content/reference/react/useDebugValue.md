@@ -16,14 +16,11 @@ useDebugValue(value, format?)
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react/useDebugValue.md
-## Uso {/*usage*/}
-=======
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useDebugValue(value, format?)` {/*usedebugvalue*/}
 
-Call `useDebugValue` at the top level of your [custom Hook](/learn/reusing-logic-with-custom-hooks) to display a readable debug value:
+Llama a `useDebugValue` en el primer nivel de tu [Hook personalizado](/learn/reusing-logic-with-custom-hooks) para mostrar un valor de depuración legible:
 
 ```js
 import { useDebugValue } from 'react';
@@ -35,19 +32,18 @@ function useOnlineStatus() {
 }
 ```
 
-[See more examples below.](#usage)
+[Más ejemplos debajo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `value`: The value you want to display in React DevTools. It can have any type.
-* **optional** `format`: A formatting function. When the component is inspected, React DevTools will call the formatting function with the `value` as the argument, and then display the returned formatted value (which may have any type). If you don't specify the formatting function, the original `value` itself will be displayed.
+* `value`: El valor que quieres mostrar en las herramientas de desarrollo de React. Puede tener cualquier tipo.
+* `format` **opcional**: Una función de formateo. Cuando se inspecciona el componente, las herramientas de desarrollo de React llamarán a la función de formateo con `value` como argumento, y mostrarán el valor formateado devuelto (que puede tener cualquier tipo). Si no especificas la función de formateo, se mostrará el mismo valor `value` original.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`useDebugValue` does not return anything.
+`useDebugValue` no devuelve nada.
 
-## Usage {/*usage*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useDebugValue.md
+## Uso {/*usage*/}
 
 ### Añadir una etiqueta a un Hook personalizado {/*adding-a-label-to-a-custom-hook*/}
 
@@ -123,38 +119,4 @@ useDebugValue(date, date => date.toDateString());
 
 Tu función de formateo recibirá el <CodeStep step={1}>valor de depuración</CodeStep> como parámetro y debe retornar un <CodeStep step={2}>valor de visualización formateado</CodeStep>. Cuando tu componente es inspeccionado, las herramientas de desarrollo de React llamarán a la función de formateo y mostrarán el resultado.
 
-<<<<<<< HEAD:beta/src/content/apis/react/useDebugValue.md
 Esto permite evitar ejecutar una lógica de formateo potencialmente costosa a no ser que el componente esté siendo inspeccionado. Por ejemplo, si `date` es un valor de fecha, evita llamar a `toDateString()` para cada renderizado del componente.
-
----
-
-## Referencia {/*reference*/}
-
-### `useDebugValue(value, format?)` {/*usedebugvalue*/}
-
-Llama a `useDebugValue` en el primer nivel de tu [Hook personalizado](/learn/reusing-logic-with-custom-hooks) para mostrar un valor de depuración legible:
-
-```js
-import { useDebugValue } from 'react';
-
-function useOnlineStatus() {
-  // ...
-  useDebugValue(isOnline ? 'Online' : 'Offline');
-  // ...
-}
-```
-
-[Más ejemplos arriba.](#usage)
-
-#### Parámetros {/*parameters*/}
-
-* `value`: El valor que quieres mostrar en las herramientas de desarrollo de React. Puede tener cualquier tipo.
-* `format` **opcional**: Una función de formateo. Cuando se inspecciona el componente, las herramientas de desarrollo de React llamarán a la función de formateo con `value` como argumento, y mostrarán el valor formateado devuelto (que puede tener cualquier tipo). Si no especificas la función de formateo, se mostrará el mismo valor `value` original.
-
-#### Devuelve {/*returns*/}
-
-`useDebugValue` no devuelve nada.
-
-=======
-This lets you avoid running potentially expensive formatting logic unless the component is actually inspected. For example, if `date` is a Date value, this avoids calling `toDateString()` on it for every render of your component.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useDebugValue.md

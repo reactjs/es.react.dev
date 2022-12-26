@@ -170,11 +170,7 @@ Si no deseas agregar un `<div>` adicional a tu marcado, puedes escribir `<>` y `
 </>
 ```
 
-<<<<<<< HEAD
-Esta etiqueta vacía se llama un *[Fragmento](/apis/react/Fragment)*. Los Fragmentos te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
-=======
-This empty tag is called a *[Fragment.](/reference/react/Fragment)* Fragments let you group things without leaving any trace in the browser HTML tree.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
+Esta etiqueta vacía se llama un *[Fragmento](/reference/react/Fragment)*. Los Fragmentos te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
 
 <DeepDive>
 

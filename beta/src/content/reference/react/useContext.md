@@ -16,14 +16,11 @@ const value = useContext(SomeContext)
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react/useContext.md
-## Uso {/*usage*/}
-=======
-## Reference {/*reference*/}
+## Referencias {/*reference*/}
 
 ### `useContext(SomeContext)` {/*usecontext*/}
 
-Call `useContext` at the top level of your component to read and subscribe to [context.](/learn/passing-data-deeply-with-context)
+Llama `useContext` en el nivel superior de tu componente para leer y suscribirte al [contexto.](/learn/passing-data-deeply-with-context)
 
 ```js
 import { useContext } from 'react';
@@ -33,26 +30,25 @@ function MyComponent() {
   // ...
 ```
 
-[See more examples below.](#usage)
+[Observa más ejemplos debajo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `SomeContext`: The context that you've previously created with [`createContext`](/reference/react/createContext). The context itself does not hold the information, it only represents the kind of information you can provide or read from components.
+* `SomeContext`: El contexto que creaste previamente con [`createContext`](/reference/react/createContext). El propio contexto no guarda información, solo representa el tipo de información que puedes proporcionar o leer desde tus componentes.
 
-#### Returns {/*returns*/}
+#### Salidas {/*returns*/}
 
-`useContext` returns the context value for the calling component. It is determined as the `value` passed to the closest `SomeContext.Provider` above the calling component in the tree. If there is no such provider, then the returned value will be the `defaultValue` you have passed to [`createContext`](/reference/react/createContext) for that context. The returned value is always up-to-date. React automatically re-renders components that read some context if it changes.
+`useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/reference/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React rerenderiza automáticamente los componentes que leen algún contexto si este cambia.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `useContext()` call in a component is not affected by providers returned from the *same* component. The corresponding `<Context.Provider>` **needs to be *above*** the component doing the `useContext()` call.
-* React **automatically re-renders** all the children that use a particular context starting from the provider that receives a different `value`. The previous and the next values are compared with the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. Skipping re-renders with [`memo`](/reference/react/memo) does not prevent the children receiving fresh context values from above.
-* If your build system produces duplicates modules in the output (which can happen if you use symlinks), this can break context. Passing something via context only works if `SomeContext` that you use to provide context and `SomeContext` that you use to read it are ***exactly* the same object**, as determined by a `===` comparison.
+* La llamada de `useContext()` en un componente no es afectada por los proveedores devueltos desde el *mismo* componente. El `<Context.Provider>` correspondiente **necesita estar *arriba*** del componente que hace la llamada de `useContext()`.
+* React **rerenderiza automáticamente** todos los hijos que usen un contexto particular empezando desde el proveedor que recibe un `value` diferente. Los valores anteriores y los siguientes son comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Saltarse el rerenderizado con [`memo`](/reference/react/memo) no evita que los hijos reciban valores de contexto frescos de arriba.
+* Si tu sistema de compilación produce módulos duplicados en la salida (lo cual puede pasar si usas enlaces simbólicos), esto puede romper el contexto. Pasar algo a través del contexto solo funciona si `SomeContext` que usas para proporcionar el contexto y `SomeContext` que usas para leerlo son ***exactamente* el mismo objeto**, como está determinado por la comparación `===`.
 
 ---
 
-## Usage {/*usage*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useContext.md
+## Uso {/*usage*/}
 
 
 ### Pasar datos de manera profunda en el árbol {/*passing-data-deeply-into-the-tree*/}
@@ -181,11 +177,7 @@ function Button({ children }) {
 
 ### Actualizar los datos pasados a través del contexto {/*updating-data-passed-via-context*/}
 
-<<<<<<< HEAD:beta/src/content/apis/react/useContext.md
-A menudo, querrás que el contexto cambie a través del tiempo. Para actualizar el contexto, necesitas combinarlo con [el estado.](/apis/react/useState) Declara una variable de estado en el componente padre, y pasa el estado actual como el <CodeStep step={2}>valor de contexto</CodeStep> al proveedor.
-=======
-Often, you'll want the context to change over time. To update context, you need to combine it with [state.](/reference/react/useState) Declare a state variable in the parent component, and pass the current state down as the <CodeStep step={2}>context value</CodeStep> to the provider.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useContext.md
+A menudo, querrás que el contexto cambie a través del tiempo. Para actualizar el contexto, necesitas combinarlo con [el estado.](/reference/react/useState) Declara una variable de estado en el componente padre, y pasa el estado actual como el <CodeStep step={2}>valor de contexto</CodeStep> al proveedor.
 
 ```js {2} [[1, 4, "ThemeContext"], [2, 4, "theme"], [1, 11, "ThemeContext"]]
 function MyPage() {
@@ -747,11 +739,7 @@ label {
 
 #### Escalar con el contexto y un reducer {/*scaling-up-with-context-and-a-reducer*/}
 
-<<<<<<< HEAD:beta/src/content/apis/react/useContext.md
-En aplicaciones más grandes, es común combinar el contexto con un [reducer](/apis/react/useReducer) para extraer la lógica relacionada con algún estado fuera de los componentes. En este ejemplo, todo el "cableado" está escondido en el `TasksContext.js`, el cual contiene un reducer y dos contextos separados.
-=======
-In larger apps, it is common to combine context with a [reducer](/reference/react/useReducer) to extract the logic related to some state out of components. In this example, all the "wiring" is hidden in the `TasksContext.js`, which contains a reducer and two separate contexts.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useContext.md
+En aplicaciones más grandes, es común combinar el contexto con un [reducer](/reference/react/useReducer) para extraer la lógica relacionada con algún estado fuera de los componentes. En este ejemplo, todo el "cableado" está escondido en el `TasksContext.js`, el cual contiene un reducer y dos contextos separados.
 
 Lee una [guía completa](/learn/scaling-up-with-reducer-and-context) de este ejemplo.
 
@@ -961,11 +949,7 @@ ul, li { margin: 0; padding: 0; }
 
 ### Especificar un valor por defecto {/*specifying-a-fallback-default-value*/}
 
-<<<<<<< HEAD:beta/src/content/apis/react/useContext.md
-Si React no puede encontrar ningún proveedor de ese <CodeStep step={1}>contexto</CodeStep> en particular en el árbol padre, el valor del contexto devuelto por `useContext()` será igual al <CodeStep step={3}>valor por defecto</CodeStep> que especificaste cuando [creaste ese contexto](/apis/react/createContext):
-=======
-If React can't find any providers of that particular <CodeStep step={1}>context</CodeStep> in the parent tree, the context value returned by `useContext()` will be equal to the <CodeStep step={3}>default value</CodeStep> that you specified when you [created that context](/reference/react/createContext):
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useContext.md
+Si React no puede encontrar ningún proveedor de ese <CodeStep step={1}>contexto</CodeStep> en particular en el árbol padre, el valor del contexto devuelto por `useContext()` será igual al <CodeStep step={3}>valor por defecto</CodeStep> que especificaste cuando [creaste ese contexto](/reference/react/createContext):
 
 ```js [[1, 1, "ThemeContext"], [3, 1, "null"]]
 const ThemeContext = createContext(null);
@@ -1327,11 +1311,7 @@ function MyApp() {
 
 Aquí, el <CodeStep step={2}>valor del contexto</CodeStep> es un objeto de JavaScript con dos propiedades, una de las cuales es una función. Siempre que `MyApp` se rerenderice (por ejemplo, en una actualización de ruta), este será un objeto *diferente* apuntando a una función *diferente*, así que React también tendrá que rerenderizar todos los componentes en lo profundo del árbol que llamen `useContext(AuthContext)`.
 
-<<<<<<< HEAD:beta/src/content/apis/react/useContext.md
-En aplicaciones más pequeñas, esto no es un problema. Sin embargo, no hay necesidad de rerenderizarlas si los datos subyacentes, como `currentUser`, no han cambiado. Para ayudar a React a aprovechar esa información, puedes envolver la función `login` con [`useCallback`](/apis/react/useCallback) y envolver la creación del objeto en un [`useMemo`](/apis/react/useMemo). Esta es una optimización del rendimiento:
-=======
-In smaller apps, this is not a problem. However, there is no need to re-render them if the underlying data, like `currentUser`, has not changed. To help React take advantage of that fact, you may wrap the `login` function with [`useCallback`](/reference/react/useCallback) and wrap the object creation into [`useMemo`](/reference/react/useMemo). This is a performance optimization:
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useContext.md
+En aplicaciones más pequeñas, esto no es un problema. Sin embargo, no hay necesidad de rerenderizarlas si los datos subyacentes, como `currentUser`, no han cambiado. Para ayudar a React a aprovechar esa información, puedes envolver la función `login` con [`useCallback`](/reference/react/useCallback) y envolver la creación del objeto en un [`useMemo`](/reference/react/useMemo). Esta es una optimización del rendimiento:
 
 ```js {6,9,11,14,17}
 import { useCallback, useMemo } from 'react';
@@ -1357,43 +1337,7 @@ function MyApp() {
 }
 ```
 
-<<<<<<< HEAD:beta/src/content/apis/react/useContext.md
-Como resultado de este cambio, incluso si `MyApp` necesita rerenderizarse, los componentes que llaman `useContext(AuthProvider)` no se rerenderizarán a menos que `currentUser` haya cambiado. Lee más sobre [`useMemo`](/apis/react/useMemo#skipping-re-rendering-of-components) y [`useCallback`.](/apis/react/useCallback#skipping-re-rendering-of-components)
-
----
-
-## Referencias {/*reference*/}
-
-### `useContext(SomeContext)` {/*usecontext*/}
-
-Llama `useContext` en el nivel superior de tu componente para leer y suscribirte al [contexto.](/learn/passing-data-deeply-with-context)
-
-```js
-import { useContext } from 'react';
-
-function MyComponent() {
-  const theme = useContext(ThemeContext);
-  // ...
-```
-
-[Observa más ejemplos arriba.](#examples-basic)
-
-#### Parámetros {/*parameters*/}
-
-* `SomeContext`: El contexto que creaste previamente con [`createContext`](/apis/react/createContext). El propio contexto no guarda información, solo representa el tipo de información que puedes proporcionar o leer desde tus componentes.
-
-#### Salidas {/*returns*/}
-
-`useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/apis/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React rerenderiza automáticamente los componentes que leen algún contexto si este cambia.
-
-#### Advertencias {/*caveats*/}
-
-* La llamada de `useContext()` en un componente no es afectada por los proveedores devueltos desde el *mismo* componente. El `<Context.Provider>` correspondiente **necesita estar *arriba*** del componente que hace la llamada de `useContext()`.
-* React **rerenderiza automáticamente** todos los hijos que usen un contexto particular empezando desde el proveedor que recibe un `value` diferente. Los valores anteriores y los siguientes son comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Saltarse el rerenderizado con [`memo`](/apis/react/memo) no evita que los hijos reciban valores de contexto frescos de arriba.
-* Si tu sistema de compilación produce módulos duplicados en la salida (lo cual puede pasar si usas enlaces simbólicos), esto puede romper el contexto. Pasar algo a través del contexto solo funciona si `SomeContext` que usas para proporcionar el contexto y `SomeContext` que usas para leerlo son ***exactamente* el mismo objeto**, como está determinado por la comparación `===`.
-=======
-As a result of this change, even if `MyApp` needs to re-render, the components calling `useContext(AuthProvider)` won't need to re-render unless `currentUser` has changed. Read more about [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) and [`useCallback`.](/reference/react/useCallback#skipping-re-rendering-of-components)
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useContext.md
+Como resultado de este cambio, incluso si `MyApp` necesita rerenderizarse, los componentes que llaman `useContext(AuthProvider)` no se rerenderizarán a menos que `currentUser` haya cambiado. Lee más sobre [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) y [`useCallback`.](/reference/react/useCallback#skipping-re-rendering-of-components)
 
 ---
 

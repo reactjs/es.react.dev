@@ -302,11 +302,7 @@ function MyButton() {
 
 A menudo, querrás que tu componente «recuerde» alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
 
-<<<<<<< HEAD
-Primero, importa [`useState`](/apis/react/useState) de React:
-=======
-First, import [`useState`](/reference/react/useState) from React:
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
+Primero, importa [`useState`](/reference/react/useState) de React:
 
 ```js
 import { useState } from 'react';
@@ -386,11 +382,7 @@ Nota que cada botón «recuerda» su propio estado `count` y que no afecta a otr
 
 ## El uso de los Hooks {/*using-hooks*/}
 
-<<<<<<< HEAD
-Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/apis/react). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
-=======
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference.](/reference/react) You can also write your own Hooks by combining the existing ones.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
+Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/reference/react). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
 
 Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar a los Hooks *en el primer nivel* de tus componentes (u otros Hooks). Si quisieras utilizar `useState` en una condicional o en un bucle, extrae un nuevo componente y ponlo ahí.
 
@@ -544,8 +536,4 @@ button {
 
 ¡En este punto ya conoces los elementos básicos de como escribir código en React!
 
-<<<<<<< HEAD
-Dirígete a [Pensar en React](/learn/thinking-in-react) para que veas como se siente en la práctica construir una interfaz de usuario con React.
-=======
-Check out the [Tutorial](/learn/tutorial-tic-tac-toe) to put them into practice and build your first mini-app with React.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
+Prueba el [Tutorial](/learn/tutorial-tic-tac-toe) para ponerlos en práctica y construir tu primera miniaplicación de React.

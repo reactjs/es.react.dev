@@ -22,14 +22,11 @@ flushSync(callback)
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react-dom/flushSync.md
-## Uso {/*usage*/}
-=======
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `flushSync(callback)` {/*create-root*/}
 
-Call `flushSync` to force React to flush any pending work and update the DOM synchronously.
+Llama a `flushSync` para forzar a React a ejecutar cualquier trabajo pendiente y actualizar el DOM de forma sincrónica.
 
 ```js
 flushSync(() => {
@@ -37,30 +34,29 @@ flushSync(() => {
 });
 ```
 
-Most of the time, `flushSync` can be avoided. Use `flushSync` as last resort.
+La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como último recurso.
 
-[See more examples below.](#usage)
+[Consulta más ejemplos debajo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
 
-* `callback`: A function. React will immediately call this callback and flush any updates it contains synchronously. It may also flush any pending updates, or Effects, or updates inside of Effects. If an update suspends as a result of this `flushSync` call, the fallbacks may be re-shown.
+* `callback`: Una función. React llamará inmediatamente a esta función *callback* y ejecutará cualquier actualización que contenga de forma sincrónica. También puede ejecutar cualquier actualización pendiente, o Efectos, o actualizaciones dentro de Efectos. Si una actualización se suspende como resultado de esta llamada `flushSync`, los *fallbacks* pueden volver a mostrarse.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`flushSync` returns `undefined`.
+`flushSync` devuelve `undefined`.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `flushSync` can significantly hurt performance. Use sparingly.
-* `flushSync` may force pending Suspense boundaries to show their `fallback` state.
-* `flushSync` may run pending effects and synchronously apply any updates they contain before returning.
-* `flushSync` may flush updates outside the callback when necessary to flush the updates inside the callback. For example, if there are pending updates from a click, React may flush those before flushing the updates inside the callback.
+* `flushSync` puede perjudicar significativamente el rendimiento. Utilízalo con moderación.
+* `flushSync` puede forzar que las barreras de Suspense pendientes muestren su estado de `fallback`.
+* `flushSync` puede ejecutar Efectos pendientes y aplicar sincrónicamente cualquier actualización que contengan antes de retornar.
+* `flushSync` puede ejecutar actualizaciones fuera del *callback* cuando sea necesario para ejecutar las actualizaciones dentro del *callback*. Por ejemplo, si hay actualizaciones pendientes de un clic, React puede ejecutarlas antes de ejecutar las actualizaciones dentro del *callback*.
 
 ---
 
-## Usage {/*usage*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react-dom/flushSync.md
+## Uso {/*usage*/}
 
 ### Ejecutar actualizaciones para integraciones de terceros {/*flushing-updates-for-third-party-integrations*/}
 
@@ -135,40 +131,3 @@ Si eliminas la llamada a `flushSync`, entonces el diálogo de impresión mostrar
 La mayoría de las veces, `flushSync` puede evitarse, así que utiliza `flushSync` como último recurso.
 
 </Pitfall>
-<<<<<<< HEAD:beta/src/content/apis/react-dom/flushSync.md
-
----
-
-## Referencia {/*reference*/}
-
-### `flushSync(callback)` {/*create-root*/}
-
-Llama a `flushSync` para forzar a React a ejecutar cualquier trabajo pendiente y actualizar el DOM de forma sincrónica.
-
-```js
-flushSync(() => {
-  setState(true);
-});
-```
-
-La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como último recurso.
-
-[Vea los ejemplos anteriores.](#usage)
-
-#### Parámetros {/*parameters*/}
-
-
-* `callback`: Una función. React llamará inmediatamente a esta función *callback* y ejecutará cualquier actualización que contenga de forma sincrónica. También puede ejecutar cualquier actualización pendiente, o Efectos, o actualizaciones dentro de Efectos. Si una actualización se suspende como resultado de esta llamada `flushSync`, los *fallbacks* pueden volver a mostrarse.
-
-#### Devuelve {/*returns*/}
-
-`flushSync` devuelve `undefined`.
-
-#### Advertencias {/*caveats*/}
-
-* `flushSync` puede perjudicar significativamente el rendimiento. Utilízalo con moderación.
-* `flushSync` puede forzar que las barreras de Suspense pendientes muestren su estado de `fallback`.
-* `flushSync` puede ejecutar Efectos pendientes y aplicar sincrónicamente cualquier actualización que contengan antes de retornar.
-* `flushSync` puede ejecutar actualizaciones fuera del *callback* cuando sea necesario para ejecutar las actualizaciones dentro del *callback*. Por ejemplo, si hay actualizaciones pendientes de un clic, React puede ejecutarlas antes de ejecutar las actualizaciones dentro del *callback*.
-=======
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react-dom/flushSync.md

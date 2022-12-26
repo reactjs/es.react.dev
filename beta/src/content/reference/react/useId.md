@@ -17,14 +17,11 @@ const id = useId()
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react/useId.md
-## Uso {/*usage*/}
-=======
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useId()` {/*useid*/}
 
-Call `useId` at the top level of your component to generate a unique ID:
+Llama a `useId` en el nivel superior de tu componente para generar un ID único:
 
 ```js
 import { useId } from 'react';
@@ -34,26 +31,25 @@ function PasswordField() {
   // ...
 ```
 
-[See more examples below.](#usage)
+[Ve más ejemplos debajo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-`useId` does not take any parameters.
+`useId` no toma ningún parámetro.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`useId` returns a unique ID string associated with this particular `useId` call in this particular component.
+`useId` devuelve una cadena de ID única asociada con esta llamada `useId` llamado en un componente particular.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `useId` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
+* `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si necesitas hacerlo, extrae un nuevo componente y mueve allí el estado.
 
-* `useId` **should not be used to generate keys** in a list. [Keys should be generated from your data.](/learn/rendering-lists#where-to-get-your-key)
+* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 ---
 
-## Usage {/*usage*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useId.md
+## Uso {/*usage*/}
 
 <Pitfall>
 
@@ -172,11 +168,7 @@ input { margin: 5px; }
 
 <Pitfall>
 
-<<<<<<< HEAD:beta/src/content/apis/react/useId.md
-**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando utilizas [renderizado en el servidor](/apis/react-dom/server). Si los árboles que se renderizan en el servidor y el cliente no coinciden exactamente, los IDs generados no coincidirán.
-=======
-**`useId` requires an identical component tree on the server and the client** when you use [server rendering](/reference/react-dom/server). If the trees you render on the server and the client don't match exactly, the generated IDs won't match.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useId.md
+**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando utilizas [renderizado en el servidor](/reference/react-dom/server). Si los árboles que se renderizan en el servidor y el cliente no coinciden exactamente, los IDs generados no coincidirán.
 
 </Pitfall>
 
@@ -186,11 +178,7 @@ input { margin: 5px; }
 
 Puede que te preguntes por qué `useId` es mejor que incrementar una variable global como `nextId++`.
 
-<<<<<<< HEAD:beta/src/content/apis/react/useId.md
-El principal beneficio de `useId` es que React se asegura de que funcione con el [renderizado en el servidor.](/apis/react-dom/server) Durante el renderizado en el servidos, tus componentes generan salida HTML. Más tarde, en el cliente, [la hidratación](/apis/react-dom/client/hydrateRoot) adjunta tus controladores de eventos al HTML generado. Para que la hidratación funcione, la salida del cliente debe coincidir con el HTML del servidor.
-=======
-The primary benefit of `useId` is that React ensures that it works with [server rendering.](/reference/react-dom/server) During server rendering, your components generate HTML output. Later, on the client, [hydration](/reference/react-dom/client/hydrateRoot) attaches your event handlers to the generated HTML. For hydration to work, the client output must match the server HTML.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useId.md
+El principal beneficio de `useId` es que React se asegura de que funcione con el [renderizado en el servidor.](/reference/react-dom/server) Durante el renderizado en el servidos, tus componentes generan salida HTML. Más tarde, en el cliente, [la hidratación](/reference/react-dom/client/hydrateRoot) adjunta tus controladores de eventos al HTML generado. Para que la hidratación funcione, la salida del cliente debe coincidir con el HTML del servidor.
 
 Esto es muy difícil de garantizar con un contador incremental porque el orden en que se hidratan los componentes del cliente puede no coincidir con el orden en que se emitió el HTML del servidor. Al llamar a `useId`, te aseguras de que la hidratación funcionará y la salida coincidirá entre el servidor y el cliente.
 
@@ -235,11 +223,7 @@ Esto te permite evitar llamar a `useId` para cada elemento que necesite un ID ú
 
 ### Especificación de un prefijo compartido para todos los IDs generados {/*specifying-a-shared-prefix-for-all-generated-ids*/}
 
-<<<<<<< HEAD:beta/src/content/apis/react/useId.md
-Si renderizas varias aplicaciones de React independientes en una sola página, puedes pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/apis/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/apis/react-dom/client/hydrateRoot). Esto garantiza que los IDs generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que hayas especificado.
-=======
-If you render multiple independent React applications on a single page, you may pass `identifierPrefix` as an option to your [`createRoot`](/reference/react-dom/client/createRoot#parameters) or [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) calls. This ensures that the IDs generated by the two different apps never clash because every identifier generated with `useId` will start with the distinct prefix you've specified.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useId.md
+Si renderizas varias aplicaciones de React independientes en una sola página, puedes pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/reference/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/reference/react-dom/client/hydrateRoot). Esto garantiza que los IDs generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que hayas especificado.
 
 <Sandpack>
 
@@ -320,37 +304,3 @@ input { margin: 5px; }
 
 </Sandpack>
 
-<<<<<<< HEAD:beta/src/content/apis/react/useId.md
----
-
-## Referencia {/*reference*/}
-
-### `useId()` {/*useid*/}
-
-Llama a `useId` en el nivel superior de tu componente para generar un ID único:
-
-```js
-import { useId } from 'react';
-
-function PasswordField() {
-  const passwordHintId = useId();
-  // ...
-```
-
-[Ve más ejemplos arriba.](#usage)
-
-#### Parámetros {/*parameters*/}
-
-`useId` no toma ningún parámetro.
-
-#### Retorna {/*returns*/}
-
-`useId` devuelve una cadena de ID única asociada con esta llamada `useId` llamado en un componente particular.
-
-#### Advertencias {/*caveats*/}
-
-* `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si necesitas hacerlo, extrae un nuevo componente y mueve allí el estado.
-
-* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
-=======
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/useId.md

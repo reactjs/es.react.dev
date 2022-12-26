@@ -19,28 +19,24 @@ title: <Suspense>
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-## Uso {/*usage*/}
-=======
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `<Suspense>` {/*suspense*/}
 
 #### Props {/*props*/}
-* `children`: The actual UI you intend to render. If `children` suspends while rendering, the Suspense boundary will switch to rendering `fallback`.
-* `fallback`: An alternate UI to render in place of the actual UI if it has not finished loading. Any valid React node is accepted, though in practice, a fallback is a lightweight placeholder view, such as a loading spinner or skeleton. Suspense will automatically switch to `fallback` when `children` suspends, and back to `children` when the data is ready. If `fallback` suspends while rendering, it will activate the closest parent Suspense boundary.
+* `children`: La interfaz que realmente se pretende renderizar. Si `children` se suspende mientras se renderiza, la barrera de Suspense pasará a renderizar `fallback`.
+* `fallback`: Una interfaz alternativa a renderizar en lugar de la interfaz real si esta no ha terminado de cargar. Se acepta cualquier nodo React válido, aunque en la práctica, un *fallback* es una vista ligera de relleno, como un *spinner* de carga o un esqueleto. Suspense cambiará automáticamente a `fallback` cuando `children` se suspenda, y volverá a `children` cuando los datos estén listos. Si `fallback` se suspende mientras se renderiza, activará la barrera de Suspense padre más cercana.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-- React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.
-- If Suspense was displaying content for the tree, but then it suspended again, the `fallback` will be shown again unless the update causing it was caused by [`startTransition`](/reference/react/startTransition) or [`useDeferredValue`](/reference/react/useDeferredValue).
-- If React needs to hide the already visible content because it suspended again, it will clean up [layout Effects](/reference/react/useLayoutEffect) in the content tree. When the content is ready to be shown again, React will fire the layout Effects again. This lets you make sure that Effects measuring the DOM layout don't try to do this while the content is hidden.
-- React includes under-the-hood optimizations like *Streaming Server Rendering* and *Selective Hydration* that are integrated with Suspense. Read [an architectural overview](https://github.com/reactwg/react-18/discussions/37) and watch [a technical talk](https://www.youtube.com/watch?v=pj5N-Khihgc) to learn more.
+- React no preserva ningún estado para los renderizados que se suspendieron antes de que pudieran montarse por primera vez. Cuando el componente se haya cargado, React volverá a intentar renderizar el árbol suspendido desde cero.
+-  Si la suspensión estaba mostrando contenido para el árbol, pero luego se volvió a suspender, el `fallback` se mostrará de nuevo a menos que la actualización que lo causó fuese causada por [`startTransition`](/reference/react/startTransition) o [`useDeferredValue`](/reference/react/useDeferredValue).
+- Si React necesita ocultar el contenido ya visible porque se suspendió de nuevo, limpiará [los Efectos de *layout*](/reference/react/useLayoutEffect) en el árbol de contenido. Cuando el contenido esté listo para mostrarse de nuevo, React disparará los Efectos de *layout* de nuevo. Esto le permite asegurarse de que los Efectos que miden el diseño del DOM no intentan hacerlo mientras el contenido está oculto.
+- React incluye optimizaciones internas como *Renderizado en el servidor con Streaming* e *Hidratación selectiva* que se integran con Suspense. Puedes leer [una visión general de la arquitectura](https://github.com/reactwg/react-18/discussions/37) y ver [esta charla técnica](https://www.youtube.com/watch?v=pj5N-Khihgc) para conocer más.
 
 ---
 
-## Usage {/*usage*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+## Uso {/*usage*/}
 
 ### Visualización de una interfaz alternativa mientras se carga el contenido {/*displaying-a-fallback-while-content-is-loading*/}
 
@@ -256,13 +252,8 @@ async function getAlbums() {
 
 **Sólo las fuentes de datos habilitadas para Suspense activarán un componente Suspense.** Entre ellas se incluyen:
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
 - Carga de datos en frameworks capaces de manejar Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
-- Código de carga diferida de componentes con [`lazy`](/apis/react/lazy)
-=======
-- Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/advanced-features/react-18)
-- Lazy-loading component code with [`lazy`](/reference/react/lazy)
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+- Código de carga diferida de componentes con [`lazy`](/reference/react/lazy)
 
 Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un manejador de eventos.
 
@@ -1125,11 +1116,7 @@ input { margin: 10px; }
 
 </Sandpack>
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-Un patrón de UI común consiste en *aplazar* la actualización de la lista de resultados y seguir mostrando los resultados anteriores hasta que los nuevos resultados estén listos. El Hook [`useDeferredValue`](/apis/react/useDeferredValue) te permite pasar una versión aplazada de la consulta:
-=======
-A common alternative UI pattern is to *defer* updating the list of results and to keep showing the previous results until the new results are ready. The [`useDeferredValue`](/reference/react/useDeferredValue) Hook lets you pass a deferred version of the query down: 
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+Un patrón de UI común consiste en *aplazar* la actualización de la lista de resultados y seguir mostrando los resultados anteriores hasta que los nuevos resultados estén listos. El Hook [`useDeferredValue`](/reference/react/useDeferredValue) te permite pasar una versión aplazada de la consulta:
 
 ```js {3,11}
 export default function App() {
@@ -1739,11 +1726,7 @@ main {
 
 Cuando presionaste el botón, el componente `Router` renderizó `ArtistPage` en lugar de `IndexPage`. Un componente dentro de `ArtistPage` se suspendió, por lo que la barrera de Suspense más cercana comenzó a mostrar un *fallback* La barrera de Suspense más cercana estaba cerca de la raíz, por lo que todo el sitio quedó reemplazado por `BigSpinner`.
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-Para prevenir que esto pase, puedes marcar la actualización del estado de navegación como una *transición* con [`startTransition`:](/apis/react/startTransition)
-=======
-To prevent this from happening, you can mark the navigation state update as a *transition* with [`startTransition`:](/reference/react/startTransition)
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+Para prevenir que esto pase, puedes marcar la actualización del estado de navegación como una *transición* con [`startTransition`:](/reference/react/startTransition)
 
 ```js {5,7}
 function Router() {
@@ -2140,11 +2123,7 @@ Los enrutadores preparados para Suspense deberian envolver por defecto las actua
 
 ### Indicar que está ocurriendo una transición {/*indicating-that-a-transition-is-happening*/}
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-En el ejemplo de arriba, una vez que haces clic al botón, no hay un indicador visual de que hay una navegación en proceso. Para añadir un indicador, puedes reemplazar [`startTransition`](/apis/react/startTransition) con [`useTransition`](/apis/react/useTransition) que te da un valor booleano `isPending` (que indica si la transición está pendiente). En el ejemplo de abajo, se usa para cambiar el estilo del encabezado del sitio mientras ocurre la transición:
-=======
-In the above example, once you click the button, there is no visual indication that a navigation is in progress. To add an indicator, you can replace [`startTransition`](/reference/react/startTransition) with [`useTransition`](/reference/react/useTransition) which gives you a boolean `isPending` value. In the example below, it's used to change the website header styling while a transition is happening:
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+En el ejemplo de arriba, una vez que haces clic al botón, no hay un indicador visual de que hay una navegación en proceso. Para añadir un indicador, puedes reemplazar [`startTransition`](/reference/react/startTransition) con [`useTransition`](/reference/react/useTransition) que te da un valor booleano `isPending` (que indica si la transición está pendiente). En el ejemplo de abajo, se usa para cambiar el estilo del encabezado del sitio mientras ocurre la transición:
 
 <Sandpack>
 
@@ -2536,15 +2515,9 @@ Sin embargo, imagina ahora que estás navegando entre dos perfiles de usuario di
 
 ### Proporcionar un *fallback* para los errores del servidor y el contenido exclusivo del servidor {/*providing-a-fallback-for-server-errors-and-server-only-content*/}
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-Si utilizas una de las [APIs de renderizado en el servidor con *streaming*](/apis/react-dom/server) (o un *framework* que depende de ellas), React también utilizará tus barreras de `<Suspense>` para manejar errores en el servidor. Si un componente lanza un error en el servidor, React no abortará el renderizado en el servidor. Lo que hará será encontrar el componente `<Suspense>` más cercano encima de este e incluirá su *fallback* (un *spinner*, por ejemplo) dentro del HTML generado en el  servidor. El usuario verá un *spinner* en lugar de un error.
+Si utilizas una de las [APIs de renderizado en el servidor con *streaming*](/reference/react-dom/server) (o un *framework* que depende de ellas), React también utilizará tus barreras de `<Suspense>` para manejar errores en el servidor. Si un componente lanza un error en el servidor, React no abortará el renderizado en el servidor. Lo que hará será encontrar el componente `<Suspense>` más cercano encima de este e incluirá su *fallback* (un *spinner*, por ejemplo) dentro del HTML generado en el  servidor. El usuario verá un *spinner* en lugar de un error.
 
-En el cliente, React intentará renderizar el mismo componente nuevamente. Si ocurre un error también en el cliente, React lanzará el error y mostrará la [barrera de error](/apis/react/Component#static-getderivedstatefromerror) más cercana. Sin embargo, si no ocurre un error en el cliente, React no le mostrará el error al usuario dado que el contenido eventualmente se le mostró al usuario satisfactoriamente.
-=======
-If you use one of the [streaming server rendering APIs](/reference/react-dom/server) (or a framework that relies on them), React will also use your `<Suspense>` boundaries to handle errors on the server. If a component throws an error on the server, React will not abort the server render. Instead, it will find the closest `<Suspense>` component above it and include its fallback (such as a spinner) into the generated server HTML. The user will see a spinner instead of an error.
-
-On the client, React will attempt to render the same component again. If it errors on the client too, React will throw the error and display the closest [error boundary.](/reference/react/Component#static-getderivedstatefromerror) However, if it does not error on the client, React will not display the error to the user since the content was eventually displayed successfully.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+En el cliente, React intentará renderizar el mismo componente nuevamente. Si ocurre un error también en el cliente, React lanzará el error y mostrará la [barrera de error](/reference/react/Component#static-getderivedstatefromerror) más cercana. Sin embargo, si no ocurre un error en el cliente, React no le mostrará el error al usuario dado que el contenido eventualmente se le mostró al usuario satisfactoriamente.
 
 Puedes usar esto para evitar que algunos componentes se rendericen en el servidor. Para lograrlo, lanza un error desde ellos en el entorno del servidor y envuélvelos en una barrera de `<Suspense>` para reemplazar su HTML con *fallbacks*:
 
@@ -2565,28 +2538,7 @@ El HTML del servidor incluirá el indicador de carga. Este será reemplazado por
 
 ---
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-## Referencia {/*reference*/}
-
-### `<Suspense>` {/*suspense*/}
-
-#### Props {/*props*/}
-* `children`: La interfaz que realmente se pretende renderizar. Si `children` se suspende mientras se renderiza, la barrera de Suspense pasará a renderizar `fallback`.
-* `fallback`: Una interfaz alternativa a renderizar en lugar de la interfaz real si esta no ha terminado de cargar. Se acepta cualquier nodo React válido, aunque en la práctica, un *fallback* es una vista ligera de relleno, como un *spinner* de carga o un esqueleto. Suspense cambiará automáticamente a `fallback` cuando `children` se suspenda, y volverá a `children` cuando los datos estén listos. Si `fallback` se suspende mientras se renderiza, activará la barrera de Suspense padre más cercana.
-
-#### Advertencias {/*caveats*/}
-
-- React no preserva ningún estado para los renderizados que se suspendieron antes de que pudieran montarse por primera vez. Cuando el componente se haya cargado, React volverá a intentar renderizar el árbol suspendido desde cero.
--  Si la suspensión estaba mostrando contenido para el árbol, pero luego se volvió a suspender, el `fallback` se mostrará de nuevo a menos que la actualización que lo causó fuese causada por [`startTransition`](/apis/react/startTransition) o [`useDeferredValue`](/apis/react/useDeferredValue).
-- Si React necesita ocultar el contenido ya visible porque se suspendió de nuevo, limpiará [los Efectos de *layout*](/apis/react/useLayoutEffect) en el árbol de contenido. Cuando el contenido esté listo para mostrarse de nuevo, React disparará los Efectos de *layout* de nuevo. Esto le permite asegurarse de que los Efectos que miden el diseño del DOM no intentan hacerlo mientras el contenido está oculto.
-- React incluye optimizaciones internas como *Renderizado en el servidor con Streaming* e *Hidratación selectiva* que se integran con Suspense. Puedes leer [una visión general de la arquitectura](https://github.com/reactwg/react-18/discussions/37) y ver [esta charla técnica](https://www.youtube.com/watch?v=pj5N-Khihgc) para conocer más.
-
----
-
 ## Solución de problemas {/*troubleshooting*/}
-=======
-## Troubleshooting {/*troubleshooting*/}
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
 
 ### ¿Cómo puedo evitar que la interfaz de usuario sea sustituida por un *fallback* durante una actualización? {/*preventing-unwanted-fallbacks*/}
 
@@ -2605,12 +2557,6 @@ function handleNextPageClick() {
 
 Esto evitará ocultar el contenido existente. Sin embargo, cualquier barrera `Suspense` recién renderizada seguirá mostrando inmediatamente los *fallbacks* para evitar el bloqueo de la UI y dejar que el usuario vea el contenido a medida que esté disponible.
 
-<<<<<<< HEAD:beta/src/content/apis/react/Suspense.md
-**React sólo evitará los "fallbacks" no deseados durante las actualizaciones no urgentes**. No retrasará un renderizado si es el resultado de una actualización urgente. Debes indicarlo con una API como [`startTransition`](/apis/react/startTransition) o [`useDeferredValue`](/apis/react/useDeferredValue).
+**React sólo evitará los "fallbacks" no deseados durante las actualizaciones no urgentes**. No retrasará un renderizado si es el resultado de una actualización urgente. Debes indicarlo con una API como [`startTransition`](/reference/react/startTransition) o [`useDeferredValue`](/reference/react/useDeferredValue).
 
-Si tu router está integrado con Suspense, debería envolver sus actualizaciones en [`startTransition`](/apis/react/startTransition) automáticamente.
-=======
-**React will only prevent unwanted fallbacks during non-urgent updates**. It will not delay a render if it's the result of an urgent update. You must opt in with an API like [`startTransition`](/reference/react/startTransition) or [`useDeferredValue`](/reference/react/useDeferredValue).
-
-If your router is integrated with Suspense, it should wrap its updates into [`startTransition`](/reference/react/startTransition) automatically.
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a:beta/src/content/reference/react/Suspense.md
+Si tu router está integrado con Suspense, debería envolver sus actualizaciones en [`startTransition`](/reference/react/startTransition) automáticamente.

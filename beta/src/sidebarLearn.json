@@ -32,23 +32,16 @@
         {
           "title": "Inicio rápido",
           "path": "/learn",
-<<<<<<< HEAD
-          "routes": [{
-            "title": "Pensar en React",
-            "path": "/learn/thinking-in-react"
-          }]
-=======
           "routes": [
             {
               "title": "Tutorial: Tic-Tac-Toe",
               "path": "/learn/tutorial-tic-tac-toe"
             },
             {
-              "title": "Thinking in React",
+              "title": "Pensar en React",
               "path": "/learn/thinking-in-react"
             }
           ]
->>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
         },
         {
           "title": "Describir la UI",
