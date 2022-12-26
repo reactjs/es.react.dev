@@ -1337,7 +1337,7 @@ button { margin: 10px; }
 
 <Solution>
 
-The problem with the above example is that it extracted an Effect Event called `onMount` without considering what the code should actually be doing. You should only extract Effect Events for a specific reason: when you want to make a part of your code non-reactive. However, the `setInterval` call *should* be reactive with respect to the `delay` state variable. If the `delay` changes, you want to set up the interval from scratch! To fix this code, pull all the reactive code back inside the Effect:
+El problema con el ejemplo anterior es que extrajo un Evento de Efecto llamado `onMount` sin considerar lo que el código realmente debería estar haciendo. Solo debes extraer Eventos de Efecto por una razón específica: cuando quieras hacer que una parte de tu código sea no reactiva. Sin embargo, la llamada a `setInterval` *debería* ser reactiva en relación con la variable de estado `delay`. ¡Si `delay` cambia, quieres configurar el intervalo desde cero! Para solucionar este código, vuelve a colocar todo el código reactivo dentro del Efecto:
 
 <Sandpack>
 
