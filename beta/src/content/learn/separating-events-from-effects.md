@@ -663,16 +663,16 @@ function Page({ url }) {
 }
 ```
 
-Here, `onVisit` is an Effect Event. The code inside it isn't reactive. This is why you can use `numberOfItems` (or any other reactive value!) without worrying that it will cause the surrounding code to re-execute on changes.
+Aquí, `onVisit` es un evento de efecto. El código dentro de él no es reactivo. Por eso puedes usar `numberOfItems` (o cualquier otro valor reactivo!) sin preocuparte de que cause que el código circundante se ejecute de nuevo ante los cambios.
 
+Por otro lado, el efecto en sí sigue siendo reactivo. El código dentro del efecto utiliza la propiedad `url`, por lo que el efecto se volverá a ejecutar después de cada renderizado con una `url` diferente. Esto, a su vez, llamará al evento de efecto `onVisit`.
 
-On the other hand, the Effect itself remains reactive. Code inside the Effect uses the `url` prop, so the Effect will re-run after every re-render with a different `url`. This, in turn, will call the `onVisit` Effect Event.
+Como resultado, llamarás a `logVisit` por cada cambio en la `url` y siempre leerás el número más reciente de `numberOfItems`. Sin embargo, si `numberOfItems` cambia por sí solo, esto no causará que se vuelva a ejecutar ningún código.
 
-As a result, you will call `logVisit` for every change to the `url`, and always read the latest `numberOfItems`. However, if `numberOfItems` changes on its own, this will not cause any of the code to re-run.
 
 <Note>
 
-You might be wondering if you could call `onVisit()` with no arguments, and read the `url` inside it:
+Es posible que te estés preguntando si podrías llamar a `onVisit()` sin argumentos y leer la `url` dentro de él:
 
 ```js {2,6}
   const onVisit = useEffectEvent(() => {
@@ -684,7 +684,8 @@ You might be wondering if you could call `onVisit()` with no arguments, and read
   }, [url]);
 ```
 
-This would work, but it's better to pass this `url` to the Effect Event explicitly. **By passing `url` as an argument to your Effect Event, you are saying that visiting a page with a different `url` constitutes a separate "event" from the user's perspective.** The `visitedUrl` is a *part* of the "event" that happened:
+Esto funcionaría, pero es mejor pasar esta `url` al evento de Efecto de forma explícita. **Al pasar `url` como argumento a tu Evento de Efecto, estás diciendo que visitar una página con una `url` diferente constituye un "evento" separado desde el punto de vista del usuario.** La `visitedUrl` es una *parte* del "evento" que ocurrió:
+
 
 ```js {1-2,6}
   const onVisit = useEffectEvent(visitedUrl => {
@@ -696,9 +697,9 @@ This would work, but it's better to pass this `url` to the Effect Event explicit
   }, [url]);
 ```
 
-Since your Effect Event explicitly "asks" for the `visitedUrl`, now you can't accidentally remove `url` from the Effect's dependencies. If you remove the `url` dependency (causing distinct page visits to be counted as one), the linter will warn you about it. You want `onVisit` to be reactive with regards to the `url`, so instead of reading the `url` inside (where it wouldn't be reactive), you pass it *from* your Effect.
+Dado que tu evento de efecto "pide" explícitamente la `visitedUrl`, ahora no puedes eliminar accidentalmente la dependencia de `url` del Efecto. Si eliminas la dependencia de `url` (lo que causaría que las visitas a páginas distintas se cuenten como una sola), el linter te avisará al respecto. Quieres que `onVisit` sea reactivo en lo que respecta a la `url`, por lo que en lugar de leer la `url` dentro (donde no sería reactivo), la pasas *desde* tu Efecto.
 
-This becomes especially important if there is some asynchronous logic inside the Effect:
+Esto se vuelve especialmente importante si hay algún tipo de lógica asíncrona dentro del Efecto:
 
 ```js {6,8}
   const onVisit = useEffectEvent(visitedUrl => {
