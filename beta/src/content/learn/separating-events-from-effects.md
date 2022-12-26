@@ -972,15 +972,15 @@ Los Eventos de Efecto son "piezas" no reactivas de tu código de Efecto. Deben e
 
 <Challenges>
 
-#### Fix a variable that doesn't update {/*fix-a-variable-that-doesnt-update*/}
+#### Arregla la variable que no se actualiza {/*fix-a-variable-that-doesnt-update*/}
 
-This `Timer` component keeps a `count` state variable which increases every second. The value by which it's increasing is stored in the `increment` state variable. You can control the `increment` variable with the plus and minus buttons.
+Este componente `Timer` mantiene una variable de estado `count` que aumenta cada segundo. El valor en el que aumenta se almacena en la variable de estado `increment`. Puedes controlar la variable `increment` con los botones más y menos.
 
-However, no matter how many times you click the plus button, the counter is still incremented by one every second. What's wrong with this code? Why is `increment` always equal to `1` inside the Effect's code? Find the mistake and fix it.
+Sin embargo, no importa cuántas veces haga clic en el botón más, el contador sigue aumentando en uno cada segundo. ¿Qué pasa con este código? ¿Por qué `increment` siempre es igual a `1` dentro del código del Efecto? Encuentra el error y corrígelo.
 
 <Hint>
 
-To fix this code, it's enough to follow the rules.
+Para solucionar este código, basta con seguir las reglas.
 
 </Hint>
 
@@ -1033,9 +1033,9 @@ button { margin: 10px; }
 
 <Solution>
 
-As usual, when you're looking for bugs in Effects, start by searching for linter suppressions.
+Como de costumbre, cuando buscas errores en los Efectos, comienza buscando las supresiones del linter.
 
-If you remove the suppression comment, React will tell you that this Effect's code depends on `increment`, but you "lied" to React by claiming that this Effect does not depend on any reactive values (`[]`). Add `increment` to the dependency array:
+Si eliminas el comentario de supresión, React te dirá que el código de este Efecto depende de `increment`, pero le "mentiste" a React al afirmar que este Efecto no depende de ningún valor reactivo (`[]`). Agrega `increment` al array de dependencias:
 
 <Sandpack>
 
@@ -1083,19 +1083,19 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Now, when `increment` changes, React will re-synchronize your Effect, which will restart the interval.
+Ahora, cuando `increment` cambie, React sincronizará de nuevo tu Efecto, lo que reiniciará el intervalo.
 
 </Solution>
 
 #### Fix a freezing counter {/*fix-a-freezing-counter*/}
 
-This `Timer` component keeps a `count` state variable which increases every second. The value by which it's increasing is stored in the `increment` state variable, which you can control it with the plus and minus buttons. For example, try pressing the plus button nine times, and notice that the `count` now increases each second by ten rather than by one.
+Este componente `Timer` mantiene una variable de estado `count` que aumenta cada segundo. El valor en el que aumenta se almacena en la variable de estado `increment`, que puedes controlarla con los botones más y menos. Por ejemplo, prueba a presionar el botón más nueve veces y notarás que `count` ahora aumenta cada segundo en diez en lugar de en uno.
 
-There is a small issue with this user interface. You might notice that if you keep pressing the plus or minus buttons faster than once per second, the timer itself seems to pause. It only resumes after a second passes since the last time you've pressed either button. Find why this is happening, and fix the issue so that the timer ticks on *every* second without interruptions.
+Hay un pequeño problema con esta interfaz de usuario. Es posible que te des cuenta de que si sigues presionando los botones más o menos más rápido de una vez por segundo, el propio temporizador parece detenerse. Solo se reanuda después de que haya pasado un segundo desde la última vez que presionaste cualquiera de los botones. Encuentra por qué está sucediendo esto y soluciona el problema para que el temporizador funcione en *cada* segundo sin interrupciones.
 
 <Hint>
 
-It seems like the Effect which sets up the timer "reacts" to the `increment` value. Does the line that uses the current `increment` value in order to call `setCount` really need to be reactive?
+Parece que el efecto que configura el temporizador "reacciona" al valor de `increment`. ¿Realmente necesita ser reactiva la línea que usa el valor actual de `increment` para llamar a `setCount`?
 
 </Hint>
 
