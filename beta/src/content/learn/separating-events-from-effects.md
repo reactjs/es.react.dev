@@ -709,19 +709,19 @@ Esto se vuelve especialmente importante si hay algún tipo de lógica asíncrona
   useEffect(() => {
     setTimeout(() => {
       onVisit(url);
-    }, 5000); // Delay logging visits
+    }, 5000); // Retrasar el registro de visitas
   }, [url]);
 ```
 
-In this example, `url` inside `onVisit` corresponds to the *latest* `url` (which could have already changed), but `visitedUrl` corresponds to the `url` that originally caused this Effect (and this `onVisit` call) to run.
+En este ejemplo, `url` dentro de `onVisit` corresponde a la url más *reciente* (que podría haber cambiado ya), pero `visitedUrl` corresponde a la `url` que originalmente causó que este Efecto (y esta llamada a `onVisit`) se ejecutara.
 
 </Note>
 
 <DeepDive>
 
-#### Is it okay to suppress the dependency linter instead? {/*is-it-okay-to-suppress-the-dependency-linter-instead*/}
+#### ¿Está bien suprimir el linter en su lugar? {/*is-it-okay-to-suppress-the-dependency-linter-instead*/}
 
-In the existing codebases, you may sometimes see the lint rule suppressed like this:
+En los conjuntos de código existentes, a veces puedes ver que la regla del linter se suprime de esta manera:
 
 ```js {7-9}
 function Page({ url }) {
@@ -730,18 +730,20 @@ function Page({ url }) {
 
   useEffect(() => {
     logVisit(url, numberOfItems);
-    // 🔴 Avoid suppressing the linter like this:
+    // 🔴 Evita suprimir el linter así:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
   // ...
 }
 ```
 
-After `useEffectEvent` becomes a stable part of React, we recommend to **never suppress the linter** like this.
+Después de que `useEffectEvent` se convierta en una parte estable de React, recomendamos **nunca suprimir el linter** de esta manera.
 
-The first downside of suppressing the rule is that React will no longer warn you when your Effect needs to "react" to a new reactive dependency you've introduced to your code. For example, in the earlier example, you added `url` to the dependencies *because* React reminded you to do it. You will no longer get such reminders for any future edits to that Effect if you disable the linter. This leads to bugs.
+La primera desventaja de suprimir la regla es que React ya no te avisará cuando tu Efecto necesite "reaccionar" a una nueva dependencia reactiva que hayas introducido en tu código. Por ejemplo, en el ejemplo anterior, agregaste `url` como dependencias *porque* React te recordó hacerlo. Ya no recibirás más recordatorios para cualquier edición futura de ese efecto si desactivas el linter. Esto lleva a errores.
 
-Here is an example of a confusing bug caused by suppressing the linter. In this example, the `handleMove` function is supposed to read the current `canMove` state variable value in order to decide whether the dot should follow the cursor. However, `canMove` is always `true` inside `handleMove`. Can you see why?
+
+Aquí tienes un ejemplo de un error confuso causado por suprimir el linter. En este ejemplo, la función `handleMove` se supone que debe leer el valor actual de la variable de estado `canMove` para decidir si el punto debe seguir el cursor. Sin embargo, `canMove` siempre es true dentro de `handleMove`. ¿Puedes ver por qué?
+
 
 <Sandpack>
 
@@ -799,10 +801,10 @@ body {
 
 </Sandpack>
 
+El problema con este código es suprimir el linter de dependencias. Si eliminas la supresión, verás que este efecto debe depender de la función `handleMove`. Esto tiene sentido: `handleMove` se declara dentro del cuerpo del componente, lo que lo convierte en un valor reactivo. ¡Cada valor reactivo debe especificarse como dependencia, o potencialmente puede volverse obsoleto con el tiempo!
 
-The problem with the this code is in suppressing the dependency linter. If you remove the suppression, you'll see that this Effect should depend on the `handleMove` function. This makes sense: `handleMove` is declared inside the component body, which makes it a reactive value. Every reactive value must be specified as a dependency, or it can potentially get stale over time!
+El autor del código original ha "mentido" a React diciendo que el efecto no depende (`[]`) de ningún valor reactivo. Por eso React no volvió a sincronizar el efecto después de que `canMove` haya cambiado (y `handleMove` con él). Debido a que React no volvió a sincronizar el Efecto, el `handleMove` adjunto como oyente es la función `handleMove` creada durante el render inicial. Durante el render inicial, `canMove` era true, por lo que `handleMove` del render inicial siempre verá ese valor.
 
-The author of the original code has "lied" to React by saying that the Effect does not depend (`[]`) on any reactive values. This is why React did not re-synchronize the Effect after `canMove` has changed (and `handleMove` with it). Because React did not re-synchronize the Effect, the `handleMove` attached as a listener is the `handleMove` function created during the initial render. During the initial render, `canMove` was `true`, which is why `handleMove` from the initial render will forever see that value.
 
 **If you never suppress the linter, you will never see problems with stale values.**
 
