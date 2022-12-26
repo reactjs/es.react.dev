@@ -1164,9 +1164,9 @@ button { margin: 10px; }
 
 <Solution>
 
-The issue is that the code inside the Effect uses the `increment` state variable. Since it's a dependency of your Effect, every change to `increment` causes the Effect to re-synchronize, which causes the interval to clear. If you keep clearing the interval every time before it has a chance to fire, it will appear as if the timer has stalled.
+El problema es que el código dentro del Efecto usa la variable de estado `increment`. Dado que es una dependencia de tu Efecto, cada cambio en `increment` hace que el Efecto se re-sincronice, lo que hace que el intervalo se borre. Si sigues borrando el intervalo cada vez antes de que tenga la oportunidad de dispararse, parecerá que el temporizador está obstaculizado.
 
-To solve the issue, extract an `onTick` Effect Event from the Effect:
+Para solucionar el problema, extrae un `onTick` Effect Event del Efecto:
 
 <Sandpack>
 
@@ -1236,17 +1236,19 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Since `onTick` is an Effect Event, the code inside it isn't reactive. The change to `increment` does not trigger any Effects.
+Dado que `onTick` es un Effect Event, el código dentro de él no es reactivo. El cambio en `increment` no desencadena ningún Efecto.
 
 </Solution>
 
-#### Fix a non-adjustable delay {/*fix-a-non-adjustable-delay*/}
+#### Arregla un retraso no ajustable {/*fix-a-non-adjustable-delay*/}
 
-In this example, you can customize the interval delay. It's stored in a `delay` state variable which is updated by two buttons. However, even if you press the "plus 100 ms" button until the `delay` is 1000 milliseconds (that is, a second), you'll notice that the timer still increments very fast (every 100 ms). It's as if your changes to the `delay` are ignored. Find and fix the bug.
+
+En este ejemplo, puedes personalizar el retraso del intervalo. Se almacena en una variable de estado `delay` que se actualiza con dos botones. Sin embargo, incluso si presionas el botón "más 100 ms" hasta que `delay` sea 1000 milisegundos (es decir, un segundo), verás que el temporizador aumenta muy rápido (cada 100 ms). Es como si tus cambios en `delay` se ignoraran. Encuentra y arregla el error.
+
 
 <Hint>
 
-Code inside Effect Events is not reactive. Are there cases in which you would _want_ the `setInterval` call to re-run?
+El código dentro de los Eventos de Efecto no es reactivo. ¿Hay casos en los que _querrías_ que se volviera a ejecutar la llamada a `setInterval`?
 
 </Hint>
 
