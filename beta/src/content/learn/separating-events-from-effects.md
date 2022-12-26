@@ -200,11 +200,13 @@ Desde la perspectiva del usuario, **un cambio en el "mensaje" _no_ significa que
   }
 ```
 
-Event handlers aren't reactive, so `sendMessage(message)` will only run when the user clicks the Send button.
+Los controladores de eventos no son reactivos, asi que; "sendMessage(message)" solo se ejecutara cuando el usuario haga clic en el botón "Send".
 
-### Logic inside Effects is reactive {/*logic-inside-effects-is-reactive*/}
+### La lógica dentro de los Efectos es reactiva {/*logic-inside-effects-is-reactive*/}
 
-Now let's return to these lines:
+
+Ahora volvamos a estas líneas:
+
 
 ```js [[2, 2, "roomId"]]
     // ...
@@ -213,7 +215,8 @@ Now let's return to these lines:
     // ...
 ```
 
-From the user's perspective, **a change to the `roomId` *does* mean that they want to connect to a different room.** In other words, the logic for connecting to the room should be reactive. You *want* these lines of code to "keep up" with the <CodeStep step={2}>reactive value</CodeStep>, and to run again if that value is different. That's why you put this logic inside an Effect:
+Desde la perspectiva del usuario, **un cambio en el "roomId" *sí* significa que quieren conectarse a una sala diferente.** En otras palabras, la lógica para conectarse a la sala debe ser reactiva. *Quieres* que estas líneas de código "estén al día" con el <CodeStep step={2}>valor reactivo</CodeStep> y volver a ejecutarse si ese valor es diferente. Por eso pusiste esta lógica dentro de un efecto:
+
 
 ```js {2-3}
   useEffect(() => {
@@ -225,11 +228,11 @@ From the user's perspective, **a change to the `roomId` *does* mean that they wa
   }, [roomId]);
 ```
 
-Effects are reactive, so `createConnection(serverUrl, roomId)` and `connection.connect()` will run for every distinct value of `roomId`. Your Effect keeps the chat connection synchronized to the currently selected room.
+Los Efectos son reactivos, entonces "createConnection(serverUrl, roomId)" y "connection.connect()" debería ejecutarse por cada valor distinto del "roomId". Tu efecto mantendrá la conexión del chat sincronizada con la actual sala seleccionada.
 
-## Extracting non-reactive logic out of Effects {/*extracting-non-reactive-logic-out-of-effects*/}
+## Extrayendo lógica no-reactiva fuera de los Efectos {/*extracting-non-reactive-logic-out-of-effects*/}
 
-Things get more tricky when you want to mix reactive logic with non-reactive logic.
+Las cosas se complican más cuando quieres mezclar lógica reactiva con lógica no reactiva.
 
 For example, imagine that you want to show a notification when the user connects to the chat. You read the current theme (dark or light) from the props so that you can show the notification in the correct color:
 
