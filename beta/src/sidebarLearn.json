@@ -32,10 +32,23 @@
         {
           "title": "Inicio rápido",
           "path": "/learn",
+<<<<<<< HEAD
           "routes": [{
             "title": "Pensar en React",
             "path": "/learn/thinking-in-react"
           }]
+=======
+          "routes": [
+            {
+              "title": "Tutorial: Tic-Tac-Toe",
+              "path": "/learn/tutorial-tic-tac-toe"
+            },
+            {
+              "title": "Thinking in React",
+              "path": "/learn/thinking-in-react"
+            }
+          ]
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
         },
         {
           "title": "Describir la UI",
@@ -114,9 +127,7 @@
         {
           "title": "Managing State",
           "path": "/learn/managing-state",
-          "tags": [
-            "intermediate"
-          ],
+          "tags": ["intermediate"],
           "routes": [
             {
               "title": "Reacting to Input with State",
@@ -151,9 +162,7 @@
         {
           "title": "Escape Hatches",
           "path": "/learn/escape-hatches",
-          "tags": [
-            "advanced"
-          ],
+          "tags": ["advanced"],
           "routes": [
             {
               "title": "Referenciar valores con refs",

@@ -273,7 +273,11 @@ Ahora utilicemos nuestra estrategia para este estado:
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 
+<<<<<<< HEAD
 Añade estado al componente con el [Hook `useState()`](/apis/react/useState). Los Hooks te permiten «engancharte» al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como «gancho»). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
+=======
+Add state to the component with the [`useState()` Hook.](/reference/react/useState) Hooks let you "hook into" a component's [render cycle.](/learn/render-and-commit) Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 ```js
 function FilterableProductTable({ products }) {

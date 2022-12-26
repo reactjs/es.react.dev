@@ -195,7 +195,11 @@ Si bien la programación funcional depende en gran medida de la pureza, en algú
 
 En React, **los efectos secundarios generalmente deberían estar dentro de los [manejadores de eventos.](/learn/responding-to-events)** Los manejadores de eventos son funciones que React ejecuta cuando realiza alguna acción (por ejemplo, cuando haces clic en un botón). ¡Aunque los manejadores de eventos están definidos *dentro* de tu componente, no corren *durante* el renderizado! **Por lo tanto, los manejadores de eventos no necesitan ser puros.**
 
+<<<<<<< HEAD
 Si has agotado todas las demás opciones y no puedes encontrar el controlador de eventos adecuado para tu efecto secundario, aún puedes adjuntarlo en el retorno del JSX con un llamado a [`useEffect`](/apis/react/useEffect) en tu componente. Esto le dice a React que lo ejecute más tarde, después del renderizado, cuando se permiten efectos secundarios. **Sin embargo, este enfoque debería ser tu último recurso.**
+=======
+If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a [`useEffect`](/reference/react/useEffect) call in your component. This tells React to execute it later, after rendering, when side effects are allowed. **However, this approach should be your last resort.**
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 Cuando sea posible, intenta expresar tu lógica con un solo renderizado. ¡Te sorprenderá lo lejos que esto puede llevarte!
 
@@ -205,9 +209,15 @@ Cuando sea posible, intenta expresar tu lógica con un solo renderizado. ¡Te so
 
 Escribir funciones puras requiere cierto hábito y disciplina. Pero también desbloquea maravillosas oportunidades:
 
+<<<<<<< HEAD
 * ¡Tus componentes podrían ejecutarse en un entorno diferente (por ejemplo, en el servidor)! Como devuelven el mismo resultado para las mismas entradas, un componente puede atender muchas solicitudes de los usuarios.
 * Puedes mejorar el rendimiento [omitiendo el renderizado](/apis/react/memo) de componentes cuyas entradas no han cambiado. Esto es seguro porque las funciones puras siempre devuelven los mismos resultados, por lo que son seguras para almacenar en caché.
 * Si algunos datos cambian en medio del renderizado de un árbol de componentes profundos, React puede reiniciar el renderizado sin perder tiempo para terminar el renderizado desactualizado. La pureza hace que sea seguro dejar de calcular en cualquier momento.
+=======
+* Your components could run in a different environment—for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.
+* You can improve performance by [skipping rendering](/reference/react/memo) components whose inputs have not changed. This is safe because pure functions always return the same results, so they are safe to cache.
+* If some data changes in the middle of rendering a deep component tree, React can restart rendering without wasting time to finish the outdated render. Purity makes it safe to stop calculating at any time.
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 Cada nueva característica de React que estamos construyendo aprovecha la pureza. Desde la búsqueda de datos hasta las animaciones y el rendimiento, mantener los componentes puros desbloquea el poder del paradigma de React.
 

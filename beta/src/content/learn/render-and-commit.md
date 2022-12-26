@@ -67,7 +67,11 @@ Prueba a comentar la llamada `root.render()` ¡y verás cómo desaparece el comp
 
 ### Rerenderizados cuando se actualiza el estado {/*re-renders-when-state-updates*/}
 
+<<<<<<< HEAD
 Una vez que el componente ha sido renderizado inicialmente, puede desencadenar más renderizados actualizando su estado con la [función `set`.](/apis/react/useState#setstate) Al actualizar el estado de tu componente, se pone en cola automáticamente un renderizado. (Puedes imaginarte esto como un cliente de un restaurante que pide té, postre y todo tipo de cosas después de poner su primer pedido, dependiendo del estado de su sed o hambre).
+=======
+Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function.](/reference/react/useState#setstate) Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 <IllustrationBlock sequential>
   <Illustration caption="La actualización del estado..." alt="React como un camarero en un restaurante, sirviendo una UI tarjeta al usuario, representado como un cliente con un cursor como su cabeza. ¡El cliente expresa que quiere una tarjeta rosa, no una negra!" src="/images/docs/illustrations/i_rerender1.png" />

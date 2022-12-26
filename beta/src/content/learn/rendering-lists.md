@@ -378,7 +378,11 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 ¿Qué haces cuándo cada objeto necesita renderizar no uno, sino varios nodos del DOM?
 
+<<<<<<< HEAD
 El atajo de sintaxis del [`<>...</>` Fragment](/apis/react/Fragment) no te dejará pasarle una key, así que necesitas agruparlos en un solo `<div>`, o usar una sintaxis algo más larga y [más explícita del `<Fragment>`:](/apis/react/Fragment#rendering-a-list-of-fragments)
+=======
+The short [`<>...</>` Fragment](/reference/react/Fragment) syntax won't let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and [more explicit `<Fragment>` syntax:](/reference/react/Fragment#rendering-a-list-of-fragments)
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 ```js
 import { Fragment } from 'react';
