@@ -27,11 +27,11 @@ Imagina que estas implementando un componente chat room. Tus requerimientos luci
 1. Tu componente, debería de conectarse de forma automática a la sala de chat seleccionada.
 2. Cuando hagas click en el botón "Send", debería de enviar un mensaje al chat.
 
-Digamos que ya tienes el código implementado para ello, pero no estas seguro de donde ponerlo. Deberías de usar controladores de eventos o Efectos? Cada vez que necesites contestar este pregunta, considera [*why* the code needs to run.](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events)
+Digamos que ya tienes el código implementado para ello, pero no estas seguro de donde ponerlo. Deberías de usar controladores de eventos o Efectos? Cada vez que necesites contestar este pregunta, considera ["por qué" se necesita ejecutar el código.](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events)
 
-### Event handlers run in response to specific interactions {/*event-handlers-run-in-response-to-specific-interactions*/}
+### Los controladores de eventos responden a interacciones especificas {/*event-handlers-run-in-response-to-specific-interactions*/}
 
-From the user's perspective, sending a message should happen *because* the particular "Send" button was clicked. The user will get rather upset if you send their message at any other time or for any other reason. This is why sending a message should be an event handler. Event handlers let you handle specific interactions like clicks:
+Desde la perspectiva de un usuario, enviar un mensaje debería de pasar "porque" el particular botón de "Send" fue cliqueado. De otra forma, el usuario se molestara si tu envías su mensaje, en cualquier otro momento, o por cualquier otra razón. Este es el porque, enviar un mensaje debería de ser un controlador de evento. Los controladores de eventos te permiten manejar interacciones especificas como por ejemplo, clicks:
 
 ```js {4-6}
 function ChatRoom({ roomId }) {
@@ -50,13 +50,13 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-With an event handler, you can be sure that `sendMessage(message)` will *only* run if the user presses the button.
+Con un controlador de evento, tu puedes estar seguro de que "sendMessage(message)" "unicamente" se activara si el usuario presiona el botón.
 
-### Effects run whenever synchronization is needed {/*effects-run-whenever-synchronization-is-needed*/}
+### Los efectos se ejecutan siempre que se necesita sincronización. {/*effects-run-whenever-synchronization-is-needed*/}
 
-Recall that you also need to keep the component connected to the chat room. Where does that code go?
+Recuerda que también necesitas que el componente se mantenga conectado a la sala de chat. Donde va ese código?
 
-The *reason* to run this code is not some particular interaction. It doesn't matter why or how the user navigated to the chat room screen. Now that they're looking at it and could interact with it, the component needs to stay connected to the selected chat server. Even if the chat room component was the initial screen of your app, and the user has not performed any interactions at all, you would *still* need to connect. This is why it's an Effect:
+La "razón" para ejecutar este código no es ninguna interacción en particular. No es importante, el como o de que forma el usuario navego hasta la sala de chat. Ahora que ellos están viéndola, y pueden interactuar con ella, el componente necesita mantenerse conectado al servidor de chat seleccionado. Incluso si el componente de la sala de chat, fuese la pantalla inicial de tu aplicación y el usuario no a realizado ningún tipo de interacción, aún necesitarías conectarte. Es por eso que es un efecto:
 
 ```js {3-9}
 function ChatRoom({ roomId }) {
@@ -72,7 +72,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-With this code, you can be sure that there is always an active connection to the currently selected chat server, *regardless* of the specific interactions performed by the user. Whether the user has only opened your app, selected a different room, or navigated to another screen and back, your Effect will ensure that the component will *remain synchronized* with the currently selected room, and will [re-connect whenever it's necessary.](/learn/lifecycle-of-reactive-effects#why-synchronization-may-need-to-happen-more-than-once)
+Con este código, puedes estar seguro de que siempre hay una conexión activa al servidor de chat seleccionado actualmente, "independientemente" de las interacciones específicas realizadas por el usuario. Ya sea que el usuario solo haya abierto tu aplicación, seleccionado una sala diferente o navegado a otra pantalla y vuelto atrás, tu Efecto garantizará que el componente "permanezca sincronizado" con la sala seleccionada actualmente y se mantendrá sincronizado con los cambios en tiempo real en la sala [y volver a conectarse siempre que sea necesario.](/learn/lifecycle-of-reactive-effects#why-synchronization-may-need-to-happen-more-than-once)
 
 <Sandpack>
 
@@ -136,7 +136,7 @@ export function sendMessage(message) {
 }
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real de hecho se conectaría al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -154,13 +154,14 @@ input, select { margin-right: 20px; }
 
 </Sandpack>
 
-## Reactive values and reactive logic {/*reactive-values-and-reactive-logic*/}
+## Valores reactivos y lógica reactiva {/*reactive-values-and-reactive-logic*/}
 
-Intuitively, you could say that event handlers are always triggered "manually", for example by clicking a button. Effects, on the other hand, are "automatic": they run and re-run as often as it's needed to stay synchronized.
+Intuitivamente, podrías decir que los controladores de eventos siempre se activan "manualmente", por ejemplo, haciendo clic en un botón. Los efectos, por otro lado, son "automáticos": se ejecutan y vuelven a ejecutarse tantas veces como sea necesario para mantenerse sincronizados.
 
-There is a more precise way to think about this.
+Hay una forma más precisa de pensar en esto.
 
-Props, state, and variables declared inside your component's body are called <CodeStep step={2}>reactive values</CodeStep>. In this example, `serverUrl` is not a reactive value, but `roomId` and `message` are. They participate in the rendering data flow:
+Las propiedades, el estado y las variables declaradas dentro del cuerpo del componente se llaman <CodeStep step={2}>valores reactivos</CodeStep>. En este ejemplo, "serverUrl" no es un valor reactivo, pero "roomId" y "message" sí lo son. Participan en el flujo de datos de renderizado:
+
 
 ```js [[2, 3, "roomId"], [2, 4, "message"]]
 const serverUrl = 'https://localhost:1234';
@@ -172,16 +173,18 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Reactive values like these can change due to a re-render. For example, the user may edit the `message` or choose a different `roomId` in a dropdown. Event handlers and Effects are different in how they respond to changes:
+Los valores reactivos como estos pueden cambiar debido a un nuevo renderizado. Por ejemplo, el usuario puede editar el mensaje o elegir un "roomId" diferente en un desplegable. Los controladores de eventos y los efectos son diferentes en cómo responden a los cambios:
 
-- **Logic inside event handlers is *not reactive.*** It will not run again unless the user performs the same interaction (for example, a click) again. Event handlers can read reactive values, but they don't "react" to their changes.
-- **Logic inside Effects is *reactive.*** If your Effect reads a reactive value, [you have to specify it as a dependency.](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) Then, if a re-render causes that value to change, React will re-run your Effect's logic again with the new value.
+- **La lógica dentro de los controladores de eventos *no es reactiva.*** No se ejecutará de nuevo a menos que el usuario realice de nuevo la misma interacción (por ejemplo, un clic). Los controladores de eventos pueden leer valores reactivos, pero no "reaccionan" a sus cambios.
+- **La lógica dentro de los efectos es *reactiva*** Si tu efecto lee un valor reactivo, [debes especificarlo como dependencia.](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values)  Luego, si un nuevo renderizado hace que ese valor cambie, React volverá a ejecutar la lógica del efecto de nuevo con el nuevo valor.
 
-Let's revisit the previous example to illustrate this difference.
 
-### Logic inside event handlers is not reactive {/*logic-inside-event-handlers-is-not-reactive*/}
+Vamos a volver al ejemplo anterior para ilustrar esta diferencia.
 
-Take a look at this line of code. Should this logic be reactive or not?
+### La lógica dentro de los controladores de eventos, no es reactiva {/*logic-inside-event-handlers-is-not-reactive*/}
+
+
+Dale un vistazo a esta linea de código. Esta lógica debería de ser reactiva o no?
 
 ```js [[2, 2, "message"]]
     // ...
@@ -189,7 +192,7 @@ Take a look at this line of code. Should this logic be reactive or not?
     // ...
 ```
 
-From the user's perspective, **a change to the `message` does _not_ mean that they want to send a message.** It only means that the user is typing. In other words, the logic that sends a message should not be reactive. It should not run again only because the <CodeStep step={2}>reactive value</CodeStep> has changed. That's why you placed this logic in the event handler:
+Desde la perspectiva del usuario, **un cambio en el "mensaje" _no_ significa que quieran enviar un mensaje.** Solo significa que el usuario está escribiendo. En otras palabras, la lógica que envía un mensaje no debe ser reactiva. No debe volver a ejecutarse solo porque el <CodeStep step={2}>valor reactivo</CodeStep> ha cambiado. Por eso colocaste esta lógica en el controlador de eventos:
 
 ```js {2}
   function handleSendClick() {
