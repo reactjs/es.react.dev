@@ -18,16 +18,16 @@ Los controladores de eventos solo se vuelven a ejecutar cuando realizas la misma
 
 </YouWillLearn>
 
-## Choosing between event handlers and Effects {/*choosing-between-event-handlers-and-effects*/}
+## Eligiendo entre controladores de eventos y Efectos {/*choosing-between-event-handlers-and-effects*/}
 
-First, let's recap the difference between event handlers and Effects.
+Primero, vamos a recapitular la diferencia entre controladores de eventos y Efectos.
 
-Imagine you're implementing a chat room component. Your requirements look like this:
+Imagina que estas implementando un componente chat room. Tus requerimientos lucirían algo asi:
 
-1. Your component should automatically connect to the selected chat room.
-1. When you click the "Send" button, it should send a message to the chat.
+1. Tu componente, debería de conectarse de forma automática a la sala de chat seleccionada.
+2. Cuando hagas click en el botón "Send", debería de enviar un mensaje al chat.
 
-Let's say you've already implemented the code for them, but you're not sure where to put it. Should you use event handlers or Effects? Every time you need to answer this question, consider [*why* the code needs to run.](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events)
+Digamos que ya tienes el código implementado para ello, pero no estas seguro de donde ponerlo. Deberías de usar controladores de eventos o Efectos? Cada vez que necesites contestar este pregunta, considera [*why* the code needs to run.](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events)
 
 ### Event handlers run in response to specific interactions {/*event-handlers-run-in-response-to-specific-interactions*/}
 
