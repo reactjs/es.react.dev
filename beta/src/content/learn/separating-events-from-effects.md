@@ -234,7 +234,8 @@ Los Efectos son reactivos, entonces "createConnection(serverUrl, roomId)" y "con
 
 Las cosas se complican más cuando quieres mezclar lógica reactiva con lógica no reactiva.
 
-For example, imagine that you want to show a notification when the user connects to the chat. You read the current theme (dark or light) from the props so that you can show the notification in the correct color:
+Por ejemplo, imagina que quieres mostrar una notificación cuando el usuario se conecta al chat. Tienes que leer el tema actual (oscuro o claro) de las propiedades para poder mostrar la notificación en el color correcto:
+
 
 ```js {1,4-6}
 function ChatRoom({ roomId, theme }) {
@@ -247,7 +248,8 @@ function ChatRoom({ roomId, theme }) {
     // ...
 ````
 
-However, `theme` is a reactive value (it can change as a result of re-rendering), and [every reactive value read by an Effect must be declared as its dependency.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) So now you have to specify `theme` as a dependency of your Effect:
+Sin embargo, `theme` es un valor reactivo (puede cambiar como resultado de un nuevo renderizado) y [cada valor reactivo leído por un Efecto, debe ser declarado como una dependencia.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Entonces ahora, tu tienes que especificar `theme` como una dependencia de tu Efecto.
+
 
 ```js {5,11}
 function ChatRoom({ roomId, theme }) {
@@ -264,7 +266,7 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ````
 
-Play with this example and see if you can spot the problem with this user experience:
+Juega con este ejemplo e intenta ver si puedes localizar el problema con esta experiencia de usuario:
 
 <Sandpack>
 
@@ -341,7 +343,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real de hecho se conectaría al servidor
   let connectedCallback;
   let timeout;
   return {
@@ -392,9 +394,9 @@ label { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-When the `roomId` changes, the chat re-connects as you would expect. But since `theme` is also a dependency, the chat *also* re-connects every time you switch between the dark and the light theme. That's not great!
+Cuando el `roomId` cambia, el chat se vuelve a conectar como se esperaría. Pero dado que `theme` también es una dependencia, el chat *también* se vuelve a conectar cada vez que cambias entre el tema oscuro y el tema claro. ¡Eso no es genial!
 
-In other words, you *don't* want this line to be reactive, even though it is inside an Effect (which is reactive):
+En otras palabras, tu *no* quieres que esta linea sea reactiva, incluso aunque se encuentre dentro de un Efecto (lo cual es reactivo):
 
 ```js
       // ...
@@ -402,17 +404,17 @@ In other words, you *don't* want this line to be reactive, even though it is ins
       // ...
 ```
 
-You need a way to separate this non-reactive logic from the reactive Effect around it.
+Necesitas una forma de separar esta lógica no reactiva del efecto reactivo que la rodea.
 
-### Declaring an Effect Event {/*declaring-an-effect-event*/}
+### Declarando un evento Efecto {/*declaring-an-effect-event*/}
 
 <Wip>
 
-This section describes an **experimental API that has not yet been added to React,** so you can't use it yet.
+Esta sección describe una **API experimental que aún no se ha agregado a React**, por lo que aún no puedes usarla.
 
 </Wip>
 
-Use a special Hook called [`useEffectEvent`](/apis/react/useEffectEvent) to extract this non-reactive logic out of your Effect:
+Usa un Hook especial llamado [`useEffectEvent`](/apis/react/useEffectEvent) para extraer esta lógica no-reactiva fuera de tu Efecto:
 
 ```js {1,4-6}
 import { useEffect, useEffectEvent } from 'react';
@@ -424,9 +426,9 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ````
 
-Here, `onConnected` is called an *Effect Event.* It's a part of your Effect logic, but it behaves a lot more like an event handler. The logic inside it is not reactive, and it always "sees" the latest values of your props and state.
+Aquí, `onConnected` se llama a un *Evento de efecto*. Es parte de tu lógica de efecto, pero se comporta mucho más como un controlador de eventos. La lógica dentro de él no es reactiva y siempre "ve" los valores más recientes de tus propiedades y estado.
 
-Now you can call the `onConnected` Effect Event from inside your Effect:
+Ahora puedes llamar al evento de efecto `onConnected` desde dentro de tu Efecto:
 
 ```js {2-4,9,13}
 function ChatRoom({ roomId, theme }) {
@@ -445,9 +447,9 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
-This solves the problem. Note that you had to *remove* `onConnected` from the list of your Effect's dependencies. **Effect Events are not reactive and must be omitted from dependencies. The linter will error if you include them.**
+Esto resuelve el problema. Ten en cuenta que tuviste que *eliminar* `onConnected` de la lista de dependencias de tu efecto. Los **eventos de efecto no son reactivos y deben omitirse de las dependencias. El linter dará un error si los incluyes.**
 
-Verify that the new behavior works as you would expect:
+Verifica que el nuevo comportamiento funcione como te gustaría:
 
 <Sandpack>
 
@@ -529,7 +531,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real seria conectada al server
   let connectedCallback;
   let timeout;
   return {
@@ -580,19 +582,21 @@ label { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-You can think of Effect Events as being very similar to event handlers. The main difference is that event handlers run in response to a user interactions, whereas Effect Events are triggered by you from Effects. Effect Events let you "break the chain" between the reactivity of Effects and some code that should not be reactive.
+Puedes pensar en los eventos de efecto como muy similares a los controladores de eventos. La principal diferencia es que los controladores de eventos se ejecutan en respuesta a una interacción del usuario, mientras que los eventos de Efecto son disparados por ti desde los Efectos. Los eventos de efecto te permiten "romper la cadena" entre la reactividad de los efectos y algún código que no debería ser reactivo.
 
-### Reading latest props and state with Effect Events {/*reading-latest-props-and-state-with-effect-events*/}
+
+### Leyendo las propiedades y el estado más recientes con eventos de efecto {/*reading-latest-props-and-state-with-effect-events*/}
 
 <Wip>
 
-This section describes an **experimental API that has not yet been added to React,** so you can't use it yet.
+Esta sección describe una **API experimental que aún no se ha agregado a React,** por lo que aún no puedes usarla.
 
 </Wip>
 
-Effect Events let you fix many patterns where you might be tempted to suppress the dependency linter.
+Los eventos de efecto te permiten solucionar muchos patrones en los que podrías estar tentado de suprimir el linter de dependencias.
 
-For example, say you have an Effect to log the page visits:
+Por ejemplo, digamos que tienes un efecto para registrar las visitas a la página:
+
 
 ```js
 function Page() {
@@ -603,29 +607,29 @@ function Page() {
 }
 ```
 
-Later, you add multiple routes to your site. Now your `Page` component receives a `url` prop with the current path. You want to pass the `url` as a part of your `logVisit` call, but the dependency linter complains:
+Más tarde, agregas múltiples rutas a tu `sitio`. Ahora tu componente Page recibe una propiedad `url` con la ruta actual. Quieres pasar la `url` como parte de tu llamada a `logVisit`, pero el linter de dependencias se queja:
 
 ```js {1,3}
 function Page({ url }) {
   useEffect(() => {
     logVisit(url);
-  }, []); // 🔴 React Hook useEffect has a missing dependency: 'url'
+  }, []); // 🔴El Hook de React useEffect tiene una dependencia faltante: 'url'
   // ...
 }
 ```
 
-Think about what you want the code to do. You *want* to log a separate visit for different URLs since each URL represents a different page. In other words, this `logVisit` call *should* be reactive with respect to the `url`. This is why, in this case, it makes sense to follow the dependency linter, and add `url` as a dependency:
+Piensa en lo que quieres que haga el código. *Quieres* registrar una visita separada para diferentes URLs ya que cada URL representa una página diferente. En otras palabras, esta llamada a "logVisit" *debería* ser reactiva con respecto a la `url`. Por eso, en este caso, tiene sentido seguir el linter de dependencias y agregar `url` como dependencia:
 
 ```js {4}
 function Page({ url }) {
   useEffect(() => {
     logVisit(url);
-  }, [url]); // ✅ All dependencies declared
+  }, [url]); // ✅ Todas las dependencias declaradas
   // ...
 }
 ```
 
-Now let's say you want to include the number of items in the shopping cart together with every page visit:
+Ahora, digamos que quieres incluir el numero de "items" en tu carrito de compra, junto con cada pagina visitada:
 
 ```js {2-3,6}
 function Page({ url }) {
@@ -634,7 +638,7 @@ function Page({ url }) {
 
   useEffect(() => {
     logVisit(url, numberOfItems);
-  }, [url]); // 🔴 React Hook useEffect has a missing dependency: 'numberOfItems'
+  }, [url]); // 🔴 El Hook de React useEffect tiene una dependencia faltante: 'numberOfItems'
   // ...
 }
 ```
