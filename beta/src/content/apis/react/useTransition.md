@@ -337,9 +337,8 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-### Updating the parent component in a transition {/*updating-the-parent-component-in-a-transition*/}
-
-The `useTransition` call does not have to be in the same component whose state you're updating. You can also move it into a child component. For example, this `TabButton` component wraps its `onClick` logic in a transition:
+### Actualizar el componente padre en una transición{/*updating-the-parent-component-in-a-transition*/}
+La llamada a `useTransition` no tiene por qué estar en el mismo componente cuyo estado está actualizando. También puedes moverla a un componente hijo. Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una transición:
 
 ```js {8-10}
 export default function TabButton({ children, isActive, onClick }) {
@@ -359,7 +358,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-Because the parent component updates its state inside the `onClick` event handler, that state update gets marked as a transition. This is why, like in the earlier example, you can click on "Posts" and then immediately click "Contact". Updating the selected tab is marked as a transition, so it does not block further user interactions.
+Debido a que el componente padre actualiza su estado dentro del manejador de eventos `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea otras interacciones del usuario.
 
 <Sandpack>
 
@@ -488,9 +487,9 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-### Displaying a pending visual state during the transition {/*displaying-a-pending-visual-state-during-the-transition*/}
+### Visualización de un estado visual pendiente durante la transición {/*displaying-a-pending-visual-state-during-the-transition*/}
 
-You can use the `isPending` boolean value returned by `useTransition` to indicate to the user that a transition is in progress. For example, the tab button can have a special "pending" visual state:
+Puedes usar el valor booleano `isPending` retornado por `useTransition` para indicar al usuario que una transición esta en progreso. Por ejemplo, el boton de la pestaña puede tener un estado visual especial "pendiente".
 
 ```js {4-6}
 function TabButton({ children, isActive, onClick }) {
@@ -502,7 +501,7 @@ function TabButton({ children, isActive, onClick }) {
   // ...
 ```
 
-Notice how clicking "Posts" now feels more responsive because the tab button itself updates right away:
+Fíjate en que hacer clic en "Post" ahora es más sensible porque el botón de la pestaña se actualiza inmediatamente:
 
 <Sandpack>
 
