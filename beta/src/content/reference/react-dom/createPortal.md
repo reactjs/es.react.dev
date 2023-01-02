@@ -4,7 +4,7 @@ title: createPortal
 
 <Intro>
 
-`createPortal` lets you render some children into a different part of the DOM.
+`createPortal` te permite convertir algunos hijos en una parte diferente del DOM.
 
 
 ```js
@@ -20,11 +20,11 @@ title: createPortal
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `createPortal(children, domNode)` {/*createportal*/}
 
-To create a portal, call `createPortal`, passing some JSX, and the DOM node where it should be rendered:
+Para crear un portal, llama a `createPortal`, pasando algo de JSX y el nodo del DOM donde debería renderizar:
 
 ```js
 import { createPortal } from 'react-dom';
@@ -32,41 +32,40 @@ import { createPortal } from 'react-dom';
 // ...
 
 <div>
-  <p>This child is placed in the parent div.</p>
+  <p>Este hijo se coloca en el div padre.</p>
   {createPortal(
-    <p>This child is placed in the document body.</p>,
+    <p>Este hijo se coloca en el cuerpo del documento.</p>,
     document.body
   )}
 </div>
 ```
 
-[See more examples below.](#usage)
+[Vea más ejemplos a continuación.](#usage)
 
-A portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it. For example, the child can access the context provided by the parent tree, and events still bubble up from children to parents according to the React tree.
+Un portal solo cambia la ubicación física del nodo del DOM. En todos los demás sentidos, el JSX renderizado en un portal actúa como un nodo hijo del componente React que lo renderiza. Por ejemplo, el hijo puede acceder al contexto proporcionado por el padre, y los eventos siguen apareciendo de los hijos a los padres de acuerdo con el árbol React.
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `children`: Anything that can be rendered with React, such as a piece of JSX (e.g. `<div />` or `<SomeComponent />`), a [Fragment](/reference/react/Fragment) (`<>...</>`), a string or a number, or an array of these.
+* `children`: Cualquier cosa que se pueda renderizar con React, como una pieza de JSX (e.g. `<div />` o `<SomeComponent />`), un [Fragment](/reference/react/Fragment) (`<>...</>`), un string o number, o un array de estos.
 
-* `domNode`: Some DOM node, such as those returned by `document.getElementById()`. The node must already exist. Passing a different DOM node during an update will cause the portal content to be recreated.
+* `domNode`: Algunos nodos del DOM, como los devueltos por `document.getElementById()`. El nodo ya debería existir. Pasar un nodo del DOM diferente durante una actualización hará que se vuelva a crear el contenido del portal.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
+`createPortal` devuelve un nodo de React que puede incluirse en JSX o devolverse desde un componente React. Si React lo encuentra en el renderizado, colocará el `children` proporcionado dentro del `domNode` proporcionado.
 
-`createPortal` returns a React node that can be included into JSX or returned from a React component. If React encounters it in the render output, it will place the provided `children` inside the provided `domNode`.
+#### Advertencias {/*caveats*/}
 
-#### Caveats {/*caveats*/}
-
-* Events from portals propagate according to the React tree rather than the DOM tree. For example, if you click inside a portal, and the portal is wrapped in `<div onClick>`, that `onClick` handler will fire. If this causes issues, either stop the event propagation from inside the portal, or move the portal itself up in the React tree.
+* Los eventos de los portales se propagan según el árbol React en lugar del árbol del DOM. Por ejemplo, si hace click dentro de un portal y el portal está envuelto en `<div onClick>`, ese `onClick` el controlador disparará. Si esto causa problemas, detenga la propagación del evento desde el interior del portal o mueva el propio portal hacia arriba en el árbol de React.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Rendering to a different part of the DOM {/*rendering-to-a-different-part-of-the-dom*/}
+### Renderizar a una parte diferente del DOM {/*rendering-to-a-different-part-of-the-dom*/}
 
-*Portals* let your components render some of their children into a different place in the DOM. This lets a part of your component "escape" from whatever containers it may be in. For example, a component can display a modal dialog or a tooltip that appears above and outside of the rest of the page.
+*Portals* deja a tus componentes renderizar a algunos de sus hijos en un lugar diferente en el DOM. Esto permite que una parte de su componente "escape" de cualquier contenedor en el que pueda estar. Por ejemplo, un componente puede mostrar un modal de diálogo o información sobre herramientas que aparece encima y fuera del resto de la página.
 
-To create a portal, render the result of `createPortal` with <CodeStep step={1}>some JSX</CodeStep> and the <CodeStep step={2}>DOM node where it should go</CodeStep>:
+Para crear un portal, renderizar el resultado de `createPortal` con <CodeStep step={1}>algo de JSX</CodeStep> y el <CodeStep step={2}>nodo del DOM donde debería ir</CodeStep>:
 
 ```js [[1, 8, "<p>This child is placed in the document body.</p>"], [2, 9, "document.body"]]
 import { createPortal } from 'react-dom';
@@ -74,9 +73,9 @@ import { createPortal } from 'react-dom';
 function MyComponent() {
   return (
     <div style={{ border: '2px solid black' }}>
-      <p>This child is placed in the parent div.</p>
+      <p>Este hijo se coloca en el div padre.</p>
       {createPortal(
-        <p>This child is placed in the document body.</p>,
+        <p>Este hijo es colocado en el cuerpo del documento.</p>,
         document.body
       )}
     </div>
@@ -84,7 +83,7 @@ function MyComponent() {
 }
 ```
 
-React will put the DOM nodes for <CodeStep step={1}>the JSX you passed</CodeStep> inside of the <CodeStep step={2}>DOM node you provided</CodeStep>. Without a portal, the second `<p>` would be placed inside the parent `<div>`, but the portal "teleported" it into the [`document.body`:](https://developer.mozilla.org/en-US/docs/Web/API/Document/body)
+React pondrá los nodos del DOM en <CodeStep step={1}>el JSX que pasaste</CodeStep> dentro del <CodeStep step={2}>nodo del DOM que proporcionó</CodeStep>. Sin un portal, el segundo `<p>` sería colocado dentro del padre `<div>`, pero el portal lo "teleported" al [`document.body`:](https://developer.mozilla.org/en-US/docs/Web/API/Document/body)
 
 <Sandpack>
 
@@ -94,9 +93,9 @@ import { createPortal } from 'react-dom';
 export default function MyComponent() {
   return (
     <div style={{ border: '2px solid black' }}>
-      <p>This child is placed in the parent div.</p>
+      <p>Este hijo se coloca en el div padre.</p>
       {createPortal(
-        <p>This child is placed in the document body.</p>,
+        <p>Este hijo es colocado en el cuerpo del documento.</p>,
         document.body
       )}
     </div>
@@ -106,30 +105,30 @@ export default function MyComponent() {
 
 </Sandpack>
 
-Notice how the second paragraph visually appears outside the parent `<div>` with the border. If you inspect the DOM structure with developer tools, you can confirm that the second `<p>` got placed direcly into the `<body>`:
+Observe cómo el segundo párrafo aparece visualmente fuera del padre `<div>` sin el borde. Si inspecciona la estructura del DOM con las herramientas de desarrollador, puedes confirmar que el segundo `<p>` se colocó directamente en el `<body>`:
 
 ```html {4-6,9}
 <body>
   <div id="root">
     ...
       <div style="border: 2px solid black">
-        <p>This child is placed inside the parent div.</p>
+        <p>Este hijo se coloca dentro del div padre.</p>
       </div>
     ...
   </div>
-  <p>This child is placed in the document body.</p>
+  <p>Este hijo es colocado en el cuerpo del documento.</p>
 </body>
 ```
 
-A portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it. For example, the child can access the context provided by the parent tree, and events still bubble up from children to parents according to the React tree.
+Un portal solo cambia la ubicación física del nodo del DOM. En todos los demás sentidos, el JSX renderizado en un portal actúa como un nodo hijo del componente React que lo renderiza. Por ejemplo, el hijo puede acceder al contexto proporcionado por el padre, y los eventos siguen apareciendo de los hijos a los padres de acuerdo con el árbol React.
 
 ---
 
-### Rendering a modal dialog with a portal {/*rendering-a-modal-dialog-with-a-portal*/}
+### Renderizado de un diálogo de un modal con un portal {/*rendering-a-modal-dialog-with-a-portal*/}
 
-You can use a portal to create a modal dialog that floats above the rest of the page, even if the component that summons the dialog is inside a container with `overflow: hidden` or other styles that interfere with the dialog.
+Puede usar un portal para crear un diálogo con un modal que flote sobre el resto de la página, incluso si el componente que convoca el diálogo está dentro de un contenedor con `overflow: hidden` u otros estilos que interfieren con el diálogo.
 
-In this example, the two containers have styles that disrupt the modal dialog, but the one rendered into a portal is unaffected because, in the DOM, the modal is not contained within the elements rendered by its parents.
+En este ejemplo, los dos contenedores tienen estilos que interrumpen el diálogo con el modal, pero el que se convierte en un portal no se ve afectado porque, en el DOM, el modal no está contenido dentro de los elementos renderizados por sus padres.
 
 <Sandpack>
 
@@ -160,7 +159,7 @@ export default function NoPortalExample() {
   return (
     <>
       <button onClick={() => setShowModal(true)}>
-        Show modal without a portal
+        Mostrar un modal sin portal
       </button>
       {showModal && (
         <ModalContent onClose={() => setShowModal(false)} />
@@ -180,7 +179,7 @@ export default function PortalExample() {
   return (
     <>
       <button onClick={() => setShowModal(true)}>
-        Show modal using a portal
+        Mostrar un modal usando un portal
       </button>
       {showModal && createPortal(
         <ModalContent onClose={() => setShowModal(false)} />,
@@ -195,8 +194,8 @@ export default function PortalExample() {
 export default function ModalContent({ onClose }) {
   return (
     <div className="modal">
-      <div>I'm a modal dialog</div>
-      <button onClick={onClose}>Close</button>
+      <div>Soy un diálogo con un modal</div>
+      <button onClick={onClose}>Cerrar</button>
     </div>
   );
 }
@@ -234,29 +233,29 @@ export default function ModalContent({ onClose }) {
 
 <Pitfall>
 
-It's important to make sure that your app is accessible when using portals. For instance, you may need to manage keyboard focus so that the user can move the focus in and out of the portal in a natural way.
+Es importante asegurarse de que su aplicación sea accesible cuando use portales. Por ejemplo, es posible que deba administrar el enfoque del teclado para que el usuario pueda mover el enfoque dentro y fuera del portal de forma natural.
 
-Follow the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/#dialog_modal) when creating modals. If you use a community package, ensure that it is accessible and follows these guidelines.
+Siga el [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/#dialog_modal) al crear modales. Si utiliza un paquete comunitario, asegúrese de que sea accesible y siga estas pautas.
 
 </Pitfall>
 
 ---
 
-### Rendering React components into non-React server markup {/*rendering-react-components-into-non-react-server-markup*/}
+### Renderizado de componentes de React en marcado de servidor que no es de React {/*rendering-react-components-into-non-react-server-markup*/}
 
-Portals can be useful if your React root is only part of a static or server-rendered page that isn't built with React. For example, if your page is built with a server framework like Rails or PHP, you can create areas of interactivity within static areas such as sidebars. Compared with having [multiple separate React roots,](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) portals let you treat the app as a single React tree with shared state even though its parts render to different parts of the DOM.
+Los portales pueden ser útiles si su raíz de React es solo parte de una página estática o renderizada por un servidor que no está construida con React. Por ejemplo, si su página está construida con un framework de servidor como Rails o PHP, puede crear áreas interactivas dentro de áreas estáticas como barras laterales. Comparado con tener [multiple separate React roots,](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) Los portales le permiten tratar la aplicación como un solo árbol React con estado compartido, aunque sus partes se representen en diferentes partes del DOM.
 
 <Sandpack>
 
 ```html index.html
 <!DOCTYPE html>
 <html>
-  <head><title>My app</title></head>
+  <head><title>Mi app</title></head>
   <body>
-    <h1>Welcome to my hybrid app</h1>
+    <h1>Bienvenido a mi aplicación híbrida</h1>
     <div class="parent">
       <div class="sidebar">
-        This is server non-React markup
+        Este es el marcado del servidor que no es React
         <div id="sidebar-content"></div>
       </div>
       <div id="root"></div>
@@ -297,11 +296,11 @@ export default function App() {
 }
 
 function MainContent() {
-  return <p>This part is rendered by React</p>;
+  return <p>Esta parte es renderizada por React.</p>;
 }
 
 function SidebarContent() {
-  return <p>This part is also rendered by React!</p>;
+  return <p>¡Esta parte también está renderizada por React!</p>;
 }
 ```
 
@@ -338,17 +337,17 @@ p {
 
 ---
 
-### Rendering React components into non-React DOM nodes {/*rendering-react-components-into-non-react-dom-nodes*/}
+### Renderizado de componentes de React en nodos del DOM que no son de React {/*rendering-react-components-into-non-react-dom-nodes*/}
 
-You can also use a portal to manage the content of a DOM node that's managed outside of React. For example, suppose you're integrating with a non-React map widget and you want to render React content inside a popup.
+También puede usar un portal para administrar el contenido de un nodo del DOM que se administra fuera de React. Por ejemplo, suponga que se está integrando con un widget de un mapa que no es de React y desea mostrar el contenido de React dentro de una ventana emergente.
 
-To do this, declare a `popupContainer` state variable to store the DOM node you're going to render into:
+Para ello, declara un `popupContainer` variable de estado para almacenar el nodo del DOM en el que se va a representar:
 
 ```js
 const [popupContainer, setPopupContainer] = useState(null);
 ```
 
-When you initialize the third-party widget, store the DOM node returned by the widget so you can render into it:
+Cuando inicialice el widget de terceros, almacene el nodo DOM devuelto por el widget para que pueda renderizado:
 
 ```js {5-6}
 useEffect(() => {
@@ -361,7 +360,7 @@ useEffect(() => {
 }, []);
 ```
 
-This lets you use `createPortal` to render React content into `popupContainer` once it becomes available:
+Esto le permite usar `createPortal` para representar el contenido de React en `popupContainer` una vez que esté disponible:
 
 ```js {3-6}
 return (
@@ -374,7 +373,7 @@ return (
 );
 ```
 
-Here is a complete example you can play with:
+Aquí hay un ejemplo completo con el que puedes jugar:
 
 <Sandpack>
 
@@ -455,3 +454,4 @@ button { margin: 5px; }
 ```
 
 </Sandpack>
+
