@@ -57,11 +57,11 @@ Tu HTML debe lucir así:
 </html>
 ```
 
-<Gotcha>
+<Pitfall>
 
 ¡Antes de desplegar en un sitio público, asegúrate de reemplazar `development.j` con `production.min.js`! Los compilados de desarrollo de React proporcionan mensajes de error útiles, pero ralentizan tu sitio web *por mucho.*
 
-</Gotcha>
+</Pitfall>
 
 ### Paso 3: Crea un componente de React {/*step-3-create-a-react-component*/}
 
@@ -121,7 +121,7 @@ Si necesitas renderizar el mismo componente en muchos lugares puedes asignar un 
 
 El código no minificado de JavaScript puede ralentizar significativamente los tiempos de carga para tus usuarios. Antes de desplegar tu sitio web a producción es una buena idea minificar sus scripts.
 
-- **Si no tienes un paso de minificación** para tus scripts, [aquí hay una forma de configurarlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
+- **Si no tienes un paso de minificación** para tus scripts, [aquí hay una forma de configurarlo](https://gist.github.com/gaearon/ee0201910608f15df3f8cd66aa83f98e).
 - **Si ya estás minificando** los scripts de tu aplicación, tu sitio estará listo para producción si te aseguras de que el HTML desplegado carga las versiones de React que terminan en `production.min.js`, como estas:
 
 ```html
@@ -183,11 +183,11 @@ return (
 
 Puede parecer un poco inusual en un inicio mezclar JSX on marcado, ¡pero te llegará a gustar! Consulta [Escribir marcado con JSX](/learn/writing-markup-with-jsx) para una introducción. Aquí hay [un archivo HTML de ejemplo con JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) que puedes descargar y jugar con él.
 
-<Gotcha>
+<Pitfall>
 
 El compilador de Babel con `<script>` está bien para aprender y crear demos sencillos. Sin embargo, **ralentiza tu sitio web y no es adecuado para producción**. Cuando estés listo para avanzar, eliminar la etiqueta `<script>` y elimina el atributo `type="text/babel"` que añadiste en este paso. En cambio, en la próxima sección configurarás un preprocesador JSX para convertir todas las etiquetas `<script>` de JSX a JS.
 
-</Gotcha>
+</Pitfall>
 
 ### Añade JSX a un proyecto {/*add-jsx-to-a-project*/}
 
@@ -208,26 +208,28 @@ Puedes preprocesar JSX de forma tal que cada vez que guardes un archivo con JSX 
 
 1. Crea una carpeta llamada **`src`**.
 2. En tu terminal, ejecuta este comando: `npx babel --watch src --out-dir . --presets react-app/prod ` (¡No esperes a que termine! Este comando inicia un *watcher* (observador) automático para las ediciones de JSX dentro de `src`).
-3. Mueve tu **`like-button.js`** con JSX ([¡debería lucir así!](https://gist.githubusercontent.com/gaearon/1884acf8834f1ef9a574a953f77ed4d8/raw/dfc664bbd25992c5278c3bf3d8504424c1104ecf/like-button.js)) a la nueva carpeta **`src`**.
+3. Mueve tu **`like-button.js`** con JSX ([¡debería lucir así!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) a la nueva carpeta **`src`**.
 
 El *watcher* creará un **`like-button.js`** preprocesado con el código JavaScript simple que es adecuado para un navegador.
 
-<Gotcha>
+<Pitfall>
 
 Si ves un mensaje de error que dice «*You have mistakenly installed the `babel` package* (has instalado erróneamente el paquete babel)», puede que te haya faltado [el paso previo](#add-jsx-to-a-project). Realízalo en la misma carpeta y luego inténtalo nuevamente.
 
-</Gotcha>
+</Pitfall>
 
 La herramienta que acabas de usar se llama Babel y puedes aprender más sobre ella en [su documentación](https://babeljs.io/docs/en/babel-cli/). Además de JSX, te permite utilizar la sintaxis más moderna de JavaScript sin tener que preocuparte por causar errores en navegadores antiguos.
 
 Si te empiezas a sentir cómodo con las herramientas de construcción y quieres que hagan más por ti, [cubrimos algunas de las más populares y accesibles aquí](/learn/start-a-new-react-project).
 
-<DeepDive title="React without JSX">
+<DeepDive>
+
+#### React without JSX {/*react-without-jsx*/}
 
 Originalmente JSX se introdujo para que escribir componentes con React se sintiera tan familiar como escribir HTML. Desde entonces, la sintaxis se ha generalizado. Sin embargo, hay momentos en que no quieres o no puedes usar JSX. Tienes dos opciones:
 
 - Usar una alternativa a JSX como [htm](https://github.com/developit/htm) que utiliza [plantillas de cadena](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals) en lugar de un compilador.
-- Usar [`React.createElement()`](/apis/react/createElement) que tiene una estructura especial que se explica debajo.
+- Usar [`React.createElement()`](/reference/react/createElement) que tiene una estructura especial que se explica debajo.
 
 Con JSX, escribirías un componente de esta forma:
 

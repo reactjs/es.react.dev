@@ -573,13 +573,15 @@ In this example, `serverUrl` is not a prop or a state variable. It's a regular v
 
 In other words, Effects "react" to all values from the component body.
 
-<DeepDive title="Can global or mutable values be dependencies?">
+<DeepDive>
+
+#### Can global or mutable values be dependencies? {/*can-global-or-mutable-values-be-dependencies*/}
 
 Mutable values (including global variables) aren't reactive.
 
 **A mutable value like [`location.pathname`](https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname) can't be a dependency.** It's mutable, so it can change at any time completely outside of the React rendering data flow. Changing it wouldn't trigger a re-render of your component. Therefore, even if you specified it in the dependencies, React *wouldn't know* to re-synchronize the Effect when it changes. This also breaks the rules of React because reading mutable data during rendering (which is when you calculate the dependencies) breaks [purity of rendering.](/learn/keeping-components-pure) Instead, you should read and subscribe to an external mutable value with [`useSyncExternalStore`.](/learn/you-might-not-need-an-effect#subscribing-to-an-external-store)
 
-**A mutable value like [`ref.current`](/apis/react/useRef#reference) or things you read from it also can't be a dependency.** The ref object returned by `useRef` itself can be a dependency, but its `current` property is intentionally mutable. It lets you [keep track of something without triggering a re-render.](/learn/referencing-values-with-refs) But since changing it doesn't trigger a re-render, it's not a reactive value, and React won't know to re-run your Effect when it changes.
+**A mutable value like [`ref.current`](/reference/react/useRef#reference) or things you read from it also can't be a dependency.** The ref object returned by `useRef` itself can be a dependency, but its `current` property is intentionally mutable. It lets you [keep track of something without triggering a re-render.](/learn/referencing-values-with-refs) But since changing it doesn't trigger a re-render, it's not a reactive value, and React won't know to re-run your Effect when it changes.
 
 As you'll learn below on this page, a linter will check for these issues automatically.
 
@@ -683,7 +685,7 @@ Try this fix in the sandbox above. Verify that the linter error is gone, and tha
 
 <Note>
 
-In some cases, React *knows* that a value never changes even though it's declared inside the component. For example, the [`set` function](/apis/react/useState#setstate) returned from `useState` and the ref object returned by [`useRef`](/apis/react/useRef) are *stable*--they are guaranteed to not change on a re-render. Stable values aren't reactive, so the linter lets you omit them from the list. However, including them is allowed: they won't change, so it doesn't matter.
+In some cases, React *knows* that a value never changes even though it's declared inside the component. For example, the [`set` function](/reference/react/useState#setstate) returned from `useState` and the ref object returned by [`useRef`](/reference/react/useRef) are *stable*--they are guaranteed to not change on a re-render. Stable values aren't reactive, so the linter lets you omit them from the list. However, including them is allowed: they won't change, so it doesn't matter.
 
 </Note>
 
@@ -736,7 +738,7 @@ function ChatRoom() {
 
 * **Avoid relying on objects and functions as dependencies.** If you create objects and functions during rendering and then read them from an Effect, they will be different on every render. This will cause your Effect to re-synchronize every time. [Read more about removing unnecessary dependencies from your Effects.](/learn/removing-effect-dependencies)
 
-<Gotcha>
+<Pitfall>
 
 The linter is your friend, but its powers are limited. The linter only knows when the dependencies are *wrong*. It doesn't know *the best* way to solve each case. If the linter suggests a dependency, but adding it causes a loop, it doesn't mean the linter should be ignored. It means you need to change the code inside (or outside) the Effect so that that value isn't reactive and doesn't *need* to be a dependency.
 
@@ -752,7 +754,7 @@ useEffect(() => {
 
 On the [next](/learn/separating-events-from-effects) [pages](/learn/removing-effect-dependencies), you'll learn how to fix this code without breaking the rules. It's always worth fixing!
 
-</Gotcha>
+</Pitfall>
 
 <Recap>
 

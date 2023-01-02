@@ -1,5 +1,5 @@
 ---
-title: Renderizado Condicional
+title: Renderizado condicional
 ---
 
 <Intro>
@@ -204,7 +204,9 @@ return (
 
 Puedes leerlo como *"si `isPacked` es verdadero, entonces (`?`) renderiza `name + ' ✔'`, de lo contrario (`:`) renderiza `name`"*)
 
-<DeepDive title="Are these two examples fully equivalent?">
+<DeepDive>
+
+#### Are these two examples fully equivalent? {/*are-these-two-examples-fully-equivalent*/}
 
 Si vienes de un entorno de programación orientada a objetos, podrías asumir que los dos ejemplos anteriores son sutilmente diferentes porque uno de ellos puede crear dos "instancias" diferentes de `<li>`. Pero los elementos JSX no son "instancias" porque no contienen ningún estado interno y no son nodos reales del DOM. Son descripciones ligeras, como los planos. Así que estos dos ejemplos, de hecho, *son* completamente equivalentes. En [Conservación y Restablecimiento del estado](/learn/preserving-and-resetting-state) se explica en detalle cómo funciona esto.
 
@@ -311,7 +313,7 @@ export default function PackingList() {
 Una [expresión JavaScript &&](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) devuelve el valor de su lado derecho (en nuestro caso, la marca de verificación) si el lado izquierdo (nuestra condición) es `true`. Pero si la condición es `false`, toda la expresión se convierte en `false`. React considera `false` como un "agujero" en el árbol JSX, al igual que `null` o `undefined`, y no renderiza nada en su lugar.
 
 
-<Gotcha>
+<Pitfall>
 
 **No pongas números a la izquierda de `&&`.**
 
@@ -321,7 +323,7 @@ Por ejemplo, un error común es escribir código como `messageCount && <p>New me
 
 Para arreglarlo, haz que el lado izquierdo sea un booleano: `messageCount > 0 && <p>New messages</p>`.
 
-</Gotcha>
+</Pitfall>
 
 ### Asignación condicional de JSX a una variable {/*conditionally-assigning-jsx-to-a-variable*/}
 

@@ -8,6 +8,10 @@
       "path": "",
       "routes": [
         {
+          "hasSectionHeader": true,
+          "sectionHeader": "Introducción"
+        },
+        {
           "title": "Instalación",
           "path": "/learn/installation",
           "routes": [
@@ -32,10 +36,20 @@
         {
           "title": "Inicio rápido",
           "path": "/learn",
-          "routes": [{
-            "title": "Pensar en React",
-            "path": "/learn/thinking-in-react"
-          }]
+          "routes": [
+            {
+              "title": "Tutorial: Tic-Tac-Toe",
+              "path": "/learn/tutorial-tic-tac-toe"
+            },
+            {
+              "title": "Pensar en React",
+              "path": "/learn/thinking-in-react"
+            }
+          ]
+        },
+        {
+          "hasSectionHeader": true,
+          "sectionHeader": "Aprende React"
         },
         {
           "title": "Describir la UI",
@@ -51,11 +65,11 @@
               "path": "/learn/importing-and-exporting-components"
             },
             {
-              "title": "Writing Markup with JSX",
+              "title": "Escribir marcado con JSX",
               "path": "/learn/writing-markup-with-jsx"
             },
             {
-              "title": "JavaScript in JSX with Curly Braces",
+              "title": "JavaScript en JSX con llaves",
               "path": "/learn/javascript-in-jsx-with-curly-braces"
             },
             {
@@ -63,60 +77,58 @@
               "path": "/learn/passing-props-to-a-component"
             },
             {
-              "title": "Conditional Rendering",
+              "title": "Renderizado condicional",
               "path": "/learn/conditional-rendering"
             },
             {
-              "title": "Rendering Lists",
+              "title": "Renderizado de listas",
               "path": "/learn/rendering-lists"
             },
             {
-              "title": "Keeping Components Pure",
+              "title": "Mantener los componentes puros",
               "path": "/learn/keeping-components-pure"
             }
           ]
         },
         {
-          "title": "Adding Interactivity",
+          "title": "Añadir interactividad",
           "path": "/learn/adding-interactivity",
           "tags": [],
           "routes": [
             {
-              "title": "Responding to Events",
+              "title": "Responder a eventos",
               "path": "/learn/responding-to-events"
             },
             {
-              "title": "State: A Component's Memory",
+              "title": "El estado: la memoria un componente",
               "path": "/learn/state-a-components-memory"
             },
             {
-              "title": "Render and Commit",
+              "title": "Renderizado y confirmación",
               "path": "/learn/render-and-commit"
             },
             {
-              "title": "State as a Snapshot",
+              "title": "El estado como una instantánea",
               "path": "/learn/state-as-a-snapshot"
             },
             {
-              "title": "Queueing a Series of State Updates",
+              "title": "Poner en cola una serie de actualizaciones del estado",
               "path": "/learn/queueing-a-series-of-state-updates"
             },
             {
-              "title": "Updating Objects in State",
+              "title": "Actualizar objetos en el estado",
               "path": "/learn/updating-objects-in-state"
             },
             {
-              "title": "Updating Arrays in State",
+              "title": "Actualizar arrays en el estado",
               "path": "/learn/updating-arrays-in-state"
             }
           ]
         },
         {
-          "title": "Managing State",
+          "title": "Manejo de estado",
           "path": "/learn/managing-state",
-          "tags": [
-            "intermediate"
-          ],
+          "tags": ["intermediate"],
           "routes": [
             {
               "title": "Reacting to Input with State",
@@ -131,11 +143,11 @@
               "path": "/learn/sharing-state-between-components"
             },
             {
-              "title": "Preserving and Resetting State",
+              "title": "Conservar y reiniciar el estado",
               "path": "/learn/preserving-and-resetting-state"
             },
             {
-              "title": "Extracting State Logic into a Reducer",
+              "title": "Extraer lógica de estado en un reducer",
               "path": "/learn/extracting-state-logic-into-a-reducer"
             },
             {
@@ -149,14 +161,12 @@
           ]
         },
         {
-          "title": "Escape Hatches",
+          "title": "Puertas de escape",
           "path": "/learn/escape-hatches",
-          "tags": [
-            "advanced"
-          ],
+          "tags": ["advanced"],
           "routes": [
             {
-              "title": "Referencing Values with Refs",
+              "title": "Referenciar valores con refs",
               "path": "/learn/referencing-values-with-refs"
             },
             {
@@ -180,14 +190,40 @@
               "path": "/learn/separating-events-from-effects"
             },
             {
-              "title": "Removing Effect Dependencies",
-              "path": "/learn/removing-effect-dependencies"              
+              "title": "Eliminar dependencias de los Efectos",
+              "path": "/learn/removing-effect-dependencies"
             },
             {
               "title": "Reusing Logic with Custom Hooks",
               "path": "/learn/reusing-logic-with-custom-hooks"
             }
           ]
+        },
+        {
+          "hasSectionHeader": true,
+          "sectionHeader": "About React"
+        },
+        {
+          "title": "Community",
+          "path": "/learn/community",
+          "routes": [
+            {
+              "title": "Acknowledgements",
+              "path": "/learn/acknowledgements"
+            },
+            {
+              "title": "Docs Contributors",
+              "path": "/learn/docs-contributors"
+            },
+            {
+              "title": "Meet the Team",
+              "path": "/learn/meet-the-team"
+            }
+          ]
+        },
+        {
+          "title": "Blog",
+          "path": "https://reactjs.org/blog"
         }
       ]
     }
