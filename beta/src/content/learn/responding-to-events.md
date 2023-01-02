@@ -588,7 +588,7 @@ export default function LightSwitch() {
 
 </Sandpack>
 
-Alternativamente, puedes envolver la llamada en otra función, como `<button onClick={() => handleClick()}`:
+Alternativamente, puedes envolver la llamada en otra función, como `<button onClick={() => handleClick()}>`:
 
 <Sandpack>
 

@@ -884,7 +884,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 #### Listas anidadas en un componente {/*nested-lists-in-one-component*/}
 
-¡Haz una lista de recetas desde este array! Por cada receta en el array, coloca su título en un `<h2>` y lista sus ingredientes en un `<ul>`.
+¡Haz una lista de recetas desde este array! Por cada receta en el array, coloca su nombre en un `<h2>` y lista sus ingredientes en un `<ul>`.
 
 <Hint>
 

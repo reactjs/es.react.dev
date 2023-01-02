@@ -955,19 +955,19 @@ export default function Board() {
   return (
     <>
       <div className="board-row">
-        <Square values={squares[0]} />
-        <Square values={squares[1]} />
-        <Square values={squares[2]} />
+        <Square value={squares[0]} />
+        <Square value={squares[1]} />
+        <Square value={squares[2]} />
       </div>
       <div className="board-row">
-        <Square values={squares[3]} />
-        <Square values={squares[4]} />
-        <Square values={squares[5]} />
+        <Square value={squares[3]} />
+        <Square value={squares[4]} />
+        <Square value={squares[5]} />
       </div>
       <div className="board-row">
-        <Square values={squares[6]} />
-        <Square values={squares[7]} />
-        <Square values={squares[8]} />
+        <Square value={squares[6]} />
+        <Square value={squares[7]} />
+        <Square value={squares[8]} />
       </div>
     </>
   );
@@ -1096,7 +1096,7 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleSquareClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component: 
+Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component: 
 
 ```js {7}
 export default function Board() {
