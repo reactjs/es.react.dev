@@ -376,7 +376,7 @@ Estas son cajas de herramientas llenas de atributos HTML que son totalmente comp
 
 Cada tipo de widget tiene un patrón de diseño específico y se espera que funcione de una manera determinada por parte de usuarios y agentes de usuarios por igual:
 
-- [Prácticas de autoría de WAI-ARIA - Patrones de diseño y widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [Prácticas de autoría de WAI-ARIA - Patrones de diseño y widgets](https://www.w3.org/WAI/ARIA/apg/patterns/)
 - [Heydon Pickering - Ejemplos ARIA](https://heydonworks.com/article/practical-aria-examples/)
 - [Componentes Inclusivos](https://inclusive-components.design/)
 

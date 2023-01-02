@@ -349,7 +349,9 @@ Form states
 
 ### Step 3: Representa el estado en memoria usando `useState` {/*step-3-represent-the-state-in-memory-with-usestate*/}
 
+
 A continuación, necesitarás representar los estados visuales de tu componente en la memoria con [`useState`.](/apis/react/useState) La simplicidad es clave: cada pieza de estado es una "pieza en movimiento", y **quieres tan pocas "piezas en movimiento" como sea posible.** ¡Más complejidad conduce a más errores!
+
 
 Comienza con el estado que *absolutamente debe* estar allí. Por ejemplo, necesitarás almacenar la `respuesta` para la entrada y el `error` (si existe) para almacenar el último error:
 
