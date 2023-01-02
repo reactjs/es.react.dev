@@ -29,6 +29,8 @@ permalink: community/courses.html
 
 ## Cursos pagados {#paid-courses}
 
+- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Lanza tu carrera como desarrollador front-end. Desarrolla habilidades listas para trabajar en una carrera en demanda y obtén una credencial de Meta. No se requiere título ni experiencia previa para comenzar.
+
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Videos cortos instructivos sobre React y muchos otros temas
 
 - [Frontend Masters](https://frontendmasters.com/learn/react/) - Cursos en video sobre React.

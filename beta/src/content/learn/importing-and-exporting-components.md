@@ -126,7 +126,9 @@ Tanto `'./Gallery.js'` como `'./Gallery'` funcionarán con React, aunque la prim
 
 </Note>
 
-<DeepDive title="Exports por defecto vs. con nombre">
+<DeepDive>
+
+#### Exports por defecto vs. con nombre {/*default-vs-named-exports*/}
 
 Hay dos formas fundamentales de exportar valores con JavaScript: exports por defecto y exports con nombre. Hasta ahora nuestros ejemplos solo han usado exports por defecto. Pero puedes usar uno o ambos en el mismo archivo. **Un archivo no puede tener más de un export _por defecto_, pero puede tener tantos exports _con nombre_ como desees.**
 

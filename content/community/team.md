@@ -6,7 +6,7 @@ sectionid: community
 permalink: community/team.html
 ---
 
-El desarrollo de React está dirigido por un pequeño equipo dedicado a tiempo completo en Facebook. También recibe contribuciones de personas alrededor del mundo.
+El desarrollo de React está dirigido por un pequeño equipo dedicado a tiempo completo en Meta. También recibe contribuciones de personas alrededor del mundo.
 
 ## Conoce al equipo de React {#meet-the-react-team}
 
@@ -22,14 +22,6 @@ Los miembros actuales del equipo de React se listan debajo en orden alfabético.
 
 Andrew se inició en el desarrollo web haciendo sitios con WordPress y eventualmente consiguió convencerse en comenzar a escribir JavaScript. Su pasatiempo favorito es el karaoke. Andrew es o bien un villano de Disney o bien una princesa de Disney, en dependencia del día.
 
-### Brian Vaughn {#brian-vaughn}
-
-![Brian Vaughn](../images/team/bvaughn.jpg)
-
-[@bvaughn en GitHub](https://github.com/bvaughn) &middot; [@brian\_d\_vaughn en Twitter](https://twitter.com/brian_d_vaughn)
-
-Brian estudió arte en la universidad e hizo programación al mismo tiempo para pagar su educación. Eventualmente, se dio cuenta de que disfruta trabajar en el código abierto. Brian tiene una [banda de una sola persona](https://soundcloud.com/brianvaughn/) y dos [bandas](https://soundcloud.com/pilotlessdrone) [de dos personas](https://soundcloud.com/pinwurm). También cuida al gato más hermoso del mundo.
-
 ### Dan Abramov {#dan-abramov}
 
 ![Dan Abramov](../images/team/gaearon.jpg)
@@ -37,6 +29,36 @@ Brian estudió arte en la universidad e hizo programación al mismo tiempo para 
 [@gaearon en GitHub](https://github.com/gaearon) &middot; [@dan_abramov en Twitter](https://twitter.com/dan_abramov)
 
 Dan entró a la programación después de descubrir accidentalmente Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación en convertir los tuits de [Sebastian](#sebastian-markbage) en grandes publicaciones de blog. En ocasiones gana en Fortnite escondiéndose en un arbusto hasta que se acabe el juego.
+
+### Jason Bonta {#jason-bonta}
+
+![Jason Bonta](../images/team/jasonbonta.jpg)
+
+Jason likes having large volumes of Amazon packages delivered to the office so that he can build forts. Despite literally walling himself off from his team at times and not understanding how for-of loops work, we appreciate him for the unique qualities he brings to his work. 
+
+### Joe Savona {#joe-savona}
+
+![Joe Savona](../images/team/joe.jpg)
+
+[@josephsavona on GitHub](https://github.com/josephsavona) &middot; [@en_JS on Twitter](https://twitter.com/en_JS)
+
+Joe was planning to major in math and philosophy but got into computer science after writing physics simulations in Matlab. Prior to React, he worked on Relay, RSocket.js, and the Skip programming language. While he’s not building some sort of reactive system he enjoys running, studying Japanese, and spending time with his family.
+
+### Josh Story {#josh-story}
+
+![Josh Story](../images/team/josh.jpg)
+
+[@gnoff on GitHub](https://github.com/gnoff) &middot; [@joshcstory on Twitter](https://twitter.com/joshcstory)
+
+Josh majored in Mathematics and discovered programming while in college. His first professional developer job was to program insurance rate calculations in Microsoft Excel, the paragon of Reactive Programming which must be why he now works on React. In between that time Josh has been an IC, Manager, and Executive at a few startups. outside of work he likes to push his limits with cooking.
+
+### Lauren Tan {#lauren-tan}
+
+![Lauren](../images/team/lauren.jpg)
+
+[@poteto on GitHub](https://github.com/poteto) &middot; [@potetotes on Twitter](https://twitter.com/potetotes)
+
+Lauren’s programming career peaked when she first discovered the `<marquee>` tag. She’s been chasing that high ever since. When she’s not adding bugs into React, she enjoys dropping cheeky memes in chat, and playing all too many video games with her partner and dog Zelda.
 
 ### Luna Ruan {#luna-ruan}
 
@@ -46,21 +68,13 @@ Dan entró a la programación después de descubrir accidentalmente Visual Basic
 
 Luna aprendió a programar, porque pensó que significaba crear videojuegos. En cambio, terminó trabajando en la aplicación web de Pinterest y ahora en el mismo React. Luna ya no quiere hacer videojuegos, pero planea hacer escritura creativa si alguna vez se aburre.
 
-### Marco Salazar {#marco-salazar}
+### Mofei Zhang {#mofei-zhang}
 
-![Marco](../images/team/salazarm.jpeg)
+![Mofei](../images/team/mofei-zhang.png)
 
-[@salazarm en GitHub](https://github.com/salazarm) &middot; [@BkOptimism en Twitter](https://twitter.com/BkOptimism)
+[@mofeiZ on GitHub](https://github.com/mofeiZ)]
 
-El primer lenguaje de de programación de Marco fue Ensamblador, porque lo podía usar para piratear videojuegos. Ahora los juegos en línea son mucho más seguros, por lo que se conforma con jugar (mayormente) sin trampas. En su tiempo libre juega en su mesa de correr y hace arte que nunca termina. Esperemos que sus PRs no corran la misma suerte.
-
-### Rachel Nabors {#rachel-nabors}
-
-![Rachel](../images/team/rnabors.jpg)
-
-[@rachelnabors en GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors en Twitter](https://twitter.com/rachelnabors)
-
-Rachel escribió una vez un [libro sobre animación de interfaces de usuario](https://abookapart.com/products/animation-at-work) y trabajó con MDN y el W3C en la API de animaciones web. Ahora está ocupada con materiales educacionales e ingeniería de comunidad en el equipo de React. Secretamente, es una dibujante galardonada de historietas para chicas adolescentes. Atrápala haciendo té fino con agua tibia en la micrococina.
+Mofei comenzó a programar cuando se dio cuenta de que podía ayudarla a hacer trampa en los juegos de video. Se enfocó en sistemas operativos en pre y posgrado, pero ahora se haya feliz experimentando con React. Fuera del trabajo, disfruta solucionar problemas de búlder y planear su próximo viaje(s) de mochilera.
 
 ### Rick Hanlon {#rick-hanlon}
 
@@ -70,6 +84,22 @@ Rachel escribió una vez un [libro sobre animación de interfaces de usuario](ht
 
 Ricky se especializó en matemática teórica y de alguna forma terminó en el equipo de React Native por un par de años hasta unirse al equipo de React. Cuando no está programando lo puedes encontrar practicando snowboard, ciclismo, escalada, golf o cerrando *issues* en GitHub que no se ajustan a la plantilla.
 
+### Samuel Susla {#samuel-susla}
+
+![Samuel Susla](../images/team/sam.jpg)
+
+[@sammy-SC on GitHub](https://github.com/sammy-SC) &middot; [@SamuelSusla on Twitter](https://twitter.com/SamuelSusla)
+
+Samuel’s interest in programming started with the movie Matrix. He still has Matrix screen saver. Before working on React, he was focused on writing iOS apps. Outside of work, Samuel enjoys playing beach volleyball, squash, badminton and spending time with his family.
+
+### Sathya Gunasekaran {#sathya-gunasekaran}
+
+![Sathya Gunasekaran](../images/team/sathya.jpg)
+
+[@gsathya on GitHub](https://github.com/gsathya) &middot; [@_gsathya on Twitter](https://twitter.com/_gsathya)
+
+Sathya hated the Dragon Book in school but somehow ended up working on compilers all his career. When he's not compiling React components, he's either drinking coffee or eating yet another Dosa.
+
 ### Sebastian Markbåge {#sebastian-markbage}
 
 ![Sebastian](../images/team/sebmarkbage.jpg)
@@ -78,21 +108,45 @@ Ricky se especializó en matemática teórica y de alguna forma terminó en el e
 
 Sebastian se especializó en psicología. A menudo es callado. Aún cuando dice algo, con frecuencia no tiene sentido para el resto de nosotros hasta algunos meses después. La forma correcta de pronunciar su apellido es "mark-bo-gue", pero se ha conformado con "mark-beish" por pragmatismo, y así mismo es su enfoque en React.
 
+### Sebastian Silbermann {#sebastian-silbermann}
+
+![Sebastian Silbermann](../images/team/sebsilbermann.jpg)
+
+[@eps1lon on GitHub](https://github.com/eps1lon) &middot; [@sebsilbermann on Twitter](https://twitter.com/sebsilbermann)
+
+Sebastian learned programming to make the browser games he played during class more enjoyable. Eventually this lead to contributing to as much open source code as possible. Outside of coding he's busy making sure people don't confuse him with the other Sebastians and Zilberman of the React community.
+
 ### Seth Webster {#seth-webster}
 
-![Seth](../images/team/sethwebster.jpg)
+![Seth](../images/team/seth.jpg)
 
 [@sethwebster en GitHub](https://github.com/sethwebster) &middot; [@sethwebster en Twitter](https://twitter.com/sethwebster)
 
 Seth comenzó a programar cuando era un niño en Tucson, Arizona. Luego de la escuela, le picó el bichito de la música y por 10 años fue un músico de gira antes de retornar a *trabajar*, comenzando con Intuit. En su tiempo libre, le encanta [tomar fotos](https://www.sethwebster.com) y volar para rescatar animales en el noreste de los Estados Unidos.
 
-### Xuan Huang {#xuan-huang}
+### Sophie Alpert {#sophie-alpert}
 
-![Xuan](../images/team/huxpro.jpg)
+![Sophie](../images/team/sophiebits.jpg)
 
-[@huxpro en GitHub](https://github.com/huxpro) &middot; [@huxpro en Twitter](https://twitter.com/huxpro)
+[@sophiebits on GitHub](https://github.com/sophiebits) &middot; [@sophiebits on Twitter](https://twitter.com/sophiebits)
 
-Xuan conoció la programación en la infancia para hacer juegos en Flash. Hizo artes de medios digitales en la universidad, pero finalmente lo engañaron para que hiciera compiladores y, por alguna razón, React necesita uno. Fuera del trabajo, sirve terribles artes de latte y juega al tenis en una mesa o fuera de ella.
+Four days after React was released, Sophie rewrote the entirety of her then-current project to use it, which she now realizes was perhaps a bit reckless. After she became the project's #1 committer, she wondered why she wasn't getting paid by Facebook like everyone else was and joined the team officially to lead React through its adolescent years. Though she quit that job years ago, somehow she's still in the team's group chats and “providing value”.
+
+### Tianyu Yao {#tianyu-yao}
+
+![Tianyu Yao](../images/team/tianyu.jpg)
+
+[@tyao1 on GitHub](https://github.com/tyao1) &middot; [@tianyu0 on Twitter](https://twitter.com/tianyu0)
+
+Tianyu’s interest in computers started as a kid because he loves video games. So he majored in computer science and still plays childish games like League of Legends. When he is not in front of a computer, he enjoys playing with his two kittens, hiking and kayaking.
+
+### Yuzhi Zheng {#yuzhi-zheng}
+
+![Yuzhi](../images/team/yuzhi.jpg)
+
+[@yuzhi on GitHub](https://github.com/yuzhi) &middot; [@yuzhiz on Twitter](https://twitter.com/yuzhiz)
+
+Yuzhi studied Computer Science in school. She liked the instant gratification of seeing code come to life without having to physically be in a laboratory. Now she’s a manager in the React org. Before management, she used to work on the Relay data fetching framework. In her spare time, Yuzhi enjoys optimizing her life via gardening and home improvement projects.
 
 ## Agradecimientos {#acknowledgements}
 
@@ -103,6 +157,7 @@ React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke).
 * [Alex Krolick](https://github.com/alexkrolick)
 * [Alexey Pyltsyn](https://github.com/lex111)
 * [Brandon Dail](https://github.com/aweary)
+* [Brian Vaughn](https://github.com/bvaughn)
 * [Caleb Meredith](https://github.com/calebmer)
 * [Chang Yan](https://github.com/cyan33)
 * [Cheng Lou](https://github.com/chenglou)
@@ -119,20 +174,21 @@ React fue creado originalmente por [Jordan Walke](https://github.com/jordwalke).
 * [Joe Critchley](https://github.com/joecritch)
 * [Jeff Morrison](https://github.com/jeffmo)
 * [Keyan Zhang](https://github.com/keyz)
+* [Marco Salazar](https://github.com/salazarm)
 * [Nat Alison](https://github.com/tesseralis)
 * [Nathan Hunzaker](https://github.com/nhunzaker)
 * [Nicolas Gallagher](https://github.com/necolas)
 * [Paul O'Shannessy](https://github.com/zpao)
 * [Pete Hunt](https://github.com/petehunt)
 * [Philipp Spiess](https://github.com/philipp-spiess)
+* [Rachel Nabors](https://github.com/rachelnabors)
 * [Robert Zhang](https://github.com/robertzhidealx)
 * [Sander Spies](https://github.com/sanderspies)
 * [Sasha Aickin](https://github.com/aickin)
 * [Sophia Shoemaker](https://github.com/mrscobbler)
-* [Sophie Alpert](https://github.com/sophiebits)
 * [Sunil Pai](https://github.com/threepointone)
 * [Tim Yung](https://github.com/yungsters)
-* [Yuzhi Zheng](https://github.com/yuzhi)
+* [Xuan Huang](https://github.com/huxpro)
 
 Esta lista no es exhaustiva.
 
