@@ -9,10 +9,10 @@
       "routes": [
         {
           "hasSectionHeader": true,
-          "sectionHeader": "'react' package"
+          "sectionHeader": "paquete 'react'"
         },
         {
-          "title": "Components",
+          "title": "Componentes",
           "path": "/reference/react/components",
           "routes": [
             {
@@ -100,33 +100,7 @@
           ]
         },
         {
-<<<<<<< HEAD
-          "title": "react: Componentes",
-          "path": "/reference/react/components",
-          "routes": [
-            {
-              "title": "<Fragment> (<>)",
-              "path": "/reference/react/Fragment"
-            },
-            {
-              "title": "<Profiler>",
-              "path": "/reference/react/Profiler"
-            },
-            {
-              "title": "<StrictMode>",
-              "path": "/reference/react/StrictMode"
-            },
-            {
-              "title": "<Suspense>",
-              "path": "/reference/react/Suspense"
-            }
-          ]
-        },
-        {
-          "title": "react: APIs",
-=======
           "title": "APIs",
->>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
           "path": "/reference/react/apis",
           "routes": [
             {
@@ -153,14 +127,14 @@
         },
         {
           "hasSectionHeader": true,
-          "sectionHeader": "'react-dom' package"
+          "sectionHeader": "paquete 'react-dom'"
         },
         {
-          "title": "Components",
+          "title": "Componentes",
           "path": "/reference/react-dom/components",
           "routes": [
             {
-              "title": "Common (e.g. <div>)",
+              "title": "Común (e.g. <div>)",
               "path": "/reference/react-dom/components/common"
             },
             {
@@ -216,7 +190,7 @@
           ]
         },
         {
-          "title": "Client APIs",
+          "title": "APIs del cliente",
           "path": "/reference/react-dom/client",
           "routes": [
             {
@@ -230,7 +204,7 @@
           ]
         },
         {
-          "title": "Server APIs",
+          "title": "APIs del servidor",
           "path": "/reference/react-dom/server",
           "routes": [
             {
@@ -260,15 +234,11 @@
           ]
         },
         {
-<<<<<<< HEAD
-          "title": "react: APIs legadas",
-=======
           "hasSectionHeader": true,
-          "sectionHeader": "Legacy APIs"
+          "sectionHeader": "APIs legadas"
         },
         {
-          "title": "Legacy React APIs",
->>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
+          "title": "APIs legadas de React",
           "path": "/reference/react/legacy",
           "routes": [
             {

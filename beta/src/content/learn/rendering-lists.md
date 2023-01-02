@@ -764,11 +764,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 Un lector muy atento podría notar que con dos llamadas al `filter`, comprobamos la profesión de las personas dos veces. Comprobar una propiedad es muy rápido, así que en este ejemplo está bien. Si tu lógica fuese más costosa que eso, podrías reemplazar las llamadas al `filter` con un bucle que manualmente construya los arrays y compruebe a cada persona una vez.
 
-<<<<<<< HEAD
 De hecho, si `people` nunca cambia, podrías mover este código fuera del componente. Desde la perspectiva de React, lo único que importa es si le has dado un array de nodos JSX en el final. No importa como produces ese array:
-=======
-In fact, if `people` never change, you could move this code out of your component. From React's perspective, all that matters is that you give it an array of JSX nodes in the end. It doesn't care how you produce that array:
->>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
 
 <Sandpack>
 
@@ -888,11 +884,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 #### Listas anidadas en un componente {/*nested-lists-in-one-component*/}
 
-<<<<<<< HEAD
-¡Haz una lista de recetas desde este array! Por cada receta en el array, coloca su título en un `<h2>` y lista sus ingredientes en un `<ul>`.
-=======
-Make a list of recipes from this array! For each recipe in the array, display its name as an `<h2>` and list its ingredients in a `<ul>`.
->>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
+¡Haz una lista de recetas desde este array! Por cada receta en el array, coloca su nombre en un `<h2>` y lista sus ingredientes en un `<ul>`.
 
 <Hint>
 

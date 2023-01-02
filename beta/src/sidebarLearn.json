@@ -8,15 +8,11 @@
       "path": "",
       "routes": [
         {
-<<<<<<< HEAD
-          "title": "Instalación",
-=======
           "hasSectionHeader": true,
-          "sectionHeader": "Get Started"
+          "sectionHeader": "Introducción"
         },
         {
-          "title": "Installation",
->>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
+          "title": "Instalación",
           "path": "/learn/installation",
           "routes": [
             {
@@ -52,15 +48,11 @@
           ]
         },
         {
-<<<<<<< HEAD
-          "title": "Describir la UI",
-=======
           "hasSectionHeader": true,
-          "sectionHeader": "Learn React"
+          "sectionHeader": "Aprende React"
         },
         {
-          "title": "Describing the UI",
->>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
+          "title": "Describir la UI",
           "tags": [],
           "path": "/learn/describing-the-ui",
           "routes": [
@@ -99,7 +91,7 @@
           ]
         },
         {
-          "title": "Adding Interactivity",
+          "title": "Añadir interactividad",
           "path": "/learn/adding-interactivity",
           "tags": [],
           "routes": [
@@ -108,7 +100,7 @@
               "path": "/learn/responding-to-events"
             },
             {
-              "title": "State: A Component's Memory",
+              "title": "El estado: la memoria un componente",
               "path": "/learn/state-a-components-memory"
             },
             {
@@ -124,7 +116,7 @@
               "path": "/learn/queueing-a-series-of-state-updates"
             },
             {
-              "title": "Updating Objects in State",
+              "title": "Actualizar objetos en el estado",
               "path": "/learn/updating-objects-in-state"
             },
             {
@@ -134,7 +126,7 @@
           ]
         },
         {
-          "title": "Managing State",
+          "title": "Manejo de estado",
           "path": "/learn/managing-state",
           "tags": ["intermediate"],
           "routes": [
@@ -169,7 +161,7 @@
           ]
         },
         {
-          "title": "Escape Hatches",
+          "title": "Puertas de escape",
           "path": "/learn/escape-hatches",
           "tags": ["advanced"],
           "routes": [
@@ -199,7 +191,7 @@
             },
             {
               "title": "Eliminar dependencias de los Efectos",
-              "path": "/learn/removing-effect-dependencies"              
+              "path": "/learn/removing-effect-dependencies"
             },
             {
               "title": "Reusing Logic with Custom Hooks",
