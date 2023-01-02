@@ -34,6 +34,10 @@ export interface RouteItem {
   wip?: boolean;
   /** List of sub-routes */
   routes?: RouteItem[];
+  /** Adds a section header above the route item */
+  hasSectionHeader?: boolean;
+  /** Title of section header */
+  sectionHeader?: string;
 }
 
 export interface Routes {

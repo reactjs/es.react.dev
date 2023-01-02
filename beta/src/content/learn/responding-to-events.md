@@ -1,5 +1,5 @@
 ---
-title: Responder a Eventos
+title: Responder a eventos
 ---
 
 <Intro>
@@ -110,7 +110,7 @@ Pasar código en línea así no lo ejecutará al hacer clic; lo ejecutará cada 
 
 ```jsx
 // Esta alerta se ejecuta cuando el componente se renderiza, ¡no cuando se hace clic!
-<button onClick={alert('Me cliqueaste!')}>
+<button onClick={alert('¡Me cliqueaste!')}>
 ```
 
 Si quieres definir un manejador de evento en línea, envuélvelo en una función anónima de esta forma:
@@ -148,10 +148,10 @@ function AlertButton({ message, children }) {
 export default function Toolbar() {
   return (
     <div>
-      <AlertButton message="Reproduciendo!">
+      <AlertButton message="¡Reproduciendo!">
         Reproducir película
       </AlertButton>
-      <AlertButton message="Subiendo!">
+      <AlertButton message="¡Subiendo!">
         Subir imagen
       </AlertButton>
     </div>
@@ -231,7 +231,7 @@ Si usas un [sistema de diseño](https://uxdesign.cc/everything-you-need-to-know-
 
 ### Nombrar props de manejadores de eventos {/*naming-event-handler-props*/}
 
-Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](TODO:/apis/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
+Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](TODO:/reference/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
 
 > Por convención, las props de manejadores de eventos deberían empezar con `on`, seguido de una letra mayúscula.
 
@@ -251,10 +251,10 @@ function Button({ onSmash, children }) {
 export default function App() {
   return (
     <div>
-      <Button onSmash={() => alert('Reproduciendo!')}>
+      <Button onSmash={() => alert('¡Reproduciendo!')}>
         Reproducir película
       </Button>
-      <Button onSmash={() => alert('Subiendo!')}>
+      <Button onSmash={() => alert('¡Subiendo!')}>
         Subir imagen
       </Button>
     </div>
@@ -414,7 +414,9 @@ Cuando haces clic en un botón:
 
 Como resultado del `e.stopPropagation()`, al hacer clic en los botones ahora solo muestra una alerta (la del `<button>`) en lugar de las dos (la del `<button>` y la del `<div>` del toolbar padre). Hacer clic en un botón no es lo mismo que hacer clic en el toolbar que lo rodea, así que detener la propagación tiene sentido para esta interfaz.
 
-<DeepDive title="Eventos de la fase de captura">
+<DeepDive>
+
+#### Eventos de la fase de captura {/*capture-phase-events*/}
 
 En raros casos, puede que necesites capturar todos los eventos en elementos hijos, *incluso si pararon la propagación*. Por ejemplo, tal vez quieras hacer log de cada clic para un análisis, independientemente de la lógica de propagación. Puedes hacer esto agregando `Capture` al final del nombre del evento:
 
@@ -586,7 +588,7 @@ export default function LightSwitch() {
 
 </Sandpack>
 
-Alternativamente, puedes envolver la llamada en otra función, como `<button onClick={() => handleClick()}`:
+Alternativamente, puedes envolver la llamada en otra función, como `<button onClick={() => handleClick()}>`:
 
 <Sandpack>
 
