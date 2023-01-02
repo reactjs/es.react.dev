@@ -17,7 +17,7 @@ var ReactDOMServer = require('react-dom/server');
 
 ## Resumen {#overview}
 
-Estos métodos solo están disponibles en los **entornos con [Streams de Node.js](https://nodejs.dev/learn/nodejs-streams):**
+Estos métodos solo están disponibles en los **entornos con [Streams de Node.js](https://nodejs.org/api/stream.html):**
 
 - [`renderToPipeableStream()`](#rendertopipeablestream)
 - [`renderToNodeStream()`](#rendertonodestream) (Deprecated)
