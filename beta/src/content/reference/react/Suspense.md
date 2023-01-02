@@ -4,7 +4,11 @@ title: <Suspense>
 
 <Intro>
 
+<<<<<<< HEAD
 `<Suspense>` te permite mostrar una interfaz alternativa o *fallback* hasta que sus hijos hayan terminado de cargar.
+=======
+`<Suspense>` lets you display a fallback until its children have finished loading.
+>>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
 
 
 ```js

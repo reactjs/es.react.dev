@@ -8,7 +8,15 @@
       "path": "",
       "routes": [
         {
+<<<<<<< HEAD
           "title": "Instalación",
+=======
+          "hasSectionHeader": true,
+          "sectionHeader": "Get Started"
+        },
+        {
+          "title": "Installation",
+>>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
           "path": "/learn/installation",
           "routes": [
             {
@@ -44,7 +52,15 @@
           ]
         },
         {
+<<<<<<< HEAD
           "title": "Describir la UI",
+=======
+          "hasSectionHeader": true,
+          "sectionHeader": "Learn React"
+        },
+        {
+          "title": "Describing the UI",
+>>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
           "tags": [],
           "path": "/learn/describing-the-ui",
           "routes": [
@@ -192,19 +208,26 @@
           ]
         },
         {
+          "hasSectionHeader": true,
+          "sectionHeader": "About React"
+        },
+        {
           "title": "Community",
-          "hasSeparator": true,
           "path": "/learn/community",
-          "routes": [{
-            "title": "Acknowledgements",
-            "path": "/learn/acknowledgements"
-          }, {
-            "title": "Docs Contributors",
-            "path": "/learn/docs-contributors"
-          }, {
-            "title": "Meet the Team",
-            "path": "/learn/meet-the-team"
-          }]
+          "routes": [
+            {
+              "title": "Acknowledgements",
+              "path": "/learn/acknowledgements"
+            },
+            {
+              "title": "Docs Contributors",
+              "path": "/learn/docs-contributors"
+            },
+            {
+              "title": "Meet the Team",
+              "path": "/learn/meet-the-team"
+            }
+          ]
         },
         {
           "title": "Blog",
