@@ -8,6 +8,10 @@
       "path": "",
       "routes": [
         {
+          "hasSectionHeader": true,
+          "sectionHeader": "Introducción"
+        },
+        {
           "title": "Instalación",
           "path": "/learn/installation",
           "routes": [
@@ -32,10 +36,20 @@
         {
           "title": "Inicio rápido",
           "path": "/learn",
-          "routes": [{
-            "title": "Pensar en React",
-            "path": "/learn/thinking-in-react"
-          }]
+          "routes": [
+            {
+              "title": "Tutorial: Tic-Tac-Toe",
+              "path": "/learn/tutorial-tic-tac-toe"
+            },
+            {
+              "title": "Pensar en React",
+              "path": "/learn/thinking-in-react"
+            }
+          ]
+        },
+        {
+          "hasSectionHeader": true,
+          "sectionHeader": "Aprende React"
         },
         {
           "title": "Describir la UI",
@@ -77,7 +91,7 @@
           ]
         },
         {
-          "title": "Adding Interactivity",
+          "title": "Añadir interactividad",
           "path": "/learn/adding-interactivity",
           "tags": [],
           "routes": [
@@ -86,7 +100,7 @@
               "path": "/learn/responding-to-events"
             },
             {
-              "title": "State: A Component's Memory",
+              "title": "El estado: la memoria un componente",
               "path": "/learn/state-a-components-memory"
             },
             {
@@ -102,7 +116,7 @@
               "path": "/learn/queueing-a-series-of-state-updates"
             },
             {
-              "title": "Updating Objects in State",
+              "title": "Actualizar objetos en el estado",
               "path": "/learn/updating-objects-in-state"
             },
             {
@@ -112,11 +126,9 @@
           ]
         },
         {
-          "title": "Managing State",
+          "title": "Manejo de estado",
           "path": "/learn/managing-state",
-          "tags": [
-            "intermediate"
-          ],
+          "tags": ["intermediate"],
           "routes": [
             {
               "title": "Reacting to Input with State",
@@ -143,17 +155,15 @@
               "path": "/learn/passing-data-deeply-with-context"
             },
             {
-              "title": "Scaling Up with Reducer and Context",
+              "title": "Escalar con reducer y contexto",
               "path": "/learn/scaling-up-with-reducer-and-context"
             }
           ]
         },
         {
-          "title": "Escape Hatches",
+          "title": "Puertas de escape",
           "path": "/learn/escape-hatches",
-          "tags": [
-            "advanced"
-          ],
+          "tags": ["advanced"],
           "routes": [
             {
               "title": "Referenciar valores con refs",
@@ -181,7 +191,7 @@
             },
             {
               "title": "Eliminar dependencias de los Efectos",
-              "path": "/learn/removing-effect-dependencies"              
+              "path": "/learn/removing-effect-dependencies"
             },
             {
               "title": "Reusing Logic with Custom Hooks",
@@ -190,19 +200,26 @@
           ]
         },
         {
+          "hasSectionHeader": true,
+          "sectionHeader": "About React"
+        },
+        {
           "title": "Community",
-          "hasSeparator": true,
           "path": "/learn/community",
-          "routes": [{
-            "title": "Acknowledgements",
-            "path": "/learn/acknowledgements"
-          }, {
-            "title": "Docs Contributors",
-            "path": "/learn/docs-contributors"
-          }, {
-            "title": "Meet the Team",
-            "path": "/learn/meet-the-team"
-          }]
+          "routes": [
+            {
+              "title": "Acknowledgements",
+              "path": "/learn/acknowledgements"
+            },
+            {
+              "title": "Docs Contributors",
+              "path": "/learn/docs-contributors"
+            },
+            {
+              "title": "Meet the Team",
+              "path": "/learn/meet-the-team"
+            }
+          ]
         },
         {
           "title": "Blog",

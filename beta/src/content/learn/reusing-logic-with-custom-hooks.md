@@ -104,7 +104,7 @@ These two components work fine, but the duplication in logic between them is unf
 
 ### Extracting your own custom Hook from a component {/*extracting-your-own-custom-hook-from-a-component*/}
 
-Imagine for a moment that, similar to [`useState`](/apis/react/useState) and [`useEffect`](/apis/react/useEffect), there was a built-in `useOnlineStatus` Hook. Then both of these components could be simplified and you could remove the duplication between them:
+Imagine for a moment that, similar to [`useState`](/reference/react/useState) and [`useEffect`](/reference/react/useEffect), there was a built-in `useOnlineStatus` Hook. Then both of these components could be simplified and you could remove the duplication between them:
 
 ```js {2,7}
 function StatusBar() {
@@ -224,7 +224,7 @@ React applications are built from components. Components are built from Hooks, w
 You must follow these naming conventions:
 
 1. **React component names must start with a capital letter,** like `StatusBar` and `SaveButton`. React components also need to return something that React knows how to display, like a piece of JSX.
-2. **Hook names must start with `use` followed by a capital letter,** like [`useState`](/apis/react/useState) (built-in) or `useOnlineStatus` (custom, like earlier on the page). Hooks may return arbitrary values.
+2. **Hook names must start with `use` followed by a capital letter,** like [`useState`](/reference/react/useState) (built-in) or `useOnlineStatus` (custom, like earlier on the page). Hooks may return arbitrary values.
 
 This convention guarantees that you can always look at a component and know where its state, Effects, and other React features might "hide". For example, if you see a `getColor()` function call inside your component, you can be sure that it can't possibly contain React state inside because its name doesn't start with `use`. However, a function call like `useOnlineStatus()` will most likely contain calls to other Hooks inside!
 
@@ -901,14 +901,14 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 
 This will work, but there's one more improvement you can do when your custom Hook accepts event handlers.
 
-Adding a dependency on `onReceiveMessage` is not ideal because it will cause the chat to re-connect every time the component re-renders. [Wrap this event handler into an Event function to remove it from the dependencies:](/learn/removing-effect-dependencies#wrapping-an-event-handler-from-the-props)
+Adding a dependency on `onReceiveMessage` is not ideal because it will cause the chat to re-connect every time the component re-renders. [Wrap this event handler into an Effect Event to remove it from the dependencies:](/learn/removing-effect-dependencies#wrapping-an-event-handler-from-the-props)
 
 ```js {1,4,5,15,18}
-import { useEffect, useEvent } from 'react';
+import { useEffect, useEffectEvent } from 'react';
 // ...
 
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
-  const onMessage = useEvent(onReceiveMessage);
+  const onMessage = useEffectEvent(onReceiveMessage);
 
   useEffect(() => {
     const options = {
@@ -987,11 +987,11 @@ export default function ChatRoom({ roomId }) {
 
 ```js useChatRoom.js
 import { useEffect } from 'react';
-import { experimental_useEvent as useEvent } from 'react';
+import { experimental_useEffectEvent as useEffectEvent } from 'react';
 import { createConnection } from './chat.js';
 
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
-  const onMessage = useEvent(onReceiveMessage);
+  const onMessage = useEffectEvent(onReceiveMessage);
 
   useEffect(() => {
     const options = {
@@ -1331,9 +1331,9 @@ export function useOnlineStatus() {
 
 </Sandpack>
 
-In the above example, `useOnlineStatus` is implemented with a pair of [`useState`](/apis/react/useState) and [`useEffect`.](/apis/react/useEffect) However, this isn't the best possible solution. There is a number of edge cases it doesn't consider. For example, it assumes that when the component mounts, `isOnline` is already `true`, but this may be wrong if the network already went offline. You can use the browser [`navigator.onLine`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) API to check for that, but using it directly would break if you run your React app on the server to generate the initial HTML. In short, this code could be improved.
+In the above example, `useOnlineStatus` is implemented with a pair of [`useState`](/reference/react/useState) and [`useEffect`.](/reference/react/useEffect) However, this isn't the best possible solution. There is a number of edge cases it doesn't consider. For example, it assumes that when the component mounts, `isOnline` is already `true`, but this may be wrong if the network already went offline. You can use the browser [`navigator.onLine`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) API to check for that, but using it directly would break if you run your React app on the server to generate the initial HTML. In short, this code could be improved.
 
-Luckily, React 18 includes a dedicated API called [`useSyncExternalStore`](/apis/react/useSyncExternalStore) which takes care of all of these problems for you. Here is how your `useOnlineStatus` Hook, rewritten to take advantage of this new API:
+Luckily, React 18 includes a dedicated API called [`useSyncExternalStore`](/reference/react/useSyncExternalStore) which takes care of all of these problems for you. Here is how your `useOnlineStatus` Hook, rewritten to take advantage of this new API:
 
 <Sandpack>
 
@@ -1647,7 +1647,7 @@ export default function App() {
 
 ```js useFadeIn.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEvent as useEvent } from 'react';
+import { experimental_useEffectEvent as useEffectEvent } from 'react';
 
 export function useFadeIn(ref, duration) {
   const [isRunning, setIsRunning] = useState(true);
@@ -1662,7 +1662,7 @@ export function useFadeIn(ref, duration) {
 }
 
 function useAnimationLoop(isRunning, drawFrame) {
-  const onFrame = useEvent(drawFrame);
+  const onFrame = useEffectEvent(drawFrame);
 
   useEffect(() => {
     if (!isRunning) {
@@ -1880,7 +1880,7 @@ Sometimes, you don't even need a Hook!
 - You can pass reactive values from one Hook to another, and they stay up-to-date.
 - All Hooks re-run every time your component re-renders.
 - The code of your custom Hooks should be pure, like your component's code.
-- Wrap event handlers received by custom Hooks into Event functions.
+- Wrap event handlers received by custom Hooks into Effect Events.
 - Don't create custom Hooks like `useMount`. Keep their purpose specific.
 - It's up to you how and where to choose the boundaries of your code.
 
@@ -2234,7 +2234,7 @@ export function useCounter(delay) {
 
 ```js useInterval.js
 import { useEffect } from 'react';
-import { experimental_useEvent as useEvent } from 'react';
+import { experimental_useEffectEvent as useEffectEvent } from 'react';
 
 export function useInterval(onTick, delay) {
   useEffect(() => {
@@ -2250,7 +2250,7 @@ export function useInterval(onTick, delay) {
 
 <Solution>
 
-Inside `useInterval`, wrap the tick callback into an Event function, as you did [earlier on this page.](/learn/reusing-logic-with-custom-hooks#passing-event-handlers-to-custom-hooks)
+Inside `useInterval`, wrap the tick callback into an Effect Event, as you did [earlier on this page.](/learn/reusing-logic-with-custom-hooks#passing-event-handlers-to-custom-hooks)
 
 This will allow you to omit `onTick` from dependencies of your Effect. The Effect won't re-synchronize on every re-render of the component, so the page background color change interval won't get reset every second before it has a chance to fire.
 
@@ -2306,10 +2306,10 @@ export function useCounter(delay) {
 
 ```js useInterval.js active
 import { useEffect } from 'react';
-import { experimental_useEvent as useEvent } from 'react';
+import { experimental_useEffectEvent as useEffectEvent } from 'react';
 
 export function useInterval(callback, delay) {
-  const onTick = useEvent(callback);
+  const onTick = useEffectEvent(callback);
   useEffect(() => {
     const id = setInterval(onTick, delay);
     return () => clearInterval(id);
