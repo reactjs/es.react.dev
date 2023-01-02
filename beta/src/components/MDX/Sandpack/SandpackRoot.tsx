@@ -74,7 +74,7 @@ function SandpackRoot(props: SandpackProps) {
 
   files['/styles.css'] = {
     code: [sandboxStyle, files['/styles.css']?.code ?? ''].join('\n\n'),
-    hidden: true,
+    hidden: !files['/styles.css']?.visible,
   };
 
   return (
@@ -87,7 +87,7 @@ function SandpackRoot(props: SandpackProps) {
           autorun,
           initMode: 'user-visible',
           initModeObserverOptions: {rootMargin: '1400px 0px'},
-          bundlerURL: 'https://94be751e.sandpack-bundler.pages.dev',
+          bundlerURL: 'https://dad0ba0e.sandpack-bundler-4bw.pages.dev',
           logLevel: SandpackLogLevel.None,
         }}>
         <CustomPreset
