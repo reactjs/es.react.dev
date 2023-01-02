@@ -235,7 +235,9 @@ Veámoslos uno por uno nuevamente:
 
 ¡Esto significa que solo el texto de búsqueda y el valor del *checkbox* son estado! ¡Bien hecho!
 
-<DeepDive title="Props vs. estado">
+<DeepDive>
+
+#### Props vs. estado {/*props-vs-state*/}
 
 Hay dos formas de «modelar» datos en React: props y estado. Las dos son muy diferentes:
 
@@ -271,7 +273,7 @@ Ahora utilicemos nuestra estrategia para este estado:
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 
-Añade estado al componente con el [Hook `useState()`](/apis/react/useState). Los Hooks te permiten «engancharte» al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como «gancho»). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
+Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten «engancharte» al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como «gancho»). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
 
 ```js
 function FilterableProductTable({ products }) {

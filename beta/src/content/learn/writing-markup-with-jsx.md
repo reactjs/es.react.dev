@@ -170,9 +170,11 @@ Si no deseas agregar un `<div>` adicional a tu marcado, puedes escribir `<>` y `
 </>
 ```
 
-Esta etiqueta vacía se llama un *[Fragmento](/apis/react/Fragment)*. Los Fragmentos te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
+Esta etiqueta vacía se llama un *[Fragmento](/reference/react/Fragment)*. Los Fragmentos te permiten agrupar cosas sin dejar ningún rastro en el árbol HTML del navegador.
 
-<DeepDive title="¿Por qué se necesita envolver múltiples etiquetas JSX?">
+<DeepDive>
+
+#### ¿Por qué se necesita envolver múltiples etiquetas JSX? {/*why-do-multiple-jsx-tags-need-to-be-wrapped*/}
 
 JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puedes devolver dos objetos de una función sin envolverlos en un array. Esto explica por qué tampoco puedes devolver dos etiquetas JSX sin envolverlas en otra etiqueta o Fragmento.
 
