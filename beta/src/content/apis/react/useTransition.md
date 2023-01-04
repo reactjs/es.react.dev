@@ -20,7 +20,7 @@ const [isPending, startTransition] = useTransition()
 
 ### Marcar la actualización del estado como una transición sin bloqueo {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-Llama a `useTransition` en la parte superior de tu componente para marcar algunas actualizaciones de estado como *transiciones sin bloqueo*
+Llama a `useTransition` al inicio de tu componente para marcar algunas actualizaciones de estado como *transiciones sin bloqueo*
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
 import { useState, useTransition } from 'react';
@@ -60,9 +60,9 @@ Con una transición, tu interfaz de usuario mantiene su capacidad de respuesta e
 
 #### Actualizar la pestaña actual en una transición {/*updating-the-current-tab-in-a-transition*/}
 
-En este ejemplo, la pestaña de "Post" esta **artificialmente ralentizada** para que pueda tarde al menos un segundo en renderizarse.
+En este ejemplo, la pestaña de "Post" esta **artificialmente ralentizada** para que pueda tardar al menos un segundo en renderizarse.
 
-Haz Click en "Post" e inmediatamente haz click en "Contact". Nota que eso interrumpe la renderización lenta de "Post". La pestaña de "Contact" se muestra inmediatamente. Porque esta actualización del estado esta marcada como una transición, una renderización lenta no congela la interfaz de usuario.
+Haz Click en "Post" e inmediatamente haz click en "Contact". Notaras que eso interrumpe la renderización lenta de "Post". La pestaña de "Contact" se muestra inmediatamente. Porque esta actualización del estado esta marcada como una transición, una renderización lenta no congela la interfaz de usuario.
 
 <Sandpack>
 
@@ -1023,10 +1023,9 @@ Las transiciones solo "esperarán" el tiempo suficiente para evitar ocultar el c
 </Note>
 
 ---
+### Construir un router habilitado para suspense {/*building-a-suspense-enabled-router*/
 
-### Building a Suspense-enabled router {/*building-a-suspense-enabled-router*/}
-
-If you're building your own React framework or a router, we recommend to mark page navigations as transitions.
+Si estas haciendo tu propio React framework o un router, te recomendamos marcar las navegaciones de pagina como una transición.
 
 ```js {3,6,8}
 function Router() {
@@ -1041,12 +1040,12 @@ function Router() {
   // ...
 ```
 
-This is recommended for two reasons:
+Esto es recomendado por dos razones:
 
-- [Transitions are interruptible,](#marking-a-state-update-as-a-non-blocking-transition) which lets the user click away without waiting for the re-render to complete.
-- [Transitions prevent unwanted loading indicators,](#preventing-unwanted-loading-indicators) which lets the user avoid jarring jumps on navigation.
+- [Las transiciones no se pueden interrumpir,](#marking-a-state-update-as-a-non-blocking-transition) lo que permite al usuario hacer clic sin esperar a que se complete el renderizado.
+- [Las transiciones evitan los indicadores de carga no deseados,](#preventing-unwanted-loading-indicators) Lo que permite al usuario evitar saltos discordantes en la navegación.
 
-Here is a tiny simplified router example using transitions for navigations.
+Aquí hay un ejemplo simplificado de un router que usa transiciones para navegaciones.
 
 <Sandpack>
 
@@ -1428,11 +1427,11 @@ main {
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useTransition()` {/*usetransition*/}
 
-Call `useTransition` at the top level of your component to mark some state updates as transitions.
+Llama a `useTransition` al inicio de tu componente para marcar los estados como transiciones.
 
 ```js
 import { useTransition } from 'react';
@@ -1443,24 +1442,21 @@ function TabContainer() {
 }
 ```
 
-[See more examples above.](/#usage)
+[Ver mas ejemplos como el anterior](/#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-`useTransition` does not take any parameters.
+`useTransition` no toma ningún parámetro.
 
 #### Returns {/*returns*/}
-
-`useTransition` returns an array with exactly two items:
-
-1. The `isPending` flag that tells you whether there is a pending transition.
-2. The [`startTransition` function](#starttransition) that lets you mark a state update as a transition.
+`useTransition` retorna un array con exactamente dos valores.
+1. El indicador `isPending` te indica si hay una transición pendiente.
+2. La [función `startTransition`](#starttransition) te permite marcar una actualización de estado como una transición.
 
 ---
 
-### `startTransition` function {/*starttransition*/}
-
-The `startTransition` function returned by `useTransition` lets you mark a state update as a transition.
+### La función `startTransition` {/*starttransition*/}
+La función `startTransition` la cual es retornada por `useTransition`te permite marcar una actualización de estado como una transición.
 
 ```js {6,8}
 function TabContainer() {
@@ -1476,15 +1472,18 @@ function TabContainer() {
 }
 ```
 
-#### Parameters {/*starttransition-parameters*/}
+#### Parametros {/*starttransition-parameters*/}
+
+* `scope`: A function that updates some state by calling one or more [`set` functions.](/apis/react/useState#setstate) React immediately calls `scope` with no parameters and marks all state updates scheduled synchronously during the `scope` function call as transitions. They will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators.](#preventing-unwanted-loading-indicators)
+
 
 * `scope`: A function that updates some state by calling one or more [`set` functions.](/apis/react/useState#setstate) React immediately calls `scope` with no parameters and marks all state updates scheduled synchronously during the `scope` function call as transitions. They will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators.](#preventing-unwanted-loading-indicators)
 
 #### Returns {/*starttransition-returns*/}
 
-`startTransition` does not return anything.
+`startTransition` no retorna ningun valor.
 
-#### Caveats {/*starttransition-caveats*/}
+#### Advertencias {/*starttransition-caveats*/}
 
 * `useTransition` is a Hook, so it can only be called inside components or custom Hooks. If you need to start a transition somewhere else (for example, from a data library), call the standalone [`startTransition`](/apis/react/startTransition) instead.
 
@@ -1500,7 +1499,7 @@ function TabContainer() {
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solución de Problemas {/*troubleshooting*/}
 
 ### Updating an input in a transition doesn't work {/*updating-an-input-in-a-transition-doesnt-work*/}
 
