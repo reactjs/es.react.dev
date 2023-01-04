@@ -338,7 +338,7 @@ b { display: inline-block; margin-right: 10px; }
 ---
 
 ### Actualizar el componente padre en una transición{/*updating-the-parent-component-in-a-transition*/}
-La llamada a `useTransition` no tiene por qué estar en el mismo componente cuyo estado está actualizando. También puedes moverla a un componente hijo. Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una transición:
+La llamada a `useTransition` no tiene por qué estar en el mismo componente cuyo estado estas actualizando. También puedes moverla a un componente hijo. Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una transición:
 
 ```js {8-10}
 export default function TabButton({ children, isActive, onClick }) {
@@ -489,7 +489,7 @@ b { display: inline-block; margin-right: 10px; }
 
 ### Visualización de un estado visual pendiente durante la transición {/*displaying-a-pending-visual-state-during-the-transition*/}
 
-Puedes usar el valor booleano `isPending` retornado por `useTransition` para indicar al usuario que una transición esta en progreso. Por ejemplo, el boton de la pestaña puede tener un estado visual especial "pendiente".
+Puedes usar el valor booleano `isPending` retornado por `useTransition` para indicar al usuario que una transición esta en progreso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente".
 
 ```js {4-6}
 function TabButton({ children, isActive, onClick }) {
@@ -501,7 +501,7 @@ function TabButton({ children, isActive, onClick }) {
   // ...
 ```
 
-Fíjate en que hacer clic en "Post" ahora es más sensible porque el botón de la pestaña se actualiza inmediatamente:
+Fíjate en que hacer clic en "Post" ahora es más responsive porque el botón de la pestaña se actualiza inmediatamente:
 
 <Sandpack>
 
@@ -634,9 +634,9 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-### Preventing unwanted loading indicators {/*preventing-unwanted-loading-indicators*/}
+### Evitar indicadores de carga no deseados {/*preventing-unwanted-loading-indicators*/}
 
-In this example, the `PostsTab` component fetches some data using a [Suspense-enabled](/apis/react/Suspense) data source. When you click the "Posts" tab, the `PostsTab` component *suspends*, causing the closest loading fallback to be displayed:
+En este ejemplo, el componente `PostsTab` obtiene algunos datos utilizando del recurso [Suspense-enabled](/apis/react/Suspense). Cuando haces clic en la pestaña "Posts", el componente `PostsTab` *se suspende*, haciendo que se muestre el fallback loading más cercano:
 
 <Sandpack>
 
@@ -1014,11 +1014,11 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
-[Read more about using transitions with Suspense.](/apis/react/Suspense#preventing-already-revealed-content-from-hiding)
+[Obtenga más información sobre el uso de transiciones con Suspense.](/apis/react/Suspense#preventing-already-revealed-content-from-hiding)
 
 <Note>
 
-Transitions will only "wait" long enough to avoid hiding *already revealed* content (like the tab container). For example, if the Posts tab had a [nested `<Suspense>` boundary,](/apis/react/Suspense#revealing-nested-content-as-it-loads) the transition would not "wait" for it.
+Las transiciones solo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de pestañas). Por ejemplo, si la pestaña Post tuviera un [Limite `<Suspense>` anidado,](/apis/react/Suspense#revealing-nested-content-as-it-loads) la transición no "esperaria".
 
 </Note>
 
