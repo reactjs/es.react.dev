@@ -82,7 +82,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 Ten en cuenta que en el código de arriba, La `ref` ya no se reenvía a `<input>`.
 
-Por ejemplo, supongamos que no quieres exponer el nodo DOM entero de `<input>`, pero quieres exponer dos de sus métodos: `focus` y `scrollIntoView`. para hacer esto, manten el DOM real del buscador en un ref separado. Entonces usa `useImperativeHandle` para exponer un handle solamente con los métodos que quieres que el componente padre llame:
+Por ejemplo, supongamos que no quieres exponer el nodo DOM entero de `<input>`, pero quieres exponer dos de sus métodos: `focus` y `scrollIntoView`. Para hacer esto, manten el DOM real del navegador en un ref separado. Entonces usa `useImperativeHandle` para exponer un handle solamente con los métodos que quieres que el componente padre llame:
 
 ```js {7-14}
 import { forwardRef, useRef, useImperativeHandle } from 'react';
@@ -118,7 +118,7 @@ export default function Form() {
 
   function handleClick() {
     ref.current.focus();
-    // This won't work because the DOM node isn't exposed:
+    //Esto no funcionará porque el nodo del DOM no está expuesto
     // ref.current.style.opacity = 0.5;
   }
 
@@ -166,9 +166,9 @@ input {
 
 ---
 
-### Exposing your own imperative methods {/*exposing-your-own-imperative-methods*/}
+### Exponiendo tus propios métodos imperativos {/*exposing-your-own-imperative-methods*/}
 
-The methods you expose via an imperative handle don't have to match the DOM methods exactly. For example, the `Post` component in the example below exposes a `scrollAndFocusAddComment` method via an imperative handle. This lets the parent `Page` scroll the list of comments *and* focus the input field when you click the button:
+Los métodos que expones via manejador imperativo no tienen que coincidir exactamente a los métodos del DOM. Por ejemplo, el componente `Post` en el ejemplo de abajo expone a `scrollAndFocusAddComment` por medio de un manejador imperativo. Esto le permite a la `Página` padre desplazar la lista de comentarios *y* enfocar el campo de entrada cuando haces click al botón.
 
 <Sandpack>
 
@@ -186,7 +186,7 @@ export default function Page() {
   return (
     <>
       <button onClick={handleClick}>
-        Write a comment
+        Escribe un comentario
       </button>
       <Post ref={postRef} />
     </>
@@ -215,7 +215,7 @@ const Post = forwardRef((props, ref) => {
   return (
     <>
       <article>
-        <p>Welcome to my blog!</p>
+        <p>Bienvenidos a mi blog!</p>
       </article>
       <CommentList ref={commentsRef} />
       <AddComment ref={addCommentRef} />
@@ -244,7 +244,7 @@ const CommentList = forwardRef(function CommentList(props, ref) {
 
   let comments = [];
   for (let i = 0; i < 50; i++) {
-    comments.push(<p key={i}>Comment #{i}</p>);
+    comments.push(<p key={i}>Comentario #{i}</p>);
   }
 
   return (
@@ -261,7 +261,7 @@ export default CommentList;
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 
 const AddComment = forwardRef(function AddComment(props, ref) {
-  return <input placeholder="Add comment..." ref={ref} />;
+  return <input placeholder="Añadir comentario..." ref={ref} />;
 });
 
 export default AddComment;
@@ -281,8 +281,8 @@ export default AddComment;
 
 <Pitfall>
 
-**Do not overuse refs.** You should only use refs for *imperative* behaviors that you can't express as props: for example, scrolling to a node, focusing a node, triggering an animation, selecting text, and so on.
+**No sobre utilices las refs.** Solo debes usar las refs para comportamientos *imperativos* que no puedes expresar como props: por ejemplo desplazarse a un nodo, enfocar un nodo, activar una animación, seleccionar texto, etcétera.
 
-**If you can express something as a prop, you should not use a ref.** For example, instead of exposing an imperative handle like `{ open, close }` from a `Modal` component, it is better to take `isOpen` as a prop like `<Modal isOpen={isOpen} />`. [Effects](/learn/synchronizing-with-effects) can help you expose imperative behaviors via props.
+**Si puedes expresar algo como un prop, no deberias usar una ref.** Por ejemplo, en vez de exponer un manejador imperativo como `{ open, close }` del componente `Modal`, es mejor tomar `isOpen` como un prop, algo como `<Modal isOpen={isOpen} />`. [Efectos](/learn/synchronizing-with-effects) puede ayudarte a exponer comportamientos imperativos via props.
 
 </Pitfall>
