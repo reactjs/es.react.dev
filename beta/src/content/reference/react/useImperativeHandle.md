@@ -28,7 +28,7 @@ import { forwardRef, useImperativeHandle } from 'react';
 const MyInput = forwardRef(function MyInput(props, ref) {
   useImperativeHandle(ref, () => {
     return {
-      // ... Tus métodos ...
+      // ... tus métodos ...
     };
   }, []);
   // ...
@@ -72,7 +72,7 @@ import { forwardRef, useImperativeHandle } from 'react';
 const MyInput = forwardRef(function MyInput(props, ref) {
   useImperativeHandle(ref, () => {
     return {
-      // ... Tus métodos ...
+      // ... tus métodos ...
     };
   }, []);
 
