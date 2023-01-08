@@ -1582,9 +1582,9 @@ startTransition(() => {
 
 ---
 
-### I want to call `useTransition` from outside a component {/*i-want-to-call-usetransition-from-outside-a-component*/}
+### Quiero llamar a `useTransition` desde fuera de un componente {/*i-want-to-call-usetransition-from-outside-a-component*/}
 
-You can't call `useTransition` outside a component because it's a Hook. In this case, use the standalone [`startTransition`](/apis/react/startTransition) method instead. It works the same way, but it doesn't provide the `isPending` indicator.
+No puedes llamar a `useTransition` fuera de un componente porque es un Hook. En este caso, utiliza el método independiente [`startTransition`](/apis/react/startTransition). Funciona de la misma manera, pero no proporciona el indicador `isPending`.
 
 ---
 
