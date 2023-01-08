@@ -1474,10 +1474,7 @@ function TabContainer() {
 
 #### Parametros {/*starttransition-parameters*/}
 
-* `scope`: A function that updates some state by calling one or more [`set` functions.](/apis/react/useState#setstate) React immediately calls `scope` with no parameters and marks all state updates scheduled synchronously during the `scope` function call as transitions. They will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators.](#preventing-unwanted-loading-indicators)
-
-
-* `scope`: A function that updates some state by calling one or more [`set` functions.](/apis/react/useState#setstate) React immediately calls `scope` with no parameters and marks all state updates scheduled synchronously during the `scope` function call as transitions. They will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators.](#preventing-unwanted-loading-indicators)
+* `scope`: Una función que actualiza algún estado llamando a una o más funciones [`set`.](/apis/react/useState#setstate) React llama inmediatamente a `scope` sin parámetros y marca como transiciones todas las actualizaciones de estado programadas sincrónicamente durante la llamada a la función `scope`. Serán [no bloqueantes](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados](#preventing-unwanted-loading-indicators)
 
 #### Returns {/*starttransition-returns*/}
 
