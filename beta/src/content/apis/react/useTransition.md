@@ -1485,17 +1485,17 @@ function TabContainer() {
 
 #### Advertencias {/*starttransition-caveats*/}
 
-* `useTransition` is a Hook, so it can only be called inside components or custom Hooks. If you need to start a transition somewhere else (for example, from a data library), call the standalone [`startTransition`](/apis/react/startTransition) instead.
+* `useTransition` es un Hook, por lo que sólo puede ser llamado dentro de componentes o Hooks personalizados. Si necesita iniciar una transición en otro lugar (por ejemplo, desde una biblioteca de datos), llame a la independiente [`startTransition`](/apis/react/startTransition) en su lugar.
 
-* You can wrap an update into a transition only if you have access to the `set` function of that state. If you want to start a transition in response to some prop or a custom Hook return value, try [`useDeferredValue`](/apis/react/useDeferredValue) instead.
+* Puedes envolver una actualización en una transición sólo si tienes acceso a la función `set` de ese estado. Si desea iniciar una transición en respuesta a algún prop o un valor de retorno personalizado de Hook, intente [`useDeferredValue`](/apis/react/useDeferredValue) en su lugar.
 
-* The function you pass to `startTransition` must be synchronous. React immediately executes this function, marking all state updates that happen while it executes as transitions. If you try to perform more state updates later (for example, in a timeout), they won't be marked as transitions.
+* La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como transiciones.
 
-* A state update marked as a transition will be interrupted by other state updates. For example, if you update a chart component inside a transition, but then start typing into an input while the chart is in the middle of a re-render, React will restart the rendering work on the chart component after handling the input state update.
+* Una actualización de estado marcada como transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un re-renderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de manejar la actualización de estado del input.
 
-* Transition updates can't be used to control text inputs.
+* Las actualizaciones de transición no pueden utilizarse para controlar las entradas de texto.
 
-* If there are multiple ongoing transitions, React currently batches them together. This is a limitation that will likely be removed in a future release.
+* Si hay varias transiciones en curso, React las agrupa. Se trata de una limitación que probablemente se eliminará en una versión futura.
 
 ---
 
