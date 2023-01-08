@@ -1525,57 +1525,57 @@ Esto se debe a que las transiciones no se bloquean, pero la actualización de un
 
 ---
 
-### React doesn't treat my state update as a transition {/*react-doesnt-treat-my-state-update-as-a-transition*/}
+### React no trata mi actualización de estado como una transición {/*react-doesnt-treat-my-state-update-as-a-transition*/}
 
-When you wrap a state update in a transition, make sure that it happens *during* the `startTransition` call:
+Cuando envuelva una actualización de estado en una transición, asegúrese de que ocurre *durante* la llamada `startTransition`:
 
 ```js
 startTransition(() => {
-  // ✅ Setting state *during* startTransition call
+  // ✅ Establecer el estado *durante* la llamada startTransition
   setPage('/about');
 });
 ```
 
-The function you pass to `startTransition` must be synchronous.
+La función que pases a `startTransition` debe ser síncrona.
 
-You can't mark an update as a transition like this:
+No se puede marcar una actualización como una transición así:
 
 ```js
 startTransition(() => {
-  // ❌ Setting state *after* startTransition call
+  // ❌ Establecer el estado *después* de la llamada a startTransition
   setTimeout(() => {
     setPage('/about');
   }, 1000);
 });
 ```
 
-Instead, you could do this:
+En su lugar, podrías hacer esto:
 
 ```js
 setTimeout(() => {
   startTransition(() => {
-    // ✅ Setting state *during* startTransition call
+    // ✅ Establecer el estado *despues* de la llamada a startTransition
     setPage('/about');
   });
 }, 1000);
 ```
 
-Similarly, you can't mark an update as a transition like this:
+Del mismo modo, no se puede marcar una actualización como una transición como esta:
 
 ```js
 startTransition(async () => {
   await someAsyncFunction();
-  // ❌ Setting state *after* startTransition call
+  // ❌ Establecer el estado *después* de la llamada a startTransition
   setPage('/about');
 });
 ```
 
-However, this works instead:
+Sin embargo, esto funciona en su lugar:
 
 ```js
 await someAsyncFunction();
 startTransition(() => {
-  // ✅ Setting state *during* startTransition call
+  // ✅ Establecer el estado *durante* la llamada a startTransition
   setPage('/about');
 });
 ```
