@@ -1501,15 +1501,15 @@ function TabContainer() {
 
 ## Solución de Problemas {/*troubleshooting*/}
 
-### Updating an input in a transition doesn't work {/*updating-an-input-in-a-transition-doesnt-work*/}
+### No funciona la actualización de una entrada en una transición {/*updating-an-input-in-a-transition-doesnt-work*/}
 
-You can't use a transition for a state variable that controls an input:
+No se puede utilizar una transición para una variable de estado que controla una entrada:
 
 ```js {4,10}
 const [text, setText] = useState('');
 // ...
 function handleChange(e) {
-  // ❌ Can't use transitions for controlled input state
+  // No puedes usar transiciones para un controled input state
   startTransition(() => {
     setText(e.target.value);
   });
@@ -1518,10 +1518,10 @@ function handleChange(e) {
 return <input value={text} onChange={handleChange} />;
 ```
 
-This is because transitions are non-blocking, but updating an input in response to the change event should happen synchronously. If you want to run a transition in response to typing, you have two options:
+Esto se debe a que las transiciones no se bloquean, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma sincrónica. Si desea ejecutar una transición en respuesta a la escritura, tiene dos opciones:
 
-1. You can declare two separate state variables: one for the input state (which always updates synchronously), and one that you will update in a transition. This lets you control the input using the synchronous state, and pass the transition state variable (which will "lag behind" the input) to the rest of your rendering logic.
-2. Alternatively, you can have one state variable, and add [`useDeferredValue`](/apis/react/useDeferredValue) which will "lag behind" the real value. It will trigger non-blocking re-renders to "catch up" with the new value automatically.
+1. Puedes declarar dos variables de estado separadas: una para el estado de entrada (que siempre se actualiza de forma sincrónica), y otra que actualizarás en una transición. Esto te permite controlar la entrada utilizando el estado síncrono, y pasar la variable de estado de transición (que "irá por detrás" de la entrada) al resto de tu lógica de renderizado.
+2. Alternativamente, puedes tener una variable de estado, y añadir [`useDeferredValue`](/apis/react/useDeferredValue) que "irá por detrás" del valor real. Se activarán non-blocking re-renders para "ponerse al día" con el nuevo valor de forma automática.
 
 ---
 
