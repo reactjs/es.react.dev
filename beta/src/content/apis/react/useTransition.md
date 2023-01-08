@@ -1588,9 +1588,9 @@ No puedes llamar a `useTransition` fuera de un componente porque es un Hook. En 
 
 ---
 
-### The function I pass to `startTransition` executes immediately {/*the-function-i-pass-to-starttransition-executes-immediately*/}
+### La función que paso a `startTransition` se ejecuta inmediatamente {/*the-function-i-pass-to-starttransition-executes-immediately*/}
 
-If you run this code, it will print 1, 2, 3:
+Si ejecutas este código, imprimirá 1, 2, 3:
 
 ```js {1,3,6}
 console.log(1);
@@ -1601,10 +1601,10 @@ startTransition(() => {
 console.log(3);
 ```
 
-**It is expected to print 1, 2, 3.** The function you pass to `startTransition` does not get delayed. Unlike with the browser `setTimeout`, it does not run the callback later. React executes your function immediately, but any state updates scheduled *while it is running* will get marked as transitions. You can imagine that it works like this:
+**Se espera que imprima 1, 2, 3.** La función que pasas a `startTransition` no se retrasa. Al contrario que con el navegador `setTimeout`, no ejecuta el callback más tarde. React ejecuta tu función inmediatamente, pero cualquier actualización de estado programada *mientras se está ejecutando* se marcará como transición. Puedes imaginar que funciona así:
 
 ```js
-// A simplified version of how React works
+// Una versión simplificada de cómo trabaja React
 
 let isInsideTransition = false;
 
@@ -1616,9 +1616,11 @@ function startTransition(scope) {
 
 function setState() {
   if (isInsideTransition) {
-    // ... schedule a transition state update ...
+    // ... programar una actualización del estado de transición ...
+
   } else {
-    // ... schedule an urgent state update ...
+    // ... programar una actualización de estado urgente ...
+
   }
 }
 ```
