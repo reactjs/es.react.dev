@@ -31,6 +31,8 @@ hydrate(reactNode, domNode, callback?)
 Llama a `hydrate` en React 17 y versiones anteriores para "unir" React al HTML existente que ya fue renderizado por React en un entorno de servidor.
 
 ```js
+import { hydrate } from 'react-dom';
+
 hydrate(reactNode, domNode);
 ```
 
