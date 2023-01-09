@@ -142,7 +142,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registrar una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -159,7 +159,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada por 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -278,7 +278,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registrar una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -295,7 +295,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada por 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -358,7 +358,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-Debido a que el componente padre actualiza su estado dentro del manejador de eventos `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea otras interacciones del usuario.
+Debido a que el componente padre actualiza su estado dentro del manejador de eventos `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contact". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea otras interacciones del usuario.
 
 <Sandpack>
 
@@ -432,7 +432,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registrar una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -449,7 +449,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada por 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -487,7 +487,7 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-### Visualización de un estado visual pendiente durante la transición {/*displaying-a-pending-visual-state-during-the-transition*/}
+### Mostrar un estado visual pendiente durante la transición {/*displaying-a-pending-visual-state-during-the-transition*/}
 
 Puedes usar el valor booleano `isPending` retornado por `useTransition` para indicar al usuario que una transición esta en progreso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente".
 
@@ -578,7 +578,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registrar una vez. La ralentización real está dentro de SlowPost.K
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -595,7 +595,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada por 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -704,11 +704,11 @@ export default function AboutTab() {
 ```js PostsTab.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente esta escrito usando una API experimental
+// eso no esta todavía disponible in la version estable de React
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista puedes seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 function PostsTab() {
   const posts = use(fetchData('/posts'));
@@ -730,9 +730,9 @@ function Post({ title }) {
 }
 
 export default PostsTab;
+// Esta es una solución a un error para que la demo funcione. 
+// TODO: sustituir por la implementación real cuando se solucione el error.
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -775,9 +775,9 @@ export default function ContactTab() {
 
 
 ```js data.js hidden
-// Note: the way you would do data fething depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de hacer el fetching de datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -797,7 +797,8 @@ async function getData(url) {
 }
 
 async function getPosts() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un falso delay para que se note la espera.
+
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -820,9 +821,9 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
-Hiding the entire tab container to show a loading indicator leads to a jarring user experience. If you add `useTransition` to `TabButton`, you can instead indicate display the pending state in the tab button instead.
+Ocultar todo el contenedor de pestañas para mostrar un indicador de carga conduce a una experiencia de usuario discordante. Si añades `useTransition` a `TabButton`, puedes indicar que se muestre el estado pendiente en el botón de la pestaña.
 
-Notice that clicking "Posts" no longer replaces the entire tab container with a spinner:
+Observa que al hacer clic en "Entradas" ya no se sustituye todo el contenedor de la pestaña por un spinner:
 
 <Sandpack>
 
@@ -897,12 +898,11 @@ export default function AboutTab() {
 
 ```js PostsTab.js hidden
 import { fetchData } from './data.js';
+// Nota: este componente esta escrito usando una API experimental
+// eso no esta todavía disponible in la version estable de React
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista puedes seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 function PostsTab() {
   const posts = use(fetchData('/posts'));
@@ -924,9 +924,9 @@ function Post({ title }) {
 }
 
 export default PostsTab;
+// Esta es una solución a un error para que la demo funcione.
+// TODO: sustituir por la implementación real cuando se solucione el error.
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -969,9 +969,9 @@ export default function ContactTab() {
 
 
 ```js data.js hidden
-// Note: the way you would do data fething depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de hacer el fetching de datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -991,7 +991,8 @@ async function getData(url) {
 }
 
 async function getPosts() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un falso delay para que se note la espera.
+
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -1018,7 +1019,7 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
-Las transiciones solo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de pestañas). Por ejemplo, si la pestaña Post tuviera un [Limite `<Suspense>` anidado,](/apis/react/Suspense#revealing-nested-content-as-it-loads) la transición no "esperaria".
+Las transiciones solo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de pestañas). Por ejemplo, si la pestaña Post tuviera un [Limite `<Suspense>` anidado,](/apis/react/Suspense#revealing-nested-content-as-it-loads) la transición no "esperaría".
 
 </Note>
 
@@ -1175,12 +1176,11 @@ function AlbumsGlimmer() {
 
 ```js Albums.js hidden
 import { fetchData } from './data.js';
+// Nota: este componente esta escrito usando una API experimental
+// eso no esta todavía disponible in la version estable de React
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista puedes seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -1195,8 +1195,9 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: sustituir por la implementación real cuando se solucione el error.
+
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1239,8 +1240,9 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: sustituir por la implementación real cuando se solucione el error.
+
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1276,9 +1278,9 @@ export default function Panel({ children }) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fething depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de hacer el fetching de datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1300,7 +1302,8 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un falso delay para que se note la espera.
+
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1312,7 +1315,8 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un falso delay para que se note la espera.
+
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1474,7 +1478,7 @@ function TabContainer() {
 
 #### Parametros {/*starttransition-parameters*/}
 
-* `scope`: Una función que actualiza algún estado llamando a una o más funciones [`set`.](/apis/react/useState#setstate) React llama inmediatamente a `scope` sin parámetros y marca como transiciones todas las actualizaciones de estado programadas sincrónicamente durante la llamada a la función `scope`. Serán [no bloqueantes](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados](#preventing-unwanted-loading-indicators)
+* `scope`: Una función que actualiza algún estado llamando a una o más funciones [`set`.](/apis/react/useState#setstate) React llama inmediatamente a `scope` sin parámetros y marca como transiciones todas las actualizaciones de estado programadas de forma síncrona durante la llamada a la función `scope`. Serán [no bloqueantes](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados](#preventing-unwanted-loading-indicators)
 
 #### Returns {/*starttransition-returns*/}
 
@@ -1515,9 +1519,9 @@ function handleChange(e) {
 return <input value={text} onChange={handleChange} />;
 ```
 
-Esto se debe a que las transiciones no se bloquean, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma sincrónica. Si desea ejecutar una transición en respuesta a la escritura, tiene dos opciones:
+Esto se debe a que las transiciones no se bloquean, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma síncrona. Si desea ejecutar una transición en respuesta a la escritura, tiene dos opciones:
 
-1. Puedes declarar dos variables de estado separadas: una para el estado de entrada (que siempre se actualiza de forma sincrónica), y otra que actualizarás en una transición. Esto te permite controlar la entrada utilizando el estado síncrono, y pasar la variable de estado de transición (que "irá por detrás" de la entrada) al resto de tu lógica de renderizado.
+1. Puedes declarar dos variables de estado separadas: una para el estado de entrada (que siempre se actualiza de forma síncrona), y otra que actualizarás en una transición. Esto te permite controlar la entrada utilizando el estado síncrono, y pasar la variable de estado de transición (que "irá por detrás" de la entrada) al resto de tu lógica de renderizado.
 2. Alternativamente, puedes tener una variable de estado, y añadir [`useDeferredValue`](/apis/react/useDeferredValue) que "irá por detrás" del valor real. Se activarán non-blocking re-renders para "ponerse al día" con el nuevo valor de forma automática.
 
 ---
@@ -1551,7 +1555,7 @@ En su lugar, podrías hacer esto:
 ```js
 setTimeout(() => {
   startTransition(() => {
-    // ✅ Establecer el estado *despues* de la llamada a startTransition
+    // ✅ Establecer el estado *después* de la llamada a startTransition
     setPage('/about');
   });
 }, 1000);
