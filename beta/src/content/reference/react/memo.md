@@ -30,7 +30,13 @@ const SomeComponent = memo(function SomeComponent(props) {
 });
 ```
 
+<<<<<<< HEAD
 #### Parámetros {/*parameters*/}
+=======
+[See more examples below.](#usage)
+
+#### Parameters {/*parameters*/}
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
 
 * `Component`: El componente que quieres memoizar. El `memo` no modifica este componente, pero devuelve un nuevo componente memoizado en su lugar. Cualquier componente válido de React, incluyendo funciones y componentes [`forwardRef`](/apis/react/forwardRef), es aceptado.
 

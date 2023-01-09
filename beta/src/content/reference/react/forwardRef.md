@@ -28,10 +28,15 @@ import { forwardRef } from 'react';
 const MyInput = forwardRef(function MyInput(props, ref) {
   // ...
 });
-
 ```
 
+<<<<<<< HEAD
 #### Parámetros {/*parameters*/}
+=======
+[See more examples below.](#usage)
+
+#### Parameters {/*parameters*/}
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
 
 * `render`: La función de renderización de tu componente. React llama a esta función con las props y `ref` que tu componente recibió de su padre. El JSX que devuelve será la salida de tu componente.
 

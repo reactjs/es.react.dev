@@ -23,10 +23,18 @@ const SomeComponent = lazy(load)
 Llama a `lazy` fuera de tus componentes para declarar un componente de carga diferida:
 
 ```js
+import { lazy } from 'react';
+
 const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 ```
 
+<<<<<<< HEAD
 #### Parámetros {/*parameters*/}
+=======
+[See more examples below.](#usage)
+
+#### Parameters {/*parameters*/}
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
 
 - `load`: Una función que devuelve una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto como un componente de React. Tanto la promesa devuelta como el valor resuelto de la promesa serán almacenados en caché, por lo que React no llamará a `load` más de una vez. Si la promesa se rechaza, React lanzará la razón de rechazo para dejar que el barrera de error más cercana lo maneje.
 
