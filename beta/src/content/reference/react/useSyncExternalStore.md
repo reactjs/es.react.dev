@@ -20,7 +20,7 @@ const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?
 
 ### `useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)` {/*usesyncexternalstore*/}
 
-LLame  a `useSyncExternalStore` en el nivel mas alto de tu componente para leer un valor de una fuente de almacenamiento de datos externa.
+Llame a `useSyncExternalStore` en el nivel superior de su componente para leer un valor de una fuente de almacenamiento de datos externa.
 
 ```js
 import { useSyncExternalStore } from 'react';
@@ -32,29 +32,32 @@ function TodosApp() {
 }
 ```
 
-Esto devuelve una instantánea del dato en la fuente de almacenamiento. Para esto, necesitara pasar dos funciones como argumentos:
+Devuelve la instantánea de los datos en la fuente de almacenamiento de datos externa. Necesitas pasar dos funciones como argumentos:
 
-1. La función `subscribe` deberá suscribirse a la fuente de almacenamiento de datos y devolver una función que permita des suscribirse.
-2. La función `getSnapshot` deberá obtener una instantánea del dato de la fuente de almacenamiento de datos.
-[Ver mas ejemplos.](#usage)
+1. La función `subscribe` debe suscribirse a la fuente de almacenamiento de datos externa y devolver una función que cancela dicha suscripción.
+2. La función `getSnapshot` debería obtener una instantánea de los datos de la fuente de almacenamiento de datos externa.
 
-#### Parámetros {/*parameters*/}
+[Ver más ejemplos arriba.](#uso)
 
-* `subscribe`: Una función que toma un argumento `callback` y lo suscribe a los cambios de la fuente de almacenamiento de datos externa. Cuando la fuente de almacenamiento de datos externa cambia, debe invocar el `callback` proporcionado. Esto hará que el componente se vuelva a re-renderizar. La función `subscribe` debería devolver una función que limpia dicha suscripción.
+#### Parametros {/*parameters*/}
 
-* `getSnapshot`: Una función que devuelve una instantánea de los datos de la fuente de almacenamiento de datos externa que necesita el componente. Mientras la fuente de almacenamiento de datos externa no cambie, las llamadas repetidas a `getSnapshot` deben devolver el mismo valor. Si la fuente de almacenamiento de datos externa cambia entonces, el valor devuelto es diferente (siendo comparado con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React re-renderizará el componente.
+* `subscribe`: Una función que toma un solo argumento `callback` y lo suscribe a la fuente de almacenamiento de datos externa. Cuando la fuente de almacenamiento de datos externa cambia, debe invocar el `callback` proporcionado. Esto hará que el componente se vuelva a rerenderizar. La función `subscribe` debería devolver una función que limpia dicha suscripción.
 
-* **optional** `getServerSnapshot`: Una función que devuelve la instantánea inicial de los datos en la fuente de almacenamiento de datos externa. Se usará solo durante la representación en el servidor y durante la hidratación del contenido renderizado por el servidor en el cliente. La instantánea del servidor debe ser la misma entre el cliente y el servidor, y generalmente se serializa y pasa del servidor al cliente. Si no se proporciona esta función, la representación del componente en el servidor generará un error.
+* `getSnapshot`: Una función que devuelve una instantánea de los datos de la fuente de almacenamiento externa de datos que necesita el componente. Si bien la fuente de almacenamiento externa de datos no ha cambiado, las llamadas repetidas a `getSnapshot` deben devolver el mismo valor. Si la fuente de almacenamiento externa de datos cambia y el valor devuelto es diferente (usando para la comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) ), React volverá a rerenderizar el componente.
 
-#### Retorno {/*returns*/}
+* **opcional** `getServerSnapshot`: Una función que devuelve la instantánea inicial de los datos de la fuente de almacenamiento externa de datos. Se usará solo durante la renderización desde el servidor y durante la hidratación del contenido renderizado por el servidor en el cliente. La instantánea del servidor debe ser la misma entre el cliente y el servidor, y generalmente se serializa y pasa del servidor al cliente. Si no se proporciona esta función, la representación del componente en el servidor generará un error.
 
-La instantánea actual de la fuente de almacenamiento de datos externa que puede usar en su lógica de representación.
+#### Devuelve {/*returns*/}
+
+La instantánea actual de la fuente de almacenamiento externa de datos que puede usar en su lógica de representación.
 
 #### Advertencias {/*caveats*/}
 
-* La instantánea de la fuente de almacenamiento de datos externa devuelta por `getSnapshot` debe ser inmutable. Si la fuente de almacenamiento de datos externa subyacente tiene datos mutables, devolverá una nueva instantánea inmutable si los datos han cambiado. De lo contrario, devolverá una última instantánea almacenada en caché.
+* La instantánea de la fuente de almacenamiento externa de datos devuelta por `getSnapshot` debe ser inmutable. Si el almacén subyacente tiene datos mutables, devuelva una nueva instantánea inmutable si los datos han cambiado. De lo contrario, devuelva la última instantánea almacenada en caché.
 
-* Si se pasa una función `subscribe` diferente durante una nueva representación, React se volverá a suscribir a la fuente de almacenamiento de datos externa utilizando la función `subscribe` recién pasada. Puedes evitar esto declarando `subscribe` fuera del componente.
+* Si se pasa una función `subscribe` diferente durante un re-renderizado, React se volverá a suscribir a la fuente de almacenamiento externa de datos usando la función `subscribe` recién pasada. Puede evitar esto declarando `subscribe` fuera del componente.
+
+---
 
 ## Uso {/*usage*/}
 
@@ -342,49 +345,6 @@ Esto le permite proporcionar la instantánea del valor inicial que se utilizará
 Asegúrate de que `getServerSnapshot` devuelva exactamente los mismos datos en el renderizado inicial del cliente que en el que es devuelto en el servidor. Por ejemplo, si `getServerSnapshot` devolvió algún contenido prepopulado de la fuente de almacenamiento externa en el servidor, debes transferir este contenido al cliente. Una forma común de hacer esto es emitir una etiqueta `<script>` que establece una propiedad global como `window.MY_STORE_DATA` durante la renderización del servidor, y que permitirá poder leer esa propiedad global desde el cliente en `getServerSnapshot`. Tu fuente de almacenamiento externa debería proporcionar instrucciones sobre cómo hacer esto.
 
 </Note>
-
----
-
-## Referencia {/*reference*/}
-
-### `useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)` {/*usesyncexternalstore*/}
-
-Llame a `useSyncExternalStore` en el nivel superior de su componente para leer un valor de una fuente de almacenamiento de datos externa.
-
-```js
-import { useSyncExternalStore } from 'react';
-import { todosStore } from './todoStore.js';
-
-function TodosApp() {
-  const todos = useSyncExternalStore(todosStore.subscribe, todosStore.getSnapshot);
-  // ...
-}
-```
-
-Devuelve la instantánea de los datos en la fuente de almacenamiento de datos externa. Necesitas pasar dos funciones como argumentos:
-
-1. La función `subscribe` debe suscribirse a la fuente de almacenamiento de datos externa y devolver una función que cancela dicha suscripción.
-2. La función `getSnapshot` debería obtener una instantánea de los datos de la fuente de almacenamiento de datos externa.
-
-[Ver más ejemplos arriba.](#uso)
-
-#### Parametros {/*parameters*/}
-
-* `subscribe`: Una función que toma un solo argumento `callback` y lo suscribe a la fuente de almacenamiento de datos externa. Cuando la fuente de almacenamiento de datos externa cambia, debe invocar el `callback` proporcionado. Esto hará que el componente se vuelva a rerenderizar. La función `subscribe` debería devolver una función que limpia dicha suscripción.
-
-* `getSnapshot`: Una función que devuelve una instantánea de los datos de la fuente de almacenamiento externa de datos que necesita el componente. Si bien la fuente de almacenamiento externa de datos no ha cambiado, las llamadas repetidas a `getSnapshot` deben devolver el mismo valor. Si la fuente de almacenamiento externa de datos cambia y el valor devuelto es diferente (usando para la comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) ), React volverá a rerenderizar el componente.
-
-* **opcional** `getServerSnapshot`: Una función que devuelve la instantánea inicial de los datos de la fuente de almacenamiento externa de datos. Se usará solo durante la renderización desde el servidor y durante la hidratación del contenido renderizado por el servidor en el cliente. La instantánea del servidor debe ser la misma entre el cliente y el servidor, y generalmente se serializa y pasa del servidor al cliente. Si no se proporciona esta función, la representación del componente en el servidor generará un error.
-
-#### Devuelve {/*returns*/}
-
-La instantánea actual de la fuente de almacenamiento externa de datos que puede usar en su lógica de representación.
-
-#### Advertencias {/*caveats*/}
-
-* La instantánea de la fuente de almacenamiento externa de datos devuelta por `getSnapshot` debe ser inmutable. Si el almacén subyacente tiene datos mutables, devuelva una nueva instantánea inmutable si los datos han cambiado. De lo contrario, devuelva la última instantánea almacenada en caché.
-
-* Si se pasa una función `subscribe` diferente durante un re-renderizado, React se volverá a suscribir a la fuente de almacenamiento externa de datos usando la función `subscribe` recién pasada. Puede evitar esto declarando `subscribe` fuera del componente.
 
 ---
 
