@@ -36,7 +36,7 @@ Esto devuelve una instantánea del dato en la fuente de almacenamiento. Para est
 
 1. La función `subscribe` deberá suscribirse a la fuente de almacenamiento de datos y devolver una función que permita des suscribirse.
 2. La función `getSnapshot` deberá obtener una instantánea del dato de la fuente de almacenamiento de datos.
-[See more examples below.](#usage)
+[Ver mas ejemplos.](#usage)
 
 #### Parámetros {/*parameters*/}
 
