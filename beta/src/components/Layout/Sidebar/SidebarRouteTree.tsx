@@ -2,7 +2,7 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-import {useRef, useLayoutEffect} from 'react';
+import {useRef, useLayoutEffect, Fragment} from 'react';
 
 import cn from 'classnames';
 import {RouteItem} from 'components/Layout/useRouteMeta';
@@ -100,7 +100,10 @@ export function SidebarRouteTree({
   return (
     <ul>
       {currentRoutes.map(
-        ({path, title, routes, wip, heading, hasSeparator}) => {
+        (
+          {path, title, routes, wip, heading, hasSectionHeader, sectionHeader},
+          index
+        ) => {
           const pagePath = path && removeFromLast(path, '.');
           const selected = slug === pagePath;
 
@@ -155,16 +158,23 @@ export function SidebarRouteTree({
               </li>
             );
           }
-
-          if (hasSeparator) {
+          if (hasSectionHeader) {
             return (
-              <>
-                <li
-                  role="separator"
-                  className="my-2 ml-5 border-b border-border dark:border-border-dark"
-                />
-                {listItem}
-              </>
+              <Fragment key={`${sectionHeader}-${level}-separator`}>
+                {index !== 0 && (
+                  <li
+                    role="separator"
+                    className="mt-4 mb-2 ml-5 border-b border-border dark:border-border-dark"
+                  />
+                )}
+                <h3
+                  className={cn(
+                    'mb-1 text-sm font-bold ml-5 text-gray-400 dark:text-gray-500',
+                    index !== 0 && 'mt-2'
+                  )}>
+                  {sectionHeader}
+                </h3>
+              </Fragment>
             );
           } else {
             return listItem;

@@ -342,7 +342,9 @@ const fullName = firstName + ' ' + lastName;
 
 Como resultado, los controladores de cambios no necesitan hacer nada especial para actualizarlo. Cuando llamas a `setFirstName` o `setLastName`, activas una nueva representación y luego el siguiente `fullName` se calculará a partir de los nuevos datos.
 
-<DeepDive title="No reflejar props en el estado">
+<DeepDive>
+
+#### No reflejar props en el estado {/*don-t-mirror-props-in-state*/}
 
 Un ejemplo común de estado redundante es un código como este:
 
@@ -1476,7 +1478,10 @@ button { margin: 10px; }
 
 Puede anidar el estado tanto como desee, pero hacerlo "plano" puede resolver numerosos problemas. Facilita la actualización del estado y ayuda a garantizar que no haya duplicación en diferentes partes de un objeto anidado.
 
-<DeepDive title="Mejorar el uso de memoria">
+<DeepDive>
+
+#### Mejorar el uso de memoria {/*improving-memory-usage*/}
+
 
 Idealmente, también eliminaría los elementos eliminados (¡y sus hijos!) del objeto "tabla" para mejorar el uso de la memoria. Esta versión lo hace. También [usa Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) para hacer que la lógica de actualización sea más concisa.
 

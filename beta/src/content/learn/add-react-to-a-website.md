@@ -222,12 +222,14 @@ La herramienta que acabas de usar se llama Babel y puedes aprender más sobre el
 
 Si te empiezas a sentir cómodo con las herramientas de construcción y quieres que hagan más por ti, [cubrimos algunas de las más populares y accesibles aquí](/learn/start-a-new-react-project).
 
-<DeepDive title="React without JSX">
+<DeepDive>
+
+#### React without JSX {/*react-without-jsx*/}
 
 Originalmente JSX se introdujo para que escribir componentes con React se sintiera tan familiar como escribir HTML. Desde entonces, la sintaxis se ha generalizado. Sin embargo, hay momentos en que no quieres o no puedes usar JSX. Tienes dos opciones:
 
 - Usar una alternativa a JSX como [htm](https://github.com/developit/htm) que utiliza [plantillas de cadena](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals) en lugar de un compilador.
-- Usar [`React.createElement()`](/apis/react/createElement) que tiene una estructura especial que se explica debajo.
+- Usar [`React.createElement()`](/reference/react/createElement) que tiene una estructura especial que se explica debajo.
 
 Con JSX, escribirías un componente de esta forma:
 
