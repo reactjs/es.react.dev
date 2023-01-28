@@ -51,63 +51,63 @@ function Tooltip() {
  
 * **opcional** `dependencies`: La lista de todos los valores reactivos referenciados dentro del código de `setup`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), va a verificar que cada valor reactivo este correctamente especificado como una dependencia. La lista de dependencias tiene que tener un número constante de elementos y ser escritos en linea como `[dep1, dep2, dep3]`. React va a comparar cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no especificas del todo las dependencias, tu Efecto se volverá a ejecutar después de cada renderizado del componente.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`useLayoutEffect` returns `undefined`.
+`useLayoutEffect` devuelve `undefined`.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `useLayoutEffect` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
+* `useLayoutEffect` es un Hook, así que solo puedes llamarlo **en el nivel mas alto de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condicionales. Si lo necesitas, extrae un nuevo componente y mueve el estado a él.
 
-* When Strict Mode is on, React will **run one extra development-only setup+cleanup cycle** before the first real setup. This is a stress-test that ensures that your cleanup logic "mirrors" your setup logic and that it stops or undoes whatever the setup is doing. If this causes a problem, [you need to implement the cleanup function.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* Cuando el modo estricto está activado, react va a **ejecutar una configuración adicional solo para desarrollo + ciclo de limpieza**  antes de la primera configuración real. Esta es una prueba de estrés que asegura que tu lógica de limpieza sea un "espejo" de tu lógica de configuración y se detenga o se deshaga lo que sea que tu configuración esté haciendo. Si esto causa un problema [necesitas implementar la función de limpieza.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-* If some of your dependencies are objects or functions defined inside the component, there is a risk that they will **cause the Effect to re-run more often than needed.** To fix this, remove unnecessary [object](/reference/react/useEffect#removing-unnecessary-object-dependencies) and [function](/reference/react/useEffect#removing-unnecessary-function-dependencies) dependencies. You can also [extract state updates](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) and [non-reactive logic](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) outside of your Effect.
+* Si algunas de tus dependencias son objetos o funciones definidas dentro del componente, hay un riesgo de que ellas **causen el efecto de volver a ejecutarse mas de lo necesario.** Para arreglar esto, elimina dependencias de [objetos](/reference/react/useEffect#removing-unnecessary-object-dependencies) y [funciones](/reference/react/useEffect#removing-unnecessary-function-dependencies) innecesarias. También puedes [extraer actualizaciones de estados](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) y  [lógica que no es reactiva](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) fuera de tu Efecto.
 
-* Effects **only run on the client.** They don't run during server rendering.
+* Efectos **solo se ejecuta en el lado del cliente.** No se ejecuta durante el renderizado del lado del servidor
 
-* The code inside `useLayoutEffect` and all state updates scheduled from it **block the browser from repainting the screen.** When used excessively, this can make your app very slow. When possible, prefer [`useEffect`.](/reference/reac/useEffect)
+* El código dentro de `useLayoutEffect` y todos los estados actualizados programados desde él **bloquea el navegador de volver a pintar en la pantalla.** Cuando es usado excesivamente, esto puede hacer tu aplicación muy lenta. Cuando sea posible, se prefiere usar [`useEffect`.](/reference/reac/useEffect) 
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Measuring layout before the browser repaints the screen {/*measuring-layout-before-the-browser-repaints-the-screen*/}
+### Medir el layout antes que el navegador vuelva a pintar la pantalla {/*measuring-layout-before-the-browser-repaints-the-screen*/}
 
-Most components don't need to know their position and size on the screen to decide what to render. They only return some JSX with CSS. Then the browser calculates their *layout* (position and size) and repaints the screen.
+La mayoría de los componentes no necesitan conocer sus posiciones y tamaños en la pantalla para decidir que renderizar. Ellos solo retornan algo de JSX con CSS. Luego, el navegador calcula sus layout (posición y tamaño) y vuelve a repintar la pantalla. 
 
-Sometimes, that's not enough. Imagine a tooltip that appears next to some element on hover. If there's enough space, the tooltip should appear above the element, but if it doesn't fit, it should appear below. This means that in order to render the tooltip at the right final position, you need to know its height (i.e. whether it fits at the top).
+Aveces, eso no es suficiente. Imagina un tooltip que aparece junto a algún elemento cuando pasas con el ratón por encima de él. Si hay suficiente espacio, el tooltip debe aparecer arriba del elemento, pero si no tiene suficiente espacio para encajar, debe aparecer debajo. Esto significa que para renderizar el tooltip en la posición final correcta, necesitas saber su altura (quiere decir, si cabe en la parte superior).
 
-To do this, you need to render in two passes:
+Para hacer esto, necesitas renderizar en dos pasos:
 
-1. Render the tooltip anywhere (even with a wrong position).
-2. Measure its height and decide where to place the tooltip.
-3. Render the tooltip *again* in the correct place.
+1. Renderiza el tooltip en cualquier lugar (incluso con una posición incorrecta).
+2. Mide su altura y decide dónde colocar el tooltip.
+3. Renderiza el tooltip *de nuevo* en la posición correcta.
 
-**All of this needs to happen before the browser repaints the screen.** You don't want the user to see the tooltip moving. Call `useLayoutEffect` to perform the layout measurements before the browser repaints the screen:
+**Todo esto necesita pasar antes que el navegador vuelva a pintar la pantalla.** No quieres que el usuario vea el tooltip moviéndose. Llama a `useLayoutEffect` para llevar a cabo las medidas del layout antes que el navegador vuelva a pintar la pantalla. 
 
 ```js {5-8}
 function Tooltip() {
   const ref = useRef(null);
-  const [tooltipHeight, setTooltipHeight] = useState(0); // You don't know real height yet
+  const [tooltipHeight, setTooltipHeight] = useState(0); // Aún no sabes la altura real 
 
   useLayoutEffect(() => {
     const { height } = ref.current.getBoundingClientRect();
-    setTooltipHeight(height); // Re-render now that you know the real height
+    setTooltipHeight(height); // Vuelve a renderizar ahora que sabes la altura real
   }, []);
 
-  // ...use tooltipHeight in the rendering logic below...
+  // ...usa tooltipHeight en la lógica del renderizado debajo...
 }
 ```
 
-Here's how this works step by step:
+Así es como funciona paso por paso:
 
-1. `Tooltip` renders with the initial `tooltipHeight = 0`  (so the tooltip may be wrongly positioned).
-2. React places it in the DOM and runs the code in `useLayoutEffect`.
-3. Your `useLayoutEffect` [measures the height](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) of the tooltip content and triggers an immediate re-render.
-4. `Tooltip` renders again with the real `tooltipHeight` (so the tooltip is correctly positioned).
-5. React updates it in the DOM, and the browser finally displays the tooltip.
+1. `Tooltip` se renderiza inicialmente con `tooltipHeight = 0`  (el tooltip puede estar posicionado incorrectamente).
+2. React lo coloca en el DOM y ejecuta el código en `useLayoutEffect`.
+3. Tu `useLayoutEffect` [mide la altura](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) del contenido del tooltip y dispara inmediatamente un renderizado de nuevo.
+4. `Tooltip` se vuelve a renderizar con el real `tooltipHeight` (el tooltip está posicionado correctamente).
+5. React lo actualiza en el DOM y el navegador finalmente muestra el tooltip.
 
-Hover over the buttons below and see how the tooltip adjusts its position depending on whether it fits:
+Pasa el ratón por encima de los botones debajo y mira como el tooltip ajusta su posición dependiendo de si encaja.
 
 <Sandpack>
 
@@ -120,29 +120,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Este tooltip no encaja arriba del botón.
             <br />
-            This is why it's displayed below instead!
+            Es por esto que se muestra debajo del botón!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Pasa el ratón por encima (tooltip arriba)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
     </div>
   );
@@ -197,7 +197,7 @@ export default function Tooltip({ children, targetRect }) {
   useLayoutEffect(() => {
     const { height } = ref.current.getBoundingClientRect();
     setTooltipHeight(height);
-    console.log('Measured tooltip height: ' + height);
+    console.log('Altura del tooltip medida: ' + height);
   }, []);
 
   let tooltipX = 0;
@@ -206,7 +206,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // No encaja arriba, entonces colócalo debajo
       tooltipY = targetRect.bottom;
     }
   }
@@ -251,13 +251,13 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Notice that even though the `Tooltip` component has to render in two passes (first, with `tooltipHeight` initialized to `0` and then with the real measured height), you only see the final result. This is why you need `useLayoutEffect` instead of [`useEffect`](/reference/react/useEffect) for this example. Let's look at the difference in detail below.
+Ten en cuenta que aunque el componente `Tooltip` tiene que renderizar en dos pasos (primero, con `tooltipHeight` inicializado en `0` y luego con la medición real de la altura), tú solo ves el resultado final. Es por esto que necesitas `useLayoutEffect` en vez de [`useEffect`](/reference/react/useEffect) para este ejemplo. Veamos las diferencias en detalle debajo.
 
 <Recipes titleText="useLayoutEffect vs useEffect" titleId="examples">
 
-#### `useLayoutEffect` blocks the browser from repainting {/*uselayouteffect-blocks-the-browser-from-repainting*/}
+#### `useLayoutEffect` bloquea el navegador para que no vuelva a pintarse {/*uselayouteffect-blocks-the-browser-from-repainting*/}
 
-React guarantees that the code inside `useLayoutEffect` and any state updates scheduled inside it will be processed **before the browser repaints the screen.** This lets you render the tooltip, measure it, and re-render the tooltip again without the user noticing the first extra render. In other words, `useLayoutEffect` blocks the browser from painting.
+React garantiza que el código dentro de `useLayoutEffect` y cada actualización de estado programada dentro de él va a ser procesada **antes que el navegador vuelva a pintar la pantalla.** Esto te permite renderizar el tooltip, medirlo, y volver a renderizar el tooltip sin que el usuario note el primer renderizado adicional. En otras palabras, `useLayoutEffect` bloquea el navegador de pintarse. 
 
 <Sandpack>
 
@@ -270,29 +270,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Este tooltip no encaja arriba del botón.
             <br />
-            This is why it's displayed below instead!
+            Es por esto que se muestra debajo del botón!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Pasa el ratón por encima (tooltip arriba)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón.</div>
         }
       >
-        Hover over me (tooltip below)
+         Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
     </div>
   );
@@ -355,7 +355,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // No encaja arriba, entonces colócalo debajo
       tooltipY = targetRect.bottom;
     }
   }
@@ -402,9 +402,9 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 <Solution />
 
-#### `useEffect` does not block the browser {/*useeffect-does-not-block-the-browser*/}
+#### `useEffect` no bloquea el navegador {/*useeffect-does-not-block-the-browser*/}
 
-Here is the same example, but with [`useEffect`](/reference/react/useEffect) instead of `useLayoutEffect`. If you're on a slower device, you might notice that sometimes the tooltip "flickers" and you briefly see its initial position before the corrected position.
+Aquí está el mismo ejemplo, pero con [`useEffect`](/reference/react/useEffect) en vez de `useLayoutEffect`. Si estas en un dispositivo mas lento, podrías notar que aveces el tooltip "parpadea" y de forma breve veras su posición inicial antes de la posición correcta.
 
 <Sandpack>
 
@@ -417,29 +417,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Este tooltip no encaja arriba del botón.
             <br />
-            This is why it's displayed below instead!
+            Es por esto que se muestra debajo del botón!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Pasa el ratón por encima (tooltip arriba)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
     </div>
   );
@@ -502,7 +502,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // No encaja arriba, entonces colócalo debajo
       tooltipY = targetRect.bottom;
     }
   }
@@ -547,7 +547,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-To make the bug easier to reproduce, this version adds an artificial delay during rendering. React will let the browser paint the screen before it processes the state update inside `useEffect`. As a result, the tooltip flickers:
+Para hacer el error fácil de reproducir, esta versión agrega un delay artificial durante el renderizado. React va a dejar que el navegador pinte la pantalla antes que procese la actualización del estado dentro de `useEffect`. Como resultado, el tooltip parpadea.
 
 <Sandpack>
 
@@ -560,29 +560,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Este tooltip no encaja arriba del botón.
             <br />
-            This is why it's displayed below instead!
+            Es por esto que se muestra debajo del botón!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Pasa el ratón por encima (tooltip arriba)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Este tooltip encaja arriba del botón</div>
         }
       >
-        Hover over me (tooltip below)
+        Pasa el ratón por encima (tooltip debajo)
       </ButtonWithTooltip>
     </div>
   );
@@ -634,10 +634,10 @@ export default function Tooltip({ children, targetRect }) {
   const ref = useRef(null);
   const [tooltipHeight, setTooltipHeight] = useState(0);
 
-  // This artificially slows down rendering
+  // Esto ralentiza artificialmente el renderizado.
   let now = performance.now();
   while (performance.now() - now < 100) {
-    // Do nothing for a bit...
+    // no hacer nada por un momento...
   }
 
   useEffect(() => {
@@ -651,7 +651,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // No encaja arriba, entonces colócalo debajo
       tooltipY = targetRect.bottom;
     }
   }
@@ -696,7 +696,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Edit this example to `useLayoutEffect` and observe that it blocks the paint even if rendering is slowed down.
+Edita este ejemplo a `useLayoutEffect` y observa que bloquea el pintado incluso si se ralentiza el renderizado.
 
 <Solution />
 
