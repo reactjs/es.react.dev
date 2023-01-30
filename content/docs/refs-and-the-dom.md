@@ -11,7 +11,22 @@ redirect_from:
   - "tips/children-undefined.html"
 ---
 
+<<<<<<< HEAD
 Las referencias proporcionan una forma de acceder a los nodos del DOM o a elementos React creados en el método de renderizado.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Referencing Values with Refs](https://beta.reactjs.org/learn/referencing-values-with-refs)
+> - [Manipulating the DOM with Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`useRef`](https://beta.reactjs.org/reference/react/useRef)
+> - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Refs provide a way to access DOM nodes or React elements created in the render method.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 En un flujo normal en datos de React, [las propiedades](/docs/components-and-props.html) son la única forma en la que los componentes padres pueden interactuar con sus hijos. Para modificar un hijo, vuelves a renderizarlo con propiedades nuevas. Sin embargo, hay ciertos casos donde necesitarás modificar imperativamente un hijo fuera del flujo de datos típico. El hijo a ser modificado puede ser una instancia de un componente React, o un elemento del DOM. Para ambos casos, React proporciona una via de escape.
 

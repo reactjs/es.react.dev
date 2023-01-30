@@ -67,7 +67,11 @@ Definiste la función `handleClick` y luego [la pasaste como una prop](/learn/pa
 * Usualmente están definidas *dentro* de tus componentes.
 * Tienen nombres que empiezan con `handle`, seguido del nombre del evento.
 
+<<<<<<< HEAD
 > Por convención, es común llamar a los manejadores de eventos como `handle` seguido del nombre del evento. A menudo verás `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, etcétera.
+=======
+By convention, it is common to name event handlers as `handle` followed by the event name. You'll often see `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, and so on.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 Por otro lado, puedes definir un manejador de eventos en línea en el JSX:
 
@@ -126,7 +130,11 @@ En ambos casos, lo que quieres pasar es una función:
 * `<button onClick={handleClick}>` pasa la función `handleClick`.
 * `<button onClick={() => alert('...')}>` pasa la función `() => alert('...')`.
 
+<<<<<<< HEAD
 > [Lee más sobre las funciones flecha.](https://javascript.info/arrow-functions-basics)
+=======
+[Read more about arrow functions.](https://javascript.info/arrow-functions-basics)
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 </Pitfall>
 
@@ -231,9 +239,15 @@ Si usas un [sistema de diseño](https://uxdesign.cc/everything-you-need-to-know-
 
 ### Nombrar props de manejadores de eventos {/*naming-event-handler-props*/}
 
+<<<<<<< HEAD
 Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](TODO:/reference/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
 
 > Por convención, las props de manejadores de eventos deberían empezar con `on`, seguido de una letra mayúscula.
+=======
+Built-in components like `<button>` and `<div>` only support [browser event names](/reference/react-dom/components/common#common-props) like `onClick`. However, when you're building your own components, you can name their event handler props any way that you like.
+
+By convention, event handler props should start with `on`, followed by a capital letter.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 Por ejemplo, la propiedad `onClick` del componente `Button` pudo haberse llamado `onSmash`:
 

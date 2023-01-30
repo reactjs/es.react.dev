@@ -6,7 +6,20 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
+<<<<<<< HEAD
 Primero, vamos a revisar como transformas listas en Javascript. 
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Rendering Lists](https://beta.reactjs.org/learn/rendering-lists)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
+First, let's review how you transform lists in JavaScript.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 Dado el código de abajo, usamos la función [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) para tomar un array de `numbers` y duplicar sus valores. Asignamos el nuevo array devuelto por `map()` a la variable `doubled` y la mostramos:
 
