@@ -72,7 +72,7 @@ const UL = (p: JSX.IntrinsicElements['ul']) => (
 );
 
 const Divider = () => (
-  <hr className="my-6 block border-b border-border dark:border-border-dark" />
+  <hr className="my-6 block border-b border-t-0 border-border dark:border-border-dark" />
 );
 const Wip = ({children}: {children: React.ReactNode}) => (
   <ExpandableCallout type="wip">{children}</ExpandableCallout>
@@ -325,6 +325,9 @@ function calculateNestedToc(toc: Toc): NestedTocRoot {
 function InlineToc() {
   const toc = useContext(TocContext);
   const root = useMemo(() => calculateNestedToc(toc), [toc]);
+  if (root.children.length < 2) {
+    return null;
+  }
   return <InlineTocItem items={root.children} />;
 }
 
