@@ -70,7 +70,7 @@ Si solo estás solucionando un error, está bien enviar un *pull request* de inm
 
 ¿Trabajando en tu primer *pull request*? Puedes aprender cómo en esta serie de videos gratis:
 
-**[Cómo contribuir a un proyecto de código abierto en GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+**[Cómo contribuir a un proyecto de código abierto en GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
 
 Para ayudarte a familiarizarte con nuestro proceso de contribución, tenemos una lista de **[incidencias adecuadas para comenzar](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue")** que contienen errores que tienen un alcance relativamente limitado. Este es un gran lugar para empezar.
 
@@ -103,7 +103,7 @@ Para aceptar tu pull request, necesitamos que envíes un CLA. Solo necesitas hac
 
 ### Prerequisitos para contribuir {#contribution-prerequisites}
 
-* Tienes [Node](https://nodejs.org) instalado con v8.0.0+ y [Yarn](https://yarnpkg.com/en/) con v1.2.0+.
+* Tienes [Node](https://nodejs.org) instalado con la versión LTS y [Yarn](https://yarnpkg.com/en/) con v1.2.0+.
 * Tienes [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) instalado.
 * Tienes `gcc` instalado o te sientes cómodo instalando un compilador si es necesario. Algunas de nuestras dependencias pueden requerir un paso de compilación. En OS X, las herramientas de línea de comandos de Xcode cubrirán esto. En Ubuntu, `apt-get install build-essential` instalará los paquetes necesarios. Comandos similares deberían funcionar en otras distribuciones de Linux. Windows requerirá algunos pasos adicionales, consulta las [instrucciones de instalación de `node-gyp`](https://github.com/nodejs/node-gyp#installation) para obtener más información.
 * Estás familiarizado con Git.

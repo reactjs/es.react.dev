@@ -91,13 +91,11 @@ Los Hooks tienen también su propia curva de aprendizaje. Si hay algo faltante e
 
 Cuando estés listo, te recomendamos empezar a usar Hooks en los nuevos componentes que escribas. Asegúrate que todo tu equipo esté de acuerdo en usarlos, y que estén familiarizados con esta documentación. No recomendamos reescribir tus clases existentes a menos de que hayas planeado reescribirlas de cualquier manera (por ejemplo para arreglar bugs).
 
-No puedes usar Hooks *dentro* de un componente de clase, pero definitivamente puedes mezclar componentes de clase y componentes de función con Hooks en un mismo árbol. Si un componente es una clase, o una función que utiliza Hooks es un detalle de implementación del Componente. A largo plazo, experamos que los Hooks sean la manera más usada de escribir Componentes de React.
+No puedes usar Hooks *dentro* de un componente de clase, pero definitivamente puedes mezclar componentes de clase y componentes de función con Hooks en un mismo árbol. Si un componente es una clase, o una función que utiliza Hooks es un detalle de implementación del Componente. A largo plazo, esperamos que los Hooks sean la manera más usada de escribir Componentes de React.
 
 ### ¿Cubren los Hooks todos los casos de uso de las clases? {#do-hooks-cover-all-use-cases-for-classes}
 
 Nuestra meta es que los Hooks cubran todos los casos de uso de las clases lo más pronto posible. En este momento no existen equivalentes de los ciclos de vida poco comunes `getSnapshotBeforeUpdate`, `getDerivedStateFromError` y `componentDidCatch`, pero planeamos añadirlos pronto.
-
-Los Hooks aún son jóvenes, y algunas librerías  de terceros podrían no ser compatibles con Hooks de momento.
 
 ### ¿Reemplazan los hooks a los render props y los Componentes de Orden Superior (HOC)? {#do-hooks-replace-render-props-and-higher-order-components}
 
@@ -150,7 +148,7 @@ Vamos a probarlo usando React DOM. Para asegurarnos de que el comportamiento con
 
 ```js{3,20-22,29-31}
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Counter from './Counter';
 
@@ -169,7 +167,7 @@ afterEach(() => {
 it('can render and update a counter', () => {
   // Probamos el primer render y efecto
   act(() => {
-    ReactDOM.render(<Counter />, container);
+    ReactDOM.createRoot(container).render(<Counter />);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');
@@ -333,54 +331,22 @@ Este es un caso de uso poco común. Si lo necesitas, puedes usar [una referencia
 
 ### ¿Cómo obtengo las props o el estado previo? {#how-to-get-the-previous-props-or-state}
 
-Actualmente lo puedes hacer manualmente [con una referencia](#is-there-something-like-instance-variables):
+Hay dos casos en que pudieras querer tener acceso a las props o estado anteriores.
 
-```js{6,8}
-function Counter() {
-  const [count, setCount] = useState(0);
+En ocasiones, necesitas las props anteriores para **limpiar un efecto.** Por ejemplo, podrías tener un efecto que se suscribe a un socket con base en la prop `userId`. Si la prop `userId` cambia, deberías cancelar la suscripción del `userId` _anterior_ y suscribirte al _próximo_. No necesitas hacer nada especial para que esto funcione:
 
-  const prevCountRef = useRef();
-  useEffect(() => {
-    prevCountRef.current = count;
-  });
-  const prevCount = prevCountRef.current;
-
-  return <h1>Now: {count}, before: {prevCount}</h1>;
-}
+```js
+useEffect(() => {
+  ChatAPI.subscribeToSocket(props.userId);
+  return () => ChatAPI.unsubscribeFromSocket(props.userId);
+}, [props.userId]);
 ```
 
-Esto podría ser un poco complicado, pero puedes extraer la funcionalidad en un Hook personalizado:
+En el ejemplo de arriba, si `userId` cambia de `3` a `4`, se ejecutará primero `ChatAPI.unsubscribeFromSocket(3)` y luego se ejecutará `ChatAPI.subscribeToSocket(4)`. No hay necesidad de un `userId` "anterior" porque la función de limpieza lo capturará en una clausura.
 
-```js{3,7}
-function Counter() {
-  const [count, setCount] = useState(0);
-  const prevCount = usePrevious(count);
-  return <h1>Now: {count}, before: {prevCount}</h1>;
-}
+En otras ocasiones, podrías necesitar **ajustar estado con base a cambios en las props u en otro estado**. No es muy común que exista esa necesidad y generalmente es una señal de que tienes algún estado duplicado o redundante. Sin embargo, en los casos muy poco frecuentes en que necesites este patrón, puedes [almacenar el estado o las props anteriores y actualizarlos durante el renderizado](#how-do-i-implement-getderivedstatefromprops).
 
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-```
-
-Nota como esto podría funcionar para props, estado, o cualquier otro valor calculado.
-
-```js{5}
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  const calculation = count + 100;
-  const prevCalculation = usePrevious(calculation);
-  // ...
-```
-
-Es posible que en el futuro React provea un Hook `usePrevious` por defecto, ya que es un caso de uso relativamente común.
-
-Mira también [el patrón recomendado para un estado derivado](#how-do-i-implement-getderivedstatefromprops).
+Con anterioridad habíamos sugerido utilizar un Hook personalizado llamado `usePrevious` para almacenar el valor anterior. Sin embargo, hemos encontrado que la mayoría de los casos de uso se adecuan a los dos patrones descritos arriba. Si tu caso de uso es diferente, puedes [almacenar un valor en una ref](#is-there-something-like-instance-variables) y actualizarlo manualmente cuando lo necesites. Evita leer y actualizar refs durante el renderizado porque esto hace que el comportamiento de tu componente sea difícil de predecir y entender.
 
 ### ¿Por qué estoy viendo props o estado obsoletos dentro de mi función? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
@@ -643,7 +609,7 @@ Movimos la función dentro del efecto, de manera tal que no necesite estar en su
 >
 >Consulta este [pequeño demo](https://codesandbox.io/s/jvvkoo8pq3) y [este artículo](https://www.robinwieruch.de/react-hooks-fetch-data/) para aprender más sobre la obtención de datos con Hooks.
 
-**Si por alguna razón _no puedes_ mover una funció dentro de un efecto, hay otras opciones:**
+**Si por alguna razón _no puedes_ mover una función dentro de un efecto, hay otras opciones:**
 
 * **Puedes intentar mover esa función fuera de tu componente**. En ese caso, se garantiza que la función no referencie ningúna prop o estado, y además no necesita estar en la lista de dependencias.
 * Si la función que estás llamando es un cálculo puro y es seguro llamarla mientras se renderiza, puedes **llamarla fuera del efecto,** y hacer que el efecto dependa del valor devuelto.
@@ -914,8 +880,6 @@ Ten en cuenta que aún puedes decidir si quieres pasar el *estado* de la aplicac
 >Nota
 >
 >Recomendamos [pasar `dispatch` a través del contexto](#how-to-avoid-passing-callbacks-down) en vez de callbacks individuales en las props. El siguiente método sólo se menciona para efectos de completitud y como una salida de emergencia.
->
->También ten en cuenta que este patrón puede causar problemas en el [modo concurrente](/blog/2018/03/27/update-on-async-rendering.html). Planeamos proveer alternativas más ergonómicas en el futuro, pero la solución más segura en este momento es siempre invalidar el callback si alguno de los valores de los que depende cambia.
 
 En algunos extraños casos puede que necesites memorizar un callback con [`useCallback`](/docs/hooks-reference.html#usecallback), pero la memorización no funciona muy bien, debido a que la función interna debe ser re-creada muy seguido. Si la función que estás memorizando es un manejador de eventos y no se usa durante el renderizado, puedes utilizar [ref como una variable de estado](/docs/hooks-reference.html#usecallback) y guardar el último valor manualmente:
 

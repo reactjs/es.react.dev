@@ -29,6 +29,8 @@ permalink: community/courses.html
 
 ## Cursos pagados {#paid-courses}
 
+- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Lanza tu carrera como desarrollador front-end. Desarrolla habilidades listas para trabajar en una carrera en demanda y obtén una credencial de Meta. No se requiere título ni experiencia previa para comenzar.
+
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Videos cortos instructivos sobre React y muchos otros temas
 
 - [Frontend Masters](https://frontendmasters.com/learn/react/) - Cursos en video sobre React.
@@ -47,7 +49,7 @@ permalink: community/courses.html
 
 - [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - Lleva tus conocimientos de React al siguiente nivel.
 
-- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis provee acceso a sus cursos por una tarifa mensual. Entre ellos se incluyen "React Fundamentals" y "Universal React".
+- [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis provee acceso a sus cursos por una tarifa mensual. Entre ellos se incluyen "React Fundamentals" y "Universal React".
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construye aplicaciones interactivas profesionales con React.
 

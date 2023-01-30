@@ -32,10 +32,11 @@ El reconciliador por sí mismo no tiene una API pública. Los [renderizadores](/
 Consideremos la primera vez que montas un componente:
 
 ```js
-ReactDOM.render(<App />, rootEl);
+const root = ReactDOM.createRoot(rootEl);
+root.render(<App />);
 ```
 
-React DOM pasará `<App />` al reconciliador. Recuerda que `<App />` es un elemento de React, es decir, una descripción de *qué* hay que renderizar. Puedes pensarlo como si fuera un objecto simple:
+`root.render` pasará `<App />` al reconciliador. Recuerda que `<App />` es un elemento de React, es decir, una descripción de *qué* hay que renderizar. Puedes pensarlo como si fuera un objecto simple:
 
 ```js
 console.log(<App />);
@@ -235,9 +236,9 @@ Esto funciona pero todavía está lejos de ser la implementación real del recon
 La característica clave de React es que puedes re-renderizar todo, y no recreará el DOM or reiniciará el estado:
 
 ```js
-ReactDOM.render(<App />, rootEl);
+root.render(<App />);
 // Debería reutilizar el DOM existente:
-ReactDOM.render(<App />, rootEl);
+root.render(<App />);
 ```
 
 Sin embargo, nuestra implementación anterior solo sabe cómo montar el árbol inicial. No puede realizar actualizaciones sobre él porque no guarda toda la información necesaria, como todas las `publicInstance`s, o qué DOM `node`s corresponden a qué componentes.
@@ -411,7 +412,7 @@ Si se te dificulta imaginar como está estructurado un árbol de instancias inte
 
  <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools tree" />
 
-Para completar esta refactorización, introduciremos una función que monta el árbol completo a un nodo contenedor, al igual que `ReactDOM.render()`. Devuelve una instancia pública, también como `ReactDOM.render()`:
+Para completar esta refactorización, introduciremos una función que monta el árbol completo a un nodo contenedor y una instancia pública:
 
 ```js
 function mountTree(element, containerNode) {

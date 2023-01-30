@@ -148,7 +148,7 @@ DOMEventTarget relatedTarget
 
 #### onFocus {#onfocus}
 
-El manejador de evento `onFocus` se llama cuando el elemento (o algún elemento dentro de él) recibe el foco. Por ejemplo, se llama cuando el usuario hace clic en una entrad de texto.
+El manejador de evento `onFocus` se llama cuando el elemento (o algún elemento dentro de él) recibe el foco. Por ejemplo, se llama cuando el usuario hace clic en una entrada de texto.
 
 ```javascript
 function Example() {

@@ -376,7 +376,7 @@ Estas son cajas de herramientas llenas de atributos HTML que son totalmente comp
 
 Cada tipo de widget tiene un patrón de diseño específico y se espera que funcione de una manera determinada por parte de usuarios y agentes de usuarios por igual:
 
-- [Prácticas de autoría de WAI-ARIA - Patrones de diseño y widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [Prácticas de autoría de WAI-ARIA - Patrones de diseño y widgets](https://www.w3.org/WAI/ARIA/apg/patterns/)
 - [Heydon Pickering - Ejemplos ARIA](https://heydonworks.com/article/practical-aria-examples/)
 - [Componentes Inclusivos](https://inclusive-components.design/)
 
@@ -404,7 +404,7 @@ Asegúrese de que todo el texto legible en su sitio web tenga el contraste de co
 - [Todo sobre el contraste de color y por qué debes repensarlo](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - ¿Qué es el contraste de color?](http://a11yproject.com/posts/what-is-color-contrast/)
 
-Puede ser tedioso calcular manualmente las combinaciones de colores adecuadas para todos los casos en tu sitio web, por lo que puede [calcular una paleta de colores accesible completa con Colorable](http://jxnblk.com/colorable/).
+Puede ser tedioso calcular manualmente las combinaciones de colores adecuadas para todos los casos en tu sitio web, por lo que puede [calcular una paleta de colores accesible completa con Colorable](https://colorable.jxnblk.com/).
 
 Tanto las herramientas aXe como WAVE que se mencionan a continuación también incluyen pruebas de contraste de color e informarán sobre errores de contraste.
 
@@ -453,7 +453,7 @@ Deque Systems offers [aXe-core](https://github.com/dequelabs/axe-core) for autom
 
 [El Motor de Accesibilidad](https://www.deque.com/products/axe/) o aXe (por sus siglas en inglés), es una extensión inspectora de accesibilidad del navegador construida sobre `aXe-core`.
 
-También puede usar el módulo [react-axe](https://github.com/dylanb/react-axe) para informar estos hallazgos de accesibilidad directamente a la consola mientras desarrolla y depura.
+También puede usar el módulo [react-axe](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) para informar estos hallazgos de accesibilidad directamente a la consola mientras desarrolla y depura.
 
 #### WebAIM WAVE {#webaim-wave}
 

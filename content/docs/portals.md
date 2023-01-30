@@ -47,7 +47,7 @@ Un caso de uso típico de los portales es cuando un componente principal tiene u
 >
 > Cuando trabajes con portales, recuerda que [administrar el foco del teclado](/docs/accessibility.html#programmatically-managing-focus) es muy importante.
 >
-> Para los cuadros de diálogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+> Para los cuadros de diálogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -146,7 +146,8 @@ function Child() {
   );
 }
 
-ReactDOM.render(<Parent />, appRoot);
+const root = ReactDOM.createRoot(appRoot);
+root.render(<Parent />);
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/jGBWpE)

@@ -70,9 +70,9 @@ Para construir una versión estática de tu aplicación que muestre tu modelo de
 
 Puedes construir tu aplicación de arriba para abajo o de abajo para arriba. Esto es, puedes o empezar construyendo los componentes más arriba en la jerarquía (empezar por `FilterableProductTable`) o puedes empezar por los que están más abajo (`ProductRow`). En ejemplos simples es normalmente más fácil empezar de arriba para abajo, en proyectos más grandes es más usual empezar a la inversa e ir escribiendo pruebas mientras vas subiendo en la jerarquía.
 
-Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `ReactDOM.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver cómo se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
+Al final de este paso tendrás una colección de componentes reutilizables que representan tu modelo de datos. Estos componente solo tendrán un método `render()` ya que esta es la versión estática de la aplicación. El primer componente de la jerarquía (`FilterableProductTable`) recibe tu modelo de datos como prop. Si realizas un cambio en este y ejecutas `root.render()` de nuevo, la interfaz de usuario se va a actualizar. Es fácil ver cómo se actualiza la interfaz de usuario y donde hacer cambios ya que no hay nada complicado ocurriendo. El **flujo de datos en un sentido** de React (también llamado *one-way binding*) ayuda a mantener todo modular y rápido.
 
-Revisa la [documentación de React](/docs/) si necesitas ayuda con este paso.
+Revisa la [documentación de React](/docs/getting-started.html) si necesitas ayuda con este paso.
 
 ### Una pequeña pausa: Props vs. estado {#a-brief-interlude-props-vs-state}
 
@@ -117,7 +117,7 @@ Para cada parte del estado de tu aplicación:
   * Identifica qué componentes muestran algo con base a este estado.
   * Busca un componente común a estos más arriba en la jerarquía.
   * Este componente o uno más arriba en la jerarquía debería poseer el estado.
-  * Si no puedes crear un nuevo componente que tenga sentido que posea el estado, crea un nuevo componente simplemente para poseer el estado y agrégalo en la jerarquía sobre los componentes que lo necesitan.
+  * Si no puedes encontrar un componente en el que tenga sentido manejar el estado, crea un nuevo componente solo para guardar el estado y ubícalo dentro de la jerarquía en algún lugar por encima de los componentes que lo necesitan.
 
 Usemos esta estrategia para nuestra aplicación:
 
@@ -137,7 +137,7 @@ Hasta ahora, hemos creado una aplicación que funciona correctamente como una fu
 
 React hace de este flujo de datos explícito para que sea más fácil entender cómo funciona la aplicación, a cambio necesita un poco más de código que un flujo de datos en dos sentidos tradicional.
 
-Si intentas escribir o marcar la caja en la versión actual del ejemplo, verás que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` del `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
+Si intentas escribir o marcar la caja en la versión anterior del ejemplo (paso 4), verás que React ignora lo que hagas. Esto es intencional, ya que definimos el prop `value` del `input` para ser siempre igual al `estado` recibido de `FilterableProductTable`.
 
 Vamos a pensar que es lo que queremos que ocurra. Queremos estar seguros de que cada vez que el usuario modifica el formulario, se actualiza el estado para reflejar lo que el usuario ingresó. Ya que los componentes solo pueden actualizar su propio estado, entonces `FilterableProductTable` necesita pasar funciones a `SearchBar` que este ejecutará cada vez que el estado deba actualizarse. Podemos usar el evento `onChange` del input para que nos notifique de esto. La función que pasa `FilterableProductTable` va a ejecutar entonces `setState()`, y la aplicación se va a actualizar.
 
@@ -145,4 +145,4 @@ Aunque parece complejo, son en realidad unas pocas líneas de código. Y se vuel
 
 ## Eso es todo {#and-thats-it}
 
-Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee más código del que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)
+Ojalá esto te haya dado una idea de cómo pensar al momento de crear componentes y aplicaciones con React. Aunque puede ser un poco más de código de lo que estás acostumbrado, recuerda que uno lee código con más frecuencia de la que escribe y es menos difícil leer este código modular y explícito. Mientras vayas creando colecciones grandes de componentes, vas a apreciar esta claridad y modularidad, y con la reutilización de componente, las líneas de código van a empezar a reducirse. :)

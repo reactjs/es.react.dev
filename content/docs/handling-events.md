@@ -84,11 +84,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
 ```
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
@@ -97,15 +92,14 @@ Tienes que tener mucho cuidado en cuanto al significado de `this` en los callbac
 
 Esto no es un comportamiento especifico de React; esto hace parte de [como operan las funciones JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalmente, si refieres un método sin usar `()` después de este, tal como `onClick={this.handleClick}`, deberías ligar ese método.
 
-Si te molesta llamar `bind`, existen dos maneras de evitarlo. Si usas la sintaxis experimental [campos públicos de clases](https://babeljs.io/docs/plugins/transform-class-properties/), puedes usar los campos de clases para ligar los callbacks correctamente:
+Si te molesta llamar `bind`, existen dos maneras de evitarlo. Puedes usar [la sintaxis de campos públicos de clases](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Public_class_fields#campos_de_instancia_p%C3%BAblicos) para ligar los callbacks correctamente:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
   // Esta sintaxis nos asegura que `this` está ligado dentro de handleClick
-  // Peligro: esto es una sintaxis *experimental*
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (

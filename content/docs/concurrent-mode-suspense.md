@@ -221,7 +221,7 @@ function ProfileTimeline() {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/fragrant-glade-8huj6)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/fast-glade-rqnhtt)**
 
 Si ejecutas este código y miras a los registros de la consola, notarás que la secuencia es:
 
@@ -296,7 +296,7 @@ function ProfileTimeline({ posts }) {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/wandering-morning-ev6r0)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/hopeful-lake-loddz9)**
 
 Las secuencia de eventos ahora sería así:
 
@@ -422,7 +422,7 @@ function App() {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/sparkling-field-41z4r3)**
 
 Con este enfoque, podemos **cargar el código y los datos en paralelo**. Cuando navegamos entre páginas no necesitamos esperar por que el código de la página cargue para comenzar a cargar sus datos. Podemos comenzar a cargar tanto el código como los datos al mismo tiempo (durante el clic al enlace), proveyendo una experiencia de usuario mucho mejor.
 
@@ -509,7 +509,7 @@ function ProfileTimeline({ id }) {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/nervous-glade-b5sel)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/beautiful-mendeleev-qwyxzg)**
 
 Nota cómo también cambiamos las dependencias del efecto de `[]` a `[id]`, porque queremos que el efecto se ejecute cuando cambie el `id`. De otra forma, no recargaríamos nuevos datos.
 
@@ -587,7 +587,7 @@ class ProfileTimeline extends React.Component {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/trusting-clarke-8twuq)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/async-wind-9o4ojn)**
 
 Este código es bien fácil de leer.
 
@@ -647,7 +647,7 @@ function ProfileTimeline({ resource }) {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/sparkling-field-41z4r3)**
 
 En el ejemplo anterior, solo teníamos un `resource`, así que lo manteníamos en una variable en el nivel superior. Ahora que tenemos varios recursos, los movimos al estado del componente `<App>`:
 
@@ -720,7 +720,7 @@ function ProfilePage() {
 }
 ```
 
-**[Pruébalo en CodeSandbox](https://codesandbox.io/s/adoring-goodall-8wbn7)**
+**[Pruébalo en CodeSandbox](https://codesandbox.io/s/sparkling-rgb-r5vfhs)**
 
 Atrapará tanto errores de renderizado *como* errores de carga de datos con Suspense. Podemos tener tantas barreras de error como queramos, pero es mejor [ser intencional](https://aweary.dev/fault-tolerance-react/) acerca de su ubicación.
 
@@ -734,6 +734,6 @@ Suspense responde algunas preguntas, pero también plantea algunas nuevas:
 * ¿Y si quisiéramos mostrar un _spinner_ en un lugar diferente al componente de "encima" en el árbol?
 * Si intencionalmente *quisiéramos* mostrar una interfaz inconsistente por un pequeño espacio de tiempo, ¿Podríamos hacerlo?
 * En lugar de mostrar un _spinner_, ¿podemos añadir un efecto visual como "oscurecer" la pantalla actual?
-* ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) emitió una advertencia al hacer clic en el botón "Next"?
+* ¿Por qué nuestro [último ejemplo con Suspense](https://codesandbox.io/s/sparkling-field-41z4r3) emitió una advertencia al hacer clic en el botón "Next"?
 
 Para responder a estas preguntas, nos referiremos a la próxima sección dedicada a [Patrones de interfaces de usuario concurrentes](/docs/concurrent-mode-patterns.html).

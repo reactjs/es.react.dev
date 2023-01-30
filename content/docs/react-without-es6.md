@@ -134,7 +134,7 @@ var SayHello = createReactClass({
 
 Esto significa que las clases de ES6 traen consigo la necesidad de escribir un poco más de código repetitivo para utilizar *manejadores de eventos*, pero la ventaja radica en una ligera mejora del rendimiento en aplicaciones grandes.
 
-Si el código repetitivo no es atractivo para ti, puedes activar la propuesta de sintaxis **experimental** [Propiedades de Clases](https://babeljs.io/docs/plugins/transform-class-properties/) con Babel:
+Si el código repetitivo no es atractivo para ti, puedes usar la sintaxis de [propiedades de clases de ES2022](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Public_class_fields#campos_de_instancia_p%C3%BAblicos):
 
 
 ```javascript
@@ -143,11 +143,10 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-  // ADVERTENCIA: esta sintaxis es experimental!
   // Al usar una función de flecha aquí, el método queda vinculado:
   handleClick = () => {
     alert(this.state.message);
-  }
+  };
 
   render() {
     return (
@@ -159,9 +158,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Por favor, ten en cuenta que la sintaxis anterior es **experimental** y podría cambiar, o la propuesta podría no llegar a formar parte del lenguaje.
-
-Si prefieres jugar a lo seguro, tienes algunas opciones:
+También tienes otras opciones:
 
 * Vincular los métodos a la instancia desde el constructor.
 * Usar funciones flecha, e.g. `onClick={(e) => this.handleClick(e)}`.
@@ -216,10 +213,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Si un componente utiliza multiples _mixins_ y varios _mixins_ definen el mismo método de ciclo de vida (e. varios _mixins_ quieren hacer algún tipo de limpieza cuando el componente sea destruido), todos los métodos de ciclo de vida tendrán la garantía de ser ejecutados. Los métodos definidos en _mixins_ se ejecutan en el orden en el que los _mixins_ fueron enumerados, seguidos de una llamada al método en el componente.

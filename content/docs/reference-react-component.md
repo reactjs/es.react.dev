@@ -51,7 +51,7 @@ Estos métodos se llaman cuando se crea una instancia de un componente y se inse
 
 > Nota:
 >
-> Estos métodos están considerados *legacy* (deprecados) y debes [evitarlos](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
+> Este método se considera obsoleto y deberías [evitarlo](/blog/2018/03/27/update-on-async-rendering.html) en código nuevo:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
@@ -124,7 +124,7 @@ Cuando se llama, debe examinar a `this.props` y `this.state` y devolver uno de l
 - **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/fragments) para más detalles.
 - **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [portales](/docs/portals) para más detalles.
 - **String y números.** Estos son renderizados como nodos de texto en el DOM.
-- **Booleanos o `nulos`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
+- **Booleanos, `null` o `undefined`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
 
 La función `render ()` debe ser pura, lo que significa que no modifica el estado del componente, devuelve el mismo resultado cada vez que se invoca y no interactúa directamente con el navegador.
 
@@ -502,12 +502,12 @@ Hay sólo dos de ellos: `setState()` y `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater, [callback])
+setState(updater[, callback])
 ```
 
 `setState()` hace cambios al estado del componente y le dice a React que este componente y sus elementos secundarios deben volverse a procesar con el estado actualizado. Este es el método principal que utiliza para actualizar la interfaz de usuario en respuesta a los manejadores de eventos y las respuestas del servidor.
 
-Considera `setState()` como una *solicitud* en lugar de un comando para actualizar el componente. Para un mejor rendimiento percibido, React puede retrasarlo, y luego actualizar varios componentes en una sola pasada. React no garantiza que los cambios de estado se apliquen de inmediato.
+Considera `setState()` como una *solicitud* en lugar de un comando para actualizar el componente. Para que se perciba un mejor rendimiento, React puede retrasarlo, y luego actualizar varios componentes en una sola pasada. En el caso inusual que necesites forzar a que la actualización del DOM se aplique de manera síncrona, puedes envolverlo en [`flushSync`](/docs/react-dom.html#flushsync), pero esto puede afectar el rendimiento.
 
 `setState()` no siempre actualiza inmediatamente el componente. Puede procesar por lotes o diferir la actualización hasta más tarde. Esto hace que leer `this.state` después de llamar a `setState()` sea una trampa potencial. En su lugar, usa `componentDidUpdate` o un callback `setState` (`setState(updater, callback)`), se garantiza que cualquiera de los dos se activará una vez la actualización haya sido aplicada. Si necesitas establecer el estado en función del estado anterior, lee a continuación sobre el argumento `updater`.
 

@@ -25,7 +25,7 @@ En esta sección, vamos a mostrarte como agregar un componente de React a una p�
 
 No habrá necesidad de usar herramientas complicadas u otros requerimientos para instalar -- **para completar esta sección, sólo necesitas de una conexión a internet y un minuto de tu tiempo.**
 
-Opcional: [Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
+Opcional: [Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/87f0b6f34238595b44308acfb86df6ea43669c08.zip)
 
 ### Paso 1: Agrega un contenedor del DOM al HTML {#step-1-add-a-dom-container-to-the-html}
 
@@ -54,8 +54,8 @@ Lo siguiente es agregar tres etiquetas `<script>` a la página HTML justo antes 
 
   <!-- Cargar React. -->
   <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Cargamos nuestro componente de React. -->
   <script src="like_button.js"></script>
@@ -75,16 +75,17 @@ Abre **[este código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd9
 >
 >Este código define un componente de React llamado `LikeButton`. No te preocupes si aún no lo entiendes -- vamos a cubrir los elementos básicos de React luego en nuestro [tutorial práctico](/tutorial/tutorial.html) y [guía de conceptos principal](/docs/hello-world.html). Por ahora, ¡vamos a hacer que se muestre en la pantalla!
 
-Después **[en el código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, agrega las siguientes dos lineas al final de `like_button.js`:
+Después **[en el código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, agrega tres líneas al final de `like_button.js`:
 
-```js{3,4}
+```js{3,4,5}
 // ... el código inicial que pegaste ...
 
 const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
 ```
 
-Estas dos líneas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
+Estas tres líneas de código encuentran el `<div>` que agregamos en nuestro HTML en el primer paso y muestran el componente de React para nuestro botón de "Like" dentro del mismo.
 
 ### ¡Eso es todo! {#thats-it}
 
@@ -94,7 +95,7 @@ Dale un vistazo a las siguientes secciones para más consejos sobre como integra
 
 **[Mira el código fuente del ejemplo completo](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
-**[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
+**[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/87f0b6f34238595b44308acfb86df6ea43669c08.zip)**
 
 ### Consejo: Reusar un componente {#tip-reuse-a-component}
 
@@ -102,7 +103,7 @@ Por lo general, es deseado mostrar componentes de React en múltiples lugares de
 
 [Mira el código fuente del ejemplo completo](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
 
-[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
+[Descargar el ejemplo completo (2KB comprimido)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/279839cb9891bd41802ebebc5365e9dec08eeb9f.zip)
 
 >Nota
 >
@@ -115,8 +116,8 @@ Antes de desplegar tu sitio web a producción, debes ser consciente que no compa
 Si ya has compactado los scripts de tu aplicación, **tu sitio estará listo para producción** si aseguras que el HTML desplegado carga las versiones de React finalizadas en `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Si no tienes un paso para compactar tus scripts, [aquí hay una forma en que puedes establecerlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
@@ -149,7 +150,7 @@ return (
 
 Estos dos fragmentos de código son equivalentes. Mientras **JSX es [completamente opcional](/docs/react-without-jsx.html)**, muchas personas lo encuentran útil para escribir código relacionado con la interfaz de usuario -- ya sea usando React o con otras bibliotecas.
 
-Puedes experimentar con JSX usando [este conversor en línea](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
+Puedes experimentar con JSX usando [este conversor en línea](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.15.7).
 
 ### Prueba JSX de forma rápida {#quickly-try-jsx}
 
@@ -183,7 +184,7 @@ En tu terminal, ve a la carpeta que contiene tu proyecto y pega estos dos comand
 
 Crea una carpeta llamada `src` y ejecuta este comando en la terminal:
 
-```
+```console
 npx babel --watch src --out-dir . --presets react-app/prod
 ```
 

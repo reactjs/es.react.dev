@@ -274,10 +274,10 @@ Al especificar la prop `value` en un [componente controlado](/docs/forms.html#co
 El código a continuación demuestra esto. (El input está bloqueado en principio, pero se vuelve editable después de un corto retraso).
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```

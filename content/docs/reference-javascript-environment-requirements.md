@@ -6,26 +6,13 @@ category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
-React 16 depende de los tipos de colección [Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) y [Set](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Set). Si aceptas navegadores y dispositivos más antiguos que aún no los proporcionan de forma nativa (por ejemplo, IE < 11) o que tienen implementaciones no compatibles (por ejemplo, IE 11), considera la posibilidad de incluir un *polyfill* global en tu aplicación empaquetada, como [core-js](https://github.com/zloirock/core-js).
+React 18 es compatible con todos los navegadores modernos (Edge, Firefox, Chrome, Safari, etc).
 
-Un entorno con *polyfill* para React 16 que usa core-js para aceptar navegadores más antiguos podría verse de la siguiente forma:
+Si debes mantener la compatibilidad con navegadores y dispositivos más antiguos como Internet Explorer que no proporcionan características modernas de forma nativa o tienen implementaciones que difieren de los estándares, considera incluir un *polyfill* global en tu aplicación compilada.
 
-```js
-import 'core-js/es/map';
-import 'core-js/es/set';
+Esta es una lista de funcionalidades modernas que React 18 utiliza:
+- [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+- [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
-```
-
-React también depende de `requestAnimationFrame` (incluso en entornos de prueba).
-Puedes usar el paquete [raf](https://www.npmjs.com/package/raf) para parchar `requestAnimationFrame`:
-
-```js
-import 'raf/polyfill';
-```
+El *polyfill* adecuado para estas funcionalidades depende de tu entorno. Para muchos usuarios, puedes configurar tus configuraciones de [BrowserList]. Para otros, puede que tengas que importar directamente *polyfills* como [`core-js`](https://github.com/zloirock/core-js).

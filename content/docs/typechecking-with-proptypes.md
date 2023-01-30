@@ -172,13 +172,11 @@ Greeting.defaultProps = {
 };
 
 // Renderiza "Hello, Stranger":
-ReactDOM.render(
-  <Greeting />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example')); 
+root.render(<Greeting />);
 ```
 
-Si estás usando un transform de Babel como [plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties/) (anteriormente _plugin-transform-class-properties_), puedes declarar `defaultProps` como una propiedad estática al interior de un componente clase de React. Esta sintaxis no se ha terminado y require un paso de compilación para funcionar en el navegador. Para mas información, puedes ver [class field proposal](https://github.com/tc39/proposal-class-fields).
+Desde ES2022 puedes declarar también `defaultProps` como una propiedad estática al interior de un componente clase de React. Para más información, puedes ver los [campos públicos estáticos de clase](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Public_class_fields#campos_p%C3%BAblicos_est%C3%A1ticos). Esta sintaxis requerirá un paso de compilación para funcionar en navegadores antiguos.
 
 ```javascript
 class Greeting extends React.Component {
