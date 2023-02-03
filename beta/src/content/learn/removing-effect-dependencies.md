@@ -1507,11 +1507,7 @@ Los Eventos de Efecto como `onAppear` no son reactivos, por lo que puedes leer `
 
 #### Soluciona la reconexión del chat {/*fix-a-reconnecting-chat*/}
 
-<<<<<<< HEAD
 En este ejemplo, cada vez que presionas «Toggle theme», el chat se reconecte. ¿Por qué pasa esto? Soluciona el error para que el chat se reconecte solo cuando edites la URL del servidor o elijas una habitación de chat diferente.
-=======
-In this example, every time you press "Toggle theme", the chat re-connects. Why does this happen? Fix the mistake so that the chat re-connects only when you edit the Server URL or choose a different chat room.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 Trata `chat.js` como una biblioteca externa de terceros: puedes consultarla para comprobar su API, pero no la edites.
 
@@ -2031,11 +2027,7 @@ label, button { display: block; margin-bottom: 5px; }
 
 <Solution>
 
-<<<<<<< HEAD
 Hay más de una forma correcta de solucionar esto, pero aquí se muestra una posible solución.
-=======
-There's more than one correct way to solve this, but here is one possible solution.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 En el ejemplo original, cambiar el tema causó que se crearan funciones diferentes `onMessage` y `createConnection` y se pasaran hacia abajo. Dado que el Efecto depende de estas funciones, el chat se reconectaría cada vez que cambias el tema.
 

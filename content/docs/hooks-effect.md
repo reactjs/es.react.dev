@@ -6,21 +6,17 @@ next: hooks-rules.html
 prev: hooks-state.html
 ---
 
-<<<<<<< HEAD
-Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Synchronizing with Effects](https://beta.reactjs.org/learn/synchronizing-with-effects)
-> - [You Might Not Need an Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect)
-> - [`useEffect`](https://beta.reactjs.org/reference/react/useEffect)
+> - [Sincronización con efectos](https://beta.es.reactjs.org/learn/synchronizing-with-effects)
+> - [Puede que no necesites un efecto](https://beta.es.reactjs.org/learn/you-might-not-need-an-effect)
+> - [`useEffect`](https://beta.es.reactjs.org/reference/react/useEffect)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 El *Hook de efecto* te permite llevar a cabo efectos secundarios en componentes funcionales:
 

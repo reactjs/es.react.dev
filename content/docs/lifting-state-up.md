@@ -9,19 +9,15 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
-<<<<<<< HEAD
-Usualmente, muchos componentes necesitan reflejar el mismo cambio en los datos. Recomendamos elevar el estado compartido al ancestro común más cercano. Veamos cómo funciona.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Sharing State Between Components](https://beta.reactjs.org/learn/sharing-state-between-components)
+> - [Compartir estado entre componentes](https://beta.es.reactjs.org/learn/sharing-state-between-components)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. Let's see how this works in action.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+Usualmente, muchos componentes necesitan reflejar el mismo cambio en los datos. Recomendamos elevar el estado compartido al ancestro común más cercano. Veamos cómo funciona.
 
 En esta sección, crearemos una calculadora de temperatura que calculará si el agua hervirá a una determinada temperatura.
 

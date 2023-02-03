@@ -6,11 +6,7 @@ title: render
 
 Esta API se eliminará en una futura versión mayor de React.
 
-<<<<<<< HEAD
-En React 18, `render` fue reemplazado por [`createRoot`.](/reference/react-dom/client/createRoot) Al usar `render` en React 18 se te advertirá que tu aplicación se comportará como si estuviera ejecutándose en React 17. Aprende más [aquí.](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
-=======
-In React 18, `render` was replaced by [`createRoot`.](/reference/react-dom/client/createRoot) Using `render` in React 18 will warn that your app will behave as if it’s running React 17. Learn more [here.](/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis)
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+En React 18, `render` fue reemplazado por [`createRoot`.](/reference/react-dom/client/createRoot) Al usar `render` en React 18 se te advertirá que tu aplicación se comportará como si estuviera ejecutándose en React 17. Aprende más [aquí.](/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis)
 
 </Deprecated>
 

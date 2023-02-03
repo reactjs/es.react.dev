@@ -142,11 +142,7 @@ De lo contrario, puedes encontrarte con errores confusos y un comportamiento imp
 
 #### Optimización del rendimiento {/*optimizing-performance*/}
 
-<<<<<<< HEAD
-El comportamiento por defecto de renderizar todos los componentes anidados dentro del componente actualizado no es óptimo para el rendimiento si el componente actualizado está muy alto en el árbol. Si se encuentra con un problema de rendimiento, hay varias formas de resolverlo descritas en la sección [Rendimiento].(https://es.reactjs.org/docs/optimizing-performance.html#gatsby-focus-wrapper) sección. **No optimices antes de tiempo.!**
-=======
-The default behavior of rendering all components nested within the updated component is not optimal for performance if the updated component is very high in the tree. If you run into a performance issue, there are several opt-in ways to solve it described in the [Performance](https://reactjs.org/docs/optimizing-performance.html) section. **Don't optimize prematurely!**
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+El comportamiento por defecto de renderizar todos los componentes anidados dentro del componente actualizado no es óptimo para el rendimiento si el componente actualizado está muy alto en el árbol. Si se encuentra con un problema de rendimiento, hay varias formas de resolverlo descritas en la sección de [Rendimiento](https://es.reactjs.org/docs/optimizing-performance.html). **¡No optimices antes de tiempo!**
 
 </DeepDive>
 

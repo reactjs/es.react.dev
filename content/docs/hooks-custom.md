@@ -6,19 +6,15 @@ next: hooks-reference.html
 prev: hooks-rules.html
 ---
 
-<<<<<<< HEAD
-Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Reusing Logic with Custom Hooks](https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks)
+> - [Reutiliza lógica con hooks personalizados](https://beta.es.reactjs.org/learn/reusing-logic-with-custom-hooks)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Construir tus propios Hooks te permite extraer la lógica del componente en funciones reutilizables.
 

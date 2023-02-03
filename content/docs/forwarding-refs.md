@@ -4,20 +4,16 @@ title: Reenvío de refs
 permalink: docs/forwarding-refs.html
 ---
 
-<<<<<<< HEAD
-El reenvío de refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Manipulating the DOM with Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
-> - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
+> - [Manipular el DOM con refs](https://beta.es.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`forwardRef`](https://beta.es.reactjs.org/reference/react/forwardRef)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-Ref forwarding is a technique for automatically passing a [ref](/docs/refs-and-the-dom.html) through a component to one of its children. This is typically not necessary for most components in the application. However, it can be useful for some kinds of components, especially in reusable component libraries. The most common scenarios are described below.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+El reenvío de refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
 
 ## Reenviando refs a componentes DOM {#forwarding-refs-to-dom-components}
 

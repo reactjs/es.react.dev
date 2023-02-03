@@ -14,24 +14,20 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-<<<<<<< HEAD
-React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Esto nos dio la oportunidad de pulir algunos detalles en las implementaciones del DOM en el navegador.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
-> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
-> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
-> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
-> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
-> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+> - [Componentes comunes (e.g. `<div>`)](https://beta.es.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.es.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.es.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.es.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.es.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.es.reactjs.org/reference/react-dom/components/textarea)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Esto nos dio la oportunidad de pulir algunos detalles en las implementaciones del DOM en el navegador.
 
 En React, todas las propiedades y atributos (incluidos los manejadores de eventos) deben escribirse en estilo *camelCase*. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.
 

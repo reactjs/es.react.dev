@@ -4,19 +4,15 @@ title: Portales
 permalink: docs/portals.html
 ---
 
-<<<<<<< HEAD
-Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del componente padre.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal)
+> - [`createPortal`](https://beta.es.reactjs.org/reference/react-dom/createPortal)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del componente padre.
 
 ```js
 ReactDOM.createPortal(child, container)

@@ -672,14 +672,8 @@ El borrador (`draft`) proporcionado por Immer es un tipo especial de objeto, lla
 
 Para probar Immer:
 
-<<<<<<< HEAD
-1. Añade `use-immer` a tu `package.json` como dependencia
-2. Ejecuta `npm install`.
-3. Luego sustituye `import { useState } de 'react'` por `import { useImmer } de 'use-immer'`.
-=======
-1. Run `npm install use-immer` to add Immer as a dependency
-2. Then replace `import { useState } from 'react'` with `import { useImmer } from 'use-immer'`
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+1. Ejecuta `npm install use-immer` para añadir Immer como dependencia
+2. Luego sustituye `import { useState } de 'react'` por `import { useImmer } de 'use-immer'`.
 
 Aquí está el ejemplo anterior convertido a Immer:
 

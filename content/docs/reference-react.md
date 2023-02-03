@@ -101,15 +101,11 @@ Los *Hooks* son una nueva adición en React 16.8. Permiten usar el estado y otra
 
 ### `React.Component` {#reactcomponent}
 
-<<<<<<< HEAD
-`React.Component` es la clase base para los componentes de React cuando estos son definidos usando [clases ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes):
-=======
-> Try the new React documentation for [`Component`](https://beta.reactjs.org/reference/react/Component).
->
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Prueba la nueva documentación de React para [`Component`](https://beta.es.reactjs.org/reference/react/Component).
+> 
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-`React.Component` is the base class for React components when they are defined using [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+`React.Component` es la clase base para los componentes de React cuando estos son definidos usando [clases ES6](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
 class Greeting extends React.Component {
@@ -125,15 +121,11 @@ Consulta [Referencia API React.Component](/docs/react-component.html) para ver u
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-<<<<<<< HEAD
-`React.PureComponent` es similar a [`React.Component`](#reactcomponent). La diferencia entre ellos es que [`React.Component`](#reactcomponent) no implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), pero `React.PureComponent` lo implementa con un prop superficial y una comparación del estado. 
-=======
-> Try the new React documentation for [`PureComponent`](https://beta.reactjs.org/reference/react/PureComponent).
+> Prueba la nueva documentación de React para [`PureComponent`](https://beta.es.reactjs.org/reference/react/PureComponent).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-`React.PureComponent` is similar to [`React.Component`](#reactcomponent). The difference between them is that [`React.Component`](#reactcomponent) doesn't implement [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), but `React.PureComponent` implements it with a shallow prop and state comparison.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+`React.PureComponent` es similar a [`React.Component`](#reactcomponent). La diferencia entre ellos es que [`React.Component`](#reactcomponent) no implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), pero `React.PureComponent` lo implementa con un prop superficial y una comparación del estado. 
 
 Si la función `render()` del componente de React renderiza el mismo resultado dados los mismos props y estado, se puede usar `React.PureComponent` para una mejora en el desempeño en algunos casos.
 
@@ -147,9 +139,9 @@ Si la función `render()` del componente de React renderiza el mismo resultado d
 
 ### `React.memo` {#reactmemo}
 
-> Try the new React documentation for [`memo`](https://beta.reactjs.org/reference/react/memo).
+> Prueba la nueva documentación de React para [`memo`](https://beta.es.reactjs.org/reference/react/memo).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 const MyComponent = React.memo(function MyComponent(props) {
@@ -189,9 +181,9 @@ Este método solamente existe como una **[optimización del desempeño](/docs/op
 
 ### `createElement()` {#createelement}
 
-> Try the new React documentation for [`createElement`](https://beta.reactjs.org/reference/react/createElement).
+> Prueba la nueva documentación de React para [`createElement`](https://beta.es.reactjs.org/reference/react/createElement).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 React.createElement(
@@ -209,9 +201,9 @@ El código escrito con [JSX](/docs/introducing-jsx.html) será convertido para u
 
 ### `cloneElement()` {#cloneelement}
 
-> Try the new React documentation for [`cloneElement`](https://beta.reactjs.org/reference/react/cloneElement).
+> Prueba la nueva documentación de React para [`cloneElement`](https://beta.es.reactjs.org/reference/react/cloneElement).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```
 React.cloneElement(
@@ -237,9 +229,9 @@ Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithPr
 
 ### `createFactory()` {#createfactory}
 
-> Try the new React documentation for [`createFactory`](https://beta.reactjs.org/reference/react/createFactory).
+> Prueba la nueva documentación de React para [`createFactory`](https://beta.es.reactjs.org/reference/react/createFactory).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 React.createFactory(type)
@@ -255,9 +247,9 @@ Normalmente no se invocará `React.createFactory()` directamente si se está usa
 
 ### `isValidElement()` {#isvalidelement}
 
-> Try the new React documentation for [`isValidElement`](https://beta.reactjs.org/reference/react/isValidElement).
+> Prueba la nueva documentación de React para [`isValidElement`](https://beta.es.reactjs.org/reference/react/isValidElement).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 React.isValidElement(object)
@@ -269,15 +261,11 @@ Verifica que el objeto sea un elemento React. Retorna `true` o `false`.
 
 ### `React.Children` {#reactchildren}
 
-<<<<<<< HEAD
-`React.Children` proporciona utilidades para lidiar con la estructura de datos opaca de `this.props.children`.
-=======
-> Try the new React documentation for [`Children`](https://beta.reactjs.org/reference/react/Children).
+> Prueba la nueva documentación de React para [`Children`](https://beta.es.reactjs.org/reference/react/Children).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-`React.Children` provides utilities for dealing with the `this.props.children` opaque data structure.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+`React.Children` proporciona utilidades para lidiar con la estructura de datos opaca de `this.props.children`.
 
 #### `React.Children.map` {#reactchildrenmap}
 
@@ -335,15 +323,11 @@ Retorna la estructura de datos opaca de `children` como un array plano con keys 
 
 ### `React.Fragment` {#reactfragment}
 
-<<<<<<< HEAD
-El componente `React.Fragment` permite retornar elementos múltiples en un método de `render()` sin crear un elemento DOM adicional:
-=======
-> Try the new React documentation for [`Fragment`](https://beta.reactjs.org/reference/react/Fragment).
+> Prueba la nueva documentación de React para [`Fragment`](https://beta.es.reactjs.org/reference/react/Fragment).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-The `React.Fragment` component lets you return multiple elements in a `render()` method without creating an additional DOM element:
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+El componente `React.Fragment` permite retornar elementos múltiples en un método de `render()` sin crear un elemento DOM adicional:
 
 ```javascript
 render() {
@@ -361,28 +345,20 @@ También se puede usar con la sintaxis abreviada `<></>`. Para más información
 
 ### `React.createRef` {#reactcreateref}
 
-<<<<<<< HEAD
-`React.createRef` crea un [ref](/docs/refs-and-the-dom.html) que puede ser adjunto a los elementos React por medio del atributo ref.
-=======
-> Try the new React documentation for [`createRef`](https://beta.reactjs.org/reference/react/createRef).
+> Prueba la nueva documentación de React para [`createRef`](https://beta.es.reactjs.org/reference/react/createRef).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-`React.createRef` creates a [ref](/docs/refs-and-the-dom.html) that can be attached to React elements via the ref attribute.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+`React.createRef` crea un [ref](/docs/refs-and-the-dom.html) que puede ser adjunto a los elementos React por medio del atributo ref.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
 
-<<<<<<< HEAD
-`React.forwardRef` crea un componente React que envía el atributo [ref](/docs/refs-and-the-dom.html) que recibe a otro componente más abajo en el árbol. Esta técnica no es muy común, pero es particularmente útil en dos escenarios:
-=======
-> Try the new React documentation for [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef).
+> Prueba la nueva documentación de React para [`forwardRef`](https://beta.es.reactjs.org/reference/react/forwardRef).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-`React.forwardRef` creates a React component that forwards the [ref](/docs/refs-and-the-dom.html) attribute it receives to another component below in the tree. This technique is not very common but is particularly useful in two scenarios:
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+`React.forwardRef` crea un componente React que envía el atributo [ref](/docs/refs-and-the-dom.html) que recibe a otro componente más abajo en el árbol. Esta técnica no es muy común, pero es particularmente útil en dos escenarios:
 
 * [Enviar refs a componentes DOM](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
 * [Enviar refs en componentes de orden superior](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
@@ -402,9 +378,9 @@ Para más información, ver [reenvío de refs](/docs/forwarding-refs.html).
 <<<<<<< HEAD
 `React.lazy()` permite definir un componente que es cargado dinámicamente. Esto ayuda a reducir el tamaño del bundle para demorar los componentes de carga que no son usados durante la renderización inicial.
 =======
-> Try the new React documentation for [`lazy`](https://beta.reactjs.org/reference/react/lazy).
+> Prueba la nueva documentación de React para [`lazy`](https://beta.es.reactjs.org/reference/react/lazy).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 `React.lazy()` lets you define a component that is loaded dynamically. This helps reduce the bundle size to delay loading components that aren't used during the initial render.
 >>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
@@ -423,9 +399,9 @@ Ten en cuenta que renderizar componentes `lazy` requiere que haya un componente 
 <<<<<<< HEAD
 `React.Suspense` permite especificar el indicador de carga en caso de que algunos componentes en el árbol más abajo de él todavía no estén listos para renderizarse. En el futuro planeamos permitir a `Suspense` manejar más escenarios como la carga de datos. Puedes leer más sobre este tema en [nuestra hoja de ruta](/blog/2018/11/27/react-16-roadmap.html).
 =======
-> Try the new React documentation for [`Suspense`](https://beta.reactjs.org/reference/react/Suspense).
+> Prueba la nueva documentación de React para [`Suspense`](https://beta.es.reactjs.org/reference/react/Suspense).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 `React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. In the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html).
 >>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
@@ -463,9 +439,9 @@ Suspense boundaries depend on their parent boundaries being hydrated before they
 
 ### `React.startTransition` {#starttransition}
 
-> Try the new React documentation for [`startTransition`](https://beta.reactjs.org/reference/react/startTransition).
+> Prueba la nueva documentación de React para [`startTransition`](https://beta.es.reactjs.org/reference/react/startTransition).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```js
 React.startTransition(callback)

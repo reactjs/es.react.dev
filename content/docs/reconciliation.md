@@ -4,19 +4,15 @@ title: Reconciliación
 permalink: docs/reconciliation.html
 ---
 
-<<<<<<< HEAD
-React proporciona una API declarativa para que no tengas que preocuparte sobre qué cambia exactamente en cada actualización. Esto facilita mucho la escritura de aplicaciones, pero podría no ser obvio cómo se implementa esto dentro de React. Este artículo explica las elecciones que hicimos en el algoritmo "diferencial" de React para que las actualizaciones de los componentes sean predecibles y al mismo tiempo sean lo suficiente rápidas para las aplicaciones de alto rendimiento.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Preserving and Resetting State](https://beta.reactjs.org/learn/preserving-and-resetting-state)
+> - [Preservar and restablecer el estado](https://beta.es.reactjs.org/learn/preserving-and-resetting-state)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-React provides a declarative API so that you don't have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React. This article explains the choices we made in React's "diffing" algorithm so that component updates are predictable while being fast enough for high-performance apps.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+React proporciona una API declarativa para que no tengas que preocuparte sobre qué cambia exactamente en cada actualización. Esto facilita mucho la escritura de aplicaciones, pero podría no ser obvio cómo se implementa esto dentro de React. Este artículo explica las elecciones que hicimos en el algoritmo "diferencial" de React para que las actualizaciones de los componentes sean predecibles y al mismo tiempo sean lo suficiente rápidas para las aplicaciones de alto rendimiento.
 
 ## Motivación {#motivation}
 

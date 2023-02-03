@@ -18,17 +18,13 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-<<<<<<< HEAD
-Esta página es un resumen de la documentación de React y recursos relacionados.
-=======
-> Try the new React documentation.
-> 
-> The new [Quick Start](https://beta.reactjs.org/learn) teaches modern React and includes live examples.
+> Prueba la nueva documentación de React.
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> El nuevo [Inicio rápido](https://beta.es.reactjs.org/learn) enseña React moderno e incluye ejemplos interactivos.
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-This page is an overview of the React documentation and related resources.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+Esta página es un resumen de la documentación de React y recursos relacionados.
 
 **React** es una biblioteca Javascript para crear interfaces de usuario. Aprende todo de lo que trata React en [nuestra página principal](/) o [en este tutorial](/tutorial/tutorial.html).
 

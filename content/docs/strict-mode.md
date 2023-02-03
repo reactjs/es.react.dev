@@ -4,20 +4,15 @@ title: Modo estricto
 permalink: docs/strict-mode.html
 ---
 
-<<<<<<< HEAD
-`StrictMode` es una herramienta para destacar problemas potenciales en la aplicación. Al igual que `Fragment`, `StrictMode` no renderiza nada en la interfaz de usuario. Este modo también activa advertencias y comprobaciones adicionales para sus descendientes.
-=======
-> Try the new React documentation.
+> Prueba la nueva documentación de React.
 > 
-> These new documentation pages teach modern React and include live examples:
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [`StrictMode`](https://beta.reactjs.org/reference/react/StrictMode)
+> - [`StrictMode`](https://beta.es.reactjs.org/reference/react/StrictMode)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
-
-`StrictMode` is a tool for highlighting potential problems in an application. Like `Fragment`, `StrictMode` does not render any visible UI. It activates additional checks and warnings for its descendants.
->>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
+`StrictMode` es una herramienta para destacar problemas potenciales en la aplicación. Al igual que `Fragment`, `StrictMode` no renderiza nada en la interfaz de usuario. Este modo también activa advertencias y comprobaciones adicionales para sus descendientes.
 
 > Nota:
 >
@@ -126,7 +121,7 @@ El modo estricto no puede detectar efectos secundarios de forma automática por 
 Por ejemplo, considera el siguiente código:
 `embed:strict-mode/side-effects-in-constructor.js`
 
-En primera instancia, este código no debería parecer problemático. Pero si `SharedApplicationState.recordEvent` no es [idempotente](https://es.wikipedia.org/wiki/Idempotencia_(inform%C3%A1tica)), entonces al instanciar este componente múltiples veces puede llevar a que tenga un estado de aplicación inválido. Estos tipo de bug sutiles pueden no manifestarse durante el desarrollo, o quizas sí lo hagan pero de forma inconsistente y se pase por alto.
+En primera instancia, este código no debería parecer problemático. Pero si `SharedApplicationState.recordEvent` no es [idempotente](https://es.wikipedia.org/wiki/Idempotencia_(inform%C3%A1tica)), entonces al instanciar este componente múltiples veces puede llevar a que tenga un estado de aplicación inválido. Estos tipo de bug sutiles pueden no manifestarse durante el desarrollo, o quizá sí lo hagan pero de forma inconsistente y se pase por alto.
 
 Al invocar los métodos dos veces, como el constructor del componente, el modo estricto hace que patrones como estos sean más fáciles de encontrar.
 
