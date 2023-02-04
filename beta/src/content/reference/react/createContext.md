@@ -28,6 +28,8 @@ import { createContext } from 'react';
 const ThemeContext = createContext('light');
 ```
 
+[Consulta más ejemplos debajo.](#usage)
+
 #### Parámetros {/*parameters*/}
 
 * `defaultValue`: El valor que desees que tenga el contexto cuando no hay un proveedor de contexto coincidente en el árbol sobre el componente que lee el contexto. Si no tiene ningún valor predeterminado significativo, especifica `null`. El valor predeterminado se entiende como una reserva de "último recurso". Es estático y nunca cambia con el tiempo.

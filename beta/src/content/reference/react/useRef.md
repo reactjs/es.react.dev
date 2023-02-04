@@ -31,7 +31,7 @@ function MyComponent() {
   // ...
 ```
 
-Mira ejemplos de [cómo referenciar valores](#examples-value) y [manipulación de DOM.](#examples-dom)
+[Consulta más ejemplos debajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
