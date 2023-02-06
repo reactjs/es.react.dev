@@ -633,7 +633,11 @@ Un nodo de JSX como `<List items={visibleTodos} />` es un objeto como `{ type: L
 
 Sin embargo, si React ve exactamente el mismo JSX que durante el renderizado anterior, no intentará volver a renderizar tu componente. Esto se debe a que los nodos JSX son [inmutables.](https://es.wikipedia.org/wiki/Objeto_inmutable) Un objeto de nodo JSX no podría haber cambiado con el tiempo, por lo que React sabe que es seguro omitir un nuevo renderizado. Sin embargo, para que esto funcione, el nodo tiene que *ser realmente el mismo objeto*, no simplemente tener el mismo aspecto en el código. Esto es lo que hace `useMemo` en este ejemplo.
 
+<<<<<<< HEAD
 Envolver manualmente los nodos JSX en `useMemo` no es conveniente. Por ejemplo, no puedes hacerlo condicionalmente. Es por esto que lo común es envolver los componentes con [`memo`](/reference/react/memo) en lugar de envolver los nodos de JSX.
+=======
+Manually wrapping JSX nodes into `useMemo` is not convenient. For example, you can't do this conditionally. This is usually why you would wrap components with [`memo`](/reference/react/memo) instead of wrapping JSX nodes.
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 </DeepDive>
 
