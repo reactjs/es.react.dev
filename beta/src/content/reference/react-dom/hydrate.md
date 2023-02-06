@@ -64,7 +64,7 @@ React se unir√° al HTML que existe dentro del nodo DOM `domNode`, y se encargar√
 
 Llama a `hydrate` para unir un  <CodeStep step={1}>componente de React</CodeStep> a un <CodeStep step={2}>nodo DOM del navegador</CodeStep> renderizado por el servidor.
 
-```js [[1, 3, "document.getElementById('root')"], [2, 3, "<App />"]]
+```js [[1, 3, "<App />"], [2, 3, "document.getElementById('root')"]]
 import {hydrate} from 'react-dom';
 
 hydrate(<App />, document.getElementById('root'));
