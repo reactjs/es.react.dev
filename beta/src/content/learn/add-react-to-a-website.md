@@ -195,13 +195,8 @@ Añadir JSX a un proyecto no requiere herramientas complicadas como un [*bundler
 
 Ve a la carpeta de tu proyecto en la terminal, y pega estos dos comandos (**¡Asegúrate de tener instalado [Node.js](https://nodejs.org/)!**):
 
-<<<<<<< HEAD
 1. `npm init -y` (si falla, [aquí hay una solución](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
-2. `npm install babel-cli@6 babel-preset-react-app@3`
-=======
-1. `npm init -y` (if it fails, [here's a fix](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
 2. `npm install @babel/cli@7 babel-preset-react-app@10`
->>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 Solo necesitas npm para instalar el preprocesador de JSX. No lo necesitarás para nada más. Tanto React como el código de la aplicación se pueden quedar como etiquetas `<script>` sin cambios.
 
@@ -211,15 +206,9 @@ Solo necesitas npm para instalar el preprocesador de JSX. No lo necesitarás par
 
 Puedes preprocesar JSX de forma tal que cada vez que guardes un archivo con JSX dentro, la transformación se vuelva a ejecutar y convierta el JSX en un archivo nuevo con JavaScript simple que el navegador puede entender. Aquí puedes ver cómo hacer la configuración:
 
-<<<<<<< HEAD
 1. Crea una carpeta llamada **`src`**.
-2. En tu terminal, ejecuta este comando: `npx babel --watch src --out-dir . --presets react-app/prod ` (¡No esperes a que termine! Este comando inicia un *watcher* (observador) automático para las ediciones de JSX dentro de `src`).
+2. En tu terminal, ejecuta este comando: `npx babel --watch src --out-dir . --presets babel-preset-react-app/prod ` (¡No esperes a que termine! Este comando inicia un *watcher* (observador) automático para las ediciones de JSX dentro de `src`).
 3. Mueve tu **`like-button.js`** con JSX ([¡debería lucir así!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) a la nueva carpeta **`src`**.
-=======
-1. Create a folder called **`src`.**
-2. In your terminal, run this command: `npx babel --watch src --out-dir . --presets babel-preset-react-app/prod ` (Don't wait for it to finish! This command starts an automated watcher for edits to JSX inside `src`.)
-3. Move your JSX-ified **`like-button.js`** ([it should look like this!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) to the new **`src`** folder.
->>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 El *watcher* creará un **`like-button.js`** preprocesado con el código JavaScript simple que es adecuado para un navegador.
 
