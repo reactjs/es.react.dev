@@ -215,7 +215,7 @@ Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por
 />
 ```
 
-Puedes [encontrar todos estos atributos en React DOM Elements](TODO). Si te equivocas en uno, no te preocupes, React imprimirá un mensaje con una posible corrección en la [consola del navegador](https://developer.mozilla.org/docs/Tools/Browser_Console).
+Puedes [encontrar todos estos atributos en la lista de props de los componentes DOM](/reference/react-dom/components/common). Si te equivocas en uno, no te preocupes, React imprimirá un mensaje con una posible corrección en la [consola del navegador](https://developer.mozilla.org/docs/Tools/Browser_Console).
 
 <Pitfall>
 

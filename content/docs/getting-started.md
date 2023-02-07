@@ -18,6 +18,12 @@ redirect_from:
   - "docs/environments.html"
 ---
 
+> Prueba la nueva documentación de React.
+>
+> El nuevo [Inicio rápido](https://beta.es.reactjs.org/learn) enseña React moderno e incluye ejemplos interactivos.
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Esta página es un resumen de la documentación de React y recursos relacionados.
 
 **React** es una biblioteca Javascript para crear interfaces de usuario. Aprende todo de lo que trata React en [nuestra página principal](/) o [en este tutorial](/tutorial/tutorial.html).
