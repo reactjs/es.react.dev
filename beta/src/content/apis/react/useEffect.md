@@ -40,7 +40,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Ver más ejemplos.](#examples-connecting)
+[Ver más ejemplos.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -577,7 +577,7 @@ export default function App() {
   return (
     <>
       <label>
-        Elige el sitio de chat::{' '}
+        Elige el sitio de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
@@ -1033,7 +1033,9 @@ export async function fetchBio(person) {
 
 Escribir la obtención de datos directamente en los Efectos se vuelve repetitivo y dificulta la adición de optimizadores como el almacenamiento en caché y el renderizado de lado del servidor más adelante. [Es más fácil utilizar un Hook personalizado, ya sea propio o hecho por la comunidad.](/learn/reusing-logic-with-custom-hooks#when-to-use-custom-hooks)
 
-<DeepDive title="¿Cuáles son las mejores alternativas a la obtención de datos con Efectos?">
+<DeepDive>
+
+#### ¿Cuáles son las mejores alternativas a la obtención de datos con Efectos? {/*what-are-good-alternatives-to-data-fetching-in-effects*/}
 
 Escribir llamadas `fetch` dentro de Efectos es una forma [popular de obtener datos](https://www.robinwieruch.de/react-hooks-fetch-data/), especialmente en aplicaciones totalmente del lado del cliente. Sin embargo, este es un enfoque muy manual y tiene importantes desventajas:
 
@@ -1050,7 +1052,7 @@ Esta lista de inconvenientes no es específica de React. Se aplica a la obtenci�
 Puedes seguir obteniendo datos directamente en Efectos si ninguno de estos enfoques te conviene.
 
 </DeepDive>
- 
+
 ---
 
 ### Especificación de dependencias reactivas {/*specifying-reactive-dependencies*/}
@@ -1075,9 +1077,9 @@ Si el `serverUrl` o el `roomId` cambian, tu efecto se reconectará al chat usand
 **Los [valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) incluyen props y todas las variables y funciones declaradas directamente dentro de su componente.** Como `roomId` y `serverUrl` son valores reactivos, no puedes eliminarlos de la lista de dependencias. Si intentas omitirlos y [tu linter está correctamente configurado para React,](/learn/editor-setup#linting) el linter lo marcará como un error que debes corregir:
 
 ```js {8}
-const serverUrl = 'https://localhost:1234';
-
 function ChatRoom({ roomId }) {
+  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
@@ -1578,7 +1580,7 @@ Con esta solución, escribir en la entrada no reconecta el chat. A diferencia de
 
 ### Eliminación de dependencias de funciones innecesarias {/*removing-unnecessary-function-dependencies*/}
 
-Si tu Efecto depende de un objeto o de una función creada durante el renderizado, puede que se ejecute con más frecuencia de la necesaria. Por ejemplo, este Efecto se reconecta después de cada renderización porque la función `createPptions` es [diferente para cada renderización:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Si tu Efecto depende de un objeto o de una función creada durante el renderizado, puede que se ejecute con más frecuencia de la necesaria. Por ejemplo, este Efecto se reconecta después de cada renderización porque la función `createOptions` es [diferente para cada renderización:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {4-9,12,16}
 function ChatRoom({ roomId }) {
@@ -1705,9 +1707,7 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
-
 **¿Qué pasa si quieres registrar una nueva visita a la página después de cada cambio de `url`, pero *no* si sólo cambia el `shoppingCart`?** No puedes excluir `shoppingCart` de las dependencias sin romper las [reglas de reactividad.](#specifying-reactive-dependencies) Sin embargo, puedes expresar que *no quieres* que una parte de código "reaccione" a los cambios aunque sea llamado desde dentro de un Efecto. Para hacer esto, [declara un *Efecto de evento*](/learn/separating-events-from-effects#declaring-an-effect-event) con el Hook [`useEffectEvent`](/reference/react/useEffectEvent), y mueve el código que lea al `shoppingCart` dentro de tal Hook:
-
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
