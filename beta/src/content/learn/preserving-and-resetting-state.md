@@ -1233,7 +1233,9 @@ textarea {
 
 </Sandpack>
 
-<DeepDive title="Preserving state for removed components">
+<DeepDive>
+
+#### Preserving state for removed components {/*preserving-state-for-removed-components*/}
 
 En una aplicación de chat real, probablemente querrás recuperar el estado de la entrada cuando el usuario vuelva a seleccionar el destinatario anterior. Hay algunas maneras de mantener el estado "vivo" para un componente que ya no es visible:
 

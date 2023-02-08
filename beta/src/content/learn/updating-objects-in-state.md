@@ -166,7 +166,9 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-<DeepDive title="La mutación local es correcta">
+<DeepDive>
+
+#### La mutación local es correcta {/*local-mutation-is-fine*/}
 
 Un código como este es un problema porque modifica un objeto *existente* en el estado:
 
@@ -371,7 +373,9 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las cosas a un nivel de profundidad. Esto lo hace rápido, pero también significa que si quieres actualizar una propiedad anidada, tendrás que usarla más de una vez. 
 
-<DeepDive title="Utilizar un único manejador de eventos para diversos campos">
+<DeepDive>
+
+#### Utilizar un único manejador de eventos para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
 También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
 
@@ -590,7 +594,9 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-<DeepDive title="Los objetos no están realmente anidados">
+<DeepDive>
+
+#### Los objetos no están realmente anidados {/*objects-are-not-really-nested*/}
 
 Un objeto de este tipo aparece "anidado" en el código:
 
@@ -656,7 +662,9 @@ updatePerson(draft => {
 
 Pero a diferencia de una mutación normal, ¡no sobrescribe el estado anterior!
 
-<DeepDive title="¿Cómo funciona Immer?">
+<DeepDive>
+
+#### ¿Cómo funciona Immer? {/*how-does-immer-work*/}
 
 El borrador (`draft`) proporcionado por Immer es un tipo especial de objeto, llamado [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), que "registra" lo que haces con él. Por eso, ¡puedes mutar libremente todo lo que quieras! Bajo el capó, Immer se da cuenta de qué partes del "borrador" han sido cambiadas, y produce un objeto completamente nuevo que contiene tus ediciones.
 
@@ -664,9 +672,8 @@ El borrador (`draft`) proporcionado por Immer es un tipo especial de objeto, lla
 
 Para probar Immer:
 
-1. Añade `use-immer` a tu `package.json` como dependencia
-2. Ejecuta `npm install`.
-3. Luego sustituye `import { useState } de 'react'` por `import { useImmer } de 'use-immer'`.
+1. Ejecuta `npm install use-immer` para añadir Immer como dependencia
+2. Luego sustituye `import { useState } de 'react'` por `import { useImmer } de 'use-immer'`.
 
 Aquí está el ejemplo anterior convertido a Immer:
 
@@ -783,12 +790,14 @@ img { width: 200px; height: 200px; }
 
 Fíjate en lo mucho más concisos que se han vuelto los manejadores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los manejadores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
 
-<DeepDive title="¿Por qué no se recomienda mutar el estado en React?">
+<DeepDive>
+
+#### ¿Por qué no se recomienda mutar el estado en React? {/*why-is-mutating-state-not-recommended-in-react*/}
 
 Hay algunas razones:
 
 * **Debugging:** Si usas `console.log` y no mutas el estado, tus registros anteriores no se verán afectados por los cambios de estado más recientes. Así puedes ver claramente cómo ha cambiado el estado entre renders.
-* **Optimizaciones:** Las [estrategias de optimización](/apis/react/memo) más comunes en React se basan en ahorrar trabajo si las props o el estado anteriores son los mismos que los siguientes. Si nunca se muta el estado, es muy rápido comprobar si ha habido algún cambio. Si `prevObj === obj`, puedes estar seguro de que nada ha podido cambiar en su interior.
+* **Optimizaciones:** Las [estrategias de optimización](/reference/react/memo) más comunes en React se basan en ahorrar trabajo si las props o el estado anteriores son los mismos que los siguientes. Si nunca se muta el estado, es muy rápido comprobar si ha habido algún cambio. Si `prevObj === obj`, puedes estar seguro de que nada ha podido cambiar en su interior.
 * **Nuevas características:** Las nuevas características de React que estamos construyendo dependen de que el estado sea [tratado como una instantánea.](/learn/state-as-a-snapshot) Si estás mutando versiones anteriores del estado, eso puede impedirte utilizar las nuevas funciones.
 * **Cambios de requisitos:** Algunas características de la aplicación, como la implementación de Deshacer/Rehacer, mostrar un historial de cambios, o permitir al usuario restablecer un formulario a valores anteriores, son más fáciles de hacer cuando no se muta nada. Esto se debe a que puedes mantener copias pasadas del estado en la memoria, y reutilizarlas cuando sea apropiado. Si empiezas con un enfoque mutativo, características como estas pueden ser difíciles de añadir más adelante.
 * **Implementación más sencilla:** Como React no se basa en la mutación, no necesita hacer nada especial con tus objetos. No necesita apropiarse de sus propiedades, envolverlos siempre en Proxies, o hacer otro trabajo en la inicialización como hacen muchas soluciones "reactivas". Esta es también la razón por la que React te permite poner cualquier objeto en el estado - no importa lo grande que sea - sin problemas adicionales de rendimiento o corrección.

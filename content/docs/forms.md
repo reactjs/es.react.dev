@@ -9,6 +9,16 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [`<input>`](https://beta.es.reactjs.org/reference/react-dom/components/input)
+> - [`<select>`](https://beta.es.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.es.reactjs.org/reference/react-dom/components/textarea)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Los elementos de formularios en HTML funcionan un poco diferente a otros elementos del DOM en React, debido a que los elementos de formularios conservan naturalmente algún estado interno. Por ejemplo, este formulario solamente en HTML, acepta un solo nombre.
 
 ```html
