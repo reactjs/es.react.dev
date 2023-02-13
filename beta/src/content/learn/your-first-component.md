@@ -296,7 +296,11 @@ Algo no está bien con esta sentencia `return`. ¿Puedes arreglarla?
 
 <Hint>
 
+<<<<<<< HEAD
 Puede que tengas un error «Unexpected token» mientras intentas arreglar este ejemplo. Si te sucede, probablemente sea porque tienes algún punto y coma dentro de tu JSX, revisa que esté *después* del paréntesis de cierre. Si dejas un punto y coma dentro de un `return ( )` ocurrirá un error.
+=======
+You may get an "Unexpected token" error while trying to fix this. In that case, check that the semicolon appears *after* the closing parenthesis. Leaving a semicolon inside `return ( )` will cause an error.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 </Hint>
 

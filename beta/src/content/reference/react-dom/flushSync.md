@@ -130,6 +130,10 @@ Si eliminas la llamada a `flushSync`, entonces el diálogo de impresión mostrar
 
 `flushSync` puede perjudicar significativamente el rendimiento, y puede forzar inesperadamente que barreras de Suspense pendientes muestren su estado de *fallback*.
 
+<<<<<<< HEAD
 La mayoría de las veces, `flushSync` puede evitarse, así que utiliza `flushSync` como último recurso.
+=======
+Most of the time, `flushSync` can be avoided, so use `flushSync` as a last resort.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 </Pitfall>
