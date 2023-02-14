@@ -6,7 +6,7 @@ title: hydrate
 
 Esta API se eliminará en una futura versión mayor de React.
 
-En React 18, `hydrate` fue sustituido por [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) El uso de `hydrate` en React 18 advertirá que tu aplicación se comportará como si estuviera ejecutando React 17. Más información [aquí.](https://es.reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
+En React 18, `hydrate` fue sustituido por [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) El uso de `hydrate` en React 18 advertirá que tu aplicación se comportará como si estuviera ejecutando React 17. Más información [aquí.](/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis)
 
 </Deprecated>
 
@@ -64,7 +64,7 @@ React se unirá al HTML que existe dentro del nodo DOM `domNode`, y se encargar�
 
 Llama a `hydrate` para unir un  <CodeStep step={1}>componente de React</CodeStep> a un <CodeStep step={2}>nodo DOM del navegador</CodeStep> renderizado por el servidor.
 
-```js [[1, 3, "document.getElementById('root')"], [2, 3, "<App />"]]
+```js [[1, 3, "<App />"], [2, 3, "document.getElementById('root')"]]
 import {hydrate} from 'react-dom';
 
 hydrate(<App />, document.getElementById('root'));
