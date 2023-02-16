@@ -116,13 +116,13 @@ Así es como funciona React a través de estas líneas de código mientras se ej
 2. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 3. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 
-Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de retorno de su función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
+Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de retorno de tu función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
 
-|  actualización en cola | `n` | devuelve |
-|--------------|---------|-----|
-| `n => n + 1` | `0` | `0 + 1 = 1` |
-| `n => n + 1` | `1` | `1 + 1 = 2` |
-| `n => n + 1` | `2` | `2 + 1 = 3` |
+| Actualización en cola | `n` | Devuelve    |
+|-----------------------|-----|-------------|
+| `n => n + 1`          | `0` | `0 + 1 = 1` |
+| `n => n + 1`          | `1` | `1 + 1 = 2` |
+| `n => n + 1`          | `2` | `2 + 1 = 3` |
 
 React almacena `3` como resultado final y lo devuelve desde `useState`.
 
@@ -152,7 +152,7 @@ export default function Counter() {
       <button onClick={() => {
         setNumber(number + 5);
         setNumber(n => n + 1);
-      }}>Increase the number</button>
+      }}>Incrementa el número</button>
     </>
   )
 }
@@ -172,10 +172,10 @@ Esto es lo que este manejador de eventos le dice a React que haga:
 
 Durante el siguiente renderizado, React recorre la cola de estados:
 
-|   actualización en cola       | `n` | devuelve |
-|--------------|---------|-----|
-| "reemplaza con `5`" | `0` (sin usar) | `5` |
-| `n => n + 1` | `5` | `5 + 1 = 6` |
+| Actualización en cola | `n`            | Devuelve    |
+|-----------------------|----------------|-------------|
+| "reemplazar con `5`"  | `0` (sin usar) | `5`         |
+| `n => n + 1`          | `5`            | `5 + 1 = 6` |
 
 React almacena `6` como resultado final y lo devuelve desde `useState`. 
 
@@ -208,7 +208,7 @@ export default function Counter() {
         setNumber(number + 5);
         setNumber(n => n + 1);
         setNumber(42);
-      }}>Increase the number</button>
+      }}>Incrementa el número</button>
     </>
   )
 }
@@ -229,18 +229,18 @@ Así es como funciona React a través de estas líneas de código mientras se ej
 
 Durante el siguiente renderizado, React recorre la cola de estados:
 
-|   actualización en cola       | `n` | devuelve |
-|--------------|---------|-----|
-| "reemplaza con `5`" | `0` (sin usar) | `5` |
-| `n => n + 1` | `5` | `5 + 1 = 6` |
-| "reemplaza con `42`" | `6` (sin usar) | `42` |
+| Actualización en cola | `n`            | Devuelve    |
+|-----------------------|----------------|-------------|
+| "reemplazar con `5`"  | `0` (sin usar) | `5`         |
+| `n => n + 1`          | `5`            | `5 + 1 = 6` |
+| "reemplazar con `42`" | `6` (sin usar) | `42`        |
 
 Entonces React almacena `42` como resultado final y lo devuelve desde `useState`.
 
 Para resumir, así es como puedes pensar en lo que estás pasando a la función de asignación de estado `setNumber`:
 
-* **Una función de actualización** (p.ej. `n => n + 1`) se añade a la cola.
-* **Cualquier otro valor** (p.ej. number `5`) añade "reemplazar con `5`" a la cola, ignorando lo que ya está en cola.
+* **Una función de actualización** (p. ej. `n => n + 1`) se añade a la cola.
+* **Cualquier otro valor** (p. ej. pasarle un `5`) añade "reemplazar con `5`" a la cola, ignorando lo que ya está en cola.
 
 Después de que el manejador de eventos se complete, React lanzará un rerenderizado. Durante el rerenderizado, React procesará la cola. Las funciones de actualización se ejecutan durante el renderizado, por lo que **las funciones de actualización deben ser [puras](/learn/keeping-components-pure)** y sólo *devuelven* el resultado. No intentes establecer el estado desde dentro de ellas o ejecutar otros efectos secundarios. En modo estricto, React ejecutará cada función de actualización dos veces (pero descartará el segundo resultado) para ayudarte a encontrar errores.
 
@@ -295,13 +295,13 @@ export default function RequestTracker() {
   return (
     <>
       <h3>
-        Pending: {pending}
+        Pendiente: {pending}
       </h3>
       <h3>
-        Completed: {completed}
+        Completado: {completed}
       </h3>
       <button onClick={handleClick}>
-        Buy     
+        Comprar     
       </button>
     </>
   );
@@ -339,13 +339,13 @@ export default function RequestTracker() {
   return (
     <>
       <h3>
-        Pending: {pending}
+        Pendiente: {pending}
       </h3>
       <h3>
-        Completed: {completed}
+        Completado: {completed}
       </h3>
       <button onClick={handleClick}>
-        Buy     
+        Comprar
       </button>
     </>
   );
@@ -384,9 +384,9 @@ export function getFinalState(baseState, queue) {
 
   for (let update of queue) {
     if (typeof update === 'function') {
-      // TODO: apply the updater function
+      // TODO: aplica la función de actualización
     } else {
-      // TODO: replace the state
+      // TODO: reemplaza el estado
     }
   }
 
@@ -404,7 +404,7 @@ export function getFinalState(baseState, queue) {
 export function getFinalState(baseState, queue) {
   let finalState = baseState;
 
-  // TODO: do something with the queue...
+  // TODO: haz algo con la cola...
 
   return finalState;
 }
@@ -467,19 +467,19 @@ function TestCase({
   const actual = getFinalState(baseState, queue);
   return (
     <>
-      <p>Base state: <b>{baseState}</b></p>
-      <p>Queue: <b>[{queue.join(', ')}]</b></p>
-      <p>Expected result: <b>{expected}</b></p>
+      <p>Estado base: <b>{baseState}</b></p>
+      <p>Cola: <b>[{queue.join(', ')}]</b></p>
+      <p>Resultado esperado: <b>{expected}</b></p>
       <p style={{
         color: actual === expected ?
           'green' :
           'red'
       }}>
-        Your result: <b>{actual}</b>
+        Tu resultado: <b>{actual}</b>
         {' '}
         ({actual === expected ?
-          'correct' :
-          'wrong'
+          'correcto' :
+          'erróneo'
         })
       </p>
     </>
@@ -501,10 +501,10 @@ export function getFinalState(baseState, queue) {
 
   for (let update of queue) {
     if (typeof update === 'function') {
-      // Apply the updater function.
+      // Aplica la función de actualización.
       finalState = update(finalState);
     } else {
-      // Replace the next state.
+      // Reemplaza el siguiente estado.
       finalState = update;
     }
   }
@@ -570,19 +570,19 @@ function TestCase({
   const actual = getFinalState(baseState, queue);
   return (
     <>
-      <p>Base state: <b>{baseState}</b></p>
-      <p>Queue: <b>[{queue.join(', ')}]</b></p>
-      <p>Expected result: <b>{expected}</b></p>
+      <p>Estado base: <b>{baseState}</b></p>
+      <p>Cola: <b>[{queue.join(', ')}]</b></p>
+      <p>Resultado esperado: <b>{expected}</b></p>
       <p style={{
         color: actual === expected ?
           'green' :
           'red'
       }}>
-        Your result: <b>{actual}</b>
+        Tu resultado: <b>{actual}</b>
         {' '}
         ({actual === expected ?
-          'correct' :
-          'wrong'
+          'correcto' :
+          'erróneo'
         })
       </p>
     </>

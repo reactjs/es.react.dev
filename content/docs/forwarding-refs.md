@@ -4,6 +4,15 @@ title: Reenvío de refs
 permalink: docs/forwarding-refs.html
 ---
 
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [Manipular el DOM con refs](https://beta.es.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`forwardRef`](https://beta.es.reactjs.org/reference/react/forwardRef)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 El reenvío de refs es una técnica para pasar automáticamente una [ref](/docs/refs-and-the-dom.html) a través de un componente a uno de sus hijos. Esto normalmente no es necesario para la mayoría de los componentes en una aplicación. Sin embargo, puede ser útil para ciertos tipos de componentes, especialmente en bibliotecas de componentes reutilizables. Los escenarios más comunes son descritos a continuación.
 
 ## Reenviando refs a componentes DOM {#forwarding-refs-to-dom-components}
