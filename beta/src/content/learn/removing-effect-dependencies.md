@@ -284,8 +284,13 @@ Si tienes una base de código existente, puede que tengas algunos Efectos que su
 ```js {3-4}
 useEffect(() => {
   // ...
+<<<<<<< HEAD
   // 🔴 Evita suprimir así la advertencia del linter:
   // eslint-ignore-next-line react-hooks/exhaustive-dependencies
+=======
+  // 🔴 Avoid suppressing the linter like this:
+  // eslint-ignore-next-line react-hooks/exhaustive-deps
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 }, []);
 ```
 

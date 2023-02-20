@@ -139,7 +139,11 @@ Ten en cuenta que al exponer una ref al nodo DOM dentro de tu componente, estás
 
 #### Enfocar una entrada de texto {/*focusing-a-text-input*/}
 
+<<<<<<< HEAD
 Al hacer clic en el botón el campo de texto (_input_) tomará el foco. El componente `Form` define una ref y la pasa al componente `MyInput`. El componente `MyInput` la reenvía al elemento nativo `<input>`. Esto permite que el componente `Form` enfoque el `<input>`.
+=======
+Clicking the button will focus the input. The `Form` component defines a ref and passes it to the `MyInput` component. The `MyInput` component forwards that ref to the browser `<input>`. This lets the `Form` component focus the `<input>`.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 <Sandpack>
 
