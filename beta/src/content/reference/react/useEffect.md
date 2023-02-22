@@ -1130,7 +1130,7 @@ Si tienes una base de código existente, puede que tengas algunos efectos que su
 useEffect(() => {
   // ...
   // 🔴 Evite suprimir el linter de esta manera:
-  // eslint-ignore-next-line react-hooks/exhaustive-dependencies
+  // eslint-ignore-next-line react-hooks/exhaustive-deps
 }, []);
 ```
 
