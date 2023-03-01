@@ -14,6 +14,11 @@ redirect_from:
   - "tips/initial-ajax.html"
   - "tips/use-react-with-other-libraries.html"
 ---
+
+> Prueba la nueva documentación de React para [`Component`](https://beta.es.reactjs.org/reference/react/Component).
+> 
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Esta página contiene una referencia detallada de la API de React sobre los componentes definidos a través de clases. Asumimos que estas familiarizado con los conceptos fundamentales de React, como [Componentes y props](/docs/components-and-props.html), así también [Estado y ciclo de vida](/docs/state-and-lifecycle.html). Si no, léelas primero.
 
 ## Resumen {#overview}
@@ -124,7 +129,7 @@ Cuando se llama, debe examinar a `this.props` y `this.state` y devolver uno de l
 - **Arrays y fragmentos.** Permiten que puedas devolver múltiples elementos desde el render. Consulta la documentación sobre [fragmentos](/docs/fragments) para más detalles.
 - **Portales**. Te permiten renderizar hijos en otro subárbol del DOM. Consulta la documentación sobre [portales](/docs/portals) para más detalles.
 - **String y números.** Estos son renderizados como nodos de texto en el DOM.
-- **Booleanos o `nulos`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
+- **Booleanos, `null` o `undefined`**. No renderizan nada. (Principalmente existe para admitir el patrón `return test && <Child />`, donde `test` es booleano.)
 
 La función `render ()` debe ser pura, lo que significa que no modifica el estado del componente, devuelve el mismo resultado cada vez que se invoca y no interactúa directamente con el navegador.
 

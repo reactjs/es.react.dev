@@ -6,7 +6,7 @@
   "scripts": {
     "analyze": "ANALYZE=true next build",
     "dev": "next-remote-watch ./src/content",
-    "build": "next build && node ./scripts/generateRSS.js && node ./scripts/generateRedirects.js && node ./scripts/downloadFonts.js",
+    "build": "next build && node ./scripts/downloadFonts.js",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format:source": "prettier --config .prettierrc --write \"{plugins,src}/**/*.{js,ts,jsx,tsx,css}\"",
@@ -67,7 +67,7 @@
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "experimental",
+    "eslint-plugin-react-hooks": "^0.0.0-experimental-fabef7a6b-20221215",
     "fs-extra": "^9.0.1",
     "globby": "^11.0.1",
     "gray-matter": "^4.0.2",

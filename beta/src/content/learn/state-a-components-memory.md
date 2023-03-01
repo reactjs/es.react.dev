@@ -10,7 +10,7 @@ Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como re
 
 <YouWillLearn>
 
-* Cómo agregar una variable de estado con el Hook de [`useState`](/apis/react/useState) 
+* Cómo agregar una variable de estado con el Hook de [`useState`](/reference/react/useState) 
 * Qué par de valores devuelve el hook de `useState`
 * Cómo agregar más de una variable de estado
 * Por qué se le llama local al estado
@@ -161,7 +161,7 @@ Para actualizar un componente con datos nuevos, deben pasar las siguientes dos c
 1. **Conservar** los datos entre renderizaciones.
 2. **Provocar** que React renderice el componente con nuevos datos (re-renderizado).
 
-El Hook de [`useState`](/apis/react/useState) ofrece dos cosas:
+El Hook de [`useState`](/reference/react/useState) ofrece dos cosas:
 
 1. Una **variable de estado** para mantener los datos entre renderizados.
 2. Una **función que setea el estado** para actualizar la variable y provocar que React renderice el componente nuevamente.
@@ -347,7 +347,7 @@ El estado es solo una de esas características, pero conoceremos los otros Hooks
 
 ### Anatomía del `useState` {/*anatomy-of-usestate*/}
 
-Cuando llamamos al [`useState`](/apis/react/useState), le estamos diciendo a React que debe recordar algo:
+Cuando llamamos al [`useState`](/reference/react/useState), le estamos diciendo a React que debe recordar algo:
 
 ```js
 const [index, setIndex] = useState(0);
@@ -516,9 +516,11 @@ button {
 
 </Sandpack>
 
-Es una buena idea tener múltiples variables de estado si no se encuentran relacionadas entre sí, como `index` y `showMore` en este ejemplo. Pero si encontramso que a menudo cambiamos dos variables de estado juntas, podría ser mejor combinarlas en una sola. Por ejemplo, si tenemos un formulario con muchos campos, es más conveniente tener una única variable de estado que contenga un objeto que una variable de estado por campo. [Elegir la estructura del estado](/learn/choosing-the-state-structure) tiene más consejos sobre esto.
+Es una buena idea tener múltiples variables de estado si no se encuentran relacionadas entre sí, como `index` y `showMore` en este ejemplo. Pero si encontramos que a menudo cambiamos dos variables de estado juntas, podría ser mejor combinarlas en una sola. Por ejemplo, si tenemos un formulario con muchos campos, es más conveniente tener una única variable de estado que contenga un objeto que una variable de estado por campo. [Elegir la estructura del estado](/learn/choosing-the-state-structure) tiene más consejos sobre esto.
 
-<DeepDive title="¿Cómo sabe React qué estado devolver?">
+<DeepDive>
+
+#### ¿Cómo sabe React qué estado devolver? {/*how-does-react-know-which-state-to-return*/}
 
 Es posible que hayas notado que la llamada a `useState` no recibe ninguna información sobre *a qué* variable de estado se refiere. No hay un "identificador" que se pase a `useState`, entonces, ¿cómo sabe cuál de las variables de estado debería devolver? ¿Se basa en algún tipo de magia para esto? La respuesta es no.
 
@@ -924,7 +926,7 @@ export default function Gallery() {
   const [showMore, setShowMore] = useState(false);
 
   function handleNextClick() {
-    setIndex(index + 1000);
+    setIndex(index + 1);
   }
 
   function handleMoreClick() {

@@ -6,6 +6,15 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [Escribir marcado con JSX](https://beta.es.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript en JSX con llaves](https://beta.es.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Considera la declaración de esta variable:
 
 ```js

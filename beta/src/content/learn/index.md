@@ -302,7 +302,7 @@ function MyButton() {
 
 A menudo, querrás que tu componente «recuerde» alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
 
-Primero, importa [`useState`](/apis/react/useState) de React:
+Primero, importa [`useState`](/reference/react/useState) de React:
 
 ```js
 import { useState } from 'react';
@@ -344,6 +344,16 @@ Si renderizas el mismo componente varias veces, cada uno obtendrá su propio est
 ```js
 import { useState } from 'react';
 
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -355,16 +365,6 @@ function MyButton() {
     <button onClick={handleClick}>
       Clicked {count} times
     </button>
-  );
-}
-
-export default function MyApp() {
-  return (
-    <div>
-      <h1>Counters that update separately</h1>
-      <MyButton />
-      <MyButton />
-    </div>
   );
 }
 ```
@@ -382,7 +382,7 @@ Nota que cada botón «recuerda» su propio estado `count` y que no afecta a otr
 
 ## El uso de los Hooks {/*using-hooks*/}
 
-Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/apis/react). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
+Las funciones que comienzan con `use` se llaman *Hooks*. `useState` es un Hook nativo dentro de React. Puedes encontrar otros Hooks nativos en la [referencia de la API de React](/reference/react). También puedes escribir tus propios Hooks mediante la combinación de otros existentes.
 
 Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar a los Hooks *en el primer nivel* de tus componentes (u otros Hooks). Si quisieras utilizar `useState` en una condicional o en un bucle, extrae un nuevo componente y ponlo ahí.
 
@@ -432,11 +432,7 @@ Ahora cuando haces clic en cualquiera de los botones, `count` en `MyApp` cambiar
 
 Primero, *mueve el estado hacia arriba* desde `MyButton` hacia `MyApp`:
 
-```js {2,6-10}
-function MyButton() {
-  // ... we're moving code from here ...
-}
-
+```js {2-6,18}
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -452,6 +448,11 @@ export default function MyApp() {
     </div>
   );
 }
+
+function MyButton() {
+  // ... we're moving code from here ...
+}
+
 ```
 
 Luego, *pasa el estado hacia abajo* desde `MyApp` hacia cada `MyButton`, junto con la función compartida para manejar el evento de clic. Puedes pasar la información a `MyButton` usando las llaves de JSX, de la misma forma como lo hiciste anteriormente con las etiquetas nativas `<img>`:
@@ -497,14 +498,6 @@ Esto se llama «levantar el estado hacia arriba». Al mover el estado hacia arri
 ```js
 import { useState } from 'react';
 
-function MyButton({ count, onClick }) {
-  return (
-    <button onClick={onClick}>
-      Clicked {count} times
-    </button>
-  );
-}
-
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -518,6 +511,14 @@ export default function MyApp() {
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
+  );
+}
+
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
   );
 }
 ```
@@ -535,4 +536,4 @@ button {
 
 ¡En este punto ya conoces los elementos básicos de como escribir código en React!
 
-Dirígete a [Pensar en React](/learn/thinking-in-react) para que veas como se siente en la práctica construir una interfaz de usuario con React.
+Prueba el [Tutorial](/learn/tutorial-tic-tac-toe) para ponerlos en práctica y construir tu primera miniaplicación de React.
