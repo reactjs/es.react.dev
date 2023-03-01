@@ -6,6 +6,16 @@ next: hooks-rules.html
 prev: hooks-state.html
 ---
 
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [Sincronización con efectos](https://beta.es.reactjs.org/learn/synchronizing-with-effects)
+> - [Puede que no necesites un efecto](https://beta.es.reactjs.org/learn/you-might-not-need-an-effect)
+> - [`useEffect`](https://beta.es.reactjs.org/reference/react/useEffect)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 El *Hook de efecto* te permite llevar a cabo efectos secundarios en componentes funcionales:
