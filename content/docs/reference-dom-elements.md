@@ -14,6 +14,19 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [Componentes comunes (e.g. `<div>`)](https://beta.es.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.es.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.es.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.es.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.es.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.es.reactjs.org/reference/react-dom/components/textarea)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 React implementa un sistema DOM independiente del navegador, por motivos de rendimiento y compatibilidad entre navegadores. Esto nos dio la oportunidad de pulir algunos detalles en las implementaciones del DOM en el navegador.
 
 En React, todas las propiedades y atributos (incluidos los manejadores de eventos) deben escribirse en estilo *camelCase*. Por ejemplo, el atributo HTML `tabindex` corresponde al atributo `tabIndex` en React. Los atributos tipo `aria-*` y `data-*` son la excepción y deben escribirse en minúsculas. Por ejemplo, `aria-label` en HTML también es `aria-label` en React.

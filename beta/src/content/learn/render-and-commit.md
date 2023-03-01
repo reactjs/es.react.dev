@@ -38,7 +38,7 @@ Hay dos razones por las que un componente debe ser renderizado:
 
 ### Renderizado inicial {/*initial-render*/}
 
-Cuando tu aplicación se inicia, necesitas activar el renderizado inicial. Frameworks y sandboxes a veces ocultan este código, pero se hace con una llamada a [`createRoot`](/apis/react-dom/client/createRoot) con el nodo DOM de destino, y luego con otra llamada a su método `render` con tu componente:
+Cuando tu aplicación se inicia, necesitas activar el renderizado inicial. Frameworks y sandboxes a veces ocultan este código, pero se hace con una llamada a [`createRoot`](/reference/react-dom/client/createRoot) con el nodo DOM de destino, y luego con otra llamada a su método `render` con tu componente:
 
 <Sandpack>
 
@@ -67,7 +67,7 @@ Prueba a comentar la llamada `root.render()` ¡y verás cómo desaparece el comp
 
 ### Rerenderizados cuando se actualiza el estado {/*re-renders-when-state-updates*/}
 
-Una vez que el componente ha sido renderizado inicialmente, puede desencadenar más renderizados actualizando su estado con la [función `set`.](/apis/react/useState#setstate) Al actualizar el estado de tu componente, se pone en cola automáticamente un renderizado. (Puedes imaginarte esto como un cliente de un restaurante que pide té, postre y todo tipo de cosas después de poner su primer pedido, dependiendo del estado de su sed o hambre).
+Una vez que el componente ha sido renderizado inicialmente, puede desencadenar más renderizados actualizando su estado con la [función `set`.](/reference/react/useState#setstate) Al actualizar el estado de tu componente, se pone en cola automáticamente un renderizado. (Puedes imaginarte esto como un cliente de un restaurante que pide té, postre y todo tipo de cosas después de poner su primer pedido, dependiendo del estado de su sed o hambre).
 
 <IllustrationBlock sequential>
   <Illustration caption="La actualización del estado..." alt="React como un camarero en un restaurante, sirviendo una UI tarjeta al usuario, representado como un cliente con un cursor como su cabeza. ¡El cliente expresa que quiere una tarjeta rosa, no una negra!" src="/images/docs/illustrations/i_rerender1.png" />
@@ -138,9 +138,11 @@ De lo contrario, puedes encontrarte con errores confusos y un comportamiento imp
 
 </Pitfall>
 
-<DeepDive title="Optimización del rendimiento">
+<DeepDive>
 
-El comportamiento por defecto de renderizar todos los componentes anidados dentro del componente actualizado no es óptimo para el rendimiento si el componente actualizado está muy alto en el árbol. Si se encuentra con un problema de rendimiento, hay varias formas de resolverlo descritas en la sección [Rendimiento].(https://es.reactjs.org/docs/optimizing-performance.html#gatsby-focus-wrapper) sección. **No optimices antes de tiempo.!**
+#### Optimización del rendimiento {/*optimizing-performance*/}
+
+El comportamiento por defecto de renderizar todos los componentes anidados dentro del componente actualizado no es óptimo para el rendimiento si el componente actualizado está muy alto en el árbol. Si se encuentra con un problema de rendimiento, hay varias formas de resolverlo descritas en la sección de [Rendimiento](https://es.reactjs.org/docs/optimizing-performance.html). **¡No optimices antes de tiempo!**
 
 </DeepDive>
 
@@ -192,7 +194,7 @@ export default function App() {
 </Sandpack>
 
 Esto funciona porque durante este último paso, React sólo actualiza el contenido de `<h1>` con el nuevo `time`. Ve que el `<input>` aparece en el JSX en el mismo lugar que la última vez, así que React no toca el `<input>`-¡ni su `valor`!
-## Epílogo: La pintura del navegador  {/*epilogue-browser-paint*/}
+## Epílogo: La pintura del navegador {/*epilogue-browser-paint*/}
 
 Después de que el renderizado haya terminado y React haya actualizado el DOM, el navegador volverá a pintar la pantalla. Aunque este proceso se conoce como "renderizado del navegador", nos referiremos a él como "pintado" para evitar confusiones en el resto de esta documentación.
 

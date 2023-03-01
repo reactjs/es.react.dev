@@ -29,6 +29,7 @@ import {IconNavArrow} from '../Icon/IconNavArrow';
 import ButtonLink from 'components/ButtonLink';
 import {TocContext} from './TocContext';
 import type {Toc, TocItem} from './TocContext';
+import {TeamMember} from './TeamMember';
 
 function CodeStep({children, step}: {children: any; step: number}) {
   return (
@@ -71,7 +72,7 @@ const UL = (p: JSX.IntrinsicElements['ul']) => (
 );
 
 const Divider = () => (
-  <hr className="my-6 block border-b border-border dark:border-border-dark" />
+  <hr className="my-6 block border-b border-t-0 border-border dark:border-border-dark" />
 );
 const Wip = ({children}: {children: React.ReactNode}) => (
   <ExpandableCallout type="wip">{children}</ExpandableCallout>
@@ -129,6 +130,15 @@ function LearnMore({
       </section>
       <hr className="border-border dark:border-border-dark mb-14" />
     </>
+  );
+}
+
+function ReadBlogPost({path}: {path: string}) {
+  return (
+    <ButtonLink className="mt-1" label="Read Post" href={path} type="primary">
+      Read Post
+      <IconNavArrow displayDirection="right" className="inline ml-1" />
+    </ButtonLink>
   );
 }
 
@@ -324,6 +334,9 @@ function calculateNestedToc(toc: Toc): NestedTocRoot {
 function InlineToc() {
   const toc = useContext(TocContext);
   const root = useMemo(() => calculateNestedToc(toc), [toc]);
+  if (root.children.length < 2) {
+    return null;
+  }
   return <InlineTocItem items={root.children} />;
 }
 
@@ -340,15 +353,18 @@ function InlineTocItem({items}: {items: Array<NestedTocNode>}) {
   );
 }
 
-function LinkWithTodo({href, children, ...props}: JSX.IntrinsicElements['a']) {
-  if (href?.startsWith('TODO')) {
-    return children;
-  }
-
+function YouTubeIframe(props: any) {
   return (
-    <Link href={href} {...props}>
-      {children}
-    </Link>
+    <div className="relative h-0 overflow-hidden pt-[56.25%]">
+      <iframe
+        className="absolute inset-0 w-full h-full"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        title="YouTube video player"
+        {...props}
+      />
+    </div>
   );
 }
 
@@ -364,7 +380,7 @@ export const MDXComponents = {
   h3: H3,
   h4: H4,
   hr: Divider,
-  a: LinkWithTodo,
+  a: Link,
   code: InlineCode,
   pre: CodeBlock,
   CodeDiagram,
@@ -395,9 +411,11 @@ export const MDXComponents = {
   MathI,
   Note,
   PackageImport,
+  ReadBlogPost,
   Recap,
   Recipes,
   Sandpack,
+  TeamMember,
   TerminalBlock,
   YouWillLearn,
   YouWillLearnCard,
@@ -405,6 +423,7 @@ export const MDXComponents = {
   Hint,
   Solution,
   CodeStep,
+  YouTubeIframe,
 };
 
 for (let key in MDXComponents) {

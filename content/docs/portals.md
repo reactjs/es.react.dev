@@ -4,6 +4,14 @@ title: Portales
 permalink: docs/portals.html
 ---
 
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [`createPortal`](https://beta.es.reactjs.org/reference/react-dom/createPortal)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Los portales proporcionan una opción de primera clase para renderizar hijos en un nodo DOM que existe por fuera de la jerarquía del DOM del componente padre.
 
 ```js
@@ -47,7 +55,7 @@ Un caso de uso típico de los portales es cuando un componente principal tiene u
 >
 > Cuando trabajes con portales, recuerda que [administrar el foco del teclado](/docs/accessibility.html#programmatically-managing-focus) es muy importante.
 >
-> Para los cuadros de diálogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+> Para los cuadros de diálogos, asegúrate de que todos puedan interactuar con ellos siguiendo las [Prácticas de creación modal de WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
 [**Pruébalo en CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 

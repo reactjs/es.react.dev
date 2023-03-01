@@ -183,6 +183,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | set the state | asignar el estado |
 | state | estado |
 | string | *string* |
+| Suspense barrier | barrera de Suspense |
 | template literals | *template literals* |
 | uncontrolled component | componente no controlado |
 | update the state | actualizar el estado
