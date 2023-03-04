@@ -157,6 +157,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | array | *array* |
 | arrow function | función flecha |
 | assert | comprobar |
+| bubbling | propagación |
 | bug | error |
 | bundler | *bundler* |
 | callback | *callback* |
