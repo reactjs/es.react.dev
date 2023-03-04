@@ -4,7 +4,7 @@ title: useState
 
 <Intro>
 
-`useState` is a React Hook that lets you add a [state variable](/learn/state-a-components-memory) to your component.
+`useState` es un Hook de React que te permite agregar una [variable de estado](/learn/state-a-components-memory) a tu componente.
 
 ```js
 const [state, setState] = useState(initialState)
@@ -20,7 +20,7 @@ const [state, setState] = useState(initialState)
 
 ### `useState(initialState)` {/*usestate*/}
 
-Call `useState` at the top level of your component to declare a [state variable.](/learn/state-a-components-memory)
+Llama a `useState` en el nivel superior de tu componente para declarar una [variable de estado](/learn/state-a-components-memory).
 
 ```js
 import { useState } from 'react';
@@ -32,133 +32,133 @@ function MyComponent() {
   // ...
 ```
 
-The convention is to name state variables like `[something, setSomething]` using [array destructuring.](https://javascript.info/destructuring-assignment)
+La convención es nombrar variables de estado como `[algo, setAlgo]` usando [desestructuración de arrays](https://javascript.info/destructuring-assignment).
 
-[See more examples below.](#usage)
+[Vea más ejemplos arriba.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `initialState`: The value you want the state to be initially. It can be a value of any type, but there is a special behavior for functions. This argument is ignored after the initial render.
-  * If you pass a function as `initialState`, it will be treated as an _initializer function_. It should be pure, should take no arguments, and should return a value of any type. React will call your initializer function when initializing the component, and store its return value as the initial state. [See an example below.](#avoiding-recreating-the-initial-state)
+* `initialState`: El valor que deseas que tenga el estado inicialmente. Puede ser un valor de cualquier tipo, pero hay un comportamiento especial para las funciones. Este argumento se ignora después del renderizado inicial.
+  * Si pasa una función como `initialState`, se tratará como una _función inicializadora_. Debe ser pura, no debe aceptar argumentos y debe devolver un valor de cualquier tipo. React llamará a tu función de inicialización al inicializar el componente y almacenará su valor de retorno como el estado inicial. [Ve un ejemplo debajo.](#avoiding-recreating-the-initial-state)
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`useState` returns an array with exactly two values:
+`useState` devuelve un _array_ con exactamente dos valores:
 
-1. The current state. During the first render, it will match the `initialState` you have passed.
-2. The [`set` function](#setstate) that lets you update the state to a different value and trigger a re-render.
+1. El estado actual. Durante el primer renderizado, coincidirá con el `initialState` que hayas pasado.
+2. La [función `set`](#setstate) que te permite actualizar el estado a un valor diferente y desencadenar un nuevo renderizado.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `useState` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
-* In Strict Mode, React will **call your initializer function twice** in order to [help you find accidental impurities.](#my-initializer-or-updater-function-runs-twice) This is development-only behavior and does not affect production. If your initializer function is pure (as it should be), this should not affect the logic of your component. The result from one of the calls will be ignored.
+* `useState` es un Hook, por lo que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesitas, extrae un nuevo componente y mueva el estado a él.
+* En [Modo estricto](/reference/react/StrictMode), React **llamará a tu función de inicialización dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twoveces) Este es un comportamiento exclusivo de desarrollo y no ocurre en producción. Si tu función de inicialización es pura (como debería ser), esto no debería afectar la lógica de tu componente. Se ignorará el resultado de una de las llamadas.
 
 ---
 
-### `set` functions, like `setSomething(nextState)` {/*setstate*/}
+### Funciones `set` , como `setAlgo(siguienteEstado)` {/*setstate*/}
 
-The `set` function returned by `useState` lets you update the state to a different value and trigger a re-render. You can pass the next state directly, or a function that calculates it from the previous state:
+La función `set` devuelta por `useState` te permite actualizar el estado a un valor diferente y desencadenar un nuevo renderizado. Puedes pasar el siguiente estado directamente, o una función que lo calcule a partir del estado anterior:
 
 ```js
-const [name, setName] = useState('Edward');
+const [nombre, setNombre] = useState('Edward');
 
 function handleClick() {
-  setName('Taylor');
-  setAge(a => a + 1);
+  setNombre('Taylor');
+  setEdad(a => a + 1);
   // ...
 ```
 
-#### Parameters {/*setstate-parameters*/}
+#### Parámetros {/*setstate-parameters*/}
 
-* `nextState`: The value that you want the state to be. It can be a value of any type, but there is a special behavior for functions.
-  * If you pass a function as `nextState`, it will be treated as an _updater function_. It must be pure, should take the pending state as its only argument, and should return the next state. React will put your updater function in a queue and re-render your component. During the next render, React will calculate the next state by applying all of the queued updaters to the previous state. [See an example below.](#updating-state-based-on-the-previous-state)
+  * `siguienteEstado`: El valor que deseas que tenga el estado. Puede ser un valor de cualquier tipo, pero hay un comportamiento especial para las funciones.
+   * Si pasas una función como `siguienteEstado`, se tratará como una _función de actualización_. Debe ser pura, debe tomar el estado pendiente como único argumento y debe devolver el siguiente estado. React pondrá tu función de actualización en una cola y volverá a renderizar tu componente. Durante el próximo renderizado, React calculará el siguiente estado aplicando todas las actualizaciones en cola al estado anterior. [Ve un ejemplo debajo.](#updating-state-based-on-the-previous-state)
 
-#### Returns {/*setstate-returns*/}
+#### Devuelve {/*setstate-returns*/}
 
-`set` functions do not have a return value.
+Las funciones `set` no tienen un valor de retorno.
 
-#### Caveats {/*setstate-caveats*/}
+#### Advertencias {/*setstate-caveats*/}
 
-* The `set` function **only updates the state variable for the *next* render**. If you read the state variable after calling the `set` function, [you will still get the old value](#ive-updated-the-state-but-logging-gives-me-the-old-value) that was on the screen before your call.
+* La función `set` **solo actualiza la variable de estado para el *próximo* renderizado**. Si lees la variable de estado después de llamar a la función `set`, [seguirás obteniendo el valor anterior](#ive-updated-the-state-but-logging-gives-me-the-old-value) que estaba en la pantalla antes de tu llamada.
 
-* If the new value you provide is identical to the current `state`, as determined by an [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison, React will **skip re-rendering the component and its children.** This is an optimization. Although in some cases React may still need to call your component before skipping the children, it shouldn't affect your code.
+* Si el nuevo valor que proporcionas es idéntico al `estado` actual, según lo determinado por un [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **omitirá volver a renderizar el componente y sus hijos.** Esta es una optimización. Aunque en algunos casos React aún puede necesitar llamar a tu componente antes de omitir los hijos, no debería afectar tu código.
 
-* React [batches state updates.](/learn/queueing-a-series-of-state-updates) It updates the screen **after all the event handlers have run** and have called their `set` functions. This prevents multiple re-renders during a single event. In the rare case that you need to force React to update the screen earlier, for example to access the DOM, you can use [`flushSync`.](/reference/react-dom/flushSync)
+* React [agrupa actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples renderizados durante un solo evento. En el raro caso de que necesite forzar a React a actualizar la pantalla antes, por ejemplo, para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
 
-* Calling the `set` function *during rendering* is only allowed from within the currently rendering component. React will discard its output and immediately attempt to render it again with the new state. This pattern is rarely needed, but you can use it to **store information from the previous renders**. [See an example below.](#storing-information-from-previous-renders)
+* Llamar a la función `set` *durante el renderizado* solo está permitido desde el componente que se está renderizando. React descartará su salida e inmediatamente intentará renderizarlo nuevamente con el nuevo estado. Este patrón rara vez se necesita, pero puedes usarlo para **almacenar información de los renderizados anteriores**. [Ve un ejemplo debajo.](#storing-information-from-previous-renders)
 
-* In Strict Mode, React will **call your updater function twice** in order to [help you find accidental impurities.](#my-initializer-or-updater-function-runs-twice) This is development-only behavior and does not affect production. If your updater function is pure (as it should be), this should not affect the logic of your component. The result from one of the calls will be ignored.
+* En [Modo estricto](/reference/react/StrictMode), React **llamará a tu función de actualización dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twice) Este es un comportamiento exclusivo de desarrollo y no ocurre en producción. Si tu función de actualización es pura (como debería ser), esto no debería afectar la lógica de tu componente. Se ignorará el resultado de una de las llamadas.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Adding state to a component {/*adding-state-to-a-component*/}
+### Agregar estado a un componente {/*adding-state-to-a-component*/}
 
-Call `useState` at the top level of your component to declare one or more [state variables.](/learn/state-a-components-memory)
+Llama a `useState` en el nivel superior de tu componente para declarar una o más [variables de estado.](/learn/state-a-components-memory)
 
-```js [[1, 4, "age"], [2, 4, "setAge"], [3, 4, "42"], [1, 5, "name"], [2, 5, "setName"], [3, 5, "'Taylor'"]]
+```js [[1, 4, "edad"], [2, 4, "setEdad"], [3, 4, "42"], [1, 5, "nombre"], [2, 5, "setNombre"], [3, 5, "'Taylor'"]]
 import { useState } from 'react';
 
 function MyComponent() {
-  const [age, setAge] = useState(42);
-  const [name, setName] = useState('Taylor');
+  const [edad, setEdad] = useState(42);
+  const [nombre, setNombre] = useState('Taylor');
   // ...
 ```
 
-The convention is to name state variables like `[something, setSomething]` using [array destructuring.](https://javascript.info/destructuring-assignment)
+La convención es nombrar variables de estado como `[algo, setAlgo]` utilizando la [desestructuración de _arrays_.](https://javascript.info/destructuring-assignment) 
 
-`useState` returns an array with exactly two items:
+`useState` devuelve un _array_ con exactamente dos elementos:
 
-1. The <CodeStep step={1}>current state</CodeStep> of this state variable, initially set to the <CodeStep step={3}>initial state</CodeStep> you provided.
-2. The <CodeStep step={2}>`set` function</CodeStep> that lets you change it to any other value in response to interaction.
+1. El <CodeStep step={1}>estado actual</CodeStep> de esta variable de estado, establecida inicialmente en el <CodeStep step={3}>estado inicial</CodeStep> que proporcionaste.
+2. La <CodeStep step={2}>función `set`</CodeStep> que te permite cambiarlo a cualquier otro valor en respuesta a la interacción. 
 
-To update what’s on the screen, call the `set` function with some next state:
+Para actualizar lo que está en la pantalla, llama a la función `set` con algún estado:
 
-```js [[2, 2, "setName"]]
+```js [[2, 2, "setNombre"]]
 function handleClick() {
-  setName('Robin');
+  setNombre('Robin');
 }
 ```
 
-React will store the next state, render your component again with the new values, and update the UI.
+React almacenará el siguiente estado, renderizará tu componente nuevamente con los nuevos valores y actualizará la interfaz de usuario. 
 
 <Pitfall>
 
-Calling the `set` function [**does not** change the current state in the already executing code](#ive-updated-the-state-but-logging-gives-me-the-old-value):
+Llamar a la función `set` [**no  cambia** el estado actual en el código que ya se está ejecutando ](#ive-updated-the-state-but-logging-gives-me-the-old-value):
 
 ```js {3}
 function handleClick() {
-  setName('Robin');
-  console.log(name); // Still "Taylor"!
+  setNombre('Robin');
+  console.log(nombre); // Sigue siendo "Taylor"!
 }
 ```
 
-It only affects what `useState` will return starting from the *next* render.
+Solo afecta lo que `useState` devolverá a partir del *siguiente* renderizado. 
 
 </Pitfall>
 
-<Recipes titleText="Basic useState examples" titleId="examples-basic">
+<Recipes tituloText="Ejemplos básicos de useState" titleId="examples-basic">
 
-#### Counter (number) {/*counter-number*/}
+#### Contador (número) {/*counter-number*/}
 
-In this example, the `count` state variable holds a number. Clicking the button increments it.
+En este ejemplo, la variable `contador` contiene un número. Al hacer click en el botón lo incrementa
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Counter() {
-  const [count, setCount] = useState(0);
+export default function Contador() {
+  const [contador, setContador] = useState(0);
 
   function handleClick() {
-    setCount(count + 1);
+    setContador(contador + 1);
   }
 
   return (
     <button onClick={handleClick}>
-      You pressed me {count} times
+      Me presionaste {contador} veces
     </button>
   );
 }
@@ -168,9 +168,9 @@ export default function Counter() {
 
 <Solution />
 
-#### Text field (string) {/*text-field-string*/}
+#### Campo de texto (cadena) {/*text-field-string*/}
 
-In this example, the `text` state variable holds a string. When you type, `handleChange` reads the latest input value from the browser input DOM element, and calls `setText` to update the state. This allows you to display the current `text` below.
+En este ejemplo, la variable de estado `texto` contiene una cadena. Cuando escribes,`handleChange` lee el último valor ingresado al elemento input del DOM desde el navegador y llama  `setTexto` para actualizar el estado. Esto te permite mostrar el actual `texto` abajo. 
 
 <Sandpack>
 
@@ -178,18 +178,18 @@ In this example, the `text` state variable holds a string. When you type, `handl
 import { useState } from 'react';
 
 export default function MyInput() {
-  const [text, setText] = useState('hello');
+  const [texto, setTexto] = useState('hola');
 
   function handleChange(e) {
-    setText(e.target.value);
+    setTexto(e.target.value);
   }
 
   return (
     <>
-      <input value={text} onChange={handleChange} />
-      <p>You typed: {text}</p>
-      <button onClick={() => setText('hello')}>
-        Reset
+      <input value={texto} onChange={handleChange} />
+      <p>Escribiste: {texto}</p>
+      <button onClick={() => setTexto('hola')}>
+        Reiniciar
       </button>
     </>
   );
@@ -200,9 +200,9 @@ export default function MyInput() {
 
 <Solution />
 
-#### Checkbox (boolean) {/*checkbox-boolean*/}
+#### Checkbox (booleano) {/*checkbox-boolean*/}
 
-In this example, the `liked` state variable holds a boolean. When you click the input, `setLiked` updates the `liked` state variable with whether the browser checkbox input is checked. The `liked` variable is used to render the text below the checkbox.
+En este ejemplo, la variable de estado `meGusta` contiene un valor booleano.  Al hacer click en el checkbox, `setMeGusta` actualiza la variable de estado `meGusta` si es que la entrada del checkbox del navegador fue marcada. La variable `meGusta` se utiliza para representar el texto debajo del checkbox.
 
 <Sandpack>
 
@@ -210,10 +210,10 @@ In this example, the `liked` state variable holds a boolean. When you click the 
 import { useState } from 'react';
 
 export default function MyCheckbox() {
-  const [liked, setLiked] = useState(true);
+  const [meGusta, setMeGusta] = useState(true);
 
   function handleChange(e) {
-    setLiked(e.target.checked);
+    setMeGusta(e.target.checked);
   }
 
   return (
@@ -221,12 +221,12 @@ export default function MyCheckbox() {
       <label>
         <input
           type="checkbox"
-          checked={liked}
+          checked={meGusta}
           onChange={handleChange}
         />
-        I liked this
+        Me gusta esto
       </label>
-      <p>You {liked ? 'liked' : 'did not like'} this.</p>
+      <p>A ti {meGusta ? 'te gusta' : 'no te gusta'} esto.</p>
     </>
   );
 }
@@ -236,29 +236,29 @@ export default function MyCheckbox() {
 
 <Solution />
 
-#### Form (two variables) {/*form-two-variables*/}
+#### Formulario (dos variables) {/*form-two-variables*/}
 
-You can declare more than one state variable in the same component. Each state variable is completely independent.
+Se puede declarar más de una variable de estado en el mismo componente. Cada variable de estado es completamente independiente. 
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Form() {
-  const [name, setName] = useState('Taylor');
-  const [age, setAge] = useState(42);
+export default function Formulario() {
+  const [nombre, setNombre] = useState('Taylor');
+  const [edad, setEdad] = useState(42);
 
   return (
     <>
       <input
-        value={name}
-        onChange={e => setName(e.target.value)}
+        value={nombre}
+        onChange={e => setNombre(e.target.value)}
       />
-      <button onClick={() => setAge(age + 1)}>
-        Increment age
+      <button onClick={() => setEdad(edad + 1)}>
+        Incrementar edad
       </button>
-      <p>Hello, {name}. You are {age}.</p>
+      <p>Hola, {nombre}. Tu tiene {edad} años.</p>
     </>
   );
 }
@@ -276,86 +276,86 @@ button { display: block; margin-top: 10px; }
 
 ---
 
-### Updating state based on the previous state {/*updating-state-based-on-the-previous-state*/}
+### Actualización de estado con base en el estado anterior {/*updating-state-based-on-the-previous-state*/}
 
-Suppose the `age` is `42`. This handler calls `setAge(age + 1)` three times:
+Supongamos que `edad` es `42`. La función `handler` llama `setEdad(edad + 1)` tres veces:
 
 ```js
 function handleClick() {
-  setAge(age + 1); // setAge(42 + 1)
-  setAge(age + 1); // setAge(42 + 1)
-  setAge(age + 1); // setAge(42 + 1)
+  setEdad(edad + 1); // setEdad(42 + 1)
+  setEdad(edad + 1); // setEdad(42 + 1)
+  setEdad(edad + 1); // setEdad(42 + 1)
 }
 ```
 
-However, after one click, `age` will only be `43` rather than `45`! This is because calling the `set` function [does not update](/learn/state-as-a-snapshot) the `age` state variable in the already running code. So each `setAge(age + 1)` call becomes `setAge(43)`.
+¡Sin embargo, después de un click, `edad` solo será `43` en lugar de 45!  Esto se debe a que llamar a la función `set ` no actualizará  la variable de estado `edad` en el código que ya se está ejecutando.  Así que cada llamada `setAge(age + 1)` se convierte en `setEdad(43)`. 
 
-To solve this problem, **you may pass an *updater function*** to `setAge` instead of the next state:
+Para resolver este problema, **puedes pasar una  función de actualización**  a `setEdad` en lugar del siguiente estado: 
 
-```js [[1, 2, "a", 0], [2, 2, "a + 1"], [1, 3, "a", 0], [2, 3, "a + 1"], [1, 4, "a", 0], [2, 4, "a + 1"]]
+```js [[1, 2, "e ", 2], [2, 2, "e + 1"], [1, 3, "e ", 2], [2, 3, "e + 1"], [1, 4, "e ", 2], [2, 4, "e + 1"]]
 function handleClick() {
-  setAge(a => a + 1); // setAge(42 => 43)
-  setAge(a => a + 1); // setAge(43 => 44)
-  setAge(a => a + 1); // setAge(44 => 45)
+  setEdad(e => e + 1); // setEdad(42 => 43)
+  setEdad(e => e + 1); // setEdad(43 => 44)
+  setEdad(e => e + 1); // setEdad(44 => 45)
 }
 ```
 
-Here, `a => a + 1` is your updater function. It takes the <CodeStep step={1}>pending state</CodeStep> and calculates the <CodeStep step={2}>next state</CodeStep> from it.
+Aquí, `e => e + 1` es la función de actualización. Toma el <CodeStep step={1}>estado pendiente</CodeStep> y calcula el <CodeStep step={2}>siguiente estado</CodeStep> a partir de él.
 
-React puts your updater functions in a [queue.](/learn/queueing-a-series-of-state-updates) Then, during the next render, it will call them in the same order:
+React pone sus funciones de actualización en una [cola.](/learn/queueing-a-series-of-state-updates) Entonces, durante el siguiente renderizado, las llamará en el mismo orden:
 
-1. `a => a + 1` will receive `42` as the pending state and return `43` as the next state.
-1. `a => a + 1` will receive `43` as the pending state and return `44` as the next state.
-1. `a => a + 1` will receive `44` as the pending state and return `45` as the next state.
+1. `e => e + 1` recibirá `42` como estado pendiente y devolverá `43` como el siguiente estado.
+1. `e => e + 1` recibirá `43` como estado pendiente y devolverá `44` como el siguiente estado.
+1. `e => e + 1` recibirá `44` como estado pendiente y devolverá `45` como el siguiente estado.
 
-There are no other queued updates, so React will store `45` as the current state in the end.
+No hay otras actualizaciones en cola, por lo que React almacenará `45` como el estado actual al final.
 
-By convention, it's common to name the pending state argument for the first letter of the state variable name, like `a` for `age`. However, you may also call it like `prevAge` or something else that you find clearer.
+Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `e` para `edad`. No obstante, también puedes llamarlo como `prevEdad` o cualquier otra cosa que te resulte más clara.
 
-React may [call your updaters twice](#my-initializer-or-updater-function-runs-twice) in development to verify that they are [pure.](/learn/keeping-components-pure)
+React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
 <DeepDive>
 
-#### Is using an updater always preferred? {/*is-using-an-updater-always-preferred*/}
+#### ¿Siempre se prefiere usar un actualizador? {/*is-using-an-updater-always-preferred*/}
 
-You might hear a recommendation to always write code like `setAge(a => a + 1)` if the state you're setting is calculated from the previous state. There is no harm in it, but it is also not always necessary.
+Es posible que escuches una recomendación para escribir siempre código como `setEdad(e => e + 1)` si el estado que está configurando se calcula a partir del estado anterior.  No hay daño en ello, pero tampoco es necesario siempre. 
 
-In most cases, there is no difference between these two approaches. React always makes sure that for intentional user actions, like clicks, the `age` state variable would be updated before the next click. This means there is no risk of a click handler seeing a "stale" `age` at the beginning of the event handler.
+En la mayoría de los casos, no hay diferencia entre estos dos enfoques. React siempre se asegura de que para las acciones intencionales del usuario, como los clicks, la variable de estado `edad` se actualizará antes del siguiente click. Esto significa que no hay riesgo de que un controlador de clicks vea un mensaje "obsoleto" de `edad` al comienzo del controlador de eventos.
 
-However, if you do multiple updates within the same event, updaters can be helpful. They're also helpful if accessing the state variable itself is inconvenient (you might run into this when optimizing re-renders).
+Sin embargo, si realizas varias actualizaciones dentro del mismo evento, los actualizadores pueden ser útiles. También son útiles si acceder a la variable de estado en sí es un inconveniente (es posible que te encuentres con esto al optimizar los renderizados). 
 
-If you prefer consistency over slightly more verbose syntax, it's reasonable to always write an updater if the state you're setting is calculated from the previous state. If it's calculated from the previous state of some *other* state variable, you might want to combine them into one object and [use a reducer.](/learn/extracting-state-logic-into-a-reducer)
+Si prefieres la coherencia a una sintaxis un poco más detallada, es razonable escribir siempre un actualizador si el estado que está configurando se calcula a partir del estado anterior.  Si se calcula a partir del estado anterior de alguna  otra  variable de estado, es posible que desees combinarlos en un solo objeto y [uses un reducer.](/learn/extracting-state-logic-into-a-reducer)
 
 </DeepDive>
 
-<Recipes titleText="The difference between passing an updater and passing the next state directly" titleId="examples-updater">
+<Recipes tituloText="La diferencia entre pasar un actualizador y pasar el siguiente estado directamente" titleId="examples-updater">
 
-#### Passing the updater function {/*passing-the-updater-function*/}
+#### Pasar la función de actualización {/*passing-the-updater-function*/}
 
-This example passes the updater function, so the "+3" button works.
+Este ejemplo pasa la función de actualización, por lo que funciona el botón "+3". 
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Counter() {
-  const [age, setAge] = useState(42);
+export default function Contador() {
+  const [edad, setEdad] = useState(42);
 
-  function increment() {
-    setAge(a => a + 1);
+  function incremento() {
+    setEdad(a => a + 1);
   }
 
   return (
     <>
-      <h1>Your age: {age}</h1>
+      <h1>Tu edad: {edad}</h1>
       <button onClick={() => {
-        increment();
-        increment();
-        increment();
+        incremento();
+        incremento();
+        incremento();
       }}>+3</button>
       <button onClick={() => {
-        increment();
+        incremento();
       }}>+1</button>
     </>
   );
@@ -371,25 +371,25 @@ h1 { display: block; margin: 10px; }
 
 <Solution />
 
-#### Passing the next state directly {/*passing-the-next-state-directly*/}
+#### Pasar el siguiente estado directamente  {/*passing-the-next-state-directly*/}
 
-This example **does not** pass the updater function, so the "+3" button **doesn't work as intended**.
+Este ejemplo  **no pasa** la función de actualización, por lo que el botón "+3" **no funciona según lo previsto** . 
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Counter() {
-  const [age, setAge] = useState(42);
+export default function Contador() {
+  const [edad, setEdad] = useState(42);
 
   function increment() {
-    setAge(age + 1);
+    setEdad(edad + 1);
   }
 
   return (
     <>
-      <h1>Your age: {age}</h1>
+      <h1>Tu edad: {edad}</h1>
       <button onClick={() => {
         increment();
         increment();
@@ -416,67 +416,67 @@ h1 { display: block; margin: 10px; }
 
 ---
 
-### Updating objects and arrays in state {/*updating-objects-and-arrays-in-state*/}
+### Actualización de objetos y _arrays_ en el estado  {/*updating-objects-and-arrays-in-state*/}
 
-You can put objects and arrays into state. In React, state is considered read-only, so **you should *replace* it rather than *mutate* your existing objects**. For example, if you have a `form` object in state, don't update it like this:
+Se pueden poner objetos y _arrays_ en el estado. En React, el estado se considera de solo lectura, por lo que **debes reemplazar en lugar de  *mutar* tus objetos existentes**. Por ejemplo, si tienes un objeto `formulario` en el estado, no lo actualices así: 
 
 ```js
-// 🚩 Don't mutate an object in state like this:
-form.firstName = 'Taylor';
+// 🚩 No cambies un objeto en un estado como este:
+formulario.primerNombre = 'Taylor';
 ```
 
-Instead, replace the whole object by creating a new one:
+En su lugar, reemplaza todo el objeto creando uno nuevo:
 
 ```js
-// ✅ Replace state with a new object
-setForm({
-  ...form,
-  firstName: 'Taylor'
+// ✅ Reemplaza el estado con un nuevo objeto
+setFormulario({
+  ...formulario,
+  primerNombre: 'Taylor'
 });
 ```
 
-Read [updating objects in state](/learn/updating-objects-in-state) and [updating arrays in state](/learn/updating-arrays-in-state) to learn more.
+Lee [actualizar objetos en el estado](/learn/updating-objects-in-state) y [actualizar _arrays_ en el estado](/learn/updating-arrays-in-state) para saber más.
 
-<Recipes titleText="Examples of objects and arrays in state" titleId="examples-objects">
+<Recipes tituloText="Ejemplos de objetos y arrays en estado" titleId="examples-objects">
 
-#### Form (object) {/*form-object*/}
+#### Formulario (objeto) {/*form-object*/}
 
-In this example, the `form` state variable holds an object. Each input has a change handler that calls `setForm` with the next state of the entire form. The `{ ...form }` spread syntax ensures that the state object is replaced rather than mutated.
+En este ejemplo, la variable de estado `formulario` contiene un objeto.  Cada entrada tiene un controlador de cambios que llama `setFormulario` con el siguiente estado de todo el formulario.  La sintaxis de propagación `{ ...formulario }` garantiza que el objeto de estado se reemplace en lugar de mutarse. 
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Form() {
-  const [form, setForm] = useState({
-    firstName: 'Barbara',
-    lastName: 'Hepworth',
+export default function Formulario() {
+  const [formulario, setFormulario] = useState({
+    nombre: 'Barbara',
+    apellido: 'Hepworth',
     email: 'bhepworth@sculpture.com',
   });
 
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
-          value={form.firstName}
+          value={formulario.nombre}
           onChange={e => {
-            setForm({
-              ...form,
-              firstName: e.target.value
+            setFormulario({
+              ...formulario,
+              nombre: e.target.value
             });
           }}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
-          value={form.lastName}
+          value={formulario.apellido}
           onChange={e => {
             setForm({
-              ...form,
-              lastName: e.target.value
+              ...formulario,
+              apellido: e.target.value
             });
           }}
         />
@@ -484,19 +484,19 @@ export default function Form() {
       <label>
         Email:
         <input
-          value={form.email}
+          value={formulario.email}
           onChange={e => {
             setForm({
-              ...form,
+              ...formulario,
               email: e.target.value
             });
           }}
         />
       </label>
       <p>
-        {form.firstName}{' '}
-        {form.lastName}{' '}
-        ({form.email})
+        {formulario.nombre}{' '}
+        {formulario.apellido}{' '}
+        ({formulario.email})
       </p>
     </>
   );
@@ -512,58 +512,58 @@ input { margin-left: 5px; }
 
 <Solution />
 
-#### Form (nested object) {/*form-nested-object*/}
+#### Formulario (objeto anidado)  {/*form-nested-object*/}
 
-In this example, the state is more nested. When you update nested state, you need to create a copy of the object you're updating, as well as any objects "containing" it on the way upwards. Read [updating a nested object](/learn/updating-objects-in-state#updating-a-nested-object) to learn more.
+En este ejemplo, el estado está más anidado. Cuando actualizas el estado anidado, debes crear una copia del objeto que está actualizando, así como cualquier objeto que lo "contenga" en el camino hacia arriba. Lee [actualizar un objeto anidado](/learn/updating-objects-in-state#updating-a-nested-object) para obtener más información. 
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Form() {
-  const [person, setPerson] = useState({
-    name: 'Niki de Saint Phalle',
-    artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
-      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+export default function Formulario() {
+  const [persona, setPersona] = useState({
+    nombre: 'Niki de Saint Phalle',
+    obra: {
+      titulo: 'Blue Nana',
+      ciudad: 'Hamburg',
+      imagen: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
 
-  function handleNameChange(e) {
-    setPerson({
-      ...person,
-      name: e.target.value
+  function handlenombreChange(e) {
+    setPersona({
+      ...persona,
+      nombre: e.target.value
     });
   }
 
-  function handleTitleChange(e) {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        title: e.target.value
+  function handletituloChange(e) {
+    setPersona({
+      ...persona,
+      obra: {
+        ...persona.artwork,
+        titulo: e.target.value
       }
     });
   }
 
   function handleCityChange(e) {
-    setPerson({
-      ...person,
+    setPersona({
+      ...persona,
       artwork: {
-        ...person.artwork,
+        ...persona.artwork,
         city: e.target.value
       }
     });
   }
 
-  function handleImageChange(e) {
-    setPerson({
-      ...person,
+  function handleimagenChange(e) {
+    setPersona({
+      ...persona,
       artwork: {
-        ...person.artwork,
-        image: e.target.value
+        ...persona.artwork,
+        imagen: e.target.value
       }
     });
   }
@@ -571,43 +571,43 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
-          value={person.name}
-          onChange={handleNameChange}
+          value={persona.nombre}
+          onChange={handlenombreChange}
         />
       </label>
       <label>
-        Title:
+        Titulo:
         <input
-          value={person.artwork.title}
-          onChange={handleTitleChange}
+          value={persona.artwork.titulo}
+          onChange={handletituloChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
-          value={person.artwork.city}
+          value={persona.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
-          value={person.artwork.image}
-          onChange={handleImageChange}
+          value={persona.artwork.imagen}
+          onChange={handleimagenChange}
         />
       </label>
       <p>
-        <i>{person.artwork.title}</i>
+        <i>{persona.artwork.titulo}</i>
         {' by '}
-        {person.name}
+        {persona.nombre}
         <br />
-        (located in {person.artwork.city})
+        (ubicado en {persona.artwork.city})
       </p>
       <img 
-        src={person.artwork.image} 
-        alt={person.artwork.title}
+        src={persona.artwork.imagen} 
+        alt={persona.artwork.titulo}
       />
     </>
   );
@@ -624,9 +624,9 @@ img { width: 200px; height: 200px; }
 
 <Solution />
 
-#### List (array) {/*list-array*/}
+#### Lista (array) {/*list-array*/}
 
-In this example, the `todos` state variable holds an array. Each button handler calls `setTodos` with the next version of that array. The `[...todos]` spread syntax, `todos.map()` and `todos.filter()` ensure the state array is replaced rather than mutated.
+En este ejemplo, la variable de estado `todos` contiene un _array_. Cada controlador de botón llama a `setTodos` con la próxima versión de ese _array_. La sintaxis de propagación `[...todos]`, `todos.map()` y `todos.filter()` aseguran que el _array_ de estado se reemplace en lugar de mutarse.
 
 <Sandpack>
 
@@ -637,20 +637,20 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, title: 'Buy milk', done: true },
-  { id: 1, title: 'Eat tacos', done: false },
-  { id: 2, title: 'Brew tea', done: false },
+  { id: 0, titulo: 'Comprar leche', done: true },
+  { id: 1, titulo: 'Comer tacos', done: false },
+  { id: 2, titulo: 'Preparar té', done: false },
 ];
 
 export default function TaskApp() {
   const [todos, setTodos] = useState(initialTodos);
 
-  function handleAddTodo(title) {
+  function handleAddTodo(titulo) {
     setTodos([
       ...todos,
       {
         id: nextId++,
-        title: title,
+        titulo: titulo,
         done: false
       }
     ]);
@@ -691,18 +691,18 @@ export default function TaskApp() {
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
-  const [title, setTitle] = useState('');
+  const [titulo, setTitulo] = useState('');
   return (
     <>
       <input
-        placeholder="Add todo"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
+        placeholder="Agregar para hacer"
+        value={titulo}
+        onChange={e => setTitulo(e.target.value)}
       />
       <button onClick={() => {
-        setTitle('');
-        onAddTodo(title);
-      }}>Add</button>
+        setTitulo('');
+        onAddTodo(titulo);
+      }}>Agregar</button>
     </>
   )
 }
@@ -738,24 +738,24 @@ function Task({ todo, onChange, onDelete }) {
     todoContent = (
       <>
         <input
-          value={todo.title}
+          value={todo.titulo}
           onChange={e => {
             onChange({
               ...todo,
-              title: e.target.value
+              titulo: e.target.value
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
   } else {
     todoContent = (
       <>
-        {todo.title}
+        {todo.titulo}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -774,7 +774,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -791,9 +791,9 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution />
 
-#### Writing concise update logic with Immer {/*writing-concise-update-logic-with-immer*/}
+#### Escribir lógica de actualización concisa con Immer {/*writing-concise-update-logic-with-immer*/}
 
-If updating arrays and objects without mutation feels tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code. Immer lets you write concise code as if you were mutating objects, but under the hood it performs immutable updates:
+Si actualizar _arrays_ y objetos sin mutación resulta tedioso, puedes usar una biblioteca como [Immer](https://github.com/immerjs/use-immer) para reducir el código repetitivo. Immer te permite escribir código conciso como si estuvieras mutando objetos, pero internamente realiza actualizaciones inmutables:
 
 <Sandpack>
 
@@ -803,9 +803,9 @@ import { useImmer } from 'use-immer';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, titulo: 'Big Bellies', seen: false },
+  { id: 1, titulo: 'Paisaje Lunar', seen: false },
+  { id: 2, titulo: 'Ejército de Terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -822,8 +822,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista de cubo de arte</h1>
+      <h2>Mi lista de arte para ver:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -847,7 +847,7 @@ function ItemList({ artworks, onToggle }) {
                 );
               }}
             />
-            {artwork.title}
+            {artwork.titulo}
           </label>
         </li>
       ))}
@@ -882,9 +882,9 @@ function ItemList({ artworks, onToggle }) {
 
 ---
 
-### Avoiding recreating the initial state {/*avoiding-recreating-the-initial-state*/}
+### Evitar recrear el estado inicial {/*avoiding-recreating-the-initial-state*/}
 
-React saves the initial state once and ignores it on the next renders.
+React guarda el estado inicial una vez y lo ignora en los próximos renderizados.
 
 ```js
 function TodoList() {
@@ -892,25 +892,25 @@ function TodoList() {
   // ...
 ```
 
-Although the result of `createInitialTodos()` is only used for the initial render, you're still calling this function on every render. This can be wasteful if it's creating large arrays or performing expensive calculations.
+Aunque el resultado de `createInitialTodos()` solo se usa para el renderizado inicial, todavía está llamando a esta función en cada renderizado. Esto puede ser un desperdicio si se trata de crear _arrays_ grandes o realizar cálculos costosos.
 
-To solve this, you may **pass it as an _initializer_ function** to `useState` instead:
+Para resolver esto, puedes **pasarlo como una función inicializadora** a `useState` en su lugar:
 
 ```js
 function TodoList() {
-  const [todos, setTodos] = useState(createInitialTodos);
+  const [todos, setTodos] = useState(crearInicialTodos);
   // ...
 ```
 
-Notice that you’re passing `createInitialTodos`, which is the *function itself*, and not `createInitialTodos()`, which is the result of calling it. If you pass a function to `useState`, React will only call it during initialization.
+Observa que estás pasando `createInitialTodos`, que es la *función misma*, y no `createInitialTodos()`, que es el resultado de llamarla. Si pasas una función a `useState`, React solo la llamará durante la inicialización.
 
-React may [call your initializers twice](#my-initializer-or-updater-function-runs-twice) in development to verify that they are [pure.](/learn/keeping-components-pure)
+React puede [llamar a tus inicializadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/manteniendo-componentes-puros)
 
-<Recipes titleText="The difference between passing an initializer and passing the initial state directly" titleId="examples-initializer">
+<Recipes tituloText="La diferencia entre pasar un inicializador y pasar el valor inicial directamente" titleId="examples-initializer">
 
-#### Passing the initializer function {/*passing-the-initializer-function*/}
+#### Paso de la función de inicializadora {/*passing-the-initializer-function*/}
 
-This example passes the initializer function, so the `createInitialTodos` function only runs during initialization. It does not run when component re-renders, such as when you type into the input.
+Este ejemplo pasa la función de inicialización, por lo que la función `createInitialTodos` solo se ejecuta durante la inicialización. No se ejecuta cuando el componente se vuelve a renderizar, como cuando escribe en la entrada.
 
 <Sandpack>
 
@@ -922,33 +922,33 @@ function createInitialTodos() {
   for (let i = 0; i < 50; i++) {
     initialTodos.push({
       id: i,
-      text: 'Item ' + (i + 1)
+      texto: 'Item ' + (i + 1)
     });
   }
   return initialTodos;
 }
 
 export default function TodoList() {
-  const [todos, setTodos] = useState(createInitialTodos);
-  const [text, setText] = useState('');
+  const [todos, setTodos] = useState(crearIniciarTodos);
+  const [texto, setTexto] = useState('');
 
   return (
     <>
       <input
-        value={text}
+        value={texto}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
-        setText('');
+        setTexto('');
         setTodos([{
           id: todos.length,
-          text: text
+          texto: texto
         }, ...todos]);
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
-            {item.text}
+            {item.texto}
           </li>
         ))}
       </ul>
@@ -961,9 +961,9 @@ export default function TodoList() {
 
 <Solution />
 
-#### Passing the initial state directly {/*passing-the-initial-state-directly*/}
+#### Pasar el estado inicial directamente {/*passing-the-initial-state-directly*/}
 
-This example **does not** pass the initializer function, so the `createInitialTodos` function runs on every render, such as when you type into the input. There is no observable difference in behavior, but this code is less efficient.
+Este ejemplo **no** pasa la función de inicialización, por lo que la función `createInitialTodos` se ejecuta en cada renderizado, como cuando escribes en la entrada. No hay una diferencia observable en el comportamiento, pero este código es menos eficiente.
 
 <Sandpack>
 
@@ -975,7 +975,7 @@ function createInitialTodos() {
   for (let i = 0; i < 50; i++) {
     initialTodos.push({
       id: i,
-      text: 'Item ' + (i + 1)
+      texto: 'Item ' + (i + 1)
     });
   }
   return initialTodos;
@@ -983,25 +983,25 @@ function createInitialTodos() {
 
 export default function TodoList() {
   const [todos, setTodos] = useState(createInitialTodos());
-  const [text, setText] = useState('');
+  const [texto, setTexto] = useState('');
 
   return (
     <>
       <input
-        value={text}
-        onChange={e => setText(e.target.value)}
+        value={texto}
+        onChange={e => setTexto(e.target.value)}
       />
       <button onClick={() => {
-        setText('');
+        setTexto('');
         setTodos([{
           id: todos.length,
-          text: text
+          texto: texto
         }, ...todos]);
       }}>Add</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
-            {item.text}
+            {item.texto}
           </li>
         ))}
       </ul>
@@ -1018,13 +1018,13 @@ export default function TodoList() {
 
 ---
 
-### Resetting state with a key {/*resetting-state-with-a-key*/}
+### Restablecimiento de estado con una key {/*resetting-state-with-a-key*/}
 
-Typically, you might encounter the `key` attribute when [rendering lists.](/learn/rendering-lists) However, it also serves another purpose.
+Por lo general, es posible que encuentre el atributo `key` al [renderizar listas.](/learn/rendering-lists) Sin embargo, también tiene otro propósito.
 
-You can **reset a component's state by passing a different `key` to a component.** In this example, the Reset button changes the `version` state variable, which we pass as a `key` to the `Form`. When the `key` changes, React re-creates the `Form` component (and all of its children) from scratch, so its state gets reset.
+Puede **restablecer el estado de un componente pasando una `key` diferente a un componente.** En este ejemplo, el botón Restablecer cambia la variable de estado `versión`, que pasamos como una `key` al `Formulario`. Cuando la `key` cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se restablece.
 
-Read [preserving and resetting state](/learn/preserving-and-resetting-state) to learn more.
+Lea [preservar y restablecer el estado](/learn/preserving-and-resetting-state) para obtener más información.
 
 <Sandpack>
 
@@ -1047,15 +1047,15 @@ export default function App() {
 }
 
 function Form() {
-  const [name, setName] = useState('Taylor');
+  const [nombre, setNombre] = useState('Taylor');
 
   return (
     <>
       <input
-        value={name}
-        onChange={e => setName(e.target.value)}
+        value={nombre}
+        onChange={e => setNombre(e.target.value)}
       />
-      <p>Hello, {name}.</p>
+      <p>Hola, {nombre}.</p>
     </>
   );
 }
@@ -1069,19 +1069,19 @@ button { display: block; margin-bottom: 20px; }
 
 ---
 
-### Storing information from previous renders {/*storing-information-from-previous-renders*/}
+### Almacenamiento de información de renderizados anteriores {/*storing-information-from-previous-renders*/}
 
-Usually, you will update state in event handlers. However, in rare cases you might want to adjust state in response to rendering -- for example, you might want to change a state variable when a prop changes.
+Por lo general, actualizarás el estado en los controladores de eventos. Sin embargo, en casos excepcionales, es posible que desees ajustar el estado en respuesta al renderizado; por ejemplo, es posible que desees cambiar una variable de estado cuando cambia una propiedad.
 
-In most cases, you don't need this:
+En la mayoría de los casos, no lo necesitas:
 
-* **If the value you need can be computed entirely from the current props or other state, [remove that redundant state altogether.](/learn/choosing-the-state-structure#avoid-redundant-state)** If you're worried about recomputing too often, the [`useMemo` Hook](/reference/react/useMemo) can help.
-* If you want to reset the entire component tree's state, [pass a different `key` to your component.](#resetting-state-with-a-key)
-* If you can, update all the relevant state in the event handlers.
+* **Si el valor que necesitas se puede calcular completamente a partir de las props actuales u otro estado, [elimina ese estado redundante por completo.](/learn/choosing-the-state-structure#avoid-redundant-state)** Si te preocupa volver a calcular con demasiada frecuencia, el [Hook `useMemo`](/reference/react/useMemo) puede ayudarte.
+* Si deseas restablecer el estado de todo el árbol de componentes, [pasa una `key` diferente a tu componente.](#resetting-state-with-a-key)
+* Si puedes, actualiza todo el estado relevante en los controladores de eventos.
 
-In the rare case that none of these apply, there is a pattern you can use to update state based on the values that have been rendered so far, by calling a `set` function while your component is rendering.
+En el raro caso de que ninguno de estos se aplique, hay un patrón que puedes usar para actualizar el estado en función de los valores que se han renderizado hasta el momento, llamando a una función `set` mientras tu componente se está renderizando.
 
-Here's an example. This `CountLabel` component displays the `count` prop passed to it:
+Aquí hay un ejemplo. Este componente `CountLabel` muestra la propiedad `count` que se le pasó:
 
 ```js CountLabel.js
 export default function CountLabel({ count }) {
@@ -1089,7 +1089,7 @@ export default function CountLabel({ count }) {
 }
 ```
 
-Say you want to show whether the counter has *increased or decreased* since the last change. The `count` prop doesn't tell you this -- you need to keep track of its previous value. Add the `prevCount` state variable to track it. Add another state variable called `trend` to hold whether the count has increased or decreased. Compare `prevCount` with `count`, and if they're not equal, update both `prevCount` and `trend`. Now you can show both the current count prop and *how it has changed since the last render*.
+Digamos que quieres mostrar si el contador ha *aumentado o disminuido* desde el último cambio. La prop `count` no te lo dice, -- necesitas realizar un seguimiento de su valor anterior. Agrega la variable de estado `prevCount` para realizar un seguimiento. Agrega otra variable de estado llamada `trend` para determinar si el conteo ha aumentado o disminuido. Compara `prevCount` con `count` y, si no son iguales, actualiza tanto `prevCount` como `trend`. Ahora puedes mostrar tanto el accesorio de conteo actual como *cómo ha cambiado desde el último renderizado*.
 
 <Sandpack>
 
@@ -1138,34 +1138,34 @@ button { margin-bottom: 10px; }
 
 </Sandpack>
 
-Note that if you call a `set` function while rendering, it must be inside a condition like `prevCount !== count`, and there must be a call like `setPrevCount(count)` inside of the condition. Otherwise, your component would re-render in a loop until it crashes. Also, you can only update the state of the *currently rendering* component like this. Calling the `set` function of *another* component during rendering is an error. Finally, your `set` call should still [update state without mutation](#updating-objects-and-arrays-in-state) -- this special case doesn't mean you can break other rules of [pure functions.](/learn/keeping-components-pure)
+Ten en cuenta que si llamas a una función `set` durante el renderizado, debe estar dentro de una condición como `prevCount !== count`, y debe haber una llamada como `setPrevCount(count)` dentro de la condición. De lo contrario, tu componente se volvería a procesar en un bucle hasta que se bloquee. Además, solo puedes actualizar el estado del componente *actualmente renderizado* de esta manera. Llamar a la función `set` de *otro* componente durante el renderizado es un error. Finalmente, tu llamada `set` aún debería [actualizar el estado sin mutación](#updating-objects-and-arrays-in-state) -- este caso especial no significa que puedas romper otras reglas de [funciones puras.](/learn/keeping-components-pure)
 
-This pattern can be hard to understand and is usually best avoided. However, it's better than updating state in an effect. When you call the `set` function during render, React will re-render that component immediately after your component exits with a `return` statement, and before rendering the children. This way, children don't need to render twice. The rest of your component function will still execute (and the result will be thrown away), but if your condition is below all the calls to Hooks, you may add an early `return;` inside it to restart rendering earlier.
+Este patrón puede ser difícil de entender y, por lo general, es mejor evitarlo. Sin embargo, es mejor que actualizar el estado en un Efecto. Cuando llamas a la función `set` durante el renderizado, React volverá a renderizar ese componente inmediatamente después de que tu componente salga con una declaración `return` y antes de renderizar los hijos. De esta manera, sus hijos no necesitan renderizarse dos veces. El resto de la función de tu componente aún se ejecutará (y el resultado se descartará), pero si tu condición está por debajo de todas las llamadas a Hooks, puedes agregar un `return;` anticipado dentro de él para reiniciar el renderizado antes.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solución de problemas {/*troubleshooting*/}
 
-### I've updated the state, but logging gives me the old value {/*ive-updated-the-state-but-logging-gives-me-the-old-value*/}
+### He actualizado el estado, pero el registro me da el valor anterior {/*ive-updated-the-state-but-logging-gives-me-the-old-value*/}
 
-Calling the `set` function **does not change state in the running code**:
+Llamar a la función `set` **no cambia el estado en el código en ejecución**:
 
 ```js {4,5,8}
 function handleClick() {
   console.log(count);  // 0
 
-  setCount(count + 1); // Request a re-render with 1
-  console.log(count);  // Still 0!
+  setCount(count + 1); // Solicitar un re-render con 1
+  console.log(count);  // Todavía 0!
 
   setTimeout(() => {
-    console.log(count); // Also 0!
+    console.log(count); // También es 0!
   }, 5000);
 }
 ```
 
-This is because [states behaves like a snapshot.](/learn/state-as-a-snapshot) Updating state requests another render with the new state value, but does not affect the `count` JavaScript variable in your already-running event handler.
+Esto se debe a que [los estados se comportan como una instantánea.](/learn/state-as-a-snapshot) La actualización del estado solicita otro procesamiento con el nuevo valor del estado, pero no afecta la variable de JavaScript `count` en tu manejador de eventos que ya se está ejecutando.
 
-If you need to use the next state, you can save it in a variable before passing it to the `set` function:
+Si necesitas usar el siguiente estado, puedes guardarlo en una variable antes de pasarlo a la función `set`:
 
 ```js
 const nextCount = count + 1;
@@ -1177,19 +1177,19 @@ console.log(nextCount); // 1
 
 ---
 
-### I've updated the state, but the screen doesn't update {/*ive-updated-the-state-but-the-screen-doesnt-update*/}
+### He actualizado el estado, pero la pantalla no se actualiza {/*ive-updated-the-state-but-the-screen-doesnt-update*/}
 
-React will **ignore your update if the next state is equal to the previous state,** as determined by an [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. This usually happens when you change an object or an array in state directly:
+React **ignorará tu actualización si el siguiente estado es igual al estado anterior**, según lo determine un [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Esto generalmente sucede cuando cambias un objeto o un _array_ en el estado directamente:
 
 ```js
-obj.x = 10;  // 🚩 Wrong: mutating existing object
-setObj(obj); // 🚩 Doesn't do anything
+obj.x = 10;  // 🚩 Incorrecto: mutar objeto existente
+setObj(obj); // 🚩 No hace nada
 ```
 
-You mutated an existing `obj` object and passed it back to `setObj`, so React ignored the update. To fix this, you need to ensure that you're always [_replacing_ objects and arrays in state instead of _mutating_ them](#updating-objects-and-arrays-in-state):
+Mutaste un objeto `obj` existente y se lo volviste a pasar a `setObj`, por lo que React ignoró la actualización. Para solucionar esto, debes asegurarte de estar siempre [_reemplazando_ objetos y arreglos en el estado en lugar de _mutarlos_](#updating-objects-and-arrays-in-state) :
 
 ```js
-// ✅ Correct: creating a new object
+// ✅ Correcto: crear un nuevo objeto
 setObj({
   ...obj,
   x: 10
@@ -1198,78 +1198,78 @@ setObj({
 
 ---
 
-### I'm getting an error: "Too many re-renders" {/*im-getting-an-error-too-many-re-renders*/}
+### Recibo un error: "Demasiados renderizados" {/*im-getting-an-error-too-many-re-renders*/}
 
-You might get an error that says: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` Typically, this means that you're unconditionally setting state *during render*, so your component enters a loop: render, set state (which causes a render), render, set state (which causes a render), and so on. Very often, this is caused by a mistake in specifying an event handler:
+Es posible que recibas un error que diga: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (`Demasiados renderizados. React limita la cantidad de renderizados para evitar un bucle infinito.`) Por lo general, esto significa que estás estableciendo el estado incondicionalmente *durante el renderizado*, por lo que tu componente entra en un bucle: renderizar, establecer el estado (lo que provoca un renderizado), renderizar, establecer estado (que provoca un renderizado), y así sucesivamente. Muy a menudo, esto se debe a un error al especificar un controlador de eventos:
 
 ```js {1-2}
-// 🚩 Wrong: calls the handler during render
-return <button onClick={handleClick()}>Click me</button>
+// 🚩 Incorrecto: llama al controlador durante el procesamiento
+return <button onClick={handleClick()}>Haz click en mi</button>
 
-// ✅ Correct: passes down the event handler
-return <button onClick={handleClick}>Click me</button>
+// ✅ Correcto: pasa el controlador de eventos
+return <button onClick={handleClick}>Haz click en mi</button>
 
-// ✅ Correct: passes down an inline function
-return <button onClick={(e) => handleClick(e)}>Click me</button>
+// ✅ Correcto: pasa una función en línea
+return <button onClick={(e) => handleClick(e)}>Haz click en mi</button>
 ```
 
-If you can't find the cause of this error, click on the arrow next to the error in the console and look through the JavaScript stack to find the specific `set` function call responsible for the error.
+Si no puedes encontrar la causa de este error, haz clic en la flecha al lado del error en la consola y mira a través de la pila de JavaScript para encontrar la llamada de función `set` específica responsable del error.
 
 ---
 
-### My initializer or updater function runs twice {/*my-initializer-or-updater-function-runs-twice*/}
+### Mi función de inicialización o actualización se ejecuta dos veces {/*my-initializer-or-updater-function-runs-twice*/}
 
-In [Strict Mode](/reference/react/StrictMode), React will call some of your functions twice instead of once:
+En [Modo estricto](/reference/react/StrictMode), React llamará a algunas de tus funciones dos veces en lugar de una:
 
 ```js {2,5-6,11-12}
 function TodoList() {
-  // This component function will run twice for every render.
+ // Esta función de componente se ejecutará dos veces por cada procesamiento.
 
   const [todos, setTodos] = useState(() => {
-    // This initializer function will run twice during initialization.
-    return createTodos();
+   // Esta función de inicialización se ejecutará dos veces durante la inicialización.
+    return crearTodos();
   });
 
   function handleClick() {
     setTodos(prevTodos => {
-      // This updater function will run twice for every click.
-      return [...prevTodos, createTodo()];
+      // Esta función de actualización se ejecutará dos veces por cada click.
+      return [...prevTodos, crearTodo()];
     });
   }
   // ...
 ```
 
-This is expected and shouldn't break your code.
+Esto se espera y no debería romper tu código.
 
-This **development-only** behavior helps you [keep components pure.](/learn/keeping-components-pure) React uses the result of one of the calls, and ignores the result of the other call. As long as your component, initializer, and updater functions are pure, this shouldn't affect your logic. However, if they are accidentally impure, this helps you notice the mistakes and fix it.
+Este comportamiento que ocurre **solo en desarrollo** te ayuda a [mantener los componentes puros.](/learn/keeping-components-pure) React usa el resultado de una de las llamadas e ignora el resultado de la otra llamada. Siempre que tus funciones de componente, inicializadoras y actualizadoras sean puras, esto no debería afectar su lógica. Sin embargo, si son impuras accidentalmente, esto te ayuda a detectar los errores y corregirlos.
 
-For example, this impure updater function mutates an array in state:
+Por ejemplo, esta función de actualización impura muta un _array_ en el estado:
 
 ```js {2,3}
 setTodos(prevTodos => {
-  // 🚩 Mistake: mutating state
+  // 🚩 Error: estado mutando
   prevTodos.push(createTodo());
 });
 ```
 
-Because React calls your updater function twice, you'll see the todo was added twice, so you'll know that there is a mistake. In this example, you can fix the mistake by [replacing the array instead of mutating it](#updating-objects-and-arrays-in-state):
+Debido a que React llama a tu función de actualización dos veces, verás que la tarea pendiente se agregó dos veces, por lo que sabrás que hay un error. En este ejemplo, puede corregir el error [reemplazando el _array_ en lugar de mutarlo](#updating-objects-and-arrays-in-state):
 
 ```js {2,3}
 setTodos(prevTodos => {
-  // ✅ Correct: replacing with new state
+  // ✅ Correcto: reemplazar con nuevo estado
   return [...prevTodos, createTodo()];
 });
 ```
 
-Now that this updater function is pure, calling it an extra time doesn't make a difference in behavior. This is why React calling it twice helps you find mistakes. **Only component, initializer, and updater functions need to be pure.** Event handlers don't need to be pure, so React will never call your event handlers twice.
+Ahora que esta función de actualización es pura, llamarla una vez más no hace una diferencia en el comportamiento. Es por eso que al React llamarla dos veces te ayuda a encontrar errores. **Solo las funciones de componente, inicializadoras y actualizadoras deben ser puras.** Los controladores de eventos no necesitan ser puros, por lo que React nunca llamará a tus controladores de eventos dos veces.
 
-Read [keeping components pure](/learn/keeping-components-pure) to learn more.
+Lea [mantener los componentes puros](/learn/keeping-components-pure) para obtener más información.
 
 ---
 
-### I'm trying to set state to a function, but it gets called instead {/*im-trying-to-set-state-to-a-function-but-it-gets-called-instead*/}
+### Estoy tratando de establecer el estado como una función, pero termina siendo llamada {/*im-trying-to-set-state-to-a-function-but-it-gets-called-instead*/}
 
-You can't put a function into state like this:
+No puedes poner una función en un estado como este:
 
 ```js
 const [fn, setFn] = useState(someFunction);
@@ -1279,7 +1279,7 @@ function handleClick() {
 }
 ```
 
-Because you're passing a function, React assumes that `someFunction` is an [initializer function](#avoiding-recreating-the-initial-state), and that `someOtherFunction` is an [updater function](#updating-state-based-on-the-previous-state), so it tries to call them and store the result. To actually *store* a function, you have to put `() =>` before them in both cases. Then React will store the functions you pass.
+Debido a que estás pasando una función, React asume que `someFunction` es una [función inicializadora](#avoiding-recreating-the-initial-state), y que `someOtherFunction` es una [función actualizadora](#updating-state-based-on-the-previous-state), por lo que intenta llamarlas y almacenar el resultado. Para realmente *almacenar* una función, tienes que poner `() =>` delante de ellas en ambos casos. Entonces React almacenará las funciones que pases.
 
 ```js {1,4}
 const [fn, setFn] = useState(() => someFunction);
