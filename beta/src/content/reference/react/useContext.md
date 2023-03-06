@@ -1337,7 +1337,7 @@ function MyApp() {
 }
 ```
 
-Como resultado de este cambio, incluso si `MyApp` necesita rerenderizarse, los componentes que llaman `useContext(AuthProvider)` no se rerenderizarán a menos que `currentUser` haya cambiado. Lee más sobre [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) y [`useCallback`.](/reference/react/useCallback#skipping-re-rendering-of-components)
+Como resultado de este cambio, incluso si `MyApp` necesita rerenderizarse, los componentes que llaman `useContext(AuthContext)` no se rerenderizarán a menos que `currentUser` haya cambiado. Lee más sobre [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) y [`useCallback`.](/reference/react/useCallback#skipping-re-rendering-of-components)
 
 ---
 
