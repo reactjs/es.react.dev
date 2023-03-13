@@ -212,7 +212,11 @@ Si vienes de un entorno de programación orientada a objetos, podrías asumir qu
 
 </DeepDive>
 
+<<<<<<< HEAD
 Ahora digamos que quieres envolver el texto del elemento completado en otra etiqueta HTML, como `<del>` para tacharlo. Puedes añadir aún más líneas nuevas y paréntesis para que sea más fácil anidar más JSX en cada uno de los casos:
+=======
+Now let's say you want to wrap the completed item's text into another HTML tag, like `<del>` to strike it out. You can add even more newlines and parentheses so that it's easier to nest more JSX in each of the cases:
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 <Sandpack>
 
