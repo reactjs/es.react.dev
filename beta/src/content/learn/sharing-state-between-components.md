@@ -4,7 +4,7 @@ title: Compartir estado entre componentes
 
 <Intro>
 
-Hay ocasiones en las que quieres que el estado de dos componentes cambien siempre juntos. Para hacerlo, elimine el estado de los dos, muévalo a su padre común más cercano y luego pásalo a través de props. Esto se conoce como *elevar el estado ( lifting state up )*, y es una de las cosas más comunes que harás al escribir código React.
+Hay ocasiones en las que quieres que el estado de dos componentes cambien siempre juntos. Para hacerlo, elimina el estado de los dos, muévelo al padre común más cercano y luego pásalo a través de props. Esto se conoce como *elevar el estado (lifting state up)*, y es una de las cosas más comunes que harás al escribir código React.
 
 </Intro>
 
@@ -17,7 +17,7 @@ Hay ocasiones en las que quieres que el estado de dos componentes cambien siempr
 
 ## Elevar el estado con un ejemplo {/*lifting-state-up-by-example*/}
 
-En este ejemplo, el componente padre`Accordion` renderiza dos componentes `Panel`:
+En este ejemplo, el componente padre `Accordion` renderiza dos componentes `Panel`:
 
 * `Accordion`
   - `Panel`
@@ -25,7 +25,7 @@ En este ejemplo, el componente padre`Accordion` renderiza dos componentes `Panel
 
 Cada componente `Panel` tiene un estado booleano 'isActive' que determina si su contenido es visible.
 
-Presione el botón Mostrar en ambos paneles:
+Presiona el botón Mostrar en ambos paneles:
 
 <Sandpack>
 
@@ -56,7 +56,7 @@ export default function Accordion() {
         Con una población de unos 2 millones de habitantes, Almaty es la mayor ciudad de Kazajstán. De 1929 a 1997 fue su capital.
       </Panel>
       <Panel title="Etimología">
-        El nombre proviene de <span lang="kk-KZ">алма</span>, palabra Kazakh  que significa "manzana" y suele traducirse como "lleno de manzanas". De hecho, se cree que la región que rodea a Almaty es el hogar ancestral de la manzana, y se considera que este fruto silvestre <i lang="la">Malus sieversii</i> es un candidato probable para el ancestro de la manzana doméstica moderna.
+        El nombre proviene de <span lang="kk-KZ">алма</span>, palabra Kazakh que significa "manzana" y suele traducirse como "lleno de manzanas". De hecho, se cree que la región que rodea a Almaty es el hogar ancestral de la manzana, y se considera que este fruto silvestre <i lang="la">Malus sieversii</i> es un candidato probable para el ancestro de la manzana doméstica moderna.
       </Panel>
     </>
   );
@@ -119,7 +119,7 @@ Ahora el componente padre de `Panel` puede *controlar* `isActive` [pasándolo co
 
 ### Paso 2: Pasa los datos codificados desde el componente padre común {/*step-2-pass-hardcoded-data-from-the-common-parent*/}
 
-Para elevar el estado, debe localizar el componente padre común más cercano de *ambos* componentes hijos que desea coordinar:
+Para elevar el estado, debes localizar el componente padre común más cercano de *ambos* componentes hijos que deseas coordinar:
 
 * `Accordion` *(padre común más cercano)*
   - `Panel`
@@ -172,7 +172,7 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-Intente editar los valores codificados de `isActive` en el componente `Accordion` y vea el resultado en la pantalla.
+Intenta editar los valores codificados de `isActive` en el componente `Accordion` y ve el resultado en la pantalla.
 
 ### Paso 3: Añadir el estado al componente padre común {/*step-3-add-state-to-the-common-parent*/}
 
@@ -301,11 +301,11 @@ Cuando escribas un componente, plantéate qué información debe ser controlada 
 
 En una aplicación React, muchos componentes tendrán su propio estado. Algunos estados pueden "vivir" cerca de los componentes hoja (componentes en la parte inferior del árbol) como las entradas. Otros estados pueden "vivir" más cerca de la parte superior de la aplicación. Por ejemplo, incluso las bibliotecas de enrutamiento del lado del cliente suelen implementarse almacenando la ruta actual en el estado de React, y pasándola hacia abajo mediante props.
 
-Para cada estado individualizado, se elegirá el componente que lo "albergue". Este principio también se conoce como tener una ["single source of truth".](https://en.wikipedia.org/wiki/Single_source_of_truth) No significa que todo el estado viva en un solo lugar, sino que para _cada_ pieza de estado, hay un componente _específico_ que contiene esa pieza de información. En lugar de duplicar el estado compartido entre los componentes, lo *elevarás* a su padre común compartido, y lo *pasarás a los hijos*  que lo necesiten.
+Para cada estado individualizado, se elegirá el componente que lo "albergue". Este principio también se conoce como tener una ["única fuente de la verdad" (single source of truth).](https://en.wikipedia.org/wiki/Single_source_of_truth) No significa que todo el estado viva en un solo lugar, sino que para _cada_ pieza de estado, hay un componente _específico_ que contiene esa pieza de información. En lugar de duplicar el estado compartido entre los componentes, lo *elevarás* a su padre común compartido, y lo *pasarás a los hijos*  que lo necesiten.
 
 Tu aplicación cambiará a medida que trabajes en ella. Es común que muevas el estado hacia abajo o hacia arriba mientras aún estás averiguando dónde "vive" cada pieza del estado. Todo esto forma parte del proceso.
 
-Para ver cómo se siente esto en la práctica con algunos componentes más, lee [Thinking in React.](/aprender/thinking-in-react)
+Para ver cómo se siente esto en la práctica con algunos componentes más, lee [Pensar en React.](/learn/thinking-in-react)
 
 <Recap>
 
