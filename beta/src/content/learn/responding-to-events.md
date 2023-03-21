@@ -67,7 +67,7 @@ Definiste la función `handleClick` y luego [la pasaste como una prop](/learn/pa
 * Usualmente están definidas *dentro* de tus componentes.
 * Tienen nombres que empiezan con `handle`, seguido del nombre del evento.
 
-> Por convención, es común llamar a los manejadores de eventos como `handle` seguido del nombre del evento. A menudo verás `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, etcétera.
+Por convención, es común llamar a los manejadores de eventos como `handle` seguido del nombre del evento. A menudo verás `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, etcétera.
 
 Por otro lado, puedes definir un manejador de eventos en línea en el JSX:
 
@@ -126,7 +126,7 @@ En ambos casos, lo que quieres pasar es una función:
 * `<button onClick={handleClick}>` pasa la función `handleClick`.
 * `<button onClick={() => alert('...')}>` pasa la función `() => alert('...')`.
 
-> [Lee más sobre las funciones flecha.](https://javascript.info/arrow-functions-basics)
+[Lee más sobre las funciones flecha.](https://javascript.info/arrow-functions-basics)
 
 </Pitfall>
 
@@ -231,9 +231,9 @@ Si usas un [sistema de diseño](https://uxdesign.cc/everything-you-need-to-know-
 
 ### Nombrar props de manejadores de eventos {/*naming-event-handler-props*/}
 
-Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](TODO:/reference/react-dom/events) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
+Componentes integrados como `<button>` y `<div>` solo admiten [nombres de eventos del navegador](/reference/react-dom/components/common#common-props) como `onClick`. Sin embargo, cuando estás creando tus propios componentes, puedes nombrar sus props de manejador de eventos como quieras.
 
-> Por convención, las props de manejadores de eventos deberían empezar con `on`, seguido de una letra mayúscula.
+Por convención, las props de manejadores de eventos deberían empezar con `on`, seguido de una letra mayúscula.
 
 Por ejemplo, la propiedad `onClick` del componente `Button` pudo haberse llamado `onSmash`:
 

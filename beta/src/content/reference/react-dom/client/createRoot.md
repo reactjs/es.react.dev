@@ -23,6 +23,8 @@ const root = createRoot(domNode, options?)
 Llama a `createRoot` para crear una raíz de React y mostrar contenido dentro de un elemento del DOM del navegador.
 
 ```js
+import { createRoot } from 'react-dom/client';
+
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 ```
