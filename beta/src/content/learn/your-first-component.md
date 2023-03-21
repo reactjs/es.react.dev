@@ -207,7 +207,9 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 </Pitfall>
 
-<DeepDive title="Componentes de arriba a abajo">
+<DeepDive>
+
+#### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
 Tu aplicación de React comienza en un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
 

@@ -159,6 +159,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | assert | comprobar |
 | bug | error |
 | bundler | *bundler* |
+| (event) bubbling | propagación (de eventos) | 
 | callback | *callback* |
 | camelCase | *camelCase* |
 | codebase | base de código |
@@ -183,6 +184,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | set the state | asignar el estado |
 | state | estado |
 | string | *string* |
+| Suspense barrier | barrera de Suspense |
 | template literals | *template literals* |
 | uncontrolled component | componente no controlado |
 | update the state | actualizar el estado

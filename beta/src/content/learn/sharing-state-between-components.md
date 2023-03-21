@@ -283,7 +283,9 @@ Cuando el estado de `Accordion` en `activeIndex` cambia a `1`, el segundo `Panel
 
 </DiagramGroup>
 
-<DeepDive title="Componentes controlados y no controlados">
+<DeepDive>
+
+#### Componentes controlados y no controlados {/*controlled-and-uncontrolled-components*/}
 
 Es común llamar a un componente con algún estado local "no controlado". Por ejemplo, el componente original `Panel` con una variable de estado `isActive` no está controlado porque su padre no puede influir sobre el `Panel` si está activo o no.
 
