@@ -4,7 +4,7 @@ title: useImperativeHandle
 
 <Intro>
 
-`useImperativeHandle` es un Hook de React que te permite personalizar el identificador expuesto como un [ref.](/learn/manipulating-the-dom-with-refs)
+`useImperativeHandle` es un Hook de React que te permite personalizar el identificador expuesto como una [ref.](/learn/manipulating-the-dom-with-refs)
 
 ```js
 useImperativeHandle(ref, createHandle, dependencies?)
@@ -38,11 +38,11 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 #### Parámetros {/*parameters*/}
 
-* `ref`: El `ref` que recibes como segundo argumento de la [función render `forwardRef`](/reference/react/forwardRef#render-function)
+* `ref`: La `ref` que recibes como segundo argumento de la [función render `forwardRef`](/reference/react/forwardRef#render-function)
 
 * `createHandle`: Una función que no toma argumentos y devuelve el identificador ref que quieres exponer. El identificador ref que devuelve puede tener cualquier tipo. Por lo general, devolverá un objeto con lo métodos que quieres exponer.
 
-* **opcional** `dependencies`: La lista de todos los valores reactivos a los que se hace referencia dentro del código de `createHandle`. Los valores reactivos incluye props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente.  Si tu linter es [configurado por React](/learn/editor-setup#linting), va a verificar que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias deben tener un número constante de elementos y ser escritos en una sola linea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si un nuevo renderizado resultara en un cambio a una dependencia, o si no especificaste las dependencias completamente, tu función `createHandle` se volverá a ejecutar, y el nuevo identificador recien creado será asignado a ref. 
+* **opcional** `dependencies`: La lista de todos los valores reactivos a los que se hace referencia dentro del código de `createHandle`. Los valores reactivos incluye props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente.  Si tu linter es [configurado por React](/learn/editor-setup#linting), va a verificar que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias deben tener un número constante de elementos y ser escritos en una sola linea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si un nuevo renderizado resultara en un cambio a una dependencia, o si no especificaste las dependencias completamente, tu función `createHandle` se volverá a ejecutar, y el nuevo identificador recién creado será asignado a ref. 
 
 #### Devuelve {/*returns*/}
 
@@ -64,7 +64,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-Con el código de arriba, [un ref a `MyInput` va a recibir el nodo DOM de `<input>`.](/reference/react/forwardRef#exposing-a-dom-node-to-the-parent-component) Aun así, puedes exponer un valor personalizado en su lugar. Para personalizar el identificador expuesto, llama a `useImperativeHandle` en el nivel superior  de tu componente:
+Con el código de arriba, [una ref a `MyInput` va a recibir el nodo DOM de `<input>`.](/reference/react/forwardRef#exposing-a-dom-node-to-the-parent-component) Aun así, puedes exponer un valor personalizado en su lugar. Para personalizar el identificador expuesto, llama a `useImperativeHandle` en el nivel superior  de tu componente:
 
 ```js {4-8}
 import { forwardRef, useImperativeHandle } from 'react';
@@ -80,9 +80,9 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-Ten en cuenta que en el código de arriba, el `ref` ya no se reenvía a `<input>`.
+Ten en cuenta que en el código de arriba, la `ref` ya no se reenvía a `<input>`.
 
-Por ejemplo, supongamos que no quieres exponer el nodo DOM entero de `<input>`, pero quieres exponer dos de sus métodos: `focus` y `scrollIntoView`. Para hacer esto, mantén el DOM real del navegador en un ref separado. Entonces usa `useImperativeHandle` para exponer un identificador solamente con los métodos que quieres que el componente padre llame:
+Por ejemplo, supongamos que no quieres exponer el nodo DOM entero de `<input>`, pero quieres exponer dos de sus métodos: `focus` y `scrollIntoView`. Para hacer esto, mantén el DOM real del navegador en una ref separada. Entonces usa `useImperativeHandle` para exponer un identificador solamente con los métodos que quieres que el componente padre llame:
 
 ```js {7-14}
 import { forwardRef, useRef, useImperativeHandle } from 'react';
@@ -105,7 +105,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-Ahora, si el componente padre obtiene un ref a `MyInput`, podrá llamar a los métodos `focus` y `scrollIntoView` en él. Sin embargo, no va a tener acceso completo al nodo DOM de `<input>` de manera mas profunda.
+Ahora, si el componente padre obtiene una ref a `MyInput`, podrá llamar a los métodos `focus` y `scrollIntoView` en él. Sin embargo, no va a tener acceso completo al nodo DOM de `<input>` de manera más profunda.
 
 <Sandpack>
 
@@ -168,7 +168,7 @@ input {
 
 ### Exponer tus propios métodos imperativos {/*exposing-your-own-imperative-methods*/}
 
-Los métodos que expones via identificador imperativo no tienen que coincidir exactamente a los métodos del DOM. Por ejemplo, el componente `Post` en el ejemplo de abajo expone a `scrollAndFocusAddComment` por medio de un identificador imperativo. Esto le permite a la `Página` padre desplazar la lista de comentarios *y* enfocar el campo de entrada cuando haces click al botón.
+Los métodos que expones a través de un identificador imperativo no tienen que coincidir exactamente a los métodos del DOM. Por ejemplo, el componente `Post` en el ejemplo de abajo expone a `scrollAndFocusAddComment` por medio de un identificador imperativo. Esto le permite a la `Página` padre desplazar la lista de comentarios *y* enfocar el campo de entrada cuando haces click al botón.
 
 <Sandpack>
 
@@ -281,8 +281,8 @@ export default AddComment;
 
 <Pitfall>
 
-**No sobreutilizar los refs.** Solo debes usar los refs para comportamientos *imperativos* que no puedes expresar como props: por ejemplo desplazarse a un nodo, enfocar un nodo, activar una animación, seleccionar texto, etc.
+**No sobreutilizar las refs.** Solo debes usar las refs para comportamientos *imperativos* que no puedes expresar como props: por ejemplo desplazarse a un nodo, enfocar un nodo, activar una animación, seleccionar texto, etc.
 
-**Si puedes expresar algo como un prop, no deberias usar un ref.** Por ejemplo, en vez de exponer un identificador imperativo como `{ open, close }` del componente `Modal`, es mejor tomar `isOpen` como un prop, algo como `<Modal isOpen={isOpen} />`. [Efectos](/learn/synchronizing-with-effects) puede ayudarte a exponer comportamientos imperativos via props.
+**Si puedes expresar algo como una prop, no deberias usar una ref.** Por ejemplo, en vez de exponer un identificador imperativo como `{ open, close }` del componente `Modal`, es mejor tomar `isOpen` como una prop, algo como `<Modal isOpen={isOpen} />`. [Efectos](/learn/synchronizing-with-effects) puede ayudarte a exponer comportamientos imperativos via props.
 
 </Pitfall>
