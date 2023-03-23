@@ -2630,7 +2630,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 <Solution>
 
-En lugar de un solo `selectedId`, mantenga un `selectedIds` *array* en el estado. Por ejemplo, si selecciona la primera y la última letra, contendría `[0, 2]`. Cuando no se selecciona nada, sería un array `[]` vacío:
+En lugar de un solo `selectedId`, mantén un *array* `selectedIds` en el estado. Por ejemplo, si selecciona la primera y la última letra, contendría `[0, 2]`. Cuando no se selecciona nada, sería un *array* `[]` vacío:
 
 <Sandpack>
 
