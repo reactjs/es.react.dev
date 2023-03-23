@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Tic-Tac-Toe'
+title: 'Tutorial: Tres en linea'
 ---
 
 <Intro>
 
-En este tutorial construirás un pequeño juego de tic-tac-toe. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo le dará una comprensión profunda de React.
+En este tutorial construirás un pequeño juego de Tres en linea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo le dará una comprensión profunda de React.
 
 </Intro>
 
@@ -23,7 +23,7 @@ El tutorial se divide en varias secciones:
 
 ### ¿Qué estás construyendo? {/*what-are-you-building*/}
 
-En este tutorial, crearás un juego interactivo de tic-tac-toe con React.
+En este tutorial, crearás un juego interactivo de Tres en linea con React.
 
 Puedes ver cómo se verá cuando hayas terminado aquí:
 
@@ -196,9 +196,9 @@ body {
 
 Si el código aún no tiene sentido para ti, o si no estás familiarizado con la sintaxis del código, ¡no te preocupes! El objetivo de este tutorial es ayudarte a comprender React y su sintaxis.
 
-Te recomendamos que consultes el juego de tic-tac-toe anterior antes de continuar con el tutorial. Una de las características que notarás es que hay una lista numerada a la derecha del tablero del juego. Esta lista le brinda un historial de todos los movimientos que se han producido en el juego y se actualiza a medida que avanza el juego.
+Te recomendamos que consultes el juego de Tres en linea anterior antes de continuar con el tutorial. Una de las características que notarás es que hay una lista numerada a la derecha del tablero del juego. Esta lista le brinda un historial de todos los movimientos que se han producido en el juego y se actualiza a medida que avanza el juego.
 
-Una vez que haya jugado un poco con el juego tic-tac-toe terminado, siga desplazándose. Comenzará con una plantilla más simple en este tutorial. Nuestro siguiente paso es prepararte para que puedas comenzar a construir el juego.
+Una vez que haya jugado un poco con el juego Tres en linea terminado, siga desplazándose. Comenzará con una plantilla más simple en este tutorial. Nuestro siguiente paso es prepararte para que puedas comenzar a construir el juego.
 
 ## Configuración para el tutorial {/*setup-for-the-tutorial*/}
 
@@ -417,7 +417,7 @@ export default function Square() {
 
 El CSS definido en `styles.css` diseña los divs con `className` de `board-row`. Ahora que ha agrupado sus componentes en filas con el estilo `div`s, tiene su tablero de tres en raya:
 
-![El tablero de tic-tac-toe esta lleno con números del 1 al 9](../images/tutorial/number-filled-board.png)
+![El tablero de Tres en linea esta lleno con números del 1 al 9](../images/tutorial/number-filled-board.png)
 
 Pero ahora tienes un problema. Su componente llamado `Square`, en realidad ya no es un cuadrado. Arreglemos eso cambiando el nombre a `Board`:
 
@@ -621,7 +621,7 @@ export default function Board() {
 
 Ahora debería ver una cuadrícula de números nuevamente:
 
-![tablero de tic-tac-toe lleno de números del 1 al 9](../images/tutorial/number-filled-board.png)
+![tablero de Tres en linea lleno de números del 1 al 9](../images/tutorial/number-filled-board.png)
 
 Su código actualizado debería verse así:
 
@@ -982,7 +982,7 @@ function Square({value}) {
 }
 ```
 
-En este punto, debería ver un tablero de tic-tac-toe vacío:
+En este punto, debería ver un tablero de Tres en linea vacío:
 
 ![tablero vacío](../images/tutorial/empty-board.png)
 
@@ -1084,7 +1084,7 @@ function Square({ value }) {
 }
 ```
 
-Next, you'll add the `onSquareClick` function to the `Square` component's props:
+A continuación, agregará la función `onSquareClick` a los accesorios del componente `Square`:
 
 ```js {1}
 function Square({ value, onSquareClick }) {
@@ -1169,7 +1169,7 @@ La llamada `handleClick(0)` será parte de la representación del componente de 
 
 <ConsoleBlock level="error">
 
-Too many re-renders. React limits the number of renders to prevent an infinite loop.
+Demasiados renderizados. React limita el número de renderizaciones para evitar un bucle infinito.
 
 </ConsoleBlock>
 
@@ -1594,7 +1594,7 @@ export default function Board() {
 }
 ```
 
-¡Felicidades! Ahora tienes un juego de tic-tac-toe que funciona. Y acabas de aprender los conceptos básicos de React también. Así que *tú* eres el verdadero ganador aquí. Así es como debería verse el código:
+¡Felicidades! Ahora tienes un juego de Tres en linea que funciona. Y acabas de aprender los conceptos básicos de React también. Así que *tú* eres el verdadero ganador aquí. Así es como debería verse el código:
 
 <Sandpack>
 
@@ -2729,9 +2729,9 @@ Ya no necesita la declaración de estado `xIsNext` ni las llamadas a `setXIsNext
 
 ### Terminando {/*wrapping-up*/}
 
-¡Felicidades! Has creado un juego de tic-tac-toe que:
+¡Felicidades! Has creado un juego de Tres en linea que:
 
-- Te permite jugar tic-tac-toe,
+- Te permite jugar Tres en linea,
 - Indica cuando un jugador ha ganado el juego,
 - Almacena el historial de un juego a medida que avanza un juego,
 - Permite a los jugadores revisar el historial de un juego y ver versiones anteriores del tablero de un juego.
