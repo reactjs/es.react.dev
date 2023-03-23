@@ -2525,7 +2525,7 @@ li { border-radius: 5px; }
 
 En este ejemplo, cada `Letter` tiene una propiedad `isSelected` y un controlador `onToggle` que la marca como seleccionada. Esto funciona, pero el estado se almacena como un `selectedId` (ya sea `null` o un ID), por lo que solo se puede seleccionar una letra en un momento dado.
 
-Cambie la estructura de estado para admitir la selección múltiple. (¿Cómo lo estructuraría? Piense en esto antes de escribir el código). Cada casilla de verificación debe independizarse de las demás. Al hacer clic en una letra seleccionada, debería desmarcarse. Por último, el pie de página debe mostrar el número correcto de los elementos seleccionados.
+Cambia la estructura de estado para admitir la selección múltiple. (¿Cómo lo estructurarías? Piensa en esto antes de escribir el código). Cada casilla de verificación debe independizarse de las demás. Al hacer clic en una letra seleccionada, debería desmarcarse. Por último, el pie de página debe mostrar el número correcto de los elementos seleccionados.
 
 <Hint>
 
