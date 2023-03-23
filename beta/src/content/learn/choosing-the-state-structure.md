@@ -2843,7 +2843,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 Ahora cada elemento realiza una comprobación `selectedIds.has(letter.id)`, que es muy rápida.
 
-Tenga en cuenta que [no debe mutar objetos en estado](/learn/updating-objects-in-state), y eso también incluye Conjuntos. Esta es la razón por la cual la función `handleToggle` crea una *copia* del Conjunto primero y luego actualiza esa copia.
+Ten en cuenta que [no debes mutar objetos en estado](/learn/updating-objects-in-state), y eso también incluye Sets. Esta es la razón por la cual la función `handleToggle` crea una *copia* del Set primero y luego actualiza esa copia.
 
 </Solution>
 
