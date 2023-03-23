@@ -32,7 +32,7 @@ Ahora veamos cómo se aplican estos principios en acción.
 
 ## Estado relativo al grupo {/*group-related-state*/}
 
-En ocasiones, es posible que no esté seguro entre usar una o varias variables de estado.
+En ocasiones, es posible que no estés seguro entre usar una o varias variables de estado.
 
 ¿Deberías hacer esto?
 
