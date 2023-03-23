@@ -43,6 +43,8 @@ async function handler(request) {
 
 On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to make the server-generated HTML interactive.
 
+[See more examples below.](#usage)
+
 #### Parameters {/*parameters*/}
 
 * `reactNode`: A React node you want to render to HTML. For example, a JSX element like `<App />`. It is expected to represent the entire document, so the `App` component should render the `<html>` tag.
@@ -165,7 +167,7 @@ const assetMap = {
 
 async function handler(request) {
   const stream = await renderToReadableStream(<App assetMap={assetMap} />, {
-    bootstrapScripts: [assets['/main.js']]
+    bootstrapScripts: [assetMap['/main.js']]
   });
   return new Response(stream, {
     headers: { 'content-type': 'text/html' },
@@ -186,7 +188,7 @@ async function handler(request) {
   const stream = await renderToReadableStream(<App assetMap={assetMap} />, {
     // Careful: It's safe to stringify() this because this data isn't user-generated.
     bootstrapScriptContent: `window.assetMap = ${JSON.stringify(assetMap)};`,
-    bootstrapScripts: [assets['/main.js']],
+    bootstrapScripts: [assetMap['/main.js']],
   });
   return new Response(stream, {
     headers: { 'content-type': 'text/html' },

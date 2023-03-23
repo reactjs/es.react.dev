@@ -159,6 +159,7 @@ Aquí hay algunas sugerencias para la traducción de términos de uso común en 
 | assert | comprobar |
 | bug | error |
 | bundler | *bundler* |
+| (event) bubbling | propagación (de eventos) | 
 | callback | *callback* |
 | camelCase | *camelCase* |
 | codebase | base de código |

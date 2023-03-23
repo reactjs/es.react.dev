@@ -50,6 +50,10 @@ React es compatible con todos los navegadores modernos, aunque [se requieren alg
 
 ### `createPortal()` {#createportal}
 
+> Prueba la nueva documentación de React para [`createPortal`](https://beta.es.reactjs.org/reference/react-dom/createPortal).
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 createPortal(child, container)
 ```
@@ -57,6 +61,10 @@ createPortal(child, container)
 Crea un portal. Los portales proporcionan una forma de [renderizar hijos en un nodo del DOM que existe fuera de la jerarquía del DOM del componente](/docs/portals.html).
 
 ### `flushSync()` {#flushsync}
+
+> Prueba la nueva documentación de React para [`flushSync`](https://beta.es.reactjs.org/reference/react-dom/flushSync).
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 flushSync(callback)
@@ -83,6 +91,11 @@ flushSync(() => {
 
 ## Referencia legada {#legacy-reference}
 ### `render()` {#render}
+
+> Prueba la nueva documentación de React para [`render`](https://beta.es.reactjs.org/reference/react-dom/render).
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 render(element, container[, callback])
 ```
@@ -113,6 +126,10 @@ Si se suministra el *callback* opcional, será ejecutado después de que el comp
 
 ### `hydrate()` {#hydrate}
 
+> Prueba la nueva documentación de React para [`hydrate`](https://beta.es.reactjs.org/reference/react-dom/hydrate).
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 hydrate(elemento, contenedor[, callback])
 ```
@@ -135,6 +152,10 @@ Recuerda estar consciente de la experiencia de usuario en conexiones lentas. El 
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
+> Prueba la nueva documentación de React para [`unmountComponentAtNode`](https://beta.es.reactjs.org/reference/react-dom/unmountComponentAtNode).
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 unmountComponentAtNode(contenedor)
 ```
@@ -148,6 +169,10 @@ Elimina un componente React ya montado en el DOM, y limpia sus manejadores de ev
 * * *
 
 ### `findDOMNode()` {#finddomnode}
+
+> Prueba la nueva documentación de React para [`findDOMNode`](https://beta.es.reactjs.org/reference/react-dom/findDOMNode).
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 
 > Nota:
 >
