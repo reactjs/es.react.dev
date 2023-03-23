@@ -22,7 +22,7 @@ Cuando escribes un componente que contiene algún estado, tendrás que tomar dec
 
 1. **Estado relacionado con el grupo.** Si siempre actualizas dos o más variables de estado al mismo tiempo, considera fusionarlas en una sola variable de estado.
 2. **Evita las contradicciones en el estado.** Cuando el estado está estructurado de manera que varias partes del estado pueden contradecirse y "estar en desacuerdo" entre sí, deja espacio para errores. Trata de evitar esto.
-3. **Evite el estado redundante.** Si puede calcular alguna información de las propiedades del componente o sus variables de estado existentes durante el renderizado, no debe poner esa información en el estado de ese componente.
+3. **Evita el estado redundante.** Si puedes calcular alguna información de las propiedades del componente o sus variables de estado existentes durante el renderizado, no debes poner esa información en el estado de ese componente.
 4. **Evite la duplicación de estado.** Cuando los mismos datos se duplican entre varias variables de estado o dentro de objetos anidados, es difícil mantenerlos sincronizados. Reduzca la duplicación cuando pueda.
 5. **Evite el estado profundamente anidado.** El estado profundamente jerárquico no es muy conveniente para actualizar. Cuando sea posible, prefiera estructurar el estado de forma plana.
 
