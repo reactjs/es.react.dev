@@ -51,6 +51,7 @@ Un portal solo cambia la ubicación física del nodo del DOM. En todos los demá
 * `domNode`: Algunos nodos del DOM, como los devueltos por `document.getElementById()`. El nodo ya debería existir. Pasar un nodo del DOM diferente durante una actualización hará que se vuelva a crear el contenido del portal.
 
 #### Devuelve {/*returns*/}
+
 `createPortal` devuelve un nodo de React que puede incluirse en JSX o devolverse desde un componente React. Si React lo encuentra en el renderizado, colocará el `children` proporcionado dentro del `domNode` proporcionado.
 
 #### Advertencias {/*caveats*/}
