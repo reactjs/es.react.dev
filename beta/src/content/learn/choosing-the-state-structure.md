@@ -10,7 +10,7 @@ Estructurar bien el estado puede marcar la diferencia entre un componente que es
 
 <YouWillLearn>
 
-* Cuando usar una versus multiples variables de estado.
+* Cuando usar una versus múltiples variables de estado.
 * Qué evitar al organizar el estado.
 * Cómo solucionar problemas comunes con la estructura del estado.
 
