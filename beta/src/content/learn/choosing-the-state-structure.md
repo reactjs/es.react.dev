@@ -157,7 +157,7 @@ function sendMessage(text) {
 
 </Sandpack>
 
-Si bien este código funciona, deja la puerta abierta para estados "imposibles". Por ejemplo, si olvida llamar a `setIsSent` y `setIsSending` juntos, puede terminar en una situación en la que tanto `isSending` como `isSent` son `true` al mismo tiempo. Cuanto más complejo sea su componente, más difícil será entender lo que sucedió.
+Si bien este código funciona, deja la puerta abierta para estados "imposibles". Por ejemplo, si olvidas llamar a `setIsSent` y `setIsSending` juntos, puede terminar en una situación en la que tanto `isSending` como `isSent` son `true` al mismo tiempo. Cuanto más complejo sea tu componente, más difícil será entender lo que sucedió.
 
 **Dado que `isSending` y `isSent` nunca deben ser `true` al mismo tiempo, es mejor reemplazarlos con una variable de estado `status` que puede tomar uno de *tres* estados válidos:** `'typing '` (initial), `'sending'` y `'sent'`:
 
