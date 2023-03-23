@@ -18,17 +18,17 @@ Estructurar bien el estado puede marcar la diferencia entre un componente que es
 
 ## Principios para la estructuración del estado {/*principles-for-structuring-state*/}
 
-When you write a component that holds some state, you'll have to make choices about how many state variables to use and what the shape of their data should be. While it's possible to write correct programs even with a suboptimal state structure, there are a few principles that can guide you to make better choices:
+Cuando escribe un componente que contiene algún estado, tendrá que tomar decisiones acerca de cuántas variables de estado usar y cuál debería ser la forma de sus datos. Si bien es posible escribir programas correctos incluso con una estructura de estado deficiente, existen algunos principios que pueden guiarlo para tomar mejores decisiones:
 
-1. **Group related state.** If you always update two or more state variables at the same time, consider merging them into a single state variable.
-2. **Avoid contradictions in state.** When the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.
-3. **Avoid redundant state.** If you can calculate some information from the component's props or its existing state variables during rendering, you should not put that information into that component's state.
-4. **Avoid duplication in state.** When the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.
-5. **Avoid deeply nested state.** Deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.
+1. **Estado relacionado con el grupo.** Si siempre actualiza dos o más variables de estado al mismo tiempo, considere fusionarlas en una sola variable de estado.
+2. **Evite las contradicciones en el estado.** Cuando el estado está estructurado de manera que varias partes del estado pueden contradecirse y "estar en desacuerdo" entre sí, deja espacio para errores. Trate de evitar esto.
+3. **Evite el estado redundante.** Si puede calcular alguna información de las propiedades del componente o sus variables de estado existentes durante el renderizado, no debe poner esa información en el estado de ese componente.
+4. **Evite la duplicación de estado.** Cuando los mismos datos se duplican entre varias variables de estado o dentro de objetos anidados, es difícil mantenerlos sincronizados. Reduzca la duplicación cuando pueda.
+5. **Evite el estado profundamente anidado.** El estado profundamente jerárquico no es muy conveniente para actualizar. Cuando sea posible, prefiera estructurar el estado de forma plana.
 
-The goal behind these principles is to *make state easy to update without introducing mistakes*. Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync. This is similar to how a database engineer might want to ["normalize" the database structure](https://docs.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) to reduce the chance of bugs. To paraphrase Albert Einstein, **"Make your state as simple as it can be--but no simpler."**
+El objetivo detrás de estos principios es *hacer que el estado sea fácil de actualizar sin introducir errores*. La eliminación de datos redundantes y duplicados del estado ayuda a garantizar que todas sus piezas permanezcan sincronizadas. Esto es similar a cómo un ingeniero de base de datos podría querer ["normalizar" la estructura de la base de datos](https://docs.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) para reducir la posibilidad de errores. Parafraseando a Albert Einstein, **"Haz que tu estado sea lo más simple posible, pero no más simple".**
 
-Now let's see how these principles apply in action.
+Ahora veamos cómo se aplican estos principios en acción.
 
 ## Estado relativo al grupo {/*group-related-state*/}
 
@@ -362,8 +362,6 @@ function Message({ messageColor }) {
   const color = messageColor;
 ```
 
-"Mirroring" props into state only makes sense when you *want* to ignore all updates for a specific prop. By convention, start the prop name with `initial` or `default` to clarify that its new values are ignored:
-
 De esta forma, no se sincroniza con la propiedad que se pasa desde el componente principal.
 
 "Reflejar" props en estado solo tiene sentido cuando *quieres* ignorar todas las actualizaciones de un prop en específico. Por convención, comience el nombre de la prop con `initial` or `default` para aclarar que sus nuevos valores se ignoran:
@@ -460,7 +458,7 @@ export default function Menu() {
 
   return (
     <>
-      <h2>¿Cuál es tu merienda de viaje?</h2> 
+      <h2>¿Cuál es tu merienda de viaje?</h2>
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -620,7 +618,7 @@ export const initialTravelPlan = {
   title: '(Root)',
   childPlaces: [{
     id: 1,
-    title: 'Earth',
+    title: 'Tierra',
     childPlaces: [{
       id: 2,
       title: 'Africa',
@@ -630,11 +628,11 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 4,
-        title: 'Egypt',
+        title: 'Egipto',
         childPlaces: []
       }, {
         id: 5,
-        title: 'Kenya',
+        title: 'Kenia',
         childPlaces: []
       }, {
         id: 6,
@@ -642,7 +640,7 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 7,
-        title: 'Morocco',
+        title: 'Marruecos',
         childPlaces: []
       }, {
         id: 8,
@@ -650,19 +648,19 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 9,
-        title: 'South Africa',
+        title: 'Sudafrica',
         childPlaces: []
       }]
     }, {
       id: 10,
-      title: 'Americas',
+      title: 'Las Americas',
       childPlaces: [{
         id: 11,
         title: 'Argentina',
         childPlaces: []
       }, {
         id: 12,
-        title: 'Brazil',
+        title: 'Brasil',
         childPlaces: []
       }, {
         id: 13,
@@ -682,7 +680,7 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 17,
-        title: 'Trinidad and Tobago',
+        title: 'Trinidad y Tobago',
         childPlaces: []
       }, {
         id: 18,
@@ -706,15 +704,15 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 23,
-        title: 'Singapore',
+        title: 'Singapur',
         childPlaces: []
       }, {
         id: 24,
-        title: 'South Korea',
+        title: 'Corea del sur',
         childPlaces: []
       }, {
         id: 25,
-        title: 'Thailand',
+        title: 'Tailandia',
         childPlaces: []
       }, {
         id: 26,
@@ -723,22 +721,22 @@ export const initialTravelPlan = {
       }]
     }, {
       id: 27,
-      title: 'Europe',
+      title: 'Europa',
       childPlaces: [{
         id: 28,
-        title: 'Croatia',
+        title: 'Croacia',
         childPlaces: [],
       }, {
         id: 29,
-        title: 'France',
+        title: 'Francia',
         childPlaces: [],
       }, {
         id: 30,
-        title: 'Germany',
+        title: 'Alemania',
         childPlaces: [],
       }, {
         id: 31,
-        title: 'Italy',
+        title: 'Italia',
         childPlaces: [],
       }, {
         id: 32,
@@ -746,11 +744,11 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 33,
-        title: 'Spain',
+        title: 'España',
         childPlaces: [],
       }, {
         id: 34,
-        title: 'Turkey',
+        title: 'Turquia',
         childPlaces: [],
       }]
     }, {
@@ -762,11 +760,11 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 37,
-        title: 'Bora Bora (French Polynesia)',
+        title: 'Bora Bora (Polinesia Franciasa)',
         childPlaces: [],
       }, {
         id: 38,
-        title: 'Easter Island (Chile)',
+        title: 'Isla de pascua (Chile)',
         childPlaces: [],
       }, {
         id: 39,
@@ -774,11 +772,11 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 40,
-        title: 'Hawaii (the USA)',
+        title: 'Hawaii (Estados Unidos)',
         childPlaces: [],
       }, {
         id: 41,
-        title: 'New Zealand',
+        title: 'Nueva Zelanda',
         childPlaces: [],
       }, {
         id: 42,
@@ -788,23 +786,23 @@ export const initialTravelPlan = {
     }]
   }, {
     id: 43,
-    title: 'Moon',
+    title: 'Luna',
     childPlaces: [{
       id: 44,
-      title: 'Rheita',
+      title: 'Rheita (cráter)',
       childPlaces: []
     }, {
       id: 45,
-      title: 'Piccolomini',
+      title: 'Piccolomini (cráter)',
       childPlaces: []
     }, {
       id: 46,
-      title: 'Tycho',
+      title: 'Tycho (cráter)',
       childPlaces: []
     }]
   }, {
     id: 47,
-    title: 'Mars',
+    title: 'Marte',
     childPlaces: [{
       id: 48,
       title: 'Corn Town',
@@ -812,7 +810,7 @@ export const initialTravelPlan = {
     }, {
       id: 49,
       title: 'Green Hill',
-      childPlaces: []      
+      childPlaces: []
     }]
   }]
 };
@@ -883,14 +881,14 @@ export const initialTravelPlan = {
   },
   1: {
     id: 1,
-    title: 'Earth',
+    title: 'Tierra',
     childIds: [2, 10, 19, 27, 35]
   },
   2: {
     id: 2,
     title: 'Africa',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botswana',
@@ -898,22 +896,22 @@ export const initialTravelPlan = {
   },
   4: {
     id: 4,
-    title: 'Egypt',
+    title: 'Egipto',
     childIds: []
   },
   5: {
     id: 5,
-    title: 'Kenya',
+    title: 'Kenia',
     childIds: []
   },
   6: {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
-    title: 'Morocco',
+    title: 'Marruecos',
     childIds: []
   },
   8: {
@@ -923,13 +921,13 @@ export const initialTravelPlan = {
   },
   9: {
     id: 9,
-    title: 'South Africa',
+    title: 'Sudafrica',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Americas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    title: 'Las Americas',
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -938,14 +936,14 @@ export const initialTravelPlan = {
   },
   12: {
     id: 12,
-    title: 'Brazil',
+    title: 'Brasil',
     childIds: []
   },
   13: {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canada',
@@ -963,7 +961,7 @@ export const initialTravelPlan = {
   },
   17: {
     id: 17,
-    title: 'Trinidad and Tobago',
+    title: 'Trinidad y Tobago',
     childIds: []
   },
   18: {
@@ -974,7 +972,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25, 26],   
+    childIds: [20, 21, 22, 23, 24, 25, 26],
   },
   20: {
     id: 20,
@@ -993,17 +991,17 @@ export const initialTravelPlan = {
   },
   23: {
     id: 23,
-    title: 'Singapore',
+    title: 'Singapur',
     childIds: []
   },
   24: {
     id: 24,
-    title: 'South Korea',
+    title: 'Corea del norte',
     childIds: []
   },
   25: {
     id: 25,
-    title: 'Thailand',
+    title: 'Tailandia',
     childIds: []
   },
   26: {
@@ -1013,27 +1011,27 @@ export const initialTravelPlan = {
   },
   27: {
     id: 27,
-    title: 'Europe',
-    childIds: [28, 29, 30, 31, 32, 33, 34],   
+    title: 'Europa',
+    childIds: [28, 29, 30, 31, 32, 33, 34],
   },
   28: {
     id: 28,
-    title: 'Croatia',
+    title: 'Croacia',
     childIds: []
   },
   29: {
     id: 29,
-    title: 'France',
+    title: 'Francia',
     childIds: []
   },
   30: {
     id: 30,
-    title: 'Germany',
+    title: 'Alemania',
     childIds: []
   },
   31: {
     id: 31,
-    title: 'Italy',
+    title: 'Italia',
     childIds: []
   },
   32: {
@@ -1043,18 +1041,18 @@ export const initialTravelPlan = {
   },
   33: {
     id: 33,
-    title: 'Spain',
+    title: 'España',
     childIds: []
   },
   34: {
     id: 34,
-    title: 'Turkey',
+    title: 'Turquia',
     childIds: []
   },
   35: {
     id: 35,
     title: 'Oceania',
-    childIds: [36, 37, 38, 39, 40, 41, 42],   
+    childIds: [36, 37, 38, 39, 40, 41, 42],
   },
   36: {
     id: 36,
@@ -1063,12 +1061,12 @@ export const initialTravelPlan = {
   },
   37: {
     id: 37,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinesia Francesa)',
     childIds: []
   },
   38: {
     id: 38,
-    title: 'Easter Island (Chile)',
+    title: 'Isla de Pascua (Chile)',
     childIds: []
   },
   39: {
@@ -1078,12 +1076,12 @@ export const initialTravelPlan = {
   },
   40: {
     id: 40,
-    title: 'Hawaii (the USA)',
+    title: 'Hawaii (Estados Unidos)',
     childIds: []
   },
   41: {
     id: 41,
-    title: 'New Zealand',
+    title: 'Nueva Zelanda',
     childIds: []
   },
   42: {
@@ -1093,27 +1091,27 @@ export const initialTravelPlan = {
   },
   43: {
     id: 43,
-    title: 'Moon',
+    title: 'Luna',
     childIds: [44, 45, 46]
   },
   44: {
     id: 44,
-    title: 'Rheita',
+    title: 'Rheita (cráter)',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Piccolomini',
+    title: 'Piccolomini (cráter)',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Tycho',
+    title: 'Tycho (cráter)',
     childIds: []
   },
   47: {
     id: 47,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [48, 49]
   },
   48: {
@@ -1135,8 +1133,8 @@ export const initialTravelPlan = {
 
 Para eliminar un lugar ahora, solo necesita actualizar dos niveles de estado:
 
-- La versión actualizada de su lugar *principal* debería excluir el ID eliminado de su matriz `childIds`.
-- La versión actualizada del objeto raíz de "tabla" debe incluir la versión actualizada del lugar principal.
+* La versión actualizada de su lugar *principal* debería excluir el ID eliminado de su matriz `childIds`.
+* La versión actualizada del objeto raíz de "tabla" debe incluir la versión actualizada del lugar principal.
 
 Este es un ejemplo de cómo podrías hacerlo:
 
@@ -1224,14 +1222,14 @@ export const initialTravelPlan = {
   },
   1: {
     id: 1,
-    title: 'Earth',
+    title: 'Tierra',
     childIds: [2, 10, 19, 27, 35]
   },
   2: {
     id: 2,
     title: 'Africa',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botswana',
@@ -1239,22 +1237,22 @@ export const initialTravelPlan = {
   },
   4: {
     id: 4,
-    title: 'Egypt',
+    title: 'Egipto',
     childIds: []
   },
   5: {
     id: 5,
-    title: 'Kenya',
+    title: 'Kenia',
     childIds: []
   },
   6: {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
-    title: 'Morocco',
+    title: 'Marruecos',
     childIds: []
   },
   8: {
@@ -1264,13 +1262,13 @@ export const initialTravelPlan = {
   },
   9: {
     id: 9,
-    title: 'South Africa',
+    title: 'Sudafrica',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Americas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    title: 'Las Americas',
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -1279,14 +1277,14 @@ export const initialTravelPlan = {
   },
   12: {
     id: 12,
-    title: 'Brazil',
+    title: 'Brasil',
     childIds: []
   },
   13: {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canada',
@@ -1304,7 +1302,7 @@ export const initialTravelPlan = {
   },
   17: {
     id: 17,
-    title: 'Trinidad and Tobago',
+    title: 'Trinidad y Tobago',
     childIds: []
   },
   18: {
@@ -1315,7 +1313,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25, 26],   
+    childIds: [20, 21, 22, 23, 24, 25, 26],
   },
   20: {
     id: 20,
@@ -1334,17 +1332,17 @@ export const initialTravelPlan = {
   },
   23: {
     id: 23,
-    title: 'Singapore',
+    title: 'Singapur',
     childIds: []
   },
   24: {
     id: 24,
-    title: 'South Korea',
+    title: 'Corea del norte',
     childIds: []
   },
   25: {
     id: 25,
-    title: 'Thailand',
+    title: 'Tailandia',
     childIds: []
   },
   26: {
@@ -1354,27 +1352,27 @@ export const initialTravelPlan = {
   },
   27: {
     id: 27,
-    title: 'Europe',
-    childIds: [28, 29, 30, 31, 32, 33, 34],   
+    title: 'Europa',
+    childIds: [28, 29, 30, 31, 32, 33, 34],
   },
   28: {
     id: 28,
-    title: 'Croatia',
+    title: 'Croacia',
     childIds: []
   },
   29: {
     id: 29,
-    title: 'France',
+    title: 'Francia',
     childIds: []
   },
   30: {
     id: 30,
-    title: 'Germany',
+    title: 'Alemania',
     childIds: []
   },
   31: {
     id: 31,
-    title: 'Italy',
+    title: 'Italia',
     childIds: []
   },
   32: {
@@ -1384,18 +1382,18 @@ export const initialTravelPlan = {
   },
   33: {
     id: 33,
-    title: 'Spain',
+    title: 'España',
     childIds: []
   },
   34: {
     id: 34,
-    title: 'Turkey',
+    title: 'Turquia',
     childIds: []
   },
   35: {
     id: 35,
     title: 'Oceania',
-    childIds: [36, 37, 38, 39, 40, 41,, 42],   
+    childIds: [36, 37, 38, 39, 40, 41,, 42],
   },
   36: {
     id: 36,
@@ -1404,12 +1402,12 @@ export const initialTravelPlan = {
   },
   37: {
     id: 37,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinesia Francesa)',
     childIds: []
   },
   38: {
     id: 38,
-    title: 'Easter Island (Chile)',
+    title: 'Isla de Pascua (Chile)',
     childIds: []
   },
   39: {
@@ -1419,12 +1417,12 @@ export const initialTravelPlan = {
   },
   40: {
     id: 40,
-    title: 'Hawaii (the USA)',
+    title: 'Hawaii (Estados Unidos)',
     childIds: []
   },
   41: {
     id: 41,
-    title: 'New Zealand',
+    title: 'Nueva Zelanda',
     childIds: []
   },
   42: {
@@ -1434,27 +1432,27 @@ export const initialTravelPlan = {
   },
   43: {
     id: 43,
-    title: 'Moon',
+    title: 'Luna',
     childIds: [44, 45, 46]
   },
   44: {
     id: 44,
-    title: 'Rheita',
+    title: 'Rheita (cráter)',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Piccolomini',
+    title: 'Piccolomini (cráter)',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Tycho',
+    title: 'Tycho (cráter)',
     childIds: []
   },
   47: {
     id: 47,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [48, 49]
   },
   48: {
@@ -1481,7 +1479,6 @@ Puede anidar el estado tanto como desee, pero hacerlo "plano" puede resolver num
 <DeepDive>
 
 #### Mejorar el uso de memoria {/*improving-memory-usage*/}
-
 
 Idealmente, también eliminaría los elementos eliminados (¡y sus hijos!) del objeto "tabla" para mejorar el uso de la memoria. Esta versión lo hace. También [usa Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) para hacer que la lógica de actualización sea más concisa.
 
@@ -1569,14 +1566,14 @@ export const initialTravelPlan = {
   },
   1: {
     id: 1,
-    title: 'Earth',
+    title: 'Tierra',
     childIds: [2, 10, 19, 27, 35]
   },
   2: {
     id: 2,
     title: 'Africa',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botswana',
@@ -1584,22 +1581,22 @@ export const initialTravelPlan = {
   },
   4: {
     id: 4,
-    title: 'Egypt',
+    title: 'Egipto',
     childIds: []
   },
   5: {
     id: 5,
-    title: 'Kenya',
+    title: 'Kenia',
     childIds: []
   },
   6: {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
-    title: 'Morocco',
+    title: 'Marruecos',
     childIds: []
   },
   8: {
@@ -1609,13 +1606,13 @@ export const initialTravelPlan = {
   },
   9: {
     id: 9,
-    title: 'South Africa',
+    title: 'Sudafrica',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Americas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    title: 'Las Americas',
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -1624,14 +1621,14 @@ export const initialTravelPlan = {
   },
   12: {
     id: 12,
-    title: 'Brazil',
+    title: 'Brasil',
     childIds: []
   },
   13: {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canada',
@@ -1649,7 +1646,7 @@ export const initialTravelPlan = {
   },
   17: {
     id: 17,
-    title: 'Trinidad and Tobago',
+    title: 'Trinidad y Tobago',
     childIds: []
   },
   18: {
@@ -1660,7 +1657,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25, 26],   
+    childIds: [20, 21, 22, 23, 24, 25, 26],
   },
   20: {
     id: 20,
@@ -1679,17 +1676,17 @@ export const initialTravelPlan = {
   },
   23: {
     id: 23,
-    title: 'Singapore',
+    title: 'Singapur',
     childIds: []
   },
   24: {
     id: 24,
-    title: 'South Korea',
+    title: 'Corea del norte',
     childIds: []
   },
   25: {
     id: 25,
-    title: 'Thailand',
+    title: 'Tailandia',
     childIds: []
   },
   26: {
@@ -1699,27 +1696,27 @@ export const initialTravelPlan = {
   },
   27: {
     id: 27,
-    title: 'Europe',
-    childIds: [28, 29, 30, 31, 32, 33, 34],   
+    title: 'Europa',
+    childIds: [28, 29, 30, 31, 32, 33, 34],
   },
   28: {
     id: 28,
-    title: 'Croatia',
+    title: 'Croacia',
     childIds: []
   },
   29: {
     id: 29,
-    title: 'France',
+    title: 'Francia',
     childIds: []
   },
   30: {
     id: 30,
-    title: 'Germany',
+    title: 'Alemania',
     childIds: []
   },
   31: {
     id: 31,
-    title: 'Italy',
+    title: 'Italia',
     childIds: []
   },
   32: {
@@ -1729,18 +1726,18 @@ export const initialTravelPlan = {
   },
   33: {
     id: 33,
-    title: 'Spain',
+    title: 'España',
     childIds: []
   },
   34: {
     id: 34,
-    title: 'Turkey',
+    title: 'Turquia',
     childIds: []
   },
   35: {
     id: 35,
     title: 'Oceania',
-    childIds: [36, 37, 38, 39, 40, 41,, 42],   
+    childIds: [36, 37, 38, 39, 40, 41,, 42],
   },
   36: {
     id: 36,
@@ -1749,12 +1746,12 @@ export const initialTravelPlan = {
   },
   37: {
     id: 37,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinesia Francesa)',
     childIds: []
   },
   38: {
     id: 38,
-    title: 'Easter Island (Chile)',
+    title: 'Isla de Pascua (Chile)',
     childIds: []
   },
   39: {
@@ -1764,12 +1761,12 @@ export const initialTravelPlan = {
   },
   40: {
     id: 40,
-    title: 'Hawaii (the USA)',
+    title: 'Hawaii (Estados Unidos)',
     childIds: []
   },
   41: {
     id: 41,
-    title: 'New Zealand',
+    title: 'Nueva Zelanda',
     childIds: []
   },
   42: {
@@ -1779,27 +1776,27 @@ export const initialTravelPlan = {
   },
   43: {
     id: 43,
-    title: 'Moon',
+    title: 'Luna',
     childIds: [44, 45, 46]
   },
   44: {
     id: 44,
-    title: 'Rheita',
+    title: 'Rheita (cráter)',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Piccolomini',
+    title: 'Piccolomini (cráter)',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Tycho',
+    title: 'Tycho (cráter)',
     childIds: []
   },
   47: {
     id: 47,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [48, 49]
   },
   48: {
@@ -1966,7 +1963,7 @@ export default function App() {
 
 </Sandpack>
 
-Or, using the destructuring syntax:
+O, usando la sintaxis de desestructuración:
 
 <Sandpack>
 
@@ -2039,9 +2036,9 @@ import PackingList from './PackingList.js';
 
 let nextId = 3;
 const initialItems = [
-  { id: 0, title: 'Warm socks', packed: true },
-  { id: 1, title: 'Travel journal', packed: false },
-  { id: 2, title: 'Watercolors', packed: false },
+  { id: 0, title: 'Calcetines cálidos', packed: true },
+  { id: 1, title: 'Diario de viaje', packed: false },
+  { id: 2, title: 'Acuarelas', packed: false },
 ];
 
 export default function TravelPlan() {
@@ -2084,7 +2081,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2094,7 +2091,7 @@ export default function TravelPlan() {
         onDeleteItem={handleDeleteItem}
       />
       <hr />
-      <b>{packed} out of {total} packed!</b>
+      <b>¡{packed} de {total} empacados!</b>
     </>
   );
 }
@@ -2108,14 +2105,14 @@ export default function AddItem({ onAddItem }) {
   return (
     <>
       <input
-        placeholder="Add item"
+        placeholder="Adicionar item"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddItem(title);
-      }}>Add</button>
+      }}>Adicionar</button>
     </>
   )
 }
@@ -2148,7 +2145,7 @@ export default function PackingList({
             {item.title}
           </label>
           <button onClick={() => onDeleteItem(item.id)}>
-            Delete
+            Eliminar
           </button>
         </li>
       ))}
@@ -2178,9 +2175,9 @@ import PackingList from './PackingList.js';
 
 let nextId = 3;
 const initialItems = [
-  { id: 0, title: 'Warm socks', packed: true },
-  { id: 1, title: 'Travel journal', packed: false },
-  { id: 2, title: 'Watercolors', packed: false },
+  { id: 0, title: 'Calcetines cálidos', packed: true },
+  { id: 1, title: 'Diario de viaje', packed: false },
+  { id: 2, title: 'Acuarelas', packed: false },
 ];
 
 export default function TravelPlan() {
@@ -2219,7 +2216,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2229,7 +2226,7 @@ export default function TravelPlan() {
         onDeleteItem={handleDeleteItem}
       />
       <hr />
-      <b>{packed} out of {total} packed!</b>
+      <b>¡{packed} de {total} empacados!</b>
     </>
   );
 }
@@ -2243,14 +2240,14 @@ export default function AddItem({ onAddItem }) {
   return (
     <>
       <input
-        placeholder="Add item"
+        placeholder="Adicionar item"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddItem(title);
-      }}>Add</button>
+      }}>Adicionar</button>
     </>
   )
 }
@@ -2283,7 +2280,7 @@ export default function PackingList({
             {item.title}
           </label>
           <button onClick={() => onDeleteItem(item.id)}>
-            Delete
+            Eliminar
           </button>
         </li>
       ))}
@@ -2340,7 +2337,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Bandeja de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2372,7 +2369,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter);        
+        onHover(letter);
       }}
       onPointerMove={() => {
         onHover(letter);
@@ -2392,15 +2389,15 @@ export default function Letter({
 ```js data.js
 export const initialLetters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: '¿Listo para la aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: '¡Hora de registrarse!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: '¡El festival comienza en solo SIETE días!',
   isStarred: false,
 }];
 ```
@@ -2449,7 +2446,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Bandeja de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2481,7 +2478,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter.id);        
+        onHover(letter.id);
       }}
       onPointerMove={() => {
         onHover(letter.id);
@@ -2501,15 +2498,15 @@ export default function Letter({
 ```js data.js
 export const initialLetters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: '¿Listo para la aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: '¡Hora de registrarse!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: '¡El festival comienza en solo SIETE días!',
   isStarred: false,
 }];
 ```
@@ -2556,7 +2553,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Bandeja de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2609,15 +2606,15 @@ export default function Letter({
 ```js data.js
 export const letters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: '¿Listo para la aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: '¡Hora de registrarse!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: '¡El festival comienza en solo SIETE días!',
   isStarred: false,
 }];
 ```
@@ -2665,7 +2662,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Bandeja de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2717,15 +2714,15 @@ export default function Letter({
 ```js data.js
 export const letters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: '¿Listo para la aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: '¡Hora de registrarse!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: '¡El festival comienza en solo SIETE días!',
   isStarred: false,
 }];
 ```
@@ -2770,7 +2767,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Bandeja de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2822,15 +2819,15 @@ export default function Letter({
 ```js data.js
 export const letters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: '¿Listo para la aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: '¡Hora de registrarse!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: '¡El festival comienza en solo SIETE días!',
   isStarred: false,
 }];
 ```
