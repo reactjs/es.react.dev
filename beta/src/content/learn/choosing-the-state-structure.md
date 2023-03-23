@@ -93,7 +93,7 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-Otro caso en el que agrupará datos en un objeto o una matriz es cuando no sabe cuántas partes diferentes del estado se necesitarán. Por ejemplo, es útil cuando tienes un formulario en el que el usuario puede agregar campos personalizados.
+Otro caso en el que agruparás datos en un objeto o una matriz es cuando no sabes cuántas partes diferentes del estado se necesitarán. Por ejemplo, es útil cuando tienes un formulario en el que el usuario puede agregar campos personalizados.
 
 <Pitfall>
 
