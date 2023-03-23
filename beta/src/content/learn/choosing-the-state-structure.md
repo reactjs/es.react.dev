@@ -221,7 +221,7 @@ const isSending = status === 'sending';
 const isSent = status === 'sent';
 ```
 
-Pero no son variables de estado, por lo que no debe preocuparse de que no estén sincronizadas entre sí.
+Pero no son variables de estado, por lo que no debes preocuparte de que no estén sincronizadas entre sí.
 
 ## Evitar estado redundante {/*avoid-redundant-state*/}
 
