@@ -4,7 +4,7 @@ title: "<option>"
 
 <Intro>
 
-El [componente integrado `<option>` del navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) le permite mostrar una opción dentro de un cuadro [`<select>`](/reference/react-dom/components/select).
+El [componente integrado `<option>` del navegador](https://developer.mozilla.org/es/docs/Web/HTML/Element/option) te permite mostrar una opción dentro de un cuadro [`<select>`](/reference/react-dom/components/select).
 
 ```js
 <select>
@@ -23,7 +23,7 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 
 ### `<option>` {/*option*/}
 
-El [componente integrado `<option>` del navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) le permite mostrar una opción dentro de un cuadro [`<select>`](/reference/react-dom/components/select).
+El [componente integrado `<option>` del navegador](https://developer.mozilla.org/es/docs/Web/HTML/Element/option) te permite mostrar una opción dentro de un cuadro [`<select>`](/reference/react-dom/components/select).
 
 ```js
 <select>
@@ -32,21 +32,21 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 </select>
 ```
 
-[Vea más ejemplos a continuación.](#usage)
+[Mira más ejemplos a continuación.](#usage)
 
 #### Props {/*props*/}
 
 `<option>` es compatible con todos los [props de elementos comunes.](/reference/react-dom/components/common#props)
 
-Además, `<opción>` admite estas props:
+Además, `<option>` admite estas props:
 
-* [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#disabled): Un booleano. Si es `verdadero`, la opción no se podrá seleccionar y aparecerá atenuada.
-* [`label`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#label): Una string. Especifica el significado de la opción. Si no se especifica, se utiliza el texto dentro de la opción.
-* [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#value): El valor que se usará [al enviar el padre `<select>` en un formulario](/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form) si se selecciona esta opción.
+* [`disabled`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-disabled): Un booleano. Si es `verdadero`, la opción no se podrá seleccionar y aparecerá atenuada.
+* [`label`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-label): Una string. Especifica el significado de la opción. Si no se especifica, se utiliza el texto dentro de la opción.
+* [`value`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-value: El valor que se usará [al enviar el padre `<select>` en un formulario](/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form) si se selecciona esta opción.
 
 #### Advertencias {/*caveats*/}
 
-* React no admite el atributo `selected` en `<option>`. En su lugar, pase el `value` de esta opción al padre [`<select defaultValue>`](/reference/react-dom/components/select#providing-an-initially-selected-option) para un cuadro de selección no controlado, o [`<select value>`](/reference/react-dom/components/select#controlling-a-select-box-with-a-state-variable) para un cuadro de selección controlado.
+* React no admite el atributo `selected` en `<option>`. En su lugar, pasa el `value` de esta opción al padre [`<select defaultValue>`](/reference/react-dom/components/select#providing-an-initially-selected-option) para un cuadro de selección no controlado, o [`<select value>`](/reference/react-dom/components/select#controlling-a-select-box-with-a-state-variable) para un cuadro de selección controlado.
 
 ---
 
@@ -54,9 +54,9 @@ Además, `<opción>` admite estas props:
 
 ### Mostrar un cuadro de selección con opciones {/*displaying-a-select-box-with-options*/}
 
-Representa un `<select>` con una lista de componentes `<option>` dentro para mostrar un cuadro de selección. Asigne a cada `<option>` un `value` que represente los datos que se enviarán con el formulario.
+Representa un `<select>` con una lista de componentes `<option>` dentro para mostrar un cuadro de selección. Asigna a cada `<option>` un `value` que represente los datos que se enviarán con el formulario.
 
-[Obtenga más información sobre cómo mostrar `<select>` con una lista de componentes `<option>`.](/reference/react-dom/components/select)
+[Obtén más información sobre cómo mostrar un `<select>` con una lista de componentes `<option>`.](/reference/react-dom/components/select)
 
 <Sandpack>
 
