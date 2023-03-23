@@ -15,6 +15,16 @@ redirect_from:
 prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
+
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [Tu primer componente](https://beta.es.reactjs.org/learn/your-first-component)
+> - [Pasar props a tu componente](https://beta.es.reactjs.org/learn/passing-props-to-a-component)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada. Esta página proporciona una introducción a la idea de los componentes.
 Puedes encontrar una [API detallada sobre componentes aquí](/docs/react-component.html).
 
