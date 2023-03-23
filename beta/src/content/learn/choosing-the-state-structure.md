@@ -570,7 +570,7 @@ Pero después del cambio es así:
 
 Ahora, si editas el item *seleccionado*, el siguiente mensaje se actualizará inmediatamente. Esto se debe a que `setItems` desencadena una nueva representación, y `items.find(...)` encontraría el item con el título actualizado. No era necesario mantener *el item seleccionado* en el estado, porque solo el *ID seleccionado* es esencial. El resto podría calcularse durante el renderizado.
 
-## Evitar el estado profundamente anidado {/*avoid-deeply-nested-state*/}
+## Evita el estado profundamente anidado {/*avoid-deeply-nested-state*/}
 
 Imagina un plan de viaje compuesto por planetas, continentes y países. Es posible que sientas la tentación de estructurar tu estado mediante objetos y matrices anidados, como en este ejemplo:
 
