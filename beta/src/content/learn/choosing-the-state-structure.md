@@ -225,7 +225,7 @@ Pero no son variables de estado, por lo que no debes preocuparte de que no esté
 
 ## Evitar estado redundante {/*avoid-redundant-state*/}
 
-Si puede calcular alguna información de las props del componente o sus variables de estado existentes durante el renderizado, **no debe** poner esa información en el estado de ese componente.
+Si puedes calcular alguna información de las props del componente o sus variables de estado existentes durante el renderizado, **no debes** poner esa información en el estado de ese componente.
 
 Por ejemplo, toma este formulario. Funciona, pero ¿puedes encontrar algún estado redundante en él?
 
@@ -364,7 +364,7 @@ function Message({ messageColor }) {
 
 De esta forma, no se sincroniza con la propiedad que se pasa desde el componente principal.
 
-"Reflejar" props en estado solo tiene sentido cuando *quieres* ignorar todas las actualizaciones de un prop en específico. Por convención, comience el nombre de la prop con `initial` or `default` para aclarar que sus nuevos valores se ignoran:
+"Reflejar" props en estado solo tiene sentido cuando *quieres* ignorar todas las actualizaciones de una prop en específico. Por convención, comienza el nombre de la prop con `initial` or `default` para aclarar que sus nuevos valores se ignoran:
 
 ```js
 function Message({ initialColor }) {
@@ -375,9 +375,9 @@ function Message({ initialColor }) {
 
 </DeepDive>
 
-## Evite la duplicación en el estado {/*avoid-duplication-in-state*/}
+## Evita la duplicación en el estado {/*avoid-duplication-in-state*/}
 
-Este componente de lista de menú le permite elegir un solo refrigerio de viaje entre varios:
+Este componente de lista de menú te permite elegir un solo refrigerio de viaje entre varios:
 
 <Sandpack>
 
@@ -422,7 +422,7 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Actualmente, almacena el elemento seleccionado como un objeto en la variable de estado `selectedItem`. Sin embargo, esto no esta bien: **el contenido de `selectedItem` es el mismo objeto que uno de los elementos dentro de la lista de `items`.** Esto significa que la información sobre el elemento en sí está duplicada en dos lugares.
+Actualmente, almacena el elemento seleccionado como un objeto en la variable de estado `selectedItem`. Sin embargo, esto no está bien: **el contenido de `selectedItem` es el mismo objeto que uno de los elementos dentro de la lista de `items`.** Esto significa que la información sobre el elemento en sí está duplicada en dos lugares.
 
 ¿Por qué es esto un problema? Hagamos que cada elemento sea editable:
 
@@ -487,9 +487,9 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Observe cómo si primero hace clic en "Seleccionar" en un elemento y *luego* lo edita, **la entrada se actualiza, pero la etiqueta en la parte inferior no refleja las ediciones.** Esto se debe a que tiene un estado duplicado y se olvidó de actualizar `selectedItem`.
+Observe cómo si primero haces clic en "Seleccionar" en un elemento y *luego* lo editas, **la entrada se actualiza, pero la etiqueta en la parte inferior no refleja las ediciones.** Esto se debe a que tienes un estado duplicado y te olvidaste de actualizar `selectedItem`.
 
-Aunque también podría actualizar `selectedItem`, una solución más fácil es eliminar la duplicación. En este ejemplo, en lugar de un objeto `selectedItem` (que crea una duplicación con objetos dentro de `items`), usted mantiene `selectedId` en el estado, y *luego* obtiene el `selectedItem` buscando en la matriz `items` un artículo con esa identificación:
+Aunque también podría actualizar `selectedItem`, una solución más fácil es eliminar la duplicación. En este ejemplo, en lugar de un objeto `selectedItem` (que crea una duplicación con objetos dentro de `items`), mantienes `selectedId` en el estado, y *luego* obtienes el `selectedItem` buscando en la matriz `items` un artículo con esa identificación:
 
 <Sandpack>
 
@@ -554,25 +554,25 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-(Alternativamente, puede mantener el índice seleccionado en el estado).
+(Alternativamente, puedes mantener el índice seleccionado en el estado).
 
 El estado solía duplicarse de esta manera:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedItem = {id: 0, title: 'pretzels'}`
 
-Pero después del cambio es asi:
+Pero después del cambio es así:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedId = 0`
 
 ¡La duplicación se ha ido, y solo conservas el estado esencial!
 
-Ahora, si edita el item *seleccionado*, el siguiente mensaje se actualizará inmediatamente. Esto se debe a que `setItems` desencadena una nueva representación, y `items.find(...)` encontraría el item con el título actualizado. No era necesario mantener *el item seleccionado* en el estado, porque solo el *ID seleccionado* es esencial. El resto podría calcularse durante el renderizado.
+Ahora, si editas el item *seleccionado*, el siguiente mensaje se actualizará inmediatamente. Esto se debe a que `setItems` desencadena una nueva representación, y `items.find(...)` encontraría el item con el título actualizado. No era necesario mantener *el item seleccionado* en el estado, porque solo el *ID seleccionado* es esencial. El resto podría calcularse durante el renderizado.
 
 ## Evitar el estado profundamente anidado {/*avoid-deeply-nested-state*/}
 
-Imagina un plan de viaje compuesto por planetas, continentes y países. Es posible que sienta la tentación de estructurar su estado mediante objetos y matrices anidados, como en este ejemplo:
+Imagina un plan de viaje compuesto por planetas, continentes y países. Es posible que sientas la tentación de estructurar tu estado mediante objetos y matrices anidados, como en este ejemplo:
 
 <Sandpack>
 
@@ -820,9 +820,9 @@ export const initialTravelPlan = {
 
 Ahora, supongamos que deseas agregar un botón para eliminar un lugar que ya visitaste. ¿Cómo lo harías? [Actualizar el estado anidado](/learn/updating-objects-in-state#updating-a-nested-object) implica hacer copias de objetos desde la parte que cambió. La eliminación de un lugar profundamente anidado implica copiar toda la cadena de lugares principal. Dicho código puede ser muy detallado.
 
-**Si el estado está demasiado anidado para actualizarse fácilmente, considere hacerlo "plano".** Esta es una manera de reestructurar estos datos. En lugar de una estructura similar a un árbol donde cada `lugar` tiene una matriz de *sus lugares secundarios*, puede hacer que cada lugar contenga una matriz de *sus ID de lugares secundarios*. Luego puede almacenar un mapeo de cada ID de lugar al lugar correspondiente.
+**Si el estado está demasiado anidado para actualizarse fácilmente, considera hacerlo "plano".** Esta es una manera de reestructurar estos datos. En lugar de una estructura similar a un árbol donde cada `lugar` tiene una matriz de *sus lugares secundarios*, puedes hacer que cada lugar contenga una matriz de *sus ID de lugares secundarios*. Luego puedes almacenar un mapeo de cada ID de lugar al lugar correspondiente.
 
-Esta reestructuración de datos puede recordarle ver una tabla de base de datos:
+Esta reestructuración de datos puede recordarte ver una tabla de base de datos:
 
 <Sandpack>
 
@@ -1131,7 +1131,7 @@ export const initialTravelPlan = {
 
 **Ahora que el estado es "plano" (también conocido como "normalizado"), la actualización de elementos anidados se vuelve más fácil.**
 
-Para eliminar un lugar ahora, solo necesita actualizar dos niveles de estado:
+Para eliminar un lugar ahora, solo necesitas actualizar dos niveles de estado:
 
 * La versión actualizada de su lugar *principal* debería excluir el ID eliminado de su matriz `childIds`.
 * La versión actualizada del objeto raíz de "tabla" debe incluir la versión actualizada del lugar principal.
@@ -1474,7 +1474,7 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Puede anidar el estado tanto como desee, pero hacerlo "plano" puede resolver numerosos problemas. Facilita la actualización del estado y ayuda a garantizar que no haya duplicación en diferentes partes de un objeto anidado.
+Puede anidar el estado tanto como desees, pero hacerlo "plano" puede resolver numerosos problemas. Facilita la actualización del estado y ayuda a garantizar que no haya duplicación en diferentes partes de un objeto anidado.
 
 <DeepDive>
 
@@ -1838,17 +1838,17 @@ button { margin: 10px; }
 
 </DeepDive>
 
-A veces, también puede reducir el anidamiento de estados moviendo algunos de los estados anidados a los componentes secundarios. Esto funciona bien para el estado efímero de la interfaz de usuario que no necesita almacenarse, por ejemplo, si se pasa el cursor por encima de un elemento.
+A veces, también puedes reducir el anidamiento de estados moviendo algunos de los estados anidados a los componentes secundarios. Esto funciona bien para el estado efímero de la interfaz de usuario que no necesita almacenarse, por ejemplo, si se pasa el cursor por encima de un elemento.
 
 <Recap>
 
-* Si dos variables de estado siempre se actualizan juntas, considere combinarlas en una.
-* Elija cuidadosamente sus variables de estado para evitar crear estados "imposibles".
-* Estructure su estado de una manera que reduzca las posibilidades de que cometa un error al actualizarlo.
-* Evite el estado redundante y duplicado para que no necesite mantenerlo sincronizado.
-* No ponga props *en* estado a menos que desee evitar específicamente las actualizaciones.
-* Para patrones de interfaz de usuario como la selección, mantenga el ID o el índice en estado en lugar del objeto mismo.
-* Si actualizar el estado profundamente anidado es complicado, intente aplanarlo.
+* Si dos variables de estado siempre se actualizan juntas, considera combinarlas en una.
+* Elige cuidadosamente tus variables de estado para evitar crear estados "imposibles".
+* Estructura tu estado de una manera que reduzca las posibilidades de que cometas un error al actualizarlo.
+* Evita el estado redundante y duplicado para que no necesites mantenerlo sincronizado.
+* No pongas props *en* estado a menos que desees evitar específicamente las actualizaciones.
+* Para patrones de interfaz de usuario como la selección, mantén el ID o el índice en estado en lugar del objeto mismo.
+* Si actualizar el estado profundamente anidado es complicado, intenta aplanarlo.
 
 </Recap>
 
@@ -1856,7 +1856,7 @@ A veces, también puede reducir el anidamiento de estados moviendo algunos de lo
 
 #### Arreglar un componente que no se actualiza {/*fix-a-component-thats-not-updating*/}
 
-Este componente `Reloj` recibe dos accesorios: `color` y `tiempo`. Cuando selecciona un color diferente en el cuadro de selección, el componente `Reloj` recibe una prop de `color` diferente de su componente principal. Sin embargo, por alguna razón, el color mostrado no se actualiza. ¿Por qué? Arregla el problema.
+Este componente `Reloj` recibe dos props: `color` y `tiempo`. Cuando seleccionas un color diferente en el cuadro de selección, el componente `Reloj` recibe una prop de `color` diferente de su componente principal. Sin embargo, por alguna razón, el color mostrado no se actualiza. ¿Por qué? Arregla el problema.
 
 <Sandpack>
 
@@ -1911,7 +1911,7 @@ export default function App() {
 
 <Solution>
 
-El problema es que este componente tiene un estado de `color` inicializado con el valor inicial de la prop `color`. Pero cuando cambia la prop `color`, ¡esto no afecta la variable de estado! Entonces se desincronizan. Para solucionar este problema, elimine la variable de estado por completo y use la propiedad `color` directamente.
+El problema es que este componente tiene un estado de `color` inicializado con el valor inicial de la prop `color`. Pero cuando cambia la prop `color`, ¡esto no afecta la variable de estado! Entonces se desincronizan. Para solucionar este problema, elimina la variable de estado por completo y use la prop `color` directamente.
 
 <Sandpack>
 
@@ -2164,7 +2164,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-Aunque podría cambiar cuidadosamente cada controlador de eventos para actualizar correctamente los contadores `total` y `packed`, el problema principal es que estas variables de estado existen en absoluto. Son redundantes porque siempre se puede calcular el número de elementos (empaquetados o totales) a partir de la propia matriz `items`. Elimine el estado redundante para corregir el error:
+Aunque podrías cambiar cuidadosamente cada controlador de eventos para actualizar correctamente los contadores `total` y `packed`, el problema principal es que estas variables de estado existan desde un inicio. Son redundantes porque siempre se puede calcular el número de elementos (empaquetados o totales) a partir de la propia matriz `items`. Elimine el estado redundante para corregir el error:
 
 <Sandpack>
 
@@ -2297,7 +2297,7 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Observe cómo los controladores de eventos solo se preocupan por llamar a `setItems` después de este cambio. Los recuentos de elementos ahora se calculan durante el siguiente renderizado desde `items`, por lo que siempre están actualizados.
+Observa cómo los controladores de eventos solo se preocupan por llamar a `setItems` después de este cambio. Los recuentos de elementos ahora se calculan durante el siguiente renderizado desde `items`, por lo que siempre están actualizados.
 
 </Solution>
 
@@ -2412,7 +2412,7 @@ li { border-radius: 5px; }
 
 <Solution>
 
-El problema es que tienes el objeto de la letra en `highlightedLetter`. Pero también tiene la misma información en la matriz `letters`. ¡Así que tu estado tiene duplicación! Cuando actualiza la matriz de `letters` después de hacer clic en el botón, crea un nuevo objeto de letra que es diferente de `highlightedLetter`. Esta es la razón por la cual la verificación `highlightedLetter === letter` se convierte en `false`, y el resaltado desaparece. Vuelve a aparecer la próxima vez que llamas a `setHighlightedLetter` cuando el puntero se mueve.
+El problema es que tienes el objeto de la letra en `highlightedLetter`. Pero también tienes la misma información en la matriz `letters`. ¡Así que tu estado tiene duplicación! Cuando actualizas la matriz de `letters` después de hacer clic en el botón, crea un nuevo objeto de letra que es diferente de `highlightedLetter`. Esta es la razón por la cual la verificación `highlightedLetter === letter` se convierte en `false`, y el resaltado desaparece. Vuelve a aparecer la próxima vez que llamas a `setHighlightedLetter` cuando el puntero se mueve.
 
 Para solucionar el problema, elimine la duplicación del estado. En lugar de almacenar *la letra misma* en dos lugares, almacena el `highlightedId` en su lugar. Luego, puedes verificar `isHighlighted` para cada letra con `letter.id === HighlightId`, que funcionará incluso si el objeto `letter` ha cambiado desde el último renderizado.
 
