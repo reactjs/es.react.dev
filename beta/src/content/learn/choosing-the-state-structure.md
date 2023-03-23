@@ -97,7 +97,7 @@ Otro caso en el que agruparás datos en un objeto o una matriz es cuando no sabe
 
 <Pitfall>
 
-Si tu variable de estado es un objeto, recuerda que [no se puede actualizar solo un campo en él](/learn/updating-objects-in-state) sin copiar explícitamente los otros campos. Por ejemplo, no puedes hacer definir `setPosition({ x: 100 })` pues en el ejemplo anterior no tendría la propiedad `y` en ningún lugar. En su lugar, si quisieras establecer solo la propiedad `x`, la definirías asi `setPosition({ ...position, x: 100 })`, o las dividirías en dos variables de estado y harías `setX(100)`.
+Si tu variable de estado es un objeto, recuerda que [no se puede actualizar solo un campo en él](/learn/updating-objects-in-state) sin copiar explícitamente los otros campos. Por ejemplo, no puedes hacer `setPosition({ x: 100 })` pues en el ejemplo anterior no tendría la propiedad `y` en ningún lugar. En su lugar, si quisieras establecer solo la propiedad `x`, la definirías así `setPosition({ ...position, x: 100 })`, o las dividirías en dos variables de estado y harías `setX(100)`.
 
 </Pitfall>
 
