@@ -18,7 +18,7 @@ Estructurar bien el estado puede marcar la diferencia entre un componente que es
 
 ## Principios para la estructuración del estado {/*principles-for-structuring-state*/}
 
-Cuando escribe un componente que contiene algún estado, tendrá que tomar decisiones acerca de cuántas variables de estado usar y cuál debería ser la forma de sus datos. Si bien es posible escribir programas correctos incluso con una estructura de estado deficiente, existen algunos principios que pueden guiarlo para tomar mejores decisiones:
+Cuando escribes un componente que contiene algún estado, tendrás que tomar decisiones acerca de cuántas variables de estado usar y cuál debería ser la forma de tus datos. Si bien es posible escribir programas correctos incluso con una estructura de estado deficiente, existen algunos principios que pueden guiarte para tomar mejores decisiones:
 
 1. **Estado relacionado con el grupo.** Si siempre actualiza dos o más variables de estado al mismo tiempo, considere fusionarlas en una sola variable de estado.
 2. **Evite las contradicciones en el estado.** Cuando el estado está estructurado de manera que varias partes del estado pueden contradecirse y "estar en desacuerdo" entre sí, deja espacio para errores. Trate de evitar esto.
