@@ -2414,7 +2414,7 @@ li { border-radius: 5px; }
 
 El problema es que tienes el objeto de la letra en `highlightedLetter`. Pero también tiene la misma información en la matriz `letters`. ¡Así que tu estado tiene duplicación! Cuando actualiza la matriz de `letters` después de hacer clic en el botón, crea un nuevo objeto de letra que es diferente de `highlightedLetter`. Esta es la razón por la cual la verificación `highlightedLetter === letter` se convierte en `false`, y el resaltado desaparece. Vuelve a aparecer la próxima vez que llamas a `setHighlightedLetter` cuando el puntero se mueve.
 
-Para solucionar el problema, elimine la duplicación del estado. En lugar de almacenar *la letra misma* en dos lugares, almacene el `highlightedId` en su lugar. Luego, puede verificar `isHighlighted` para cada letra con `letter.id === HighlightId`, que funcionará incluso si el objeto `letter` ha cambiado desde el último renderizado.
+Para solucionar el problema, elimine la duplicación del estado. En lugar de almacenar *la letra misma* en dos lugares, almacena el `highlightedId` en su lugar. Luego, puedes verificar `isHighlighted` para cada letra con `letter.id === HighlightId`, que funcionará incluso si el objeto `letter` ha cambiado desde el último renderizado.
 
 <Sandpack>
 
