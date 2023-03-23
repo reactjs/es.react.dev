@@ -47,7 +47,7 @@ const [y, setY] = useState(0);
 const [position, setPosition] = useState({ x: 0, y: 0 });
 ```
 
-Técnicamente, puedes usar cualquiera de estos enfoques. Pero **si algunas de las dos variables de estado siempre cambian juntas, podría ser una buena idea unificarlas en una sola variable de estado.** Entonces no olvidará mantenerlos siempre sincronizados, como en este ejemplo donde al mover el cursor se actualizan ambas coordenadas del punto rojo:
+Técnicamente, puedes usar cualquiera de estos enfoques. Pero **si algunas de las dos variables de estado siempre cambian juntas, podría ser una buena idea unificarlas en una sola variable de estado.** Entonces no olvidarás mantenerlos siempre sincronizados, como en este ejemplo donde al mover el cursor se actualizan ambas coordenadas del punto rojo:
 
 <Sandpack>
 
