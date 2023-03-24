@@ -63,7 +63,7 @@ function Tooltip() {
 
 * Si algunas de tus dependencias son objetos o funciones definidas dentro del componente, hay un riesgo de que ellas **causen el efecto de volver a ejecutarse más de lo necesario.** Para arreglar esto, elimina dependencias de [objetos](/reference/react/useEffect#removing-unnecessary-object-dependencies) y [funciones](/reference/react/useEffect#removing-unnecessary-function-dependencies) innecesarias. También puedes [extraer actualizaciones de estados](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) y  [lógica que no es reactiva](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) fuera de tu Efecto.
 
-* Efectos **solo se ejecuta en el lado del cliente.** No se ejecuta durante el renderizado del lado del servidor
+* Los Efectos **solo se ejecuta en el lado del cliente.** No se ejecutan durante el renderizado del lado del servidor
 
 * El código dentro de `useLayoutEffect` y todos los estados actualizados programados desde él **bloquea el navegador de volver a pintar en la pantalla.** Cuando es usado excesivamente, esta puede hacer tu aplicación muy lenta. Cuando sea posible se prefiere usar [`useEffect`.](/reference/react/useEffect) 
 
