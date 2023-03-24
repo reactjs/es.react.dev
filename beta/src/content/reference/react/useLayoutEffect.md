@@ -738,3 +738,5 @@ Sin embargo, si estas pasando por este problema, tienes algunas opciones:
 
 4. Si sincronizas tu componente con un almacén externo de datos y depende de `useLayoutEffect`  por diferentes razones que medir el layout, considera en su lugar usar [`useSyncExternalStore`](/reference/react/useSyncExternalStore) que [soporta renderizado del lado del servidor.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
 
+
+
