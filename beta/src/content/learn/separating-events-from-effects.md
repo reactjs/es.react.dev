@@ -1,5 +1,5 @@
 ---
-title: 'Separating Events from Effects'
+title: 'Separando los Eventos de los Efectos'
 ---
 
 <Intro>
