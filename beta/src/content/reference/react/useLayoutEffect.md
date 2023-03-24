@@ -404,7 +404,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 #### `useEffect` no bloquea el navegador {/*useeffect-does-not-block-the-browser*/}
 
-Aquí está el mismo ejemplo pero con [`useEffect`](/reference/react/useEffect) en vez de `useLayoutEffect`. Si estas en un dispositivo mas lento, podrías notar que aveces el tooltip "parpadea" y de forma breve veras su posición inicial antes de la posición correcta.
+Aquí está el mismo ejemplo pero con [`useEffect`](/reference/react/useEffect) en vez de `useLayoutEffect`. Si estás en un dispositivo más lento, podrías notar que a veces el tooltip "parpadea" y de forma breve verás su posición inicial antes de la posición correcta.
 
 <Sandpack>
 
