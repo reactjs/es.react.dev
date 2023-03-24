@@ -75,7 +75,7 @@ function Tooltip() {
 
 La mayoría de los componentes no necesitan conocer sus posiciones y tamaños en la pantalla para decidir qué renderizar. Ellos solo retornan algo de JSX con CSS. Luego, el navegador calcula sus layout (posición y tamaño) y vuelve a pintar la pantalla. 
 
-Aveces, eso no es suficiente. Imagina un tooltip que aparece junto a algún elemento cuando pasas con el ratón por encima de él. Si hay suficiente espacio, el tooltip debe aparecer arriba del elemento, pero si no tiene suficiente espacio para encajar, debe aparecer debajo. Esto significa que para renderizar el tooltip en la posición final correcta, necesitas saber su altura (quiere decir, si cabe en la parte superior).
+A veces, eso no es suficiente. Imagina un tooltip que aparece junto a algún elemento cuando pasas con el ratón por encima de él. Si hay suficiente espacio, el tooltip debe aparecer arriba del elemento, pero si no tiene suficiente espacio para encajar, debe aparecer debajo. Esto significa que para renderizar el tooltip en la posición final correcta, necesitas saber su altura (quiere decir, si cabe en la parte superior).
 
 Para hacer esto, necesitas renderizar en dos pasadas:
 
