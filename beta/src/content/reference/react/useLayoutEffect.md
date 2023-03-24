@@ -728,7 +728,7 @@ En el [ejemplo del principio](#measuring-layout-before-the-browser-repaints-the-
 
 Usualmente, los componentes que dependen de la información del layout no necesitan renderizarse en el servidor de todos modos. Por ejemplo, probablemente no tiene sentido mostrar un `Tooltip` durante el renderizado inicial. Se desencadena por una interacción del cliente.
 
-Sin embargo, si estas pasando por este problema, tienes algunas opciones:
+Sin embargo, si estás pasando por este problema, tienes algunas opciones:
 
 1. Puedes reemplazar `useLayoutEffect` con [`useEffect`.](/reference/react/useEffect) Este le dice a React que está bien mostrar el resultado inicial del renderizado sin bloquear el pintado (porque el HTML original se convierte en visible antes que tu Efecto se ejecute).
 
