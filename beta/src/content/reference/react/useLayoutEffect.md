@@ -730,7 +730,7 @@ Usualmente, los componentes que dependen de la información del layout no necesi
 
 Sin embargo, si estás pasando por este problema, tienes algunas opciones:
 
-1. Puedes reemplazar `useLayoutEffect` con [`useEffect`.](/reference/react/useEffect) Este le dice a React que está bien mostrar el resultado inicial del renderizado sin bloquear el pintado (porque el HTML original se convierte en visible antes que tu Efecto se ejecute).
+1. Puedes reemplazar `useLayoutEffect` con [`useEffect`.](/reference/react/useEffect) Esto le dice a React que está bien mostrar el resultado inicial del renderizado sin bloquear el pintado (porque el HTML original se convierte en visible antes que tu Efecto se ejecute).
 
 2. Puedes [marcar tu componente como solo cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content) Este le dice a React de reemplazar su contenido hasta la más cercana barrera de [`<Suspense>`](/reference/react/Suspense) con un fallback (por ejemplo, un spinner o un glimmer) durante el renderizado en el lado del servidor)
 
