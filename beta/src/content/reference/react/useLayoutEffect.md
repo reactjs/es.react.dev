@@ -65,7 +65,7 @@ function Tooltip() {
 
 * Los Efectos **solo se ejecuta en el lado del cliente.** No se ejecutan durante el renderizado del lado del servidor
 
-* El código dentro de `useLayoutEffect` y todos los estados actualizados programados desde él **bloquea el navegador de volver a pintar en la pantalla.** Cuando es usado excesivamente, esta puede hacer tu aplicación muy lenta. Cuando sea posible se prefiere usar [`useEffect`.](/reference/react/useEffect) 
+* El código dentro de `useLayoutEffect` y todas las actualizaciones de estado programadas desde él **bloquean el navegador de volver a pintar en la pantalla.** Cuando es usado excesivamente, puede hacer tu aplicación muy lenta. Cuando sea posible se prefiere usar [`useEffect`.](/reference/react/useEffect) 
 
 ---
 
