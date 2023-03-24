@@ -547,7 +547,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Para hacer el error fácil de reproducir, esta versión agrega un delay artificial durante el renderizado. React va a dejar que el navegador pinte la pantalla antes que procese la actualización del estado dentro de `useEffect`. Como resultado, el tooltip parpadea.
+Para hacer el error fácil de reproducir, esta versión agrega una demora artificial durante el renderizado. React va a dejar que el navegador pinte la pantalla antes que procese la actualización del estado dentro de `useEffect`. Como resultado, el tooltip parpadea.
 
 <Sandpack>
 
