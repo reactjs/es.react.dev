@@ -724,7 +724,7 @@ Cuando tú o tu framework usa [renderizado del lado del servidor](/reference/rea
 
 El problema está que en el servidor no hay información de layout.
 
-En el [ejemplo del principio](#measuring-layout-before-the-browser-repaints-the-screen), `useLayoutEffect` llama al componente `tooltip`, se posiciona a si mismo correctamente (ya sea arriba o debajo del contenido) dependiendo de la altura del contenido. Si tratas de renderizar el `tooltip` como parte del HTML inicial del server, este será imposible de determinar. En el servidor no hay navegador ni layout! Incluso si lo renderizas en el servidor, su posición "saltará" en el cliente después de que Javascript cargue y se ejecute.
+En el [ejemplo del principio](#measuring-layout-before-the-browser-repaints-the-screen), `useLayoutEffect` llama al componente `Tooltip`, se posiciona a sí mismo correctamente (ya sea arriba o debajo del contenido) dependiendo de la altura del contenido. Si trataras de renderizar `Tooltip` como parte del HTML inicial del servidor, esto sería imposible de determinar. ¡En el servidor no hay navegador ni layout! Incluso si lo renderizas en el servidor, su posición "saltará" en el cliente después de que el código JavaScript cargue y se ejecute.
 
 Usualmente, los componentes que dependen de la información del layout no necesitan renderizarse en el servidor de todos modos. Por ejemplo, probablemente no tiene sentido mostrar un `Tooltip` durante el renderizado inicial. Se desencadena por una interacción del cliente.
 
