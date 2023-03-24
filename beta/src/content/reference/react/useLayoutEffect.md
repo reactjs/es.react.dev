@@ -104,7 +104,7 @@ Así es como funciona paso por paso:
 1. `Tooltip` se renderiza inicialmente con `tooltipHeight = 0`  (el tooltip puede estar posicionado incorrectamente).
 2. React lo coloca en el DOM y ejecuta el código en `useLayoutEffect`.
 3. Tu `useLayoutEffect` [mide la altura](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) del contenido del tooltip y dispara inmediatamente un renderizado de nuevo.
-4. `Tooltip` se vuelve a renderizar con el real `tooltipHeight` (el tooltip está posicionado correctamente).
+4. `Tooltip` se vuelve a renderizar con el `tooltipHeight` real (el tooltip está posicionado correctamente).
 5. React lo actualiza en el DOM y el navegador finalmente muestra el tooltip.
 
 Pasa el ratón por encima de los botones debajo y mira como el tooltip ajusta su posición dependiendo de si encaja.
