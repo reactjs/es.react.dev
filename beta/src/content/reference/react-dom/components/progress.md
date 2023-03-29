@@ -26,7 +26,7 @@ Para mostrar un indicador de progreso, renderiza el componente [`<progress>` inc
 <progress value={0.5} />
 ```
 
-[Vea más ejemplos a continuación.](#usage)
+[Ve más ejemplos a continuación.](#usage)
 
 #### Props {/*props*/}
 
@@ -35,15 +35,15 @@ Para mostrar un indicador de progreso, renderiza el componente [`<progress>` inc
 Además, `<progress>` admite estas propiedades:
 
 * [`max`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#attr-max): Un número. Especifica el `valor` máximo. Por defecto es `1`.
-* [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#attr-value): Un número entre `0` y el `maximo`, o `null` para un progreso intermedio. Especifica cuánto se ha completado.
+* [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#attr-value): Un número entre `0` y `max`, o `null` para un progreso indeterminado. Especifica cuánto se ha completado.
 
 ---
 
 ## Uso {/*usage*/}
 
-### Controlando un indicador de progreso {/*controlling-a-progress-indicator*/}
+### Control de un indicador de progreso {/*controlling-a-progress-indicator*/}
 
-Para mostrar un indicador de progreso, renderiza un componente `<progress>`. Puedes pasar un `valor` numérico entre `0` y el valor `maximo` que especifiques. Si no pasas un valor `máximo`, se asumirá que es `1` por defecto.
+Para mostrar un indicador de progreso, renderiza un componente `<progress>`. Puedes pasar un `valor` numérico entre `0` y el valor `max` que especifiques. Si no pasas un valor `max`, se asumirá que es `1` por defecto.
 
 Si la operación no está en curso, pasa `value={null}` para poner el indicador de progreso en un estado indeterminado.
 
