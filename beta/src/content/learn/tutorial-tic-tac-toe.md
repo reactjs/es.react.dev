@@ -1,29 +1,29 @@
 ---
-title: 'Tutorial: Tres en linea'
+title: 'Tutorial: Tres en línea'
 ---
 
 <Intro>
 
-En este tutorial construirás un pequeño juego de Tres en linea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo le dará una comprensión profunda de React.
+En este tutorial construirás un pequeño juego de Tres en linea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo te dará una comprensión profunda de React.
 
 </Intro>
 
 <Note>
 
-Este tutorial fue diseñado para personas que prefieren **aprender haciendo** y quieren ver algo tangible de manera rápida. Si prefieres aprender cada concepto paso a paso, comience con [Describiendo la interfaz de usuario.](/learn/describing-the-ui)
+Este tutorial fue diseñado para personas que prefieren **aprender haciendo** y quieren ver algo tangible de manera rápida. Si prefieres aprender cada concepto paso a paso, comienza con [Describir la UI.](/learn/describing-the-ui)
 
 </Note>
 
 El tutorial se divide en varias secciones:
 
 - [Configuración para el tutorial](#setup-for-the-tutorial) le dará **un punto de partida** para seguir el tutorial.
-- [Descripción general](#overview) le enseñará **los fundamentos** de React: componentes, accesorios y estado.
+- [Descripción general](#overview) te enseñará **los fundamentos** de React: componentes, props y estado.
 - [Completar el juego](#completing-the-game) te enseñará **las técnicas más comunes** en el desarrollo de React.
 - [Agregar viajes en el tiempo](#adding-time-travel) le brindará **una visión más profunda** de las fortalezas únicas de React.
 
 ### ¿Qué estás construyendo? {/*what-are-you-building*/}
 
-En este tutorial, crearás un juego interactivo de Tres en linea con React.
+En este tutorial, crearás un juego interactivo de Tres en línea con React.
 
 Puedes ver cómo se verá cuando hayas terminado aquí:
 
@@ -103,7 +103,7 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Ir a mover #' + move;
+      description = 'Ir al movimiento #' + move;
     } else {
       description = 'Ir al inicio del juego';
     }
@@ -196,9 +196,9 @@ body {
 
 Si el código aún no tiene sentido para ti, o si no estás familiarizado con la sintaxis del código, ¡no te preocupes! El objetivo de este tutorial es ayudarte a comprender React y su sintaxis.
 
-Te recomendamos que consultes el juego de Tres en linea anterior antes de continuar con el tutorial. Una de las características que notarás es que hay una lista numerada a la derecha del tablero del juego. Esta lista le brinda un historial de todos los movimientos que se han producido en el juego y se actualiza a medida que avanza el juego.
+Te recomendamos que consultes el juego de Tres en línea anterior antes de continuar con el tutorial. Una de las características que notarás es que hay una lista numerada a la derecha del tablero del juego. Esta lista te brinda un historial de todos los movimientos que se han producido en el juego y se actualiza a medida que avanza el juego.
 
-Una vez que haya jugado un poco con el juego Tres en linea terminado, siga desplazándose. Comenzará con una plantilla más simple en este tutorial. Nuestro siguiente paso es prepararte para que puedas comenzar a construir el juego.
+Una vez que hayas jugado un poco con el juego Tres en línea terminado, sigue desplazándote. Comenzarás con una plantilla más simple en este tutorial. Nuestro siguiente paso es prepararte para que puedas comenzar a construir el juego.
 
 ## Configuración para el tutorial {/*setup-for-the-tutorial*/}
 
@@ -982,7 +982,7 @@ function Square({value}) {
 }
 ```
 
-En este punto, debería ver un tablero de Tres en linea vacío:
+En este punto, deberías ver un tablero de Tres en línea vacío:
 
 ![tablero vacío](../images/tutorial/empty-board.png)
 
