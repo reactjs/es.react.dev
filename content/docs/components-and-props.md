@@ -15,6 +15,16 @@ redirect_from:
 prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
+
+> Prueba la nueva documentación de React.
+> 
+> Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
+>
+> - [Tu primer componente](https://beta.es.reactjs.org/learn/your-first-component)
+> - [Pasar props a tu componente](https://beta.es.reactjs.org/learn/passing-props-to-a-component)
+>
+> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Los componentes permiten separar la interfaz de usuario en piezas independientes, reutilizables y pensar en cada pieza de forma aislada. Esta página proporciona una introducción a la idea de los componentes.
 Puedes encontrar una [API detallada sobre componentes aquí](/docs/react-component.html).
 
@@ -92,9 +102,9 @@ Recapitulemos lo que sucede en este ejemplo:
 
 ## Composición de componentes {#composing-components}
 
-Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comúnmente como componentes.
+Los componentes pueden referirse a otros componentes en su retorno. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en las aplicaciones de React, todos ellos son expresados comúnmente como componentes.
 
-Por ejemplo, podemos crear un componente `App` que renderiza `Welcome` muchas veces:
+Por ejemplo, podemos crear un componente `App` que renderice `Welcome` varias veces:
 
 ```js{8-10}
 function Welcome(props) {
@@ -114,7 +124,7 @@ function App() {
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
-Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
+Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría comenzar desde abajo con un pequeño componente como `Button` y poco a poco trabajar el camino hacia la cima de la jerarquía existente en la vista.
 
 ## Extracción de componentes {#extracting-components}
 

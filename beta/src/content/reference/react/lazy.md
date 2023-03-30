@@ -23,8 +23,12 @@ const SomeComponent = lazy(load)
 Llama a `lazy` fuera de tus componentes para declarar un componente de carga diferida:
 
 ```js
+import { lazy } from 'react';
+
 const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 ```
+
+[Consulta más ejemplos debajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
