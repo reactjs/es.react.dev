@@ -69,7 +69,7 @@ unmountComponentAtNode(rootNode);
 
 ### Eliminar una aplicación React de un elemento DOM {/*removing-a-react-app-from-a-dom-element*/}
 
-De vez en cuando, es posible que desee "rociar" React en una página existente o en una página que no está completamente escrita en React. En esos casos, es posible que deba "detener" la aplicación React, eliminando toda la interfaz de usuario, el estado y los oyentes del nodo DOM al que se representó.
+De vez en cuando, es posible que desee "rociar" React en una página existente o en una página que no está completamente escrita en React. En esos casos, es posible que deba "detener" la aplicación React, eliminando toda la interfaz de usuario, el estado y los oyentes del nodo DOM al que se renderizó.
 
 En este ejemplo, al hacer clic en "Renderizar aplicación React" se renderizará una aplicación React. Haga clic en "Desmontar la aplicación React" para destruirla:
 
