@@ -47,7 +47,7 @@ unmountComponentAtNode(domNode);
 
 #### Devoluciones {/*returns*/}
 
-`unmountComponentAtNode` devuelve `true` si un componente fue desmontado y de `false` lo contrario.
+`unmountComponentAtNode` devuelve `true` si un componente fue desmontado y `false` en caso contrario.
 
 ---
 
