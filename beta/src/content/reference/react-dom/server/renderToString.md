@@ -4,13 +4,13 @@ title: renderToString
 
 <Pitfall>
 
-`renderToString` does not support streaming or waiting for data. [See the alternatives.](#alternatives)
+`renderToString` no es compatible con transmisión (*streaming*) o espera de datos. [Ver alternativas.](#alternatives)
 
 </Pitfall>
 
 <Intro>
 
-`renderToString` renders a React tree to an HTML string.
+`renderToString` renderiza un árbol de React como una cadena de HTML.
 
 ```js
 const html = renderToString(reactNode)
@@ -22,11 +22,11 @@ const html = renderToString(reactNode)
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `renderToString(reactNode)` {/*rendertostring*/}
 
-On the server, call `renderToString` to render your app to HTML.
+En el servidor, llama a `renderToString` para renderizar tu aplicación a HTML.
 
 ```js
 import { renderToString } from 'react-dom/server';
@@ -34,81 +34,81 @@ import { renderToString } from 'react-dom/server';
 const html = renderToString(<App />);
 ```
 
-On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to make the server-generated HTML interactive.
+En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer que el HTML generado por el servidor sea interactivo.
 
-[See more examples below.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `reactNode`: A React node you want to render to HTML. For example, a JSX node like `<App />`.
+* `reactNode`: Un nodo de React que deseas renderizar como HTML. Por ejemplo, un nodo JSX como `<App />`.
 
 #### Returns {/*returns*/}
 
-An HTML string.
+Una cadena de caracteres HTML.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `renderToString` has limited Suspense support. If a component suspends, `renderToString` immediately sends its fallback as HTML.
+* `renderToString` tiene un soporte limitado para Suspense. Si un componente suspende, `renderToString` inmediatamente envía su fallback como HTML.
 
-* `renderToString` works in the browser, but using it in the client code is [not recommended.](#removing-rendertostring-from-the-client-code)
+* `renderToString` funciona en el navegador, pero [no se recomienda](#removing-rendertostring-from-the-client-code) usarlo en el código del cliente.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Rendering a React tree as HTML to a string {/*rendering-a-react-tree-as-html-to-a-string*/}
+### Renderizar un árbol de React como HTML en una cadena de caracteres {/*rendering-a-react-tree-as-html-to-a-string*/}
 
-Call `renderToString` to render your app to an HTML string which you can send with your server response:
+Llama a `renderToString` para renderizar tu aplicación como una cadena de caracteres HTML que puedes enviar con la respuesta del servidor:
 
 ```js {5-6}
 import { renderToString } from 'react-dom/server';
 
-// The route handler syntax depends on your backend framework
+// La sintaxis del manejador de rutas depende de tu framework de backend.
 app.use('/', (request, response) => {
   const html = renderToString(<App />);
   response.send(html);
 });
 ```
 
-This will produce the initial non-interactive HTML output of your React components. On the client, you will need to call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to *hydrate* that server-generated HTML and make it interactive.
+Esto producirá la salida HTML inicial no interactiva de tus componentes de React. En el cliente, deberás llamar a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para *hidratar* ese HTML generado por el servidor y hacerlo interactivo.
 
 
 <Pitfall>
 
-`renderToString` does not support streaming or waiting for data. [See the alternatives.](#alternatives)
+`renderToString` no es compatible con transmisión o espera de datos. [Ver alternativas.](#alternatives)
 
 </Pitfall>
 
 ---
 
-## Alternatives {/*alternatives*/}
+## Alternativas {/*alternatives*/}
 
-### Migrating from `renderToString` to a streaming method on the server {/*migrating-from-rendertostring-to-a-streaming-method-on-the-server*/}
+### Migración de `renderToString` a un método de transmisión en el servidor {/*migrating-from-rendertostring-to-a-streaming-method-on-the-server*/}
 
-`renderToString` returns a string immediately, so it does not support streaming or waiting for data.
+`renderToString` devuelve una cadena de caracteres de inmediato, por lo que no admite transmisión (*streaming*) o espera de datos.
 
-When possible, we recommend to use these fully-featured alternatives:
+Cuando sea posible, recomendamos utilizar estas alternativas totalmente funcionales:
 
-* If you use Node.js, use [`renderToPipeableStream`.](/reference/react-dom/server/renderToPipeableStream)
-* If you use Deno or a modern edge runtime with [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), use [`renderToReadableStream`.](/reference/react-dom/server/renderToReadableStream)
+* Si utilizas Node.js, utiliza [`renderToPipeableStream`.](/reference/react-dom/server/renderToPipeableStream)
+* Si utilizas Deno o una versión moderna de runtime con [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), utiliza [`renderToReadableStream`.](/reference/react-dom/server/renderToReadableStream)
 
-You can continue using `renderToString` if your server environment does not support streams.
+Puedes continuar utilizando `renderToString` si tu entorno de servidor no admite *streams*.
 
 ---
 
-### Removing `renderToString` from the client code {/*removing-rendertostring-from-the-client-code*/}
+### Eliminar `renderToString` del código del cliente {/*removing-rendertostring-from-the-client-code*/}
 
-Sometimes, `renderToString` is used on the client to convert some component to HTML.
+A veces, se usa `renderToString` en el cliente para convertir algún componente en HTML.
 
 ```js {1-2}
-// 🚩 Unnecessary: using renderToString on the client
+// 🚩 Innecesario: usar renderToString en el cliente
 import { renderToString } from 'react-dom/server';
 
 const html = renderToString(<MyIcon />);
-console.log(html); // For example, "<svg>...</svg>"
+console.log(html); // Por ejemplo, "<svg>...</svg>"
 ```
 
-Importing `react-dom/server` **on the client** unnecessarily increases your bundle size and should be avoided. If you need to render some component to HTML in the browser, use [`createRoot`](/reference/react-dom/client/createRoot) and read HTML from the DOM:
+Importar `react-dom/server` **en el cliente**  aumenta innecesariamente el tamaño de tu paquete y debe evitarse.  Si necesitas renderizar algún componente como HTML en el navegador, utiliza [`createRoot`](/reference/react-dom/client/createRoot) y lee el HTML desde el DOM:
 
 ```js
 import { createRoot } from 'react-dom/client';
@@ -119,20 +119,19 @@ const root = createRoot(div);
 flushSync(() => {
   root.render(<MyIcon />);
 });
-console.log(div.innerHTML); // For example, "<svg>...</svg>"
+console.log(div.innerHTML); // Por ejemplo, "<svg>...</svg>"
 ```
 
-The [`flushSync`](/reference/react-dom/flushSync) call is necessary so that the DOM is updated before reading its [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) property.
+La llamada a [`flushSync`](/reference/react-dom/flushSync) es necesaria para que el DOM se actualice antes de leer su propiedad [`innerHTML.`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solución de problemas {/*troubleshooting*/}
 
-### When a component suspends, the HTML always contains a fallback {/*when-a-component-suspends-the-html-always-contains-a-fallback*/}
+### Cuando un componente se suspende, el HTML siempre contiene un fallback {/*when-a-component-suspends-the-html-always-contains-a-fallback*/}
 
-`renderToString` does not fully support Suspense.
+`renderToString` no es compatible completamente con Suspense.
 
-If some component suspends (for example, because it's defined with [`lazy`](/reference/react/lazy) or fetches data), `renderToString` will not wait for its content to resolve. Instead, `renderToString` will find the closest [`<Suspense>`](/reference/react/Suspense) boundary above it and render its `fallback` prop in the HTML. The content will not appear until the client code loads.
+Si algún componente se suspende (Por ejemplo, porque está definido con [`lazy`](/reference/react/lazy) o busca datos), `renderToString` no esperará a que se resuelva su contenido. En su lugar, `renderToString` encontrará el límite de [`<Suspense>`](/reference/react/Suspense) más cercano por encima y renderizará su prop `fallback` en el HTML. El contenido no aparecerá hasta que se cargue el código del cliente.
 
-To solve this, use one of the [recommended streaming solutions.](#migrating-from-rendertostring-to-a-streaming-method-on-the-server) They can stream content in chunks as it resolves on the server so that the user sees the page being progressively filled in even before the client code loads.
-
+Para resolver esto, utiliza una de las [soluciones de streaming recomendadas.](#migrating-from-rendertostring-to-a-streaming-method-on-the-server) Pueden transmitir contenido en trozos a medida que se resuelve en el servidor para que el usuario vea cómo se rellena la página progresivamente antes de que se cargue el código del cliente.
