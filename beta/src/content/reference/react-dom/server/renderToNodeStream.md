@@ -4,7 +4,7 @@ title: renderToNodeStream
 
 <Deprecated>
 
-Esta API se eliminará en una futura versión de React. En su lugar, use [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
+Esta API se eliminará en una futura versión de React. En su lugar, usa [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
 
 </Deprecated>
 
