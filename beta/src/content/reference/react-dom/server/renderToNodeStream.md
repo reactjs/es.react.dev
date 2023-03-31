@@ -41,7 +41,7 @@ En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) 
 
 #### Parámetros {/*parameters*/}
 
-* `reactNode`: Un nodo de React que desea representar en HTML. Por ejemplo, un elemento JSX como `<App />`.
+* `reactNode`: Un nodo de React que deseas representar en HTML. Por ejemplo, un elemento JSX como `<App />`.
 
 #### Retorna {/*returns*/}
 
