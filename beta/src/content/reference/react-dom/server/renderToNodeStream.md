@@ -61,7 +61,7 @@ Un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-str
 
 ### Renderizar un árbol de React como HTML en un *stream* legible de Node.js {/*rendering-a-react-tree-as-html-to-a-nodejs-readable-stream*/}
 
-Llame a `renderToNodeStream` para obtener un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que puede canalizar a la respuesta de su servidor:
+Llama a `renderToNodeStream` para obtener un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que puedes canalizar a la respuesta de tu servidor:
 
 ```js {5-6}
 import { renderToNodeStream } from 'react-dom/server';
