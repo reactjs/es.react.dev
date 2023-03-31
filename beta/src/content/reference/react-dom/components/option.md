@@ -36,13 +36,13 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 
 #### Props {/*props*/}
 
-`<option>` es compatible con todos los [props de elementos comunes.](/reference/react-dom/components/common#props)
+`<option>` es compatible con todas las [props de elementos comunes.](/reference/react-dom/components/common#props)
 
 Además, `<option>` admite estas props:
 
 * [`disabled`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-disabled): Un booleano. Si es `verdadero`, la opción no se podrá seleccionar y aparecerá atenuada.
 * [`label`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-label): Una string. Especifica el significado de la opción. Si no se especifica, se utiliza el texto dentro de la opción.
-* [`value`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-value: El valor que se usará [al enviar el padre `<select>` en un formulario](/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form) si se selecciona esta opción.
+* [`value`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option#attr-value: El valor que se usará [al enviar el `<select>` padre en un formulario](/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form) si se selecciona esta opción.
 
 #### Advertencias {/*caveats*/}
 
