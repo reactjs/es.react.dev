@@ -4,7 +4,7 @@ title: renderToString
 
 <Pitfall>
 
-`renderToString` no es compatible con transmisión o espera de datos. [Ver alternativas.](#alternatives)
+`renderToString` no es compatible con transmisión (*streaming*) o espera de datos. [Ver alternativas.](#alternatives)
 
 </Pitfall>
 
@@ -85,14 +85,14 @@ Esto producirá la salida HTML inicial no interactiva de tus componentes de Reac
 
 ### Migración de `renderToString` a un método de transmisión en el servidor {/*migrating-from-rendertostring-to-a-streaming-method-on-the-server*/}
 
-`renderToString` devuelve una cadena de caracteres de inmediato, por lo que no admite transmisión o espera de datos.
+`renderToString` devuelve una cadena de caracteres de inmediato, por lo que no admite transmisión (*streaming*) o espera de datos.
 
 Cuando sea posible, recomendamos utilizar estas alternativas totalmente funcionales:
 
 * Si utilizas Node.js, utiliza [`renderToPipeableStream`.](/reference/react-dom/server/renderToPipeableStream)
 * Si utilizas Deno o una versión moderna de runtime con [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), utiliza [`renderToReadableStream`.](/reference/react-dom/server/renderToReadableStream)
 
-Puedes continuar utilizando `renderToString` si tu entorno de servidor no admite transmisión.
+Puedes continuar utilizando `renderToString` si tu entorno de servidor no admite *streams*.
 
 ---
 
