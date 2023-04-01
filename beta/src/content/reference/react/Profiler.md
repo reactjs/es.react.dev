@@ -87,7 +87,7 @@ El perfilado agrega una sobrecarga adicional, por lo que **está desactivado en 
 
 <Note>
 
-`<Profiler>` te permite recopilar mediciones de forma programática.  Si estás buscando un perfilador interactivo, prueba la pestaña Profiler en las [React Developer Tools](/learn/react-developer-tools). Expone funcionalidades similares a una extensión del navegador.
+`<Profiler>` te permite recopilar mediciones de forma programática.  Si estás buscando un perfilador interactivo, prueba la pestaña Profiler en las [Herramientas de Desarrollo de React](/learn/react-developer-tools). Expone funcionalidades similares a una extensión del navegador.
 
 </Note>
 
