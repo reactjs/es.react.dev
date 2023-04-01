@@ -66,7 +66,7 @@ function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime
 
 ### Medición del rendimiento de renderizado programáticamente {/*measuring-rendering-performance-programmatically*/}
 
-Envuelve el componente `<Profiler>` alrededor de un árbol de React para medir su rendimiento de performance.
+Envuelve el componente `<Profiler>` alrededor de un árbol de React para medir su rendimiento de renderizado.
 
 ```js {2,4}
 <App>
