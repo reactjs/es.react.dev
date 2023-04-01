@@ -53,7 +53,7 @@ function TabContainer() {
 
 * Solo puedes envolver una actualización en una transición si tienes acceso a la función `set`  de ese estado. Si deseas iniciar una transición en respuesta a alguna prop o un valor de retorno de un Hook personalizado, intenta usar [`useDeferredValue`](/reference/react/usedeferredvalue) en su lugar.
 
-* La función que pasa a `startTransition` debe ser sincrónica. React ejecuta inmediatamente esta función, marcando todas las actualizaciones de estado que ocurren mientras se ejecuta como transiciones. Si intenta realizar más actualizaciones de estado más tarde (por ejemplo, en un timeout), no se marcarán como transiciones.
+* La función que pasas a `startTransition` debe ser sincrónica. React ejecuta inmediatamente esta función, marcando todas las actualizaciones de estado que ocurren mientras se ejecuta como transiciones. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un timeout), no se marcarán como transiciones.
 
 * Una actualización de estado marcada como una transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualiza un componente de gráfico dentro de una transición, pero luego comienza a escribir en una entrada mientras el gráfico está en medio de una re-renderización, React reiniciará el trabajo de renderizado en el componente de gráfico después de manejar la actualización de estado de entrada.
 
