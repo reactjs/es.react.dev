@@ -67,7 +67,7 @@ function TabContainer() {
 
 ### Marcar una actualización de estado como una transición sin bloqueo {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-Puede marcar una actualización de estado como una transición envolviéndola en una llamada `startTransition`:
+Puedes marcar una actualización de estado como una transición envolviéndola en una llamada `startTransition`:
 
 ```js {7,9}
 import { startTransition } from 'react';
