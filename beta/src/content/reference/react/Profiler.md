@@ -93,7 +93,7 @@ El perfilado agrega una sobrecarga adicional, por lo que **está desactivado en 
 
 ---
 
-### Midiendo diferentes partes de la aplicación {/*measuring-different-parts-of-the-application*/}
+### Medición de diferentes partes de la aplicación {/*measuring-different-parts-of-the-application*/}
 
 Puedes usar varios componentes `<Profiler>` para medir diferentes partes de tu aplicación:
 
