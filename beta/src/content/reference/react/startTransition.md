@@ -20,7 +20,7 @@ startTransition(scope)
 
 ### `startTransition(scope)` {/*starttransitionscope*/}
 
-La función `startTransition` le permite marcar una actualización de estado como una transición.
+La función `startTransition` te permite marcar una actualización de estado como una transición.
 
 ```js {7,9}
 import { startTransition } from 'react';
