@@ -92,6 +92,6 @@ Con una transición, tu interfaz de usuario sigue siendo receptiva en medio de u
 
 `startTransition` es muy similar a [`useTransition`](/reference/react/useTransition), excepto que no proporciona la bandera `isPending` para rastrear si una transición está en curso. Puedes llamar a `startTransition` cuando `useTransition` no esté disponible. Por ejemplo, `startTransition` funciona fuera de los componentes, como desde una biblioteca de datos.
 
-[Aprenda sobre las transiciones y vea ejemplos en la página de `useTransition`.](/reference/react/useTransition)
+[Aprende sobre las transiciones y ve ejemplos en la página de `useTransition`.](/reference/react/useTransition)
 
 </Note>
