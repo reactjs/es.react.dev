@@ -23,7 +23,7 @@ El [componente `<textarea>` que viene integrado en el navegador](https://develop
 Para mostrar un text area, renderiza el componente [`<textarea>` que viene integrado en el navegador](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea).
 
 ```js
-<textarea name="contenidoPost" />
+<textarea name="postContent" />
 ```
 
 [Mira más ejemplos abajo.](#usage)
@@ -49,7 +49,7 @@ Estas props de `<textarea>` son relevantes tanto para text areas controlados com
 * `children`: `<textarea>` no acepta hijos. Para establecer el valor inicial, usa `defaultValue`.
 * [`cols`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-cols): Un número. Especifica la anchura por defecto en promedio de anchura de carácter. El valor por defecto es `20`.
 * [`disabled`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-disabled): Un booleano. Si es `true`, el input no será interactivo y aparecerá atenuado.
-* [`form`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-form): Un string. Especifica el `id` del `<form>` al que este input pertenece. Si es omitido, es el formulario padre mas cercano.
+* [`form`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-form): Un string. Especifica el `id` del `<form>` al que este input pertenece. Si es omitido, es el formulario padre más cercano.
 * [`maxLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-maxlength): Un número. Especifica la longitud máxima del texto.
 * [`minLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-minlength): Un número. Especifica la longitud mínima del texto.
 * [`name`](https://developer.mozilla.org/es/docs/Web/HTML/Element/input#attr-name): Un string. Especifica el nombre para este input que es [enviado con el formulario.](#reading-the-textarea-value-when-submitting-a-form)
@@ -86,11 +86,11 @@ Renderiza `<textarea>` para mostrar un text area. Puedes especificar su tamaño 
 <Sandpack>
 
 ```js
-export default function NuevoPost() {
+export default function NewPost() {
   return (
     <label>
-      Escribe tu post:
-      <textarea name="contenidoPost" rows={4} cols={40} />
+      Write your post:
+      <textarea name="postContent" rows={4} cols={40} />
     </label>
   );
 }
@@ -109,25 +109,25 @@ label, textarea { display: block; }
 
 ### Proporcionar un label para un text area {/*providing-a-label-for-a-text-area*/}
 
-Típicamente, colocarás todos los `<textarea>` dentro de una etiqueta [`<label>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/label). Esto le indica al navegador que este label está asociado con ese text area. Cuando el usuario haca click en el label, el navegador enfocará el text area. Esto también es esencial para accesibilidad: un lector de pantallas anunciará el texto del label cuando el usuario enfoque el text area.
+Típicamente, colocarás todos los `<textarea>` dentro de una etiqueta [`<label>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/label). Esto le indica al navegador que este label está asociado con ese text area. Cuando el usuario haga click en el label, el navegador enfocará el text area. Esto también es esencial para accesibilidad: un lector de pantallas anunciará el texto del label cuando el usuario enfoque el text area.
 
-Si no puedes anidar el `<textarea>` dentro de un `<label>`, asociales pasando el mismo identificador a `<textarea id>` y [`<label htmlFor>`.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor) Para evitar conflictos entre instancias de un componente, genera un identificador con [`useId`.](/reference/react/useId)
+Si no puedes anidar el `<textarea>` dentro de un `<label>`, asócialos pasando el mismo identificador a `<textarea id>` y [`<label htmlFor>`.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor) Para evitar conflictos entre instancias de un componente, genera un identificador con [`useId`.](/reference/react/useId)
 
 <Sandpack>
 
 ```js
 import { useId } from 'react';
 
-export default function Formulario() {
+export default function Form() {
   const postTextAreaId = useId();
   return (
     <>
       <label htmlFor={postTextAreaId}>
-        Escribe tu post:
+        Write your post:
       </label>
       <textarea
         id={postTextAreaId}
-        name="contenidoPost"
+        name="postContent"
         rows={4}
         cols={40}
       />
@@ -151,13 +151,13 @@ Opcionalmente puedes especificar el valor inicial de un text area. Pásalo a tra
 <Sandpack>
 
 ```js
-export default function EditarPost() {
+export default function EditPost() {
   return (
     <label>
-      Edita tu post:
+      Edit your post:
       <textarea
-        name="contenidoPost"
-        defaultValue="¡Disfruté el paseo en bicicleta de ayer!"
+        name="postContent"
+        defaultValue="I really enjoyed biking yesterday!"
         rows={4}
         cols={40}
       />
@@ -185,11 +185,11 @@ A diferencia de HTML, no es posible pasar el texto inicial como `<textarea>Algú
 
 ### Leer el valor de text area al enviar un formulario {/*reading-the-text-area-value-when-submitting-a-form*/}
 
- Agrega un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) alrededor de tu text area con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit) dentro. Este llamará a tu manejador de evento `<form onSubmit>`. Por defecto, el navegador enviara los datos del formulario a el URL actual y actualizará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
+ Agrega un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) alrededor de tu text area con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit) dentro. Este llamará a tu manejador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a el URL actual y actualizará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
 <Sandpack>
 
 ```js
-export default function EditarPost() {
+export default function EditPost() {
   function handleSubmit(e) {
     // Evita que el navegador actualice la página
     e.preventDefault();
@@ -209,20 +209,20 @@ export default function EditarPost() {
   return (
     <form method="post" onSubmit={handleSubmit}>
       <label>
-        Título del post: <input name="tituloPost" defaultValue="Paseo en bicicleta" />
+        Post title: <input name="postTitle" defaultValue="Biking" />
       </label>
       <label>
-        Edita tu post:
+        Edit your post:
         <textarea
-          name="contenidoPost"
-          defaultValue="¡Disfruté el paseo en bicicleta de ayer!"
+          name="postContent"
+          defaultValue="I really enjoyed biking yesterday!"
           rows={4}
           cols={40}
         />
       </label>
       <hr />
-      <button type="reset">Reiniciar cambios</button>
-      <button type="submit">Guardar post</button>
+      <button type="reset">Reset edits</button>
+      <button type="submit">Save post</button>
     </form>
   );
 }
@@ -256,13 +256,13 @@ Un text area como `<textarea />` es *no controlado.* Incluso si [pasas un valor 
 **Para renderizar un text area _controlado_, pásale la prop `value`.** React forzará al text area a siempre tener `value` que pasaste. Normalmente, controlarás un text area declarando una [variable de estado:](/reference/react/useState)
 
 ```js {2,6,7}
-function NuevoPost() {
-  const [contenidoPost, asignaContenidoPost] = useState(''); // Declara una variable de estado...
+function NewPost() {
+  const [postContent, setPostContent] = useState(''); // Declara una variable de estado...
   // ...
   return (
     <textarea
-      value={contenidoPost} // ...fuerza al valor del input a que coincida con la variable de estado...
-      onChange={e => asignaContenidoPost(e.target.value)} // ... ¡y actualiza la variable de estado con cada cambio!
+      value={postContent} // ...fuerza al valor del input a que coincida con la variable de estado...
+      onChange={e => setPostContent(e.target.value)} // ... ¡y actualiza la variable de estado con cada cambio!
     />
   );
 }
@@ -276,19 +276,19 @@ Esto es útil si quieres re-renderizar alguna parte de la IU cada vez que una te
 import { useState } from 'react';
 import MarkdownPreview from './MarkdownPreview.js';
 
-export default function EditorMarkdown() {
-  const [contenidoPost, asignaContenidoPost] = useState('_Hola,_ **Markdown**!');
+export default function MarkdownEditor() {
+  const [postContent, setPostContent] = useState('_Hello,_ **Markdown**!');
   return (
     <>
       <label>
-        Inserta markdown:
+        Enter some markdown:
         <textarea
-          value={contenidoPost}
-          onChange={e => asignaContenidoPost(e.target.value)}
+          value={postContent}
+          onChange={e => setPostContent(e.target.value)}
         />
       </label>
       <hr />
-      <MarkdownPreview markdown={contenidoPost} />
+      <MarkdownPreview markdown={postContent} />
     </>
   );
 }
@@ -300,8 +300,8 @@ import { Remarkable } from 'remarkable';
 const md = new Remarkable();
 
 export default function MarkdownPreview({ markdown }) {
-  const htmlRenderizado = md.render(markdown);
-  return <div dangerouslySetInnerHTML={{__html: htmlRenderizado}} />;
+  const renderedHTML = md.render(markdown);
+  return <div dangerouslySetInnerHTML={{__html: renderedHTML}} />;
 }
 ```
 
@@ -344,7 +344,7 @@ Si renderizas un text area con `value` pero sin `onChange`, verás un error en l
 
 ```js
 // 🔴 Error: text area controlado sin manejador onChange
-<textarea value={algo} />
+<textarea value={something} />
 ```
 
 <ConsoleBlock level="error">
@@ -357,21 +357,21 @@ Como sugiere el mensaje de error, si solo quisiste [especificar el valor *inicia
 
 ```js
 // ✅ Bien: text area no controlado con un valor inicial
-<textarea defaultValue={algo} />
+<textarea defaultValue={something} />
 ```
 
 Si quieres [controlar este text area con una variable de estado,](#controlling-a-text-area-with-a-state-variable) especifica un manejador `onChange`:
 
 ```js
 // ✅ Bien: text area controlado con onChange
-<textarea value={algo} onChange={e => asignaAlgo(e.target.value)} />
+<textarea value={something} onChange={e => setSomething(e.target.value)} />
 ```
 
 Si el valor es de sólo lectura intencionalmente, agrega la prop `readOnly` para evitar el error:
 
 ```js
 // ✅ Bien: text area controlado de solo lectura sin onChange
-<textarea value={algo} readOnly={true} />
+<textarea value={something} readOnly={true} />
 ```
 
 ---
@@ -385,7 +385,7 @@ No puedes actualizarlo a algo más que no sea `e.target.value`:
 ```js
 function handleChange(e) {
   // 🔴 Error: actualizar un input a algo que no sea e.target.value
-  asignaPrimerNombre(e.target.value.toUpperCase());
+  setFirstName(e.target.value.toUpperCase());
 }
 ```
 
@@ -395,7 +395,7 @@ Tampoco puedes actualizarlo de manera asíncrona:
 function handleChange(e) {
   // 🔴 Error: actualizar un input de manera asíncrona
   setTimeout(() => {
-    asignaPrimerNombre(e.target.value);
+    setFirstName(e.target.value);
   }, 100);
 }
 ```
@@ -405,7 +405,7 @@ Para arreglar tu código, actualízalo de manera síncrona a `e.target.value`:
 ```js
 function handleChange(e) {
   // ✅ Actualizar un input controlado a e.target.value de manera síncrona
-  asignaPrimerNombre(e.target.value);
+  setFirstName(e.target.value);
 }
 ```
 
