@@ -37,7 +37,7 @@ Envuelve un árbol de componentes en un `<Profiler>` para medir su rendimiento d
 
 #### Advertencias {/*caveats*/}
 
-* El perfilado agrega cierta sobrecarga adicional, por lo que **está deshabilitado en la versión de producción de manera predeterminada.** Para optar por el perfilado en producción, debe habilitar una [versión especial de producción con el perfilado habilitado.](https://fb.me/react-profiling)
+* El perfilado agrega cierta sobrecarga adicional, por lo que **está deshabilitado en la versión de producción de manera predeterminada.** Para optar por el perfilado en producción, debes habilitar una [versión especial de producción con el perfilado habilitado.](https://fb.me/react-profiling)
 
 ---
 
