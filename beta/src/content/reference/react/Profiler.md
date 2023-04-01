@@ -33,7 +33,7 @@ Envuelve un árbol de componentes en un `<Profiler>` para medir su rendimiento d
 #### Props {/*props*/}
 
 * `id`: Un string que identifica qué parte de la interfaz de usuario estás midiendo.
-* `onRender`: Una [devolución de llamada `onRender`](#onrender-callback) que React llama cada vez que los componentes dentro del árbol perfilado se actualizan. Recibe información sobre lo que se renderizó y cuánto tiempo llevó.
+* `onRender`: Un [*callback* `onRender`](#onrender-callback) que React llama cada vez que los componentes dentro del árbol perfilado se actualizan. Recibe información sobre lo que se renderizó y cuánto tiempo llevó.
 
 #### Advertencias {/*caveats*/}
 
