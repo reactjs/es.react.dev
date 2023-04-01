@@ -51,7 +51,7 @@ function TabContainer() {
 
 * `startTransition` no proporciona una forma de rastrear si hay una transición pendiente. Para mostrar un indicador pendiente mientras se produce la transición, debes utilizar [`useTransition`](/reference/react/useTransition) en su lugar.
 
-* Solo puede envolver una actualización en una transición si tiene acceso a la función `set`  de ese estado. Si desea iniciar una transición en respuesta a alguna propiedad o un valor de retorno personalizado de Hook, intente usar [`useDeferredValue`](/reference/react/usedeferredvalue) en su lugar.
+* Solo puedes envolver una actualización en una transición si tienes acceso a la función `set`  de ese estado. Si deseas iniciar una transición en respuesta a alguna prop o un valor de retorno de un Hook personalizado, intenta usar [`useDeferredValue`](/reference/react/usedeferredvalue) en su lugar.
 
 * La función que pasa a `startTransition` debe ser sincrónica. React ejecuta inmediatamente esta función, marcando todas las actualizaciones de estado que ocurren mientras se ejecuta como transiciones. Si intenta realizar más actualizaciones de estado más tarde (por ejemplo, en un timeout), no se marcarán como transiciones.
 
