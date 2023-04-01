@@ -77,7 +77,7 @@ Envuelve el componente `<Profiler>` alrededor de un árbol de React para medir s
 </App>
 ```
 
-Se requieren dos props: un `id` (string) y un callback `onRender` (function) que React llama cada vez que un componente dentro del árbol "comete" una actualización.
+Se requieren dos props: un `id` (string) y un *callback* `onRender` (function) que React llama cada vez que un componente dentro del árbol "comete" una actualización.
 
 <Pitfall>
 
