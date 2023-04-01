@@ -43,7 +43,7 @@ Envuelve un árbol de componentes en un `<Profiler>` para medir su rendimiento d
 
 ### `onRender` callback {/*onrender-callback*/}
 
-React llamará su devolución de llamada `onRender` con información sobre lo que se renderizó.
+React llamará tu *callback* `onRender` con información sobre lo que se renderizó.
 
 ```js
 function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime) {
