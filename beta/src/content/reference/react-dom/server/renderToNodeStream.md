@@ -4,13 +4,13 @@ title: renderToNodeStream
 
 <Deprecated>
 
-This API will be removed in a future major version of React. Use [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) instead.
+Esta API se eliminará en una futura versión de React. En su lugar, usa [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
 
 </Deprecated>
 
 <Intro>
 
-`renderToNodeStream` renders a React tree to a [Node.js Readable Stream.](https://nodejs.org/api/stream.html#readable-streams)
+`renderToNodeStream` renderiza un árbol de React en un [*Stream* legible de Node.js.](https://nodejs.org/api/stream.html#readable-streams)
 
 ```js
 const stream = renderToNodeStream(reactNode)
@@ -22,11 +22,11 @@ const stream = renderToNodeStream(reactNode)
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `renderToNodeStream(reactNode)` {/*rendertonodestream*/}
 
-On the server, call `renderToNodeStream` to get a [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams) which you can pipe into the response.
+En el servidor, llama a `renderToNodeStream` para obtener un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que puedes enviar al flujo de la respuesta.
 
 ```js
 import { renderToNodeStream } from 'react-dom/server';
@@ -35,42 +35,42 @@ const stream = renderToNodeStream(<App />);
 stream.pipe(response);
 ```
 
-On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to make the server-generated HTML interactive.
+En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer interactivo el HTML generado por el servidor.
 
-[See more examples below.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `reactNode`: A React node you want to render to HTML. For example, a JSX element like `<App />`.
+* `reactNode`: Un nodo de React que deseas representar en HTML. Por ejemplo, un elemento JSX como `<App />`.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-A [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams) that outputs an HTML string.
+Un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que produce una cadena de HTML.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* This method will wait for all [Suspense boundaries](/reference/react/Suspense) to complete before returning any output.
+* Este método esperará a que todas las [*Suspense boundaries*](/reference/react/Suspense) se completen antes de devolver cualquier resultado.
 
-* As of React 18, this method buffers all of its output, so it doesn't actually provide any streaming benefits. This is why it's recommended that you migrate to [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) instead.
+* A partir de React 18, este método almacena en búfer toda su salida, por lo que no ofrece realmente ningún beneficio de transmisión. Por esta razón, se recomienda que en su lugar migres a [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
 
-* The returned stream is a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
+* El *stream* devuelto es un flujo de bytes codificado en utf-8. Si necesitas un *stream* en otra codificación, echa un vistazo a un proyecto como [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona *streams* de transformación para la transcodificación de texto.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Rendering a React tree as HTML to a Node.js Readable Stream {/*rendering-a-react-tree-as-html-to-a-nodejs-readable-stream*/}
+### Renderizar un árbol de React como HTML en un *stream* legible de Node.js {/*rendering-a-react-tree-as-html-to-a-nodejs-readable-stream*/}
 
-Call `renderToNodeStream` to get a [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams) which you can pipe to your server response:
+Llama a `renderToNodeStream` para obtener un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que puedes canalizar a la respuesta de tu servidor:
 
 ```js {5-6}
 import { renderToNodeStream } from 'react-dom/server';
 
-// The route handler syntax depends on your backend framework
+// La sintaxis del manejador de rutas depende de tu framework de backend.
 app.use('/', (request, response) => {
   const stream = renderToNodeStream(<App />);
   stream.pipe(response);
 });
 ```
 
-The stream will produce the initial non-interactive HTML output of your React components. On the client, you will need to call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to *hydrate* that server-generated HTML and make it interactive.
+El *stream* producirá la salida inicial no interactiva de HTML de tus componentes de React. En el cliente, deberás llamar a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para *hidratar* el HTML generado por el servidor y hacerlo interactivo.
