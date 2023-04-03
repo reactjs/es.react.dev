@@ -102,9 +102,9 @@ Recapitulemos lo que sucede en este ejemplo:
 
 ## Composición de componentes {#composing-components}
 
-Los componentes pueden referirse a otros componentes en su salida. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en aplicaciones de React, todos son expresados comúnmente como componentes.
+Los componentes pueden referirse a otros componentes en su retorno. Esto nos permite utilizar la misma abstracción de componente para cualquier nivel de detalle. Un botón, un cuadro de diálogo, un formulario, una pantalla: en las aplicaciones de React, todos ellos son expresados comúnmente como componentes.
 
-Por ejemplo, podemos crear un componente `App` que renderiza `Welcome` muchas veces:
+Por ejemplo, podemos crear un componente `App` que renderice `Welcome` varias veces:
 
 ```js{8-10}
 function Welcome(props) {
@@ -124,7 +124,7 @@ function App() {
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
-Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría empezar de abajo hacia arriba con un pequeño componente como `Button` y poco a poco trabajar el camino a la cima de la jerarquía de la vista.
+Por lo general, las aplicaciones de React nuevas tienen un único componente `App` en lo más alto. Sin embargo, si se integra React en una aplicación existente, se podría comenzar desde abajo con un pequeño componente como `Button` y poco a poco trabajar el camino hacia la cima de la jerarquía existente en la vista.
 
 ## Extracción de componentes {#extracting-components}
 
