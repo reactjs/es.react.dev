@@ -30,21 +30,21 @@ Para mostrar un input, renderiza el componente [`<input>` incorporado en el nave
 
 #### Props {/*props*/}
 
-`<input>` soporta todos los [props comunes de los elementos.](/reference/react-dom/components/common#props)
+`<input>` soporta todas las [props comunes de los elementos.](/reference/react-dom/components/common#props)
 
-Puedes [hacer un input controlado](#controlling-an-input-with-a-state-variable) pasando uno de estos props:
+Puedes [hacer un input controlado](#controlling-an-input-with-a-state-variable) pasando una de estas props:
 
 * [`checked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#checked): Booleano. Para un entrada de tipo checkbox o radio button, controla si esta seleccionado.
 * [`value`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#value): String. Para una entrada de texto, controla su texto. (Para un radio button, especifica sus datos de formulario.)
 
 Cuando pases cualquiera de ellos, debes también pasar un manejador `onChange` que actualice el valor pasado.
 
-Estos props de `<input>` son solamente relevantes para inputs no controlados:
+Estas props de `<input>` son solamente relevantes para inputs no controlados:
 
 * [`defaultChecked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#defaultChecked): Booleano. Especifica [el valor inicial](#providing-an-initial-value-for-an-input) para inputs `type="checkbox"` y `type="radio"`.
 * [`defaultValue`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#defaultValue): String. Especifica [el valor inicial](#providing-an-initial-value-for-an-input) para un input de texto.
 
-Estos props de `<input>` son relevantes para ambos inputs controlados y no controlados:
+Estas props de `<input>` son relevantes para ambos inputs controlados y no controlados:
 
 * [`accept`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#accept): String. Especifica cuales tipos de archivo son soportados por un input `type="file"`.
 * [`alt`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#alt): String. Especifica el texto alternativo de una imagen para un input `type="image"`.
@@ -68,7 +68,7 @@ Estos props de `<input>` son relevantes para ambos inputs controlados y no contr
 * [`minLength`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#minlength): Número. Especifica la longitud mínima de texto y otros inputs.
 * [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#multiple): Booleano. Especifica si valores múltiples son permitidos para `<type="file"` y `type="email"`.
 * [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name): String. Especifica el nombre para este input que se [envia con el formulario.](#reading-the-input-values-when-submitting-a-form)
-* `onChange`: Una [manejador de eventos](/reference/react-dom/components/common#event-handler). Requerido para [inputs controlados.](#controlling-an-input-with-a-state-variable) Se activa inmediatamente cuando el valor del input es cambiado por el usuario (por ejemplo, se activa en cada pulsación de teclas). Se comporta como el [evento `input`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) del navegador.
+* `onChange`: Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Requerido para [inputs controlados.](#controlling-an-input-with-a-state-variable) Se activa inmediatamente cuando el valor del input es cambiado por el usuario (por ejemplo, se activa en cada pulsación de teclas). Se comporta como el [evento `input`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) del navegador.
 * `onChangeCapture`: Una versión de `onChange` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Se activa inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar que funciona de forma similar.
 * `onInputCapture`: Una version de `onInput` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
@@ -89,8 +89,8 @@ Estos props de `<input>` son relevantes para ambos inputs controlados y no contr
 #### Advertencias {/*caveats*/}
 
 - Los Checkboxes necesitan `checked` (o `defaultChecked`), no `value` (o `defaultValue`).
-- Si un input de texto recibe un prop `value` de tipo string , será [tratado como controlado.](#controlling-an-input-with-a-state-variable)
-- Si un checkbox o un radio button recibe un prop `checked` de tipo booleano, será [tratado como controlado.](#controlling-an-input-with-a-state-variable)
+- Si un input de texto recibe una prop `value` de tipo string , será [tratado como controlado.](#controlling-an-input-with-a-state-variable)
+- Si un checkbox o un radio button recibe una prop `checked` de tipo booleano, será [tratado como controlado.](#controlling-an-input-with-a-state-variable)
 - Un input no puede ser controlado o no controlado al mismo tiempo.
 - Un input no puede cambiar entre ser controlado o no durante su ciclo de vida.
 - Cada input controlado necesita un manejador de evento `onChange` que sincrónicamente actualice su valor de respaldo.
@@ -148,7 +148,7 @@ input { margin: 5px; }
 
 ### Proporcionar una etiqueta para un input {/*providing-a-label-for-an-input*/}
 
-Típicamente, pondrás cada `<input>` dentro de una etiqueta [`<label>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/label). Esto le dice al navegador que esta etiqueta esta asociada con ese input. Cuando el usuario da click a la etiqueta, el navegador automáticamente enfocará al input. También ese esencial para la accesibilidad: un lector de pantalla anunciará la etiqueta cuando el usuario enfoque el input asociado.
+Típicamente, pondrás cada `<input>` dentro de una etiqueta [`<label>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/label). Esto le dice al navegador que esta etiqueta esta asociada con ese input. Cuando el usuario da click a la etiqueta, el navegador automáticamente enfocará al input. También es esencial para la accesibilidad: un lector de pantalla anunciará la etiqueta cuando el usuario enfoque el input asociado.
 
 Si no puedes anidar un `<input>` dentro de un `<label>`, asocialos pasando el mismo ID al `<input id>` y al [`<label htmlFor>`.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor) Para evitar conflictos entre múltiples instancias  de un componente, genera dicho ID con [`useId`.](/reference/react/useId)
 
@@ -183,7 +183,7 @@ input { margin: 5px; }
 
 ### Proporcionar un valor inicial para un input {/*providing-an-initial-value-for-an-input*/}
 
-Puedes opcionalmente especificar el valor inicial para cualquier input. Pásalo como el `defaultValue` string para inputs de tipo texto. Checkboxes and botones radio deben especificar el valor inicial con el `defaultChecked` booleano en su lugar.
+Puedes opcionalmente especificar el valor inicial para cualquier input. Pásalo como el `defaultValue` string para inputs de tipo texto. Checkboxes y radio buttons deben especificar el valor inicial con el `defaultChecked` booleano en su lugar.
 
 <Sandpack>
 
@@ -303,9 +303,9 @@ Por defecto, *cualquier* `<button>` dentro de un `<form>` lo enviará. ¡Esto pu
 
 ### Controlar un input con un estado variable {/*controlling-an-input-with-a-state-variable*/}
 
-Un input como `<input />` es *no controlado.* Incluso si [pasas un valor inicial](#providing-an-initial-value-for-an-input) como `<input defaultValue="Initial text" />`, tu JSX solo especifica el valor inicial. No controla cual debe ser el ahora mismo.
+Un input como `<input />` es *no controlado.* Incluso si [pasas un valor inicial](#providing-an-initial-value-for-an-input) como `<input defaultValue="Initial text" />`, tu JSX solo especifica el valor inicial. No controla cual debe ser el valor ahora mismo.
 
-**Para renderizar un input _controlado_, pasale el prop `value` (o `checked` para checkboxes y radios).** React forzará al input para que siempre tenga el `value` que le pasaste. Típicamente, controlarás un input declarando una [variable de estado:](/reference/react/useState)
+**Para renderizar un input _controlado_, pásale la prop `value` (o `checked` para checkboxes y radios).** React forzará al input para que siempre tenga el `value` que le pasaste. Típicamente, controlarás un input declarando una [variable de estado:](/reference/react/useState)
 
 ```js {2,6,7}
 function Form() {
@@ -335,7 +335,7 @@ function Form() {
       ...
 ```
 
-Es también util si quieres ofrecer múltiples formas de ajustar el estado del input (por ejemplo, al dar click a un botón):
+Es también útil si quieres ofrecer múltiples formas de ajustar el estado del input (por ejemplo, al dar click a un botón):
 
 ```js {3-4,10-11,14}
 function Form() {
@@ -356,7 +356,7 @@ function Form() {
         </button>
 ```
 
-El `value` que pases a componentes controlados no debe ser `undefined` o `null`. Si necesitas que el valor inicial este vació (así como el campo de `firstName` más abajo), inicializa tu variable de estado con un string vació (`''`).
+El `value` que pases a componentes controlados no debe ser `undefined` o `null`. Si necesitas que el valor inicial este vacío (así como el campo de `firstName` más abajo), inicializa tu variable de estado con un string vacío (`''`).
 
 <Sandpack>
 
@@ -416,9 +416,9 @@ p { font-weight: bold; }
 
 ### Optimizar la re-renderización en cada pulsación del teclado {/*optimizing-re-rendering-on-every-keystroke*/}
 
-Cuando usas un input controlado, pones el estado en cada pulsación del estado. Si el componente que contiene tu estado renderiza de nuevo un árbol grande, este puede volverse lento. Hay varias formas en las que puedes optimizar el rendimiento del re-renderizado.
+Cuando usas un input controlado, pones el estado en cada pulsación del teclado. Si el componente que contiene tu estado renderiza de nuevo un árbol grande, este puede volverse lento. Hay varias formas en las que puedes optimizar el rendimiento del re-renderizado.
 
-Por ejemplo, supone que empiezas con un formulario que renderiza de nuevo toda el contenido de la página en cada pulsación del teclado:
+Por ejemplo, supón que empiezas con un formulario que renderiza de nuevo toda el contenido de la página en cada pulsación del teclado:
 
 ```js {5-8}
 function App() {
@@ -475,7 +475,7 @@ Si renderizas un input con un `value` pero sin un `onChange`, verás un error en
 
 <ConsoleBlock level="error">
 
-Proporcionaste un prop `value` a un campo de formulario sin un manejador de evento `onChange`. Esto renderiza un campo de solo lectura. Si el campo debe ser mutable usa `defaultValue`. En caso contrario, establece `onChange` o `readOnly`.
+Proporcionaste una prop `value` a un campo de formulario sin un manejador de evento `onChange`. Esto renderiza un campo de solo lectura. Si el campo debe ser mutable usa `defaultValue`. En caso contrario, establece `onChange` o `readOnly`.
 
 </ConsoleBlock>
 
@@ -493,7 +493,7 @@ Si quieres [controlar este input con una variable de estado,](#controlling-an-in
 <input value={something} onChange={e => setSomething(e.target.value)} />
 ```
 
-Si el valor es intencionalmente de solo lectura, añade un prop `readOnly` para eliminar el error:
+Si el valor es intencionalmente de solo lectura, añade una prop `readOnly` para eliminar el error:
 
 ```js
 // ✅ Bien: input controlado de solo lectura sin un onChange
@@ -507,13 +507,13 @@ Si el valor es intencionalmente de solo lectura, añade un prop `readOnly` para 
 Si renderizas un checkbox con `checked` pero sin `onChange`, verás un error en la consola:
 
 ```js
-// 🔴 Error: checkbox contrlado sin un manejador de evento onChange
+// 🔴 Error: checkbox controlado sin un manejador de evento onChange
 <input type="checkbox" checked={something} />
 ```
 
 <ConsoleBlock level="error">
 
-Proporcionaste un prop `checked` a un campo de formulario sin un manejador de evento `onChange`. Esto renderizara un campo de solo lectura. Si el campo debe ser mutable usa `defaultChecked`. En caso contrario, establece `onChange` o `readOnly`.
+Proporcionaste una prop `checked` a un campo de formulario sin un manejador de evento `onChange`. Esto renderizará un campo de solo lectura. Si el campo debe ser mutable usa `defaultChecked`. En caso contrario, establece `onChange` o `readOnly`.
 
 </ConsoleBlock>
 
@@ -537,7 +537,7 @@ Necesitas leer `e.target.checked` en vez de `e.target.value` para checkboxes.
 
 </Pitfall>
 
-Si el checkbox es intencionalmente de solo lectura, añade un prop `readOnly` para eliminar el error:
+Si el checkbox es intencionalmente de solo lectura, añade una prop `readOnly` para eliminar el error:
 
 ```js
 // ✅ Bien: input controlado de solo lectura sin un onChange
@@ -579,17 +579,17 @@ function handleChange(e) {
 }
 ```
 
-Si esto no arregla el problema, es posible que el input se removido y reañadido del DOM en cada pulsación del teclado. Esto puede psasr si accidentalmente estas [reseteando el estado](/learn/preserving-and-resetting-state) en cada re-renderizado. Por ejemplo, esto puede pasar si el input o uno de sus padres siempre recibe un atribute `key`, o si anidaste definiciones de componentes (lo cual no esta permitido en React y causa que el componente "interior" siempre sea considerado un árbol diferente).
+Si esto no arregla el problema, es posible que el input sea removido y reañadido del DOM en cada pulsación del teclado. Esto puede psasr si accidentalmente estas [reseteando el estado](/learn/preserving-and-resetting-state) en cada re-renderizado. Por ejemplo, esto puede pasar si el input o uno de sus padres siempre recibe un atributo `key`, o si anidaste definiciones de componentes (lo cual no esta permitido en React y causa que el componente "interior" siempre sea considerado un árbol diferente).
 
 ---
 
 ### Estoy teniendo un error: "Un componente esta cambiando un input no controlado para ser controlado" {/*im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled*/}
 
 
-Si proporcionas un `value` al el componente, debe seguir siendo un string durante de su ciclo de vida.
+Si proporcionas un `value` al componente, debe seguir siendo un string durante de su ciclo de vida.
 
 No puedes pasar `value={undefined}` primero y luego pasar `value="some string"` porque React no sabrá si quieres que el componente sea controlado o no. Un componente controlado debería siempre recibir un `value` de tipo string, no un `null` o `undefined`.
 
-Si tu `value` viene desde una API o de una variable de estado, puede ser inicializado en `null` o `undefined`. En ese caso, o bien  establecelo en un string vacio (`''`) inicialmente, o pasa `value={someValue ?? ''}` para asegurar que `value` es un string.
+Si tu `value` viene desde una API o de una variable de estado, puede ser inicializado en `null` o `undefined`. En ese caso, o bien establécelo en un string vacío (`''`) inicialmente, o pasa `value={someValue ?? ''}` para asegurar que `value` es un string.
 
-Similarmente, si pasas `checked` a un checkbox, asegurate de que siempre sea un booleano.
+Similarmente, si pasas `checked` a un checkbox, asegúrate de que siempre sea un booleano.
