@@ -30,11 +30,11 @@ Para mostrar un input, renderiza el componente [`<input>` incorporado en el nave
 
 #### Props {/*props*/}
 
-`<input>` soporta todas las [props comunes de los elementos.](/reference/react-dom/components/common#props)
+`<input>` admite todas las [props comunes de los elementos.](/reference/react-dom/components/common#props)
 
 Puedes [hacer un input controlado](#controlling-an-input-with-a-state-variable) pasando una de estas props:
 
-* [`checked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#checked): Booleano. Para un entrada de tipo checkbox o radio button, controla si esta seleccionado.
+* [`checked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#checked): Booleano. Para un entrada de tipo checkbox o radio button, controla si está seleccionado.
 * [`value`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#value): String. Para una entrada de texto, controla su texto. (Para un radio button, especifica sus datos de formulario.)
 
 Cuando pases cualquiera de ellos, debes también pasar un manejador `onChange` que actualice el valor pasado.
@@ -73,7 +73,7 @@ Estas props de `<input>` son relevantes para ambos inputs controlados y no contr
 * [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Se activa inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar que funciona de forma similar.
 * `onInputCapture`: Una version de `onInput` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Se activa si un input falla en la validación cuando se envía un formulario. A diferencia del evento integrado `invalid`, el evento `onInvalid` de React se propaga.
-* `onInvalidCapture`: Una version de `onInvalid` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
+* `onInvalidCapture`: Una versión de `onInvalid` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onSelect`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select_event): Un [manejador de evento](/reference/react-dom/components/common#event-handler). Se activa después de selección dentro de los cambios de un `<input>`. React hereda el evento `onSelect` para también activarse para selecciones vacías y en ediciones (las cuales pueden afectar la selección).
 * `onSelectCapture`: Una versión `onSelect` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`pattern`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#pattern): String. Especifica el patrón con el cual `value` debe coincidir.
