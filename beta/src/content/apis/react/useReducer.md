@@ -16,6 +16,78 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 ---
 
+## Referencia {/*reference*/}
+
+### `useReducer(reducer, initialArg, init?)` {/*usereducer*/}
+
+Llama a `useReducer` en el nivel superior de tu componente para gestionar su estado con un [reducer.](/learn/extracting-state-logic-into-a-reducer)
+
+```js
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  // ...
+}
+
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+  // ...
+```
+
+[Vea más ejemplos arriba.](#examples-basic)
+
+#### Parametros {/*parameters*/}
+
+* `reducer`: La función reductora que especifica cómo se actualiza el estado. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
+* `initialArg`: El valor a partir del cual se calcula el estado inicial. Puede ser un valor de cualquier tipo. Cómo se calcula el estado inicial depende del siguiente argumento `init`.
+**opcional** `init`: La función inicializadora que especifica cómo se calcula el estado inicial. Si no se especifica, el estado inicial se establece en `initialArg`. En caso contrario, el estado inicial es el resultado de llamar a `init(initialArg)`.
+
+#### Retorna {/*returns*/}
+
+`useReducer` devuelve un array con exactamente dos valores:
+
+1. El estado actual. Durante el primer renderizado, se establece a `init(initialArg)` o `initialArg` (si no hay `init`).
+2. La [función `dispatch`](#dispatch) que permite actualizar el estado a un valor diferente y activar una nueva renderización.
+
+#### Advertencias {/*caveats*/}
+
+* `useReducer` es un Hook, por lo que sólo puedes llamarlo **en el nivel superior de tu componente** o en tus propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesitas, extrae un nuevo componente y mueve el estado a él.
+* En modo estricto, React **llamará a tu reducer e inicializador dos veces** para [ayudarte a encontrar impurezas accidentales] (#my-initializer-or-updater-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu reducer e inicializador son puros (como deberían ser), esto no debería afectar a la lógica de tu componente. El resultado de una de las llamadas se ignora.
+
+---
+
+### función `dispatch` {/*dispatch*/}
+
+La función `dispatch` devuelta por `useReducer` te permite actualizar el estado a un valor diferente y activar una nueva renderización. Es necesario pasar la acción como único argumento a la función `dispatch`:
+
+```js
+const [state, dispatch] = useReducer(reducer, { age: 42 });
+
+function handleClick() {
+  dispatch({ type: 'incremented_age' });
+  // ...
+```
+
+React establecerá el siguiente estado al resultado de llamar a la función `reducer` que has proporcionado con el `state` actual y la acción que has pasado a `dispatch`.
+
+#### Parametros {/*dispatch-parameters*/}
+
+* `action`: La acción realizada por el usuario. Puede ser un valor de cualquier tipo. Por convención, una acción suele ser un objeto con una propiedad `type` que lo identifica y, opcionalmente, otras propiedades con información adicional.
+
+#### Retorna {/*dispatch-returns*/}
+
+Las funciones `dispatch` no tienen valor de retorno.
+
+#### Advertencias {/*setstate-caveats*/}
+
+* La función `dispatch` **sólo actualiza la variable de estado para el *siguiente* renderizado**. Si lees la variable de estado después de llamar a la función `dispatch`, [seguirás obteniendo el valor antiguo](#ive-dispatched-an-action-but-logging-gives-me-the-old-state-value) que estaba en la pantalla antes de la llamada.
+
+* Si el nuevo valor que proporcionas es idéntico al `state` actual, determinado por una comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **saltará el renderizado del componente y sus hijos.** Esto es una optimización. React aún puede necesitar llamar a tu componente antes de ignorar el resultado, pero no debería afectar a tu código.
+
+* React [batches state updates.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los manejadores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples re-renders durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
+
+---
+
 ## Uso {/*usage*/}
 
 ### Agregar un reducer a un componente {/*adding-a-reducer-to-a-component*/}
@@ -862,78 +934,6 @@ export default function TodoList({ username }) {
 <Solution />
 
 </Recipes>
-
----
-
-## Referencia {/*reference*/}
-
-### `useReducer(reducer, initialArg, init?)` {/*usereducer*/}
-
-Llama a `useReducer` en el nivel superior de tu componente para gestionar su estado con un [reducer.](/learn/extracting-state-logic-into-a-reducer)
-
-```js
-import { useReducer } from 'react';
-
-function reducer(state, action) {
-  // ...
-}
-
-function MyComponent() {
-  const [state, dispatch] = useReducer(reducer, { age: 42 });
-  // ...
-```
-
-[Vea más ejemplos arriba.](#examples-basic)
-
-#### Parametros {/*parameters*/}
-
-* `reducer`: La función reductora que especifica cómo se actualiza el estado. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
-* `initialArg`: El valor a partir del cual se calcula el estado inicial. Puede ser un valor de cualquier tipo. Cómo se calcula el estado inicial depende del siguiente argumento `init`.
-**opcional** `init`: La función inicializadora que especifica cómo se calcula el estado inicial. Si no se especifica, el estado inicial se establece en `initialArg`. En caso contrario, el estado inicial es el resultado de llamar a `init(initialArg)`.
-
-#### Retorna {/*returns*/}
-
-`useReducer` devuelve un array con exactamente dos valores:
-
-1. El estado actual. Durante el primer renderizado, se establece a `init(initialArg)` o `initialArg` (si no hay `init`).
-2. La [función `dispatch`](#dispatch) que permite actualizar el estado a un valor diferente y activar una nueva renderización.
-
-#### Advertencias {/*caveats*/}
-
-* `useReducer` es un Hook, por lo que sólo puedes llamarlo **en el nivel superior de tu componente** o en tus propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesitas, extrae un nuevo componente y mueve el estado a él.
-* En modo estricto, React **llamará a tu reducer e inicializador dos veces** para [ayudarte a encontrar impurezas accidentales] (#my-initializer-or-updater-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu reducer e inicializador son puros (como deberían ser), esto no debería afectar a la lógica de tu componente. El resultado de una de las llamadas se ignora.
-
----
-
-### función `dispatch` {/*dispatch*/}
-
-La función `dispatch` devuelta por `useReducer` te permite actualizar el estado a un valor diferente y activar una nueva renderización. Es necesario pasar la acción como único argumento a la función `dispatch`:
-
-```js
-const [state, dispatch] = useReducer(reducer, { age: 42 });
-
-function handleClick() {
-  dispatch({ type: 'incremented_age' });
-  // ...
-```
-
-React establecerá el siguiente estado al resultado de llamar a la función `reducer` que has proporcionado con el `state` actual y la acción que has pasado a `dispatch`.
-
-#### Parametros {/*dispatch-parameters*/}
-
-* `action`: La acción realizada por el usuario. Puede ser un valor de cualquier tipo. Por convención, una acción suele ser un objeto con una propiedad `type` que lo identifica y, opcionalmente, otras propiedades con información adicional.
-
-#### Retorna {/*dispatch-returns*/}
-
-Las funciones `dispatch` no tienen valor de retorno.
-
-#### Advertencias {/*setstate-caveats*/}
-
-* La función `dispatch` **sólo actualiza la variable de estado para el *siguiente* renderizado**. Si lees la variable de estado después de llamar a la función `dispatch`, [seguirás obteniendo el valor antiguo](#ive-dispatched-an-action-but-logging-gives-me-the-old-state-value) que estaba en la pantalla antes de la llamada.
-
-* Si el nuevo valor que proporcionas es idéntico al `state` actual, determinado por una comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **saltará el renderizado del componente y sus hijos.** Esto es una optimización. React aún puede necesitar llamar a tu componente antes de ignorar el resultado, pero no debería afectar a tu código.
-
-* React [batches state updates.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los manejadores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples re-renders durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
 
 ---
 
