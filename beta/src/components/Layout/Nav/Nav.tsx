@@ -12,14 +12,11 @@ import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import {IconClose} from 'components/Icon/IconClose';
 import {IconHamburger} from 'components/Icon/IconHamburger';
 import {Search} from 'components/Search';
-import {useActiveSection} from 'hooks/useActiveSection';
 import {Logo} from '../../Logo';
 import {Feedback} from '../Feedback';
 import NavLink from './NavLink';
-import {SidebarContext} from 'components/Layout/useRouteMeta';
 import {SidebarRouteTree} from '../Sidebar/SidebarRouteTree';
-import type {RouteItem} from '../useRouteMeta';
-import sidebarHome from '../../../sidebarHome.json';
+import type {RouteItem} from '../getRouteMeta';
 import sidebarLearn from '../../../sidebarLearn.json';
 import sidebarReference from '../../../sidebarReference.json';
 
@@ -93,17 +90,22 @@ const lightIcon = (
   </svg>
 );
 
-export default function Nav() {
+export default function Nav({
+  routeTree,
+  breadcrumbs,
+  section,
+}: {
+  routeTree: RouteItem;
+  breadcrumbs: RouteItem[];
+  section: 'learn' | 'reference' | 'home';
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const scrollParentRef = useRef<HTMLDivElement>(null);
   const feedbackAutohideRef = useRef<any>(null);
-  const section = useActiveSection();
   const {asPath} = useRouter();
   const feedbackPopupRef = useRef<null | HTMLDivElement>(null);
 
-  // In desktop mode, use the route tree for current route.
-  let routeTree: RouteItem = useContext(SidebarContext);
   // In mobile mode, let the user switch tabs there and back without navigating.
   // Seed the tab state from the router, but keep it independent.
   const [tab, setTab] = useState(section);
@@ -115,12 +117,10 @@ export default function Nav() {
   if (isOpen) {
     switch (tab) {
       case 'home':
-        routeTree = sidebarHome as RouteItem;
-        break;
       case 'learn':
         routeTree = sidebarLearn as RouteItem;
         break;
-      case 'apis':
+      case 'reference':
         routeTree = sidebarReference as RouteItem;
         break;
     }
@@ -188,7 +188,7 @@ export default function Nav() {
       });
   }, [showFeedback]);
 
-  function selectTab(nextTab: 'learn' | 'apis' | 'home') {
+  function selectTab(nextTab: 'learn' | 'reference') {
     setTab(nextTab);
     scrollParentRef.current!.scrollTop = 0;
   }
@@ -217,7 +217,7 @@ export default function Nav() {
             </a>
           </NextLink>
           <div className="lg:w-full leading-loose hidden sm:flex flex-initial items-center h-auto pr-5 lg:pr-5 pt-0.5">
-            <div className="px-1 mb-px bg-highlight dark:bg-highlight-dark rounded text-link dark:text-link-dark uppercase font-bold tracking-wide text-xs whitespace-nowrap">
+            <div className="px-1 mb-px bg-highlight dark:bg-highlight-dark rounded uppercase text-link dark:text-link-dark font-bold tracking-wide text-xs whitespace-nowrap">
               Beta
             </div>
           </div>
@@ -244,15 +244,19 @@ export default function Nav() {
             </button>
           </div>
         </div>
+        {!isOpen && (
+          <div className="hidden lg:block sm:pt-10 lg:pt-4">
+            <Search />
+          </div>
+        )}
         <div className="px-0 pt-2 w-full 2xl:max-w-xs hidden lg:flex items-center self-center border-b-0 lg:border-b border-border dark:border-border-dark">
-          <NavLink href="/" isActive={section === 'home'}>
-            Inicio
-          </NavLink>
-          <NavLink href="/learn" isActive={section === 'learn'}>
+          <NavLink
+            href="/learn"
+            isActive={section === 'learn' || section === 'home'}>
             Aprende
           </NavLink>
-          <NavLink href="/apis/react" isActive={section === 'apis'}>
-            API
+          <NavLink href="/reference/react" isActive={section === 'reference'}>
+            Referencia
           </NavLink>
         </div>
         <div className="flex my-4 h-10 mx-0 w-full lg:hidden justify-end lg:max-w-sm">
@@ -312,19 +316,14 @@ export default function Nav() {
       {isOpen && (
         <div className="bg-wash dark:bg-wash-dark px-5 flex justify-end border-b border-border dark:border-border-dark items-center self-center w-full z-10">
           <TabButton
-            isActive={tab === 'home'}
-            onClick={() => selectTab('home')}>
-            Inicio
-          </TabButton>
-          <TabButton
-            isActive={tab === 'learn'}
+            isActive={tab === 'learn' || tab === 'home'}
             onClick={() => selectTab('learn')}>
             Aprende
           </TabButton>
           <TabButton
-            isActive={tab === 'apis'}
-            onClick={() => selectTab('apis')}>
-            API
+            isActive={tab === 'reference'}
+            onClick={() => selectTab('reference')}>
+            Referencia
           </TabButton>
         </div>
       )}
@@ -337,11 +336,6 @@ export default function Nav() {
             `lg:grow lg:flex flex-col w-full pb-8 lg:pb-0 lg:max-w-xs z-10`,
             isOpen ? 'block z-40' : 'hidden lg:block'
           )}>
-          {!isOpen && (
-            <div className="px-5 sm:pt-10 lg:pt-4">
-              <Search />
-            </div>
-          )}
           <nav
             role="navigation"
             style={{'--bg-opacity': '.2'} as React.CSSProperties} // Need to cast here because CSS vars aren't considered valid in TS types (cuz they could be anything)
@@ -353,6 +347,7 @@ export default function Nav() {
                 // This avoids unnecessary animations and visual flicker.
                 key={isOpen ? 'mobile-overlay' : 'desktop-or-hidden'}
                 routeTree={routeTree}
+                breadcrumbs={breadcrumbs}
                 isForceExpanded={isOpen}
               />
             </Suspense>
