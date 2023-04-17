@@ -6,6 +6,14 @@ sectionid: community
 permalink: community/team.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+>
+> Vea la página [Equipo](https://react.dev/community/team) en el nuevo sitio.
+
+</div>
+
 El desarrollo de React está dirigido por un pequeño equipo dedicado a tiempo completo en Meta. También recibe contribuciones de personas alrededor del mundo.
 
 ## Conoce al equipo de React {#meet-the-react-team}

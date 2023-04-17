@@ -3,6 +3,12 @@ title: "Introduciendo componentes de React en servidor con paquetes de tamaño c
 author: [gaearon,laurentan,josephsavona,sebmarkbage]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 2020 ha sido un año bastante largo. Mientras llega a su fin, queremos compartirte una actualización especial de temporada, sobre nuestra investigación acerca de los **componentes de React en servidor** con paquetes de tamaño cero.
 
 Para introducir los componentes de React en servidor, hemos preparado una charla y una demostración. Si gustas, puedes revisarlas durante las vacaciones decembrinas, o después cuando el trabajo se reanude en el año nuevo.

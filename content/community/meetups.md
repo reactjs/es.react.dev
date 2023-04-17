@@ -6,6 +6,14 @@ sectionid: community
 permalink: community/meetups.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+>
+> Consulte la página [Meetups](https://react.dev/community/meetups) en el nuevo sitio.
+
+</div>
+
 ¿Tienes un meetup local de React.js? ¡Agrégalo aquí! (Por favor mantener la lista en orden alfabético)
 
 ## Albania {#albania}

@@ -6,6 +6,14 @@ prev: create-a-new-react-app.html
 next: release-channels.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Consulte [Agregar React a un proyecto existente](https://react.dev/learn/add-react-to-an-existing-project) para conocer las formas recomendadas de agregar React.
+
+</div>
+
 Ambos React y ReactDOM están disponibles a través de un CDN.
 
 ```html

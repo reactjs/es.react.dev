@@ -3,6 +3,12 @@ title: Integración con JSFiddle
 author: [vjeux]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 [JSFiddle](https://jsfiddle.net) acaba de anunciar soporte para React. Esta es una noticia increíble debido a que hace la colaboración con fragmentos de código mucho más fácil. ¡Puedes jugar, forkear y compartir esta **[base para react en JSFiddle](http://jsfiddle.net/vjeux/kb3gN/)**! Un [fiddle sin JSX](http://jsfiddle.net/vjeux/VkebS/) también está disponible.
 
 

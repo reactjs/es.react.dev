@@ -9,13 +9,15 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
-> Prueba la nueva documentación de React.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
 > - [Compartir estado entre componentes](https://beta.es.reactjs.org/learn/sharing-state-between-components)
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Usualmente, muchos componentes necesitan reflejar el mismo cambio en los datos. Recomendamos elevar el estado compartido al ancestro común más cercano. Veamos cómo funciona.
 

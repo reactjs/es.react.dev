@@ -8,14 +8,16 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-> Prueba la nueva documentación de React.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
 > - [Estado: la memoria de un componente](https://beta.es.reactjs.org/learn/state-a-components-memory)
 > - [Sincronización con Efectos](https://beta.es.reactjs.org/learn/synchronizing-with-effects)
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Esta página introduce el concepto de estado y ciclo de vida en un componente de React. Puedes encontrar una [referencia detallada de la API de un componente aquí](/docs/react-component.html).
 

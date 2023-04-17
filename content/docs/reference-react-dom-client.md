@@ -6,6 +6,16 @@ category: Reference
 permalink: docs/react-dom-client.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Estas nuevas páginas de documentación enseñan React moderno:
+>
+> - [`react-dom`: API de cliente](https://react.dev/reference/react-dom/client)
+
+</div>
+
 The `react-dom/client` package provides client-specific methods used for initializing an app on the client. Most of your components should not need to use this module.
 
 ```js
@@ -37,9 +47,13 @@ React supports all modern browsers, although [some polyfills are required](/docs
 
 ### `createRoot()` {#createroot}
 
-> Prueba la nueva documentación de React para [`createRoot`](https://beta.es.reactjs.org/reference/react-dom/client/createRoot).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`createRoot`](https://beta.es.reactjs.org/reference/react-dom/client/createRoot).
+
+</div>
 
 ```javascript
 createRoot(container[, options]);
@@ -74,9 +88,13 @@ root.unmount();
 
 ### `hydrateRoot()` {#hydrateroot}
 
-> Prueba la nueva documentación de React para [`hydrateRoot`](https://beta.es.reactjs.org/reference/react-dom/client/hydrateRoot).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`hydrateRoot`](https://beta.es.reactjs.org/reference/react-dom/client/hydrateRoot).
+
+</div>
 
 
 ```javascript

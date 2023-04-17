@@ -3,6 +3,12 @@ title: "Descripción general de la React Conf: Hooks, Suspense y renderizado con
 author: [tomocchino]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 Este año [React Conf](https://conf.reactjs.org/) se llevó a cabo el 25 y 26 de octubre en Henderson, Nevada, donde más de 600 asistentes se reunieron para discutir lo último en ingeniería de UI.
 
 <br>

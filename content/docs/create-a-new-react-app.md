@@ -8,6 +8,14 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
+<div class="scary">
+
+>
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+>
+> Consulte [Iniciar un nuevo proyecto de React](https://react.dev/learn/start-a-new-react-project) para conocer las formas recomendadas de crear una aplicación.
+
+</div>
 Para obtener la mejor experiencia de usuario y desarrollador use una cadena de herramientas integrada.
 
 Esta página describe algunas de las cadenas de herramientas de React más populares, las cuales ayudan con tareas como:

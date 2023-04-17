@@ -8,6 +8,14 @@ redirect_from:
   - "support.html"
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+>
+> Consulte los recursos de la [Comunidad](https://react.dev/community) en el nuevo sitio.
+
+</div>
+
 React tiene una comunidad de millones de desarrolladores.
 
 En esta página hemos listado algunas de las comunidades relacionadas con React de las que tú puedes ser parte; mira las otras páginas en esta sección para material de aprendizaje adicional tanto en línea como en persona.

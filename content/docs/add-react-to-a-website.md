@@ -8,6 +8,14 @@ prev: getting-started.html
 next: create-a-new-react-app.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Consulte [Agregar React a un proyecto existente](https://react.dev/learn/add-react-to-an-existing-project) para conocer las formas recomendadas de agregar React.
+ 
+</div>
+
 Utiliza sólo lo que necesites de React.
 
 React fue diseñado desde el principio para que se pudiera adoptar de forma gradual, y **puedas utilizar sólo las cosas que necesites de React**. Quizás solo quieras agregar una "pizca de interactividad" a una página existente. Los componentes de React son una gran manera de hacer eso.

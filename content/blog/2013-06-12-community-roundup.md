@@ -3,6 +3,12 @@ title: "Community Round-up #1"
 author: [vjeux]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 El código de React fue hecho público hace dos semanas y ya es hora de un pequeño resumen de lo que ha estado sucediendo.
 
 ## Editor de preguntas de Khan Academy {#khan-academy-question-editor}

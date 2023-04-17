@@ -6,6 +6,17 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
+
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Estas nuevas páginas de documentación enseñan React moderno:
+>
+> - [`react`: Hooks](https://react.dev/reference/react)
+
+</div>
+
 Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
 
 Esta página describe las API para los Hooks incorporados en React.
@@ -35,9 +46,13 @@ Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descr
 
 ### `useState` {#usestate}
 
-> Prueba la nueva documentación de React para [`useState`](https://beta.es.reactjs.org/reference/react/useState).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`useState`](https://beta.es.reactjs.org/reference/react/useState).
+
+</div>
 
 ```js
 const [state, setState] = useState(initialState);
@@ -122,9 +137,13 @@ In the rare case that you need to force the DOM update to be applied synchronous
 
 ### `useEffect` {#useeffect}
 
-> Prueba la nueva documentación de React para [`useEffect`](https://beta.es.reactjs.org/reference/react/useEffect).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`useEffect`](https://beta.es.reactjs.org/reference/react/useEffect).
+
+</div>
 
 ```js
 useEffect(didUpdate);
@@ -205,10 +224,13 @@ El arreglo de entradas no se pasa como argumentos a la función de efecto. Sin e
 
 ### `useContext` {#usecontext}
 
-> Prueba la nueva documentación de React para [`useContext`](https://beta.es.reactjs.org/reference/react/useContext).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useContext`](https://beta.es.reactjs.org/reference/react/useContext).
+
+</div>
 
 ```js
 const value = useContext(MyContext);
@@ -283,10 +305,13 @@ Los siguientes Hooks son variantes de los básicos de la sección anterior o sol
 
 ### `useReducer` {#usereducer}
 
-> Prueba la nueva documentación de React para [`useReducer`](https://beta.es.reactjs.org/reference/react/useReducer).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useReducer`](https://beta.es.reactjs.org/reference/react/useReducer).
+
+</div>
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init);
@@ -391,9 +416,13 @@ Ten en cuenta que React podría aún necesitar renderizar nuevamente ese compone
 
 ### `useCallback` {#usecallback}
 
-> Prueba la nueva documentación de React para [`useCallback`](https://beta.es.reactjs.org/reference/react/useCallback).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`useCallback`](https://beta.es.reactjs.org/reference/react/useCallback).
+
+</div>
 
 ```js
 const memoizedCallback = useCallback(
@@ -418,10 +447,13 @@ Pasa un callback en línea y un arreglo de dependencias. `useCallback` devolver�
 
 ### `useMemo` {#usememo}
 
-> Prueba la nueva documentación de React para [`useMemo`](https://beta.es.reactjs.org/reference/react/useMemo).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useMemo`](https://beta.es.reactjs.org/reference/react/useMemo).
+
+</div>
 
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
@@ -445,10 +477,13 @@ Si no se proporciona un arreglo, se calculará un nuevo valor en cada renderizad
 
 ### `useRef` {#useref}
 
-> Prueba la nueva documentación de React para [`useRef`](https://beta.es.reactjs.org/reference/react/useRef).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useRef`](https://beta.es.reactjs.org/reference/react/useRef).
+
+</div>
 
 ```js
 const refContainer = useRef(initialValue);
@@ -487,10 +522,13 @@ Ten en cuenta que `useRef` *no* notifica cuando su contenido cambia. Mutar la pr
 
 ### `useImperativeHandle` {#useimperativehandle}
 
-> Prueba la nueva documentación de React para [`useImperativeHandle`](https://beta.es.reactjs.org/reference/react/useImperativeHandle).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useImperativeHandle`](https://beta.es.reactjs.org/reference/react/useImperativeHandle).
+
+</div>
 
 ```js
 useImperativeHandle(ref, createHandle, [deps])
@@ -515,10 +553,13 @@ En este ejemplo, un componente padre que muestra `<FancyInput ref={inputRef} />`
 
 ### `useLayoutEffect` {#uselayouteffect}
 
-> Prueba la nueva documentación de React para [`useLayoutEffect`](https://beta.es.reactjs.org/reference/react/useLayoutEffect).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useLayoutEffect`](https://beta.es.reactjs.org/reference/react/useLayoutEffect).
+
+</div>
 
 La firma es idéntica a `useEffect`, pero se dispara de forma síncrona después de todas las mutaciones de DOM. Use esto para leer el diseño del DOM y volver a renderizar de forma sincrónica. Las actualizaciones programadas dentro de `useLayoutEffect` se vaciarán sincrónicamente, antes de que el navegador tenga la oportunidad de pintar.
 
@@ -534,10 +575,13 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 
 ### `useDebugValue` {#usedebugvalue}
 
-> Prueba la nueva documentación de React para [`useDebugValue`](https://beta.es.reactjs.org/reference/react/useDebugValue).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useDebugValue`](https://beta.es.reactjs.org/reference/react/useDebugValue).
+
+</div>
 
 ```js
 useDebugValue(value)
@@ -579,10 +623,13 @@ useDebugValue(date, date => date.toDateString());
 
 ### `useDeferredValue` {#usedeferredvalue}
 
-> Prueba la nueva documentación de React para [`useDeferredValue`](https://beta.es.reactjs.org/reference/react/useDeferredValue).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useDeferredValue`](https://beta.es.reactjs.org/reference/react/useDeferredValue).
+
+</div>
 
 ```js
 const deferredValue = useDeferredValue(value);
@@ -622,10 +669,13 @@ Memoizing the children tells React that it only needs to re-render them when `de
 
 ### `useTransition` {#usetransition}
 
-> Prueba la nueva documentación de React para [`useTransition`](https://beta.es.reactjs.org/reference/react/useTransition).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useTransition`](https://beta.es.reactjs.org/reference/react/useTransition).
+
+</div>
 
 ```js
 const [isPending, startTransition] = useTransition();
@@ -671,10 +721,13 @@ function App() {
 
 ### `useId` {#useid}
 
-> Prueba la nueva documentación de React para [`useId`](https://beta.es.reactjs.org/reference/react/useId).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useId`](https://beta.es.reactjs.org/reference/react/useId).
+
+</div>
 
 ```js
 const id = useId();
@@ -732,10 +785,13 @@ The following Hooks are provided for library authors to integrate libraries deep
 
 ### `useSyncExternalStore` {#usesyncexternalstore}
 
-> Prueba la nueva documentación de React para [`useSyncExternalStore`](https://beta.es.reactjs.org/reference/react/useSyncExternalStore).
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+<div class="scary">
 
+> Este contenido está desactualizado.
+>
+> Lea la nueva documentación de React para [`useSyncExternalStore`](https://beta.es.reactjs.org/reference/react/useSyncExternalStore).
+
+</div>
 
 ```js
 const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot]);
@@ -783,9 +839,13 @@ const selectedField = useSyncExternalStore(
 
 ### `useInsertionEffect` {#useinsertioneffect}
 
-> Prueba la nueva documentación de React para [`useInsertionEffect`](https://beta.es.reactjs.org/reference/react/useInsertionEffect).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`useInsertionEffect`](https://beta.es.reactjs.org/reference/react/useInsertionEffect).
+
+</div>
 
 ```js
 useInsertionEffect(didUpdate);

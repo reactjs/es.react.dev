@@ -3,6 +3,12 @@ title: "Introducción a la nueva transformación de JSX"
 author: [lunaruan]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 Aunque React 17 [no tiene nuevas funcionalidades](/blog/2020/08/10/react-v17-rc.html), brindará soporte para la nueva transformación de JSX. En este post, describiremos qué es y cómo probarla.
 
 ## ¿Qué es una transformación de JSX? {#whats-a-jsx-transform}

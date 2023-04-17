@@ -6,6 +6,12 @@ sectionid: community
 permalink: community/courses.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+
+</div>
+
 ## Cursos gratuitos {#free-courses}
 
 - [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit) - Un curso en video gratuito en 5 partes con ejemplos de código interactivos que te ayudarán a aprender React.

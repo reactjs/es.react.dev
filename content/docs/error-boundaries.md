@@ -4,7 +4,17 @@ title: Límites de errores
 permalink: docs/error-boundaries.html
 ---
 
-En el pasado, los errores de JavaScript dentro de los componentes solían corromper el estado interno de React y hacían que [emitiera](https://github.com/facebook/react/issues/4026) [errores](https://github.com/facebook/react/issues/6895) [crípticos](https://github.com/facebook/react/issues/8579) en siguientes renderizados. Estos errores siempre eran causados por un error previo en el código de aplicación, pero React no proveía una manera de gestionarlos elegantemente en componentes, y no podía recuperarse de ellos.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+>
+> Estas nuevas páginas de documentación enseñan React moderno:
+>
+> - [`React.Component`: Captura de errores de representación con un límite de error](https://react.dev/reference/react/Component#captura-de-errores-de-representación-con-un-límite-de-error)
+
+</div>
+
+In the past, JavaScript errors inside components used to corrupt React’s internal state and cause it to [emit](https://github.com/facebook/react/issues/4026) [cryptic](https://github.com/facebook/react/issues/6895) [errors](https://github.com/facebook/react/issues/8579) on next renders. These errors were always caused by an earlier error in the application code, but React did not provide a way to handle them gracefully in components, and could not recover from them.
 
 ## Introduciendo Límites de Errores {#introducing-error-boundaries}
 

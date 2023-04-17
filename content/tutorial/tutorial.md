@@ -12,11 +12,13 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-> Prueba la nueva documentación de React.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
 > 
 > El [Tutorial](https://beta.es.reactjs.org/learn/tutorial-tic-tac-toe) actualizado enseña React moderno e incluye ejemplos interactivos.
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Este tutorial no asume ningún conocimiento previo sobre React.
 

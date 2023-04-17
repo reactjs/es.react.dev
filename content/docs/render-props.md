@@ -4,6 +4,15 @@ title: Render Props
 permalink: docs/render-props.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Los accesorios de renderizado se usan en React moderno, pero no son muy comunes.
+> En muchos casos, han sido reemplazados por [Hooks personalizados](/aprender/reutilizar-lógica-con-ganchos-personalizados).
+
+</div>
+
 El término ["render prop"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) se refiere a una técnica para compartir código entre componentes en React utilizando una propiedad cuyo valor es una función.
 
 Un componente con una `render prop` toma una función que devuelve un elemento de React y lo llama en lugar de implementar su propia lógica de representación.

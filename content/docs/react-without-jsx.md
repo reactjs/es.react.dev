@@ -4,6 +4,12 @@ title: React sin JSX
 permalink: docs/react-without-jsx.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+
+</div>
+
 JSX no es un requisito para usar React. Usar React sin JSX es especialmente conveniente cuando no quieres configurar herramientas de compilación en tu entorno de desarrollo.
 
 Cada elemento JSX es solamente azúcar sintáctico para llamar a `React.createElement(component, props, ...children)`. Por lo tanto, cualquier cosa que se pueda hacer con JSX se puede hacer con Javascript puro.
