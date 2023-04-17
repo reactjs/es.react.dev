@@ -4,15 +4,17 @@ title: Componentes no controlados
 permalink: docs/uncontrolled-components.html
 ---
 
-> Prueba la nueva documentación de React.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
 > - [`<input>`](https://beta.es.reactjs.org/reference/react-dom/components/input)
 > - [`<select>`](https://beta.es.reactjs.org/reference/react-dom/components/select)
 > - [`<textarea>`](https://beta.es.reactjs.org/reference/react-dom/components/textarea)
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 En la mayoría de los casos, te recomendamos usar [Componentes controlados](/docs/forms.html#controlled-components) para implementar formularios. En un componente controlado, los datos del formulario son manejados por un componente React. La alternativa son los componentes no controlados, donde los datos del formulario son manejados por el propio DOM.
 

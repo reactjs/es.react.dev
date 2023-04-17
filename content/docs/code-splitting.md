@@ -4,6 +4,17 @@ title: División de código
 permalink: docs/code-splitting.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Estas nuevas páginas de documentación enseñan React moderno e incluyen ejemplos en vivo:
+>
+> - [`lazy`](https://react.dev/reference/react/lazy)
+> - [`<Suspense>`](https://react.dev/reference/react/Suspense)
+
+</div>
+
 ## *Bundling* {#bundling}
 
 La mayoría de las aplicaciones React tendrán sus archivos "empaquetados" o en un *bundle* con herramientas como [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) o  [Browserify](http://browserify.org/). El *bundling* es el proceso de seguir los archivos importados y fusionarlos en un archivo único: un *bundle* o "paquete". Este *bundle* se puede incluir en una página web para cargar una aplicación completa de una sola vez.

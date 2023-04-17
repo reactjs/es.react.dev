@@ -6,6 +6,15 @@ redirect_from:
   - "docs/advanced-performance.html"
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> 
+> Estas nuevas páginas de documentación enseñan React moderno:
+>
+> - [`memo`: Saltarse el renderizado cuando los accesorios no cambian](https://react.dev/reference/react/memo#skipping-re-rendering-when-props-are-unchanged)
+
+</div>
 Internamente, React utiliza diferentes técnicas inteligentes para minimizar el número de operaciones DOM costosas requeridas para actualizar la interfaz de usuario. Para muchas aplicaciones, el uso de React conllevará a una interfaz de usuario rápida sin hacer mucho trabajo para optimizar específicamente el rendimiento. Sin embargo, hay varias maneras de acelerar tu aplicación de React.
 
 ## Usa el compilado de Producción {#use-the-production-build}

@@ -6,6 +6,19 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Estas nuevas páginas de documentación enseñan React moderno:
+>
+> - [`react-dom`: Components](https://react.dev/reference/react-dom/components)
+> - [`react-dom`: APIs](https://react.dev/reference/react-dom)
+> - [`react-dom`: API de cliente](https://react.dev/reference/react-dom/client)
+> - [`react-dom`: API del servidor](https://react.dev/reference/react-dom/server)
+
+</div>
+
 El paquete `react-dom` proporciona métodos específicos del DOM que pueden ser utilizados en el nivel más alto de tu aplicación como una vía de escape del modelo de React si así lo necesitas.
 
 ```js
@@ -50,9 +63,13 @@ React es compatible con todos los navegadores modernos, aunque [se requieren alg
 
 ### `createPortal()` {#createportal}
 
-> Prueba la nueva documentación de React para [`createPortal`](https://beta.es.reactjs.org/reference/react-dom/createPortal).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`createPortal`](https://beta.es.reactjs.org/reference/react-dom/createPortal).
+
+</div>
 
 ```javascript
 createPortal(child, container)
@@ -62,9 +79,13 @@ Crea un portal. Los portales proporcionan una forma de [renderizar hijos en un n
 
 ### `flushSync()` {#flushsync}
 
-> Prueba la nueva documentación de React para [`flushSync`](https://beta.es.reactjs.org/reference/react-dom/flushSync).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`flushSync`](https://beta.es.reactjs.org/reference/react-dom/flushSync).
+
+</div>
 
 ```javascript
 flushSync(callback)
@@ -78,6 +99,7 @@ flushSync(() => {
   setCount(count + 1);
 });
 // En este punto, el DOM está actualizado.
+```
 
 > Nota:
 > 
@@ -92,9 +114,13 @@ flushSync(() => {
 ## Referencia legada {#legacy-reference}
 ### `render()` {#render}
 
-> Prueba la nueva documentación de React para [`render`](https://beta.es.reactjs.org/reference/react-dom/render).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`render`](https://beta.es.reactjs.org/reference/react-dom/render).
+
+</div>
 
 ```javascript
 render(element, container[, callback])
@@ -126,9 +152,13 @@ Si se suministra el *callback* opcional, será ejecutado después de que el comp
 
 ### `hydrate()` {#hydrate}
 
-> Prueba la nueva documentación de React para [`hydrate`](https://beta.es.reactjs.org/reference/react-dom/hydrate).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`hydrate`](https://beta.es.reactjs.org/reference/react-dom/hydrate).
+
+</div>
 
 ```javascript
 hydrate(elemento, contenedor[, callback])
@@ -152,9 +182,13 @@ Recuerda estar consciente de la experiencia de usuario en conexiones lentas. El 
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
-> Prueba la nueva documentación de React para [`unmountComponentAtNode`](https://beta.es.reactjs.org/reference/react-dom/unmountComponentAtNode).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`unmountComponentAtNode`](https://beta.es.reactjs.org/reference/react-dom/unmountComponentAtNode).
+
+</div>
 
 ```javascript
 unmountComponentAtNode(contenedor)
@@ -170,9 +204,13 @@ Elimina un componente React ya montado en el DOM, y limpia sus manejadores de ev
 
 ### `findDOMNode()` {#finddomnode}
 
-> Prueba la nueva documentación de React para [`findDOMNode`](https://beta.es.reactjs.org/reference/react-dom/findDOMNode).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`findDOMNode`](https://beta.es.reactjs.org/reference/react-dom/findDOMNode).
+
+</div>
 
 > Nota:
 >

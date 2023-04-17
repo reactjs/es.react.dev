@@ -6,7 +6,19 @@ next: hooks-state.html
 prev: hooks-intro.html
 ---
 
-Los *Hooks* son una nueva incorporación en React 16.8. Te permiten usar estado y otras características de React sin escribir una clase.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> 
+> > Estas nuevas páginas de documentación enseñan React with Hooks:
+>
+> - [Inicio rápido](https://react.dev/learn)
+> - [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
+> - [`react`: Hooks](https://react.dev/reference/react)
+ 
+</div>
+
+*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
 
 Los Hooks son [compatibles con versiones anteriores](/docs/hooks-intro.html#no-breaking-changes). Esta página proporciona una descripción general de Hooks para usuarios experimentados de React. Esta es una rápida mirada. Si te confundes, busca un recuadro amarillo como este:
 

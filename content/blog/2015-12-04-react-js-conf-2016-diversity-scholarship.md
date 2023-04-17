@@ -3,6 +3,12 @@ title: Beca de diversidad de React.js Conf 2016
 author: [zpao]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 ¡Estoy encantado de anunciar que estaremos organizando otro programa de becas de diversidad para la próxima React.js Conf! La industria de la tecnología sufre de falta de diversidad, pero es importante para nosotros que tengamos una comunidad próspera formada por personas con una variedad de experiencias y puntos de vista.
 
 Cuando ejecutamos este programa el año pasado, teníamos *más de 200* personas que solicitaron para solo 10 boletos. Había tanta gente que queríamos traer pero no pudimos. Los resultados aún fueron asombrosos, y asistieron personas brillantes de todo el mundo que de otra manera no hubieran podido hacerlo. Estos asistentes participaron en los debates de la conferencia y aportaron perspectivas que de otro modo no hubiéramos visto allí.

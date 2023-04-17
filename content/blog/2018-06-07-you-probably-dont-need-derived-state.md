@@ -3,6 +3,12 @@ title: "Probablemente no necesitas estado derivado"
 author: [bvaughn]
 ---
 
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
+
 React 16.4 incluyó una [solución para un error en getDerivedStateFromProps](/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops) que causó que algunos errores existentes en componentes de React se reprodujeran con mayor consistencia. Si esta versión expuso un caso en el que tu aplicación estaba usando un antipatrón y dejó de funcionar correctamente después de la solución, lo sentimos por la confusión creada. En este artículo, explicaremos algunos antipatrones comunes que involucran estado derivado y nuestras alternativas preferidas.
 
 Por mucho tiempo, el método de ciclo de vida `componentWillReceiveProps` era la única forma de actualizar el estado en respuesta a un cambio en las props sin un renderizado adicional. En la versión 16.3, [introdujimos un reemplazo, `getDerivedStateFromProps`](/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes) para resolver los mismos casos de uso de forma más segura. Al mismo tiempo, nos hemos dado cuenta que se tienen muchas concepciones erróneas sobre cómo usar ambos métodos, y hemos encontrado antipatrones que terminan en errores sutiles y confusos. La solución del error en `getDerivedStateFromProps` en la versión 16.4 [hace que el estado derivado sea más predecible](https://github.com/facebook/react/issues/12898), de manera que los resultados de usarlo incorrectamente sean más fáciles de detectar.
@@ -206,6 +212,12 @@ El componente padre del formulario podría entonces [usar una `ref` para llamar 
 Las refs pueden ser útiles en algunos casos como este, pero generalmente te recomendamos usarlas con moderación. Incluso en la demo, este método imperativo no es ideal, porque ocurrirán dos renderizados en lugar de uno.
 
 -----
+
+<div class="scary">
+
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
+
+</div>
 
 ### Resumiendo {#recap}
 

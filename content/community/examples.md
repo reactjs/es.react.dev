@@ -6,6 +6,12 @@ sectionid: community
 permalink: community/examples.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+
+</div>
+
 Hay muchos proyectos de ejemplo creados por la comunidad de React. Mantenemos esta página enfocada en los que usan React sin ninguna biblioteca de terceros para manejo de estado.
 
 Si agregas un proyecto, por favor ten el compromiso de mantenerlo al día con las últimas versiones de React.

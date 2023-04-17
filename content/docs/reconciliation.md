@@ -4,13 +4,15 @@ title: Reconciliación
 permalink: docs/reconciliation.html
 ---
 
-> Prueba la nueva documentación de React.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
 > - [Preservar and restablecer el estado](https://beta.es.reactjs.org/learn/preserving-and-resetting-state)
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 React proporciona una API declarativa para que no tengas que preocuparte sobre qué cambia exactamente en cada actualización. Esto facilita mucho la escritura de aplicaciones, pero podría no ser obvio cómo se implementa esto dentro de React. Este artículo explica las elecciones que hicimos en el algoritmo "diferencial" de React para que las actualizaciones de los componentes sean predecibles y al mismo tiempo sean lo suficiente rápidas para las aplicaciones de alto rendimiento.
 

@@ -6,6 +6,16 @@ category: Reference
 permalink: docs/react-dom-server.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Estas nuevas páginas de documentación enseñan React moderno:
+>
+> - [`react-dom`: API del servidor](https://react.dev/reference/react-dom/server)
+
+</div>
+
 El objeto `ReactDOMServer` te permite renderizar componentes a un marcado estático. Normalmente, se usa en un servidor de Node:
 
 ```js
@@ -36,9 +46,13 @@ Los siguientes métodos se pueden utilizar en entornos que no tienen disponibles
 
 ### `renderToPipeableStream()` {#rendertopipeablestream}
 
-> Prueba la nueva documentación de React para [`renderToPipeableStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToPipeableStream).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`renderToPipeableStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToPipeableStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToPipeableStream(element, options)
@@ -95,9 +109,13 @@ Mira la [lista completa de opciones](https://github.com/facebook/react/blob/14c2
 
 ### `renderToReadableStream()` {#rendertoreadablestream}
 
-> Prueba la nueva documentación de React para [`renderToReadableStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToReadableStream).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`renderToReadableStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToReadableStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToReadableStream(element, options);
@@ -156,9 +174,13 @@ See the [full list of options](https://github.com/facebook/react/blob/14c2be8dac
 
 ### `renderToNodeStream()`  (Deprecated) {#rendertonodestream}
 
-> Prueba la nueva documentación de React para [`renderToNodeStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToNodeStream).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`renderToNodeStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToNodeStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToNodeStream(element)
@@ -178,9 +200,13 @@ Si llamas [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) en
 
 ### `renderToStaticNodeStream()` {#rendertostaticnodestream}
 
-> Prueba la nueva documentación de React para [`renderToStaticNodeStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToStaticNodeStream).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`renderToStaticNodeStream`](https://beta.es.reactjs.org/reference/react-dom/server/renderToStaticNodeStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToStaticNodeStream(element)
@@ -202,9 +228,13 @@ Si planeas usar React en el cliente para hacer que el marcado sea interactivo, n
 
 ### `renderToString()` {#rendertostring}
 
-> Prueba la nueva documentación de React para [`renderToString`](https://beta.es.reactjs.org/reference/react-dom/server/renderToString).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`renderToString`](https://beta.es.reactjs.org/reference/react-dom/server/renderToString).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToString(element)
@@ -224,9 +254,13 @@ Si llamas [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) a 
 
 ### `renderToStaticMarkup()` {#rendertostaticmarkup}
 
-> Prueba la nueva documentación de React para [`renderToStaticMarkup`](https://beta.es.reactjs.org/reference/react-dom/server/renderToStaticMarkup).
+<div class="scary">
+
+> Este contenido está desactualizado.
 >
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+> Lea la nueva documentación de React para [`renderToStaticMarkup`](https://beta.es.reactjs.org/reference/react-dom/server/renderToStaticMarkup).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToStaticMarkup(element)

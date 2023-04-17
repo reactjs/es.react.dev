@@ -6,6 +6,14 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+>
+> Consulte [Elementos HTML personalizados] (https://react.dev/reference/react-dom/components#custom-html-elements) en los nuevos documentos.
+
+</div>
+
 React y [Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components) están construidos para resolver diferentes problemas. Los Web Components proporciona una fuerte encapsulación para componentes reutilizables, mientras que React proporciona una biblioteca declarativa que mantiene el DOM sincronizado con tus datos. Los dos objetivos se complementan. Como desarrollador, eres libre de usar React en tus Web Components, utilizar Web Components en React, o ambos.
 
 La mayoría de las personas que usan React no utilizan Web Components, pero es posible que desees hacerlo, especialmente si estás utilizando componentes de interfaz de usuario de terceros que se escriben utilizando Web Components.

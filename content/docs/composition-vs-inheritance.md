@@ -8,6 +8,12 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
+
+</div>
+
 React tiene un potente modelo de composición, y recomendamos usar composición en lugar de herencia para reutilizar código entre componentes.
 
 En esta sección consideraremos algunos problemas en los que los desarrolladores nuevos en React a menudo emplean herencia, y mostraremos cómo los podemos resolver con composición.

@@ -8,11 +8,13 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-> Prueba la nueva documentación de React.
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
 > 
 > La guía actualizada [Pensar en React](https://beta.es.reactjs.org/learn/thinking-in-react) enseña React moderno e incluye ejemplos interactivos.
->
-> La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 React es, en nuestra opinión, la mejor forma de construir aplicaciones Web grandes y rápidas usando JavaScript. Ha escalado muy bien para nosotros en Facebook e Instagram.
 

@@ -13,6 +13,12 @@ redirect_from:
   - "docs/jsx-in-depth-ko-KR.html"
 ---
 
+<div class="scary">
+
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+
+</div>
+
 Fundamentalmente, JSX solo proporciona azúcar sintáctica para la función `React.createElement(component, props, ...children)`. El código JSX:
 
 ```js
