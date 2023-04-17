@@ -10,7 +10,7 @@ permalink: community/meetups.html
 
 > Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Consulte la página [Meetups](https://react.dev/community/meetups) en el nuevo sitio.
+> Consulte la página [Meetups](https://es.react.dev/community/meetups) en el nuevo sitio.
 
 </div>
 

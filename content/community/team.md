@@ -10,7 +10,7 @@ permalink: community/team.html
 
 > Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Vea la página [Equipo](https://react.dev/community/team) en el nuevo sitio.
+> Vea la página [Equipo](https://es.react.dev/community/team) en el nuevo sitio.
 
 </div>
 

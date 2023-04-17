@@ -12,7 +12,7 @@ redirect_from:
 
 > Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Consulte los recursos de la [Comunidad](https://react.dev/community) en el nuevo sitio.
+> Consulte los recursos de la [Comunidad](https://es.react.dev/community) en el nuevo sitio.
 
 </div>
 

@@ -6,11 +6,11 @@ permalink: docs/strict-mode.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [`StrictMode`](https://beta.es.reactjs.org/reference/react/StrictMode)
+> - [`StrictMode`](https://es.react.dev/reference/react/StrictMode)
 
 </div>
 

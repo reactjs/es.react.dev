@@ -9,11 +9,11 @@ next: hooks-faq.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Estas nuevas páginas de documentación enseñan React moderno:
 >
-> - [`react`: Hooks](https://react.dev/reference/react)
+> - [`react`: Hooks](https://es.react.dev/reference/react)
 
 </div>
 
@@ -50,7 +50,7 @@ Si los Hooks son nuevos para ti, es posible que desees revisar primero [la descr
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useState`](https://beta.es.reactjs.org/reference/react/useState).
+> Lea la nueva documentación de React para [`useState`](https://es.react.dev/reference/react/useState).
 
 </div>
 
@@ -141,7 +141,7 @@ In the rare case that you need to force the DOM update to be applied synchronous
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useEffect`](https://beta.es.reactjs.org/reference/react/useEffect).
+> Lea la nueva documentación de React para [`useEffect`](https://es.react.dev/reference/react/useEffect).
 
 </div>
 
@@ -228,7 +228,7 @@ El arreglo de entradas no se pasa como argumentos a la función de efecto. Sin e
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useContext`](https://beta.es.reactjs.org/reference/react/useContext).
+> Lea la nueva documentación de React para [`useContext`](https://es.react.dev/reference/react/useContext).
 
 </div>
 
@@ -309,7 +309,7 @@ Los siguientes Hooks son variantes de los básicos de la sección anterior o sol
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useReducer`](https://beta.es.reactjs.org/reference/react/useReducer).
+> Lea la nueva documentación de React para [`useReducer`](https://es.react.dev/reference/react/useReducer).
 
 </div>
 
@@ -420,7 +420,7 @@ Ten en cuenta que React podría aún necesitar renderizar nuevamente ese compone
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useCallback`](https://beta.es.reactjs.org/reference/react/useCallback).
+> Lea la nueva documentación de React para [`useCallback`](https://es.react.dev/reference/react/useCallback).
 
 </div>
 
@@ -451,7 +451,7 @@ Pasa un callback en línea y un arreglo de dependencias. `useCallback` devolver�
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useMemo`](https://beta.es.reactjs.org/reference/react/useMemo).
+> Lea la nueva documentación de React para [`useMemo`](https://es.react.dev/reference/react/useMemo).
 
 </div>
 
@@ -481,7 +481,7 @@ Si no se proporciona un arreglo, se calculará un nuevo valor en cada renderizad
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useRef`](https://beta.es.reactjs.org/reference/react/useRef).
+> Lea la nueva documentación de React para [`useRef`](https://es.react.dev/reference/react/useRef).
 
 </div>
 
@@ -526,7 +526,7 @@ Ten en cuenta que `useRef` *no* notifica cuando su contenido cambia. Mutar la pr
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useImperativeHandle`](https://beta.es.reactjs.org/reference/react/useImperativeHandle).
+> Lea la nueva documentación de React para [`useImperativeHandle`](https://es.react.dev/reference/react/useImperativeHandle).
 
 </div>
 
@@ -557,7 +557,7 @@ En este ejemplo, un componente padre que muestra `<FancyInput ref={inputRef} />`
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useLayoutEffect`](https://beta.es.reactjs.org/reference/react/useLayoutEffect).
+> Lea la nueva documentación de React para [`useLayoutEffect`](https://es.react.dev/reference/react/useLayoutEffect).
 
 </div>
 
@@ -579,7 +579,7 @@ Prefiera el `useEffect` estándar cuando sea posible para evitar el bloqueo de a
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useDebugValue`](https://beta.es.reactjs.org/reference/react/useDebugValue).
+> Lea la nueva documentación de React para [`useDebugValue`](https://es.react.dev/reference/react/useDebugValue).
 
 </div>
 
@@ -627,7 +627,7 @@ useDebugValue(date, date => date.toDateString());
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useDeferredValue`](https://beta.es.reactjs.org/reference/react/useDeferredValue).
+> Lea la nueva documentación de React para [`useDeferredValue`](https://es.react.dev/reference/react/useDeferredValue).
 
 </div>
 
@@ -673,7 +673,7 @@ Memoizing the children tells React that it only needs to re-render them when `de
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useTransition`](https://beta.es.reactjs.org/reference/react/useTransition).
+> Lea la nueva documentación de React para [`useTransition`](https://es.react.dev/reference/react/useTransition).
 
 </div>
 
@@ -725,7 +725,7 @@ function App() {
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useId`](https://beta.es.reactjs.org/reference/react/useId).
+> Lea la nueva documentación de React para [`useId`](https://es.react.dev/reference/react/useId).
 
 </div>
 
@@ -789,7 +789,7 @@ The following Hooks are provided for library authors to integrate libraries deep
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useSyncExternalStore`](https://beta.es.reactjs.org/reference/react/useSyncExternalStore).
+> Lea la nueva documentación de React para [`useSyncExternalStore`](https://es.react.dev/reference/react/useSyncExternalStore).
 
 </div>
 
@@ -843,7 +843,7 @@ const selectedField = useSyncExternalStore(
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`useInsertionEffect`](https://beta.es.reactjs.org/reference/react/useInsertionEffect).
+> Lea la nueva documentación de React para [`useInsertionEffect`](https://es.react.dev/reference/react/useInsertionEffect).
 
 </div>
 

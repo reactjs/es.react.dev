@@ -8,11 +8,11 @@ permalink: docs/react-dom-client.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Estas nuevas páginas de documentación enseñan React moderno:
 >
-> - [`react-dom`: API de cliente](https://react.dev/reference/react-dom/client)
+> - [`react-dom`: API de cliente](https://es.react.dev/reference/react-dom/client)
 
 </div>
 
@@ -51,7 +51,7 @@ React supports all modern browsers, although [some polyfills are required](/docs
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`createRoot`](https://beta.es.reactjs.org/reference/react-dom/client/createRoot).
+> Lea la nueva documentación de React para [`createRoot`](https://es.react.dev/reference/react-dom/client/createRoot).
 
 </div>
 
@@ -92,7 +92,7 @@ root.unmount();
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`hydrateRoot`](https://beta.es.reactjs.org/reference/react-dom/client/hydrateRoot).
+> Lea la nueva documentación de React para [`hydrateRoot`](https://es.react.dev/reference/react-dom/client/hydrateRoot).
 
 </div>
 

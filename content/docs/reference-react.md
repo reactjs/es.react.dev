@@ -15,14 +15,14 @@ redirect_from:
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Estas nuevas páginas de documentación enseñan React moderno:
 >
-> - [`react`: Components](https://react.dev/reference/react/components)
-> - [`react`: Hooks](https://react.dev/reference/react/)
-> - [`react`: APIs](https://react.dev/reference/react/apis)
-> - [`react`: API heredadas](https://react.dev/reference/react/legacy)
+> - [`react`: Components](https://es.react.dev/reference/react/components)
+> - [`react`: Hooks](https://es.react.dev/reference/react/)
+> - [`react`: APIs](https://es.react.dev/reference/react/apis)
+> - [`react`: API heredadas](https://es.react.dev/reference/react/legacy)
 
 </div>
 
@@ -118,7 +118,7 @@ Los *Hooks* son una nueva adición en React 16.8. Permiten usar el estado y otra
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`Component`](https://beta.es.reactjs.org/reference/react/Component).
+> Lea la nueva documentación de React para [`Component`](https://es.react.dev/reference/react/Component).
 
 </div>
 
@@ -142,7 +142,7 @@ Consulta [Referencia API React.Component](/docs/react-component.html) para ver u
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`PureComponent`](https://beta.es.reactjs.org/reference/react/PureComponent).
+> Lea la nueva documentación de React para [`PureComponent`](https://es.react.dev/reference/react/PureComponent).
 
 </div>
 
@@ -164,7 +164,7 @@ Si la función `render()` del componente de React renderiza el mismo resultado d
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`memo`](https://beta.es.reactjs.org/reference/react/memo).
+> Lea la nueva documentación de React para [`memo`](https://es.react.dev/reference/react/memo).
 
 </div>
 
@@ -210,7 +210,7 @@ Este método solamente existe como una **[optimización del desempeño](/docs/op
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`createElement`](https://beta.es.reactjs.org/reference/react/createElement).
+> Lea la nueva documentación de React para [`createElement`](https://es.react.dev/reference/react/createElement).
 
 </div>
 
@@ -234,7 +234,7 @@ El código escrito con [JSX](/docs/introducing-jsx.html) será convertido para u
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`cloneElement`](https://beta.es.reactjs.org/reference/react/cloneElement).
+> Lea la nueva documentación de React para [`cloneElement`](https://es.react.dev/reference/react/cloneElement).
 
 </div>
 
@@ -266,7 +266,7 @@ Esta API fue introducida como un reemplazo al obsoleto `React.addons.cloneWithPr
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`createFactory`](https://beta.es.reactjs.org/reference/react/createFactory).
+> Lea la nueva documentación de React para [`createFactory`](https://es.react.dev/reference/react/createFactory).
 
 </div>
 
@@ -288,7 +288,7 @@ Normalmente no se invocará `React.createFactory()` directamente si se está usa
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`isValidElement`](https://beta.es.reactjs.org/reference/react/isValidElement).
+> Lea la nueva documentación de React para [`isValidElement`](https://es.react.dev/reference/react/isValidElement).
 
 </div>
 
@@ -306,7 +306,7 @@ Verifica que el objeto sea un elemento React. Retorna `true` o `false`.
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`Children`](https://beta.es.reactjs.org/reference/react/Children).
+> Lea la nueva documentación de React para [`Children`](https://es.react.dev/reference/react/Children).
 
 </div>
 
@@ -372,7 +372,7 @@ Retorna la estructura de datos opaca de `children` como un array plano con keys 
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`Fragment`](https://beta.es.reactjs.org/reference/react/Fragment).
+> Lea la nueva documentación de React para [`Fragment`](https://es.react.dev/reference/react/Fragment).
 
 </div>
 
@@ -398,7 +398,7 @@ También se puede usar con la sintaxis abreviada `<></>`. Para más información
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`createRef`](https://beta.es.reactjs.org/reference/react/createRef).
+> Lea la nueva documentación de React para [`createRef`](https://es.react.dev/reference/react/createRef).
 
 </div>
 
@@ -411,7 +411,7 @@ También se puede usar con la sintaxis abreviada `<></>`. Para más información
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`forwardRef`](https://beta.es.reactjs.org/reference/react/forwardRef).
+> Lea la nueva documentación de React para [`forwardRef`](https://es.react.dev/reference/react/forwardRef).
 
 </div>
 
@@ -436,7 +436,7 @@ Para más información, ver [reenvío de refs](/docs/forwarding-refs.html).
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`lazy`](https://beta.es.reactjs.org/reference/react/lazy).
+> Lea la nueva documentación de React para [`lazy`](https://es.react.dev/reference/react/lazy).
 
 </div>
 
@@ -458,7 +458,7 @@ Ten en cuenta que renderizar componentes `lazy` requiere que haya un componente 
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`Suspense`](https://beta.es.reactjs.org/reference/react/Suspense).
+> Lea la nueva documentación de React para [`Suspense`](https://es.react.dev/reference/react/Suspense).
 
 </div>
 
@@ -501,7 +501,7 @@ Suspense boundaries depend on their parent boundaries being hydrated before they
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`startTransition`](https://beta.es.reactjs.org/reference/react/startTransition).
+> Lea la nueva documentación de React para [`startTransition`](https://es.react.dev/reference/react/startTransition).
 
 </div>
 

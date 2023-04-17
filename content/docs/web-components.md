@@ -8,9 +8,9 @@ redirect_from:
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Consulte [Elementos HTML personalizados] (https://react.dev/reference/react-dom/components#custom-html-elements) en los nuevos documentos.
+> Consulte [Elementos HTML personalizados] (https://es.react.dev/reference/react-dom/components#custom-html-elements) en los nuevos documentos.
 
 </div>
 

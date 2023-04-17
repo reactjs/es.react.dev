@@ -5,7 +5,7 @@ author: [gaearon]
 
 <div class="scary">
 
-> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+> This blog site has been archived. Go to [react.dev/blog](https://es.react.dev/blog) to see the recent posts.
 
 </div>
 
@@ -207,7 +207,7 @@ We started designing a new server renderer that supports Suspense (including wai
 
 <div class="scary">
 
-> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+> This blog site has been archived. Go to [react.dev/blog](https://es.react.dev/blog) to see the recent posts.
 
 </div>
 

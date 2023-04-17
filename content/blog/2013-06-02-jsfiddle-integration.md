@@ -5,7 +5,7 @@ author: [vjeux]
 
 <div class="scary">
 
-> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://react.dev/blog) para ver las publicaciones recientes.
+> Este sitio de blog ha sido archivado. Vaya a [react.dev/blog](https://es.react.dev/blog) para ver las publicaciones recientes.
 
 </div>
 

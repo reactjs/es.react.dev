@@ -13,14 +13,14 @@ redirect_from:
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Referenciar valores con refs](https://beta.es.reactjs.org/learn/referencing-values-with-refs)
-> - [Manipular el DOM con refs](https://beta.es.reactjs.org/learn/manipulating-the-dom-with-refs)
-> - [`useRef`](https://beta.es.reactjs.org/reference/react/useRef)
-> - [`forwardRef`](https://beta.es.reactjs.org/reference/react/forwardRef)
+> - [Referenciar valores con refs](https://es.react.dev/learn/referencing-values-with-refs)
+> - [Manipular el DOM con refs](https://es.react.dev/learn/manipulating-the-dom-with-refs)
+> - [`useRef`](https://es.react.dev/reference/react/useRef)
+> - [`forwardRef`](https://es.react.dev/reference/react/forwardRef)
 
 </div>
 

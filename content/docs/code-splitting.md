@@ -6,12 +6,12 @@ permalink: docs/code-splitting.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Estas nuevas páginas de documentación enseñan React moderno e incluyen ejemplos en vivo:
 >
-> - [`lazy`](https://react.dev/reference/react/lazy)
-> - [`<Suspense>`](https://react.dev/reference/react/Suspense)
+> - [`lazy`](https://es.react.dev/reference/react/lazy)
+> - [`<Suspense>`](https://es.react.dev/reference/react/Suspense)
 
 </div>
 

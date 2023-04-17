@@ -8,14 +8,14 @@ permalink: docs/react-dom.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Estas nuevas páginas de documentación enseñan React moderno:
 >
-> - [`react-dom`: Components](https://react.dev/reference/react-dom/components)
-> - [`react-dom`: APIs](https://react.dev/reference/react-dom)
-> - [`react-dom`: API de cliente](https://react.dev/reference/react-dom/client)
-> - [`react-dom`: API del servidor](https://react.dev/reference/react-dom/server)
+> - [`react-dom`: Components](https://es.react.dev/reference/react-dom/components)
+> - [`react-dom`: APIs](https://es.react.dev/reference/react-dom)
+> - [`react-dom`: API de cliente](https://es.react.dev/reference/react-dom/client)
+> - [`react-dom`: API del servidor](https://es.react.dev/reference/react-dom/server)
 
 </div>
 
@@ -67,7 +67,7 @@ React es compatible con todos los navegadores modernos, aunque [se requieren alg
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`createPortal`](https://beta.es.reactjs.org/reference/react-dom/createPortal).
+> Lea la nueva documentación de React para [`createPortal`](https://es.react.dev/reference/react-dom/createPortal).
 
 </div>
 
@@ -83,7 +83,7 @@ Crea un portal. Los portales proporcionan una forma de [renderizar hijos en un n
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`flushSync`](https://beta.es.reactjs.org/reference/react-dom/flushSync).
+> Lea la nueva documentación de React para [`flushSync`](https://es.react.dev/reference/react-dom/flushSync).
 
 </div>
 
@@ -118,7 +118,7 @@ flushSync(() => {
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`render`](https://beta.es.reactjs.org/reference/react-dom/render).
+> Lea la nueva documentación de React para [`render`](https://es.react.dev/reference/react-dom/render).
 
 </div>
 
@@ -156,7 +156,7 @@ Si se suministra el *callback* opcional, será ejecutado después de que el comp
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`hydrate`](https://beta.es.reactjs.org/reference/react-dom/hydrate).
+> Lea la nueva documentación de React para [`hydrate`](https://es.react.dev/reference/react-dom/hydrate).
 
 </div>
 
@@ -186,7 +186,7 @@ Recuerda estar consciente de la experiencia de usuario en conexiones lentas. El 
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`unmountComponentAtNode`](https://beta.es.reactjs.org/reference/react-dom/unmountComponentAtNode).
+> Lea la nueva documentación de React para [`unmountComponentAtNode`](https://es.react.dev/reference/react-dom/unmountComponentAtNode).
 
 </div>
 
@@ -208,7 +208,7 @@ Elimina un componente React ya montado en el DOM, y limpia sus manejadores de ev
 
 > Este contenido está desactualizado.
 >
-> Lea la nueva documentación de React para [`findDOMNode`](https://beta.es.reactjs.org/reference/react-dom/findDOMNode).
+> Lea la nueva documentación de React para [`findDOMNode`](https://es.react.dev/reference/react-dom/findDOMNode).
 
 </div>
 

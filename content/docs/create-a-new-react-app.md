@@ -13,7 +13,7 @@ next: cdn-links.html
 >
 > Estos documentos son antiguos y no se actualizarán. Ve a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Consulte [Iniciar un nuevo proyecto de React](https://react.dev/learn/start-a-new-react-project) para conocer las formas recomendadas de crear una aplicación.
+> Consulte [Iniciar un nuevo proyecto de React](https://es.react.dev/learn/start-a-new-react-project) para conocer las formas recomendadas de crear una aplicación.
 
 </div>
 Para obtener la mejor experiencia de usuario y desarrollador use una cadena de herramientas integrada.

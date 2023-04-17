@@ -7,7 +7,7 @@ prev: hooks-reference.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Las nuevas páginas de documentación enseñan React with Hooks.
 

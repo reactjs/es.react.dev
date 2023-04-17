@@ -16,16 +16,16 @@ redirect_from:
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Componentes comunes (e.g. `<div>`)](https://beta.es.reactjs.org/reference/react-dom/components/common)
-> - [`<input>`](https://beta.es.reactjs.org/reference/react-dom/components/input)
-> - [`<option>`](https://beta.es.reactjs.org/reference/react-dom/components/option)
-> - [`<progress>`](https://beta.es.reactjs.org/reference/react-dom/components/progress)
-> - [`<select>`](https://beta.es.reactjs.org/reference/react-dom/components/select)
-> - [`<textarea>`](https://beta.es.reactjs.org/reference/react-dom/components/textarea)
+> - [Componentes comunes (e.g. `<div>`)](https://es.react.dev/reference/react-dom/components/common)
+> - [`<input>`](https://es.react.dev/reference/react-dom/components/input)
+> - [`<option>`](https://es.react.dev/reference/react-dom/components/option)
+> - [`<progress>`](https://es.react.dev/reference/react-dom/components/progress)
+> - [`<select>`](https://es.react.dev/reference/react-dom/components/select)
+> - [`<textarea>`](https://es.react.dev/reference/react-dom/components/textarea)
 
 </div>
 

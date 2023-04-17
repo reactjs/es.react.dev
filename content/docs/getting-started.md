@@ -21,9 +21,9 @@ redirect_from:
 <div class="scary">
 
 >
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> El nuevo [Inicio rápido](https://beta.es.reactjs.org/learn) enseña React moderno e incluye ejemplos interactivos.
+> El nuevo [Inicio rápido](https://es.react.dev/learn) enseña React moderno e incluye ejemplos interactivos.
 
 </div>
 

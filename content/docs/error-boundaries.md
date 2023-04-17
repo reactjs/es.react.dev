@@ -10,7 +10,7 @@ permalink: docs/error-boundaries.html
 >
 > Estas nuevas páginas de documentación enseñan React moderno:
 >
-> - [`React.Component`: Captura de errores de representación con un límite de error](https://react.dev/reference/react/Component#captura-de-errores-de-representación-con-un-límite-de-error)
+> - [`React.Component`: Captura de errores de representación con un límite de error](https://es.react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 
 </div>
 

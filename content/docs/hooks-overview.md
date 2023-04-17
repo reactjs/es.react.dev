@@ -8,13 +8,13 @@ prev: hooks-intro.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > > Estas nuevas páginas de documentación enseñan React with Hooks:
 >
-> - [Inicio rápido](https://react.dev/learn)
-> - [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
-> - [`react`: Hooks](https://react.dev/reference/react)
+> - [Inicio rápido](https://es.react.dev/learn)
+> - [Tutorial](https://es.react.dev/learn/tutorial-tic-tac-toe)
+> - [`react`: Hooks](https://es.react.dev/reference/react)
  
 </div>
 

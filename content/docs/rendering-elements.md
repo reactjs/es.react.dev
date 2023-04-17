@@ -10,12 +10,12 @@ next: components-and-props.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Estas nuevas páginas de documentación enseñan cómo escribir JSX y mostrarlo en una página HTML:
 >
-> - [Escribir marcado con JSX](https://react.dev/learn/escribir-marcado-con-jsx)
-> - [Agregar React a un proyecto existente](/aprender/agregar-reaccionar-a-un-proyecto-existente#paso-2-renderizar-reaccionar-componentes-en-cualquier-lugar-de-la-página)
+> - [Escribir marcado con JSX](https://es.react.dev/learn/writing-markup-with-jsx)
+> - [Agregar React a un proyecto existente](https://es.react.dev/learn/add-react-to-an-existing-project#step-2-render-react-components-anywhere-on-the-page)
 
 </div>
 

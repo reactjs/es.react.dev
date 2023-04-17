@@ -8,12 +8,12 @@ next: rendering-elements.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Escribir marcado con JSX](https://beta.es.reactjs.org/learn/writing-markup-with-jsx)
-> - [JavaScript en JSX con llaves](https://beta.es.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+> - [Escribir marcado con JSX](https://es.react.dev/learn/writing-markup-with-jsx)
+> - [JavaScript en JSX con llaves](https://es.react.dev/learn/javascript-in-jsx-with-curly-braces)
 
 </div>
 

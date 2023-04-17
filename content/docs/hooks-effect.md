@@ -8,13 +8,13 @@ prev: hooks-state.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Sincronización con efectos](https://beta.es.reactjs.org/learn/synchronizing-with-effects)
-> - [Puede que no necesites un efecto](https://beta.es.reactjs.org/learn/you-might-not-need-an-effect)
-> - [`useEffect`](https://beta.es.reactjs.org/reference/react/useEffect)
+> - [Sincronización con efectos](https://es.react.dev/learn/synchronizing-with-effects)
+> - [Puede que no necesites un efecto](https://es.react.dev/learn/you-might-not-need-an-effect)
+> - [`useEffect`](https://es.react.dev/reference/react/useEffect)
 
 </div>
 

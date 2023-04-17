@@ -10,12 +10,12 @@ next: handling-events.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Estado: la memoria de un componente](https://beta.es.reactjs.org/learn/state-a-components-memory)
-> - [Sincronización con Efectos](https://beta.es.reactjs.org/learn/synchronizing-with-effects)
+> - [Estado: la memoria de un componente](https://es.react.dev/learn/state-a-components-memory)
+> - [Sincronización con Efectos](https://es.react.dev/learn/synchronizing-with-effects)
 
 </div>
 

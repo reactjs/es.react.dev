@@ -6,10 +6,10 @@ permalink: docs/render-props.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
 > Los accesorios de renderizado se usan en React moderno, pero no son muy comunes.
-> En muchos casos, han sido reemplazados por [Hooks personalizados](/aprender/reutilizar-lógica-con-ganchos-personalizados).
+> En muchos casos, han sido reemplazados por [Hooks personalizados](https://es.react.dev/learn/reusing-logic-with-custom-hooks).
 
 </div>
 

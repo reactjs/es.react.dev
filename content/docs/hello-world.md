@@ -8,9 +8,9 @@ next: introducing-jsx.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Consulte [Inicio rápido](https://react.dev/learn) para obtener una introducción a React.
+> Consulte [Inicio rápido](https://es.react.dev/learn) para obtener una introducción a React.
 
 </div>
 

@@ -6,12 +6,12 @@ permalink: docs/context.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Pasar datos profundamente con el contexto](https://beta.es.reactjs.org/learn/passing-data-deeply-with-context)
-> - [`useContext`](https://beta.es.reactjs.org/reference/react/useContext)
+> - [Pasar datos profundamente con el contexto](https://es.react.dev/learn/passing-data-deeply-with-context)
+> - [`useContext`](https://es.react.dev/reference/react/useContext)
 >
 > La nueva documentación reemplazará próximamente este sitio, que será archivado. [Deja tu opinión aquí](https://github.com/reactjs/reactjs.org/issues/3308)
 

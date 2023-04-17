@@ -10,9 +10,9 @@ prev: composition-vs-inheritance.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
-> La guía actualizada [Pensar en React](https://beta.es.reactjs.org/learn/thinking-in-react) enseña React moderno e incluye ejemplos interactivos.
+> La guía actualizada [Pensar en React](https://es.react.dev/learn/thinking-in-react) enseña React moderno e incluye ejemplos interactivos.
 
 </div>
 

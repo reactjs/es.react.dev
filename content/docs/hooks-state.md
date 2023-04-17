@@ -8,12 +8,12 @@ prev: hooks-overview.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 > 
 > Estas nuevas páginas de la documentación enseñan React moderno e incluyen ejemplos interactivos:
 >
-> - [Estado: la memoria de un componente](https://beta.es.reactjs.org/learn/state-a-components-memory)
-> - [`useState`](https://beta.es.reactjs.org/reference/react/useState)
+> - [Estado: la memoria de un componente](https://es.react.dev/learn/state-a-components-memory)
+> - [`useState`](https://es.react.dev/reference/react/useState)
 
 </div>
 

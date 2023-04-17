@@ -8,9 +8,9 @@ next: release-channels.html
 
 <div class="scary">
 
-> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://react.dev/) para ver los nuevos documentos de React.
+> Estos documentos son antiguos y no se actualizarán. Vaya a [react.dev](https://es.react.dev/) para ver los nuevos documentos de React.
 >
-> Consulte [Agregar React a un proyecto existente](https://react.dev/learn/add-react-to-an-existing-project) para conocer las formas recomendadas de agregar React.
+> Consulte [Agregar React a un proyecto existente](https://es.react.dev/learn/add-react-to-an-existing-project) para conocer las formas recomendadas de agregar React.
 
 </div>
 
