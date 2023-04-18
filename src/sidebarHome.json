@@ -4,34 +4,34 @@
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET STARTED"
+      "sectionHeader": "INTRODUCCIÓN"
     },
     {
-      "title": "Quick Start",
+      "title": "Inicio rápido",
       "path": "/learn"
     },
     {
-      "title": "Installation",
+      "title": "Instalación",
       "path": "/learn/installation"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "APRENDE REACT"
     },
     {
-      "title": "Describing the UI",
+      "title": "Describir la UI",
       "path": "/learn/describing-the-ui"
     },
     {
-      "title": "Adding Interactivity",
+      "title": "Añadir interactividad",
       "path": "/learn/adding-interactivity"
     },
     {
-      "title": "Managing State",
+      "title": "Gestión del estado",
       "path": "/learn/managing-state"
     },
     {
-      "title": "Escape Hatches",
+      "title": "Puertas de escape",
       "path": "/learn/escape-hatches"
     },
     {
@@ -43,7 +43,7 @@
       "path": "/reference/react"
     },
     {
-      "title": "Components",
+      "title": "Componentes",
       "path": "/reference/react/components"
     },
     {
@@ -51,7 +51,7 @@
       "path": "/reference/react/apis"
     },
     {
-      "title": "Legacy APIs",
+      "title": "APIs legadas",
       "path": "/reference/react/legacy"
     },
     {
@@ -59,7 +59,7 @@
       "sectionHeader": "REACT DOM API"
     },
     {
-      "title": "Components",
+      "title": "Componentes",
       "path": "/reference/react-dom/components"
     },
     {
@@ -67,11 +67,11 @@
       "path": "/reference/react-dom"
     },
     {
-      "title": "Client APIs",
+      "title": "APIs del cliente",
       "path": "/reference/react-dom/client"
     },
     {
-      "title": "Server APIs",
+      "title": "APIs del servidor",
       "path": "/reference/react-dom/server"
     },
     {
