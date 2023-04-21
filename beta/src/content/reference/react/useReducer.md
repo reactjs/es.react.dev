@@ -4,7 +4,7 @@ title: useReducer
 
 <Intro>
 
-`useReducer` es un React Hook que te permite agregar un [reducer](/learn/extracting-state-logic-into-a-reducer) a tu componente.
+`useReducer` es un Hook de React que te permite agregar un [reducer](/learn/extracting-state-logic-into-a-reducer) a tu componente.
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init?)
@@ -34,9 +34,9 @@ function MyComponent() {
   // ...
 ```
 
-[Vea más ejemplos arriba.](#examples-basic)
+[Ve más ejemplos debajo.](#examples-basic)
 
-#### Parametros {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
 * `reducer`: La función reductora que especifica cómo se actualiza el estado. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
 * `initialArg`: El valor a partir del cual se calcula el estado inicial. Puede ser un valor de cualquier tipo. Cómo se calcula el estado inicial depende del siguiente argumento `init`.
@@ -52,7 +52,7 @@ function MyComponent() {
 #### Advertencias {/*caveats*/}
 
 * `useReducer` es un Hook, por lo que sólo puedes llamarlo **en el nivel superior de tu componente** o en tus propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesitas, extrae un nuevo componente y mueve el estado a él.
-* En modo estricto, React **llamará a tu reducer e inicializador dos veces** para [ayudarte a encontrar impurezas accidentales] (#my-initializer-or-updater-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu reducer e inicializador son puros (como deberían ser), esto no debería afectar a la lógica de tu componente. El resultado de una de las llamadas se ignora.
+* En Modo Estricto, React **llamará a tu reducer e inicializador dos veces** para [ayudarte a encontrar impurezas accidentales] (#my-initializer-or-updater-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu reducer e inicializador son puros (como deberían ser), esto no debería afectar a la lógica de tu componente. El resultado de una de las llamadas se ignora.
 
 ---
 
@@ -70,7 +70,7 @@ function handleClick() {
 
 React establecerá el siguiente estado al resultado de llamar a la función `reducer` que has proporcionado con el `state` actual y la acción que has pasado a `dispatch`.
 
-#### Parametros {/*dispatch-parameters*/}
+#### Parámetros {/*dispatch-parameters*/}
 
 * `action`: La acción realizada por el usuario. Puede ser un valor de cualquier tipo. Por convención, una acción suele ser un objeto con una propiedad `type` que lo identifica y, opcionalmente, otras propiedades con información adicional.
 
@@ -84,7 +84,7 @@ Las funciones `dispatch` no tienen valor de retorno.
 
 * Si el nuevo valor que proporcionas es idéntico al `state` actual, determinado por una comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **saltará el renderizado del componente y sus hijos.** Esto es una optimización. React aún puede necesitar llamar a tu componente antes de ignorar el resultado, pero no debería afectar a tu código.
 
-* React [batches state updates.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los manejadores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples re-renders durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
+* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los manejadores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
 
 ---
 
@@ -92,7 +92,7 @@ Las funciones `dispatch` no tienen valor de retorno.
 
 ### Agregar un reducer a un componente {/*adding-a-reducer-to-a-component*/}
 
-Invoca `useReducer` en la parte superior de tú componente para manejar el estado con un [reducer.](/learn/extracting-state-logic-into-a-reducer)
+Invoca `useReducer` en la parte superior de tu componente para manejar el estado con un [reducer.](/learn/extracting-state-logic-into-a-reducer)
 
 ```js [[1, 8, "state"], [2, 8, "dispatch"], [4, 8, "reducer"], [3, 8, "{ age: 42 }"]]
 import { useReducer } from 'react';
@@ -108,7 +108,7 @@ function MyComponent() {
 
 `useReducer` retorna un array con exactamente dos elementos:
 
-1. El <CodeStep step={1}>estado actual</CodeStep> de esta variable de estado, inicialmente asignado al <CodeStep step={3}>estado inicial</CodeStep> que proporcionó.
+1. El <CodeStep step={1}>estado actual</CodeStep> de esta variable de estado, inicialmente asignado al <CodeStep step={3}>estado inicial</CodeStep> que proporcionaste.
 2. La función <CodeStep step={2}>`dispatch` </CodeStep> que te permite cambiarlo en respuesta a la interacción.
 
 Para actualizar lo que aparece en pantalla, llama a <CodeStep step={2}>`dispatch`</CodeStep> con un objeto que representa lo que hizo el usuario, llamado *acción*:
@@ -157,7 +157,7 @@ button { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-`useReducer` es muy similar a [`useState`](/apis/react/useState), pero te permite mover la lógica de actualización de estado de los manejadores de eventos a una única función fuera de tu componente. Más información sobre [elegir entre `useState` y `useReducer`.](/learn/extracting-state-logic-into-a-reducer#comparing-usestate-and-usereducer)
+`useReducer` es muy similar a [`useState`](/reference/react/useState), pero te permite mover la lógica de actualización de estado de los manejadores de eventos a una única función fuera de tu componente. Más información sobre [elegir entre `useState` y `useReducer`.](/learn/extracting-state-logic-into-a-reducer#comparing-usestate-and-usereducer)
 
 ---
 
@@ -212,7 +212,7 @@ function Form() {
   // ...
 ```
 
-Los nombres de los tipos de acción son locales a su componente. [Cada acción describe una única interacción, aunque provoque múltiples cambios en los datos.](/learn/extracting-state-logic-into-a-reducer#writing-reducers-well) La forma del estado es arbitraria, pero normalmente será un objeto o un array.
+Los nombres de los tipos de acción son locales a tu componente. [Cada acción describe una única interacción, aunque provoque múltiples cambios en los datos.](/learn/extracting-state-logic-into-a-reducer#writing-reducers-well) La forma del estado es arbitraria, pero normalmente será un objeto o un array.
 
 Lee [extrayendo lógica de estado en un reducer](/learn/extracting-state-logic-into-a-reducer) para saber más.
 
@@ -230,7 +230,7 @@ function reducer(state, action) {
     }
 ```
 
-En su lugar, devuelva siempre nuevos objetos desde su reducer:
+En su lugar, devuelve siempre nuevos objetos desde tu reducer:
 
 ```js {4-8}
 function reducer(state, action) {
@@ -737,7 +737,7 @@ function TodoList({ username }) {
   // ...
 ```
 
-Aunque el resultado de `createInitialState(username)` sólo se utiliza para el render inicial, sigues llamando a esta función en cada render. Esto puede ser un desperdicio si está creando grandes arrays o realizando cálculos costosos.
+Aunque el resultado de `createInitialState(username)` sólo se utiliza para el renderizado inicial, sigues llamando a esta función en cada renderizado. Esto puede ser un desperdicio si está creando grandes arrays o realizando cálculos costosos.
 
 Para solucionar esto, puedes **pasarlo como una función _initializer_** a `useReducer` como tercer argumento en su lugar:
 
@@ -1034,13 +1034,13 @@ function reducer(state, action) {
     // ...
 ```
 
-Sin el `...estado` anterior, el siguiente estado devuelto sólo contendría el campo `edad` y nada más.
+Sin el `...state` de arriba, el siguiente estado devuelto sólo contendría el campo `edad` y nada más.
 
 ---
 
 ### Todo el estado de mi reducer se vuelve undefined después de despachar {/*my-entire-reducer-state-becomes-undefined-after-dispatching*/}
 
-Si tu estado se convierte inesperadamente en `undefined`, probablemente te estás olvidando de `return` el estado en uno de los casos, o tu tipo de acción no coincide con ninguna de las declaraciones `case`. Para saber por qué, lanza un error fuera del `switch`:
+Si tu estado se convierte inesperadamente en `undefined`, probablemente te estás olvidando de devolver el estado con `return` en uno de los casos, o tu tipo de acción no coincide con ninguna de las declaraciones `case`. Para saber por qué, lanza un error fuera del `switch`:
 
 ```js {10}
 function reducer(state, action) {
@@ -1060,9 +1060,9 @@ También puedes utilizar un comprobador de tipos estático como TypeScript para 
 
 ---
 
-### Recibo un error: "Demasiadas re-renderizaciones" {/*im-getting-an-error-too-many-re-renders*/}
+### Recibo un error: "Too many re-renders" {/*im-getting-an-error-too-many-re-renders*/}
 
-Puede que obtengas un error que dice: `Demasiadas repeticiones. React limita el número de renderizaciones para evitar un bucle infinito.` Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un manejador de eventos:
+Puede que obtengas un error que dice: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (Demasiados rerenderizados. React limita el número de renderizados para evitar un bucle infinito). Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un manejador de eventos:
 
 ```js {1-2}
 // 🚩 Wrong: calls the handler during render
@@ -1075,15 +1075,15 @@ return <button onClick={handleClick}>Click me</button>
 return <button onClick={(e) => handleClick(e)}>Click me</button>
 ```
 
-Si no puedes encontrar la causa de este error, haga clic en la flecha situada junto al error en la consola y busque en la pila de JavaScript la llamada específica a la función `dispatch` responsable del error.
+Si no puedes encontrar la causa de este error, haz clic en la flecha situada junto al error en la consola y busque en la pila de JavaScript la llamada específica a la función `dispatch` responsable del error.
 
 ---
 
 ### Mi función reductora o inicializadora se ejecuta dos veces {/*my-reducer-or-initializer-function-runs-twice*/}
 
-En [Strict Mode](/apis/react/StrictMode), React llamará a tus funciones reductoras e inicializadoras dos veces. Esto no debería romper tu código.
+En [Modo Estricto](/apis/react/StrictMode), React llamará a tus funciones reductoras e inicializadoras dos veces. Esto no debería romper tu código.
 
-Este comportamiento **sólo para desarrollo** te ayuda a [mantener los componentes puros.](/learn/keeping-components-pure) React utiliza el resultado de una de las llamadas, e ignora el resultado de la otra llamada. Mientras tus funciones de componente, inicializador y reducer sean puras, esto no debería afectar a tu lógica. Sin embargo, si accidentalmente son impuras, esto te ayuda a notar los errores y corregirlos.
+Este comportamiento **sólo para desarrollo** te ayuda a [mantener los componentes puros.](/learn/keeping-components-pure) React utiliza el resultado de una de las llamadas, e ignora el resultado de la otra llamada. Mientras tus funciones de componente, inicializadora y reducer sean puras, esto no debería afectar a tu lógica. Sin embargo, si accidentalmente son impuras, esto te ayuda a notar los errores y corregirlos.
 
 Por ejemplo, esta función reducer impura muta un array en estado:
 
@@ -1122,4 +1122,4 @@ function reducer(state, action) {
 
 Ahora que esta función reducer es pura, llamarla una vez extra no hace ninguna diferencia en el comportamiento. Esta es la razón por la que React llamándola dos veces te ayuda a encontrar errores. **Los manejadores de eventos no necesitan ser puros.** así que React nunca llamará a tus manejadores de eventos dos veces.
 
-Lea [keeping components pure](/learn/keeping-components-pure) para obtener más información.
+Lee [mantener los componentes puros](/learn/keeping-components-pure) para obtener más información.
