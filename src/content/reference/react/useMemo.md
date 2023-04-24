@@ -161,7 +161,11 @@ No hay ningún beneficio en envolver un cálculo en `useMemo` en otros casos. Ta
 1. Evita [Efectos innecesarios que actualicen el estado.](/learn/you-might-not-need-an-effect) La mayoría de los problemas de rendimiento en las aplicaciones de React son causados por cadenas de actualizaciones que se originan en Efectos que hacen que tus componentes se rendericen una y otra vez.
 1. Intenta [eliminar las dependencias innecesarias de tus Efectos.](/learn/removing-effect-dependencies) Por ejemplo, en lugar de memoizar, suele ser más sencillo mover algún objeto o función dentro de un Efecto o fuera del componente.
 
+<<<<<<< HEAD
 Si una interacción específica aún se siente lenta, [usa el generador de perfiles de la Herramientas de Desarrollo de React](/blog/2018/09/10/introducing-the-react-profiler.html) para ver qué componentes se beneficiarían más de la memoización y agregar memoización donde sea necesario. Estos principios hacen que tus componentes sean más fáciles de depurar y comprender, por lo que es bueno seguirlos en cualquier caso. A largo plazo, estamos investigando [hacer memoización granular automáticamente](https://www.youtube.com/watch?v=lGEMwh32soc) para solucionar esto de una vez por todas.
+=======
+If a specific interaction still feels laggy, [use the React Developer Tools profiler](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) to see which components would benefit the most from memoization, and add memoization where needed. These principles make your components easier to debug and understand, so it's good to follow them in any case. In the long term, we're researching [doing granular memoization automatically](https://www.youtube.com/watch?v=lGEMwh32soc) to solve this once and for all.
+>>>>>>> 920f32eca6fee820fc22b528c564cf9c65eb786c
 
 </DeepDive>
 
