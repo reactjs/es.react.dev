@@ -131,7 +131,7 @@ export function HomeContent() {
             React
           </h1>
           <p className="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug self-center">
-            The library for web and native user interfaces
+            La biblioteca para interfaces de usuario web y nativas
           </p>
           <div className="mt-5 self-center flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
             <ButtonLink
@@ -139,29 +139,29 @@ export function HomeContent() {
               type="primary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="Learn React">
-              Learn React
+              label="Aprende React">
+              Aprende React
             </ButtonLink>
             <ButtonLink
               href={'/reference/react'}
               type="secondary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="API Reference">
-              API Reference
+              label="Referencia de la API">
+              Referencia de la API
             </ButtonLink>
           </div>
         </div>
 
         <Section background="left-card">
           <Center>
-            <Header>Create user interfaces from components</Header>
+            <Header>Crea interfaces de usuario a partir de componentes</Header>
             <Para>
-              React lets you build user interfaces out of individual pieces
-              called components. Create your own React components like{' '}
-              <Code>Thumbnail</Code>, <Code>LikeButton</Code>, and{' '}
-              <Code>Video</Code>. Then combine them into entire screens, pages,
-              and apps.
+              React te permite construir interfaces de usuario a partir de
+              piezas individuales llamadas componentes. Crea tus propios
+              componentes de React como <Code>Thumbnail</Code>,{' '}
+              <Code>LikeButton</Code>, y <Code>Video</Code>. Luego combínalos
+              para formar pantallas, páginas y aplicaciones.
             </Para>
           </Center>
           <FullBleed>
@@ -169,22 +169,23 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              Whether you work on your own or with thousands of other
-              developers, using React feels the same. It is designed to let you
-              seamlessly combine components written by independent people,
-              teams, and organizations.
+              Sin importar si trabajas por tu cuenta o con otros miles de
+              desarrolladores, utilizar React se siente igual. Está diseñado
+              para permitirte combinar a la perfección componentes escritos por
+              personas, equipos y organizaciones de forma independiente.
             </Para>
           </Center>
         </Section>
 
         <Section background="right-card">
           <Center>
-            <Header>Write components with code and markup</Header>
+            <Header>Escribe componentes con código y marcado</Header>
             <Para>
-              React components are JavaScript functions. Want to show some
-              content conditionally? Use an <Code>if</Code> statement.
-              Displaying a list? Try array <Code>map()</Code>. Learning React is
-              learning programming.
+              Los componentes de React son funciones de JavaScript. ¿Quieres
+              mostrar algún contenido condicionalmente? Utiliza una sentencia{' '}
+              <Code>if</Code>. ¿Mostrar una lista? Prueba la función{' '}
+              <Code>map()</Code> de un array. Aprender React es aprender a
+              programar.
             </Para>
           </Center>
           <FullBleed>
@@ -192,22 +193,23 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              This markup syntax is called JSX. It is a JavaScript syntax
-              extension popularized by React. Putting JSX markup close to
-              related rendering logic makes React components easy to create,
-              maintain, and delete.
+              Esta sintaxis de marcado se llama JSX. Es una extensión de la
+              sintaxis de JavaScript popularizada por React. Al poner marcado
+              JSX cerca de la lógica de renderizado relacionada hace que los
+              componentes de React sean fáciles de crear, mantener y eliminar.
             </Para>
           </Center>
         </Section>
 
         <Section background="left-card">
           <Center>
-            <Header>Add interactivity wherever you need it</Header>
+            <Header>Añade interactividad dónde quiera que la necesites</Header>
             <Para>
-              React components receive data and return what should appear on the
-              screen. You can pass them new data in response to an interaction,
-              like when the user types into an input. React will then update the
-              screen to match the new data.
+              Los componentes de React reciben datos y devuelven lo que debe
+              aparecer en la pantalla. Puedes pasarles nuevos datos en respuesta
+              a una interacción, como cuando el usuario escribe en un campo de
+              texto. React actualizará entonces la pantalla para que se
+              corresponda con los nuevos datos.
             </Para>
           </Center>
           <FullBleed>
@@ -215,16 +217,16 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              You don’t have to build your whole page in React. Add React to
-              your existing HTML page, and render interactive React components
-              anywhere on it.
+              No tienes que construir toda tu página con React. Añade React a tu
+              página HTML existente y renderiza componentes interactivos de
+              React en cualquier lugar de ella.
             </Para>
             <div className="flex justify-start w-full lg:justify-center">
               <CTA
                 color="gray"
                 icon="code"
                 href="/learn/add-react-to-an-existing-project">
-                Add React to your page
+                Añade React a tu página
               </CTA>
             </div>
           </Center>
@@ -233,14 +235,15 @@ export function HomeContent() {
         <Section background="right-card">
           <Center>
             <Header>
-              Go full-stack <br className="hidden lg:inline" />
-              with a framework
+              Cubre todo el <i>stack</i> <br className="hidden lg:inline" />
+              con un framework
             </Header>
             <Para>
-              React is a library. It lets you put components together, but it
-              doesn’t prescribe how to do routing and data fetching. To build an
-              entire app with React, we recommend a full-stack React framework
-              like <Link href="https://nextjs.org">Next.js</Link> or{' '}
+              React es una biblioteca. Te permite agrupar componentes, pero no
+              prescribe cómo hacer el enrutamiento y la obtención de datos. Para
+              construir una aplicación completa en React, recomendamos un
+              framework <i>full-stack</i> de React como{' '}
+              <Link href="https://nextjs.org">Next.js</Link> o{' '}
               <Link href="https://remix.run">Remix</Link>.
             </Para>
           </Center>
@@ -249,17 +252,18 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              React is also an architecture. Frameworks that implement it let
-              you fetch data in asynchronous components that run on the server
-              or even during the build. Read data from a file or a database, and
-              pass it down to your interactive components.
+              React también es una arquitectura. Los frameworks que la
+              implementan te permiten obtener datos en componentes asíncronos
+              que se ejecutan en el servidor o incluso durante la compilación.
+              Lee datos de un archivo o una base de datos y pásalos hacia abajo
+              a tus componentes interactivos.
             </Para>
             <div className="flex justify-start w-full lg:justify-center">
               <CTA
                 color="gray"
                 icon="framework"
                 href="/learn/start-a-new-react-project">
-                Get started with a framework
+                Comienza a usar un framework
               </CTA>
             </div>
           </Center>
@@ -267,12 +271,14 @@ export function HomeContent() {
         <Section background="left-card">
           <div className="mx-auto flex flex-col w-full">
             <div className="mx-auto max-w-4xl lg:text-center items-center px-5 flex flex-col">
-              <Header>Use the best from every platform</Header>
+              <Header>Utiliza lo mejor de cada plataforma</Header>
               <Para>
-                People love web and native apps for different reasons. React
-                lets you build both web apps and native apps using the same
-                skills. It leans upon each platform’s unique strengths to let
-                your interfaces feel just right on every platform.
+                A las personas les encantan las aplicaciones web y nativas por
+                razones diferentes. React te permite construir tanto
+                aplicaciones web como nativas utilizando las mismas habilidades.
+                Se apoya en las fortalezas únicas de cada plataforma para
+                permitir que tus interfaces se sientan naturales en cada una de
+                ellas.
               </Para>
             </div>
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row mt-16 mb-20 lg:mb-28 px-5 gap-20 lg:gap-5">
@@ -286,15 +292,17 @@ export function HomeContent() {
                     <div className="bg-wash relative h-14 w-full" />
                     <div className="relative flex items-start justify-center flex-col flex-1 pb-16 pt-5 gap-3 px-5 lg:px-10 lg:pt-8">
                       <h4 className="leading-tight text-primary font-semibold text-3xl lg:text-4xl">
-                        Stay true to the web
+                        Manténte fiel a la web
                       </h4>
                       <p className="lg:text-xl leading-normal text-secondary">
-                        People expect web app pages to load fast. On the server,
-                        React lets you start streaming HTML while you’re still
-                        fetching data, progressively filling in the remaining
-                        content before any JavaScript code loads. On the client,
-                        React can use standard web APIs to keep your UI
-                        responsive even in the middle of rendering.
+                        Las personas esperan que las páginas de las aplicaciones
+                        web carguen rápidamente. En el servidor, React te
+                        permite servir HTML bajo demanda mientras aún estás
+                        cargando datos, rellenando progresivamente el contendido
+                        faltante antes de que cargue ningún código de
+                        JavaScript. En el cliente, React puede usar APIs web
+                        estándares para mantener tu interfaz de usuario
+                        responsiva incluso en medio del renderizado.
                       </p>
                     </div>
                   </div>
@@ -372,21 +380,22 @@ export function HomeContent() {
                       </div>
                       <div className="flex flex-col items-start justify-center pt-0 gap-3 px-2.5 lg:pt-8 lg:px-8">
                         <h4 className="leading-tight text-primary dark:text-primary-dark font-semibold text-3xl lg:text-4xl">
-                          Go truly native
+                          Logra una UI realmente nativa
                         </h4>
                         <p className="h-full lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-                          People expect native apps to look and feel like their
-                          platform.{' '}
+                          Las personas esperan que las aplicaciones nativas se
+                          vean y se sientan como su plataforma.{' '}
                           <Link href="https://reactnative.dev">
                             React Native
                           </Link>{' '}
-                          and{' '}
+                          y{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-                          let you build apps in React for Android, iOS, and
-                          more. They look and feel native because their UIs{' '}
-                          <i>are</i> truly native. It’s not a web view—your
-                          React components render real Android and iOS views
-                          provided by the platform.
+                          te permiten construir aplicaciones en React para
+                          Android, iOS y aún más. Lucen y se sienten como
+                          nativas porque sus UIs <i>son</i> realmente nativas.
+                          No es una vista web: tus componentes de React
+                          renderizan vistas reales de Android y iOS provistas
+                          por la plataforma.
                         </p>
                       </div>
                     </div>
@@ -396,14 +405,16 @@ export function HomeContent() {
             </div>
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
-                With React, you can be a web <i>and</i> a native developer. Your
-                team can ship to many platforms without sacrificing the user
-                experience. Your organization can bridge the platform silos, and
-                form teams that own entire features end-to-end.
+                Con React, puedes ser un desarrollador web <i>y</i> de
+                aplicaciones nativas. Tu equipo puede producir para muchas
+                plataformas sin sacrificar la experiencia de usuario. Tu
+                organización puede tender puentes para romper el aislamiento
+                entre plataformas y formar equipos que estén a cargo de
+                funcionalidades completas de extremo a extremo.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
                 <CTA color="gray" icon="native" href="https://reactnative.dev/">
-                  Build for native platforms
+                  Construye para plataformas nativas
                 </CTA>
               </div>
             </div>
@@ -414,23 +425,24 @@ export function HomeContent() {
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row px-5">
             <div className="max-w-3xl lg:max-w-7xl gap-5 flex flex-col lg:flex-row lg:px-5">
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:pl-5 lg:pr-10">
-                <Header>Upgrade when the future is ready</Header>
+                <Header>Actualiza cuando el futuro esté listo</Header>
                 <Para>
-                  React approaches changes with care. Every React commit is
-                  tested on business-critical surfaces with over a billion
-                  users. Over 100,000 React components at Meta help validate
-                  every migration strategy.
+                  React atiende los cambios con cuidado. Cada commit de React se
+                  prueba en escenarios críticos para el negocio con más de mil
+                  millones de usuarios. Más de 100 000 componentes de React en
+                  Meta ayudan a validar cada estrategia de migración.
                 </Para>
                 <div className="order-last pt-5">
                   <Para>
-                    The React team is always researching how to improve React.
-                    Some research takes years to pay off. React has a high bar
-                    for taking a research idea into production. Only proven
-                    approaches become a part of React.
+                    El equipo de React siempre está investigando como mejorar
+                    React. Algunas investigaciones toman años en arrojar
+                    resultados. React tiene el listón alto para llevar una idea
+                    de investigación a producción. Solo enfoques probados se
+                    vuelven parte de React.
                   </Para>
                   <div className="hidden lg:flex justify-start w-full">
                     <CTA color="gray" icon="news" href="/blog">
-                      Read more React news
+                      Lee más noticias de React
                     </CTA>
                   </div>
                 </div>
@@ -438,7 +450,7 @@ export function HomeContent() {
               <div className="w-full lg:w-6/12">
                 <p className="uppercase tracking-wide font-bold text-sm text-tertiary dark:text-tertiary-dark flex flex-row gap-2 items-center mt-5 lg:-mt-2 w-full">
                   <IconChevron />
-                  Latest React News
+                  Últimas noticias de React
                 </p>
                 <div className="flex-col sm:flex-row flex-wrap flex gap-5 text-left my-5">
                   <div className="flex-1 min-w-[40%]">
@@ -456,7 +468,7 @@ export function HomeContent() {
                 </div>
                 <div className="flex lg:hidden justify-start w-full">
                   <CTA color="gray" icon="news" href="/blog">
-                    Read more React news
+                    Lee más noticias de React
                   </CTA>
                 </div>
               </div>
@@ -469,13 +481,13 @@ export function HomeContent() {
             <div className="mx-auto flex flex-col max-w-4xl">
               <Center>
                 <Header>
-                  Join a community <br className="hidden lg:inline" />
-                  of millions
+                  Únete a una comunidad <br className="hidden lg:inline" />
+                  de millones
                 </Header>
                 <Para>
-                  You’re not alone. Two million developers from all over the
-                  world visit the React docs every month. React is something
-                  that people and teams can agree on.
+                  No estás solo. Dos millones de desarrolladores de todo el
+                  mundo visitan la documentación de React cada mes. React es
+                  algo que las personas y los equipos pueden estar de acuerdo.
                 </Para>
               </Center>
             </div>
@@ -483,13 +495,14 @@ export function HomeContent() {
             <div className="mx-auto flex flex-col max-w-4xl">
               <Center>
                 <Para>
-                  This is why React is more than a library, an architecture, or
-                  even an ecosystem. React is a community. It’s a place where
-                  you can ask for help, find opportunities, and meet new
-                  friends. You will meet both developers and designers,
-                  beginners and experts, researchers and artists, teachers and
-                  students. Our backgrounds may be very different, but React
-                  lets us all create user interfaces together.
+                  Es por esto que React es más que una biblioteca, una
+                  arquitectura, o incluso un ecosistema. React es una comunidad.
+                  Es un lugar dónde puedes pedir ayuda, encontrar oportunidades
+                  y conocer nuevos amigos. Conocerás tanto desarrolladores como
+                  diseñadores, principiantes y expertos, investigadores y
+                  artistas, maestros y estudiantes. Nuestros antecedentes pueden
+                  ser muy diferentes, pero React nos permite a todos crear
+                  juntos interfaces de usuario.
                 </Para>
               </Center>
             </div>
@@ -498,15 +511,15 @@ export function HomeContent() {
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
-              Welcome to the <br className="" />
-              React community
+              Bienvenido a la <br className="" />
+              comunidad de React
             </Header>
             <ButtonLink
               href={'/learn'}
               type="primary"
               size="lg"
-              label="Take the Tutorial">
-              Get Started
+              label="Toma el tutorial">
+              Introducción
             </ButtonLink>
           </div>
         </Section>
@@ -658,35 +671,35 @@ const reactConf2019Cover = '/images/home/conf2019/cover.svg';
 const communityImages = [
   {
     src: '/images/home/community/react_conf_fun.webp',
-    alt: 'People singing karaoke at React Conf',
+    alt: 'Personas cantando karaoke en React Conf',
   },
   {
     src: '/images/home/community/react_india_sunil.webp',
-    alt: 'Sunil Pai speaking at React India',
+    alt: 'Sunil Pai hablando en React India',
   },
   {
     src: '/images/home/community/react_conf_hallway.webp',
-    alt: 'A hallway conversation between two people at React Conf',
+    alt: 'Una conversación en el pasillo entre dos personas en React Conf',
   },
   {
     src: '/images/home/community/react_india_hallway.webp',
-    alt: 'A hallway conversation at React India',
+    alt: 'Una conversación en el pasillo en React India',
   },
   {
     src: '/images/home/community/react_conf_elizabet.webp',
-    alt: 'Elizabet Oliveira speaking at React Conf',
+    alt: 'Elizabet Oliveira hablando en React Conf',
   },
   {
     src: '/images/home/community/react_india_selfie.webp',
-    alt: 'People taking a group selfie at React India',
+    alt: 'Personas tomándose un selfie en React India',
   },
   {
     src: '/images/home/community/react_conf_nat.webp',
-    alt: 'Nat Alison speaking at React Conf',
+    alt: 'Nat Alison hablando en React Conf',
   },
   {
     src: '/images/home/community/react_india_team.webp',
-    alt: 'Organizers greeting attendees at React India',
+    alt: 'Los organizadores saludando a los participantes en React India',
   },
 ];
 
