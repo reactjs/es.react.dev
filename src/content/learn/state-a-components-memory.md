@@ -4,7 +4,7 @@ title: "El Estado: La memoria un componente"
 
 <Intro>
 
-Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como resultado de una interacción. Escribir dentro de un formulario debería actualizar el campo de texto, hacer clic en "siguiente" en un carrusel de imágenes debería cambiar la imagen que es mostrada; hacer click en un botón para comprar un producto debería actualizar el carrito de compras. En los ejemplos anteriores los componentes deben "recordar" cosas: el campo de texto, la imagen actual, el carrito de compras. En React, a este tipo de memoria de los componentes se le conoce como estado.
+Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como resultado de una interacción. Escribir dentro de un formulario debería actualizar el campo de texto, hacer clic en "siguiente" en un carrusel de imágenes debería cambiar la imagen que es mostrada; hacer clic en un botón para comprar un producto debería actualizar el carrito de compras. En los ejemplos anteriores los componentes deben "recordar" cosas: el campo de texto, la imagen actual, el carrito de compras. En React, a este tipo de memoria de los componentes se le conoce como estado.
 
 </Intro>
 
