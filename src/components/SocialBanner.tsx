@@ -9,7 +9,7 @@ import {ExternalLink} from './ExternalLink';
 
 const bannerText = 'Apoya a Ucrania 🇺🇦';
 const bannerLink = 'https://opensource.fb.com/support-ukraine';
-const bannerLinkText = 'Ayuda a brindar ayuda humanitaria a Ucrania';
+const bannerLinkText = 'Contribuye a brindar ayuda humanitaria a Ucrania';
 
 export default function SocialBanner() {
   const ref = useRef<HTMLDivElement | null>(null);
