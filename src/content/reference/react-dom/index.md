@@ -4,7 +4,7 @@ title: React DOM APIs
 
 <Intro>
 
-The `react-dom` package contains methods that are only supported for the web applications (which run in the browser DOM environment). They are not supported for React Native.
+El paquete `react-dom` incluye métodos que sólo son compatibles con aplicaciones web (aquellas que se ejecutan en el entorno del DOM del navegador). No son compatibles con React Native.
 
 </Intro>
 
@@ -12,32 +12,32 @@ The `react-dom` package contains methods that are only supported for the web app
 
 ## APIs {/*apis*/}
 
-These APIs can be imported from your components. They are rarely used:
+Puedes importar las siguientes APIs en tus componentes, pero su uso es poco común:
 
-* [`createPortal`](/reference/react-dom/createPortal) lets you render child components in a different part of the DOM tree.
-* [`flushSync`](/reference/react-dom/flushSync) lets you force React to flush a state update and update the DOM synchronously.
-
----
-
-## Entry points {/*entry-points*/}
-
-The `react-dom` package provides two additional entry points:
-
-* [`react-dom/client`](/reference/react-dom/client) contains APIs to render React components on the client (in the browser).
-* [`react-dom/server`](/reference/react-dom/server) contains APIs to render React components on the server.
+* [`createPortal`](/reference/react-dom/createPortal) permite renderizar componentes hijos en una parte diferente del árbol del DOM.
+* [`flushSync`](/reference/react-dom/flushSync) permite forzar a React a actualizar el estado y el DOM de manera síncrona.
 
 ---
 
-## Deprecated APIs {/*deprecated-apis*/}
+## Puntos de entrada {/*entry-points*/}
+
+El paquete `react-dom` proporciona dos puntos de entrada adicionales:
+
+* [`react-dom/client`](/reference/react-dom/client) incluye APIs para renderizar componentes de React en el cliente, es decir, en el navegador.
+* [`react-dom/server`](/reference/react-dom/server) incluye APIs para renderizar componentes de react en el servidor.
+
+---
+
+## APIs obsoletas {/*deprecated-apis*/}
 
 <Deprecated>
 
-These APIs will be removed in a future major version of React.
+Las siguientes APIs se eliminarán en las próximas versiones importantes de React.
 
 </Deprecated>
 
-* [`findDOMNode`](/reference/react-dom/findDOMNode) finds the closest DOM node corresponding to a class component instance.
-* [`hydrate`](/reference/react-dom/hydrate) mounts a tree into the DOM created from server HTML. Deprecated in favor of [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
-* [`render`](/reference/react-dom/render) mounts a tree into the DOM. Deprecated in favor of [`createRoot`](/reference/react-dom/client/createRoot).
-* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) unmounts a tree from the DOM. Deprecated in favor of [`root.unmount()`.](/reference/react-dom/client/createRoot#root-unmount)
+* [`findDOMNode`](/reference/react-dom/findDOMNode) busca el nodo de DOM más cercano correspondiente a una instancia de componente de clase.
+* [`hydrate`](/reference/react-dom/hydrate) monta un árbol en el DOM creado a partir de HTML generado en el servidor. En su lugar, se recomienda usar [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
+* [`render`](/reference/react-dom/render) monta un árbol en el DOM. En su lugar, se recomienda usar [`createRoot`](/reference/react-dom/client/createRoot).
+* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) desmonta un árbol del DOM. En su lugar, se recomienda usar [`root.unmount()`.](/reference/react-dom/client/createRoot#root-unmount)
 
