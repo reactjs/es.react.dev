@@ -4,7 +4,7 @@ title: APIs del cliente React DOM
 
 <Intro>
 
-Las APIs de `react-dom/client` te permiten renderizar componentes de React en el cliente (en el navegador). Estas APIs son típicamente usadas en el nivel superior de tu aplicación para inicializar tu árbol de React. Un [*framework*](/learn/start-a-new-react-project#production-grade-react-frameworks) podría llamar a estas APIs por ti. La mayoría de tus componentes no necesitan importarlas o usarlas.
+Las APIs de `react-dom/client` te permiten renderizar componentes de React en el cliente (en el navegador). Estas APIs son típicamente usadas en el nivel superior de tu aplicación para inicializar tu árbol de React. Un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) podría llamar a estas APIs por ti. La mayoría de tus componentes no necesitan importarlas o usarlas.
 
 </Intro>
 
@@ -19,4 +19,4 @@ Las APIs de `react-dom/client` te permiten renderizar componentes de React en el
 
 ## Compatibilidad con navegadores {/*browser-support*/}
 
-React es compatible con todos los navegadores populares, incluyendo Internet Explorer 9 en adelante. Algunos *polyfills* son requeridos para navegadores viejos como IE 9 e IE 10.
+React es compatible con todos los navegadores populares, incluyendo Internet Explorer 9 en adelante. Algunos polyfills son requeridos para navegadores viejos como IE 9 e IE 10.
