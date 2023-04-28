@@ -60,7 +60,7 @@ Strict Mode, habilitá los siguientes comportamientos de solo desarrollo:
 
 ### Habilitando Strict Mode para la aplicación {/*enabling-strict-mode-for-entire-app*/}
 
-Strict Mode, habilitá chequeos adicionales de solo desarrollo para el árbol de componentes entero dentro del componente `<StrictMode>`. Estos chequeos ayudan a encontrar errores comunes en tus componentes al principio del proceso de desarrollo.
+Strict Mode, habilita chequeos adicionales de solo desarrollo para el árbol de componentes entero dentro del componente `<StrictMode>`. Estos chequeos ayudan a encontrar errores comunes en tus componentes al principio del proceso de desarrollo.
 
 Para habilitar Strict Mode en toda tu aplicación, envuelve tu componente raíz con `<StrictMode>` cuando lo renderices:
 
@@ -78,17 +78,17 @@ root.render(
 
 Nosotros recomendamos envolver toda tu aplicación en Strict Mode, especialmente para aplicaciones recientemente creadas. Si usas un framework cuál es llamado [`createRoot`](/reference/react-dom/client/createRoot). Chequea su documentación para saber como habilitar Strict Mode.
 
-A pesar de, Strict Mode chequea **solo corre en desarrollo,** ayudan a usted a encontrar errores que ya existen en tu código, pero pueden ser complicados reproducirlo de forma confiable en producción. Strict Mode, te permite corregir errores antes que tus usuarios los reporten.
+A pesar de que, Strict Mode chequea **que solo corra en desarrollo,** te ayudará a encontrar errores que ya existen en tu código, pero pueden ser complicado reproducirlos de forma confiable en producción. Strict Mode, te permite corregir errores antes que tus usuarios los reporten.
 
 <Note>
 
-Strict Mode, habilitá los siguientes chequeos en desarrollo:
+Strict Mode, habilita los siguientes chequeos en desarrollo:
 
 - Tus componentes van a [volver a renderizarse una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
 - Tus componentes van a [volver a correr Effects una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por limpieza de Effects faltantes.
 - Tus componentes van a [ser chequeados por uso de APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
-**Todo estos chequeos son solo desarrollo y no afectan la compilación de producción.**
+**Todos estos chequeos son solo desarrollo y no afectan la compilación de producción.**
 
 </Note>
 
@@ -815,7 +815,7 @@ Date cuenta de como la cuenta de conexiones activas en la consola no se mantiene
 
 Sin Strict Mode, es fácil pasar por alto que tu Effect necesita limpieza. Al ejecutar *configuración → limpieza → configuración* en vez de *configuración* por tu Effect en desarrollo, El Strict Mode hizo que la lógica de limpieza faltante fuera más notable.
 
-[Lea más sobre la implementación de la limpieza de Effect.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+[Lee más sobre la implementación de la limpieza de Effect.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 ---
 
