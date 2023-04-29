@@ -75,12 +75,12 @@ document.body.innerHTML = '<div id="app"></div>';
 
 // Renderizar tu componente React en su lugar
 const root = createRoot(document.getElementById('app'));
-root.render(<h1>Hola, mundo!</h1>);
+root.render(<h1>¡Hola, mundo!</h1>);
 ```
 
 </Sandpack>
 
-Si el contenido completo de tu página fue reemplazado por un "Hola, mundo!", ¡todo ha funcionado! Sigue leyendo.
+Si el contenido completo de tu página fue reemplazado por un "¡Hola, mundo!", ¡todo ha funcionado! Sigue leyendo.
 
 <Note>
 
@@ -100,7 +100,7 @@ document.body.innerHTML = '<div id="app"></div>';
 
 // Renderizar tu componente React en su lugar
 const root = createRoot(document.getElementById('app'));
-root.render(<h1>Hola, mundo!</h1>);
+root.render(<h1>¡Hola, mundo!</h1>);
 ```
 
 Por supuesto, ¡en realidad no deseas borrar el contenido HTML existente!
