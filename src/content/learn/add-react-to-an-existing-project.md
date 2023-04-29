@@ -21,12 +21,12 @@ Digamos que tienes una aplicación web existente en `example.com` construida con
 Así es como recomendamos configurarlo:
 
 1. **Construye la parte React de tu app** utilizando uno de los [*frameworks* basados en React](/learn/start-a-new-react-project).
-2. **Especifica `/some-app` como la *ruta base***  en la configuración de tu *framework* (aquí tienes como: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+2. **Especifica `/some-app` como la *ruta base***  en la configuración de tu framework (aquí tienes como: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configura tu servidor o un proxy** para que todas las peticiones bajo `/some-app/` sean manejadas por tu aplicación React.
 
-Esto garantiza que la parte React de tu aplicación puede [beneficiar de las mejoras practicas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) integradas en aquellos *frameworks*.
+Esto garantiza que la parte React de tu aplicación se pueda [beneficiar de las mejoras practicas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) integradas en aquellos frameworks.
 
-Muchos *frameworks* basados en React son full-stack y permiten que tu aplicación React aproveche del servidor. Sin embargo, puedes utilizar el mismo enfoque incluso si no puedes o no quieres ejecutar JavaScript en el servidor. En ese caso, sirve el HTML/CSS/JS exportado ([`next export` output](https://nextjs.org/docs/advanced-features/static-html-export) para Next.js, por defecto con Gatsby) en `/some-app/` en su lugar.
+Muchos frameworks basados en React son full-stack y permiten que tu aplicación React aproveche del servidor. Sin embargo, puedes utilizar el mismo enfoque incluso si no puedes o no quieres ejecutar JavaScript en el servidor. En ese caso, sirve el HTML/CSS/JS exportado ([`next export` output](https://nextjs.org/docs/advanced-features/static-html-export) para Next.js, por defecto con Gatsby) en `/some-app/` en su lugar.
 
 ## Utilizar React para una parte de tu página existente {/*using-react-for-a-part-of-your-existing-page*/}
 
@@ -148,7 +148,7 @@ root.render(<NavigationBar />);
 
 Observa como el contenido HTML original de `index.html` se mantiene, pero ahora tu propio componente React `NavigationBar` aparece dentro del `<nav id="navigation">` de tu HTML. Lee la [documentación sobre el uso de `createRoot`](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) para aprender más sobre renderizar componentes React dentro de una página HTML existente.
 
-Cuando adoptas React en un proyecto existente, es común empezar con pequeños componentes interactivos (como botones), y luego seguir "moviendo hacia arriba" gradualmente hasta que finalmente toda tu página está construida con React. Si logras llegar a este punto, recomendamos migrar a [un *framework* de React](/learn/start-a-new-react-project) enseguida para sacar el máximo provecho de React.
+Cuando adoptas React en un proyecto existente, es común empezar con pequeños componentes interactivos (como botones), y luego seguir "moviendo hacia arriba" gradualmente hasta que finalmente toda tu página está construida con React. Si logras llegar a este punto, recomendamos migrar a [un framework de React](/learn/start-a-new-react-project) enseguida para sacar el máximo provecho de React.
 
 ## Utilizar React Native en una aplicación móvil nativa existente {/*using-react-native-in-an-existing-native-mobile-app*/}
 
