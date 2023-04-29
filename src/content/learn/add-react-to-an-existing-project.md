@@ -30,7 +30,7 @@ Muchos *frameworks* basados en React son full-stack y permiten que tu aplicació
 
 ## Utilizar React para una parte de tu página existente {/*using-react-for-a-part-of-your-existing-page*/}
 
-Digamos que tienes una página existente creada con otra tecnología (una de servidor como Rails, o de cliente como Backbone), y quieres renderizar componentes React interactivos en algún lugar de la página. Esta es una forma común de integrar React--de hecho, ¡así es como se veía la mayoría del uso de React en Meta durante muchos años!
+Digamos que tienes una página existente creada con otra tecnología (una de servidor como Rails, o de cliente como Backbone), y quieres renderizar componentes React interactivos en algún lugar de la página. Esta es una forma común de integrar React y, de hecho, ¡así es como se veía la mayoría del uso de React en Meta durante muchos años!
 
 Puedes hacer esto en dos pasos:
 
@@ -41,9 +41,9 @@ El método exacto dependerá de la configuración de tu página existente, así 
 
 ### Paso 1: Configurar un entorno de JavaScript modular {/*step-1-set-up-a-modular-javascript-environment*/}
 
-Un entorno de JavaScript modular te permite escribir tus componentes React en archivos individuales, en lugar de escribir todo tu código en un solo archivo. También te permite utilizar todos los maravillosos paquetes publicados por otros desarrolladores en el registro [npm](https://www.npmjs.com/)--¡Incluyendo el propio React! La manera de hacerlo depende de tu configuración existente:
+Un entorno de JavaScript modular te permite escribir tus componentes React en archivos individuales, en lugar de escribir todo tu código en un solo archivo. También te permite utilizar todos los maravillosos paquetes publicados por otros desarrolladores en el registro [npm](https://www.npmjs.com/) (¡Incluyendo el propio React!) La manera de hacerlo depende de tu configuración existente:
 
-* **Si tu aplicación ya está dividida en archivos que utilizan la sintaxis `import`,** prueba a utilizar tu configuración existente. Comprueba si escribir `<div />` en tu código JS causa un error de sintaxis. Si causa un error de sintaxis, es posible que necesitas [transformar tu código JavaScript con Babel](https://babeljs.io/setup), y habilitar el [_preset_ de Babel React](https://babeljs.io/docs/babel-preset-react) para utilizar JSX.
+* **Si tu aplicación ya está dividida en archivos que utilizan la sintaxis `import`,** prueba a utilizar tu configuración existente. Comprueba si escribir `<div />` en tu código JS causa un error de sintaxis. Si causa un error de sintaxis, es posible que necesites [transformar tu código JavaScript con Babel](https://babeljs.io/setup), y habilitar el [_preset_ de Babel React](https://babeljs.io/docs/babel-preset-react) para utilizar JSX.
 
 * **Si tu aplicación no tiene una configuración existente para compilar módulos JavaScript,** configurarlo con [Vite](https://es.vitejs.dev/). La comunidad de Vite mantienen [varias integraciones con *frameworks* de backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluyendo Rails, Django y Laravel. Si tu *framework* de backend no aparece en la lista, [sigue esta guía](https://es.vitejs.dev/guide/backend-integration.html) para integrar la compilación con Vite con tu backend de forma manual.
 
