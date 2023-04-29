@@ -1127,7 +1127,7 @@ Para memoizar una función con `useMemo`, su función de cálculo tendría que d
 export default function Page({ productId, referrer }) {
   const handleSubmit = useMemo(() => {
     return (orderDetails) => {
-      post('/product/' + product.id + '/buy', {
+      post('/product/' + productId + '/buy', {
         referrer,
         orderDetails
       });
@@ -1143,7 +1143,7 @@ export default function Page({ productId, referrer }) {
 ```js {2,7}
 export default function Page({ productId, referrer }) {
   const handleSubmit = useCallback((orderDetails) => {
-    post('/product/' + product.id + '/buy', {
+    post('/product/' + productId + '/buy', {
       referrer,
       orderDetails
     });
