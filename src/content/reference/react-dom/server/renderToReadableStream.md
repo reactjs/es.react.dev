@@ -1,6 +1,6 @@
-  ---
-  title: renderToReadableStream
-  ---
+---
+title: renderToReadableStream
+---
 
   <Intro>
 
@@ -43,14 +43,14 @@
 
   Desde el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer interactivo el HTML generado en el servidor.
 
-  [Consulta los ejemplos más abajo.](#usage)
+  [Consulta más ejemplos abajo.](#usage)
 
   #### Parámetros {/*parameters*/}
 
   * `reactNode`: Nodo de React que quieras renderizar a HTML. Por ejemplo, un elemento JSX como `<App />`. Se presupone que representará el documento completo, por lo que el componente `App` debería renderizar la etiqueta `<html>`.
 
   * **opcional** `options`: Objeto con las opciones de streaming.
-    * **opcional** `bootstrapScriptContent`: If specified, this string will be placed in an inline `<script>` tag.
+    * **opcional** `bootstrapScriptContent`: Si se especifica, esta cadena será colocada dentro de una etiqueta `<script>`.
     * **opcional** `bootstrapScripts`: Array de strings que representan las URL para que la etiqueta `<script>` las emita en la página. Utiliza esto para incluír el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omítelo si no planeas usar React en el cliente.
     * **opcional** `bootstrapModules`: Igual que `bootstrapScripts`, pero emite [`<script type="module">`](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) en su lugar.
     * **opcional** `identifierPrefix`: Prefijo (string) que React usa para los IDs generados mediante [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se usan múltiples raíces (roots) en la misma página. Debe ser el mismo prefijo que se le pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
@@ -283,24 +283,24 @@
 
   <Note>
 
-  **Only Suspense-enabled data sources will activate the Suspense component.** They include:
+  **Solo las fuentes de información "Suspense-enabled" activarán el componente Suspense.** Se incluyen:
 
-  - Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/advanced-features/react-18)
-  - Lazy-loading component code with [`lazy`](/reference/react/lazy)
+  - Obtención de datos con frameworks "Suspense-enabled" como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
+  - Código de componentes lazy-loading de [`lazy`](/reference/react/lazy)
 
-  Suspense **does not** detect when data is fetched inside an Effect or event handler.
+  Suspense **no** detecta cuando la información es obtenida dentro de un Hook de efecto o un controlador de eventos.
 
-  The exact way you would load data in the `Posts` component above depends on your framework. If you use a Suspense-enabled framework, you'll find the details in its data fetching documentation.
+  La forma exacta en la que se cargará la información dentro del componente `Posts` depende del framework que se use. Si usas un framework "Suspense-enabled", podrás consultar en la documentación los detalles de cómo funciona la obtención de datos.
 
-  Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React. 
+  La obtención de datos "Suspense-enabled" sin el uso de un framework dogmático no está soportado todavía. Los requisitos para implementar una fuente de datos "Suspense-enabled" son inestables y se encuentran indocumentados. La API oficial para implementar fuentes de datos "Suspense-enabled" será publicada en versiones futuras de React. 
 
   </Note>
 
   ---
 
-  ### Specifying what goes into the shell {/*specifying-what-goes-into-the-shell*/}
+  ### Especificar qué va dentro del shell {/*specifying-what-goes-into-the-shell*/}
 
-  The part of your app outside of any `<Suspense>` boundaries is called *the shell:*
+  La parte de tu app que va fuera de cualquier envoltura `<Suspense>` es conocida como *el shell:*
 
   ```js {3-5,13,14}
   function ProfilePage() {
@@ -321,7 +321,7 @@
   }
   ```
 
-  It determines the earliest loading state that the user may see:
+  Determina el primer estado de carga que el usuario podrá ver:
 
   ```js {3-5,13
   <ProfileLayout>
@@ -330,9 +330,9 @@
   </ProfileLayout>
   ```
 
-  If you wrap the whole app into a `<Suspense>` boundary at the root, the shell will only contain that spinner. However, that's not a pleasant user experience because seeing a big spinner on the screen can feel slower and more annoying than waiting a bit more and seeing the real layout. This is why usually you'll want to place the `<Suspense>` boundaries so that the shell feels *minimal but complete*--like a skeleton of the entire page layout.
+  Si envuelves toda la app dentro del componente `<Suspense>` en la raíz, el shell solo contendrá el círculo de carga. No obstante, esto generaría una experiencia de usuario poco agradable, ya que ver un símbolo de carga gigante puede hacer que la app se sienta lenta y es más molesto que esperar un poco más y ver la disposición real de la página. Es por esto que es conveniente utilizar el componente `<Suspense>` de forma que en el shell se vea el contenido *mínimo, pero que esté completo*--como si fuera el esqueleto de la disposición de la página.
 
-  The async call to `renderToReadableStream` will resolve to a `stream` as soon as the entire shell has been rendered. Usually, you'll start streaming then by creating and returning a response with that `stream`:
+  La llamada asíncrona a `renderToReadableStream` será resuelta a un `stream` tan pronto como el shell haya sido renderizado. Entonces, empezarás a streamear creando y devolviendo una respuesta con este `stream`:
 
   ```js {5}
   async function handler(request) {
@@ -345,13 +345,13 @@
   }
   ```
 
-  By the time the `stream` is returned, components in nested `<Suspense>` boundaries might still be loading data.
+  Para cuando el `stream` sea devuelto, los componentes anidados en `<Suspense>` podrían estar aún cargando la información.
 
   ---
 
-  ### Logging crashes on the server {/*logging-crashes-on-the-server*/}
+  ### Registrando fallos en el servidor {/*logging-crashes-on-the-server*/}
 
-  By default, all errors on the server are logged to console. You can override this behavior to log crash reports:
+  Por defecto, todos los errores que ocurren en el servidor son registrados en la consola. Es posible sobreescribir esto para generar informes de fallo:
 
   ```js {4-7}
   async function handler(request) {
@@ -368,13 +368,13 @@
   }
   ```
 
-  If you provide a custom `onError` implementation, don't forget to also log errors to the console like above.
+  Si se provee una implementación personalizada de `onError`, no olvides registrar también los errores en la consola, como hacemos en el ejemplo superior.
 
   ---
 
-  ### Recovering from errors inside the shell {/*recovering-from-errors-inside-the-shell*/}
+  ### Recuperar errores dentro del shell {/*recovering-from-errors-inside-the-shell*/}
 
-  In this example, the shell contains `ProfileLayout`, `ProfileCover`, and `PostsGlimmer`:
+  En este ejemplo, el shell contiene `ProfileLayout`, `ProfileCover` y `PostsGlimmer`:
 
   ```js {3-5,7-8}
   function ProfilePage() {
@@ -389,7 +389,7 @@
   }
   ```
 
-  If an error occurs while rendering those components, React won't have any meaningful HTML to send to the client. Wrap your `renderToReadableStream` call in a `try...catch` to send a fallback HTML that doesn't rely on server rendering as the last resort:
+  Si ocurriera un error al renderizar estos componentes, React no tendría ningún HTML significativo que enviar al cliente. Envuelve la llamada a `renderToReadableStream` en un bloque `try...catch` para enviar HTML alternativo que no depende del renderizado en el servidor como último recurso:
 
   ```js {2,13-18}
   async function handler(request) {
@@ -413,13 +413,13 @@
   }
   ```
 
-  If there is an error while generating the shell, both `onError` and your `catch` block will fire. Use `onError` for error reporting and use the `catch` block to send the fallback HTML document. Your fallback HTML does not have to be an error page. Instead, you may include an alternative shell that renders your app on the client only.
+  Si ocurriera un error al generar el shell, tanto `onError` como el bloque `catch` serían disparados. Usa `onError` para reportar el error y el bloque `catch` para enviar el HTML alternativo. El HTML alternativo no tiene necesariamente por qué ser un mensaje de error. En su lugar, puedes incluír un shell alternativo que renderiza la app solo en el cliente.
 
   ---
 
-  ### Recovering from errors outside the shell {/*recovering-from-errors-outside-the-shell*/}
+  ### Recuperar errores fuera del shell {/*recovering-from-errors-outside-the-shell*/}
 
-  In this example, the `<Posts />` component is wrapped in `<Suspense>` so it is *not* a part of the shell:
+  En este ejemplo, el componente `<Posts />` está envuelto en `<Suspense>`, por lo que *no* es parte del shell:
 
   ```js {6}
   function ProfilePage() {
@@ -434,23 +434,23 @@
   }
   ```
 
-  If an error happens in the `Posts` component or somewhere inside it, React will [try to recover from it:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
+  Si ocurriera un error en el componente `Posts` o en cualquier parte dentro del mismo, React [intentará recuperse de él:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
 
-  1. It will emit the loading fallback for the closest `<Suspense>` boundary (`PostsGlimmer`) into the HTML.
-  2. It will "give up" on trying to render the `Posts` content on the server anymore.
-  3. When the JavaScript code loads on the client, React will *retry* rendering `Posts` on the client.
+  1. Emitirá el respaldo de carga del `<Suspense>` más cercano (`PostsGlimmer`) en el HTML.
+  2. Dejará de intentar renderizar el contenido de `Posts` en el servidor.
+  3. Cuando el código de JavaScript cargue en el cliente, React *intentará* renderizar `Posts` en el cliente.
 
-  If retrying rendering `Posts` on the client *also* fails, React will throw the error on the client. As with all the errors thrown during rendering, the [closest parent error boundary](/reference/react/Component#static-getderivedstatefromerror) determines how to present the error to the user. In practice, this means that the user will see a loading indicator until it is certain that the error is not recoverable.
+  Si el intento de cargar `Posts` desde el cliente *también* falla, React lanzará el error en el cliente. Igual que con el resto de errores lanzados durante el renderizado, el [límite de error más cercano](/reference/react/Component#static-getderivedstatefromerror) determinará cómo mostrar el error al usuario. En la práctica, esto significa que el usuario verá un símbolo de carga hasta que el error sea imposible de recuperar.
 
-  If retrying rendering `Posts` on the client succeeds, the loading fallback from the server will be replaced with the client rendering output. The user will not know that there was a server error. However, the server `onError` callback and the client [`onRecoverableError`](/reference/react-dom/client/hydrateRoot#hydrateroot) callbacks will fire so that you can get notified about the error.
+  Si el intento de renderizado de `Posts` en el cliente se logra con éxito, el símbolo de carga recibido desde el servidor será reemplazado con el HTML obtenido como resultado. El usuario no sabrá que ocurrió un error en el servidor. Sin embargo, la función `onError` del servidor y la función [`onRecoverableError`](/reference/react-dom/client/hydrateRoot#hydrateroot) del cliente serán disparadas, por lo que podrás ser notificado/a del error.
 
   ---
 
-  ### Setting the status code {/*setting-the-status-code*/}
+  ### Establecer el código de estado {/*setting-the-status-code*/}
 
-  Streaming introduces a tradeoff. You want to start streaming the page as early as possible so that the user can see the content sooner. However, once you start streaming, you can no longer set the response status code.
+  El streaming requiere de una compensación. Se pretende empezar el streaming lo antes posible de forma que el usuario vea el contenido lo antes posible también. No obstante, una vez se empieza el streaming, no es posible establecer un código de estado.
 
-  By [dividing your app](#specifying-what-goes-into-the-shell) into the shell (above all `<Suspense>` boundaries) and the rest of the content, you've already solved a part of this problem. If the shell errors, your `catch` block will run which lets you set the error status code. Otherwise, you know that the app may recover on the client, so you can send "OK".
+  Al [dividir la app](#specifying-what-goes-into-the-shell) en shell (por encima de los perímetros `<Suspense>`) y el resto de contenido, ya se ha solucionado una parte de este problema. Si el shell falla, el bloque `catch` te permitirá establecer el código de estado del error. De lo contrario, sabes que la app se podrá recuperar en el cliente, por lo que puedes enviar un "OK".
 
   ```js {11}
   async function handler(request) {
@@ -475,9 +475,9 @@
   }
   ```
 
-  If a component *outside* the shell (i.e. inside a `<Suspense>` boundary) throws an error, React will not stop rendering. This means that the `onError` callback will fire, but your code will continue running without getting into the `catch` block. This is because React will try to recover from that error on the client, [as described above.](#recovering-from-errors-outside-the-shell)
+  Si un componente *fuera* del shell (por ejemplo, dentro del perímetro `<Suspense>`) lanza un error, React no dejará de renderizar. Esto significa que la función `onError` será disparada, pero tu código continuará ejecutándose sin entrar en el bloque `catch`. Esto es porque React tratará de recuperarse de este error en el cliente, [como hemos descrito previamente.](#recovering-from-errors-outside-the-shell)
 
-  However, if you'd like, you can use the fact that something has errored to set the status code:
+  Sin embargo, si lo deseas, puedes usar el hecho de que algo ha fallado para establecer el código de error:
 
   ```js {3,7,13}
   async function handler(request) {
@@ -504,13 +504,13 @@
   }
   ```
 
-  This will only catch errors outside the shell that happened while generating the initial shell content, so it's not exhaustive. If knowing whether an error occurred for some content is critical, you can move it up into the shell.
+  Esto solo capturará errores de fuera del shell que ocurrieron mientras se generaba el contenido inicial del shell, por lo que no es exhaustivo. Si saber si ocurrió un error es fundamental para algún contenido, puede moverlo hacia arriba en el shell.
 
   ---
 
-  ### Handling different errors in different ways {/*handling-different-errors-in-different-ways*/}
+  ### Gestionar distintos errores de distintas maneras {/*handling-different-errors-in-different-ways*/}
 
-  You can [create your own `Error` subclasses](https://javascript.info/custom-errors) and use the [`instanceof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof) operator to check which error is thrown. For example, you can define a custom `NotFoundError` and throw it from your component. Then you can save the error in `onError` and do something different before returning the response depending on the error type:
+  Puedes [crear tus propias subclases de `Error`](https://javascript.info/custom-errors) y utilizar el operador [`instanceof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof) para comprobar qué error ha sido lanzado. Por ejemplo, puedes definir un `NotFoundError` personalizado y lanzarlo desde tu componente. Después, puedes guardar el error dentro de la función `onError` y hacer algo distinto antes de devolver la respuesta dependiendo del tipo de error:
 
   ```js {2-3,5-15,22,28,33}
   async function handler(request) {
@@ -552,17 +552,17 @@
   }
   ```
 
-  Keep in mind that once you emit the shell and start streaming, you can't change the status code.
+  Ten en cuenta que una vez emites el shell y empiezas a streamear, no podrás cambiar el código de error.
 
   ---
 
-  ### Waiting for all content to load for crawlers and static generation {/*waiting-for-all-content-to-load-for-crawlers-and-static-generation*/}
+  ### Esperar a que se cargue todo el contenido para rastreadores y generación estática {/*waiting-for-all-content-to-load-for-crawlers-and-static-generation*/}
 
-  Streaming offers a better user experience because the user can see the content as it becomes available.
+  Streamear ofrece una mejor experiencia de usuario porque permite ver el contenido a medida que este está disponible.
 
-  However, when a crawler visits your page, or if you're generating the pages at the build time, you might want to let all of the content load first and then produce the final HTML output instead of revealing it progressively.
+  Sin embargo, cuando un rastreador visita tu página, o si generas las páginas en tiempo de compilacón, quizá prefieras dejar que todo el contenido cargue primero, y después producir el HTML final en lugar de revelarlo de forma progresiva.
 
-  You can wait for all the content to load by awaiting the `stream.allReady` Promise:
+  Puedes esperar a que todo el contenido cargue esperando a la promesa `stream.allReady`:
 
   ```js {12-15}
   async function handler(request) {
@@ -576,7 +576,7 @@
           logServerCrashReport(error);
         }
       });
-      let isCrawler = // ... depends on your bot detection strategy ...
+      let isCrawler = // ... depende de tu estrategia de detección de bots ...
       if (isCrawler) {
         await stream.allReady;
       }
@@ -593,13 +593,13 @@
   }
   ```
 
-  A regular visitor will get a stream of progressively loaded content. A crawler will receive the final HTML output after all the data loads. However, this also means that the crawler will have to wait for *all* data, some of which might be slow to load or error. Depending on your app, you could choose to send the shell to the crawlers too.
+  Un visitante regular verá cargar el contenido de forma progresiva. Un rastreador recibirá el HTML final cuando toda la información haya cargado. No obstante, esto también significa que el rastreador tendrá que esperar a que *toda* la información cargue, lo cual puede fallar o tardar demasiado. Dependiendo de tu app, también puedes considerar si enviar todo el shell a los rastreadores.
 
   ---
 
-  ### Aborting server rendering {/*aborting-server-rendering*/}
+  ### Abortar el renderizado en el servidor {/*aborting-server-rendering*/}
 
-  You can force the server rendering to "give up" after a timeout:
+  Puedes forzar al servidor a abandonar el renderizado después de un tiempo de espera:
 
   ```js {3,4-6,9}
   async function handler(request) {
@@ -621,4 +621,4 @@
       // ...
   ```
 
-  React will flush the remaining loading fallbacks as HTML, and will attempt to render the rest on the client.
+  React eliminará los respaldos de carga restantes como HTML e intentará renderizar el resto en el cliente.
