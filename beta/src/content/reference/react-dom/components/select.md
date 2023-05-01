@@ -40,23 +40,23 @@ Para mostrar un recuadro de selección, renderiza el componente [nativo del nave
 
 Puedes [hacer un recuadro de selección controlado](#controlling-a-select-box-with-a-state-variable) al pasar una prop `value`:
 
-* `value`: Un string (o un array de strings para [`multiple={true}`](#enabling-multiple-selection)). Controla que opción se ha seleccionado. Cada string value coincide con el `value` de alguna `<option>` anidada dentro del `<select>`.
+* `value`: Un string (o un array de strings para [`multiple={true}`](#enabling-multiple-selection)). Controla qué opción se ha seleccionado. Cada valor de string coincide con el `value` de alguna `<option>` anidada dentro del `<select>`.
 
 Cuando pases un `value`, tienes que incluir también un handler `onChange` que actualice el valor que has pasado.
 
-Si tu `<select>` es no controlado, deberías incluir en su lugar el prop `defaultValue`:
+Si tu `<select>` es no controlado, deberías incluir en su lugar la prop `defaultValue`:
 
 * `defaultValue`: Un string (o un array de strings para [`multiple={true}`](#enabling-multiple-selection)). Especifica [la opción inicial seleccionada.](#providing-an-initially-selected-option)
 
 Estas props `<select>` son relevantes para ambos recuadros de selección no controlados y controlados:
 
 * [`autoComplete`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#attr-autocomplete): Un string. Especifica uno de los posibles [comportamientos de autocompletado.](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#attr-autocomplete)
-* [`autoFocus`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#attr-autofocus): Un booleano. Si es `true`, React enfocará el elemento en su mountaje.
+* [`autoFocus`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#attr-autofocus): Un booleano. Si es `true`, React enfocará el elemento en su montaje.
 * `children`: `<select>` acepta [`<option>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup) y el componente [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup) como children. También puedes pasarle tus propios componentes siempre y cuando ellos rendericen eventualmente uno de los componentes aceptados. Si pasas tus propios componentes que eventualmente rendericen la etiqueta `<option>`, cada `<option>` que renderices debe tener un `value`.
 * [`disabled`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#attr-disabled): Un booleano. Si es `true`, el recuadro de selección no será interactivo y aparecerá atenuado.
 * [`form`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#attr-form): Un string. Especifica el `id` del `<form>` al que pertenece este recuadro de selección. Si se omite, es al form padre más próximo.
 * [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-multiple): Un booleano. Si es `true`, el navegador permite [selección múltiple.](#enabling-multiple-selection)
-* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-name): Un string. Especifica el nombre de este recuadro de selección que será enviado[con el submitt del form.](#reading-the-select-box-value-when-submitting-a-form)
+* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-name): Un string. Especifica el nombre de este recuadro de selección que será enviado [con el submit del form.](#reading-the-select-box-value-when-submitting-a-form)
 * `onChange`: Una función [`Event` handler](/reference/react-dom/components/common#event-handler). Necesaria para los [recuadros de selección controlados.](#controlling-a-select-box-with-a-state-variable) Se ejecuta inmediatamente cuando el usuario elige una opción diferente. Se comporta como el [evento `input`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) del navegador.
 * `onChangeCapture`: Una versión de `onChange` que se ejecuta en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event): Una función [`Event` handler](/reference/react-dom/components/common#event-handler). Se ejecuta inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es propio al lenguaje usar `onChange` en su lugar que funciona de forma similar.
@@ -190,7 +190,7 @@ A diferencia de en HTML, pasar un atributo `selected` a un `<option>` individual
 
 ### Permitir la selección múltiple {/*enabling-multiple-selection*/}
 
-Pasa `multiple={true}` al `<select>` para permitir al usuario seleccionar múltiples opciones. En ese caso, si también especificas un `defaultValue` para escoger la opcion inicial seleccionada, debe ser un array.
+Pasa `multiple={true}` al `<select>` para permitir al usuario seleccionar múltiples opciones. En ese caso, si también especificas un `defaultValue` para escoger la opción inicial seleccionada, debe ser un array.
 
 <Sandpack>
 
@@ -292,7 +292,7 @@ Si usas `<select multiple={true}>`, el [`FormData`](https://developer.mozilla.or
 
 <Pitfall>
 
-Por defecto, *cualquier* `<button>` dentro de un `<form>` lo enviará. ¡Esto puede ser desconcertante! Si tienes tu propio componente customizado de React `Button`, piensa en devolver un [`<button type="button">`](https://developer.mozilla.org/es/docs/Web/HTML/Element/input/button) en lugar de `<button>`. Entonces, para actuar de forma explícita, usa `<button type="submit">` para los buttons que *deben* envíar el formulario.
+Por defecto, *cualquier* `<button>` dentro de un `<form>` lo enviará. ¡Esto puede ser desconcertante! Si tienes tu propio componente `Button` personalizado, piensa en devolver un [`<button type="button">`](https://developer.mozilla.org/es/docs/Web/HTML/Element/input/button) en lugar de `<button>`. Entonces, para actuar de forma explícita, usa `<button type="submit">` para los buttons que *deben* enviar el formulario.
 
 </Pitfall>
 
@@ -321,7 +321,7 @@ function FruitPicker() {
 }
 ```
 
-Esto es útil si quieres re-renderizar alguna parte de la UI en respuesta a cada selección.
+Esto es útil si quieres volver a renderizar alguna parte de la UI en respuesta a cada selección.
 
 <Sandpack>
 
