@@ -28,7 +28,7 @@ class Greeting extends Component {
 
 ## Referencia {/*reference*/}
 
-### `component` {/*component*/}
+### `Component` {/*component*/}
 
 Para definir un componente de React como clase, se debe extender la clase incorporada `Component` y definir un método [`render`](#render).
 
@@ -50,7 +50,7 @@ Sólo el método `render` es obligatorio, los demás son opcionales.
 
 ### `context` {/*context*/}
 
-El [contexto](/learn/passing-data-deeply-with-context) de un componente de clase está disponible como `this.context`. Solo está disponible si especificas *cual* contexto deseas recibir usando [static contextType](#static-contexttype) (moderno) or [`static contextTypes`](#static-contexttypes) (deprecado).
+El [contexto](/learn/passing-data-deeply-with-context) de un componente de clase está disponible como `this.context`. Solo está disponible si especificas *cual* contexto deseas recibir usando [static contextType](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (deprecado).
 
 Un componente de clase solo puede leer un contexto a la vez.
 
@@ -109,7 +109,7 @@ Leer `this.props` en componentes de clase es equivalente a [declarar props](/lea
 
 <Deprecated>
 
-Esta API será eliminada en una versión mayor futura de React. [Use createRef en su lugar.](/reference/react/createRef)
+Esta API será eliminada en una versión mayor futura de React. [Usa createRef en su lugar.](/reference/react/createRef)
 
 </Deprecated>
 
@@ -139,7 +139,7 @@ class Counter extends Component {
         <button onClick={this.handleAgeChange}>
         Incrementar edad
         </button>
-        <p>Tienes {this.state.age}.</p>
+        <p>Tienes {this.state.age} años.</p>
       </>
     );
   }
@@ -158,7 +158,7 @@ Definir `state` en los componentes de clase es equivalente a llamar a [`useState
 
 ### `constructor(props)` {/*constructor*/}
 
-El [Constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) se ejecuta antes de que el componente de clase se *monte* (se agregue a la pantalla). Normalmente, en React se utiliza el constructor únicamente para dos propósitos. Te permite declarar el estado y [enlazar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) los métodos de la clase con la instancia de la clase:
+El [constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) se ejecuta antes de que el componente de clase se *monte* (se agregue a la pantalla). Normalmente, en React se utiliza el constructor únicamente para dos propósitos. Te permite declarar el estado y [enlazar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) los métodos de la clase con la instancia de la clase:
 
 ```js {2-6}
 class Counter extends Component {
@@ -189,17 +189,18 @@ Un constructor no debería tener efectos secundarios ni suscripciones.
 #### Parámetros {/*constructor-parameters*/}
 
 * `props`: Las props iniciales del componente.
+
 #### Retorna {/*constructor-returns*/}
 
 El `constructor` no debe retornar nada.
 
 #### Precauciones {/*constructor-caveats*/}
 
-* No ejecute ningún efecto secundario o suscripciones en el constructor. En su lugar, utilice [`componentDidMount`](#componentdidmount) para eso.
+* No ejecutes ningún efecto secundario o suscripciones en el constructor. En su lugar, utiliza [`componentDidMount`](#componentdidmount) para eso.
 
 * Dentro de un constructor, debes llamar a `super(props)` antes que cualquier otra declaración. Si no lo haces, `this.props` será `undefined` mientras se ejecuta el constructor, lo que puede ser confuso y causar errores.
 
-* El constructor es el único lugar donde puedes asignar [`this.state`](#state) directamente. En todos los demás métodos, debes utilizar [`this.setState ()`](#setstate) en su lugar. No llames a `setState` en el constructor.
+* El constructor es el único lugar donde puedes asignar [`this.state`](#state) directamente. En todos los demás métodos, debes utilizar [`this.setState()`](#setstate) en su lugar. No llames a `setState` en el constructor.
 
 * Cuando usas [renderizado en el servidor,](/reference/react-dom/server) el constructor también se ejecutará en el servidor, seguido del método [`render`](#render). Sin embargo, los métodos del ciclo de vida como `componentDidMount` o `componentWillUnmount` no se ejecutarán en el servidor.
 
@@ -367,7 +368,7 @@ class ChatRoom extends Component {
 
 Para muchos casos de uso, definir juntos `componentDidMount`, `componentDidUpdate` y `componentWillUnmount` en componentes de clase es equivalente a llamar a [`useEffect`](/reference/react/useEffect) en componentes de función. En los casos raros donde es importante que el código se ejecute antes de renderizar en el navegador, [`useLayoutEffect`](/reference/react/useLayoutEffect) es una opción más cercana.
 
-[Consulta cómo migrar](#migrating-a-component-with-lifecycle-methods-from-a-class-to-a-function).
+[Mira cómo migrar](#migrating-a-component-with-lifecycle-methods-from-a-class-to-a-function).
 </Note>
 ---
 
@@ -375,7 +376,7 @@ Para muchos casos de uso, definir juntos `componentDidMount`, `componentDidUpdat
 
 <Deprecated>
 
-Este API ha sido renombrado de `componentWillMount` a [`UNSAFE_componentWillMount`.](#unsafe_componentwillmount) El nombre antiguo ha sido deprecado. En una versión importante futura de React, solo funcionará el nuevo nombre.
+Esta API ha sido renombrado de `componentWillMount` a [`UNSAFE_componentWillMount`.](#unsafe_componentwillmount) El nombre antiguo ha sido deprecado. En una versión importante futura de React, solo funcionará el nuevo nombre.
 
 Ejecuta [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para actualizar automáticamente sus componentes.
 
@@ -402,7 +403,7 @@ Ejecuta [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-co
 
 Esta API ha sido renombrada de `componentWillUpdate` a [`UNSAFE_componentWillUpdate`.](#unsafe_componentwillupdate) El nombre antiguo ha sido desaprobado. En una versión mayor futura de React, solo funcionará el nuevo nombre.
 
-Ejecuta [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para actualizar automáticamente sus componentes.
+Ejecuta [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para actualizar automáticamente tus componentes.
 
 </Deprecated>
 
@@ -692,7 +693,7 @@ No es necesario hacer esto, pero es útil si desea actualizar el estado varias v
 
 Llamar a `setState` en componentes de clase es similar a llamar a una función `set` en componentes funcionales.
 
-[Ver cómo migrar.](#migrating-a-component-with-state-from-a-class-to-a-function)
+[Mira cómo migrar.](#migrating-a-component-with-state-from-a-class-to-a-function)
 
 </Note>
 
@@ -747,7 +748,7 @@ Devuelve `false` para indicar a React que se puede omitir la re-renderización.
 
 - Este método solo existe como una optimización de rendimiento. Si su componente falla sin él, primero solucione eso.
 
-- Considere usar [`PureComponent`](/reference/react/PureComponent) en lugar de escribir `shouldComponentUpdate` manualmente. `PureComponent` compara superficialmente las props y el estado, y reduce la posibilidad de que omita una actualización necesaria.
+- Considera usar [`PureComponent`](/reference/react/PureComponent) en lugar de escribir `shouldComponentUpdate` manualmente. `PureComponent` compara superficialmente las props y el estado, y reduce la posibilidad de que omita una actualización necesaria.
 
 - No recomendamos hacer verificaciones de igualdad profunda o usar `JSON.stringify` en `shouldComponentUpdate`. Esto hace que el rendimiento sea impredecible y dependa de la estructura de datos de cada prop y estado. En el mejor de los casos, corre el riesgo de introducir paradas de varios segundos en su aplicación, y en el peor de los casos, corre el riesgo de que se bloquee.
 
@@ -921,7 +922,7 @@ class Button extends Component {
 
 Leer `this.context` en componentes de clase es equivalente a [`useContext`](/reference/react/useContext) en componentes de función.
 
-[Ver cómo migrar.](#migrating-a-component-with-context-from-a-class-to-a-function)
+[Mira cómo migrar.](#migrating-a-component-with-context-from-a-class-to-a-function)
 
 </Note>
 
@@ -1072,7 +1073,7 @@ Implementar `static getDerivedStateFromProps` en un componente de clase es equiv
 
 ### Definiendo un componente de clase {/*defining-a-class-component*/}
 
-Para definir un componente React como una clase, extiende la clase integrada `Component` y define un método [`render:`](#render).
+Para definir un componente React como una clase, extiende la clase integrada `Component` y define un [`método render:`](#render).
 
 ```js
 import { Component } from 'react';
@@ -1314,7 +1315,7 @@ Recomendamos definir los componentes como funciones en lugar de clases. [Mira c�
 
 ---
 
-### Capturando errores de renderizado con un límite de errores {/*catching-rendering-errors-with-an-error-boundary*/}
+### Capturando errores de renderizado con un error boundary {/*catching-rendering-errors-with-an-error-boundary*/}
 
 Por defecto, si tu aplicación lanza un error durante el renderizado, React eliminará su interfaz de usuario de la pantalla. Para evitar esto, puedes envolver una parte de tu interfaz de usuario en un *error boundary*. Un error boundary es un componente especial que te permite mostrar alguna interfaz de usuario alternativa en lugar de la que falló, por ejemplo, un mensaje de error.
 
@@ -1362,7 +1363,7 @@ Luego, puedes envolver una parte de tu árbol de componentes con él:
 
 Si `Profile` o su componente hijo arroja un error, `ErrorBoundary` "capturará" ese error, mostrará una IU de respaldo con el mensaje de error que ha proporcionado y enviará un informe de error de producción a su servicio de informes de errores.
 
-No es necesario envolver cada componente en un error boundary por separado. Al considerar la [granularidad de los límites de errores,](https://aweary.dev/fault-tolerance-react/) considere dónde tiene sentido mostrar un mensaje de error. Por ejemplo, en una aplicación de mensajería, tiene sentido colocar un error boundary alrededor de la lista de conversaciones. También tiene sentido colocar uno alrededor de cada mensaje individual. Sin embargo, no tendría sentido colocar un límite alrededor de cada avatar.
+No es necesario envolver cada componente en un error boundary por separado. Al considerar la [granularidad de los error boundaries,](https://aweary.dev/fault-tolerance-react/) considere dónde tiene sentido mostrar un mensaje de error. Por ejemplo, en una aplicación de mensajería, tiene sentido colocar un error boundary alrededor de la lista de conversaciones. También tiene sentido colocar uno alrededor de cada mensaje individual. Sin embargo, no tendría sentido colocar un límite alrededor de cada avatar.
 
 <Note>
 
