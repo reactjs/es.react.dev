@@ -10,7 +10,7 @@ Recomendamos definir los componentes como funciones en lugar de clases. [Mira c�
 
 <Intro>
 
-`Componente` es la clase base para los componentes de React definidos como [Clases en JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) Los componentes de clase aún son compatibles con React, pero no recomendamos usarlos en nuevo código.
+`Component` es la clase base para los componentes de React definidos como [clases en JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) Los componentes de clase aún son compatibles con React, pero no recomendamos usarlos en nuevo código.
 
 ```js
 class Greeting extends Component {
