@@ -5,7 +5,7 @@ title: <StrictMode>
 
 <Intro>
 
-`<StrictMode>` permite encontrar errores comunes en los componentes al comienzo del desarrollo.
+`<StrictMode>` le permite encontrar errores comunes en los componentes al comienzo del desarrollo.
 
 
 ```js
@@ -24,7 +24,7 @@ title: <StrictMode>
 
 ### `<StrictMode>` {/*strictmode*/}
 
-Use `StrictMode` para habilitar comportamientos de compilación y advertencias adicionales para el árbol de componentes que se encuentra dentro:
+Use `StrictMode` para habilitar comportamientos de compilación y advertencias adicionales dentro del árbol de componentes que se encuentra dentro:
 
 ```js
 import { StrictMode } from 'react';
