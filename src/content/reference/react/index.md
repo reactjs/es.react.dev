@@ -42,7 +42,7 @@ function Button() {
 
 ## Hooks de Referencia {/*ref-hooks*/}
 
-El *Refs* permite a un componente [mantener alguna información que no es utilizada para renderización](/learn/referencing-values-with-refs) como un nodo del DOM o un timeout ID. A diferencia con el estado, actualizando un *ref* no vuelve a renderizar tu componente. Los *Refs* son una “escotilla de escape” del paradigma de React. Son útiles cuando tú necesitas trabajar con sistemas no-React, semejantes como el navegador incorporado de APIs.
+Los *Refs* le permiten a un componente [mantener alguna información que no es utilizada para renderización](/learn/referencing-values-with-refs) como un nodo del DOM o un timeout ID. A diferencia con el estado, actualizando un *ref* no vuelve a renderizar tu componente. Los *Refs* son una “escotilla de escape” del paradigma de React. Son útiles cuando tú necesitas trabajar con sistemas no-React, semejantes como el navegador incorporado de APIs.
 
 * [`useRef`](/reference/react/useRef) declara una ref. Puede contener cualquier valor, pero la mayoría de las veces se utiliza para contener un nodo DOM.
 * [`useImperativeHandle`](/reference/react/useImperativeHandle) permite personalizar la *ref* expuesta por su componente. Esto rara vez se usa
@@ -59,8 +59,7 @@ function Form() {
 
 El *Hook Effect* permite a un componente [conectarse y sincronizarse con sistemas externos.](/learn/synchronizing-with-effects) Esto incluye lidiar con la red de trabajo, navegación DOM, animaciones, widgets escritos utilizando una libreria UI diferente y otro código no-React.
 
-
-* [`useEffect`](/reference/react/useEffect) conecta un componente a sistema externo.
+* [`useEffect`](/reference/react/useEffect) conecta un componente a un sistema externo.
 
 ```js
 function ChatRoom({ roomId }) {
@@ -72,7 +71,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-*Hook Effect* son una “escotilla de escape” del paradigma de React. No utilices *Effects* para guiar el flujo de los datos de tu aplicación. Si no estás interactuando con un sistema externo, [no podrías necesitar un Hook Effect.](/learn/you-might-not-need-an-effect)
+*Hook Effect* son una “escotilla de escape” del paradigma de React. No utilices *Effects* para guiar el flujo de los datos de tu aplicación. Si no estás interactuando con un sistema externo, [puede que no necesites un Hook Effect.](/learn/you-might-not-need-an-effect)
 
 Hay dos raras variaciones de usos de `useEffect` con tiempos de diferencias:
 
@@ -97,8 +96,7 @@ function TodoList({ todos, tab, theme }) {
 }
 ```
 
-Algunas veces, no podrás saltar el doble renderizado porque la pantalla actualmente necesita una actualización. En ese caso, tú puedes mejorar el rendimiento separando las actualizaciones de bloqueo que deben ser síncronas (como al escribir dentro de una entrada) de actualizaciones no bloqueadas, cuáles no necesitan bloquear la interfaz de usuario (como actualizar un gráfico).
-
+Algunas veces, no podrás saltar el doble renderizado porque la pantalla actualmente necesita una actualización. En ese caso, tú puedes mejorar el rendimiento separando las actualizaciones de bloqueo que deben ser síncronas (como al escribir dentro de una entrada) de actualizaciones no bloqueadas, las cuáles no necesitan bloquear la interfaz de usuario (como actualizar un gráfico).
 
 Para priorizar el renderizado, usa uno de estos Hooks:
 
