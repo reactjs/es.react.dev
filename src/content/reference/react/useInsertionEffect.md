@@ -62,7 +62,7 @@ function useCSS(rule) {
 
 ## Uso {/*usage*/}
 
-### Inyección de estilos dinámicos desde bibliotecas de CSS-en-JS {/_injecting-dynamic-styles-from-css-in-js-libraries_/} {/*inyección-de-estilos-dinámicos-desde-bibliotecas-de-css-en-js-injecting-dynamic-styles-from-css-in-js-libraries*/}
+### Inyección de estilos dinámicos desde bibliotecas de CSS-en-JS {/*injecting-dynamic-styles-from-css-in-js-libraries*/}
 
 Tradicionalmente, añadirías estilo a los componentes de React usando CSS plano.
 
