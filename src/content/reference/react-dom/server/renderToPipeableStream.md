@@ -299,7 +299,7 @@ Aún no se admite la obtención de datos habilitada para Suspense sin el uso de 
 
 ---
 
-### Especificación de lo que entra en el *shell* {/*specifying-what-goes-into-the-shell*/}
+### Especificar lo que va dentro del *shell* {/*specifying-what-goes-into-the-shell*/}
 
 La parte de tu aplicación fuera de cualquier barrera de `<Suspense>` se le llama *shell:*
 
@@ -349,7 +349,7 @@ Cuando se ejecuta `onShellReady`, es posible que los componentes dentro de las b
 
 ---
 
-### Registro de errores en el servidor {/*logging-crashes-on-the-server*/}
+### Registrar errores en el servidor {/*logging-crashes-on-the-server*/}
 
 Todos los errores en el servidor se registran en la consola de forma predeterminada. Puedes cambiar este comportamiento para registrar informes de errores:
 
@@ -371,7 +371,7 @@ Si proporcionas una implementación personalizada de `onError`, no te olvides de
 
 ---
 
-### Recuperación de errores dentro del *shell* {/*recovering-from-errors-inside-the-shell*/}
+### Recuperar errores dentro del *shell* {/*recovering-from-errors-inside-the-shell*/}
 
 En este ejemplo, el *shell* contiene `ProfileLayout`, `ProfileCover`, y `PostsGlimmer`:
 
@@ -413,7 +413,7 @@ Si hay un error al generar el *shell*, tanto `onError` como `onShellError` se ej
 
 ---
 
-### Recuperación de errores fuera del *shell* {/*recovering-from-errors-outside-the-shell*/}
+### Recuperar errores fuera del *shell* {/*recovering-from-errors-outside-the-shell*/}
 
 En este ejemplo, el componente `<Posts />` está envuelto en un `<Suspense>` y *no* forma parte del *shell:*
 
