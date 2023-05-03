@@ -1,0 +1,15 @@
+diff --git a/node_modules/retext-smartypants/index.js b/node_modules/retext-smartypants/index.js
+index 7a55500..fbb3cec 100644
+--- a/node_modules/retext-smartypants/index.js
++++ b/node_modules/retext-smartypants/index.js
+@@ -24,8 +24,8 @@ var twoSingleQuotes = "''"
+ var singleQuote = "'"
+ var apostrophe = '’'
+ var doubleQuote = '"'
+-var openingDoubleQuote = '“'
+-var closingDoubleQuote = '”'
++var openingDoubleQuote = '«'
++var closingDoubleQuote = '»'
+ var openingSingleQuote = '‘'
+ var closingSingleQuote = '’'
+ var closingQuotes = {}

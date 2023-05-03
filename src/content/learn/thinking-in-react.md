@@ -77,7 +77,7 @@ Ahora que tienes tu jerarquía de componentes, es momento de implementar tu apli
 
 Para construir la versión estática de tu aplicación que renderiza tu modelo de datos querrás construir [componentes](/learn/your-first-component) que reutilicen otros componentes y pasen datos usando [props](/learn/passing-props-to-a-component). Las props son una forma de pasar datos de padres a hijos. (Si estás familiarizado con el concepto de [estado](/learn/state-a-components-memory) no utilices nada de estado para construir esta versión estática. El estado se reserva solo para la interactividad, o sea, datos que cambian con el tiempo. Dado que esto es una versión estática de la aplicación, no lo necesitas).
 
-Puedes o bien construir de «arriba a abajo» comenzando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) or de «abajo a arriba» trabajando con los componentes más abajo (como `ProductRow`). En ejemplos más simples, usualmente es más fácil ir de arriba a abajo, y en proyectos más grandes, es más fácil ir de abajo a arriba.
+Puedes o bien construir de "arriba a abajo" comenzando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) or de "abajo a arriba" trabajando con los componentes más abajo (como `ProductRow`). En ejemplos más simples, usualmente es más fácil ir de arriba a abajo, y en proyectos más grandes, es más fácil ir de abajo a arriba.
 
 <Sandpack>
 
@@ -239,7 +239,7 @@ Veámoslos uno por uno nuevamente:
 
 #### Props vs. estado {/*props-vs-state*/}
 
-Hay dos formas de «modelar» datos en React: props y estado. Las dos son muy diferentes:
+Hay dos formas de "modelar" datos en React: props y estado. Las dos son muy diferentes:
 
 * [Las **props** son como argumentos que pasas](/learn/passing-props-to-a-component) a una función. Le permiten a un componente padre pasar datos a un componente hijo y personalizar su apariencia. Por ejemplo, un componente `Form` puede pasar una prop `color` a un componente `Button`.
 * [El **estado** es como la memoria de un componente.](/learn/state-a-components-memory) Le permite a un componente realizar un seguimiento de alguna información y cambiarla en respuesta a interacciones. Por ejemplo, un componente `Button` pudiera querer hacer un seguimiento del estado `isHovered`.
@@ -273,7 +273,7 @@ Ahora utilicemos nuestra estrategia para este estado:
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 
-Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten «engancharte» al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como «gancho»). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
+Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten "engancharte" al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como "gancho"). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
 
 ```js
 function FilterableProductTable({ products }) {
