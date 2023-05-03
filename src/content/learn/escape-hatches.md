@@ -10,14 +10,14 @@ Algunos de tus componentes puede que necesiten controlar y sincronizarse con sis
 
 <YouWillLearn isChapter={true}>
 
-* [Como “recordar” información sin volver a renderizar](/learn/referencing-values-with-refs)
-* [Como acceder a los elementos del DOM manejados por React](/learn/manipulating-the-dom-with-refs)
-* [Como sincronizar componentes con sistemas externos](/learn/synchronizing-with-effects)
-* [Como eliminar efectos innecesarios de tus componentes](/learn/you-might-not-need-an-effect)
-* [Como el ciclo de vida de un efecto es diferente al de un componente](/learn/lifecycle-of-reactive-effects)
-* [Como cuidar algunos valores de efectos desencadenantes](/learn/separating-events-from-effects)
-* [Como hacer que tu efecto se vuelva a ejecutar con menos frecuencia](/learn/removing-effect-dependencies)
-* [Como compartir lógica entre componentes](/learn/reusing-logic-with-custom-hooks)
+* [Cómo “recordar” información sin volver a renderizar](/learn/referencing-values-with-refs)
+* [Cómo acceder a los elementos del DOM manejados por React](/learn/manipulating-the-dom-with-refs)
+* [Cómo sincronizar componentes con sistemas externos](/learn/synchronizing-with-effects)
+* [Cómo eliminar efectos innecesarios de tus componentes](/learn/you-might-not-need-an-effect)
+* [Cómo el ciclo de vida de un efecto es diferente al de un componente](/learn/lifecycle-of-reactive-effects)
+* [Cómo cuidar algunos valores de efectos desencadenantes](/learn/separating-events-from-effects)
+* [Cómo hacer que tu efecto se vuelva a ejecutar con menos frecuencia](/learn/removing-effect-dependencies)
+* [Cómo compartir lógica entre componentes](/learn/reusing-logic-with-custom-hooks)
 
 </YouWillLearn>
 
@@ -29,7 +29,7 @@ Cuando quieres que un componente "recuerde" cierta información, pero no quieres
 const ref = useRef(0);
 ```
 
-Al igual que un estado, las refs son retenidas por React entre nuevos renderizados. Sin embargo, al asignar el estado se vuelve a renderizar el componente. Cambiar la ref no lo hace!. Puedes acceder al valor actual de esa ref a través de la propiedad `ref.current`.
+Al igual que un estado, las refs son retenidas por React entre nuevos renderizados. Sin embargo, al asignar un nuevo valor al estado se vuelve a renderizar el componente. ¡Cambiar el valor de la ref no lo hace! Puedes acceder al valor actual de esa ref a través de la propiedad `ref.current`.
 
 <Sandpack>
 
@@ -46,7 +46,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      Hazme clic!
+      ¡Hazme clic!
     </button>
   );
 }
@@ -58,7 +58,7 @@ Una ref es como un bolsillo secreto de tu componente que React no puede rastrear
 
 <LearnMore path="/learn/referencing-values-with-refs">
 
-Lee **[Referenciar Valores con Refs](/learn/referencing-values-with-refs)** para aprender como usar las refs y recordar información.
+Lee **[Referenciar valores con Refs](/learn/referencing-values-with-refs)** para aprender como usar las refs y recordar información.
 
 </LearnMore>
 
@@ -754,7 +754,7 @@ Lee **[Eliminar dependencias de efectos](/learn/removing-effect-dependencies)** 
 
 React viene con hooks incorporados como `useState`, `useContext`, y `useEffect`. Algunas veces, desearás que existiera un hook para un propósito especifico: por ejemplo, para llamar datos, para saber si el usuario esta conectado, o para conectarse a una sala de chat. Para realizar esto, puedes crear tus propios hooks de acuerdo a las necesidades de tu aplicación.
 
-En este ejemplo, el hook personalizado  `usePointerPosition` rastrea la posición del cursor, mientras que el hook personalizado  `useDelayedValue` retorna un valor que esta "rezagado" con respecto al valor que le pasaste por un cierto número de milisegundos. Mueve el cursor sobre el área de vista previa del sandbox  para ver un rastro de puntos en movimiento que siguen al cursor:
+En este ejemplo, el hook personalizado `usePointerPosition` rastrea la posición del cursor, mientras que el hook personalizado  `useDelayedValue` retorna un valor que esta "rezagado" con respecto al valor que le pasaste por un cierto número de milisegundos. Mueve el cursor sobre el área de vista previa del sandbox  para ver un rastro de puntos en movimiento que siguen al cursor:
 
 <Sandpack>
 
