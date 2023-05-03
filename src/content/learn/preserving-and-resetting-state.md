@@ -911,7 +911,7 @@ h1 {
 </Sandpack>
 
 * Inicialmente, `isPlayerA` es `true`. Así que la primera posición contiene el estado `Counter`, y la segunda está vacía.
-* Cuando haces clic en el botón “Next player", la primera posición se borra, pero la segunda contiene ahora un 'Counter'.
+* Cuando haces clic en el botón "Next player", la primera posición se borra, pero la segunda contiene ahora un 'Counter'.
 
 <DiagramGroup>
 
@@ -1860,7 +1860,7 @@ button {
 
 #### Borrar una imagen mientras se carga {/*clear-an-image-while-its-loading*/}
 
-Al pulsar "Next", el navegador comienza a cargar la siguiente imagen.  Sin embargo, como se muestra en la misma etiqueta `<img>`, por defecto se seguiría viendo la imagen anterior hasta que se cargue la siguiente. Esto puede ser indeseable si es importante que el texto coincida siempre con la imagen. Cámbialo para que en el momento en que pulses “Next", la imagen anterior se borre inmediatamente.
+Al pulsar "Next", el navegador comienza a cargar la siguiente imagen.  Sin embargo, como se muestra en la misma etiqueta `<img>`, por defecto se seguiría viendo la imagen anterior hasta que se cargue la siguiente. Esto puede ser indeseable si es importante que el texto coincida siempre con la imagen. Cámbialo para que en el momento en que pulses "Next", la imagen anterior se borre inmediatamente.
 
 <Hint>
 
