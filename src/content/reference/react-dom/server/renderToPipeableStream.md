@@ -4,7 +4,7 @@ title: renderToPipeableStream
 
 <Intro>
 
-`renderToPipeableStream` renderiza un árbol de React en un [*Stream* de Node.js](https://nodejs.org/api/stream.html) canalizable.
+`renderToPipeableStream` renderiza un árbol de React en un [*Stream* de Node.js](https://nodejs.org/api/stream.html) que se puede canalizar.
 
 ```js
 const { pipe, abort } = renderToPipeableStream(reactNode, options?)
@@ -16,7 +16,7 @@ const { pipe, abort } = renderToPipeableStream(reactNode, options?)
 
 <Note>
 
-Esta API es específica para Node.js. Los entornos con [Web *Streams*,](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) como Deno y *edge runtimes* modernos, deberán usar [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) en su lugar.
+Esta API es específica para Node.js. Si estás trabajando en entornos con [Web *Streams*,](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) como Deno y *edge runtimes* modernos, utiliza [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) en su lugar.
 
 </Note>
 
@@ -40,33 +40,33 @@ const { pipe } = renderToPipeableStream(<App />, {
 });
 ```
 
-En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer que el HTML generado por el servidor sea interactivo.
+Para que el HTML generado por el servidor sea interactivo, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el cliente.
 
-[Ver más ejemplos.](#usage)
+[Ve más ejemplos.](#usage)
 
 #### Parámetros {/*parameters*/}
 
-* `reactNode`: Un nodo de React que deseas renderizar como HTML. Por ejemplo, un elemento JSX como `<App />`. Se espera que represente todo el documento, por lo que el componente `App` debería renderizar la etiqueta `<html>`.
+* `reactNode`: Un nodo de React que quieres renderizar como HTML. Por ejemplo, un elemento JSX como `<App />`. Se espera que represente todo el documento, por lo que el componente `App` debería renderizar la etiqueta `<html>`.
 
 * **opcional** `options`: Un objeto con opciones de *streaming*.
-  * **opcional** `bootstrapScriptContent`: Si se especifica, este *string* se colocará en una etiqueta `<script>` en línea.
-  * **opcional** `bootstrapScripts`: Un *array* de *strings* con URLs para las etiquetas `<script>` a emitir en la página. Úsalo para incluir el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omítelo si no deseas ejecutar React en el cliente en lo absoluto.
+  * **opcional** `bootstrapScriptContent`: Si lo especificas, este *string* se colocará en una etiqueta `<script>` en línea.
+  * **opcional** `bootstrapScripts`: Un *array* de *strings* con URLs para las etiquetas `<script>` que quieres emitir en la página. Úsalo para incluir el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Si no deseas ejecutar React en el cliente, simplemente omítelo.
   * **opcional** `bootstrapModules`: Igual que `bootstrapScripts`, pero emite [`<script type="module">`](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) en su lugar.
-  * **opcional** `identifierPrefix`: Un *string* con el prefijo que React usa para los IDs generados por [`useId`.](/reference/react/useId) Útil para evitar conflictos al usar múltiples raíces en la misma página. Debe ser el mismo prefijo que se pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
+  * **opcional** `identifierPrefix`: Un *string* que indica el prefijo que React usa para los IDs generados por [`useId`.](/reference/react/useId) Es útil para evitar conflictos cuando usas múltiples raíces en la misma página. Debe ser el mismo prefijo que se pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
   * **opcional** `namespaceURI`: Un *string* con la raíz del [namespace URI](https://developer.mozilla.org/es/docs/Web/API/Document/createElementNS#namespace_uris_v%C3%A1lidos) para el *stream*. El valor predeterminado es HTML estándar. Pasa `'http://www.w3.org/2000/svg'` para SVG o `'http://www.w3.org/1998/Math/MathML'` para MathML.
   * **opcional** `nonce`: Un *string* de [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) para permitir *scripts* de [`script-src` Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
-  * **opcional** `onAllReady`: Un *callback* que se ejecuta cuando todo el renderizado está completo, incluyendo tanto el [*shell*](#specifying-what-goes-into-the-shell) como todo el [contenido adicional.](#streaming-more-content-as-it-loads) Puedes usar esto en lugar de `onShellReady` para [rastreadores y generación estática.](#waiting-for-all-content-to-load-for-crawlers-and-static-generation) Si comienzas el *streaming* aquí, no obtendrás ninguna carga progresiva. El *stream* contendrá el HTML final.
-  * **opcional** `onError`: Un *callback* que se ejecuta cada vez que hay un error del servidor, ya sea [recuperable](#recovering-from-errors-outside-the-shell) o [no.](#recovering-from-errors-inside-the-shell) De forma predeterminada, esto sólo llama a `console.error`. Si lo reemplazas para [registrar informes de errores,](#logging-crashes-on-the-server) asegúrate de seguir llamando a `console.error`. También puedes usarlo para [ajustar el código de estado](#setting-the-status-code) antes de que se emita el *shell*.
-  * **opcional** `onShellReady`: Un *callback* que se ejecuta justo después de que se haya renderizado el [*shell*](#specifying-what-goes-into-the-shell) inicial. Puedes [establecer el código de estado](#setting-the-status-code) y llamar a `pipe` aquí para iniciar el *streaming*. React comenzará el [*streaming* de contenido adicional](#streaming-more-content-as-it-loads) después del *shell* junto con las etiquetas de `<script>` en línea que sustituyan los *fallbacks* de carga HTML por el contenido.
-  * **opcional** `onShellError`: Un *callback* que se ejecutará si hay un error al renderizar el *shell* inicial. Recibe el error como argumento. Aún no se han emitido *bytes* desde el *stream*, y no se llamará ni a `onShellReady` ni a `onAllReady`, por lo que puedes [generar un *shell* HTML de respaldo.](#recovering-from-errors-inside-the-shell)
-  * **opcional** `progressiveChunkSize`: El número de *bytes* en un *chunk*. [Lee más acerca de la heurística predeterminada.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
+  * **opcional** `onAllReady`: Un *callback* que se ejecuta cuando todo el renderizado está completo, incluyendo tanto el [*shell*](#specifying-what-goes-into-the-shell) como todo el [contenido adicional.](#streaming-more-content-as-it-loads) Puedes usarlo en lugar de `onShellReady` para [rastreadores y generación estática.](#waiting-for-all-content-to-load-for-crawlers-and-static-generation) Si comienzas el *streaming* aquí, no obtendrás ninguna carga progresiva. El *stream* contendrá el HTML final.
+  * **opcional** `onError`: Un *callback* que se ejecuta cada vez que hay un error del servidor, ya sea [recuperable](#recovering-from-errors-outside-the-shell) o [no.](#recovering-from-errors-inside-the-shell) Por defecto, esto sólo llama a `console.error`. Si lo reemplazas para [registrar informes de errores,](#logging-crashes-on-the-server) asegúrate de seguir llamando a `console.error`. También puedes usarlo para [ajustar el código de estado](#setting-the-status-code) antes de que se emita el *shell*.
+  * **opcional** `onShellReady`: Un *callback* que se ejecuta justo después de que se haya renderizado el [*shell*](#specifying-what-goes-into-the-shell) inicial. Aquí puedes [establecer el código de estado](#setting-the-status-code) y llamar a `pipe` para iniciar el *streaming*. React comenzará el [*streaming* de contenido adicional](#streaming-more-content-as-it-loads) después del *shell* junto con las etiquetas de `<script>` en línea que sustituyan los *fallbacks* de carga HTML por el contenido.
+  * **opcional** `onShellError`: Un *callback* que se ejecutará si hay un error al renderizar el *shell* inicial, recibiendo el error como argumento. Si esto ocurre, no se habrá emitido ningún *byte* desde el *stream*, y no se llamará ni a `onShellReady` ni a `onAllReady`, por lo que puedes [generar un *shell* HTML de respaldo.](#recovering-from-errors-inside-the-shell)
+  * **opcional** `progressiveChunkSize`: Define el número de *bytes* en un *chunk*. [Lee más acerca de la heurística predeterminada.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
 
 
 #### Retorna {/*returns*/}
 
 `renderToPipeableStream` retorna un objeto con dos métodos:
 
-* `pipe` envía el HTML al [*stream* escribible de Node.js.](https://nodejs.org/api/stream.html#writable-streams) Llama a `pipe` en `onShellReady` si deseas habilitar el *streaming*, o en `onAllReady` para rastreadores y generación estática.
+* `pipe` envía el HTML al [*stream* escribible de Node.js.](https://nodejs.org/api/stream.html#writable-streams) Llama a `pipe` en `onShellReady` si quieres habilitar el *streaming*, o en `onAllReady` para rastreadores y generación estática.
 * `abort` te permite [abortar el renderizado del servidor](#aborting-server-rendering) y renderizar el resto en el cliente.
 
 ---
@@ -92,9 +92,9 @@ app.use('/', (request, response) => {
 });
 ```
 
-Junto con el <CodeStep step={1}>componente raíz</CodeStep>, necesitas proporcionar una lista de <CodeStep step={2}>rutas de `<script>` de arranque</CodeStep>. Tu componente raíz debe retornar **el documento completo, incluyendo la etiqueta `<html>` raíz.**
+Debes proporcionar el <CodeStep step={1}>componente raíz</CodeStep> y una lista de <CodeStep step={2}>rutas de `<script>` de arranque</CodeStep>. Tu componente raíz debe retornar **el documento completo, incluyendo la etiqueta `<html>` raíz.**
 
-Por ejemplo, podría verse así:
+Por ejemplo, tu componente raíz podría verse así:
 
 ```js [[1, 1, "App"]]
 export default function App() {
@@ -178,7 +178,7 @@ app.use('/', (request, response) => {
 });
 ```
 
-Dado que ahora tu servidor está renderizando `<App assetMap={assetMap} />`, debes renderizarlo también con `assetMap` en el cliente para evitar errores de hidratación. Puedes serializar y pasar `assetMap` al cliente de esta manera:
+Ahora que tu servidor está renderizando `<App assetMap={assetMap} />`, debes renderizarlo también con `assetMap` en el cliente para evitar errores de hidratación. Puedes serializar y pasar `assetMap` al cliente de esta manera:
 
 ```js {9-10}
 // Deberás obtener este JSON desde tus herramientas de compilación.
@@ -217,7 +217,7 @@ Tanto el cliente como el servidor renderizan `App` con la misma prop `assetMap`,
 
 ### *Streaming* de más contenidos a medida que se cargan {/*streaming-more-content-as-it-loads*/}
 
-El *streaming* permite al usuario empezar a ver el contenido incluso antes de que todos los datos se hayan cargado en el servidor. Por ejemplo, considera una página de perfil que muestra una portada, una barra lateral con amigos y fotos, y una lista de publicaciones:
+El *streaming* permite al usuario visualizar el contenido incluso antes de que todos los datos se hayan cargado en el servidor. Por ejemplo, imagina una página de perfil que muestra una portada, una barra lateral con amigos y fotos, y una lista de posts:
 
 ```js
 function ProfilePage() {
@@ -234,7 +234,7 @@ function ProfilePage() {
 }
 ```
 
-Imagina que la carga de datos para `<Posts />` tarda algún tiempo. idealmente, querrías mostrar el resto del contenido de la página de perfil al usuario sin esperar a los posts. Para ello, [envuelve `Posts` en una barrera de `<Suspense>`:](/reference/react/Suspense#displaying-a-fallback-while-content-is-loading)
+Si la carga de datos para `<Posts />` tarda algún tiempo, es ideal mostrar el resto del contenido de la página de perfil al usuario sin esperar a los posts. Para ello, [envuelve `Posts` en una barrera de `<Suspense>`:](/reference/react/Suspense#displaying-a-fallback-while-content-is-loading)
 
 ```js {9,11}
 function ProfilePage() {
@@ -253,9 +253,9 @@ function ProfilePage() {
 }
 ```
 
-Esto le indica a React que comience a hacer *streaming* del HTML antes de que `Posts` cargue sus datos. React enviará primero el HTML para la carga del *fallback* (`PostsGlimmer`), y luego, cuando `Posts` termine de cargar sus datos, React enviará el HTML restante junto con una etiqueta `<script>` en línea que reemplaza el *fallback* por ese HTML. Desde la perspectiva del usuario, la página aparecerá primero con el `PostsGlimmer`, que luego será reemplazado por `Posts`.
+Esto le indica a React que comience a hacer *streaming* del HTML antes de que se carguen los datos de `Posts`. React enviará primero el HTML para la carga del *fallback* (`PostsGlimmer`), y luego, cuando `Posts` termine de cargar sus datos, React enviará el HTML restante junto con una etiqueta `<script>` en línea que reemplaza el *fallback* por ese HTML. Desde la perspectiva del usuario, la página aparecerá primero con el `PostsGlimmer`, que luego será reemplazado por `Posts`.
 
-Puedes [anidar barreras de `<Suspense>`](/reference/react/Suspense#revealing-nested-content-as-it-loads) para crear una secuencia de carga más granular:
+También puedes [anidar barreras de `<Suspense>`](/reference/react/Suspense#revealing-nested-content-as-it-loads) para crear una secuencia de carga más granular:
 
 ```js {5,13}
 function ProfilePage() {
@@ -276,24 +276,24 @@ function ProfilePage() {
 }
 ```
 
-En este ejemplo, React puede empezar a hacer *streaming* de la página incluso antes. Sólo `ProfileLayout` y `ProfileCover` deben terminar de renderizarse primero porque no están envueltos en ninguna barrera de `<Suspense>`. Sin embargo, si `Sidebar`, `Friends`, o `Photos` necesitan cargar algunos datos, React enviará el HTML para el *fallback* `BigSpinner` en su lugar. Entonces, conforme más datos estén disponibles, más contenido se revelará hasta que todo sea visible.
+En este ejemplo, React puede empezar a hacer *streaming* de la página incluso antes. Sólo necesitas esperar a que `ProfileLayout` y `ProfileCover` finalicen su renderizado, ya que no están envueltos en ninguna barrera de `<Suspense>`. No obstante, si `Sidebar`, `Friends`, o `Photos` necesitan cargar algunos datos, React enviará el HTML para el *fallback* `BigSpinner` en su lugar. Entonces, conforme más datos estén disponibles, más contenido se revelará hasta que todo sea visible.
 
-El *streaming* no necesita esperar a que React se cargue en el navegador, ni a que tu aplicación se vuelva interactiva. El contenido HTML del servidor se irá mostrando progresivamente antes de que se carguen cualquiera de las etiquetas `<script>`.
+El *streaming* no necesita esperar a que React se cargue en el navegador o a que tu aplicación se vuelva interactiva. El contenido HTML del servidor se mostrará gradualmente antes de que se carguen cualquiera de las etiquetas `<script>`.
 
 [Lee más sobre cómo funciona el *streaming* HTML](https://github.com/reactwg/react-18/discussions/37)
 
 <Note>
 
-**Sólo se activará el componente Suspense con las fuentes de datos habilitadas para Suspense.** Estas incluyen:
+**Sólo se activará el componente Suspense con fuentes de datos habilitadas para Suspense.** Estas incluyen:
 
-- Obtención de datos con *frameworks* habilitados para Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
+- Obtención de datos con *frameworks* habilitados para Suspense, como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
 - Carga diferida de código de componentes con [`lazy`](/reference/react/lazy)
 
-Suspense **no** detecta cuando se obtienen datos dentro de un Efecto o manejador de eventos.
+Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o manejador de eventos.
 
-La forma exacta en que cargarías datos en el componente `Posts` anterior depende de tu *framework*. Si usas un *framework* habilitado para Suspense, encontrarás los detalles en su documentación de obtención de datos.
+La forma exacta de cargar los datos en el componente `Posts` anterior dependerá de tu *framework*. Si usas un *framework* habilitado para Suspense, encontrarás los detalles en su documentación de obtención de datos.
 
-Aún no se admite la obtención de datos habilitada para Suspense sin el uso de un *framework* con enfoque específico. Los requisitos para implementar una fuente de datos habilitada para Suspense son inestables y no están documentados. En una versión futura de React se publicará una API oficial para integrar fuentes de datos con Suspense.
+Por ahora, no se admite la obtención de datos habilitada para Suspense sin el uso de un *framework* con enfoque específico. Los requisitos para implementar una fuente de datos habilitada para Suspense son inestables y no están documentados. En una versión futura de React, se publicará una API oficial para integrar fuentes de datos con Suspense.
 
 </Note>
 
@@ -331,7 +331,7 @@ Determina el estado de carga más temprano que el usuario puede ver:
 </ProfileLayout>
 ```
 
-Si envuelves toda la aplicación en una barrera de `<Suspense>` en la raíz, el *shell* sólo contendrá ese *spinner*. Pero esta experiencia de usuario no es agradable, porque ver un gran *spinner* en la pantalla puede resultar más lento y molesto que esperar un poco más y ver el diseño real. Por esta razón normalmente querrás colocar las barreras de `<Suspense>` de manera que el shell se sienta  *minimalista pero completo*--como un esqueleto de todo el diseño de la página.
+Si envuelves toda la aplicación en una barrera de `<Suspense>` en la raíz, el *shell* sólo contendrá ese *spinner*. Pero esta experiencia de usuario no es agradable, porque ver un gran *spinner* en la pantalla puede resultar más lento y molesto que esperar un poco más y ver el diseño real. Por esta razón, normalmente querrás colocar las barreras de `<Suspense>` de manera que el *shell* se sienta  *minimalista pero completo*--como un esqueleto de todo el diseño de la página.
 
 El *callback* `onShellReady` se ejecuta cuando se ha renderizado todo el *shell*. Es entonces cuando suele comenzar el *streaming*:
 
@@ -351,7 +351,7 @@ Cuando se ejecuta `onShellReady`, es posible que los componentes dentro de las b
 
 ### Registrar errores en el servidor {/*logging-crashes-on-the-server*/}
 
-Todos los errores en el servidor se registran en la consola de forma predeterminada. Puedes cambiar este comportamiento para registrar informes de errores:
+Por defecto, todos los errores en el servidor se registran en la consola. Puedes cambiar este comportamiento para registrar informes de errores:
 
 ```js {7-10}
 const { pipe } = renderToPipeableStream(<App />, {
@@ -367,7 +367,7 @@ const { pipe } = renderToPipeableStream(<App />, {
 });
 ```
 
-Si proporcionas una implementación personalizada de `onError`, no te olvides de registrar también los errores en la consola como se muestra arriba.
+Si proporcionas tu propia implementación de `onError`, asegúrate de registrar también los errores en la consola como se muestra arriba.
 
 ---
 
@@ -388,7 +388,7 @@ function ProfilePage() {
 }
 ```
 
-Si se produce un error al renderizar estos componentes, React no tendrá ningún HTML relevante para enviar al cliente. Puedes alterar `onShellError` para enviar un HTML de respaldo que no dependa del renderizado del servidor como último recurso:
+Si se produce un error durante el renderizado de estos componentes, React no tendrá ningún HTML relevante para enviar al cliente. Puedes personalizar `onShellError` para enviar un HTML de respaldo que no dependa del renderizado del servidor como último recurso:
 
 ```js {7-11}
 const { pipe } = renderToPipeableStream(<App />, {
@@ -430,23 +430,23 @@ function ProfilePage() {
 }
 ```
 
-Si se produce un error en el componente `Posts` o en algún otro lugar dentro de él, React va a [intentar recuperarse de la siguiente manera:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
+Si se produce un error en el componente `Posts` o en cualquier lugar dentro de él, React va a [intentar recuperarse de la siguiente manera:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
 
-1. Emitirá el *fallback* de carga para la barrera de `<Suspense>` más cercano (`PostsGlimmer`) en el HTML.
+1. Emitirá el *fallback* de carga para la barrera de `<Suspense>` más cercana (`PostsGlimmer`) en el HTML.
 2. "Abandonará" el intento de renderizar el contenido `Posts` en el servidor.
 3. Cuando el código JavaScript se cargue en el cliente, React *reintentará* renderizar `Posts` en el cliente.
 
-Si el reintento de renderizar `Posts` en el cliente *también* falla, React lanzará el error en el cliente. Como con todos los errores lanzados durante el renderizado, la [barrera de error padre más cercana](/reference/react/Component#static-getderivedstatefromerror) determina como presentar el error al usuario. En la práctica, esto significa que el usuario verá un indicador de carga hasta que se tenga la certeza de que el error no es recuperable.
+Si el reintento de renderizar `Posts` en el cliente *también* falla, React lanzará el error en el cliente. Como con todos los errores lanzados durante el renderizado, la [barrera de error padre más cercana](/reference/react/Component#static-getderivedstatefromerror) determinará como presentar el error al usuario. En la práctica, esto significa que el usuario verá un indicador de carga hasta que se tenga la certeza de que el error no es recuperable.
 
-Si el reintento de renderizar `Posts`en el cliente tiene éxito, el *fallback* de carga desde el servidor se reemplazará con la salida de renderizado del cliente. El usuario no sabrá que hubo un error en el servidor. Sin embargo, se activarán los *callbacks* `onError` del servidor y [`onRecoverableError`](/reference/react-dom/client/hydrateRoot#hydrateroot) del cliente para que puedas ser notificado del error.
+Si el reintento de renderizar `Posts`en el cliente tiene éxito, el *fallback* de carga desde el servidor se reemplazará con la salida de renderizado del cliente. El usuario no sabrá que hubo un error en el servidor. Aún así, se activarán los *callbacks* `onError` del servidor y [`onRecoverableError`](/reference/react-dom/client/hydrateRoot#hydrateroot) del cliente para que puedas ser notificado del error.
 
 ---
 
 ### Establecer el código de estado {/*setting-the-status-code*/}
 
-El *streaming* introduce un compromiso. Quieres empezar a hacer *streaming* de la página lo antes posible para que el usuario pueda ver el contenido pronto. Sin embargo, una vez que comienza, ya no puedes establecer el código de estado de la respuesta.
+Al hacer *streaming* de la página, se presenta un compromiso: quieres que el usuario vea el contenido lo más pronto posible, pero una vez que inicia el proceso, no puedes establecer el código de estado de la respuesta.
 
-Al [dividir tu aplicación](#specifying-what-goes-into-the-shell) en el *shell* (encima de todas las barreras de `<Suspense>`) y el resto de contenido, ya has resuelto una parte de ese problema. Si el *shell* genera un error, obtendrás el *callback* `onShellError` que te permite establecer el código de estado del error. Si no, sabes que la aplicación puede recuperarse en el cliente, por lo que puedes enviar "OK".
+Al [dividir tu aplicación](#specifying-what-goes-into-the-shell) en el *shell* (sobre todas las barreras de `<Suspense>`) y el resto de contenido, ya has resuelto una parte de ese problema. Si el *shell* genera un error, puedes usar el *callback* `onShellError` para establecer el código de estado del error. Si no, puedes enviar "OK", ya que sabes que la aplicación puede recuperarse en el cliente.
 
 ```js {4}
 const { pipe } = renderToPipeableStream(<App />, {
@@ -468,9 +468,9 @@ const { pipe } = renderToPipeableStream(<App />, {
 });
 ```
 
-Si un componente *fuera* del *shell* (es decir, dentro de una barrera de `<Suspense>`) lanza un error, React no detendrá el renderizado. Esto significa que se ejecutará el *callback* `onError`, pero aún así obtendrás `onShellReady` en lugar de `onShellError`. Esto se debe a que React intentará recuperarse de ese error en el cliente, [tal como se describe arriba.](#recovering-from-errors-outside-the-shell)
+Si un componente *fuera* del *shell* (es decir, dentro de una barrera de `<Suspense>`) lanza un error, React no detendrá el renderizado. Esto significa que se ejecutará el *callback* `onError`, pero aún obtendrás `onShellReady` en lugar de `onShellError`. Esto se debe a que React intentará recuperarse de ese error en el cliente, [tal como se describe arriba.](#recovering-from-errors-outside-the-shell)
 
-Sin embargo, si lo deseas, puedes usar el hecho de que algo haya generado un error para establecer el código de estado:
+Sin embargo, si quieres, puedes aprovechar que un error haya ocurrido para establecer el código de estado:
 
 ```js {1,6,16}
 let didError = false;
@@ -501,7 +501,7 @@ Esto sólo capturará errores fuera del *shell* que ocurrieron durante la genera
 
 ### Manejar diferentes errores de diferentes maneras {/*handling-different-errors-in-different-ways*/}
 
-Puedes [crear tus propias subclases de `Error`](https://es.javascript.info/custom-errors) y usar el operador [`instanceof`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/instanceof) para verificar qué error se ha lanzado. Por ejemplo, puedes definir una clase personalizada `NotFoundError` y lanzarla desde tu componente. Entonces tus *callbacks* `onError`, `onShellReady` y `onShellError` pueden hacer algo diferente dependiendo del tipo de error:
+Puedes [crear tus propias subclases de `Error`](https://es.javascript.info/custom-errors) y usar el operador [`instanceof`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/instanceof) para verificar qué error se ha lanzado. Por ejemplo, puedes definir una clase personalizada como `NotFoundError` y lanzarla desde tu componente. De esta manera tus *callbacks* `onError`, `onShellReady` y `onShellError` pueden realizar acciones diferentes según el tipo de error:
 
 ```js {2,4-14,19,24,30}
 let didError = false;
@@ -546,9 +546,9 @@ Ten en cuenta que una vez que emites el *shell* y comienzas el *streaming*, no p
 
 ### Esperar a que todo el contenido se cargue para los rastreadores y generación estática {/*waiting-for-all-content-to-load-for-crawlers-and-static-generation*/}
 
-El *streaming* ofrece una mejor experiencia de usuario porque este puede ver el contenido a medida que está disponible.
+El *streaming* mejora la experiencia de usuario porque este puede ver el contenido a medida que está disponible.
 
-Sin embargo, cuando un rastreador visita tu página, o si estás generando las páginas en tiempo de compilación, puede que desees esperar a que todo el contenido se cargue primero y luego producir la salida HTML final en lugar de revelarlo progresivamente.
+Sin embargo, cuando un rastreador visita tu página o estás generando las páginas en tiempo de compilación, quizás prefieras esperar a que todo el contenido esté disponible antes de producir la salida HTML final, en lugar de revelarlo progresivamente.
 
 Puedes esperar a que todo el contenido se cargue utilizando el *callback* `onAllReady`:
 
@@ -586,7 +586,7 @@ const { pipe } = renderToPipeableStream(<App />, {
 });
 ```
 
-Un visitante normal recibirá un *stream* de contenido cargado progresivamente. Un rastreador recibirá la salida HTML final después de que se carguen todos los datos. Sin embargo, esto también significa que el rastreador tendrá que esperar a que *todos* los datos se carguen, algunos de los cuales pueden ser lentos para cargar o generar errores. Dependiendo de tu aplicación, podrías elegir enviar también el *shell* a los rastreadores.
+Un visitante normal recibirá un *stream* de contenido cargado progresivamente. Por el contrario, un rastreador recibirá la salida HTML final después de que se carguen todos los datos. Ten en cuenta que esto implica que el rastreador tendrá que esperar a que *todos* los datos se carguen, algunos de los cuales pueden ser lentos para cargar o generar errores. Dependiendo de tu aplicación, podrías optar por enviar también el *shell* a los rastreadores.
 
 ---
 
