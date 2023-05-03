@@ -32,7 +32,7 @@ El paquete `react-dom` proporciona dos puntos de entrada adicionales:
 
 <Deprecated>
 
-Las siguientes APIs se eliminarán en las próximas versiones importantes de React.
+Las siguientes APIs se eliminarán en una próxima versión mayor de React.
 
 </Deprecated>
 
