@@ -1,5 +1,5 @@
 ---
-title: "APIs incorporadas de React"
+title: "APIs integradas de React"
 ---
 
 <Intro>
