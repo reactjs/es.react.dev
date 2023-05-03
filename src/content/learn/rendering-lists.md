@@ -121,11 +121,11 @@ const people = [{
 }];
 ```
 
-Digamos que quieres una manera de mostrar solo las personas cuya profesión sea `'chemist'`. Puedes usar el método `filter()` de JavaScript para devolver solo esas personas. Este método coge un array de objetos, los pasa por un “test” (una función que devuelve `true` o `false`), y devuelve un nuevo array de solo esos objetos que han pasado el test (que han devuelto `true`).
+Digamos que quieres una manera de mostrar solo las personas cuya profesión sea `'chemist'`. Puedes usar el método `filter()` de JavaScript para devolver solo esas personas. Este método coge un array de objetos, los pasa por un "test" (una función que devuelve `true` o `false`), y devuelve un nuevo array de solo esos objetos que han pasado el test (que han devuelto `true`).
 
 Tú solo quieres  los objetos donde `profession` es `'chemist'`. La función "test" para esto se ve como `(person) => person.profession === 'chemist'`. Aquí está cómo juntarlo:
 
-1. **Crea** un nuevo array solo de personas que sean “químicos”, `chemists`, llamando al método `filter()` en `people` filtrando por `person.profession === 'chemist'`:
+1. **Crea** un nuevo array solo de personas que sean "químicos", `chemists`, llamando al método `filter()` en `people` filtrando por `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>

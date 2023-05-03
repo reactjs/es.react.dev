@@ -115,7 +115,7 @@ React no prescribe como debes añadir tus archivos CSS. En el caso más simple, 
 
 ## Mostrar datos {/*displaying-data*/}
 
-JSX te permite poner marcado dentro de JavaScript. Las llaves te permiten «escapar de nuevo» hacia JavaScript de forma tal que puedas incrustar una variable de tu código y mostrársela al usuario. Por ejemplo, esto mostrará `user.name`:
+JSX te permite poner marcado dentro de JavaScript. Las llaves te permiten "escapar de nuevo" hacia JavaScript de forma tal que puedas incrustar una variable de tu código y mostrársela al usuario. Por ejemplo, esto mostrará `user.name`:
 
 ```js {3}
 return (
@@ -125,7 +125,7 @@ return (
 );
 ```
 
-También puedes «escaparte hacia JavaScript» en los atributos JSX, pero tienes que utilizar llaves *en lugar de* comillas. Por ejemplo, `className="avatar"` pasa la cadena `"avatar"` como la clase CSS, pero `src={user.imageUrl}` lee el valor de la variable de JavaScript `user.imageUrl` y luego pasa el valor como el atributo `src`:
+También puedes "escaparte hacia JavaScript" en los atributos JSX, pero tienes que utilizar llaves *en lugar de* comillas. Por ejemplo, `className="avatar"` pasa la cadena `"avatar"` como la clase CSS, pero `src={user.imageUrl}` lee el valor de la variable de JavaScript `user.imageUrl` y luego pasa el valor como el atributo `src`:
 
 ```js {3,4}
 return (
@@ -300,7 +300,7 @@ function MyButton() {
 
 ## Actualizar la pantalla {/*updating-the-screen*/}
 
-A menudo, querrás que tu componente «recuerde» alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
+A menudo, querrás que tu componente "recuerde" alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
 
 Primero, importa [`useState`](/reference/react/useState) de React:
 
@@ -379,7 +379,7 @@ button {
 
 </Sandpack>
 
-Nota que cada botón «recuerda» su propio estado `count` y que no afecta a otros botones.
+Nota que cada botón "recuerda" su propio estado `count` y que no afecta a otros botones.
 
 ## El uso de los Hooks {/*using-hooks*/}
 
@@ -409,7 +409,7 @@ El primer `MyButton` actualiza su `count` a `1`.
 
 Sin embargo, a menudo necesitas que los componentes *compartan datos y se actualicen siempre en conjunto*.
 
-Para hacer que ambos componentes `MyButton` muestren el mismo `count` y se actualicen juntos, necesitas mover el estado de los botones individuales «hacia arriba» al componente más cercano que los contiene a todos.
+Para hacer que ambos componentes `MyButton` muestren el mismo `count` y se actualicen juntos, necesitas mover el estado de los botones individuales "hacia arriba" al componente más cercano que los contiene a todos.
 
 En este ejemplo, es `MyApp`:
 
@@ -492,7 +492,7 @@ function MyButton({ count, onClick }) {
 
 Cuando haces clic en el botón, el manejador `onClick` se dispara. A la prop `onClick` de cada botón se le asignó la función `handleClick` dentro de `MyApp`, de forma que el código dentro de ella se ejecuta. Ese código llama a `setCount(count + 1)`, que incremente la variable de estado `count`. El nuevo valor de `count` se pasa como prop a cada botón, y así todos muestran el nuevo valor.
 
-Esto se llama «levantar el estado hacia arriba». Al mover el estado hacia arriba, lo compartimos entre componentes.
+Esto se llama "levantar el estado hacia arriba". Al mover el estado hacia arriba, lo compartimos entre componentes.
 
 <Sandpack>
 
