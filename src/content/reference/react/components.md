@@ -1,5 +1,5 @@
 ---
-title: "Componentes incorporados de React"
+title: "Componentes integrados de React"
 ---
 
 <Intro>
@@ -10,7 +10,7 @@ React expone algunos componentes integrados que puedes utilizar en tu JSX.
 
 ---
 
-## Componentes incorporados {/*built-in-components*/}
+## Componentes integrados {/*built-in-components*/}
 
 * [`<Fragment>`](/reference/react/Fragment), escrito alternativamente como `<>...</>`, te permite agrupar varios nodos JSX juntos.
 * [`<Profiler>`](/reference/react/Profiler) te permite medir el rendimiento de la renderización de un árbol de React de manera programática.
