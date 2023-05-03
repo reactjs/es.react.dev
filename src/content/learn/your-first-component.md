@@ -33,7 +33,7 @@ En la Web, HTML nos permite crear documentos estructurados con su conjunto integ
 
 Este marcado representa un artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Un marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
 
-React te permite combinar tu marcado, CSS y JavaScript en «componentes» personalizados, **elementos reutilizables de UI para tu aplicación.** El código de la tabla de contenidos que viste arriba pudo haberse transformado en un componente `<TableOfContents />` que podrías renderizar en cada página. Por detrás, seguiría utilizando las mismas etiquetas HTML como `<article>`, `<h1>`, etc.
+React te permite combinar tu marcado, CSS y JavaScript en "componentes" personalizados, **elementos reutilizables de UI para tu aplicación.** El código de la tabla de contenidos que viste arriba pudo haberse transformado en un componente `<TableOfContents />` que podrías renderizar en cada página. Por detrás, seguiría utilizando las mismas etiquetas HTML como `<article>`, `<h1>`, etc.
 
 De la misma forma que con las etiquetas HTML, puedes componer, ordenar y anidar componentes para diseñar páginas completas. Por ejemplo la página de documentación que estás leyendo está hecha de componentes de React:
 
@@ -174,7 +174,7 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a un archivo separado. Aprenderás como hacer esto pronto en la [página sobre *imports*](/learn/importing-and-exporting-components).
 
-Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un «hijo». Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
+Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
 <Pitfall>
 
@@ -211,13 +211,13 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 #### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
-Tu aplicación de React comienza en un componente «raíz». Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
+Tu aplicación de React comienza en un componente "raíz". Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
 
 La mayoría de las aplicaciones de React utilizan componentes de arriba a abajo. Esto significa que no solo usarás componentes para las piezas reutilizables como los botones, pero también para piezas más grandes como barras laterales, listas, ¡y en última instancia, páginas completas! Los componentes son una forma útil de organizar código de UI y marcado, incluso cuando algunos de ellos solo se utilicen una vez.
 
-Frameworks como Next.js lo llevan un paso más allá. En lugar de usar un archivo HTML vacío y dejar a React «ocuparse» de manejar la página con JavaScript, *también* generan el HTML automáticamente a partir de tus componentes de React. Esto permite que tu aplicación muestre algún contenido antes de que el código de JavaScript cargue.
+Frameworks como Next.js lo llevan un paso más allá. En lugar de usar un archivo HTML vacío y dejar a React "ocuparse" de manejar la página con JavaScript, *también* generan el HTML automáticamente a partir de tus componentes de React. Esto permite que tu aplicación muestre algún contenido antes de que el código de JavaScript cargue.
 
-Aún así, muchos sitios web solo utilizan React para [añadir «pequeñas gotas de interactividad»](/learn/add-react-to-a-website). Tienen muchos componentes raíces en lugar de uno solo para la página completa. Puedes utilizar tanto o tan poco de React como lo necesites.
+Aún así, muchos sitios web solo utilizan React para [añadir "pequeñas gotas de interactividad"](/learn/add-react-to-a-website). Tienen muchos componentes raíces en lugar de uno solo para la página completa. Puedes utilizar tanto o tan poco de React como lo necesites.
 
 </DeepDive>
 
@@ -296,7 +296,7 @@ Algo no está bien con esta sentencia `return`. ¿Puedes arreglarla?
 
 <Hint>
 
-Puede que tengas un error «Unexpected token» mientras intentas arreglar este ejemplo. Si te sucede, probablemente sea porque tienes algún punto y coma dentro de tu JSX, revisa que esté *después* del paréntesis de cierre. Si dejas un punto y coma dentro de un `return ( )` ocurrirá un error.
+Puede que tengas un error "Unexpected token" mientras intentas arreglar este ejemplo. Si te sucede, probablemente sea porque tienes algún punto y coma dentro de tu JSX, revisa que esté *después* del paréntesis de cierre. Si dejas un punto y coma dentro de un `return ( )` ocurrirá un error.
 
 </Hint>
 
