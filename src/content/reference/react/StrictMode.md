@@ -656,7 +656,7 @@ Vas a darte cuenta de que el número de conexiones abiertas siempre se mantiene 
   }, [roomId]);
 ```
 
-Ahora que tu Effect “hace una limpieza” al concluir y destruye las conexiones obsoletas, la fuga está resuelta. Sin embargo, date cuenta de que el problema no se hizo visible hasta que añadiste más funcionaliades (el cuadro de selección).
+Ahora que tu Efecto “hace una limpieza” al concluir y destruye las conexiones obsoletas, la fuga está resuelta. Sin embargo, date cuenta de que el problema no se hizo visible hasta que añadiste más funcionaliades (el cuadro de selección).
 
 
 **En el ejemplo original, el error no era obvio. Ahora envolvamos el código original (con errores) en `<StrictMode>`:**
