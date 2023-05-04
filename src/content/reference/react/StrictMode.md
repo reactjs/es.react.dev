@@ -5,7 +5,7 @@ title: <StrictMode>
 
 <Intro>
 
-`<StrictMode>` le permite encontrar errores comunes en los componentes al comienzo del desarrollo.
+`<StrictMode>` te permite encontrar errores comunes en los componentes al comienzo del desarrollo.
 
 
 ```js
@@ -24,7 +24,7 @@ title: <StrictMode>
 
 ### `<StrictMode>` {/*strictmode*/}
 
-Use `StrictMode` para habilitar comportamientos de compilación y advertencias adicionales dentro del árbol de componentes que se encuentra dentro:
+Usa `StrictMode` para habilitar comportamientos de compilación y advertencias adicionales (Modo Estricto) dentro del árbol de componentes que se encuentra dentro:
 
 ```js
 import { StrictMode } from 'react';
@@ -38,13 +38,13 @@ root.render(
 );
 ```
 
-[Ve más ejemplos abajo.](#Uso)
+[Ve más ejemplos abajo.](#usage)
 
-Strict Mode, habilitá los siguientes comportamientos de solo desarrollo:
+El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 
-- Tus componentes van a [volver a renderizarse una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
-- Tus componentes van a [volver a ejecutar Effects una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por limpieza de Effects faltantes.
-- Tus componentes van a [ser chequeados por uso de APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Tus componentes se [volverán a renderizar una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
+- Tus componentes [volverán a ejecutar los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
+- Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
 #### Props {/*props*/}
 
@@ -52,17 +52,17 @@ Strict Mode, habilitá los siguientes comportamientos de solo desarrollo:
 
 #### Advertencias {/*caveats*/}
 
-* No hay forma de excluirse del Strict Mode dentro de un árbol envuelto en `<StrictMode>`. Esto te da confianza de que todos los componentes dentro de `<StrictMode>` son chequeados. Si dos equipos trabajan en un producto, no están de acuerdo sobre si encuentran los chequeos valiosos, necesitarían tanto llegar a un consenso o mover `<StrictMode>` abajo en el árbol.
+* No hay forma de excluirse del Modo Estricto dentro de un árbol envuelto en `<StrictMode>`. Esto te asegura de que se comprueban todos los componentes dentro de `<StrictMode>`. Si dos equipos que trabajan en un producto no están de acuerdo sobre si le resultan valiosas estas comprobaciones, necesitarían o bien llegar a un consenso o bien mover `<StrictMode>` abajo en el árbol.
 
 ---
 
 ## Uso {/*usage*/}
 
-### Habilitando Strict Mode para la aplicación {/*enabling-strict-mode-for-entire-app*/}
+### Habilitar el Modo Estricto para toda la aplicación {/*enabling-strict-mode-for-entire-app*/}
 
 Strict Mode, habilita chequeos adicionales de solo desarrollo para el árbol de componentes entero dentro del componente `<StrictMode>`. Estos chequeos ayudan a encontrar errores comunes en tus componentes al principio del proceso de desarrollo.
 
-Para habilitar Strict Mode en toda tu aplicación, envuelve tu componente raíz con `<StrictMode>` cuando lo renderices:
+Para habilitar el Modo Estricto en toda tu aplicación, envuelve tu componente raíz con `<StrictMode>` cuando lo renderices:
 
 ```js {6,8}
 import { StrictMode } from 'react';
@@ -76,27 +76,27 @@ root.render(
 );
 ```
 
-Nosotros recomendamos envolver toda tu aplicación en Strict Mode, especialmente para aplicaciones recientemente creadas. Si usas un framework cuál es llamado [`createRoot`](/reference/react-dom/client/createRoot). Chequea su documentación para saber como habilitar Strict Mode.
+Nuestra recomendación es que envuelvas toda tu aplicación en Modo Estricto, especialmente para aplicaciones recientemente creadas. Si usas un framework que hace la llamada a [`createRoot`](/reference/react-dom/client/createRoot) por ti, comprueba su documentación para saber como habilitar el Modo Estricto.
 
-A pesar de que, Strict Mode chequea **que solo corra en desarrollo,** te ayudará a encontrar errores que ya existen en tu código, pero pueden ser complicado reproducirlos de forma confiable en producción. Strict Mode, te permite corregir errores antes que tus usuarios los reporten.
+A pesar de que las comprobaciones del Modo Estricta **solo se ejecutan en desarrollo,** te ayudan a encontrar errores que ya existen en tu código, pero que puede ser difícil reproducirlos de forma confiable en producción. El Modo Estricto te permite corregir errores antes que tus usuarios los reporten.
 
 <Note>
 
-Strict Mode, habilita los siguientes chequeos en desarrollo:
+El Modo Estricto habilita los siguientes chequeos en desarrollo:
 
-- Tus componentes van a [volver a renderizarse una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
-- Tus componentes van a [volver a correr Effects una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por limpieza de Effects faltantes.
-- Tus componentes van a [ser chequeados por uso de APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Tus componentes se [renderizarán una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
+- Tus componentes [ejecutarán los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
+- Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
-**Todos estos chequeos son solo desarrollo y no afectan la compilación de producción.**
+**Todos estos chequeos es hacen solo en desarrollo y no afectan la compilación de producción.**
 
 </Note>
 
 ---
 
-### Habilitando Strict Mode para una parte de la aplicación {/*enabling-strict-mode-for-a-part-of-the-app*/}
+### Habilitar el Modo Estricto para una parte de la aplicación {/*enabling-strict-mode-for-a-part-of-the-app*/}
 
-Tu también puedes habilitar Strict Mode para cualquier parte de tu aplicación:
+También puedes habilitar el Modo Estricto para cualquier parte de tu aplicación:
 
 ```js {7,12}
 import { StrictMode } from 'react';
@@ -117,23 +117,23 @@ function App() {
 }
 ```
 
-En este ejemplo, el chequeo de Strict Mode no va a correr en los componentes `Header` y `Footer`. De igual manera, si van a correr en `Sidebar` y `Content` al igual que todos los componentes dentro, no importa la profundidad.
+En este ejemplo, el chequeo de Strict Mode no se ejecutarán en los componentes `Header` y `Footer`. Sin embargo, sí se ejecutarán en `Sidebar` y `Content` al igual que todos los componentes dentro de estos, sin importar la profundidad.
 
 ---
 
-### Solucionando errores encontrados por renderizado doble en desarrollo {/*fixing-bugs-found-by-double-rendering-in-development*/}
+### Solución de errores encontrados por renderizado doble en desarrollo {/*fixing-bugs-found-by-double-rendering-in-development*/}
 
-[React, asume que cada componente que tú escribes es una función pura.](/learn/keeping-components-pure) Esto significa que los componentes de React que tú escribes deben siempre regresar el mismo JSX dando las mismas entradas (props, state y context).
+[React asume que cada componente que escribes es una función pura.](/learn/keeping-components-pure) Esto significa que los componentes de React que escribes deben siempre devolver el mismo JSX dadas las mismas entradas (props, estado y contexto).
 
-Los componentes que rompen esta regla se comportan impredeciblemente y causan errores. Para ayudarte a encontrar código impuro accidental, Strict Mode, llama algunas de tus funciones (solo las que podrían ser puras) **dos veces en desarrollo.** Esto incluye:
+Los componentes que rompen esta regla se comportan impredeciblemente y causan errores. Para ayudarte a encontrar código impuro accidental, el Modo Estricto llama algunas de tus funciones (solo las que deberían ser puras) **dos veces en desarrollo.** Esto incluye:
 
-- El cuerpo de la función de su componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los controladores de eventos)
-- Funciones que pasas a [`useState`](/reference/react/useState), [`set` functions](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo), o [`useReducer`](/reference/react/useReducer)
-- Algunos métodos de componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
+- El cuerpo de la función de tu componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los manejadores de eventos)
+- Funciones que pasas a [`useState`](/reference/react/useState), [funciones `set`](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo), o [`useReducer`](/reference/react/useReducer)
+- Algunos métodos de los componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
 
-Si una función es pura, ejecutarla dos veces no cambia su comportamiento porque una función pura produce el mismo resultado en cada vez. De igual manera, si una función es impura (por ejemplo, si muta la data que recibe), ejecutarla dos veces tiende a ser perceptible (¡eso es lo que la hace impura!) Esto te ayuda a detectar y corregir el error antes.
+Si una función es pura, ejecutarla dos veces no cambia su comportamiento porque una función pura produce el mismo resultado cada vez. Sin embargo, si una función es impura (por ejemplo, si muta los datos que recibe), ejecutarla dos veces tiende a ser perceptible (¡eso es lo que la hace impura!) Esto te ayuda a detectar y corregir el error antes.
 
-**Aquí hay un ejemplo para ilustrar como el renderizado doble en Strict Mode te ayuda a encontrar errores antes.**
+**Aquí hay un ejemplo para ilustrar como el renderizado doble en el Modo Estricto te ayuda a encontrar errores antes.**
 
 Este componente `StoryTray` toma un array de `stories` y añade un último artículo "Create Story" al final:
 
@@ -211,9 +211,9 @@ li {
 
 </Sandpack>
 
-Hay un error en el código arriba. De igual manera, es fácil de saltar porque la salida inicial aparece correcto.
+Hay un error en el código arriba. Sin embargo, puede pasar desapercibido con facilidad porque la salida inicial parece correcta.
 
-Este error va a convertirse más perceptible si el componente `StoryTray` vuelve a renderizar multiples veces. Por ejemplo, hagamos que `StoryTray` vuelva a renderizar con un diferente color de fondo en cualquier momento que tu ratón flote encima del componente:
+Este error será más perceptible si el componente `StoryTray` se vuelve a renderizar múltiples veces. Por ejemplo, hagamos que `StoryTray` se vuelva a renderizar con un diferente color de fondo cada vez que el puntero pase sobre el componente:
 
 <Sandpack>
 
@@ -298,9 +298,9 @@ li {
 
 </Sandpack>
 
-Date cuenta como cada momento que tu ratón flota encima del componente `StoryTray`, "Create Story" se añade a la lista de nuevo. La intención del código fue añadirla una vez al final. Pero `StoryTray`, directamente modifica el array `stories` de las props. Cada momento que `StoryTray` renderiza, se añade a "Create Story" de nuevo al final del mismo array. En otras palabras, `StoryTray` no es una función pura, ejecutándola múltiples veces produce diferente resultados.
+Date cuenta como cada momento que el puntero pasa por encima del componente `StoryTray`, "Create Story" se añade a la lista nuevamente. La intención del código fue añadirla una vez al final. Pero `StoryTray`, directamente modifica el array `stories` de las props. Cada momento que `StoryTray` se renderiza, añade "Create Story" de nuevo al final del mismo array. En otras palabras, `StoryTray` no es una función pura, ejecutándola múltiples veces produce diferente resultados.
 
-Para arreglar este problema, tú puedes hacer una copia del array y modificar la copia en vez de la original:
+Para arreglar este problema, puedes hacer una copia del array y modificar la copia en vez de la original:
 
 ```js {2}
 export default function StoryTray({ stories }) {
@@ -311,7 +311,7 @@ export default function StoryTray({ stories }) {
 
 Esto [haría la función `StoryTray` pura.](/learn/keeping-components-pure) Cada vez que es llamada, solo modificaría una nueva copia del array y no afectaría cualquier objeto o variable externo. Esto soluciona el error, pero tuviste que hacer que el componente se vuelva a renderizar más a menudo antes que se convirtiera obvio que algo está mal con su comportamiento.
 
-**En el ejemplo original, el bug no fue obvio. Ahora vamos a envolver el original código (con errores) en `<StrictMode>`**
+**En el ejemplo original, el error no fue obvio. Ahora vamos a envolver el código original (con errores) en `<StrictMode>`**
 
 <Sandpack>
 
@@ -392,7 +392,7 @@ li {
 
 </Sandpack>
 
-**Strict Mode *siempre* llama tu función renderizada dos veces, entonces puedes ver el error de inmediato** ("Create Story", aparece dos veces). Esto te notifica semejantes errores al principio en el proceso. Cuando corriges el componente para renderizar en Strict Mode, tu *también* corriges futuros posibles errores en producción como la funcionalidad **hover**(flotar) de antes:
+**El Modo Estricto *siempre* llama a tu función de renderizado dos veces, por lo que puedes ver el error de inmediato** ("Create Story", aparece dos veces). Esto permite darte cuenta de este tipo de errores al principio en el proceso. Cuando corriges el componente para renderizarse en Modo Estricto, *también* corriges futuros posibles errores en producción como la funcionalidad **hover** (pasar por encima el puntero) de antes:
 
 <Sandpack>
 
@@ -482,28 +482,28 @@ li {
 
 </Sandpack>
 
-Sin Strict Mode, era fácil saltarse el error hasta que tu agregaste mas renderizaciones. Strict Mode hizo aparecer el mismo error de inmediato. Strict Mode te ayuda a encontrar errores antes de subirlos a tu equipo y a tu usuarios.
+Sin Modo Estricto, era fácil saltarse el error hasta que agregaste más rerenderizados. El Modo Estricto hizo aparecer el mismo error de inmediato. El Modo Estricto te ayuda a encontrar errores antes de que se los subas a tu equipo y a tus usuarios.
 
 [Lee más sobre mantener componentes puros.](learn/keeping-components-pure)
 
 <Note>
 
-Si tienes [React DevTools](/learn/react-developer-tools) instalado, cualquier llamada a `console.log` durante la segunda llamada al renderizado va a aparecer levemente atenuado. React DevTools también ofrece una configuración (apagada por defecto) para suprimirlas completamente.
+Si tienes instaladas [las Herramientas de Desarrollo de React](/learn/react-developer-tools), cualquier llamada a `console.log` durante la segunda llamada al renderizado va a aparecer levemente atenuada. Las Herramientas de Desarrollo de React también ofrecen una configuración (desactivada por defecto) para suprimirlas completamente.
 
 </Note>
 
 ---
 
-### Arreglando errores encontrados por volver a ejecutar Effects en desarrollo {/*fixing-bugs-found-by-re-running-effects-in-development*/}
+### Arreglar errores detectados al volver ejecutar Efectos en desarrollo {/*fixing-bugs-found-by-re-running-effects-in-development*/}
 
-Strict Mode puede también ayudar a encontrar bugs en [Effects.](/learn/synchronizing-with-effects)
+El Modo Estricto puede también ayudar a encontrar errores en los [Efectos.](/learn/synchronizing-with-effects)
 
-Cada Effect tiene algún código configurado y podría tener algún código de limpieza. Normalmente, React llama la configuración cuando el componente *mounts* (se añadió a la pantalla) y llama la limpieza cuando el componente *unmounts* (se removio de la pantalla). React entonces llama la limpieza y configuración de nuevo si sus dependencias cambiaron desde el último renderizado.
+Cada Efecto tiene algún código de configuración y podría tener algún código de limpieza. Normalmente, React llama al código de configuración cuando el componente *se monta* (se añadió a la pantalla) y llama a la limpieza cuando el componente *se desmonta* (se eliminó de la pantalla). React entonces llama a la limpieza y configuración de nuevo si sus dependencias cambiaron desde el último renderizado.
 
 
-Cuando Strict Mode está prendida, React va también ejecutar **Un ciclo extra de configuración+limpieza en desarrollo por cada Effect.** Esto podría ser sorpresivo, pero esto ayuda a revelar errores sutiles que son difíciles de detectar manualmente.
+Cuando Strict Mode está activo, React también ejecutará **un ciclo extra de configuración+limpieza en desarrollo por cada Efecto.** Esto podría sorprender, pero ayuda a revelar errores sutiles que son difíciles de detectar manualmente.
 
-**Aquí tienes un ejemplo para ilustrarte como volver a renderizar Effects en Strict Mode ayuda a encontrar errores al principio.**
+**Aquí tienes un ejemplo para ilustrarte cómo volver a renderizar Efectos en Modo Estricto ayuda a encontrar errores al principio.**
 
 Considera este ejemplo que conecta un componente a un chat:
 
@@ -562,9 +562,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Hay un problema con este código pero no podría ser limpiado inmediatamente.
+Hay un problema con este código pero podría no quedar claro inmediatamente.
 
-Para hacer este problema más obvio, implementemos una característica. En el siguiente ejemplo, `roomId` no está hard-codeado. En vez, el usuario puede seleccionar el `roomId` que quiere conectarse desde un dropdown. Cliquea "Open chat" y entonces selecciona diferente salas de chat uno por uno. Mantén el rastreo del número de conexiones activas en la consola:
+Para hacer este problema más obvio, implementemos una funcionalidad. En el siguiente ejemplo, `roomId` no está codificado de forma fija. En cambio, el usuario puede seleccionar el `roomId` al que quiere conectarse desde un dropdown. Haz clic en "Open chat" y luego selecciona diferentes salas de chat una por una. Mantén la cuenta del número de conexiones activas en la consola:
 
 <Sandpack>
 
@@ -646,7 +646,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Vas a darte cuenta de que el número de conexiones abiertas siempre se mantiene creciendo. En una aplicación real, esto causaría problemas de rendimiento y de red. El problema es que [tu Effect esta falta de una función de limpieza:](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed)
+Vas a darte cuenta de que el número de conexiones abiertas siempre se mantiene creciendo. En una aplicación real, esto causaría problemas de rendimiento y de red. El problema es que a [tu Efecto le falta una función de limpieza:](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed)
 
 ```js {4}
   useEffect(() => {
@@ -656,10 +656,10 @@ Vas a darte cuenta de que el número de conexiones abiertas siempre se mantiene 
   }, [roomId]);
 ```
 
-Ahora que tu Effect “limpia” después de sí mismo y destruye las conexiones obsoletas, la fuga está resuelta. Sin embargo, date cuenta de que el problema no se convirtió visible hasta que se había añadido más características (la caja seleccionada.)
+Ahora que tu Effect “hace una limpieza” al concluir y destruye las conexiones obsoletas, la fuga está resuelta. Sin embargo, date cuenta de que el problema no se hizo visible hasta que añadiste más funcionaliades (el cuadro de selección).
 
 
-**En el ejemplo original, el error no era obvio. Ahora envolvamos el código original (buggy) en `<StrictMode>`:**
+**En el ejemplo original, el error no era obvio. Ahora envolvamos el código original (con errores) en `<StrictMode>`:**
 
 <Sandpack>
 
@@ -721,9 +721,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-**Con Strict Mode, ves inmediatamente que hay un problema** (el número de conexiones activas salta a dos[2]). Strict Mode ejecuta un ciclo extra configuración+limpieza por cada Effect. Este Effect no tiene lógica de limpieza, entonces él crea una conexión extra, pero no la destruye. Esto es una pista que te falta una función de limpieza.
+**Con Modo Estricto, ves inmediatamente que hay un problema** (el número de conexiones activas salta a 2). El Modo Estricto ejecuta un ciclo extra de configuración+limpieza por cada Efecto. Este Efecto no tiene lógica de limpieza, por lo que crea una conexión extra, pero no la destruye. Esto es una pista de que te falta una función de limpieza.
 
-Strict Mode te permite notar semejantes errores al principio del proceso. Cuando tú corriges tu Effect al añadir una función de limpieza en Strict Mode, tu *también* corriges varios posibles futuros errores en producción como la selección de caja anterior:
+El Modo Estricto te permite notar este tipo de errores al principio del proceso. Cuando corriges tu Efecto al añadir una función de limpieza en Modo Estricto, *también* corriges varios posibles futuros errores en producción como el cuadro de selección anterior:
 
 <Sandpack>
 
@@ -813,19 +813,19 @@ button { margin-left: 10px; }
 
 Date cuenta de como la cuenta de conexiones activas en la consola no se mantiene creciendo mucho más.
 
-Sin Strict Mode, es fácil pasar por alto que tu Effect necesita limpieza. Al ejecutar *configuración → limpieza → configuración* en vez de *configuración* por tu Effect en desarrollo, El Strict Mode hizo que la lógica de limpieza faltante fuera más notable.
+Sin Modo Estricto, es fácil pasar por alto que tu Efecto necesita limpieza. Al ejecutar *configuración → limpieza → configuración* en vez de *configuración* para tu Efecto en desarrollo, el Modo Estricto hizo que la lógica de limpieza faltante fuera más notable.
 
-[Lee más sobre la implementación de la limpieza de Effect.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+[Lee más sobre la implementación de la limpieza de los Efectos.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 ---
 
-### Arreglando advertencias obsoletas permitidas por Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
+### Arreglar advertencias de código obsoleto habilitadas en el Modo Estricto {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
 
 React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas APIs obsoletas: 
 
 * [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
-* `UNSAFE_` ciclo de vida de métodos de clase como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
-* Herencia context ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
+* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
+* API antigua de contexto ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
 * Herencia de strings refs ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
 
-Estas APIs son primordialmente usadas en viejos [componentes de clase](/reference/react/Component) entonces raramente aparecen en aplicaciones modernas.
+Estas APIs son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.
