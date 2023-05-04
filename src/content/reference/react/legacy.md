@@ -1,5 +1,5 @@
 ---
-title: "APIs Legacy de React"
+title: "APIs heredadas de React"
 ---
 
 <Intro>
@@ -10,7 +10,7 @@ Estas APIs se exportan desde el paquete `react`, pero no se recomiendan para ser
 
 ---
 
-## APIs Legacy {/*legacy-apis*/}
+## APIs heredadas {/*legacy-apis*/}
 
 * [`Children`](/reference/react/Children) te permite manipular y transformar el JSX recibido como la propiedad `children`. [Ver alternativas.](/reference/react/Children#alternatives)
 * [`cloneElement`](/reference/react/cloneElement) te permite crear un elemento React usando otro elemento como punto de partida. [Ver alternativas.](/reference/react/cloneElement#alternatives)
