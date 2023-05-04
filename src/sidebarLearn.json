@@ -169,7 +169,7 @@
           "path": "/learn/manipulating-the-dom-with-refs"
         },
         {
-          "title": "Sincronizar con efectos",
+          "title": "Synchronizing with Effects",
           "path": "/learn/synchronizing-with-effects"
         },
         {
@@ -186,7 +186,7 @@
         },
         {
           "title": "Eliminar dependencias de los Efectos",
-          "path": "/learn/removing-effect-dependencies"
+          "path": "/learn/removing-effect-dependencies"              
         },
         {
           "title": "Reutilización de lógica con Hooks personalizados",
