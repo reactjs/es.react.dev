@@ -811,7 +811,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Date cuenta de como la cuenta de conexiones activas en la consola no se mantiene creciendo mucho más.
+Date cuenta de como la cuenta de conexiones activas en la consola ya no sigue creciendo.
 
 Sin Modo Estricto, es fácil pasar por alto que tu Efecto necesita limpieza. Al ejecutar *configuración → limpieza → configuración* en vez de *configuración* para tu Efecto en desarrollo, el Modo Estricto hizo que la lógica de limpieza faltante fuera más notable.
 
@@ -826,6 +826,6 @@ React advierte si algún componente en cualquier lugar dentro de un árbol `<Str
 * [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 * Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
 * API antigua de contexto ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
-* Herencia de strings refs ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
+* Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
 
 Estas APIs son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.
