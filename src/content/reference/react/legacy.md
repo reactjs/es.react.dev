@@ -23,11 +23,11 @@ Estas APIs se exportan desde el paquete `react`, pero no se recomiendan para ser
 
 ---
 
-## APIs Obsoletas {/*deprecated-apis*/}
+## APIs obsoletas {/*deprecated-apis*/}
 
 <Deprecated>
 
-Estas APIs se eliminarán en una versión importante futura de React.
+Estas APIs se eliminarán en una futura versión mayor de React.
 
 </Deprecated>
 
