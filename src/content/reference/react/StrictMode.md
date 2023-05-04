@@ -60,7 +60,7 @@ El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 
 ### Habilitar el Modo Estricto para toda la aplicación {/*enabling-strict-mode-for-entire-app*/}
 
-Strict Mode, habilita chequeos adicionales de solo desarrollo para el árbol de componentes entero dentro del componente `<StrictMode>`. Estos chequeos ayudan a encontrar errores comunes en tus componentes al principio del proceso de desarrollo.
+El Modo Estricto, habilita chequeos adicionales solo en desarrollo para el todo el árbol de componentes dentro del componente `<StrictMode>`. Estos chequeos ayudan a encontrar errores comunes en tus componentes al principio del proceso de desarrollo.
 
 Para habilitar el Modo Estricto en toda tu aplicación, envuelve tu componente raíz con `<StrictMode>` cuando lo renderices:
 
