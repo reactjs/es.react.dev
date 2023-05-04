@@ -62,6 +62,7 @@ El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 
 El Modo Estricto, habilita chequeos adicionales solo en desarrollo para el todo el árbol de componentes dentro del componente `<StrictMode>`. Estos chequeos ayudan a encontrar errores comunes en tus componentes al principio del proceso de desarrollo.
 
+
 Para habilitar el Modo Estricto en toda tu aplicación, envuelve tu componente raíz con `<StrictMode>` cuando lo renderices:
 
 ```js {6,8}
@@ -500,7 +501,6 @@ El Modo Estricto puede también ayudar a encontrar errores en los [Efectos.](/le
 
 Cada Efecto tiene algún código de configuración y podría tener algún código de limpieza. Normalmente, React llama al código de configuración cuando el componente *se monta* (se añadió a la pantalla) y llama a la limpieza cuando el componente *se desmonta* (se eliminó de la pantalla). React entonces llama a la limpieza y configuración de nuevo si sus dependencias cambiaron desde el último renderizado.
 
-
 Cuando Strict Mode está activo, React también ejecutará **un ciclo extra de configuración+limpieza en desarrollo por cada Efecto.** Esto podría sorprender, pero ayuda a revelar errores sutiles que son difíciles de detectar manualmente.
 
 **Aquí tienes un ejemplo para ilustrarte cómo volver a renderizar Efectos en Modo Estricto ayuda a encontrar errores al principio.**
@@ -657,7 +657,6 @@ Vas a darte cuenta de que el número de conexiones abiertas siempre se mantiene 
 ```
 
 Ahora que tu Efecto “hace una limpieza” al concluir y destruye las conexiones obsoletas, la fuga está resuelta. Sin embargo, date cuenta de que el problema no se hizo visible hasta que añadiste más funcionaliades (el cuadro de selección).
-
 
 **En el ejemplo original, el error no era obvio. Ahora envolvamos el código original (con errores) en `<StrictMode>`:**
 
