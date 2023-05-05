@@ -8,7 +8,7 @@ React fue creado originalmente por [Jordan Walke.](https://github.com/jordwalke)
 
 </Intro>
 
-## Contribuyentes Pasados {/*past-contributors*/}
+## Contribuyentes pasados {/*past-contributors*/}
 
 Nos gustaría reconocer a algunas personas que han hecho contribuciones significativas a React y su documentación en el pasado, y han ayudado a mantenerlos a lo largo de los años:
 
