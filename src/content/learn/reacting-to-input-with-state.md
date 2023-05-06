@@ -395,7 +395,7 @@ Sabes que son esenciales, porque no puedes eliminar ninguna de ellos sin romper 
 
 <DeepDive>
 
-#### Eliminar estados “imposibles” con un reducer {/*eliminating-impossible-states-with-a-reducer*/}
+#### Eliminar estados "imposibles" con un reducer {/*eliminating-impossible-states-with-a-reducer*/}
 
 Estas tres variables son una representación suficientemente buena del estado de este formulario. Sin embargo, todavía hay algunos estados intermedios que no tienen sentido. Por ejemplo, un `error` no nulo no tiene sentido cuando `status` es `'success'`. Para modelar el estado con más precisión, puedes [extraerlo en un reducer.](/learn/extracting-state-logic-into-a-reducer) ¡Los reducers le permiten unificar múltiples variables de estado en un solo objeto y consolidar toda la lógica relacionada!
 

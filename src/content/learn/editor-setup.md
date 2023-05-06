@@ -23,7 +23,7 @@ Otros editores de texto populares que se usan en la comunidad de React incluyen 
 
 * [WebStorm](https://www.jetbrains.com/webstorm/) es un entorno de desarrollo integrado diseñado específicamente para JavaScript.
 * [Sublime Text](https://www.sublimetext.com/) permite trabajar con JSX y TypeScript, incluye [resaltado de sintaxis](https://stackoverflow.com/a/70960574/458193) y autocompletado de forma nativa.
-* [Vim](https://www.vim.org/) es un editor de texto altamente configurable hecho para crear y cambiar cualquier tipo de texto de forma muy eficiente. Se incluye como «vi» en la mayoría de los sistemas UNIX y con OS X de Apple.
+* [Vim](https://www.vim.org/) es un editor de texto altamente configurable hecho para crear y cambiar cualquier tipo de texto de forma muy eficiente. Se incluye como "vi" en la mayoría de los sistemas UNIX y con OS X de Apple.
 
 ## Funcionalidades recomendadas en un editor de texto {/*recommended-text-editor-features*/}
 
@@ -54,9 +54,9 @@ Puedes instalar la [extensión de Prettier en VSCode](https://marketplace.visual
 Idealmente, deberías formatear tu código cada vez que guardas. ¡VS Code tiene configuraciones para hacerlo!
 
 1. En VS Code, presiona `CTRL/CMD + SHIFT + P`.
-2. Escribe «settings»
+2. Escribe "settings"
 3. Presiona Enter
-4. En la barra de búsqueda, escribe «format on save»
-5. ¡Asegúrate de que la opción «format on save» esté marcada!
+4. En la barra de búsqueda, escribe "format on save"
+5. ¡Asegúrate de que la opción "format on save" esté marcada!
 
 > Si tu *preset* de ESLint tiene reglas de formateo, podrían entrar en conflicto con Prettier. Recomendamos deshabilitar todas las reglas de formateo en tu *preset* de ESLint usando [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) de forma tal de que ESLint se use *solo* para detectar errores de lógica. Si quieres obligar a que todos los archivos se formateen antes de que se mezcle un *pull request*, utiliza [`prettier --check`](https://prettier.io/docs/en/cli.html#--check) en tu sistema de integración continua.

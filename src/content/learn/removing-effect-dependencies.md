@@ -12,7 +12,7 @@ Cuando escribes un Efecto, el linter verificará que has incluido todos los valo
 
 - Cómo arreglar ciclos infinitos de dependencias de un Efecto
 - Qué hacer cuando quieres eliminar una dependencia
-- Cómo leer un valor en un Efecto sin «reaccionar» a él
+- Cómo leer un valor en un Efecto sin "reaccionar" a él
 - Cómo y por qué evitar objectos y funciones como dependencias
 - Por qué suprimir la advertencia de la dependencia es peligroso, y qué hacer en su lugar
 
@@ -109,7 +109,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Los Efectos «reaccionar» a valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Dado que `roomId` es un valor reactivo (puede cambiar durante un rerenderizado), el linter verifica que lo has especificado como una dependencia. Si `roomId` recibe un valor diferente, React resincronizará tu Efecto. Esto asegura que el chat se mantiene conectado a la sala seleccionada y «reacciona» al _dropdown_:
+[Los Efectos "reaccionar" a valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Dado que `roomId` es un valor reactivo (puede cambiar durante un rerenderizado), el linter verifica que lo has especificado como una dependencia. Si `roomId` recibe un valor diferente, React resincronizará tu Efecto. Esto asegura que el chat se mantiene conectado a la sala seleccionada y "reacciona" al _dropdown_:
 
 <Sandpack>
 
@@ -173,7 +173,7 @@ button { margin-left: 10px; }
 
 ### Para eliminar una dependencia, prueba que no es una dependencia {/*to-remove-a-dependency-prove-that-its-not-a-dependency*/}
 
-Debes notar que no puedes «escoger» tus dependencias de tu Efecto. Cada <CodeStep step={2}>valor reactivo</CodeStep> que se usa en el código de tu Efecto debe declararse en tu lista de dependencias. La lista de dependencias de tu Efecto está determinada por el código a su alrededor:
+Debes notar que no puedes "escoger" tus dependencias de tu Efecto. Cada <CodeStep step={2}>valor reactivo</CodeStep> que se usa en el código de tu Efecto debe declararse en tu lista de dependencias. La lista de dependencias de tu Efecto está determinada por el código a su alrededor:
 
 ```js [[2, 3, "roomId"], [2, 5, "roomId"], [2, 8, "roomId"]]
 const serverUrl = 'https://localhost:1234';
@@ -205,7 +205,7 @@ function ChatRoom({ roomId }) {
 
 ¡Y el linter estaría en lo correcto! Dado que `roomId` puede cambiar con el tiempo, esto introduciría un bug en tu código.
 
-**Para eliminar una dependencias, necesitas «probarle» al linter que *no necesita* ser una dependencia.** Por ejemplo, puedes mover `roomId` fuera de componente para probar que no es reactivo y no cambiará entre rerenderizados:
+**Para eliminar una dependencias, necesitas "probarle" al linter que *no necesita* ser una dependencia.** Por ejemplo, puedes mover `roomId` fuera de componente para probar que no es reactivo y no cambiará entre rerenderizados:
 
 ```js {2,9}
 const serverUrl = 'https://localhost:1234';
@@ -275,7 +275,7 @@ Puede que hayas notado un patrón en tu flujo de trabajo:
 
 La última parte es importante. **Si quieres cambiar las dependencias, cambia primero el código que lo circunda**. Puedes pensar en la lista de dependencia como [una lista de todos los valores reactivos usado por el código de tu Efecto](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency). No *eliges* intencionalmente qué poner en esa lista. La lista *describe* tu código. Para cambiar la lista de dependencia, cambia el código.
 
-Esto puede parecerse a resolver una ecuación. Puedes iniciar con un objetivo (por ejemplo, eliminar una dependencia), y necesitas «encontrar» el código exacto que logre ese objetivo. No todo el mundo encuentra divertido resolver ecuaciones ¡y lo mismo podría decirse sobre escribir Efectos! Por suerte, debajo hay una lista de recetas comunes que puedes probar.
+Esto puede parecerse a resolver una ecuación. Puedes iniciar con un objetivo (por ejemplo, eliminar una dependencia), y necesitas "encontrar" el código exacto que logre ese objetivo. No todo el mundo encuentra divertido resolver ecuaciones ¡y lo mismo podría decirse sobre escribir Efectos! Por suerte, debajo hay una lista de recetas comunes que puedes probar.
 
 <Pitfall>
 
@@ -346,9 +346,9 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Digamos que querías ejecutar el Efecto «solo durante el montaje». Has leído que [la lista de dependencias vacía (`[]`)](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means) hacen eso, así que decides ignorar al linter y especificar a la fuerza `[]` como dependencias.
+Digamos que querías ejecutar el Efecto "solo durante el montaje". Has leído que [la lista de dependencias vacía (`[]`)](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means) hacen eso, así que decides ignorar al linter y especificar a la fuerza `[]` como dependencias.
 
-Este contador se supone que incremente cada segundo la cantidad configurable con los dos botones. Sin embargo, dado que le «mentiste» a React diciendo que este Efecto no tiene dependencias, React sigue usando la función `onTick` del renderizado inicial. [Durante ese renderizado](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time) `count` era `0` e `increment` era `1`. Por eso es que `onTick` de ese renderizado siempre llama a `setCount(0 + 1)` cada segundo, y siempre ves `1`. Errores como este son difíciles de corregir cuando están esparcidos por múltiples componentes.
+Este contador se supone que incremente cada segundo la cantidad configurable con los dos botones. Sin embargo, dado que le "mentiste" a React diciendo que este Efecto no tiene dependencias, React sigue usando la función `onTick` del renderizado inicial. [Durante ese renderizado](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time) `count` era `0` e `increment` era `1`. Por eso es que `onTick` de ese renderizado siempre llama a `setCount(0 + 1)` cada segundo, y siempre ves `1`. Errores como este son difíciles de corregir cuando están esparcidos por múltiples componentes.
 
 ¡Siempre hay una mejor solución que ignorar el linter! Para corregir este código, necesitas añadir `onTick` a la lista de dependencias. (Para asegurarte de que el intervalo solo se configure una vez, [haz `onTick` un Evento de Efecto])(/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events)).
 
@@ -358,10 +358,10 @@ Este contador se supone que incremente cada segundo la cantidad configurable con
 
 ## Eliminar dependencias innecesarias {/*removing-unnecessary-dependencies*/}
 
-Cada vez que ajustas las dependencias del Efecto para reflejar el código, mira a la lista de dependencias. ¿Tiene sentido volver a correr cuando alguna de estas dependencias cambie? A veces, la respuesta es «no»:
+Cada vez que ajustas las dependencias del Efecto para reflejar el código, mira a la lista de dependencias. ¿Tiene sentido volver a correr cuando alguna de estas dependencias cambie? A veces, la respuesta es "no":
 
 * A veces, quieres volver a ejecutar *diferentes partes* de tu Efecto bajo condiciones diferentes.
-* A veces, quieres leer solo el *último valor* de alguna dependencia en lugar de «reaccionar» a sus cambios.
+* A veces, quieres leer solo el *último valor* de alguna dependencia en lugar de "reaccionar" a sus cambios.
 * A veces, una dependencia puede cambiar muy a menudo de forma *no intencional* porque es un objeto o una función.
 
 Para encontrar la solución correcta, necesitas responder algunas preguntas sobre tu Efecto. Revisémoslas.
@@ -370,7 +370,7 @@ Para encontrar la solución correcta, necesitas responder algunas preguntas sobr
 
 Sobre lo primero que debes pensar es si este código debería ser un Efecto.
 
-Imagina un formulario. Al enviarse, actualizas la variable de estado `submitted` a `true`. Necesitas enviar una petición POST y mostrar una notificación. Has decidido ubicar esta lódigo dentro de un Efecto que «reacciona» al cambio de `submitted` a `true`:
+Imagina un formulario. Al enviarse, actualizas la variable de estado `submitted` a `true`. Necesitas enviar una petición POST y mostrar una notificación. Has decidido ubicar esta lódigo dentro de un Efecto que "reacciona" al cambio de `submitted` a `true`:
 
 ```js {6-8}
 function Form() {
@@ -605,7 +605,7 @@ function ChatRoom({ roomId }) {
 
 **Ten en cuenta que ahora el Efecto no lee para nada la variable `messages`**. Solo necesitas pasar una función actualizadora como `msgs => [...msgs, receivedMessage]`. React [pone tu función actualizadora en una cola](/learn/queueing-a-series-of-state-updates) y le proporcionará el parámetro `msgs` en el próximo renderizado. Es por esto que el Efecto en sí ya no necesita la dependencia de `messages`. Como resultado de esta solución, al recibir un mensaje de chat ya no se provocará que el chat se reconecte.
 
-### ¿Quieres leer un valor sin «reaccionar» as sus cambios? {/*do-you-want-to-read-a-value-without-reacting-to-its-changes*/}
+### ¿Quieres leer un valor sin "reaccionar" as sus cambios? {/*do-you-want-to-read-a-value-without-reacting-to-its-changes*/}
 
 <Wip>
 
@@ -653,9 +653,9 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-El problema es que cada vez que `isMuted` cambie (por ejemplo, cuando el usuario presiona el botón «Muted»), el Efecto se volverá a sincronizar y se reconectará al servidor de chat. ¡Esta no es la experiencia de usuario deseada! (En este ejemplo, aún deshabilitando el linter no funcionaría --si haces eso, `isMuted` se quedaría «atrapado» en su valor antiguo--).
+El problema es que cada vez que `isMuted` cambie (por ejemplo, cuando el usuario presiona el botón "Muted"), el Efecto se volverá a sincronizar y se reconectará al servidor de chat. ¡Esta no es la experiencia de usuario deseada! (En este ejemplo, aún deshabilitando el linter no funcionaría --si haces eso, `isMuted` se quedaría "atrapado" en su valor antiguo--).
 
-Para resolver este problema, necesitas extraer la lógica que no debe ser reactiva fuera de tu Efecto. No quieres que este Efecto «reaccione» a los cambios de `isMuted`. [Mueve este pedazo de lógica a un Evento de Efecto:](/learn/separating-events-from-effects#declaring-an-effect-event):
+Para resolver este problema, necesitas extraer la lógica que no debe ser reactiva fuera de tu Efecto. No quieres que este Efecto "reaccione" a los cambios de `isMuted`. [Mueve este pedazo de lógica a un Evento de Efecto:](/learn/separating-events-from-effects#declaring-an-effect-event):
 
 ```js {1,7-12,18,21}
 import { useState, useEffect, useEffectEvent } from 'react';
@@ -682,7 +682,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-Los Eventos de Efecto te permiten separar un Efecto en partes reactivas (que deben «reaccionar» a valores reactivos como `roomId` y sus cambios) y partes no reactivas (que solo leen sus últimos valores, como `onMessage` lee `isMuted`). **Ahora que has leído `isMuted` dentro de un Evento de Efecto, no necesita ser una dependencia de tu Efecto**. Como resultado, el chat no se reconectará cuando cambies la configuración «Muted» de _on_ a _off_, ¡solucionando el problema original!
+Los Eventos de Efecto te permiten separar un Efecto en partes reactivas (que deben "reaccionar" a valores reactivos como `roomId` y sus cambios) y partes no reactivas (que solo leen sus últimos valores, como `onMessage` lee `isMuted`). **Ahora que has leído `isMuted` dentro de un Evento de Efecto, no necesita ser una dependencia de tu Efecto**. Como resultado, el chat no se reconectará cuando cambies la configuración "Muted" de _on_ a _off_, ¡solucionando el problema original!
 
 #### Envolver un manejador de evento de las props {/*wrapping-an-event-handler-from-the-props*/}
 
@@ -776,7 +776,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-Este objeto se declara en el cuerpo del componente, por lo que es un [valor reactivo](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Cuando lees un valor reactivo como este dentro de un Efecto, lo declaras como una dependencia. Esto garantiza que tu Efecto «reacciona» a sus cambios:
+Este objeto se declara en el cuerpo del componente, por lo que es un [valor reactivo](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Cuando lees un valor reactivo como este dentro de un Efecto, lo declaras como una dependencia. Esto garantiza que tu Efecto "reacciona" a sus cambios:
 
 ```js {3,6}
   // ...
@@ -1159,11 +1159,11 @@ Esto solo funciona para funciones [puras](/learn/keeping-components-pure) porque
 - Las dependencias siempre deben corresponderse con el código.
 - Cuando no estás a gusto con tus dependencias, lo que necesitas editar es el código.
 - Suprimir el linter lleva a errores confusos, y siempre deberías evitarlo.
-- Para eliminar una dependencia, debes «probarle» al linter que no es necesaria.
+- Para eliminar una dependencia, debes "probarle" al linter que no es necesaria.
 - Si el código en tu Efecto debe ejecutarse como respuesta a una interacción específica, mueve el código a un manejador de eventos.
 - Si partes diferentes de tu Efecto deberían volverse a ejecutar por diferentes razones, divídelo en diferentes Efectos.
 - Si quieres actualizar un estado basado en el estado anterior, pasa una función actualizadora.
-- Si quieres leer el último valor sin «reaccionar» a él, extrae un Evento de Efecto de tu Efecto.
+- Si quieres leer el último valor sin "reaccionar" a él, extrae un Evento de Efecto de tu Efecto.
 - En JavaScript, los objetos y funciones se consideran diferentes si se crean en momentos diferentes.
 - Intenta evitar objetos y funciones como dependencias. Muévelos fuera del componente o dentro del Efecto.
 
@@ -1239,15 +1239,15 @@ export default function Timer() {
 
 </Sandpack>
 
-En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` («¡incrementa este número!»). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el _array_ de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
+En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` ("¡incrementa este número!"). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el _array_ de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
 
 </Solution>
 
 #### Arregla una animación que se vuelve a ejecutar {/*fix-a-retriggering-animation*/}
 
-En este ejemplo, cuando presionas «Show», se muestra con un efecto de fundido un mensaje de bienvenida. La animación toma un segundo. Cuando presionas «Remove», el mensaje de bienvenida desaparece inmediatamente. La lógica para la animación del efecto fundido se implementa en el archivo `animation.js` como un [bucle de animación](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) de JavaScript. No necesitas cambiar esa lógica. Puedes tratarla como una biblioteca de terceros. Tu Efecto crea una instancia de `FadeInAnimation` para el nodo del DOM, y luego llama `start(duration)` o `stop()` para controlar la animación. La duración `duration` se controla por un _slider_. Ajusta el _slider_ y mira como cambia la animación.
+En este ejemplo, cuando presionas "Show", se muestra con un efecto de fundido un mensaje de bienvenida. La animación toma un segundo. Cuando presionas "Remove", el mensaje de bienvenida desaparece inmediatamente. La lógica para la animación del efecto fundido se implementa en el archivo `animation.js` como un [bucle de animación](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) de JavaScript. No necesitas cambiar esa lógica. Puedes tratarla como una biblioteca de terceros. Tu Efecto crea una instancia de `FadeInAnimation` para el nodo del DOM, y luego llama `start(duration)` o `stop()` para controlar la animación. La duración `duration` se controla por un _slider_. Ajusta el _slider_ y mira como cambia la animación.
 
-Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando mueves el _slider_ que controla la variable de estado `duration`, se vuelve a ejecutar la animación. Cambia el comportamiento para que el Efecto no «reaccione» a la variable `duration`. Cuando presiones «Show», el Efecto debe usar el valor actual de `duration` en el _slider_. Sin embargo, el hecho de mover el _slider_ no debería por sí solo volver a ejecutar la animación.
+Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando mueves el _slider_ que controla la variable de estado `duration`, se vuelve a ejecutar la animación. Cambia el comportamiento para que el Efecto no "reaccione" a la variable `duration`. Cuando presiones "Show", el Efecto debe usar el valor actual de `duration` en el _slider_. Sin embargo, el hecho de mover el _slider_ no debería por sí solo volver a ejecutar la animación.
 
 <Hint>
 
@@ -1380,7 +1380,7 @@ html, body { min-height: 300px; }
 
 <Solution>
 
-Tu Efecto necesita leer el último valor de `duration`, pero no quieres que «reaccione»  a los cambios de `duration`. Usas `duration` para iniciar la animación, pero el inicio de la animación no es reactivo. Extrae la línea de código no reactiva dentro de un Efecto de Evento y llama la función desde tu Efecto.
+Tu Efecto necesita leer el último valor de `duration`, pero no quieres que "reaccione"  a los cambios de `duration`. Usas `duration` para iniciar la animación, pero el inicio de la animación no es reactivo. Extrae la línea de código no reactiva dentro de un Efecto de Evento y llama la función desde tu Efecto.
 
 <Sandpack>
 
@@ -1509,7 +1509,7 @@ Los Eventos de Efecto como `onAppear` no son reactivos, por lo que puedes leer `
 
 #### Soluciona la reconexión del chat {/*fix-a-reconnecting-chat*/}
 
-En este ejemplo, cada vez que presionas «Toggle theme», el chat se reconecte. ¿Por qué pasa esto? Soluciona el error para que el chat se reconecte solo cuando edites la URL del servidor o elijas una habitación de chat diferente.
+En este ejemplo, cada vez que presionas "Toggle theme", el chat se reconecte. ¿Por qué pasa esto? Soluciona el error para que el chat se reconecte solo cuando edites la URL del servidor o elijas una habitación de chat diferente.
 
 Trata `chat.js` como una biblioteca externa de terceros: puedes consultarla para comprobar su API, pero no la edites.
 
@@ -1812,7 +1812,7 @@ No cambies ningún código dentro de `chat.js`. Aparte de eso, puedes cambiar cu
 
 Estás pasando hacia abajo dos funciones: `onMessage` y `createConnection`. Ambas se crean nuevas cada vez que `App` se rerenderiza. Se consideran nuevos valores cada vez, que es lo que provoca que se vuelva a ejecutar tu Efecto.
 
-Una de estas funciones es un manejador de eventos. ¿Sabes de alguna forma de llamar un manejador de eventos dentro de un Efecto sin «reaccionar» a los nuevos valores de la función manejadora de eventos? ¡Eso sería útil!
+Una de estas funciones es un manejador de eventos. ¿Sabes de alguna forma de llamar un manejador de eventos dentro de un Efecto sin "reaccionar" a los nuevos valores de la función manejadora de eventos? ¡Eso sería útil!
 
 La otra función solo existe para pasar algún estado a un método de una API importada. ¿Es esta función realmente necesaria? ¿Cuál es la información esencial que se pasa hacia abajo? Podrías necesitar mover algunas importaciones de `App.js` a `ChatRoo.js`.
 
