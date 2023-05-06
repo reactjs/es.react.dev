@@ -46,7 +46,7 @@ As we shared in the release post, React 18 introduces features powered by our ne
 Last week we hosted our 6th React Conf.  In previous years, we’ve used the React Conf stage to deliver industry changing announcements such as React Native and React Hooks. This year, we shared our multi-platform vision for React, starting with the release of React 18 and gradual adoption of concurrent features...
 </BlogCard>
 
-<BlogCard title="The Plan for React 18" date="8 de junio de 2021" url="/blog/2021/06/08/the-plan-for-react-18">
+<BlogCard title="El plan para React 18" date="8 de junio de 2021" url="/blog/2021/06/08/the-plan-for-react-18">
 El equipo de React está emocionado por compartir algunas novedades:
 
 - Empezamos a trabajar en el lanzamiento de React 18, nuestra próxima versión mayor.
@@ -55,7 +55,7 @@ El equipo de React está emocionado por compartir algunas novedades:
 </BlogCard>
 
 <BlogCard title="Presentación de los Componentes de React en el Servidor" date="21 de diciembre de 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
-2020 ha sido un año bastante largo. Mientras llega a su fin, queremos compartirte una actualización especial de temporada sobre nuestra investigación acerca de los **Componentes de React en el Servidor** (*React Server Components* o RSC) con cero JavaScript del lado del cliente. Para introducir los Componentes de React en el Servidor, hemos preparado una charla y una demo. Si lo deseas, puedes revisarlas durante las vacaciones decembrinas, o después cuando el trabajo se reanude en el año nuevo...
+2020 ha sido un año bastante largo. Antes de que termine queremos compartirte una actualización especial de fin de año sobre nuestra investigación acerca de los **Componentes de React en el Servidor** (*React Server Components* o RSC) con cero JavaScript del lado del cliente. Para introducir los Componentes de React en el Servidor, hemos preparado una charla y una demo. Si lo deseas, puedes revisarlas durante las vacaciones decembrinas, o después cuando el trabajo se reanude en el año nuevo...
 </BlogCard>
 
 </div>

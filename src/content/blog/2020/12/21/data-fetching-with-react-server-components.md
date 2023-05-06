@@ -8,7 +8,7 @@ title: "Presentación de los Componentes de React en el Servidor"
 
 <Intro>
 
-2020 ha sido un año bastante largo. Mientras llega a su fin, queremos compartirte una actualización especial de temporada sobre nuestra investigación acerca de los **Componentes de React en el Servidor** (*React Server Components* o RSC) con cero JavaScript del lado del cliente.
+2020 ha sido un año bastante largo. Antes de que termine queremos compartirte una actualización especial de fin de año sobre nuestra investigación acerca de los **Componentes de React en el Servidor** (*React Server Components* o RSC) con cero JavaScript del lado del cliente.
 
 </Intro>
 
