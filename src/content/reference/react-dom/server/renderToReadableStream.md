@@ -56,7 +56,7 @@ Desde el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoo
   * **opcional** `identifierPrefix`: Prefijo (string) que React usa para los IDs generados mediante [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se usan múltiples raíces (roots) en la misma página. Debe ser el mismo prefijo que se le pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
   * **opcional** `namespaceURI`: Un string con la raíz del [namespace URI](https://developer.mozilla.org/es/docs/Web/API/Document/createElementNS#namespace_uris_válidos) para el stream. Por defecto se usa HTML. Usa `'http://www.w3.org/2000/svg'` para SVG o `'http://www.w3.org/1998/Math/MathML'` para MathML.
   * **opcional** `nonce`: Un string [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) que le permite al script la [`script-src` política de contenido seguro (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
-  * **opcional** `onError`: Retrollamada que se activa cuando ocurre un error en el servidor, sea [recuperable](#recovering-from-errors-outside-the-shell) o [no.](#recovering-from-errors-inside-the-shell) Por defecto, solo ejecuta `console.error`. Si lo sobreescribes para [registrar errores en el servidor,](#logging-crashes-on-the-server) asegúrate que sigues llamando a `console.error`. También puedes usarlo para [ajustar el código de estado](#setting-the-status-code) antes de que el shell sea emitido.
+  * **opcional** `onError`: Callback que se activa cuando ocurre un error en el servidor, sea [recuperable](#recovering-from-errors-outside-the-shell) o [no.](#recovering-from-errors-inside-the-shell) Por defecto, solo ejecuta `console.error`. Si lo sobreescribes para [registrar errores en el servidor,](#logging-crashes-on-the-server) asegúrate que sigas llamando a `console.error`. También puedes usarlo para [ajustar el código de estado](#setting-the-status-code) antes de que el shell sea emitido.
   * **opcional** `progressiveChunkSize`: El número de bytes en un chunk. [Leer más sobre el heurístico que se usa por defecto.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
   * **opcional** `signal`: Una [señal de aborto](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar el renderizado en el servidor](#aborting-server-rendering) y el resto del renderizado en el cliente.
 
@@ -65,8 +65,8 @@ Desde el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoo
 
 `renderToReadableStream` devuelve una promesa:
 
-- Si el [shell](#specifying-what-goes-into-the-shell) se renderizó satisfactoriamente, la promesa se resolverá a un [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
-- Si el renderizado del shell falla, la promesa será rechazada. [Usa esto para mostrar un shell mediante retrollamada.](#recovering-from-errors-inside-the-shell)
+- Si el [shell](#specifying-what-goes-into-the-shell) se renderizó satisfactoriamente, la promesa se devolverá a un [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+- Si el renderizado del shell falla, la promesa será rechazada. [Usa esto para mostrar un shell mediante un callback.](#recovering-from-errors-inside-the-shell)
 
 El stream devuelto tiene una propiedad adicional:
 
@@ -76,7 +76,7 @@ El stream devuelto tiene una propiedad adicional:
 
 ## Uso {/*usage*/}
 
-### Renderizar árbol de React como HTML a Readable Web Stream {/*rendering-a-react-tree-as-html-to-a-readable-web-stream*/}
+### Renderizar un árbol de React como HTML a un Readable Web Stream {/*rendering-a-react-tree-as-html-to-a-readable-web-stream*/}
 
 Llama `renderToReadableStream` para renderizar tu árbol de React como HTML a [Readable Web Stream:](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
 
@@ -123,9 +123,8 @@ React inyectará el [doctype](https://developer.mozilla.org/es/docs/Glossary/Doc
   <!-- ... HTML de tus componentes ... -->
 </html>
 <script src="/main.js" async=""></script>
-  ```
 
-En el cliente, tu script de arranque debería [hidratar el `document` entero con una llamada a `hydrateRoot`:](/reference/react-dom/client/hydrateRoot#hydrating-an-entire-document)
+En el cliente, tu script inicial debería [hidratar el `document` entero con una llamada a `hydrateRoot`:](/reference/react-dom/client/hydrateRoot#hydrating-an-entire-document)
 
 ```js [[1, 4, "<App />"]]
 import { hydrateRoot } from 'react-dom/client';
@@ -140,7 +139,7 @@ Esto adjuntará detectores de eventos al HTML generado en el servidor, haciendo 
 
 #### Leer recursos CSS y JS mediante su ruta a través del output {/*reading-css-and-js-asset-paths-from-the-build-output*/}
 
-Las URL finales de los recursos (como los archivos CSS y JS) suelen ser hasheadas después de la compilación. Por ejemplo, en lugar de `estilos.css` podrías tener `estilos.123456.css`. Hashear nombres de archivos estáticos garantiza que cada build distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite activar de forma segura el almacenamiento en caché a largo plazo para recursos estáticos: un archivo con un nombre característico nunca cambiaría su contenido.
+Las URL finales de los recursos (como los archivos CSS y JS) suelen ser hasheadas después de la compilación. Por ejemplo, en lugar de `estilos.css` podrías tener `estilos.123456.css`. El hasheo de nombres de archivos estáticos garantiza que cada versión distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite activar de forma segura el almacenamiento en caché a largo plazo para recursos estáticos: un archivo con un nombre característico nunca cambiaría su contenido.
 
 Sin embargo, si no conoces las URLs de los recursos hasta después de tener el build, no te será posible ponerlas en el código fuente. Por ejemplo, si hardcodeas `"/styles.css"` en JSX, esto no funcionaría, puesto que es una URL relativa. Para mantenerlas fuera del código fuente, tu componente raíz puede leer el nombre real de un archivo a través de un mapa pasado como propiedad:
 
