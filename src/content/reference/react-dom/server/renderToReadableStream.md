@@ -22,7 +22,7 @@ Esta API depende de [Streams Web.](https://developer.mozilla.org/en-US/docs/Web/
 
 ---
 
-## Referencias {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `renderToReadableStream(reactNode, options?)` {/*rendertoreadablestream*/}
 
