@@ -23,13 +23,13 @@ Algunos de tus componentes puede que necesiten controlar y sincronizarse con sis
 
 ## Referencia valores con refs {/*referencing-values-with-refs*/}
 
-Cuando quieres que un componente "recuerde" cierta información, pero no quieres que esa información [desencadene nuevos renderizados](/learn/render-and-commit), puedes usar una *Ref*:
+Cuando quieres que un componente "recuerde" cierta información, pero no quieres que esa información [desencadene nuevos renderizados](/learn/render-and-commit), puedes usar una *ref*:
 
 ```js
 const ref = useRef(0);
 ```
 
-Al igual que un estado, las Refs son retenidas por React entre nuevos renderizados. Sin embargo, al asignar un nuevo valor al estado se vuelve a renderizar el componente. ¡Cambiar el valor de la Ref no lo hace! Puedes acceder al valor actual de esa Ref a través de la propiedad `ref.current`.
+Al igual que un estado, las refs son retenidas por React entre nuevos renderizados. Sin embargo, al asignar un nuevo valor al estado se vuelve a renderizar el componente. ¡Cambiar el valor de la ref no lo hace! Puedes acceder al valor actual de esa ref a través de la propiedad `ref.current`.
 
 <Sandpack>
 
@@ -54,17 +54,17 @@ export default function Counter() {
 
 </Sandpack>
 
-Una Ref es como un bolsillo secreto de tu componente que React no puede rastrear. Por ejemplo, puedes usar Refs para almacenar [timeout IDs](https://developer.mozilla.org/es/docs/Web/API/setTimeout#valor_devuelto), [DOM elements](https://developer.mozilla.org/en-US/docs/Web/API/Element), y otros objetos que no tienen un impacto en el resultado del renderizado de tu componente.
+Una ref es como un bolsillo secreto de tu componente que React no puede rastrear. Por ejemplo, puedes usar refs para almacenar [timeout IDs](https://developer.mozilla.org/es/docs/Web/API/setTimeout#valor_devuelto), [DOM elements](https://developer.mozilla.org/en-US/docs/Web/API/Element), y otros objetos que no tienen un impacto en el resultado del renderizado de tu componente.
 
 <LearnMore path="/learn/referencing-values-with-refs">
 
-Lee **[Referenciar valores con Refs](/learn/referencing-values-with-refs)** para aprender como usar las Refs y recordar información.
+Lee **[Referenciar valores con refs](/learn/referencing-values-with-refs)** para aprender como usar las refs y recordar información.
 
 </LearnMore>
 
 ## Manipular el DOM con refs {/*manipulating-the-dom-with-refs*/}
 
-React automáticamente actualiza el DOM para coincidir con el resultado de tu renderizado, por lo que tus componentes no se necesitarán manipular frecuentemente. Sin embargo, algunas veces puede que necesites acceder a los elementos del DOM gestionados por React—por ejemplo, referenciar un nodo, desplazarse hacia él, o medir su tamaño y posición. No hay una manera integrada de hacer esto en React, así que necesitarás una Ref hacia el nodo del DOM. Por ejemplo, al hacer clic en el botón se enfocará el input usando una Ref:
+React automáticamente actualiza el DOM para coincidir con el resultado de tu renderizado, por lo que tus componentes no se necesitarán manipular frecuentemente. Sin embargo, algunas veces puede que necesites acceder a los elementos del DOM gestionados por React—por ejemplo, referenciar un nodo, desplazarse hacia él, o medir su tamaño y posición. No hay una manera integrada de hacer esto en React, así que necesitarás una ref hacia el nodo del DOM. Por ejemplo, al hacer clic en el botón se enfocará el input usando una ref:
 
 <Sandpack>
 
@@ -93,7 +93,7 @@ export default function Form() {
 
 <LearnMore path="/learn/manipulating-the-dom-with-refs">
 
-Lee **[Manipular el DOM con Refs](/learn/manipulating-the-dom-with-refs)** para aprender como acceder a los elementos del DOM manejados por React.
+Lee **[Manipular el DOM con refs](/learn/manipulating-the-dom-with-refs)** para aprender como acceder a los elementos del DOM manejados por React.
 
 </LearnMore>
 
@@ -191,7 +191,7 @@ Lee **[Sincronizar con Efectos](/learn/synchronizing-with-effects)** para aprend
 
 </LearnMore>
 
-## Puede que no necesites un efecto {/*you-might-not-need-an-effect*/}
+## Puede que no necesites un Efecto {/*you-might-not-need-an-effect*/}
 
 Los Efectos son una puerta de escape del paradigma de React. Te permiten "salir" de React y sincronizar tus componentes con algún sistema externo. Si no hay un sistema externo involucrado (por ejemplo, si quieres actualizar el estado de un componente cuando cambien algunas props o estados), no deberías necesitar un Efecto. La eliminación de Efectos innecesarios harán tu código más fácil de comprender, más rápido de ejecutar y menos propenso a errores.
 
@@ -231,7 +231,7 @@ Sin embargo, *necesitas* Efectos para sincronizar con sistemas externos.
 
 <LearnMore path="/learn/you-might-not-need-an-effect">
 
-Lee **[Puede que no necesites de un Efecto](/learn/you-might-not-need-an-effect)** para aprender como eliminar Efectos innecesarios.
+Lee **[Puede que no necesites un Efecto](/learn/you-might-not-need-an-effect)** para aprender como eliminar Efectos innecesarios.
 
 </LearnMore>
 
@@ -845,4 +845,4 @@ Lee **[Reutilizar la lógica con Hooks integrados](/learn/reusing-logic-with-cus
 
 ## Qué sigue? {/*whats-next*/}
 
-¡Dirígete a [Referenciar valores con Refs](/learn/referencing-values-with-refs) para empezar a leer este capítulo!
+¡Dirígete a [Referenciar valores con refs](/learn/referencing-values-with-refs) para empezar a leer este capítulo!
