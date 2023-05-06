@@ -829,7 +829,7 @@ export default function App() {
 
 Verás tres mensajes al principio: `Programar mensaje "a"`, `Cancelar mensaje "a"`, y `Programar mensaje "a"` de nuevo. Tres segundos después también aparecerá un mensaje que dice `a`. Como aprendiste anteriormente, el programar/cancelar extra se debe a que React vuelve a montar el componente en desarrollo para verificar que has implementado correctamente la limpieza.
 
-Ahora edita el campo de texto para que diga `abc`. Si lo hace lo suficientemente rápido, verá `Programar mensaje "ab"` seguido inmediatamente de `Cancelar mensaje "ab"` y `Programar mensaje "abc"`. **React siempre limpia el Efecto del renderizado anterior antes de ejecutar el Efecto de la siguiente renderización** Es porque, incluso si escribe rápidamente en el campo de texto, hay como máximo un temporizador programado a la vez. Edita el campo varias veces y observe la consola para tener una idea de como se limpian los Efectos.
+Ahora edita el campo de texto para que diga `abc`. Si lo haces lo suficientemente rápido, verás `Programar mensaje "ab"` seguido inmediatamente de `Cancelar mensaje "ab"` y `Programar mensaje "abc"`. **React siempre limpia el Efecto del renderizado anterior antes de ejecutar el Efecto del siguiente renderizado.** Es por eso que incluso si escribes rápidamente en el campo de texto, hay como máximo un temporizador programado a la vez. Edita el campo varias veces y observa la consola para tener una idea de cómo se limpian los Efectos.
 
 Escribe algo dentro del campo e inmediatamente presiona "Desmontar componente". Observa como al desmontar se limpia el Efecto del último renderizado. En este caso, se elimina el último tiempo de espera antes de que tenga la oportunidad de ejecutarse.
 
