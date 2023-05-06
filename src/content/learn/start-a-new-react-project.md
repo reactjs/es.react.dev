@@ -10,7 +10,7 @@ Si deseas crear una nueva aplicación o un nuevo sitio web completamente con Rea
 
 <Note>
 
-**Necesitas instalar [Node.js](https://nodejs.org/es/) para el desarrollo local.** Puedes *también* optar por usar Node.js en producción, pero no tienes que hacerlo . Muchos frameworks de React admiten la exportación a una carpeta HTML/CSS/JS estática.
+**Necesitarás instalar [Node.js](https://nodejs.org/es/) para el desarrollo local.** Puedes *también* optar por usar Node.js en producción, pero no tienes que hacerlo. Muchos frameworks de React permiten exportar a una carpeta HTML/CSS/JS estática.
 
 </Note>
 
@@ -18,13 +18,13 @@ Si deseas crear una nueva aplicación o un nuevo sitio web completamente con Rea
 
 ### Next.js {/*nextjs*/}
 
-**[Next.js](https://nextjs.org/) es un framework de React muy completo.** Es versátil y te permite crear aplicaciones React de cualquier tamaño, desde un blog mayormente estático hasta una aplicación dinámica compleja. Para crear un nuevo proyecto Next.js, ejecútalo en yu terminal:
+**[Next.js](https://nextjs.org/) es un framework de React muy completo.** Es versátil y te permite crear aplicaciones React de cualquier tamaño, desde un blog estático hasta una aplicación dinámica compleja. Para crear un nuevo proyecto Next.js, ejecuta en tu terminal:
 
 <TerminalBlock>
 npx create-next-app
 </TerminalBlock>
 
-Si eres nuevo en Next.js, consulta el [tutorial de Next.js.](https://nextjs.org/learn/foundations/about-nextjs)
+Si eres nuevo en Next.js, mira el [tutorial de Next.js.](https://nextjs.org/learn/foundations/about-nextjs)
 
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. [Las aplicaciones Next.js estáticas](https://nextjs.org/docs/advanced-features/static-html-export) se pueden implementar en cualquier alojamiento estático.
 
@@ -36,13 +36,13 @@ Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una 
 npx create-remix
 </TerminalBlock>
 
-Si eres nuevo en Remix, consulta el [tutorial del blog](https://remix.run/docs/en/main/tutorials/blog) (corto) y el [tutorial de la aplicación](https://remix.run/docs/en/main/tutorials/jokes) (largo).
+Si eres nuevo en Remix, mira el [tutorial del blog de Remix](https://remix.run/docs/en/main/tutorials/blog) (corto) y el [tutorial de la aplicación](https://remix.run/docs/en/main/tutorials/jokes) (largo).
 
 Remix es mantenido por [Shopify](https://www.shopify.com/es). Cuando creas un proyecto Remix, debes [elegir su destino de implementación](https://remix.run/docs/en/main/guides/deployment). Puedes implementar una aplicación Remix en cualquier ambiente Node.js, alojamiento sin servidor usando o escribiendo un [adaptador](https://remix.run/docs/en/main/other-api/adapter).
 
 ### Gatsby {/*gatsby*/}
 
-**[Gatsby](https://www.gatsbyjs.com/) es un framework de React para sitios web rápidos respaldados por CMS.** Su ecosistema es rico en complementos y su capa de datos GraphQL simplifican la integración de contenido, API y servicios en un sitio web . Para crear un nuevo proyecto de Gatsby, ejecuta:
+**[Gatsby](https://www.gatsbyjs.com/) es un framework de React para sitios web rápidos respaldados por un CMS.** Su ecosistema es rico en complementos y su capa de datos GraphQL simplifica la integración de contenido, API y servicios en un sitio web. Para crear un nuevo proyecto de Gatsby, ejecuta:
 
 <TerminalBlock>
 npx create-gatsby
@@ -91,7 +91,7 @@ Estas funciones están cada vez más cerca de estar listas para la producción t
 
 **[El enrutador de aplicaciones de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de la API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa del equipo de React.** te permite obtener datos en componentes asincrónicos que se ejecutan en el servidor o incluso durante la compilación.
 
-Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también admite [exportación estática](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
+Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también permite [exportar archivos estáticos](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
 <Pitfall>
 
 El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (para de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
@@ -120,7 +120,7 @@ async function Talks({ confId }) {
 }
 ```
 
-El enrutador de aplicaciones de Next.js también integra [obtención de datos con Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Esto te permite especificar un estado de carga (como un marcador de posición de esqueleto) para diferentes partes de tu interfaz de usuario directamente en tu árbol React:
+El enrutador de aplicaciones de Next.js también integra [obtención de datos con Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Esto te permite especificar un estado de carga (como un esqueleto) para diferentes partes de tu interfaz de usuario directamente en tu árbol React:
 
 ```js
 <Suspense fallback={<TalksLoading />}>
