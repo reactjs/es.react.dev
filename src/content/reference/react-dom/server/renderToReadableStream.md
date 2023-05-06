@@ -450,7 +450,7 @@ Si el intento de renderizado de `Posts` en el cliente se logra con éxito, el s�
 
 El streaming requiere de una compensación. Se pretende empezar el streaming lo antes posible de forma que el usuario vea el contenido lo antes posible también. No obstante, una vez se empieza el streaming, no es posible establecer un código de estado.
 
-Al [dividir la app](#specifying-what-goes-into-the-shell) en shell (por encima de los perímetros `<Suspense>`) y el resto de contenido, ya se ha solucionado una parte de este problema. Si el shell falla, el bloque `catch` te permitirá establecer el código de estado del error. De lo contrario, sabes que la app se podrá recuperar en el cliente, por lo que puedes enviar un "OK".
+Al [dividir la app](#specifying-what-goes-into-the-shell) en el shell (por encima de los perímetros `<Suspense>`) y el resto de contenido, ya se ha solucionado una parte de este problema. Si el shell falla, el bloque `catch` te permitirá establecer el código de estado del error. De lo contrario, sabes que la app se podrá recuperar en el cliente, por lo que puedes enviar un "OK".
 
 ```js {11}
 async function handler(request) {
