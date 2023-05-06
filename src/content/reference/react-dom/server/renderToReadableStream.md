@@ -43,7 +43,7 @@ async function handler(request) {
 
 Desde el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer interactivo el HTML generado en el servidor.
 
-[Consulta más ejemplos abajo.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
 #### Parámetros {/*parameters*/}
 
