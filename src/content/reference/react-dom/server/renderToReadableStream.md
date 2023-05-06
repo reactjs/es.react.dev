@@ -123,6 +123,7 @@ React inyectará el [doctype](https://developer.mozilla.org/es/docs/Glossary/Doc
   <!-- ... HTML de tus componentes ... -->
 </html>
 <script src="/main.js" async=""></script>
+```
 
 En el cliente, tu script inicial debería [hidratar el `document` entero con una llamada a `hydrateRoot`:](/reference/react-dom/client/hydrateRoot#hydrating-an-entire-document)
 
