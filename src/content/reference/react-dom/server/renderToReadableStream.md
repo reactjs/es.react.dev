@@ -142,7 +142,7 @@ Esto adjuntará detectores de eventos al HTML generado en el servidor, haciendo 
 
 Las URL finales de los recursos (como los archivos CSS y JS) suelen ser hasheadas después de la compilación. Por ejemplo, en lugar de `estilos.css` podrías tener `estilos.123456.css`. Hashear nombres de archivos estáticos garantiza que cada build distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite activar de forma segura el almacenamiento en caché a largo plazo para recursos estáticos: un archivo con un nombre característico nunca cambiaría su contenido.
 
-Sin embargo, si no conoces las URLs de los recursos hasta después de tener la build, no te será posible ponerlas en el código fuente. Por ejemplo, *hardcod*eas `"/styles.css"` en JSX, esto no funcionaría, puesto que es una URL relativa. Para mantenerlas fuera del código fuente, tu componente raíz puede leer el nombre real de un archivo a través de un mapa pasado como propiedad:
+Sin embargo, si no conoces las URLs de los recursos hasta después de tener el build, no te será posible ponerlas en el código fuente. Por ejemplo, si hardcodeas `"/styles.css"` en JSX, esto no funcionaría, puesto que es una URL relativa. Para mantenerlas fuera del código fuente, tu componente raíz puede leer el nombre real de un archivo a través de un mapa pasado como propiedad:
 
 ```js {1,6}
 export default function App({ assetMap }) {
