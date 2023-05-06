@@ -283,7 +283,7 @@ Cuando se streamea no es necesario esperar a que React en sí mismo cargue en el
 
 <Note>
 
-**Solo las fuentes de información "Suspense-enabled" activarán el componente Suspense.** Se incluyen:
+**Solo las fuentes de información "Suspense-enabled" activarán el componente Suspense.** Estas incluyen:
 
 - Obtención de datos con frameworks "Suspense-enabled" como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
 - Código de componentes lazy-loading de [`lazy`](/reference/react/lazy)
