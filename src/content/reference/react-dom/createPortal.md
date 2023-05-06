@@ -131,7 +131,7 @@ Un portal modifica solamente la ubicación física del nodo de DOM, mientras que
 
 ### Renderizar una ventana modal con un portal {/*rendering-a-modal-dialog-with-a-portal*/}
 
-Los portales permiten crear una ventana modal que aparezca por encima del resto de la página, incluso si el componente que la llama está dentro de un contenedor con estilos que afecten a la ventana modal, como `overflow: hidden`.
+Los portales permiten dejar que una ventana modal aparezca por encima del resto de la página, incluso si el componente que la llama está dentro de un contenedor con estilos que afecten a la ventana modal, como `overflow: hidden`.
 
 En este ejemplo, ambos contenedores tienen estilos que interfieren con la ventana modal, pero la que se renderiza a través de un portal no se ve afectada porque, en el DOM, la ventana no está dentro de los elementos JSX padres.
 
