@@ -47,7 +47,7 @@ Desde el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoo
 
 #### Parámetros {/*parameters*/}
 
-* `reactNode`: Nodo de React que quieras renderizar a HTML. Por ejemplo, un elemento JSX como `<App />`. Se presupone que representará el documento completo, por lo que el componente `App` debería renderizar la etiqueta `<html>`.
+* `reactNode`: Es un nodo de React que quieres renderizar en HTML. Por ejemplo, un elemento JSX como `<App />`. Se presupone que representará el documento completo, por lo que el componente `App` debería renderizar la etiqueta `<html>`.
 
 * **opcional** `options`: Objeto con las opciones de streaming.
   * **opcional** `bootstrapScriptContent`: Si se especifica, esta cadena será colocada dentro de una etiqueta `<script>`.
