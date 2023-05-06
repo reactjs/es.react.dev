@@ -161,7 +161,7 @@ export default function App({ assetMap }) {
 En el servidor, renderiza `<App assetMap={assetMap} />` y pasa tu `assetMap` con las URLs de los recursos:
 
 ```js {1-5,8,9}
-// Necesitarás obtener este JSON a través de tus herramientas de compilación. Por ejemplo, leyéndolo desde laconsola de compilación
+// Necesitarás obtener este JSON a través de tus herramientas de compilación. Por ejemplo, leyéndolo desde la consola de compilación
 const assetMap = {
   'estilos.css': '/estilos.123456.css',
   'main.js': '/main.123456.js'
