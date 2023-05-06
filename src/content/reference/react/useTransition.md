@@ -1574,7 +1574,6 @@ startTransition(async () => {
 
 Sin embargo, esto funciona en su lugar:
 
-
 ```js
 await someAsyncFunction();
 startTransition(() => {
@@ -1588,6 +1587,7 @@ startTransition(() => {
 ### Quiero llamar a `useTransition` desde fuera de un componente {/*i-want-to-call-usetransition-from-outside-a-component*/}
 
 No puedes llamar a `useTransition` fuera de un componente porque es un Hook. En este caso, utiliza el método independiente [`startTransition`](/reference/react/startTransition). Funciona de la misma manera, pero no proporciona el indicador `isPending`.
+
 ---
 
 ### La función que paso a `startTransition` se ejecuta inmediatamente {/*the-function-i-pass-to-starttransition-executes-immediately*/}
