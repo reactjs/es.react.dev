@@ -12,7 +12,7 @@ El equipo de React está emocionado por compartir algunas novedades:
 
 1. Empezamos a trabajar en el lanzamiento de React 18, nuestra próxima versión mayor.
 2. Creamos un grupo de trabajo para preparar a la comunidad ante una adopción gradual de las nuevas características en React 18.
-3. Publicamos React 18 Alpha para que los autores de bibliotecas puedan probarlo y dar feedback.
+3. Publicamos React 18 Alpha para que los autores de bibliotecas puedan probarlo y darnos sus impresiones.
 
 Estas actualizaciones son principalmente apuntado a los mantenedores de otras bibliotecas. Si estás aprendiendo, enseñando o usando React para construir aplicaciones para usuarios, puedes ignorar esta publicación de manera segura. ¡Pero eres bienvenido de seguir las discusiones en el Grupo de Trabajo de React 18 si sientes curiosidad!
 
