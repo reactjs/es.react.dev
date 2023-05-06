@@ -10,7 +10,7 @@ Algunos componentes tienen la necesidad de sincronizarse con sistemas externos. 
 
 <YouWillLearn>
 
-- Que son los Efectos
+- Qué son los Efectos
 - Cómo se diferencian los Efectos de los eventos
 - Cómo declarar un Efecto en tu componente
 - Cómo evitar que un Efecto se vuelva a ejecutar innecesariamente
@@ -18,7 +18,7 @@ Algunos componentes tienen la necesidad de sincronizarse con sistemas externos. 
 
 </YouWillLearn>
 
-## Que son los efectos y en que se diferencian de los eventos? {/*what-are-effects-and-how-are-they-different-from-events*/}
+## ¿Qué son los efectos y en que se diferencian de los eventos? {/*what-are-effects-and-how-are-they-different-from-events*/}
 
 Antes de empezar con los Efectos, necesitas familiarizarte con dos tipos de lógica dentro de los componentes de React:
 
@@ -39,7 +39,7 @@ A partir de ahora en este texto, "Efecto" en mayúsculas se refiere a la definic
 
 ## Quizás no necesites un Efecto {/*you-might-not-need-an-effect*/}
 
-**No te apresures en añadir Efectos en tus componentes.** Ten en cuenta que los Efectos se usan típicamente para "salir" de tu código React y sincronizar con algún sistema *externo*. Esto incluye APIs del navegador, widgets de terceros, red, etc. Si tu efecto solo ajusta un estado basado en otro estado, [quizás no necesites un Efecto.](/learn/you-might-not-need-an-effect)
+**No te apresures en añadir Efectos en tus componentes.** Ten en cuenta que los Efectos se usan típicamente para "salir" de tu código React y sincronizar con algún sistema *externo*. Esto incluye APIs del navegador, widgets de terceros, red, etc. Si tu Efecto solo ajusta un estado basado en otro estado, [quizás no necesites un Efecto.](/learn/you-might-not-need-an-effect)
 
 ## Cómo escribir un Efecto {/*how-to-write-an-effect*/}
 
@@ -47,13 +47,13 @@ Para escribir un Efecto, sigue los siguientes pasos:
 
 1. **Declara un Efecto.** Por defecto, tu Efecto se ejecutará después de cada renderizado.
 2. **Define las dependencias del Efecto.** La mayoría de los Efectos solo deben volver a ejecutarse *cuando sea necesario* en lugar de hacerlo después de cada renderizado. Por ejemplo, una animación de desvanecimiento solo debe desencadenarse cuando aparece el componente. La conexión y desconexión a una sala de chat solo debe suceder cuando el componente aparece y desaparece, o cuando cambia la sala de chat. Aprenderás cómo controlar esto especificando las *dependencias*.
-3. **Añade limpieza si es necesario.** Algunos Efectos necesitan especificar como detener, deshacer, o limpiar cualquier cosa que estaban haciendo. Por ejemplo, "conectar" necesita "desconectar", "suscribirse" necesita "anular suscripción" y "buscar" necesita "cancelar" o "ignorar". Aprenderás cómo hacer esto devolviendo una *función de limpieza*
+3. **Añade limpieza si es necesario.** Algunos Efectos necesitan especificar cómo detener, deshacer, o limpiar cualquier cosa que estaban haciendo. Por ejemplo, "conectar" necesita "desconectar", "suscribirse" necesita "anular suscripción" y "buscar" necesita "cancelar" o "ignorar". Aprenderás cómo hacer esto devolviendo una *función de limpieza*
 
 Veamos cada uno de estos pasos en detalle.
 
 ### Paso 1: Declara un Efecto {/*step-1-declare-an-effect*/}
 
-Para declarar un efecto en tu componente, importa el [`useEffect` Hook](/reference/react/useEffect) desde React:
+Para declarar un efecto en tu componente, importa el [Hook `useEffect`](/reference/react/useEffect) desde React:
 
 ```js
 import { useEffect } from 'react';
@@ -72,7 +72,7 @@ function MyComponent() {
 
 Cada vez que el componente se renderiza, React actualizará la pantalla *y entonces* ejecutará el código dentro de `useEffect`. En otras palabras, **`useEffect` "retrasa" la ejecución de una parte del código hasta que el renderizado es reflejado en la pantalla.**
 
-Veamos como puedes usar un Efecto para sincronizarlo con un sistema externo. Considera un componente de React `<VideoPlayer>`. Sería bueno controlar si está reproduciéndose o en pausa, enviándole la prop `isPlaying`:
+Veamos cómo puedes usar un Efecto para sincronizarlo con un sistema externo. Considera un componente de React `<VideoPlayer>`. Sería bueno controlar si está reproduciéndose o en pausa, enviándole la prop `isPlaying`:
 
 ```js
 <VideoPlayer isPlaying={isPlaying} />;
@@ -135,7 +135,7 @@ video { width: 250px; }
 
 La razón por la que este código no es correcto es porque intenta hacer algo con el nodo de DOM durante el renderizado. En React, [renderizar debe ser un cálculo puro](/learn/keeping-components-pure) de JSX y no debe contener efectos secundarios como la modificación del DOM.
 
-Además, cuando se llama a `VideoPlayer` por primera vez, Su DOM no existe todavía! No hay un nodo de DOM para llamar a `play()` o `pause()`, porque React no sabe que DOM crear hasta que se devuelva el JSX.
+Además, cuando se llama a `VideoPlayer` por primera vez, ¡su DOM no existe todavía! No hay un nodo de DOM para llamar a `play()` o `pause()`, porque React no sabe qué DOM crear hasta que se devuelva el JSX.
 
 La solución es **envolver el efecto secundario con `useEffect` para sacarlo del cálculo de renderizado:**
 
@@ -205,13 +205,13 @@ video { width: 250px; }
 
 </Sandpack>
 
-En este ejemplo, el "sistema externo" que sincronizaste con el estado de React fue la browser media API. Puedes usar un enfoque similar para envolver código heredado que no es de React (como plugins de jQuery) en componentes declarativos de React.
+En este ejemplo, el "sistema externo" que sincronizaste con el estado de React fue la API  *browser media*. Puedes usar un enfoque similar para envolver código heredado que no es de React (como plugins de jQuery) en componentes declarativos de React.
 
 Nota que en la práctica, controlar un reproductor de video es mucho más complejo. Llamar a `play()` puede fallar, el usuario podría reproducir o pausar usando los controles integrados del navegador, etc. Este ejemplo es muy simplificado e incompleto.
 
 <Pitfall>
 
-Por defecto, los Efectos se ejecutan después de *cada* renderizado. Por lo tanto un código así **producirá un loop infinito:**
+Por defecto, los Efectos se ejecutan después de *cada* renderizado. Por lo tanto un código así **producirá un ciclo infinito:**
 
 ```js
 const [count, setCount] = useState(0);
@@ -222,7 +222,7 @@ useEffect(() => {
 
 Los Efectos se ejecutan como *resultado* del renderizado. Establecer el estado *desencadena* el renderizado. Establecer el estado inmediatamente en un Efecto es como enchufar un enchufe a sí mismo. El Efecto se ejecuta, establece el estado, lo que provoca un nuevo renderizado, lo que hace que el efecto se ejecute, establece el estado de nuevo, esto provoca otro renderizado, y así sucesivamente.
 
-Los efectos por lo general deben sincronizar tus componentes con un sistema *externo*. Si no hay ningún sistema externo y solo deseas ajustar algún estado en base a otro estado [quizás no necesites un Efecto.](/learn/you-might-not-need-an-effect)
+Los Efectos por lo general deben sincronizar tus componentes con un sistema *externo*. Si no hay ningún sistema externo y solo deseas ajustar algún estado en base a otro estado [quizás no necesites un Efecto.](/learn/you-might-not-need-an-effect)
 
 </Pitfall>
 
@@ -230,8 +230,8 @@ Los efectos por lo general deben sincronizar tus componentes con un sistema *ext
 
 Por defecto, los Efectos se ejecutan después de *cada* renderizado. A menudo, esto **no es lo que tu buscas**:
 
-- A veces, es lento. Sincronizar con un sistema externo no siempre es instantáneo, por lo que es posible que desees evitar hacerlo a menos que sea necesario. Por ejemplo, tu no quieres volver a conectarte al servidor de chat en cada pulsación de tecla.
-- A veces, está mal. Por ejemplo, tu no quieres desencadenar una animación de desvanecimiento en un componente en cada pulsación de tecla. La animación solo se debe reproducir cuando el componente aparece por primera vez.
+- A veces, es lento. Sincronizar con un sistema externo no siempre es instantáneo, por lo que es posible que desees evitar hacerlo a menos que sea necesario. Por ejemplo, no quieres volver a conectarte al servidor de chat en cada pulsación de tecla.
+- A veces, está mal. Por ejemplo, no quieres desencadenar una animación de desvanecimiento en un componente en cada pulsación de tecla. La animación solo se debe reproducir cuando el componente aparece por primera vez.
 
 Para demostrar el problema, aquí está el ejemplo anterior con algunas llamadas `console.log` y un campo de texto que actualiza el estado del componente padre. Observa cómo escribir provoca que el Efecto se ejecute de nuevo:
 
@@ -289,7 +289,7 @@ Puedes indicarle a React **omitir la innecesaria ejecución del Efecto** especif
   }, []);
 ```
 
-Deberías ver el error `React Hook useEffect has a missing dependency: 'isPlaying'`:
+Deberías ver el error `React Hook useEffect has a missing dependency: 'isPlaying'` (Al Hook de React useEffect le falta una dependencia: 'isPlaying'):
 
 <Sandpack>
 
@@ -337,7 +337,7 @@ video { width: 250px; }
 
 </Sandpack>
 
-El problema es que el código dentro de tu Efecto *depende de* la prop `isPlaying` para decidir que hacer, pero esta dependencia no se declaró explícitamente. Para solucionar este problema, añade `isPlaying` al array de dependencias:
+El problema es que el código dentro de tu Efecto *depende de* la prop `isPlaying` para decidir qué hacer, pero esta dependencia no se declaró explícitamente. Para solucionar este problema, añade `isPlaying` al array de dependencias:
 
 ```js {2,7}
   useEffect(() => {
@@ -349,7 +349,7 @@ El problema es que el código dentro de tu Efecto *depende de* la prop `isPlayin
   }, [isPlaying]); // ...entonces debe ser declarado aquí!
 ```
 
-Ahora que todas las dependencias fueron declaradas, no habrá errores. Definiendo `[isPlaying]` como dependencia del array, le indica a React que debe saltarse la ejecución del Efecto si `isPlaying` tiene el mismo valor que el renderizado anterior. Con este cambio, escribir en el campo de texto no causa que el Efecto se vuelva a ejecutar, pero presionar Reproducir/Pausar si lo hace:
+Ahora que todas las dependencias fueron declaradas, no habrá errores. Definiendo `[isPlaying]` como dependencia del array, le indica a React que debe saltarse la ejecución del Efecto si `isPlaying` tiene el mismo valor que el renderizado anterior. Con este cambio, escribir en el campo de texto no causa que el Efecto se vuelva a ejecutar, pero presionar Reproducir/Pausar sí lo hace:
 
 <Sandpack>
 
@@ -457,7 +457,7 @@ function VideoPlayer({ src, isPlaying }) {
 
 La [función `set`](/reference/react/useState#setstate) devuelta por `useState` también tiene identidad estable, así que a menudo verás que también es omitida de las dependencias. Si el linter te permite omitir una dependencia sin errores, entonces es seguro hacerlo.
 
-Omitir dependencias que siempre son estables solo funciona cuando el linter puede "ver" que el objeto es estable. Por ejemplo, si `ref` se pasó desde un componente padre, tienes que declararlo en el array de dependencias. Sin embargo, esto es bueno porque no se puede saber si el componente padre siempre pasa el mismo ref, o pasa uno de varios refs condicionalmente. Por lo tanto, tu Efecto _dependería_ de que ref se pasa.
+Omitir dependencias que siempre son estables solo funciona cuando el linter puede "ver" que el objeto es estable. Por ejemplo, si `ref` se pasó desde un componente padre, tienes que declararlo en el array de dependencias. Sin embargo, esto es bueno porque no se puede saber si el componente padre siempre pasa la mismo ref, o pasa una de varias refs condicionalmente. Por lo tanto, tu Efecto _dependería_ de qué ref se pasa.
 
 </DeepDive>
 
@@ -586,7 +586,7 @@ Ahora obtendrás tres mensajes en la consola en el modo de desarrollo:
 2. `"❌ Desconectado."`
 3. `"✅ Conectando..."`
 
-**Este es el comportamiento correcto en modo de desarrollo.** Al volver a montar el componente, React verifica que navegar a otro lado y luego volver, no romperá tu código. ¡Desconectar y luego conectar nuevamente es exactamente lo que debería suceder! Cuando implementas la limpieza adecuadamente, no debe haber ninguna diferencia visible para el usuario entre ejecutar el Efecto una vez o ejecutarlo, limpiarlo y volver a ejecutarlo. Hay llamadas adicionales a conexión/desconectó porque React está explorando tu código en busca de errores en desarrollo. Esto es normal, ¡No intentes hacerlo desaparecer!.
+**Este es el comportamiento correcto en modo de desarrollo.** Al volver a montar el componente, React verifica que navegar a otro lado y luego volver, no romperá tu código. ¡Desconectar y luego conectar nuevamente es exactamente lo que debería suceder! Cuando implementas la limpieza adecuadamente, no debe haber ninguna diferencia visible para el usuario entre ejecutar el Efecto una vez o ejecutarlo, limpiarlo y volver a ejecutarlo. Hay llamadas adicionales a connect/disconnect porque React está explorando tu código en busca de errores en desarrollo. Esto es normal, ¡No intentes hacerlo desaparecer!.
 
 **En producción, solo verás `"✅ Conectando..."` una vez.** Volver a montar componentes solo sucede en desarrollo para ayudarte a encontrar Efectos que necesitan limpieza. Puedes desactivar el [Modo Estricto](/reference/react/StrictMode) para optar por el comportamiento de producción, pero recomendamos dejarlo activado. Esto te permite encontrar muchos errores como el anterior.
 
@@ -594,7 +594,7 @@ Ahora obtendrás tres mensajes en la consola en el modo de desarrollo:
 
 React intencionalmente vuelve a montar tus componentes en desarrollo con el fin de encontrar errores como en el anterior ejemplo. **La pregunta correcta no es "¿Cómo ejecutar el Efecto una sola vez?", sino "¿Cómo arreglar mi Efecto para que funcione después de que se vuelva a montar?"**
 
-Usualmente, la respuesta es implementar una función de limpieza. La función de limpieza debería detener o deshacer lo que sea que el Efecto hacía. Usually, the answer is to implement the cleanup function. La regla general es que el usuario no deba ser capaz de distinguir si el Efecto se ejecutó una sola vez (como en producción) y una secuencia _configurar → limpiar → configurar_ (como se vería en desarrollo).
+Usualmente, la respuesta es implementar una función de limpieza. La función de limpieza debería detener o deshacer lo que sea que el Efecto hacía. Generalmente, la respuesta es implementar la función de limpieza. La regla general es que el usuario no deba ser capaz de distinguir si el Efecto se ejecutó una sola vez (como en producción) o en una secuencia _configurar → limpiar → configurar_ (como se vería en desarrollo).
 
 La gran parte de los Efectos que escribas se ajustan a uno de los patrones comunes que se describen a continuación.
 
@@ -609,7 +609,7 @@ useEffect(() => {
 }, [zoomLevel]);
 ```
 
-Ten en cuenta que en este caso no se necesita limpiar nada. En desarrollo, React llamará al Efecto dos veces, pero estos no es un problema porque llamar a  `setZoomLevel` dos veces con el mismo valor no hace nada. Puede ser un poco más lento, pero no importa porque no se montará innecesariamente en producción.
+Ten en cuenta que en este caso no se necesita limpiar nada. En desarrollo, React llamará al Efecto dos veces, pero esto no es un problema porque llamar a  `setZoomLevel` dos veces con el mismo valor no hace nada. Puede ser un poco más lento, pero no importa porque no se montará innecesariamente en producción.
 
 Algunas APIs pueden no permitir que se las llame dos veces seguidas. Por ejemplo, el método [`showModal`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) del elemento integrado [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) arrojará una excepción si se le llama dos veces. Implementa la función de limpieza para que cierre el elemento `<dialog>`.
 
@@ -653,7 +653,7 @@ useEffect(() => {
 }, []);
 ```
 
-En desarrollo, la opacidad se establecerá en `1`, luego en `0` y luego nuevamente en `1`. Esto debería tener el mismo comportamiento visible para el usuario que establecerlo directamente en `1`, como en producción. Si usa una biblioteca de animación de terceros con soporte para interpolación, la función de limpieza debería reiniciar la linea del tiempo a su estado inicial.
+En desarrollo, la opacidad se establecerá en `1`, luego en `0` y luego nuevamente en `1`. Esto debería tener el mismo comportamiento visible para el usuario que establecerlo directamente en `1`, como en producción. Si usas una biblioteca de animación de terceros con soporte para interpolación, la función de limpieza debería reiniciar la línea de tiempo a su estado inicial.
 
 ### Obtención de datos {/*fetching-data*/}
 
@@ -690,7 +690,7 @@ function TodoList() {
   // ...
 ```
 
-Esto no solo mejorará la experiencia de desarrollo, sino que también hará que tu aplicación se sienta más rápida. Por ejemplo, el usuario que presiona el botón atrás no tendrá que esperar a que se carguen los datos nuevamente porque estarán en caché. Puedes construir esta caché tú mismo o utilizar una de las muchas alternativas de obtención de datos manual con Efectos.
+Esto no solo mejorará la experiencia de desarrollo, sino que también hará que tu aplicación se sienta más rápida. Por ejemplo, el usuario que presiona el botón atrás no tendrá que esperar a que se carguen los datos nuevamente porque estarán en caché. Puedes construir esta caché tú mismo o utilizar una de las muchas alternativas a la obtención de datos manual con Efectos.
 
 <DeepDive>
 
@@ -699,14 +699,14 @@ Esto no solo mejorará la experiencia de desarrollo, sino que también hará que
 Escribir llamadas `fetch` dentro de Efectos es una forma [popular de obtener datos](https://www.robinwieruch.de/react-hooks-fetch-data/), especialmente en aplicaciones totalmente del lado del cliente. Sin embargo, este es un enfoque muy manual y tiene importantes desventajas:
 
 - **Los Efectos no se ejecutan en el servidor.** Esto significa que el HTML renderizado inicialmente en el servidor solo incluirá un estado de carga sin datos. El ordenador del cliente tendrá que descargar todo el JavaScript y renderizar tu aplicación solo para descubrir que ahora necesita cargar los datos. Esto no es muy eficiente.
-- **La obtención de datos directamente en Efectos facilita la creación de “cascadas de red” (network waterfalls).** Se renderiza el componente padre, se obtienen algunos datos, luego se renderizan los componentes hijos, y luego ellos hacen lo mismo. Si la red no es muy rápida, este proceso secuencial es significativamente más lento que obtener todos los datos en paralelo de una sola vez.
-- **La obtención de datos directamente en Efectos suele significar que no se pre-cargan ni se almacenan en caché los datos.** Por ejemplo, si el componente se desmonta y se vuelve a montar, tendría que obtener los datos de nuevo.
-- **No es muy ergonómico.** Hay bastante código boilerplate al hacer llamadas fetch de tal manera que no sufra de errores como las [condiciones de carrera.](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect)
+- **La obtención de datos directamente en Efectos facilita la creación de "cascadas de red" (*network waterfalls*).** Se renderiza el componente padre, se obtienen algunos datos, luego se renderizan los componentes hijos, y luego ellos hacen lo mismo. Si la red no es muy rápida, este proceso secuencial es significativamente más lento que obtener todos los datos en paralelo de una sola vez.
+- **La obtención de datos directamente en Efectos suele significar que no se precargan ni se almacenan en caché los datos.** Por ejemplo, si el componente se desmonta y se vuelve a montar, tendría que obtener los datos de nuevo.
+- **No es muy ergonómico.** Hay bastante código boilerplate al hacer llamadas `fetch` de tal manera que no sufra de errores como las [condiciones de carrera.](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect)
 
 Esta lista de inconvenientes no es específica de React. Se aplica a la obtención de datos en el montaje con cualquier biblioteca. Al igual que con el enrutamiento, la obtención de datos no es trivial para hacerlo bien, por lo que recomendamos los siguientes enfoques:
 
 - **Si usas un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks), utiliza su mecanismo de obtención de datos integrado.** Los frameworks modernos de React han integrado mecanismos de obtención de datos que son eficientes y no sufren los inconvenientes anteriores.
-- **De lo contrario, considera la posibilidad de utilizar o construir una caché del lado del cliente.** Las soluciones populares de código abierto incluyen [React Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), y [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) También puedes crear tu propia solución, en cuyo caso se usarían Efectos por debajo, pero también se añadiría lógica para deduplicar las peticiones, almacenar en caché las respuestas y evitar las cascadas de red (pre-cargando los datos o elevando los requisitos de datos a las rutas).
+- **De lo contrario, considera la posibilidad de utilizar o construir una caché del lado del cliente.** Las soluciones populares de código abierto incluyen [React Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), y [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) También puedes crear tu propia solución, en cuyo caso se usarían Efectos por debajo, pero también se añadiría lógica para deduplicar las peticiones, almacenar en caché las respuestas y evitar las cascadas de red (precargando los datos o elevando los requisitos de datos a las rutas).
 
 Puedes seguir obteniendo datos directamente en Efectos si ninguno de estos enfoques te conviene.
 
@@ -726,7 +726,7 @@ En desarrollo, `logVisit` será llamado dos veces para cada URL, por lo que podr
 
 **En producción, no va a haber registro de visitas duplicados.**
 
-Para depurar los eventos de análisis que estás enviando, puedes implementar tu aplicación en un entorno de pruebas (que se ejecuta en modo producción) o temporalmente desactivar el [Modo estricto](/reference/react/StrictMode) y sus control de volver a montar en desarrollo. También puedes enviar análisis desde los manejadores de eventos de cambio de ruta en lugar de Efectos. Para análisis más precisos, la [API Observador de Intersección](https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API) puede ayudar a rastrear qué componentes están en la vista y cuánto tiempo permanecen visibles.
+Para depurar los eventos de análisis que estás enviando, puedes implementar tu aplicación en un entorno de pruebas (que se ejecuta en modo producción) o temporalmente desactivar el [Modo estricto](/reference/react/StrictMode) y su control de remontaje en desarrollo. También puedes enviar análisis desde los manejadores de eventos de cambio de ruta en lugar de Efectos. Para análisis más precisos, la [API Observador de Intersección](https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API) puede ayudar a rastrear qué componentes están en la vista y cuánto tiempo permanecen visibles.
 
 ### No es un Efecto: Inicializar la aplicación {/*not-an-effect-initializing-the-application*/}
 
@@ -767,7 +767,7 @@ Comprar no es causado por un renderizado, sino por una interacción específica.
   }
 ```
 
-**Esto ejemplifica que si volver al volver a montar rompe la lógica de tu aplicación, usualmente se descubren errores existentes.** Desde la perspectiva del usuario, visitar una página no debe ser diferente de visitarla, hacer clic en un link, y presionar atrás. React verifica que tus componentes cumplen este principio volviendo a montarlos una vez en desarrollo.
+**Esto ejemplifica que si volver a montar rompe la lógica de tu aplicación, usualmente se descubren errores existentes.** Desde la perspectiva del usuario, visitar una página no debe ser diferente de visitarla, hacer clic en un link, y presionar atrás. React verifica que tus componentes cumplen este principio volviendo a montarlos una vez en desarrollo.
 
 ## Poner todo junto {/*putting-it-all-together*/}
 
@@ -835,7 +835,7 @@ Escribe algo dentro del campo e inmediatamente presiona "Desmontar componente". 
 
 Por último, edita el componente de arriba y comenta la función de limpieza para que los tiempos de espera no se cancelen. Intenta escribir `abcde` rápidamente. ¿Qué esperas que suceda en tres segundos? ¿El `console.log(text)` dentro del tiempo de espera imprimirá el `text` *más reciente* y producirá cinco mensajes `abcde`? ¡Inténtalo para comprobar tu intuición!
 
-Tres segundos después, deberías ver una secuencia de mensajes (`a`, `ab`, `abc`, `abcd`, and `abcde`) en vez de cinco mensajes `abcde`. **Cada Efecto "captura" el valor de `text` desde su correspondiente renderizado.**  No importa que el estado `text` haya cambiado: al renderizar un Efecto con `text = 'ab'` siempre verá `'ab'`. En otras palabras, los Efectos de cada renderizado están aislados entre sí. Si tienes curiosidad acerca de como funciona esto puedes leer acerca de [clausuras](https://developer.mozilla.org/es/docs/Web/JavaScript/Closures).
+Tres segundos después, deberías ver una secuencia de mensajes (`a`, `ab`, `abc`, `abcd`, and `abcde`) en vez de cinco mensajes `abcde`. **Cada Efecto "captura" el valor de `text` desde su correspondiente renderizado.**  No importa que el estado `text` haya cambiado: un Efecto del renderizado hecho con `text = 'ab'` siempre verá `'ab'`. En otras palabras, los Efectos de cada renderizado están aislados entre sí. Si tienes curiosidad acerca de cómo funciona esto puedes leer acerca de [clausuras](https://developer.mozilla.org/es/docs/Web/JavaScript/Closures).
 
 <DeepDive>
 
@@ -855,7 +855,7 @@ export default function ChatRoom({ roomId }) {
 }
 ```
 
-Veamos que es lo que sucede exactamente a medida que el usuario navega por la aplicación.
+Veamos qué es lo que sucede exactamente a medida que el usuario navega por la aplicación.
 
 #### Renderizado inicial {/*initial-render*/}
 
@@ -866,7 +866,7 @@ El usuario visita `<ChatRoom roomId="general" />`. Vamos a [sustituir mentalment
   return <h1>¡Bienvenido a general!</h1>;
 ```
 
-**El Efecto *también* es una parte de la salida del renderizado.** El efecto del primer renderizado se convierte en:
+**El Efecto *también* es una parte de la salida del renderizado.** El Efecto del primer renderizado se convierte en:
 
 ```js
   // Efecto para el primer renderizado (roomId = "general")
@@ -916,7 +916,7 @@ Luego, el usuario visita `<ChatRoom roomId="travel" />`. Esta vez, el componente
   return <h1>¡Bienvenido a travel!</h1>;
 ```
 
-React actualiza el DOM para cambiar `"Bienvenido a general"` into `"Bienvenido a  travel"`.
+React actualiza el DOM para cambiar `"Bienvenido a general"` a `"Bienvenido a travel"`.
 
 El Efecto del tercer renderizado se ve así:
 
@@ -933,9 +933,9 @@ El Efecto del tercer renderizado se ve así:
 
 React compara `['travel']` del tercer renderizado con `['general']` del segundo renderizado. Una dependencia es diferente: `Object.is('travel', 'general')` es `false`. El Efecto no puede ser omitido.
 
-**Antes de que React pueda aplicar el Efecto de la tercera renderización, necesita limpiar el último efecto que se _ejecutó_.** El Efecto de la segunda renderización fue omitido, por lo que React necesita limpiar el Efecto de la primer renderización. Si te desplazas hacia arriba hasta la primera renderización, verás que su limpieza llama a `disconnect()` en la conexión que se creó con `createConnection('general')`. Esto desconecta la aplicación de la sala de chat `'general'`.
+**Antes de que React pueda aplicar el Efecto de la tercera renderización, necesita limpiar el último Efecto que _sí_ se ejecutó.** El Efecto de la segunda renderización fue omitido, por lo que React necesita limpiar el Efecto de la primer renderización. Si te desplazas hacia arriba hasta la primera renderización, verás que su limpieza llama a `disconnect()` en la conexión que se creó con `createConnection('general')`. Esto desconecta la aplicación de la sala de chat `'general'`.
 
-Después de eso, React ejecuta el Efecto del tercer renderizado. Que conecta a la sala de chat `'travel'`.
+Después de eso, React ejecuta el Efecto del tercer renderizado que conecta a la sala de chat `'travel'`.
 
 #### Desmontar {/*unmount*/}
 
@@ -943,7 +943,7 @@ Finalmente, supongamos que el usuario cambia de página y el componente `ChatRoo
 
 #### Comportamiento solo en modo de desarrollo {/*development-only-behaviors*/}
 
-Cuando el [Modo Estricto](/reference/react/StrictMode) esta activado, React vuelve a montar cada componente después de montarlo por primera vez (el estado y DOM se conservan). Esto [te ayuda a encontrar Efectos que necesitan limpieza](#step-3-add-cleanup-if-needed) y expone errores como las condiciones de carrera tempranas. Adicionalmente, React vuelve a montar los efectos cada vez que guardas el archivo en desarrollo. Ambos comportamientos solo suceden en modo de desarrollo.
+Cuando el [Modo Estricto](/reference/react/StrictMode) está activado, React vuelve a montar cada componente después de montarlo por primera vez (el estado y DOM se conservan). Esto [te ayuda a encontrar Efectos que necesitan limpieza](#step-3-add-cleanup-if-needed) y expone tempranamente errores como las condiciones de carrera. Adicionalmente, React vuelve a montar los Efectos cada vez que guardas el archivo en desarrollo. Ambos comportamientos solo suceden en modo de desarrollo.
 
 </DeepDive>
 
@@ -967,7 +967,7 @@ Cuando el [Modo Estricto](/reference/react/StrictMode) esta activado, React vuel
 
 En este ejemplo, el formulario renderiza un componente `<MyInput />`.
 
-Usa el método [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) del input para hacer que `MyInput` se enfoque automáticamente cuando aparece en pantalla. Ya hay una implementación comentada, pero no funciona correctamente. Descubre porque no funciona y corrígelo. (Si estás familiarizado con el atributo `autoFocus`, pretende que no existe: estamos re-implementando la misma funcionalidad desde cero.)
+Usa el método [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) del input para hacer que `MyInput` se enfoque automáticamente cuando aparece en pantalla. Ya hay una implementación comentada, pero no funciona correctamente. Descubre por qué no funciona y corrígelo. (Si estás familiarizado con el atributo `autoFocus`, pretende que no existe: estamos reimplementando la misma funcionalidad desde cero.)
 
 <Sandpack>
 
@@ -1437,7 +1437,7 @@ En desarrollo, React seguirá montando el componente una vez para verificar que 
 
 #### Arregla la solicitud dentro de un Efecto {/*fix-fetching-inside-an-effect*/}
 
-Este componente muestra la biografía de la persona seleccionada. Carga la biografíá llamando a una función asíncrona `fetchBio(person)` al montar y cuando `person` cambia. Esa función asíncrona devuelve una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) que eventualmente se resuelve a un string. Cuando la solicitud está hecha, se llama a `setBio` para mostrar el string debajo del elemento select.
+Este componente muestra la biografía de la persona seleccionada. Carga la biografía llamando a una función asíncrona `fetchBio(person)` al montar y cuando `person` cambia. Esa función asíncrona devuelve una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) que eventualmente se resuelve a un string. Cuando la solicitud está hecha, se llama a `setBio` para mostrar el string debajo del elemento select.
 
 <Sandpack>
 
@@ -1564,10 +1564,10 @@ export async function fetchBio(person) {
 
 </Sandpack>
 
-Cada Efecto de renderización tiene su propia variable `ignore`. Inicialmente, la variable `ignore` es `false`. Sin embargo, si un Efecto hace una limpieza (como cuando seleccionas una persona diferente), su variable `ignore` pasa a ser `true`. Each render's Effect has its own `ignore` variable. Initially, the `ignore` variable is set to `false`. However, if an Effect gets cleaned up (such as when you select a different person), its `ignore` variable becomes `true`. Entonces, ahora no importa en qué orden se completen las solicitudes. Solo el Efecto de la última persona tendrá `ignore` configurado como `false`, por lo que llamará a `setBio(result)`. Los Efectos anteriores han sido limpiados, por lo que la comprobación `if (!ignore)` evitará que llamen a `setBio`:
+El Efecto de cada uno de los renderizados tiene su propia variable `ignore`. Inicialmente, la variable `ignore` es `false`. Sin embargo, si un Efecto hace una limpieza (como cuando seleccionas una persona diferente), su variable `ignore` pasa a ser `true`. Entonces, ahora no importa en qué orden se completen las solicitudes. Solo el Efecto de la última persona tendrá `ignore` configurado como `false`, por lo que llamará a `setBio(result)`. Los Efectos anteriores han sido limpiados, por lo que la comprobación `if (!ignore)` evitará que llamen a `setBio`:
 
 - Seleccionar a `'Bob'` desencadena `fetchBio('Bob')`
-- Seleccionar a `'Taylor'` desencadena `fetchBio('Taylor')` **y limpia el anterior (Bob's) Efecto**
+- Seleccionar a `'Taylor'` desencadena `fetchBio('Taylor')` **y limpia el anterior Efecto (de Bob)**
 - La solicitud para `'Taylor'` se completa *antes* que la solicitud para `'Bob'`
 - El Efecto del renderizado de `'Taylor'` llama a `setBio('This is Taylor’s bio')`
 - La solicitud para `'Bob'` se completa
