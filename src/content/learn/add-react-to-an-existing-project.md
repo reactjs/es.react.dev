@@ -84,7 +84,7 @@ Si el contenido completo de tu página fue reemplazado por un "¡Hola, mundo!", 
 
 <Note>
 
-Integrar un entorno de JavaScript modular en un proyecto existente por primera vez puede ser intimidante, ¡pero vale la pena! Si te quedas atascado, prueba nuestros [recursos de comunidad](/community) o el [Vite Chat](https://chat.vitejs.dev/).
+Integrar un entorno de JavaScript modular en un proyecto existente por primera vez puede ser intimidante, ¡pero vale la pena! Si te quedas atascado, prueba nuestros [recursos de la comunidad](/community) o el [Vite Chat](https://chat.vitejs.dev/).
 
 </Note>
 
