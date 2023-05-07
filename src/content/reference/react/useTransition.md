@@ -1097,7 +1097,7 @@ Las transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el 
 
 ---
 
-### Construir un router con Suspense {/*building-a-suspense-enabled-router*/}
+### Construir un enrutador preparado para Suspense {/*building-a-suspense-enabled-router*/}
 
 Si estás construyendo un framework de React o un enrutador, te recomendamos marcar las navegaciones de página como transiciones.
 
