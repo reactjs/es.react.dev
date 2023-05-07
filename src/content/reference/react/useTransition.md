@@ -92,7 +92,7 @@ function TabContainer() {
 
 ### Marcar una actualización de estado como transición no bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-Llama a `useTransition` en el nivel superior de tu componente para marcar las actualizaciones de estado como no bloqueantes. *transitions*.
+Llama a `useTransition` en el nivel superior de tu componente para marcar las actualizaciones de estado como *transiciones* no bloqueantes.
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
 import { useState, useTransition } from 'react';
