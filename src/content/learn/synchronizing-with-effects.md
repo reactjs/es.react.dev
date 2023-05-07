@@ -1,5 +1,5 @@
 ---
-title: 'Sincronizar con efectos'
+title: 'Sincronizar con Efectos'
 ---
 
 <Intro>
