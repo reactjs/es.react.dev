@@ -1495,7 +1495,7 @@ main {
 
 <Note>
 
-[Suspense habilitado](/reference/react/Suspense) se espera que los routers envuelvan las actualizaciones de navegación en transiciones por defecto.
+Se espera que los enredadores [preparados para Suspense](/reference/react/Suspense) envuelvan las actualizaciones de navegación en transiciones por defecto.
 
 </Note>
 
