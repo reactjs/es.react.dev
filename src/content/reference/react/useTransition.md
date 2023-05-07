@@ -74,7 +74,7 @@ function TabContainer() {
 
 #### Advertencias {/*starttransition-caveats*/}
 
-* `useTransition` es un Gancho, por lo que sólo puede ser llamado dentro de componentes o Hooks personalizados. Si necesita iniciar una transición en otro lugar (por ejemplo, desde una biblioteca de datos), llame a la función independiente [`startTransition`](/reference/react/startTransition) en su lugar.
+* `useTransition` es un Hook, por lo que sólo puede ser llamado dentro de componentes o Hooks personalizados. Si necesitas iniciar una transición en otro lugar (por ejemplo, desde una biblioteca de datos), llama a la función independiente [`startTransition`](/reference/react/startTransition) en su lugar.
 
 * Puedes envolver una actualización en una transición sólo si tienes acceso a la función `set` de ese estado. Si desea iniciar una transición en respuesta a algunas prop o algún valor de un Hook personalizado, intente [`useDeferredValue`](/reference/react/useDeferredValue) en su lugar.
 
