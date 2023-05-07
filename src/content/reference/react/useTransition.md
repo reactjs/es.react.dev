@@ -108,7 +108,7 @@ function TabContainer() {
 1. <CodeStep step={1}>`isPending` flag</CodeStep> que te indica si hay una transición pendiente.
 2. <CodeStep step={2}>`startTransition` function</CodeStep> que permite marcar una actualización de estado como una transición.
 
-A continuación, puede marcar una actualización de estado como una transición de esta manera:
+A continuación, puedes marcar una actualización de estado como una transición de esta manera:
 
 ```js {6,8}
 function TabContainer() {
