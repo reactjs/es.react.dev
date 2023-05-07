@@ -1091,7 +1091,7 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
-Las transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de la pestaña). Si la pestaña Entradas tuviera un [`<Suspense>` boundary anidado,](/reference/react/Suspense#revealing-nested-content-as-it-loads) la transición no la "esperaría".
+Las transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de la pestaña). Si la pestaña Entradas tuviera una [barrera de `<Suspense>` anidada,](/reference/react/Suspense#revealing-nested-content-as-it-loads) la transición no la "esperaría".
 
 </Note>
 
