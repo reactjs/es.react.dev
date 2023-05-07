@@ -1,17 +1,17 @@
 ---
-title: Contribuidores de Documentación
+title: Contribuidores de la documentación
 ---
 
 <Intro>
 
-La documentación de React es escrita y mantenida por el [equipo de React](/community/team) and [contribuidores externos.](https://github.com/reactjs/reactjs.org/graphs/contributors) En esta página, nos gustaría agradecer a algunas personas que han realizado contribuciones significativas a este sitio.
+La documentación de React es escrita y mantenida por el [equipo de React](/community/team) y [contribuidores externos.](https://github.com/reactjs/reactjs.org/graphs/contributors) En esta página, nos gustaría agradecer a algunas personas que han realizado contribuciones significativas a este sitio.
 
 </Intro>
 
 ## Contenido {/*content*/}
 
 * [Rachel Nabors](https://twitter.com/RachelNabors): edición, escritura, ilustración
-* [Dan Abramov](https://twitter.com/dan_abramov): edición, escritura, ilustración
+* [Dan Abramov](https://twitter.com/dan_abramov): escritura, diseño del currículo
 * [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de ejemplo
 * [Rick Hanlon](https://twitter.com/rickhanlonii): escritura
 * [David McCabe](https://twitter.com/mcc_abe): escritura
