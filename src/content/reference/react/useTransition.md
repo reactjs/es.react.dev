@@ -128,7 +128,7 @@ Las transiciones permiten mantener la capacidad de respuesta de las actualizacio
 
 Con una transición, la interfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace clic en una pestaña pero luego cambia de opinión y hace clic en otra, puede hacerlo sin esperar a que termine la primera renderización.
 
-<Recipes titleText="Diferencia entre useTransition y las actualizaciones de estado normales" titleId="ejemplos">
+<Recipes titleText="Diferencia entre useTransition y las actualizaciones de estado normales" titleId="examples">
 
 #### Actualizar la pestaña actual en una transición {/*updating-the-current-tab-in-a-transition*/}
 
