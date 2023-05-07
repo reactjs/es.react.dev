@@ -709,7 +709,7 @@ b { display: inline-block; margin-right: 10px; }
 
 ### Evitar indicadores de carga no deseados {/*preventing-unwanted-loading-indicators*/}
 
-En este ejemplo, el componente `PostsTab` obtiene algunos datos utilizando una fuente de datos [Suspense-enabled](/reference/react/Suspense). Al hacer clic en la pestaña _"Posts"_, el componente `PostsTab` se *suspende*, haciendo que aparezca el fallback de carga más cercano:
+En este ejemplo, el componente `PostsTab` obtiene algunos datos utilizando una fuente de datos [preparada par usarse con Suspense](/reference/react/Suspense). Al hacer clic en la pestaña _"Posts"_, el componente `PostsTab` se *suspende*, haciendo que aparezca el fallback de carga más cercano:
 
 <Sandpack>
 
