@@ -1,5 +1,5 @@
 ---
-title: "El Estado: La memoria un componente"
+title: "El estado: la memoria de un componente"
 ---
 
 <Intro>
