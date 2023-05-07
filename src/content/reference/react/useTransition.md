@@ -562,7 +562,7 @@ b { display: inline-block; margin-right: 10px; }
 
 ### Visualización de un estado visual pendiente durante la transición {/*displaying-a-pending-visual-state-during-the-transition*/}
 
-Puede utilizar el valor booleano `isPending` devuelto por `useTransition` para indicar al usuario que una transición está en curso. Por ejemplo, el botón de pestaña puede tener un estado visual especial "pendiente":
+Puedes utilizar el valor booleano `isPending` devuelto por `useTransition` para indicar al usuario que una transición está en curso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente":
 
 ```js {4-6}
 function TabButton({ children, isActive, onClick }) {
