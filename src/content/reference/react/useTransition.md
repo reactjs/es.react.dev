@@ -46,7 +46,7 @@ function TabContainer() {
 
 ---
 
-### `startTransition` function {/*starttransition*/}
+### Función `startTransition` {/*starttransition*/}
 
 La función `startTransition` devuelta por `useTransition` permite marcar una actualización de estado como una transición.
 
