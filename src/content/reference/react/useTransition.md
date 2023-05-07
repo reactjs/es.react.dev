@@ -1520,7 +1520,7 @@ function handleChange(e) {
 return <input value={text} onChange={handleChange} />;
 ```
 
-Esto se debe a que las transiciones no se bloquean, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma sincrónica. Si desea ejecutar una transición en respuesta a la escritura, tiene dos opciones:
+Esto se debe a que las transiciones son no bloqueantes, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma sincrónica. Si deseas ejecutar una transición en respuesta a la escritura, tiene dos opciones:
 
 1. Puedes declarar dos variables de estado separadas: una para el estado de la entrada (que siempre se actualiza de forma sincrónica), y otra que actualizarás en una transición. Esto te permite controlar la entrada utilizando el estado síncrono, y pasar la variable de estado de transición (que "irá por detrás" de la entrada) al resto de tu lógica de renderizado.
 2. Alternativamente, puedes tener una variable de estado, y añadir [`useDeferredValue`](/reference/react/useDeferredValue) que "irá por detrás" del valor real. Se activarán re-renders no bloqueantes para "ponerse al día" con el nuevo valor de forma automática.
