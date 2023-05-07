@@ -1529,7 +1529,7 @@ Esto se debe a que las transiciones no se bloquean, pero la actualización de un
 
 ### React no trata mi actualización de estado como una transición {/*react-doesnt-treat-my-state-update-as-a-transition*/}
 
-Cuando envuelva una actualización de estado en una transición, asegúrese de que ocurre *durante* la llamada `startTransition`:
+Cuando envuelvas una actualización de estado en una transición, asegúrate de que ocurre *durante* la llamada `startTransition`:
 
 ```js
 startTransition(() => {
