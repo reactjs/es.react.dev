@@ -80,7 +80,7 @@ function TabContainer() {
 
 * La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como transiciones.
 
-* Una actualización de estado marcada como transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un re-renderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de gestionar la actualización del input.
+* Una actualización de estado marcada como transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un rerenderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de gestionar la actualización del input.
 
 * Las actualizaciones de transición no pueden utilizarse para controlar las entradas de texto.
 
