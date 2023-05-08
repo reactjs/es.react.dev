@@ -249,7 +249,11 @@ Aún no hay un equivalente directo para `componentDidCatch` en componentes de fu
 
 ### `componentDidMount()` {/*componentdidmount*/}
 
+<<<<<<< HEAD
 Si defines el método `componentDidMount`, React lo llamará cuando tu componente se agregue por primera vez *(se monte)* en la pantalla. Este es un lugar común para comenzar la obtención de datos, configurar suscripciones o manipular los nodos del DOM.
+=======
+If you define the `componentDidMount` method, React will call it when your component is added *(mounted)* to the screen. This is a common place to start data fetching, set up subscriptions, or manipulate the DOM nodes.
+>>>>>>> da93812c7802e916d75bbb293889fda42c8d06aa
 
 Si implementas `componentDidMount`, generalmente debes implementar otros métodos del ciclo de vida para evitar errores. Por ejemplo, si `componentDidMount` lee algún estado o propiedades, también debes implementar [`componentDidUpdate`](#componentdidupdate) para manejar sus cambios, y [`componentWillUnmount`](#componentwillunmount) para limpiar lo que `componentDidMount` estaba haciendo.
 
@@ -1185,7 +1189,11 @@ Recomendamos definir los componentes como funciones en lugar de clases. [Mira c�
 
 Hay algunos métodos especiales que puedes definir en tu clase.
 
+<<<<<<< HEAD
 Si defines el método [`componentDidMount`](#componentdidmount), React lo llamará cuando tu componente se agregue *(monte)* por primera vez en la pantalla. React llamará a [`componentDidUpdate`](#componentdidupdate) después de que tu componente se vuelva a renderizar debido a cambios en las props o el estado. React llamará a [`componentWillUnmount`](#componentwillunmount) después de que tu componente se haya eliminado *(desmontado)* de la pantalla.
+=======
+If you define the [`componentDidMount`](#componentdidmount) method, React will call it when your component is added *(mounted)* to the screen. React will call [`componentDidUpdate`](#componentdidupdate) after your component re-renders due to changed props or state. React will call [`componentWillUnmount`](#componentwillunmount) after your component has been removed *(unmounted)* from the screen.
+>>>>>>> da93812c7802e916d75bbb293889fda42c8d06aa
 
 Si implementas `componentDidMount`, generalmente necesitarás implementar los tres ciclos de vida para evitar errores. Por ejemplo, si `componentDidMount` lee algún estado o props, también debes implementar `componentDidUpdate` para manejar sus cambios, y `componentWillUnmount` para limpiar lo que `componentDidMount` estaba haciendo.
 
