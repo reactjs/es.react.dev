@@ -1049,7 +1049,7 @@ input { margin-left: 10px; }
 
 ---
 
-### Manejo de eventos del mouse del puntero {/*handling-pointer-events*/}
+### Manejo de eventos del puntero {/*handling-pointer-events*/}
 
 Este ejemplo muestra algunos [eventos del puntero](#pointerevent-handler) comunes y cuándo se disparan.
 
