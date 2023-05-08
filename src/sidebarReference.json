@@ -230,10 +230,10 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "APIs legadas"
+      "sectionHeader": "APIs heredadas"
     },
     {
-      "title": "APIs legadas de React",
+      "title": "APIs heredadas de React",
       "path": "/reference/react/legacy",
       "routes": [
         {

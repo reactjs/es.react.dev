@@ -1,13 +1,13 @@
 {
-  "title": "Community",
+  "title": "Comunidad",
   "path": "/community",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET INVOLVED"
+      "sectionHeader": "INVOLÚCRATE"
     },
     {
-      "title": "Community",
+      "title": "Comunidad",
       "path": "/community",
       "skipBreadcrumb": true,
       "routes": [
