@@ -1,44 +1,44 @@
 ---
-title: Passing Data Deeply with Context
+title: Pasar datos en profundidad con Context
 ---
 
 <Intro>
 
-Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components in the middle, or if many components in your app need the same information. *Context* lets the parent component make some information available to any component in the tree below it—no matter how deep—without passing it explicitly through props.
+Usualmente, tu pasarías información desde un componente papá a un componente hijo por medio de props. Sin embargo, pasar props puede convertirse en una tarea verbosa e inconveniente si tienes que pasarlos a través de múltiples componentes, o si varios componentes en tu app necesitan la misma información. *Context* permite que cierta información del componente papá esté disponible en cualquier componente del árbol que esté por debajo de él sin importar qué tan profundo sea y sin pasar la información explícitamente por medio de props.
 
 </Intro>
 
 <YouWillLearn>
 
-- What "prop drilling" is
-- How to replace repetitive prop passing with context
-- Common use cases for context
-- Common alternatives to context
+- Qué es "perforación de props"
+- Cómo reemplazar el paso repetitivo de props con context
+- Casos de uso comunes para context
+- Alternativas comunes a context
 
 </YouWillLearn>
 
-## The problem with passing props {/*the-problem-with-passing-props*/}
+## El problema con pasar props {/*the-problem-with-passing-props*/}
 
-[Passing props](/learn/passing-props-to-a-component) is a great way to explicitly pipe data through your UI tree to the components that use it.
+[Pasar props](/learn/passing-props-to-a-component) es una gran manera de enviar explícitamente datos a través del árbol de la UI a componentes que los usen.
 
-But passing props can become verbose and inconvenient when you need to pass some prop deeply through the tree, or if many components need the same prop. The nearest common ancestor could be far removed from the components that need data, and [lifting state up](/learn/sharing-state-between-components) that high can lead to a situation called "prop drilling".
+No obstante, pasar props puede conversirse en una tarea verbosa e incoveniente cuando necesitas enviar algunas props profundamente a través del árbol, o si múltiples componentes necesitan de las mismas. El ancestro común más cercano podría estar muy alejado de los componentes que necesitan los datos, y [elevar el estado](/learn/sharing-state-between-components) tan alto puede ocasionar la situación llamada "perforación de props".
 
 <DiagramGroup>
 
-<Diagram name="passing_data_lifting_state" height={160} width={608} captionPosition="top" alt="Diagram with a tree of three components. The parent contains a bubble representing a value highlighted in purple. The value flows down to each of the two children, both highlighted in purple." >
+<Diagram name="passing_data_lifting_state" height={160} width={608} captionPosition="top" alt="Un diagrama con un árbol de tres componentes. El papá contiene una burbuja que representa un valor resaltado en morado. El valor fluye hacia los dos hijos, ambos resaltados en morado." >
 
-Lifting state up
+Elevar el estado
 
 </Diagram>
-<Diagram name="passing_data_prop_drilling" height={430} width={608} captionPosition="top" alt="Diagram with a tree of ten nodes, each node with two children or less. The root node contains a bubble representing a value highlighted in purple. The value flows down through the two children, each of which pass the value but do not contain it. The left child passes the value down to two children which are both highlighted purple. The right child of the root passes the value through to one of its two children - the right one, which is highlighted purple. That child passed the value through its single child, which passes it down to both of its two children, which are highlighted purple.">
+<Diagram name="passing_data_prop_drilling" height={430} width={608} captionPosition="top" alt="Un diagrama con un árbol de diez nodos, cada nodo tiene dos o menos hijos. El nodo raíz contiene una burbuja que representa un valor resaltado en morado. El valor fluye a través de los dos hijos, los cuales pasan el valor pero no lo contienen. El hijo izquierdo envía el valor a sus dos hijos, los cuales están resaltados en morado. El hijo derecho del nodo raíz pasa el valor únicamente a través de su hijo derecho, el cual está resaltado en morado. Ese hijo pasa el valor a través de su único hijo, y el hijo único a su vez envía el valor a sus dos hijos, ambos resaltados en morado.">
 
-Prop drilling
+Perforación de props
 
 </Diagram>
 
 </DiagramGroup>
 
-Wouldn't it be great if there were a way to "teleport" data to the components in the tree that need it without passing props? With React's context feature, there is!
+¿No sería grandioso si existiese alguna forma de "teletransportar" datos a componentes en el árbol que lo necesiten sin tener que pasar props? ¡Con el context de React es posible!
 
 ## Context: an alternative to passing props {/*context-an-alternative-to-passing-props*/}
 
