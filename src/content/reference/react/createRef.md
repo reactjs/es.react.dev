@@ -4,13 +4,13 @@ title: createRef
 
 <Pitfall>
 
-`createRef` is mostly used for [class components.](/reference/react/Component) Function components typically rely on [`useRef`](/reference/react/useRef) instead.
+`createRef` se usa principalmente para [componentes de clase.](/reference/react/Component) Los componentes de función generalmente usan [`useRef`](/reference/react/useRef) en su lugar.
 
 </Pitfall>
 
 <Intro>
 
-`createRef` creates a [ref](/learn/referencing-values-with-refs) object which can contain arbitrary value.
+`createRef` crea un objeto [ref](/learn/referencing-values-with-refs) que puede contener un valor arbitrario.
 
 ```js
 class MyInput extends Component {
@@ -25,11 +25,11 @@ class MyInput extends Component {
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `createRef()` {/*createref*/}
 
-Call `createRef` to declare a [ref](/learn/referencing-values-with-refs) inside a [class component.](/reference/react/Component)
+Invoca a `createRef` para declarar una [ref](/learn/referencing-values-with-refs) dentro de un [componente de clase.](/reference/react/Component)
 
 ```js
 import { createRef, Component } from 'react';
@@ -40,31 +40,31 @@ class MyComponent extends Component {
   // ...
 ```
 
-[See more examples below.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-`createRef` takes no parameters.
+`createRef` no recibe parámetros.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`createRef` returns an object with a single property:
+`createRef` retorna un objeto con una única propiedad:
 
-* `current`: Initially, it's set to the `null`. You can later set it to something else. If you pass the ref object to React as a `ref` attribute to a JSX node, React will set its `current` property.
+* `current`: Inicialmente, se inicializa en `null`. Posteriormente, se puede asignar a cualquier otra cosa. Si pasas el objeto ref a React como un atributo `ref` de un nodo JSX, React asignará su propiedad `current`.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* `createRef` always returns a *different* object. It's equivalent to writing `{ current: null }` yourself.
-* In a function component, you probably want [`useRef`](/reference/react/useRef) instead which always returns the same object.
-* `const ref = useRef()` is equivalent to `const [ref, _] = useState(() => createRef(null))`.
+* `createRef` siempre devuelve un objeto *diferente*. Es equivalente a escribir `{ current: null }` manualmente.
+* En un componente de función, probablemente querrás usar [`useRef`](/reference/react/useRef) en su lugar, que siempre devuelve el mismo objeto.
+* `const ref = useRef()` es equivalente a `const [ref, _] = useState(() => createRef(null))`.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Declaring a ref in a class component {/*declaring-a-ref-in-a-class-component*/}
+### Declarar una referencia en un componente de clase {/*declaring-a-ref-in-a-class-component*/}
 
-To declare a ref inside a [class component,](/reference/react/Component) call `createRef` and assign its result to a class field:
+Para declarar una referencia ref dentro de un [componente de clase](/reference/react/Component), invoca a `createRef` y asigna el resultado a un campo de clase:
 
 ```js {4}
 import { Component, createRef } from 'react';
@@ -76,7 +76,7 @@ class Form extends Component {
 }
 ```
 
-If you now pass `ref={this.inputRef}` to an `<input>` in your JSX, React will populate `this.inputRef.current` with the input DOM node. For example, here is how you make a button that focuses the input:
+Si ahora pasas `ref={this.inputRef}` a un `<input>` en tu JSX, React llenará `this.inputRef.current` con el nodo del DOM del input. Por ejemplo, así es como puedes crear un botón que enfoca el input:
 
 <Sandpack>
 
@@ -95,7 +95,7 @@ export default class Form extends Component {
       <>
         <input ref={this.inputRef} />
         <button onClick={this.handleClick}>
-          Focus the input
+          Enfoca el input
         </button>
       </>
     );
@@ -107,17 +107,17 @@ export default class Form extends Component {
 
 <Pitfall>
 
-`createRef` is mostly used for [class components.](/reference/react/Component) Function components typically rely on [`useRef`](/reference/react/useRef) instead.
+`createRef` se usa principalmente para [componentes de clase](/reference/react/Component). Los componentes de función generalmente dependen de [`useRef`](/reference/react/useRef) en su lugar.
 
 </Pitfall>
 
 ---
 
-## Alternatives {/*alternatives*/}
+## Alternativas {/*alternatives*/}
 
-### Migrating from a class with `createRef` to a function with `useRef` {/*migrating-from-a-class-with-createref-to-a-function-with-useref*/}
+### Migrando de una clase con `createRef` a una función con `useRef` {/*migrating-from-a-class-with-createref-to-a-function-with-useref*/}
 
-We recommend using function components instead of [class components](/reference/react/Component) in new code. If you have some existing class components using `createRef`, here is how you can convert them. This is the original code:
+Recomendamos utilizar componentes de función en lugar de [componentes de clase](/reference/react/Component) en código nuevo. Si tienes componentes de clase existentes que utilizan `createRef`, así es cómo puedes convertirlos. Este es el código original:
 
 <Sandpack>
 
@@ -136,7 +136,7 @@ export default class Form extends Component {
       <>
         <input ref={this.inputRef} />
         <button onClick={this.handleClick}>
-          Focus the input
+          Enfoca el input
         </button>
       </>
     );
@@ -146,7 +146,7 @@ export default class Form extends Component {
 
 </Sandpack>
 
-When you [convert this component from a class to a function,](/reference/react/Component#alternatives) replace calls to `createRef` with calls to [`useRef`:](/reference/react/useRef)
+Cuando [convierta este componente de clase a función,](/reference/react/Component#alternatives) reemplace las invocaciones de `createRef` con [`useRef`:](/reference/react/useRef)
 
 <Sandpack>
 
@@ -164,7 +164,7 @@ export default function Form() {
     <>
       <input ref={inputRef} />
       <button onClick={handleClick}>
-        Focus the input
+        Enfoca el input
       </button>
     </>
   );
