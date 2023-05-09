@@ -47,11 +47,7 @@ function Tooltip() {
 
 #### Parámetros {/*parameters*/}
 
-<<<<<<< HEAD
-* `setup`: La función con la lógica de tu Efecto. Tu función setup puede retornar opcionalmente una función de *limpieza*. Antes que tu componente sea agregado primeramente al DOM, React va a ejecutar tu función setup. Después de cada renderizado con dependencias modificadas, React primero va a ejecutar la función de limpieza (si tú lo provees) con los valores anteriores, y luego ejecuta tu función setup con los nuevos valores. Antes que tu componente sea eliminado del DOM, React va a ejecutar tu función de limpieza una última vez.
-=======
-* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. Before your component is added to the DOM, React will run your setup function. After every re-render with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. Before your component is removed from the DOM, React will run your cleanup function.
->>>>>>> da93812c7802e916d75bbb293889fda42c8d06aa
+* `setup`: La función con la lógica de tu Efecto. Tu función setup puede retornar opcionalmente una función de *limpieza*. Antes que tu componente sea agregado al DOM, React va a ejecutar tu función setup. Después de cada renderizado con dependencias modificadas, React primero va a ejecutar la función de limpieza (si tú lo provees) con los valores anteriores, y luego ejecuta tu función setup con los nuevos valores. Antes que tu componente sea eliminado del DOM, React va a ejecutar tu función de limpieza.
  
 * **opcional** `dependencies`: La lista de todos los valores reactivos referenciados dentro del código de `setup`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), va a verificar que cada valor reactivo este correctamente especificado como una dependencia. La lista de dependencias tiene que tener un número constante de elementos y ser escritos en linea como `[dep1, dep2, dep3]`. React va a comparar cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no especificas del todo las dependencias, tu Efecto se volverá a ejecutar después de cada renderizado del componente.
 
@@ -740,12 +736,4 @@ Sin embargo, si estás pasando por este problema, tienes algunas opciones:
 
 3. Puedes mostrar diferentes componentes en el servidor y en el cliente. Una manera de hacer esto es mantener el estado booleano `isMounted` que está inicializado en `false`, y cambiarlo a `true` dentro de la llamada de un `useEffect`. La lógica de renderizado puede ser entonces como `return isMounted ? <RealContent /> : <FallbackContent />`. En el servidor y durante la hidratación, el usuario va a ver `FallbackContent` que no debe llamar `useLayoutEffect`. Luego React va a reemplazarlo con `RealContent` que se ejecuta solo en el lado del cliente y puede incluir llamadas a `useLayoutEffect`.
 
-<<<<<<< HEAD
 4. Si sincronizas tu componente con un almacén externo de datos y dependes de `useLayoutEffect`  por diferentes razones que medir el layout, considera en su lugar usar [`useSyncExternalStore`](/reference/react/useSyncExternalStore) que [soporta renderizado del lado del servidor.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
-
-
-
-
-=======
-- If you synchronize your component with an external data store and rely on `useLayoutEffect` for different reasons than measuring layout, consider [`useSyncExternalStore`](/reference/react/useSyncExternalStore) instead which [supports server rendering.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
->>>>>>> da93812c7802e916d75bbb293889fda42c8d06aa
