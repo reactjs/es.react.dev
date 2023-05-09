@@ -40,17 +40,17 @@ class MyComponent extends Component {
   // ...
 ```
 
-[Ver más ejemplos debajo.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 `createRef` no recibe parámetros.
 
-#### Retorno {/*returns*/}
+#### Retorna {/*returns*/}
 
 `createRef` retorna un objeto con una única propiedad:
 
-* `current`: Inicialmente, se establece en `null`. Posteriormente, se puede establecer en cualquier otra cosa. Si pasas el objeto ref a React como un atributo `ref` de un nodo JSX, React establecerá su propiedad `current`.
+* `current`: Inicialmente, se inicializa en `null`. Posteriormente, se puede asignar a cualquier otra cosa. Si pasas el objeto ref a React como un atributo `ref` de un nodo JSX, React asignará su propiedad `current`.
 
 #### Advertencias {/*caveats*/}
 
@@ -64,7 +64,7 @@ class MyComponent extends Component {
 
 ### Declarar una referencia en un componente de clase {/*declaring-a-ref-in-a-class-component*/}
 
-Para declarar una referencia (`ref`) dentro de un [componente de clase](/reference/react/Component), invoca a `createRef` y asigna el resultado a un campo de clase:
+Para declarar una referencia ref dentro de un [componente de clase](/reference/react/Component), invoca a `createRef` y asigna el resultado a un campo de clase:
 
 ```js {4}
 import { Component, createRef } from 'react';
