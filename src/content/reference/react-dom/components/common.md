@@ -56,102 +56,102 @@ Estas propiedades DOM estándar también son compatibles con todos los component
 * [`inputMode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode): Un string. Especifica qué tipo de teclado mostrar (por ejemplo, texto, número o teléfono).
 * [`itemProp`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/itemprop): Un string. Especifica cuál propiedad representa el elemento para los rastreadores de datos estructurados.
 * [`lang`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/lang): Un string. Especifica el idioma del elemento.
-* [`onAnimationEnd`](https://developer.mozilla.org/es/docs/Web/API/Element/animationend_event): Una función manejadora de evento [`AnimationEvent`](#animationevent-handler). Se dispara cuando una animación de CSS se completa.
+* [`onAnimationEnd`](https://developer.mozilla.org/es/docs/Web/API/Element/animationend_event): Una función manejadora de eventos [`AnimationEvent`](#animationevent-handler). Se dispara cuando una animación de CSS se completa.
 * `onAnimationEndCapture`: Una versión de `onAnimationEnd` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onAnimationIteration`](https://developer.mozilla.org/en-US/docs/Web/API/Element/animationiteration_event): Una función manejadora de evento [`AnimationEvent`](#animationevent-handler). Se dispara cuando una iteración de una animación de CSS termina y comienza otra.
+* [`onAnimationIteration`](https://developer.mozilla.org/en-US/docs/Web/API/Element/animationiteration_event): Una función manejadora de eventos [`AnimationEvent`](#animationevent-handler). Se dispara cuando una iteración de una animación de CSS termina y comienza otra.
 * `onAnimationIterationCapture`: Una versión de `onAnimationIteration` que se dispara en la [fase de captura](/learn/responding-to-events#capture-phase-events)
-* [`onAnimationStart`](https://developer.mozilla.org/en-US/docs/Web/API/Element/animationstart_event): Una función manejadora de evento [`AnimationEvent`](#animationevent-handler). Se dispara cuando una animación de CSS comienza.
+* [`onAnimationStart`](https://developer.mozilla.org/en-US/docs/Web/API/Element/animationstart_event): Una función manejadora de eventos [`AnimationEvent`](#animationevent-handler). Se dispara cuando una animación de CSS comienza.
 * `onAnimationStartCapture`: `onAnimationStart`, pero se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onAuxClick`](https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando se hace clic en un botón no primario.
+* [`onAuxClick`](https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando se hace clic en un botón no primario.
 * `onAuxClickCapture`: Una versión de `onAuxClick` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* `onBeforeInput`: Una función manejadora de evento [`InputEvent`](#inputevent-handler). Se dispara antes de que se modifique el valor de un elemento editable. React aún *no* utiliza el evento nativo [`beforeinput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event), sino que intenta emularlo utilizando otros eventos.
+* `onBeforeInput`: Una función manejadora de eventos [`InputEvent`](#inputevent-handler). Se dispara antes de que se modifique el valor de un elemento editable. React aún *no* utiliza el evento nativo [`beforeinput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event), sino que intenta emularlo utilizando otros eventos.
 * `onBeforeInputCapture`: Una versión de `onBeforeInput` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* `onBlur`: Una función manejadora de evento [`FocusEvent`](#focusevent-handler). Se dispara cuando un elemento pierde el foco. A diferencia del evento [`blur`](https://developer.mozilla.org/es/docs/Web/API/Element/blur_event) integrado en el navegador, en React, el evento `onBlur` se propaga.
+* `onBlur`: Una función manejadora de eventos [`FocusEvent`](#focusevent-handler). Se dispara cuando un elemento pierde el foco. A diferencia del evento [`blur`](https://developer.mozilla.org/es/docs/Web/API/Element/blur_event) integrado en el navegador, en React, el evento `onBlur` se propaga.
 * `onBlurCapture`: Una versión de `onBlur` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onClick`](https://developer.mozilla.org/es/docs/Web/API/Element/click_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando se hace clic en el botón principal del dispositivo señalador.
+* [`onClick`](https://developer.mozilla.org/es/docs/Web/API/Element/click_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando se hace clic en el botón principal del dispositivo señalador.
 * `onClickCapture`: Una versión de `onClick` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCompositionStart`](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionstart_event): Una función manejadora de evento [`CompositionEvent`](#compositionevent-handler). Se dispara cuando un [editor de método de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor) comienza una nueva sesión de composición.
+* [`onCompositionStart`](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionstart_event): Una función manejadora de eventos [`CompositionEvent`](#compositionevent-handler). Se dispara cuando un [editor de método de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor) comienza una nueva sesión de composición.
 * `onCompositionStartCapture`: Una versión de `onCompositionStart` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCompositionEnd`](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event): Una función manejadora de evento [`CompositionEvent`](#compositionevent-handler). Se dispara cuando un [editor de métodos de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor) completa o cancela una sesión de composición.
+* [`onCompositionEnd`](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event): Una función manejadora de eventos [`CompositionEvent`](#compositionevent-handler). Se dispara cuando un [editor de métodos de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor) completa o cancela una sesión de composición.
 * `onCompositionEndCapture`: Una versión de `onCompositionEnd` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCompositionUpdate`](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionupdate_event): Una función manejadora de evento [`CompositionEvent`](#compositionevent-handler). Se dispara cuando un [editor de métodos de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor) recibe un nuevo carácter.
+* [`onCompositionUpdate`](https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionupdate_event): Una función manejadora de eventos [`CompositionEvent`](#compositionevent-handler). Se dispara cuando un [editor de métodos de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor) recibe un nuevo carácter.
 * `onCompositionUpdateCapture`: Una versión de `onCompositionUpdate` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onContextMenu`](https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el usuario intenta abrir un menú contextual.
+* [`onContextMenu`](https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el usuario intenta abrir un menú contextual.
 * `onContextMenuCapture`: Una versión de `onContextMenu` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCopy`](https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event): Una función manejadora de evento [`ClipboardEvent`](#clipboardevent-handler). Se dispara cuando el usuario intenta copiar algo en el portapapeles.
+* [`onCopy`](https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event): Una función manejadora de eventos [`ClipboardEvent`](#clipboardevent-handler). Se dispara cuando el usuario intenta copiar algo en el portapapeles.
 * `onCopyCapture`: Una versión de `onCopy` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCut`](https://developer.mozilla.org/en-US/docs/Web/API/Element/cut_event): Una función manejadora de evento [`ClipboardEvent`](#clipboardevent-handler). Se dispara cuando el usuario intenta cortar algo en el cortapapeles.
+* [`onCut`](https://developer.mozilla.org/en-US/docs/Web/API/Element/cut_event): Una función manejadora de eventos [`ClipboardEvent`](#clipboardevent-handler). Se dispara cuando el usuario intenta cortar algo en el cortapapeles.
 * `onCutCapture`: Una versión de `onCut` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* `onDoubleClick`: Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el usuario hace doble click. Corresponde al evento [`dblclick`](https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event) del navegador.
+* `onDoubleClick`: Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el usuario hace doble click. Corresponde al evento [`dblclick`](https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event) del navegador.
 * `onDoubleClickCapture`: Una versión de `onDoubleClick` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDrag`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drag_event): Una función manejadora de evento [`DragEvent`](#dragevent-handler). Se dispara mientras el usuario arrastra algo. 
+* [`onDrag`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drag_event): Una función manejadora de eventos [`DragEvent`](#dragevent-handler). Se dispara mientras el usuario arrastra algo. 
 * `onDragCapture`: Una versión de `onDrag` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDragEnd`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragend_event): Una función manejadora de evento [`DragEvent`](#dragevent-handler). Se dispara cuando el usuario deja de arrastrar algo. 
+* [`onDragEnd`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragend_event): Una función manejadora de eventos [`DragEvent`](#dragevent-handler). Se dispara cuando el usuario deja de arrastrar algo. 
 * `onDragEndCapture`: Una versión de `onDragEnd` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDragEnter`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragenter_event): Una función manejadora de evento [`DragEvent`](#dragevent-handler). Se dispara cuando el contenido arrastrado entra en un objetivo válido para soltarlo. 
+* [`onDragEnter`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragenter_event): Una función manejadora de eventos [`DragEvent`](#dragevent-handler). Se dispara cuando el contenido arrastrado entra en un objetivo válido para soltarlo. 
 * `onDragEnterCapture`: Una versión de `onDragEnter` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDragOver`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dragover_event): Una función manejadora de evento [`DragEvent`](#dragevent-handler). Se dispara en un objetivo de soltar válido mientras el contenido arrastrado está sobre él. Debes llamar `e.preventDefault()` aquí para permitir soltar.
+* [`onDragOver`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dragover_event): Una función manejadora de eventos [`DragEvent`](#dragevent-handler). Se dispara en un objetivo de soltar válido mientras el contenido arrastrado está sobre él. Debes llamar `e.preventDefault()` aquí para permitir soltar.
 * `onDragOverCapture`: Una versión de `onDragOver` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDragStart`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dragstart_event): Una función manejadora de evento [`DragEvent`](#dragevent-handler). Se dispara cuando el usuario comienza a arrastrar un elemento.
+* [`onDragStart`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dragstart_event): Una función manejadora de eventos [`DragEvent`](#dragevent-handler). Se dispara cuando el usuario comienza a arrastrar un elemento.
 * `onDragStartCapture`: Una versión de `onDragStart` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDrop`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drop_event): Una función manejadora de evento [`DragEvent`](#dragevent-handler). Se dispara cuando se suelta algo en un objetivo de soltar válido.
+* [`onDrop`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drop_event): Una función manejadora de eventos [`DragEvent`](#dragevent-handler). Se dispara cuando se suelta algo en un objetivo de soltar válido.
 * `onDropCapture`: Una versión de `onDrop` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * `onFocus`: A [`FocusEvent`](#focusevent-handler). Se dispara cuando un elemento pierde el foco. A diferencia del evento de [`focus`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event) integrado del navegador, en React el evento `onFocus` se propaga.
 * `onFocusCapture`: Una versión de `onFocus` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onGotPointerCapture`](https://developer.mozilla.org/es/docs/Web/API/Element/gotpointercapture_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un elemento captura un puntero.
+* [`onGotPointerCapture`](https://developer.mozilla.org/es/docs/Web/API/Element/gotpointercapture_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un elemento captura un puntero.
 * `onGotPointerCaptureCapture`: Una versión de `onGotPointerCapture` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onKeyDown`](https://developer.mozilla.org/es/docs/Web/API/Element/keydown_event): Una función manejadora de evento [`KeyboardEvent`](#pointerevent-handler). Se dispara cuando una tecla es presionada.
+* [`onKeyDown`](https://developer.mozilla.org/es/docs/Web/API/Element/keydown_event): Una función manejadora de eventos [`KeyboardEvent`](#pointerevent-handler). Se dispara cuando una tecla es presionada.
 * `onKeyDownCapture`: Una versión de `onKeyDown` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onKeyPress`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event): Una función manejadora de evento [`KeyboardEvent`](#pointerevent-handler). Obsoleta. En su lugar, usa `onKeyDown` o `onBeforeInput`.
+* [`onKeyPress`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event): Una función manejadora de eventos [`KeyboardEvent`](#pointerevent-handler). Obsoleta. En su lugar, usa `onKeyDown` o `onBeforeInput`.
 * `onKeyPressCapture`: Una versión de `onKeyPress` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onKeyUp`](https://developer.mozilla.org/es/docs/Web/API/Element/keyup_event): Una función manejadora de evento [`KeyboardEvent`](#pointerevent-handler). Se dispara cuando se suelta una tecla.
+* [`onKeyUp`](https://developer.mozilla.org/es/docs/Web/API/Element/keyup_event): Una función manejadora de eventos [`KeyboardEvent`](#pointerevent-handler). Se dispara cuando se suelta una tecla.
 * `onKeyUpCapture`: Una versión de `onKeyUp` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onLostPointerCapture`](https://developer.mozilla.org/es/docs/Web/API/Element/lostpointercapture_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un elemento deja de capturar un puntero.
+* [`onLostPointerCapture`](https://developer.mozilla.org/es/docs/Web/API/Element/lostpointercapture_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un elemento deja de capturar un puntero.
 * `onLostPointerCaptureCapture`: Una versión de `onLostPointerCapture` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onMouseDown`](https://developer.mozilla.org/es/docs/Web/API/Element/mousedown_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se presiona.
+* [`onMouseDown`](https://developer.mozilla.org/es/docs/Web/API/Element/mousedown_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se presiona.
 * `onMouseDownCapture`: Una versión de `onMouseDown` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onMouseEnter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se mueve dentro de un elemento. No tiene una fase de captura. , `onMouseLeave` y `onMouseEnter` se propagan desde el elemento que se deja al que se ingresa.
-* [`onMouseLeave`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseleave_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se mueve fuera de un elemento. No tiene una fase de captura. En su lugar, `onMouseLeave` y `onMouseEnter` se propagan desde el elemento que se deja al que se ingresa.
-* [`onMouseMove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero cambia de coordenadas.
+* [`onMouseEnter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se mueve dentro de un elemento. No tiene una fase de captura. , `onMouseLeave` y `onMouseEnter` se propagan desde el elemento que se deja al que se ingresa.
+* [`onMouseLeave`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseleave_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se mueve fuera de un elemento. No tiene una fase de captura. En su lugar, `onMouseLeave` y `onMouseEnter` se propagan desde el elemento que se deja al que se ingresa.
+* [`onMouseMove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero cambia de coordenadas.
 * `onMouseMoveCapture`: Una versión de `onMouseMove` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onMouseOut`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseout_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se mueve fuera de un elemento, o si se mueve a un elemento hijo.
+* [`onMouseOut`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseout_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando el puntero se mueve fuera de un elemento, o si se mueve a un elemento hijo.
 * `onMouseOutCapture`: Una versión de `onMouseOut` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onMouseUp`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event): Una función manejadora de evento [`MouseEvent`](#mouseevent-handler). Se dispara cuando se suelta el puntero.
+* [`onMouseUp`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event): Una función manejadora de eventos [`MouseEvent`](#mouseevent-handler). Se dispara cuando se suelta el puntero.
 * `onMouseUpCapture`: Una versión de `onMouseUp` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPointerCancel`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointercancel_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando el navegador cancela una interacción de puntero.
+* [`onPointerCancel`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointercancel_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando el navegador cancela una interacción de puntero.
 * `onPointerCancelCapture`: Una versión de `onPointerCancel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPointerDown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerdown_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando el puntero se vuelve activo.
+* [`onPointerDown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerdown_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando el puntero se vuelve activo.
 * `onPointerDownCapture`: Una versión de `onPointerDown` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPointerEnter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerenter_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un cursor se mueve dentro de un elemento. No tiene una fase de captura. En su lugar, `onPointerLeave` y `onPointerEnter` se propagan desde el elemento que se deja al que se ingresa.
-* [`onPointerLeave`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerleave_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero se mueve fuera de un elemento. No tiene una fase de captura. En su lugar, `onPointerLeave` y `onPointerEnter` se propagan desde el elemento que se deja al que se ingresa.
-* [`onPointerMove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero cambia de coordenadas.
+* [`onPointerEnter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerenter_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un cursor se mueve dentro de un elemento. No tiene una fase de captura. En su lugar, `onPointerLeave` y `onPointerEnter` se propagan desde el elemento que se deja al que se ingresa.
+* [`onPointerLeave`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerleave_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero se mueve fuera de un elemento. No tiene una fase de captura. En su lugar, `onPointerLeave` y `onPointerEnter` se propagan desde el elemento que se deja al que se ingresa.
+* [`onPointerMove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero cambia de coordenadas.
 * `onPointerMoveCapture`: Una versión de `onPointerMove` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPointerOut`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerout_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero se mueve fuera de un elemento, si la interacción del puntero es cancelada, y [por algunas otras razones.](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerout_event)
+* [`onPointerOut`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerout_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero se mueve fuera de un elemento, si la interacción del puntero es cancelada, y [por algunas otras razones.](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerout_event)
 * `onPointerOutCapture`: Una versión de `onPointerOut` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPointerUp`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerup_event): Una función manejadora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero ya no está activo.
+* [`onPointerUp`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerup_event): Una función manejadora de eventos [`PointerEvent`](#pointerevent-handler). Se dispara cuando un puntero ya no está activo.
 * `onPointerUpCapture`: Una versión de `onPointerUp` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPaste`](https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event): Una función manejadora de evento [`ClipboardEvent`](#clipboardevent-handler). Se dispara cuando el usuario intenta pegar algo desde el portapapeles.
+* [`onPaste`](https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event): Una función manejadora de eventos [`ClipboardEvent`](#clipboardevent-handler). Se dispara cuando el usuario intenta pegar algo desde el portapapeles.
 * `onPasteCapture`: Una versión de `onPaste` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onScroll`](https://developer.mozilla.org/es/docs/Web/API/Element/scroll_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se ha desplazado un elemento. Este evento no se propaga.
+* [`onScroll`](https://developer.mozilla.org/es/docs/Web/API/Element/scroll_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se ha desplazado un elemento. Este evento no se propaga.
 * `onScrollCapture`: Una versión de `onScroll` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSelect`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/select_event): Una función manejadora de [`Evento`](#event-handler). Se dispara después de que la selección dentro de un elemento editable, como un input, cambia. React extiende el evento `onSelect` para que funcione también en elementos con `contentEditable={true}`. Además, React lo extiende para que se active cuando la selección esté vacía y en ediciones (que pueden afectar la selección).
+* [`onSelect`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/select_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara después de que la selección dentro de un elemento editable, como un input, cambia. React extiende el evento `onSelect` para que funcione también en elementos con `contentEditable={true}`. Además, React lo extiende para que se active cuando la selección esté vacía y en ediciones (que pueden afectar la selección).
 * `onSelectCapture`: Una versión de `onSelect` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onTouchCancel`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchcancel_event): Una función manejadora de evento [`TouchEvent`](#touchevent-handler). Se dispara cuando el navegador cancela una interacción táctil.
+* [`onTouchCancel`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchcancel_event): Una función manejadora de eventos [`TouchEvent`](#touchevent-handler). Se dispara cuando el navegador cancela una interacción táctil.
 * `onTouchCancelCapture`: Una versión de `onTouchCancel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onTouchEnd`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchend_event): Una función manejadora de evento [`TouchEvent`](#touchevent-handler). Se dispara cuando se remueven uno o más puntos táctiles.
+* [`onTouchEnd`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchend_event): Una función manejadora de eventos [`TouchEvent`](#touchevent-handler). Se dispara cuando se quitan uno o más puntos táctiles.
 * `onTouchEndCapture`: Una versión de `onTouchEnd` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onTouchMove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchmove_event): Una función manejadora de evento [`TouchEvent`](#touchevent-handler). Se dispara cuando se mueven uno o más puntos táctiles.
+* [`onTouchMove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchmove_event): Una función manejadora de eventos [`TouchEvent`](#touchevent-handler). Se dispara cuando se mueven uno o más puntos táctiles.
 * `onTouchMoveCapture`: Una versión de `onTouchMove` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onTouchStart`](https://developer.mozilla.org/es/docs/Web/API/Element/touchstart_event): Una función manejadora de evento [`TouchEvent`](#touchevent-handler). Se dispara cuando se colocan uno más puntos táctiles
+* [`onTouchStart`](https://developer.mozilla.org/es/docs/Web/API/Element/touchstart_event): Una función manejadora de eventos [`TouchEvent`](#touchevent-handler). Se dispara cuando se colocan uno más puntos táctiles
 * `onTouchStartCapture`: Una versión de `onTouchStart` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onTransitionEnd`](https://developer.mozilla.org/es/docs/Web/API/Element/transitionend_event): Una función manejadora de evento [`TransitionEvent`](#transitionevent-handler). Se dispara cuando se completa una transición de CSS.
+* [`onTransitionEnd`](https://developer.mozilla.org/es/docs/Web/API/Element/transitionend_event): Una función manejadora de eventos [`TransitionEvent`](#transitionevent-handler). Se dispara cuando se completa una transición de CSS.
 * `onTransitionEndCapture`: Una versión de `onTransitionEnd` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onWheel`](https://developer.mozilla.org/es/docs/Web/API/Element/wheel_event): Una función manejadora de evento [`WheelEvent`](#wheelevent-handler). Se dispara cuando el usuario gira un botón de rueda en un dispositivo señalador.
+* [`onWheel`](https://developer.mozilla.org/es/docs/Web/API/Element/wheel_event): Una función manejadora de eventos [`WheelEvent`](#wheelevent-handler). Se dispara cuando el usuario gira un botón de rueda en un dispositivo señalador.
 * `onWheelCapture`: Una versión de `onWheel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`role`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles): Un string. Especifica el rol del elemento explícitamente para las tecnologías de asistencia.
 
 * [`slot`](https://developer.mozilla.org/en-US/docs/Web/API/Element/slot): Un string. Especifica el nombre del slot cuando se utiliza shadow DOM. En React, normalmente se logra un patrón equivalente al pasar JSX como props, por ejemplo `<Layout left={<Sidebar />} right={<Content />} />`.
-* [`spellCheck`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/spellcheck): Un booleano o null. Si explícitamente se establece en `true` o `false`, habilita o deshabilita la corrección ortográfica.
+* [`spellCheck`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/spellcheck): Un booleano o `null`. Si explícitamente se establece en `true` o `false`, habilita o deshabilita la corrección ortográfica.
 * [`tabIndex`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/tabindex): Un número. Anula el comportamiento por defecto del botón Tab. [Evita utilizar valores distintos de -1 y 0.](https://www.tpgi.com/using-the-tabindex-attribute/)
 * [`title`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/title): Un string. Especifica el texto de información de ayuda para el elemento.
 * [`translate`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/translate): Ya sea `'yes'` o `'no'`. Pasar `'no'` excluye el contenido del elemento de ser traducido.
@@ -160,84 +160,84 @@ También puedes pasar atributos personalizados como props, por ejemplo `mycustom
 
 Estos eventos se disparan sólo para los elementos [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form):
 
-* [`onReset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se reinicia un formulario.
+* [`onReset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se reinicia un formulario.
 * `onResetCapture`: Una versión de `onReset` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSubmit`](https://developer.mozilla.org/es/docs/Web/API/HTMLFormElement/submit_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se envía un formulario.
+* [`onSubmit`](https://developer.mozilla.org/es/docs/Web/API/HTMLFormElement/submit_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se envía un formulario.
 * `onSubmitCapture`: Una versión de `onSubmit` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
 Estos eventos se disparan sólo para los elementos [`<dialog>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/dialog). A diferencia de los eventos del navegador, se propagan en React:
 
-* [`onCancel`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/cancel_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el usuario intenta cerrar el diálogo.
+* [`onCancel`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/cancel_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el usuario intenta cerrar el diálogo.
 * `onCancelCapture`: Una versión de `onCancel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
-* [`onClose`](https://developer.mozilla.org/es/docs/Web/API/HTMLDialogElement/close_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando un diálogo ha sido cerrado.
+* [`onClose`](https://developer.mozilla.org/es/docs/Web/API/HTMLDialogElement/close_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando un diálogo ha sido cerrado.
 * `onCloseCapture`: Una versión de `onClose` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
 Estos eventos sólo se disparan para los elementos [`<details>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/details). A diferencia de los eventos del navegador, se propagan en React:
 
-* [`onToggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement/toggle_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el usuario cambia el estado de los detalles.
+* [`onToggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement/toggle_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el usuario cambia el estado de los detalles.
 * `onToggleCapture`: Una versión de `onToggle` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
 
 Estos eventos se disparan para los elementos [`<img>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/img), [`<iframe>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/iframe), [`<object>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/object), [`<embed>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/embed), [`<link>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/link), and [SVG `<image>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_Image_Tag). A diferencia de los eventos del navegador, se propagan en React:
 
-* `onLoad`: Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el recurso ha sido cargado.
+* `onLoad`: Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el recurso ha sido cargado.
 * `onLoadCapture`: Una versión de `onLoad` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el recurso no se ha podido cargar.
+* [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el recurso no se ha podido cargar.
 * `onErrorCapture`: Una versión de `onError` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
 Estos eventos se disparan para recursos como [`<audio>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) y [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video). A diferencia de los eventos del navegador, se propagan en React:
 
-* [`onAbort`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/abort_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el recurso no se ha cargado completamente, pero no debido a un error.
+* [`onAbort`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/abort_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el recurso no se ha cargado completamente, pero no debido a un error.
 * `onAbortCapture`: Una versión de `onAbort` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCanPlay`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/canplay_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando hay suficientes datos para empezar a reproducir, pero no los suficientes para reproducir hasta el final sin búfer.
+* [`onCanPlay`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/canplay_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando hay suficientes datos para empezar a reproducir, pero no los suficientes para reproducir hasta el final sin búfer.
 * `onCanPlayCapture`: Una versión de `onCanPlay` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onCanPlayThrough`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplaythrough_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando hay suficientes datos y es posible empezar a reproducir sin búfer hasta el final.
+* [`onCanPlayThrough`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplaythrough_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando hay suficientes datos y es posible empezar a reproducir sin búfer hasta el final.
 * `onCanPlayThroughCapture`: Una versión de `onCanPlayThrough` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onDurationChange`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando la duración del archivo multimedia ha sido actualizada.
+* [`onDurationChange`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando la duración del archivo multimedia ha sido actualizada.
 * `onDurationChangeCapture`: Una versión de `onDurationChange` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onEmptied`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/emptied_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el recurso multimedia se ha quedado vacío.
+* [`onEmptied`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/emptied_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el recurso multimedia se ha quedado vacío.
 * `onEmptiedCapture`: Una versión de `onEmptied` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onEncrypted`](https://w3c.github.io/encrypted-media/#dom-evt-encrypted): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el navegador encuentra contenido multimedia cifrado.
+* [`onEncrypted`](https://w3c.github.io/encrypted-media/#dom-evt-encrypted): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el navegador encuentra contenido multimedia cifrado.
 * `onEncryptedCapture`: Una versión de `onEncrypted` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onEnded`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando la reproducción se detiene porque no hay nada más que reproducir.
+* [`onEnded`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando la reproducción se detiene porque no hay nada más que reproducir.
 * `onEndedCapture`: Una versión de `onEnded` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error_event): Una función manejadora de [`Evento`](#event-handler) function. Se dispara cuando no se ha podido cargar el recurso.
+* [`onError`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error_event): Una función manejadora de eventos [`Event`](#event-handler) function. Se dispara cuando no se ha podido cargar el recurso.
 * `onErrorCapture`: Una versión de `onError` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onLoadedData`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/loadeddata_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el marco de reproducción actual se ha cargado.
+* [`onLoadedData`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/loadeddata_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el marco de reproducción actual se ha cargado.
 * `onLoadedDataCapture`: Una versión de `onLoadedData` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onLoadedMetadata`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadedmetadata_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se han cargado los metadatos.
+* [`onLoadedMetadata`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadedmetadata_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se han cargado los metadatos.
 * `onLoadedMetadataCapture`: Una versión de `onLoadedMetadata` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onLoadStart`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadstart_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el navegador ha comenzado a cargar el recurso.
+* [`onLoadStart`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadstart_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el navegador ha comenzado a cargar el recurso.
 * `onLoadStartCapture`: Una versión de `onLoadStart` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPause`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se ha pausado el recurso multimedia.
+* [`onPause`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se ha pausado el recurso multimedia.
 * `onPauseCapture`: Una versión de `onPause` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPlay`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se ha reanudado la reproducción del recurso multimedia.
+* [`onPlay`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se ha reanudado la reproducción del recurso multimedia.
 * `onPlayCapture`: Una versión de `onPlay` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onPlaying`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playing_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el archivo multimedia comienza o reinicia la reproducción.
+* [`onPlaying`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playing_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el archivo multimedia comienza o reinicia la reproducción.
 * `onPlayingCapture`: Una versión de `onPlaying` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onProgress`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/progress_event): Una función manejadora de [`Evento`](#event-handler). Se dispara periódicamente mientras se está cargando el recurso.
+* [`onProgress`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/progress_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara periódicamente mientras se está cargando el recurso.
 * `onProgressCapture`: Una versión de `onProgress` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onRateChange`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ratechange_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando la velocidad de reproducción cambia.
+* [`onRateChange`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ratechange_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando la velocidad de reproducción cambia.
 * `onRateChangeCapture`: Una versión de `onRateChange` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* `onResize`: Una función manejadora de [`Evento`](#event-handler). Se activa cuando cambia el tamaño del video.
+* `onResize`: Una función manejadora de eventos [`Event`](#event-handler). Se activa cuando cambia el tamaño del video.
 * `onResizeCapture`: Una versión de `onResize` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSeeked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeked_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando se completa una operación de búsqueda.
+* [`onSeeked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeked_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando se completa una operación de búsqueda.
 * `onSeekedCapture`: Una versión de `onSeeked` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSeeking`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeking_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando comienza una operación de búsqueda.
+* [`onSeeking`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeking_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando comienza una operación de búsqueda.
 * `onSeekingCapture`: Una versión de `onSeeking` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onStalled`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el navegador está esperando datos pero no los carga.
+* [`onStalled`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el navegador está esperando datos pero no los carga.
 * `onStalledCapture`: Una versión de `onStalled` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSuspend`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/suspend_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando la carga del recurso se ha suspendido.
+* [`onSuspend`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/suspend_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando la carga del recurso se ha suspendido.
 * `onSuspendCapture`: Una versión de `onSuspend` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onTimeUpdate`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/timeupdate_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el tiempo actual de la reproducción se actualiza.
+* [`onTimeUpdate`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/timeupdate_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el tiempo actual de la reproducción se actualiza.
 * `onTimeUpdateCapture`: Una versión de `onTimeUpdate` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onVolumeChange`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volumechange_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando el volumen ha cambiado.
+* [`onVolumeChange`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volumechange_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando el volumen ha cambiado.
 * `onVolumeChangeCapture`: Una versión de `onVolumeChange` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onWaiting`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event): Una función manejadora de [`Evento`](#event-handler). Se dispara cuando la reproducción se detuvo debido a la falta temporal de datos.
+* [`onWaiting`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event): Una función manejadora de eventos [`Event`](#event-handler). Se dispara cuando la reproducción se detuvo debido a la falta temporal de datos.
 * `onWaitingCapture`: Una versión de `onWaiting` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
-#### Precauciones {/*common-caveats*/}
+#### Advertencias {/*common-caveats*/}
 
 - No puedes pasar tanto `children` como `dangerouslySetInnerHTML` al mismo tiempo.
 - Algunos eventos (como `onAbort` y `onLoad`) no se propagan en el navegador, pero sí en React.
@@ -254,17 +254,17 @@ En lugar de un objeto ref (como el devuelto por [`useRef`](/reference/react/useR
 
 [Vea un ejemplo de la función callback `ref`.](/learn/manipulating-the-dom-with-refs#how-to-manage-a-list-of-refs-using-a-ref-callback)
 
-Cuando el nodo del DOM `<div>` es agregado a la pantalla, React llamará a tu callback ref con el nodo del DOM como argumento. Cuando ese nodo del DOM `<div>` es removido, React llamará a tu callback ref con null.
+Cuando el nodo del DOM `<div>` es agregado a la pantalla, React llamará a tu callback `ref` con el nodo del DOM como argumento. Cuando ese nodo del DOM `<div>` se elimina, React llamará a tu callback `ref` con `null`.
 
-React también llamará a tu callback ref cada vez que pases un callback ref diferente. En el ejemplo anterior, `(node) => { ... }` es una función diferente en cada renderizado. Cuando tu componente se vuelva a renderizar, la función *anterior* será llamada con `null` como argumento, y la *siguiente* función será llamada con el nodo del DOM.
+React también llamará a tu callback `ref` cada vez que pases un callback `ref` *diferente*. En el ejemplo anterior, `(node) => { ... }` es una función diferente en cada renderizado. Cuando tu componente se vuelva a renderizar, la función *anterior* será llamada con `null` como argumento, y la *siguiente* función será llamada con el nodo del DOM.
 
 #### Parámetros {/*ref-callback-parameters*/}
 
-* `node`: Un nodo del DOM o `null`. React te pasará el nodo del DOM cuando se vincule la ref, y `null` cuando la ref se desvincule. A menos que pases la misma función ref para el callback ref en cada renderizado, el callback se desprenderá temporalmente y se volverá a vincular durante cada renderizado del componente.
+* `node`: Un nodo del DOM o `null`. React te pasará el nodo del DOM cuando se vincule la ref, y `null` cuando la ref se desvincule. A menos que pases la misma función ref para el callback `ref` en cada renderizado, el callback se desprenderá temporalmente y se volverá a vincular durante cada renderizado del componente.
 
 #### Retornos {/*returns*/}
 
-No retornes nada desde el callback ref.
+No retornes nada desde el callback `ref`.
 
 ---
 
@@ -313,13 +313,13 @@ Además, los objetos de evento de React proporcionan estos métodos:
 * `persist()`: No se usa con React DOM. Con React Native, llámalo para leer las propiedades del evento después del evento.
 * `isPersistent()`: No se usa con React DOM. Con React Native, devuelve si se ha llamado a persist.
 
-#### Precauciones {/*react-event-object-caveats*/}
+#### Advertencias {/*react-event-object-caveats*/}
 
 * Los valores de `currentTarget`, `eventPhase`, `target`, y `type` reflejan los valores que tu código de React espera. Sin embargo, internamente, React vincula los manejadores de eventos en la raíz, pero esto no se refleja en los objetos de evento de React. Por ejemplo, `e.currentTarget` puede no ser lo mismo que el valor subyacente `e.nativeEvent.currentTarget`. Para eventos con polyfills, `e.type` (tipo de evento de React) puede ser diferente de `e.nativeEvent.type` (tipo subyacente).
 
 ---
 
-### Función manejadora de evento `AnimationEvent` {/*animationevent-handler*/}
+### Función manejadora de eventos `AnimationEvent` {/*animationevent-handler*/}
 
 Un tipo de manejador de eventos para los eventos de [animación CSS](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Animations/Using_CSS_animations).
 
@@ -340,7 +340,7 @@ Un tipo de manejador de eventos para los eventos de [animación CSS](https://dev
 
 ---
 
-### Función manejadora de evento `ClipboardEvent` {/*clipboadevent-handler*/}
+### Función manejadora de eventos `ClipboardEvent` {/*clipboadevent-handler*/}
 
 Un tipo de manejador de eventos para los eventos de [Clipboard API](https://developer.mozilla.org/es/docs/Web/API/Clipboard_API).
 
@@ -360,7 +360,7 @@ Un tipo de manejador de eventos para los eventos de [Clipboard API](https://deve
 
 ---
 
-### Función manejadora de evento `CompositionEvent` {/*compositionevent-handler*/}
+### Función manejadora de eventos `CompositionEvent` {/*compositionevent-handler*/}
 
 Un tipo de manejador de eventos para los eventos del [editor de métodos de entrada](https://developer.mozilla.org/en-US/docs/Glossary/Input_method_editor).
 
@@ -379,7 +379,7 @@ Un tipo de manejador de eventos para los eventos del [editor de métodos de entr
 
 ---
 
-### Función manejadora de evento `DragEvent` {/*dragevent-handler*/}
+### Función manejadora de eventos `DragEvent` {/*dragevent-handler*/}
 
 Un tipo de manejador de eventos para los eventos de la [API de arrastrar y soltar de HTML](https://developer.mozilla.org/es/docs/Web/API/HTML_Drag_and_Drop_API).
 
@@ -435,7 +435,7 @@ Un tipo de manejador de eventos para los eventos de la [API de arrastrar y solta
 
 ---
 
-### Función manejadora de evento `FocusEvent` {/*focusevent-handler*/}
+### Función manejadora de eventos `FocusEvent` {/*focusevent-handler*/}
 
 Un tipo de manejador de eventos para los eventos de foco.
 
@@ -460,7 +460,7 @@ Un tipo de manejador de eventos para los eventos de foco.
 
 ---
 
-### Función manejadora de `Evento` {/*event-handler*/}
+### Función manejadora de eventos `Event` {/*event-handler*/}
 
 Un tipo de función manejadora de eventos genéricos.
 
@@ -470,7 +470,7 @@ Un tipo de función manejadora de eventos genéricos.
 
 ---
 
-### Función manejadora de evento `InputEvent` {/*inputevent-handler*/}
+### Función manejadora de eventos `InputEvent` {/*inputevent-handler*/}
 
 Un tipo de manejador de eventos para el evento `onBeforeInput`.
 
@@ -485,7 +485,7 @@ Un tipo de manejador de eventos para el evento `onBeforeInput`.
 
 ---
 
-### Función manejadora de evento `KeyboardEvent` {/*keyboardevent-handler*/}
+### Función manejadora de eventos `KeyboardEvent` {/*keyboardevent-handler*/}
 
 Un tipo de manejador de eventos para eventos de teclado.
 
@@ -522,7 +522,7 @@ Un tipo de manejador de eventos para eventos de teclado.
 
 ---
 
-### Función manejadora de evento `MouseEvent` {/*mouseevent-handler*/}
+### Función manejadora de eventos `MouseEvent` {/*mouseevent-handler*/}
 
 Un tipo de manejador de eventos para eventos del mouse.
 
@@ -566,7 +566,7 @@ Un tipo de manejador de eventos para eventos del mouse.
 
 ---
 
-### Función manejadora de evento `PointerEvent` {/*pointerevent-handler*/}
+### Función manejadora de eventos `PointerEvent` {/*pointerevent-handler*/}
 
 Un tipo de manejador de eventos para [eventos del puntero.](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events)
 
@@ -622,7 +622,7 @@ Un tipo de manejador de eventos para [eventos del puntero.](https://developer.mo
 
 ---
 
-### Función manejadora de evento `TouchEvent` {/*touchevent-handler*/}
+### Función manejadora de eventos `TouchEvent` {/*touchevent-handler*/}
 
 Un tipo de manejador de eventos para [eventos táctiles.](https://developer.mozilla.org/es/docs/Web/API/Touch_events)
 
@@ -654,7 +654,7 @@ Un tipo de manejador de eventos para [eventos táctiles.](https://developer.mozi
 
 ---
 
-### Función manejadora de evento `TransitionEvent` {/*transitionevent-handler*/}
+### Función manejadora de eventos `TransitionEvent` {/*transitionevent-handler*/}
 
 Un tipo de manejador de eventos para los eventos de transición CSS.
 
@@ -673,7 +673,7 @@ Un tipo de manejador de eventos para los eventos de transición CSS.
 
 ---
 
-### Función manejadora de evento `UIEvent` {/*uievent-handler*/}
+### Función manejadora de eventos `UIEvent` {/*uievent-handler*/}
 
 Un tipo de manejador de eventos para eventos de UI genéricos.
 
@@ -691,7 +691,7 @@ Un tipo de manejador de eventos para eventos de UI genéricos.
   
 ---
 
-### Función manejadora de evento `WheelEvent` {/*wheelevent-handler*/}
+### Función manejadora de eventos `WheelEvent` {/*wheelevent-handler*/}
 
 Un tipo de manejador de eventos para el evento `onWheel`.
 
