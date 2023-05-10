@@ -14,11 +14,11 @@ Antes de participar en las diferentes comunidades de React, [por favor; lee nues
 
 ## Stack Overflow {/*stack-overflow*/}
 
-Stack Overflow es un foro popular en el que puedes hacer preguntas u obtener respuestas a nivel de código o resolver algún error en específico. Consulta sobre las [preguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) con la etiqueta **reactjs** o [has tu propia pregunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
+Stack Overflow es un foro popular en el que puedes hacer preguntas a nivel de código o resolver algún error en específico. Consulta las [preguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) con la etiqueta **reactjs** o [haz tu propia pregunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
 ## Foros populares de discusión {/*popular-discussion-forums*/}
 
-Existen varios foros en línea, los cuales son un excelente sitio para comentar sobre las mejores prácticas, sobre la arquitectura de aplicación y también sobre el futuro de React. Si tienes alguna pregunta a nivel de código, Stack Overflow es habitualmente el más adecuado.
+Los varios foros en línea existentes son un luar excelente para comentar sobre las mejores prácticas, arquitectura de aplicaciones y también sobre el futuro de React. Si tienes alguna pregunta a nivel de código, Stack Overflow suele ser más adecuado.
 
 Cada comunidad está constituida por miles de usuarios de React.
 
@@ -29,4 +29,4 @@ Cada comunidad está constituida por miles de usuarios de React.
 
 ## Noticias {/*news*/}
 
-Para conocer las ultimas noticias sobre React, [sigue **@reactjs** en Twitter](https://twitter.com/reactjs) y el [blog oficial de React](/blog/) en este sitio web.
+Para conocer las últimas noticias sobre React, [sigue **@reactjs** en Twitter](https://twitter.com/reactjs) y el [blog oficial de React](/blog/) en este sitio web.
