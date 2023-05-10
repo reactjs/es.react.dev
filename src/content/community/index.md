@@ -18,7 +18,7 @@ Stack Overflow es un foro popular en el que puedes hacer preguntas a nivel de c�
 
 ## Foros populares de discusión {/*popular-discussion-forums*/}
 
-Los varios foros en línea existentes son un luar excelente para comentar sobre las mejores prácticas, arquitectura de aplicaciones y también sobre el futuro de React. Si tienes alguna pregunta a nivel de código, Stack Overflow suele ser más adecuado.
+Los varios foros en línea existentes son un lugar excelente para comentar sobre las mejores prácticas, arquitectura de aplicaciones y también sobre el futuro de React. Si tienes alguna pregunta a nivel de código, Stack Overflow suele ser más adecuado.
 
 Cada comunidad está constituida por miles de usuarios de React.
 
