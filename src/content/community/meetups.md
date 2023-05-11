@@ -198,7 +198,7 @@ title: Reuniones de React
 * [Miami, FL - ReactJS](https://www.meetup.com/React-Miami/)
 * [Nashville, TN - ReactJS](https://www.meetup.com/NashReact-Meetup/)
 * [New York, NY - ReactJS](https://www.meetup.com/NYC-Javascript-React-Group/)
-* [New York, NY - Damas React](https://www.meetup.com/React-Ladies/)
+* [New York, NY - React Ladies](https://www.meetup.com/React-Ladies/)
 * [New York, NY - React Native](https://www.meetup.com/React-Native-NYC/)
 * [New York, NY - useReactNYC](https://www.meetup.com/useReactNYC/)
 * [Omaha, NE - ReactJS/React Native](https://www.meetup.com/omaha-react-meetup-group/)
