@@ -1,19 +1,19 @@
 ---
-title: Pasar datos en profundidad con Context
+title: Pasar datos en profundidad con contexto
 ---
 
 <Intro>
 
-Usualmente, tu pasarías información desde un componente papá a un componente hijo por medio de props. Sin embargo, pasar props puede convertirse en una tarea verbosa e inconveniente si tienes que pasarlos a través de múltiples componentes, o si varios componentes en tu app necesitan la misma información. *Context* permite que cierta información del componente papá esté disponible en cualquier componente del árbol que esté por debajo de él sin importar qué tan profundo sea y sin pasar la información explícitamente por medio de props.
+Usualmente, tu pasarías información desde un componente papá a un componente hijo por medio de props. Sin embargo, pasar props puede convertirse en una tarea verbosa e inconveniente si tienes que pasarlos a través de múltiples componentes, o si varios componentes en tu app necesitan la misma información. El *contexto* permite que cierta información del componente papá esté disponible en cualquier componente del árbol que esté por debajo de él sin importar qué tan profundo sea y sin pasar la información explícitamente por medio de props.
 
 </Intro>
 
 <YouWillLearn>
 
 - Qué es "perforación de props"
-- Cómo reemplazar el paso repetitivo de props con context
-- Casos de uso comunes para context
-- Alternativas comunes a context
+- Cómo reemplazar el paso repetitivo de props con contexto
+- Casos de uso comunes para el contexto
+- Alternativas comunes al contexto
 
 </YouWillLearn>
 
@@ -38,11 +38,11 @@ Perforación de props
 
 </DiagramGroup>
 
-¿No sería grandioso si existiese alguna forma de "teletransportar" datos a componentes en el árbol que lo necesiten sin tener que pasar props? ¡Con el context de React es posible!
+¿No sería grandioso si existiese alguna forma de "teletransportar" datos a componentes en el árbol que lo necesiten sin tener que pasar props? ¡Con el contexto de React es posible!
 
-## Context: Una alternativo a pasar props {/*context-an-alternative-to-passing-props*/}
+## Contexto: Una alternativo a pasar props {/*context-an-alternative-to-passing-props*/}
 
-Context permite que el componente papá provea datos al árbol entero debajo de él. Hay muchas utilidades para el context. Este es un solo ejemplo. Considera el componente `Heading` que acepta `level` como su tamaño:
+El contexto permite que el componente papá provea datos al árbol entero debajo de él. Hay muchas utilidades para el contexto. Este es un solo ejemplo. Considera el componente `Heading` que acepta `level` como su tamaño:
 
 <Sandpack>
 
