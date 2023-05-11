@@ -22,7 +22,7 @@ Veamos cada uno de estos casos.
 
 Las funciones que comienzan con `use` se conocen como [*Hooks*](/reference/react) en React.
 
-**Evita utilizar Hooks dentro de ciclos, condicionales o funciones anidadas.** En su lugar, utiliza los Hooks únicamente en el nivel superior de tu función de React, antes de cualquier retorno anticipado. Los Hooks solo deben ser utilizados durante la renderización de un componente de función en React:
+**Evita utilizar Hooks dentro de ciclos, condicionales o funciones anidadas.** En su lugar, utiliza los Hooks únicamente en el nivel superior de tu función de React, antes de cualquier retorno anticipado. Los Hooks sólo deben ser utilizados durante la renderización de un componente de función en React:
 
 * ✅ Utilízalos en el nivel superior del cuerpo de un [componente de función](/learn/your-first-component).
 * ✅ Utilízalos en el nivel superior del cuerpo de un [Hook personalizado](/learn/reusing-logic-with-custom-hooks).
