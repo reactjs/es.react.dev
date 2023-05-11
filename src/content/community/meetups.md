@@ -187,7 +187,7 @@ title: Reuniones de React
 * [Colón, OH - ReactJS](https://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](https://www.meetup.com/ReactDallas/)
 * [Dallas, TX - [Remoto] React JS](https://www.meetup.com/React-JS-Group/)
-* [Detroit, MI - Detroit React Grupo de Usuario](https://www.meetup.com/Detroit-React-User-Group/)
+* [Detroit, MI - Grupo de Usuarios de React en Detroit](https://www.meetup.com/Detroit-React-User-Group/)
 * [Indianapolis, IN - React.Indy](https://www.meetup.com/React-Indy)
 * [Irvine, CA - ReactJS](https://www.meetup.com/ReactJS-OC/)
 * [Kansas City, MO - ReactJS](https://www.meetup.com/Kansas-City-React-Meetup/)
