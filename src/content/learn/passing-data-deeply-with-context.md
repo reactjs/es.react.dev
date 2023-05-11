@@ -40,9 +40,9 @@ Perforación de props
 
 ¿No sería grandioso si existiese alguna forma de "teletransportar" datos a componentes en el árbol que lo necesiten sin tener que pasar props? ¡Con el context de React es posible!
 
-## Context: an alternative to passing props {/*context-an-alternative-to-passing-props*/}
+## Context: Una alternativo a pasar props {/*context-an-alternative-to-passing-props*/}
 
-Context lets a parent component provide data to the entire tree below it. There are many uses for context. Here is one example. Consider this `Heading` component that accepts a `level` for its size:
+Context permite que el componente papá provea datos al árbol entero debajo de él. Hay muchas utilidades para el context. Este es un solo ejemplo. Considera el componente `Heading` que acepta `level` como su tamaño:
 
 <Sandpack>
 
@@ -106,7 +106,7 @@ export default function Heading({ level, children }) {
 
 </Sandpack>
 
-Let's say you want multiple headings within the same `Section` to always have the same size:
+Supongamos que tu quieres múltiples encabezados (*headings*) dentro del mismo componente `Section` para siempre tener el mismo tamaño:
 
 <Sandpack>
 
@@ -180,7 +180,7 @@ export default function Heading({ level, children }) {
 
 </Sandpack>
 
-Currently, you pass the `level` prop to each `<Heading>` separately:
+Actualmente, estás pasando la prop `level` a cada `<Heading>` separadamente:
 
 ```js
 <Section>
@@ -189,8 +189,7 @@ Currently, you pass the `level` prop to each `<Heading>` separately:
   <Heading level={3}>Videos</Heading>
 </Section>
 ```
-
-It would be nice if you could pass the `level` prop to the `<Section>` component instead and remove it from the `<Heading>`. This way you could enforce that all headings in the same section have the same size:
+Sería genial si tu pudieras pasar la prop `level` al componente `<Section>` y removerlo del `<Heading>`. De esta forma podrías reforzar que todos los encabezados tengan el mismo tamaño en una misma sección (*section*):
 
 ```js
 <Section level={3}>
@@ -200,15 +199,15 @@ It would be nice if you could pass the `level` prop to the `<Section>` component
 </Section>
 ```
 
-But how can the `<Heading>` component know the level of its closest `<Section>`? **That would require some way for a child to "ask" for data from somewhere above in the tree.**
+¿Pero como podría el componente `<Heading>` conocer el `level` de su `<Section>` más cercano? **Eso requeriría alguna forma en la que el hijo "pediría" datos desde algún lugar arriba en el árbol.**
 
-You can't do it with props alone. This is where context comes into play. You will do it in three steps:
+No podrías lograrlo únicamente con props. Aquí es donde el contexto entra a jugar. Lo conseguirás en tres pasos:
 
-1. **Create** a context. (You can call it `LevelContext`, since it's for the heading level.)
-2. **Use** that context from the component that needs the data. (`Heading` will use `LevelContext`.)
-3. **Provide** that context from the component that specifies the data. (`Section` will provide `LevelContext`.)
+1. **Crear** un contexto. (puedes llamarlo `LevelContext`, ya que es para el `level` de los encabezados)
+2. **Usar** ese contexto desde el componente que necesita los datos. (`Heading` usará `LevelContext`)
+3. **Proveer** ese contexto desde el componente que especifica los datos. (`Section` proveerá `LevelContext`)
 
-Context lets a parent--even a distant one!--provide some data to the entire tree inside of it.
+El contexto permite que en un papá (incluso uno distante) provea algunos datos a la totalidad del árbol dentro de él.
 
 <DiagramGroup>
 
