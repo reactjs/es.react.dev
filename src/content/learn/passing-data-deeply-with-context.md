@@ -211,15 +211,14 @@ El contexto permite que en un papá (incluso uno distante) provea algunos datos 
 
 <DiagramGroup>
 
-<Diagram name="passing_data_context_close" height={160} width={608} captionPosition="top" alt="Diagram with a tree of three components. The parent contains a bubble representing a value highlighted in orange which projects down to the two children, each highlighted in orange." >
+<Diagram name="passing_data_context_close" height={160} width={608} captionPosition="top" alt="Un diagrama con un árbol de tres componentes. El papá contiene una burbuja que representa un valor resaltado en naranja el cual proyecta hacia sus dos hijos, cada uno resaltado en naranja." >
 
-Using context in close children
-
+Usar contexto en un hijo cercano
 </Diagram>
 
-<Diagram name="passing_data_context_far" height={430} width={608} captionPosition="top" alt="Diagram with a tree of ten nodes, each node with two children or less. The root parent node contains a bubble representing a value highlighted in orange. The value projects down directly to four leaves and one intermediate component in the tree, which are all highlighted in orange. None of the other intermediate components are highlighted.">
+<Diagram name="passing_data_context_far" height={430} width={608} captionPosition="top" alt="Un diagrama con un árbol de diez nodos, cada nodo con dos hijos o menos. El nodo raíz papá contiene una burbuja que representa un valor resaltado en naranja. El valor proyecta directamente a cuatro hojas y un componente intermedio en el árbol, los cuales todos están resaltados en naranja. Ninguno de los componentes intermedios restantes están resaltados.">
 
-Using context in distant children
+Usar contexto en hijos lejanos
 
 </Diagram>
 
