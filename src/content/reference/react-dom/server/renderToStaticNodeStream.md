@@ -74,6 +74,6 @@ El stream producirá la salida inicial no interactiva de HTML de tus componentes
 
 Este método renderiza **HTML no interactivo que no se puede hidratar.** Esto es útil si quieres utilizar React como un generador de páginas simple, o si estas renderizando  contenido completamente estático como correos electrónicos.
 
-Las aplicaciones interactivas deben usar  [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) en el servidor y [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el cliente.
+Las aplicaciones interactivas deben usar [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) en el servidor y [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el cliente.
 
 </Pitfall>
