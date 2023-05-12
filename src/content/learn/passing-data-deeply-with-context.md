@@ -224,9 +224,9 @@ Usar contexto en hijos lejanos
 
 </DiagramGroup>
 
-### Step 1: Create the context {/*step-1-create-the-context*/}
+### Paso 1: Crear el contexto {/*step-1-create-the-context*/}
 
-First, you need to create the context. You'll need to **export it from a file** so that your components can use it:
+Primeramente, necesitas crear el contexto. Necesitarás **exportarlo desde un archivo** para que tus componentes lo puedan usar: 
 
 <Sandpack>
 
@@ -306,26 +306,24 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-The only argument to `createContext` is the _default_ value. Here, `1` refers to the biggest heading level, but you could pass any kind of value (even an object). You will see the significance of the default value in the next step.
+El único parámetro que se le pasa a `createContext` es el valor _predeterminado_. En este caso, `1` se refiere al nivel de encabezado más grande, pero tu puedes pasar cualquier valor (incluso un objeto). Ya verás la importancia del valor predeterminado en el siguiente paso.
 
-### Step 2: Use the context {/*step-2-use-the-context*/}
+### Paso 2: Usar el contexto {/*step-2-use-the-context*/}
 
-Import the `useContext` Hook from React and your context:
+Importa el Hook `useContext` desde React y tu contexto:
 
 ```js
 import { useContext } from 'react';
 import { LevelContext } from './LevelContext.js';
 ```
-
-Currently, the `Heading` component reads `level` from props:
+Actualmente, el componente `Heading` lee `level` con props:
 
 ```js
 export default function Heading({ level, children }) {
   // ...
 }
 ```
-
-Instead, remove the `level` prop and read the value from the context you just imported, `LevelContext`:
+En su lugar, remueva la prop `level` y lee el valor desde el contexto que acabas de importar, `LevelContext`:
 
 ```js {2}
 export default function Heading({ children }) {
@@ -334,9 +332,9 @@ export default function Heading({ children }) {
 }
 ```
 
-`useContext` is a Hook. Just like `useState` and `useReducer`, you can only call a Hook immediately inside a React component (not inside loops or conditions). **`useContext` tells React that the `Heading` component wants to read the `LevelContext`.**
+`useContext` es un Hook. Así como `useState` y `useReducer`, únicamente puedes llamar a un Hook inmediatamente adentro de un componente de React (no dentro de ciclos o condiciones). **`useContext` le dice a React que el componente `Heading` quiere leer el contexto `LevelContext`.**
 
-Now that the `Heading` component doesn't have a `level` prop, you don't need to pass the level prop to `Heading` in your JSX like this anymore:
+Ahora que el componente `Heading` no tiene una prop `level`, ya no tienes que pasarla a `Heading` en tu JSX de esta forma:
 
 ```js
 <Section>
@@ -345,8 +343,7 @@ Now that the `Heading` component doesn't have a `level` prop, you don't need to 
   <Heading level={4}>Sub-sub-heading</Heading>
 </Section>
 ```
-
-Update the JSX so that it's the `Section` that receives it instead:
+Actualiza el JSX para que sea `Section` el que recibe la prop:
 
 ```jsx
 <Section level={4}>
@@ -355,8 +352,7 @@ Update the JSX so that it's the `Section` that receives it instead:
   <Heading>Sub-sub-heading</Heading>
 </Section>
 ```
-
-As a reminder, this is the markup that you were trying to get working:
+Como recordatorio, esta es la estructura que estabas intentando que funcionara:
 
 <Sandpack>
 
@@ -440,13 +436,13 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-Notice this example doesn't quite work, yet! All the headings have the same size because **even though you're *using* the context, you have not *provided* it yet.** React doesn't know where to get it!
+Nota que este ejemplo no funciona, ¡Aún! Todos los encabezados tienen el mismo tamaño porque **pese a que estás *usando* el contexto, no lo has *proveído* aún.** ¡React no sabe dónde obtenerlo!
 
-If you don't provide the context, React will use the default value you've specified in the previous step. In this example, you specified `1` as the argument to `createContext`, so `useContext(LevelContext)` returns `1`, setting all those headings to `<h1>`. Let's fix this problem by having each `Section` provide its own context.
+Si no provees el contexto, React usará el valor predeterminado que especificaste en el paso previo. En este ejemplo, especificaste `1` como el parámetro de `createContext`, entonces `useContext(LevelContext)` retorna `1`, ajustando todos los encabezados a `<h1>`. Arreglemos este problema haciendo que cada `Section` provea su propio contexto.
 
-### Step 3: Provide the context {/*step-3-provide-the-context*/}
+### Paso 3: Proveer el contexto {/*step-3-provide-the-context*/}
 
-The `Section` component currently renders its children:
+El componente `Section` actualmente renderiza sus hijos:
 
 ```js
 export default function Section({ children }) {
@@ -457,8 +453,7 @@ export default function Section({ children }) {
   );
 }
 ```
-
-**Wrap them with a context provider** to provide the `LevelContext` to them:
+**Envuélvelos con un proveedor de contexto** para proveer `LevelContext` a ellos:
 
 ```js {1,6,8}
 import { LevelContext } from './LevelContext.js';
@@ -473,8 +468,7 @@ export default function Section({ level, children }) {
   );
 }
 ```
-
-This tells React: "if any component inside this `<Section>` asks for `LevelContext`, give them this `level`." The component will use the value of the nearest `<LevelContext.Provider>` in the UI tree above it.
+Esto le dice a React: "si cualquier componente adentro de este `<Section>` pregunta por `LevelContext`, envíales este `level`." El componente usará el valor del `<LevelContext.Provider>` más cercano en el árbol de la UI encima de él.
 
 <Sandpack>
 
@@ -562,11 +556,11 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-It's the same result as the original code, but you did not need to pass the `level` prop to each `Heading` component! Instead, it "figures out" its heading level by asking the closest `Section` above:
+¡Es el mismo resultado del código original, pero no tuviste que pasar la prop `level` a cada componente `Heading`! En su lugar, "comprende" su nivel de encabezado al preguntar al `Section` más cercano de arriba:
 
-1. You pass a `level` prop to the `<Section>`.
-2. `Section` wraps its children into `<LevelContext.Provider value={level}>`.
-3. `Heading` asks the closest value of `LevelContext` above with `useContext(LevelContext)`.
+1. Tú pasas la prop `level` al `<Section>`.
+2. `Section` envuelve a sus hijos con `<LevelContext.Provider value={level}>`.
+3. `Heading` pregunta el valor más cercano de arriba de `LevelContext` por medio de `useContext(LevelContext)`.
 
 ## Using and providing context from the same component {/*using-and-providing-context-from-the-same-component*/}
 
