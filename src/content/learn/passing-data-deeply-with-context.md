@@ -4,7 +4,7 @@ title: Pasar datos en profundidad con contexto
 
 <Intro>
 
-Usualmente, tu pasarías información desde un componente papá a un componente hijo por medio de props. Sin embargo, pasar props puede convertirse en una tarea verbosa e inconveniente si tienes que pasarlos a través de múltiples componentes, o si varios componentes en tu app necesitan la misma información. El *contexto* permite que cierta información del componente papá esté disponible en cualquier componente del árbol que esté por debajo de él sin importar qué tan profundo sea y sin pasar la información explícitamente por medio de props.
+Usualmente, tú pasarías información desde un componente papá a un componente hijo por medio de props. Sin embargo, pasar props puede convertirse en una tarea verbosa e inconveniente si tienes que pasarlos a través de múltiples componentes, o si varios componentes en tu app necesitan la misma información. El *contexto* permite que cierta información del componente papá esté disponible en cualquier componente del árbol que esté por debajo de él sin importar qué tan profundo sea y sin pasar la información explícitamente por medio de props.
 
 </Intro>
 
@@ -106,7 +106,7 @@ export default function Heading({ level, children }) {
 
 </Sandpack>
 
-Supongamos que tu quieres múltiples encabezados (*headings*) dentro del mismo componente `Section` para siempre tener el mismo tamaño:
+Supongamos que tú quieres múltiples encabezados (*headings*) dentro del mismo componente `Section` para siempre tener el mismo tamaño:
 
 <Sandpack>
 
@@ -189,7 +189,7 @@ Actualmente, estás pasando la prop `level` a cada `<Heading>` separadamente:
   <Heading level={3}>Videos</Heading>
 </Section>
 ```
-Sería genial si tu pudieras pasar la prop `level` al componente `<Section>` y removerlo del `<Heading>`. De esta forma podrías reforzar que todos los encabezados tengan el mismo tamaño en una misma sección (*section*):
+Sería genial si tú pudieras pasar la prop `level` al componente `<Section>` y removerlo del `<Heading>`. De esta forma podrías reforzar que todos los encabezados tengan el mismo tamaño en una misma sección (*section*):
 
 ```js
 <Section level={3}>
@@ -306,7 +306,7 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-El único parámetro que se le pasa a `createContext` es el valor _predeterminado_. En este caso, `1` se refiere al nivel de encabezado más grande, pero tu puedes pasar cualquier valor (incluso un objeto). Ya verás la importancia del valor predeterminado en el siguiente paso.
+El único parámetro que se le pasa a `createContext` es el valor _predeterminado_. En este caso, `1` se refiere al nivel de encabezado más grande, pero tú puedes pasar cualquier valor (incluso un objeto). Ya verás la importancia del valor predeterminado en el siguiente paso.
 
 ### Paso 2: Usar el contexto {/*step-2-use-the-context*/}
 
