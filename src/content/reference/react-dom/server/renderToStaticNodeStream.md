@@ -4,7 +4,7 @@ title: renderToStaticNodeStream
 
 <Intro>
 
-`renderToStaticNodeStream` renders a non-interactive React tree to a [Node.js Readable Stream.](https://nodejs.org/api/stream.html#readable-streams)
+`renderToStaticNodeStream` renderiza un árbol de React no interactivo a un [Stream legible de Node.js.](https://nodejs.org/api/stream.html#readable-streams)
 
 ```js
 const stream = renderToStaticNodeStream(reactNode)
@@ -16,11 +16,11 @@ const stream = renderToStaticNodeStream(reactNode)
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `renderToStaticNodeStream(reactNode)` {/*rendertostaticnodestream*/}
 
-On the server, call `renderToStaticNodeStream` to get a [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams).
+En el servidor, llama a `renderToStaticNodeStream` para obtener un [Stream legible de Node.js](https://nodejs.org/api/stream.html#readable-streams).
 
 ```js
 import { renderToStaticNodeStream } from 'react-dom/server';
@@ -29,52 +29,51 @@ const stream = renderToStaticNodeStream(<Page />);
 stream.pipe(response);
 ```
 
-[See more examples below.](#usage)
+[Ver más ejemplos abajo.](#usage)
+El stream producirá, en la salida, HTML no interactivo de tus componentes de React.
 
-The stream will produce non-interactive HTML output of your React components.
+#### Parámetros {/*parameters*/}
 
-#### Parameters {/*parameters*/}
+* `reactNode`: Un nodo de React que quieres renderizar a HTML. Por ejemplo, un elemento JSX como `<Page />`.
 
-* `reactNode`: A React node you want to render to HTML. For example, a JSX element like `<Page />`.
+#### Devuelve {/*returns*/}
 
-#### Returns {/*returns*/}
+Un [Stream legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que produce un string HTML como salida. El HTML resultante no puede hidratarse en el cliente.
 
-A [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams) that outputs an HTML string. The resulting HTML can't be hydrated on the client.
+#### Advertencias {/*caveats*/}
 
-#### Caveats {/*caveats*/}
+* La salida de `renderToStaticNodeStream` no puede ser hidratada.
 
-* `renderToStaticNodeStream` output cannot be hydrated.
+* Este método va a esperar que todas las [barreras de Suspense](/reference/react/Suspense) se completen antes de devolver alguna salida.
 
-* This method will wait for all [Suspense boundaries](/reference/react/Suspense) to complete before returning any output.
+* A partir de React 18, este método almacena en búfer toda su salida, por lo que no ofrece realmente ningún beneficio de transmisión.
 
-* As of React 18, this method buffers all of its output, so it doesn't actually provide any streaming benefits.
-
-* The returned stream is a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
+* El stream  devuelto es un flujo de bytes codificado en utf-8. Si necesitas un stream en otra codificación, echa un vistazo a un proyecto como [iconv-lite](https://www.npmjs.com/package/iconv-lite), que proporciona streams de transformación para la transcodificación de texto.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Rendering a React tree as static HTML to a Node.js Readable Stream {/*rendering-a-react-tree-as-static-html-to-a-nodejs-readable-stream*/}
+### Renderizar un árbol de React como HTML estático a un Stream legible de Node.js {/*rendering-a-react-tree-as-static-html-to-a-nodejs-readable-stream*/}
 
-Call `renderToStaticNodeStream` to get a [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams) which you can pipe to your server response:
+Llama a `renderToStaticNodeStream` para obtener un [Stream legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que puedes canalizar a la respuesta de tu servidor:
 
 ```js {5-6}
 import { renderToStaticNodeStream } from 'react-dom/server';
 
-// The route handler syntax depends on your backend framework
+// La sintaxis del manejador de rutas depende del framework de tu backend
 app.use('/', (request, response) => {
   const stream = renderToStaticNodeStream(<Page />);
   stream.pipe(response);
 });
 ```
 
-The stream will produce the initial non-interactive HTML output of your React components.
+El stream producirá la salida inicial no interactiva de HTML de tus componentes de React.
 
 <Pitfall>
 
-This method renders **non-interactive HTML that cannot be hydrated.** This is useful if you want to use React as a simple static page generator, or if you're rendering completely static content like emails.
+Este método renderiza **HTML no interactivo que no se puede hidratar.** Esto es útil si quieres utilizar React como un generador de páginas simple, o si estas renderizando  contenido completamente estático como correos electrónicos.
 
-Interactive apps should use [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) on the server and [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) on the client.
+Las aplicaciones interactivas deben usar  [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) en el servidor y [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el cliente.
 
 </Pitfall>
