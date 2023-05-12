@@ -30,6 +30,7 @@ stream.pipe(response);
 ```
 
 [Ver más ejemplos abajo.](#usage)
+
 El stream producirá, en la salida, HTML no interactivo de tus componentes de React.
 
 #### Parámetros {/*parameters*/}
