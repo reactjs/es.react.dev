@@ -4,7 +4,7 @@ title: "Hooks integrados de React"
 
 <Intro>
 
-Los *Hooks* te dejan usar diferentes funciones de React desde tus componentes. Puedes usar los Hooks integrados o combinarlos para construir tu propio Hook. Esta página lista todos los *Hooks integrados* en React.
+Los *Hooks* te permiten usar diferentes funciones de React desde tus componentes. Puedes usar los Hooks integrados o combinarlos para construir tu propio Hook. Esta página lista todos los *Hooks integrados* en React.
 
 </Intro>
 
