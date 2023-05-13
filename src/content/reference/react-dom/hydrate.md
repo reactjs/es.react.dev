@@ -68,7 +68,7 @@ Llama a `hydrate` para unir un  <CodeStep step={1}>componente de React</CodeStep
 import { hydrate } from 'react-dom';
 
 hydrate(<App />, document.getElementById('root'));
-````
+```
 
 Utilizar `hydrate()` para renderizar una aplicación del lado del cliente (una aplicación sin HTML renderizado en el servidor) no está adimitido. Utiliza [`render()`](/reference/react-dom/render) (en React 17 y anteriores) o [`createRoot()`](/reference/react-dom/client/createRoot) (en React 18+) en su lugar.
 
