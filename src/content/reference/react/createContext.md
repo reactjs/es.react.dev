@@ -166,7 +166,7 @@ import { createContext } from 'react';
 
 export const ThemeContext = createContext('light');
 export const AuthContext = createContext(null);
-````
+```
 
 Los componentes declarados en otros archivos pueden usar la declaración [`import`](https://developer.mozilla.org/es/docs/web/javascript/reference/statements/import) para leer o proveer un contexto:
 
