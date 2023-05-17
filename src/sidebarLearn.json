@@ -86,7 +86,7 @@
       ]
     },
     {
-      "title": "Adding Interactivity",
+      "title": "Agregar interactividad",
       "path": "/learn/adding-interactivity",
       "tags": [],
       "routes": [
@@ -186,7 +186,7 @@
         },
         {
           "title": "Eliminar dependencias de los Efectos",
-          "path": "/learn/removing-effect-dependencies"              
+          "path": "/learn/removing-effect-dependencies"
         },
         {
           "title": "Reutilización de lógica con Hooks personalizados",
