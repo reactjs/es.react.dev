@@ -184,7 +184,7 @@ const nextPosition = {};
 nextPosition.x = e.clientX;
 nextPosition.y = e.clientY;
 setPosition(nextPosition);
-````
+```
 
 De hecho, es completamente equivalente a escribir lo siguiente:
 
