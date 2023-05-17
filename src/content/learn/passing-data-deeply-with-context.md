@@ -189,6 +189,7 @@ Actualmente, estás pasando la prop `level` a cada `<Heading>` separadamente:
   <Heading level={3}>Videos</Heading>
 </Section>
 ```
+
 Sería genial si tú pudieras pasar la prop `level` al componente `<Section>` y removerlo del `<Heading>`. De esta forma podrías reforzar que todos los encabezados tengan el mismo tamaño en una misma sección (*section*):
 
 ```js
