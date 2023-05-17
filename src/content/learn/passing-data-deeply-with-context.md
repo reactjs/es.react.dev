@@ -841,16 +841,16 @@ Aquí hay algunas alternativas que podrías considerar antes de usar el contexto
 
 Si ninguna de estas alternativas funcionan bien para ti, considera el contexto.
 
-## Use cases for context {/*use-cases-for-context*/}
+## Casos de uso para el contexto {/*use-cases-for-context*/}
 
-* **Theming:** If your app lets the user change its appearance (e.g. dark mode), you can put a context provider at the top of your app, and use that context in components that need to adjust their visual look.
-* **Current account:** Many components might need to know the currently logged in user. Putting it in context makes it convenient to read it anywhere in the tree. Some apps also let you operate multiple accounts at the same time (e.g. to leave a comment as a different user). In those cases, it can be convenient to wrap a part of the UI into a nested provider with a different current account value.
-* **Routing:** Most routing solutions use context internally to hold the current route. This is how every link "knows" whether it's active or not. If you build your own router, you might want to do it too.
-* **Managing state:** As your app grows, you might end up with a lot of state closer to the top of your app. Many distant components below may want to change it. It is common to [use a reducer together with context](/learn/scaling-up-with-reducer-and-context) to manage complex state and pass it down to distant components without too much hassle.
-  
-Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.
+* **Temas:**: Si tus apps permiten que los usuarios cambien la apariencia (por ejemplo, modo oscuro), puedes poner un proveedor de contexto en el primer nivel de tu aplicación, y usar ese contexto en componentes que necesiten ajustar su comportamiento visual.
+* **Cuenta actual:** Muchos componentes podrían necesitar saber el usuario actual que inició sesión. Ponerlo en un contexto lo hace conveniente para leerlo desde cualquier lado del árbol. Algunas apps también te permiten manejar múltiples cuentas al mismo tiempo (por ejemplo, dejar un comentario con un usuario distinto). En esos casos, puede ser conveniente envolver parte de la UI con un proveedor anidado que tenga una cuenta actual diferente.
+* **Enrutamiento:** La mayoría de las soluciones de enrutamiento usan contexto internamente para mantener la ruta actual. Así es cómo cada enlace "sabe" si está activo o no. Si construyes tu propio enrutador, podrías necesitar hacerlo también.
+* **Gestionar estados:** A medida que tu aplicación crece, podrías terminar con muchos estados cerca de la parte superior de tu aplicación. Muchos componentes distantes de abajo podrían querer cambiarlos. Es común [usar un reducer con un contexto](/learn/scaling-up-with-reducer-and-context) para gestionar estados complejos y pasarlos a componentes lejanos sin mucha molestia.
 
-In general, if some information is needed by distant components in different parts of the tree, it's a good indication that context will help you.
+El contexto no está limitado a valores estáticos. Si tú pasas un valor distinto en el siguiente render, ¡React actualizará todos los componentes debajo que lean el contexto! Es por esto que muchas veces el contexto es usado en combinación con estados.
+
+En general, si alguna información es necesitada por componentes lejanos en diferentes partes del árbol, es un buen indicador de que el contexto te ayudará.
 
 <Recap>
 
