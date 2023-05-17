@@ -318,6 +318,7 @@ Importa el Hook `useContext` desde React y tu contexto:
 import { useContext } from 'react';
 import { LevelContext } from './LevelContext.js';
 ```
+
 Actualmente, el componente `Heading` lee `level` con props:
 
 ```js
