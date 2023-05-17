@@ -830,16 +830,16 @@ El funcionamiento de los contextos te podría recordar a la [herencia de CSS.](h
 
 En CSS, diversas propiedades como `color` y `background-color` no se sobreescriben entre ellas. Tú puedes definir la propiedad `color` de todos los `<div>` a `red` sin impactar `background-color`. Similarmente, **diversos contextos de React no se sobreescriben entre ellos mismos.** Cada contexto que creas con `createContext()` está completamente separado de los otros, y une los componentes usando y proveyendo *ese* contexto en particular. Un componente podría usar o proveer muchos contextos diferentes sin ningún problema.
 
-## Before you use context {/*before-you-use-context*/}
+## Antes de usar contexto {/*before-you-use-context*/}
 
-Context is very tempting to use! However, this also means it's too easy to overuse it. **Just because you need to pass some props several levels deep doesn't mean you should put that information into context.**
+¡El contexto es bien tentador de usar! Sin embargo, esto también significa que es muy fácil sobreusarlo. **Solo porque necesitas pasar algunas props a varios niveles en profundidad no significa que debas poner esa información en un contexto.**
 
-Here's a few alternatives you should consider before using context:
+Aquí hay algunas alternativas que podrías considerar antes de usar el contexto:
 
-1. **Start by [passing props.](/learn/passing-props-to-a-component)** If your components are not trivial, it's not unusual to pass a dozen props down through a dozen components. It may feel like a slog, but it makes it very clear which components use which data! The person maintaining your code will be glad you've made the data flow explicit with props.
-2. **Extract components and [pass JSX as `children`](/learn/passing-props-to-a-component#passing-jsx-as-children) to them.** If you pass some data through many layers of intermediate components that don't use that data (and only pass it further down), this often means that you forgot to extract some components along the way. For example, maybe you pass data props like `posts` to visual components that don't use them directly, like `<Layout posts={posts} />`. Instead, make `Layout` take `children` as a prop, and render `<Layout><Posts posts={posts} /></Layout>`. This reduces the number of layers between the component specifying the data and the one that needs it.
+1. **Empieza [pasando props.](/learn/passing-props-to-a-component)** Si tus componentes no son triviales, no es inusual pasar muchas props hacia abajo a través de muchos componentes. Podría considerarse tedioso, ¡pero deja bien claro cuáles componentes usan cuáles datos! La persona dándole mantenimiento a tu código estará agradecida de que hiciste el flujo de datos explícito con props.
+2. **Extraer componentes y [pasarles el JSX como `children`](/learn/passing-props-to-a-component#passing-jsx-as-children).** Si pasas algunos datos a través de muchas capas de componentes intermedios que no usan esos datos (y lo único que hacen es pasarlos hacia abajo), esto muchas veces significa que olvidaste extraer algunos componentes sobre la marcha. Por ejemplo, quizá pasaste algunas props como `posts` a componentes visuales que no las usan directamente, como lo puede ser `<Layout posts={posts} />`. En su lugar, haz que `Layout` tome `children` como prop, y renderiza `<Layout><Posts posts={posts} /></Layout>`. Esto reduce la cantidad de capas que hay entre el componente que especifica los datos y el componente que los necesita.
 
-If neither of these approaches works well for you, consider context.
+Si ninguna de estas alternativas funcionan bien para ti, considera el contexto.
 
 ## Use cases for context {/*use-cases-for-context*/}
 
