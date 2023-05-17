@@ -40,7 +40,7 @@ Perforación de props
 
 ¿No sería grandioso si existiese alguna forma de "teletransportar" datos a componentes en el árbol que lo necesiten sin tener que pasar props? ¡Con el contexto de React es posible!
 
-## Contexto: Una alternativo a pasar props {/*context-an-alternative-to-passing-props*/}
+## Contexto: Una alternativa a pasar props {/*context-an-alternative-to-passing-props*/}
 
 El contexto permite que el componente papá provea datos al árbol entero debajo de él. Hay muchas utilidades para el contexto. Este es un solo ejemplo. Considera el componente `Heading` que acepta `level` como su tamaño:
 
@@ -203,9 +203,9 @@ Sería genial si tú pudieras pasar la prop `level` al componente `<Section>` y 
 
 No podrías lograrlo únicamente con props. Aquí es donde el contexto entra a jugar. Lo conseguirás en tres pasos:
 
-1. **Crear** un contexto. (puedes llamarlo `LevelContext`, ya que es para el `level` de los encabezados)
-2. **Usar** ese contexto desde el componente que necesita los datos. (`Heading` usará `LevelContext`)
-3. **Proveer** ese contexto desde el componente que especifica los datos. (`Section` proveerá `LevelContext`)
+1. **Crear** un contexto (puedes llamarlo `LevelContext`, ya que es para el `level` de los encabezados)
+2. **Usar** ese contexto desde el componente que necesita los datos (`Heading` usará `LevelContext`)
+3. **Proveer** ese contexto desde el componente que especifica los datos (`Section` proveerá `LevelContext`)
 
 El contexto permite que en un papá (incluso uno distante) provea algunos datos a la totalidad del árbol dentro de él.
 
@@ -323,7 +323,7 @@ export default function Heading({ level, children }) {
   // ...
 }
 ```
-En su lugar, remueva la prop `level` y lee el valor desde el contexto que acabas de importar, `LevelContext`:
+En su lugar, remueve la prop `level` y lee el valor desde el contexto que acabas de importar, `LevelContext`:
 
 ```js {2}
 export default function Heading({ children }) {
@@ -468,7 +468,7 @@ export default function Section({ level, children }) {
   );
 }
 ```
-Esto le dice a React: "si cualquier componente adentro de este `<Section>` pregunta por `LevelContext`, envíales este `level`." El componente usará el valor del `<LevelContext.Provider>` más cercano en el árbol de la UI encima de él.
+Esto le dice a React: "si cualquier componente adentro de este `<Section>` pregunta por `LevelContext`, envíales este `level`". El componente usará el valor del `<LevelContext.Provider>` más cercano en el árbol de la UI encima de él.
 
 <Sandpack>
 
@@ -556,7 +556,7 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-¡Es el mismo resultado del código original, pero no tuviste que pasar la prop `level` a cada componente `Heading`! En su lugar, "comprende" su nivel de encabezado al preguntar al `Section` más cercano de arriba:
+Es el mismo resultado del código original, ¡pero no tuviste que pasar la prop `level` a cada componente `Heading`! En su lugar, el componente "comprende" su nivel de encabezado al preguntarle al `Section` más cercano de arriba:
 
 1. Tú pasas la prop `level` al `<Section>`.
 2. `Section` envuelve a sus hijos con `<LevelContext.Provider value={level}>`.
@@ -576,7 +576,7 @@ export default function Page() {
         <Section level={3}>
           ...
 ```
-Debido a que el contexto te permite leer información desde un componente de arriba, cada `Section` podría leer el `level` desde el `Section` arriba, y pasar `level + 1` hacia abajo automáticamente. Así es como lo podrías conseguir:
+Debido a que el contexto te permite leer información desde un componente de arriba, cada `Section` podría leer el `level` del `Section` de arriba, y pasar `level + 1` hacia abajo automáticamente. Así es como lo podrías conseguir:
 
 ```js Section.js {5,8}
 import { useContext } from 'react';
@@ -593,7 +593,7 @@ export default function Section({ children }) {
   );
 }
 ```
-Con este cambio, no es necesario pasar la prop `level` ni al `<Section>` o al `<Heading>`:
+Con este cambio, no es necesario pasar la prop `level` al `<Section>` o al `<Heading>`:
 
 <Sandpack>
 
@@ -826,7 +826,7 @@ No necesitaste hacer nada especial para esta tarea. Cada `Section` especifica el
 
 **El contexto te permite crear componentes que se "adaptan a sus alrededores" y se despliegan de forma diferente dependiendo de _dónde_ (o en otras palabras, _en cuál contexto_) están siendo renderizados.**
 
-El funcionamiento de los contextos te podría recordar a la [herencia de CSS.](https://developer.mozilla.org/es/docs/Web/CSS/inheritance) En CSS, tú puedes especificar `color: blue` para un `<div>`, y cualquier nodo DOM adentro de él, no importa qué tan profundo esté, heredará ese color a no ser de que otro nodo DOM en el medio lo sobreescriba con `color: green`. Asimismo, en React, la única forma de sobreescribir un contexto que viene desde arriba es envolviendo sus hijos con un proveedor de contexto que tenga un valor distinto.
+El funcionamiento de los contextos te podría recordar a la [herencia de CSS.](https://developer.mozilla.org/es/docs/Web/CSS/inheritance) En CSS, tú puedes especificar `color: blue` para un `<div>`, y cualquier nodo DOM adentro de él, no importa qué tan profundo esté, heredará ese color a no ser de que otro nodo DOM en el medio lo sobreescriba con `color: green`. Asimismo, en React la única forma de sobreescribir un contexto que viene desde arriba es envolviendo sus hijos con un proveedor de contexto que tenga un valor distinto.
 
 En CSS, diversas propiedades como `color` y `background-color` no se sobreescriben entre ellas. Tú puedes definir la propiedad `color` de todos los `<div>` a `red` sin impactar `background-color`. Similarmente, **diversos contextos de React no se sobreescriben entre ellos mismos.** Cada contexto que creas con `createContext()` está completamente separado de los otros, y une los componentes usando y proveyendo *ese* contexto en particular. Un componente podría usar o proveer muchos contextos diferentes sin ningún problema.
 
@@ -843,7 +843,7 @@ Si ninguna de estas alternativas funcionan bien para ti, considera el contexto.
 
 ## Casos de uso para el contexto {/*use-cases-for-context*/}
 
-* **Temas:**: Si tus apps permiten que los usuarios cambien la apariencia (por ejemplo, modo oscuro), puedes poner un proveedor de contexto en el primer nivel de tu aplicación, y usar ese contexto en componentes que necesiten ajustar su comportamiento visual.
+* **Temas:** Si tus apps permiten que los usuarios cambien la apariencia (por ejemplo, modo oscuro), puedes poner un proveedor de contexto en el primer nivel de tu aplicación, y usar ese contexto en componentes que necesiten ajustar su comportamiento visual.
 * **Cuenta actual:** Muchos componentes podrían necesitar saber el usuario actual que inició sesión. Ponerlo en un contexto lo hace conveniente para leerlo desde cualquier lado del árbol. Algunas apps también te permiten manejar múltiples cuentas al mismo tiempo (por ejemplo, dejar un comentario con un usuario distinto). En esos casos, puede ser conveniente envolver parte de la UI con un proveedor anidado que tenga una cuenta actual diferente.
 * **Enrutamiento:** La mayoría de las soluciones de enrutamiento usan contexto internamente para mantener la ruta actual. Así es como cada enlace "sabe" si está activo o no. Si construyes tu propio enrutador, podrías necesitar hacerlo también.
 * **Gestionar estados:** A medida que tu aplicación crece, podrías terminar con muchos estados cerca de la parte superior de tu aplicación. Muchos componentes distantes de abajo podrían querer cambiarlos. Es común [usar un reducer con un contexto](/learn/scaling-up-with-reducer-and-context) para gestionar estados complejos y pasarlos a componentes lejanos sin mucha molestia.
@@ -873,7 +873,7 @@ En este ejemplo, activar la casilla cambia la prop `imageSize` que se pasa a cad
 
 Actualmente, `App` pasa `imageSize` a `List`, el cual lo pasa a cada `Place`, el cual lo pasa al `PlaceImage`. Remueve la prop `imageSize`, y en su lugar pásala desde el componente `App` directamente al `PlaceImage`.
 
-Puede declarar el contexto en `Context.js`.
+Puedes declarar el contexto en `Context.js`.
 
 <Sandpack>
 
