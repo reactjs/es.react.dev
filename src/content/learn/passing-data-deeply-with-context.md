@@ -562,9 +562,9 @@ export const LevelContext = createContext(1);
 2. `Section` envuelve a sus hijos con `<LevelContext.Provider value={level}>`.
 3. `Heading` pregunta el valor más cercano de arriba de `LevelContext` por medio de `useContext(LevelContext)`.
 
-## Using and providing context from the same component {/*using-and-providing-context-from-the-same-component*/}
+## Usar y proveer el contexto desde el mismo componente {/*using-and-providing-context-from-the-same-component*/}
 
-Currently, you still have to specify each section's `level` manually:
+Actualmente, tú aún puedes especificar el `level` de cada sección manualmente:
 
 ```js
 export default function Page() {
@@ -576,8 +576,7 @@ export default function Page() {
         <Section level={3}>
           ...
 ```
-
-Since context lets you read information from a component above, each `Section` could read the `level` from the `Section` above, and pass `level + 1` down automatically. Here is how you could do it:
+Debido a que el contexto te permite leer información desde un componente de arriba, cada `Section` podría leer el `level` desde el `Section` arriba, y pasar `level + 1` hacia abajo automáticamente. Así es cómo lo podrías conseguir:
 
 ```js Section.js {5,8}
 import { useContext } from 'react';
@@ -594,8 +593,7 @@ export default function Section({ children }) {
   );
 }
 ```
-
-With this change, you don't need to pass the `level` prop *either* to the `<Section>` or to the `<Heading>`:
+Con este cambio, no es necesario pasar la prop `level` ni al `<Section>` o al `<Heading>`:
 
 <Sandpack>
 
@@ -687,19 +685,19 @@ export const LevelContext = createContext(0);
 
 </Sandpack>
 
-Now both `Heading` and `Section` read the `LevelContext` to figure out how "deep" they are. And the `Section` wraps its children into the `LevelContext` to specify that anything inside of it is at a "deeper" level.
+Ahora, tanto el `Heading` como el `Section` leen el `LevelContext` para averiguar qué tan "profundos" están. El `Section` envuelve sus hijos con el `LevelContext` para especificar que cualquier componente adentro de él está a un nivel más "profundo".
 
 <Note>
 
-This example uses heading levels because they show visually how nested components can override context. But context is useful for many other use cases too. You can pass down any information needed by the entire subtree: the current color theme, the currently logged in user, and so on.
+Este ejemplo usa niveles de encabezados porque muestran visualmente cómo componentes anidados pueden sobreescribir contextos. Sin embargo, los contextos son útiles para otros casos de uso también. Tú puedes pasar hacia abajo cualquier información necesitada por el subárbol entero: el color actual del tema, el usuario actual que inició sesión, entre otros.
 
 </Note>
 
-## Context passes through intermediate components {/*context-passes-through-intermediate-components*/}
+## El contexto pasa a través de componentes intermedios {/*context-passes-through-intermediate-components*/}
 
-You can insert as many components as you like between the component that provides context and the one that uses it. This includes both built-in components like `<div>` and components you might build yourself.
+Tú puedes insertar tantos componentes como desees entre el componente que provee el contexto y el componente que lo usa. Esto incluye tanto componentes integrados como `<div>` como componentes construídos por ti.
 
-In this example, the same `Post` component (with a dashed border) is rendered at two different nesting levels. Notice that the `<Heading>` inside of it gets its level automatically from the closest `<Section>`:
+En este ejemplo, el mismo componente `Post` (con un borde discontinuo) es renderizado en dos distintos niveles anidados. Nota que el `<Heading>` que está adentro tiene el nivel automáticamente desde el `<Section>` más cercano:
 
 <Sandpack>
 
@@ -824,13 +822,13 @@ export const LevelContext = createContext(0);
 
 </Sandpack>
 
-You didn't do anything special for this to work. A `Section` specifies the context for the tree inside it, so you can insert a `<Heading>` anywhere, and it will have the correct size. Try it in the sandbox above!
+No necesitaste hacer nada especial para esta tarea. Cada `Section` especifica el contexto para el árbol adentro de él, por lo que puedes insertar un `<Heading>` en cualquier lado, y tendrá el tamaño correcto.
 
-**Context lets you write components that "adapt to their surroundings" and display themselves differently depending on _where_ (or, in other words, _in which context_) they are being rendered.**
+**El contexto te permite crear componentes que se "adaptan a sus alrededores" y se despliegan de forma diferente dependiendo de _dónde_ (o en otras palabras, _en cuál contexto_) están siendo renderizados.**
 
-How context works might remind you of [CSS property inheritance.](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance) In CSS, you can specify `color: blue` for a `<div>`, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with `color: green`. Similarly, in React, the only way to override some context coming from above is to wrap children into a context provider with a different value.
+El funcionamiento de los contextos te podría recordar a la [herencia de CSS.](https://developer.mozilla.org/es/docs/Web/CSS/inheritance) En CSS, tú puedes especificar `color: blue` para un `<div>`, y cualquier nodo DOM adentro de él, no importa qué tan profundo esté, heredará ese color a no ser de que otro nodo DOM en el medio lo sobreescriba con `color: green`. Asimismo, en React, la única forma de sobreescribir un contexto que viene desde arriba es envolviendo sus hijos con un proveedor de contexto que tenga un valor distinto.
 
-In CSS, different properties like `color` and `background-color` don't override each other. You can set all  `<div>`'s `color` to red without impacting `background-color`. Similarly, **different React contexts don't override each other.** Each context that you make with `createContext()` is completely separate from other ones, and ties together components using and providing *that particular* context. One component may use or provide many different contexts without a problem.
+En CSS, diversas propiedades como `color` y `background-color` no se sobreescriben entre ellas. Tú puedes definir la propiedad `color` de todos los `<div>` a `red` sin impactar `background-color`. Similarmente, **diversos contextos de React no se sobreescriben entre ellos mismos.** Cada contexto que creas con `createContext()` está completamente separado de los otros, y une los componentes usando y proveyendo *ese* contexto en particular. Un componente podría usar o proveer muchos contextos diferentes sin ningún problema.
 
 ## Before you use context {/*before-you-use-context*/}
 
