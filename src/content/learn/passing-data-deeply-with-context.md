@@ -326,6 +326,7 @@ export default function Heading({ level, children }) {
   // ...
 }
 ```
+
 En su lugar, remueve la prop `level` y lee el valor desde el contexto que acabas de importar, `LevelContext`:
 
 ```js {2}
@@ -346,6 +347,7 @@ Ahora que el componente `Heading` no tiene una prop `level`, ya no tienes que pa
   <Heading level={4}>Sub-sub-heading</Heading>
 </Section>
 ```
+
 Actualiza el JSX para que sea `Section` el que recibe la prop:
 
 ```jsx
@@ -355,6 +357,7 @@ Actualiza el JSX para que sea `Section` el que recibe la prop:
   <Heading>Sub-sub-heading</Heading>
 </Section>
 ```
+
 Como recordatorio, esta es la estructura que estabas intentando que funcionara:
 
 <Sandpack>
@@ -456,6 +459,7 @@ export default function Section({ children }) {
   );
 }
 ```
+
 **Envuélvelos con un proveedor de contexto** para proveer `LevelContext` a ellos:
 
 ```js {1,6,8}
@@ -471,6 +475,7 @@ export default function Section({ level, children }) {
   );
 }
 ```
+
 Esto le dice a React: "si cualquier componente adentro de este `<Section>` pregunta por `LevelContext`, envíales este `level`". El componente usará el valor del `<LevelContext.Provider>` más cercano en el árbol de la UI encima de él.
 
 <Sandpack>
@@ -579,6 +584,7 @@ export default function Page() {
         <Section level={3}>
           ...
 ```
+
 Debido a que el contexto te permite leer información desde un componente de arriba, cada `Section` podría leer el `level` del `Section` de arriba, y pasar `level + 1` hacia abajo automáticamente. Así es como lo podrías conseguir:
 
 ```js Section.js {5,8}
@@ -596,6 +602,7 @@ export default function Section({ children }) {
   );
 }
 ```
+
 Con este cambio, no es necesario pasar la prop `level` al `<Section>` o al `<Heading>`:
 
 <Sandpack>
