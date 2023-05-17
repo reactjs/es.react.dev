@@ -854,26 +854,26 @@ En general, si alguna información es necesitada por componentes lejanos en dife
 
 <Recap>
 
-* Context lets a component provide some information to the entire tree below it.
-* To pass context:
-  1. Create and export it with `export const MyContext = createContext(defaultValue)`.
-  2. Pass it to the `useContext(MyContext)` Hook to read it in any child component, no matter how deep.
-  3. Wrap children into `<MyContext.Provider value={...}>` to provide it from a parent.
-* Context passes through any components in the middle.
-* Context lets you write components that "adapt to their surroundings".
-* Before you use context, try passing props or passing JSX as `children`.
+* El contexto permite que el componente provea alguna información al árbol completo debajo de él.
+* Para pasar un contexto:
+  1. Crear y exportar el contexto con `export const MyContext = createContext(defaultValue)`.
+  2. Pasarlo al Hook `useContext(MyContext)` para leerlo en cualquier componente hijo, sin importar qué tan profundo es.
+  3. Envolver los hijos con `<MyContext.Provider value={...}>` para proveerlo desde el papá.
+* El contexto pasa a través de cualquier componente en el medio.
+* El contexto te permite escribir componentes que se "adaptan a sus alrededores".
+* Antes de usar contexto, trata de pasar props o pasar JSX como `children`.
 
 </Recap>
 
 <Challenges>
 
-#### Replace prop drilling with context {/*replace-prop-drilling-with-context*/}
+#### Reemplazar perforación de props con contexto {/*replace-prop-drilling-with-context*/}
 
-In this example, toggling the checkbox changes the `imageSize` prop passed to each `<PlaceImage>`. The checkbox state is held in the top-level `App` component, but each `<PlaceImage>` needs to be aware of it.
+En este ejemplo, activar la casilla cambia la prop `imageSize` que se pasa a cada `<PlaceImage>`. El estado de la casilla se mantiene en el nivel superior del componente `App`, pero cada `<PlaceImage>` necesita estar consciente del estado. 
 
-Currently, `App` passes `imageSize` to `List`, which passes it to each `Place`, which passes it to the `PlaceImage`. Remove the `imageSize` prop, and instead pass it from the `App` component directly to `PlaceImage`.
+Actualmente, `App` pasa `imageSize` a `List`, el cual lo pasa a cada `Place`, el cual lo pasa al `PlaceImage`. Remueve la prop `imageSize`, y en su lugar pásala desde el componente `App` directamente al `PlaceImage`.
 
-You can declare context in `Context.js`.
+Puede declarar el contexto en `Context.js`.
 
 <Sandpack>
 
@@ -1010,9 +1010,9 @@ li {
 
 <Solution>
 
-Remove `imageSize` prop from all the components.
+Remueve la prop `imageSize` de todos los componentes.
 
-Create and export `ImageSizeContext` from `Context.js`. Then wrap the List into `<ImageSizeContext.Provider value={imageSize}>` to pass the value down, and `useContext(ImageSizeContext)` to read it in the `PlaceImage`:
+Crea y exporta `ImageSizeContext` desde `Context.js`. Luego, envuelve la lista con `<ImageSizeContext.Provider value={imageSize}>` para pasar el valor hacia abajo, y `useContext(ImageSizeContext)` para leerlo en el componente `PlaceImage`:
 
 <Sandpack>
 
@@ -1147,7 +1147,7 @@ li {
 
 </Sandpack>
 
-Note how components in the middle don't need to pass `imageSize` anymore.
+Nota como los componentes en el medio ya no tienen que pasar `imageSize`.
 
 </Solution>
 
