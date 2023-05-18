@@ -120,4 +120,4 @@ La charla de Pete Hunt en la JSConf de Estados Unidos en 2013 cubre tres temas: 
 ### Introducción a React {/*introduction-to-react*/}
 
 Tom Occhino y Jordan Walke introducen React en Facebook, en la ciudad de Seattle - (2013 - 1h20m).
-<YouTubeIframe title="Tom Occhino y Jordan Walke introducen React en Facebook, en la ciudad Seattle" src="https://www.youtube-nocookie.com/embed/XxVg_s8xAms" />
+<YouTubeIframe title="Tom Occhino y Jordan Walke introducen React en Facebook, en la ciudad de Seattle" src="https://www.youtube-nocookie.com/embed/XxVg_s8xAms" />
