@@ -8,7 +8,7 @@ Videos dedicados al debate sobre React y su ecosistema.
 
 </Intro>
 
-## Conferencia de React de 2021 {/*react-conf-2021*/}
+## Conferencia de React 2021 {/*react-conf-2021*/}
 
 ### Discurso de React 18 {/*react-18-keynote*/}
 
@@ -20,7 +20,7 @@ Observa el discurso completo de [Andrew Clark](https://twitter.com/acdlite), [Ju
 
 ### React 18 para desarrolladores de aplicaciones {/*react-18-for-application-developers*/}
 
-Para un demo de actualizar a React 18, mira la charla de [Shruti Kapoor](https://twitter.com/shrutikapoor08) aquí:
+Para ver un demo de cómo actualizar a React 18, mira la charla de [Shruti Kapoor](https://twitter.com/shrutikapoor08) aquí:
 
 <YouTubeIframe src="https://www.youtube.com/embed/ytudH8je5ko" title="Reproductor de video de YouTube" />
 
@@ -36,13 +36,13 @@ Para averiguar más a fondo, mira la charla de [Shaundai Person](https://twitter
 
 ### El primer grupo de trabajo de React {/*the-first-react-working-group*/}
 
-Para React 18, hemos creado nuestro primer Grupo de Trabajo para colaborar con un comité de expertos, desarrolladores, mantenedores de biblioteca, y educadores. Juntos hemos trabajado para crear nuestra estrategia de adopción gradual y para refinar nuestras APIs como `useId`, `useSyncExternalStore`, y `useInsertionEffect`.
+Para React 18, hemos creado nuestro primer grupo de trabajo para colaborar con un comité de expertos, desarrolladores, mantenedores de biblioteca, y educadores. Juntos hemos trabajado para crear nuestra estrategia de adopción gradual y para refinar nuestras APIs como `useId`, `useSyncExternalStore`, y `useInsertionEffect`.
 
-Para una descripción general sobre este trabajo, mira la charla de [Aakansha' Doshi](https://twitter.com/aakansha1216):
+Para ver una descripción general sobre este trabajo, mira la charla de [Aakansha' Doshi](https://twitter.com/aakansha1216):
 
 <YouTubeIframe src="https://www.youtube.com/embed/qn7gRClrC9U" title="Reproductor de video de YouTube" />
 
-### Herramientas de Desarrollo de React {/*react-developer-tooling*/}
+### Herramientas de desarrollo de React {/*react-developer-tooling*/}
 
 Para dar soporte a las nuevas funcionalidades en este lanzamiento, también hemos anunciado la conformación del nuevo equipo de las Herramientas de Desarrollo de React y el Perfilador de Línea del Tiempo para ayudar a los desarrolladores a depurar sus aplicaciones de React.
 
@@ -66,24 +66,24 @@ De vista al futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxpro) una actual
 
 **También escuchamos charlas enfocadas en aprender y diseñar con React:**
 
-* Debbie O'Brien: [Cosas que aprender desde la nueva documentación de React (en ingles, subtítulos en español)](https://youtu.be/-7odLW_hG7s).
-* Sarah Rainsberger: [Aprendiendo en el navegador (en ingles, subtítulos en español)](https://youtu.be/5X-WEQflCL0).
-* Linton Ye: [El Retorno de Inversión de diseñar con React (en ingles, subtítulos en español)](https://youtu.be/7cPWmID5XAk).
-* Delba de Oliveira: [Sitios interactivos con React (en ingles, subtítulos en español)](https://youtu.be/zL8cz2W0z34).
+* Debbie O'Brien: [Cosas que aprender desde la nueva documentación de React (en inglés, ubtítulos en español)](https://youtu.be/-7odLW_hG7s).
+* Sarah Rainsberger: [Aprendiendo en el navegador (en inglés, subtítulos en español)](https://youtu.be/5X-WEQflCL0).
+* Linton Ye: [El Retorno de Inversión de diseñar con React (en inglés, subtítulos en español)](https://youtu.be/7cPWmID5XAk).
+* Delba de Oliveira: [Sitios interactivos con React (en inglés, subtítulos en español)](https://youtu.be/zL8cz2W0z34).
 
 **Charlas sobre los equipos de Relay, React Native, y PyTorch:**
 
-* Robert Balicki: [Re-introducción a Relay (en ingles, subtítulos en español)](https://youtu.be/lhVGdErZuN4).
-* Eric Rozell and Steven Moyes: [React Native para escritorio (en ingles, subtítulos en español)](https://youtu.be/9L4FFrvwJwY).
-* Roman Rädle: [Machine Learning en dispositivos para React Native (en ingles, subtítulos en español)](https://youtu.be/NLj73vrc2I8)
+* Robert Balicki: [Re-introducción a Relay (en inglés, subtítulos en español)](https://youtu.be/lhVGdErZuN4).
+* Eric Rozell and Steven Moyes: [React Native para escritorio (en inglés, subtítulos en español)](https://youtu.be/9L4FFrvwJwY).
+* Roman Rädle: [Machine Learning en dispositivos para React Native (en inglés, subtítulos en español)](https://youtu.be/NLj73vrc2I8)
 
 **Y charlas de la comunidad sobre accesibilidad, herramientas, y Componentes de Servidor:**
 
-* Daishi Kato: [React 18 para bibliotecas externas de almacenamiento (en ingles, subtítulos en español)](https://youtu.be/oPfSC5bQPR8).
-* Diego Haz: [Construir componentes accesibles con React 18 (en ingles, subtítulos en español)](https://youtu.be/dcm8fjBfro8).
-* Tafu Nakazaki: [Componentes de formulario accesibles en Japones con React (en ingles, subtítulos en español)](https://youtu.be/S4a0QlsH0pU).
-* Lyle Troxell: [Herramientas UI para artistas (en ingles, subtítulos en español)](https://youtu.be/b3l4WxipFsE).
-* Helen Lin: [Hydrogen + React 18 (en ingles, subtítulos en español)](https://youtu.be/HS6vIYkSNks).
+* Daishi Kato: [React 18 para bibliotecas externas de almacenamiento (en inglés, subtítulos en español)](https://youtu.be/oPfSC5bQPR8).
+* Diego Haz: [Construir componentes accesibles con React 18 (en inglés, subtítulos en español)](https://youtu.be/dcm8fjBfro8).
+* Tafu Nakazaki: [Componentes de formulario accesibles en Japones con React (en inglés, subtítulos en español)](https://youtu.be/S4a0QlsH0pU).
+* Lyle Troxell: [Herramientas UI para artistas (en inglés, subtítulos en español)](https://youtu.be/b3l4WxipFsE).
+* Helen Lin: [Hydrogen + React 18 (en inglés, subtítulos en español)](https://youtu.be/HS6vIYkSNks).
 
 ## Videos anteriores {/*older-videos*/}
 
@@ -119,5 +119,5 @@ La charla de Pete Hunt en la JSConf de Estados Unidos en 2013 cubre tres temas: 
 
 ### Introducción a React {/*introduction-to-react*/}
 
-Tom Occhino y Jordan Walke introducen React en Facebook de Seattle - (2013 - 1h20m).
-<YouTubeIframe title="Tom Occhino y Jordan Walke introducen React en Facebook de Seattle" src="https://www.youtube-nocookie.com/embed/XxVg_s8xAms" />
+Tom Occhino y Jordan Walke introducen React en Facebook, en la ciudad de Seattle - (2013 - 1h20m).
+<YouTubeIframe title="Tom Occhino y Jordan Walke introducen React en Facebook, en la ciudad Seattle" src="https://www.youtube-nocookie.com/embed/XxVg_s8xAms" />
