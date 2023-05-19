@@ -4,15 +4,15 @@ title: unmountComponentAtNode
 
 <Deprecated>
 
-This API will be removed in a future major version of React.
+Esta API se eliminará en una versión mayor futura de React.
 
-In React 18, `unmountComponentAtNode` was replaced by [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
+En React 18, `unmountComponentAtNode` fue reemplazado por [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
 
 </Deprecated>
 
 <Intro>
 
-`unmountComponentAtNode` removes a mounted React component from the DOM.
+`unmountComponentAtNode` elimina un componente de React montado del DOM.
 
 ```js
 unmountComponentAtNode(domNode)
@@ -24,11 +24,11 @@ unmountComponentAtNode(domNode)
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `unmountComponentAtNode(domNode)` {/*unmountcomponentatnode*/}
 
-Call `unmountComponentAtNode` to remove a mounted React component from the DOM and clean up its event handlers and state.
+Llama a `unmountComponentAtNode` para eliminar un componente de React montado del DOM y limpiar sus controladores de eventos y estado.
 
 ```js
 import { unmountComponentAtNode } from 'react-dom';
@@ -39,21 +39,21 @@ render(<App />, domNode);
 unmountComponentAtNode(domNode);
 ```
 
-[See more examples below.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `domNode`: A [DOM element.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React will remove a mounted React component from this element.
+* `domNode`: Un [elemento DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React eliminará un componente de React montado de este elemento.
 
-#### Returns {/*returns*/}
+#### Devuelve  {/*returns*/}
 
-`unmountComponentAtNode` returns `true` if a component was unmounted and `false` otherwise.
+`unmountComponentAtNode` devuelve `true` si se desmontó un componente y `false` en caso contrario.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-Call `unmountComponentAtNode` to remove a <CodeStep step={1}>mounted React component</CodeStep> from a <CodeStep step={2}>browser DOM node</CodeStep> and clean up its event handlers and state.
+Llama a `unmountComponentAtNode` para eliminar un <CodeStep step={1}>componente de React montado</CodeStep> de un <CodeStep step={2}>nodo DOM del navegador</CodeStep> y limpiar sus controladores de eventos y estado.
 
 ```js [[1, 5, "<App />"], [2, 5, "rootNode"], [2, 8, "rootNode"]]
 import { render, unmountComponentAtNode } from 'react-dom';
@@ -67,22 +67,22 @@ unmountComponentAtNode(rootNode);
 ```
 
 
-### Removing a React app from a DOM element {/*removing-a-react-app-from-a-dom-element*/}
+### Eliminando una aplicación de React de un elemento DOM {/*removing-a-react-app-from-a-dom-element*/}
 
-Occasionally, you may want to "sprinkle" React on an existing page, or a page that is not fully written in React. In those cases, you may need to "stop" the React app, by removing all of the UI, state, and listeners from the DOM node it was rendered to.
+En ocasiones, es posible que desees "añadir" React a una página existente o a una página que no está completamente escrita en React. En esos casos, es posible que necesites "detener" la aplicación de React eliminando toda la interfaz de usuario, el estado y los controladores de eventos del nodo DOM en el que se renderizó.
 
-In this example, clicking "Render React App" will render a React app. Click "Unmount React App" to destroy it:
+En este ejemplo, al hacer clic en "Renderizar aplicación de React" se renderizará una aplicación de React. Haz clic en "Desmontar aplicación de React" para destruirla:
 
 <Sandpack>
 
 ```html index.html
 <!DOCTYPE html>
 <html>
-  <head><title>My app</title></head>
+  <head><title>Mi App</title></head>
   <body>
-    <button id='render'>Render React App</button>
-    <button id='unmount'>Unmount React App</button>
-    <!-- This is the React App node -->
+    <button id='render'>Renderizar aplicación de React</button>
+    <button id='unmount'>Desmontar aplicación de React</button>
+    <!-- Este es el nodo de la aplicación de React -->
     <div id='root'></div>
   </body>
 </html>
