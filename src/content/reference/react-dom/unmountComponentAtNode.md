@@ -64,7 +64,7 @@ render(<App />, rootNode);
 
 // ...
 unmountComponentAtNode(rootNode);
-````
+```
 
 
 ### Eliminando una aplicación de React de un elemento DOM {/*removing-a-react-app-from-a-dom-element*/}

@@ -427,7 +427,7 @@ Con este enfoque, `Row` no necesita recibir una propiedad `isHighlighted` en abs
 export default function Row({ title }) {
   const isHighlighted = useContext(HighlightContext);
   // ...
-````
+```
 
 Esto permite que el componente que llama no sepa o se preocupe por pasar `isHighlighted` a `<Row>`:
 

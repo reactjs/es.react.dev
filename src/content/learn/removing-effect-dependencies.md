@@ -966,7 +966,7 @@ const roomId2 = 'music';
 
 // These two strings are the same!
 console.log(Object.is(roomId1, roomId2)); // true
-````
+```
 
 Gracias a esta solución, el chat no se reconectará más si editas la caja de texto:
 

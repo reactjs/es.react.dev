@@ -60,11 +60,11 @@ La convención es nombrar variables de estado como `[algo, setAlgo]` usando [des
 La función `set` devuelta por `useState` te permite actualizar el estado a un valor diferente y desencadenar un nuevo renderizado. Puedes pasar el siguiente estado directamente, o una función que lo calcule a partir del estado anterior:
 
 ```js
-const [nombre, setNombre] = useState('Edward');
+const [name, setName] = useState('Edward');
 
 function handleClick() {
-  setNombre('Taylor');
-  setEdad(a => a + 1);
+  setName('Taylor');
+  setAge(a => a + 1);
   // ...
 ```
 
@@ -97,12 +97,12 @@ Las funciones `set` no tienen un valor de retorno.
 
 Llama a `useState` en el nivel superior de tu componente para declarar una o más [variables de estado.](/learn/state-a-components-memory)
 
-```js [[1, 4, "edad"], [2, 4, "setEdad"], [3, 4, "42"], [1, 5, "nombre"], [2, 5, "setNombre"], [3, 5, "'Taylor'"]]
+```js [[1, 4, "age"], [2, 4, "setAge"], [3, 4, "42"], [1, 5, "name"], [2, 5, "setName"], [3, 5, "'Taylor'"]]
 import { useState } from 'react';
 
 function MyComponent() {
-  const [edad, setEdad] = useState(42);
-  const [nombre, setNombre] = useState('Taylor');
+  const [age, setAge] = useState(42);
+  const [name, setName] = useState('Taylor');
   // ...
 ```
 
@@ -115,9 +115,9 @@ La convención es nombrar variables de estado como `[algo, setAlgo]` utilizando 
 
 Para actualizar lo que está en la pantalla, llama a la función `set` con algún estado:
 
-```js [[2, 2, "setNombre"]]
+```js [[2, 2, "setName"]]
 function handleClick() {
-  setNombre('Robin');
+  setName('Robin');
 }
 ```
 
@@ -129,8 +129,8 @@ Llamar a la función `set` [**no  cambia** el estado actual en el código que ya
 
 ```js {3}
 function handleClick() {
-  setNombre('Robin');
-  console.log(nombre); // Sigue siendo "Taylor"!
+  setName('Robin');
+  console.log(name); // ¡Sigue siendo "Taylor"!
 }
 ```
 
@@ -149,16 +149,16 @@ En este ejemplo, la variable `contador` contiene un número. Al hacer click en e
 ```js
 import { useState } from 'react';
 
-export default function Contador() {
-  const [contador, setContador] = useState(0);
+export default function Counter() {
+  const [count, setCount] = useState(0);
 
   function handleClick() {
-    setContador(contador + 1);
+    setCount(count + 1);
   }
 
   return (
     <button onClick={handleClick}>
-      Me presionaste {contador} veces
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -178,17 +178,17 @@ En este ejemplo, la variable de estado `texto` contiene una cadena. Cuando escri
 import { useState } from 'react';
 
 export default function MyInput() {
-  const [texto, setTexto] = useState('hola');
+  const [text, setText] = useState('hello');
 
   function handleChange(e) {
-    setTexto(e.target.value);
+    setText(e.target.value);
   }
 
   return (
     <>
-      <input value={texto} onChange={handleChange} />
-      <p>Escribiste: {texto}</p>
-      <button onClick={() => setTexto('hola')}>
+      <input value={text} onChange={handleChange} />
+      <p>Escribiste: {text}</p>
+      <button onClick={() => setText('hello')}>
         Reiniciar
       </button>
     </>
@@ -202,7 +202,7 @@ export default function MyInput() {
 
 #### Checkbox (booleano) {/*checkbox-boolean*/}
 
-En este ejemplo, la variable de estado `meGusta` contiene un valor booleano.  Al hacer click en el checkbox, `setMeGusta` actualiza la variable de estado `meGusta` si es que la entrada del checkbox del navegador fue marcada. La variable `meGusta` se utiliza para representar el texto debajo del checkbox.
+En este ejemplo, la variable de estado `liked` contiene un valor booleano.  Al hacer click en el checkbox, `setLiked` actualiza la variable de estado `liked` si es que la entrada del checkbox del navegador fue marcada. La variable `liked` se utiliza para representar el texto debajo del checkbox.
 
 <Sandpack>
 
@@ -210,10 +210,10 @@ En este ejemplo, la variable de estado `meGusta` contiene un valor booleano.  Al
 import { useState } from 'react';
 
 export default function MyCheckbox() {
-  const [meGusta, setMeGusta] = useState(true);
+  const [liked, setLiked] = useState(true);
 
   function handleChange(e) {
-    setMeGusta(e.target.checked);
+    setLiked(e.target.checked);
   }
 
   return (
@@ -221,12 +221,12 @@ export default function MyCheckbox() {
       <label>
         <input
           type="checkbox"
-          checked={meGusta}
+          checked={liked}
           onChange={handleChange}
         />
-        Me gusta esto
+        Me gustó esto
       </label>
-      <p>A ti {meGusta ? 'te gusta' : 'no te gusta'} esto.</p>
+      <p>{liked ? 'Te' : 'No te'} gustó esto.</p>
     </>
   );
 }
@@ -245,20 +245,20 @@ Se puede declarar más de una variable de estado en el mismo componente. Cada va
 ```js
 import { useState } from 'react';
 
-export default function Formulario() {
-  const [nombre, setNombre] = useState('Taylor');
-  const [edad, setEdad] = useState(42);
+export default function Form() {
+  const [name, setName] = useState('Taylor');
+  const [age, setAge] = useState(42);
 
   return (
     <>
       <input
-        value={nombre}
-        onChange={e => setNombre(e.target.value)}
+        value={name}
+        onChange={e => setName(e.target.value)}
       />
-      <button onClick={() => setEdad(edad + 1)}>
+      <button onClick={() => setAge(age + 1)}>
         Incrementar edad
       </button>
-      <p>Hola, {nombre}. Tu tiene {edad} años.</p>
+      <p>Hola, {name}. Tienes {age} años.</p>
     </>
   );
 }
@@ -278,25 +278,25 @@ button { display: block; margin-top: 10px; }
 
 ### Actualización de estado con base en el estado anterior {/*updating-state-based-on-the-previous-state*/}
 
-Supongamos que `edad` es `42`. La función `handler` llama `setEdad(edad + 1)` tres veces:
+Supongamos que `age` es `42`. La función `handler` llama `setAge(age + 1)` tres veces:
 
 ```js
 function handleClick() {
-  setEdad(edad + 1); // setEdad(42 + 1)
-  setEdad(edad + 1); // setEdad(42 + 1)
-  setEdad(edad + 1); // setEdad(42 + 1)
+  setAge(age + 1); // setAge(42 + 1)
+  setAge(age + 1); // setAge(42 + 1)
+  setAge(age + 1); // setAge(42 + 1)
 }
 ```
 
-¡Sin embargo, después de un click, `edad` solo será `43` en lugar de 45!  Esto se debe a que llamar a la función `set ` no actualizará  la variable de estado `edad` en el código que ya se está ejecutando.  Así que cada llamada `setAge(age + 1)` se convierte en `setEdad(43)`. 
+¡Sin embargo, después de un click, `age` solo será `43` en lugar de 45!  Esto se debe a que llamar a la función `set ` no actualizará  la variable de estado `age` en el código que ya se está ejecutando.  Así que cada llamada `setAge(age + 1)` se convierte en `setAge(43)`. 
 
-Para resolver este problema, **puedes pasar una  función de actualización**  a `setEdad` en lugar del siguiente estado: 
+Para resolver este problema, **puedes pasar una  función de actualización**  a `setAge` en lugar del siguiente estado: 
 
-```js [[1, 2, "e ", 2], [2, 2, "e + 1"], [1, 3, "e ", 2], [2, 3, "e + 1"], [1, 4, "e ", 2], [2, 4, "e + 1"]]
+```js [[1, 2, "a", 0], [2, 2, "a + 1"], [1, 3, "a", 0], [2, 3, "a + 1"], [1, 4, "a", 0], [2, 4, "a + 1"]]
 function handleClick() {
-  setEdad(e => e + 1); // setEdad(42 => 43)
-  setEdad(e => e + 1); // setEdad(43 => 44)
-  setEdad(e => e + 1); // setEdad(44 => 45)
+  setAge(a => a + 1); // setAge(42 => 43)
+  setAge(a => a + 1); // setAge(43 => 44)
+  setAge(a => a + 1); // setAge(44 => 45)
 }
 ```
 
@@ -310,7 +310,7 @@ React pone sus funciones de actualización en una [cola.](/learn/queueing-a-seri
 
 No hay otras actualizaciones en cola, por lo que React almacenará `45` como el estado actual al final.
 
-Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `e` para `edad`. No obstante, también puedes llamarlo como `prevEdad` o cualquier otra cosa que te resulte más clara.
+Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `e` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
 
 React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
@@ -339,23 +339,23 @@ Este ejemplo pasa la función de actualización, por lo que funciona el botón "
 ```js
 import { useState } from 'react';
 
-export default function Contador() {
-  const [edad, setEdad] = useState(42);
+export default function Counter() {
+  const [age, setAge] = useState(42);
 
-  function incremento() {
-    setEdad(a => a + 1);
+  function increment() {
+    setAge(a => a + 1);
   }
 
   return (
     <>
-      <h1>Tu edad: {edad}</h1>
+      <h1>Tu edad: {age}</h1>
       <button onClick={() => {
-        incremento();
-        incremento();
-        incremento();
+        increment();
+        increment();
+        increment();
       }}>+3</button>
       <button onClick={() => {
-        incremento();
+        increment();
       }}>+1</button>
     </>
   );
@@ -380,16 +380,16 @@ Este ejemplo  **no pasa** la función de actualización, por lo que el botón "+
 ```js
 import { useState } from 'react';
 
-export default function Contador() {
-  const [edad, setEdad] = useState(42);
+export default function Counter() {
+  const [age, setAge] = useState(42);
 
   function increment() {
-    setEdad(edad + 1);
+    setAge(age + 1);
   }
 
   return (
     <>
-      <h1>Tu edad: {edad}</h1>
+      <h1>Tu edad: {age}</h1>
       <button onClick={() => {
         increment();
         increment();
@@ -429,9 +429,9 @@ En su lugar, reemplaza todo el objeto creando uno nuevo:
 
 ```js
 // ✅ Reemplaza el estado con un nuevo objeto
-setFormulario({
-  ...formulario,
-  primerNombre: 'Taylor'
+setForm({
+  ...form,
+  firstName: 'Taylor'
 });
 ```
 
@@ -448,10 +448,10 @@ En este ejemplo, la variable de estado `formulario` contiene un objeto.  Cada en
 ```js
 import { useState } from 'react';
 
-export default function Formulario() {
-  const [formulario, setFormulario] = useState({
-    nombre: 'Barbara',
-    apellido: 'Hepworth',
+export default function Form() {
+  const [form, setForm] = useState({
+    firstName: 'Barbara',
+    lastName: 'Hepworth',
     email: 'bhepworth@sculpture.com',
   });
 
@@ -460,43 +460,43 @@ export default function Formulario() {
       <label>
         Nombre:
         <input
-          value={formulario.nombre}
+          value={form.firstName}
           onChange={e => {
-            setFormulario({
-              ...formulario,
-              nombre: e.target.value
+            setForm({
+              ...form,
+              firstName: e.target.value
             });
           }}
         />
       </label>
       <label>
-        Apellido:
+        Apellidos:
         <input
-          value={formulario.apellido}
+          value={form.lastName}
           onChange={e => {
             setForm({
-              ...formulario,
-              apellido: e.target.value
+              ...form,
+              lastName: e.target.value
             });
           }}
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
-          value={formulario.email}
+          value={form.email}
           onChange={e => {
             setForm({
-              ...formulario,
+              ...form,
               email: e.target.value
             });
           }}
         />
       </label>
       <p>
-        {formulario.nombre}{' '}
-        {formulario.apellido}{' '}
-        ({formulario.email})
+        {form.firstName}{' '}
+        {form.lastName}{' '}
+        ({form.email})
       </p>
     </>
   );
@@ -521,49 +521,49 @@ En este ejemplo, el estado está más anidado. Cuando actualizas el estado anida
 ```js
 import { useState } from 'react';
 
-export default function Formulario() {
-  const [persona, setPersona] = useState({
-    nombre: 'Niki de Saint Phalle',
-    obra: {
-      titulo: 'Blue Nana',
-      ciudad: 'Hamburg',
-      imagen: 'https://i.imgur.com/Sd1AgUOm.jpg',
+export default function Form() {
+  const [person, setPerson] = useState({
+    name: 'Niki de Saint Phalle',
+    artwork: {
+      title: 'Blue Nana',
+      city: 'Hamburg',
+      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
 
-  function handlenombreChange(e) {
-    setPersona({
-      ...persona,
-      nombre: e.target.value
+  function handleNameChange(e) {
+    setPerson({
+      ...person,
+      name: e.target.value
     });
   }
 
-  function handletituloChange(e) {
-    setPersona({
-      ...persona,
-      obra: {
-        ...persona.artwork,
-        titulo: e.target.value
+  function handleTitleChange(e) {
+    setPerson({
+      ...person,
+      artwork: {
+        ...person.artwork,
+        title: e.target.value
       }
     });
   }
 
   function handleCityChange(e) {
-    setPersona({
-      ...persona,
+    setPerson({
+      ...person,
       artwork: {
-        ...persona.artwork,
+        ...person.artwork,
         city: e.target.value
       }
     });
   }
 
-  function handleimagenChange(e) {
-    setPersona({
-      ...persona,
+  function handleImageChange(e) {
+    setPerson({
+      ...person,
       artwork: {
-        ...persona.artwork,
-        imagen: e.target.value
+        ...person.artwork,
+        image: e.target.value
       }
     });
   }
@@ -573,41 +573,41 @@ export default function Formulario() {
       <label>
         Nombre:
         <input
-          value={persona.nombre}
-          onChange={handlenombreChange}
+          value={person.name}
+          onChange={handleNameChange}
         />
       </label>
       <label>
-        Titulo:
+        Título:
         <input
-          value={persona.artwork.titulo}
-          onChange={handletituloChange}
+          value={person.artwork.title}
+          onChange={handleTitleChange}
         />
       </label>
       <label>
         Ciudad:
         <input
-          value={persona.artwork.city}
+          value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
         Imagen:
         <input
-          value={persona.artwork.imagen}
-          onChange={handleimagenChange}
+          value={person.artwork.image}
+          onChange={handleImageChange}
         />
       </label>
       <p>
-        <i>{persona.artwork.titulo}</i>
-        {' by '}
-        {persona.nombre}
+        <i>{person.artwork.title}</i>
+        {' por '}
+        {person.name}
         <br />
-        (ubicado en {persona.artwork.city})
+        (localizada en {person.artwork.city})
       </p>
       <img 
-        src={persona.artwork.imagen} 
-        alt={persona.artwork.titulo}
+        src={person.artwork.image} 
+        alt={person.artwork.title}
       />
     </>
   );
@@ -637,20 +637,20 @@ import TaskList from './TaskList.js';
 
 let nextId = 3;
 const initialTodos = [
-  { id: 0, titulo: 'Comprar leche', done: true },
-  { id: 1, titulo: 'Comer tacos', done: false },
-  { id: 2, titulo: 'Preparar té', done: false },
+  { id: 0, title: 'Buy milk', done: true },
+  { id: 1, title: 'Eat tacos', done: false },
+  { id: 2, title: 'Brew tea', done: false },
 ];
 
 export default function TaskApp() {
   const [todos, setTodos] = useState(initialTodos);
 
-  function handleAddTodo(titulo) {
+  function handleAddTodo(title) {
     setTodos([
       ...todos,
       {
         id: nextId++,
-        titulo: titulo,
+        title: title,
         done: false
       }
     ]);
@@ -691,18 +691,18 @@ export default function TaskApp() {
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
-  const [titulo, setTitulo] = useState('');
+  const [title, setTitle] = useState('');
   return (
     <>
       <input
-        placeholder="Agregar para hacer"
-        value={titulo}
-        onChange={e => setTitulo(e.target.value)}
+        placeholder="Add todo"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
-        setTitulo('');
-        onAddTodo(titulo);
-      }}>Agregar</button>
+        setTitle('');
+        onAddTodo(title);
+      }}>Añadir</button>
     </>
   )
 }
@@ -738,11 +738,11 @@ function Task({ todo, onChange, onDelete }) {
     todoContent = (
       <>
         <input
-          value={todo.titulo}
+          value={todo.title}
           onChange={e => {
             onChange({
               ...todo,
-              titulo: e.target.value
+              title: e.target.value
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
@@ -753,7 +753,7 @@ function Task({ todo, onChange, onDelete }) {
   } else {
     todoContent = (
       <>
-        {todo.titulo}
+        {todo.title}
         <button onClick={() => setIsEditing(true)}>
           Editar
         </button>
@@ -774,7 +774,7 @@ function Task({ todo, onChange, onDelete }) {
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>
-        Borrar
+        Eliminar
       </button>
     </label>
   );
@@ -803,9 +803,9 @@ import { useImmer } from 'use-immer';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, titulo: 'Big Bellies', seen: false },
-  { id: 1, titulo: 'Paisaje Lunar', seen: false },
-  { id: 2, titulo: 'Ejército de Terracota', seen: true },
+  { id: 0, title: 'Big Bellies', seen: false },
+  { id: 1, title: 'Lunar Landscape', seen: false },
+  { id: 2, title: 'Terracotta Army', seen: true },
 ];
 
 export default function BucketList() {
@@ -822,8 +822,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Lista de cubo de arte</h1>
-      <h2>Mi lista de arte para ver:</h2>
+      <h1>Lista de deseos para obras de arte</h1>
+      <h2>Mi lista de obras de arte para ver:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -847,7 +847,7 @@ function ItemList({ artworks, onToggle }) {
                 );
               }}
             />
-            {artwork.titulo}
+            {artwork.title}
           </label>
         </li>
       ))}
@@ -898,7 +898,7 @@ Para resolver esto, puedes **pasarlo como una función inicializadora** a `useSt
 
 ```js
 function TodoList() {
-  const [todos, setTodos] = useState(crearInicialTodos);
+  const [todos, setTodos] = useState(createInitialTodos);
   // ...
 ```
 
@@ -922,33 +922,33 @@ function createInitialTodos() {
   for (let i = 0; i < 50; i++) {
     initialTodos.push({
       id: i,
-      texto: 'Item ' + (i + 1)
+      text: 'Item ' + (i + 1)
     });
   }
   return initialTodos;
 }
 
 export default function TodoList() {
-  const [todos, setTodos] = useState(crearIniciarTodos);
-  const [texto, setTexto] = useState('');
+  const [todos, setTodos] = useState(createInitialTodos);
+  const [text, setText] = useState('');
 
   return (
     <>
       <input
-        value={texto}
+        value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
-        setTexto('');
+        setText('');
         setTodos([{
           id: todos.length,
-          texto: texto
+          text: text
         }, ...todos]);
-      }}>Agregar</button>
+      }}>Add</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
-            {item.texto}
+            {item.text}
           </li>
         ))}
       </ul>
@@ -975,7 +975,7 @@ function createInitialTodos() {
   for (let i = 0; i < 50; i++) {
     initialTodos.push({
       id: i,
-      texto: 'Item ' + (i + 1)
+      text: 'Item ' + (i + 1)
     });
   }
   return initialTodos;
@@ -983,25 +983,25 @@ function createInitialTodos() {
 
 export default function TodoList() {
   const [todos, setTodos] = useState(createInitialTodos());
-  const [texto, setTexto] = useState('');
+  const [text, setText] = useState('');
 
   return (
     <>
       <input
-        value={texto}
-        onChange={e => setTexto(e.target.value)}
+        value={text}
+        onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
-        setTexto('');
+        setText('');
         setTodos([{
           id: todos.length,
-          texto: texto
+          text: text
         }, ...todos]);
       }}>Add</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
-            {item.texto}
+            {item.text}
           </li>
         ))}
       </ul>
@@ -1047,15 +1047,15 @@ export default function App() {
 }
 
 function Form() {
-  const [nombre, setNombre] = useState('Taylor');
+  const [name, setName] = useState('Taylor');
 
   return (
     <>
       <input
-        value={nombre}
-        onChange={e => setNombre(e.target.value)}
+        value={name}
+        onChange={e => setName(e.target.value)}
       />
-      <p>Hola, {nombre}.</p>
+      <p>Hola, {name}.</p>
     </>
   );
 }
@@ -1102,10 +1102,10 @@ export default function App() {
   return (
     <>
       <button onClick={() => setCount(count + 1)}>
-        Increment
+        Aumentar
       </button>
       <button onClick={() => setCount(count - 1)}>
-        Decrement
+        Disminuir
       </button>
       <CountLabel count={count} />
     </>
@@ -1121,12 +1121,12 @@ export default function CountLabel({ count }) {
   const [trend, setTrend] = useState(null);
   if (prevCount !== count) {
     setPrevCount(count);
-    setTrend(count > prevCount ? 'increasing' : 'decreasing');
+    setTrend(count > prevCount ? 'aumenta' : 'disminuye');
   }
   return (
     <>
       <h1>{count}</h1>
-      {trend && <p>The count is {trend}</p>}
+      {trend && <p>El contador {trend}</p>}
     </>
   );
 }
@@ -1223,17 +1223,17 @@ En [Modo estricto](/reference/react/StrictMode), React llamará a algunas de tus
 
 ```js {2,5-6,11-12}
 function TodoList() {
- // Esta función de componente se ejecutará dos veces por cada procesamiento.
+  // Esta función de componente se ejecutará dos veces por cada procesamiento.
 
   const [todos, setTodos] = useState(() => {
-   // Esta función de inicialización se ejecutará dos veces durante la inicialización.
-    return crearTodos();
+    // Esta función de inicialización se ejecutará dos veces durante la inicialización.
+    return createTodos();
   });
 
   function handleClick() {
     setTodos(prevTodos => {
       // Esta función de actualización se ejecutará dos veces por cada click.
-      return [...prevTodos, crearTodo()];
+      return [...prevTodos, createTodo()];
     });
   }
   // ...

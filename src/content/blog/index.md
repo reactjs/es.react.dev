@@ -10,6 +10,11 @@ This blog is the official source for the updates from the React team. Anything i
 
 <div className="sm:-mx-5 flex flex-col gap-5 mt-12">
 
+<BlogCard title="React Canaries: Incremental Feature Rollout Outside Meta" date="May 3, 2023" url="/blog/2023/05/03/react-canaries">
+
+Traditionally, new React features used to only be available at Meta first, and land in the open source releases later. We'd like to offer the React community an option to adopt individual new features as soon as their design is close to final--similar to how Meta uses React internally. We are introducing a new officially supported Canary release channel. It lets curated setups like frameworks decouple adoption of individual React features from the React release schedule.
+
+</BlogCard>
 
 <BlogCard title="React Labs: What We've Been Working On – March 2023" date="March 22, 2023" url="/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023">
 
@@ -41,16 +46,16 @@ As we shared in the release post, React 18 introduces features powered by our ne
 Last week we hosted our 6th React Conf.  In previous years, we’ve used the React Conf stage to deliver industry changing announcements such as React Native and React Hooks. This year, we shared our multi-platform vision for React, starting with the release of React 18 and gradual adoption of concurrent features...
 </BlogCard>
 
-<BlogCard title="The Plan for React 18" date="June 8, 2021" url="/blog/2021/06/08/the-plan-for-react-18">
-The React team is excited to share a few updates:
+<BlogCard title="El plan para React 18" date="8 de junio de 2021" url="/blog/2021/06/08/the-plan-for-react-18">
+El equipo de React está emocionado por compartir algunas novedades:
 
-- We’ve started work on the React 18 release, which will be our next major version.
-- We’ve created a Working Group to prepare the community for gradual adoption of new features in React 18.
-- We’ve published a React 18 Alpha so that library authors can try it and provide feedback...
+- Empezamos a trabajar en el lanzamiento de React 18, nuestra próxima versión mayor.
+- Creamos un grupo de trabajo para preparar a la comunidad ante una adopción gradual de las nuevas características en React 18.
+- Publicamos React 18 Alpha para que los autores de bibliotecas puedan probarlo y darnos sus impresiones...
 </BlogCard>
 
-<BlogCard title="Introducing Zero-Bundle-Size React Server Components" date="December 21, 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
-2020 has been a long year. As it comes to an end we wanted to share a special Holiday Update on our research into zero-bundle-size React Server Components. To introduce React Server Components, we have prepared a talk and a demo. If you want, you can check them out during the holidays, or later when work picks back up in the new year...
+<BlogCard title="Presentación de los Componentes de React en el Servidor" date="21 de diciembre de 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
+2020 ha sido un año bastante largo. Antes de que termine queremos compartirte una actualización especial de fin de año sobre nuestra investigación acerca de los **Componentes de React en el Servidor** (*React Server Components* o RSC) con cero JavaScript del lado del cliente. Para introducir los Componentes de React en el Servidor, hemos preparado una charla y una demo. Si lo deseas, puedes revisarlas durante las vacaciones decembrinas, o después cuando el trabajo se reanude en el año nuevo...
 </BlogCard>
 
 </div>
