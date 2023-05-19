@@ -4,7 +4,7 @@ title: unmountComponentAtNode
 
 <Deprecated>
 
-Esta API se eliminará en una versión importante futura de React.
+Esta API se eliminará en una versión mayor futura de React.
 
 En React 18, `unmountComponentAtNode` fue reemplazado por [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
 
@@ -39,9 +39,9 @@ render(<App />, domNode);
 unmountComponentAtNode(domNode);
 ```
 
-[Ver más ejemplos a continuación.](#uso)
+[Ver más ejemplos a continuación.](#usage)
 
-#### Parámetro {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
 * `domNode`: Un [elemento DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React eliminará un componente de React montado de este elemento.
 
