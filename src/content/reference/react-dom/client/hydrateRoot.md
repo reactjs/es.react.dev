@@ -127,7 +127,7 @@ Si el HTML de tu aplicación fue generado por [`react-dom/server`](/reference/re
 import { hydrateRoot } from 'react-dom/client';
 
 hydrateRoot(document.getElementById('root'), <App />);
-````
+```
 
 Esto hidratará el HTML del servidor dentro del <CodeStep step={1}>nodo DOM del navegador</CodeStep> con el <CodeStep step={2}>componente de React</CodeStep> para tu aplicación. Por lo general, lo harás una vez al inicio. Si utilizas un *framework*, puede que tras bambalinas lo haga por ti.
 
