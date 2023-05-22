@@ -150,11 +150,15 @@ Estas propiedades DOM estándar también son compatibles con todos los component
 * `onWheelCapture`: Una versión de `onWheel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`role`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles): Un string. Especifica el rol del elemento explícitamente para las tecnologías de asistencia.
 
+<<<<<<< HEAD
 * [`slot`](https://developer.mozilla.org/en-US/docs/Web/API/Element/slot): Un string. Especifica el nombre del slot cuando se utiliza shadow DOM. En React, normalmente se logra un patrón equivalente al pasar JSX como props, por ejemplo `<Layout left={<Sidebar />} right={<Content />} />`.
 * [`spellCheck`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/spellcheck): Un booleano o `null`. Si explícitamente se establece en `true` o `false`, habilita o deshabilita la corrección ortográfica.
 * [`tabIndex`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/tabindex): Un número. Anula el comportamiento por defecto del botón Tab. [Evita utilizar valores distintos de -1 y 0.](https://www.tpgi.com/using-the-tabindex-attribute/)
 * [`title`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/title): Un string. Especifica el texto de información de ayuda para el elemento.
 * [`translate`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/translate): Ya sea `'yes'` o `'no'`. Pasar `'no'` excluye el contenido del elemento de ser traducido.
+=======
+You can also pass custom attributes as props, for example `mycustomprop="someValue"`. This can be useful when integrating with third-party libraries. The custom attribute name must be lowercase and must not start with `on`. The value will be converted to a string. If you pass `null` or `undefined`, the custom attribute will be removed.
+>>>>>>> 1b5e8861ab40d94e030bff0100708106c4689603
 
 También puedes pasar atributos personalizados como props, por ejemplo `mycustomprop="someValue".` Esto puede ser útil al integrar bibliotecas de terceros. El nombre del atributo personalizado debe estar en minúsculas y no debe empezar con `on`. El valor se convertirá a un string. Si pasas `null` o `undefined`, se eliminará el atributo personalizado.
 
@@ -260,7 +264,11 @@ React también llamará a tu callback `ref` cada vez que pases un callback `ref`
 
 #### Parámetros {/*ref-callback-parameters*/}
 
+<<<<<<< HEAD
 * `node`: Un nodo del DOM o `null`. React te pasará el nodo del DOM cuando se vincule la ref, y `null` cuando la ref se desvincule. A menos que pases la misma función ref para el callback `ref` en cada renderizado, el callback se desprenderá temporalmente y se volverá a vincular durante cada renderizado del componente.
+=======
+* `node`: A DOM node or `null`. React will pass you the DOM node when the ref gets attached, and `null` when the ref gets detached. Unless you pass the same function reference for the `ref` callback on every render, the callback will get temporarily detached and re-attached during every re-render of the component.
+>>>>>>> 1b5e8861ab40d94e030bff0100708106c4689603
 
 #### Retornos {/*returns*/}
 
