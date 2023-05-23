@@ -948,7 +948,7 @@ export default function Profile() {
       <div className="card">
         <div className="card-content">
           <h1>Información</h1>
-          <p>Aklilu Lemma fue un distinguido científico que descubrió un tratamiento natural para la esquistosomiasis.</p>
+          <p>Aklilu Lemma fue un destacado científico etíope que descubrió un tratamiento natural para la esquistosomiasis.</p>
         </div>
       </div>
     </div>
@@ -1019,7 +1019,7 @@ export default function Profile() {
       </Card>
       <Card>
         <h1>Información</h1>
-        <p>Aklilu Lemma fue un distinguido científico que descubrió un tratamiento natural para la esquistosomiasis.</p>
+        <p>Aklilu Lemma fue un destacado científico etíope que descubrió un tratamiento natural para la esquistosomiasis.</p>
       </Card>
     </div>
   );
@@ -1080,7 +1080,7 @@ export default function Profile() {
         />
       </Card>
       <Card title="Información">
-        <p>Aklilu Lemma fue un distinguido científico que descubrió un tratamiento natural para la esquistosomiasis.</p>
+        <p>Aklilu Lemma fue un destacado científico etíope que descubrió un tratamiento natural para la esquistosomiasis.</p>
       </Card>
     </div>
   );
