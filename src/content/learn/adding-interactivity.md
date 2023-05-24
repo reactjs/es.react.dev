@@ -16,11 +16,11 @@ Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario
 * [Por qué el estado no se actualiza justo después de cambiarlo](/learn/state-as-a-snapshot)
 * [Cómo poner en cola varias actualizaciones de estado](/learn/queueing-a-series-of-state-updates)
 * [Cómo actualizar un objeto en estado](/learn/updating-objects-in-state)
-* [Cómo actualizar un arreglo en el estado](/learn/updating-arrays-in-state)
+* [Cómo actualizar un array en el estado](/learn/updating-arrays-in-state)
 
 </YouWillLearn>
 
-## Respondiendo a eventos {/*responding-to-events*/}
+## Responder a eventos {/*responding-to-events*/}
 
 React le permite agregar controladores de eventos a su JSX. Los controladores de eventos son sus propias funciones que se activarán en respuesta a las interacciones del usuario, como hacer clic, pasar el mouse, enfocarse en las entradas del formulario, etc.
 
@@ -32,8 +32,8 @@ Los componentes integrados como `<button>` solo admiten eventos de navegador int
 export default function App() {
   return (
     <Toolbar
-      onPlayMovie={() => alert('Jugando!')}
-      onUploadImage={() => alert('Cargando!')}
+      onPlayMovie={() => alert('Reproduciendo!')}
+      onUploadImage={() => alert('¡Cargando!')}
     />
   );
 }
@@ -279,7 +279,7 @@ export default function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`Usted le dijo ${message} a ${to}`);
+      alert(`tú le dijiste ${message} a ${to}`);
     }, 5000);
   }
 
@@ -320,7 +320,7 @@ Lea **[Estado como instantánea](/learn/state-as-a-snapshot)** para saber por qu
 
 ## Poner en cola una serie de actualizaciones de estado {/*queueing-a-series-of-state-updates*/}
 
-Este componente tiene errores: hacer clic en «+3» incrementa la puntuación solo una vez.
+Este componente tiene errores: hacer clic en "+3" incrementa la puntuación solo una vez.
 
 <Sandpack>
 
@@ -408,9 +408,9 @@ Lea **[Poner en cola una serie de actualizaciones de estado](/learn/queueing-a-s
 
 ## Actualizar objetos en estado {/*updating-objects-in-state*/}
 
-El estado puede contener cualquier tipo de valor de JavaScript, incluidos los objetos. Pero no debe cambiar los objetos y arreglos que tiene en el estado de React directamente. En cambio, cuando desea actualizar un objeto y un arreglo, debe crear uno nuevo (o hacer una copia de uno existente) y luego actualizar el estado para usar esa copia.
+El estado puede contener cualquier tipo de valor de JavaScript, incluidos los objetos. Pero no debe cambiar los objetos y arrays que tiene en el estado de React directamente. En cambio, cuando desea actualizar un objeto y un array, debe crear uno nuevo (o hacer una copia de uno existente) y luego actualizar el estado para usar esa copia.
 
-Por lo general, usará la sintaxis de extensión `...` para copiar objetos y matrices que desea cambiar. Por ejemplo, actualizar un objeto anidado podría verse así:
+Por lo general, usará la sintaxis de propagación `...` para copiar objetos y matrices que desea cambiar. Por ejemplo, actualizar un objeto
 
 <Sandpack>
 
@@ -637,9 +637,9 @@ Lea **[Actualizar objetos en el estado](/learn/updating-objects-in-state)** para
 
 </LearnMore>
 
-## Actualización de arreglos en estado {/*updating-arrays-in-state*/}
+## Actualización de arrays en estado {/*updating-arrays-in-state*/}
 
-Los arreglos son otro tipo de objetos de JavaScript mutables que puede almacenar en el estado y debe tratar como de solo lectura. Al igual que con los objetos, cuando desea actualizar un arreglo almacenado en el estado, se debe crear una nueva (o hacer una copia de una existente) y luego configurar el estado para utilizar el nuevo arreglo:
+Los arrays son otro tipo de objetos de JavaScript mutables que puede almacenar en el estado y debe tratar como de solo lectura. Al igual que con los objetos, cuando desea actualizar un array almacenado en el estado, se debe crear una nueva (o hacer una copia de una existente) y luego configurar el estado para utilizar el nuevo array:
 
 <Sandpack>
 
@@ -706,7 +706,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-Si copiar arreglos en el código se vuelve tedioso, puede usar una biblioteca como [Immer](https://github.com/immerjs/use-immer) para reducir el código repetitivo:
+Si copiar arrays en el código se vuelve tedioso, puede usar una biblioteca como [Immer](https://github.com/immerjs/use-immer) para reducir el código repetitivo:
 
 <Sandpack>
 
@@ -791,11 +791,11 @@ function ItemList({ artworks, onToggle }) {
 
 <LearnMore path="/learn/updating-arrays-in-state">
 
-Lea **[Actualización de arreglos en estado](/learn/updating-arrays-in-state)** para aprender a actualizar arreglos correctamente.
+Lea **[Actualización de arrays en estado](/learn/updating-arrays-in-state)** para aprender a actualizar arrays correctamente.
 
 </LearnMore>
 
-## ¿Que sigue? {/*whats-next*/}
+## ¿Qué sigue? {/*whats-next*/}
 
 Dirígete a [Responder a eventos](/learn/responding-to-events) para comenzar a leer este capítulo página por página.
 
