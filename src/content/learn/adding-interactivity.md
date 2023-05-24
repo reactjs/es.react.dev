@@ -4,7 +4,7 @@ title: Agregar interactividad
 
 <Intro>
 
-Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario. Por ejemplo, hacer clic en una galería de imágenes cambia la imagen activa. En React, los datos que cambian con el tiempo se denominan *estado.* Puede agregar estado a cualquier componente y actualizarlo según sea necesario. En este capítulo, aprenderá a escribir componentes que manejen interacciones, actualicen su estado y muestren resultados diferentes a lo largo del tiempo.
+Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario. Por ejemplo, hacer clic en una galería de imágenes cambia la imagen activa. En React, los datos que cambian con el tiempo se denominan *estado.* Puede agregar estado a cualquier componente y actualizarlo según sea necesario. En este capítulo, aprenderá a escribir componentes que manejen interacciones, actualicen tú estado y muestren resultados diferentes a lo largo del tiempo.
 
 </Intro>
 
@@ -15,16 +15,16 @@ Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario
 * [Cómo React actualiza la interfaz de usuario en dos fases](/learn/render-and-commit)
 * [Por qué el estado no se actualiza justo después de cambiarlo](/learn/state-as-a-snapshot)
 * [Cómo poner en cola varias actualizaciones de estado](/learn/queueing-a-series-of-state-updates)
-* [Cómo actualizar un objeto en estado](/learn/updating-objects-in-state)
+* [Cómo actualizar un objeto en el estado](/learn/updating-objects-in-state)
 * [Cómo actualizar un array en el estado](/learn/updating-arrays-in-state)
 
 </YouWillLearn>
 
 ## Responder a eventos {/*responding-to-events*/}
 
-React le permite agregar controladores de eventos a su JSX. Los controladores de eventos son sus propias funciones que se activarán en respuesta a las interacciones del usuario, como hacer clic, pasar el mouse, enfocarse en las entradas del formulario, etc.
+React le permite agregar controladores de eventos a su JSX. Los controladores de eventos son tus propias funciones que se activarán en respuesta a las interacciones del usuario, como hacer clic, pasar el mouse, enfocarse en las entradas del formulario, etc.
 
-Los componentes integrados como `<button>` solo admiten eventos de navegador integrados como `onClick`. Sin embargo, también puede crear sus propios componentes y dar a sus accesorios de controlador de eventos los nombres específicos de la aplicación que desee.
+Los componentes integrados como `<button>` solo admiten eventos de navegador integrados como `onClick`. Sin embargo, también puedes crear tus propios componentes y dar a tus accesorios de controlador de eventos los nombres específicos de la aplicación que desees.
 
 <Sandpack>
 
@@ -32,7 +32,7 @@ Los componentes integrados como `<button>` solo admiten eventos de navegador int
 export default function App() {
   return (
     <Toolbar
-      onPlayMovie={() => alert('Reproduciendo!')}
+      onPlayMovie={() => alert('¡Reproduciendo!')}
       onUploadImage={() => alert('¡Cargando!')}
     />
   );
@@ -72,11 +72,11 @@ Lea **[Responder a eventos](/learn/responding-to-events)** para aprender cómo a
 
 </LearnMore>
 
-## Estado: la memoria de un componente {/*state-a-components-memory*/}
+## El estado: la memoria de un componente {/*state-a-components-memory*/}
 
 Los componentes a menudo necesitan cambiar lo que aparece en la pantalla como resultado de una interacción. Escribir en el formulario debería actualizar el campo de entrada, hacer clic en "siguiente" en un carrusel de imágenes debería cambiar la imagen que se muestra, hacer clic en "comprar" pone un producto en el carrito de compras. Los componentes necesitan "recordar" cosas: el valor de entrada actual, la imagen actual, el carrito de compras. En React, este tipo de memoria específica del componente se llama *estado*.
 
-Puede agregar estado a un componente con un [`useState`](/reference/react/useState) Hook. Los *Hooks* son funciones especiales que permiten que sus componentes usen funciones de React (el estado es una de esas funciones). `useState` Hook te permite declarar una variable de estado. Toma el estado inicial y devuelve un par de valores: el estado actual y una función de establecimiento de estado que le permite actualizarlo.
+Puede agregar estado a un componente con un [`useState`](/reference/react/useState) Hook. Los *Hooks* son funciones especiales que permiten que tus componentes usen funciones de React (el estado es una de esas funciones). `useState` Hook te permite declarar una variable de estado. Toma el estado inicial y devuelve un par de valores: el estado actual y una función de establecimiento de estado que le permite actualizarlo.
 
 ```js
 const [index, setIndex] = useState(0);
@@ -148,7 +148,7 @@ export const sculptureList = [{
   url: 'https://i.imgur.com/ZF6s192m.jpg',
   alt: 'Una gigantesca escultura de flor metálica con pétalos reflectantes como espejos y fuertes estambres.'
 }, {
-  name: 'Presencia eterna',
+  name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
   description: 'Wilson era conocido por su preocupación por la igualdad, la justicia social, así como por las cualidades esenciales y espirituales de la humanidad. Este bronce masivo (7 pies o 2,13 m) representa lo que él describió como "una presencia negra simbólica infundida con un sentido de humanidad universal"."',
   url: 'https://i.imgur.com/aTtVpES.jpg',
@@ -233,20 +233,20 @@ Lea **[El estado: la memoria de un componente](/learn/state-a-components-memory)
 
 </LearnMore>
 
-## Renderizar y confirmar {/*render-and-commit*/}
+## Renderizado y confirmación {/*render-and-commit*/}
 
-Antes de que sus componentes se muestren en la pantalla, deben ser renderizados por React. Comprender los pasos de este proceso lo ayudará a pensar en cómo se ejecuta su código y explicar su comportamiento.
+Antes de que tus componentes se muestren en la pantalla, deben ser renderizados por React. Comprender los pasos de este proceso te ayudará a pensar en cómo se ejecuta tú código y explicar su comportamiento.
 
-Imagine que sus componentes son cocineros en la cocina, ensamblando sabrosos platos a partir de ingredientes. En este escenario, React es el camarero que presenta las solicitudes de los clientes y les trae sus pedidos. Este proceso de solicitud y servicio de UI consta de tres pasos:
+Imagina que tus componentes son cocineros en la cocina, montando sabrosos platos a partir de los ingredientes. En este escenario, React es el camarero que hace las peticiones de los clientes y les trae sus pedidos. Este proceso de solicitud y servicio de UI tiene tres pasos:
 
-1. **Desencadenante** un render (entregar el pedido del comensal a la cocina)
-2. **Renderizando** el componente (preparando el pedido en la cocina)
-3. **Confirmando** el DOM (colocando el pedido en la mesa)
+1. **Desencadenamiento** de un renderizado (entrega del pedido del cliente a la cocina)
+2. **Renderizado** del componente (preparación del pedido en la cocina)
+3. **Confirmación** con el DOM (poner el pedido sobre la mesa)
 
 <IllustrationBlock sequential>
-  <Illustration caption="Trigger" alt="React como un mesero en un restaurante, obteniendo pedidos de los usuarios y entregándolos a la cocina de componentes." src="/images/docs/illustrations/i_render-and-commit1.png" />
-  <Illustration caption="Renderizado" alt="La Tarjeta Chef le da a React un nuevo componente de tarjeta." src="/images/docs/illustrations/i_render-and-commit2.png" />
-  <Illustration caption="Confirmación" alt="React entrega la Tarjeta al usuario en su mesa." src="/images/docs/illustrations/i_render-and-commit3.png" />
+  <Illustration caption="Desencadenamiento" alt="React como un camarero en un restaurante, recogiendo los pedidos de los usuarios y entregándolos a la Cocina de Componentes." src="/images/docs/illustrations/i_render-and-commit1.png" />
+  <Illustration caption="Renderizado" alt="El Chef de tarjetas le da a React un nuevo componente tarjeta." src="/images/docs/illustrations/i_render-and-commit2.png" />
+  <Illustration caption="Confirmación" alt="React entrega la tarjeta al usuario en su mesa." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
 <LearnMore path="/learn/render-and-commit">
@@ -255,14 +255,14 @@ Lea **[Renderizado y confirmación](/learn/render-and-commit)** para conocer el 
 
 </LearnMore>
 
-## Estado como una instantánea {/*state-as-a-snapshot*/}
+## El estado como una instantánea
 
 A diferencia de las variables regulares de JavaScript, el estado React se comporta más como una instantánea. Configurarlo no cambia la variable de estado que ya tiene, sino que activa una nueva representación. ¡Esto puede ser sorprendente al principio!
 
 ```js
 console.log(count);  // 0
-setCount(count + 1); // Request a re-render with 1
-console.log(count);  // Still 0!
+setCount(count + 1); // Solicitar una nueva representación con 1.
+console.log(count);  // ¡Todavía 0!
 ```
 
 Este comportamiento lo ayuda a evitar errores sutiles. Aquí hay una pequeña aplicación de chat. Intenta adivinar qué sucede si presionas "Enviar" primero y *luego* cambias el destinatario a Bob. ¿El nombre de quién aparecerá en la `alerta` cinco segundos después?
@@ -279,7 +279,7 @@ export default function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`tú le dijiste ${message} a ${to}`);
+      alert(`Le dijiste ${message} a ${to}`);
     }, 5000);
   }
 
@@ -314,7 +314,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <LearnMore path="/learn/state-as-a-snapshot">
 
-Lea **[Estado como instantánea](/learn/state-as-a-snapshot)** para saber por qué el estado aparece "fijo" y sin cambios dentro de los controladores de eventos.
+Lea **[El estado como una instantánea](/learn/state-as-a-snapshot)** para saber por qué el estado aparece "fijo" y sin cambios dentro de los controladores de eventos.
 
 </LearnMore>
 
@@ -354,7 +354,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 </Sandpack>
 
-[Estado como instantánea](/learn/state-as-a-snapshot) explica por qué sucede esto. El estado de configuración solicita una nueva representación, pero no lo cambia en el código que ya se está ejecutando. Entonces `score` sigue siendo `0` justo después de llamar a `setScore(score + 1)`.
+[El estado como una instantánea](/learn/state-as-a-snapshot) explica por qué sucede esto. El estado de configuración solicita una nueva representación, pero no lo cambia en el código que ya se está ejecutando. Entonces `score` sigue siendo `0` justo después de llamar a `setScore(score + 1)`.
 
 ```js
 console.log(score);  // 0
@@ -402,15 +402,15 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 <LearnMore path="/learn/queueing-a-series-of-state-updates">
 
-Lea **[Poner en cola una serie de actualizaciones de estado](/learn/queueing-a-series-of-state-updates)** para obtener información sobre cómo poner en cola una secuencia de actualizaciones de estado.
+Lea **[Poner en cola una serie de actualizaciones del estado](/learn/queueing-a-series-of-state-updates)** para obtener información sobre cómo poner en cola una secuencia de actualizaciones de estado.
 
 </LearnMore>
 
-## Actualizar objetos en estado {/*updating-objects-in-state*/}
+## Actualizar objetos en el estado {/*updating-objects-in-state*/}
 
 El estado puede contener cualquier tipo de valor de JavaScript, incluidos los objetos. Pero no debe cambiar los objetos y arrays que tiene en el estado de React directamente. En cambio, cuando desea actualizar un objeto y un array, debe crear uno nuevo (o hacer una copia de uno existente) y luego actualizar el estado para usar esa copia.
 
-Por lo general, usará la sintaxis de propagación `...` para copiar objetos y matrices que desea cambiar. Por ejemplo, actualizar un objeto
+Por lo general, usará la sintaxis de propagación `...` para copiar objetos y arrays que desea cambiar. Por ejemplo, actualizar un objeto
 
 <Sandpack>
 
@@ -422,7 +422,7 @@ export default function Form() {
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
-      city: 'Hamburg',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -467,28 +467,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Título:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -499,7 +499,7 @@ export default function Form() {
         {' by '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (ubicado en {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -530,7 +530,7 @@ export default function Form() {
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
-      city: 'Hamburg',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -562,28 +562,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Título:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -594,7 +594,7 @@ export default function Form() {
         {' by '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (ubicado en {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -637,7 +637,7 @@ Lea **[Actualizar objetos en el estado](/learn/updating-objects-in-state)** para
 
 </LearnMore>
 
-## Actualización de arrays en estado {/*updating-arrays-in-state*/}
+## Actualizar arrays en el estado {/*updating-arrays-in-state*/}
 
 Los arrays son otro tipo de objetos de JavaScript mutables que puede almacenar en el estado y debe tratar como de solo lectura. Al igual que con los objetos, cuando desea actualizar un array almacenado en el estado, se debe crear una nueva (o hacer una copia de una existente) y luego configurar el estado para utilizar el nuevo array:
 
@@ -670,7 +670,7 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Lista de cubo de arte</h1>
+      <h1>Lista de deseos de arte</h1>
       <h2>Mi lista de arte para ver:</h2>
       <ItemList
         artworks={list}
@@ -735,8 +735,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista de deseos de arte</h1>
+      <h2>Mi lista de arte para ver:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -791,7 +791,7 @@ function ItemList({ artworks, onToggle }) {
 
 <LearnMore path="/learn/updating-arrays-in-state">
 
-Lea **[Actualización de arrays en estado](/learn/updating-arrays-in-state)** para aprender a actualizar arrays correctamente.
+Lea **[Actualizar arrays en el estado](/learn/updating-arrays-in-state)** para aprender a actualizar arrays correctamente.
 
 </LearnMore>
 
