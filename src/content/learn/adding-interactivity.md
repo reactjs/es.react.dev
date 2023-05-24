@@ -255,7 +255,7 @@ Lee **[Renderizado y confirmación](/learn/render-and-commit)** para conocer el 
 
 </LearnMore>
 
-## El estado como una instantánea
+## El estado como una instantánea {/*state-as-a-snapshot*/}
 
 A diferencia de las variables regulares de JavaScript, el estado de React se comporta más como una instantánea. Establecerlo no cambia la variable de estado que ya tienes, sino que activa una nuevo renderizado. ¡Esto puede ser sorprendente al principio!
 
