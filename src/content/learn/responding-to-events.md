@@ -312,17 +312,13 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
 Fíjate como el componente `App` no necesita saber *qué* hará `Toolbar` con `onPlayMovie` o `onUploadImage`. Eso es un detalle de implementación del `Toolbar`. Aquí, `Toolbar` los pasa como manejadores `onClick` en sus `Button`s, pero podría luego iniciarlos con un atajo de teclado. Nombrar props a partir de interacciones específicas de la aplicación como `onPlayMovie` te da la flexibilidad de cambiar cómo se usan más tarde.
-=======
-Notice how the `App` component does not need to know *what* `Toolbar` will do with `onPlayMovie` or `onUploadImage`. That's an implementation detail of the `Toolbar`. Here, `Toolbar` passes them down as `onClick` handlers to its `Button`s, but it could later also trigger them on a keyboard shortcut. Naming props after app-specific interactions like `onPlayMovie` gives you the flexibility to change how they're used later.
   
 <Note>
 
-Make sure that you use the appropriate HTML tags for your event handlers. For example, to handle clicks, use [`<button onClick={handleClick}>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) instead of `<div onClick={handleClick}>`. Using a real browser `<button>` enables built-in browser behaviors like keyboard navigation. If you don't like the default browser styling of a button and want to make it look more like a link or a different UI element, you can achieve it with CSS. [Learn more about writing accessible markup.](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+Asegúrate de usar las etiquetas HTML apropiadas para tus manejadores de eventos. Por ejemplo, para manejar clics, utiliza [`<button onClick={handleClick}>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/button) en lugar de `<div onClick={handleClick}>`. Al utilizar un botón (`<button>`) real del navegador se habilitan comportamientos integrados del navegador como la navegación por teclado. Si no te gustan los estilos predeterminados del navegador de un botón y quieres que se parezca más a un enlace u otro elemento diferente de UI, puedes lograrlo con CSS. [Aprende más sobre cómo escribir código de marcado accesible.](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
   
 </Note>
->>>>>>> 1b5e8861ab40d94e030bff0100708106c4689603
 
 ## Propagación de eventos {/*event-propagation*/}
 
