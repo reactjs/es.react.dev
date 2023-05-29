@@ -1089,7 +1089,11 @@ function ChatRoom({ roomId }) {
 }
 ```
 
+<<<<<<< HEAD
 **Para eliminar una dependencia, tienes que ["demostrar" al linter que *no necesita* ser una dependencia.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)** Por ejemplo, puedes mover `serverUrl` fuera de tu componente para demostrar que no es reactivo y que no cambiará en las re-renderizaciones:
+=======
+**To remove a dependency, you need to ["prove" to the linter that it *doesn't need* to be a dependency.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)** For example, you can move `serverUrl` out of your component to prove that it's not reactive and won't change on re-renders:
+>>>>>>> 3364c93feb358a7d1ac2e8d8b0468c3e32214062
 
 ```js {1,8}
 const serverUrl = 'https://localhost:1234'; // Ya no es un valor reactivo
