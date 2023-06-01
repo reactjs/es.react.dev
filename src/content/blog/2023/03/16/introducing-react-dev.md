@@ -222,7 +222,7 @@ body {
 
 </Sandpack>
 
-También nos gustaría destacar [Pensar en React](/learn/thinking-in-react)—ese tutorial que hizo que React "hiciera clic" para muchos de nosotros. **Hemos actualizado ambos tutoriales clásicos para utilizar componentes de función y Hooks,** por lo que están como nuevos.
+También nos gustaría destacar [Pensar en React](/learn/thinking-in-react), ese tutorial que hizo que React "hiciera clic" para muchos de nosotros. **Hemos actualizado ambos tutoriales clásicos para utilizar componentes de función y Hooks,** por lo que están como nuevos.
 
 <Note>
 
@@ -256,7 +256,7 @@ La mayoría de las páginas de la sección de Aprender terminan con algunos desa
 
 <Challenges noTitle={true}>
 
-#### Mostrar un ícono para elementos incompletos con `?:` {/*show-an-icon-for-incomplete-items-with--*/}
+#### Mostrar un ícono para elementos incompletos con `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
 Utiliza el operador condicional (`cond ? a : b`) para renderizar una ❌ si `isPacked` no es `true`.
 
