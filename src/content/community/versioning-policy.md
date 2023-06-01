@@ -145,7 +145,7 @@ Como canary, el canal experimental es un canal de presentación que rastrea la r
 
 Por lo general, una actualización en canary es acompañada por una actualización correspondiente a experimental. Se basan en la misma revisión de origen, pero son compilados usando un conjunto diferente de indicadores de funciones.
 
-Los lanzamientos experimentales pueden ser significativamente diferentes que los lanzamientos en canary y latest. **No use versiones experimentales en aplicaciones orientadas al usuario.** Deberías esperar cambios importantes frecuentes entre los lanzamientos en el canal experimental.
+Los lanzamientos experimentales pueden ser significativamente diferentes que los lanzamientos en canary y latest. **No uses versiones experimentales en aplicaciones orientadas al usuario.** Deberías esperar cambios importantes frecuentes entre los lanzamientos en el canal experimental.
 
 Los lanzamientos en experimental se publican con la etiqueta `experimental` en npm. Las versiones son generadas a partir de un hash del contenido de la compilación y la fecha de confirmación, ej. `0.0.0-experimental-68053d940-20210623`.
 
