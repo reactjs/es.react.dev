@@ -44,9 +44,9 @@ function ChatRoom({ roomId }) {
 
 #### Parámetros {/*parameters*/}
 
-* `configuración`: La función con la lógica de tu Efecto. Tu función de configuración también puede devolver opcionalmente una función de limpieza. Cuando tu componente se añade por primera vez al DOM, React ejecutará tu función de configuración. Después de cada renderización con dependencias cambiadas, React ejecutará primero la función de limpieza (si la proporcionaste) con los valores antiguos, y luego ejecutará tu función de configuración con los nuevos valores. Después de que tu componente sea eliminado del DOM, React ejecutará tu función de limpieza una última vez.
+* `configuración`: La función con la lógica de tu Efecto. Tu función de configuración también puede devolver opcionalmente una función de limpieza. Cuando tu componente se añade por primera vez al DOM, React ejecutará tu función de configuración. Después de cada renderizado con dependencias cambiadas, React ejecutará primero la función de limpieza (si la proporcionaste) con los valores antiguos, y luego ejecutará tu función de configuración con los nuevos valores. Después de que tu componente sea eliminado del DOM, React ejecutará tu función de limpieza una última vez.
 
-* `dependencias` **opcionales**: La lista de todos los valores reactivos referenciados dentro del código de `configuración`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias debe tener un número constante de elementos y estar escrita en línea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior utilizando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no se especifican las dependencias en absoluto, su efecto se volverá a ejecutar después de cada renderización del componente. [ Mira la diferencia entre pasar un _array_ de dependencias, un _array_ vacío y ninguna dependencia.](#examples-dependencies)
+* `dependencias` **opcionales**: La lista de todos los valores reactivos referenciados dentro del código de `configuración`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias debe tener un número constante de elementos y estar escrita en línea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior utilizando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no se especifican las dependencias en absoluto, su efecto se volverá a ejecutar después de cada renderizado del componente. [ Mira la diferencia entre pasar un _array_ de dependencias, un _array_ vacío y ninguna dependencia.](#examples-dependencies)
 
 #### Retorno {/*returns*/}
 
@@ -105,14 +105,14 @@ Tienes que pasar dos argumentos a `useEffect`:
 **React llama a tus funciones de configuración y limpieza siempre que sea necesario, lo que puede ocurrir varias veces:**
 
 1. Tu <CodeStep step={1}>código de configuración</CodeStep> se ejecuta cuando su componente se añade a la página *(montaje)*.
-2. Después de cada re-renderización de tu componente donde las <CodeStep step={3}>dependencias</CodeStep> han cambiado:
+2. Después de cada rerenderizado de tu componente donde las <CodeStep step={3}>dependencias</CodeStep> han cambiado:
    - Primero, tu <CodeStep step={2}>código de limpieza</CodeStep> se ejecuta con las antiguas props y estados.
    - Luego, tu <CodeStep step={1}>código de configuración</CodeStep> se ejecutará con las nuevas props y estados.
 3. Tu <CodeStep step={2}>código de limpieza</CodeStep> se ejecutará una última vez después de que tu componente sea eliminado de la página *(desmontaje).*
 
 **Vamos a mostrar esta secuencia para el ejemplo anterior.**  
 
-Cuando el componente `ChatRoom` se añade a la página, se conectará a la sala de conversación con `serverUrl` y `roomId`. Si cualquiera de los dos, `serverUrl` o `roomId` cambian como resultado de una re-renderización (digamos, si el usuario elige una sala de chat diferente en un desplegable), tu Efecto se *desconectará de la sala anterior, y se conectara a la siguiente.* Cuando el componente `ChatRoom` sea finalmente eliminado de la página, su efecto se desconectará por última vez.
+Cuando el componente `ChatRoom` se añade a la página, se conectará a la sala de conversación con `serverUrl` y `roomId`. Si cualquiera de los dos, `serverUrl` o `roomId` cambian como resultado de un rerenderizado (digamos, si el usuario elige una sala de chat diferente en un desplegable), tu Efecto se *desconectará de la sala anterior, y se conectara a la siguiente.* Cuando el componente `ChatRoom` sea finalmente eliminado de la página, su efecto se desconectará por última vez.
 
 **Para [ayudarte a encontrar errores,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) en el modo de desarrollo React ejecuta la <CodeStep step={1}>configuración</CodeStep> y la <CodeStep step={2}>limpieza</CodeStep>una vez más antes de la <CodeStep step={1}>configuración</CodeStep> real.** Se trata de una prueba de estrés que verifica que la lógica de tu efecto se implementa correctamente. Si esto causa problemas visibles, tu función de limpieza está perdiendo algo de lógica. La función de limpieza debe detener o deshacer lo que la función de configuración estaba haciendo. La regla general es que el usuario no debería ser capaz de distinguir entre la configuración que se llama una vez (como en producción) y una secuencia de *configuración* → *limpieza* → *configuración* (como en desarrollo). [Échale un vistazo a las soluciones comunes.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
@@ -1089,7 +1089,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-**Para eliminar una dependencia, tienes que ["demostrar" al linter que *no necesita* ser una dependencia.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)** Por ejemplo, puedes mover `serverUrl` fuera de tu componente para demostrar que no es reactivo y que no cambiará en las re-renderizaciones:
+**Para eliminar una dependencia, tienes que ["demostrar" al linter que *no necesita* ser una dependencia.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)** Por ejemplo, puedes mover `serverUrl` fuera de tu componente para demostrar que no es reactivo y que no cambiará en los rerenderizados:
 
 ```js {1,8}
 const serverUrl = 'https://localhost:1234'; // Ya no es un valor reactivo
@@ -1104,7 +1104,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Ahora que `serverUrl` no es un valor reactivo (y no puede cambiar en una renderización), no necesita ser una dependencia. **Si el código de tu efecto no utiliza ningún valor reactivo, su lista de dependencias debería estar vacía (`[]`):**
+Ahora que `serverUrl` no es un valor reactivo (y no puede cambiar en un renderizado), no necesita ser una dependencia. **Si el código de tu efecto no utiliza ningún valor reactivo, su lista de dependencias debería estar vacía (`[]`):**
 
 ```js {1,2,9}
 const serverUrl = 'https://localhost:1234'; // Ya no es un valor reactivo
@@ -1142,7 +1142,7 @@ useEffect(() => {
 
 #### Pasar un _array_ de dependencias {/*passing-a-dependency-array*/}
 
-Si especificas las dependencias, su Efecto se ejecuta **después de la renderización inicial _y_ después de las re-renderizaciones con las dependencias cambiadas.**
+Si especificas las dependencias, su Efecto se ejecuta **después del renderizado inicial _y_ después de los rerenderizados con las dependencias cambiadas.**
 
 ```js {3}
 useEffect(() => {
@@ -1250,7 +1250,7 @@ useEffect(() => {
 **Incluso con dependencias vacías, la configuración y la limpieza [se ejecutarán una vez más en desarrollo](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) para ayudarte a encontrar errores.**
 
 
-En este ejemplo, tanto `serverUrl` como `roomId` están "_hard-codeados_". Como están declarados fuera del componente, no son valores reactivos y, por lo tanto, no son dependencias. La lista de dependencias está vacía, por lo que el Efecto no se vuelve a ejecutar en las re-renderizaciones.
+En este ejemplo, tanto `serverUrl` como `roomId` están "_hard-codeados_". Como están declarados fuera del componente, no son valores reactivos y, por lo tanto, no son dependencias. La lista de dependencias está vacía, por lo que el Efecto no se vuelve a ejecutar en los rerenderizados.
 
 <Sandpack>
 
@@ -1316,7 +1316,7 @@ export function createConnection(serverUrl, roomId) {
 
 #### No pasar ningún _array_ de dependencias {/*passing-no-dependency-array-at-all*/}
 
-Si no pasas ninguna matriz de dependencia, tu Efecto se ejecuta **después de cada renderización (y re-renderización)** de tu componente.
+Si no pasas ninguna matriz de dependencia, tu Efecto se ejecuta **después de cada renderizado (y rerenderizado)** de tu componente.
 
 ```js {3}
 useEffect(() => {
@@ -1477,7 +1477,7 @@ Ahora que pasas `c => c + 1` en lugar de `count + 1`, [tu Efecto ya no necesita 
 
 ### Eliminación de dependencias de objetos innecesarios {/*removing-unnecessary-object-dependencies*/}
 
-Si tu Efecto depende de un objeto o de una función creada durante el renderizado, puede que se ejecute con más frecuencia de la necesaria. Por ejemplo, este Efecto se reconecta después de cada renderización porque el objeto `options` es [diferente para cada renderización:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Si tu Efecto depende de un objeto o de una función creada durante el renderizado, puede que se ejecute con más frecuencia de la necesaria. Por ejemplo, este Efecto se reconecta después de cada renderizado porque el objeto `options` es [diferente para cada renderizado:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {6-9,12,15}
 const serverUrl = 'https://localhost:1234';
@@ -1485,7 +1485,7 @@ const serverUrl = 'https://localhost:1234';
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  const options = { // 🚩 Este objeto se crea desde cero en cada re-renderización
+  const options = { // 🚩 Este objeto se crea desde cero en cada rerenderizado
     serverUrl: serverUrl,
     roomId: roomId
   };
@@ -1494,11 +1494,11 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(options); // Se usa dentro del Efecto
     connection.connect();
     return () => connection.disconnect();
-  }, [options]); // 🚩 Como resultado, estas dependencias son siempre diferentes en una renderización
+  }, [options]); // 🚩 Como resultado, estas dependencias son siempre diferentes en un renderizado
   // ...
 ```
 
-Evita utilizar como dependencia un objeto creado durante la renderización. En su lugar, crea el objeto dentro del Efecto:
+Evita utilizar como dependencia un objeto creado durante el renderizado. En su lugar, crea el objeto dentro del Efecto:
 
 <Sandpack>
 
@@ -1580,13 +1580,13 @@ Con esta solución, escribir en la entrada no reconecta el chat. A diferencia de
 
 ### Eliminación de dependencias de funciones innecesarias {/*removing-unnecessary-function-dependencies*/}
 
-Si tu Efecto depende de un objeto o de una función creada durante el renderizado, puede que se ejecute con más frecuencia de la necesaria. Por ejemplo, este Efecto se reconecta después de cada renderización porque la función `createOptions` es [diferente para cada renderización:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Si tu Efecto depende de un objeto o de una función creada durante el renderizado, puede que se ejecute con más frecuencia de la necesaria. Por ejemplo, este Efecto se reconecta después de cada renderizado porque la función `createOptions` es [diferente para cada renderizado:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {4-9,12,16}
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  function createOptions() { // 🚩 Esta función se crea desde cero en cada renderización
+  function createOptions() { // 🚩 Esta función se crea desde cero en cada renderizado
     return {
       serverUrl: serverUrl,
       roomId: roomId
@@ -1598,11 +1598,11 @@ function ChatRoom({ roomId }) {
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // 🚩 Como resultado, estas dependencias son siempre diferentes en una renderización
+  }, [createOptions]); // 🚩 Como resultado, estas dependencias son siempre diferentes en un renderizado
   // ...
 ```
 
-Por sí mismo, crear una función desde cero en cada renderización no es un problema. No es necesario optimizar eso. Sin embargo, si lo usas como una dependencia de tu Efecto, hará que tu Efecto se vuelva a ejecutar después de cada re-renderización.
+Por sí mismo, crear una función desde cero en cada renderizado no es un problema. No es necesario optimizar eso. Sin embargo, si lo usas como una dependencia de tu Efecto, hará que tu Efecto se vuelva a ejecutar después de cada rerenderizado.
 
 Evita utilizar como dependencia una función creada durante el renderizado. En su lugar, declárala dentro del Efecto:
 
@@ -1751,7 +1751,7 @@ function MyComponent() {
 }
 ```
 
-Mientras se carga la aplicación, el usuario verá la salida de renderización inicial. Luego, cuando esté cargada e hidratada, tu efecto se ejecutará y establecerá `didMount` a `true`, disparando una re-renderización. Esto cambiará a la salida de renderización sólo para el cliente. Ten en cuenta que los Efectos no se ejecutan en el servidor, por eso `didMount` era `false` durante el renderizado inicial del servidor.
+Mientras se carga la aplicación, el usuario verá la salida del renderizado inicial. Luego, cuando esté cargada e hidratada, tu efecto se ejecutará y establecerá `didMount` a `true`, disparando un rerenderizado. Esto cambiará a la salida de renderizado sólo para el cliente. Ten en cuenta que los Efectos no se ejecutan en el servidor, por eso `didMount` era `false` durante el renderizado inicial del servidor.
 
 Utiliza este patrón con moderación. Ten en cuenta que los usuarios con una conexión lenta verán el contenido inicial durante bastante tiempo -potencialmente, muchos segundos- por lo que no querrás hacer cambios bruscos en la apariencia de tu componente. En muchos casos, puedes evitar la necesidad de esto mostrando condicionalmente diferentes cosas con CSS.
 
@@ -1769,17 +1769,17 @@ Lee más sobre [cómo esto ayuda a encontrar errores](/learn/synchronizing-with-
 
 ---
 
-### Mi efecto se ejecuta después de cada re-renderización {/*my-effect-runs-after-every-re-render*/}
+### Mi efecto se ejecuta después de cada rerenderizado {/*my-effect-runs-after-every-re-render*/}
 
 En primer lugar, comprueba que no has olvidado especificar el _array_ de dependencias:
 
 ```js {3}
 useEffect(() => {
   // ...
-}); // 🚩 No hay array de dependencias: ¡se vuelve a ejecutar después de cada renderización!
+}); // 🚩 No hay array de dependencias: ¡se vuelve a ejecutar después de cada renderizado!
 ```
 
-Si has especificado el _array_ de dependencias, pero tu Efecto aún se vuelve a ejecutar en un bucle, es porque una de tus dependencias es diferente en cada re-renderización.
+Si has especificado el _array_ de dependencias, pero tu Efecto aún se vuelve a ejecutar en un bucle, es porque una de tus dependencias es diferente en cada rerenderizado.
 
 Puedes depurar este problema imprimiendo manualmente tus dependencias en la consola:
 
@@ -1799,7 +1799,7 @@ Object.is(temp1[1], temp2[1]); // ¿La segunda dependencia es la misma entre los
 Object.is(temp1[2], temp2[2]); // ... y así sucesivamente para cada dependencia ...
 ```
 
-Cuando encuentres la dependencia que es diferente en cada renderización, normalmente puedes arreglarlo de una de estas maneras:
+Cuando encuentres la dependencia que es diferente en cada renderizado, normalmente puedes arreglarlo de una de estas maneras:
 
 - [Actualización del estado basado en el estado anterior de un efecto](#updating-state-based-on-previous-state-from-an-effect)
 - [Eliminación de dependencias de objetos innecesarias](#removing-unnecessary-object-dependencies)
@@ -1815,13 +1815,13 @@ Como último recurso (si estos métodos no ayudan) [envuelve el valor con `useMe
 Si tu Efecto se ejecuta en un ciclo infinito, estas dos cosas deben estar ocurriendo:
 
 - Tu efecto está actualizando algún estado.
-- Ese estado provoca a una re-renderización, lo que hace que las dependencias del Efecto cambien.
+- Ese estado provoca a un rerenderizado, lo que hace que las dependencias del Efecto cambien.
 
 Antes de empezar a solucionar el problema, pregúntate si tu efecto se está conectando a algún sistema externo (como el DOM, la red, un widget de terceros, etc.). ¿Por qué tu efecto necesita establecer un estado? ¿Sincroniza algún estado con ese sistema externo? ¿O estás intentando gestionar el flujo de datos de tu aplicación con él?
 
 Si no hay un sistema externo, considera si la [eliminación del Efecto por completo](/learn/you-might-not-need-an-effect) simplificaría su lógica.
 
-Si realmente estás sincronizando con algún sistema externo, piensa por qué y bajo qué condiciones tu Efecto debe actualizar el estado. ¿Ha cambiado algo que afecta a la salida visual de tu componente? Si necesitas hacer un seguimiento de algunos datos que no son utilizados por la renderización, una [ref](/reference/react/useRef#referencing-a-value-with-a-ref) (que no desencadena la re-renderización) podría ser más apropiada. Comprueba que tu efecto no actualiza el estado (y no provoca la re-renderización) más de lo necesario.
+Si realmente estás sincronizando con algún sistema externo, piensa por qué y bajo qué condiciones tu Efecto debe actualizar el estado. ¿Ha cambiado algo que afecta a la salida visual de tu componente? Si necesitas hacer un seguimiento de algunos datos que no son utilizados por el renderizado, una [ref](/reference/react/useRef#referencing-a-value-with-a-ref) (que no desencadena la rerenderizado) podría ser más apropiada. Comprueba que tu efecto no actualiza el estado (y no provoca la rerenderizado) más de lo necesario.
 
 Por último, si tu efecto está actualizando el estado en el momento adecuado, pero sigue habiendo un bucle, es porque esa actualización de estado hace que cambie una de las dependencias de tu efecto. [Lee cómo depurar y resolver los cambios de dependencias.](/reference/react/useEffect#my-effect-runs-after-every-re-render)
 
@@ -1829,7 +1829,7 @@ Por último, si tu efecto está actualizando el estado en el momento adecuado, p
 
 ### Mi lógica de limpieza se ejecuta a pesar de que mi componente no se ha desmontado {/*my-cleanup-logic-runs-even-though-my-component-didnt-unmount*/}
 
-La función de limpieza se ejecuta no sólo durante el desmontaje, sino antes de cada renderización con dependencias cambiadas. Además, en el desarrollo, React [ejecuta una configuración y limpieza una vez más inmediatamente después de montar el componente.](#my-effect-runs-twice-when-the-component-mounts)
+La función de limpieza se ejecuta no sólo durante el desmontaje, sino antes de cada renderizado con dependencias cambiadas. Además, en el desarrollo, React [ejecuta una configuración y limpieza una vez más inmediatamente después de montar el componente.](#my-effect-runs-twice-when-the-component-mounts)
 
 Si tienes código de limpieza sin el correspondiente código de configuración, suele ser un error de código:
 
