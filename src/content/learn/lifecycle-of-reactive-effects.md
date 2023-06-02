@@ -936,7 +936,6 @@ button { margin-left: 10px; }
 </Solution>
 
 #### Activar y desactivar la sincronización {/*switch-synchronization-on-and-off*/}
-#### Switch synchronization on and off {/*switch-synchronization-on-and-off*/}
 
 En este ejemplo, un efecto suscribe al evento de ventana [`pointermove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event) para mover un punto rosa en la pantalla. Intenta pasar el cursor sobre el área de vista previa (o tocar la pantalla si estás en un dispositivo móvil) y ve cómo el punto rosa sigue tu movimiento.
 
