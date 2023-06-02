@@ -2102,7 +2102,7 @@ label { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-Verifica el tab `useSelectOptions.js` en el sandbox para ver cómo funciona. Idealmente, la mayoría de los Effects en su aplicación eventualmente deberían reemplazarse por Hooks de React personalizados, ya sea escritos por usted o por la comunidad. Los Hooks de React personalizados ocultan la lógica de sincronización, por lo que el componente de llamada no conoce el Efecto. A medida que siga trabajando en su aplicación, desarrollará una paleta de Hooks de React para elegir, y eventualmente no necesitará escribir Effects en sus componentes con mucha frecuencia.
+Verifica el tab `useSelectOptions.js` en el sandbox para ver cómo funciona. Idealmente, la mayoría de los Effects en su aplicación eventualmente deberían reemplazarse por Hooks personalizados, ya sea escritos por usted o por la comunidad. Los Hooks personalizados ocultan la lógica de sincronización, por lo que el componente de llamada no conoce el Efecto. A medida que siga trabajando en su aplicación, desarrollará una paleta de Hooks para elegir, y eventualmente no necesitará escribir Effects en sus componentes con mucha frecuencia.
 
 </Solution>
 
