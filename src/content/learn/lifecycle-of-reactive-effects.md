@@ -1,19 +1,19 @@
 ---
-title: 'Ciclo de vida de los efectos reactivos'
+title: 'Ciclo de vida de los Efectos reactivos'
 ---
 
 <Intro>
 
-Los efectos tienen un diferente ciclo de vida al de los componentes. Los componentes pueden montarse, actualizarse o desmontarse. Un efecto solo puede hacer dos cosas: para empezar a sincronizar algo y luego dejar de sincronizarlo. Este ciclo puede suceder varias veces si tu efecto depende de _props_ y estado que cambian con el tiempo. React provee una regla del _linter_ para comprobar que hayas especificado las dependencias de tu efecto correctamente. Esto mantiene tu efecto sincronizado con los últimos _props_ y estado.
+Los Efectos tienen un diferente ciclo de vida al de los componentes. Los componentes pueden montarse, actualizarse o desmontarse. Un Efecto solo puede hacer dos cosas: para empezar a sincronizar algo y luego dejar de sincronizarlo. Este ciclo puede suceder varias veces si tu Efecto depende de _props_ y estado que cambian con el tiempo. React provee una regla del _linter_ para comprobar que hayas especificado las dependencias de tu Efecto correctamente. Esto mantiene tu Efecto sincronizado con los últimos _props_ y estado.
 
 </Intro>
 
 <YouWillLearn>
 
-- Cómo un ciclo de vida de un efecto es diferente del ciclo de vida de un componente
-- Cómo pensar en cada efecto de forma aislada
-- Cuándo tu efecto necesita volver a sincronizarse, y por qué
-- Cómo se determinan las dependencias de tu efecto
+- Cómo un ciclo de vida de un Efecto es diferente del ciclo de vida de un componente
+- Cómo pensar en cada Efecto de forma aislada
+- Cuándo tu Efecto necesita volver a sincronizarse, y por qué
+- Cómo se determinan las dependencias de tu Efecto
 - Qué significa para un valor ser reactivo
 - Qué significa un _array_ de dependencias vacío
 - Cómo React verifica con un _linter_ que tus dependencias son correctas
@@ -21,7 +21,7 @@ Los efectos tienen un diferente ciclo de vida al de los componentes. Los compone
 
 </YouWillLearn>
 
-## El ciclo de vida de un efecto {/*the-lifecycle-of-an-effect*/}
+## El ciclo de vida de un Efecto {/*the-lifecycle-of-an-effect*/}
 
 Cada componente de React pasa por el mismo ciclo de vida:
 
@@ -29,9 +29,9 @@ Cada componente de React pasa por el mismo ciclo de vida:
 - Un componente se _actualiza_ cuando recibe nuevas _props_ o estado, por lo general en respuesta de una interacción.
 - Un componente se _desmonta_ cuando es removido de la pantalla.
 
-**Es una buena manera de pensar sobre los componentes, pero _no_ sobre los efectos.** En cambio, intenta pensar en cada efecto independientemente del ciclo de vida de tu componente. Un efecto describe cómo [sincronizar un sistema externo](/learn/synchronizing-with-effects) con las _props_ actuales y el estado. A medida que su código cambia, la sincronización tendrá que suceder mas o menos a menudo.
+**Es una buena manera de pensar sobre los componentes, pero _no_ sobre los Efectos.** En cambio, intenta pensar en cada Efecto independientemente del ciclo de vida de tu componente. Un Efecto describe cómo [sincronizar un sistema externo](/learn/synchronizing-with-effects) con las _props_ actuales y el estado. A medida que su código cambia, la sincronización tendrá que suceder mas o menos a menudo.
 
-Para ilustrar este punto, considera este efecto que conecta su componente a un servidor de chat:
+Para ilustrar este punto, considera este Efecto que conecta su componente a un servidor de chat:
 
 ```js
 const serverUrl = 'https://localhost:1234';
@@ -48,7 +48,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-El cuerpo de tu efecto especifica cómo **iniciar la sincronización:**
+El cuerpo de tu Efecto especifica cómo **iniciar la sincronización:**
 
 ```js {2-3}
     // ...
@@ -60,7 +60,7 @@ El cuerpo de tu efecto especifica cómo **iniciar la sincronización:**
     // ...
 ```
 
-La función de limpieza devuelta por tu efecto especifica cómo **detener la sincronización:**
+La función de limpieza devuelta por tu Efecto especifica cómo **detener la sincronización:**
 
 ```js {5}
     // ...
@@ -78,7 +78,7 @@ Veamos _por qué_ esto es necesario, _cuándo_ sucede, y _cómo_ se puede contro
 
 <Note>
 
-Algunos efectos no devuelven una función de limpieza en absoluto. [Más a menudo que no,](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) tu querrás devolver uno, pero si no, React se comportará como si devolviera una función de limpieza vacía.
+Algunos Efectos no devuelven una función de limpieza en absoluto. [Más a menudo que no,](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) tu querrás devolver uno, pero si no, React se comportará como si devolviera una función de limpieza vacía.
 
 </Note>
 
@@ -95,7 +95,7 @@ function ChatRoom({ roomId /* "general" */ }) {
 }
 ```
 
-Después que se muestre el _UI_, React ejecutará el efecto para **iniciar la sincronización.** Se conecta a la sala `"general"`:
+Después que se muestre el _UI_, React ejecutará el Efecto para **iniciar la sincronización.** Se conecta a la sala `"general"`:
 
 ```js {3,4}
 function ChatRoom({ roomId /* "general" */ }) {
@@ -120,20 +120,20 @@ function ChatRoom({ roomId /* "travel" */ }) {
 }
 ```
 
-Piensa en que debería suceder luego. El usuario ve que `"travel"` es la sala de chat en el _UI_. Sin embargo, el efecto que se ejecutó la última vez aun está conectada a la sala `"general"`. **El `"roomId"` _prop_ ha cambiado, asi que lo que el efecto hizo en ese entonces (conectarse a la sala `"general"`) ya no coincide con el _UI_.**
+Piensa en que debería suceder luego. El usuario ve que `"travel"` es la sala de chat en el _UI_. Sin embargo, el Efecto que se ejecutó la última vez aun está conectada a la sala `"general"`. **El `"roomId"` _prop_ ha cambiado, asi que lo que el Efecto hizo en ese entonces (conectarse a la sala `"general"`) ya no coincide con el _UI_.**
 
 En este punto, deseas que React haga dos cosas:
 
 1. Detener la sincronización con el antiguo `roomId`(desconectarse de la sala `"general"`)
 2. Iniciar la sincronización con el nuevo `roomId`(conectarse a la sala `"travel"`)
 
-**Afortunadamente, ¡ya has enseñado a React a cómo hacer ambas cosas!** El cuerpo del efecto especifica cómo iniciar la sincronización, y su función de limpieza especifica cómo detener la sincronización. Todo lo que React necesita hacer ahora es llamarlos en el orden correcto y con las _props_ y estado correctos. Veamos cómo sucede esto exactamente.
+**Afortunadamente, ¡ya has enseñado a React a cómo hacer ambas cosas!** El cuerpo del Efecto especifica cómo iniciar la sincronización, y su función de limpieza especifica cómo detener la sincronización. Todo lo que React necesita hacer ahora es llamarlos en el orden correcto y con las _props_ y estado correctos. Veamos cómo sucede esto exactamente.
 
-### Cómo React vuelve a sincronizar tu efecto {/*how-react-re-synchronizes-your-effect*/}
+### Cómo React vuelve a sincronizar tu Efecto {/*how-react-re-synchronizes-your-effect*/}
 
-Recuerda que tu componente `ChatRoom` había recibido un nuevo valor para su `roomId` _prop_. Solía ser `"general"`, y ahora es `"travel"`. React necesita volver a sincronizar tu efecto para volver a conectar a una sala diferente.
+Recuerda que tu componente `ChatRoom` había recibido un nuevo valor para su `roomId` _prop_. Solía ser `"general"`, y ahora es `"travel"`. React necesita volver a sincronizar tu Efecto para volver a conectar a una sala diferente.
 
-Para **detener la sincronización,** React llamará a la función de limpieza que tu efecto devolvió después de conectarse a la sala `"general"`. Dado que `roomId` era `"general"`, la función de limpieza se desconecta de la sala `"general"`:
+Para **detener la sincronización,** React llamará a la función de limpieza que tu Efecto devolvió después de conectarse a la sala `"general"`. Dado que `roomId` era `"general"`, la función de limpieza se desconecta de la sala `"general"`:
 
 ```js {6}
 function ChatRoom({ roomId /* "general" */ }) {
@@ -146,7 +146,7 @@ function ChatRoom({ roomId /* "general" */ }) {
     // ...
 ```
 
-Luego, React ejecutará el efecto que hayas proporcionado durante este renderizado. Esta vez, `roomId` es `"travel"` por lo que **comenzará a sincronizar** la sala de chat `"travel"` (hasta que su función de limpieza es eventualmente llamado también):
+Luego, React ejecutará el Efecto que hayas proporcionado durante este renderizado. Esta vez, `roomId` es `"travel"` por lo que **comenzará a sincronizar** la sala de chat `"travel"` (hasta que su función de limpieza es eventualmente llamado también):
 
 ```js {3,4}
 function ChatRoom({ roomId /* "travel" */ }) {
@@ -158,11 +158,11 @@ function ChatRoom({ roomId /* "travel" */ }) {
 
 Gracias a esto, ahora estás conectado a la misma sala que el usuario eligió en el UI. ¡Desastre evitado!
 
-Cada vez que su componente se vuelve a renderizar con un `roomId` diferente, tu efecto se volverá a sincronizar. Por ejemplo, digamos que el usuario cambió el `roomId` de `"travel"` a `"music"`. React volverá a **detener la sincronización** de tu efecto llamando a la función de limpieza (desconectándose de la sala `"travel"`). Luego, **comenzará a sincronizarse** nuevamente al ejecutar su cuerpo con el nuevo `roomId` _prop_ (conectándose a la sala `"music"`).
+Cada vez que su componente se vuelve a renderizar con un `roomId` diferente, tu Efecto se volverá a sincronizar. Por ejemplo, digamos que el usuario cambió el `roomId` de `"travel"` a `"music"`. React volverá a **detener la sincronización** de tu Efecto llamando a la función de limpieza (desconectándose de la sala `"travel"`). Luego, **comenzará a sincronizarse** nuevamente al ejecutar su cuerpo con el nuevo `roomId` _prop_ (conectándose a la sala `"music"`).
 
-Finalmente, cuando el usuario vaya a una pantalla diferente, `ChatRoom` se desmonta. Ahora no hay necesidad de permanecer conectado en absoluto. React **detendrá la sincronización** de tu efecto por última vez y te desconectará de la sala de chat `"music"`.
+Finalmente, cuando el usuario vaya a una pantalla diferente, `ChatRoom` se desmonta. Ahora no hay necesidad de permanecer conectado en absoluto. React **detendrá la sincronización** de tu Efecto por última vez y te desconectará de la sala de chat `"music"`.
 
-### Pensar desde la perspectiva del efecto {/*thinking-from-the-effects-perspective*/}
+### Pensar desde la perspectiva del Efecto {/*thinking-from-the-effects-perspective*/}
 
 Recapitulemos todo lo que sucedió desde la perspectiva del componente `ChatRoom`: 
 
@@ -171,18 +171,18 @@ Recapitulemos todo lo que sucedió desde la perspectiva del componente `ChatRoom
 3. `ChatRoom` actualizado con `roomId` establecido en `"music"`
 4. `ChatRoom` desmontado
 
-Durante cada uno de estos puntos en el ciclo de vida del componente, tu efecto hizo diferentes cosas:
+Durante cada uno de estos puntos en el ciclo de vida del componente, tu Efecto hizo diferentes cosas:
 
-1. Tu efecto se conectó a la sala `"general"`
-2. Tu efecto se desconectó de la sala `"general"` y se conectó a la sala `"travel"`
-3. Tu efecto se desconectó de la sala `"travel"` y se conectó a la sala `"music"`
-4. Tu efecto se desconectó de la sala `"music"`
+1. Tu Efecto se conectó a la sala `"general"`
+2. Tu Efecto se desconectó de la sala `"general"` y se conectó a la sala `"travel"`
+3. Tu Efecto se desconectó de la sala `"travel"` y se conectó a la sala `"music"`
+4. Tu Efecto se desconectó de la sala `"music"`
 
-Ahora pensemos en que sucedió desde la perspectiva del efecto mismo:
+Ahora pensemos en que sucedió desde la perspectiva del Efecto mismo:
 
 ```js
   useEffect(() => {
-    // Tu efecto se conectó a la sala especificado con el roomId
+    // Tu Efecto se conectó a la sala especificado con el roomId
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => {
@@ -194,17 +194,17 @@ Ahora pensemos en que sucedió desde la perspectiva del efecto mismo:
 
 Esta estructura de código podría inspirarte a ver lo que sucedió como una secuencia de períodos de tiempo no superpuestos:
 
-1. Tu efecto se conectó a la sala `"general"` (hasta que se desconectó)
-2. Tu efecto se conectó a la sala `"travel"` (hasta que se desconectó)
-3. Tu efecto se conectó a la sala `"music"` (hasta que se desconectó)
+1. Tu Efecto se conectó a la sala `"general"` (hasta que se desconectó)
+2. Tu Efecto se conectó a la sala `"travel"` (hasta que se desconectó)
+3. Tu Efecto se conectó a la sala `"music"` (hasta que se desconectó)
 
-Previamente, tu pensabas desde la perspectiva del componente. Cuando tu miraste desde la perspectiva del componente, era tentador pensar en los efectos como "_callbacks_" o "eventos del ciclo de vida" que se disparaban en un momento específico como "después de renderizar" o "antes de desmontar". Esta forma de pensar se complica muy rápido, por lo que es mejor evitarla.
+Previamente, tu pensabas desde la perspectiva del componente. Cuando tu miraste desde la perspectiva del componente, era tentador pensar en los Efectos como "_callbacks_" o "eventos del ciclo de vida" que se disparaban en un momento específico como "después de renderizar" o "antes de desmontar". Esta forma de pensar se complica muy rápido, por lo que es mejor evitarla.
 
-**En su lugar, siempre concéntrate en un solo ciclo de inicio/parada a la vez. No debería importar si un componente se está montando, actualizando o desmontando. Lo único que necesitas hacer es describir cómo iniciar la sincronización y cómo detenerla. Si lo haces bien, tu Effect será resistente a ser iniciado y detenido tantas veces como sea necesario.**
+**En su lugar, siempre concéntrate en un solo ciclo de inicio/parada a la vez. No debería importar si un componente se está montando, actualizando o desmontando. Lo único que necesitas hacer es describir cómo iniciar la sincronización y cómo detenerla. Si lo haces bien, tu Efecto será resistente a ser iniciado y detenido tantas veces como sea necesario.**
 
 Esto podría recordarte cómo no pensar si un componente se está montando o actualizando cuando escribes la lógica de representación que crea JSX. Describes lo que debería estar en la pantalla y React [se encarga del resto.](/learn/reacting-to-input-with-state)
 
-### Cómo React verifica que tu efecto pueda volver a sincronizarse {/*how-react-verifies-that-your-effect-can-re-synchronize*/}
+### Cómo React verifica que tu Efecto pueda volver a sincronizarse {/*how-react-verifies-that-your-effect-can-re-synchronize*/}
 
 Aquí hay un ejemplo en vivo con el que puedes experimentar. Presiona "Abrir chat" para montar el componente `ChatRoom`:
 
@@ -280,41 +280,41 @@ Observa que cuando el componente se monta por primera vez, ves tres registros:
 
 Los primeros dos registros son solo para desarrollo. En desarrollo, React siempre vuelve a montar cada componente una vez.
 
-**React verifica que tu efecto puede volver a sincronizarse forzando lo a hacerlo inmediatamente en desarrollo** Esto puede recordarte a cuando abres una puerta y la cierras una vez más para verificar si la cerradura funciona. React inicia y detiene tu efecto una vez adicional en desarrollo para comprobar que [has implementado su limpieza adecuadamente.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+**React verifica que tu Efecto puede volver a sincronizarse forzando lo a hacerlo inmediatamente en desarrollo** Esto puede recordarte a cuando abres una puerta y la cierras una vez más para verificar si la cerradura funciona. React inicia y detiene tu Efecto una vez adicional en desarrollo para comprobar que [has implementado su limpieza adecuadamente.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-La razón principal por la que tu efecto volverá a sincronizarse en la práctica es si algunos de los datos que utiliza han cambiado. En el sandbox de arriba, cambia la sala de chat seleccionada. Observa cómo, cuando cambia el valor de `roomId`, tu efecto se vuelve a sincronizarse.
+La razón principal por la que tu Efecto volverá a sincronizarse en la práctica es si algunos de los datos que utiliza han cambiado. En el sandbox de arriba, cambia la sala de chat seleccionada. Observa cómo, cuando cambia el valor de `roomId`, tu Efecto se vuelve a sincronizarse.
 
-Sin embargo, también hay casos más inusuales en los que es necesario que vuelva a sincronizar. Por ejemplo, intenta editar el `serverUrl` en el sandbox de arriba mientras el chat está abierto. Observa cómo el efecto vuelve a sincronizar en respuesta a tus ediciones en el código. En el futuro, React puede agregar más características que dependan de volver a sincronizar.
+Sin embargo, también hay casos más inusuales en los que es necesario que vuelva a sincronizar. Por ejemplo, intenta editar el `serverUrl` en el sandbox de arriba mientras el chat está abierto. Observa cómo el Efecto vuelve a sincronizar en respuesta a tus ediciones en el código. En el futuro, React puede agregar más características que dependan de volver a sincronizar.
 
-### Cómo React conoce que es necesario volver a sincronizar el efecto {/*how-react-knows-that-it-needs-to-re-synchronize-the-effect*/}
+### Cómo React conoce que es necesario volver a sincronizar el Efecto {/*how-react-knows-that-it-needs-to-re-synchronize-the-effect*/}
 
-Podría estarse preguntando cómo React conoce que tu efecto necesita volverse a sincronizar luego de que el `roomId` cambia. Es porque *le dijiste a React* que su código depende de `roomId` al incluirlo en la [lista de dependencias:](/learn/synchronizing-with-effects#step-2-specify-the-effect-dependencies)
+Podría estarse preguntando cómo React conoce que tu Efecto necesita volverse a sincronizar luego de que el `roomId` cambia. Es porque *le dijiste a React* que su código depende de `roomId` al incluirlo en la [lista de dependencias:](/learn/synchronizing-with-effects#step-2-specify-the-effect-dependencies)
 
 ```js {1,3,8}
 function ChatRoom({ roomId }) { // El props roomId puede cambiar con el tiempo
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId); // Este efecto lee roomId 
+    const connection = createConnection(serverUrl, roomId); // Este Efecto lee roomId 
     connection.connect();
     return () => {
       connection.disconnect();
     };
-  }, [roomId]); // Entonces le dices a React que este efecto "depende de" roomId
+  }, [roomId]); // Entonces le dices a React que este Efecto "depende de" roomId
   // ...
 ```
 
 Así es como funciona esto:
 
 1. Sabías que `roomId` es un prop, lo que significa que puede cambiar con el tiempo.
-2. Sabías que tu efecto lee `roomId` (porque lo usas para crear la conexión).
-3. Es por esto que lo especificó como la dependencia de su efecto. (para que se vuelva a sincronizar cuando `roomId` cambie).
+2. Sabías que tu Efecto lee `roomId` (porque lo usas para crear la conexión).
+3. Es por esto que lo especificó como la dependencia de su Efecto. (para que se vuelva a sincronizar cuando `roomId` cambie).
 
-Cada vez que tu componente se vuelve a renderizar, React mirará la matriz de dependencias que has pasado. Si alguno de los valores en la matriz de dependencias es diferente del valor en el mismo lugar que pasaste durante el renderizado anterior, React volverá a sincronizar tu efecto.
+Cada vez que tu componente se vuelve a renderizar, React mirará la matriz de dependencias que has pasado. Si alguno de los valores en la matriz de dependencias es diferente del valor en el mismo lugar que pasaste durante el renderizado anterior, React volverá a sincronizar tu Efecto.
 
-Por ejemplo, si pasaste `["general"]` durante el renderizado inicial, y luego pasaste `["travel"]` durante el siguiente renderizado, React comparará `"general"` y `"travel"`. Estos son valores diferentes (comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), por lo que React volverá a sincronizar tu efecto. Por otro lado, si tu componente se vuelve a renderizar pero `roomId` no ha cambiado, tu efecto permanecerá conectado a la misma sala.
+Por ejemplo, si pasaste `["general"]` durante el renderizado inicial, y luego pasaste `["travel"]` durante el siguiente renderizado, React comparará `"general"` y `"travel"`. Estos son valores diferentes (comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), por lo que React volverá a sincronizar tu Efecto. Por otro lado, si tu componente se vuelve a renderizar pero `roomId` no ha cambiado, tu Efecto permanecerá conectado a la misma sala.
 
-### Cada efecto representa un proceso de sincronización separado {/*each-effect-represents-a-separate-synchronization-process*/}
+### Cada Efecto representa un proceso de sincronización separado {/*each-effect-represents-a-separate-synchronization-process*/}
 
-Resiste la tentación de agregar lógica no relacionada a tu efecto solo porque esta lógica necesita ejecutarse al mismo tiempo que un efecto que ya escribiste. Por ejemplo, digamos que quieres enviar un evento de análisis cuando el usuario visita la sala. Ya tienes un efecto que depende de `roomId`, por lo que podrías sentirte tentado a agregar la llamada de análisis allí:
+Resiste la tentación de agregar lógica no relacionada a tu Efecto solo porque esta lógica necesita ejecutarse al mismo tiempo que un Efecto que ya escribiste. Por ejemplo, digamos que quieres enviar un evento de análisis cuando el usuario visita la sala. Ya tienes un Efecto que depende de `roomId`, por lo que podrías sentirte tentado a agregar la llamada de análisis allí:
 
 ```js {3}
 function ChatRoom({ roomId }) {
@@ -330,7 +330,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Pero imagina que más tarde agregas otra dependencia a este efecto que necesita restablecer la conexión. Si este efecto se vuelve a sincronizar, también llamará a `logVisit(roomId)` para la misma sala, lo cual no pretendías. Registrar la visita **es un proceso separado** de la conexión. Escríbelos como dos efectos separados:
+Pero imagina que más tarde agregas otra dependencia a este Efecto que necesita restablecer la conexión. Si este Efecto se vuelve a sincronizar, también llamará a `logVisit(roomId)` para la misma sala, lo cual no pretendías. Registrar la visita **es un proceso separado** de la conexión. Escríbelos como dos Efectos separados:
 
 ```js {2-4}
 function ChatRoom({ roomId }) {
@@ -346,13 +346,13 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-**Cada efecto en tu código debe representar un proceso de sincronización separado e independiente.**
+**Cada Efecto en tu código debe representar un proceso de sincronización separado e independiente.**
 
-En el ejemplo de arriba, eliminar un efecto no rompería la lógica del otro efecto. Esta es una buena indicación de que sincronizan cosas diferentes, por lo que tiene sentido dividirlos. Por otro lado, si divides una pieza cohesiva de lógica en efectos separados, el código puede verse "más limpio", pero será [más difícil de mantener.](/learn/you-might-not-need-an-effect#chains-of-computations) Es por esto que debes pensar si los procesos son iguales o diferentes, no si el código se ve más limpio.
+En el ejemplo de arriba, eliminar un Efecto no rompería la lógica del otro Efecto. Esta es una buena indicación de que sincronizan cosas diferentes, por lo que tiene sentido dividirlos. Por otro lado, si divides una pieza cohesiva de lógica en Efectos separados, el código puede verse "más limpio", pero será [más difícil de mantener.](/learn/you-might-not-need-an-effect#chains-of-computations) Es por esto que debes pensar si los procesos son iguales o diferentes, no si el código se ve más limpio.
 
 ## Efectos "reaccionan" a valores reactivos {/*effects-react-to-reactive-values*/}
 
-Tu efecto lee dos variables (`serverUrl` y `roomId`), pero solo especificaste `roomId` como una dependencia:
+Tu Efecto lee dos variables (`serverUrl` y `roomId`), pero solo especificaste `roomId` como una dependencia:
 
 ```js {5,10}
 const serverUrl = 'https://localhost:1234';
@@ -382,17 +382,17 @@ function ChatRoom({ roomId }) { // Props cambian con el tiempo
   const [serverUrl, setServerUrl] = useState('https://localhost:1234'); // El estado puede cambiar con el tiempo
 
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId); // Tu efecto lee props y estado
+    const connection = createConnection(serverUrl, roomId); // Tu Efecto lee props y estado
     connection.connect();
     return () => {
       connection.disconnect();
     };
-  }, [roomId, serverUrl]); // Entonces le dices a react que este efecto "depende de" las props y el estado
+  }, [roomId, serverUrl]); // Entonces le dices a react que este Efecto "depende de" las props y el estado
   // ...
 }
 ```
 
-Al incluir `serverUrl` como una dependencia, te aseguras de que el efecto se vuelva a sincronizar después de que cambie.
+Al incluir `serverUrl` como una dependencia, te aseguras de que el Efecto se vuelva a sincronizar después de que cambie.
 
 Intenta cambiar la sala de chat seleccionada o editar la URL del servidor en este _sandbox_:
 
@@ -468,9 +468,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Cuando sea que cambies un valor reactivo como `roomId` o `serverUrl`, el efecto se vuelve a conectar al servidor del chat.
+Cuando sea que cambies un valor reactivo como `roomId` o `serverUrl`, el Efecto se vuelve a conectar al servidor del chat.
 
-### Qué significa un efecto con dependencias vacías {/*what-an-effect-with-empty-dependencies-means*/}
+### Qué significa un Efecto con dependencias vacías {/*what-an-effect-with-empty-dependencies-means*/}
 
 ¿Qué pasa si mueves tanto `serverUrl` como `roomId` fuera del componente?
 
@@ -490,9 +490,9 @@ function ChatRoom() {
 }
 ```
 
-Ahora el código de tu efecto no usa *ningún* valor reactivo, por lo que sus dependencias pueden estar vacías (`[]`).
+Ahora el código de tu Efecto no usa *ningún* valor reactivo, por lo que sus dependencias pueden estar vacías (`[]`).
 
-Pensando desde la perspectiva del componente, el _array_ de dependencias vacías `[]` significa que este efecto se conecta a la sala de chat solo cuando el componente se monta, y se desconecta solo cuando el componente se desmonta. (Ten en cuenta que React aún [se volvería a sincronizar una vez más](#how-react-verifies-that-your-effect-can-re-synchronize) en desarrollo para probar tu lógica.)
+Pensando desde la perspectiva del componente, el _array_ de dependencias vacías `[]` significa que este Efecto se conecta a la sala de chat solo cuando el componente se monta, y se desconecta solo cuando el componente se desmonta. (Ten en cuenta que React aún [se volvería a sincronizar una vez más](#how-react-verifies-that-your-effect-can-re-synchronize) en desarrollo para probar tu lógica.)
 
 
 <Sandpack>
@@ -548,11 +548,11 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Sin embargo, si [piensas desde la perspectiva del efecto,](#thinking-from-the-effects-perspective) no necesitas pensar en montar y desmontar en absoluto. Lo importante es que has especificado lo que tu efecto hace para comenzar y detener la sincronización. Hoy, no tiene dependencias reactivas. Pero si alguna vez quieres que el usuario cambie `roomId` o `serverUrl` con el tiempo (y se volverían reactivos), el código de tu efecto no cambiará. Solo necesitarás agregarlos a las dependencias.
+Sin embargo, si [piensas desde la perspectiva del Efecto,](#thinking-from-the-effects-perspective) no necesitas pensar en montar y desmontar en absoluto. Lo importante es que has especificado lo que tu Efecto hace para comenzar y detener la sincronización. Hoy, no tiene dependencias reactivas. Pero si alguna vez quieres que el usuario cambie `roomId` o `serverUrl` con el tiempo (y se volverían reactivos), el código de tu Efecto no cambiará. Solo necesitarás agregarlos a las dependencias.
 
 ### Todas las variables declaradas en el cuerpo del componente son reactivas {/*all-variables-declared-in-the-component-body-are-reactive*/}
 
-Las props y el estado no son los únicos valores reactivos. Los valores que calculas a partir de ellos también son reactivos. Si las props o el estado cambian, tu componente se volverá a renderizar, y los valores calculados a partir de ellos también cambiarán. Es por eso que todas las variables del cuerpo del componente utilizadas por el efecto deben estar en la lista de dependencias del efecto.
+Las props y el estado no son los únicos valores reactivos. Los valores que calculas a partir de ellos también son reactivos. Si las props o el estado cambian, tu componente se volverá a renderizar, y los valores calculados a partir de ellos también cambiarán. Es por eso que todas las variables del cuerpo del componente utilizadas por el Efecto deben estar en la lista de dependencias del Efecto.
 
 Digamos que el usuario puede elegir un servidor de chat en el menú desplegable, pero también puede configurar un servidor predeterminado en la configuración. Supongamos que ya has puesto el estado de configuración en un [contexto](/learn/scaling-up-with-reducer-and-context) para que leas la `configuración` de ese contexto. Ahora calculas la `serverUrl` en función del servidor seleccionado de las props y el servidor predeterminado:
 
@@ -561,7 +561,7 @@ function ChatRoom({ roomId, selectedServerUrl }) { // roomId es reactivo
   const settings = useContext(SettingsContext); // settings es reactivo
   const serverUrl = selectedServerUrl ?? settings.defaultServerUrl; // serverUrl es reactivo
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId); // Tu efecto lee roomId y serverUrl
+    const connection = createConnection(serverUrl, roomId); // Tu Efecto lee roomId y serverUrl
     connection.connect();
     return () => {
       connection.disconnect();
@@ -573,9 +573,9 @@ function ChatRoom({ roomId, selectedServerUrl }) { // roomId es reactivo
 
 En este ejemplo, `serverUrl` no es una prop ni una variable de estado. Es una variable regular que calculas durante el renderizado. Al ser calculada durante el renderizado, puede cambiar debido a un nuevo renderizado. Es por eso que es reactiva.
 
-**Todos los valores dentro del componente (incluidas las props, el estado y las variables en el cuerpo de tu componente) son reactivos. Cualquier valor reactivo puede cambiar en un nuevo renderizado, por lo que debes incluir los valores reactivos como dependencias del efecto.**
+**Todos los valores dentro del componente (incluidas las props, el estado y las variables en el cuerpo de tu componente) son reactivos. Cualquier valor reactivo puede cambiar en un nuevo renderizado, por lo que debes incluir los valores reactivos como dependencias del Efecto.**
 
-En otras palabras, los efectos "reaccionan" a todos los valores del cuerpo del componente.
+En otras palabras, los Efectos "reaccionan" a todos los valores del cuerpo del componente.
 
 <DeepDive>
 
@@ -583,9 +583,9 @@ En otras palabras, los efectos "reaccionan" a todos los valores del cuerpo del c
 
 Los valores mutables (incluidas las variables globales) no son reactivos.
 
-**Un valor mutable como [`location.pathname`](https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname) no puede ser una dependencia.** Es mutable, por lo que puede cambiar en cualquier momento fuera del flujo de datos de renderizado de React. Cambiarlo no activaría un nuevo renderizado de tu componente. Por lo tanto, incluso si lo especificaras en las dependencias, React *no sabría* volver a sincronizar el efecto cuando cambia. Esto también rompe las reglas de React porque leer datos mutables durante el renderizado (que es cuando calculas las dependencias) rompe la [pureza del renderizado.](/learn/keeping-components-pure) En su lugar, debes leer y suscribirte a un valor mutable externo con [`useSyncExternalStore`.](/learn/you-might-not-need-an-effect#subscribing-to-an-external-store)
+**Un valor mutable como [`location.pathname`](https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname) no puede ser una dependencia.** Es mutable, por lo que puede cambiar en cualquier momento fuera del flujo de datos de renderizado de React. Cambiarlo no activaría un nuevo renderizado de tu componente. Por lo tanto, incluso si lo especificaras en las dependencias, React *no sabría* volver a sincronizar el Efecto cuando cambia. Esto también rompe las reglas de React porque leer datos mutables durante el renderizado (que es cuando calculas las dependencias) rompe la [pureza del renderizado.](/learn/keeping-components-pure) En su lugar, debes leer y suscribirte a un valor mutable externo con [`useSyncExternalStore`.](/learn/you-might-not-need-an-effect#subscribing-to-an-external-store)
 
-**Un valor mutable como [`ref.current`](/reference/react/useRef#reference) o cosas que lees de él tampoco pueden ser una dependencia.** El objeto ref devuelto por `useRef` en sí puede ser una dependencia, pero su propiedad `current` es intencionalmente mutable. Te permite [mantener un seguimiento de algo sin activar un nuevo renderizado.](/learn/referencing-values-with-refs) Pero como cambiarlo no activa un nuevo renderizado, no es un valor reactivo, y React no sabrá volver a ejecutar tu efecto cuando cambie.
+**Un valor mutable como [`ref.current`](/reference/react/useRef#reference) o cosas que lees de él tampoco pueden ser una dependencia.** El objeto ref devuelto por `useRef` en sí puede ser una dependencia, pero su propiedad `current` es intencionalmente mutable. Te permite [mantener un seguimiento de algo sin activar un nuevo renderizado.](/learn/referencing-values-with-refs) Pero como cambiarlo no activa un nuevo renderizado, no es un valor reactivo, y React no sabrá volver a ejecutar tu Efecto cuando cambie.
 
 Como aprenderá a continuación en esta página, un linter verificará automáticamente estos problemas.
 
@@ -593,7 +593,7 @@ Como aprenderá a continuación en esta página, un linter verificará automáti
 
 ### React verifica que especificaste cada valor reactivo como una dependencia {/*react-verifies-that-you-specified-every-reactive-value-as-a-dependency*/}
 
-Si tu linter está [configurado para React,](/learn/editor-setup#linting) verificará que cada valor reactivo utilizado por el código de tu efecto se declare como su dependencia. Por ejemplo, este es un error de lint porque tanto `roomId` como `serverUrl` son reactivos:
+Si tu linter está [configurado para React,](/learn/editor-setup#linting) verificará que cada valor reactivo utilizado por el código de tu Efecto se declare como su dependencia. Por ejemplo, este es un error de lint porque tanto `roomId` como `serverUrl` son reactivos:
 
 <Sandpack>
 
@@ -667,9 +667,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Esto puede parecer un error de React, pero en realidad React está señalando un error en tu código. Tanto `roomId` como `serverUrl` pueden cambiar con el tiempo, pero olvidaste volver a sincronizar tu efecto cuando cambian. Seguirás conectado a la `roomId` y `serverUrl` iniciales incluso después de que el usuario elija valores diferentes en la interfaz de usuario.
+Esto puede parecer un error de React, pero en realidad React está señalando un error en tu código. Tanto `roomId` como `serverUrl` pueden cambiar con el tiempo, pero olvidaste volver a sincronizar tu Efecto cuando cambian. Seguirás conectado a la `roomId` y `serverUrl` iniciales incluso después de que el usuario elija valores diferentes en la interfaz de usuario.
 
-Para solucionar el error, sigue la sugerencia del linter de especificar `roomId` y `serverUrl` como dependencias de tu efecto:
+Para solucionar el error, sigue la sugerencia del linter de especificar `roomId` y `serverUrl` como dependencias de tu Efecto:
 
 ```js {9}
 function ChatRoom({ roomId }) { // roomId es reactivo
@@ -715,7 +715,7 @@ function ChatRoom() {
 }
 ```
 
-También puedes moverlos *dentro del efecto.* No se calculan durante el renderizado, por lo que no son reactivos:
+También puedes moverlos *dentro del Efecto.* No se calculan durante el renderizado, por lo que no son reactivos:
 
 ```js {3,4,10}
 function ChatRoom() {
@@ -732,21 +732,21 @@ function ChatRoom() {
 }
 ```
 
-**Los efectos son bloques de código reactivos.** Se vuelven a sincronizar cuando los valores que lees dentro de ellos cambian. A diferencia de los manejadores de eventos, que solo se ejecutan una vez por interacción, los efectos se ejecutan cada vez que es necesaria la sincronización.
+**Los Efectos son bloques de código reactivos.** Se vuelven a sincronizar cuando los valores que lees dentro de ellos cambian. A diferencia de los manejadores de eventos, que solo se ejecutan una vez por interacción, los Efectos se ejecutan cada vez que es necesaria la sincronización.
 
-**No puedes "elegir" tus dependencias.** Tus dependencias deben incluir cada [valor reactivo](#todas-las-variables-declaradas-en-el-cuerpo-del-componente-son-reactivas) que lees en el efecto. El linter hace cumplir esto. A veces esto puede conducir a problemas como bucles infinitos y a que tu efecto se vuelva a sincronizar demasiado a menudo. ¡No soluciones estos problemas suprimiendo el linter! Esto es lo que debes intentar en su lugar:
+**No puedes "elegir" tus dependencias.** Tus dependencias deben incluir cada [valor reactivo](#all-variables-declared-in-the-component-body-are-reactive) que lees en el Efecto. El linter hace cumplir esto. A veces esto puede conducir a problemas como bucles infinitos y a que tu Efecto se vuelva a sincronizar demasiado a menudo. ¡No soluciones estos problemas suprimiendo el linter! Esto es lo que debes intentar en su lugar:
 
-* **Verifica que tu efecto represente un proceso de sincronización independiente.** Si tu efecto no sincroniza nada, [podría ser innecesario.](/learn/you-might-not-need-an-effect) Si sincroniza varias cosas independientes, [divídelo.](#cada-efecto-representa-un-proceso-de-sincronización-separado)
+* **Verifica que tu Efecto represente un proceso de sincronización independiente.** Si tu Efecto no sincroniza nada, [podría ser innecesario.](/learn/you-might-not-need-an-effect) Si sincroniza varias cosas independientes, [divídelo.](#each-effect-represents-a-separate-synchronization-process)
 
-* **Si quieres leer la última versión de las props o el estado sin "reaccionar" a ellas y volver a sincronizar el efecto,** puedes dividir tu efecto en una parte reactiva (que mantendrás en el efecto) y una parte no reactiva (que extraerás en algo llamado un _evento de efecto_). [Lee sobre cómo separar los eventos de los efectos.](/learn/separating-events-from-effects)
+* **Si quieres leer la última versión de las props o el estado sin "reaccionar" a ellas y volver a sincronizar el Efecto,** puedes dividir tu Efecto en una parte reactiva (que mantendrás en el Efecto) y una parte no reactiva (que extraerás en algo llamado un _evento de efecto_). [Lee sobre cómo separar los eventos de los Efectos.](/learn/separating-events-from-effects)
 
-* **Evita confiar en objetos y funciones como dependencias.** Si creas objetos y funciones durante el renderizado y luego los lees desde un efecto, serán diferentes en cada renderizado. Esto hará que tu efecto se vuelva a sincronizar cada vez. [Lee más sobre cómo eliminar las dependencias innecesarias de los efectos.](/learn/removing-effect-dependencies)
+* **Evita confiar en objetos y funciones como dependencias.** Si creas objetos y funciones durante el renderizado y luego los lees desde un Efecto, serán diferentes en cada renderizado. Esto hará que tu Efecto se vuelva a sincronizar cada vez. [Lee más sobre cómo eliminar las dependencias innecesarias de los Efectos.](/learn/removing-effect-dependencies)
 
 <Pitfall>
 
-El linter es tu amigo, pero sus poderes son limitados. El linter solo sabe cuando las dependencias son *incorrectas*. No sabe la *mejor* manera de resolver cada caso. Si el linter sugiere una dependencia, pero agregarla causa un bucle, no significa que el linter deba ser ignorado. Necesitas cambiar el código dentro (o fuera) del efecto para que ese valor no sea reactivo y no *necesite* ser una dependencia.
+El linter es tu amigo, pero sus poderes son limitados. El linter solo sabe cuando las dependencias son *incorrectas*. No sabe la *mejor* manera de resolver cada caso. Si el linter sugiere una dependencia, pero agregarla causa un bucle, no significa que el linter deba ser ignorado. Necesitas cambiar el código dentro (o fuera) del Efecto para que ese valor no sea reactivo y no *necesite* ser una dependencia.
 
-Si tienes una base de código existente, es posible que tengas algunos efectos que supriman el linter de esta manera:
+Si tienes una base de código existente, es posible que tengas algunos Efectos que supriman el linter de esta manera:
 
 ```js {3-4}
 useEffect(() => {
@@ -763,12 +763,12 @@ En la [siguiente](/learn/separating-events-from-effects) [página](/learn/removi
 <Recap>
 
 - Los componentes pueden montarse, actualizarse y desmontarse.
-- Cada efecto tiene un ciclo de vida separado del componente circundante.
-- Cada efecto describe un proceso de sincronización separado que puede *iniciar* y *detener*.
-- Cuando escribes y lees efectos, piensa desde la perspectiva de cada efecto individual (cómo iniciar y detener la sincronización) en lugar de desde la perspectiva del componente (cómo se monta, actualiza o desmonta).
+- Cada Efecto tiene un ciclo de vida separado del componente circundante.
+- Cada Efecto describe un proceso de sincronización separado que puede *iniciar* y *detener*.
+- Cuando escribes y lees Efectos, piensa desde la perspectiva de cada Efecto individual (cómo iniciar y detener la sincronización) en lugar de desde la perspectiva del componente (cómo se monta, actualiza o desmonta).
 - Valores declarados dentro del cuerpo del componente son "reactivos".
-- Valores reactivos deben volver a sincronizar el efecto porque pueden cambiar con el tiempo.
-- El linter verifica que todos los valores reactivos usados dentro del efecto estén especificados como dependencias.
+- Valores reactivos deben volver a sincronizar el Efecto porque pueden cambiar con el tiempo.
+- El linter verifica que todos los valores reactivos usados dentro del Efecto estén especificados como dependencias.
 - Todas las banderas de error del linter son legítimas. Siempre hay una manera de arreglar el código para que no rompa las reglas.
 
 </Recap>
@@ -783,7 +783,7 @@ Sin embargo, hay un problema. Cada vez que escribes en el cuadro de entrada de m
 
 <Hint>
 
-Podrías necesitar agregar un _array_ de dependencias al efecto. ¿Qué dependencias deberían estar allí?
+Podrías necesitar agregar un _array_ de dependencias al Efecto. ¿Qué dependencias deberían estar allí?
 
 </Hint>
 
@@ -860,7 +860,7 @@ button { margin-left: 10px; }
 
 <Solution>
 
-Este efecto no tenía un array de dependencias en absoluto, por lo que se volvió a sincronizar después de cada renderizado. Primero, agrega un array de dependencias. Luego, asegúrate de que cada valor reactivo utilizado por el efecto esté especificado en el array. Por ejemplo, `roomId` es reactivo (porque es una prop), por lo que debe incluirse en el array. Esto asegura que cuando el usuario selecciona una sala de chat diferente, el chat se reconecta. Por otro lado, `serverUrl` se define fuera del componente. Es por eso que no necesita estar en el array.
+Este Efecto no tenía un array de dependencias en absoluto, por lo que se volvió a sincronizar después de cada renderizado. Primero, agrega un array de dependencias. Luego, asegúrate de que cada valor reactivo utilizado por el Efecto esté especificado en el array. Por ejemplo, `roomId` es reactivo (porque es una prop), por lo que debe incluirse en el array. Esto asegura que cuando el usuario selecciona una sala de chat diferente, el chat se reconecta. Por otro lado, `serverUrl` se define fuera del componente. Es por eso que no necesita estar en el array.
 
 <Sandpack>
 
@@ -937,13 +937,13 @@ button { margin-left: 10px; }
 
 #### Activar y desactivar la sincronización {/*switch-synchronization-on-and-off*/}
 
-En este ejemplo, un efecto suscribe al evento de ventana [`pointermove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event) para mover un punto rosa en la pantalla. Intenta pasar el cursor sobre el área de vista previa (o tocar la pantalla si estás en un dispositivo móvil) y ve cómo el punto rosa sigue tu movimiento.
+En este ejemplo, un Efecto suscribe al evento de ventana [`pointermove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event) para mover un punto rosa en la pantalla. Intenta pasar el cursor sobre el área de vista previa (o tocar la pantalla si estás en un dispositivo móvil) y ve cómo el punto rosa sigue tu movimiento.
 
 También hay una casilla de verificación. Al marcar la casilla, se cambia la variable de estado `canMove`, pero esta variable de estado no se usa en ninguna parte del código. Tu tarea es cambiar el código para que cuando `canMove` sea `false` (la casilla está desactivada), el punto deje de moverse. Después de volver a activar la casilla (y establecer `canMove` en `true`), la caja debe seguir el movimiento nuevamente. En otras palabras, si el punto puede moverse o no debe permanecer sincronizado con si la casilla está marcada.
 
 <Hint>
 
-No puedes declarar un efecto condicionalmente. Sin embargo, ¡el código dentro del efecto puede usar condiciones!
+No puedes declarar un Efecto condicionalmente. Sin embargo, ¡el código dentro del Efecto puede usar condiciones!
 
 </Hint>
 
@@ -1113,7 +1113,7 @@ body {
 
 </Sandpack>
 
-En ambos casos, `canMove` es una variable reactiva que lees dentro del efecto. Por eso debe especificarse en la lista de dependencias del efecto. Esto asegura que el efecto se vuelva a sincronizar después de cada cambio en su valor.
+En ambos casos, `canMove` es una variable reactiva que lees dentro del Efecto. Por eso debe especificarse en la lista de dependencias del Efecto. Esto asegura que el Efecto se vuelva a sincronizar después de cada cambio en su valor.
 
 </Solution>
 
@@ -1187,13 +1187,13 @@ body {
 
 <Solution>
 
-El problema con el codigo original era suprimir el linter de dependencias. Si eliminas la supresión, verás que este efecto depende de la función `handleMove`. Esto tiene sentido: `handleMove` se declara dentro del cuerpo del componente, lo que lo convierte en un valor reactivo. Cada valor reactivo debe especificarse como una dependencia, o puede volverse obsoleto con el tiempo.
+El problema con el codigo original era suprimir el linter de dependencias. Si eliminas la supresión, verás que este Efecto depende de la función `handleMove`. Esto tiene sentido: `handleMove` se declara dentro del cuerpo del componente, lo que lo convierte en un valor reactivo. Cada valor reactivo debe especificarse como una dependencia, o puede volverse obsoleto con el tiempo.
 
-El autor del código original le ha "mentido" a React diciendo que el efecto no depende (`[]`) de ningún valor reactivo. Por eso React no volvió a sincronizar el efecto después de que `canMove` haya cambiado (y `handleMove` con él). Como React no volvió a sincronizar el efecto, el `handleMove` adjunto como oyente es la función `handleMove` creada durante la representación inicial. Durante la representación inicial, `canMove` era `true`, por lo que `handleMove` de la representación inicial siempre verá ese valor.
+El autor del código original le ha "mentido" a React diciendo que el Efecto no depende (`[]`) de ningún valor reactivo. Por eso React no volvió a sincronizar el Efecto después de que `canMove` haya cambiado (y `handleMove` con él). Como React no volvió a sincronizar el Efecto, el `handleMove` adjunto como oyente es la función `handleMove` creada durante la representación inicial. Durante la representación inicial, `canMove` era `true`, por lo que `handleMove` de la representación inicial siempre verá ese valor.
 
 **Si nunca suprimes el linter, nunca verás problemas con valores obsoletos.** Hay algunas formas diferentes de resolver este error, pero siempre debes comenzar eliminando la supresión del linter. Luego cambia el código para corregir el error del linter.
 
-Puedes cambiar las dependencias del efecto a `[handleMove]`, pero como va a ser una función recién definida para cada representación, puedes eliminar por completo la matriz de dependencias. Entonces el efecto *se volverá a sincronizar* después de cada representación:
+Puedes cambiar las dependencias del Efecto a `[handleMove]`, pero como va a ser una función recién definida para cada representación, puedes eliminar por completo la matriz de dependencias. Entonces el Efecto *se volverá a sincronizar* después de cada representación:
 
 <Sandpack>
 
@@ -1250,9 +1250,9 @@ body {
 
 </Sandpack>
 
-Esta solición funciona, pero no es ideal. Si pones `console.log('Resubscribing')` dentro del efecto, notarás que se vuelve a suscribir después de cada representación. La resuscripción es rápida, pero aún así sería bueno evitar hacerlo tan a menudo.
+Esta solición funciona, pero no es ideal. Si pones `console.log('Resubscribing')` dentro del Efecto, notarás que se vuelve a suscribir después de cada representación. La resuscripción es rápida, pero aún así sería bueno evitar hacerlo tan a menudo.
 
-Una mejor solución sería mover la función `handleMove` *dentro* del efecto. Entonces `handleMove` no será un valor reactivo, por lo que tu efecto no dependerá de una función. En cambio, necesitará depender de `canMove` que ahora lee desde dentro del efecto. Esto coincide con el comportamiento que deseabas, ya que tu efecto ahora se mantendrá sincronizado con el valor de `canMove`:
+Una mejor solución sería mover la función `handleMove` *dentro* del Efecto. Entonces `handleMove` no será un valor reactivo, por lo que tu Efecto no dependerá de una función. En cambio, necesitará depender de `canMove` que ahora lee desde dentro del Efecto. Esto coincide con el comportamiento que deseabas, ya que tu Efecto ahora se mantendrá sincronizado con el valor de `canMove`:
 
 <Sandpack>
 
@@ -1309,7 +1309,7 @@ body {
 
 </Sandpack>
 
-Intenta agregar `console.log('Resubscribing')` dentro del cuerpo del efecto y notarás que ahora solo se vuelve a suscribir cuando cambias el valor del checkbox (`canMove` cambia) o editas el código. Esto lo hace mejor que el enfoque anterior que siempre se volvía a suscribir.
+Intenta agregar `console.log('Resubscribing')` dentro del cuerpo del Efecto y notarás que ahora solo se vuelve a suscribir cuando cambias el valor del checkbox (`canMove` cambia) o editas el código. Esto lo hace mejor que el enfoque anterior que siempre se volvía a suscribir.
 
 Aprenerás un enfoque más general para este tipo de problema en [Separating Events from Effects.](/learn/separating-events-from-effects)
 
@@ -1518,7 +1518,7 @@ label { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-Es correcto que `createConnection` sea una dependencia. Sin embargo, este código es un poco frágil porque alguien podría editar el componente `App` para pasar una función en línea como valor de esta prop. En ese caso, su valor sería diferente cada vez que el componente `App` se vuelva a renderizar, por lo que el Effect podría volver a sincronizarse demasiado a menudo. Para evitar esto, puedes pasar `isEncrypted` en su lugar:
+Es correcto que `createConnection` sea una dependencia. Sin embargo, este código es un poco frágil porque alguien podría editar el componente `App` para pasar una función en línea como valor de esta prop. En ese caso, su valor sería diferente cada vez que el componente `App` se vuelva a renderizar, por lo que el Efecto podría volver a sincronizarse demasiado a menudo. Para evitar esto, puedes pasar `isEncrypted` en su lugar:
 
 <Sandpack>
 
@@ -1613,7 +1613,7 @@ label { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-En esta versión, el componente `App` pasa una prop booleana en lugar de una función. Dentro del Effect, decides qué función usar. Dado que tanto `createEncryptedConnection` como `createUnencryptedConnection` se declaran fuera del componente, no son reactivos y no necesitan ser dependencias. Aprenderás más sobre esto en [Eliminación de dependencias de Effect.](/learn/removing-effect-dependencies)
+En esta versión, el componente `App` pasa una prop booleana en lugar de una función. Dentro del Efecto, decides qué función usar. Dado que tanto `createEncryptedConnection` como `createUnencryptedConnection` se declaran fuera del componente, no son reactivos y no necesitan ser dependencias. Aprenderás más sobre esto en [Eliminación de dependencias del Efecto.](/learn/removing-effect-dependencies)
 
 </Solution>
 
@@ -1939,9 +1939,9 @@ label { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-Este codigo es un poco repetitivo. Sin embargo, ¡no es una buena razón para combinarlo en un solo Effect! Si hicieras esto, tendrías que combinar las dependencias de ambos Effect en una sola lista, y luego cambiar el planeta volvería a buscar la lista de todos los planetas. Los Effects no son una herramienta para reutilizar código.
+Este codigo es un poco repetitivo. Sin embargo, ¡no es una buena razón para combinarlo en un solo Efecto! Si hicieras esto, tendrías que combinar las dependencias de ambos Efectos en una sola lista, y luego cambiar el planeta volvería a buscar la lista de todos los planetas. Los Effects no son una herramienta para reutilizar código.
 
-En su lugar, para reducir la repetición, puede extraer algo de lógica en un Hook personalizado como `useSelectOptions` a continuación:
+En su lugar, para reducir la repetición, puede extraer algo de lógica en un Hook de React personalizado como `useSelectOptions` a continuación:
 
 <Sandpack>
 
@@ -2102,7 +2102,7 @@ label { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-Verifica el tab `useSelectOptions.js` en el sandbox para ver cómo funciona. Idealmente, la mayoría de los Effects en su aplicación eventualmente deberían reemplazarse por Hooks personalizados, ya sea escritos por usted o por la comunidad. Los Hooks personalizados ocultan la lógica de sincronización, por lo que el componente de llamada no conoce el Effect. A medida que siga trabajando en su aplicación, desarrollará una paleta de Hooks para elegir, y eventualmente no necesitará escribir Effects en sus componentes con mucha frecuencia.
+Verifica el tab `useSelectOptions.js` en el sandbox para ver cómo funciona. Idealmente, la mayoría de los Effects en su aplicación eventualmente deberían reemplazarse por Hooks de React personalizados, ya sea escritos por usted o por la comunidad. Los Hooks de React personalizados ocultan la lógica de sincronización, por lo que el componente de llamada no conoce el Efecto. A medida que siga trabajando en su aplicación, desarrollará una paleta de Hooks de React para elegir, y eventualmente no necesitará escribir Effects en sus componentes con mucha frecuencia.
 
 </Solution>
 
