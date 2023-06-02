@@ -1,16 +1,16 @@
 ---
-title: Acknowledgements
+title: Agradecimientos
 ---
 
 <Intro>
 
-React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/community/team), as well as over a thousand [open source contributors.](https://github.com/facebook/react/blob/main/AUTHORS)
+React fue creado originalmente por [Jordan Walke.](https://github.com/jordwalke) Hoy en día, React tiene un [equipo dedicado a tiempo completo trabajando en él](/community/team), así como más de mil [contribuyentes de código abierto.](https://github.com/facebook/react/blob/main/AUTHORS)
 
 </Intro>
 
-## Past contributors {/*past-contributors*/}
+## Contribuyentes pasados {/*past-contributors*/}
 
-We'd like to recognize a few people who have made significant contributions to React and its documentation in the past and have helped maintain them over the years:
+Nos gustaría reconocer a algunas personas que han hecho contribuciones significativas a React y su documentación en el pasado, y han ayudado a mantenerlos a lo largo de los años:
 
 * [Almero Steyn](https://github.com/AlmeroSteyn)
 * [Andreas Svensson](https://github.com/syranide)
@@ -51,15 +51,15 @@ We'd like to recognize a few people who have made significant contributions to R
 * [Tim Yung](https://github.com/yungsters)
 * [Xuan Huang](https://github.com/huxpro)
 
-This list is not exhaustive.
+Esta lista no es exhaustiva.
 
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We are also thankful to all the volunteers who [translated React into other languages.](https://translations.reactjs.org/)
+Nos gustaría agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) y [Adam Wolff](https://github.com/wolffiex) por su guía y apoyo a lo largo de los años. También estamos agradecidos con todos los voluntarios que [tradujeron React a otros idiomas.](https://translations.reactjs.org/)
 
-## Additional Thanks {/*additional-thanks*/}
+## Agradecimientos adicionales {/*additional-thanks*/}
 
-Additionally, we're grateful to:
+Además, estamos agradecidos con:
 
-* [Jeff Barczewski](https://github.com/jeffbski) for allowing us to use the `react` package name on npm
-* [Christopher Aue](https://christopheraue.net/) for letting us use the reactjs.com domain name and the [@reactjs](https://twitter.com/reactjs) username on Twitter
-* [ProjectMoon](https://github.com/ProjectMoon) for letting us use the [flux](https://www.npmjs.com/package/flux) package name on npm
-* Shane Anderson for allowing us to use the [react](https://github.com/react) org on GitHub
+* [Jeff Barczewski](https://github.com/jeffbski) por permitirnos usar el nombre del paquete `react` en npm
+* [Christopher Aue](https://christopheraue.net/) por dejarnos usar el nombre de dominio reactjs.com y el nombre de usuario [@reactjs](https://twitter.com/reactjs) en Twitter
+* [ProjectMoon](https://github.com/ProjectMoon) por dejarnos usar el nombre de paquete [flux](https://www.npmjs.com/package/flux) en npm
+* Shane Anderson por permitirnos usar la organización [react](https://github.com/react) en GitHub

@@ -186,7 +186,7 @@ Lee **[Escribir marcado con JSX](/learn/writing-markup-with-jsx)** para aprender
 
 ## JavaScript en JSX con llaves {/*javascript-in-jsx-with-curly-braces*/}
 
-JSX te permite escribir marcado similar a HTML dentro de un archivo JavaScript, manteniendo la lógica de renderizado y el contenido en el mismo lugar. En ocasiones será deseable añadir un poco de lógica en JavaScript o referenciar una propiedad dinámica dentro del marcado. En esta situación, puedes utilizar llaves en tu JSX para «abrir una ventana» hacia JavaScript:
+JSX te permite escribir marcado similar a HTML dentro de un archivo JavaScript, manteniendo la lógica de renderizado y el contenido en el mismo lugar. En ocasiones será deseable añadir un poco de lógica en JavaScript o referenciar una propiedad dinámica dentro del marcado. En esta situación, puedes utilizar llaves en tu JSX para "abrir una ventana" hacia JavaScript:
 
 <Sandpack>
 
