@@ -308,7 +308,7 @@ Así es como funciona esto:
 2. Sabías que tu Efecto lee `roomId` (porque lo usas para crear la conexión).
 3. Es por esto que lo especificó como la dependencia de su Efecto. (para que se vuelva a sincronizar cuando `roomId` cambie).
 
-Cada vez que tu componente se vuelve a renderizar, React mirará la matriz de dependencias que has pasado. Si alguno de los valores en la matriz de dependencias es diferente del valor en el mismo lugar que pasaste durante el renderizado anterior, React volverá a sincronizar tu Efecto.
+Cada vez que tu componente se vuelve a renderizar, React mirará el _array_ de dependencias que has pasado. Si alguno de los valores en el _array_ de dependencias es diferente del valor en el mismo lugar que pasaste durante el renderizado anterior, React volverá a sincronizar tu Efecto.
 
 Por ejemplo, si pasaste `["general"]` durante el renderizado inicial, y luego pasaste `["travel"]` durante el siguiente renderizado, React comparará `"general"` y `"travel"`. Estos son valores diferentes (comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), por lo que React volverá a sincronizar tu Efecto. Por otro lado, si tu componente se vuelve a renderizar pero `roomId` no ha cambiado, tu Efecto permanecerá conectado a la misma sala.
 
@@ -860,7 +860,7 @@ button { margin-left: 10px; }
 
 <Solution>
 
-Este Efecto no tenía un array de dependencias en absoluto, por lo que se volvió a sincronizar después de cada renderizado. Primero, agrega un array de dependencias. Luego, asegúrate de que cada valor reactivo utilizado por el Efecto esté especificado en el array. Por ejemplo, `roomId` es reactivo (porque es una prop), por lo que debe incluirse en el array. Esto asegura que cuando el usuario selecciona una sala de chat diferente, el chat se reconecta. Por otro lado, `serverUrl` se define fuera del componente. Es por eso que no necesita estar en el array.
+Este Efecto no tenía un _array_ de dependencias en absoluto, por lo que se volvió a sincronizar después de cada renderizado. Primero, agrega un _array_ de dependencias. Luego, asegúrate de que cada valor reactivo utilizado por el Efecto esté especificado en el _array_. Por ejemplo, `roomId` es reactivo (porque es una prop), por lo que debe incluirse en el _array_. Esto asegura que cuando el usuario selecciona una sala de chat diferente, el chat se reconecta. Por otro lado, `serverUrl` se define fuera del componente. Es por eso que no necesita estar en el _array_.
 
 <Sandpack>
 
@@ -1193,7 +1193,7 @@ El autor del código original le ha "mentido" a React diciendo que el Efecto no 
 
 **Si nunca suprimes el linter, nunca verás problemas con valores obsoletos.** Hay algunas formas diferentes de resolver este error, pero siempre debes comenzar eliminando la supresión del linter. Luego cambia el código para corregir el error del linter.
 
-Puedes cambiar las dependencias del Efecto a `[handleMove]`, pero como va a ser una función recién definida para cada representación, puedes eliminar por completo la matriz de dependencias. Entonces el Efecto *se volverá a sincronizar* después de cada representación:
+Puedes cambiar las dependencias del Efecto a `[handleMove]`, pero como va a ser una función recién definida para cada representación, puedes eliminar por completo el _array_ de dependencias. Entonces el Efecto *se volverá a sincronizar* después de cada representación:
 
 <Sandpack>
 
