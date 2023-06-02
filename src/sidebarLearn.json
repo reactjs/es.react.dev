@@ -25,11 +25,11 @@
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Start a New React Project",
+          "title": "Iniciar un nuevo proyecto de React",
           "path": "/learn/start-a-new-react-project"
         },
         {
-          "title": "Add React to an Existing Project",
+          "title": "Agregar React a un proyecto existente",
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "title": "Añadir interactividad",
+      "title": "Agregar interactividad",
       "path": "/learn/adding-interactivity",
       "tags": [],
       "routes": [
@@ -95,7 +95,7 @@
           "path": "/learn/responding-to-events"
         },
         {
-          "title": "El estado: la memoria un componente",
+          "title": "El estado: la memoria de un componente",
           "path": "/learn/state-a-components-memory"
         },
         {
@@ -146,7 +146,7 @@
           "path": "/learn/extracting-state-logic-into-a-reducer"
         },
         {
-          "title": "Passing Data Deeply with Context",
+          "title": "Pasar datos en profundidad con contexto",
           "path": "/learn/passing-data-deeply-with-context"
         },
         {
@@ -169,7 +169,7 @@
           "path": "/learn/manipulating-the-dom-with-refs"
         },
         {
-          "title": "Synchronizing with Effects",
+          "title": "Sincronizar con Efectos",
           "path": "/learn/synchronizing-with-effects"
         },
         {
@@ -186,7 +186,7 @@
         },
         {
           "title": "Eliminar dependencias de los Efectos",
-          "path": "/learn/removing-effect-dependencies"              
+          "path": "/learn/removing-effect-dependencies"
         },
         {
           "title": "Reutilización de lógica con Hooks personalizados",

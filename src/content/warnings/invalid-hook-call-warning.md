@@ -1,8 +1,8 @@
 ---
-title: Rules of Hooks
+title: Reglas de los Hooks
 ---
 
-You are probably here because you got the following error message:
+Probablemente estás aquí porque te ha aparecido el siguiente mensaje de error:
 
 <ConsoleBlock level="error">
 
@@ -10,51 +10,51 @@ Hooks can only be called inside the body of a function component.
 
 </ConsoleBlock>
 
-There are three common reasons you might be seeing it:
+Este mensaje puede aparecer por tres motivos comunes:
 
-1. You might be **breaking the Rules of Hooks**.
-2. You might have **mismatching versions** of React and React DOM.
-3. You might have **more than one copy of React** in the same app.
+1. Estás **incumpliendo las Reglas de los Hooks**.
+2. Estás usando **versiones incompatibles** de React y React DOM.
+3. Estás usando **más de una instancia de React** en la misma aplicación.
 
-Let's look at each of these cases.
+Veamos cada uno de estos casos.
 
-## Breaking Rules of Hooks {/*breaking-rules-of-hooks*/}
+## Incumplir las Reglas de los Hooks {/*breaking-rules-of-hooks*/}
 
-Functions whose names start with `use` are called [*Hooks*](/reference/react) in React.
+Las funciones que comienzan con `use` se conocen como [*Hooks*](/reference/react) en React.
 
-**Don’t call Hooks inside loops, conditions, or nested functions.** Instead, always use Hooks at the top level of your React function, before any early returns. You can only call Hooks while React is rendering a function component:
+**Evita utilizar Hooks dentro de ciclos, condicionales o funciones anidadas.** En su lugar, utiliza los Hooks únicamente en el nivel superior de tu función de React, antes de cualquier retorno anticipado. Los Hooks sólo deben ser utilizados durante la renderización de un componente de función en React:
 
-* ✅ Call them at the top level in the body of a [function component](/learn/your-first-component).
-* ✅ Call them at the top level in the body of a [custom Hook](/learn/reusing-logic-with-custom-hooks).
+* ✅ Utilízalos en el nivel superior del cuerpo de un [componente de función](/learn/your-first-component).
+* ✅ Utilízalos en el nivel superior del cuerpo de un [Hook personalizado](/learn/reusing-logic-with-custom-hooks).
 
 ```js{2-3,8-9}
 function Counter() {
-  // ✅ Good: top-level in a function component
+  // ✅ Correcto: en la parte superior de un componente de función
   const [count, setCount] = useState(0);
   // ...
 }
 
 function useWindowWidth() {
-  // ✅ Good: top-level in a custom Hook
+  // ✅ Correcto: en la parte superior de un Hook personalizado
   const [width, setWidth] = useState(window.innerWidth);
   // ...
 }
 ```
 
-It’s **not** supported to call Hooks (functions starting with `use`) in any other cases, for example:
+No se **permite** el uso de Hooks (funciones que comienzan con `use`) en ningún otro caso, por ejemplo:
 
-* 🔴 Do not call Hooks inside conditions or loops.
-* 🔴 Do not call Hooks after a conditional `return` statement.
-* 🔴 Do not call Hooks in event handlers.
-* 🔴 Do not call Hooks in class components.
-* 🔴 Do not call Hooks inside functions passed to `useMemo`, `useReducer`, or `useEffect`.
+* 🔴 Dentro de condicionales o ciclos.
+* 🔴 Despúes de una declaración de `return` condicional.
+* 🔴 En manejadores de eventos.
+* 🔴 En componentes de clase.
+* 🔴 Dentro de funciones pasadas a `useMemo`, `useReducer`, o `useEffect`.
 
-If you break these rules, you might see this error.
+Incumplir estas reglas podría provocar la aparición de este error.
 
 ```js{3-4,11-12,20-21}
 function Bad({ cond }) {
   if (cond) {
-    // 🔴 Bad: inside a condition (to fix, move it outside!)
+    // 🔴 Incorrecto: dentro de una condicional (para solucionarlo, ¡colócalo fuera!)
     const theme = useContext(ThemeContext);
   }
   // ...
@@ -62,7 +62,7 @@ function Bad({ cond }) {
 
 function Bad() {
   for (let i = 0; i < 10; i++) {
-    // 🔴 Bad: inside a loop (to fix, move it outside!)
+    // 🔴 Incorrecto: dentro de un ciclo (para solucionarlo, ¡colócalo fuera!)
     const theme = useContext(ThemeContext);
   }
   // ...
@@ -72,14 +72,14 @@ function Bad({ cond }) {
   if (cond) {
     return;
   }
-  // 🔴 Bad: after a conditional return (to fix, move it before the return!)
+  // 🔴 Incorrecto: después de un retorno condicional (para solucionarlo, ¡colócalo antes del retorno!)
   const theme = useContext(ThemeContext);
   // ...
 }
 
 function Bad() {
   function handleClick() {
-    // 🔴 Bad: inside an event handler (to fix, move it outside!)
+    // 🔴 Incorrecto: dentro de un manejador de eventos (para solucionarlo, ¡colócalo fuera!)
     const theme = useContext(ThemeContext);
   }
   // ...
@@ -87,7 +87,7 @@ function Bad() {
 
 function Bad() {
   const style = useMemo(() => {
-    // 🔴 Bad: inside useMemo (to fix, move it outside!)
+    // 🔴 Incorrecto: dentro de useMemo (para solucionarlo, ¡colócalo fuera!)
     const theme = useContext(ThemeContext);
     return createStyle(theme);
   });
@@ -96,32 +96,32 @@ function Bad() {
 
 class Bad extends React.Component {
   render() {
-    // 🔴 Bad: inside a class component (to fix, write a function component instead of a class!)
+    // 🔴 Incorrecto: dentro de un componente de clase (para solucionarlo, ¡escribe un componente de función en lugar de uno de clase!)
     useEffect(() => {})
     // ...
   }
 }
 ```
 
-You can use the [`eslint-plugin-react-hooks` plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to catch these mistakes.
+Puedes usar el [plugin de `eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) para detectar estos errores.
 
 <Note>
 
-[Custom Hooks](/learn/reusing-logic-with-custom-hooks) *may* call other Hooks (that's their whole purpose). This works because custom Hooks are also supposed to only be called while a function component is rendering.
+Los [Hooks personalizados](/learn/reusing-logic-with-custom-hooks) *pueden* llamar a otros Hooks (ese es su propósito principal). Esto es posible porque los Hooks personalizados también deben ser llamados sólo durante la renderización de un componente de función.
 
 </Note>
 
-## Mismatching Versions of React and React DOM {/*mismatching-versions-of-react-and-react-dom*/}
+## Uso de versiones incompatibles de React y React DOM {/*mismatching-versions-of-react-and-react-dom*/}
 
-You might be using a version of `react-dom` (< 16.8.0) or `react-native` (< 0.59) that doesn't yet support Hooks. You can run `npm ls react-dom` or `npm ls react-native` in your application folder to check which version you're using. If you find more than one of them, this might also create problems (more on that below).
+Puede que estés usando versiones antiguas de `react-dom` (< 16.8.0) o `react-native` (< 0.59) que no sean compatibles con Hooks. Para verificar la versión que estás utilizando, puedes ejecutar `npm ls react-dom` o `npm ls react-native` en la carpeta de tu aplicación. Si encuentras más de una versión instalada, esto podría causar problemas (más información a continuación).
 
-## Duplicate React {/*duplicate-react*/}
+## Uso de más de una instancia de React {/*duplicate-react*/}
 
-In order for Hooks to work, the `react` import from your application code needs to resolve to the same module as the `react` import from inside the `react-dom` package.
+Para que los Hooks funcionen correctamente, la importación de `react` en el código de tu aplicación debe apuntar al mismo módulo que la importación de `react` en el paquete `react-dom`.
 
-If these `react` imports resolve to two different exports objects, you will see this warning. This may happen if you **accidentally end up with two copies** of the `react` package.
+Si estas importaciones de `react` apuntan a dos objetos de importación diferentes, verás esta advertencia. Esto puede ocurrir si **por error tienes dos copias** del paquete `react`.
 
-If you use Node for package management, you can run this check in your project folder:
+Si usas Node para gestionar paquetes, puedes verificar esto en la carpeta de tu proyecto ejecutando:
 
 <TerminalBlock>
 
@@ -129,30 +129,30 @@ npm ls react
 
 </TerminalBlock>
 
-If you see more than one React, you'll need to figure out why this happens and fix your dependency tree. For example, maybe a library you're using incorrectly specifies `react` as a dependency (rather than a peer dependency). Until that library is fixed, [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/) is one possible workaround.
+Si detectas más de una instancia de React, tendrás que investigar las causas y corregir tu árbol de dependencias. Es posible que alguna biblioteca que estés utilizando especifique incorrectamente `react` como una dependencia en lugar de una dependencia entre pares. Mientras se soluciona este problema en la biblioteca, una posible solución temporal es utilizar [resoluciones de Yarn](https://runebook.dev/es/docs/yarn/selective-version-resolutions).
 
-You can also try to debug this problem by adding some logs and restarting your development server:
+Para solucionar el problema, puedes intentar depurarlo agregando logs y reiniciando el servidor de desarrollo:
 
 ```js
-// Add this in node_modules/react-dom/index.js
+// Añade esto en node_modules/react-dom/index.js
 window.React1 = require('react');
 
-// Add this in your component file
+// Añade esto en el archivo de tu componente
 require('react-dom');
 window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
-If it prints `false` then you might have two Reacts and need to figure out why that happened. [This issue](https://github.com/facebook/react/issues/13991) includes some common reasons encountered by the community.
+Si imprime `false`, es posible que tengas dos instancias de React y debas investigar las posibles causas. [Este issue](https://github.com/facebook/react/issues/13991) incluye algunas razones comunes encontradas por la comunidad.
 
-This problem can also come up when you use `npm link` or an equivalent. In that case, your bundler might "see" two Reacts — one in application folder and one in your library folder. Assuming `myapp` and `mylib` are sibling folders, one possible fix is to run `npm link ../myapp/node_modules/react` from `mylib`. This should make the library use the application's React copy.
+Este problema también puede surgir al utilizar `npm link` u otro método equivalente, lo que hace que el empaquetador de módulos "vea" dos versiones de React — una en la carpeta de la aplicación y otra en la carpeta de la biblioteca. Si `myapp` y `mylib` son carpetas hermanas, una posible solución es ejecutar `npm link ../myapp/node_modules/react` desde `mylib`. De esta forma, la biblioteca utilizará la versión de React de la aplicación.
 
 <Note>
 
-In general, React supports using multiple independent copies on one page (for example, if an app and a third-party widget both use it). It only breaks if `require('react')` resolves differently between the component and the `react-dom` copy it was rendered with.
+En general, React permite el uso de varias instancias intependientes en una misma página (por ejemplo, si una aplicación y un widget de terceros lo utilizan). Sin embargo, puede surgir un problema si `require('react')` se resuelve de manera diferente entre el componente y la instancia de `react-dom` utilizada para renderizarlo.
 
 </Note>
 
-## Other Causes {/*other-causes*/}
+## Otras causas {/*other-causes*/}
 
-If none of this worked, please comment in [this issue](https://github.com/facebook/react/issues/13991) and we'll try to help. Try to create a small reproducing example — you might discover the problem as you're doing it.
+Si ninguna de estas soluciones funcionó, por favor coméntalo en [este issue](https://github.com/facebook/react/issues/13991) y trataremos de ayudarte. Intenta crear un pequeño ejemplo que reproduzca el problema — Es posible que descubras la causa del problema mientras intentas reproducirlo.
