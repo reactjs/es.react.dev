@@ -252,8 +252,13 @@ async function getAlbums() {
 
 **Sólo las fuentes de datos habilitadas para Suspense activarán un componente Suspense.** Entre ellas se incluyen:
 
+<<<<<<< HEAD
 - Carga de datos en frameworks capaces de manejar Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
 - Código de carga diferida de componentes con [`lazy`](/reference/react/lazy)
+=======
+- Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
+- Lazy-loading component code with [`lazy`](/reference/react/lazy)
+>>>>>>> ca93140eb98a7ff4364a719075fccea980c55b55
 
 Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un manejador de eventos.
 

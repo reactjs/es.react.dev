@@ -23,7 +23,11 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 
 ### `<option>` {/*option*/}
 
+<<<<<<< HEAD
 El [componente integrado `<option>` del navegador](https://developer.mozilla.org/es/docs/Web/HTML/Element/option) te permite mostrar una opción dentro de un cuadro [`<select>`](/reference/react-dom/components/select).
+=======
+The [built-in browser `<option>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) lets you render an option inside a [`<select>`](/reference/react-dom/components/select) box.
+>>>>>>> ca93140eb98a7ff4364a719075fccea980c55b55
 
 ```js
 <select>

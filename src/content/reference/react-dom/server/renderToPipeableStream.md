@@ -286,8 +286,13 @@ El *streaming* no necesita esperar a que React se cargue en el navegador o a que
 
 **Sólo se activará el componente Suspense con fuentes de datos habilitadas para Suspense.** Estas incluyen:
 
+<<<<<<< HEAD
 - Obtención de datos con *frameworks* habilitados para Suspense, como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/advanced-features/react-18)
 - Carga diferida de código de componentes con [`lazy`](/reference/react/lazy)
+=======
+- Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
+- Lazy-loading component code with [`lazy`](/reference/react/lazy)
+>>>>>>> ca93140eb98a7ff4364a719075fccea980c55b55
 
 Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o manejador de eventos.
 
