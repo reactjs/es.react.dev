@@ -4,7 +4,7 @@ title: APIs del servidor de React DOM
 
 <Intro>
 
-Las APIs del `react-dom/server` te permiten renderizar componentes de React a HTML en el servidor.  Estas API solo se usan en el servidor en el nivel superior de su aplicación para generar el HTML inicial.	Un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) puede llamarlos por ti.  La mayoría de tus componentes no necesitan importarlos o usarlos.
+Las APIs del `react-dom/server` te permiten renderizar componentes de React a HTML en el servidor. Estas API solo se usan en el servidor en el nivel superior de su aplicación para generar el HTML inicial. Un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) puede llamarlos por ti. La mayoría de tus componentes no necesitan importarlos o usarlos.
 
 </Intro>
 
@@ -31,8 +31,8 @@ Estos métodos solo están disponibles en los entornos con [Web Streams](https:/
 
 Estos métodos se pueden usar en los entornos que no admiten *streams*:
 
-* [`renderToString`](/reference/react-dom/server/renderToString) renderiza un árbol de React a una cadena.
-* [`renderToStaticMarkup`](/reference/react-dom/server/renderToStaticMarkup) renderiza un árbol de React no interactivo a una cadena.
+* [`renderToString`](/reference/react-dom/server/renderToString) renderiza un árbol de React a un string.
+* [`renderToStaticMarkup`](/reference/react-dom/server/renderToStaticMarkup) renderiza un árbol de React no interactivo a un string.
 
 Tienen funcionalidad limitada en comparación con las APIs de *streaming*.
 
