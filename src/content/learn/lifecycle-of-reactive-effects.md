@@ -1117,7 +1117,7 @@ En ambos casos, `canMove` es una variable reactiva que lees dentro del Efecto. P
 
 </Solution>
 
-#### Ivestiga un error de valor absoluto  {/*investigate-a-stale-value-bug*/}
+#### Ivestiga un error de valor absoluto {/*investigate-a-stale-value-bug*/}
 
 En este ejemplo, el punto rosa debería moverse cuando el checkbox está activado, y debería dejar de moverse cuando el checkbox está desactivado. La lógica para esto ya se ha implementado: el manejador de eventos `handleMove` comprueba la variable de estado `canMove`.
 
