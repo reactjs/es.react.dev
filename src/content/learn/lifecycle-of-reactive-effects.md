@@ -579,7 +579,7 @@ En otras palabras, los Efectos "reaccionan" a todos los valores del cuerpo del c
 
 <DeepDive>
 
-### ¿Pueden los valores globales o mutables ser dependencias? {/*can-global-or-mutable-values-be-dependencies*/}
+#### ¿Pueden los valores globales o mutables ser dependencias? {/*can-global-or-mutable-values-be-dependencies*/}
 
 Los valores mutables (incluidas las variables globales) no son reactivos.
 
