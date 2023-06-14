@@ -723,7 +723,7 @@ function Square({ value }) {
 }
 ```
 
-Si haces clic en un cuadrado ahora, deberías ver un registro que dice `"¡haz hecho clic!"` en la pestaña *Consola* en la parte inferior de la sección *Navegador* de CodeSandbox. Al hacer clic en el cuadrado más de una vez, se registrará `"clicked!"` de nuevo. Los registros repetidos en la consola con el mismo mensaje no crearán más líneas en la consola. En su lugar, verás un contador incremental al lado de su primer registro `"¡haz hecho clic!"`.
+Si haces clic en un cuadrado ahora, deberías ver un registro que dice `"¡haz hecho clic!"` en la pestaña *Consola* en la parte inferior de la sección *Navegador* de CodeSandbox. Al hacer clic en el cuadrado más de una vez, se registrará `"¡haz hecho clic!"` de nuevo. Los registros repetidos en la consola con el mismo mensaje no crearán más líneas en la consola. En su lugar, verás un contador incremental al lado de su primer registro `"¡haz hecho clic!"`.
 
 <Note>
 
