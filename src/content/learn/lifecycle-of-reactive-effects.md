@@ -288,7 +288,7 @@ Sin embargo, también hay casos más inusuales en los que es necesario que vuelv
 
 ### Cómo React conoce que es necesario volver a sincronizar el Efecto {/*how-react-knows-that-it-needs-to-re-synchronize-the-effect*/}
 
-Podría estarte preguntando cómo React conoce que tu Efecto necesita volverse a sincronizar luego de que el `roomId` cambia. Es porque *le dijiste a React* que su código depende de `roomId` al incluirlo en la [lista de dependencias:](/learn/synchronizing-with-effects#step-2-specify-the-effect-dependencies)
+Podrías estarte preguntando cómo React conoce que tu Efecto necesita volverse a sincronizar luego de que el `roomId` cambia. Es porque *le dijiste a React* que su código depende de `roomId` al incluirlo en la [lista de dependencias:](/learn/synchronizing-with-effects#step-2-specify-the-effect-dependencies)
 
 ```js {1,3,8}
 function ChatRoom({ roomId }) { // La prop roomId puede cambiar con el tiempo
