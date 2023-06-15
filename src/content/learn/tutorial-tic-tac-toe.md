@@ -346,7 +346,7 @@ Las líneas 1-5 reúnen todas las piezas necesarias:
 
 El resto del archivo reúne todas las piezas e inyecta el producto final en `index.html` en la carpeta `public`.
 
-### Construyendo el tablero {/*building-the-board*/}
+### Construir el tablero {/*building-the-board*/}
 
 Volvamos a `App.js`. Aquí es donde pasarás el resto del tutorial.
 
@@ -702,7 +702,7 @@ body {
 
 </Sandpack>
 
-### Haciendo un componente interactivo. {/*making-an-interactive-component*/}
+### Hacer un componente interactivo. {/*making-an-interactive-component*/}
 
 Rellenemos el componente `Square` con una `X` al hacer clic en él. Declara una función llamada `handleClick` dentro del `Square`. Luego, agrega `onClick` a las props del elemento `<button>` JSX devuelto por el componente `Square`:
 
@@ -919,7 +919,7 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 En este punto, tienes todos los componentes básicos para tu juego de tres en linea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
-### Levantando el estado {/*lifting-state-up*/}
+### Levantar el estado {/*lifting-state-up*/}
 
 Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en linea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
 
@@ -1361,9 +1361,9 @@ El resultado final es el mismo, pero al no mutar (cambiar los datos subyacentes)
 
 La inmutabilidad hace que las características complejas sean mucho más fáciles de implementar. Más adelante en este tutorial, implementarás una función de "viaje en el tiempo" que te permitirá revisar el historial del juego y "retroceder" a movimientos anteriores. Esta funcionalidad no es específica de los juegos: la capacidad de deshacer y rehacer ciertas acciones es un requisito común para las aplicaciones. Por eso, evitar la mutación directa de datos te permite mantener intactas las versiones anteriores de los datos y reutilizarlas (o restablecerlas) más adelante.
 
-También hay otro beneficio de la inmutabilidad. De forma predeterminada, todos los componentes secundarios se vuelven a renderizar automáticamente cuando cambias el estado de un componente principal. Esto incluye incluso los componentes secundarios que no se vieron afectados por el cambio. Aunque el usuario no nota la renderización en sí misma (¡no debes tratar de evitarla de forma activa!), es posible que desees omitir la renderización de una parte del árbol que claramente no se vio afectada por razones de rendimiento. La inmutabilidad hace que sea muy barato para los componentes comparar si sus datos han cambiado o no. Puedes obtener más información sobre cómo React elige cuándo volver a renderizar un componente en la documentación de [referencia de la API `memo`](/reference/react/memo).
+También hay otro beneficio de la inmutabilidad. De forma predeterminada, todos los componentes secundarios se vuelven a renderizar automáticamente cuando cambias el estado de un componente principal. Esto incluye incluso los componentes secundarios que no se vieron afectados por el cambio. Aunque el usuario no nota la renderización en sí misma (¡no debes tratar de evitarla de forma activa!), es posible que desees omitir la renderización de una parte del árbol que claramente no se vio afectada por razones de rendimiento. La inmutabilidad hace que sea muy barato para los componentes comparar si sus datos han cambiado o no. Puedes obtener más información sobre cómo React elige cuando volver a renderizar un componente en la documentación de [referencia de la API `memo`](/reference/react/memo).
 
-### Tomando turnos {/*taking-turns*/}
+### Tomar turnos {/*taking-turns*/}
 
 Ahora es el momento de corregir un defecto importante en este juego de tres en linea: las "O" no se pueden marcar en el tablero.
 
@@ -1524,9 +1524,9 @@ body {
 
 </Sandpack>
 
-### Declaring a winner {/*declaring-a-winner*/}
+### Declarar un ganador {/*declaring-a-winner*/}
 
-Ahora que muestras el turno del siguiente jugador, también debes mostrar cuándo se gana el juego y cuando no hay más turnos. Para hacer esto, agrega una función de ayuda llamada `calculateWinner` que toma una matriz de 9 cuadrados, busca un ganador y devuelve `'X'`, `'O'` o `null` según corresponda. No te preocupes demasiado por la función `calculateWinner`; no es específica de React:
+Ahora que muestras el turno del siguiente jugador, también debes mostrar cuando se gana el juego y cuando no hay más turnos. Para hacer esto, agrega una función de ayuda llamada `calculateWinner` que toma una matriz de 9 cuadrados, busca un ganador y devuelve `'X'`, `'O'` o `null` según corresponda. No te preocupes demasiado por la función `calculateWinner`; no es específica de React:
 
 ```js App.js
 export default function Board() {
@@ -1572,7 +1572,7 @@ function handleClick(i) {
 }
 ```
 
-Para que los jugadores sepan cuándo termina el juego, puedes mostrar un texto como "Ganador: X" o "Ganador: O". Para hacerlo, agrega una sección `status` al componente `Board`. El estado mostrará el ganador si el juego termina y si el juego está en curso, se mostrará el turno del siguiente jugador:
+Para que los jugadores sepan cuando termina el juego, puedes mostrar un texto como "Ganador: X" o "Ganador: O". Para hacerlo, agrega una sección `status` al componente `Board`. El estado mostrará el ganador si el juego termina y si el juego está en curso, se mostrará el turno del siguiente jugador:
 
 ```js {3-9,13}
 export default function Board() {
@@ -1749,7 +1749,7 @@ Almacena las matrices anteriores de `squares` en otra matriz llamada `history`, 
 ]
 ```
 
-### Levantando el estado, otra vez {/*lifting-state-up-again*/}
+### Levantar el estado, otra vez {/*lifting-state-up-again*/}
 
 Ahora escribe un nuevo componente de nivel superior llamado `Game` para mostrar una lista de movimientos anteriores. Ahí es donde colocarás el estado de `history` que contiene todo el historial del juego.
 
@@ -2021,7 +2021,7 @@ body {
 
 </Sandpack>
 
-### Mostrando los movimientos anteriores {/*showing-the-past-moves*/}
+### Mostrar los movimientos anteriores {/*showing-the-past-moves*/}
 
 Dado que estás grabando el historial del juego de tres en linea, ahora puede mostrárselo al jugador como una lista de movimientos anteriores.
 
@@ -2727,7 +2727,7 @@ export default function Game() {
 
 Ya no necesitas la declaración de estado `xIsNext` ni las llamadas a `setXIsNext`. Ahora, no hay posibilidad de que `xIsNext` no esté sincronizado con `currentMove`, incluso si cometes un error al codificar los componentes.
 
-### Terminando {/*wrapping-up*/}
+### Terminar {/*wrapping-up*/}
 
 ¡Felicidades! Has creado un juego de Tres en linea que:
 
