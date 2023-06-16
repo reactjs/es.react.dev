@@ -2033,7 +2033,7 @@ Ya tienes una matriz de movimientos `history` en el estado, por lo que ahora nec
 [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
 ```
 
-Usar `map` para transformará tu `history` de movimientos en elementos de React que representan botones en la pantalla, y mostrará una lista de botones para "saltar" a movimientos anteriores. Hagamos un `map` sobre la  `history` en el componente Game:
+Usar `map` transformará tu matriz `history` de movimientos en elementos de React que representan botones en la pantalla, y mostrará una lista de botones para "saltar" a movimientos anteriores. Hagamos un `map` sobre el `history` en el componente Game:
 
 ```js {11-13,15-27,35}
 export default function Game() {
