@@ -1755,7 +1755,7 @@ Ahora escribe un nuevo componente de nivel superior llamado `Game` para mostrar 
 
 Colocar el estado `history` en el componente `Game` te permite eliminar el estado `squares` de tu componente hijo `Board`. Al igual que "levantar el estado" del componente `Square` al componente `Board`, ahora puedes elevarlo del `Board` al componente `Game` de nivel superior. Esto le da al componente `Game` control total sobre los datos del `Board` y le permite instruir al `Game` para renderizar los turnos anteriores del `history`.
 
-Primero, agrega un componente `Game` con `export default`. Haz que represente el componente `Board` dentro de algunas marcas:
+Primero, agrega un componente `Game` con `export default`. Haz que represente el componente `Board` dentro de algunas marcas JSX:
 
 ```js {1,5-16}
 function Board() {
