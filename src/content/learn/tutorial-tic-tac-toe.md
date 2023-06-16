@@ -1526,7 +1526,7 @@ body {
 
 ### Declarar un ganador {/*declaring-a-winner*/}
 
-Ahora que muestras el turno del siguiente jugador, también debes mostrar cuando se gana el juego y cuando no hay más turnos. Para hacer esto, agrega una función de ayuda llamada `calculateWinner` que toma una matriz de 9 cuadrados, busca un ganador y devuelve `'X'`, `'O'` o `null` según corresponda. No te preocupes demasiado por la función `calculateWinner`; no es específica de React:
+Ahora que muestras el turno del siguiente jugador, también debes mostrar cuándo se gana el juego y cuando no hay más turnos. Para hacer esto, agrega una función de ayuda llamada `calculateWinner` que toma una matriz de 9 cuadrados, busca un ganador y devuelve `'X'`, `'O'` o `null` según corresponda. No te preocupes demasiado por la función `calculateWinner`; no es específica de React:
 
 ```js App.js
 export default function Board() {
@@ -1572,7 +1572,7 @@ function handleClick(i) {
 }
 ```
 
-Para que los jugadores sepan cuando termina el juego, puedes mostrar un texto como "Ganador: X" o "Ganador: O". Para hacerlo, agrega una sección `status` al componente `Board`. El estado mostrará el ganador si el juego termina y si el juego está en curso, se mostrará el turno del siguiente jugador:
+Para que los jugadores sepan cuándo termina el juego, puedes mostrar un texto como "Ganador: X" o "Ganador: O". Para hacerlo, agrega una sección `status` al componente `Board`. El estado mostrará el ganador si el juego termina y si el juego está en curso, se mostrará el turno del siguiente jugador:
 
 ```js {3-9,13}
 export default function Board() {
