@@ -1868,7 +1868,7 @@ export default function Game() {
 }
 ```
 
-Aquí, `[...history, nextSquares]` crea una nueva matriz que contiene todos los elementos en `history`, seguido de `nextSquares`. (Puedes leer el `...history` [*sintaxis extendida*](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax) como "enumerar todos los elementos en `history`".)
+Aquí, `[...history, nextSquares]` crea una nueva matriz que contiene todos los elementos en `history`, seguido de `nextSquares`. (Puedes leer la [*sintaxis extendida*](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax) `...history` como "enumerar todos los elementos en `history`".)
 
 Por ejemplo, si `history` es igual a `[[null,null,null], ["X",null,null]]` y `nextSquares` es igual a `["X",null,"O"]`, entonces el nuevo arreglo`[...history, nextSquares]` será `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
 
