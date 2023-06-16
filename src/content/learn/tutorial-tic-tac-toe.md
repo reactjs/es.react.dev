@@ -919,7 +919,7 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 En este punto, tienes todos los componentes básicos para tu juego de tres en linea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
-### Elevar el estado {/*lifting-state-up*/}
+### Levantar el estado {/*lifting-state-up*/}
 
 Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en linea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
 
@@ -927,7 +927,7 @@ Actualmente, cada componente `Square` mantiene una parte del estado del juego. P
 
 **Para recopilar datos de varios elementos secundarios o para que dos componentes secundarios se comuniquen entre sí, declara el estado compartido en tu componente principal. El componente padre puede devolver ese estado a los hijos a través de props. Esto mantiene los componentes secundarios sincronizados entre sí y con el componente principal.**
 
-Elevar el estado a un componente principal es común cuando se refactorizan los componentes de React.
+Levantar el estado a un componente principal es común cuando se refactorizan los componentes de React.
 
 Aprovechemos esta oportunidad para probarlo. Edita el componente `Board` para que declare una variable de estado llamada `Square` que por defecto sea una matriz de 9 valores nulos correspondientes a los 9 cuadrados:
 
@@ -1749,7 +1749,7 @@ Almacena las matrices anteriores de `squares` en otra matriz llamada `history`, 
 ]
 ```
 
-### Elevar el estado, otra vez {/*lifting-state-up-again*/}
+### Levantar el estado, otra vez {/*lifting-state-up-again*/}
 
 Ahora escribe un nuevo componente de nivel superior llamado `Game` para mostrar una lista de movimientos anteriores. Ahí es donde colocarás el estado de `history` que contiene todo el historial del juego.
 
