@@ -919,7 +919,7 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 En este punto, tienes todos los componentes básicos para tu juego de tres en linea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
-### Levantar el estado {/*lifting-state-up*/}
+### Elevar el estado {/*lifting-state-up*/}
 
 Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en linea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
 
@@ -1749,11 +1749,11 @@ Almacena las matrices anteriores de `squares` en otra matriz llamada `history`, 
 ]
 ```
 
-### Levantar el estado, otra vez {/*lifting-state-up-again*/}
+### Elevar el estado, otra vez {/*lifting-state-up-again*/}
 
 Ahora escribe un nuevo componente de nivel superior llamado `Game` para mostrar una lista de movimientos anteriores. Ahí es donde colocarás el estado de `history` que contiene todo el historial del juego.
 
-Colocar el estado `history` en el componente `Game` te permite eliminar el estado `squares` de tu componente hijo `Board`. Al igual que "levantar el estado" del componente `Square` al componente `Board`, ahora puedes elevarlo del `Board` al componente `Game` de nivel superior. Esto le da al componente `Game` control total sobre los datos del `Board` y le permite instruir al `Game` para renderizar los turnos anteriores del `history`.
+Colocar el estado `history` en el componente `Game` te permite eliminar el estado `squares` de tu componente hijo `Board`. Al igual que "elevar el estado" del componente `Square` al componente `Board`, ahora puedes elevarlo del `Board` al componente `Game` de nivel superior. Esto le da al componente `Game` control total sobre los datos del `Board` y le permite instruir al `Game` para renderizar los turnos anteriores del `history`.
 
 Primero, agrega un componente `Game` con `export default`. Haz que represente el componente `Board` dentro de algunas marcas JSX:
 
