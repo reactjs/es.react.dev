@@ -2727,7 +2727,7 @@ export default function Game() {
 
 Ya no necesitas la declaración de estado `xIsNext` ni las llamadas a `setXIsNext`. Ahora, no hay posibilidad de que `xIsNext` no esté sincronizado con `currentMove`, incluso si cometes un error al codificar los componentes.
 
-### Terminar {/*wrapping-up*/}
+### Finalizar {/*wrapping-up*/}
 
 ¡Felicidades! Has creado un juego de Tres en linea que:
 
