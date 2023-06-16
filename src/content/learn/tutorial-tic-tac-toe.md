@@ -2253,7 +2253,7 @@ Por ahora, deberías ver una lista de los movimientos que ocurrieron en el juego
 
 Analicemos qué significa el error "key".
 
-### Elegir una llave {/*picking-a-key*/}
+### Elegir una *key* {/*picking-a-key*/}
 
 Cuando renderizas una lista, React almacena cierta información sobre cada elemento de la lista renderizada. Cuando actualizas la lista, React necesita determinar qué ha cambiado. Podrías haber agregado, eliminado, reorganizado o actualizado los elementos de la lista.
 
