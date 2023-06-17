@@ -2476,7 +2476,7 @@ body {
 
 </Sandpack>
 
-Antes de que puedas implementar `jumpTo`, necesitas el componente `Game` para realizar un seguimiento de qué paso está viendo actualmente el usuario. Para hacer esto, define una nueva variable de estado llamada `currentMove`, que reciba como valor por defecto a `0`:
+Antes de que puedas implementar `jumpTo`, necesitas que el componente `Game` lleve la cuenta del paso que el usuario está viendo en ese momento. Para ello, define una nueva variable de estado llamada `currentMove`, que reciba como valor por defecto a `0`:
 
 ```js {4}
 export default function Game() {
