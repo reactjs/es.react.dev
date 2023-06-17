@@ -2503,8 +2503,8 @@ export default function Game() {
 
 Ahora haz dos cambios en la función `handlePlay` del `Game` que se llama cuando haces clic en un cuadrado.
 
-- Si "retrocedes en el tiempo" y luego haces un nuevo movimiento desde ese punto, solo querrás mantener el historial hasta ese punto. En lugar de agregar `nextSquares` después de todos los elementos (`...` sintaxis extendida) en `history`, lo agregalo después de todos los elementos en `history.slice (0, currentMove + 1)` para que solo mantengas esa parte de la historia antigua.
-- Cada vez que se realiza un movimiento, debes actualizar `currentMove` para que apunte a la última entrada del historial.
+- Si "retrocedes en el tiempo" y luego haces un nuevo movimiento desde ese punto, sólo querrás mantener el historial hasta ese punto. En lugar de añadir `nextSquares` después de todos los elementos (sintaxis extendida `...`) en `history`, lo agregarás después de todos los elementos en `history.slice(0, currentMove + 1)` para que sólo estés manteniendo esa porción de la historia antigua.
+- Cada vez que se realiza un movimiento, es necesario actualizar `currentMove` para que apunte a la última entrada del historial.
 
 ```js {2-4}
 function handlePlay(nextSquares) {
