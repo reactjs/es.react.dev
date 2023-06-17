@@ -2272,7 +2272,7 @@ hacia
 <li>Alexa: Quedan 5 tareas pendientes</li>
 ```
 
-Además de los recuentos actualizados, una persona que lea esto probablemente diría que intercambiaste los pedidos de Alexa y Ben e insertaste a Claudia entre Alexa y Ben. Sin embargo, React es un programa de computadora y no puede saber lo que pretendías, por lo que debes especificar una propiedad *key* para cada elemento de la lista y diferenciar cada elemento de la lista de sus hermanos. Si estabas mostrando datos de una base de datos, los ID de la base de datos de Alexa, Ben y Claudia podrían usarse como `key`.
+Además de los recuentos actualizados, un humano que leyera esto probablemente diría que has intercambiado el orden de Alexa y Ben e insertado a Claudia entre Alexa y Ben. Sin embargo, React es un programa de computadora y no puede saber lo que pretendías, por lo que necesitas especificar una propiedad *key* para cada elemento de la lista y así diferenciar cada elemento de la lista de sus hermanos. Si tus datos provinieran de una base de datos, los ID de Alexa, Ben y Claudia podrían usarse como `key`.
 
 ```js {1}
 <li key={user.id}>
