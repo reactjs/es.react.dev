@@ -2703,7 +2703,7 @@ body {
 
 Si miras el código muy de cerca, puedes notar que `xIsNext === true` cuando `currentMove` es par y `xIsNext === false` cuando `currentMove` es impar. En otras palabras, si conoces el valor de `movimientoActual`, entonces siempre puedes averiguar cuál debería ser `xIsNext`.
 
-No hay ninguna razón para que almacenes ambos en el estado. De hecho, trata siempre de evitar el estado redundante. Simplificar lo que almacenas en el estado ayuda a reducir los errores y hace que tu código sea más fácil de entender. Cambia `Game` para que ya no almacene `xIsNext` como una variable de estado separada y, en su lugar, lo descubra en función de `currentMove`:
+No hay ninguna razón para que almacenes ambos en el estado. De hecho, intenta siempre evitar el estado redundante. Simplificar lo que almacenas en el estado reduce los errores y hace que tu código sea más fácil de entender. Cambia `Game` para que no almacene `xIsNext` como una variable de estado separada y en su lugar lo calcule basándose en el `currentMove`:
 
 ```js {4,11,15}
 export default function Game() {
