@@ -202,7 +202,7 @@ Una vez que hayas jugado un poco con el juego Tres en línea terminado, sigue de
 
 ## Configuración para el tutorial {/*setup-for-the-tutorial*/}
 
-En el editor de código en vivo a continuación, haz clic en **Fork** en la esquina superior derecha para abrir el editor en una nueva pestaña usando el sitio web CodeSandbox. CodeSandbox te permite escribir código en su navegador e inmediatamente ver cómo sus usuarios verán la aplicación que ha creado. La nueva pestaña debería mostrarte un cuadrado vacío y el código de inicio para este tutorial.
+En el editor de código en vivo a continuación, haz clic en **Bifurcar** en la esquina superior derecha para abrir el editor en una nueva pestaña usando el sitio web CodeSandbox. CodeSandbox te permite escribir código en su navegador e inmediatamente ver cómo sus usuarios verán la aplicación que ha creado. La nueva pestaña debería mostrarte un cuadrado vacío y el código de inicio para este tutorial.
 
 <Sandpack>
 
