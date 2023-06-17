@@ -4,7 +4,7 @@ title: 'Tutorial: Tres en línea'
 
 <Intro>
 
-En este tutorial construirás un pequeño juego de Tres en linea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo te dará una comprensión profunda de React.
+En este tutorial construirás un pequeño juego de Tres en línea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo te dará una comprensión profunda de React.
 
 </Intro>
 
@@ -415,9 +415,9 @@ export default function Square() {
 }
 ```
 
-El CSS definido en `styles.css` diseña los `div`s con `className` de `board-row`. Ahora que agrupaste tus componentes en filas con el estilo `div`s, tienes un tablero de tres en linea:
+El CSS definido en `styles.css` diseña los `div`s con `className` de `board-row`. Ahora que agrupaste tus componentes en filas con el estilo `div`s, tienes un tablero de tres en línea:
 
-![El tablero de Tres en linea esta lleno con números del 1 al 9](../images/tutorial/number-filled-board.png)
+![El tablero de Tres en línea esta lleno con números del 1 al 9](../images/tutorial/number-filled-board.png)
 
 Pero ahora tienes un problema. Tu componente llamado `Square`, en realidad ya no es un cuadrado. Arreglemos esto cambiando el nombre a `Board`:
 
@@ -621,7 +621,7 @@ export default function Board() {
 
 Ahora deberías ver una cuadrícula de números nuevamente:
 
-![tablero de Tres en linea lleno de números del 1 al 9](../images/tutorial/number-filled-board.png)
+![tablero de Tres en línea lleno de números del 1 al 9](../images/tutorial/number-filled-board.png)
 
 Tu código actualizado debería verse así:
 
@@ -917,11 +917,11 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 ## Completando el juego {/*completing-the-game*/}
 
-En este punto, tienes todos los componentes básicos para tu juego de tres en linea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
+En este punto, tienes todos los componentes básicos para tu juego de tres en línea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
 ### Levantar el estado {/*lifting-state-up*/}
 
-Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en linea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
+Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en línea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
 
 ¿Cómo abordarías eso? Al principio, puedes suponer que el `Board` necesita "preguntar" a cada `Square` por el estado de ese `Square`. Aunque este enfoque es técnicamente posible en React, no lo aconsejamos porque el código se vuelve difícil de entender, susceptible a errores y difícil de refactorizar. En cambio, el mejor enfoque es almacenar el estado del juego en el componente `Board` principal en lugar de en cada `Square`. El componente `Board` puede decirle a cada `Square` qué mostrar al pasar una prop, como lo hizo cuando pasó un número a cada Cuadrado.
 
@@ -1365,7 +1365,7 @@ También hay otro beneficio de la inmutabilidad. De forma predeterminada, todos 
 
 ### Tomar turnos {/*taking-turns*/}
 
-Ahora es el momento de corregir un defecto importante en este juego de tres en linea: las "O" no se pueden marcar en el tablero.
+Ahora es el momento de corregir un defecto importante en este juego de tres en línea: las "O" no se pueden marcar en el tablero.
 
 Establece que el primer movimiento sea "X" de forma predeterminada. Hagamos un seguimiento de esto agregando otra parte del estado al componente `Board`:
 
@@ -1594,7 +1594,7 @@ export default function Board() {
 }
 ```
 
-¡Felicidades! Ahora tienes un juego de Tres en linea que funciona. Y acabas de aprender los conceptos básicos de React también. Así que *tú* eres el verdadero ganador aquí. Así es como debería verse el código:
+¡Felicidades! Ahora tienes un juego de Tres en línea que funciona. Y acabas de aprender los conceptos básicos de React también. Así que *tú* eres el verdadero ganador aquí. Así es como debería verse el código:
 
 <Sandpack>
 
@@ -2023,7 +2023,7 @@ body {
 
 ### Mostrar los movimientos anteriores {/*showing-the-past-moves*/}
 
-Dado que estás grabando el historial del juego de tres en linea, ahora puede mostrárselo al jugador como una lista de movimientos anteriores.
+Dado que estás grabando el historial del juego de tres en línea, ahora puede mostrárselo al jugador como una lista de movimientos anteriores.
 
 Los elementos de React como `<button>` son objetos regulares de JavaScript; puedes pasarlos en tu aplicación. Para representar varios elementos en React, puedes usar una matriz de elementos de React.
 
@@ -2294,7 +2294,7 @@ Las `key`s no necesitan ser globalmente únicas; solo necesitan ser únicas entr
 
 ### Implementación de viajes en el tiempo {/*implementing-time-travel*/}
 
-En la historia del juego de tres en linea, cada movimiento pasado tiene una identificación única asociada: es el número secuencial del movimiento. Los movimientos nunca se reordenarán, eliminarán o insertarán en el medio, por lo que es seguro usar el índice de movimiento como `key`.
+En la historia del juego de tres en línea, cada movimiento pasado tiene una identificación única asociada: es el número secuencial del movimiento. Los movimientos nunca se reordenarán, eliminarán o insertarán en el medio, por lo que es seguro usar el índice de movimiento como `key`.
 
 En la función `Game`, puedes agregar la `key` como `<li key={move}>`, y si vuelves a cargar el juego renderizado, el error de "`key`" de React debería desaparecer:
 
@@ -2528,7 +2528,7 @@ export default function Game() {
 }
 ```
 
-Si haces clic en cualquier paso en el historial del juego, el tablero de tres en linea debería actualizarse inmediatamente para mostrar cómo se veía el tablero después de que ocurriera ese paso.
+Si haces clic en cualquier paso en el historial del juego, el tablero de tres en línea debería actualizarse inmediatamente para mostrar cómo se veía el tablero después de que ocurriera ese paso.
 
 <Sandpack>
 
@@ -2729,9 +2729,9 @@ Ya no necesitas la declaración de estado `xIsNext` ni las llamadas a `setXIsNex
 
 ### Finalizar {/*wrapping-up*/}
 
-¡Felicidades! Has creado un juego de Tres en linea que:
+¡Felicidades! Has creado un juego de Tres en línea que:
 
-- Te permite jugar Tres en linea,
+- Te permite jugar Tres en línea,
 - Indica cuando un jugador ha ganado el juego,
 - Almacena el historial de un juego a medida que avanza un juego,
 - Permite a los jugadores revisar el historial de un juego y ver versiones anteriores del tablero de un juego.
@@ -2907,7 +2907,7 @@ body {
 
 </Sandpack>
 
-Si tienes tiempo extra o quieres practicar tus nuevas habilidades de React, aquí hay algunas ideas de mejoras que podría hacer al juego de tres en linea, enumeradas en orden de dificultad creciente:
+Si tienes tiempo extra o quieres practicar tus nuevas habilidades de React, aquí hay algunas ideas de mejoras que podría hacer al juego de tres en línea, enumeradas en orden de dificultad creciente:
 
 1. Solo para el movimiento actual, muestra "Estás en el movimiento #..." en lugar de un botón
 2. Vuelve a escribir `Board` para usar dos bucles para crear los cuadrados en lugar de codificarlos.
