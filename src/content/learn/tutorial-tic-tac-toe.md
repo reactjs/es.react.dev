@@ -2245,9 +2245,9 @@ body {
 
 </Sandpack>
 
-A medida que iteras a través de la matriz `history` dentro de la función que pasó a `map`, el argumento `squares` pasa por cada elemento de `history`, y el argumento `move` pasa por cada índice de matriz: `0`, `1`, `2`, …. (En la mayoría de los casos, necesitarías los elementos de la matriz real, pero en este caso no usas "cuadrados" para representar una lista de movimientos).
+Cuando recorres la matriz `history` dentro de la función que has pasado a `map`, el argumento `squares` recorre cada elemento de `history`, y el argumento `move` recorre cada índice de la matriz: `0`, `1`, `2`, …. (En la mayoría de los casos, necesitarías los elementos concretos de la matriz, pero para representar una lista de movimientos sólo necesitarás los índices).
 
-Para cada movimiento en el historial del juego de tres en linea, crea un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un controlador `onClick` que llama a una función llamada `jumpTo` (que aún no has implementado).
+Para cada movimiento en el historial del juego de tres en línea, creas un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un controlador `onClick` que llama a una función llamada `jumpTo` (que aún no has implementado).
 
 Por ahora, deberías ver una lista de los movimientos que ocurrieron en el juego y un error en la consola de herramientas del desarrollador.
 
@@ -2255,7 +2255,7 @@ Analicemos qué significa el error "key".
 
 ### Elegir una *key* {/*picking-a-key*/}
 
-Cuando renderizas una lista, React almacena cierta información sobre cada elemento de la lista renderizada. Cuando actualizas la lista, React necesita determinar qué ha cambiado. Podrías haber agregado, eliminado, reorganizado o actualizado los elementos de la lista.
+Cuando renderizas una lista, React almacena cierta información sobre cada elemento renderizado. Cuando actualizas la lista, React necesita determinar qué ha cambiado. Podrías haber agregado, eliminado, reorganizado o actualizado los elementos de la lista.
 
 Imagina la transición de
 
