@@ -80,11 +80,11 @@ Para implementar esto:
 3. En la función `handleClick`, lee el nodo DOM de entrada de `inputRef.current` y llama a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él con `inputRef.current.focus()`.
 4. Pasa el manejador de eventos `handleClick` a `<button>` con `onClick`.
 
-Mientras manipular el DOM es el caso de uso mas común para las refs, el Hook `useRef` puede ser usado para almacenar otras cosas fuera de React, como IDs de temporizadores. De manera similar al estado, las refs permanecen entre renderizados. Las refs son como variables de estados que no desencadenan nuevos renderizados cuando las configuras. Lee acerca de las refs en [Referenciando valores con Refs.](/learn/referencing-values-with-refs)
+Mientras manipular el DOM es el caso de uso mas común para las refs, el Hook `useRef` puede ser usado para almacenar otras cosas fuera de React, como IDs de temporizadores. De manera similar al estado, las refs permanecen entre renderizados. Las refs son como variables de estados que no desencadenan nuevos renderizados cuando las configuras. Lee acerca de las refs en [Referenciar valores con refs.](/learn/referencing-values-with-refs)
 
 ### Ejemplo: Desplazarse a un elemento {/*example-scrolling-to-an-element*/}
 
-Puedes tener más de una sola ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) del navegador en el nodo DOM correspondiente:
+Puedes tener más de una sola ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método del navegador [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) en el nodo DOM correspondiente:
 
 <Sandpack>
 
@@ -193,27 +193,27 @@ li {
 
 <DeepDive>
 
-#### How to manage a list of refs using a ref callback {/*how-to-manage-a-list-of-refs-using-a-ref-callback*/}
+#### Cómo manipular una lista de refs usando un callback ref {/*how-to-manage-a-list-of-refs-using-a-ref-callback*/}
 
-In the above examples, there is a predefined number of refs. However, sometimes you might need a ref to each item in the list, and you don't know how many you will have. Something like this **wouldn't work**:
+En los ejemplos de arriba, hay un número predefinido de refs. Sin embargo, algunas veces es posible que necesites una ref en cada elemento de la lista, y no sabes cuantos vas a tener. Algo como esto **no va a funcionar**:
 
 ```js
 <ul>
   {items.map((item) => {
-    // Doesn't work!
+    // No funciona!
     const ref = useRef(null);
     return <li ref={ref} />;
   })}
 </ul>
 ```
 
-This is because **Hooks must only be called at the top-level of your component.** You can't call `useRef` in a loop, in a condition, or inside a `map()` call.
+Esto es porque los **Hooks solo tienen que ser llamados en el nivel mas alto de tu componente.** No puedes llamar a `useRef` en un bucle, en una condición, o dentro de una llamada `map()`
 
-One possible way around this is to get a single ref to their parent element, and then use DOM manipulation methods like [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) to "find" the individual child nodes from it. However, this is brittle and can break if your DOM structure changes.
+Una posible forma de evitar esto es obtener una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
 
-Another solution is to **pass a function to the `ref` attribute.** This is called a [`ref` callback.](/reference/react-dom/components/common#ref-callback) React will call your ref callback with the DOM node when it's time to set the ref, and with `null` when it's time to clear it. This lets you maintain your own array or a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), and access any ref by its index or some kind of ID.
+Otra solución es **pasar una función al atributo `ref`.** A esto se le llama un [callback `ref`.](/reference/react-dom/components/common#ref-callback) React llamará tu callback ref con el nodo DOM cuando sea momento de establecer la ref, y con `null` cuando sea momento de limpiarla. Esto te permite mantener tu propio array o un [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier ref por su índice o algún tipo de ID.
 
-This example shows how you can use this approach to scroll to an arbitrary node in a long list:
+Este ejemplo te muestra cómo puedes usar este enfoque para desplazarte a un nodo arbitrario en una lista larga:
 
 <Sandpack>
 
@@ -235,7 +235,7 @@ export default function CatFriends() {
 
   function getMap() {
     if (!itemsRef.current) {
-      // Initialize the Map on first usage.
+      // Inicializa el Map en el primer uso
       itemsRef.current = new Map();
     }
     return itemsRef.current;
@@ -318,7 +318,8 @@ li {
 
 </Sandpack>
 
-In this example, `itemsRef` doesn't hold a single DOM node. Instead, it holds a [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) from item ID to a DOM node. ([Refs can hold any values!](/learn/referencing-values-with-refs)) The [`ref` callback](/reference/react-dom/components/common#ref-callback) on every list item takes care to update the Map:
+En este ejemplo, `itemsRef` no contiene un solo nodo DOM. En su lugar, contiene un [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) desde el ID del elemento hasta un nodo DOM. ([Las refs pueden contener cualquier valor!](/learn/referencing-values-with-refs)) El [callback `ref`](/reference/react-dom/components/common#ref-callback) en cada elemento de la lista se encarga de actualizar el Map:
+
 
 ```js
 <li
@@ -326,17 +327,17 @@ In this example, `itemsRef` doesn't hold a single DOM node. Instead, it holds a 
   ref={node => {
     const map = getMap();
     if (node) {
-      // Add to the Map
+      //Agregar al Map
       map.set(cat.id, node);
     } else {
-      // Remove from the Map
+      //Quitar del Map
       map.delete(cat.id);
     }
   }}
 >
 ```
 
-This lets you read individual DOM nodes from the Map later.
+Esto te permite leer nodos DOM individuales del Map más tarde.
 
 </DeepDive>
 
