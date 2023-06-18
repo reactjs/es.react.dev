@@ -13,14 +13,14 @@ export default function NotFound() {
     <Page toc={[]} meta={{title: 'Not Found'}} routeTree={sidebarLearn}>
       <MaxWidth>
         <Intro>
-          <P>This page doesn’t exist.</P>
+          <P>Esta página no existe.</P>
           <P>
-            If this is a mistake{', '}
+            Si esto es un error{', '}
             <A href="https://github.com/reactjs/react.dev/issues/new">
-              let us know
+              háganoslo saber
             </A>
             {', '}
-            and we will try to fix it!
+            ¡e intentaremos solucionarlo!
           </P>
         </Intro>
       </MaxWidth>
