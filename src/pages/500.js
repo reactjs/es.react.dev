@@ -13,14 +13,14 @@ export default function NotFound() {
     <Page
       toc={[]}
       routeTree={sidebarLearn}
-      meta={{title: 'Something Went Wrong'}}>
+      meta={{title: 'Algo Salió Mal'}}>
       <MaxWidth>
         <Intro>
           <P>Algo salió muy mal.</P>
           <P>Lo sentimos.</P>
           <P>
             Si lo desea, por favor{' '}
-            <A href="https://github.com/reactjs/react.dev/issues/new">
+            <A href="https://github.com/reactjs/es.react.dev/issues/new">
               informe el error.
             </A>
           </P>
