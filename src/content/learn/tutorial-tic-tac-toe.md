@@ -915,7 +915,7 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 </Note>
 
-## Completando el juego {/*completing-the-game*/}
+## Completar el juego {/*completing-the-game*/}
 
 En este punto, tienes todos los componentes básicos para tu juego de tres en línea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
@@ -1725,7 +1725,7 @@ body {
 
 </Sandpack>
 
-## Adicionando viajes en el tiempo {/*adding-time-travel*/}
+## Adicionar viajes en el tiempo {/*adding-time-travel*/}
 
 Como ejercicio final, hagamos posible "retroceder en el tiempo" a los movimientos anteriores del juego.
 
