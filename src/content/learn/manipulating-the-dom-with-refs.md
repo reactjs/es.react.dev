@@ -1,52 +1,52 @@
 ---
-title: 'Manipulating the DOM with Refs'
+title: 'Manipulando el  DOM con Refs'
 ---
 
 <Intro>
 
-React automatically updates the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) to match your render output, so your components won't often need to manipulate it. However, sometimes you might need access to the DOM elements managed by React--for example, to focus a node, scroll to it, or measure its size and position. There is no built-in way to do those things in React, so you will need a *ref* to the DOM node.
+React automáticamente actualiza el [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes a menudo no necesitarán manipularlo. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM administrados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer este tipo de cosas en React, por lo que necesitaras una *ref* al nodo DOM.  
 
 </Intro>
 
 <YouWillLearn>
 
-- How to access a DOM node managed by React with the `ref` attribute
-- How the `ref` JSX attribute relates to the `useRef` Hook
-- How to access another component's DOM node
-- In which cases it's safe to modify the DOM managed by React
+- Cómo acceder a un nodo DOM manipulado por React con el atributo `ref`
+- Cómo el atributo `ref` de JSX se relaciona con el Hook `useRef`
+- Cómo acceder al nodo DOM de otro componente
+- En qué casos es seguro modificar el DOM manipulado por React
 
 </YouWillLearn>
 
-## Getting a ref to the node {/*getting-a-ref-to-the-node*/}
+## Obteniendo una ref al nodo {/*getting-a-ref-to-the-node*/}
 
-To access a DOM node managed by React, first, import the `useRef` Hook:
+Para acceder a un nodo DOM manipulado por React, primero importa el Hook `useRef`:
 
 ```js
 import { useRef } from 'react';
 ```
 
-Then, use it to declare a ref inside your component:
+Luego, úsalo para declarar una ref dentro de tu componente
 
 ```js
 const myRef = useRef(null);
 ```
 
-Finally, pass your ref as the `ref` attribute to the JSX tag for which you want to get the DOM node:
+Finalmente, pasa la ref como el atributo `ref` a la etiqueta JSX en el que quieres obtener el nodo DOM:
 
 ```js
 <div ref={myRef}>
 ```
 
-The `useRef` Hook returns an object with a single property called `current`. Initially, `myRef.current` will be `null`. When React creates a DOM node for this `<div>`, React will put a reference to this node into `myRef.current`. You can then access this DOM node from your [event handlers](/learn/responding-to-events) and use the built-in [browser APIs](https://developer.mozilla.org/docs/Web/API/Element) defined on it.
+El Hook `useRef` retorna un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React crea un nodo DOM para este `<div>`, React va a colocar una referencia de este nodo en `myRef.current`. Entonces ahora puedes acceder a este nodo DOM desde tus [manejadores de eventos](/learn/responding-to-events) y usar las [APIs de navegador](https://developer.mozilla.org/docs/Web/API/Element) integradas definidas en él.
 
 ```js
-// You can use any browser APIs, for example:
+// Puedes usar cualquier API de navegador, por ejemplo:
 myRef.current.scrollIntoView();
 ```
 
-### Example: Focusing a text input {/*example-focusing-a-text-input*/}
+### Ejemplo: Enfocar la entrada de texto {/*example-focusing-a-text-input*/}
 
-In this example, clicking the button will focus the input:
+En este ejemplo, hacer click en el botón va a enfocar la entrada de texto:
 
 <Sandpack>
 
@@ -64,7 +64,7 @@ export default function Form() {
     <>
       <input ref={inputRef} />
       <button onClick={handleClick}>
-        Focus the input
+        Enfocar entrada de texto
       </button>
     </>
   );
@@ -73,18 +73,18 @@ export default function Form() {
 
 </Sandpack>
 
-To implement this:
+Para implementar esto:
 
-1. Declare `inputRef` with the `useRef` Hook.
-2. Pass it as `<input ref={inputRef}>`. This tells React to **put this `<input>`'s DOM node into `inputRef.current`.**
-3. In the `handleClick` function, read the input DOM node from `inputRef.current` and call [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) on it with `inputRef.current.focus()`.
-4. Pass the `handleClick` event handler to `<button>` with `onClick`.
+1. Declara `inputRef` con el Hook `useRef`.
+2. Pásalo como `<input ref={inputRef}>`. Esto le dice a React que **colóque el nodo DOM `<input>` en `inputRef.current`.**
+3. En la función `handleClick`, lee el nodo DOM de entrada de `inputRef.current` y llama a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él con `inputRef.current.focus()`.
+4. Pasa el manejador de eventos `handleClick` a `<button>` con `onClick`.
 
-While DOM manipulation is the most common use case for refs, the `useRef` Hook can be used for storing other things outside React, like timer IDs. Similarly to state, refs remain between renders. Refs are like state variables that don't trigger re-renders when you set them. Read about refs in [Referencing Values with Refs.](/learn/referencing-values-with-refs)
+Mientras manipular el DOM es el caso de uso mas común para las refs, el Hook `useRef` puede ser usado para almacenar otras cosas fuera de React, como IDs de temporizadores. De manera similar al estado, las refs permanecen entre renderizados. Las refs son como variables de estados que no desencadenan nuevos renderizados cuando las configuras. Lee acerca de las refs en [Referenciando valores con Refs.](/learn/referencing-values-with-refs)
 
-### Example: Scrolling to an element {/*example-scrolling-to-an-element*/}
+### Ejemplo: Desplazarse a un elemento {/*example-scrolling-to-an-element*/}
 
-You can have more than a single ref in a component. In this example, there is a carousel of three images. Each button centers an image by calling the browser [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) method on the corresponding DOM node:
+Puedes tener más de una sola ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) del navegador en el nodo DOM correspondiente:
 
 <Sandpack>
 
