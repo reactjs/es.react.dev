@@ -17,11 +17,11 @@ export default function NotFound() {
       <MaxWidth>
         <Intro>
           <P>Algo salió muy mal.</P>
-          <P>Lo siento.</P>
+          <P>Lo sentimos.</P>
           <P>
             Si lo desea, por favor{' '}
             <A href="https://github.com/reactjs/react.dev/issues/new">
-              informe del error.
+              informe el error.
             </A>
           </P>
         </Intro>
