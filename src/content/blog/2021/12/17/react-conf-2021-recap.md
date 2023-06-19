@@ -36,7 +36,7 @@ Vea la conferencia completa de [Andrew Clark](https://twitter.com/acdlite), [Jua
 
 ## React 18 para desarrolladores de aplicaciones {/*react-18-for-application-developers*/}
 
-En la conferencia también anunciamos que ya se puede probar React 18 RC A la espera de nuevos comentarios, esta es la versión exacta de React que publicaremos como estable a principios del próximo año.
+En la conferencia también anunciamos que ya se puede probar React 18 RC. A la espera de nuevos comentarios, esta es la versión exacta de React que publicaremos como estable a principios del próximo año.
 
 Para probar React 18 RC, actualiza tus dependencias:
 
@@ -48,11 +48,11 @@ y cambiar a la nueva `createRoot` API:
 
 ```js
 // Antes
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 ReactDOM.render(<App />, container);
 
 // Después
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
 ```
@@ -155,8 +155,6 @@ Gracias a Laura Podolak Waddell, Desmond Osei-Acheampong, Mark Rossi, Josh Tober
 Gracias a nuestro socio HitPlay por ayudar a organizar la conferencia, editar todos los videos en la transmisión, traducir todas las charlas y moderar Discord en varios idiomas.
 
 Finalmente, ¡gracias a todos nuestros participantes por hacer de esta una gran React Conf!
-
-Thanks to [Dan Lebowitz](https://twitter.com/lebo) for help designing and building the conference website and tickets.
 
 Thanks to Laura Podolak Waddell, Desmond Osei-Acheampong, Mark Rossi, Josh Toberman and others on the Facebook Video Productions team for recording the videos for the Keynote and Meta employee talks.
 
