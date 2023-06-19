@@ -101,7 +101,7 @@ Mirando más hacia el futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxpro) 
 
 ## Y más... {/*and-more*/}
 
-**WTambién escuchamos charlas sobre aprendizaje y diseño con React:**
+**También escuchamos charlas sobre aprendizaje y diseño con React:**
 
 - Debbie O'Brien: [Cosas que he aprendido de los nuevos documentos de React](https://youtu.be/-7odLW_hG7s).
 - Sarah Rainsberger: [Aprendizaje en el navegador](https://youtu.be/5X-WEQflCL0).
