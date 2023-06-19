@@ -93,7 +93,7 @@ Mirando más hacia el futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxpro) 
 
 <YouTubeIframe src="https://www.youtube.com/embed/lGEMwh32soc" />
 
-## Conferencia sobre React Docs {r/*eact-docs-keynote*/}
+## Conferencia sobre React Docs {/*react-docs-keynote*/}
 
 [Rachel Nabors](https://twitter.com/rachelnabors) inició una sección de conferencias sobre aprendizaje y diseño con React con una conferencia sobre nuestra inversión en la nueva documentación de React ([ahora disponible como es.react.dev](/blog/2023/03/16/introducing-react-dev)):
 
