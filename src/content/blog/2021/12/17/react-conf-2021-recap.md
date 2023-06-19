@@ -26,7 +26,7 @@ En la conferencia, compartimos nuestra visión del futuro de React a partir de R
 
 React 18 añade el tan esperado renderizador concurrente y actualizaciones a Suspense sin ningún cambio importante. Las aplicaciones pueden actualizarse a React 18 y empezar a adoptar gradualmente funciones concurrentes con el mismo esfuerzo que cualquier otra versión importante.
 
-**Esto significa que no hay modo concurrente, solo funciones concurrentes.**ntes.\*\*
+**Esto significa que no hay modo concurrente, solo funciones concurrentes.**
 
 En la conferencia también compartimos nuestra visión de Suspense, Server Components, los nuevos grupos de trabajo de React y nuestra visión a largo plazo de React Native para múltiples plataformas.
 
