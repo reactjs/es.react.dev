@@ -8,7 +8,7 @@ title: "Resumen de React Conf 2021"
 
 <Intro>
 
-La semana pasada organizamos nuestra 6ª React Conf. En años anteriores, usamos el escenario React Conf para ofrecer anuncios que cambiaron la industria, como [_React Native_](https://engineering.fb.com/2015/03/26/android/react-native-bringing-modern-web-techniques-to-mobile/) y [_React Hooks_](https://reactjs.org/docs/hooks-intro.html). Este año, compartimos nuestra visión multiplataforma para React, comenzando con el lanzamiento de React 18 y la adopción gradual de funciones simultáneas.
+La semana pasada organizamos nuestra 6ª React Conf. En años anteriores, usamos el escenario React Conf para ofrecer anuncios que cambiaron la industria, como [_React Native_](https://engineering.fb.com/2015/03/26/android/react-native-bringing-modern-web-techniques-to-mobile/) y [_React Hooks_](https://reactjs.org/docs/hooks-intro.html). Este año, compartimos nuestra visión multiplataforma para React, comenzando con el lanzamiento de React 18 y la adopción gradual de funcionalidades concurrentes.
 
 </Intro>
 
@@ -20,13 +20,13 @@ Todas las charlas están [disponibles para transmitir en línea](https://www.you
 
 Aquí hay un resumen de lo que se compartió en el escenario:
 
-## React 18 y funciones concurrentes {/*react-18-and-concurrent-features*/}
+## React 18 y funcionalidades concurrentes {/*react-18-and-concurrent-features*/}
 
 En la conferencia, compartimos nuestra visión del futuro de React a partir de React 18.
 
-React 18 añade el tan esperado renderizador concurrente y actualizaciones a Suspense sin ningún cambio importante. Las aplicaciones pueden actualizarse a React 18 y empezar a adoptar gradualmente funciones concurrentes con el mismo esfuerzo que cualquier otra versión importante.
+React 18 añade el tan esperado renderizador concurrente y actualizaciones a Suspense sin ningún cambio importante. Las aplicaciones pueden actualizarse a React 18 y empezar a adoptar gradualmente funcionalidades concurrentes con el mismo esfuerzo que cualquier otra versión importante.
 
-**Esto significa que no hay modo concurrente, solo funciones concurrentes.**
+**Esto significa que no hay modo concurrente, solo funcionalidades concurrentes.**
 
 En la conferencia también compartimos nuestra visión de Suspense, Server Components, los nuevos grupos de trabajo de React y nuestra visión a largo plazo de React Native para múltiples plataformas.
 

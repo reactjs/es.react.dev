@@ -35,15 +35,15 @@ React 18 was years in the making, and with it brought valuable lessons for the R
 </BlogCard>
 
 <BlogCard title="React v18.0" date="March 29, 2022" url="/blog/2022/03/29/react-v18">
-React 18 is now available on npm! In our last post, we shared step-by-step instructions for upgrading your app to React 18. In this post, we’ll give an overview of what’s new in React 18, and what it means for the future...
+¡React 18 ya está disponible en npm! En nuestro último artículo, compartimos instrucciones paso a paso para actualizar tu aplicación a React 18. En este artículo, daremos una descripción general de las novedades en React 18 y lo que significa para el futuro...
 </BlogCard>
 
 <BlogCard title="How to Upgrade to React 18" date="March 8, 2022" url="/blog/2022/03/08/react-18-upgrade-guide">
 As we shared in the release post, React 18 introduces features powered by our new concurrent renderer, with a gradual adoption strategy for existing applications. In this post, we will guide you through the steps for upgrading to React 18...
 </BlogCard>
 
-<BlogCard title="React Conf 2021 Recap" date="December 17, 2021" url="/blog/2021/12/17/react-conf-2021-recap">
-Last week we hosted our 6th React Conf.  In previous years, we’ve used the React Conf stage to deliver industry changing announcements such as React Native and React Hooks. This year, we shared our multi-platform vision for React, starting with the release of React 18 and gradual adoption of concurrent features...
+<BlogCard title="Resumen de React Conf 2021" date="December 17, 2021" url="/blog/2021/12/17/react-conf-2021-recap">
+La semana pasada organizamos nuestra 6ª React Conf. En años anteriores, usamos el escenario React Conf para ofrecer anuncios que cambiaron la industria, como React Native y los Hooks de React. Este año, compartimos nuestra visión multiplataforma para React, comenzando con el lanzamiento de React 18 y la adopción gradual de funcionalidades concurrentes...
 </BlogCard>
 
 <BlogCard title="El plan para React 18" date="8 de junio de 2021" url="/blog/2021/06/08/the-plan-for-react-18">

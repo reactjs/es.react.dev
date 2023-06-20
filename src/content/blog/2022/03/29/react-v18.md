@@ -14,7 +14,7 @@ title: "React v18.0"
 
 ---
 
-Nuestra última versión importante incluye mejoras listas para usar, como el procesamiento por lotes automático, nuevas API como startTransition y renderizado en el servidor con transmisión con soporte para Suspense.
+Nuestra última versión mayor incluye mejoras listas para usar, como el procesamiento por lotes automático, nuevas API como startTransition y renderizado en el servidor con transmisión con soporte para Suspense.
 
 Muchas de las funcionalidades en React 18 se basan en nuestro nuevo renderizador concurrente, un cambio interno que desbloquea nuevas y poderosas capacidades. React Concurrente es opcional, solo se activa cuando se utiliza una funcionalidad concurrente, pero creemos que tendrá un gran impacto en la forma en que las personas construyen aplicaciones.
 
