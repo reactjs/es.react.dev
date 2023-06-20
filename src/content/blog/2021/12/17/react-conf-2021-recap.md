@@ -155,9 +155,3 @@ Gracias a Laura Podolak Waddell, Desmond Osei-Acheampong, Mark Rossi, Josh Tober
 Gracias a nuestro socio HitPlay por ayudar a organizar la conferencia, editar todos los videos en la transmisión, traducir todas las charlas y moderar Discord en varios idiomas.
 
 Finalmente, ¡gracias a todos nuestros participantes por hacer de esta una gran React Conf!
-
-Thanks to Laura Podolak Waddell, Desmond Osei-Acheampong, Mark Rossi, Josh Toberman and others on the Facebook Video Productions team for recording the videos for the Keynote and Meta employee talks.
-
-Thanks to our partner HitPlay for helping to organize the conference, editing all the videos in the stream, translating all the talks, and moderating the Discord in multiple languages.
-
-Finally, thanks to all of our participants for making this a great React Conf!
