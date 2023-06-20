@@ -68,7 +68,7 @@
           "path": "/learn/javascript-in-jsx-with-curly-braces"
         },
         {
-          "title": "Passing Props to a Component",
+          "title": "Pasar props a un componente",
           "path": "/learn/passing-props-to-a-component"
         },
         {
@@ -177,7 +177,7 @@
           "path": "/learn/you-might-not-need-an-effect"
         },
         {
-          "title": "Lifecycle of Reactive Effects",
+          "title": "Ciclo de vida de los Efectos reactivos",
           "path": "/learn/lifecycle-of-reactive-effects"
         },
         {
