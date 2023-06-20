@@ -210,7 +210,7 @@ Ahora volvamos a estas líneas:
     // ...
 ```
 
-Desde la perspectiva del usuario, **un cambio en el `roomId` *significa* que quieren conectarse a una habitación diferente.** En otras palabras, la lógica para conectarse a la habitación debe ser reactiva. Usted *quiere* estas líneas de código para "mantenerse al día" con el <CodeStep={2}>valor reactivo</CodeStep>, y para ejecutar de nuevo si ese valor es diferente. Es por eso que pertenece en un Efecto:
+Desde la perspectiva del usuario, **un cambio en el `roomId` *significa* que quieren conectarse a una habitación diferente.** En otras palabras, la lógica para conectarse a la habitación debe ser reactiva. Usted *quiere* estas líneas de código para "mantenerse al día" con el <CodeStep step={2}>valor reactivo</CodeStep>, y para ejecutar de nuevo si ese valor es diferente. Es por eso que pertenece en un Efecto:
 
 ```js {2-3}
   useEffect(() => {
