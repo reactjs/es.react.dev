@@ -121,7 +121,7 @@ export default function App() {
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Elija el chat' : 'Abre el chat'}
+        {show ? 'Cerrar chat' : 'Abrir chat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -290,7 +290,7 @@ function ChatRoom({ roomId, theme }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
-      showNotification('Conectado!', theme);
+      showNotification('¡Conectado!', theme);
     });
     connection.connect();
     return () => connection.disconnect();
@@ -392,7 +392,7 @@ En otras palabras, *no* quieres que esta línea sea reactiva, aunque esté dentr
 
 ```js
       // ...
-      showNotification('Conectado!', theme);
+      showNotification('¡Conectado!', theme);
       // ...
 ```
 
@@ -413,7 +413,7 @@ import { useEffect, useEffectEvent } from 'react';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Conectado!', theme);
+    showNotification('¡Conectado!', theme);
   });
   // ...
 ```
@@ -425,7 +425,7 @@ Ahora puedes llamar al Evento de Efecto `onConnected` desde dentro de tu Efecto:
 ```js {2-4,9,13}
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Conectado!', theme);
+    showNotification('¡Conectado!', theme);
   });
 
   useEffect(() => {
@@ -471,7 +471,7 @@ const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Conectado!', theme);
+    showNotification('¡Conectado!', theme);
   });
 
   useEffect(() => {
