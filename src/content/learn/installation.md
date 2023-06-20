@@ -10,8 +10,8 @@ React se ha diseñado desde un inicio para una adopción gradual. Puedes usar ta
 
 <YouWillLearn isChapter={true}>
 
-* [Cómo añadir React a una página HTML](/learn/add-react-to-a-website)
-* [Cómo iniciar un proyecto completo en React](/learn/start-a-new-react-project)
+* [Cómo iniciar un nuevo proyecto de React](/learn/start-a-new-react-project)
+* [Cómo añadir React a una página existente](/learn/add-react-to-an-existing-project)
 * [Cómo configurar tu editor](/learn/editor-setup)
 * [Cómo instalar las Herramientas de Desarrollo de React](/learn/react-developer-tools)
 
