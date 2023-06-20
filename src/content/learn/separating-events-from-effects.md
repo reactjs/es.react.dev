@@ -52,7 +52,7 @@ function ChatRoom({ roomId }) {
 
 Con un controlador de Evento, puedes estar seguro que `sendMessage(message)` *únicamente* se activará si el usuario presiona el botón.
 
-### Los Efectos se ejectuan siempre que es necesaria la sincronización {/*effects-run-whenever-synchronization-is-needed*/}
+### Los Efectos se ejecutan siempre que es necesaria la sincronización {/*effects-run-whenever-synchronization-is-needed*/}
 
 Recuerda que también necesitas mantener el componente conectado a la sala de chat. ¿Dónde va ese código?
 
@@ -701,7 +701,7 @@ Esto es especialmente importante si hay alguna lógica asíncrona dentro del Efe
 ```
 
 Aquí, `url` dentro de `onVisit` corresponde a la *última* `url` (que podría haber cambiado), pero `visitedUrl` corresponde a la `url` que originalmente causó que este Efecto (y esta llamada a `onVisit`) se ejecutara.
-  
+
 </Note>
 
 <DeepDive>
@@ -725,7 +725,7 @@ function Page({ url }) {
 ```
 
 Después de que `useEffectEvent` se convierta en una parte estable de React, recomendamos **nunca suprimir el linter**.
-  
+
 La primera desventaja de suprimir la regla es que React ya no te avisará cuando tu Efecto necesite "reaccionar" a una nueva dependencia reactiva que hayas introducido en tu código. En el ejemplo anterior, añadiste `url` a las dependencias *porque* React te lo recordó. Si desactivas el linter, ya no recibirás esos recordatorios para futuras ediciones de ese Efecto. Esto conduce a errores.
 
 Aquí hay un ejemplo de un error confuso causado por la supresión del linter. En este ejemplo, se supone que la función `handleMove` lee el valor actual de la variable de estado `canMove` para decidir si el punto debe seguir al cursor. Sin embargo, `canMove` es siempre `true` dentro de `handleMove`.
@@ -790,7 +790,7 @@ body {
 
 
 El problema con este código está en suprimir el linter de dependencia. Si eliminas la supresión, verás que este Efecto debería depender de la función `handleMove`. Esto tiene sentido: `handleMove` se declara dentro del cuerpo del componente, lo que lo convierte en un valor reactivo. Cada valor reactivo debe ser especificado como una dependencia, ¡o puede potencialmente volverse obsoleto con el tiempo!
-  
+
 El autor del código original ha "mentido" a React diciendo que el Efecto no depende (`[]`) de ningún valor reactivo. Por eso React no ha resincronizado el Efecto después de que `canMove` haya cambiado (y `handleMove` con él). Debido a que React no ha resincronizado el Efecto, el `handleMove` adjunto como listener es la función `handleMove` creada durante el render inicial. Durante el render inicial, `canMove` era `true`, por lo que `handleMove` del render inicial verá siempre ese valor.
 
 **Si nunca suprimes el linter, nunca verás problemas con valores obsoletos.**
@@ -868,9 +868,9 @@ body {
 ```
 
 </Sandpack>
-  
+
 Esto no significa que `useEffectEvent` sea *siempre* la solución correcta. Solo deberías aplicarlo a las líneas de código que no quieres que sean reactivas. En el sandbox anterior, no querías que el código del Efecto fuera reactivo con respecto a `canMove`. Por eso tenía sentido extraer un Evento de Efecto.
-  
+
 Leer [Eliminar dependencias de Efectos](/learn/removing-effect-dependencies) para otras alternativas correctas a la supresión del linter.
 
 </DeepDive>
@@ -967,7 +967,7 @@ Sin embargo, no importa cuántas veces haga clic en el botón más, el contador 
 <Hint>
 
 Para arreglar este código, basta con seguir las reglas.
-  
+
 </Hint>
 
 <Sandpack>
@@ -1022,7 +1022,7 @@ button { margin: 10px; }
 Como de costumbre, cuando busques bugs en Efectos, empieza por buscar supresiones de linters.
 
 Si eliminas el comentario de supresión, React te dirá que el código de este Efecto depende de `increment`, pero tú le "mentiste" a React afirmando que este Efecto no depende de ningún valor reactivo (`[]`). Añade `increment` al array de dependencias:
-  
+
 <Sandpack>
 
 ```js
@@ -1153,7 +1153,7 @@ button { margin: 10px; }
 El problema es que el código dentro del Efecto utiliza la variable de estado `increment`. Dado que es una dependencia de su Efecto, cada cambio en `increment` hace que el Efecto se vuelva a sincronizar, lo que hace que el intervalo se borre. Si sigues borrando el intervalo cada vez antes de que tenga la oportunidad de dispararse, parecerá como si el temporizador se hubiera estancado.
 
 Para resolver el problema, extrae un Evento de Efecto `onTick` del Efecto:
-  
+
 <Sandpack>
 
 ```json package.json hidden
@@ -1322,7 +1322,7 @@ button { margin: 10px; }
 <Solution>
 
 El problema con el ejemplo anterior es que extrajo un Evento de Efecto llamado `onMount` sin considerar lo que el código debería estar haciendo realmente. Solo deberías extraer Eventos de Efecto por una razón específica: cuando quieres hacer que una parte de tu código no sea reactiva. Sin embargo, la llamada a `setInterval` *debería* ser reactiva con respecto a la variable de estado `delay`. Si `delay` cambia, ¡quieres configurar el intervalo desde cero! Para arreglar este código, vuelve a meter todo el código reactivo dentro del Efecto:
-  
+
 <Sandpack>
 
 ```json package.json hidden
