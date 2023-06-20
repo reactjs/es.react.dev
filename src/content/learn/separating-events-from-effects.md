@@ -4,7 +4,7 @@ title: 'Separando Eventos de los Efectos'
 
 <Intro>
 
-Los controladores de eventos sólo se vuelven a ejecutar cuando vuelves a realizar la misma interacción. A diferencia de los controladores de eventos, los Efectos se resincronizan si algún valor que leen, como una prop o una variable de estado, es diferente de lo que era durante la última renderización. A veces, también quieres una mezcla de ambos comportamientos: un Efecto que se vuleve a ejecutar en respuesta a algunos valores pero no a otros. Esta página te enseñará cómo hacerlo.
+Los controladores de eventos solo se vuelven a ejecutar cuando vuelves a realizar la misma interacción. A diferencia de los controladores de eventos, los Efectos se resincronizan si algún valor que leen, como una prop o una variable de estado, es diferente de lo que era durante la última renderización. A veces, también quieres una mezcla de ambos comportamientos: un Efecto que se vuleve a ejecutar en respuesta a algunos valores pero no a otros. Esta página te enseñará cómo hacerlo.
 
 </Intro>
 
@@ -22,16 +22,16 @@ Los controladores de eventos sólo se vuelven a ejecutar cuando vuelves a realiz
 
 Primero, vamos a recapitular la diferencia entre controladores de eventos y Efectos.
 
-Imagina que estas implementando un componente chat room. Tus requerimientos se verán así:
+Imagina que estas implementando un componente de sala de chat. Tus requerimientos se verán así:
 
 1. Tu componente debería conectarse de forma automática a la sala de chat seleccionada.
-1. Cuándo hagas click al botón "Send", debería enviar un mensaje al chat.
+1. Cuándo hagas click al botón "Enviar", debería enviar un mensaje al chat.
 
 Digamos que ya tienes el código implementado para ello, pero no estas seguro de donde ponerlo. ¿Deberías de usar controladores de eventos o Efectos? Cada vez que necesites contestar este pregunta, considera [*por qué* se necesita ejecutar el código.](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events)
 
 ### Los controladores de eventos se ejecutan en respuesta a interacciones especificas {/*event-handlers-run-in-response-to-specific-interactions*/}
 
-Desde la perspectiva de un usuario, enviar un mensaje debería pasar *porque* específicamente se hizo click en el botón "Send". El usuario se molestará si tu envías su mensaje en otro momento o por cualquier otro motivo. Esta es la razón por la que enviar un mensaje debería de ser un controlador de Evento. Los controladores de eventos te permiten manejar interacciones especificas como por ejemplo, clicks:
+Desde la perspectiva de un usuario, enviar un mensaje debería pasar *porque* específicamente se hizo click en el botón "Enviar". El usuario se molestará si tu envías su mensaje en otro momento o por cualquier otro motivo. Esta es la razón por la que enviar un mensaje debería de ser un controlador de Evento. Los controladores de eventos te permiten manejar interacciones especificas como por ejemplo, clicks:
 
 ```js {4-6}
 function ChatRoom({ roomId }) {
@@ -97,9 +97,9 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Bienvenido a la sala {roomId}!</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
-      <button onClick={handleSendClick}>Send</button>
+      <button onClick={handleSendClick}>Enviar</button>
     </>
   );
 }
@@ -110,18 +110,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Selecciona la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="travel">viajes</option>
+          <option value="music">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Elija el chat' : 'Abre el chat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -132,17 +132,17 @@ export default function App() {
 
 ```js chat.js
 export function sendMessage(message) {
-  console.log('🔵 You sent: ' + message);
+  console.log('🔵 Enviaste: ' + message);
 }
 
 export function createConnection(serverUrl, roomId) {
   // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -189,7 +189,7 @@ Echa un vistazo a esta línea de código. ¿Esta lógica debería ser reactiva o
     // ...
 ```
 
-Desde la perspectiva del usuario, **un cambio en el `message` _no_ significa que quiera enviar un mensaje.** Sólo significa que el usuario está escribiendo. En otras palabras, la lógica que envía un mensaje no debería ser reactiva. No debería volver a ejecutarse sólo porque el <CodeStep step={2}>valor reactivo</CodeStep> ha cambiado. Por eso pertenece al manejador de eventos:
+Desde la perspectiva del usuario, **un cambio en el `message` _no_ significa que quiera enviar un mensaje.** Solo significa que el usuario está escribiendo. En otras palabras, la lógica que envía un mensaje no debería ser reactiva. No debería volver a ejecutarse solo porque el <CodeStep step={2}>valor reactivo</CodeStep> ha cambiado. Por eso pertenece al manejador de eventos:
 
 ```js {2}
   function handleSendClick() {
@@ -197,7 +197,7 @@ Desde la perspectiva del usuario, **un cambio en el `message` _no_ significa que
   }
 ```
 
-Los controladores de eventos no son reactivos, por lo que `sendMessage(message)` sólo se ejecutará cuando el usuario pulse el botón Enviar.
+Los controladores de eventos no son reactivos, por lo que `sendMessage(message)` solo se ejecutará cuando el usuario pulse el botón Enviar.
 
 ### La lógica dentro de los Efectos es reactiva {/*logic-inside-effects-is-reactive*/}
 
@@ -235,7 +235,7 @@ function ChatRoom({ roomId, theme }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
-      showNotification('Connected!', theme);
+      showNotification('Conectado!', theme);
     });
     connection.connect();
     // ...
@@ -248,13 +248,13 @@ function ChatRoom({ roomId, theme }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
-      showNotification('Connected!', theme);
+      showNotification('Conectado!', theme);
     });
     connection.connect();
     return () => {
       connection.disconnect()
     };
-  }, [roomId, theme]); // ✅ All dependencies declared
+  }, [roomId, theme]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -290,13 +290,13 @@ function ChatRoom({ roomId, theme }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
-      showNotification('Connected!', theme);
+      showNotification('Conectado!', theme);
     });
     connection.connect();
     return () => connection.disconnect();
   }, [roomId, theme]);
 
-  return <h1>Welcome to the {roomId} room!</h1>
+  return <h1>Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -305,14 +305,14 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoje la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="travel">viajes</option>
+          <option value="music">música</option>
         </select>
       </label>
       <label>
@@ -321,7 +321,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Use dark theme
+        Usar tema oscuro
       </label>
       <hr />
       <ChatRoom
@@ -348,10 +348,10 @@ export function createConnection(serverUrl, roomId) {
     },
     on(event, callback) {
       if (connectedCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('No se puede agregar el controlador dos veces.');
       }
       if (event !== 'connected') {
-        throw Error('Only "connected" event is supported.');
+        throw Error('Solo se admite el evento "connected".');
       }
       connectedCallback = callback;
     },
@@ -392,7 +392,7 @@ En otras palabras, *no* quieres que esta línea sea reactiva, aunque esté dentr
 
 ```js
       // ...
-      showNotification('Connected!', theme);
+      showNotification('Conectado!', theme);
       // ...
 ```
 
@@ -413,7 +413,7 @@ import { useEffect, useEffectEvent } from 'react';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Connected!', theme);
+    showNotification('Conectado!', theme);
   });
   // ...
 ```
@@ -425,7 +425,7 @@ Ahora puedes llamar al Evento de Efecto `onConnected` desde dentro de tu Efecto:
 ```js {2-4,9,13}
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Connected!', theme);
+    showNotification('Conectado!', theme);
   });
 
   useEffect(() => {
@@ -435,7 +435,7 @@ function ChatRoom({ roomId, theme }) {
     });
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -471,7 +471,7 @@ const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Connected!', theme);
+    showNotification('Conectado!', theme);
   });
 
   useEffect(() => {
@@ -483,7 +483,7 @@ function ChatRoom({ roomId, theme }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>
+  return <h1>Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -492,14 +492,14 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoje la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="travel">viajes</option>
+          <option value="music">música</option>
         </select>
       </label>
       <label>
@@ -508,7 +508,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Use dark theme
+        Usar tema oscuro
       </label>
       <hr />
       <ChatRoom
@@ -538,7 +538,7 @@ export function createConnection(serverUrl, roomId) {
         throw Error('No se puede añadir el controlador dos veces.');
       }
       if (event !== 'connected') {
-        throw Error('Sólo se admite el evento "conectado".');
+        throw Error('Solo se admite el evento "connected".');
       }
       connectedCallback = callback;
     },
@@ -613,7 +613,7 @@ Piense en lo que quiere que haga el código. Usted *quiere* registrar una visita
 function Page({ url }) {
   useEffect(() => {
     logVisit(url);
-  }, [url]); // ✅ All dependencies declared
+  }, [url]); // ✅ Todas las dependencias declaradas
   // ...
 }
 ```
@@ -869,7 +869,7 @@ body {
 
 </Sandpack>
   
-Esto no significa que `useEffectEvent` sea *siempre* la solución correcta. Sólo deberías aplicarlo a las líneas de código que no quieres que sean reactivas. En el sandbox anterior, no querías que el código del Efecto fuera reactivo con respecto a `canMove`. Por eso tenía sentido extraer un Evento de Efecto.
+Esto no significa que `useEffectEvent` sea *siempre* la solución correcta. Solo deberías aplicarlo a las líneas de código que no quieres que sean reactivas. En el sandbox anterior, no querías que el código del Efecto fuera reactivo con respecto a `canMove`. Por eso tenía sentido extraer un Evento de Efecto.
   
 Leer [Eliminar dependencias de Efectos](/learn/removing-effect-dependencies) para otras alternativas correctas a la supresión del linter.
 
@@ -885,7 +885,7 @@ Esta sección describe una API **experimental que aún no se ha publicado** en u
 
 Los Eventos de Efecto tienen un uso muy limitado:
 
-* **Llámalos sólo desde dentro Efectos.**
+* **Llámalos solo desde dentro Efectos.**
 * **Nunca los pases a otros componentes o Hooks.**
 
 Por ejemplo, no declares y pases un Evento de Efecto así:
@@ -933,7 +933,7 @@ function useTimer(callback, delay) {
 
   useEffect(() => {
     const id = setInterval(() => {
-      onTick(); // ✅ Bien: Sólo se activa localmente dentro de un Efecto
+      onTick(); // ✅ Bien: Solo se activa localmente dentro de un Efecto
     }, delay);
     return () => {
       clearInterval(id);
@@ -951,7 +951,7 @@ Los Eventos de Efecto son "piezas" no reactivas de tu código de Efecto. Deben e
 - La lógica dentro de los controladores de eventos no es reactiva.
 - La lógica dentro de Efectos es reactiva.
 - Puede mover la lógica no reactiva de Efectos a Eventos de Efecto.
-- Llame a Eventos de Efecto sólo desde dentro de Efectos.
+- Llame a Eventos de Efecto solo desde dentro de Efectos.
 - No pase Eventos de Efecto a otros componentes o Hooks.
 
 </Recap>
@@ -992,12 +992,12 @@ export default function Timer() {
   return (
     <>
       <h1>
-        Counter: {count}
+        Contador: {count}
         <button onClick={() => setCount(0)}>Reset</button>
       </h1>
       <hr />
       <p>
-        Every second, increment by:
+        Cada segundo, incrementar en:
         <button disabled={increment === 0} onClick={() => {
           setIncrement(i => i - 1);
         }}>–</button>
@@ -1044,12 +1044,12 @@ export default function Timer() {
   return (
     <>
       <h1>
-        Counter: {count}
-        <button onClick={() => setCount(0)}>Reset</button>
+        Contador: {count}
+        <button onClick={() => setCount(0)}>Resetear</button>
       </h1>
       <hr />
       <p>
-        Every second, increment by:
+        Cada segundo, incrementar en:
         <button disabled={increment === 0} onClick={() => {
           setIncrement(i => i - 1);
         }}>–</button>
@@ -1077,7 +1077,7 @@ Ahora, cuando `increment` cambie, React resincronizará tu Efecto, lo que reinic
 
 Este componente `Timer` mantiene una variable de estado `count` que se incrementa cada segundo. El valor por el que aumenta se almacena en la variable de estado `increment`, que puedes controlar con los botones más y menos. Por ejemplo, prueba a pulsar el botón más nueve veces, y observa que la "cuenta" ahora aumenta cada segundo por diez en lugar de por uno.
 
-Hay un pequeño problema con esta interfaz de usuario. Si pulsas los botones más de una vez por segundo, el temporizador parece detenerse. Sólo se reanuda cuando ha pasado un segundo desde la última vez que pulsaste cualquiera de los botones. Averigua por qué ocurre esto y soluciona el problema para que el temporizador marque *cada* segundo sin interrupciones.
+Hay un pequeño problema con esta interfaz de usuario. Si pulsas los botones más de una vez por segundo, el temporizador parece detenerse. Solo se reanuda cuando ha pasado un segundo desde la última vez que pulsaste cualquiera de los botones. Averigua por qué ocurre esto y soluciona el problema para que el temporizador marque *cada* segundo sin interrupciones.
 
 <Hint>
 
@@ -1123,12 +1123,12 @@ export default function Timer() {
   return (
     <>
       <h1>
-        Counter: {count}
+        Contador: {count}
         <button onClick={() => setCount(0)}>Reset</button>
       </h1>
       <hr />
       <p>
-        Cada segundo, incrementa:
+        Cada segundo, incrementar en:
         <button disabled={increment === 0} onClick={() => {
           setIncrement(i => i - 1);
         }}>–</button>
@@ -1196,12 +1196,12 @@ export default function Timer() {
   return (
     <>
       <h1>
-        Counter: {count}
+        Contador: {count}
         <button onClick={() => setCount(0)}>Reset</button>
       </h1>
       <hr />
       <p>
-        Every second, increment by:
+        Cada segundo, incrementar en:
         <button disabled={increment === 0} onClick={() => {
           setIncrement(i => i - 1);
         }}>–</button>
@@ -1321,7 +1321,7 @@ button { margin: 10px; }
 
 <Solution>
 
-El problema con el ejemplo anterior es que extrajo un Evento de Efecto llamado `onMount` sin considerar lo que el código debería estar haciendo realmente. Sólo deberías extraer Eventos de Efecto por una razón específica: cuando quieres hacer que una parte de tu código no sea reactiva. Sin embargo, la llamada a `setInterval` *debería* ser reactiva con respecto a la variable de estado `delay`. Si `delay` cambia, ¡quieres configurar el intervalo desde cero! Para arreglar este código, vuelve a meter todo el código reactivo dentro del Efecto:
+El problema con el ejemplo anterior es que extrajo un Evento de Efecto llamado `onMount` sin considerar lo que el código debería estar haciendo realmente. Solo deberías extraer Eventos de Efecto por una razón específica: cuando quieres hacer que una parte de tu código no sea reactiva. Sin embargo, la llamada a `setInterval` *debería* ser reactiva con respecto a la variable de estado `delay`. Si `delay` cambia, ¡quieres configurar el intervalo desde cero! Para arreglar este código, vuelve a meter todo el código reactivo dentro del Efecto:
   
 <Sandpack>
 
@@ -1411,7 +1411,7 @@ Al entrar en una sala de chat, este componente muestra una notificación. Sin em
 
 Esto casi funciona, pero hay un error. Intenta cambiar el menú desplegable de "general" a "travel" y luego a "music" rápidamente. Si lo haces lo suficientemente rápido, verás dos notificaciones (¡como era de esperar!) pero *ambas* dirán "Bienvenido a la música".
 
-Arréglalo para que cuando cambies de "general" a "travel" y luego a "music" muy rápidamente, veas dos notificaciones, la primera sea "Bienvenido a viajes" y la segunda "Bienvenido a música". (Para un reto adicional, suponiendo que *ya* has hecho que las notificaciones muestren las salas correctas, cambia el código para que sólo se muestre la última notificación).
+Arréglalo para que cuando cambies de "general" a "travel" y luego a "music" muy rápidamente, veas dos notificaciones, la primera sea "Bienvenido a viajes" y la segunda "Bienvenido a música". (Para un reto adicional, suponiendo que *ya* has hecho que las notificaciones muestren las salas correctas, cambia el código para que solo se muestre la última notificación).
 
 <Hint>
 
@@ -1462,7 +1462,7 @@ function ChatRoom({ roomId, theme }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>
+  return <h1>Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -1477,8 +1477,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="travel">viajes</option>
+          <option value="music">música</option>
         </select>
       </label>
       <label>
@@ -1517,7 +1517,7 @@ export function createConnection(serverUrl, roomId) {
         throw Error('Cannot add the handler twice.');
       }
       if (event !== 'connected') {
-        throw Error('Only "connected" event is supported.');
+        throw Error('Solo se admite el evento "connected".');
       }
       connectedCallback = callback;
     },
@@ -1589,7 +1589,7 @@ const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(connectedRoomId => {
-    showNotification('Welcome to ' + connectedRoomId, theme);
+    showNotification('Bienvenido a ' + connectedRoomId, theme);
   });
 
   useEffect(() => {
@@ -1618,8 +1618,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="travel">viajes</option>
+          <option value="music">música</option>
         </select>
       </label>
       <label>
@@ -1628,7 +1628,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Use dark theme
+        Usar tema oscuro
       </label>
       <hr />
       <ChatRoom
@@ -1655,10 +1655,10 @@ export function createConnection(serverUrl, roomId) {
     },
     on(event, callback) {
       if (connectedCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('No se puede añadir el controlador dos veces.');
       }
       if (event !== 'connected') {
-        throw Error('Only "connected" event is supported.');
+        throw Error('Solo se admite el evento "connected".');
       }
       connectedCallback = callback;
     },
@@ -1746,7 +1746,7 @@ function ChatRoom({ roomId, theme }) {
     };
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>
+  return <h1>Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -1761,8 +1761,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="travel">viajes</option>
+          <option value="music">música</option>
         </select>
       </label>
       <label>
@@ -1798,10 +1798,10 @@ export function createConnection(serverUrl, roomId) {
     },
     on(event, callback) {
       if (connectedCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('No se puede añadir el controlador dos veces.');
       }
       if (event !== 'connected') {
-        throw Error('Only "connected" event is supported.');
+        throw Error('Solo se admite el evento "connected".');
       }
       connectedCallback = callback;
     },
