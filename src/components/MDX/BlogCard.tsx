@@ -58,7 +58,7 @@ function BlogCard({title, badge, date, icon, url, children}: BlogCardProps) {
             {date}
             {badge ? (
               <div className="h-fit px-1 bg-highlight dark:bg-highlight-dark rounded uppercase text-link dark:text-link-dark font-bold tracking-wide text-xs whitespace-nowrap">
-                New
+                Nuevo
               </div>
             ) : null}
           </div>
@@ -67,7 +67,7 @@ function BlogCard({title, badge, date, icon, url, children}: BlogCardProps) {
           </span>
           {children != null && (
             <div className="text-link text-base dark:text-link-dark hover:underline mt-4">
-              Read more
+              Seguir leyendo
             </div>
           )}
         </div>
