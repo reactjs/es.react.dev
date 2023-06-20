@@ -1,5 +1,5 @@
 ---
-title: 'Separando Eventos de los Efectos'
+title: 'Separar Eventos de los Efectos'
 ---
 
 <Intro>
@@ -18,7 +18,7 @@ Los controladores de eventos solo se vuelven a ejecutar cuando vuelves a realiza
 
 </YouWillLearn>
 
-## Eligiendo entre controladores de eventos y Efectos {/*choosing-between-event-handlers-and-effects*/}
+## Elegir entre controladores de eventos y Efectos {/*choosing-between-event-handlers-and-effects*/}
 
 Primero, vamos a recapitular la diferencia entre controladores de eventos y Efectos.
 
@@ -224,7 +224,7 @@ Desde la perspectiva del usuario, **un cambio en el `roomId` *significa* que qui
 
 Los Efectos son reactivos, por lo que `createConnection(serverUrl, roomId)` y `connection.connect()` se ejecutarán para cada valor distinto de `roomId`. Tu Efecto mantiene la conexión de chat sincronizada con la sala seleccionada en ese momento.
 
-## Extrayendo lógica no reactiva fuera de los Efectos {/*extracting-non-reactive-logic-out-of-effects*/}
+## Extraer lógica no reactiva fuera de los Efectos {/*extracting-non-reactive-logic-out-of-effects*/}
 
 Las cosas se vuelven más complicadas cuando tu quieres combinar lógica reactiva con lógina no reactiva.
 
@@ -575,7 +575,7 @@ label { display: block; margin-top: 10px; }
 
 Puedes pensar que los Eventos de Efecto son muy similares a los controladores de eventos. La principal diferencia es que los controladores de eventos se ejecutan en respuesta a las interacciones del usuario, mientras que los Eventos de Efecto son disparados por ti desde los Efectos. Los Eventos de Efecto te permiten "romper la cadena" entre la reactividad de los Efectos y el código que no debería ser reactivo.
 
-### Leyendo las últimas propiedades y el estado con los Eventos de Efecto {/*reading-latest-props-and-state-with-effect-events*/}
+### Leer las últimas propiedades y el estado con los Eventos de Efecto {/*reading-latest-props-and-state-with-effect-events*/}
 
 <Wip>
 
