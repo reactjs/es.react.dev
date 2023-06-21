@@ -1346,7 +1346,7 @@ En general, hay dos enfoques para cambiar los datos. El primer enfoque es *mutar
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 squares[0] = 'X';
-// Now `squares` is ["X", null, null, null, null, null, null, null, null];
+// Ahora `squares` es ["X", null, null, null, null, null, null, null, null];
 ```
 
 Y así es como se vería si cambiaras los datos sin mutar de la matriz `squares`:
@@ -1354,7 +1354,8 @@ Y así es como se vería si cambiaras los datos sin mutar de la matriz `squares`
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 const nextSquares = ['X', null, null, null, null, null, null, null, null];
-// Now `squares` is unchanged, but `nextSquares` first element is 'X' rather than `null`
+// Ahora `squares` no ha cambiado, pero el primer elemento de `nextSquares` es 'X' en lugar de `null`
+```
 ```
 
 El resultado final es el mismo, pero al no mutar (cambiar los datos subyacentes) directamente, obtienes varios beneficios.
@@ -1739,11 +1740,11 @@ Almacena las matrices anteriores de `squares` en otra matriz llamada `history`, 
 
 ```jsx
 [
-  // Before first move
+  // Antes del primer movimiento
   [null, null, null, null, null, null, null, null, null],
-  // After first move
+  // Después del primer movimiento
   [null, null, null, null, 'X', null, null, null, null],
-  // After second move
+  // Después del segundo movimiento
   [null, null, null, null, 'X', null, null, null, 'O'],
   // ...
 ]
