@@ -24,13 +24,13 @@ Para los usuarios de React Native, React 18 se lanzará en una versión futura d
 
 Para instalar la última versión de React:
 
-```
+```bash
 npm install react react-dom
 ```
 
 O si estás usando yarn:
 
-```
+```bash
 yarn add react react-dom
 ```
 
@@ -61,7 +61,7 @@ root.render(<App tab="home" />);
 
 También hemos cambiado unmountComponentAtNode a root.unmount:
 
-```jsx
+```js
 // Antes
 unmountComponentAtNode(container);
 
@@ -71,7 +71,7 @@ root.unmount();
 
 También hemos eliminado la devolución de llamada de render, ya que generalmente no tiene el resultado esperado cuando se usa Suspense:
 
-```jsx
+```js
 // Antes
 const container = document.getElementById('app');
 render(<App tab="home" />, container, () => {
@@ -339,5 +339,3 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 ## Registro de cambios {/*changelog*/}
 
 Puedes ver el registro de cambios completo [aquí](https://github.com/facebook/react/blob/main/CHANGELOG.md).
-
-// Traducida por Martin DAVILA @iMartinDav
