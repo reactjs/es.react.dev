@@ -28,7 +28,7 @@ Los componentes de React son funciones de JavaScript que retornan marcado (*mark
 ```js
 function MyButton() {
   return (
-    <button>I'm a button</button>
+    <button>Soy un botón</button>
   );
 }
 ```
@@ -39,7 +39,7 @@ Ahora que has declarado `MyButton`, puedes anidarlo en otro componente:
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Bienvenido a mi aplicación</h1>
       <MyButton />
     </div>
   );
@@ -56,7 +56,7 @@ Mira el resultado:
 function MyButton() {
   return (
     <button>
-      I'm a button
+      Soy un botón
     </button>
   );
 }
@@ -64,7 +64,7 @@ function MyButton() {
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Bienvenido a mi aplicación</h1>
       <MyButton />
     </div>
   );
@@ -85,8 +85,8 @@ JSX es más estricto que HTML. Tienes que cerrar etiquetas como `<br />`. Tu com
 function AboutPage() {
   return (
     <>
-      <h1>About</h1>
-      <p>Hello there.<br />How do you do?</p>
+      <h1>Acerca de</h1>
+      <p>Hola.<br />¿Cómo vas?</p>
     </>
   );
 }
@@ -154,7 +154,7 @@ export default function Profile() {
       <img
         className="avatar"
         src={user.imageUrl}
-        alt={'Photo of ' + user.name}
+        alt={'Foto de ' + user.name}
         style={{
           width: user.imageSize,
           height: user.imageSize
@@ -227,9 +227,9 @@ Por ejemplo, digamos que tienes un arreglo de productos:
 
 ```js
 const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Repollo', id: 1 },
+  { title: 'Ajo', id: 2 },
+  { title: 'Manzana', id: 3 },
 ];
 ```
 
@@ -253,9 +253,9 @@ Nota que `<li>` tiene un atributo `key` (llave). Para cada elemento en una lista
 
 ```js
 const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
+  { title: 'Repollo', isFruit: false, id: 1 },
+  { title: 'Ajo', isFruit: false, id: 2 },
+  { title: 'Manzana', isFruit: true, id: 3 },
 ];
 
 export default function ShoppingList() {
@@ -285,12 +285,12 @@ Puedes responder a eventos declarando *manejadores de eventos* dentro de tus com
 ```js {2-4,7}
 function MyButton() {
   function handleClick() {
-    alert('You clicked me!');
+    alert('¡Me presionaste!');
   }
 
   return (
     <button onClick={handleClick}>
-      Click me
+      Presioname
     </button>
   );
 }
@@ -330,7 +330,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Presionado {count} veces
     </button>
   );
 }
@@ -348,7 +348,7 @@ import { useState } from 'react';
 export default function MyApp() {
   return (
     <div>
-      <h1>Counters that update separately</h1>
+      <h1>Contadores que se actualizan separadamente</h1>
       <MyButton />
       <MyButton />
     </div>
@@ -364,7 +364,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Presionado {count} veces
     </button>
   );
 }
@@ -443,7 +443,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update separately</h1>
+      <h1>Contadores que se actualizan separadamente</h1>
       <MyButton />
       <MyButton />
     </div>
@@ -451,7 +451,7 @@ export default function MyApp() {
 }
 
 function MyButton() {
-  // ... we're moving code from here ...
+  // ... estamos moviendo el código de aquí ...
 }
 
 ```
@@ -468,7 +468,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update together</h1>
+      <h1>Contadores que se actualizan juntos</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
@@ -484,7 +484,7 @@ Finalmente, cambia `MyButton` para que *lea* las props que le pasaste desde el c
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Clicked {count} times
+      Presionado {count} veces
     </button>
   );
 }
@@ -508,7 +508,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update together</h1>
+      <h1>Contadores que se actualizan juntos</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
@@ -518,7 +518,7 @@ export default function MyApp() {
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Clicked {count} times
+      Presionado {count} veces
     </button>
   );
 }
