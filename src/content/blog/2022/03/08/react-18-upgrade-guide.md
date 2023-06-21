@@ -1,14 +1,27 @@
-# Cómo actualizar a React 18 {/*cómo-actualizar-a-react-18*/}
-08 de marzo de 2022 por Rick Hanlon
+---
+title: "Cómo actualizar a React 18"
+---
+
+March 08, 2022 by [Rick Hanlon](https://twitter.com/rickhanlonii)
+
+---
+
+<Intro>
 
 Como compartimos en la publicación de lanzamiento, React 18 introduce características impulsadas por nuestro nuevo renderizador concurrente, con una estrategia de adopción gradual para aplicaciones existentes. En esta publicación, te guiaremos a través de los pasos para actualizar a React 18.
 
 Por favor, informa cualquier problema que encuentres durante la actualización a React 18.
 
-Nota
+</Intro>
+
+<Note>
+
 Para los usuarios de React Native, React 18 se lanzará en una versión futura de React Native. Esto se debe a que React 18 depende de la nueva arquitectura de React Native para beneficiarse de las nuevas capacidades presentadas en esta publicación del blog. Para obtener más información, consulta el discurso principal de React Conf aquí.
 
-## Instalación {/*instalación*/}
+</Note>
+
+## Instalación {/*installing*/}
+
 Para instalar la última versión de React:
 
 ```
@@ -21,17 +34,19 @@ O si estás usando yarn:
 yarn add react react-dom
 ```
 
-## Actualizaciones en las API de renderizado en el cliente {/*actualizaciones-en-las-api-de-renderizado-en-el-cliente*/}
+## Actualizaciones en las API de renderizado en el cliente {/*updates-to-client-rendering-apis*/}
+
 Cuando instales React 18 por primera vez, verás una advertencia en la consola:
 
-```
-Console
+<ConsoleBlock level="error">
+
 ReactDOM.render ya no es compatible en React 18. Usa createRoot en su lugar. Hasta que cambies a la nueva API, tu aplicación se comportará como si estuviera ejecutando React 17. Más información: [enlace](https://reactjs.org/link/switch-to-createroot)
-```
+
+</ConsoleBlock>
 
 React 18 introduce una nueva API de raíz que proporciona una mejor ergonomía para administrar las raíces. La nueva API de raíz también habilita el nuevo renderizador concurrente, que te permite optar por las características concurrentes.
 
-```jsx
+```js
 // Antes
 import { render } from 'react-dom';
 const container = document.getElementById('app');
@@ -77,12 +92,15 @@ const root = createRoot(container);
 root.render(<AppWithCallbackAfterRender />);
 ```
 
-Nota
-No hay un reemplazo directo de la antigua API de devolución de llamada de renderización, depende de tu caso de uso. Consulta la publicación del grupo de trabajo para Reemplazar render por createRoot para obtener más información.
+<Note>
+
+No hay un reemplazo directo de la antigua API de devolución de llamada de renderización, depende de tu caso de uso. Consulta la publicación del grupo de trabajo para [Reemplazar el renderizado con createRoot](https://github.com/reactwg/react-18/discussions/5) para obtener más información.
+
+</Note>
 
 Finalmente, si tu aplicación utiliza renderizado del lado del servidor con hidratación, actualiza `hydrate` a `hydrateRoot`:
 
-```javascript
+```js
 // Antes
 import { hydrate } from 'react-dom';
 const container = document.getElementById('app');
@@ -97,60 +115,61 @@ const root = hydrateRoot(container, <App tab="home" />);
 
 Para obtener más información, consulta la discusión del grupo de trabajo aquí.
 
-**Nota**
+<Note>
+
 Si tu aplicación deja de funcionar después de la actualización, verifica si está envuelta en `<StrictMode>`. Strict Mode se ha vuelto más estricto en React 18, y es posible que no todos tus componentes sean resistentes a las nuevas comprobaciones que agrega en el modo de desarrollo. Si al quitar Strict Mode se soluciona el problema de tu aplicación, puedes eliminarlo durante la actualización y luego agregarlo nuevamente (ya sea en la parte superior o para una parte del árbol) después de corregir los problemas que señala.
 
-Actualizaciones de las API de Renderizado del Servidor
+<Note>
+
+## Actualizaciones de las API de Renderizado del Servidor {/*actualizaciones-de-las-api-de-renderizado-del-servidor*/}
 
 En esta versión, estamos renovando nuestras API de `react-dom/server` para admitir por completo Suspense en el servidor y el renderizado de transmisión. Como parte de estos cambios, estamos deprecando la antigua API de transmisión de nodo (`Node streaming API`), que no admite la transmisión incremental de Suspense en el servidor.
 
 El uso de esta API ahora mostrará una advertencia:
 
-`renderToNodeStream`: Deprecado ⛔️️
+`renderToNodeStream`: **Deprecado ⛔️️**
 
 En su lugar, para transmisión en entornos Node, usa:
 
-`renderToPipeableStream`: Nuevo ✨
+`renderToPipeableStream`: **Nuevo ✨**
 
 También estamos introduciendo una nueva API para admitir el renderizado de transmisión con Suspense en entornos de tiempo de ejecución de vanguardia, como Deno y Cloudflare Workers:
 
-`renderToReadableStream`: Nuevo ✨
+`renderToReadableStream`: **Nuevo ✨**
 
 Las siguientes API seguirán funcionando, pero con soporte limitado para Suspense:
 
-`renderToString`: Limitado ⚠️
-`renderToStaticMarkup`: Limitado ⚠️
+`renderToString`: **Limitado ⚠️**
+`renderToStaticMarkup`: **Limitado ⚠️**
 
 Finalmente, esta API seguirá funcionando para el renderizado de correos electrónicos:
 
 `renderToStaticNodeStream`
 
-Para obtener más información sobre los cambios en las API de renderizado del servidor, consulta la publicación del grupo de trabajo sobre la actualización a React 18 en el servidor, una descripción detallada de la nueva arquitectura de Suspense SSR y la charla de Shaundai Person sobre el renderizado de servidor de transmisión con Suspense en React Conf 2021.
+Para obtener más información sobre los cambios en las API de renderizado en el servidor, consulta la publicación del grupo de trabajo sobre [Actualización a React 18 en el servidor](https://github.com/reactwg/react-18/discussions/22), una [inmersión profunda en la nueva arquitectura de Suspense SSR](https://github.com/reactwg/react-18/discussions/37) y la charla de [Shaundai Person](https://twitter.com/shaundai) sobre [Renderizado en el servidor en tiempo real con Suspense](https://www.youtube.com/watch?v=pj5N-Khihgc) en React Conf 2021.
 
-Actualizaciones de las Definiciones de TypeScript
+## Actualizaciones de las Definiciones de TypeScript {/*actualizaciones-de-las-definiciones-de-typescript*/}
 
 Si tu proyecto utiliza TypeScript, deberás actualizar las dependencias de `@types/react` y `@types/react-dom` a las últimas versiones. Los nuevos tipos son más seguros y detectan problemas que solían ser ignorados por el comprobador de tipos. El cambio más notable es que ahora es necesario listar explícitamente la propiedad `children` al definir props, por ejemplo:
 
-```typescript
+```typescript{3}
 interface MyButtonProps {
   color: string;
   children?: React.ReactNode;
 }
 ```
 
-## Cambios en los tipos {/*cambios-en-los-tipos*/}
+Consulta la [solicitud de extracción de typings de React 18](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/56210) para obtener una lista completa de cambios solo en tipos. Enlaza a ejemplos de correcciones en los tipos de biblioteca para que puedas ver cómo ajustar tu código. Puedes utilizar el [script de migración automatizada](https://github.com/eps1lon/types-react-codemod) para ayudar a adaptar más rápidamente el código de tu aplicación a los nuevos y más seguros typings.
 
-Consulta la solicitud de extracción de los tipos de React 18 para obtener una lista completa de los cambios exclusivos en los tipos. También incluye enlaces a correcciones de ejemplo en los tipos de biblioteca para que puedas ver cómo ajustar tu código. Puedes utilizar el script de migración automática para ayudar a adaptar tu código de aplicación a los nuevos tipos más rápidos y seguros.
+Si encuentras un error en los typings, por favor [envía un informe](https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/new?category=issues-with-a-types-package) en el repositorio de DefinitelyTyped.
 
-Si encuentras un error en los tipos, por favor, crea un problema en el repositorio DefinitelyTyped.
-
-## Batching automático {/*batching-automático*/}
+## Batching automático {/*automatic-batching*/}
 
 React 18 agrega mejoras de rendimiento incorporadas realizando más agrupaciones de actualizaciones automáticamente. La agrupación (batching) es cuando React agrupa múltiples actualizaciones de estado en una sola re-renderización para mejorar el rendimiento. Antes de React 18, solo se agrupaban las actualizaciones dentro de los controladores de eventos de React. Las actualizaciones dentro de promesas, setTimeout, controladores de eventos nativos u otros eventos no se agrupaban en React de forma predeterminada:
 
 Antes de React 18, solo se agrupaban los eventos de React:
 
-```javascript
+```js
 function handleClick() {
   setCount(c => c + 1);
   setFlag(f => !f);
@@ -168,7 +187,7 @@ A partir de React 18 y con `createRoot`, todas las actualizaciones se agruparán
 
 Después de React 18, las actualizaciones dentro de `setTimeout`, promesas, controladores de eventos nativos u otros eventos se agrupan:
 
-```javascript
+```js
 function handleClick() {
   setCount(c => c + 1);
   setFlag(f => !f);
@@ -199,9 +218,9 @@ function handleClick() {
 }
 ```
 
-Para obtener más información, consulta la explicación detallada sobre la agrupación automática.
+Para obtener más información, consulta la [explicación detallada sobre la batching automático](https://github.com/reactwg/react-18/discussions/21).
 
-## Nuevas API para bibliotecas {/*nuevas-api-para-bibliotecas*/}
+## Nuevas API para bibliotecas {/*new-apis-for-libraries*/}
 
 En el Grupo de Trabajo de React 18, trabajamos con los
 
@@ -209,11 +228,11 @@ En el Grupo de Trabajo de React 18, trabajamos con los
 
 - `useSyncExternalStore` es un nuevo hook que permite a los almacenes externos admitir lecturas concurrentes forzando que las actualizaciones del almacén sean síncronas. Esta nueva API se recomienda para cualquier biblioteca que se integre con el estado externo a React. Para obtener más información, consulta la publicación general y los detalles de la API de `useSyncExternalStore`.
 
-- `useInsertionEffect` es un nuevo hook que permite a las bibliotecas de CSS-in-JS abordar problemas de rendimiento al inyectar estilos en la representación. A menos que ya hayas creado una biblioteca de CSS-in-JS, no esperamos que uses esto. Este hook se ejecutará después de que el DOM haya sufrido mutaciones, pero antes de que los efectos de diseño lean el nuevo diseño. Esto soluciona un problema que ya existía en React 17 y versiones anteriores, pero es aún más importante en React 18 porque React le da prioridad al navegador durante la representación concurrente, lo que le permite volver a calcular el diseño. Para obtener más información, consulta la Guía de actualización de bibliotecas para `<style>`.
+- `useInsertionEffect` es un nuevo hook que permite a las bibliotecas de CSS-in-JS abordar problemas de rendimiento al inyectar estilos en la representación. A menos que ya hayas creado una biblioteca de CSS-in-JS, no esperamos que uses esto. Este hook se ejecutará después de que el DOM haya sufrido mutaciones, pero antes de que los efectos de diseño lean el nuevo diseño. Esto soluciona un problema que ya existía en React 17 y versiones anteriores, pero es aún más importante en React 18 porque React le da prioridad al navegador durante la representación concurrente, lo que le permite volver a calcular el diseño. Para obtener más información, consulta la [Guía de actualización de bibliotecas para `<style>`](https://github.com/reactwg/react-18/discussions/110).
 
 React 18 también introduce nuevas API para la representación concurrente, como `startTransition`, `useDeferredValue` y `useId`, de las cuales compartimos más detalles en la publicación de lanzamiento.
 
-## Actualizaciones en Strict Mode {/*actualizaciones-en-strict-mode*/}
+## Actualizaciones en Strict Mode {/*updates-to-strict-mode*/}
 
 En el futuro, nos gustaría agregar una función que permita a React agregar y eliminar secciones de la interfaz de usuario mientras se conserva el estado. Por ejemplo, cuando un usuario cambia de pestaña en una pantalla y regresa, React debería mostrar de inmediato la pantalla anterior. Para lograr esto, React desmontaría y volvería a montar árboles utilizando el mismo estado de componente que antes.
 
@@ -223,37 +242,42 @@ Para ayudar a detectar estos problemas, React 18 introduce una nueva verificaci�
 
 Antes de este cambio, React montaba el componente y creaba los efectos:
 
-- React monta el componente.
-    - Se crean los efectos de diseño.
-    - Se crean los efectos de efecto.
+```
+* React monta el componente.
+    * Se crean los efectos de diseño.
+    * Se crean los efectos de efecto.
+```
 
 Con Strict Mode en React 18, React simula el desmontaje y remontaje del componente en modo de desarrollo:
 
-- React monta el componente.
-    - Se crean los efectos de diseño.
-    - Se crean los efectos de efecto.
-- React simula el desmontaje del componente.
-    - Se destruyen los efectos de diseño.
-    - Se destruyen los efectos de efecto.
-- React simula el montaje del componente con el estado anterior.
-    - Se ejecuta el código de configuración del efecto
-
+```
+* React monta el componente.
+    * Se crean los efectos de diseño.
+    * Se crean los efectos de efecto.
+* React simula el desmontaje del componente.
+    * Se destruyen los efectos de diseño.
+    * Se destruyen los efectos de efecto.
+* React simula el montaje del componente con el estado anterior.
+    * Se ejecuta el código de configuración del efecto
  de diseño.
-    - Se ejecuta el código de configuración del efecto de efecto.
+    * Se ejecuta el código de configuración del efecto de efecto.
+```
 
 Para obtener más información, consulta las publicaciones del grupo de trabajo sobre Agregar estado reutilizable a StrictMode y Cómo admitir estado reutilizable en efectos.
 
-## Configuración de tu entorno de pruebas {/*configuración-de-tu-entorno-de-pruebas*/}
+## Configuración de tu entorno de pruebas {/*configuring-your-testing-environment*/}
 
 Cuando actualices tus pruebas para usar `createRoot`, es posible que veas esta advertencia en la consola de pruebas:
 
-```
+<ConsoleBlock level="error">
+
 La configuración actual del entorno de pruebas no admite act(…)
-```
+
+</ConsoleBlock>
 
 Para solucionarlo, establece `globalThis.IS_REACT_ACT_ENVIRONMENT` en `true` antes de ejecutar tu prueba:
 
-```javascript
+```js
 // En tu archivo de configuración de pruebas
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 ```
@@ -266,13 +290,13 @@ Eventualmente, esperamos que las bibliotecas de pruebas configuren esto automát
 
 Obtén más información sobre la API de pruebas `act` y los cambios relacionados en el grupo de trabajo.
 
-## Eliminación del soporte para Internet Explorer {/*eliminación-del-soporte-para-internet-explorer*/}
+## Eliminación del soporte para Internet Explorer {/**dropping-support-for-internet-explore*/} {/*eliminación-del-soporte-para-internet-explorer-dropping-support-for-internet-explore*/}
 
-En esta versión, React elimina el soporte para Internet Explorer, que dejará de tener soporte el 15 de junio de 2022. Realizamos este cambio ahora porque las nuevas funciones introducidas en React 18 se construyen utilizando características de navegadores modernos, como microtareas, que no se pueden polifilizar adecuadamente en IE.
+En esta versión, React dejará de admitir Internet Explorer, el cual [dejará de recibir soporte el 15 de junio de 2022](https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge). Estamos realizando este cambio ahora debido a que las nuevas funciones introducidas en React 18 se construyen utilizando características modernas del navegador, como microtareas, que no pueden ser adecuadamente polifiladas en IE.
 
 Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 17.
 
-## Deprecaciones {/*deprecaciones*/}
+## Deprecaciones {/*deprecations*/}
 
 - `react-dom`: `ReactDOM.render` ha sido deprecado. Su uso mostrará una advertencia y ejecutará tu aplicación en modo React 17.
 - `react-dom`: `ReactDOM.hydrate` ha sido deprecado. Su uso mostrará una advertencia y ejecutará tu aplicación en modo React 17.
@@ -280,7 +304,7 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 - `react-dom`: `ReactDOM.renderSubtreeIntoContainer` ha sido deprecado.
 - `react-dom/server`: `ReactDOMServer.renderToNodeStream` ha sido deprecado.
 
-**Otros cambios disruptivos**
+## Otros cambios disruptivos {/*other-breaking-changes*/}
 
 - Temporización consistente de `useEffect`: Ahora, React siempre ejecuta de forma síncrona las funciones de efecto si la actualización se desencadenó durante un evento discreto de entrada de usuario, como un clic o un evento de teclado. Anteriormente, el comportamiento no siempre era predecible ni consistente.
 
@@ -292,30 +316,28 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 
 - Nuevos requisitos de entorno de JavaScript: Ahora, React depende de las características de los navegadores modernos, como Promise, Symbol y Object.assign. Si necesitas admitir navegadores y dispositivos más antiguos, como Internet Explorer, que no proporcionan características de navegadores modernos de forma nativa o tienen implementaciones no compatibles, considera incluir un polyfill global en tu aplicación empaquetada.
 
-**Otros cambios destacados**
+## Otros cambios notables {/*other-notable-changes*/}
 
-*React*
+### React {/*react*/}
 
 - Ahora los componentes pueden renderizar `undefined`: React ya no muestra advertencias si retornas `undefined` desde un componente. Esto hace que los valores de retorno permitidos en los componentes sean consistentes con los valores permitidos en medio de un árbol de componentes. Te sugerimos usar un linter para evitar errores como olvidar una declaración de retorno antes de JSX.
 
-- En las pruebas, las advertencias de `act` ahora son opcionales: Si estás ejecutando pruebas de extremo a extremo, las advertencias de `act` no son necesarias. Hemos introducido un mecanismo opcional para que las puedas habilitar solo en las pruebas unitarias donde sean útiles y beneficiosas.
+- **En las pruebas, las advertencias de `act` ahora son opcionales:** Si estás ejecutando pruebas de extremo a extremo, las advertencias de `act` son innecesarias. Hemos introducido un mecanismo [opcional](https://github.com/reactwg/react-18/discussions/102) para que puedas habilitarlas solo en pruebas unitarias donde sean útiles y beneficiosas.
 
-- No hay advertencia sobre `setState` en componentes desmontados: Anteriormente, React mostraba advertencias sobre pérdidas de memoria cuando llamabas a `setState` en un componente desmontado. Esta advertencia se agregó para las suscripciones, pero la
+- No hay advertencia sobre `setState` en componentes desmontados: Anteriormente, React mostraba advertencias sobre pérdidas de memoria cuando llamabas a `setState` en un componente desmontado. Esta advertencia se agregó para las suscripciones, pero la mayoría de las veces se encontraba en escenarios donde el establecimiento de estado está bien y las soluciones alternativas empeoran el código. Hemos eliminado esta [advertencia](https://github.com/facebook/react/pull/22114).
 
- mayoría de las veces se encontraba en escenarios donde el establecimiento de estado está bien y las soluciones alternativas empeoran el código. Hemos eliminado esta advertencia.
-
-- No se suprimen los registros de la consola: Cuando usas el "Modo Estricto" (`Strict Mode`), React renderiza cada componente dos veces para ayudarte a encontrar efectos secundarios inesperados. En React 17, suprimimos los registros de la consola para una de las dos renderizaciones para que los registros fueran más fáciles de leer. En respuesta a los comentarios de la comunidad que indicaban que esto era confuso, hemos eliminado la supresión. En su lugar, si tienes instaladas las React DevTools, los registros de la segunda renderización se mostrarán en gris y habrá una opción (desactivada de forma predeterminada) para suprimirlos por completo.
+- No se suprimen los registros de la consola: Cuando usas el "Modo Estricto" (`Strict Mode`), React renderiza cada componente dos veces para ayudarte a encontrar efectos secundarios inesperados. En React 17, suprimimos los registros de la consola para una de las dos renderizaciones para que los registros fueran más fáciles de leer. En respuesta a los [comentarios de la comunidad](https://github.com/facebook/react/issues/21783) que indicaban que esto era confuso, hemos eliminado la supresión. En su lugar, si tienes instaladas las React DevTools, los registros de la segunda renderización se mostrarán en gris y habrá una opción (desactivada de forma predeterminada) para suprimirlos por completo.
 
 - Mejora en el uso de memoria: React ahora limpia más campos internos al desmontar, lo que reduce el impacto de posibles fugas de memoria no corregidas que puedan existir en el código de tu aplicación.
 
-*React DOM Server*
+### React DOM Server {/*react-dom-server*/}
 
 - `renderToString`: Ya no generará un error al suspenderse en el servidor. En su lugar, emitirá el HTML de respaldo para el límite más cercano de `<Suspense>` y luego volverá a intentar renderizar el mismo contenido en el cliente. Aún se recomienda que cambies a una API de transmisión como `renderToPipeableStream` o `renderToReadableStream` en su lugar.
 
 - `renderToStaticMarkup`: Ya no generará un error al suspenderse en el servidor. En su lugar, emitirá el HTML de respaldo para el límite más cercano de `<Suspense>`.
 
-**Registro de cambios**
+## Registro de cambios {/*changelog*/}
 
-Puedes ver el registro de cambios completo [aquí](enlace).
+Puedes ver el registro de cambios completo [aquí](https://github.com/facebook/react/blob/main/CHANGELOG.md).
 
 // Traducida por Martin DAVILA @iMartinDav
