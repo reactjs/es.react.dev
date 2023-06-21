@@ -1,4 +1,4 @@
-# Cómo actualizar a React 18
+# Cómo actualizar a React 18 {/*cómo-actualizar-a-react-18*/}
 08 de marzo de 2022 por Rick Hanlon
 
 Como compartimos en la publicación de lanzamiento, React 18 introduce características impulsadas por nuestro nuevo renderizador concurrente, con una estrategia de adopción gradual para aplicaciones existentes. En esta publicación, te guiaremos a través de los pasos para actualizar a React 18.
@@ -8,7 +8,7 @@ Por favor, informa cualquier problema que encuentres durante la actualización a
 Nota
 Para los usuarios de React Native, React 18 se lanzará en una versión futura de React Native. Esto se debe a que React 18 depende de la nueva arquitectura de React Native para beneficiarse de las nuevas capacidades presentadas en esta publicación del blog. Para obtener más información, consulta el discurso principal de React Conf aquí.
 
-## Instalación
+## Instalación {/*instalación*/}
 Para instalar la última versión de React:
 
 ```
@@ -21,7 +21,7 @@ O si estás usando yarn:
 yarn add react react-dom
 ```
 
-## Actualizaciones en las API de renderizado en el cliente
+## Actualizaciones en las API de renderizado en el cliente {/*actualizaciones-en-las-api-de-renderizado-en-el-cliente*/}
 Cuando instales React 18 por primera vez, verás una advertencia en la consola:
 
 ```
@@ -138,13 +138,13 @@ interface MyButtonProps {
 }
 ```
 
-## Cambios en los tipos
+## Cambios en los tipos {/*cambios-en-los-tipos*/}
 
 Consulta la solicitud de extracción de los tipos de React 18 para obtener una lista completa de los cambios exclusivos en los tipos. También incluye enlaces a correcciones de ejemplo en los tipos de biblioteca para que puedas ver cómo ajustar tu código. Puedes utilizar el script de migración automática para ayudar a adaptar tu código de aplicación a los nuevos tipos más rápidos y seguros.
 
 Si encuentras un error en los tipos, por favor, crea un problema en el repositorio DefinitelyTyped.
 
-## Batching automático
+## Batching automático {/*batching-automático*/}
 
 React 18 agrega mejoras de rendimiento incorporadas realizando más agrupaciones de actualizaciones automáticamente. La agrupación (batching) es cuando React agrupa múltiples actualizaciones de estado en una sola re-renderización para mejorar el rendimiento. Antes de React 18, solo se agrupaban las actualizaciones dentro de los controladores de eventos de React. Las actualizaciones dentro de promesas, setTimeout, controladores de eventos nativos u otros eventos no se agrupaban en React de forma predeterminada:
 
@@ -201,7 +201,7 @@ function handleClick() {
 
 Para obtener más información, consulta la explicación detallada sobre la agrupación automática.
 
-## Nuevas API para bibliotecas
+## Nuevas API para bibliotecas {/*nuevas-api-para-bibliotecas*/}
 
 En el Grupo de Trabajo de React 18, trabajamos con los
 
@@ -213,7 +213,7 @@ En el Grupo de Trabajo de React 18, trabajamos con los
 
 React 18 también introduce nuevas API para la representación concurrente, como `startTransition`, `useDeferredValue` y `useId`, de las cuales compartimos más detalles en la publicación de lanzamiento.
 
-## Actualizaciones en Strict Mode
+## Actualizaciones en Strict Mode {/*actualizaciones-en-strict-mode*/}
 
 En el futuro, nos gustaría agregar una función que permita a React agregar y eliminar secciones de la interfaz de usuario mientras se conserva el estado. Por ejemplo, cuando un usuario cambia de pestaña en una pantalla y regresa, React debería mostrar de inmediato la pantalla anterior. Para lograr esto, React desmontaría y volvería a montar árboles utilizando el mismo estado de componente que antes.
 
@@ -243,7 +243,7 @@ Con Strict Mode en React 18, React simula el desmontaje y remontaje del componen
 
 Para obtener más información, consulta las publicaciones del grupo de trabajo sobre Agregar estado reutilizable a StrictMode y Cómo admitir estado reutilizable en efectos.
 
-## Configuración de tu entorno de pruebas
+## Configuración de tu entorno de pruebas {/*configuración-de-tu-entorno-de-pruebas*/}
 
 Cuando actualices tus pruebas para usar `createRoot`, es posible que veas esta advertencia en la consola de pruebas:
 
@@ -266,13 +266,13 @@ Eventualmente, esperamos que las bibliotecas de pruebas configuren esto automát
 
 Obtén más información sobre la API de pruebas `act` y los cambios relacionados en el grupo de trabajo.
 
-## Eliminación del soporte para Internet Explorer
+## Eliminación del soporte para Internet Explorer {/*eliminación-del-soporte-para-internet-explorer*/}
 
 En esta versión, React elimina el soporte para Internet Explorer, que dejará de tener soporte el 15 de junio de 2022. Realizamos este cambio ahora porque las nuevas funciones introducidas en React 18 se construyen utilizando características de navegadores modernos, como microtareas, que no se pueden polifilizar adecuadamente en IE.
 
 Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 17.
 
-## Deprecaciones
+## Deprecaciones {/*deprecaciones*/}
 
 - `react-dom`: `ReactDOM.render` ha sido deprecado. Su uso mostrará una advertencia y ejecutará tu aplicación en modo React 17.
 - `react-dom`: `ReactDOM.hydrate` ha sido deprecado. Su uso mostrará una advertencia y ejecutará tu aplicación en modo React 17.
