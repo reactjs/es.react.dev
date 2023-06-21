@@ -7,19 +7,22 @@ import {useSandpack} from '@codesandbox/sandpack-react';
 import {IconDownload} from '../../Icon/IconDownload';
 export interface DownloadButtonProps {}
 
-let supportsImportMap: boolean | void;
+let supportsImportMap = false;
+
+function subscribe(cb: () => void) {
+  // This shouldn't actually need to update, but this works around
+  // https://github.com/facebook/react/issues/26095
+  let timeout = setTimeout(() => {
+    supportsImportMap =
+      (HTMLScriptElement as any).supports &&
+      (HTMLScriptElement as any).supports('importmap');
+    cb();
+  }, 0);
+  return () => clearTimeout(timeout);
+}
 
 function useSupportsImportMap() {
-  function subscribe() {
-    // It never updates.
-    return () => {};
-  }
   function getCurrentValue() {
-    if (supportsImportMap === undefined) {
-      supportsImportMap =
-        (HTMLScriptElement as any).supports &&
-        (HTMLScriptElement as any).supports('importmap');
-    }
     return supportsImportMap;
   }
   function getServerSnapshot() {
@@ -98,9 +101,9 @@ ${css}
     <button
       className="text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1"
       onClick={downloadHTML}
-      title="Download Sandbox"
+      title="Descargar Sandbox"
       type="button">
-      <IconDownload className="inline mr-1" /> Download
+      <IconDownload className="inline mr-1" /> Descargar
     </button>
   );
 }

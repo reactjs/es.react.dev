@@ -156,7 +156,7 @@ Estas propiedades DOM estándar también son compatibles con todos los component
 * [`title`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/title): Un string. Especifica el texto de información de ayuda para el elemento.
 * [`translate`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/translate): Ya sea `'yes'` o `'no'`. Pasar `'no'` excluye el contenido del elemento de ser traducido.
 
-También puedes pasar atributos personalizados como props, por ejemplo `mycustomprop="someValue".` Esto puede ser útil al integrar bibliotecas de terceros. El nombre del atributo personalizado debe estar en minúsculas y no debe empezar con `on`. El valor se convertirá a un string. Si pasas `null` o `undefined`, se eliminará el atributo personalizado.
+También puedes pasar atributos personalizados como props, por ejemplo `mycustomprop="someValue"`. Esto puede ser útil al integrar bibliotecas de terceros. El nombre del atributo personalizado debe estar en minúsculas y no debe empezar con `on`. El valor se convertirá a un string. Si pasas `null` o `undefined`, se eliminará el atributo personalizado.
 
 Estos eventos se disparan sólo para los elementos [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form):
 

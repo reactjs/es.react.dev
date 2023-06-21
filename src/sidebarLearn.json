@@ -68,7 +68,7 @@
           "path": "/learn/javascript-in-jsx-with-curly-braces"
         },
         {
-          "title": "Passing Props to a Component",
+          "title": "Pasar props a un componente",
           "path": "/learn/passing-props-to-a-component"
         },
         {
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "title": "Adding Interactivity",
+      "title": "Agregar interactividad",
       "path": "/learn/adding-interactivity",
       "tags": [],
       "routes": [
@@ -146,7 +146,7 @@
           "path": "/learn/extracting-state-logic-into-a-reducer"
         },
         {
-          "title": "Passing Data Deeply with Context",
+          "title": "Pasar datos en profundidad con contexto",
           "path": "/learn/passing-data-deeply-with-context"
         },
         {
@@ -177,7 +177,7 @@
           "path": "/learn/you-might-not-need-an-effect"
         },
         {
-          "title": "Lifecycle of Reactive Effects",
+          "title": "Ciclo de vida de los Efectos reactivos",
           "path": "/learn/lifecycle-of-reactive-effects"
         },
         {
@@ -186,7 +186,7 @@
         },
         {
           "title": "Eliminar dependencias de los Efectos",
-          "path": "/learn/removing-effect-dependencies"              
+          "path": "/learn/removing-effect-dependencies"
         },
         {
           "title": "Reutilización de lógica con Hooks personalizados",

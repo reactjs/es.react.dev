@@ -10,8 +10,8 @@ React se ha diseñado desde un inicio para una adopción gradual. Puedes usar ta
 
 <YouWillLearn isChapter={true}>
 
-* [Cómo añadir React a una página HTML](/learn/add-react-to-a-website)
-* [Cómo iniciar un proyecto completo en React](/learn/start-a-new-react-project)
+* [Cómo iniciar un nuevo proyecto de React](/learn/start-a-new-react-project)
+* [Cómo añadir React a una página existente](/learn/add-react-to-an-existing-project)
 * [Cómo configurar tu editor](/learn/editor-setup)
 * [Cómo instalar las Herramientas de Desarrollo de React](/learn/react-developer-tools)
 
@@ -35,7 +35,7 @@ export default function App() {
 
 </Sandpack>
 
-Puedes editarlo directamente of abrirlo en una nueva pestaña presionando el botón "Fork" en la esquina superior derecha.
+Puedes editarlo directamente of abrirlo en una nueva pestaña presionando el botón "Bifurcar" en la esquina superior derecha.
 
 La mayoría de las páginas de la documentación de React contienen ejemplos interactivos como este. Fuera de la documentación de React, también existen muchos *sandboxes* en línea que permiten usar React: por ejemplo, [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), o [CodePen](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb).
 

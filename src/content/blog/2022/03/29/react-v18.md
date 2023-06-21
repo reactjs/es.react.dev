@@ -2,341 +2,337 @@
 title: "React v18.0"
 ---
 
-March 29, 2022 by [The React Team](/community/team)
+29 de marzo de 2022 por [The React Team](/community/team)
 
 ---
 
 <Intro>
 
-React 18 is now available on npm! In our last post, we shared step-by-step instructions for [upgrading your app to React 18](/blog/2022/03/08/react-18-upgrade-guide). In this post, we'll give an overview of what's new in React 18, and what it means for the future.
+¡React 18 ya está disponible en npm! En nuestro último artículo, compartimos instrucciones paso a paso para [actualizar tu aplicación a React 18](/blog/2022/03/08/react-18-upgrade-guide). En este artículo, daremos una descripción general de las novedades en React 18 y lo que significa para el futuro.
 
 </Intro>
 
 ---
 
-Our latest major version includes out-of-the-box improvements like automatic batching, new APIs like startTransition, and streaming server-side rendering with support for Suspense.
+Nuestra última versión mayor incluye mejoras listas para usar, como el procesamiento por lotes automático, nuevas API como startTransition y renderizado en el servidor con transmisión con soporte para Suspense.
 
-Many of the features in React 18 are built on top of our new concurrent renderer, a behind-the-scenes change that unlocks powerful new capabilities. Concurrent React is opt-in — it's only enabled when you use a concurrent feature — but we think it will have a big impact on the way people build applications.
+Muchas de las funcionalidades en React 18 se basan en nuestro nuevo renderizador concurrente, un cambio interno que desbloquea nuevas y poderosas capacidades. React Concurrente es opcional, solo se activa cuando se utiliza una funcionalidad concurrente, pero creemos que tendrá un gran impacto en la forma en que las personas construyen aplicaciones.
 
-We've spent years researching and developing support for concurrency in React, and we've taken extra care to provide a gradual adoption path for existing users. Last summer, [we formed the React 18 Working Group](/blog/2021/06/08/the-plan-for-react-18) to gather feedback from experts in the community and ensure a smooth upgrade experience for the entire React ecosystem.
+Hemos dedicado años a investigar y desarrollar el soporte para la concurrencia en React, y nos hemos esforzado aún más para ofrecer un camino de adopción gradual para los usuarios existentes. El verano pasado, [formamos el Grupo de Trabajo de React 18](/blog/2021/06/08/the-plan-for-react-18) para recopilar comentarios de expertos en la comunidad y garantizar una experiencia de actualización fluida para todo el ecosistema de React.
 
-In case you missed it, we shared a lot of this vision at React Conf 2021:
+En caso de que te lo hayas perdido, compartimos gran parte de esta visión en React Conf 2021.
 
-* In [the keynote](https://www.youtube.com/watch?v=FZ0cG47msEk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa), we explain how React 18 fits into our mission to make it easy for developers to build great user experiences
-* [Shruti Kapoor](https://twitter.com/shrutikapoor08) [demonstrated how to use the new features in React 18](https://www.youtube.com/watch?v=ytudH8je5ko&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=2)
-* [Shaundai Person](https://twitter.com/shaundai) gave us an overview of [streaming server rendering with Suspense](https://www.youtube.com/watch?v=pj5N-Khihgc&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=3)
+* En [la presentación principal](https://www.youtube.com/watch?v=FZ0cG47msEk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa), explicamos cómo React 18 encaja en nuestra misión de facilitar a los desarrolladores la creación de excelentes experiencias de usuario
+* [Shruti Kapoor](https://twitter.com/shrutikapoor08) [demostró cómo utilizar las nuevas funcionalidades de React 18](https://www.youtube.com/watch?v=ytudH8je5ko&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=2)
+* [Shaundai Person](https://twitter.com/shaundai) nos brindó una descripción general del [renderizado en tiempo real en el servidor con Suspense](https://www.youtube.com/watch?v=pj5N-Khihgc&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=3)
 
-Below is a full overview of what to expect in this release, starting with Concurrent Rendering.
+A continuación se muestra una descripción completa de lo que puedes esperar en esta versión, comenzando con el Renderizado Concurrente.
 
 <Note>
 
-For React Native users, React 18 will ship in React Native with the New React Native Architecture. For more information, see the [React Conf keynote here](https://www.youtube.com/watch?v=FZ0cG47msEk&t=1530s).
+Para los usuarios de React Native, React 18 se lanzará en React Native con la Nueva Arquitectura de React Native. Para más información, puedes ver la [presentación oficial de la React Conf aquí](https://www.youtube.com/watch?v=FZ0cG47msEk&t=1530s).
 
 </Note>
 
-## What is Concurrent React? {/*what-is-concurrent-react*/}
+## ¿Qué es React Concurrente? {/*what-is-concurrent-react*/}
 
-The most important addition in React 18 is something we hope you never have to think about: concurrency. We think this is largely true for application developers, though the story may be a bit more complicated for library maintainers.
+La adición más importante en React 18 es algo en lo que esperamos que nunca tengas que pensar: la concurrencia. Creemos que esto es en gran medida cierto para los desarrolladores de aplicaciones, aunque la situación puede ser un poco más complicada para los mantenedores de bibliotecas.
 
-Concurrency is not a feature, per se. It's a new behind-the-scenes mechanism that enables React to prepare multiple versions of your UI at the same time. You can think of concurrency as an implementation detail — it's valuable because of the features that it unlocks. React uses sophisticated techniques in its internal implementation, like priority queues and multiple buffering. But you won't see those concepts anywhere in our public APIs.
+La concurrencia no es una funcionalidad en sí misma. Es un nuevo mecanismo detrás de escena que permite a React preparar múltiples versiones de tu interfaz de usuario al mismo tiempo. Puedes pensar en la concurrencia como un detalle de implementación: es valiosa debido a las funcionalidades que desbloquea. React utiliza técnicas sofisticadas en su implementación interna, como colas de prioridad y múltiples búferes. Pero no verás esos conceptos en ninguna de nuestras APIs públicas.
 
-When we design APIs, we try to hide implementation details from developers. As a React developer, you focus on *what* you want the user experience to look like, and React handles *how* to deliver that experience. So we don’t expect React developers to know how concurrency works under the hood.
+Cuando diseñamos las APIs, tratamos de ocultar los detalles de implementación a los desarrolladores. Como desarrollador de React, te enfocas en cómo quieres que sea la experiencia del usuario y React se encarga de cómo ofrecer esa experiencia. Por lo tanto, no esperamos que los desarrolladores de React sepan cómo funciona la concurrencia bajo el capó.
 
-However, Concurrent React is more important than a typical implementation detail — it's a foundational update to React's core rendering model. So while it's not super important to know how concurrency works, it may be worth knowing what it is at a high level.
+Sin embargo, React Concurrente es más importante que un simple detalle de implementación, es una actualización fundamental en el modelo de renderizado central de React. Entonces, aunque no es muy importante saber cómo funciona la concurrencia, puede valer la pena saber qué es a grandes rasgos.
 
-A key property of Concurrent React is that rendering is interruptible. When you first upgrade to React 18, before adding any concurrent features, updates are rendered the same as in previous versions of React — in a single, uninterrupted, synchronous transaction. With synchronous rendering, once an update starts rendering, nothing can interrupt it until the user can see the result on screen.
+Una propiedad clave de React Concurrente es que el renderizado es interrumpible. Cuando actualizas por primera vez a React 18, antes de agregar cualquier característica concurrente, las actualizaciones se renderizan de la misma manera que en versiones anteriores de React: en una transacción única, sin interrupciones y sincrónica. Con el renderizado sincrónico, una vez que comienza el renderizado de una actualización, nada puede interrumpirlo hasta que el usuario pueda ver el resultado en la pantalla.
 
-In a concurrent render, this is not always the case. React may start rendering an update, pause in the middle, then continue later. It may even abandon an in-progress render altogether. React guarantees that the UI will appear consistent even if a render is interrupted. To do this, it waits to perform DOM mutations until the end, once the entire tree has been evaluated. With this capability, React can prepare new screens in the background without blocking the main thread. This means the UI can respond immediately to user input even if it’s in the middle of a large rendering task, creating a fluid user experience.
+En un renderizado concurrente, esto no siempre es el caso. React puede comenzar a renderizar una actualización, pausar en el medio y luego continuar más tarde. Incluso puede abandonar por completo un renderizado en progreso. React garantiza que la interfaz de usuario se mantendrá consistente incluso si se interrumpe un renderizado. Para lograr esto, espera para realizar mutaciones en el DOM hasta el final, una vez que se ha evaluado todo el árbol. Con esta capacidad, React puede preparar nuevas pantallas en segundo plano sin bloquear el hilo principal. Esto significa que la interfaz de usuario puede responder de inmediato a la entrada del usuario incluso si se encuentra en medio de una tarea de renderizado grande, creando una experiencia de usuario fluida.
 
-Another example is reusable state. Concurrent React can remove sections of the UI from the screen, then add them back later while reusing the previous state. For example, when a user tabs away from a screen and back, React should be able to restore the previous screen in the same state it was in before. In an upcoming minor, we're planning to add a new component called `<Offscreen>` that implements this pattern. Similarly, you’ll be able to use Offscreen to prepare new UI in the background so that it’s ready before the user reveals it.
+Otro ejemplo es el estado reutilizable. React Concurrente puede eliminar secciones de la interfaz de usuario de la pantalla y luego agregarlas nuevamente más tarde, reutilizando el estado anterior. Por ejemplo, cuando un usuario cambia de pestaña en una pantalla y vuelve, React debería poder restaurar la pantalla anterior en el mismo estado en el que se encontraba antes. En una próxima versión menor, planeamos agregar un nuevo componente llamado `<Offscreen>` que implementa este patrón. Del mismo modo, podrás utilizar Offscreen para preparar una nueva interfaz de usuario en segundo plano para que esté lista antes de que el usuario la revele.
 
-Concurrent rendering is a powerful new tool in React and most of our new features are built to take advantage of it, including Suspense, transitions, and streaming server rendering. But React 18 is just the beginning of what we aim to build on this new foundation.
+El renderizado concurrente es una poderosa herramienta nueva en React y la mayoría de nuestras nuevas características están diseñadas para aprovecharla, incluyendo Suspense, transiciones y renderizado en tiempo real en el servidor. Pero React 18 es solo el comienzo de lo que buscamos construir sobre esta nueva base.
 
-## Gradually Adopting Concurrent Features {/*gradually-adopting-concurrent-features*/}
+## Adoptando gradualmente las funcionalidades concurrentes {/*gradually-adopting-concurrent-features*/}
 
-Technically, concurrent rendering is a breaking change. Because concurrent rendering is interruptible, components behave slightly differently when it is enabled.
+Técnicamente, el renderizado concurrente es un cambio disruptivo. Debido a que el renderizado concurrente es interrumpible, los componentes se comportan de manera ligeramente diferente cuando está habilitado.
 
-In our testing, we've upgraded thousands of components to React 18. What we've found is that nearly all existing components "just work" with concurrent rendering, without any changes. However, some of them may require some additional migration effort. Although the changes are usually small, you'll still have the ability to make them at your own pace. The new rendering behavior in React 18 is **only enabled in the parts of your app that use new features.**
+En nuestras pruebas, hemos actualizado miles de componentes a React 18. Lo que hemos encontrado es que casi todos los componentes existentes "simplemente funcionan" con el renderizado concurrente, sin necesidad de realizar cambios. Sin embargo, algunos de ellos pueden requerir un esfuerzo adicional de migración. Aunque los cambios suelen ser pequeños, aún tienes la capacidad de hacerlos a tu propio ritmo. El nuevo comportamiento de renderizado en React 18 **solo se activa en las partes de tu aplicación que utilizan nuevas funcionalidades.**
 
-The overall upgrade strategy is to get your application running on React 18 without breaking existing code. Then you can gradually start adding concurrent features at your own pace. You can use [`<StrictMode>`](/reference/react/StrictMode) to help surface concurrency-related bugs during development. Strict Mode doesn't affect production behavior, but during development it will log extra warnings and double-invoke functions that are expected to be idempotent. It won't catch everything, but it's effective at preventing the most common types of mistakes.
+La estrategia general de actualización consiste en hacer que tu aplicación funcione con React 18 sin romper el código existente. Luego, puedes comenzar gradualmente a agregar funcionalidades concurrentes a tu propio ritmo. Puedes utilizar [`<StrictMode>`](/reference/react/StrictMode) para ayudar a detectar errores relacionados con la concurrencia durante el desarrollo. Strict Mode no afecta el comportamiento en producción, pero durante el desarrollo mostrará advertencias adicionales y duplicará la invocación de funciones que se espera que sean idempotentes. No detectará todo, pero es efectivo para prevenir los errores más comunes.
 
-After you upgrade to React 18, you’ll be able to start using concurrent features immediately. For example, you can use startTransition to navigate between screens without blocking user input. Or useDeferredValue to throttle expensive re-renders.
+Después de actualizar a React 18, podrás comenzar a utilizar funcionalidades concurrentes de inmediato. Por ejemplo, puedes utilizar startTransition para navegar entre pantallas sin bloquear la entrada del usuario. O usar useDeferredValue para limitar la frecuencia de las costosas re-renderizaciones.
 
-However, long term, we expect the main way you’ll add concurrency to your app is by using a concurrent-enabled library or framework. In most cases, you won’t interact with concurrent APIs directly. For example, instead of developers calling startTransition whenever they navigate to a new screen, router libraries will automatically wrap navigations in startTransition.
+Sin embargo, a largo plazo, esperamos que la forma principal de agregar concurrencia a tu aplicación sea utilizando una biblioteca o marco de trabajo compatible con la concurrencia. En la mayoría de los casos, no interactuarás directamente con las APIs concurrentes. Por ejemplo, en lugar de que los desarrolladores llamen a startTransition cada vez que naveguen a una nueva pantalla, las bibliotecas de enrutamiento envolverán automáticamente las navegaciones en startTransition.
 
-It may take some time for libraries to upgrade to be concurrent compatible. We’ve provided new APIs to make it easier for libraries to take advantage of concurrent features. In the meantime, please be patient with maintainers as we work to gradually migrate the React ecosystem.
+Puede llevar algún tiempo que las bibliotecas se actualicen para ser compatibles con la concurrencia. Hemos proporcionado nuevas APIs para facilitar a las bibliotecas aprovechar las funcionalidades concurrentes. Mientras tanto, te pedimos paciencia con los mantenedores mientras trabajamos en la migración gradual del ecosistema de React.
 
-For more info, see our previous post: [How to upgrade to React 18](/blog/2022/03/08/react-18-upgrade-guide).
+Para obtener más información, consulta nuestra publicación anterior: [Como actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide).
 
-## Suspense in Data Frameworks {/*suspense-in-data-frameworks*/}
+## Suspense en Frameworks de datos {/*suspense-in-data-frameworks*/}
 
-In React 18, you can start using [Suspense](/reference/react/Suspense) for data fetching in opinionated frameworks like Relay, Next.js, Hydrogen, or Remix. Ad hoc data fetching with Suspense is technically possible, but still not recommended as a general strategy.
+En React 18, puedes comenzar a usar [Suspense](/reference/react/Suspense) para la obtención de datos en frameworks frecuentes como Relay, Next.js, Hydrogen, or Remix. La obtención ad hoc de datos con Suspense es técnicamente posible, pero aún no se recomienda como una estrategia general.
 
-In the future, we may expose additional primitives that could make it easier to access your data with Suspense, perhaps without the use of an opinionated framework. However, Suspense works best when it’s deeply integrated into your application’s architecture: your router, your data layer, and your server rendering environment. So even long term, we expect that libraries and frameworks will play a crucial role in the React ecosystem.
+En el futuro, es posible que expongamos primitivas adicionales que faciliten el acceso a tus datos con Suspense, tal vez sin necesidad de utilizar un marco de trabajo opinionado. Sin embargo, Suspense funciona mejor cuando está profundamente integrado en la arquitectura de tu aplicación: en tu enrutador, en tu capa de datos y en tu entorno de renderizado en el servidor. Por lo tanto, incluso a largo plazo, esperamos que las bibliotecas y marcos de trabajo desempeñen un papel crucial en el ecosistema de React.
 
-As in previous versions of React, you can also use Suspense for code splitting on the client with React.lazy. But our vision for Suspense has always been about much more than loading code — the goal is to extend support for Suspense so that eventually, the same declarative Suspense fallback can handle any asynchronous operation (loading code, data, images, etc).
+Al igual que en versiones anteriores de React, también puedes utilizar Suspense para el fragmento de código en el cliente con React.lazy. Pero nuestra visión de Suspense siempre ha sido mucho más que cargar código; el objetivo es ampliar el soporte para Suspense para que eventualmente, el mismo fallback declarativo de Suspense pueda manejar cualquier operación asíncrona (carga de código, datos, imágenes, etc.)
 
-## Server Components is Still in Development {/*server-components-is-still-in-development*/}
+## Server Components está aún en desarrollo {/*server-components-is-still-in-development*/}
 
-[**Server Components**](/blog/2020/12/21/data-fetching-with-react-server-components) is an upcoming feature that allows developers to build apps that span the server and client, combining the rich interactivity of client-side apps with the improved performance of traditional server rendering. Server Components is not inherently coupled to Concurrent React, but it’s designed to work best with concurrent features like Suspense and streaming server rendering.
+[**Server Components**](/blog/2020/12/21/data-fetching-with-react-server-components) es una funcionalidad próxima que permite a los desarrolladores crear aplicaciones que abarcan el servidor y el cliente, combinando la interactividad completa de las aplicaciones del lado del cliente con el rendimiento mejorado del renderizado tradicional en el servidor. Server Components no está inherentemente vinculado a Concurrent React, pero está diseñado para funcionar mejor con funcionalidades concurrentes como Suspense y el renderizado en el servidor en streaming.
 
-Server Components is still experimental, but we expect to release an initial version in a minor 18.x release. In the meantime, we’re working with frameworks like Next.js, Hydrogen, and Remix to advance the proposal and get it ready for broad adoption.
+Server Components todavía está en fase experimental, pero esperamos lanzar una versión inicial en una versión menor de 18.x. Mientras tanto, estamos trabajando con frameworks como Next.js, Hydrogen y Remix para avanzar en la propuesta y prepararla para su adopción generalizada.
 
-## What's New in React 18 {/*whats-new-in-react-18*/}
+## Que hay de nuevo en React 18 {/*whats-new-in-react-18*/}
 
-### New Feature: Automatic Batching {/*new-feature-automatic-batching*/}
+### Nueva función: Agrupación automática {/*new-feature-automatic-batching*/}
 
-Batching is when React groups multiple state updates into a single re-render for better performance. Without automatic batching, we only batched updates inside React event handlers. Updates inside of promises, setTimeout, native event handlers, or any other event were not batched in React by default. With automatic batching, these updates will be batched automatically:
+La agrupación (batching) es cuando React agrupa múltiples actualizaciones de estado en una sola re-renderización para mejorar el rendimiento. Sin la agrupación automática, solo se agrupaban las actualizaciones dentro de los controladores de eventos de React. Las actualizaciones dentro de promesas, setTimeout, controladores de eventos nativos u otros eventos no se agrupaban automáticamente en React por defecto. Con la agrupación automática, estas actualizaciones se agruparán automáticamente:
 
 
 ```js
-// Before: only React events were batched.
+// Antes: solo los eventos de React se agrupaban.
 setTimeout(() => {
   setCount(c => c + 1);
   setFlag(f => !f);
-  // React will render twice, once for each state update (no batching)
+  // React se renderizará dos veces, una vez por cada actualización de estado (sin agrupación).
 }, 1000);
-
-// After: updates inside of timeouts, promises,
-// native event handlers or any other event are batched.
+// Después: las actualizaciones dentro de timeouts, promesas,
+// controladores de eventos nativos o cualquier otro evento se agrupan.
 setTimeout(() => {
   setCount(c => c + 1);
   setFlag(f => !f);
-  // React will only re-render once at the end (that's batching!)
+  // React solo se volverá a renderizar una vez al final (¡eso es agrupación!).
 }, 1000);
 ```
 
-For more info, see this post for [Automatic batching for fewer renders in React 18](https://github.com/reactwg/react-18/discussions/21).
+Para más información, consulta este artículo sobre la [agrupación automática para reducir las re-renderizaciones en React 18](https://github.com/reactwg/react-18/discussions/21).
 
-### New Feature: Transitions {/*new-feature-transitions*/}
+### Nueva funcionalidad: Transiciones {/*new-feature-transitions*/}
 
-A transition is a new concept in React to distinguish between urgent and non-urgent updates.
+Una transición es un nuevo concepto en React para distinguir entre actualizaciones urgentes y no-urgentes.
 
-* **Urgent updates** reflect direct interaction, like typing, clicking, pressing, and so on.
-* **Transition updates** transition the UI from one view to another.
+* **Actualizaciones urgentes** reflejan interacción directa, como escribir, hacer click, presionar, y así sucesivamente.
+* **Actualizaciones de transición** permiten la transición de la interfaz de usuario de una vista a otra.
 
-Urgent updates like typing, clicking, or pressing, need immediate response to match our intuitions about how physical objects behave. Otherwise they feel "wrong". However, transitions are different because the user doesn’t expect to see every intermediate value on screen.
+Las actualizaciones urgentes como escribir, hacer clic o presionar requieren una respuesta inmediata para coincidir con nuestras intuiciones sobre cómo se comportan los objetos físicos. De lo contrario, se sienten "incorrectas". Sin embargo, las transiciones son diferentes porque el usuario no espera ver cada valor intermedio en la pantalla.
 
-For example, when you select a filter in a dropdown, you expect the filter button itself to respond immediately when you click. However, the actual results may transition separately. A small delay would be imperceptible and often expected. And if you change the filter again before the results are done rendering, you only care to see the latest results.
+Por ejemplo, cuando seleccionas un filtro en un menú desplegable, esperas que el propio botón del filtro responda de inmediato cuando haces clic. Sin embargo, los resultados reales pueden transicionar por separado. Un pequeño retraso sería imperceptible y a menudo esperado. Y si cambias el filtro nuevamente antes de que los resultados terminen de renderizarse, solo te importará ver los últimos resultados.
 
-Typically, for the best user experience, a single user input should result in both an urgent update and a non-urgent one. You can use startTransition API inside an input event to inform React which updates are urgent and which are "transitions":
+Típicamente, para tener la mejor experiencia de usuario, una única entrada del usuario debería resultar en una actualización urgente y otra no urgente. Puedes utilizar la API startTransition dentro de un evento de entrada para informar a React qué actualizaciones son urgentes y cuáles son "transiciones":
 
 
 ```js
 import { startTransition } from 'react';
 
-// Urgent: Show what was typed
+// Urgente: Mostrar lo que se escribió
 setInputValue(input);
 
-// Mark any state updates inside as transitions
+// Marcar cualquier actualización de estado dentro como transiciones
 startTransition(() => {
-  // Transition: Show the results
+  // Transición: muestra el resultado
   setSearchQuery(input);
 });
 ```
 
 
-Updates wrapped in startTransition are handled as non-urgent and will be interrupted if more urgent updates like clicks or key presses come in. If a transition gets interrupted by the user (for example, by typing multiple characters in a row), React will throw out the stale rendering work that wasn’t finished and render only the latest update.
+Las actualizaciones envueltas en startTransition se manejan como no urgentes y se interrumpirán si llegan actualizaciones más urgentes, como clics o pulsaciones de teclas. Si una transición se interrumpe por el usuario (por ejemplo, al escribir varios caracteres seguidos), React descartará el trabajo de renderizado obsoleto que no se completó y solo renderizará la última actualización.
 
+* `useTransition`: un gancho (hook) para iniciar transiciones, que incluya un valor para rastrear el estado pendiente.
+* `startTransition`: un método para iniciar transiciones cuando el gancho (hook) no es utilizado.
 
-* `useTransition`: a hook to start transitions, including a value to track the pending state.
-* `startTransition`: a method to start transitions when the hook cannot be used.
+(Las transiciones optarán por el renderizado concurrente, lo cual permite interrumpir la actualización. Si el contenido se suspende de nuevo, las transiciones también indican a React que continúe mostrando el contenido actual mientras renderiza el contenido de la transición en segundo plano. Consulta [Suspense RFC](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md) para obtener más información).
 
-Transitions will opt in to concurrent rendering, which allows the update to be interrupted. If the content re-suspends, transitions also tell React to continue showing the current content while rendering the transition content in the background (see the [Suspense RFC](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md) for more info).
+[Consulta la documentación de transiciones aquí](/reference/react/useTransition).
 
-[See docs for transitions here](/reference/react/useTransition).
+### Nuevas funcionalidades de Suspense {/*new-suspense-features*/}
 
-### New Suspense Features {/*new-suspense-features*/}
-
-Suspense lets you declaratively specify the loading state for a part of the component tree if it's not yet ready to be displayed:
+Suspense te permite especificar declarativamente el estado de carga para una parte del árbol de componentes si aún no está listo para mostrarse:
 
 ```js
 <Suspense fallback={<Spinner />}>
   <Comments />
 </Suspense>
 ```
+Suspense convierte el "estado de carga de la interfaz de usuario" en un concepto declarativo de primera clase en el modelo de programación de React. Esto nos permite construir funcionalidades de nivel superior sobre él.
 
-Suspense makes the "UI loading state" a first-class declarative concept in the React programming model. This lets us build higher-level features on top of it.
+Introdujimos una versión limitada de Suspense hace varios años. Sin embargo, el único caso de uso compatible era la división de código con React.lazy, y no se admitía en absoluto al renderizar en el servidor.
 
-We introduced a limited version of Suspense several years ago. However, the only supported use case was code splitting with React.lazy, and it wasn't supported at all when rendering on the server.
+En React 18, hemos agregado soporte para Suspense en el servidor y hemos ampliado sus capacidades utilizando funciones de renderizado concurrente.
 
-In React 18, we've added support for Suspense on the server and expanded its capabilities using concurrent rendering features.
+Suspense en React 18 funciona mejor cuando se combina con la API de transición. Si suspendes durante una transición, React evitará que el contenido ya visible sea reemplazado por un respaldo. En su lugar, React retrasará el renderizado hasta que se haya cargado suficiente información para evitar un mal estado de carga.
 
-Suspense in React 18 works best when combined with the transition API. If you suspend during a transition, React will prevent already-visible content from being replaced by a fallback. Instead, React will delay the render until enough data has loaded to prevent a bad loading state.
+Para más información, consulta el RFC para [Suspense en React 18](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md).
 
-For more, see the RFC for [Suspense in React 18](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md).
+### Nuevas APIs de renderizado en cliente y servidor {/*new-client-and-server-rendering-apis*/}
 
-### New Client and Server Rendering APIs {/*new-client-and-server-rendering-apis*/}
+En esta versión, aprovechamos la oportunidad para rediseñar las API que exponemos para el renderizado en el cliente y en el servidor. Estos cambios permiten a los usuarios seguir utilizando las antiguas API en el modo React 17 mientras actualizan a las nuevas API en React 18.
 
-In this release we took the opportunity to redesign the APIs we expose for rendering on the client and server. These changes allow users to continue using the old APIs in React 17 mode while they upgrade to the new APIs in React 18.
+#### Cliente React DOM {/*react-dom-client*/}
 
-#### React DOM Client {/*react-dom-client*/}
+Estas nuevas API son exportadas desde `react-dom/client`:
 
-These new APIs are now exported from `react-dom/client`:
+* `createRoot`: Nuevo metodo para crear un root para `render`(renderizar) o `unmount` (desmontar). Usalo en lugar de `ReactDOM.render`. Las nuevas funcionalidades en React 18 no funcionan sin él.
+* `hydrateRoot`: Nuevo método para hidratar una aplicación renderizada en el servidor. Úsalo en lugar de `ReactDOM.hydrate` en conjunto con las nuevas API de React DOM Server. Las nuevas características en React 18 no funcionan sin él.
 
-* `createRoot`: New method to create a root to `render` or `unmount`. Use it instead of `ReactDOM.render`. New features in React 18 don't work without it.
-* `hydrateRoot`: New method to hydrate a server rendered application. Use it instead of  `ReactDOM.hydrate` in conjunction with the new React DOM Server APIs. New features in React 18 don't work without it.
+Tanto `createRoot` como `hydrateRoot` aceptan una nueva opción llamada `onRecoverableError` en el caso de que necesites ser notificado cuando React recupere errores durante el renderizado o la hidratación para el registro. Por defecto, React usará [`reportError`](https://developer.mozilla.org/en-US/docs/Web/API/reportError), o `console.error` en navegadores antiguos.
 
-Both `createRoot` and `hydrateRoot` accept a new option called `onRecoverableError` in case you want to be notified when React recovers from errors during rendering or hydration for logging. By default, React will use [`reportError`](https://developer.mozilla.org/en-US/docs/Web/API/reportError), or `console.error` in the older browsers.
+[Consulta la documentación de Cliente React DOM aquí](/reference/react-dom/client).
 
-[See docs for React DOM Client here](/reference/react-dom/client).
+#### Servidor React DOM {/*react-dom-server*/}
 
-#### React DOM Server {/*react-dom-server*/}
+Estas nuevas APIs son exportadas desde `react-dom/server` y tienen soporte completo para Suspense en el servidor:
+* `renderToPipeableStream`: para transmisión en entornos de Node
+* `renderToReadableStream`: para entornos de tiempo de ejecución modernos, como Deno y Cloudflare workers.
 
-These new APIs are now exported from `react-dom/server` and have full support for streaming Suspense on the server:
+El método existente `renderToString` sigue en funcionamiento, pero se desaconseja su uso.
 
-* `renderToPipeableStream`: for streaming in Node environments.
-* `renderToReadableStream`: for modern edge runtime environments, such as Deno and Cloudflare workers.
+[Consulta la documentación de Servidor React DOM aquí](/reference/react-dom/server).
 
-The existing `renderToString` method keeps working but is discouraged.
+### Nuevos Comportamientos del Modo Estricto {/*new-strict-mode-behaviors*/}
 
-[See docs for React DOM Server here](/reference/react-dom/server).
+En el futuro, nos gustaría agregar una función que permita a React agregar y eliminar secciones de la interfaz de usuario mientras se preserva el estado. Por ejemplo, cuando un usuario cambia de pestaña y vuelve, React debería poder mostrar inmediatamente la pantalla anterior. Para lograr esto, React desmontaría y volvería a montar los árboles utilizando el mismo estado del componente como antes.
 
-### New Strict Mode Behaviors {/*new-strict-mode-behaviors*/}
+Esta funcionalidad proporcionará un mejor rendimiento por defecto en las aplicaciones de React, pero requiere que los componentes sean resistentes a que los efectos se monten y destruyan varias veces. La mayoría de los efectos funcionarán sin cambios, pero algunos efectos asumen que solo se montan o destruyen una vez.
 
-In the future, we’d like to add a feature that allows React to add and remove sections of the UI while preserving state. For example, when a user tabs away from a screen and back, React should be able to immediately show the previous screen. To do this, React would unmount and remount trees using the same component state as before.
+Para ayudar a detectar estos problemas, React 18 introduce una nueva verificación exclusiva para el modo estricto en el entorno de desarrollo. Esta nueva verificación desmontará y volverá a montar automáticamente cada componente cuando se monte por primera vez, restaurando el estado anterior en el segundo montaje.
 
-This feature will give React apps better performance out-of-the-box, but requires components to be resilient to effects being mounted and destroyed multiple times. Most effects will work without any changes, but some effects assume they are only mounted or destroyed once.
-
-To help surface these issues, React 18 introduces a new development-only check to Strict Mode. This new check will automatically unmount and remount every component, whenever a component mounts for the first time, restoring the previous state on the second mount.
-
-Before this change, React would mount the component and create the effects:
+Antes de este cambio, React montaba el componente y creaba los efectos:
 
 ```
-* React mounts the component.
-  * Layout effects are created.
-  * Effects are created.
+* React monta el componente.
+  * Se crean los efectos de diseño (layout effects).
+  * Se crean los efectos.
 ```
 
 
-With Strict Mode in React 18, React will simulate unmounting and remounting the component in development mode:
+Con el modo estricto (Strict Mode) en React 18, React simulará el desmontaje y remontaje del componente en modo de desarrollo:
 
 ```
-* React mounts the component.
-  * Layout effects are created.
-  * Effects are created.
-* React simulates unmounting the component.
-  * Layout effects are destroyed.
-  * Effects are destroyed.
-* React simulates mounting the component with the previous state.
-  * Layout effects are created.
-  * Effects are created.
+* React monta el componente.
+  * Se crean los efectos de diseño (layout effects).
+  * Se crean los efectos.
+* React simula el desmontaje del componente.
+  * Se destruyen los efectos de diseño (layout effects).
+  * Se destruyen los efectos.
+* React simula el montaje del components con el estado anterior.
+  * Se crean los efectos de diseño (layout effects).
+  * Se crean los efectos.
 ```
 
-[See docs for ensuring reusable state here](/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development).
+[Consulta la documentación sobre cómo garantizar el estado reutilizable aquí](/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development).
 
-### New Hooks {/*new-hooks*/}
+### Nuevos Hooks {/*new-hooks*/}
 
 #### useId {/*useid*/}
 
-`useId` is a new hook for generating unique IDs on both the client and server, while avoiding hydration mismatches. It is primarily useful for component libraries integrating with accessibility APIs that require unique IDs. This solves an issue that already exists in React 17 and below, but it's even more important in React 18 because of how the new streaming server renderer delivers HTML out-of-order. [See docs here](/reference/react/useId).
+`useId` es un nuevo gancho (hook) para generar IDs unicos tanto en el cliente como en el servidor, evitando desajustes en la hidratación. Es especialmente útil para bibliotecas de componentes que se integran con API de accesibilidad que requieren identificadores únicos. Esto resuelve un problema que ya existe en React 17 y versiones anteriores, pero es aún más importante en React 18 debido a cómo el nuevo renderizador de servidor en streaming entrega el HTML sin un orden específico. [Consulta la documentación](/reference/react/useId).
 
 > Note
 >
-> `useId` is **not** for generating [keys in a list](/learn/rendering-lists#where-to-get-your-key). Keys should be generated from your data.
+> `useId` **no está** diseñado para generar [llaves en una lista](/learn/rendering-lists#where-to-get-your-key). Las llaves deben ser generadas a partir de tus datos.
 
 #### useTransition {/*usetransition*/}
 
-`useTransition` and `startTransition` let you mark some state updates as not urgent. Other state updates are considered urgent by default. React will allow urgent state updates (for example, updating a text input) to interrupt non-urgent state updates (for example, rendering a list of search results). [See docs here](/reference/react/useTransition)
+`useTransition` y `startTransition` te permiten marcar algunas actualizaciones de estado como no urgentes. Otras actualizaciones de estado se consideran urgentes de manera predeterminada. React permitirá que las actualizaciones de estado urgentes (por ejemplo, actualizar un campo de texto) interrumpan las actualizaciones de estado no urgentes (por ejemplo, renderizar una lista de resultados de búsqueda). [Consulta la documentación aquí](/reference/react/useTransition)
 
 #### useDeferredValue {/*usedeferredvalue*/}
 
-`useDeferredValue` lets you defer re-rendering a non-urgent part of the tree. It is similar to debouncing, but has a few advantages compared to it. There is no fixed time delay, so React will attempt the deferred render right after the first render is reflected on the screen. The deferred render is interruptible and doesn't block user input. [See docs here](/reference/react/useDeferredValue).
+`useDeferredValue` te permite posponer el re-renderizado de una parte no urgente del árbol. Es similar a la técnica de debounce, pero tiene algunas ventajas en comparación con esta. No hay un retraso de tiempo fijo, por lo que React intentará el renderizado diferido justo después de que el primer renderizado se refleje en la pantalla. El renderizado diferido es interrumpible y no bloquea la entrada del usuario. [Consulta la documentación aquí](/reference/react/useDeferredValue).
 
 #### useSyncExternalStore {/*usesyncexternalstore*/}
 
-`useSyncExternalStore` is a new hook that allows external stores to support concurrent reads by forcing updates to the store to be synchronous. It removes the need for useEffect when implementing subscriptions to external data sources, and is recommended for any library that integrates with state external to React. [See docs here](/reference/react/useSyncExternalStore).
+`useSyncExternalStore` es un nuevo hook que permite a las tiendas externas admitir lecturas concurrentes al forzar que las actualizaciones de la tienda sean síncronas. Elimina la necesidad de usar useEffect al implementar suscripciones a fuentes de datos externas, y se recomienda para cualquier biblioteca que se integre con un estado externo a React. [Consulte la documentación aquí](/reference/react/useSyncExternalStore).
 
 > Note
 >
-> `useSyncExternalStore` is intended to be used by libraries, not application code.
+> `useSyncExternalStore` está destinado a ser utilizado por bibliotecas, no por el código de aplicación.
 
 #### useInsertionEffect {/*useinsertioneffect*/}
 
-`useInsertionEffect` is a new hook that allows CSS-in-JS libraries to address performance issues of injecting styles in render. Unless you’ve already built a CSS-in-JS library we don’t expect you to ever use this. This hook will run after the DOM is mutated, but before layout effects read the new layout. This solves an issue that already exists in React 17 and below, but is even more important in React 18 because React yields to the browser during concurrent rendering, giving it a chance to recalculate layout. [See docs here](/reference/react/useInsertionEffect).
+`useInsertionEffect`  es un nuevo hook que permite a las bibliotecas de CSS-in-JS abordar problemas de rendimiento al inyectar estilos durante el renderizado. A menos que ya hayas construido una biblioteca de CSS-in-JS, no esperamos que nunca lo utilices. Este hook se ejecutará después de que el DOM haya sido mutado, pero antes de que los efectos de diseño (layout effects) lean el nuevo diseño. Esto resuelve un problema que ya existe en React 17 y versiones anteriores, pero es aún más importante en React 18 porque React cede al navegador durante el renderizado concurrente, dándole la oportunidad de recalcular el diseño. [Consulta la documentación aquí](/reference/react/useInsertionEffect).
 
 > Note
 >
-> `useInsertionEffect` is intended to be used by libraries, not application code.
+> `useInsertionEffect` está destinado a ser utilizado por bibliotecas, no por el código de aplicación.
 
-## How to Upgrade {/*how-to-upgrade*/}
+## Cómo Actualizar {/*how-to-upgrade*/}
 
-See [How to Upgrade to React 18](/blog/2022/03/08/react-18-upgrade-guide) for step-by-step instructions and a full list of breaking and notable changes.
+Consulta [Cómo Actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide) para obtener instrucciones paso a paso y una lista completa de cambios significativos y trascendentales.
 
-## Changelog {/*changelog*/}
+## Changelog (Registro de Cambios) {/*changelog*/}
 
 ### React {/*react*/}
 
-* Add `useTransition` and `useDeferredValue` to separate urgent updates from transitions. ([#10426](https://github.com/facebook/react/pull/10426), [#10715](https://github.com/facebook/react/pull/10715), [#15593](https://github.com/facebook/react/pull/15593), [#15272](https://github.com/facebook/react/pull/15272), [#15578](https://github.com/facebook/react/pull/15578), [#15769](https://github.com/facebook/react/pull/15769), [#17058](https://github.com/facebook/react/pull/17058), [#18796](https://github.com/facebook/react/pull/18796), [#19121](https://github.com/facebook/react/pull/19121), [#19703](https://github.com/facebook/react/pull/19703), [#19719](https://github.com/facebook/react/pull/19719), [#19724](https://github.com/facebook/react/pull/19724), [#20672](https://github.com/facebook/react/pull/20672), [#20976](https://github.com/facebook/react/pull/20976) by [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), [@rickhanlonii](https://github.com/rickhanlonii), and [@sebmarkbage](https://github.com/sebmarkbage))
-* Add `useId` for generating unique IDs. ([#17322](https://github.com/facebook/react/pull/17322), [#18576](https://github.com/facebook/react/pull/18576), [#22644](https://github.com/facebook/react/pull/22644), [#22672](https://github.com/facebook/react/pull/22672), [#21260](https://github.com/facebook/react/pull/21260) by [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), and [@sebmarkbage](https://github.com/sebmarkbage))
-* Add `useSyncExternalStore` to help external store libraries integrate with React. ([#15022](https://github.com/facebook/react/pull/15022), [#18000](https://github.com/facebook/react/pull/18000), [#18771](https://github.com/facebook/react/pull/18771), [#22211](https://github.com/facebook/react/pull/22211), [#22292](https://github.com/facebook/react/pull/22292), [#22239](https://github.com/facebook/react/pull/22239), [#22347](https://github.com/facebook/react/pull/22347), [#23150](https://github.com/facebook/react/pull/23150) by [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), and [@drarmstr](https://github.com/drarmstr))
-* Add `startTransition` as a version of `useTransition` without pending feedback. ([#19696](https://github.com/facebook/react/pull/19696)  by [@rickhanlonii](https://github.com/rickhanlonii))
-* Add `useInsertionEffect` for CSS-in-JS libraries. ([#21913](https://github.com/facebook/react/pull/21913)  by [@rickhanlonii](https://github.com/rickhanlonii))
-* Make Suspense remount layout effects when content reappears.  ([#19322](https://github.com/facebook/react/pull/19322), [#19374](https://github.com/facebook/react/pull/19374), [#19523](https://github.com/facebook/react/pull/19523), [#20625](https://github.com/facebook/react/pull/20625), [#21079](https://github.com/facebook/react/pull/21079) by [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), and [@lunaruan](https://github.com/lunaruan))
-* Make `<StrictMode>` re-run effects to check for restorable state. ([#19523](https://github.com/facebook/react/pull/19523) , [#21418](https://github.com/facebook/react/pull/21418)  by [@bvaughn](https://github.com/bvaughn) and [@lunaruan](https://github.com/lunaruan))
-* Assume Symbols are always available. ([#23348](https://github.com/facebook/react/pull/23348)  by [@sebmarkbage](https://github.com/sebmarkbage))
-* Remove `object-assign` polyfill. ([#23351](https://github.com/facebook/react/pull/23351)  by [@sebmarkbage](https://github.com/sebmarkbage))
-* Remove unsupported `unstable_changedBits` API.  ([#20953](https://github.com/facebook/react/pull/20953)  by [@acdlite](https://github.com/acdlite))
-* Allow components to render undefined. ([#21869](https://github.com/facebook/react/pull/21869)  by [@rickhanlonii](https://github.com/rickhanlonii))
-* Flush `useEffect` resulting from discrete events like clicks synchronously. ([#21150](https://github.com/facebook/react/pull/21150)  by [@acdlite](https://github.com/acdlite))
-* Suspense `fallback={undefined}` now behaves the same as `null` and isn't ignored. ([#21854](https://github.com/facebook/react/pull/21854)  by [@rickhanlonii](https://github.com/rickhanlonii))
-* Consider all `lazy()` resolving to the same component equivalent. ([#20357](https://github.com/facebook/react/pull/20357)  by [@sebmarkbage](https://github.com/sebmarkbage))
-* Don't patch console during first render. ([#22308](https://github.com/facebook/react/pull/22308)  by [@lunaruan](https://github.com/lunaruan))
-* Improve memory usage. ([#21039](https://github.com/facebook/react/pull/21039)  by [@bgirard](https://github.com/bgirard))
-* Improve messages if string coercion throws (Temporal.*, Symbol, etc.) ([#22064](https://github.com/facebook/react/pull/22064)  by [@justingrant](https://github.com/justingrant))
-* Use `setImmediate` when available over `MessageChannel`. ([#20834](https://github.com/facebook/react/pull/20834)  by [@gaearon](https://github.com/gaearon))
-* Fix context failing to propagate inside suspended trees. ([#23095](https://github.com/facebook/react/pull/23095)  by [@gaearon](https://github.com/gaearon))
-* Fix `useReducer` observing incorrect props by removing the eager bailout mechanism. ([#22445](https://github.com/facebook/react/pull/22445)  by [@josephsavona](https://github.com/josephsavona))
-* Fix `setState` being ignored in Safari when appending iframes. ([#23111](https://github.com/facebook/react/pull/23111)  by [@gaearon](https://github.com/gaearon))
-* Fix a crash when rendering `ZonedDateTime` in the tree. ([#20617](https://github.com/facebook/react/pull/20617)  by [@dimaqq](https://github.com/dimaqq))
-* Fix a crash when document is set to `null` in tests. ([#22695](https://github.com/facebook/react/pull/22695)  by [@SimenB](https://github.com/SimenB))
-* Fix `onLoad` not triggering when concurrent features are on. ([#23316](https://github.com/facebook/react/pull/23316)  by [@gnoff](https://github.com/gnoff))
-* Fix a warning when a selector returns `NaN`.  ([#23333](https://github.com/facebook/react/pull/23333)  by [@hachibeeDI](https://github.com/hachibeeDI))
-* Fix a crash when document is set to `null` in tests. ([#22695](https://github.com/facebook/react/pull/22695) by [@SimenB](https://github.com/SimenB))
-* Fix the generated license header. ([#23004](https://github.com/facebook/react/pull/23004)  by [@vitaliemiron](https://github.com/vitaliemiron))
-* Add `package.json` as one of the entry points. ([#22954](https://github.com/facebook/react/pull/22954)  by [@Jack](https://github.com/Jack-Works))
-* Allow suspending outside a Suspense boundary. ([#23267](https://github.com/facebook/react/pull/23267)  by [@acdlite](https://github.com/acdlite))
-* Log a recoverable error whenever hydration fails. ([#23319](https://github.com/facebook/react/pull/23319)  by [@acdlite](https://github.com/acdlite))
+* Añadido `useTransition` y `useDeferredValue` para separar las actualizaciones urgentes de las transiciones. ([#10426](https://github.com/facebook/react/pull/10426), [#10715](https://github.com/facebook/react/pull/10715), [#15593](https://github.com/facebook/react/pull/15593), [#15272](https://github.com/facebook/react/pull/15272), [#15578](https://github.com/facebook/react/pull/15578), [#15769](https://github.com/facebook/react/pull/15769), [#17058](https://github.com/facebook/react/pull/17058), [#18796](https://github.com/facebook/react/pull/18796), [#19121](https://github.com/facebook/react/pull/19121), [#19703](https://github.com/facebook/react/pull/19703), [#19719](https://github.com/facebook/react/pull/19719), [#19724](https://github.com/facebook/react/pull/19724), [#20672](https://github.com/facebook/react/pull/20672), [#20976](https://github.com/facebook/react/pull/20976) por [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), [@rickhanlonii](https://github.com/rickhanlonii), y [@sebmarkbage](https://github.com/sebmarkbage))
+* Añadido `useId` para generar IDs únicos. ([#17322](https://github.com/facebook/react/pull/17322), [#18576](https://github.com/facebook/react/pull/18576), [#22644](https://github.com/facebook/react/pull/22644), [#22672](https://github.com/facebook/react/pull/22672), [#21260](https://github.com/facebook/react/pull/21260) por [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), y [@sebmarkbage](https://github.com/sebmarkbage))
+* Añadido `useSyncExternalStore` para ayudar a liberías de tiendas externas a integrarse con React. ([#15022](https://github.com/facebook/react/pull/15022), [#18000](https://github.com/facebook/react/pull/18000), [#18771](https://github.com/facebook/react/pull/18771), [#22211](https://github.com/facebook/react/pull/22211), [#22292](https://github.com/facebook/react/pull/22292), [#22239](https://github.com/facebook/react/pull/22239), [#22347](https://github.com/facebook/react/pull/22347), [#23150](https://github.com/facebook/react/pull/23150) por [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), y [@drarmstr](https://github.com/drarmstr))
+* Añadido `startTransition` como una versión de `useTransition` sin comentarios pendientes.([#19696](https://github.com/facebook/react/pull/19696) por [@rickhanlonii](https://github.com/rickhanlonii))
+* Añadido `useInsertionEffect` para librerías CSS-en-JS. ([#21913](https://github.com/facebook/react/pull/21913)  por [@rickhanlonii](https://github.com/rickhanlonii))
+* Hecho que Suspense remonte los efectos de diseño cuando el contenido vuelve a aparecer.([#19322](https://github.com/facebook/react/pull/19322), [#19374](https://github.com/facebook/react/pull/19374), [#19523](https://github.com/facebook/react/pull/19523), [#20625](https://github.com/facebook/react/pull/20625), [#21079](https://github.com/facebook/react/pull/21079) por [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), y [@lunaruan](https://github.com/lunaruan))
+* Hecho que `<StrictMode>`  vuelva a ejecutar los efectos para verificar el estado restaurable. ([#19523](https://github.com/facebook/react/pull/19523) , [#21418](https://github.com/facebook/react/pull/21418)  por [@bvaughn](https://github.com/bvaughn) y [@lunaruan](https://github.com/lunaruan))
+* Se asume que los Symbols siempre están disponibles. ([#23348](https://github.com/facebook/react/pull/23348)  por [@sebmarkbage](https://github.com/sebmarkbage))
+* Removido `object-assign` polyfill. ([#23351](https://github.com/facebook/react/pull/23351)  por [@sebmarkbage](https://github.com/sebmarkbage))
+* Removida la API `unstable_changedBits` incompatible.  ([#20953](https://github.com/facebook/react/pull/20953)  por [@acdlite](https://github.com/acdlite))
+* Permitido a los componentes renderizar undefined. ([#21869](https://github.com/facebook/react/pull/21869) por [@rickhanlonii](https://github.com/rickhanlonii))
+* Sincronizada la ejecución de `useEffect` generada por eventos discretos como los clics.([#21150](https://github.com/facebook/react/pull/21150)  por [@acdlite](https://github.com/acdlite))
+* Ahora, Suspense `fallback={undefined}` se comporta de la misma manera que `null` y se ignora. ([#21854](https://github.com/facebook/react/pull/21854)  por [@rickhanlonii](https://github.com/rickhanlonii))
+* Considerar que todas las llamadas a `lazy()`  que resuelven al mismo componente sean equivalentes. ([#20357](https://github.com/facebook/react/pull/20357)  por [@sebmarkbage](https://github.com/sebmarkbage))
+* No realizar cambios en la consola durante el primer renderizado ([#22308](https://github.com/facebook/react/pull/22308) por [@lunaruan](https://github.com/lunaruan))
+* Mejorado el uso de memoria ([#21039](https://github.com/facebook/react/pull/21039)  por [@bgirard](https://github.com/bgirard))
+* Improve messages if string coercion throws (Temporal.*, Symbol, etc.) ([#22064](https://github.com/facebook/react/pull/22064)  por [@justingrant](https://github.com/justingrant))
+* Utilizar `setImmediate` cuando este disponible en lugar de `MessageChannel`. ([#20834](https://github.com/facebook/react/pull/20834)  por [@gaearon](https://github.com/gaearon))
+* Corregir la falta de propagación del contexto dentro de árboles suspendidos. ([#23095](https://github.com/facebook/react/pull/23095)  por [@gaearon](https://github.com/gaearon))
+* Corregir el uso incorrecto de props observado por `useReducer` al eliminar el mecanismo de salida anticipada. ([#22445](https://github.com/facebook/react/pull/22445)  por [@josephsavona](https://github.com/josephsavona))
+* Corregir `setState` que resultaba ignorado en Safari cuando se agregaban iframes. ([#23111](https://github.com/facebook/react/pull/23111)  por [@gaearon](https://github.com/gaearon))
+* Corregir un choque cuando se renderiza `ZonedDateTime` en el árbol. ([#20617](https://github.com/facebook/react/pull/20617)  por [@dimaqq](https://github.com/dimaqq))
+* Corregir un choque cuando el document es pasado a `null` en los tests. ([#22695](https://github.com/facebook/react/pull/22695)  por [@SimenB](https://github.com/SimenB))
+* Corregir que `onLoad` no se activa cuando las funcionalidades concurrentes están activadas ([#23316](https://github.com/facebook/react/pull/23316)  por [@gnoff](https://github.com/gnoff))
+* Corregir una advertencia cuando el selector retorna `NaN`.  ([#23333](https://github.com/facebook/react/pull/23333)  por [@hachibeeDI](https://github.com/hachibeeDI))
+* Corregir un choque cuando el documento es pasado a `null` en los tests. ([#22695](https://github.com/facebook/react/pull/22695) por [@SimenB](https://github.com/SimenB))
+* Corregir el encabezado de licencia generado. ([#23004](https://github.com/facebook/react/pull/23004)  por [@vitaliemiron](https://github.com/vitaliemiron))
+* Añadir `package.json` como uno de los puntos de entrada. ([#22954](https://github.com/facebook/react/pull/22954)  por [@Jack](https://github.com/Jack-Works))
+* Permitir la suspensión fuera de un límite de Suspense. ([#23267](https://github.com/facebook/react/pull/23267)  por [@acdlite](https://github.com/acdlite))
+* Log a recoverable error whenever hydration fails. ([#23319](https://github.com/facebook/react/pull/23319)  por [@acdlite](https://github.com/acdlite))
 
 ### React DOM {/*react-dom*/}
 
-* Add `createRoot` and `hydrateRoot`. ([#10239](https://github.com/facebook/react/pull/10239), [#11225](https://github.com/facebook/react/pull/11225), [#12117](https://github.com/facebook/react/pull/12117), [#13732](https://github.com/facebook/react/pull/13732), [#15502](https://github.com/facebook/react/pull/15502), [#15532](https://github.com/facebook/react/pull/15532), [#17035](https://github.com/facebook/react/pull/17035), [#17165](https://github.com/facebook/react/pull/17165), [#20669](https://github.com/facebook/react/pull/20669), [#20748](https://github.com/facebook/react/pull/20748), [#20888](https://github.com/facebook/react/pull/20888), [#21072](https://github.com/facebook/react/pull/21072), [#21417](https://github.com/facebook/react/pull/21417), [#21652](https://github.com/facebook/react/pull/21652), [#21687](https://github.com/facebook/react/pull/21687), [#23207](https://github.com/facebook/react/pull/23207), [#23385](https://github.com/facebook/react/pull/23385) by [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), [@gaearon](https://github.com/gaearon), [@lunaruan](https://github.com/lunaruan), [@rickhanlonii](https://github.com/rickhanlonii), [@trueadm](https://github.com/trueadm), and [@sebmarkbage](https://github.com/sebmarkbage))
-* Add selective hydration. ([#14717](https://github.com/facebook/react/pull/14717), [#14884](https://github.com/facebook/react/pull/14884), [#16725](https://github.com/facebook/react/pull/16725), [#16880](https://github.com/facebook/react/pull/16880), [#17004](https://github.com/facebook/react/pull/17004), [#22416](https://github.com/facebook/react/pull/22416), [#22629](https://github.com/facebook/react/pull/22629), [#22448](https://github.com/facebook/react/pull/22448), [#22856](https://github.com/facebook/react/pull/22856), [#23176](https://github.com/facebook/react/pull/23176) by [@acdlite](https://github.com/acdlite), [@gaearon](https://github.com/gaearon), [@salazarm](https://github.com/salazarm), and [@sebmarkbage](https://github.com/sebmarkbage))
-* Add `aria-description` to the list of known ARIA attributes. ([#22142](https://github.com/facebook/react/pull/22142)  by [@mahyareb](https://github.com/mahyareb))
-* Add `onResize` event to video elements. ([#21973](https://github.com/facebook/react/pull/21973)  by [@rileyjshaw](https://github.com/rileyjshaw))
-* Add `imageSizes` and `imageSrcSet` to known props. ([#22550](https://github.com/facebook/react/pull/22550)  by [@eps1lon](https://github.com/eps1lon))
-* Allow non-string `<option>` children if `value` is provided.  ([#21431](https://github.com/facebook/react/pull/21431)  by [@sebmarkbage](https://github.com/sebmarkbage))
-* Fix `aspectRatio` style not being applied. ([#21100](https://github.com/facebook/react/pull/21100)  by [@gaearon](https://github.com/gaearon))
-* Warn if `renderSubtreeIntoContainer` is called. ([#23355](https://github.com/facebook/react/pull/23355)  by [@acdlite](https://github.com/acdlite))
+* Añadir `createRoot` y `hydrateRoot`. ([#10239](https://github.com/facebook/react/pull/10239), [#11225](https://github.com/facebook/react/pull/11225), [#12117](https://github.com/facebook/react/pull/12117), [#13732](https://github.com/facebook/react/pull/13732), [#15502](https://github.com/facebook/react/pull/15502), [#15532](https://github.com/facebook/react/pull/15532), [#17035](https://github.com/facebook/react/pull/17035), [#17165](https://github.com/facebook/react/pull/17165), [#20669](https://github.com/facebook/react/pull/20669), [#20748](https://github.com/facebook/react/pull/20748), [#20888](https://github.com/facebook/react/pull/20888), [#21072](https://github.com/facebook/react/pull/21072), [#21417](https://github.com/facebook/react/pull/21417), [#21652](https://github.com/facebook/react/pull/21652), [#21687](https://github.com/facebook/react/pull/21687), [#23207](https://github.com/facebook/react/pull/23207), [#23385](https://github.com/facebook/react/pull/23385) por [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), [@gaearon](https://github.com/gaearon), [@lunaruan](https://github.com/lunaruan), [@rickhanlonii](https://github.com/rickhanlonii), [@trueadm](https://github.com/trueadm), y [@sebmarkbage](https://github.com/sebmarkbage))
+* Añadir hidratación selectiva. ([#14717](https://github.com/facebook/react/pull/14717), [#14884](https://github.com/facebook/react/pull/14884), [#16725](https://github.com/facebook/react/pull/16725), [#16880](https://github.com/facebook/react/pull/16880), [#17004](https://github.com/facebook/react/pull/17004), [#22416](https://github.com/facebook/react/pull/22416), [#22629](https://github.com/facebook/react/pull/22629), [#22448](https://github.com/facebook/react/pull/22448), [#22856](https://github.com/facebook/react/pull/22856), [#23176](https://github.com/facebook/react/pull/23176) por [@acdlite](https://github.com/acdlite), [@gaearon](https://github.com/gaearon), [@salazarm](https://github.com/salazarm), y [@sebmarkbage](https://github.com/sebmarkbage))
+* Añadir `aria-description` a la lista de atributos ARIA conocidos. ([#22142](https://github.com/facebook/react/pull/22142)  por [@mahyareb](https://github.com/mahyareb))
+* Añadir el evento `onResize` para elementos de video. ([#21973](https://github.com/facebook/react/pull/21973)  por [@rileyjshaw](https://github.com/rileyjshaw))
+* Añadir `imageSizes` y `imageSrcSet` a propiedades conocidas. ([#22550](https://github.com/facebook/react/pull/22550)  por [@eps1lon](https://github.com/eps1lon))
+* Permitir hijos de tipo `<option>` no string si es proporcionado el `value`.  ([#21431](https://github.com/facebook/react/pull/21431)  por [@sebmarkbage](https://github.com/sebmarkbage))
+* Arreglar el estilo de `aspectRatio` que no se aplica. ([#21100](https://github.com/facebook/react/pull/21100)  por [@gaearon](https://github.com/gaearon))
+* Advertir si se llama a `renderSubtreeIntoContainer`. ([#23355](https://github.com/facebook/react/pull/23355)  por [@acdlite](https://github.com/acdlite))
 
-### React DOM Server {/*react-dom-server-1*/}
+### Servidor React DOM {/*react-dom-server-1*/}
 
-* Add the new streaming renderer. ([#14144](https://github.com/facebook/react/pull/14144), [#20970](https://github.com/facebook/react/pull/20970), [#21056](https://github.com/facebook/react/pull/21056), [#21255](https://github.com/facebook/react/pull/21255), [#21200](https://github.com/facebook/react/pull/21200), [#21257](https://github.com/facebook/react/pull/21257), [#21276](https://github.com/facebook/react/pull/21276), [#22443](https://github.com/facebook/react/pull/22443), [#22450](https://github.com/facebook/react/pull/22450), [#23247](https://github.com/facebook/react/pull/23247), [#24025](https://github.com/facebook/react/pull/24025), [#24030](https://github.com/facebook/react/pull/24030) by [@sebmarkbage](https://github.com/sebmarkbage))
-* Fix context providers in SSR when handling multiple requests. ([#23171](https://github.com/facebook/react/pull/23171)  by [@frandiox](https://github.com/frandiox))
-* Revert to client render on text mismatch. ([#23354](https://github.com/facebook/react/pull/23354)  by [@acdlite](https://github.com/acdlite))
-* Deprecate `renderToNodeStream`. ([#23359](https://github.com/facebook/react/pull/23359)  by [@sebmarkbage](https://github.com/sebmarkbage))
-* Fix a spurious error log in the new server renderer. ([#24043](https://github.com/facebook/react/pull/24043)  by [@eps1lon](https://github.com/eps1lon))
-* Fix a bug in the new server renderer. ([#22617](https://github.com/facebook/react/pull/22617)  by [@shuding](https://github.com/shuding))
-* Ignore function and symbol values inside custom elements on the server. ([#21157](https://github.com/facebook/react/pull/21157)  by [@sebmarkbage](https://github.com/sebmarkbage))
+* Añadir un nuevo renderizado de transmisión. ([#14144](https://github.com/facebook/react/pull/14144), [#20970](https://github.com/facebook/react/pull/20970), [#21056](https://github.com/facebook/react/pull/21056), [#21255](https://github.com/facebook/react/pull/21255), [#21200](https://github.com/facebook/react/pull/21200), [#21257](https://github.com/facebook/react/pull/21257), [#21276](https://github.com/facebook/react/pull/21276), [#22443](https://github.com/facebook/react/pull/22443), [#22450](https://github.com/facebook/react/pull/22450), [#23247](https://github.com/facebook/react/pull/23247), [#24025](https://github.com/facebook/react/pull/24025), [#24030](https://github.com/facebook/react/pull/24030) por [@sebmarkbage](https://github.com/sebmarkbage))
+* Arreglar los proveedores de contexto en SSR cuando se manejan multiples pedidos. ([#23171](https://github.com/facebook/react/pull/23171)  por [@frandiox](https://github.com/frandiox))
+* Revertir a la renderización del cliente en el caso de que haya una discrepancia de texto. ([#23354](https://github.com/facebook/react/pull/23354)  por [@acdlite](https://github.com/acdlite))
+* Deprecar `renderToNodeStream`. ([#23359](https://github.com/facebook/react/pull/23359)  por [@sebmarkbage](https://github.com/sebmarkbage))
+* Corregir un registro de error espurio en el nuevo renderizador del servidor. ([#24043](https://github.com/facebook/react/pull/24043)  por [@eps1lon](https://github.com/eps1lon))
+* Corregir un problema en el nuevo renderizado del servidor. ([#22617](https://github.com/facebook/react/pull/22617)  por [@shuding](https://github.com/shuding))
+* Ignorar los valores de símbolos y funcion dentro de los elementos personalizados en el servidor. ([#21157](https://github.com/facebook/react/pull/21157)  por [@sebmarkbage](https://github.com/sebmarkbage))
 
-### React DOM Test Utils {/*react-dom-test-utils*/}
+### Utilidades de Pruebas React DOM {/*react-dom-test-utils*/}
 
-* Throw when `act` is used in production. ([#21686](https://github.com/facebook/react/pull/21686)  by [@acdlite](https://github.com/acdlite))
-* Support disabling spurious act warnings with `global.IS_REACT_ACT_ENVIRONMENT`. ([#22561](https://github.com/facebook/react/pull/22561)  by [@acdlite](https://github.com/acdlite))
-* Expand act warning to cover all APIs that might schedule React work. ([#22607](https://github.com/facebook/react/pull/22607)  by [@acdlite](https://github.com/acdlite))
-* Make `act` batch updates. ([#21797](https://github.com/facebook/react/pull/21797)  by [@acdlite](https://github.com/acdlite))
-* Remove warning for dangling passive effects. ([#22609](https://github.com/facebook/react/pull/22609)  by [@acdlite](https://github.com/acdlite))
+* Lanzar error cuando se usa `act` en producción. ([#21686](https://github.com/facebook/react/pull/21686)  por [@acdlite](https://github.com/acdlite))
+* Soporte para deshabilitar las advertencias espurias con `global.IS_REACT_ACT_ENVIRONMENT`. ([#22561](https://github.com/facebook/react/pull/22561)  por [@acdlite](https://github.com/acdlite))
+* Expandir las advertencias act para cubrir todas las APIs que podrían crear trabajo en React. ([#22607](https://github.com/facebook/react/pull/22607)  por [@acdlite](https://github.com/acdlite))
+* Hacer agrupamientos de actualizaciones `act`. ([#21797](https://github.com/facebook/react/pull/21797)  por [@acdlite](https://github.com/acdlite))
+* Remover advertencias por effectos pasivos colgados. ([#22609](https://github.com/facebook/react/pull/22609)  por [@acdlite](https://github.com/acdlite))
 
 ### React Refresh {/*react-refresh*/}
 
-* Track late-mounted roots in Fast Refresh. ([#22740](https://github.com/facebook/react/pull/22740)  by [@anc95](https://github.com/anc95))
-* Add `exports` field to `package.json`. ([#23087](https://github.com/facebook/react/pull/23087)  by [@otakustay](https://github.com/otakustay))
+* Hacer seguimiento de los roots montados tarde en Fast Refresh. ([#22740](https://github.com/facebook/react/pull/22740)  por [@anc95](https://github.com/anc95))
+* Añadir el campo `exports` en `package.json`. ([#23087](https://github.com/facebook/react/pull/23087)  por [@otakustay](https://github.com/otakustay))
 
-### Server Components (Experimental) {/*server-components-experimental*/}
+### Componentes del Servidor (Experimental) {/*server-components-experimental*/}
 
-* Add Server Context support. ([#23244](https://github.com/facebook/react/pull/23244)  by [@salazarm](https://github.com/salazarm))
-* Add `lazy` support. ([#24068](https://github.com/facebook/react/pull/24068)  by [@gnoff](https://github.com/gnoff))
-* Update webpack plugin for webpack 5 ([#22739](https://github.com/facebook/react/pull/22739)  by [@michenly](https://github.com/michenly))
-* Fix a mistake in the Node loader. ([#22537](https://github.com/facebook/react/pull/22537)  by [@btea](https://github.com/btea))
-* Use `globalThis` instead of `window` for edge environments. ([#22777](https://github.com/facebook/react/pull/22777)  by [@huozhi](https://github.com/huozhi))
+* Añadir soporte a Server Context. ([#23244](https://github.com/facebook/react/pull/23244)  por [@salazarm](https://github.com/salazarm))
+* Añadir soporte a `lazy`. ([#24068](https://github.com/facebook/react/pull/24068)  por [@gnoff](https://github.com/gnoff))
+* Actualizar insersiones de webpack para webpack 5 ([#22739](https://github.com/facebook/react/pull/22739)  por [@michenly](https://github.com/michenly))
+* Corregir un error en el cargador de Node. ([#22537](https://github.com/facebook/react/pull/22537)  por [@btea](https://github.com/btea))
+* Usar `globalThis` en lugar de `window` para entornos de borde. ([#22777](https://github.com/facebook/react/pull/22777)  por [@huozhi](https://github.com/huozhi))
 

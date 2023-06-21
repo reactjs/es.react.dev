@@ -1,14 +1,14 @@
 ---
-title: "Introducing react.dev"
+title: "Presentando react.dev"
 ---
 
-March 16, 2023 by [Dan Abramov](https://twitter.com/dan_abramov) and [Rachel Nabors](https://twitter.com/rachelnabors)
+16 de Marzo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) y [Rachel Nabors](https://twitter.com/rachelnabors)
 
 ---
 
 <Intro>
 
-Today we are thrilled to launch [react.dev](https://react.dev), the new home for React and its documentation. In this post, we would like to give you a tour of the new site.
+Hoy estamos encantados de lanzar [react.dev](https://react.dev), el nuevo hogar de React y su documentación. En esta publicación, nos gustaría mostrarte el nuevo sitio.
 
 </Intro>
 
@@ -16,44 +16,44 @@ Today we are thrilled to launch [react.dev](https://react.dev), the new home for
 
 ## tl;dr {/*tldr*/}
 
-* The new React site ([react.dev](https://react.dev)) teaches modern React with function components and Hooks.
-* We've included diagrams, illustrations, challenges, and over 600 new interactive examples.
-* The previous React documentation site has now moved to [legacy.reactjs.org](https://legacy.reactjs.org).
+* El nuevo sitio de React ([react.dev](https://react.dev)) enseña React moderno con componentes de función y Hooks.
+* Hemos incluido diagramas, ilustraciones, desafíos y más de 600 nuevos ejemplos interactivos.
+* El antiguo sitio de documentación de React se ha trasladado a [legacy.reactjs.org](https://legacy.reactjs.org).
 
-## New site, new domain, new homepage {/*new-site-new-domain-new-homepage*/}
+## Nuevo sitio, nuevo dominio, nueva página de inicio {/*new-site-new-domain-new-homepage*/}
 
-First, a little bit of housekeeping.
+Primero, un poco de organización.
 
-To celebrate the launch of the new docs and, more importantly, to clearly separate the old and the new content, we've moved to the shorter [react.dev](https://react.dev) domain. The old [reactjs.org](https://reactjs.org) domain will now redirect here.
+Para celebrar el lanzamiento de la nueva documentación y, lo que es más importante, para separar claramente el contenido antiguo del nuevo, nos hemos mudado al dominio más corto [react.dev](https://react.dev). El antiguo dominio [reactjs.org](https://reactjs.org) ahora redireccionará aquí.
 
-The old React docs are now archived at [legacy.reactjs.org](https://legacy.reactjs.org). All existing links to the old content will automatically redirect there to avoid "breaking the web", but the legacy site will not get many more updates.
+La antigua documentación de React ahora se encuentra archivada en [legacy.reactjs.org](https://legacy.reactjs.org). Todos los enlaces existentes al contenido antiguo se redirigirán automáticamente allí para evitar "romper la web", pero el sitio antiguo no recibirá muchas más actualizaciones.
 
-Believe it or not, React will soon be ten years old. In JavaScript years, it's like a whole century! We've [refreshed the React homepage](https://react.dev) to reflect why we think React is a great way to create user interfaces today, and updated the getting started guides to more prominently mention modern React-based frameworks.
+Lo creas o no, React pronto cumplirá diez años. ¡En años de JavaScript, es como todo un siglo! Hemos actualizado [la página de inicio de React](https://react.dev) para reflejar por qué creemos que React es una excelente manera de crear interfaces de usuario en la actualidad, y hemos actualizado las guías de inicio para mencionar de manera más prominente los frameworks modernos basados en React.
 
-If you haven't seen the new homepage yet, check it out!
+¡Si aún no has visto la nueva página de inicio, échale un vistazo!
 
-## Going all-in on modern React with Hooks {/*going-all-in-on-modern-react-with-hooks*/}
+## Compromiso total con React moderno y Hooks {/*going-all-in-on-modern-react-with-hooks*/}
 
-When we released React Hooks in 2018, the Hooks docs assumed the reader is familiar with class components. This helped the community adopt Hooks very swiftly, but after a while the old docs failed to serve the new readers. New readers had to learn React twice: once with class components and then once again with Hooks.
+Cuando lanzamos React Hooks en 2018, la documentación de Hooks asumía que el lector estaba familiarizado con los componentes de clase. Esto ayudó a la comunidad a adoptar Hooks rápidamente, pero después de un tiempo, los viejos documentos dejaron de ser útiles para los nuevos lectores. Los nuevos lectores tenían que aprender React dos veces: una vez con componentes de clase y luego nuevamente con Hooks.
 
-**The new docs teach React with Hooks from the beginning.** The docs are divided in two main sections:
+**Los nuevos documentos enseñan React con Hooks desde el principio.**  Los documentos se dividen en dos secciones principales:
 
-* **[Learn React](/learn)** is a self-paced course that teaches React from scratch.
-* **[API Reference](/reference)** provides the details and usage examples for every React API.
+* **[Aprende React](/learn)** es un curso autodidacta que enseña React desde cero.
+* **[Referencia de la API](/reference)** proporciona los detalles y ejemplos de uso de cada API de React.
 
-Let's have a closer look at what you can find in each section.
+Veamos más de cerca qué puedes encontrar en cada sección.
 
 <Note>
 
-There are still a few rare class component use cases that do not yet have a Hook-based equivalent. Class components remain supported, and are documented in the [Legacy API](/reference/react/legacy) section of the new site.
+Todavía hay algunos casos raros de uso de componentes de clase que aún no tienen un equivalente basado en Hooks. Los componentes de clase siguen siendo compatibles y se documentan en la sección de [APIs heredadas de React](/reference/react/legacy) del nuevo sitio.
 
 </Note>
 
-## Quick start {/*quick-start*/}
+## Inicio rápido {/*quick-start*/}
 
-The Learn section begins with the [Quick Start](/learn) page. It is a short introductory tour of React. It introduces the syntax for concepts like components, props, and state, but doesn't go into much detail on how to use them.
+La sección de Aprendizaje comienza con la página de [Inicio rápido](/learn). Es un breve recorrido introductorio de React. Presenta la sintaxis de conceptos como componentes, props y estado, pero no se adentra en muchos detalles sobre cómo utilizarlos.
 
-If you like to learn by doing, we recommend checking out the [Tic-Tac-Toe Tutorial](/learn/tutorial-tic-tac-toe) next. It walks you through building a little game with React, while teaching the skills you'll use every day. Here's what you'll build:
+Si te gusta aprender haciendo, te recomendamos que consultes el [tutorial de Tic-Tac-Toe](/learn/tutorial-tic-tac-toe) a continuación. Te guiará en la construcción de un pequeño juego con React, al mismo tiempo que te enseña las habilidades que utilizarás a diario. Esto es lo que construirás:
 
 <Sandpack>
 
@@ -85,9 +85,9 @@ function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = 'Ganador: ' + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = 'Próximo jugador: ' + (xIsNext ? 'X' : 'O');
   }
 
   return (
@@ -131,9 +131,9 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = 'Ir a la movida #' + move;
     } else {
-      description = 'Go to game start';
+      description = 'Ir al inicio del juego';
     }
     return (
       <li key={move}>
@@ -222,43 +222,43 @@ body {
 
 </Sandpack>
 
-We'd also like to highlight [Thinking in React](/learn/thinking-in-react)—that's the tutorial that made React "click" for many of us. **We've updated both of these classic tutorials to use function components and Hooks,** so they're as good as new.
+También nos gustaría destacar [Pensar en React](/learn/thinking-in-react), ese tutorial que hizo que React "hiciera clic" para muchos de nosotros. **Hemos actualizado ambos tutoriales clásicos para utilizar componentes de función y Hooks,** por lo que están como nuevos.
 
 <Note>
 
-The example above is a *sandbox*. We've added a lot of sandboxes—over 600!—everywhere throughout the site. You can edit any sandbox, or press "Fork" in the upper right corner to open it in a separate tab. Sandboxes let you quickly play with the React APIs, explore your ideas, and check your understanding.
+El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Bifurcar" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las APIs de React, explorar tus ideas y comprobar tu comprensión.
 
 </Note>
 
-## Learn React step by step {/*learn-react-step-by-step*/}
+## Aprende React paso a paso {/*learn-react-step-by-step*/}
 
-We'd like everyone in the world to have an equal opportunity to learn React for free on their own.
+Nos gustaría que todas las personas del mundo tengan la misma oportunidad de aprender React de forma gratuita por sí mismas.
 
-This is why the Learn section is organized like a self-paced course split into chapters. The first two chapters describe the fundamentals of React. If you're new to React, or want to refresh it in your memory, start here:
+Por eso, la sección de Aprender está organizada como un curso autodidacta dividido en capítulos. Los dos primeros capítulos describen los fundamentos de React. Si eres nuevo en React o quieres refrescar tu memoria, comienza aquí:
 
-- **[Describing the UI](/learn/describing-the-ui)** teaches how to display information with components.
-- **[Adding Interactivity](/learn/adding-interactivity)** teaches how to update the screen in response to user input.
+- **[Describir la UI](/learn/describing-the-ui)** enseña cómo mostrar información con componentes.
+- **[Agregar interactividad](/learn/adding-interactivity)** enseña cómo actualizar la pantalla en respuesta a la entrada del usuario.
 
-The next two chapters are more advanced, and will give you a deeper insight into the trickier parts:
+Los dos siguientes capítulos son más avanzados y te darán una comprensión más profunda de las partes más difíciles:
 
-- **[Managing State](/learn/managing-state)** teaches how to organize your logic as your app grows in complexity.
-- **[Escape Hatches](/learn/escape-hatches)** teaches how you can "step outside" React, and when it makes most sense to do so.
+- **[Gestión del estado](/learn/managing-state)** enseña cómo organizar tu lógica a medida que tu aplicación crece en complejidad.
+- **[Puertas de escape](/learn/escape-hatches)** enseña cómo "salir" de React y cuándo tiene más sentido hacerlo.
 
-Every chapter consists of several related pages. Most of these pages teach a specific skill or a technique—for example, [Writing Markup with JSX](/learn/writing-markup-with-jsx), [Updating Objects in State](/learn/updating-objects-in-state), or [Sharing State Between Components](/learn/sharing-state-between-components). Some of the pages focus on explaining an idea—like [Render and Commit](/learn/render-and-commit), or [State as a Snapshot](/learn/state-as-a-snapshot). And there are a few, like [You Might Not Need an Effect](/learn/you-might-not-need-an-effect), that share our suggestions based on what we've learned over these years.
+Cada capítulo consta de varias páginas relacionadas. La mayoría de estas páginas enseñan una habilidad o técnica específica, como [Escribir marcado con JSX](/learn/writing-markup-with-jsx), [Actualizar objetos en el estado](/learn/updating-objects-in-state), o [Compartir estado entre componentes](/learn/sharing-state-between-components).  Algunas páginas se centran en explicar una idea, como [Renderizado y confirmación](/learn/render-and-commit), o [El estado como una instantánea](/learn/state-as-a-snapshot). Y hay algunas pocas, como [Es posible que no necesites un Effect](/learn/you-might-not-need-an-effect),  que comparten nuestras sugerencias basadas en lo que hemos aprendido a lo largo de estos años.
 
-You don't have to read these chapters as a sequence. Who has the time for this?! But you could. Pages in the Learn section only rely on concepts introduced by the earlier pages. If you want to read it like a book, go for it!
+No es necesario leer estos capítulos en secuencia. ¡¿Quién tiene tiempo para eso?! Pero podrías hacerlo. Las páginas de la sección de Aprender solo se basan en conceptos introducidos por las páginas anteriores. Si quieres leerlo como un libro, ¡adelante!
 
-### Check your understanding with challenges {/*check-your-understanding-with-challenges*/}
+### Verifica tu comprensión con desafíos {/*check-your-understanding-with-challenges*/}
 
-Most pages in the Learn section end with a few challenges to check your understanding. For example, here are a few challenges from the page about [Conditional Rendering](/learn/conditional-rendering#challenges).
+La mayoría de las páginas de la sección de Aprender terminan con algunos desafíos para verificar tu comprensión. Por ejemplo, aquí tienes algunos desafíos de la página sobre [Renderizado Condicional](/learn/conditional-rendering#challenges).
 
-You don't have to solve them right now! Unless you *really* want to.
+¡No tienes que resolverlos ahora mismo! A menos que *realmente* quieras hacerlo.
 
 <Challenges noTitle={true}>
 
-#### Show an icon for incomplete items with `? :` {/*show-an-icon-for-incomplete-items-with--*/}
+#### Mostrar un ícono para elementos incompletos con `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
-Use the conditional operator (`cond ? a : b`) to render a ❌ if `isPacked` isn’t `true`.
+Utiliza el operador condicional (`cond ? a : b`) para renderizar una ❌ si `isPacked` no es `true`.
 
 <Sandpack>
 
@@ -274,19 +274,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje espacial" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con una hoja dorada" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Foto de Tam" 
         />
       </ul>
     </section>
@@ -312,19 +312,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje espacial" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con una hoja dorada" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Foto de Tam" 
         />
       </ul>
     </section>
@@ -336,15 +336,15 @@ export default function PackingList() {
 
 </Solution>
 
-#### Show the item importance with `&&` {/*show-the-item-importance-with-*/}
+#### Mostrar la importancia del elemento con `&&` {/*show-the-item-importance-with-*/}
 
-In this example, each `Item` receives a numerical `importance` prop. Use the `&&` operator to render "_(Importance: X)_" in italics, but only for items that have non-zero importance. Your item list should end up looking like this:
+En este ejemplo, cada `elemento` recibe una prop de `importancia` numérica. Usa el operador `&&` para renderizar "_(Importancia: X)_" en cursiva, pero sólo para los elementos que tienen una importancia distinta de cero. Tu lista de elementos debería lucier así:
 
-* Space suit _(Importance: 9)_
-* Helmet with a golden leaf
-* Photo of Tam _(Importance: 6)_
+* Traje espacial _(Importancia: 9)_
+* Casco con una hoja dorada
+* Foto de Tam _(Importancia: 6)_
 
-Don't forget to add a space between the two labels!
+¡No olvides agregar un espacio entre las dos etiquetas!
 
 <Sandpack>
 
@@ -364,15 +364,15 @@ export default function PackingList() {
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Traje espacial" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Casco con una hoja dorada" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Foto de Tam" 
         />
       </ul>
     </section>
@@ -384,7 +384,7 @@ export default function PackingList() {
 
 <Solution>
 
-This should do the trick:
+Esto debería funcionar:
 
 <Sandpack>
 
@@ -408,15 +408,15 @@ export default function PackingList() {
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Traje espacial" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Casco con una hoja dorada" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Foto de Tam" 
         />
       </ul>
     </section>
@@ -426,53 +426,53 @@ export default function PackingList() {
 
 </Sandpack>
 
-Note that you must write `importance > 0 && ...` rather than `importance && ...` so that if the `importance` is `0`, `0` isn't rendered as the result!
+Ten en cuenta que debes escribir  `importance > 0 && ...` en lugar de `importance && ...` para que si `importance` es `0`, `0` no sea mostrado como el resultado.
 
-In this solution, two separate conditions are used to insert a space between then name and the importance label. Alternatively, you could use a fragment with a leading space: `importance > 0 && <> <i>...</i></>` or add a space immediately inside the `<i>`:  `importance > 0 && <i> ...</i>`.
+En esta solución, se utilizan dos condiciones separadas para insertar un espacio entre el nombre y la etiqueta de importancia. Alternativamente, podrías usar un fragmento con un espacio inicial: `importance > 0 && <> <i>...</i></>` o agregar un espacio inmediatamente dentro de `<i>`:  `importance > 0 && <i> ...</i>`.
 
 </Solution>
 
 </Challenges>
 
-Notice the "Show solution" button in the left bottom corner. It's handy if you want to check yourself!
+Observa el botón "Mostrar solución" en la esquina inferior izquierda. Es útil si quieres comprobar por ti mismo/a.
 
-### Build an intuition with diagrams and illustrations {/*build-an-intuition-with-diagrams-and-illustrations*/}
+### Desarrolla una intuición con diagramas e ilustraciones {/*build-an-intuition-with-diagrams-and-illustrations*/}
 
-When we couldn't figure out how to explain something with code and words alone, we've added diagrams that help provide some intuition. For example, here is one of the diagrams from [Preserving and Resetting State](/learn/preserving-and-resetting-state):
+Cuando no pudimos descubrir cómo explicar algo solo con código y palabras, hemos agregado diagramas que ayudan a proporcionar cierta intuición. Por ejemplo, aquí hay uno de los diagramas de [Conservar y reiniciar el estado](/learn/preserving-and-resetting-state):
 
-<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagram with three sections, with an arrow transitioning each section in between. The first section contains a React component labeled 'div' with a single child labeled 'section', which has a single child labeled 'Counter' containing a state bubble labeled 'count' with value 3. The middle section has the same 'div' parent, but the child components have now been deleted, indicated by a yellow 'proof' image. The third section has the same 'div' parent again, now with a new child labeled 'div', highlighted in yellow, also with a new child labeled 'Counter' containing a state bubble labeled 'count' with value 0, all highlighted in yellow.">
+<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagrama con tres secciones, con una flecha que transiciona entre cada sección. La primera sección contiene un componente de React etiquetado como 'div' con un único hijo etiquetado como 'section', el cual tiene un único hijo etiquetado como 'Counter' que contiene una burbuja de estado etiquetada como 'count' con un valor de 3. En la sección del medio, el mismo componente 'div' padre se encuentra presente, pero los componentes hijos han sido eliminados, indicado por una imagen de 'prueba' amarilla. La tercera sección tiene nuevamente el mismo componente 'div' padre, ahora con un nuevo hijo etiquetado como 'div', resaltado en amarillo, y también con un nuevo hijo etiquetado como 'Counter' que contiene una burbuja de estado etiquetada como 'count' con un valor de 0, todos ellos resaltados en amarillo.">
 
-When `section` changes to `div`, the `section` is deleted and the new `div` is added
+Cuando `section` cambia a `div`, `section` es eliminada y el nuevo `div` is añadido.
 
 </Diagram>
 
-You'll also see some illustrations throughout the docs--here's one of the [browser painting the screen](/learn/render-and-commit#epilogue-browser-paint):
+También encontrarás algunas ilustraciones a lo largo de la documentación--aquí tienes una de ellas que muestra al [navegador pintando la pantalla](/learn/render-and-commit#epilogue-browser-paint):
 
-<Illustration alt="A browser painting 'still life with card element'." src="/images/docs/illustrations/i_browser-paint.png" />
+<Illustration alt="Un navegador pintando un bodegón con un elemento card'." src="/images/docs/illustrations/i_browser-paint.png" />
 
-We've confirmed with the browser vendors that this depiction is 100% scientifically accurate.
+Hemos confirmado con los proveedores de navegadores que esta representación es 100% científicamente precisa.
 
-## A new, detailed API Reference {/*a-new-detailed-api-reference*/}
+## Una nueva y detallada Referencia de la API {/*a-new-detailed-api-reference*/}
 
-In the [API Reference](/reference/react), every React API now has a dedicated page. This includes all kinds of APIs:
+En la [Referencia de la API](/reference/react), cada API de React ahora tiene una página dedicada. Esto incluye todo tipo de APIs:
 
-- Built-in Hooks like [`useState`](/reference/react/useState).
-- Built-in components like [`<Suspense>`](/reference/react/Suspense).
-- Built-in browser components like [`<input>`](/reference/react-dom/components/input).
-- Framework-oriented APIs like [`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
-- Other React APIs like [`memo`](/reference/react/memo).
+- Hooks incorporados como [`useState`](/reference/react/useState).
+- Componentes incorporados como [`<Suspense>`](/reference/react/Suspense).
+- Componentes de navegadores incorporados como [`<input>`](/reference/react-dom/components/input).
+- APIs orientadas al framework como [`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
+- Otras APIs de React como [`memo`](/reference/react/memo).
 
-You'll notice that every API page is split into at least two segments: *Reference* and *Usage*.
+Observarás que cada página de API se divide en al menos dos segmentos: *Referencia* y *Uso*.
 
-[Reference](/reference/react/useState#reference) describes the formal API signature by listing its arguments and return values. It's concise, but it can feel a bit abstract if you're not familiar with that API. It describes what an API does, but not how to use it.
+[Referencia](/reference/react/useState#reference) describe la firma formal de la API al listar sus argumentos y valores de retorno. Es concisa, pero puede sentirse un poco abstracta si no estás familiarizado con esa API. Describe qué hace una API, pero no cómo utilizarla.
 
-[Usage](/reference/react/useState#usage) shows why and how you would use this API in practice, like a colleague or a friend might explain. It shows the **canonical scenarios for how each API was meant to be used by the React team.** We've added color-coded snippets, examples of using different APIs together, and recipes that you can copy and paste from:
+[Uso](/reference/react/useState#usage) muestra por qué y cómo utilizarías esta API en la práctica, como podría explicarlo un colega o un amigo. Muestra los **escenarios canónicos de cómo el equipo de React pretendía que se utilizara cada API.** Hemos añadido fragmentos de código con colores, ejemplos de cómo usar diferentes APIs juntas y recetas que puedes copiar y pegar:
 
-<Recipes titleText="Basic useState examples" titleId="examples-basic">
+<Recipes titleText="Ejemplos básicos de useState" titleId="examples-basic">
 
-#### Counter (number) {/*counter-number*/}
+#### Contador (número) {/*counter-number*/}
 
-In this example, the `count` state variable holds a number. Clicking the button increments it.
+En este ejemplo, la variable de estado `count` almacena un número. Al hacer clic en el botón, se incrementa.
 
 <Sandpack>
 
@@ -488,7 +488,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      You pressed me {count} times
+      Me presionaste {count} veces
     </button>
   );
 }
@@ -498,9 +498,9 @@ export default function Counter() {
 
 <Solution />
 
-#### Text field (string) {/*text-field-string*/}
+#### Campo de texto (string) {/*text-field-string*/}
 
-In this example, the `text` state variable holds a string. When you type, `handleChange` reads the latest input value from the browser input DOM element, and calls `setText` to update the state. This allows you to display the current `text` below.
+En este ejemplo, la variables de estado `text` almacena un string. Cuando escribes, la función `handleChange` lee el último valor de entrada del elemento DOM de entrada del navegador y llama a `setText` para actualizar el estado. Esto te permite mostrar al `text` actual debajo.
 
 <Sandpack>
 
@@ -517,9 +517,9 @@ export default function MyInput() {
   return (
     <>
       <input value={text} onChange={handleChange} />
-      <p>You typed: {text}</p>
+      <p>Escribiste: {text}</p>
       <button onClick={() => setText('hello')}>
-        Reset
+        Restablecer
       </button>
     </>
   );
@@ -532,7 +532,7 @@ export default function MyInput() {
 
 #### Checkbox (boolean) {/*checkbox-boolean*/}
 
-In this example, the `liked` state variable holds a boolean. When you click the input, `setLiked` updates the `liked` state variable with whether the browser checkbox input is checked. The `liked` variable is used to render the text below the checkbox.
+En este ejemplo, la variable de estado `liked` almacena un booleano. Cuando haces click en el input, `setLiked` actualiza la variable de estado `liked` dependiendo si el checkbox está marcado o no. La variable `liked` se utiliza para mostrar el texto debajo del checkbox.
 
 <Sandpack>
 
@@ -554,9 +554,9 @@ export default function MyCheckbox() {
           checked={liked}
           onChange={handleChange}
         />
-        I liked this
+        Me gustó esto
       </label>
-      <p>You {liked ? 'liked' : 'did not like'} this.</p>
+      <p>{liked ? 'Te gustó' : 'No te gustó'} esto.</p>
     </>
   );
 }
@@ -566,9 +566,9 @@ export default function MyCheckbox() {
 
 <Solution />
 
-#### Form (two variables) {/*form-two-variables*/}
+#### Form (dos variables) {/*form-two-variables*/}
 
-You can declare more than one state variable in the same component. Each state variable is completely independent.
+Puedes declarar más de una variable de estado en el mismo componente. Cada variable de estado es completamente independiente.
 
 <Sandpack>
 
@@ -586,9 +586,9 @@ export default function Form() {
         onChange={e => setName(e.target.value)}
       />
       <button onClick={() => setAge(age + 1)}>
-        Increment age
+        Incrementar edad
       </button>
-      <p>Hello, {name}. You are {age}.</p>
+      <p>Hola, {name}. Tienes {age} años.</p>
     </>
   );
 }
@@ -604,43 +604,42 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
-Some API pages also include [Troubleshooting](/reference/react/useEffect#troubleshooting) (for common problems) and [Alternatives](/reference/react-dom/findDOMNode#alternatives) (for deprecated APIs).
+Algunas páginas de la API también incluyen [solución de problemas](/reference/react/useEffect#troubleshooting) (para problemas comunes) y [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
 
-We hope that this approach will make the API reference useful not only as a way to look up an argument, but as a way to see all the different things you can do with any given API—and how it connects to the other ones.
+Esperamos que este enfoque haga que la referencia de la API sea útil no solo como una forma de buscar un argumento, sino también como una forma de ver todas las cosas diferentes que se pueden hacer con cualquier API y cómo se conecta con las demás.
 
-## What's next? {/*whats-next*/}
+## ¿Qué sigue? {/*whats-next*/}
 
-That's a wrap for our little tour! Have a look around the new website, see what you like or don't like, and keep the feedback coming in the [anonymous survey](https://www.surveymonkey.co.uk/r/PYRPF3X) or in our [issue tracker](https://github.com/reactjs/reactjs.org/issues).
+¡Eso es todo para nuestro pequeño recorrido! Echa un vistazo al nuevo sitio web, mira lo que te gusta o no te gusta, y sigue enviando tus comentarios en la [encuesta anónima](https://www.surveymonkey.co.uk/r/PYRPF3X) o en nuestro [rastreador de problemas](https://github.com/reactjs/reactjs.org/issues).
 
-We acknowledge this project has taken a long time to ship. We wanted to maintain a high quality bar that the React community deserves. While writing these docs and creating all of the examples, we found mistakes in some of our own explanations, bugs in React, and even gaps in the React design that we are now working to address. We hope that the new documentation will help us hold React itself to a higher bar in the future.
+Reconocemos que este proyecto ha tardado mucho en lanzarse. Queríamos mantener un alto nivel de calidad que la comunidad de React se merece. Mientras escribíamos estos documentos y creamos todos los ejemplos, encontramos errores en algunas de nuestras propias explicaciones, fallos en React e incluso lagunas en el diseño de React que ahora estamos trabajando para solucionar. Esperamos que la nueva documentación nos ayude a mantener un estándar más alto para React en el futuro.
 
-We've heard many of your requests to expand the content and functionality of the website, for example:
+Hemos escuchado muchas de sus solicitudes para ampliar el contenido y la funcionalidad del sitio web, por ejemplo:
 
-- Providing a TypeScript version for all examples;
-- Creating the updated performance, testing, and accessibility guides;
-- Documenting React Server Components independently from the frameworks that support them;
-- Working with our international community to get the new docs translated;
-- Adding missing features to the new website (for example, RSS for this blog).
+- Proporcionar una versión de TypeScript para todos los ejemplos;
+- Crear las guías actualizadas de rendimiento, pruebas y accesibilidad;
+- Documentar los Componentes del Servidor de React de forma independiente de los frameworks que los admiten;
+- Trabajar con nuestra comunidad internacional para traducir los nuevos documentos;
+- Agregar características faltantes al nuevo sitio web (por ejemplo, RSS para este blog).
 
-Now that [react.dev](https://react.dev/) is out, we will be able to shift our focus from "catching up" with the third-party React educational resources to adding new information and further improving our new website.
+Ahora que [react.dev](https://react.dev/) está disponible, podremos cambiar nuestro enfoque de "ponernos al día" con los recursos educativos de terceros de React a agregar nueva información y mejorar aún más nuestro nuevo sitio web. 
 
-We think there's never been a better time to learn React.
+Creemos que nunca ha habido un mejor momento para aprender React.
 
-## Who worked on this? {/*who-worked-on-this*/}
+## ¿Quiénes trabajaron en esto? {/*who-worked-on-this*/}
 
-On the React team, [Rachel Nabors](https://twitter.com/rachelnabors/) led the project (and provided the illustrations), and [Dan Abramov](https://twitter.com/dan_abramov) designed the curriculum. They co-authored most of the content together as well.
+En el equipo de React, [Rachel Nabors](https://twitter.com/rachelnabors/)  lideró el proyecto (y proporcionó las ilustraciones), y [Dan Abramov](https://twitter.com/dan_abramov) diseñó el plan de estudios. Ambos coautoraron la mayor parte del contenido juntos también.
 
-Of course, no project this large happens in isolation. We have a lot of people to thank!
+Por supuesto, ningún proyecto tan grande se realiza en aislamiento. ¡Tenemos muchas personas a quienes agradecer!
 
-[Sylwia Vargas](https://twitter.com/SylwiaVargas) overhauled our examples to go beyond "foo/bar/baz" and kittens, and feature scientists, artists and cities from around the world. [Maggie Appleton](https://twitter.com/Mappletons) turned our doodles into a clear diagram system.
+[Sylwia Vargas](https://twitter.com/SylwiaVargas)  renovó nuestros ejemplos para ir más allá de "foo/bar/baz" y gatitos, y presentar científicos, artistas y ciudades de todo el mundo. [Maggie Appleton](https://twitter.com/Mappletons) convirtió nuestros garabatos en un sistema de diagramas claro.
 
-Thanks to [David McCabe](https://twitter.com/mcc_abe), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Andrew Clark](https://twitter.com/acdlite), and [Matt Carroll](https://twitter.com/mattcarrollcode) for additional writing contributions. We'd also like to thank [Natalia Tepluhina](https://twitter.com/n_tepluhina) and [Sebastian Markbåge](https://twitter.com/sebmarkbage) for their ideas and feedback.
+Gracias a [David McCabe](https://twitter.com/mcc_abe), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Andrew Clark](https://twitter.com/acdlite), and [Matt Carroll](https://twitter.com/mattcarrollcode) por las contribuciones adicionales. También nos gustaría agradecer a [Natalia Tepluhina](https://twitter.com/n_tepluhina) y a [Sebastian Markbåge](https://twitter.com/sebmarkbage) por sus ideas y comentarios.
 
-Thanks to [Dan Lebowitz](https://twitter.com/lebo) for the site design and [Razvan Gradinar](https://dribbble.com/GradinarRazvan) for the sandbox design.
+Gracias a [Dan Lebowitz](https://twitter.com/lebo) por el diseño del sitio y a [Razvan Gradinar](https://dribbble.com/GradinarRazvan) por el diseño de sandbox.
 
-On the development front, thanks to [Jared Palmer](https://twitter.com/jaredpalmer) for prototype development. Thanks to [Dane Grant](https://twitter.com/danecando) and [Dustin Goodman](https://twitter.com/dustinsgoodman) from [ThisDotLabs](https://www.thisdot.co/) for their support on UI development. Thanks to [Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), and [Danilo Woznica](https://twitter.com/danilowoz) from [CodeSandbox](https://codesandbox.io/) for their work with sandbox integration. Thanks to [Rick Hanlon](https://twitter.com/rickhanlonii) for spot development and design work, finessing our colors and finer details. Thanks to [Harish Kumar](https://www.strek.in/) and [Luna Ruan](https://twitter.com/lunaruan) for adding new features to the site and helping maintain it.
+En el ámbito del desarrollo, gracias a [Jared Palmer](https://twitter.com/jaredpalmer) por el desarrollo del prototipo. Gracias a  [Dane Grant](https://twitter.com/danecando) y a [Dustin Goodman](https://twitter.com/dustinsgoodman) de [ThisDotLabs](https://www.thisdot.co/) por su apoyo en el desarrollo de la interfaz de usuario. Gracias a [Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), y a [Danilo Woznica](https://twitter.com/danilowoz) de [CodeSandbox](https://codesandbox.io/) por su trabajo en la integración del sandbox. Gracias a [Rick Hanlon](https://twitter.com/rickhanlonii) por el desarrollo y trabajo de diseño,  puliendo nuestros colores y detalles más finos. Gracias a [Harish Kumar](https://www.strek.in/) y [Luna Ruan](https://twitter.com/lunaruan) por agregar nuevas características al sitio y ayudar a mantenerlo.
 
-Huge thanks to the folks who volunteered their time to participate in the alpha and beta testing program. Your enthusiasm and invaluable feedback helped us shape these docs. A special shout out to our beta tester, [Debbie O'Brien](https://twitter.com/debs_obrien), who gave a talk about her experience using the React docs at React Conf 2021.
+Un enorme agradecimiento a todas las personas que se ofrecieron voluntariamente para participar en el programa de pruebas alfa y beta. Su entusiasmo y valiosos comentarios nos ayudaron a dar forma a estos documentos. Un agradecimiento especial a nuestra probadora beta, [Debbie O'Brien](https://twitter.com/debs_obrien), quien dio una charla sobre su experiencia utilizando los documentos de React en React Conf 2021.
 
-Finally, thanks to the React community for being the inspiration behind this effort. You are the reason we do this, and we hope that the new docs will help you use React to build any user interface that you want.
-
+Por último, gracias a la comunidad de React por ser la inspiración detrás de este esfuerzo. Ustedes son la razón por la que hacemos esto, y esperamos que los nuevos documentos les ayuden a utilizar React para construir cualquier interfaz de usuario que deseen.
