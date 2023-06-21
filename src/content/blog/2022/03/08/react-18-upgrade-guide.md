@@ -119,7 +119,7 @@ Para obtener más información, consulta la discusión del grupo de trabajo aqu�
 
 Si tu aplicación deja de funcionar después de la actualización, verifica si está envuelta en `<StrictMode>`. Strict Mode se ha vuelto más estricto en React 18, y es posible que no todos tus componentes sean resistentes a las nuevas comprobaciones que agrega en el modo de desarrollo. Si al quitar Strict Mode se soluciona el problema de tu aplicación, puedes eliminarlo durante la actualización y luego agregarlo nuevamente (ya sea en la parte superior o para una parte del árbol) después de corregir los problemas que señala.
 
-<Note>
+</Note>
 
 ## Actualizaciones de las API de Renderizado del Servidor {/*actualizaciones-de-las-api-de-renderizado-del-servidor*/}
 
