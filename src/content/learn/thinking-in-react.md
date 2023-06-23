@@ -35,10 +35,10 @@ Para implementar una UI en React, a menudo seguirás los mismos cinco pasos.
 
 Comienza por dibujar cuadros alrededor de cada componente y subcomponente en el boceto y nómbralos. Si trabajas con un diseñador puede que ya les haya dado nombres a estos componentes en su herramienta de diseño. ¡Chequea primero!
 
-En dependencia de tu formación y experiencia, puedes pensar sobre la separación de un diseño en componentes de diferentes maneras: 
+Dependiendo de tu formación y experiencia, puedes pensar en dividir un diseño en componentes de distintas maneras:
 
-* **Programación**--usa las mismas técnicas para decidir si debes crear una nueva función u objeto. Una de esas técnicas es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_única), o sea, un componente debería hacer idealmente solo una cosa. Si termina creciendo, debería ser descompuesto en subcomponentes más pequeños.
-* **CSS**--considera para qué cosas hubieras creado selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
+* **Programación**--utiliza las mismas técnicas para decidir si debes crear una nueva función o un objeto. Una de estas técnicas es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_única), es decir, lo ideal es que un componente sólo haga una cosa. Si termina creciendo, debería descomponerse en subcomponentes más pequeños.
+* **CSS**--considera para qué harías selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
 * **Diseño**--considera cómo organizarías las capas del diseño.
 
 Si tu JSON está bien estructurado, a menudo encontrarás que se corresponde naturalmente con la estructura de componentes de tu UI. Esto ocurre porque la UI y los modelos de datos a menudo tienen la misma arquitectura de información--o sea, la misma forma. Separa tu UI en componentes, de manera que cada componente se corresponda con una pieza de tu modelo de datos.
@@ -77,7 +77,7 @@ Ahora que tienes tu jerarquía de componentes, es momento de implementar tu apli
 
 Para construir la versión estática de tu aplicación que renderiza tu modelo de datos querrás construir [componentes](/learn/your-first-component) que reutilicen otros componentes y pasen datos usando [props](/learn/passing-props-to-a-component). Las props son una forma de pasar datos de padres a hijos. (Si estás familiarizado con el concepto de [estado](/learn/state-a-components-memory) no utilices nada de estado para construir esta versión estática. El estado se reserva solo para la interactividad, o sea, datos que cambian con el tiempo. Dado que esto es una versión estática de la aplicación, no lo necesitas).
 
-Puedes o bien construir de "arriba a abajo" comenzando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) or de "abajo a arriba" trabajando con los componentes más abajo (como `ProductRow`). En ejemplos más simples, usualmente es más fácil ir de arriba a abajo, y en proyectos más grandes, es más fácil ir de abajo a arriba.
+Puedes construir "de arriba hacia abajo" empezando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) o "de abajo hacia arriba" trabajando a partir de los componentes más abajo (como `ProductRow`). En ejemplos más simples, suele ser más fácil ir de arriba hacia abajo, y en proyectos más grandes, es más fácil ir de abajo hacia arriba.
 
 <Sandpack>
 
