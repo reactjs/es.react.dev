@@ -24,7 +24,7 @@ En la Web, HTML nos permite crear documentos estructurados con su conjunto integ
 <article>
   <h1>Mi primer componente</h1>
   <ol>
-    <li>Bloques de construcción de la UI</li>
+    <li>Componentes: Bloques de construcción de la UI</li>
     <li>Definiendo un componente</li>
     <li>Usando un componente</li>
   </ol>
