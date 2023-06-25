@@ -15,7 +15,7 @@ Los miembros del equipo de React Core trabajan a tiempo completo en las API de c
 Los miembros actuales del equipo de React se enumeran en orden alfabético a continuación.
 Engineer at Meta
 <TeamMember name="Andrew Clark" permalink="andrew-clark" photo="/images/team/acdlite.jpg" github="acdlite" twitter="acdlite" title="Ingeniero en Vercel">
-    Andrew comenzó con el desarrollo web creando sitios con WordPress, y y finalmente se engañó a sí mismo para hacer JavaScript. Su pasatiempo favorito es el karaoke. Andrew es un villano una princesa de Disney, según el día.
+    Andrew comenzó con el desarrollo web creando sitios con WordPress, y y finalmente se engañó a sí mismo para hacer JavaScript. Su pasatiempo favorito es el karaoke. Andrew es un villano o una princesa de Disney, según el día.
 </TeamMember>
 
 <TeamMember name="Andrey Lunyov" permalink="andrey-lunyov" photo="/images/team/andrey-lunyov.jpg" github="alunyov" twitter="alunyov" title="Ingeniero en Meta">
