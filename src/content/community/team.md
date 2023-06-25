@@ -116,4 +116,4 @@ A Jason le gusta recibir grandes volúmenes de paquetes de Amazon en la oficina 
 
 ## Colaboradores anteriores {/*past-contributors*/}
 
-Puede encontrar a los miembros anteriores del equipo y otras personas que contribuyeron significativamente a React a lo largo de los años en el apartado de [agredecimientos](/community/acknowledgements) page.
+Puedes encontrar a los antiguos miembros del equipo y a otras personas que han contribuido significativamente a React a lo largo de los años en la página de [agradecimientos](/community/acknowledgements).
