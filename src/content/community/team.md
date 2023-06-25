@@ -5,6 +5,7 @@ title: "Conoce al equipo"
 <Intro>
 
 El desarrollo de React está dirigido por un equipo dedicado que trabaja a tiempo completo en Meta. También recibe contribuciones de personas de todo el mundo.
+
 </Intro>
 
 ## Equipo principal de React {/*react-core*/}
