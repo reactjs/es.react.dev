@@ -250,7 +250,7 @@ Las props y el estado son diferentes, pero trabajan en conjunto. Un componente p
 
 ## Paso 4: Identificar dónde debe vivir tu estado {/*step-4-identify-where-your-state-should-live*/}
 
-Después de identificar los datos mínimos de estado de tu aplicación, debes identificar qué componente es responsable de cambiar este estado, o *posee** el estado. Recuerda: React utiliza un flujo de datos en una sola dirección, pasando datos hacia abajo de la jerarquía de componentes desde el componente padre al hijo. Puede no ser inmediatamente claro qué componente debe poseer qué estado. Esto puede suponer un resto si este concepto es nuevo para ti, pero puedes lograrlo si sigues los siguientes pasos.
+Después de identificar los datos mínimos de estado de tu aplicación, debes identificar qué componente es responsable de cambiar este estado, o *posee* el estado. Recuerda: React utiliza un flujo de datos en una sola dirección, pasando datos hacia abajo de la jerarquía de componentes desde el componente padre al hijo. Puede no ser inmediatamente claro qué componente debe poseer qué estado. Esto puede suponer un reto si este concepto es nuevo para ti, pero puedes lograrlo si sigues los siguientes pasos.
 
 Por cada pieza de estado en tu aplicación:
 
@@ -273,7 +273,7 @@ Ahora utilicemos nuestra estrategia para este estado:
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 
-Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten "engancharte" al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como "gancho"). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
+Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten "engancharte" al [ciclo de renderizado](/learn/render-and-commit) de un componente (<abbr title="Nota de Traducción">N. de T.</abbr>: *hook* en inglés se puede traducir como "gancho"). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
 
 ```js
 function FilterableProductTable({ products }) {
