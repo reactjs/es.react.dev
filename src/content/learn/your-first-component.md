@@ -22,11 +22,11 @@ En la Web, HTML nos permite crear documentos estructurados con su conjunto integ
 
 ```html
 <article>
-  <h1>My First Component</h1>
+  <h1>Mi primer componente</h1>
   <ol>
-    <li>Components: UI Building Blocks</li>
-    <li>Defining a Component</li>
-    <li>Using a Component</li>
+    <li>Componentes: Bloques de construcción de la UI</li>
+    <li>Definiendo un componente</li>
+    <li>Usando un componente</li>
   </ol>
 </article>
 ```
@@ -41,7 +41,7 @@ De la misma forma que con las etiquetas HTML, puedes componer, ordenar y anidar 
 <PageLayout>
   <NavigationHeader>
     <SearchBar />
-    <Link to="/docs">Docs</Link>
+    <Link to="/docs">Documentación</Link>
   </NavigationHeader>
   <Sidebar />
   <PageContent>
@@ -137,7 +137,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -163,7 +163,7 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 ```html
 <section>
-  <h1>Amazing scientists</h1>
+  <h1>Científicos increíbles</h1>
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
@@ -376,7 +376,7 @@ function profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <profile />
       <profile />
       <profile />
@@ -412,7 +412,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -449,7 +449,7 @@ Escribe un componente desde cero. Puedes darle cualquier nombre válido y retorn
 ```js
 export default function Congratulations() {
   return (
-    <h1>Good job!</h1>
+    <h1>¡Buen trabajo!</h1>
   );
 }
 ```
