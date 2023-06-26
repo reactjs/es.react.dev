@@ -83,7 +83,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" title="Ingeniero en Meta">
-    Sathya odiaba el Libro del dragón en la escuela, pero de alguna manera terminó trabajando en compiladores durante toda su carrera. Cuando no está compilando componentes de React, está bebiendo café o comiendo otro Dosa.
+    Sathya odiaba el Libro del Dragón en la escuela, pero de alguna manera terminó trabajando en compiladores toda su carrera. Cuando no está compilando componentes de React, está bebiendo café o comiendo otra Dosa.
 </TeamMember>
 
 <TeamMember name="Sean Keegan" permalink="sean-keegan" photo="/images/team/sean-keegan.jpg" github="seanryankeegan" twitter="DevRelSean" title="Defensor del Desarrollador en Meta">
