@@ -87,7 +87,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Sean Keegan" permalink="sean-keegan" photo="/images/team/sean-keegan.jpg" github="seanryankeegan" twitter="DevRelSean" title="Defensor del Desarrollador en Meta">
-    Después de una primera carrera como profesor de matemáticas, Sean recordó que una clase de introducción a la ciencia informática que tenía que tomar como requisito previo y pensó "¡eso fue algo divertido!". Después de un bootcamp de programación y varios trabajos tecnológicos, Sean descubrió la defensa de los desarrolladores y no ha mirado hacia atrás. Fuera del trabajo, Sean disfruta del disco volador, los videojuegos y de investigar (pero rara vez implementar) mejores formas de cuidar sus plantas de interior.
+    Tras una primera carrera como profesor de matemáticas, Sean recordó aquella clase de introducción a las ciencias de la computación que tuvo que tomar como prerrequisito y pensó "¡eso era divertido!". Después de un curso de programación y varios trabajos tecnológicos, Sean descubrió la defensa de los desarrolladores y no ha mirado atrás. Fuera del trabajo, a Sean le gusta jugar al frisbee, los videojuegos e investigar (pero rara vez poner en práctica) mejores formas de cuidar sus plantas de interior.
 </TeamMember>
 
 <TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" title="Ingeniero en Vercel">
