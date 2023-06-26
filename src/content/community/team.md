@@ -107,7 +107,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Tianyu Yao" permalink="tianyu-yao" photo="/images/team/tianyu.jpg" github="tyao1" twitter="tianyu0" title="Ingeniero en Meta">
-    El interés de Tianyu por las computadoras comenzó cuando era niño porque le encantan los videojuegos. Así que se especializó en informática y todavía juega juegos infantiles como League of Legends. Cuando no está frente a una computadora, disfruta jugar con sus dos gatitos, hacer caminatas y andar en kayak.
+    El interés de Tianyu por las computadoras empezó de niño porque le encantan los videojuegos. Por eso se especializó en informática y sigue jugando a juegos infantiles como League of Legends. Cuando no está delante de una computadora, le gusta jugar con sus dos gatitos, hacer senderismo y navegar en kayak.
 </TeamMember>
 
 <TeamMember name="Yuzhi Zheng" permalink="yuzhi-zheng" photo="/images/team/yuzhi.jpg" github="yuzhi" twitter="yuzhiz" title="Gerente de ingeniería en Meta">
