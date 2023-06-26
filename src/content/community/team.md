@@ -67,7 +67,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Mengdi Chen" permalink="mengdi-chen" photo="/images/team/mengdi-chen.jpg" github="mondaychen" twitter="mengdi_en" title="Ingeniero en Meta">
-    Mientras trabajaba en su título de Artes digitales, Mengdi se jactaba de sus habilidades de front-end porque su CSS funcionaba perfectamente incluso en IE6. Pero pronto React le abrió una nueva puerta de programación, y desde entonces ha estado soñando con unirse al equipo de React. Fuera del trabajo, suele estar ocupado persiguiendo a sus dos hijos o coleccionando recetas extrañas.
+    Mientras cursaba la carrera de Artes Digitales, Mengdi presumía de sus habilidades front-end porque su CSS funcionaba perfectamente incluso en IE6. Pero pronto React le abrió una nueva puerta de la programación, y desde entonces sueña con unirse al equipo de React. Fuera del trabajo, suele estar ocupado persiguiendo a sus dos hijos o coleccionando recetas extrañas.
 </TeamMember>
 
 <TeamMember name="Mofei Zhang" permalink="mofei-zhang" photo="/images/team/mofei-zhang.png" github="mofeiZ" title="Ingeniera en Meta">
