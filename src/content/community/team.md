@@ -79,7 +79,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Samuel Susla" permalink="samuel-susla" photo="/images/team/sam.jpg" github="sammy-SC" twitter="SamuelSusla" title="Ingeniero en Meta">
-    El interés de Samuel por la programación comenzó con la película Matrix. Todavía tiene el protector de pantalla de Matrix. Antes de trabajar en React, se centró en escribir aplicaciones para iOS. Fuera del trabajo, a Samuel le gusta jugar voleibol de playa, squash, bádminton y pasar tiempo con su familia.
+    El interés de Samuel por la programación empezó con la película Matrix. Todavía tiene el protector de pantalla de Matrix. Antes de trabajar en React, se dedicaba a escribir aplicaciones para iOS. Fuera del trabajo, Samuel disfruta jugando al voley de playa, squash, bádminton y pasar tiempo con su familia.
 </TeamMember>
 
 <TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" title="Ingeniero en Meta">
