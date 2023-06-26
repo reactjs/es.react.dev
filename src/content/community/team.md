@@ -55,7 +55,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Luna Ruan" permalink="luna-ruan" photo="/images/team/lunaruan.jpg" github="lunaruan" twitter="lunaruan" title="Ingeniera Independiente">
-    Luna aprendió programación porque pensó que significaba crear videojuegos. En cambio, terminó trabajando en la aplicación web de Pinterest y ahora en React. Luna ya no quiere hacer videojuegos, pero planea hacer escritura creativa si alguna vez se aburre.
+    Luna aprendió a programar porque pensaba que significaba crear videojuegos. En lugar de eso, acabó trabajando en la aplicación web Pinterest, y ahora en el propio React. Luna ya no quiere crear videojuegos, pero planea dedicarse a la escritura creativa si alguna vez se aburre.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" title="Ingeniera en Meta">
