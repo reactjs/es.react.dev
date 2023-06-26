@@ -27,7 +27,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Dave McCabe" permalink="dave-mccabe" photo="/images/team/dave-mccabe.jpg" github="davidmccabe" twitter="mcc_abe" title="Ingeniero en Meta">
-    Ingeniero de oficio y amante de la naturaleza de corazón, David ha sido durante mucho tiempo un innovador en el campo de la programación mientras toma el sol. Además de sorprender a sus colegas con fondos únicos al aire libre en las videollamadas, le gusta tocar la guitarra (en prados iluminados por el sol, por supuesto) y las artes marciales (todavía en el interior, tengo que trabajar en eso).
+    Ingeniero de profesión y amante de la naturaleza de corazón, David lleva mucho tiempo innovando en el campo de la programación mientras se toma el sol. Además de sorprender a sus colegas con fondos de videollamada únicos al aire libre, le gusta tocar la guitarra (en praderas iluminadas por el sol, por supuesto) y las artes marciales (todavía en interiores, debe trabajar en ello).
 </TeamMember>
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="TheSavior" twitter="Eli_White" title="Gerente de ingeniería en Meta">
