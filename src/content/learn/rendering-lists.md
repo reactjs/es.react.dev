@@ -402,7 +402,7 @@ Los Fragments desaparecen del DOM, así que esto producirá una lista plana de `
 Distintas fuentes de datos dan diferentes fuentes de keys:
 
 * **Datos de una base de datos:** Si tus datos vienen de una base de datos, puedes usar las keys/IDs de la base de datos, que son únicas por naturaleza.
-* **Datos generados localmente:** Si tus datos son generados y persistidos localmente (p. ej. notas en una app de tomar notas), usa un contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/es/docs/Web/API/Crypto/randomUUID) o un paquete como [`uuid`](https://www.npmjs.com/package/uuid) cuando este creando objetos.
+* **Datos generados localmente:** Si tus datos son generados y persistidos localmente (p. ej. notas en una app de tomar notas), usa un contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) o un paquete como [`uuid`](https://www.npmjs.com/package/uuid) cuando este creando objetos.
 
 ### Reglas de las keys {/*rules-of-keys*/}
 
