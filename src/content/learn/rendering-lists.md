@@ -286,7 +286,7 @@ Tienes que darle a cada elemento del array una `key` -- una cadena de texto o un
 
 </Note>
 
-Las keys le indican a React que objeto del array corresponde a cada componente, para así poder emparejarlo más tarde. Esto se vuelve más importante si los objetos de tus arrays se pueden mover (p. ej. devido a un ordenamiento), insertar, o eliminar. Una `key` bien escogida ayuda a React a entender lo que ha sucedido exactamente, y hacer las correctas actualizaciones en el árbol del DOM.
+Las keys le indican a React que objeto del array corresponde a cada componente, para así poder emparejarlo más tarde. Esto se vuelve más importante si los objetos de tus arrays se pueden mover (<abbr title="por ejemplo">p. ej.</abbr> debido a un ordenamiento), insertar, o eliminar. Una `key` bien escogida ayuda a React a entender lo que ha sucedido exactamente, y hacer las correctas actualizaciones en el árbol del DOM.
 
 En vez de generar keys sobre la marcha, deberías incluirlas en tus datos:
 
@@ -374,7 +374,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <DeepDive>
 
-#### Displaying several DOM nodes for each list item {/*displaying-several-dom-nodes-for-each-list-item*/}
+#### Mostrar varios nodos DOM para cada elemento de una lista {/*displaying-several-dom-nodes-for-each-list-item*/}
 
 ¿Qué haces cuándo cada objeto necesita renderizar no uno, sino varios nodos del DOM?
 
