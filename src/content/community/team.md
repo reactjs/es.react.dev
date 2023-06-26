@@ -75,7 +75,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" personal="rickhanlon.codes" title="Ingeniero en Meta">
-    Ricky se especializó en matemáticas teóricas y de alguna manera se encontró en el equipo de React Native durante un par de años antes de unirse al equipo de React. Cuando no está programando, puedes encontrarlo haciendo snowboard, andando en bicicleta, escalando, jugando golf o cerrando problemas de GitHub que no coinciden con la plantilla de problemas.
+    Ricky se especializó en matemáticas teóricas y de alguna manera se encontró en el equipo de React Native durante un par de años antes de unirse al equipo de React. Cuando no está programando, puedes encontrarlo haciendo snowboard, andando en bicicleta, escalando, jugando al golf o cerrando problemas de GitHub que no coinciden con la plantilla de problemas.
 </TeamMember>
 
 <TeamMember name="Samuel Susla" permalink="samuel-susla" photo="/images/team/sam.jpg" github="sammy-SC" twitter="SamuelSusla" title="Ingeniero en Meta">
