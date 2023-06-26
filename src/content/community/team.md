@@ -103,7 +103,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Sophie Alpert" permalink="sophie-alpert" photo="/images/team/sophiebits.jpg" github="sophiebits" twitter="sophiebits" personal="sophiebits.com" title="Ingeniera Independiente">
-    Cuatro días después del lanzamiento de React, Sophie reescribió la totalidad de su proyecto actual para usarlo, y ahora se da cuenta de que quizás fue un poco imprudente. Después de convertirse en la responsable principal del proyecto, se preguntó por qué Facebook no le pagaba como a todos los demás y se unió oficialmente al equipo para liderar React durante sus años de adolescencia. Aunque renunció a ese trabajo hace años, de alguna manera todavía está en los chats grupales del equipo y "aportando valor".
+    Cuatro días después del lanzamiento de React, Sophie reescribió la totalidad de su proyecto actual para utilizarlo, lo que ahora se da cuenta de que quizás fue un poco imprudente. Después de convertirse en la principal responsable del proyecto, se preguntó por qué Facebook no le pagaba como a los demás y se unió oficialmente al equipo para dirigir React durante sus años de adolescencia. Aunque dejó el trabajo hace años, sigue participando en los chats de grupo del equipo y "aportando valor".
 </TeamMember>
 
 <TeamMember name="Tianyu Yao" permalink="tianyu-yao" photo="/images/team/tianyu.jpg" github="tyao1" twitter="tianyu0" title="Ingeniero en Meta">
