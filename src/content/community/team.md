@@ -71,7 +71,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Mofei Zhang" permalink="mofei-zhang" photo="/images/team/mofei-zhang.png" github="mofeiZ" title="Ingeniera en Meta">
-    Mofei comenzó a programar cuando se dio cuenta de que podía ayudarla a hacer trampa en los videojuegos. Se centró en los sistemas operativos en la escuela de pregrado / posgrado, pero ahora se encuentra felizmente jugando con React. Fuera del trabajo, le gusta depurar problemas de boulder y planificar su(s) próximo(s) viaje(s) como mochilera.
+    Mofei empezó a programar cuando se dio cuenta de que podía ayudarle a hacer trampas en los videojuegos. Se centró en los sistemas operativos en la licenciatura / posgrado, pero ahora se encuentra feliz jugando en React. Fuera del trabajo, disfruta depurando problemas de boulder y planificando su(s) próximo(s) viaje(s) de mochilera.
 </TeamMember>
 
 <TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" personal="rickhanlon.codes" title="Ingeniero en Meta">
