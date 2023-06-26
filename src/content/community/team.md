@@ -51,7 +51,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" personal="no.lol" title="Ingeniera en Meta">
-    La carrera de programación de Lauren alcanzó su punto máximo cuando descubrió por primera vez la etiqueta `<marquee>`. Ella ha estado persiguiendo ese alto desde entonces. Cuando no está agregando errores en React, disfruta lanzando memes descarados en el chat y jugando demasiados videojuegos con su pareja y su perro Zelda.
+    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
 </TeamMember>
 
 <TeamMember name="Luna Ruan" permalink="luna-ruan" photo="/images/team/lunaruan.jpg" github="lunaruan" twitter="lunaruan" title="Ingeniera Independiente">
