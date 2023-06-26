@@ -95,7 +95,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" title="Ingeniero Independiente">
-    Sebastian aprendió a programar para hacer que los juegos de navegador que jugaba durante la clase fueran más divertidos. Eventualmente, esto lo llevó a contribuir a la mayor cantidad posible de código fuente abierto. Fuera de la programación, está ocupado asegurándose de que la gente no lo confunda con los otros Sebastians y Zilberman de la comunidad React.
+    Sebastian aprendió a programar para hacer más divertidos los juegos de navegador a los que jugaba en clase. Con el tiempo, esto le llevó a contribuir a la mayor cantidad de código abierto posible. Fuera de la programación, está ocupado asegurándose de que la gente no lo confunda con los otros Sebastian y Zilberman de la comunidad React.
 </TeamMember>
 
 <TeamMember name="Seth Webster" permalink="seth-webster" photo="/images/team/seth.jpg" github="sethwebster" twitter="sethwebster" personal="sethwebster.com" title="Gerente de ingeniería en Meta">
