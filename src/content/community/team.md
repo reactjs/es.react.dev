@@ -43,7 +43,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" twitter="joshcstory" title="Ingeniero en Vercel">
-    Josh se especializó en Matemáticas y descubrió la programación mientras estaba en la universidad. Su primer trabajo de desarrollador profesional fue programar cálculos de tarifas de seguros en Microsoft Excel, el modelo de Programación Reactiva, que debe ser la razón por la que ahora trabaja en React. Entre ese tiempo, Josh ha sido IC, Gerente y Ejecutivo en algunas nuevas empresas. fuera del trabajo le gusta empujar sus límites con la cocina.
+    Josh se especializó en Matemáticas y descubrió la programación en la universidad. Su primer trabajo como desarrollador profesional fue programar cálculos de tarifas de seguros en Microsoft Excel, el parangón de la Programación Reactiva, que debe ser la razón por la que ahora trabaja en React. En el medio de ese tiempo Josh ha sido un IC, Gerente y Ejecutivo en algunas nuevas empresas. fuera del trabajo le gusta empujar sus límites con la cocina.
 </TeamMember>
 
 <TeamMember name="Kathryn Middleton" permalink="kathryn-middleton" photo="/images/team/kathryn-middleton.jpg" github="kmiddleton14" twitter="kmiddleton14" title="Gerente de ingeniería en Meta">
