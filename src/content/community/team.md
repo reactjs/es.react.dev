@@ -91,7 +91,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" title="Ingeniero en Vercel">
-    Sebastián se especializó en psicología. Suele estar callado. Incluso cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se conformó con "mark-beige" por pragmatismo, y así es como aborda React.
+    Sebastian se especializó en psicología. Suele ser callado. Incluso cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se ha decantado por "mark-beige" por pragmatismo, y así es como se acerca a React.
 </TeamMember>
 
 <TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" title="Ingeniero Independiente">
