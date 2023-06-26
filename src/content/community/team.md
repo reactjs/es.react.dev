@@ -35,7 +35,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" title="Gerente de ingeniería en Meta">
-A Jason le gusta recibir grandes volúmenes de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se separa literalmente de su equipo y no comprende cómo funcionan los bucles for-of, lo apreciamos por las cualidades únicas que aporta a su trabajo.
+    A Jason le gusta recibir grandes cantidades de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se aísla literalmente de su equipo y no entiende cómo funcionan los bucles de for-of, le apreciamos por las cualidades únicas que aporta a su trabajo.
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" title="Ingeniero en Meta">
