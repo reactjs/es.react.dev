@@ -39,7 +39,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" title="Ingeniero en Meta">
-    Joe planeaba especializarse en matemáticas y filosofía, pero se dedicó a la informática después de escribir simulaciones de física en Matlab. Antes de React, trabajó en Relay, RSocket.js y el lenguaje de programación Skip. Si bien no está construyendo algún tipo de sistema reactivo, disfruta correr, estudiar japonés y pasar tiempo con su familia.
+    Joe planeaba especializarse en matemáticas y filosofía, pero se metió en la informática después de escribir simulaciones de física en Matlab. Antes de React, trabajó en Relay, RSocket.js y el lenguaje de programación Skip. Cuando no está construyendo algún tipo de sistema reactivo, le gusta correr, estudiar japonés y pasar tiempo con su familia.
 </TeamMember>
 
 <TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" twitter="joshcstory" title="Ingeniero en Vercel">
