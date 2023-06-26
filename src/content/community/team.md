@@ -111,7 +111,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Yuzhi Zheng" permalink="yuzhi-zheng" photo="/images/team/yuzhi.jpg" github="yuzhi" twitter="yuzhiz" title="Gerente de ingeniería en Meta">
-    Yuzhi estudió Ciencias de la Computación en la escuela. Le gustaba la gratificación instantánea de ver cómo el código cobraba vida sin tener que estar físicamente en un laboratorio. Ahora es gerente en la organización React. Antes de la gerencia, solía trabajar en el marco de obtención de datos de Relay. En su tiempo libre, Yuzhi disfruta optimizando su vida a través de proyectos de jardinería y mejoras para el hogar.
+    Yuzhi estudió Ciencias de la Computación en la escuela. Le gustaba la gratificación instantánea de ver cómo el código cobraba vida sin tener que estar físicamente en un laboratorio. Ahora es gerente en React org. Antes de ser gerente, trabajaba en el framework de obtención de datos Relay. En su tiempo libre, Yuzhi disfruta optimizando su vida mediante proyectos de jardinería y mejoras del hogar.
 </TeamMember>
 
 ## Colaboradores anteriores {/*past-contributors*/}
