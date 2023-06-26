@@ -63,7 +63,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/matt-carroll.png" github="mattcarrollcode" twitter="mattcarrollcode" title="Defensor del Desarrollador en Meta">
-    Matt se topó con el código y, desde entonces, se enamoró de crear cosas en comunidades que no se pueden crear solo. Antes de React, trabajó en YouTube, Google Assistant, Fuchsia, Google Cloud AI y Evernote. Cuando no está tratando de crear mejores herramientas para desarrolladores, disfruta de las montañas, el jazz y pasar tiempo con su familia.
+    Matt tropezó con la codificación y, desde entonces, se ha enamorado de crear cosas en comunidades que no pueden crearse en solitario. Antes de React, trabajó en YouTube, Google Assistant, Fuchsia, Google Cloud AI y Evernote. Cuando no está intentando crear mejores herramientas para desarrolladores, le gusta la montaña, el jazz y pasar tiempo con su familia.
 </TeamMember>
 
 <TeamMember name="Mengdi Chen" permalink="mengdi-chen" photo="/images/team/mengdi-chen.jpg" github="mondaychen" twitter="mengdi_en" title="Ingeniero en Meta">
