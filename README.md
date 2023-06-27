@@ -38,7 +38,7 @@ La documentación está dividida en varias secciones con un tono y un propósito
 
 1. Sigue las instrucciones de ["Ejecución local"](#ejecución-local).
 1. Guarda los archivos y compruébalos en el navegador.
-1.  Los cambios en los componentes React en `src` se recargarán en caliente.
+1.    Los cambios en los componentes React en `src` se recargarán en caliente.
 1.  Los cambios en los archivos markdown de `content` se cargarán en caliente.
 1. Si trabajas con plugins, puede que tengas que eliminar el directorio `.cache` y reiniciar el servidor.
 
