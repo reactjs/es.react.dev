@@ -38,7 +38,7 @@ Este manual funciona bien para la mayoría de las funciones que hemos lanzado ha
 
 Como siempre, todas las funcionalidades de React acabarán llegando a la versión estable.
 
-## No podemos hacer más versiones menores? {/*can-we-just-do-more-minor-releases*/}
+## ¿No podemos hacer más versiones menores? {/*can-we-just-do-more-minor-releases*/}
 
 Por lo general, *hacemos* uso de versiones menores para agregar nuevas funcionalidades.
 
