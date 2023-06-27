@@ -49,7 +49,7 @@ La documentación está dividida en varias secciones con un tono y un propósito
 
 ### Empújalo <span lang="en">(Push it)</span>
 
-1. `git add -A && git commit -m "Mi mensaje"` (sustituyendo `Mi mensaje` por un mensaje de confirmación, como `Arreglar logotipo de cabecera en Android`) para escenificar y confirmar tus cambios.
+1. `git add -A && git commit -m "Mi mensaje"` (sustituye `Mi mensaje` por un mensaje de confirmación, como `Arreglar logotipo de cabecera en Android`) para escenificar y confirmar tus cambios.
 1. `git push my-fork-name el-nombre-de-mi-rama`.
 1. Ve al [repositorio es.react.dev](https://github.com/reactjs/es.react.dev) y deberías ver las ramas empujadas recientemente.
 1. Sigue las instrucciones de GitHub.
