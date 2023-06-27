@@ -15,7 +15,7 @@ Este repositorio contiene el código fuente y la documentación de [es.react.dev
 ### Instalación
 
 1. `cd es.react.dev` para entrar en la raíz del proyecto.
-2. `yarn` para instalar las dependencias npm del sitio web.
+3. `yarn` para instalar las dependencias npm del sitio web.
 
 ### Ejecución local
 
