@@ -60,5 +60,4 @@ La documentación está dividida en varias secciones con un tono y un propósito
 Si estás interesado en traducir `es.react.dev`, consulta los esfuerzos de traducción actuales [aquí](https://github.com/reactjs/react.dev/issues/4135) (en inglés).
 
 ## Licencia
-
 El contenido enviado a [es.react.dev](https://es.react.dev/) tiene licencia CC-BY-4.0, tal y como se encuentra en el archivo [LICENSE-DOCS.md](https://github.com/reactjs/es.react.dev/blob/main/LICENSE-DOCS.md).
