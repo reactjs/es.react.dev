@@ -94,7 +94,7 @@ Estas funciones están cada vez más cerca de estar listas para la producción t
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también permite [exportar archivos estáticos](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
 <Pitfall>
 
-El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (para de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
+El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (a partir de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
 
 </Pitfall>
 
