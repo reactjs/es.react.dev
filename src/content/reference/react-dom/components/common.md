@@ -336,7 +336,7 @@ Un tipo de manejador de eventos para los eventos de [animación CSS](https://dev
 * `e`: Un [objeto de evento de React](#react-event-object) con propiedades adicionales de [`AnimationEvent`](https://developer.mozilla.org/es/docs/Web/API/AnimationEvent):
   * [`animationName`](https://developer.mozilla.org/es/docs/Web/API/AnimationEvent/animationName)
   * [`elapsedTime`](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent/elapsedTime)
-  * [`pseudoElement`](https://developer.mozilla.org/es/docs/Web/API/AnimationEvent)
+  * [`pseudoElement`](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent/pseudoElement)
 
 ---
 
