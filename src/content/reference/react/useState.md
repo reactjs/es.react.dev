@@ -310,7 +310,7 @@ React pone sus funciones de actualización en una [cola.](/learn/queueing-a-seri
 
 No hay otras actualizaciones en cola, por lo que React almacenará `45` como el estado actual al final.
 
-Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `e` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
+Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `a` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
 
 React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
