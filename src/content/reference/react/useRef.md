@@ -228,7 +228,7 @@ function MyComponent() {
 
 Si *tienes* que leer [o escribir](/reference/react/useState#storing-information-from-previous-renders) algo durante el renderizado, [utiliza el estado](/reference/react/useState) en su lugar.
 
-Si rompes estas reglas, tu componente puede seguir funcionando, pero la mayoría de las nuevas características que estamos añadiendo a React se basarán en estas expectativas. Lee más sobre [mantener tus componentes puros.](/learn/keeping-components-pure#where-you-can-cause-side-effects)
+Si rompes estas reglas, tu componente puede seguir funcionando, pero la mayoría de las nuevas características que estamos añadiendo a React se basarán en estas expectativas. Lee más sobre [mantener tus componentes puros.](/learn/keeping-components-pure#where-you-_can_-cause-side-effects)
 
 </Pitfall>
 
