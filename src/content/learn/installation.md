@@ -41,7 +41,7 @@ La mayoría de las páginas de la documentación de React contienen ejemplos int
 
 ### Probar React localmente {/*try-react-locally*/}
 
-Para probar React de forma local en tu computadora, [descarga esta página HTML]([https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html). ¡Ábrela en tu editor y en tu navegador!
+Para probar React de forma local en tu computadora, [descarga esta página HTML](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html). ¡Ábrela en tu editor y en tu navegador!
 
 ## Iniciar un nuevo proyecto React {/*start-a-react-project*/}
 
