@@ -40,7 +40,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Científicos asombrosos</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
