@@ -174,7 +174,7 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a un archivo separado. Aprenderás como hacer esto pronto en la [página sobre *imports*](/learn/importing-and-exporting-components).
 
-Dado que los componentes `Profile` se renderizan dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
+Dado que el componente `Profile` se renderiza dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
 <Pitfall>
 
@@ -211,13 +211,13 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 #### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
-Tu aplicación de React comienza en un componente "raíz". Usualmente, se crea automáticamente cuando inicias un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente raíz se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente raíz se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes raíces.
+Tu aplicación React comienza en un componente "root" (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente root se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente root se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes root.
 
-La mayoría de las aplicaciones de React utilizan componentes de arriba a abajo. Esto significa que no solo usarás componentes para las piezas reutilizables como los botones, pero también para piezas más grandes como barras laterales, listas, ¡y en última instancia, páginas completas! Los componentes son una forma útil de organizar código de UI y marcado, incluso cuando algunos de ellos solo se utilicen una vez.
+La mayoría de las aplicaciones React usan componentes root. Esto significa que no sólo usarás componentes para piezas reutilizables como botones, sino también para piezas más grandes como barras laterales, listas y, en última instancia, ¡páginas completas! Los componentes son una forma práctica de organizar el código de UI y el marcado, incluso si algunos de ellos sólo se utilizan solo una vez.
 
-Frameworks como Next.js lo llevan un paso más allá. En lugar de usar un archivo HTML vacío y dejar a React "ocuparse" de manejar la página con JavaScript, *también* generan el HTML automáticamente a partir de tus componentes de React. Esto permite que tu aplicación muestre algún contenido antes de que el código de JavaScript cargue.
+[Los frameworks basados en React](/learn/start-a-new-react-project) llevan esto un paso más allá. En lugar de utilizar un archivo HTML vacío y dejar que React "se encargue" de gestionar la página con JavaScript, *también* generan el HTML automáticamente a partir de tus componentes React. Esto permite que tu aplicación muestre algún contenido antes de que se cargue el código JavaScript.
 
-Aún así, muchos sitios web solo utilizan React para [añadir "pequeñas gotas de interactividad"](/learn/add-react-to-a-website). Tienen muchos componentes raíces en lugar de uno solo para la página completa. Puedes utilizar tanto o tan poco de React como lo necesites.
+Aún así, muchos sitios web sólo usan React para [añadir interactividad a páginas HTML existentes](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page). Tienen muchos componentes root en lugar de uno solo para toda la página. Puedes utilizar la cantidad de React que necesites.
 
 </DeepDive>
 
@@ -240,7 +240,7 @@ Aún así, muchos sitios web solo utilizan React para [añadir "pequeñas gotas 
 
 #### Exporta el componente {/*export-the-component*/}
 
-Este ejemplo interactivo no funciona porque el componente raíz no está exportado:
+Este ejemplo interactivo no funciona porque el componente root no está exportado:
 
 <Sandpack>
 
@@ -431,7 +431,7 @@ img { margin: 0 10px 10px 0; }
 
 #### Tu propio componente {/*your-own-component*/}
 
-Escribe un componente desde cero. Puedes darle cualquier nombre válido y retornar cualquier marcado. Si te quedas sin ideas, puedes escribir un componente `Congratulations` que muestre `<h1>Good job!</h1>`. ¡No olvides exportarlo!
+Escribe un componente desde cero. Puedes darle cualquier nombre válido y retornar cualquier marcado. Si te quedas sin ideas, puedes escribir un componente `Congratulations` que muestre `<h1>¡Buen trabajo!</h1>`. ¡No olvides exportarlo!
 
 <Sandpack>
 
