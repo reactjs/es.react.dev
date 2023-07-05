@@ -365,7 +365,7 @@ Lee **[Renderizado condicional](/learn/conditional-rendering)** para aprender la
 
 A menudo querrás mostrar múltiples componentes similares a partir de una colección de datos. Puedes utilizar `filter()` y `map()` de JavaScript junto con React para filtrar y transformar tus arreglos de datos en un arreglo de componentes.
 
-Para cada elemento del arreglo, deberás especificar una prop `"key"`. Usualmente, querrás usar un ID de la base de datos como `key`. Las `key` le permiten a React seguir el lugar de cada elemento en la lista aún cuando la lista cambie.
+Para cada elemento del arreglo, deberás especificar una prop `key`. Usualmente, querrás usar un ID de la base de datos como `key`. Las `key` le permiten a React seguir el lugar de cada elemento en la lista aún cuando la lista cambie.
 
 <Sandpack>
 
