@@ -424,7 +424,6 @@ export const people = [{
   profession: 'químico',
   accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71',
-  gender : 'M'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
