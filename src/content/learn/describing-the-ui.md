@@ -383,7 +383,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        {(person.gender === 'F') ? 'conocida' : 'conocido'} por {person.accomplishment}
+        conocido/conocida por {person.accomplishment}
       </p>
     </li>
   );
