@@ -410,7 +410,6 @@ export const people = [{
   profession: 'químico',
   accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa',
-  gender : 'M'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
