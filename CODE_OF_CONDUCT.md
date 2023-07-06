@@ -18,7 +18,7 @@ incluyen:
 * Ser respetuoso con los distintos puntos de vista y experiencias.
 * Aceptar con gracia las críticas constructivas.
 * Centrarse en lo que es mejor para la comunidad.
-- Mostrar empatía hacia otros miembros de la comunidad.
+* Mostrar empatía hacia otros miembros de la comunidad.
 
 Algunos ejemplos de comportamiento inaceptable de los participantes son:
 
