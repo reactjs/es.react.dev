@@ -14,7 +14,7 @@ personal, raza, religión o identidad y orientación sexual.
 Ejemplos de comportamientos que contribuyen a crear un entorno positivo
 incluyen:
 
-- Utilizar un lenguaje acogedor e inclusivo.
+* Utilizar un lenguaje acogedor e inclusivo.
 - Ser respetuoso con los distintos puntos de vista y experiencias.
 - Aceptar con gracia las críticas constructivas.
 - Centrarse en lo que es mejor para la comunidad.
