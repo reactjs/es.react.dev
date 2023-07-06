@@ -23,7 +23,7 @@ In React Labs posts, we write about projects in active research and development.
 </BlogCard>
 
 
-<BlogCard title="Presentando react.dev" date="16 de marzo de 2023" url="/blog/2023/03/16/introducing-react-dev">
+<BlogCard title="Presentación de react.dev" date="16 de marzo de 2023" url="/blog/2023/03/16/introducing-react-dev">
 
 Hoy estamos encantados de lanzar react.dev, el nuevo hogar de React y su documentación. En esta publicación, nos gustaría darle un recorrido por el nuevo sitio...
 
