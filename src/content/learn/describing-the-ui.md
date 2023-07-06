@@ -417,7 +417,6 @@ export const people = [{
   profession: 'físico',
   accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji',
-  gender : 'M'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
