@@ -25,7 +25,7 @@ Algunos ejemplos de comportamiento inaceptable de los participantes son:
 * El uso de lenguaje o imágenes sexualizados y la atención o insinuaciones sexuales
   no deseadas.
 * Trolling, comentarios insultantes/derogatorios y ataques personales o políticos.
-- Acoso público o privado.
+* Acoso público o privado.
 - Publicar información privada de otros, como una dirección física o
   electrónica, sin permiso explícito.
 - Otras conductas que puedan considerarse razonablemente inapropiadas en un entorno
