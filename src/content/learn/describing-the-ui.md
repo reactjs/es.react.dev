@@ -403,7 +403,6 @@ export const people = [{
   profession: 'matemática',
   accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A',
-  gender : 'F'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
