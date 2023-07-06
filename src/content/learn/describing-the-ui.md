@@ -416,7 +416,7 @@ export const people = [{
   name: 'Mohammad Abdus Salam',
   profession: 'físico',
   accomplishment: 'la teoría del electromagnetismo',
-  imageId: 'bE7W1ji',
+  imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
