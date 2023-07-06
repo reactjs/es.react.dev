@@ -431,7 +431,6 @@ export const people = [{
   profession: 'astrofísico',
   accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l',
-  gender : 'M'
 }];
 ```
 
