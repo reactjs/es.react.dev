@@ -140,7 +140,7 @@ Esto adjuntará detectores de eventos al HTML generado en el servidor, haciendo 
 
 #### Leer recursos CSS y JS mediante su ruta a través del output {/*reading-css-and-js-asset-paths-from-the-build-output*/}
 
-Las URL finales de los recursos (como los archivos CSS y JS) suelen ser hasheadas después de la compilación. Por ejemplo, en lugar de `estilos.css` podrías tener `estilos.123456.css`. El hasheo de nombres de archivos estáticos garantiza que cada versión distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite activar de forma segura el almacenamiento en caché a largo plazo para recursos estáticos: un archivo con un nombre característico nunca cambiaría su contenido.
+Las URL finales de los recursos (como los archivos CSS y JS) suelen ser hasheadas después de la compilación. Por ejemplo, en lugar de `styles.css` podrías tener `styles.123456.css`. El hasheo de nombres de archivos estáticos garantiza que cada versión distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite activar de forma segura el almacenamiento en caché a largo plazo para recursos estáticos: un archivo con un nombre característico nunca cambiaría su contenido.
 
 Sin embargo, si no conoces las URLs de los recursos hasta después de tener el build, no te será posible ponerlas en el código fuente. Por ejemplo, si hardcodeas `"/styles.css"` en JSX, esto no funcionaría, puesto que es una URL relativa. Para mantenerlas fuera del código fuente, tu componente raíz puede leer el nombre real de un archivo a través de un mapa pasado como propiedad:
 
@@ -150,7 +150,7 @@ export default function App({ assetMap }) {
     <html>
       <head>
         <title>Mi app</title>
-        <link rel="stylesheet" href={assetMap['estilos.css']}></link>
+        <link rel="stylesheet" href={assetMap['styles.css']}></link>
       </head>
       ...
     </html>
@@ -163,7 +163,7 @@ En el servidor, renderiza `<App assetMap={assetMap} />` y pasa tu `assetMap` con
 ```js {1-5,8,9}
 // Necesitarás obtener este JSON a través de tus herramientas de compilación. Por ejemplo, leyéndolo desde la consola de compilación
 const assetMap = {
-  'estilos.css': '/estilos.123456.css',
+  'styles.css': '/styles.123456.css',
   'main.js': '/main.123456.js'
 };
 
@@ -182,7 +182,7 @@ Dado que es el servidor quien está renderizando `<App assetMap={assetMap} />`, 
 ```js {9-10}
 // Necesitarás obtener este JSON a través de tus herramientas de compilación.
 const assetMap = {
-  'estilos.css': '/estilos.123456.css',
+  'styles.css': '/styles.123456.css',
   'main.js': '/main.123456.js'
 };
 
