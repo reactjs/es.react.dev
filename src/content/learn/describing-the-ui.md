@@ -423,7 +423,7 @@ export const people = [{
   name: 'Percy Lavon Julian',
   profession: 'químico',
   accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
-  imageId: 'IOjWm71',
+  imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
