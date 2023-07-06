@@ -2,7 +2,7 @@
 title: "Cómo actualizar a React 18"
 ---
 
-March 08, 2022 by [Rick Hanlon](https://twitter.com/rickhanlonii)
+8 de marzo de 2022 por [Rick Hanlon](https://twitter.com/rickhanlonii)
 
 ---
 
