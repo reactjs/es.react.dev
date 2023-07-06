@@ -2,17 +2,17 @@
 title: "React Canaries: Habilitar el despliegue de funcionalidades incrementales por fuera de Meta"
 ---
 
-Mayo 3, 2023 por [Dan Abramov](https://twitter.com/dan_abramov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Andrew Clark](https://twitter.com/acdlite)
+3 de Mayo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Andrew Clark](https://twitter.com/acdlite)
 
 ---
 
 <Intro>
 
-Nos gustaría ofrecer a la comunidad de React una opción para adoptar las nuevas características tan pronto su diseño está cerca de su etapa final, antes de que sean lanzados a una versión estable--similar a cómo Meta ha utilizado internamente las más recientes versiones de React. Estamos presentando oficialmente un nuevo [canal de lanzamiento Canary](/community/versioning-policy#canary-channel) con apoyo oficial. Permite que las configuraciones seleccionadas como los frameworks desvinculen la adopción de funcionalidades individuales de React del calendario de lanzamiento de React.
+Nos gustaría ofrecer a la comunidad de React una opción para adoptar las nuevas características tan pronto su diseño está cerca de su etapa final, antes de que sean lanzados a una versión estable (similar a cómo Meta ha utilizado internamente las más recientes versiones de React). Estamos presentando oficialmente un nuevo [canal de lanzamiento Canary](/community/versioning-policy#canary-channel) con apoyo oficial. Permite que las configuraciones seleccionadas como los frameworks desvinculen la adopción de funcionalidades individuales de React del calendario de lanzamiento de React.
 
 </Intro>
 
----
+-
 
 ## tl;dr {/*tldr*/}
 
@@ -64,7 +64,7 @@ Los lanzamientos de Canary representan nuestra mejor estimación de lo que se in
 
 Tradicionalmente, sólo hemos anunciado los cambios de último minuto al *final* del ciclo de su publicación (cuando hacíamos un lanzamiento mayor). Ahora que los lanzamientos de Canary son una forma oficial de consumir React, planeamos cambiar hacia el anuncio de cambios de último minuto y nuevas funcionalidades significativas a medida que *lleguen* a Canary. Por ejemplo, si fusionamos un cambio de último minuto que saldrá en Canary, escribiremos un post sobre él en el blog de React, incluyendo codemods e instrucciones de migración si es necesario. Entonces, si eres el autor de un framework desarrollando una versión mayor que actualiza ka versión fijada de React Canary, para incluir ese cambio puedes enlazarla a nuestro artículo del blog desde tus notas de versión. Por último, cuando una versión mayor estable de React esté lista, las enlazaremos a los artículos del blog ya publicados, el cual esperamos que ayuden a nuestro equipo a progresar rápidamente.
 
-Planeamos documentar las APIs a medida que formen parte de Canaries--incluso si estas APIs aún no están disponibles fuera de ellas. Las APIs que sólo estén disponibles en Canaries se marcarán con una nota especial en las páginas correspondientes. Esto incluirá a las APIs como [`use`](https://github.com/reactjs/rfcs/pull/229), y algunas otras (como `cache` y `createServerContext`) que enviaremos RFCs para ellas.
+Planeamos documentar las APIs a medida que formen parte de Canaries (incluso si estas APIs aún no están disponibles fuera de ellas). Las APIs que sólo estén disponibles en Canaries se marcarán con una nota especial en las páginas correspondientes. Esto incluirá a las APIs como [`use`](https://github.com/reactjs/rfcs/pull/229), y algunas otras (como `cache` y `createServerContext`) que enviaremos RFCs para ellas.
 
 ## Canaries deben estar fijadas {/*canaries-must-be-pinned*/}
 
@@ -82,7 +82,7 @@ No esperamos que los autores de las bibliotecas prueben cada una de las versione
 
 <Note>
 
-Estrictamente hablando, Canary no es un *nuevo* canal de publicación--antes se llamaba Next. Sin embargo, hemos decido cambiarle el nombre para evitar confusiones con Next.js. Lo anunciamos como un *nuevo* canal de publicación para comunicar las nuevas expectativas, como Canaries siendo una forma oficialmente de utilizar React.
+Estrictamente hablando, Canary no es un *nuevo* canal de publicación (antes se llamaba Next). Sin embargo, hemos decido cambiarle el nombre para evitar confusiones con Next.js. Lo anunciamos como un *nuevo* canal de publicación para comunicar las nuevas expectativas, como Canaries siendo una forma oficialmente de utilizar React.
 
 </Note>
 
