@@ -5,7 +5,7 @@
 En aras de fomentar un entorno abierto y acogedor, nosotros como contribuidores y
 mantenedores nos comprometemos a hacer que la participación en nuestro proyecto y
 comunidad sea una experiencia libre de acoso para todos, independientemente de la
-edad,discapacidad, etnia, características sexuales, identidad y expresión de género,
+edad, discapacidad, etnia, características sexuales, identidad y expresión de género,
 nivel de experiencia, educación, estatus socioeconómico, nacionalidad, apariencia
 personal, raza, religión o identidad y orientación sexual.
 
