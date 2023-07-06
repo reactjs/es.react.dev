@@ -429,7 +429,7 @@ export const people = [{
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrofísico',
   accomplishment: 'los cálculos de masa de estrellas enanas blancas',
-  imageId: 'lrWQx8l',
+  imageId: 'lrWQx8l'
 }];
 ```
 
