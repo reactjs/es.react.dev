@@ -228,7 +228,7 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Lee **[JavaScript y JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
+Lee **[JavaScript en JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
 
 </LearnMore>
 
@@ -526,4 +526,4 @@ Lee **[Mantener los componentes puros](/learn/keeping-components-pure)** para ap
 
 ¡Dirígete a [Tu primer componente](/learn/your-first-component) para que comiences a leer este capítulo página por página!
 
-O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Añadir interactividad](/learn/adding-interactivity)?
+O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Agregar interactividad](/learn/adding-interactivity)?
