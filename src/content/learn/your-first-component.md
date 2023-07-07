@@ -31,7 +31,7 @@ En la Web, HTML nos permite crear documentos estructurados con su conjunto integ
 </article>
 ```
 
-Este marcado representa un artículo `<article>`, su encabezado `<h1>`, y una tabla de contenidos (abreviada) representada como una lista ordenada `<ol>`. Un marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
+Este marcado representa un artículo `<article>`, su encabezado `<h1>`, y una (abreviada) tabla de contenidos representada como una lista ordenada `<ol>`. Un marcado como este, combinado con CSS para los estilos y JavaScript para la interactividad, están detrás de cada barra lateral, avatar, modal, menú desplegable y cualquier otra pieza de UI que ves en la web.
 
 React te permite combinar tu marcado, CSS y JavaScript en "componentes" personalizados, **elementos reutilizables de UI para tu aplicación.** El código de la tabla de contenidos que viste arriba pudo haberse transformado en un componente `<TableOfContents />` que podrías renderizar en cada página. Por detrás, seguiría utilizando las mismas etiquetas HTML como `<article>`, `<h1>`, etc.
 
@@ -51,11 +51,11 @@ De la misma forma que con las etiquetas HTML, puedes componer, ordenar y anidar 
 </PageLayout>
 ```
 
-En la medida en que tu proyecto crece, notarás que muchos de tus diseños se pueden componer mediante la reutilización de componentes que ya escribiste, acelerando el desarrollo. ¡Nuestra tabla de contenido de arriba podría añadirse a cualquier pantalla con `<TableOfContents />`! Incluso puedes montar tu proyecto con los miles de componentes compartidos por la comunidad de código abierto de React como [Chakra UI](https://chakra-ui.com/) y [Material UI](https://material-ui.com/).
+En la medida en que tu proyecto crece, notarás que muchos de tus diseños se pueden componer mediante la reutilización de componentes que ya escribiste, acelerando el desarrollo. ¡Nuestra tabla de contenido de arriba podría añadirse a cualquier página con `<TableOfContents />`! Incluso puedes montar tu proyecto con los miles de componentes compartidos por la comunidad de código abierto de React como [Chakra UI](https://chakra-ui.com/) y [Material UI](https://material-ui.com/).
 
 ## Definir un componente {/*defining-a-component*/}
 
-Tradicionalmente, cuando se creaban páginas web, los desarrolladores web usaban lenguaje de marcado para describir el contenido y luego añadían interacciones agregando un poco de JavaScript. Esto funcionaba perfectamente cuando las interacciones eran algo *deseable, pero no imprescindible* en la web. Ahora es algo que se espera de muchos sitios y de todas las aplicaciones. React pone la interactividad primero usando aún la misma tecnología: **un componente de React es una función de JavaScript a la que puedes _agregar markup_**. Aquí vemos cómo luce esto (puede editar el ejemplo de abajo):
+Tradicionalmente, cuando se creaban páginas web, los desarrolladores web usaban lenguaje de marcado para describir el contenido y luego añadían interacción agregando un poco de JavaScript. Esto funcionaba perfectamente cuando las interacciones eran algo *deseable, pero no imprescindible* en la web. Ahora es algo que se espera de muchos sitios y de todas las aplicaciones. React pone la interactividad primero usando aún la misma tecnología: **un componente de React es una función de JavaScript a la que puedes _agregar marcado_**. Aquí vemos cómo luce esto (puede editar el ejemplo de abajo):
 
 <Sandpack>
 
@@ -172,9 +172,9 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 ### Anidar y organizar componentes {/*nesting-and-organizing-components*/}
 
-Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a un archivo separado. Aprenderás como hacer esto pronto en la [página sobre *imports*](/learn/importing-and-exporting-components).
+Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a un archivo separado. Aprenderás como hacer esto pronto en la [página sobre *importaciones*](/learn/importing-and-exporting-components).
 
-Dado que el componente `Profile` se renderiza dentro de `Gallery` —¡incluso varias veces!— podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
+Dado que el componente `Profile` se renderiza dentro de `Gallery` (¡incluso varias veces!) podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
 <Pitfall>
 
@@ -211,13 +211,13 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 #### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
-Tu aplicación React comienza en un componente "root" (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente root se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente root se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes root.
+Tu aplicación React comienza en un componente `"root"` (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente `root` se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente `root` se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes `root`.
 
-La mayoría de las aplicaciones React usan componentes root. Esto significa que no sólo usarás componentes para piezas reutilizables como botones, sino también para piezas más grandes como barras laterales, listas y, en última instancia, ¡páginas completas! Los componentes son una forma práctica de organizar el código de UI y el marcado, incluso si algunos de ellos sólo se utilizan solo una vez.
+La mayoría de las aplicaciones React usan componentes `root`. Esto significa que no sólo usarás componentes para piezas reutilizables como botones, sino también para piezas más grandes como barras laterales, listas y, en última instancia, ¡páginas completas! Los componentes son una forma práctica de organizar el código de UI y el marcado, incluso si algunos de ellos sólo se utilizen una vez.
 
 [Los frameworks basados en React](/learn/start-a-new-react-project) llevan esto un paso más allá. En lugar de utilizar un archivo HTML vacío y dejar que React "se encargue" de gestionar la página con JavaScript, *también* generan el HTML automáticamente a partir de tus componentes React. Esto permite que tu aplicación muestre algún contenido antes de que se cargue el código JavaScript.
 
-Aún así, muchos sitios web sólo usan React para [añadir interactividad a páginas HTML existentes](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page). Tienen muchos componentes root en lugar de uno solo para toda la página. Puedes utilizar la cantidad de React que necesites.
+Aún así, muchos sitios web sólo usan React para [añadir interactividad a páginas HTML existentes](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page). Tienen muchos componentes `root` en lugar de uno solo para toda la página. Puedes utilizar la cantidad de React que necesites.
 
 </DeepDive>
 
