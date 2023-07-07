@@ -68,7 +68,7 @@ otros miembros de la dirección del proyecto.
 
 ## Attribution
 
-Este Código de Conducta es una adaptación del [Pacto de Colaboradores].[homepage], versión 1.4,
+Este Código de Conducta es una adaptación del [Pacto de Colaboradores][homepage], versión 1.4,
 disponible en https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 [homepage]: https://www.contributor-covenant.org
