@@ -383,7 +383,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        conocido/conocida por {person.accomplishment}
+        conocido/a por {person.accomplishment}
       </p>
     </li>
   );
