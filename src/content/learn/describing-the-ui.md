@@ -526,4 +526,4 @@ Lee **[Mantener los componentes puros](/learn/keeping-components-pure)** para ap
 
 ¡Dirígete a [Tu primer componente](/learn/your-first-component) para que comiences a leer este capítulo página por página!
 
-O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Añadir interactividad](/learn/adding-interactivity)?
+O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Agregar interactividad](/learn/adding-interactivity)?
