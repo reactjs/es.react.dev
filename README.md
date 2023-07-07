@@ -15,7 +15,7 @@ Este repositorio contiene el código fuente y la documentación de [es.react.dev
 ### Instalación
 
 1. `cd es.react.dev` para entrar en la raíz del proyecto.
-3. `yarn` para instalar las dependencias npm del sitio web.
+2. `yarn` para instalar las dependencias npm del sitio web.
 
 ### Ejecución local
 
@@ -38,9 +38,9 @@ La documentación está dividida en varias secciones con un tono y un propósito
 
 1. Sigue las instrucciones de ["Ejecución local"](#ejecución-local).
 1. Guarda los archivos y compruébalos en el navegador.
-  1.  Los cambios en los componentes React en `src` se recargarán en caliente.
-  1.  Los cambios en los archivos markdown de `content` se cargarán en caliente.
-  1. Si trabajas con plugins, puede que tengas que eliminar el directorio `.cache` y reiniciar el servidor.
+1. Los cambios en los componentes React en `src` se recargarán en caliente.
+1. Los cambios en los archivos markdown de `content` se cargarán en caliente.
+1. Si trabajas con plugins, puede que tengas que eliminar el directorio `.cache` y reiniciar el servidor.
 
 ### Prueba el cambio
 
@@ -50,7 +50,7 @@ La documentación está dividida en varias secciones con un tono y un propósito
 ### Empújalo <span lang="en">(Push it)</span>
 
 1. `git add -A && git commit -m "Mi mensaje"` (sustituye `Mi mensaje` por un mensaje de confirmación, como `Arreglar logotipo de cabecera en Android`) para escenificar y confirmar tus cambios.
-1. `git push my-fork-name el-nombre-de-mi-rama`.
+1. `git push nombre-de-mi-bifurcación el-nombre-de-mi-rama`.
 1. Ve al [repositorio es.react.dev](https://github.com/reactjs/es.react.dev) y deberías ver las ramas empujadas recientemente.
 1. Sigue las instrucciones de GitHub.
 1. Si es posible, incluye capturas de pantalla de los cambios visuales. Se activará una compilación de vista previa después de que tus cambios se envíen a GitHub.
@@ -60,4 +60,5 @@ La documentación está dividida en varias secciones con un tono y un propósito
 Si estás interesado en traducir `es.react.dev`, consulta los esfuerzos de traducción actuales [aquí](https://github.com/reactjs/react.dev/issues/4135) (en inglés).
 
 ## Licencia
+
 El contenido enviado a [es.react.dev](https://es.react.dev/) tiene licencia CC-BY-4.0, tal y como se encuentra en el archivo [LICENSE-DOCS.md](https://github.com/reactjs/es.react.dev/blob/main/LICENSE-DOCS.md).
