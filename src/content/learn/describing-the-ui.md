@@ -228,7 +228,7 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Lee **[JavaScript y JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
+Lee **[JavaScript en JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
 
 </LearnMore>
 
