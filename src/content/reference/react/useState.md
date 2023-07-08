@@ -16,7 +16,7 @@ const [state, setState] = useState(initialState);
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useState(initialState)` {/*usestate*/}
 
