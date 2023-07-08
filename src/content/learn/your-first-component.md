@@ -211,13 +211,13 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 #### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
-Tu aplicación React comienza en un componente `"root"` (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente `root` se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente `root` se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes `root`.
+Tu aplicación React comienza en un componente *`root`* (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente *root* se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente *root* se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes *root*.
 
-La mayoría de las aplicaciones React usan componentes `root`. Esto significa que no sólo usarás componentes para piezas reutilizables como botones, sino también para piezas más grandes como barras laterales, listas y, en última instancia, ¡páginas completas! Los componentes son una forma práctica de organizar el código de UI y el marcado, incluso si algunos de ellos sólo se utilizen una vez.
+La mayoría de las aplicaciones React usan componentes *root*. Esto significa que no sólo usarás componentes para piezas reutilizables como botones, sino también para piezas más grandes como barras laterales, listas y, en última instancia, ¡páginas completas! Los componentes son una forma práctica de organizar el código de UI y el marcado, incluso si algunos de ellos sólo se utilizen una vez.
 
 [Los frameworks basados en React](/learn/start-a-new-react-project) llevan esto un paso más allá. En lugar de utilizar un archivo HTML vacío y dejar que React "se encargue" de gestionar la página con JavaScript, *también* generan el HTML automáticamente a partir de tus componentes React. Esto permite que tu aplicación muestre algún contenido antes de que se cargue el código JavaScript.
 
-Aún así, muchos sitios web sólo usan React para [añadir interactividad a páginas HTML existentes](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page). Tienen muchos componentes `root` en lugar de uno solo para toda la página. Puedes utilizar la cantidad de React que necesites.
+Aún así, muchos sitios web sólo usan React para [añadir interactividad a páginas HTML existentes](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page). Tienen muchos componentes *root* en lugar de uno solo para toda la página. Puedes utilizar la cantidad de React que necesites.
 
 </DeepDive>
 
@@ -240,7 +240,7 @@ Aún así, muchos sitios web sólo usan React para [añadir interactividad a pá
 
 #### Exporta el componente {/*export-the-component*/}
 
-Este ejemplo interactivo no funciona porque el componente root no está exportado:
+Este ejemplo interactivo no funciona porque el componente *root* no está exportado:
 
 <Sandpack>
 
