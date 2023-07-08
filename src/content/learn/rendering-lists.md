@@ -972,7 +972,7 @@ export const recipes = [{
 
 </Sandpack>
 
-Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su `key`. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como `key`. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como _`key`_ (con la advertencia de que no puedes reordenar ingredientes de forma segura).
+Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su _`key`_. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como _`key`_. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como _`key`_ (con la advertencia de que no puedes reordenar ingredientes de forma segura).
 
 </Solution>
 
