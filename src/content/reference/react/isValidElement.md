@@ -35,7 +35,7 @@ console.log(isValidElement('Hello')); // false
 console.log(isValidElement({ age: 42 })); // false
 ```
 
-[Ver más ejemplos arriba.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

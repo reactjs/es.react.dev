@@ -37,7 +37,7 @@ Devuelve la instantánea de los datos en la fuente de almacenamiento de datos. N
 1. La función `subscribe` debe suscribirse a la fuente de almacenamiento de datos y devolver una función que cancela dicha suscripción.
 2. La función `getSnapshot` debería obtener una instantánea de los datos de la fuente de almacenamiento de datos.
 
-[Ver más ejemplos debajo.](#uso)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

@@ -39,13 +39,13 @@ render(<App />, domNode);
 unmountComponentAtNode(domNode);
 ```
 
-[Ver más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 * `domNode`: Un [elemento DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React eliminará un componente de React montado de este elemento.
 
-#### Devuelve  {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `unmountComponentAtNode` devuelve `true` si se desmontó un componente y `false` en caso contrario.
 

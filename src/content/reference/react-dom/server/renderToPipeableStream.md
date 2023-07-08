@@ -40,9 +40,9 @@ const { pipe } = renderToPipeableStream(<App />, {
 });
 ```
 
-Para que el HTML generado por el servidor sea interactivo, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el cliente.
+En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer interactivo el HTML generado por el servidor.
 
-[Ve más ejemplos.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
