@@ -12,7 +12,7 @@ A menudo querrás mostrar muchos componentes similares de una colección de dato
 
 * Cómo renderizar componentes desde un array usando el método `map()` de JavaScript
 * Cómo renderizar solo un componente específico usando `filter()` de JavaScript
-* Cuándo y cómo usar las keys de React
+* Cuándo y cómo usar las _keys_ de React
 
 </YouWillLearn>
 
@@ -264,7 +264,7 @@ Las funciones de flecha que tienen `=> {` se dice que tienen un ["cuerpo de bloq
 
 </Pitfall>
 
-## Mantener los elementos de una lista en orden con `key` {/*keeping-list-items-in-order-with-key*/}
+## Mantener los elementos de una lista en orden con _`key`_ {/*keeping-list-items-in-order-with-key*/}
 
 Fíjate que todos los sandboxes anteriores mostraban un error en la consola:
 
@@ -274,7 +274,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-Tienes que darle a cada elemento del array una `key` -- una cadena de texto o un número que lo identifique de manera única entre otros elementos del array:
+Tienes que darle a cada elemento del array una _`key`_ (una cadena de texto o un número) que lo identifique de manera única entre otros elementos del array:
 
 ```js
 <li key={person.id}>...</li>
@@ -282,13 +282,13 @@ Tienes que darle a cada elemento del array una `key` -- una cadena de texto o un
 
 <Note>
 
-¡Los elementos JSX directamente dentro de una llamada a un `map()` siempre necesitan keys!
+¡Los elementos JSX directamente dentro de una llamada a un `map()` siempre necesitan _keys_!
 
 </Note>
 
-Las keys le indican a React que objeto del array corresponde a cada componente, para así poder emparejarlo más tarde. Esto se vuelve más importante si los objetos de tus arrays se pueden mover (<abbr title="por ejemplo">p. ej.</abbr> debido a un ordenamiento), insertar, o eliminar. Una `key` bien escogida ayuda a React a entender lo que ha sucedido exactamente, y hacer las correctas actualizaciones en el árbol del DOM.
+Las _keys_ le indican a React que objeto del array corresponde a cada componente, para así poder emparejarlo más tarde. Esto se vuelve más importante si los objetos de tus arrays se pueden mover (<abbr title="por ejemplo">p. ej.</abbr> debido a un ordenamiento), insertar, o eliminar. Una _`key`_ bien escogida ayuda a React a entender lo que ha sucedido exactamente, y hacer las correctas actualizaciones en el árbol del DOM.
 
-En vez de generar keys sobre la marcha, deberías incluirlas en tus datos:
+En vez de generar _keys_ sobre la marcha, deberías incluirlas en tus datos:
 
 <Sandpack>
 
@@ -316,25 +316,25 @@ export default function List() {
 
 ```js data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Usado en JSX como key
   name: 'Creola Katherine Johnson',
   profession: 'mathematician',
   accomplishment: 'spaceflight calculations',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Usado en JSX como key
   name: 'Mario José Molina-Pasquel Henríquez',
   profession: 'chemist',
   accomplishment: 'discovery of Arctic ozone hole',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Usado en JSX como key
   name: 'Mohammad Abdus Salam',
   profession: 'physicist',
   accomplishment: 'electromagnetism theory',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Usado en JSX como key
   name: 'Percy Lavon Julian',
   profession: 'chemist',
   accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
@@ -397,31 +397,31 @@ Los Fragments desaparecen del DOM, así que esto producirá una lista plana de `
 
 </DeepDive>
 
-### Dónde conseguir tu `key` {/*where-to-get-your-key*/}
+### Dónde conseguir tu _`key`_ {/*where-to-get-your-key*/}
 
-Distintas fuentes de datos dan diferentes fuentes de keys:
+Distintas fuentes de datos dan diferentes fuentes de _keys_:
 
-* **Datos de una base de datos:** Si tus datos vienen de una base de datos, puedes usar las keys/IDs de la base de datos, que son únicas por naturaleza.
+* **Datos de una base de datos:** Si tus datos vienen de una base de datos, puedes usar las _keys_/ID de la base de datos, que son únicas por naturaleza.
 * **Datos generados localmente:** Si tus datos son generados y persistidos localmente (p. ej. notas en una app de tomar notas), usa un contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) o un paquete como [`uuid`](https://www.npmjs.com/package/uuid) cuando este creando objetos.
 
-### Reglas de las keys {/*rules-of-keys*/}
+### Reglas de las _keys_ {/*rules-of-keys*/}
 
-* **Las keys tienen que ser únicas entre elementos hermanos.** Sin embargo, está bien usar las mismas keys para nodos JSX en arrays _diferentes_.
-* **Las keys no tienen que cambiar** o ¡eso quitará su propósito! No las generes mientras renderizas.
+* **Las _keys_ tienen que ser únicas entre elementos hermanos.** Sin embargo, está bien usar las mismas _keys_ para nodos JSX en arrays _diferentes_.
+* **Las _keys_ no tienen que cambiar** o ¡eso quitará su propósito! No las generes mientras renderizas.
 
-### ¿Por qué React necesita keys? {/*why-does-react-need-keys*/}
+### ¿Por qué React necesita _keys_? {/*why-does-react-need-keys*/}
 
 Imagina que los archivos de tu escritorio no tuvieran nombres. En vez de eso, tu te referirías a ellos por su orden -- el primer archivo, el segundo, y así. Podrías acostumbrarte a ello, pero una vez borres un archivo, se volvería algo confuso. El segundo archivo se convertiría en el primero, el tercer archivo se convertiría en el segundo, y así.
 
-Los nombres de archivos en una carpeta y las keys JSX en un array tienen un propósito similar. Nos permiten identificar un objeto de manera única entre sus hermanos. Una key bien escogida da más información aparte de la posición en el array. incluso si la _posición_ cambia devido a un reordenamiento, la `key` permite a React identificar al elemento a lo largo de su ciclo de vida.
+Los nombres de archivos en una carpeta y las _keys_ JSX en un array tienen un propósito similar. Nos permiten identificar un objeto de manera única entre sus hermanos. Una _key_ bien escogida da más información aparte de la posición en el array. incluso si la _posición_ cambia devido a un reordenamiento, la _`key`_ permite a React identificar al elemento a lo largo de su ciclo de vida.
 
 <Pitfall>
 
-Podrías estar tentado a usar el índice del elemento en el array como su key. De hecho, eso es lo que React usará si tu no especifícas un `key` en absoluto. Pero el orden en el que renderizas elementos cambiará con el tiempo si un elemento es insertado, borrado, o si se reordena su array. El índice como key lleva a menudo a sutiles y confusos errores.
+Podrías estar tentado a usar el índice del elemento en el array como su _key_. De hecho, eso es lo que React usará si tu no especifícas una _`key`_ en absoluto. Pero el orden en el que renderizas elementos cambiará con el tiempo si un elemento es insertado, borrado, o si se reordena su array. El índice como _key_ lleva a menudo a sutiles y confusos errores.
 
-Igualmente, no generes keys sobre la marcha, p. ej. con `key={Math.random()}`. Esto hará que las keys nunca coincidan entre renderizados, llevando a todos tus componentes y al DOM a recrearse cada vez. No solo es una manera lenta, si no que también pierde cualquier input del usuario dentro de los elementos listados. En vez de eso, usa unas IDs basadas en datos.
+Igualmente, no generes _keys_ sobre la marcha, p. ej. con `key={Math.random()}`. Esto hará que las _keys_ nunca coincidan entre renderizados, llevando a todos tus componentes y al DOM a recrearse cada vez. No solo es una manera lenta, si no que también pierde cualquier input del usuario dentro de los elementos listados. En vez de eso, usa unas IDs basadas en datos.
 
-Date cuenta de que tus componentes no reciben la `key` como un prop. Solo es usado como pista para React. Si tus componentes necesitan un ID, se lo tienes que pasar como una prop separada: `<Profile key={id} userId={id} />`.
+Date cuenta de que tus componentes no reciben la _`key`_ como un prop. Solo es usado como pista para React. Si tus componentes necesitan un ID, se lo tienes que pasar como una prop separada: `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
@@ -432,7 +432,7 @@ En esta página has aprendido:
 * Como mover datos fuera de componentes y en estructuras de datos como arrays y objetos.
 * Como genrerar sets de componentes similares con el método `map()` de JavaScript.
 * Como crear arrays de objetos filtrados con el método `filter()` de JavaScript.
-* Por qué y cómo poner la `key` en cada componente en una colección para que React pueda seguir la pista de cada uno de ellos incluso si su posición o datos cambia.
+* Por qué y cómo poner la _`key`_ en cada componente en una colección para que React pueda seguir la pista de cada uno de ellos incluso si su posición o datos cambia.
 
 </Recap>
 
@@ -972,13 +972,13 @@ export const recipes = [{
 
 </Sandpack>
 
-Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su `key`. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como `key`. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como `key` (con la advertencia de que no puedes reordenar ingredientes de forma segura).
+Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su _`key`_. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como _`key`_. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como _`key`_ (con la advertencia de que no puedes reordenar ingredientes de forma segura).
 
 </Solution>
 
 #### Extraer un componente de elemento de lista {/*extracting-a-list-item-component*/}
 
-Este componente `RecipeList` contiene dos llamadas `map` anidadas. Para simplificarlo, extrae un componente `Recipe` de el que aceptará las props `id`, `name`, y `ingredients`. ¿Dónde colocarías la `key` exterior y por qué?
+Este componente `RecipeList` contiene dos llamadas `map` anidadas. Para simplificarlo, extrae un componente `Recipe` de el que aceptará las props `id`, `name`, y `ingredients`. ¿Dónde colocarías la _`key`_ exterior y por qué?
 
 <Sandpack>
 
@@ -1080,7 +1080,7 @@ export const recipes = [{
 
 Aquí, `<Recipe {...recipe} key={recipe.id} />` es un atajo de sintaxis diciendo "pasa todas las propiedades del obejto `recipe` como props al componente `Recipe`". También podrías escribir cada prop explícitamente: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
-**Date cuente que la `key` está especificada en el `<Recipe>` en sí más que en el `<div>` raíz devuelto de `Recipe`.** Esto es porque esta `key` es necesaria directamente dentro del contexto del array circundante. Anteriormente, tenías un array de `<div>`s así que cada uno necesitaba una `key`, pero ahora tienes un array de `<Recipe>`s. Es decir, cuando extraes un componente, no te olvides de dejar la `key` fuera del JSX que has copiado y pegado.
+**Date cuente que la _`key`_ está especificada en el `<Recipe>` en sí más que en el `<div>` raíz devuelto de `Recipe`.** Esto es porque esta _`key`_ es necesaria directamente dentro del contexto del array circundante. Anteriormente, tenías un array de `<div>`s así que cada uno necesitaba una `key`, pero ahora tienes un array de `<Recipe>`s. Es decir, cuando extraes un componente, no te olvides de dejar la _`key`_ fuera del JSX que has copiado y pegado.
 
 </Solution>
 
@@ -1141,7 +1141,7 @@ hr {
 
 </Sandpack>
 
-(Este es un caso raro donde el índice como key es aceptable porque las líneas de los poemas nunca se van a reordenar.)
+(Este es un caso raro donde el índice como _key_ es aceptable porque las líneas de los poemas nunca se van a reordenar.)
 
 <Hint>
 
@@ -1206,9 +1206,9 @@ hr {
 
 </Sandpack>
 
-Usar el índice de la línea original como `key` ya no funciona porque cada separador y cada párrafo están ahora en el mismo array. Sin embargo, puedes darle a cada uno de ellos una key distintiva usando un sufijo, p. ej. `key={i + '-text'}`.
+Usar el índice de la línea original como _`key`_ ya no funciona porque cada separador y cada párrafo están ahora en el mismo array. Sin embargo, puedes darle a cada uno de ellos una _key_ distintiva usando un sufijo, p. ej. `key={i + '-text'}`.
 
-De forma alternativa, puedes renderizar una colección de fragments que contengan `<hr />` y `<p>...</p>`. Sin embargo, el atajo de sintaxis `<>...</>` no admite pasarle keys, así que tendrás que escribir `<Fragment>` explícitamente:
+De forma alternativa, puedes renderizar una colección de fragments que contengan `<hr />` y `<p>...</p>`. Sin embargo, el atajo de sintaxis `<>...</>` no admite pasarle _keys_, así que tendrás que escribir `<Fragment>` explícitamente:
 
 <Sandpack>
 
