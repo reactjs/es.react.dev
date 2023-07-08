@@ -65,7 +65,7 @@ function getTableOfContents(children, depth) {
   if (anchors.length > 0) {
     anchors.unshift({
       url: '#',
-      text: 'Overview',
+      text: 'Resumen',
       depth: 2,
     });
   }
@@ -88,13 +88,13 @@ function extractHeaders(children, depth, out) {
         header = {
           url: '#challenges',
           depth: 2,
-          text: 'Challenges',
+          text: 'Desafíos',
         };
       } else if (child.type === 'Recap') {
         header = {
           url: '#recap',
           depth: 2,
-          text: 'Recap',
+          text: 'Recapitulación',
         };
       } else if (child.type === 'TeamMember') {
         header = {
