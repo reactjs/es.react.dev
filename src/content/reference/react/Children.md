@@ -134,7 +134,7 @@ De lo contrario, devuelve un array plano que consta de los nodos que ha devuelto
 
 - Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/apis/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos sí. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y no se recorren sus hijos. Los [Fragmentos](/apis/react/Fragment) no se recorren.
 
-- Si devuelve un elemento o un *array* de elementos con keys desde `fn`, **las keys de los elementos devueltos se combinarán automáticamente con la clave del elemento original correspondiente de `children`.** Cuando devuelves múltiples elementos desde `fn` en un *array*, sus keys solo necesitan ser únicas localmente entre sí.
+- Si devuelve un elemento o un *array* de elementos con _keys_ desde `fn`, **las _keys_ de los elementos devueltos se combinarán automáticamente con la clave del elemento original correspondiente de `children`.** Cuando devuelves múltiples elementos desde `fn` en un *array*, sus _keys_ solo necesitan ser únicas localmente entre sí.
 
 ---
 
@@ -188,7 +188,7 @@ Devuelve un array plano de los elementos de `children`.
 
 #### Advertencias {/*children-toarray-caveats*/}
 
-- Nodos vacíos (`null`, `undefined`, y booleanos) se omitirán en el *array* devuelto. **Las keys de los elementos devueltos se calcularán a partir de las keys de los elementos originales y su nivel de anidamiento y posición.** Esto asegura que aplanar el array no introduzca cambios en el comportamiento.
+- Nodos vacíos (`null`, `undefined`, y booleanos) se omitirán en el *array* devuelto. **Las _keys_ de los elementos devueltos se calcularán a partir de las _keys_ de los elementos originales y su nivel de anidamiento y posición.** Esto asegura que aplanar el array no introduzca cambios en el comportamiento.
 
 ---
 
@@ -299,7 +299,7 @@ En React, la prop `children` se considera una estructura de datos *opaca*. Esto 
 
 En la practica, la estructura de datos `children` a menudo se representa como un array internamente. Sin embargo, si solo hay un hijos, entonces React no creará un array extra ya que esto conduciría a una sobrecarga de memoria innecesaria. Siempre y cuando uses los métodos `Children` en lugar de hacer una introspección directa de los prop `children`, tú código no se romperá incluso si React cambia la forma en que se implementa realmente la estructura de datos.
 
-Incluso cuando `children` es un array, `Children.map` tiene un comportamiento especial útil. Por ejemplo, `Children.map` combina las [keys](/learn/rendering-lists#keeping-list-items-in-order-with-key) en los elementos devueltos en las keys del `children` que le has pasado. Esto asegura que los hijos JSX originales no "pierdan" las keys incluso si se envuelven como en el ejemplo anterior.
+Incluso cuando `children` es un array, `Children.map` tiene un comportamiento especial útil. Por ejemplo, `Children.map` combina las [keys](/learn/rendering-lists#keeping-list-items-in-order-with-key) en los elementos devueltos en las _keys_ del `children` que le has pasado. Esto asegura que los hijos JSX originales no "pierdan" las _keys_ incluso si se envuelven como en el ejemplo anterior.
 
 </DeepDive>
 

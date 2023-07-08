@@ -4,11 +4,11 @@
 
 import {Children} from 'react';
 
-// TODO: This logic could be in MDX plugins instead.
+// TODO: Esta lógica podría estar en plugins MDX en lugar de esto.
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 export const PREPARE_MDX_CACHE_BREAKER = 2;
-// !!! IMPORTANT !!! Bump this if you change any logic.
+// !!! IMPORTANTE !!! Revisa esto si cambias alguna lógica.
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export function prepareMDX(rawChildren) {
@@ -18,10 +18,10 @@ export function prepareMDX(rawChildren) {
 }
 
 function wrapChildrenInMaxWidthContainers(children) {
-  // Auto-wrap everything except a few types into
-  // <MaxWidth> wrappers. Keep reusing the same
-  // wrapper as long as we can until we meet
-  // a full-width section which interrupts it.
+  // Auto-envuelve todo excepto unos pocos tipos dentro
+  // de envolturas <MaxWidth>. Sigue reusando la misma
+  // envoltura tanto como pueda hasta que encontremos
+  // una sección full-width que la interrumpa.
   let fullWidthTypes = [
     'Sandpack',
     'FullWidth',
@@ -65,7 +65,7 @@ function getTableOfContents(children, depth) {
   if (anchors.length > 0) {
     anchors.unshift({
       url: '#',
-      text: 'Overview',
+      text: 'Resumen',
       depth: 2,
     });
   }
@@ -88,13 +88,13 @@ function extractHeaders(children, depth, out) {
         header = {
           url: '#challenges',
           depth: 2,
-          text: 'Challenges',
+          text: 'Desafíos',
         };
       } else if (child.type === 'Recap') {
         header = {
           url: '#recap',
           depth: 2,
-          text: 'Recap',
+          text: 'Recapitulación',
         };
       } else if (child.type === 'TeamMember') {
         header = {

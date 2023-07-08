@@ -45,7 +45,7 @@ function PasswordField() {
 
 * `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si necesitas hacerlo, extrae un nuevo componente y mueve allí el estado.
 
-* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
+* `useId` **no debe usarse para generar _keys_** en una lista. [Las _keys_ deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 ---
 
@@ -53,7 +53,7 @@ function PasswordField() {
 
 <Pitfall>
 
-**No utilices `useId` para generar keys en una lista.** [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
+**No utilices `useId` para generar _keys_ en una lista.** [Las _keys_ deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 </Pitfall>
 

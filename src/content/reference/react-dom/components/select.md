@@ -284,7 +284,7 @@ label { margin-bottom: 20px; }
 
 <Note>
 
-Da un `name` a tu `<select>`, por ejemplo `<select name="selectedFruit" />`. El `name` que especifiques será usado como key en los datos del formulario, por ejemplo `{ selectedFruit: "orange" }`.
+Da un `name` a tu `<select>`, por ejemplo `<select name="selectedFruit" />`. El `name` que especifiques será usado como _key_ en los datos del formulario, por ejemplo `{ selectedFruit: "orange" }`.
 
 Si usas `<select multiple={true}>`, el [`FormData`](https://developer.mozilla.org/es/docs/Web/API/FormData) leerás del formulario que incluirá cada valor seleccionado como un par name-value separado. Revisa detenidamente los console logs en el ejemplo de arriba.
 
