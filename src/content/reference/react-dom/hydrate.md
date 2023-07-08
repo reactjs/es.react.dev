@@ -38,7 +38,7 @@ hydrate(reactNode, domNode);
 
 React se unirá al HTML que existe dentro del nodo DOM `domNode`, y se encargará de gestionar el DOM dentro de él. Una aplicación completamente construida con React normalmente sólo tendrá una llamada a `hydrate` con su componente raíz.
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

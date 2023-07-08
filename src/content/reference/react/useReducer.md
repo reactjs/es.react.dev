@@ -34,7 +34,7 @@ function MyComponent() {
   // ...
 ```
 
-[Ve más ejemplos debajo.](#examples-basic)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

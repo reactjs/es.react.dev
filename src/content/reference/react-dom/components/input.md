@@ -26,7 +26,7 @@ Para mostrar un input, renderiza el componente [`<input>` incorporado en el nave
 <input name="myInput" />
 ```
 
-[Mira más ejemplos abajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Props {/*props*/}
 

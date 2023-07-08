@@ -38,7 +38,7 @@ root.render(
 );
 ```
 
-[Ve más ejemplos abajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 

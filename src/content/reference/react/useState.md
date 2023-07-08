@@ -34,7 +34,7 @@ function MyComponent() {
 
 La convención es nombrar variables de estado como `[algo, setAlgo]` usando [desestructuración de arrays](https://javascript.info/destructuring-assignment).
 
-[Vea más ejemplos arriba.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

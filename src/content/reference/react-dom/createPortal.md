@@ -40,7 +40,7 @@ import { createPortal } from 'react-dom';
 </div>
 ```
 
-[Ver más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 Un portal modifica solamente la ubicación física del nodo de DOM, mientras que el JSX que se renderiza en él actúa como un nodo hijo del componente de React que lo renderiza. Por lo tanto, el nodo hijo tendrá acceso al contexto proporcionado por el árbol padre y los eventos se propagarán de hijo a padre siguiendo la estructura del árbol de React.
 

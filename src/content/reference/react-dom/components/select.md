@@ -32,7 +32,7 @@ Para mostrar un recuadro de selección, renderiza el componente [nativo del nave
 </select>
 ```
 
-[Ver más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Props {/*props*/}
 

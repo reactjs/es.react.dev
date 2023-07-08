@@ -31,7 +31,7 @@ function TabContainer() {
 }
 ```
 
-[Ver más ejemplos debajo.](#uso)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

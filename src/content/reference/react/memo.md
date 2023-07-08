@@ -30,7 +30,7 @@ const SomeComponent = memo(function SomeComponent(props) {
 });
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

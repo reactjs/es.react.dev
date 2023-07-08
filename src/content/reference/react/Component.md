@@ -42,9 +42,9 @@ class Greeting extends Component {
 }
 ```
 
-Sólo el método `render` es obligatorio, los demás son opcionales.
+Sólo el método `render` es requerido, otros métodos son opcionales.
 
-[Mira más ejemplos.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 ---
 
@@ -443,7 +443,7 @@ class ChatRoom extends Component {
 }
 ```
 
-[See more examples.](#adding-lifecycle-methods-to-a-class-component)
+[Ver más ejemplos.](#adding-lifecycle-methods-to-a-class-component)
 
 #### Parámetros {/*componentwillunmount-parameters*/}
 
