@@ -632,15 +632,15 @@ for (let i = 0; i < 20; i++) {
 
 </DeepDive>
 
-## Best practices for DOM manipulation with refs {/*best-practices-for-dom-manipulation-with-refs*/}
+## Mejores prácticas para la manipulación del DOM con refs {/*best-practices-for-dom-manipulation-with-refs*/}
 
-Refs are an escape hatch. You should only use them when you have to "step outside React". Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose.
+Las refs son una escotilla de escape. Deberias usarlo solo cuando tengas que "salir de React". Ejemplos comunes de esto incluye manipular el enfoque, posición de desplazamiento, o llamar a las APIs del navegador que React no expone.
 
-If you stick to non-destructive actions like focusing and scrolling, you shouldn't encounter any problems. However, if you try to **modify** the DOM manually, you can risk conflicting with the changes React is making.
+Si te limitas a acciones no destructivas como enfocar o desplazarte, no deberias encontrar ningún problema. Sin embargo, si intentas **modificar** el DOM manualmente, puedes arriesgarte a entrar en conflicto con los cambios que React está haciendo.
 
-To illustrate this problem, this example includes a welcome message and two buttons. The first button toggles its presence using [conditional rendering](/learn/conditional-rendering) and [state](/learn/state-a-components-memory), as you would usually do in React. The second button uses the [`remove()` DOM API](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) to forcefully remove it from the DOM outside of React's control.
+Para ilustrar este problema, este ejemplo incluye un mensaje de bienvenida y dos botones. El primer botón alterna su presencia usando [renderizado condicional](/learn/conditional-rendering) y [estado](/learn/state-a-components-memory), como normalmente lo harias en React. El segundo botón usa el [DOM API `remove()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) para eliminarlo forzadamente del DOM fuera del control de React.
 
-Try pressing "Toggle with setState" a few times. The message should disappear and appear again. Then press "Remove from the DOM". This will forcefully remove it. Finally, press "Toggle with setState":
+Intenta presionar "Alternar con setState" unas cuantas veces. El mensaje debe desaparecer y aparecer otra vez. Luego presiona "Eliminar del DOM". Esto lo eliminará forzadamente. Finalmente, presiona "Alternar con setState":
 
 <Sandpack>
 
@@ -657,15 +657,15 @@ export default function Counter() {
         onClick={() => {
           setShow(!show);
         }}>
-        Toggle with setState
+        Alternar con setState
       </button>
       <button
         onClick={() => {
           ref.current.remove();
         }}>
-        Remove from the DOM
+        Eliminar del DOM
       </button>
-      {show && <p ref={ref}>Hello world</p>}
+      {show && <p ref={ref}>Hola Mundo</p>}
     </div>
   );
 }
@@ -681,20 +681,20 @@ button {
 
 </Sandpack>
 
-After you've manually removed the DOM element, trying to use `setState` to show it again will lead to a crash. This is because you've changed the DOM, and React doesn't know how to continue managing it correctly.
+Después de que hayas eliminado el elemento DOM, intentar usar `setState` para mostrarlo de nuevo provocará un bloqueo, que no funcione. Esto se debe a que has cambiado el DOM, y React no sabe como continuar manejándolo correctamente.
 
-**Avoid changing DOM nodes managed by React.** Modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes like above.
+**Evita cambiar nodos DOM que React manipula.** Modificar, agregar hijos, o eliminar hijos de elementos que son manipulados por React pueden traer resultados inconcistentes visuales o bloqueos como el de arriba. 
 
-However, this doesn't mean that you can't do it at all. It requires caution. **You can safely modify parts of the DOM that React has _no reason_ to update.** For example, if some `<div>` is always empty in the JSX, React won't have a reason to touch its children list. Therefore, it is safe to manually add or remove elements there.
+Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado. **Puedes modificar de manera segura partes del DOM que React _no tenga motivos_ para actualizar.** Por ejemplo, si algún `<div>` siempre está vacío en el JSX, React no tendrá un motivo para tocar su lista de elementos hijos. Por lo tanto, es seguro agregar o eliminar manualmente elementos allí.
 
 <Recap>
 
-- Refs are a generic concept, but most often you'll use them to hold DOM elements.
-- You instruct React to put a DOM node into `myRef.current` by passing `<div ref={myRef}>`.
-- Usually, you will use refs for non-destructive actions like focusing, scrolling, or measuring DOM elements.
-- A component doesn't expose its DOM nodes by default. You can opt into exposing a DOM node by using `forwardRef` and passing the second `ref` argument down to a specific node.
-- Avoid changing DOM nodes managed by React.
-- If you do modify DOM nodes managed by React, modify parts that React has no reason to update.
+- Las refs son un concepto genérico, pero a menudo lo vas a usar para contener elementos DOM.
+- Tú le indicas a React a poner un nodo DOM dentro de `myRef.current` pasándole `<div ref={myRef}>`. 
+- Normalmente, vas a usar las refs para acciones no destructivas como enfocar, desplazar, o medir elementos DOM.
+- Un componente no expone sus nodos DOM por defecto. Puede optar por exponer un nodo DOM usando `forwardRef` y pasando el segundo argumento `ref` a un nodo específico.
+- Evita cambiar nodos DOM manipulados por React.
+- Si modificas nodos DOM manipulados por React, modifica las partes en donde React no tenga motivos para actualizar.
 
 </Recap>
 
