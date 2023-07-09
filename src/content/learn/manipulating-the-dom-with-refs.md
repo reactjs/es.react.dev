@@ -4,7 +4,7 @@ title: 'Manipulando el  DOM con Refs'
 
 <Intro>
 
-React automáticamente actualiza el [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes a menudo no necesitarán manipularlo. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM administrados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer este tipo de cosas en React, por lo que necesitaras una *ref* al nodo DOM.  
+React automáticamente actualiza el [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes a menudo no necesitarán manipularlo. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM administrados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer este tipo de cosas en React, por lo que necesitaras una *ref* al nodo DOM.  
 
 </Intro>
 
@@ -37,7 +37,7 @@ Finalmente, pasa la ref como el atributo `ref` a la etiqueta JSX en el que quier
 <div ref={myRef}>
 ```
 
-El Hook `useRef` retorna un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React crea un nodo DOM para este `<div>`, React va a colocar una referencia de este nodo en `myRef.current`. Entonces ahora puedes acceder a este nodo DOM desde tus [manejadores de eventos](/learn/responding-to-events) y usar las [APIs de navegador](https://developer.mozilla.org/docs/Web/API/Element) integradas definidas en él.
+El Hook `useRef` retorna un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React crea un nodo DOM para este `<div>`, React va a colocar una referencia de este nodo en `myRef.current`. Entonces ahora puedes acceder a este nodo DOM desde tus [manejadores de eventos](/learn/responding-to-events) y usar las [APIs de navegador](https://developer.mozilla.org/es/docs/Web/API/Element) integradas definidas en él.
 
 ```js
 // Puedes usar cualquier API de navegador, por ejemplo:
@@ -84,7 +84,7 @@ Mientras manipular el DOM es el caso de uso mas común para las refs, el Hook `u
 
 ### Ejemplo: Desplazarse a un elemento {/*example-scrolling-to-an-element*/}
 
-Puedes tener más de una sola ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método del navegador [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) en el nodo DOM correspondiente:
+Puedes tener más de una sola ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método del navegador [`scrollIntoView()`](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView) en el nodo DOM correspondiente:
 
 <Sandpack>
 
@@ -209,7 +209,7 @@ En los ejemplos de arriba, hay un número predefinido de refs. Sin embargo, algu
 
 Esto es porque los **Hooks solo tienen que ser llamados en el nivel mas alto de tu componente.** No puedes llamar a `useRef` en un bucle, en una condición, o dentro de una llamada `map()`
 
-Una posible forma de evitar esto es obtener una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
+Una posible forma de evitar esto es obtener una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
 
 Otra solución es **pasar una función al atributo `ref`.** A esto se le llama un [callback `ref`.](/reference/react-dom/components/common#ref-callback) React llamará tu callback ref con el nodo DOM cuando sea momento de establecer la ref, y con `null` cuando sea momento de limpiarla. Esto te permite mantener tu propio array o un [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier ref por su índice o algún tipo de ID.
 
@@ -704,7 +704,7 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 
 #### Reproduce y pausa el video {/*play-and-pause-the-video*/}
 
-En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduza o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para `<video>`. Agrega una ref en él, y has que el botón funcione. 
+En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduza o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para `<video>`. Agrega una ref en él, y has que el botón funcione. 
 
 <Sandpack>
 
@@ -864,7 +864,7 @@ button { display: block; margin-bottom: 10px; }
 
 #### Desplazar un carrusel de imagenes {/*scrolling-an-image-carousel*/}
 
-Este carrusel de imágenes tiene un botón de "Siguiente" que cambia la imagen activa. Has que la galeria se desplaze horizontalmente a la imagen activa al hacer clic. Vas a querer llamar a [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) en el nodo DOM de la imagen activa:
+Este carrusel de imágenes tiene un botón de "Siguiente" que cambia la imagen activa. Has que la galeria se desplaze horizontalmente a la imagen activa al hacer clic. Vas a querer llamar a [`scrollIntoView()`](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView) en el nodo DOM de la imagen activa:
 
 ```js
 node.scrollIntoView({
