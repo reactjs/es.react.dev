@@ -436,7 +436,7 @@ Por otra parte, componentes de alto nivel como formularios, listas, o secciones 
 
 <DeepDive>
 
-#### Exponiendo un subconjunto de la API con un manejador {/*exposing-a-subset-of-the-api-with-an-imperative-handle*/}
+#### Exponiendo un subconjunto de la API con un manejador imperativo {/*exposing-a-subset-of-the-api-with-an-imperative-handle*/}
 
 En el ejemplo de arriba, `MyInput` expone el elemento de entrada DOM orignal. Esto le permite al componente padre llamar a `focus()` en él. Sin embargo, esto tambien le permite al componente padre hacer otra cosa, por ejemplo, cambiar sus estilos CSS. En casos pocos comunes, quizas quieras restringir la funcionalidad expuesta. Puedes hacer eso con `useImperativeHandle`:
 
@@ -484,24 +484,24 @@ Aquí, `realInputRef` dentro de `MyInput` mantiene el nodo DOM de input actual. 
 
 </DeepDive>
 
-## When React attaches the refs {/*when-react-attaches-the-refs*/}
+## Cuando React adjunta las refs {/*when-react-attaches-the-refs*/}
 
-In React, every update is split in [two phases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
+En React, cada actualización está dividida en [dos fases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
 
-* During **render,** React calls your components to figure out what should be on the screen.
-* During **commit,** React applies changes to the DOM.
+* Durante el **renderizado,** React llama a tus componentes para averiguar que deberia estar en la pantalla.
+* Durante el **commit,** React aplica los cambios a el DOM.
 
-In general, you [don't want](/learn/referencing-values-with-refs#best-practices-for-refs) to access refs during rendering. That goes for refs holding DOM nodes as well. During the first render, the DOM nodes have not yet been created, so `ref.current` will be `null`. And during the rendering of updates, the DOM nodes haven't been updated yet. So it's too early to read them.
+En general, [no quieres](/learn/referencing-values-with-refs#best-practices-for-refs) acceder a las refs durante el renderizado. Eso va también para las refs que tienen nodos DOM. Durante el primer renderizado, los nodos DOM aún no han sido creados, entonces `ref.current` será `null`. Y durante el renderizado de actualizaciones, los nodos DOM aun no se han actualizados. Es muy temprano para leerlos.
 
-React sets `ref.current` during the commit. Before updating the DOM, React sets the affected `ref.current` values to `null`. After updating the DOM, React immediately sets them to the corresponding DOM nodes.
+React establece `ref.current` durante el commit. Antes de actualizar el DOM, React establece los valores afectados de `ref.current` a null. Después de actualizar el DOM, React inmediatamente los establece en los nodos DOM correspondientes.
 
-**Usually, you will access refs from event handlers.** If you want to do something with a ref, but there is no particular event to do it in, you might need an Effect. We will discuss effects on the next pages.
+**Generalmente, vas a acceder a las refs desde los manejadores de eventos.** Si quieres hacer algo con una ref, pero no hay un evento en particular para hacerlo, es posible que necesites un Efecto. Discutiremos los efectos en las próximas páginas. 
 
 <DeepDive>
 
-#### Flushing state updates synchronously with flushSync {/*flushing-state-updates-synchronously-with-flush-sync*/}
+#### Vaciando actualizaciones de estado sincrónicamente con flushSync {/*flushing-state-updates-synchronously-with-flush-sync*/}
 
-Consider code like this, which adds a new todo and scrolls the screen down to the last child of the list. Notice how, for some reason, it always scrolls to the todo that was *just before* the last added one:
+Considere un código como el siguiente, que añade un nuevo todo y desplaza la pantalla hasta el último hijo de la lista. Nota cómo, por alguna razón, siempre se desplaza hacia el todo que hay *justo antes* del último que se ha añadido.
 
 <Sandpack>
 
@@ -528,7 +528,7 @@ export default function TodoList() {
   return (
     <>
       <button onClick={handleAdd}>
-        Add
+        Agregar
       </button>
       <input
         value={text}
@@ -555,16 +555,17 @@ for (let i = 0; i < 20; i++) {
 
 </Sandpack>
 
-The issue is with these two lines:
+El problema está en estas dos lineas:
 
 ```js
 setTodos([ ...todos, newTodo]);
 listRef.current.lastChild.scrollIntoView();
 ```
 
-In React, [state updates are queued.](/learn/queueing-a-series-of-state-updates) Usually, this is what you want. However, here it causes a problem because `setTodos` does not immediately update the DOM. So the time you scroll the list to its last element, the todo has not yet been added. This is why scrolling always "lags behind" by one item.
+En React, [las actualizaciones de estados se ponen en cola.](/learn/queueing-a-series-of-state-updates) Generalmente, esto es lo que quieres. Sin embargo, aquí causa un problema porque `setTodos` no actualiza el DOM inmediatamente. Entonces, en el momento en el que desplazas la lista al último elemento, el todo aún no ha sido añadido. Esta es la razón por la que al desplazarse siempre se "retrasa" en un elemento.
 
-To fix this issue, you can force React to update ("flush") the DOM synchronously. To do this, import `flushSync` from `react-dom` and **wrap the state update** into a `flushSync` call:
+Para arreglar este problema, puedes forzar a React a actualizar ("flush") el DOM sincronicamente. Para hacer esto, importa `flushSync` del `react-dom` y **envuelve el actualizador de estado** dentro de una llamada a `flushSync`:   
+
 
 ```js
 flushSync(() => {
@@ -572,8 +573,7 @@ flushSync(() => {
 });
 listRef.current.lastChild.scrollIntoView();
 ```
-
-This will instruct React to update the DOM synchronously right after the code wrapped in `flushSync` executes. As a result, the last todo will already be in the DOM by the time you try to scroll to it:
+Esto le indicará a React que actualice el DOM sincrónicamente justo después que el código envuelto en `flushSync` se ejecute. Como resultado, el último todo ya estará en el DOM en el momento que intentes desplazarte hacia él.  
 
 <Sandpack>
 
@@ -603,7 +603,7 @@ export default function TodoList() {
   return (
     <>
       <button onClick={handleAdd}>
-        Add
+        Agregar
       </button>
       <input
         value={text}
