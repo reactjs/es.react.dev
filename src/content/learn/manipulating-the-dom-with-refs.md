@@ -702,9 +702,9 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 
 <Challenges>
 
-#### Play and pause the video {/*play-and-pause-the-video*/}
+#### Reproduce y pausa el video {/*play-and-pause-the-video*/}
 
-In this example, the button toggles a state variable to switch between a playing and a paused state. However, in order to actually play or pause the video, toggling state is not enough. You also need to call [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) and [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) on the DOM element for the `<video>`. Add a ref to it, and make the button work.
+En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduza o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para `<video>`. Agrega una ref en él, y has que el botón funcione. 
 
 <Sandpack>
 
@@ -722,7 +722,7 @@ export default function VideoPlayer() {
   return (
     <>
       <button onClick={handleClick}>
-        {isPlaying ? 'Pause' : 'Play'}
+        {isPlaying ? 'Pausar' : 'Reproducir'}
       </button>
       <video width="250">
         <source
@@ -741,11 +741,11 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-For an extra challenge, keep the "Play" button in sync with whether the video is playing even if the user right-clicks the video and plays it using the built-in browser media controls. You might want to listen to `onPlay` and `onPause` on the video to do that.
+Para un desafío extra, mantén el botón de "reproducir" sincronizado con si el video se está reproduciendo incluso si el usuario hace clic derecho al video y lo reproduce usando los controles multimedia integrados del navegador. Talvez desees escuchar acerca de `onPlay` y `onPause` en el video para hacer eso.
 
 <Solution>
 
-Declare a ref and put it on the `<video>` element. Then call `ref.current.play()` and `ref.current.pause()` in the event handler depending on the next state.
+Declara una ref y colócalo en el elemento `<video>`. Luego llama a `ref.current.play()` y `ref.current.pause()` en el manejador de evento dependiendo del siguiente estado.   
 
 <Sandpack>
 
@@ -794,13 +794,13 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-In order to handle the built-in browser controls, you can add `onPlay` and `onPause` handlers to the `<video>` element and call `setIsPlaying` from them. This way, if the user plays the video using the browser controls, the state will adjust accordingly.
+Para manejar los controles integrados del navegador, puedes agregar los manejadores `onPlay` y `onPause` al elemento `<video>` y llamar `setIsPlaying` desde ellos. De esta manera, si el usuario reproduce el video usando los controles del navegador, el estado se ajustará en consecuencia.  
 
 </Solution>
 
-#### Focus the search field {/*focus-the-search-field*/}
+#### Enfoca el campo de búsqueda {/*focus-the-search-field*/}
 
-Make it so that clicking the "Search" button puts focus into the field.
+Has que al hacer click en el botón de "Buscar" se enfoque el campo de "¿Buscando algo?" .
 
 <Sandpack>
 
@@ -809,10 +809,10 @@ export default function Page() {
   return (
     <>
       <nav>
-        <button>Search</button>
+        <button>Buscar</button>
       </nav>
       <input
-        placeholder="Looking for something?"
+        placeholder="¿Buscando algo?"
       />
     </>
   );
@@ -827,7 +827,7 @@ button { display: block; margin-bottom: 10px; }
 
 <Solution>
 
-Add a ref to the input, and call `focus()` on the DOM node to focus it:
+Agrega una ref a la entrada, y llama a `focus()` en el nodo DOM para enfocarlo:
 
 <Sandpack>
 
@@ -842,12 +842,12 @@ export default function Page() {
         <button onClick={() => {
           inputRef.current.focus();
         }}>
-          Search
+          Buscar
         </button>
       </nav>
       <input
         ref={inputRef}
-        placeholder="Looking for something?"
+        placeholder="¿Buscando algo?"
       />
     </>
   );
@@ -862,9 +862,9 @@ button { display: block; margin-bottom: 10px; }
 
 </Solution>
 
-#### Scrolling an image carousel {/*scrolling-an-image-carousel*/}
+#### Desplazar un carrusel de imagenes {/*scrolling-an-image-carousel*/}
 
-This image carousel has a "Next" button that switches the active image. Make the gallery scroll horizontally to the active image on click. You will want to call [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) on the DOM node of the active image:
+Este carrusel de imágenes tiene un botón de "Siguiente" que cambia la imagen activa. Has que la galeria se desplaze horizontalmente a la imagen activa al hacer clic. Vas a querer llamar a [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) en el nodo DOM de la imagen activa:
 
 ```js
 node.scrollIntoView({
@@ -897,7 +897,7 @@ export default function CatFriends() {
             setIndex(0);
           }
         }}>
-          Next
+          Siguiente
         </button>
       </nav>
       <div>
@@ -971,15 +971,15 @@ img {
 
 <Solution>
 
-You can declare a `selectedRef`, and then pass it conditionally only to the current image:
+Puedes declarar un `selectedRef`, y pasarla condicionalmente solo a la imagen actual:
 
 ```js
 <li ref={index === i ? selectedRef : null}>
 ```
 
-When `index === i`, meaning that the image is the selected one, the `<li>` will receive the `selectedRef`. React will make sure that `selectedRef.current` always points at the correct DOM node.
+Cuando `index === i`, que quiere decir que la imagen es la que está seleccionada, el `<li>` recibirá el `selectedRef`. React se asegurará que `selectedRef.current` siempre apunta al nodo DOM correcto.
 
-Note that the `flushSync` call is necessary to force React to update the DOM before the scroll. Otherwise, `selectedRef.current` would always point at the previously selected item.
+Ten en cuenta que la llamada `flushSync` es necesaria para forzar a React a actualizar el DOM antes del desplazamiento. De lo contrario, `selectedRef.current` siempre apuntará al elemento anteriormente seleccionado.  
 
 <Sandpack>
 
@@ -1008,7 +1008,7 @@ export default function CatFriends() {
             inline: 'center'
           });            
         }}>
-          Next
+          Siguiente
         </button>
       </nav>
       <div>
@@ -1088,13 +1088,13 @@ img {
 
 </Solution>
 
-#### Focus the search field with separate components {/*focus-the-search-field-with-separate-components*/}
+#### Enfoca el campo de búsqueda con componente separados {/*focus-the-search-field-with-separate-components*/}
 
-Make it so that clicking the "Search" button puts focus into the field. Note that each component is defined in a separate file and shouldn't be moved out of it. How do you connect them together?
+Has que al hacer clic al botón de "Buscar" enfoque el campo de "¿Buscando algo?" . Ten en cuenta que cada componente está definido en un archivo separado y no debe moverse fuera de él. ¿Cómo los conectarias?
 
 <Hint>
 
-You'll need `forwardRef` to opt into exposing a DOM node from your own component like `SearchInput`.
+Necesitaras `forwardRef` para optar por exponer un nodo DOM desde tu propio componente como `SearchInput`.
 
 </Hint>
 
@@ -1120,7 +1120,7 @@ export default function Page() {
 export default function SearchButton() {
   return (
     <button>
-      Search
+      Buscar
     </button>
   );
 }
@@ -1130,7 +1130,7 @@ export default function SearchButton() {
 export default function SearchInput() {
   return (
     <input
-      placeholder="Looking for something?"
+      placeholder="¿Buscando algo?"
     />
   );
 }
@@ -1144,7 +1144,7 @@ button { display: block; margin-bottom: 10px; }
 
 <Solution>
 
-You'll need to add an `onClick` prop to the `SearchButton`, and make the `SearchButton` pass it down to the browser `<button>`. You'll also pass a ref down to `<SearchInput>`, which will forward it to the real `<input>` and populate it. Finally, in the click handler, you'll call `focus` on the DOM node stored inside that ref.
+Necesitaras agregar una propiedad `onClick` a `SearchButton`, y hacer que `SearchButton` lo pase al `<button>` del navegador. También pasaras una ref a `<SearchInput>`, que lo va a redirigir al `<input>` real y la completará. Finalmente, en el manejador de clic, llamarás  a `focus` en el nodo DOM almacenado dentro de esa ref.
 
 <Sandpack>
 
@@ -1172,7 +1172,7 @@ export default function Page() {
 export default function SearchButton({ onClick }) {
   return (
     <button onClick={onClick}>
-      Search
+      Buscar
     </button>
   );
 }
@@ -1186,7 +1186,7 @@ export default forwardRef(
     return (
       <input
         ref={ref}
-        placeholder="Looking for something?"
+        placeholder="¿Buscando algo?"
       />
     );
   }
