@@ -876,7 +876,7 @@ node.scrollIntoView({
 
 <Hint>
 
-You don't need to have a ref to every image for this exercise. It should be enough to have a ref to the currently active image, or to the list itself. Use `flushSync` to ensure the DOM is updated *before* you scroll.
+No necesitas tener una ref para cada imagen en este ejercicio. Debería ser suficiente tener una ref para la imagen actualmente activa, o a la lista misma. Usa `flushSync` para asegurarte que el DOM esté actualizado `antes` de desplazarse.
 
 </Hint>
 
