@@ -640,7 +640,10 @@ function App() {
 
   return (
     <>
-      <input value={query} onChange={handleChange} />
+      <input 
+          value={query} 
+          onChange={handleChange} 
+      />
       <Suspense fallback={<p>Loading...</p>}>
         <Translation resource={resource} />
       </Suspense>
