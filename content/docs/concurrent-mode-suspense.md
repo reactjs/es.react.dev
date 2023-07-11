@@ -33,7 +33,7 @@ const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carga diferida
 // Mostrar un spinner mientras se carga el perfil
 <Suspense fallback={<Spinner />}>
   <ProfilePage />
-</Suspense>;
+</Suspense>
 ```
 
 Suspense para la carga de datos es una nueva funcionalidad que te permite también utilizar `<Suspense>` para **"esperar" declarativamente por cualquier otra cosa, incluyendo datos.** Esta página se enfoca en el caso de uso de la carga de datos, pero también puede esperar por imágenes, _scripts_, u otro trabajo asíncrono.
