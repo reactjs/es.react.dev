@@ -745,7 +745,7 @@ Sin embargo, en ocasiones podría ser de ayuda la introducción intencional de u
 import { useDeferredValue } from 'react';
 
 const deferredValue = useDeferredValue(value, {
-  timeoutMs: 5000,
+  timeoutMs: 5000
 });
 ```
 
