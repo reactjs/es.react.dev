@@ -469,7 +469,7 @@ Cuando utilizamos `useTransition`, React nos dejará "permanecer" en la pantalla
 Puedes comparar estos dos ejemplos para sentir la diferencia:
 
 * Predeterminado: [Retirada → Esqueleto → Completado](https://codesandbox.io/s/xenodochial-breeze-khk2fh)
-- **Preferido: [Pendiente → Esqueleto → Completado](https://codesandbox.io/s/serene-pascal-w3no1l)**
+* **Preferido: [Pendiente → Esqueleto → Completado](https://codesandbox.io/s/serene-pascal-w3no1l)**
 
 La única diferencia entre estos dos ejemplos es que el primero utiliza `<button>`s corrientes, pero el segundo utiliza nuestro componente `<Button>` personalizado con `useTransition`.
 
