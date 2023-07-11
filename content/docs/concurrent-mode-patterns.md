@@ -797,7 +797,7 @@ Por ejemplo, considera una lista filtrable como esta:
 
 ```js
 function App() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState("hello");
 
   function handleChange(e) {
     setText(e.target.value);
