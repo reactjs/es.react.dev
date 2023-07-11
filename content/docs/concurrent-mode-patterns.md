@@ -195,7 +195,7 @@ function App() {
 
 Solo nos tomó siete líneas de código añadir esta transición:
 
-- Hemos importado el Hook `useTransition` y usado en el componente que actualiza el estado.
+* Hemos importado el Hook `useTransition` y usado en el componente que actualiza el estado.
 - Hemos pasado `{timeoutMs: 3000}` para mantenernos en la pantalla anterior un máximo de 3 segundos.
 - Hemos envuelto nuestra actualización de estado en `startTransition` para decirle a React que está bien postergarla.
 - Estamos usando `usePending` para comunicar el progreso de la transición de estado al usuario.
