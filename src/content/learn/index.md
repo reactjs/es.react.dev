@@ -399,7 +399,7 @@ Inicialmente, cada estado `count` de `MyButton` es `0`.
 
 </Diagram>
 
-<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="El mismo diagrama anterior, con la variable count del primero hijo MyButton señalada indicando un clic con el valor de count incrementado a uno. El segundo componente MyButton aún contiene el valor cero." >
+<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="El mismo diagrama anterior, con la variable count del primer hijo MyButton señalado indicando un clic con el valor de count incrementado a uno. El segundo componente MyButton aún contiene el valor cero." >
 
 El primer `MyButton` actualiza su `count` a `1`.
 
