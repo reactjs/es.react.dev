@@ -379,7 +379,7 @@ Finalmente, hay dos formas principales que nos llevan al estado de Esqueleto. Il
 
 Abre [este ejemplo](https://codesandbox.io/s/xenodochial-breeze-khk2fh) y haz clic en "Open Profile". Verás varios estados visuales uno por uno.
 
-- **Retirada**: Por un segundo, verás el _fallback_ `<h1>Loading the app...</h1>`.
+* **Retirada**: Por un segundo, verás el _fallback_ `<h1>Loading the app...</h1>`.
 - **Esqueleto:** Verás el componente `<ProfilePage>` y dentro `<h2>Loading posts...</h2>`.
 - **Completado:** Verás el componente `<ProfilePage>` sin componentes de respaldo dentro. Todo fue cargado.
 
