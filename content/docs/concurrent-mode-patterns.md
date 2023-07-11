@@ -132,7 +132,7 @@ Aún hay algo que se siente roto acerca de [nuestro último ejemplo](https://cod
 Nuestra llamada a `useTransition()` devuelve dos valores: `startTransition` e `isPending`.
 
 ```js
-const [startTransition, isPending] = useTransition({timeoutMs: 3000});
+  const [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
 ```
 
 Ya hemos usado `startTransition` para envolver la actualización del estado. Ahora vamos a utilizar también `isPending`. React nos da este booleano para que podamos saber si **actualmente estamos esperando para que termine esta transición**. Lo usaremos para indicar que algo está ocurriendo:
