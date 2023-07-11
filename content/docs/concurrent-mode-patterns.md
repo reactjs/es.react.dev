@@ -641,7 +641,7 @@ function App() {
   return (
     <>
       <input
-          value={query} 
+        value={query}
           onChange={handleChange} 
       />
       <Suspense fallback={<p>Loading...</p>}>
