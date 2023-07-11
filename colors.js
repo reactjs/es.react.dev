@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-  // Text colors
+  // Colores del texto
   primary: '#23272F', // gray-90
   'primary-dark': '#F6F7F9', // gray-5
   secondary: '#404756', // gray-70
@@ -43,26 +43,26 @@ module.exports = {
   'blue-60': '#045975',
   'blue-50': '#087EA4',
   'blue-40': '#149ECA', // Brand Blue
-  'blue-30': '#58C4DC', // unused
+  'blue-30': '#58C4DC', // sin utilizar
   'blue-20': '#ABE2ED',
-  'blue-10': '#E6F7FF', // todo: doesn't match illustrations
+  'blue-10': '#E6F7FF', // TODO: no coincide con las ilustraciones
   'blue-5': '#E6F6FA',
 
   // Yellow
   'yellow-60': '#B65700',
   'yellow-50': '#C76A15',
-  'yellow-40': '#DB7D27', // unused
-  'yellow-30': '#FABD62', // unused
-  'yellow-20': '#FCDEB0', // unused
+  'yellow-40': '#DB7D27', // sin utilizar
+  'yellow-30': '#FABD62', // sin utilizar
+  'yellow-20': '#FCDEB0', // sin utilizar
   'yellow-10': '#FDE7C7',
   'yellow-5': '#FEF5E7',
 
   // Purple
-  'purple-60': '#2B3491', // unused
+  'purple-60': '#2B3491', // sin utilizar
   'purple-50': '#575FB7',
   'purple-40': '#6B75DB',
   'purple-30': '#8891EC',
-  'purple-20': '#C3C8F5', // unused
+  'purple-20': '#C3C8F5', // sin utilizar
   'purple-10': '#E7E9FB',
   'purple-5': '#F3F4FD',
 
@@ -77,16 +77,16 @@ module.exports = {
 
   // RED
   'red-60': '#712D28',
-  'red-50': '#A6423A', // unused
+  'red-50': '#A6423A', // sin utilizar
   'red-40': '#C1554D',
   'red-30': '#D07D77',
-  'red-20': '#E5B7B3', // unused
-  'red-10': '#F2DBD9', // unused
+  'red-20': '#E5B7B3', // sin utilizar
+  'red-10': '#F2DBD9', // sin utilizar
   'red-5': '#FAF1F0',
 
   // MISC
   'code-block': '#99a1b30f', // gray-30 @ 6%
-  'gradient-blue': '#58C4DC', // Only used for the landing gradient for now.
+  'gradient-blue': '#58C4DC', // Por ahora sólo se utiliza para el gradiente landing.
   github: {
     highlight: '#fffbdd',
   },
