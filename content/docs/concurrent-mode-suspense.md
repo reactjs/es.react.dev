@@ -48,7 +48,7 @@ Suspense para la carga de datos es una nueva funcionalidad que te permite tambi�
   - [Enfoque 1: Carga en el renderizado (sin usar Suspense)](#approach-1-fetch-on-render-not-using-suspense)
   - [Enfoque 2: Carga y luego renderizado (sin usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
 v - [Approach 3: Renderizar mientras se carga (usando Suspense)](#approach-3-render-as-you-fetch-using-suspense)
-    [Comenzar a cargar con antelación](#start-fetching-early)
+  [Comenzar a cargar con antelación](#start-fetching-early)
   - [Aún no lo sabemos todo](#were-still-figuring-this-out)
 - [Suspense y las condiciones de carrera](#suspense-and-race-conditions)
   - [Condiciones de carrera con useEffect](#race-conditions-with-useeffect)
