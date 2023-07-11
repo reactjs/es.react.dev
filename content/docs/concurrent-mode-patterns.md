@@ -642,7 +642,7 @@ function App() {
     <>
       <input
         value={query}
-          onChange={handleChange} 
+        onChange={handleChange}
       />
       <Suspense fallback={<p>Loading...</p>}>
         <Translation resource={resource} />
