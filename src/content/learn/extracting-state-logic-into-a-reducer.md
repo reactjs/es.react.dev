@@ -1103,7 +1103,7 @@ Los reducers deben ser puros, así que no deberían mutar estado. Pero Immer te 
 
 Actualmente, los manejadores de eventos en `ContactList.js` y `Chat.js` tienen comentarios `// TODO`. Esta es la razón por la que escribir en el input no funciona, y hacer clic sobre los botones no cambia el destinatario seleccionado.
 
-Reemplaza estos dos `// TODO`s con el código para hacer `dispatch` de las actions correspondientes. Para ver la forma y el tipo (_type_) esperados de las acciones, revisa el reducer en `messengerReducer.js`. El reducer ya está escrito, así que no necesitas cambiarlo. Solo tendrás que despachar las acciones en `ContactList.js` y `Chat.js`.
+Reemplaza estos dos `// TODO` con el código para hacer `dispatch` de las actions correspondientes. Para ver la forma y el tipo (_type_) esperados de las acciones, revisa el reducer en `messengerReducer.js`. El reducer ya está escrito, así que no necesitas cambiarlo. Solo tendrás que despachar las acciones en `ContactList.js` y `Chat.js`.
 
 <Hint>
 

@@ -305,8 +305,8 @@ Para arreglar este problema, puedes hacer una copia del array y modificar la cop
 
 ```js {2}
 export default function StoryTray({ stories }) {
-  const items = stories.slice(); // Clone the array
-  // ✅ Good: Pushing into a new array
+  const items = stories.slice(); // Clona el array
+  // ✅ Bien: Empujar a un nuevo array
   items.push({ id: 'create', label: 'Create Story' });
 ```
 
@@ -442,7 +442,7 @@ import { useState } from 'react';
 
 export default function StoryTray({ stories }) {
   const [isHover, setIsHover] = useState(false);
-  const items = stories.slice(); // Clone the array
+  const items = stories.slice(); // Clona el array
   items.push({ id: 'create', label: 'Create Story' });
   return (
     <ul
@@ -539,7 +539,7 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -623,7 +623,7 @@ export default function App() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -697,7 +697,7 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -787,7 +787,7 @@ export default function App() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');

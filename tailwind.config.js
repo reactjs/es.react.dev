@@ -13,7 +13,7 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    // Override base screen sizes
+    // Sobrescribe los tamaños de pantalla base
     screens: {
       ...defaultTheme.screens,
       betterhover: {raw: '(hover: hover)'},

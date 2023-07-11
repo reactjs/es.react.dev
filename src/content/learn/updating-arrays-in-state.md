@@ -243,7 +243,7 @@ export default function ShapeEditor() {
         };
       }
     });
-    // Vuelve a renderizar con el nuevo _array_
+    // Vuelve a renderizar con el nuevo array
     setShapes(nextShapes);
   }
 
@@ -559,7 +559,7 @@ setMyList(myList.map(artwork => {
     // Crea un *nuevo* objeto con cambios
     return { ...artwork, seen: nextSeen };
   } else {
-     // No cambia
+     // No cambiar
     return artwork;
   }
 }));
@@ -593,7 +593,7 @@ export default function BucketList() {
         // Crea un *nuevo* objeto con cambios
         return { ...artwork, seen: nextSeen };
       } else {
-        // No cambia
+        // No cambiar
         return artwork;
       }
     }));
@@ -605,7 +605,7 @@ export default function BucketList() {
         // Crea un *nuevo* objeto con cambios
         return { ...artwork, seen: nextSeen };
       } else {
-        // No cambia
+        // No cambiar
         return artwork;
       }
     }));

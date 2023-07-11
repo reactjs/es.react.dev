@@ -62,7 +62,7 @@ Llama a `renderToStaticNodeStream` para obtener un [Stream legible de Node.js](h
 ```js {5-6}
 import { renderToStaticNodeStream } from 'react-dom/server';
 
-// La sintaxis del manejador de rutas depende del framework de tu backend
+// La sintaxis del manejador de rutas depende del framework de tu backend.
 app.use('/', (request, response) => {
   const stream = renderToStaticNodeStream(<Page />);
   stream.pipe(response);

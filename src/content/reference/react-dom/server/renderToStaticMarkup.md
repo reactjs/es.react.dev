@@ -59,7 +59,7 @@ Call `renderToStaticMarkup` to render your app to an HTML string which you can s
 ```js {5-6}
 import { renderToStaticMarkup } from 'react-dom/server';
 
-// The route handler syntax depends on your backend framework
+// La sintaxis del manejador de rutas depende del framework de tu backend.
 app.use('/', (request, response) => {
   const html = renderToStaticMarkup(<Page />);
   response.send(html);

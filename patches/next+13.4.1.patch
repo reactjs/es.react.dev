@@ -3,7 +3,7 @@ index a1f8648..1b3d608 100644
 --- a/node_modules/next/dist/server/render.js
 +++ b/node_modules/next/dist/server/render.js
 @@ -758,9 +758,14 @@ async function renderToHTML(req, res, pathname, query, renderOpts) {
-         // Always using react concurrent rendering mode with required react version 18.x
+         // Siempre usando el modo de renderizado concurrente de react con la versión 18.x de react requerida
          const renderShell = async (EnhancedApp, EnhancedComponent)=>{
              const content = renderContent(EnhancedApp, EnhancedComponent);
 -            return await (0, _nodewebstreamshelper.renderToInitialStream)({

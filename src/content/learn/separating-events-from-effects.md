@@ -602,7 +602,7 @@ Más tarde, añades múltiples rutas a tu sitio. Ahora tu componente `Page` reci
 function Page({ url }) {
   useEffect(() => {
     logVisit(url);
-  }, []); // 🔴 React Hook useEffect has a missing dependency: 'url'
+  }, []); // 🔴 React Hook useEffect tiene una dependencia que falta: 'url'
   // ...
 }
 ```
@@ -627,7 +627,7 @@ function Page({ url }) {
 
   useEffect(() => {
     logVisit(url, numberOfItems);
-  }, [url]); // 🔴 React Hook useEffect has a missing dependency: 'numberOfItems'
+  }, [url]); // 🔴 React Hook useEffect tiene una dependencia que falta: 'numberOfItems'
   // ...
 }
 ```
@@ -647,7 +647,7 @@ function Page({ url }) {
 
   useEffect(() => {
     onVisit(url);
-  }, [url]); // ✅ All dependencies declared
+  }, [url]); // ✅ Todas las dependencias declaradas
   // ...
 }
 ```
@@ -717,7 +717,7 @@ function Page({ url }) {
 
   useEffect(() => {
     logVisit(url, numberOfItems);
-    // 🔴 Evite suprimir el linter de este modo:
+    // 🔴 Evita suprimir el linter de este modo:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
   // ...
@@ -898,7 +898,7 @@ function Timer() {
     setCount(count + 1);
   });
 
-  useTimer(onTick, 1000); // 🔴 Evitar: Pasar Eventos de Efecto
+  useTimer(onTick, 1000); // 🔴 Evita: Pasar Eventos de Efecto
 
   return <h1>{count}</h1>
 }

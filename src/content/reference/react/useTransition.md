@@ -214,7 +214,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registra una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -231,7 +231,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hacer nada durante 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -350,7 +350,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registra una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -367,7 +367,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hacer nada durante 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -505,7 +505,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registra una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -522,7 +522,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hacer nada durante 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -651,7 +651,7 @@ export default function AboutTab() {
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
+  // Registra una vez. La ralentización real está dentro de SlowPost.
   console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
 
   let items = [];
@@ -668,7 +668,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hacer nada durante 1 ms por elemento para emular un código extremadamente lento
   }
 
   return (
@@ -777,11 +777,11 @@ export default function AboutTab() {
 ```js PostsTab.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 function PostsTab() {
   const posts = use(fetchData('/posts'));
@@ -804,8 +804,8 @@ function Post({ title }) {
 
 export default PostsTab;
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementacion real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -848,9 +848,9 @@ export default function ContactTab() {
 
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -870,7 +870,7 @@ async function getData(url) {
 }
 
 async function getPosts() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -971,11 +971,11 @@ export default function AboutTab() {
 ```js PostsTab.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 function PostsTab() {
   const posts = use(fetchData('/posts'));
@@ -998,8 +998,8 @@ function Post({ title }) {
 
 export default PostsTab;
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementacion real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1042,9 +1042,9 @@ export default function ContactTab() {
 
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1064,7 +1064,7 @@ async function getData(url) {
 }
 
 async function getPosts() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -1250,11 +1250,11 @@ function AlbumsGlimmer() {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -1269,8 +1269,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementacion real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1298,11 +1298,11 @@ function use(promise) {
 ```js Biography.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -1313,8 +1313,8 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementacion real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1350,9 +1350,9 @@ export default function Panel({ children }) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1374,7 +1374,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1386,7 +1386,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1511,7 +1511,7 @@ No se puede utilizar una transición para una variable de estado que controla un
 const [text, setText] = useState('');
 // ...
 function handleChange(e) {
-  // ❌ Can't use transitions for controlled input state
+  // ❌ No se pueden utilizar transiciones para el estado de entrada controlada
   startTransition(() => {
     setText(e.target.value);
   });
@@ -1533,7 +1533,7 @@ Cuando envuelvas una actualización de estado en una transición, asegúrate de 
 
 ```js
 startTransition(() => {
-  // ✅ Setting state *during* startTransition call
+  // ✅ Establecer el estado *durante* la llamada a startTransition
   setPage('/about');
 });
 ```
@@ -1544,7 +1544,7 @@ No puedes marcar una actualización como una transición así:
 
 ```js
 startTransition(() => {
-  // ❌ Setting state *after* startTransition call
+  // ❌ Establecer el estado *después* de la llamada a startTransition
   setTimeout(() => {
     setPage('/about');
   }, 1000);
@@ -1556,7 +1556,7 @@ En su lugar, podrías hacer esto:
 ```js
 setTimeout(() => {
   startTransition(() => {
-    // ✅ Setting state *during* startTransition call
+    // ✅ Establecer el estado *durante* la llamada a startTransition
     setPage('/about');
   });
 }, 1000);
@@ -1567,7 +1567,7 @@ Del mismo modo, no se puede marcar una actualización como una transición como 
 ```js
 startTransition(async () => {
   await someAsyncFunction();
-  // ❌ Setting state *after* startTransition call
+  // ❌ Establecer el estado *después* de la llamada a startTransition
   setPage('/about');
 });
 ```
@@ -1577,7 +1577,7 @@ Sin embargo, esto funciona en su lugar:
 ```js
 await someAsyncFunction();
 startTransition(() => {
-  // ✅ Setting state *during* startTransition call
+  // ✅ Establecer el estado *durante* la llamada a startTransition
   setPage('/about');
 });
 ```
@@ -1606,7 +1606,7 @@ console.log(3);
 **Se espera que imprima 1, 2, 3.** La función que pasas a `startTransition` no se retrasa. Al contrario que con el `setTimeout` del navegador, no ejecuta el callback más tarde. React ejecuta tu función inmediatamente, pero cualquier actualización de estado programada *mientras se está ejecutando* se marca como transición. Puedes imaginar que funciona así:
 
 ```js
-// A simplified version of how React works
+// Una versión simplificada del funcionamiento de React
 
 let isInsideTransition = false;
 
@@ -1618,9 +1618,9 @@ function startTransition(scope) {
 
 function setState() {
   if (isInsideTransition) {
-    // ... schedule a transition state update ...
+    // ... programar una actualización del estado de transición ...
   } else {
-    // ... schedule an urgent state update ...
+    // ... programar una actualización urgente del estado ...
   }
 }
 ```

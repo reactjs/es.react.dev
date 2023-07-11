@@ -101,7 +101,7 @@ Si lo copias y pegas tal como está, no funcionará:
 ```js
 export default function TodoList() {
   return (
-    // This doesn't quite work!
+    // ¡Esto no funciona!
     <h1>Hedy Lamarr's Todos</h1>
     <img 
       src="https://i.imgur.com/yXOvdOSs.jpg" 

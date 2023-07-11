@@ -417,7 +417,7 @@ export default function Form() {
 
   function handleClick() {
     ref.current.focus();
-    // This won't work because the DOM node isn't exposed:
+    // Esto no funcionará porque el nodo DOM no está expuesto:
     // ref.current.style.opacity = 0.5;
   }
 

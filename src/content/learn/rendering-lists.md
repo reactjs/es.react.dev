@@ -248,14 +248,14 @@ Las funciones de flecha implícitamente devuelven la expresión justo después d
 
 ```js
 const listItems = chemists.map(person =>
-  <li>...</li> // Implicit return!
+  <li>...</li> // ¡Devolución implícita!
 );
 ```
 
 Sin embargo, **¡debes escibir el `return` explícitamente si tu `=>` está seguida por una llave`{`!**
 
 ```js
-const listItems = chemists.map(person => { // Curly brace
+const listItems = chemists.map(person => { // Llave
   return <li>...</li>;
 });
 ```
@@ -340,7 +340,7 @@ export const people = [{
   accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Usado en JSX como key
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrophysicist',
   accomplishment: 'white dwarf star mass calculations',
@@ -1167,7 +1167,7 @@ const poem = {
 export default function Poem() {
   let output = [];
 
-  // Fill the output array
+  // Rellena el array de salida
   poem.lines.forEach((line, i) => {
     output.push(
       <hr key={i + '-separator'} />
@@ -1178,7 +1178,7 @@ export default function Poem() {
       </p>
     );
   });
-  // Remove the first <hr />
+  // Elimina el primer <hr />
   output.shift();
 
   return (

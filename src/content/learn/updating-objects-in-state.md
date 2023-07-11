@@ -279,7 +279,7 @@ La forma fiable de obtener el comportamiento que buscas es crear un nuevo objeto
 
 ```js
 setPerson({
-  firstName: e.target.value, // New first name from the input
+  firstName: e.target.value, // Nuevo nombre a partir de la entrada
   lastName: person.lastName,
   email: person.email
 });
@@ -289,8 +289,8 @@ Se puede utilizar el `...` [spread operator](https://developer.mozilla.org/en-US
 
 ```js
 setPerson({
-  ...person, // Copy the old fields
-  firstName: e.target.value // But override this one
+  ...person, // Copia los campos antiguos
+  firstName: e.target.value // Pero sobreescribe este
 });
 ```
 
@@ -463,13 +463,13 @@ const [person, setPerson] = useState({
 Si quisieras actualizar `person.artwork.city`, está claro cómo hacerlo con la mutación:
 
 ```js
-person.artwork.city = 'New Delhi';
+person.artwork.city = 'Nueva Delhi';
 ```
 
 Pero en React, ¡se trata el estado como inmutable! Para cambiar la "ciudad", primero tendrías que producir el nuevo objeto "artwork" (pre-poblado con los datos de la anterior), y luego producir el nuevo objeto "person" que apunta a la nueva "artwork":
 
 ```js
-const nextArtwork = { ...person.artwork, city: 'New Delhi' };
+const nextArtwork = { ...person.artwork, city: 'Nueva Delhi' };
 const nextPerson = { ...person, artwork: nextArtwork };
 setPerson(nextPerson);
 ```
@@ -478,10 +478,10 @@ O, escrito como una sola llamada a la función:
 
 ```js
 setPerson({
-  ...person, // Copy other fields
-  artwork: { // but replace the artwork
-    ...person.artwork, // with the same one
-    city: 'New Delhi' // but in New Delhi!
+  ...person, // Copia otros campos
+  artwork: { // pero sustituye las ilustraciones
+    ...person.artwork, // con el mismo
+    city: 'Nueva Delhi' // ¡pero en Nueva Delhi!
   }
 });
 ```

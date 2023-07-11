@@ -9,7 +9,7 @@ const nextConfig = {
   pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx', 'md'],
   reactStrictMode: true,
   experimental: {
-    // TODO: Remove after https://github.com/vercel/next.js/issues/49355 is fixed
+    // TODO: Eliminar cuando https://github.com/vercel/next.js/issues/49355 esté arreglado
     appDir: false,
     scrollRestoration: true,
     legacyBrowsers: false,
@@ -30,7 +30,7 @@ const nextConfig = {
       );
     }
 
-    // Don't bundle the shim unnecessarily.
+    // No empaquetes la shim innecesariamente.
     config.resolve.alias['use-sync-external-store/shim'] = 'react';
 
     const {IgnorePlugin, NormalModuleReplacementPlugin} = require('webpack');
@@ -53,9 +53,9 @@ const nextConfig = {
             /\/eslint\/lib\/rules$/.test(context) &&
             /\.\/[\w-]+(\.js)?$/.test(resource)
           ) {
-            // Skips imports of built-in rules that ESLint
-            // tries to carry into the bundle by default.
-            // We only want the engine and the React rules.
+            // Omite las importaciones de reglas incorporadas que ESLint
+            // intenta llevar al paquete por defecto.
+            // Sólo queremos el motor y las reglas de React.
             return true;
           }
           return false;

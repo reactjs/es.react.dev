@@ -521,8 +521,8 @@ class ScrollingList extends React.Component {
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    // Are we adding new items to the list?
-    // Capture the scroll position so we can adjust scroll later.
+    // ¿Estamos añadiendo nuevos elementos a la lista?
+    // Captura la posición del scroll para poder ajustarlo más tarde.
     if (prevProps.list.length < this.props.list.length) {
       const list = this.listRef.current;
       return list.scrollHeight - list.scrollTop;
@@ -531,9 +531,9 @@ class ScrollingList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    // If we have a snapshot value, we've just added new items.
-    // Adjust scroll so these new items don't push the old ones out of view.
-    // (snapshot here is the value returned from getSnapshotBeforeUpdate)
+    // Si tenemos un valor snapshot, acabamos de añadir nuevos elementos.
+    // Ajusta el scroll para que estos nuevos elementos no empujen a los antiguos fuera de la vista.
+    // (snapshot aquí es el valor devuelto por getSnapshotBeforeUpdate)
     if (snapshot !== null) {
       const list = this.listRef.current;
       list.scrollTop = list.scrollHeight - snapshot;
@@ -650,7 +650,7 @@ function handleClick() {
   this.setState({
     name: 'Robin'
   });
-  console.log(this.state.name); // Still "Taylor"!
+  console.log(this.state.name); // ¡Todavía es "Taylor"!
 }
 ```
 
@@ -719,7 +719,7 @@ class Rectangle extends Component {
       nextProps.size.height === this.props.size.height &&
       nextState.isHovered === this.state.isHovered
     ) {
-      // Nothing has changed, so a re-render is unnecessary
+      // Nada ha cambiado, por lo que no es necesario volver a renderizar.
       return false;
     }
     return true;
@@ -1017,9 +1017,9 @@ class Form extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    // Any time the current user changes,
-    // Reset any parts of state that are tied to that user.
-    // In this simple example, that's just the email.
+    // Cada vez que cambia el usuario actual,
+    // Restablece cualquier parte del estado que esté vinculada a ese usuario.
+    // En este sencillo ejemplo, eso es sólo el correo electrónico.
     if (props.userID !== state.prevUserID) {
       return {
         prevUserID: props.userID,
@@ -1286,7 +1286,7 @@ export default class ChatRoom extends Component {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -1329,22 +1329,22 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Actualiza el estado para que la próxima renderización muestre la UI alternativa.
     return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    // Example "componentStack":
-    //   in ComponentThatThrows (created by App)
-    //   in ErrorBoundary (created by App)
-    //   in div (created by App)
-    //   in App
+    // Ejemplo de "componentStack":
+    //   en ComponentThatThrows (creado por App)
+    //   en ErrorBoundary (creado por App)
+    //   en div (creado por App)
+    //   en App
     logErrorToMyService(error, info.componentStack);
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      // Puedes renderizar cualquier fallback de UI personalizado
       return this.props.fallback;
     }
 
@@ -1409,7 +1409,7 @@ Defina una función llamada `Greeting`. Aquí es donde moverá el cuerpo de su f
 
 ```js
 function Greeting() {
-  // ... move the code from the render method here ...
+  // ... mueve el código del método render aquí ...
 }
 ```
 
@@ -1666,7 +1666,7 @@ export default class ChatRoom extends Component {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -1775,7 +1775,7 @@ export default function ChatRoom({ roomId }) {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');

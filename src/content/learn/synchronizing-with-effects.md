@@ -562,7 +562,7 @@ export default function ChatRoom() {
 
 ```js chat.js
 export function createConnection() {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Conectando...');

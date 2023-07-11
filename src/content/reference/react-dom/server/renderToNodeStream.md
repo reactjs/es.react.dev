@@ -66,7 +66,7 @@ Llama a `renderToNodeStream` para obtener un [*Stream* legible de Node.js](https
 ```js {5-6}
 import { renderToNodeStream } from 'react-dom/server';
 
-// La sintaxis del manejador de rutas depende de tu framework de backend.
+// La sintaxis del manejador de rutas depende del framework de tu backend.
 app.use('/', (request, response) => {
   const stream = renderToNodeStream(<App />);
   stream.pipe(response);

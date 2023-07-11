@@ -49,7 +49,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // <-- Fix the mistake here!
+  }, []); // <-- ¡Arregla el error aquí!
   return <h1>Welcome to the {roomId} room!</h1>;
 }
 
@@ -77,7 +77,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -104,7 +104,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 }
 ```
@@ -152,7 +152,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -198,7 +198,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // 🔴 React Hook useEffect has a missing dependency: 'roomId'
+  }, []); // 🔴 React Hook useEffect tiene una dependencia que falta: 'roomId'
   // ...
 }
 ```
@@ -244,7 +244,7 @@ export default function ChatRoom() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -458,7 +458,7 @@ function ShippingForm({ country }) {
     return () => {
       ignore = true;
     };
-  }, [country]); // ✅ All dependencies declared
+  }, [country]); // ✅ Todas las dependencias declaradas
 
   // ...
 ```
@@ -482,7 +482,7 @@ function ShippingForm({ country }) {
           setCities(json);
         }
       });
-    // 🔴 Avoid: A single Effect synchronizes two independent processes
+    // 🔴 Evita: Un solo Efecto sincroniza dos procesos independientes
     if (city) {
       fetch(`/api/areas?city=${city}`)
         .then(response => response.json())
@@ -495,7 +495,7 @@ function ShippingForm({ country }) {
     return () => {
       ignore = true;
     };
-  }, [country, city]); // ✅ All dependencies declared
+  }, [country, city]); // ✅ Todas las dependencias declaradas
 
   // ...
 ```
@@ -524,7 +524,7 @@ function ShippingForm({ country }) {
     return () => {
       ignore = true;
     };
-  }, [country]); // ✅ All dependencies declared
+  }, [country]); // ✅ Todas las dependencias declaradas
 
   const [city, setCity] = useState(null);
   const [areas, setAreas] = useState(null);
@@ -542,7 +542,7 @@ function ShippingForm({ country }) {
         ignore = true;
       };
     }
-  }, [city]); // ✅ All dependencies declared
+  }, [city]); // ✅ Todas las dependencias declaradas
 
   // ...
 ```
@@ -579,7 +579,7 @@ function ChatRoom({ roomId }) {
       setMessages([...messages, receivedMessage]);
     });
     return () => connection.disconnect();
-  }, [roomId, messages]); // ✅ All dependencies declared
+  }, [roomId, messages]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -599,7 +599,7 @@ function ChatRoom({ roomId }) {
       setMessages(msgs => [...msgs, receivedMessage]);
     });
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -649,7 +649,7 @@ function ChatRoom({ roomId }) {
       }
     });
     return () => connection.disconnect();
-  }, [roomId, isMuted]); // ✅ All dependencies declared
+  }, [roomId, isMuted]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -678,7 +678,7 @@ function ChatRoom({ roomId }) {
       onMessage(receivedMessage);
     });
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -699,7 +699,7 @@ function ChatRoom({ roomId, onReceiveMessage }) {
       onReceiveMessage(receivedMessage);
     });
     return () => connection.disconnect();
-  }, [roomId, onReceiveMessage]); // ✅ All dependencies declared
+  }, [roomId, onReceiveMessage]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -731,7 +731,7 @@ function ChatRoom({ roomId, onReceiveMessage }) {
       onMessage(receivedMessage);
     });
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -751,7 +751,7 @@ function Chat({ roomId, notificationCount }) {
 
   useEffect(() => {
     onVisit(roomId);
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 }
 ```
@@ -784,7 +784,7 @@ Este objeto se declara en el cuerpo del componente, por lo que es un [valor reac
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [options]); // ✅ All dependencies declared
+  }, [options]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -801,7 +801,7 @@ const serverUrl = 'https://localhost:1234';
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  // Temporarily disable the linter to demonstrate the problem
+  // Desactiva temporalmente el linter para demostrar el problema
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const options = {
     serverUrl: serverUrl,
@@ -846,7 +846,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -872,14 +872,14 @@ Esto significa que se crea un nuevo objeto `options` en cada rerenderizado del c
 **Este problema afecta a objetos y funciones en particular. En JavaScript, cada objeto y función creado nuevamente se considera distinto a todos los demás objetos. ¡No importa si el contenido dentro de ellos puede ser el mismo!**
 
 ```js {7-8}
-// During the first render
+// Durante la primera renderización
 const options1 = { serverUrl: 'https://localhost:1234', roomId: 'music' };
 
-// During the next render
+// Durante la siguiente renderización
 const options2 = { serverUrl: 'https://localhost:1234', roomId: 'music' };
 
-// These are two different objects!
-console.log(Object.is(options1, options2)); // false
+// ¡Estos son dos objetos diferentes!
+console.log(Object.is(options1, options2)); // falso
 ```
 
 **Objetos y funciones como dependencias crean un riesgo de que tu Efecto se resincronice más a menudo de lo que necesitas.**
@@ -903,7 +903,7 @@ function ChatRoom() {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // ✅ All dependencies declared
+  }, []); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -927,7 +927,7 @@ function ChatRoom() {
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, []); // ✅ All dependencies declared
+  }, []); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -951,21 +951,21 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
 Ahora que `options` se declara dentro de tu Efecto, ya no es una dependencia de tu Efecto. En cambio, el único valor reactivo que usa tu Efecto es `roomId`. Dado que `roomId`  no es un objeto o una función, puedes tener la seguridad de que no será *inintencionadamente* diferente. En JavaScript, números y cadenas se comparan por su contenido:
 
 ```js {7-8}
-// During the first render
+// Durante la primera renderización
 const roomId1 = 'music';
 
-// During the next render
+// Durante la siguiente renderización
 const roomId2 = 'music';
 
-// These two strings are the same!
-console.log(Object.is(roomId1, roomId2)); // true
+// ¡Estas dos cadenas son iguales!
+console.log(Object.is(roomId1, roomId2)); // verdadero
 ```
 
 Gracias a esta solución, el chat no se reconectará más si editas la caja de texto:
@@ -1023,7 +1023,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -1064,7 +1064,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -1082,7 +1082,7 @@ function ChatRoom({ options }) {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [options]); // ✅ All dependencies declared
+  }, [options]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -1112,7 +1112,7 @@ function ChatRoom({ options }) {
     });
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId, serverUrl]); // ✅ All dependencies declared
+  }, [roomId, serverUrl]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -1148,7 +1148,7 @@ function ChatRoom({ getOptions }) {
     });
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId, serverUrl]); // ✅ All dependencies declared
+  }, [roomId, serverUrl]); // ✅ Todas las dependencias declaradas
   // ...
 ```
 
@@ -1341,11 +1341,11 @@ export class FadeInAnimation {
   start(duration) {
     this.duration = duration;
     if (this.duration === 0) {
-      // Jump to end immediately
+      // Salta al final inmediatamente
       this.onProgress(1);
     } else {
       this.onProgress(0);
-      // Start animating
+      // Comienza la animación
       this.startTime = performance.now();
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
@@ -1355,7 +1355,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Aún nos quedan más fotogramas por pintar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1480,7 +1480,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Aún nos quedan más fotogramas por pintar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1582,7 +1582,7 @@ export default function ChatRoom({ options }) {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }
@@ -1680,7 +1680,7 @@ export default function ChatRoom({ options }) {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }
@@ -1771,7 +1771,7 @@ export default function ChatRoom({ roomId, serverUrl }) {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }
@@ -1921,7 +1921,7 @@ export default function ChatRoom({ roomId, createConnection, onMessage }) {
 
 ```js chat.js
 export function createEncryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }
@@ -1962,7 +1962,7 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
 }
 
 export function createUnencryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }
@@ -2088,16 +2088,16 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
 Después de estos dos cambios, tu Efecto no depende más de ninguna función:
 
 ```js {1,8,10,21}
-export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Reactive values
-  const onReceiveMessage = useEffectEvent(onMessage); // Not reactive
+export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Valores reactivos
+  const onReceiveMessage = useEffectEvent(onMessage); // No reactivo
 
   useEffect(() => {
     function createConnection() {
       const options = {
         serverUrl: 'https://localhost:1234',
-        roomId: roomId // Reading a reactive value
+        roomId: roomId // Leyendo un valor reactivo
       };
-      if (isEncrypted) { // Reading a reactive value
+      if (isEncrypted) { // Leyendo un valor reactivo
         return createEncryptedConnection(options);
       } else {
         return createUnencryptedConnection(options);
@@ -2108,7 +2108,7 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Reacti
     connection.on('message', (msg) => onReceiveMessage(msg));
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId, isEncrypted]); // ✅ All dependencies declared
+  }, [roomId, isEncrypted]); // ✅ Todas las dependencias declaradas
 ```
 
 As a result, the chat re-connects only when something meaningful (`roomId` or `isEncrypted`) changes:
@@ -2221,7 +2221,7 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
 
 ```js chat.js
 export function createEncryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }
@@ -2262,7 +2262,7 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
 }
 
 export function createUnencryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Una implementación real se conectaría realmente al servidor
   if (typeof serverUrl !== 'string') {
     throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
   }

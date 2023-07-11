@@ -328,7 +328,7 @@ function getSnapshot() {
 }
 
 function getServerSnapshot() {
-  return true; // Always show "Online" for server-generated HTML
+  return true; // Mostrar siempre "Online" para el HTML generado por el servidor
 }
 
 function subscribe(callback) {
@@ -359,7 +359,7 @@ Si obtienes este error, significa que tu función `getSnapshot` devuelve un nuev
 
 ```js {2-5}
 function getSnapshot() {
-  // 🔴 Do not return always different objects from getSnapshot
+  // 🔴 No devuelvas siempre objetos diferentes de getSnapshot
   return {
     todos: myStore.todos
   };
@@ -372,7 +372,7 @@ Tu objeto `getSnapshot` solo debería devolver un objeto diferente si algo realm
 
 ```js {2-3}
 function getSnapshot() {
-  // ✅ You can return immutable data
+  // ✅ Tu puedes devolver datos inmutables
   return myStore.todos;
 }
 ```
@@ -418,7 +418,7 @@ Alternativamente, puedes envolver `subscribe` con [`useCallback`](/reference/rea
 function ChatIndicator({ userId }) {
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
   
-  // ✅ Same function as long as userId doesn't change
+  // ✅ Misma función mientras no cambie el userId
   const subscribe = useCallback(() => {
     // ...
   }, [userId]);

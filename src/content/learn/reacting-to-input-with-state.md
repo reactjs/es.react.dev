@@ -81,7 +81,7 @@ function disable(el) {
 }
 
 function submitForm(answer) {
-  // Pretend it's hitting the network.
+  // Finge que se está conectando a la red.
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (answer.toLowerCase() == 'istanbul') {
@@ -198,7 +198,7 @@ Podrías llamar a ese prop de la forma que quisieras, el nombre no es importante
 
 ```js
 export default function Form({
-  // Try 'submitting', 'error', 'success':
+  // Intenta 'submitting', 'error', 'success':
   status = 'empty'
 }) {
   if (status === 'success') {
@@ -388,7 +388,7 @@ Después de esta limpieza, nos quedamos con 3 (¡a partir de 7!) variables de es
 ```js
 const [answer, setAnswer] = useState('');
 const [error, setError] = useState(null);
-const [status, setStatus] = useState('typing'); // 'typing', 'submitting', or 'success'
+const [status, setStatus] = useState('typing'); // 'typing', 'submitting', o 'success'
 ```
 
 Sabes que son esenciales, porque no puedes eliminar ninguna de ellos sin romper la funcionalidad.
@@ -465,7 +465,7 @@ export default function Form() {
 }
 
 function submitForm(answer) {
-  // Pretend it's hitting the network.
+  // Finge que se está conectando a la red.
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       let shouldError = answer.toLowerCase() !== 'lima'
@@ -1044,12 +1044,12 @@ function setIsEditing(value) {
 function updateDOM() {
   if (isEditing) {
     editButton.textContent = 'Guardar Perfil';
-    // TODO: show inputs, hide content
+    // TODO: mostrar inputs, ocultar content
   } else {
     editButton.textContent = 'Editar Perfil';
-    // TODO: hide inputs, show content
+    // TODO: ocultar inputs, mostrar content
   }
-  // TODO: update text labels
+  // TODO: actualizar etiquetas de texto
 }
 
 function hide(el) {

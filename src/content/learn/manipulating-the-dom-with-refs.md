@@ -40,7 +40,7 @@ Finally, pass your ref as the `ref` attribute to the JSX tag for which you want 
 The `useRef` Hook returns an object with a single property called `current`. Initially, `myRef.current` will be `null`. When React creates a DOM node for this `<div>`, React will put a reference to this node into `myRef.current`. You can then access this DOM node from your [event handlers](/learn/responding-to-events) and use the built-in [browser APIs](https://developer.mozilla.org/docs/Web/API/Element) defined on it.
 
 ```js
-// You can use any browser APIs, for example:
+// Puedes utilizar cualquier API del navegador, por ejemplo:
 myRef.current.scrollIntoView();
 ```
 
@@ -200,7 +200,7 @@ In the above examples, there is a predefined number of refs. However, sometimes 
 ```js
 <ul>
   {items.map((item) => {
-    // Doesn't work!
+    // ¡No funciona!
     const ref = useRef(null);
     return <li ref={ref} />;
   })}
@@ -235,7 +235,7 @@ export default function CatFriends() {
 
   function getMap() {
     if (!itemsRef.current) {
-      // Initialize the Map on first usage.
+      // Inicializa el Map en el primer uso.
       itemsRef.current = new Map();
     }
     return itemsRef.current;
@@ -326,10 +326,10 @@ In this example, `itemsRef` doesn't hold a single DOM node. Instead, it holds a 
   ref={node => {
     const map = getMap();
     if (node) {
-      // Add to the Map
+      // Añade al Map
       map.set(cat.id, node);
     } else {
-      // Remove from the Map
+      // Elimina del Map
       map.delete(cat.id);
     }
   }}
@@ -450,7 +450,7 @@ import {
 const MyInput = forwardRef((props, ref) => {
   const realInputRef = useRef(null);
   useImperativeHandle(ref, () => ({
-    // Only expose focus and nothing else
+    // Sólo expone el foco y nada más
     focus() {
       realInputRef.current.focus();
     },

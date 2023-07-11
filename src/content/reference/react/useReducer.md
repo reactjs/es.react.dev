@@ -224,7 +224,7 @@ El estado es de sólo lectura. No modifiques ningún objeto o arrays del estado:
 function reducer(state, action) {
   switch (action.type) {
     case 'incremented_age': {
-      // 🚩 Don't mutate an object in state like this:
+      // 🚩 No mutes un objeto en estado como éste:
       state.age = state.age + 1;
       return state;
     }
@@ -236,7 +236,7 @@ En su lugar, devuelve siempre nuevos objetos desde tu reducer:
 function reducer(state, action) {
   switch (action.type) {
     case 'incremented_age': {
-      // ✅ Instead, return a new object
+      // ✅ En su lugar, devuelve un nuevo objeto
       return {
         ...state,
         age: state.age + 1
@@ -946,11 +946,11 @@ Llamar a la función `dispatch` **no cambia el estado del código en ejecución*
 function handleClick() {
   console.log(state.age);  // 42
 
-  dispatch({ type: 'incremented_age' }); // Request a re-render with 43
-  console.log(state.age);  // Still 42!
+  dispatch({ type: 'incremented_age' }); // Solicita una nueva renderización con 43
+  console.log(state.age);  // ¡Todavía es 42!
 
   setTimeout(() => {
-    console.log(state.age); // Also 42!
+    console.log(state.age); // ¡También es 42!
   }, 5000);
 }
 ```
@@ -978,12 +978,12 @@ React **ignorará tu actualización si el siguiente estado es igual al anterior,
 function reducer(state, action) {
   switch (action.type) {
     case 'incremented_age': {
-      // 🚩 Wrong: mutating existing object
+      // 🚩 Incorrecto: mutar objeto existente
       state.age++;
       return state;
     }
     case 'changed_name': {
-      // 🚩 Wrong: mutating existing object
+      // 🚩 Incorrecto: mutar objeto existente
       state.name = action.nextName;
       return state;
     }
@@ -998,14 +998,14 @@ Has mutado un objeto `state` existente y lo has devuelto, por lo que React ha ig
 function reducer(state, action) {
   switch (action.type) {
     case 'incremented_age': {
-      // ✅ Correct: creating a new object
+      // ✅ Correcto: crear un nuevo objeto
       return {
         ...state,
         age: state.age + 1
       };
     }
     case 'changed_name': {
-      // ✅ Correct: creating a new object
+      // ✅ Correcto: crear un nuevo objeto
       return {
         ...state,
         name: action.nextName
@@ -1027,7 +1027,7 @@ function reducer(state, action) {
   switch (action.type) {
     case 'incremented_age': {
       return {
-        ...state, // Don't forget this!
+        ...state, // ¡No lo olvides!
         age: state.age + 1
       };
     }
@@ -1065,13 +1065,13 @@ También puedes utilizar un comprobador de tipos estático como TypeScript para 
 Puede que obtengas un error que dice: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (Demasiados rerenderizados. React limita el número de renderizados para evitar un bucle infinito). Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un manejador de eventos:
 
 ```js {1-2}
-// 🚩 Wrong: calls the handler during render
+// 🚩 Incorrecto: llama al manejador durante la renderización
 return <button onClick={handleClick()}>Click me</button>
 
-// ✅ Correct: passes down the event handler
+// ✅ Correcto: pasa al manejador de eventos
 return <button onClick={handleClick}>Click me</button>
 
-// ✅ Correct: passes down an inline function
+// ✅ Correcto: pasa una función inline
 return <button onClick={(e) => handleClick(e)}>Click me</button>
 ```
 
@@ -1091,7 +1091,7 @@ Por ejemplo, esta función reducer impura muta un array en estado:
 function reducer(state, action) {
   switch (action.type) {
     case 'added_todo': {
-      // 🚩 Mistake: mutating state
+      // 🚩 Error: mutar el estado
       state.todos.push({ id: nextId++, text: action.text });
       return state;
     }
@@ -1106,7 +1106,7 @@ Como React llama a tu función reductora dos veces, verás que la tarea se ha a�
 function reducer(state, action) {
   switch (action.type) {
     case 'added_todo': {
-      // ✅ Correct: replacing with new state
+      // ✅ Correcto: reemplazar con un nuevo estado.
       return {
         ...state,
         todos: [

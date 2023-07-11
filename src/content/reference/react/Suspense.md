@@ -117,11 +117,11 @@ function Loading() {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -136,8 +136,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -163,9 +163,9 @@ function use(promise) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -185,7 +185,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -362,11 +362,11 @@ export default function Panel({ children }) {
 ```js Biography.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -377,8 +377,8 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -406,11 +406,11 @@ function use(promise) {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -425,8 +425,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -452,9 +452,9 @@ function use(promise) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -476,7 +476,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 1500);
   });
@@ -488,7 +488,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -699,11 +699,11 @@ export default function Panel({ children }) {
 ```js Biography.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -714,8 +714,8 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -743,11 +743,11 @@ function use(promise) {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -762,8 +762,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -789,9 +789,9 @@ function use(promise) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -813,7 +813,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -825,7 +825,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -966,11 +966,11 @@ export default function App() {
 ```js SearchResults.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function SearchResults({ query }) {
   if (query === '') {
@@ -991,8 +991,8 @@ export default function SearchResults({ query }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1018,9 +1018,9 @@ function use(promise) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1040,7 +1040,7 @@ async function getData(url) {
 }
 
 async function getSearchResults(query) {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1195,11 +1195,11 @@ export default function App() {
 ```js SearchResults.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function SearchResults({ query }) {
   if (query === '') {
@@ -1220,8 +1220,8 @@ export default function SearchResults({ query }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1247,9 +1247,9 @@ function use(promise) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1269,7 +1269,7 @@ async function getData(url) {
 }
 
 async function getSearchResults(query) {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1481,11 +1481,11 @@ function AlbumsGlimmer() {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -1500,8 +1500,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1529,11 +1529,11 @@ function use(promise) {
 ```js Biography.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -1544,8 +1544,8 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1581,9 +1581,9 @@ export default function Panel({ children }) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1605,7 +1605,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1617,7 +1617,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1868,11 +1868,11 @@ function AlbumsGlimmer() {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -1887,8 +1887,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1916,11 +1916,11 @@ function use(promise) {
 ```js Biography.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -1931,8 +1931,8 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -1968,9 +1968,9 @@ export default function Panel({ children }) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -1992,7 +1992,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -2004,7 +2004,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -2254,11 +2254,11 @@ function AlbumsGlimmer() {
 ```js Albums.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -2273,8 +2273,8 @@ export default function Albums({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -2302,11 +2302,11 @@ function use(promise) {
 ```js Biography.js hidden
 import { fetchData } from './data.js';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
+// Nota: este componente está escrito usando una API experimental
+// que aún no está disponible en las versiones estables de React.
 
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
+// Para un ejemplo realista que puedas seguir hoy, prueba un framework
+// que esté integrado con Suspense, como Relay o Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -2317,8 +2317,8 @@ export default function Biography({ artistId }) {
   );
 }
 
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
+// Esta es una solución a un error para que la demo funcione.
+// TODO: reemplazar con la implementación real cuando el bug sea corregido.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -2354,9 +2354,9 @@ export default function Panel({ children }) {
 ```
 
 ```js data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: la forma de obtener los datos depende de
+// el framework que utilice junto con Suspense.
+// Normalmente, la lógica de almacenamiento en caché estaría dentro de un framework.
 
 let cache = new Map();
 
@@ -2378,7 +2378,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -2390,7 +2390,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Añade un retraso falso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -2548,7 +2548,7 @@ Para evitar que esto ocurra, [marca la actualización como no urgente utilizando
 
 ```js {2-3,5}
 function handleNextPageClick() {
-  // If this update suspends, don't hide the already displayed content
+  // Si esta actualización se suspende, no ocultes el contenido ya mostrado
   startTransition(() => {
     setCurrentPage(currentPage + 1);
   });

@@ -63,7 +63,7 @@ Llama a `renderToString` para renderizar tu aplicación como una cadena de carac
 ```js {5-6}
 import { renderToString } from 'react-dom/server';
 
-// La sintaxis del manejador de rutas depende de tu framework de backend.
+// La sintaxis del manejador de rutas depende del framework de tu backend.
 app.use('/', (request, response) => {
   const html = renderToString(<App />);
   response.send(html);

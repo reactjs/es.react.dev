@@ -185,7 +185,7 @@ Ambos estilos de código están bien, por lo que puedes usar el que prefieras pa
 Un elemento es una descripción ligera de una pieza de la interfaz de usuario. Por ejemplo, ambos `<Greeting name="Taylor" />` y `createElement(Greeting, { name: 'Taylor' })` producen un objeto como este:
 
 ```js
-// Slightly simplified
+// Ligeramente simplificado
 {
   type: Greeting,
   props: {
