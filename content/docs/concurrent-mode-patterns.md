@@ -806,7 +806,8 @@ function App() {
   return (
     <div className="App">
       <label>
-        Type into the input: <input value={text} onChange={handleChange} />
+        Type into the input:{" "}
+          <input value={text} onChange={handleChange} />
       </label>
       ...
       <MySlowList text={text} />
