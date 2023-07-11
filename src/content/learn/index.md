@@ -421,7 +421,7 @@ Inicialmente, el estado `count` en `MyApp` es `0` y se pasa hacia abajo a los do
 
 </Diagram>
 
-<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="El mismo diagrama anterior con la variable count del componente padre MyApp señalada indicando un clic con el valor incrementado a uno. El flujo de ambos componentes hijo MyButton también está señalado y el valor de count en cada hijo está en uno indicando que el valor se pasó hacia abajo." >
+<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="El mismo diagrama anterior con la variable count del componente padre MyApp señalado indicando un clic con el valor incrementado a uno. El flujo de ambos componentes hijo MyButton también está señalado y el valor de count en cada hijo está en uno indicando que el valor se pasó hacia abajo." >
 
 Al hacer clic, `MyApp` actualiza su estado `count` a `1` y se lo pasa hacia abajo a ambos hijos.
 
