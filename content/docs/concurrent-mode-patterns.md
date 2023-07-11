@@ -608,7 +608,7 @@ Con este cambio, aunque estamos en el estado Pendiente, no mostramos ninguna ind
 
 Lo más importante que hemos aprendido hasta ahora es que:
 
-- Por defecto, nuestra secuencia de carga es Retirada → Esqueleto → Completado.
+* Por defecto, nuestra secuencia de carga es Retirada → Esqueleto → Completado.
 - El estado de Retirada no se percibe muy bien porque esconde contenido existente.
 - Con `useTransition`, podemos optar por mostrar en su lugar primero un estado Pendiente. Esto nos mantendrá en la pantalla anterior mientras se prepara la pantalla siguiente.
 - Si no queremos que algún componente retrase la transición, podemos envolverlo en su propia barrera `<Suspense>`.
