@@ -709,7 +709,7 @@ Así la solución correcta sería poner a `setQuery` (que no se suspende) _fuera
 ```js{4,5}
 function handleChange(e) {
   const value = e.target.value;
-
+  
   // Fuera de la transición (urgente)
   setQuery(value);
 
