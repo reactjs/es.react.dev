@@ -4,27 +4,27 @@
 
 module.exports = {
   // Colores del texto
-  primary: '#23272F', // gray-90
-  'primary-dark': '#F6F7F9', // gray-5
-  secondary: '#404756', // gray-70
-  'secondary-dark': '#EBECF0', // gray-10
-  tertiary: '#5E687E', // gray-50
-  'tertiary-dark': '#99A1B3', // gray-30
-  link: '#087EA4', // blue-50
-  'link-dark': '#149ECA', // blue-40
-  syntax: '#EBECF0', // gray-10
+  primary: '#23272F', // gris-90
+  'primary-dark': '#F6F7F9', // gris-5
+  secondary: '#404756', // gris-70
+  'secondary-dark': '#EBECF0', // gris-10
+  tertiary: '#5E687E', // gris-50
+  'tertiary-dark': '#99A1B3', // gris-30
+  link: '#087EA4', // azul-50
+  'link-dark': '#149ECA', // azul-40
+  syntax: '#EBECF0', // gris-10
   wash: '#FFFFFF',
-  'wash-dark': '#23272F', // gray-90
-  card: '#F6F7F9', // gray-05
-  'card-dark': '#343A46', // gray-80
-  highlight: '#E6F7FF', // blue-10
+  'wash-dark': '#23272F', // gris-90
+  card: '#F6F7F9', // gris-05
+  'card-dark': '#343A46', // gris-80
+  highlight: '#E6F7FF', // azul-10
   'highlight-dark': 'rgba(88,175,223,.1)',
-  border: '#EBECF0', // gray-10
-  'border-dark': '#343A46', // gray-80
-  'secondary-button': '#EBECF0', // gray-10
-  'secondary-button-dark': '#404756', // gray-70
+  border: '#EBECF0', // gris-10
+  'border-dark': '#343A46', // gris-80
+  'secondary-button': '#EBECF0', // gris-10
+  'secondary-button-dark': '#404756', // gris-70
 
-  // Gray
+  // Gris
   'gray-95': '#16181D',
   'gray-90': '#23272F',
   'gray-80': '#343A46',
@@ -38,17 +38,17 @@ module.exports = {
   'gray-10': '#EBECF0',
   'gray-5': '#F6F7F9',
 
-  // Blue
+  // Azul
   'blue-80': '#043849',
   'blue-60': '#045975',
   'blue-50': '#087EA4',
-  'blue-40': '#149ECA', // Brand Blue
+  'blue-40': '#149ECA', // Azul de Marca
   'blue-30': '#58C4DC', // sin utilizar
   'blue-20': '#ABE2ED',
   'blue-10': '#E6F7FF', // TODO: no coincide con las ilustraciones
   'blue-5': '#E6F6FA',
 
-  // Yellow
+  // Amarillo
   'yellow-60': '#B65700',
   'yellow-50': '#C76A15',
   'yellow-40': '#DB7D27', // sin utilizar
@@ -57,7 +57,7 @@ module.exports = {
   'yellow-10': '#FDE7C7',
   'yellow-5': '#FEF5E7',
 
-  // Purple
+  // Morado
   'purple-60': '#2B3491', // sin utilizar
   'purple-50': '#575FB7',
   'purple-40': '#6B75DB',
@@ -66,7 +66,7 @@ module.exports = {
   'purple-10': '#E7E9FB',
   'purple-5': '#F3F4FD',
 
-  // Green
+  // Verde
   'green-60': '#2B6E62',
   'green-50': '#388F7F',
   'green-40': '#44AC99',
@@ -75,7 +75,7 @@ module.exports = {
   'green-10': '#E5F5F2',
   'green-5': '#F4FBF9',
 
-  // RED
+  // ROJO
   'red-60': '#712D28',
   'red-50': '#A6423A', // sin utilizar
   'red-40': '#C1554D',
@@ -85,7 +85,7 @@ module.exports = {
   'red-5': '#FAF1F0',
 
   // MISC
-  'code-block': '#99a1b30f', // gray-30 @ 6%
+  'code-block': '#99a1b30f', // gris-30 @ 6%
   'gradient-blue': '#58C4DC', // Por ahora sólo se utiliza para el gradiente landing.
   github: {
     highlight: '#fffbdd',
