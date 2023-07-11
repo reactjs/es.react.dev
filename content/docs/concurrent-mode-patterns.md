@@ -625,7 +625,7 @@ Cuando diseñas componentes de React, comúnmente es mejor encontrar la "represe
 Sin embargo, en Modo Concurrente hay casos en los que quizá _quieras_ "duplicar" algunos datos en diferentes variables de estado. Considera esta pequeña aplicación de traducción:
 
 ```js
-const initialQuery = 'Hello, world';
+const initialQuery = "Hello, world";
 const initialResource = fetchTranslation(initialQuery);
 
 function App() {
