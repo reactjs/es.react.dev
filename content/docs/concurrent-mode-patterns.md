@@ -62,7 +62,7 @@ Podemos usarlo en tres pasos.
 Primero, nos aseguraremos de que estamos realmente usando el Modo Concurrente. Hablaremos más luego sobre como [adoptar el Modo Concurrente](/docs/concurrent-mode-adoption.html), pero por ahora es suficiente saber que necesitamos utilizar `ReactDOM.createRoot()` en lugar de `ReactDOM.render()` para que esto funcione:
 
 ```js
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 // Optar por el Modo Concurrente
 ReactDOM.createRoot(rootElement).render(<App />);
 ```
