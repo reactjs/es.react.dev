@@ -91,7 +91,7 @@ function App() {
 
 Los usaremos debajo.
 
-Nota que pasamos un objeto de configuración para `useTransition`. Su propiedad `timeoutMs` especifica \*cuánto tiempo estamos dispuestos a esperar para que la transición termine\*\*. Al pasar `{timeoutMs: 3000}` estamos diciendo: "Si el próximo perfil toma más de 3 segundos en cargar, muestra este gran _spinner_, pero antes de ese tiempo está bien seguir mostrando la pantalla anterior".
+Nota que pasamos un objeto de configuración para `useTransition`. Su propiedad `timeoutMs` especifica *cuánto tiempo estamos dispuestos a esperar para que la transición termine**. Al pasar `{timeoutMs: 3000}` estamos diciendo: "Si el próximo perfil toma más de 3 segundos en cargar, muestra este gran _spinner_, pero antes de ese tiempo está bien seguir mostrando la pantalla anterior".
 
 ### Envolver setState en una transición {#wrapping-setstate-in-a-transition}
 
