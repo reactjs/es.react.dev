@@ -640,7 +640,7 @@ function App() {
 
   return (
     <>
-      <input 
+      <input
           value={query} 
           onChange={handleChange} 
       />
