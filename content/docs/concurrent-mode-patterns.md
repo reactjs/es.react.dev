@@ -742,7 +742,7 @@ Esto tiene sentido en la gran mayoría de las situaciones. Una interfaz inconsis
 Sin embargo, en ocasiones podría ser de ayuda la introducción intencional de una inconsistencia. Podríamos hacerlo manualmente "separando" el estado como hicimos arriba, pero React también ofrece un Hook integrado para esto:
 
 ```js
-import {useDeferredValue} from 'react';
+import { useDeferredValue } from 'react';
 
 const deferredValue = useDeferredValue(value, {
   timeoutMs: 5000,
