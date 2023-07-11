@@ -651,7 +651,7 @@ function App() {
   );
 }
 
-function Translation({resource}) {
+function Translation({ resource }) {
   return (
     <p>
       <b>{resource.read()}</b>
