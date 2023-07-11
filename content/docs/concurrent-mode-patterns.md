@@ -70,7 +70,7 @@ ReactDOM.createRoot(rootElement).render(<App />);
 A continuación, importaremos el Hook `useTransition` desde React:
 
 ```js
-import React, {useState, useTransition, Suspense} from "react";
+import React, { useState, useTransition, Suspense } from "react";
 ```
 
 Para finalizar, lo utilizaremos dentro del componente `App`:
