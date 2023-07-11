@@ -297,7 +297,7 @@ function ProfilePage() {
 
 Podemos ver ahora que la necesidad de `useTransition` es _muy_ común. Básicamente cualquier clic a un botón o interacción que pueda llevar a que un componente se suspenda necesita ser envuelto en `useTransition` para evitar accidentalmente esconder al usuario algo con lo que está interactuando.
 
-Esto puede llevar a mucho código repetitivo a lo largo de nuestros componentes. Por eso es que \**generalmente recomendamos incluir `useTransition` en los componentes del *sistema de diseño\* de tu aplicación. Por ejemplo, podemos extraer la lógica de transición en nuestro componente `<Button>`:
+Esto puede llevar a mucho código repetitivo a lo largo de nuestros componentes. Por eso es que **generalmente recomendamos incluir `useTransition` en los componentes del *sistema de diseño* de tu aplicación. Por ejemplo, podemos extraer la lógica de transición en nuestro componente `<Button>`:
 
 ```js{7-9,20,24}
 function Button({ children, onClick }) {
