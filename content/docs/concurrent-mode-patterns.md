@@ -903,7 +903,7 @@ Otros enfoques a esto mismo, como componer Promesas en una forma especial, son i
 Para solucionarlo importaremos `SuspenseList`:
 
 ```js
-import {SuspenseList} from 'react';
+import { SuspenseList } from 'react';
 ```
 
 `<SuspenseList>` coordina el "orden de revelación" de los nodos `<Suspense>` más cercanos debajo de ella:
