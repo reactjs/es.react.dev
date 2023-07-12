@@ -386,7 +386,7 @@ Advertencia: A los componentes de función no se les pueden dar refs. Los intent
 
 </ConsoleBlock>
 
-Esto pasa porque por defecto React no le permite a un componente acceder a los nodos DOM de otros componentes. ¡Ni siquiera para sus propios hijos! Esto es intencional. Las refs son una escotilla de escape que debe usarse con moderación. Manipular manualmente los nodos DOM de _otros_ componentes hace que tu código sea incluso más frágil.
+Esto ocurre porque por defecto React no permite que un componente acceda a los nodos DOM de otros componentes. ¡Ni siquiera a sus propios hijos! Esto es intencionado. Las refs son una vía de escape que debe usarse con moderación. Manipular manualmente los nodos DOM de _otro_ componente hace tu código aún más frágil.
 
 En cambio, los componentes que _quieran_ exponer sus nodos DOM tienen que **optar** por ese comportamiento. Un componente puede especificar que "reenvíe" su ref a uno de sus hijos. Aquí vemos como `MyInput` puede usar la API `forwardRef`:
 
