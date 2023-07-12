@@ -439,7 +439,7 @@ En diseño de sistemas, es un patrón común para componentes de bajo nivel como
 
 #### Exponiendo un subconjunto de la API con un manejador imperativo {/*exposing-a-subset-of-the-api-with-an-imperative-handle*/}
 
-En el ejemplo de arriba, `MyInput` expone el elemento de entrada DOM original. Esto le permite al componente padre llamar a `focus()` en él. Sin embargo, esto también le permite al componente padre hacer otra cosa, por ejemplo, cambiar sus estilos CSS. En casos pocos comunes, quizás quieras restringir la funcionalidad expuesta. Puedes hacer eso con `useImperativeHandle`:
+En el ejemplo de arriba, `MyInput` expone el elemento _input_ del DOM original. Esto le permite al componente padre llamar a `focus()` en él. Sin embargo, esto también le permite al componente padre hacer otra cosa, por ejemplo, cambiar sus estilos CSS. En casos pocos comunes, quizás quieras restringir la funcionalidad expuesta. Puedes hacer eso con `useImperativeHandle`:
 
 <Sandpack>
 
