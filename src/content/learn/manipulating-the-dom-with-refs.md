@@ -472,7 +472,7 @@ export default function Form() {
     <>
       <MyInput ref={inputRef} />
       <button onClick={handleClick}>
-        Enfocar la entrada
+        Enfocar el input
       </button>
     </>
   );
