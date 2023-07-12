@@ -1,10 +1,10 @@
 ---
-title: 'Manipulando el  DOM con Refs'
+title: 'Manipulando el DOM con Refs'
 ---
 
 <Intro>
 
-React automáticamente actualiza el [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes no necesitarán manipularlo con frecuencia. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM manipulados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer ese tipo de cosas en React, por lo que necesitaras una *ref* al nodo DOM.  
+React automáticamente actualiza el [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes no necesitarán manipularlo con frecuencia. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM manipulados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer ese tipo de cosas en React, por lo que necesitarás una *ref* al nodo DOM.  
 
 </Intro>
 
