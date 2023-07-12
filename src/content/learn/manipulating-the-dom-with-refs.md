@@ -44,7 +44,7 @@ El _Hook_ `useRef` devuelve un objeto con una sola propiedad llamada `current`. 
 myRef.current.scrollIntoView();
 ```
 
-### Ejemplo: Enfocar la entrada de texto {/*example-focusing-a-text-input*/}
+### Ejemplo: Enfocar el campo de texto _input_ {/*example-focusing-a-text-input*/}
 
 En este ejemplo, hacer clic en el botón va a enfocar la entrada de texto:
 
