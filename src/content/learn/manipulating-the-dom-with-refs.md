@@ -345,7 +345,7 @@ Esto te permite leer nodos DOM individuales del Map más tarde.
 
 Cuando colocas una ref en un componente integrado que devuelve de salida un elemento del navegador como `<input />`, React establecerá la propiedad `current` de esa ref al nodo DOM correspondiente (como el `<input />` real del navegador)
 
-Sin embargo, si intentas poner una ref en tu **propio** componente, como `<MyInput />`, por defecto tendrás `null`. Aquí hay un ejemplo demostrándolo. Nota como al hacer clic en el botón **no** enfoca la entrada de texto.
+Sin embargo, si intentas poner una ref en tu **propio** componente, como `<MyInput />`, por defecto tendrás `null`. Aquí hay un ejemplo demostrándolo. Nota como al hacer clic en el botón **no** enfoca el _input_.
 
 <Sandpack>
 
