@@ -684,7 +684,7 @@ button {
 
 Después de que hayas eliminado el elemento DOM, intentar usar `setState` para mostrarlo de nuevo provocará un fallo. Esto se debe a que has cambiado el DOM, y React no sabe cómo seguir gestionándolo correctamente.
 
-**Evita cambiar nodos DOM que React manipula.** Modificar, agregar hijos, o eliminar hijos de elementos que son manipulados por React pueden traer resultados inconcistentes visuales o bloqueos como el de arriba. 
+**Evita cambiar nodos DOM que React manipula.** Modificar, agregar hijos, o eliminar hijos de elementos que son manipulados por React pueden traer resultados inconcistentes visuales o fallos como el de arriba. 
 
 Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado. **Puedes modificar de manera segura partes del DOM que React _no tenga motivos_ para actualizar.** Por ejemplo, si algún `<div>` siempre está vacío en el JSX, React no tendrá un motivo para tocar su lista de elementos hijos. Por lo tanto, es seguro agregar o eliminar manualmente elementos allí.
 
