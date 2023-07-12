@@ -258,7 +258,7 @@ Por cada pieza de estado en tu aplicación:
 2. Encuentra su componente ancestro común más cercano--un componente que esté encima de todos en la jerarquía
 3. Decide dónde debe residir el estado:
    1. A menudo, puedes poner el estado directamente en su ancestro común.
-   2. También puedes poner el estado en algún componete encima de su ancestro común.
+   2. También puedes poner el estado en algún componente encima de su ancestro común.
    3. Si no puedes encontrar un componente donde tiene sentido poseer el estado, crea un nuevo componente solo para almacenar ese estado y añádelo en algún lugar de la jerarquía encima del componente ancestro común.
 
 En el paso anterior, encontraste dos elementos de estado en esta aplicación: el texto de la barra de búsqueda, y el valor del *checkbox*. En este ejemplo, siempre aparecen juntos, por lo que es más fácil pensar en ellos como un solo elemento de estado.
