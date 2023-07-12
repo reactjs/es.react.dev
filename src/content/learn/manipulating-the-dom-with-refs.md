@@ -795,7 +795,7 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-Para manejar los controles integrados del navegador, puedes agregar los manejadores `onPlay` y `onPause` al elemento `<video>` y llamar `setIsPlaying` desde ellos. De esta manera, si el usuario reproduce el video usando los controles del navegador, el estado se ajustará en consecuencia.  
+Para manejar los controles integrados del navegador, puedes agregar los manejadores `onPlay` y `onPause` al elemento `<video>` y llamar a `setIsPlaying` desde ellos. De esta manera, si el usuario reproduce el video usando los controles del navegador, el estado se ajustará en consecuencia.  
 
 </Solution>
 
