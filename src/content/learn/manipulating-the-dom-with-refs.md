@@ -433,7 +433,7 @@ export default function Form() {
 
 </Sandpack>
 
-En diseño de sistemas, es un patrón común para componentes de bajo nivel como botones, entradas, etc, reenviar sus refs a sus nodos DOM.
+En diseño de sistemas, es un patrón común para componentes de bajo nivel como botones, entradas, etc. reenviar sus refs a sus nodos DOM. Por otro lado, los componentes de alto nivel, como formularios, listas o secciones de página, usualmente no suelen exponer sus nodos DOM para evitar dependencias accidentales de la estructura del DOM.
 Por otra parte, componentes de alto nivel como formularios, listas, o secciones de página, usualmente no exponen sus nodos DOM para evitar dependencias accidentales en la estructura del DOM.
 
 <DeepDive>
