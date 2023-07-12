@@ -1,5 +1,5 @@
 ---
-title: 'Manipulando el DOM con Refs'
+title: 'Manipular el DOM con Refs'
 ---
 
 <Intro>
