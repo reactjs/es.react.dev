@@ -490,7 +490,7 @@ Aquí, `realInputRef` dentro de `MyInput` mantiene el nodo DOM de input actual. 
 En React, cada actualización está dividida en [dos fases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
 
 * Durante el **renderizado,** React llama a tus componentes para averiguar que deberia estar en la pantalla.
-* Durante el **commit,** React aplica los cambios a el DOM.
+* Durante la **confirmación,** React aplica los cambios a el DOM.
 
 En general, [no quieres](/learn/referencing-values-with-refs#best-practices-for-refs) acceder a las refs durante el renderizado. Eso va también para las refs que tienen nodos DOM. Durante el primer renderizado, los nodos DOM aún no han sido creados, entonces `ref.current` será `null`. Y durante el renderizado de actualizaciones, los nodos DOM aún no se han actualizado. Es muy temprano para leerlos.
 
