@@ -399,7 +399,7 @@ const MyInput = forwardRef((props, ref) => {
 Así es como funciona:
 
 1. `<MyInput ref={inputRef} />` le dice a React que coloque el nodo DOM correspondiente en `inputRef.current`. Sin embargo, depende del componente `MyInput` utilizarlo o no; por defecto no lo hace.
-2. El componente `MyInput` es declarado usando `forwardRef`. **Esto hace que pueda obtar por recibir el `inputRef` como segundo argumento de `ref`** el cual está declarado después de `props`.
+2. El componente `MyInput` es declarado usando `forwardRef`. **Esto hace que pueda obtar por recibir el `inputRef` como segundo argumento de `ref`** la cual está declarada después de `props`.
 3. `MyInput` por si mismo pasa la `ref` que recibió del `<input>` dentro de él.
 
 Ahora al hacer clic en el botón para enfocar la entrada de texto, funciona:
