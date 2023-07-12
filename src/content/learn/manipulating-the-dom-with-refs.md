@@ -209,7 +209,7 @@ En los ejemplos de arriba, hay un número predefinido de refs. Sin embargo, algu
 
 Esto es porque los **Hooks solo tienen que ser llamados en el nivel más alto de tu componente.** No puedes llamar a `useRef` en un bucle, en una condición, o dentro de una llamada a `map()`.
 
-Una posible forma de evitar esto es obtener una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
+Una posible forma de evitar esto es hacer una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales a partir de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
 
 Otra solución es **pasar una función al atributo `ref`.** A esto se le llama un [callback `ref`.](/reference/react-dom/components/common#ref-callback) React llamará tu callback ref con el nodo DOM cuando sea momento de poner la ref, y con `null` cuando sea momento de limpiarla. Esto te permite mantener tu propio array o un [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier ref por su índice o algún tipo de ID.
 
