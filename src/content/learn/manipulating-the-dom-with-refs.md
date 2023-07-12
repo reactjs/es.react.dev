@@ -1091,7 +1091,7 @@ img {
 
 #### Enfoca el campo de búsqueda con componentes separados {/*focus-the-search-field-with-separate-components*/}
 
-Has que al hacer clic al botón de "Buscar" enfoque el campo de "¿Buscando algo?" . Ten en cuenta que cada componente está definido en un archivo separado y no debe moverse fuera de él. ¿Cómo los conectarias?
+Haz que al hacer clic en el botón "Buscar" se ponga el foco en el campo de texto _input_. Ten en cuenta que cada componente se define en un archivo separado y no debe moverse fuera de él. ¿Como los conectarías entre ellos?.
 
 <Hint>
 
