@@ -64,7 +64,7 @@ export default function Form() {
     <>
       <input ref={inputRef} />
       <button onClick={handleClick}>
-        Enfocar entrada de texto
+        Enfocar la entrada de texto
       </button>
     </>
   );
