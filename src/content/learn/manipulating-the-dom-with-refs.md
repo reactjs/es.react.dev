@@ -972,7 +972,7 @@ img {
 
 <Solution>
 
-Puedes declarar un `selectedRef`, y pasarla condicionalmente solo a la imagen actual:
+Puedes declarar una `selectedRef`, y pasarla condicionalmente solo a la imagen actual:
 
 ```js
 <li ref={index === i ? selectedRef : null}>
