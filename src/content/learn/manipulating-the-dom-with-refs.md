@@ -690,7 +690,7 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 
 <Recap>
 
-- Las refs son un concepto genérico, pero a menudo las vas a usar para contener elementos del DOM.
+- Las refs son un concepto genérico, pero a menudo las vas a usar para almacenar elementos del DOM.
 - Tú le indicas a React a poner un nodo DOM dentro de `myRef.current` pasándole `<div ref={myRef}>`.
 - Normalmente, vas a usar las refs para acciones no destructivas como enfocar, desplazar, o medir elementos DOM.
 - Un componente no expone sus nodos DOM por defecto. Puedes optar por exponer un nodo DOM usando `forwardRef` y pasando el segundo argumento `ref` a un nodo específico.
