@@ -207,7 +207,7 @@ En los ejemplos de arriba, hay un número predefinido de refs. Sin embargo, algu
 </ul>
 ```
 
-Esto es porque los **Hooks solo tienen que ser llamados en el nivel más alto de tu componente.** No puedes llamar a `useRef` en un bucle, en una condición, o dentro de una llamada `map()`
+Esto es porque los **Hooks solo tienen que ser llamados en el nivel más alto de tu componente.** No puedes llamar a `useRef` en un bucle, en una condición, o dentro de una llamada a `map()`.
 
 Una posible forma de evitar esto es obtener una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
 
