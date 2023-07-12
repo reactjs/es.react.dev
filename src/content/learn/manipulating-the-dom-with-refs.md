@@ -635,7 +635,7 @@ for (let i = 0; i < 20; i++) {
 
 ## Mejores prácticas para la manipulación del DOM con refs {/*best-practices-for-dom-manipulation-with-refs*/}
 
-Las refs son una escotilla de escape. Deberías usarlo solo cuando tengas que "salir de React". Ejemplos comunes de esto incluye manipular el enfoque, posición de desplazamiento, o llamar a las APIs del navegador que React no expone.
+Las refs son una vía de escape. Sólo deberías usarlas cuando tengas que "salirte de React". Ejemplos comunes de esto incluyen la gestión del foco, la posición del scroll, o una llamada a las API del navegador que React no expone.
 
 Si te limitas a acciones no destructivas como enfocar o desplazarte, no deberías encontrar ningún problema. Sin embargo, si intentas **modificar** el DOM manualmente, puedes arriesgarte a entrar en conflicto con los cambios que React está haciendo.
 
