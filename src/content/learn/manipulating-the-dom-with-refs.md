@@ -37,7 +37,7 @@ Finalmente, pasa la ref como el atributo `ref` a la etiqueta JSX en el que quier
 <div ref={myRef}>
 ```
 
-El Hook `useRef` retorna un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React crea un nodo DOM para este `<div>`, React va a colocar una referencia de este nodo en `myRef.current`. Entonces ahora puedes acceder a este nodo DOM desde tus [manejadores de eventos](/learn/responding-to-events) y usar las [APIs de navegador](https://developer.mozilla.org/es/docs/Web/API/Element) integradas definidas en él.
+El _Hook_ `useRef` devuelve un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React cree un nodo DOM para este `<div>`, React pondrá una referencia de este nodo en `myRef.current`. Entonces podrás acceder a este nodo DOM desde tus [manejadores de eventos](/learn/responding-to-events) y usar las [API de navegador](https://developer.mozilla.org/es/docs/Web/API/Element) integradas definidas en él.
 
 ```js
 // Puedes usar cualquier API de navegador, por ejemplo:
