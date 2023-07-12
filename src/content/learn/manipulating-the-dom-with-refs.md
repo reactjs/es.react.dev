@@ -682,7 +682,7 @@ button {
 
 </Sandpack>
 
-Después de que hayas eliminado el elemento DOM, intentar usar `setState` para mostrarlo de nuevo provocará un bloqueo, que no funcione. Esto se debe a que has cambiado el DOM, y React no sabe como continuar manejándolo correctamente.
+Después de que hayas eliminado el elemento DOM, intentar usar `setState` para mostrarlo de nuevo provocará un fallo. Esto se debe a que has cambiado el DOM, y React no sabe cómo seguir gestionándolo correctamente.
 
 **Evita cambiar nodos DOM que React manipula.** Modificar, agregar hijos, o eliminar hijos de elementos que son manipulados por React pueden traer resultados inconcistentes visuales o bloqueos como el de arriba. 
 
