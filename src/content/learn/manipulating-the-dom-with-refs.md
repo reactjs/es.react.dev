@@ -978,7 +978,7 @@ Puedes declarar una `selectedRef`, y pasarla condicionalmente solo a la imagen a
 <li ref={index === i ? selectedRef : null}>
 ```
 
-Cuando `index === i`, que quiere decir que la imagen es la que está seleccionada, el `<li>` recibirá el `selectedRef`. React se asegurará que `selectedRef.current` siempre apunta al nodo DOM correcto.
+Cuando `index === i`, significa que esa imagen es la seleccionada, el `<li>` recibirá la `selectedRef`. React se asegurará de que `selectedRef.current` siempre apunte al nodo DOM correcto.
 
 Ten en cuenta que la llamada `flushSync` es necesaria para forzar a React a actualizar el DOM antes del desplazamiento. De lo contrario, `selectedRef.current` siempre apuntará al elemento anteriormente seleccionado.  
 
