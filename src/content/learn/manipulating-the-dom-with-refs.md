@@ -75,7 +75,7 @@ export default function Form() {
 
 Para implementar esto:
 
-1. Declara `inputRef` con el Hook `useRef`.
+1. Declara `inputRef` con el _Hook_ `useRef`.
 2. Pásalo como `<input ref={inputRef}>`. Esto le dice a React que **coloque el nodo DOM `<input>` en `inputRef.current`.**
 3. En la función `handleClick`, lee el nodo DOM de entrada de `inputRef.current` y llama a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él con `inputRef.current.focus()`.
 4. Pasa el manejador de eventos `handleClick` a `<button>` con `onClick`.
