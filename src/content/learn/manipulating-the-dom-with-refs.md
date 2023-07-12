@@ -46,7 +46,7 @@ myRef.current.scrollIntoView();
 
 ### Ejemplo: Enfocar el campo de texto _input_ {/*example-focusing-a-text-input*/}
 
-En este ejemplo, hacer clic en el botón va a enfocar la entrada de texto:
+En este ejemplo, hacer clic en el botón va a enfocar el _input_:
 
 <Sandpack>
 
