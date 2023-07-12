@@ -84,7 +84,7 @@ Mientras manipular el DOM es el caso de uso más común para las refs, el _Hook_
 
 ### Ejemplo: Desplazarse a un elemento {/*example-scrolling-to-an-element*/}
 
-Puedes tener más de una sola ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método del navegador [`scrollIntoView()`](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView) en el nodo DOM correspondiente:
+Puedes tener más de una ref en un componente. En este ejemplo, hay un carrusel de tres imágenes. Cada botón centra una imagen al llamar al método del navegador [`scrollIntoView()`](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView) en el nodo DOM correspondiente:
 
 <Sandpack>
 
