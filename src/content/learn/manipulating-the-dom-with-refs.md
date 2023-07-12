@@ -1095,7 +1095,7 @@ Haz que al hacer clic en el botón "Buscar" se ponga el foco en el campo de text
 
 <Hint>
 
-Necesitaras `forwardRef` para optar por exponer un nodo DOM desde tu propio componente como `SearchInput`.
+Necesitarás `forwardRef` para optar a exponer un nodo DOM de tu propio componente como `SearchInput`.
 
 </Hint>
 
