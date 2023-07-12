@@ -402,7 +402,7 @@ Así es como funciona:
 2. El componente `MyInput` es declarado usando `forwardRef`. **Esto hace que pueda obtar por recibir el `inputRef` como segundo argumento de `ref`** la cual está declarada después de `props`.
 3. `MyInput` por si mismo pasa la `ref` que recibió del `<input>` dentro de él.
 
-Ahora al hacer clic en el botón para enfocar la entrada de texto, funciona:
+Ahora al hacer clic en el botón para enfocar el _input_, funciona:
 
 <Sandpack>
 
