@@ -801,7 +801,7 @@ Para manejar los controles integrados del navegador, puedes agregar los manejado
 
 #### Enfoca el campo de búsqueda {/*focus-the-search-field*/}
 
-Has que al hacer click en el botón "Buscar" se enfoque en el campo de "¿Buscando algo?" .
+Haz que al hacer click en el botón "Buscar" se enfoque en el campo de texto _input_.
 
 <Sandpack>
 
