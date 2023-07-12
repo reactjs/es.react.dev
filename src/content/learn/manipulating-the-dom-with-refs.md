@@ -742,7 +742,7 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-Para un desafío extra, mantén el botón de "reproducir" sincronizado con si el video se está reproduciendo incluso si el usuario hace clic derecho al video y lo reproduce usando los controles multimedia integrados del navegador. Talvez desees escuchar acerca de `onPlay` y `onPause` en el video para hacer eso.
+Para un desafío extra, mantén el botón "Reproducir" sincronizado con la reproducción del vídeo, incluso si el usuario hace clic con el botón derecho del ratón en el vídeo y lo reproduce utilizando los controles multimedia integrados en el navegador. Para ello, es posible que quieras escuchar `onPlay` y `onPause` en el vídeo.
 
 <Solution>
 
