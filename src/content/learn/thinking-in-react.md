@@ -16,12 +16,12 @@ La API JSON devuelve algunos datos como estos:
 
 ```json
 [
-  { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
-  { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
-  { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
-  { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
-  { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
-  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
+  { category: "Frutas", price: "$1", stocked: true, name: "Manzana" },
+  { category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón" },
+  { category: "Frutas", price: "$2", stocked: false, name: "Maracuyá" },
+  { category: "Verduras", price: "$2", stocked: true, name: "Espinaca" },
+  { category: "Verduras", price: "$4", stocked: false, name: "Calabaza" },
+  { category: "Verduras", price: "$1", stocked: true, name: "Guisantes" }
 ]
 ```
 
@@ -61,7 +61,7 @@ Hay cinco componentes en esta pantalla:
 
 </FullWidth>
 
-Si miras a `ProductTable` (lavanda), verás que el encabezado de la tabla (que contiene las etiquetas "Name"  y "Price") no es un componente independiente. Esto es una cuestión de preferencias, y podrías hacerlo de ambas formas. Para este ejemplo, es parte de `ProductTable` porque aparece dentro de la lista de `ProductTable`. Sin embargo, si este encabezado crece y se vuelve complejo (por ejemplo, si añades ordenamiento), tendría sentido convertirlo en un componente independiente `ProductTableHeader`.
+Si miras a `ProductTable` (lavanda), verás que el encabezado de la tabla (que contiene las etiquetas "Nombre"  y "Precio") no es un componente independiente. Esto es una cuestión de preferencias, y podrías hacerlo de ambas formas. Para este ejemplo, es parte de `ProductTable` porque aparece dentro de la lista de `ProductTable`. Sin embargo, si este encabezado crece y se vuelve complejo (por ejemplo, si añades ordenamiento), tendría sentido convertirlo en un componente independiente `ProductTableHeader`.
 
 Ahora que has identificado los componentes en el boceto, ordénalos en una jerarquía:
 
@@ -130,8 +130,8 @@ function ProductTable({ products }) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>Nombre</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -162,12 +162,12 @@ function FilterableProductTable({ products }) {
 }
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  {category: "Frutas", price: "$1", stocked: true, name: "Manzana"},
+  {category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón"},
+  {category: "Frutas", price: "$2", stocked: false, name: "Maracuyá"},
+  {category: "Verduras", price: "$2", stocked: true, name: "Espinaca"},
+  {category: "Verduras", price: "$4", stocked: false, name: "Calabaza"},
+  {category: "Verduras", price: "$1", stocked: true, name: "Guisantes"}
 ];
 
 export default function App() {
@@ -377,8 +377,8 @@ function ProductTable({ products, filterText, inStockOnly }) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>Nombre</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -405,12 +405,12 @@ function SearchBar({ filterText, inStockOnly }) {
 }
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  {category: "Frutas", price: "$1", stocked: true, name: "Manzana"},
+  {category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón"},
+  {category: "Frutas", price: "$2", stocked: false, name: "Maracuyá"},
+  {category: "Verduras", price: "$2", stocked: true, name: "Espinaca"},
+  {category: "Verduras", price: "$4", stocked: false, name: "Calabaza"},
+  {category: "Verduras", price: "$1", stocked: true, name: "Guisantes"}
 ];
 
 export default function App() {
@@ -576,8 +576,8 @@ function ProductTable({ products, filterText, inStockOnly }) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>Nombre</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -610,12 +610,12 @@ function SearchBar({
 }
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  {category: "Frutas", price: "$1", stocked: true, name: "Manzana"},
+  {category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón"},
+  {category: "Frutas", price: "$2", stocked: false, name: "Maracuyá"},
+  {category: "Verduras", price: "$2", stocked: true, name: "Espinaca"},
+  {category: "Verduras", price: "$4", stocked: false, name: "Calabaza"},
+  {category: "Verduras", price: "$1", stocked: true, name: "Guisantes"}
 ];
 
 export default function App() {
