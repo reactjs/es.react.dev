@@ -828,7 +828,7 @@ button { display: block; margin-bottom: 10px; }
 
 <Solution>
 
-Agrega una ref a la entrada, y llama a `focus()` en el nodo DOM para enfocarlo:
+Agrega una ref al _input_, y llama a `focus()` en el nodo DOM para enfocarlo:
 
 <Sandpack>
 
