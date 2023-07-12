@@ -746,7 +746,7 @@ Para un desafío extra, mantén el botón "Reproducir" sincronizado con la repro
 
 <Solution>
 
-Declara una ref y colócalo en el elemento `<video>`. Luego llama a `ref.current.play()` y `ref.current.pause()` en el manejador de evento dependiendo del siguiente estado.   
+Declara una ref y colócala en el elemento `<video>`. Luego llama a `ref.current.play()` y `ref.current.pause()` en el manejador de evento dependiendo del siguiente estado.   
 
 <Sandpack>
 
