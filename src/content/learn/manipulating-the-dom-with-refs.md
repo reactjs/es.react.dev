@@ -705,7 +705,7 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 
 #### Reproduce y pausa el video {/*play-and-pause-the-video*/}
 
-En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduza o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para `<video>`. Agrega una ref en él, y has que el botón funcione. 
+En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduza o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para el `<video>`. Agrega una ref en él, y has que el botón funcione. 
 
 <Sandpack>
 
