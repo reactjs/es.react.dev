@@ -865,7 +865,7 @@ button { display: block; margin-bottom: 10px; }
 
 #### Desplazar un carrusel de imágenes {/*scrolling-an-image-carousel*/}
 
-Este carrusel de imágenes tiene un botón de "Siguiente" que cambia la imagen activa. Has que la galeria se desplaze horizontalmente a la imagen activa al hacer clic. Vas a querer llamar a [`scrollIntoView()`](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView) en el nodo DOM de la imagen activa:
+Este carrusel de imágenes tiene un botón "Siguiente" que cambia la imagen activa. Haz que la galería se desplace horizontalmente hasta la imagen activa al hacer clic. Tu querrás llamar a [`scrollIntoView()`](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView) en el nodo DOM de la imagen activa:
 
 ```js
 node.scrollIntoView({
