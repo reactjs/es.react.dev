@@ -211,7 +211,7 @@ Esto es porque los **Hooks solo tienen que ser llamados en el nivel más alto de
 
 Una posible forma de evitar esto es hacer una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales a partir de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
 
-Otra solución es **pasar una función al atributo `ref`.** A esto se le llama un [callback `ref`.](/reference/react-dom/components/common#ref-callback) React llamará tu callback ref con el nodo DOM cuando sea momento de poner la ref, y con `null` cuando sea momento de limpiarla. Esto te permite mantener tu propio array o un [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier ref por su índice o algún tipo de ID.
+Otra solución es **pasar una función al atributo `ref`.** A esto se le llama un [callback `ref`.](/reference/react-dom/components/common#ref-callback) React llamará tu callback ref con el nodo DOM cuando sea el momento de poner la ref, y con `null` cuando sea el momento de limpiarla. Esto te permite mantener tu propio array o un [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier ref por su índice o algún tipo de ID.
 
 Este ejemplo te muestra cómo puedes usar este enfoque para desplazarte a un nodo arbitrario en una lista larga:
 
