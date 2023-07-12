@@ -26,7 +26,7 @@ Para mostrar un indicador de progreso, renderiza el componente [`<progress>` inc
 <progress value={0.5} />
 ```
 
-[Ve más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Props {/*props*/}
 

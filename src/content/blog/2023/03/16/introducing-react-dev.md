@@ -1,5 +1,5 @@
 ---
-title: "Presentando react.dev"
+title: "Presentación de react.dev"
 ---
 
 16 de Marzo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) y [Rachel Nabors](https://twitter.com/rachelnabors)
@@ -226,7 +226,7 @@ También nos gustaría destacar [Pensar en React](/learn/thinking-in-react), ese
 
 <Note>
 
-El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Fork" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las APIs de React, explorar tus ideas y comprobar tu comprensión.
+El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Bifurcar" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las APIs de React, explorar tus ideas y comprobar tu comprensión.
 
 </Note>
 
@@ -446,7 +446,7 @@ Cuando `section` cambia a `div`, `section` es eliminada y el nuevo `div` is aña
 
 </Diagram>
 
-También encontrarás algunas ilustraciones a lo largo de la documentación--aquí tienes una de ellas que muestra al [navegador pintando la pantalla](/learn/render-and-commit#epilogue-browser-paint):
+También encontrarás algunas ilustraciones a lo largo de la documentación (aquí tienes una de ellas que muestra al [navegador pintando la pantalla](/learn/render-and-commit#epilogue-browser-paint)):
 
 <Illustration alt="Un navegador pintando un bodegón con un elemento card'." src="/images/docs/illustrations/i_browser-paint.png" />
 

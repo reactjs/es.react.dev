@@ -16,7 +16,7 @@ const [state, setState] = useState(initialState);
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useState(initialState)` {/*usestate*/}
 
@@ -34,7 +34,7 @@ function MyComponent() {
 
 La convención es nombrar variables de estado como `[algo, setAlgo]` usando [desestructuración de arrays](https://javascript.info/destructuring-assignment).
 
-[Vea más ejemplos arriba.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -310,7 +310,7 @@ React pone sus funciones de actualización en una [cola.](/learn/queueing-a-seri
 
 No hay otras actualizaciones en cola, por lo que React almacenará `45` como el estado actual al final.
 
-Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `e` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
+Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `a` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
 
 React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
@@ -1018,11 +1018,11 @@ export default function TodoList() {
 
 ---
 
-### Restablecimiento de estado con una key {/*resetting-state-with-a-key*/}
+### Restablecimiento de estado con una _key_ {/*resetting-state-with-a-key*/}
 
-Por lo general, es posible que encuentre el atributo `key` al [renderizar listas.](/learn/rendering-lists) Sin embargo, también tiene otro propósito.
+Por lo general, es posible que encuentre el atributo _`key`_ al [renderizar listas.](/learn/rendering-lists) Sin embargo, también tiene otro propósito.
 
-Puede **restablecer el estado de un componente pasando una `key` diferente a un componente.** En este ejemplo, el botón Restablecer cambia la variable de estado `versión`, que pasamos como una `key` al `Formulario`. Cuando la `key` cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se restablece.
+Puede **restablecer el estado de un componente pasando una _`key`_ diferente a un componente.** En este ejemplo, el botón Restablecer cambia la variable de estado `versión`, que pasamos como una _`key`_ al `Formulario`. Cuando la _`key`_ cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se restablece.
 
 Lea [preservar y restablecer el estado](/learn/preserving-and-resetting-state) para obtener más información.
 
@@ -1076,7 +1076,7 @@ Por lo general, actualizarás el estado en los controladores de eventos. Sin emb
 En la mayoría de los casos, no lo necesitas:
 
 * **Si el valor que necesitas se puede calcular completamente a partir de las props actuales u otro estado, [elimina ese estado redundante por completo.](/learn/choosing-the-state-structure#avoid-redundant-state)** Si te preocupa volver a calcular con demasiada frecuencia, el [Hook `useMemo`](/reference/react/useMemo) puede ayudarte.
-* Si deseas restablecer el estado de todo el árbol de componentes, [pasa una `key` diferente a tu componente.](#resetting-state-with-a-key)
+* Si deseas restablecer el estado de todo el árbol de componentes, [pasa una _`key`_ diferente a tu componente.](#resetting-state-with-a-key)
 * Si puedes, actualiza todo el estado relevante en los controladores de eventos.
 
 En el raro caso de que ninguno de estos se aplique, hay un patrón que puedes usar para actualizar el estado en función de los valores que se han renderizado hasta el momento, llamando a una función `set` mientras tu componente se está renderizando.

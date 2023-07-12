@@ -109,7 +109,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Los Efectos "reaccionar" a valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Dado que `roomId` es un valor reactivo (puede cambiar durante un rerenderizado), el linter verifica que lo has especificado como una dependencia. Si `roomId` recibe un valor diferente, React resincronizará tu Efecto. Esto asegura que el chat se mantiene conectado a la sala seleccionada y "reacciona" al _dropdown_:
+[Los Efectos "reaccionan" a valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Dado que `roomId` es un valor reactivo (puede cambiar debido a una nueva renderización), el linter verifica que lo hayas especificado como dependencia. Si `roomId` recibe un valor diferente, React volverá a sincronizar tu Efecto. Esto asegura que el chat permanece conectado a la sala seleccionada y "reacciona" al _dropdown_:
 
 <Sandpack>
 

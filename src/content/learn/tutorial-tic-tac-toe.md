@@ -915,7 +915,7 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 </Note>
 
-## Completando el juego {/*completing-the-game*/}
+## Completar el juego {/*completing-the-game*/}
 
 En este punto, tienes todos los componentes básicos para tu juego de tres en línea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
@@ -1346,7 +1346,7 @@ En general, hay dos enfoques para cambiar los datos. El primer enfoque es *mutar
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 squares[0] = 'X';
-// Now `squares` is ["X", null, null, null, null, null, null, null, null];
+// Ahora `squares` es ["X", null, null, null, null, null, null, null, null];
 ```
 
 Y así es como se vería si cambiaras los datos sin mutar de la matriz `squares`:
@@ -1354,7 +1354,7 @@ Y así es como se vería si cambiaras los datos sin mutar de la matriz `squares`
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 const nextSquares = ['X', null, null, null, null, null, null, null, null];
-// Now `squares` is unchanged, but `nextSquares` first element is 'X' rather than `null`
+// Ahora `squares` no ha cambiado, pero el primer elemento de `nextSquares` es 'X' en lugar de `null`
 ```
 
 El resultado final es el mismo, pero al no mutar (cambiar los datos subyacentes) directamente, obtienes varios beneficios.
@@ -1410,7 +1410,7 @@ Pero espera, hay un problema. Intenta hacer clic en el mismo cuadrado varias vec
 
 ¡La `X` se sobrescribe con una `O`! Si bien esto agregaría un giro muy interesante al juego, por ahora nos apegaremos a las reglas originales.
 
-Cuando marcas un cuadrado con una `X` o una `O`, no estás comprobando primero si el cuadrado ya tiene un valor `X` u `O`. Puedes arreglar esto *regresando rapidante en el estado*. Verifica si el cuadrado ya tiene una `X` o una `O`. Si el cuadrado ya está lleno, genera un `return` en la función `handleClick`, antes de que intente actualizar el estado del tablero.
+Cuando marcas un cuadrado con una `X` o una `O`, no estás comprobando primero si el cuadrado ya tiene un valor `X` u `O`. Puedes arreglar esto *regresando rápidamente en el estado*. Verifica si el cuadrado ya tiene una `X` o una `O`. Si el cuadrado ya está lleno, genera un `return` en la función `handleClick`, antes de que intente actualizar el estado del tablero.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1725,7 +1725,7 @@ body {
 
 </Sandpack>
 
-## Adicionando viajes en el tiempo {/*adding-time-travel*/}
+## Adicionar viajes en el tiempo {/*adding-time-travel*/}
 
 Como ejercicio final, hagamos posible "retroceder en el tiempo" a los movimientos anteriores del juego.
 
@@ -1739,11 +1739,11 @@ Almacena las matrices anteriores de `squares` en otra matriz llamada `history`, 
 
 ```jsx
 [
-  // Before first move
+  // Antes del primer movimiento
   [null, null, null, null, null, null, null, null, null],
-  // After first move
+  // Después del primer movimiento
   [null, null, null, null, 'X', null, null, null, null],
-  // After second move
+  // Después del segundo movimiento
   [null, null, null, null, 'X', null, null, null, 'O'],
   // ...
 ]

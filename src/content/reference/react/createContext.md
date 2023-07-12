@@ -28,7 +28,7 @@ import { createContext } from 'react';
 const ThemeContext = createContext('light');
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

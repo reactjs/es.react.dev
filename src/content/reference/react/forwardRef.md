@@ -30,7 +30,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

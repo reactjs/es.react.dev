@@ -85,7 +85,7 @@ Si todavía no estás convencido, o si tu aplicación tiene restricciones inusua
 
 A medida que exploramos cómo continuar mejorando React, nos dimos cuenta de que integrar React más estrechamente con los frameworks (específicamente, con tecnologías de enrutamiento, agrupación y servidor) es nuestra mayor oportunidad para ayudar a los usuarios de React a crear mejores aplicaciones. El equipo de Next.js acordó colaborar con nosotros en la investigación, el desarrollo, la integración y la prueba de funciones de React de última generación independientes del framework como [React Server Components.](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
 
-Estas funciones están cada vez más cerca de estar listas para la producción todos los días, y hemos estado en conversaciones con otros desarrolladores de paquetes y frameworks para integrarlas. Nuestra esperanza es que en un año o dos, todos los frameworks enumerados en esta página tengan soporte completo para estas funciones. (Si eres un autor de framework interesado en asociarte con nosotros para experimentar con estas características, ¡háznoslo saber!)
+Estas funcionalidades están cada día más cerca de estar listas para producción, y hemos mantenido conversaciones con otros desarrolladores de paquetes y frameworks para integrarlas. Esperamos que en uno o dos años todos los frameworks que aparecen en esta página sean totalmente compatibles con estas funciones. (Si eres autor de un framework y estás interesado en colaborar con nosotros para experimentar con estas funciones, ¡háznoslo saber!).
 
 ### Next.js (Enrutador de la aplicación) {/*nextjs-app-router*/}
 
@@ -94,7 +94,7 @@ Estas funciones están cada vez más cerca de estar listas para la producción t
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también permite [exportar archivos estáticos](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
 <Pitfall>
 
-El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (para de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
+El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (a partir de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
 
 </Pitfall>
 

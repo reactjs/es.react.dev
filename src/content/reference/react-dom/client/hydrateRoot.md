@@ -68,7 +68,7 @@ root.render(<App />);
 
 React actualizará `<App />` en la raíz hidratada (`root`).
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*root-render-parameters*/}
 

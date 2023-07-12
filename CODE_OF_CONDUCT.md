@@ -1,76 +1,77 @@
-# Code of Conduct
+# Código de conducta
 
-## Our Pledge
+## Nuestro compromiso
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to make participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, sex characteristics, gender identity and expression,
-level of experience, education, socio-economic status, nationality, personal
-appearance, race, religion, or sexual identity and orientation.
+En aras de fomentar un entorno abierto y acogedor, nosotros como contribuidores y
+mantenedores nos comprometemos a hacer que la participación en nuestro proyecto y
+comunidad sea una experiencia libre de acoso para todos, independientemente de la
+edad, discapacidad, etnia, características sexuales, identidad y expresión de género,
+nivel de experiencia, educación, estatus socioeconómico, nacionalidad, apariencia
+personal, raza, religión o identidad y orientación sexual.
 
-## Our Standards
+## Nuestros Estándares
 
-Examples of behavior that contributes to creating a positive environment
-include:
+Ejemplos de comportamientos que contribuyen a crear un entorno positivo
+incluyen:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+* Utilizar un lenguaje acogedor e inclusivo.
+* Ser respetuoso con los distintos puntos de vista y experiencias.
+* Aceptar con gracia las críticas constructivas.
+* Centrarse en lo que es mejor para la comunidad.
+* Mostrar empatía hacia otros miembros de la comunidad.
 
-Examples of unacceptable behavior by participants include:
+Algunos ejemplos de comportamiento inaceptable de los participantes son:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-  advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+* El uso de lenguaje o imágenes sexualizados y la atención o insinuaciones sexuales
+  no deseadas.
+* Trolling, comentarios insultantes/derogatorios y ataques personales o políticos.
+* Acoso público o privado.
+* Publicar información privada de otros, como una dirección física o
+  electrónica, sin permiso explícito.
+* Otras conductas que puedan considerarse razonablemente inapropiadas en un entorno
+  profesional.
 
-## Our Responsibilities
+## Nuestras responsabilidades
 
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
+Los mantenedores del proyecto son responsables de aclarar los estándares de
+comportamiento aceptable y se espera de ellos que tomen medidas correctivas
+apropiadas y justas en respuesta a cualquier instancia de comportamiento inaceptable.
 
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
+Los mantenedores del proyecto tienen el derecho y la responsabilidad de eliminar, editar
+o rechazar comentarios, confirmaciones, código, ediciones wiki, problemas y otras
+contribuciones que no se ajusten a este Código de Conducta, o de prohibir temporal o
+permanentemente el acceso al proyecto a cualquier contribuidor por otros comportamientos
+inaceptables, inapropiados, amenazantes, ofensivos o dañinos.
 
-## Scope
+## Ámbito
 
-This Code of Conduct applies within all project spaces, and it also applies when
-an individual is representing the project or its community in public spaces.
-Examples of representing a project or community include using an official
-project e-mail address, posting via an official social media account, or acting
-as an appointed representative at an online or offline event. Representation of
-a project may be further defined and clarified by project maintainers.
+Este Código de Conducta aplica a todos los espacios del proyecto, y también aplica a
+individuos que representen al proyecto o a su comunidad en espacios públicos.
+Ejemplos de representación del proyecto o la comunidad incluyen el uso de una dirección
+de correo electrónico oficial del proyecto, la publicación a través de una cuenta
+oficial en las redes sociales o actuar como representante designado en un evento
+en línea o fuera de línea. La representación del proyecto puede ser definida y aclarada
+por los mantenedores del proyecto.
 
-## Enforcement
+## Cumplimiento
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at <opensource-conduct@fb.com>. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
-obligated to maintain confidentiality with regard to the reporter of an incident.
-Further details of specific enforcement policies may be posted separately.
+Los casos de comportamiento abusivo, acosador o inaceptable pueden ser reportados
+poniéndose en contacto con el equipo del proyecto en <opensource-conduct@fb.com>. Todas
+las quejas serán revisadas e investigadas y darán lugar a la respuesta se considere
+necesaria y adecuada a las circunstancias. El equipo del proyecto esta obligado a
+mantener la confidencialidad con respecto al denunciante de un incidente.
+Podrán publicarse por separado más detalles sobre políticas de cumplimiento específicas.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+Los mantenedores del proyecto que no sigan o hagan cumplir el Código de Conducta de
+buena fe pueden enfrentarse a repercusiones temporales o permanentes, según determinen
+otros miembros de la dirección del proyecto.
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+Este Código de Conducta es una adaptación del [Pacto de Colaboradores][homepage], versión 1.4,
+disponible en https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see
+Para obtener respuestas a preguntas comunes sobre este código de conducta, consulta
 https://www.contributor-covenant.org/faq

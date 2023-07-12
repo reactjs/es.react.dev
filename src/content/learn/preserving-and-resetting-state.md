@@ -939,11 +939,11 @@ Pulsando "next" de nuevo
 
 Esta solución es conveniente cuando sólo tienes unos pocos componentes independientes renderizados en el mismo lugar. En este ejemplo, sólo tienes dos, por lo que no es una molestia renderizar ambos por separado en el JSX.
 
-### Option 2: Opción 2: Restablecer el estado con key {/*option-2-resetting-state-with-a-key*/}
+### Option 2: Opción 2: Restablecer el estado con _key_ {/*option-2-resetting-state-with-a-key*/}
 
 También hay otra forma, más genérica, de restablecer el estado de un componente.
 
-Es posible que hayas visto `key` al [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) Las keys no son sólo para las listas. Puedes usar keys para que React distinga entre cualquier componente. Por defecto, React utiliza el orden dentro del padre ("primer contador", "segundo contador") para discernir entre los componentes. Pero las keys te permiten decirle a React que no es sólo un *primer* contador, o un *segundo* contador, sino un contador específico; por ejemplo, el contador de *Taylor*. De esta manera, React conocerá el contador de *Taylor* dondequiera que aparezca en el árbol!
+Es posible que hayas visto _`key`_ al [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) Las _keys_ no son sólo para las listas. Puedes usar _keys_ para que React distinga entre cualquier componente. Por defecto, React utiliza el orden dentro del padre ("primer contador", "segundo contador") para discernir entre los componentes. Pero las _keys_ te permiten decirle a React que no es sólo un *primer* contador, o un *segundo* contador, sino un contador específico; por ejemplo, el contador de *Taylor*. De esta manera, React conocerá el contador de *Taylor* dondequiera que aparezca en el árbol!
 
 En este ejemplo, los dos `<Counter />` no comparten estado aunque aparezcan en el mismo lugar en JSX:
 
@@ -1025,17 +1025,17 @@ El cambio entre Taylor y Sarah no conserva el estado. Esto se debe a que **le as
 )}
 ```
 
-Especificar una `key` le dice a React que use la propia `key` como parte de la posición, en lugar de su orden dentro del padre. Por eso, aunque los renderices en el mismo lugar en JSX, desde la perspectiva de React, son dos contadores diferentes. Como resultado, nunca compartirán estado. Cada vez que un contador aparece en la pantalla, su estado se crea. Cada vez que se elimina, su estado se destruye. Alternar entre ellos reinicia su estado una y otra vez.
+Especificar una _`key`_ le dice a React que use la propia _`key`_ como parte de la posición, en lugar de su orden dentro del padre. Por eso, aunque los renderices en el mismo lugar en JSX, desde la perspectiva de React, son dos contadores diferentes. Como resultado, nunca compartirán estado. Cada vez que un contador aparece en la pantalla, su estado se crea. Cada vez que se elimina, su estado se destruye. Alternar entre ellos reinicia su estado una y otra vez.
 
 <Note>
 
-> Recuerda que las keys no son únicas globalmente. Sólo especifican la posición *dentro del padre*.
+> Recuerda que las _keys_ no son únicas globalmente. Sólo especifican la posición *dentro del padre*.
 
 </Note>
 
-### Restablecer un formulario con una key {/*resetting-a-form-with-a-key*/}
+### Restablecer un formulario con una _key_ {/*resetting-a-form-with-a-key*/}
 
-Restablecer el estado con una key es especialmente útil cuando se trata de formularios.
+Restablecer el estado con una _key_ es especialmente útil cuando se trata de formularios.
 
 En esta aplicación de chat, el componente `<Chat>` contiene el estado del cuadro de texto:
 
@@ -1247,7 +1247,7 @@ En una aplicación de chat real, probablemente querrás recuperar el estado de l
 - Podrías [subir el estado](/learn/sharing-state-between-components) y mantener el mensaje pendiente para cada destinatario en el componente padre. De esta manera, cuando los componentes hijos se eliminan, no importa, porque es el padre el que mantiene la información importante. Esta es la solución más común.
 También podrías utilizar una fuente diferente además del estado de React. Por ejemplo, probablemente quieras que el borrador de un mensaje persista incluso si el usuario cierra accidentalmente la página. Para implementar esto, podrías hacer que el componente `Chat` inicialice su estado leyendo de [`localStorage`](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage) y guardar los borradores allí también.
 
-Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptualmente distinto de un chat _con Bob_, por lo que tiene sentido dar una `key` al árbol `<Chat>` basado en el destinatario actual.
+Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptualmente distinto de un chat _con Bob_, por lo que tiene sentido dar una _`key`_ al árbol `<Chat>` basado en el destinatario actual.
 
 </DeepDive>
 
@@ -1255,7 +1255,7 @@ Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptua
 
 - React mantiene el estado mientras el mismo componente se renderice en la misma posición.
 - El estado no se mantiene en las etiquetas JSX. Se asocia a la posición del árbol en la que se coloca ese JSX.
-- Puedes forzar a un subárbol a restablecer su estado dándole una key diferente.
+- Puedes forzar a un subárbol a restablecer su estado dándole una _key_ diferente.
 - No anides las definiciones de los componentes, o restablecerás el estado por accidente.
 
 </Recap>
@@ -1487,7 +1487,7 @@ label { display: block; margin: 10px 0; }
 
 <Solution>
 
-Da una `key` a ambos componentes `<Field>` en ambas ramas `if` y `else`. Esto le dice a React cómo "emparejar" el estado correcto para cualquiera de los dos `<Field>` incluso si su orden dentro del padre cambia:
+Da una _`key`_ a ambos componentes `<Field>` en ambas ramas `if` y `else`. Esto le dice a React cómo "emparejar" el estado correcto para cualquiera de los dos `<Field>` incluso si su orden dentro del padre cambia:
 
 <Sandpack>
 
@@ -1934,7 +1934,7 @@ img { width: 150px; height: 150px; }
 
 <Solution>
 
-Puede proporcionar una `key` a la etiqueta `<img>`. Cuando esa `key` cambie, React volverá a crear el nodo DOM `<img>` desde cero. Esto provoca un breve destello cuando se carga cada imagen, por lo que no es algo que quieras hacer para cada imagen de tu aplicación. Pero tiene sentido si quieres asegurarte de que la imagen siempre coincide con el texto.
+Puede proporcionar una _`key`_ a la etiqueta `<img>`. Cuando esa _`key`_ cambie, React volverá a crear el nodo DOM `<img>` desde cero. Esto provoca un breve destello cuando se carga cada imagen, por lo que no es algo que quieras hacer para cada imagen de tu aplicación. Pero tiene sentido si quieres asegurarte de que la imagen siempre coincide con el texto.
 
 <Sandpack>
 
@@ -2105,7 +2105,7 @@ El problema es que este ejemplo utilizaba el índice como `key`:
 
 Sin embargo,  queremos que el estado se asocie a _cada contacto en particular_.
 
-Si se utiliza el ID del contacto como `key` se soluciona el problema:
+Si se utiliza el ID del contacto como _`key`_ se soluciona el problema:
 
 <Sandpack>
 
@@ -2193,7 +2193,7 @@ button {
 
 </Sandpack>
 
-El estado está asociado a la posición del árbol. Una `key` permite especificar una posición con nombre en lugar de depender del orden.
+El estado está asociado a la posición del árbol. Una _`key`_ permite especificar una posición con nombre en lugar de depender del orden.
 
 </Solution>
 

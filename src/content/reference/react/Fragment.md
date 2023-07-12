@@ -27,7 +27,7 @@ Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde neces
 
 #### Props {/*props*/}
 
-- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [*keys*.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
 
 #### Advertencias {/*caveats*/}
 

@@ -38,7 +38,7 @@ flushSync(() => {
 
 La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como último recurso.
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

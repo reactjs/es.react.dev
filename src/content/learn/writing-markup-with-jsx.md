@@ -4,7 +4,7 @@ title: Escribir marcado con JSX
 
 <Intro>
 
-*JSX* es una extensión de sintaxis para JavaScript que permite escribir marcas similares a HTML dentro de una archivo JavaScript. Aunque hay otras formas de escribir componentes, la mayoría de los desarrolladores de React prefieren la concisión de JSX, y la mayoría de las bases de código lo usan.
+*JSX* es una extensión de sintaxis para JavaScript que permite escribir marcado similar a HTML dentro de una archivo JavaScript. Aunque hay otras formas de escribir componentes, la mayoría de los desarrolladores de React prefieren la concisión de JSX, y la mayoría de las bases de código lo usan.
 
 </Intro>
 
@@ -18,17 +18,17 @@ title: Escribir marcado con JSX
 
 ## JSX: Poniendo marcado dentro de JavaScript {/*jsx-putting-markup-into-javascript*/}
 
-La Web se ha construido sobre HTML, CSS, y JavaScript. Durante muchos años, los desarrolladores web mantuvieron el contenido en HTML, el diseño en CSS, y la lógica en JavaScript, ¡a menudo en archivos separados! El contenido se marcó dentro del HTML mientras que la lógica de la pagina vivía por separado en JavaScript:
+La Web se ha construido sobre HTML, CSS, y JavaScript. Durante muchos años, los desarrolladores web mantuvieron el contenido en HTML, el diseño en CSS, y la lógica en JavaScript, ¡a menudo en archivos separados!. El contenido se marcó dentro del HTML mientras que la lógica de la pagina vivía por separado en JavaScript:
 
 <DiagramGroup>
 
-<Diagram name="writing_jsx_html" height={237} width={325} alt="HTML markup with purple background and a div with two child tags: p and form. ">
+<Diagram name="writing_jsx_html" height={237} width={325} alt="Marcado HTML con fondo celeste y un div con dos etiquetas hijas: p y form.">
 
 HTML
 
 </Diagram>
 
-<Diagram name="writing_jsx_js" height={237} width={325} alt="Three JavaScript handlers with yellow background: onSubmit, onLogin, and onClick.">
+<Diagram name="writing_jsx_js" height={237} width={325} alt="Tres manejadores de JavaScript con fondo amarillo: onSubmit, onLogin y onClick.">
 
 JavaScript
 
@@ -40,13 +40,13 @@ Pero, a medida que la Web se volvió más interactiva, la lógica determinó cad
 
 <DiagramGroup>
 
-<Diagram name="writing_jsx_sidebar" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Sidebar which calls the function isLoggedIn, highlighted in yellow. Nested inside the function highlighted in purple is the p tag from before, and a Form tag referencing the component shown in the next diagram.">
+<Diagram name="writing_jsx_sidebar" height={330} width={325} alt="Componente React con HTML y JavaScript de ejemplos anteriores mezclados. El nombre de la función es Sidebar que llama a la función isLoggedIn, resaltada en amarillo. Anidada dentro de la función resaltada en celeste está la etiqueta p de antes, y una etiqueta Form que hace referencia al componente mostrado en el siguiente diagrama.">
 
 Componente de React `Sidebar.js`
 
 </Diagram>
 
-<Diagram name="writing_jsx_form" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Form containing two handlers onClick and onSubmit highlighted in yellow. Following the handlers is HTML highlighted in purple. The HTML contains a form element with a nested input element, each with an onClick prop.">
+<Diagram name="writing_jsx_form" height={330} width={325} alt="Componente React con HTML y JavaScript de ejemplos anteriores mezclados. El nombre de la función es Form y contiene dos manejadores onClick y onSubmit resaltados en amarillo. Después de los manejadores está el HTML resaltado en celeste. El HTML contiene un elemento form con elementos input anidado, cada uno con una prop onClick.">
 
 Componente de React `Form.js`
 
@@ -56,7 +56,7 @@ Componente de React `Form.js`
 
 Mantener juntas la lógica de renderizado y el marcado de un botón, garantiza que permanezcan sincronizados entre sí en cada edición. Por el contrario, los detalles que no están relacionados, como el marcado de un botón y el marcado de una barra lateral, están aislados entre sí, haciendo que sea más seguro cambiar cualquiera de ellos por su cuenta.
 
-Cada componente de React es una función de JavaScript que puede contener algún marcado que React muestra en el navegador. Los componentes de React usan una extensión de sintaxis llamada JSX para representar el marcado. JSX se parece mucho a HTML, pero es un poco más estricto y puede mostrar información dinámica. La mejor manera de comprender esto es convertir algunas marcas HTML en marcas JSX.
+Cada componente de React es una función de JavaScript que puede contener algún marcado que React muestra en el navegador. Los componentes de React usan una extensión de sintaxis llamada JSX para representar el marcado. JSX se parece mucho a HTML, pero es un poco más estricto y puede mostrar información dinámica. La mejor manera de comprender esto es convertir algunos marcados HTML en marcado JSX.
 
 <Note>
 
@@ -64,22 +64,22 @@ JSX y React son independientes. A menudo se usan en conjunto, pero se *pueden* [
 
 </Note>
 
-## Convirtiendo HTML a JSX {/*converting-html-to-jsx*/}
+## Convertir HTML a JSX {/*converting-html-to-jsx*/}
 
 Supongamos que tienes algo de HTML (perfectamente válido):
 
 
 ```html
-<h1>Hedy Lamarr's Todos</h1>
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<h1>Tareas Pendientes de Hedy Lamarr</h1>
+<img
+  src="https://i.imgur.com/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   class="photo"
 >
 <ul>
-    <li>Invent new traffic lights
-    <li>Rehearse a movie scene
-    <li>Improve the spectrum technology
+    <li>Inventar nuevos semáforos
+    <li>Ensayar la escena de la película
+    <li>Mejorar la tecnología del espectro
 </ul>
 ```
 
@@ -101,17 +101,17 @@ Si lo copias y pegas tal como está, no funcionará:
 ```js
 export default function TodoList() {
   return (
-    // This doesn't quite work!
-    <h1>Hedy Lamarr's Todos</h1>
+    // ¡Esto no funciona!
+    <h1>Tareas Pendientes de Hedy Lamarr</h1>
     <img 
       src="https://i.imgur.com/yXOvdOSs.jpg" 
       alt="Hedy Lamarr" 
       class="photo"
     >
     <ul>
-      <li>Invent new traffic lights
-      <li>Rehearse a movie scene
-      <li>Improve the spectrum technology
+      <li>Inventar nuevos semáforos
+      <li>Ensayar la escena de la película
+      <li>Mejorar la tecnología del espectro
     </ul>
   );
 }
@@ -141,7 +141,7 @@ Por ejemplo, puedes usar un `<div>`:
 
 ```js {1,11}
 <div>
-  <h1>Hedy Lamarr's Todos</h1>
+  <h1>Tareas Pendientes de Hedy Lamarr</h1>
   <img 
     src="https://i.imgur.com/yXOvdOSs.jpg" 
     alt="Hedy Lamarr" 
@@ -158,7 +158,7 @@ Si no deseas agregar un `<div>` adicional a tu marcado, puedes escribir `<>` y `
 
 ```js {1,11}
 <>
-  <h1>Hedy Lamarr's Todos</h1>
+  <h1>Tareas Pendientes de Hedy Lamarr</h1>
   <img 
     src="https://i.imgur.com/yXOvdOSs.jpg" 
     alt="Hedy Lamarr" 
@@ -176,15 +176,15 @@ Esta etiqueta vacía se llama un *[Fragmento](/reference/react/Fragment)*. Los F
 
 #### ¿Por qué se necesita envolver múltiples etiquetas JSX? {/*why-do-multiple-jsx-tags-need-to-be-wrapped*/}
 
-JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puedes devolver dos objetos de una función sin envolverlos en un array. Esto explica por qué tampoco puedes devolver dos etiquetas JSX sin envolverlas en otra etiqueta o Fragmento.
+JSX parece HTML, pero por debajo se transforma en objetos planos de JavaScript. No puedes devolver dos objetos desde una función sin envolverlos en un array. Esto explica por qué tampoco puedes devolver dos etiquetas JSX sin envolverlas en otra etiqueta o Fragmento.
 
 </DeepDive>
 
 ### 2. Cierra todas las etiquetas {/*2-close-all-the-tags*/}
 
-JSX requiere que las etiquetas se cierren explícitamente: las etiquetas de cierre automático como `<img>` deben convertirse en `<img />`, y etiquetas envolventes como `<li>oranges` deben convertirse como `<li>oranges</li>`.
+JSX requiere que las etiquetas se cierren explícitamente: las etiquetas de cierre automático como `<img>` deben convertirse en `<img />`, y etiquetas envolventes como `<li>naranjas` deben convertirse como `<li>naranjas</li>`.
 
-Así es como la imagen y los elementos de la lista de Hedy Lamarr se ven cerrados:
+Así es como la imagen y los elementos de lista de Hedy Lamarr se ven cerrados:
 
 ```js {2-6,8-10}
 <>
@@ -194,18 +194,18 @@ Así es como la imagen y los elementos de la lista de Hedy Lamarr se ven cerrado
     class="photo"
    />
   <ul>
-    <li>Invent new traffic lights</li>
-    <li>Rehearse a movie scene</li>
-    <li>Improve the spectrum technology</li>
+    <li>Inventar nuevos semáforos</li>
+    <li>Ensayar la escena de la película</li>
+    <li>Mejorar la tecnología del espectro</li>
   </ul>
 </>
 ```
 
 ### 3. ¡camelCase <s>todo</s> la mayoría de las cosas! {/*3-camelcase-salls-most-of-the-things*/}
 
-JSX se convierte en JavaScript y los atributos escritos en JSX se convierten en keys de objetos JavaScript. En tus propios componentes, a menudo vas a querer leer esos atributos en variables. Pero JavaScript tiene limitaciones en los nombres de variables. Por ejemplo, sus nombres no pueden contener guiones ni ser palabras reservadas como `class`.
+JSX se convierte en JavaScript y los atributos escritos en JSX se convierten en _keys_ de objetos JavaScript. En tus propios componentes, a menudo vas a querer leer esos atributos en variables. Pero JavaScript tiene limitaciones en los nombres de variables. Por ejemplo, sus nombres no pueden contener guiones ni ser palabras reservadas como `class`.
 
-Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por ejemplo, en lugar de `stroke-width` usa `strokeWidth`. Dado que `class` es una palabra reservada, en React escribes `className` en su lugar, con el nombre de la [propiedad DOM correspondiente](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
+Por eso, en React, muchos atributos HTML y SVG están escritos en camelCase. Por ejemplo, en lugar de `stroke-width` usa `strokeWidth`. Dado que `class` es una palabra reservada, en React escribes `className` en su lugar, con el nombre de la [propiedad DOM correspondiente](https://developer.mozilla.org/es/docs/Web/API/Element/className):
 
 ```js {4}
 <img 
@@ -225,7 +225,7 @@ Por razones históricas, los atributos [`aria-*`](https://developer.mozilla.org/
 
 ### Consejo profesional: usa un convertidor JSX {/*pro-tip-use-a-jsx-converter*/}
 
-¡Convertir todos estos atributos en marcas existentes puede ser tedioso! Recomendamos usar un [convertidor](https://transform.tools/html-to-jsx) para traducir su HTML y SVG existente a JSX. Los convertidores son muy útiles en la práctica, pero aun así vale la pena entender lo que sucede así puedes escribir JSX cómodamente por tu cuenta.
+¡Convertir todos estos atributos en el marcado existente puede ser tedioso! Recomendamos usar un [convertidor](https://transform.tools/html-to-jsx) para traducir su HTML y SVG existente a JSX. Los convertidores son muy útiles en la práctica, pero aun así vale la pena entender lo que sucede así puedes escribir JSX cómodamente por tu cuenta.
 
 Aquí está tu resultado final:
 
@@ -235,16 +235,16 @@ Aquí está tu resultado final:
 export default function TodoList() {
   return (
     <>
-      <h1>Hedy Lamarr's Todos</h1>
+      <h1>Tareas Pendientes de Hedy Lamarr</h1>
       <img 
         src="https://i.imgur.com/yXOvdOSs.jpg" 
         alt="Hedy Lamarr" 
         className="photo" 
       />
       <ul>
-        <li>Invent new traffic lights</li>
-        <li>Rehearse a movie scene</li>
-        <li>Improve the spectrum technology</li>
+        <li>Inventar nuevos semáforos</li>
+        <li>Ensayar la escena de la película</li>
+        <li>Mejorar la tecnología del espectro</li>
       </ul>
     </>
   );
@@ -281,12 +281,12 @@ Este HTML se pegó en un componente, pero no es JSX válido. Arreglalo;
 export default function Bio() {
   return (
     <div class="intro">
-      <h1>Welcome to my website!</h1>
+      <h1>¡Bienvenido a mi sitio web!</h1>
     </div>
     <p class="summary">
-      You can find my thoughts here.
+      Puedes encontrar mis reflexiones aquí.
       <br><br>
-      <b>And <i>pictures</b></i> of scientists!
+      <b>¡Y <i>fotografías</b></i> de científicos!
     </p>
   );
 }
@@ -320,12 +320,12 @@ export default function Bio() {
   return (
     <div>
       <div className="intro">
-        <h1>Welcome to my website!</h1>
+        <h1>¡Bienvenido a mi sitio web!</h1>
       </div>
       <p className="summary">
-        You can find my thoughts here.
+        Puedes encontrar mis reflexiones aquí.
         <br /><br />
-        <b>And <i>pictures</i></b> of scientists!
+        <b>¡Y <i>fotografías</i></b> de científicos!
       </p>
     </div>
   );

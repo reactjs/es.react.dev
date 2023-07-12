@@ -26,7 +26,7 @@ Para mostrar un text area, renderiza el componente [`<textarea>` que viene integ
 <textarea name="postContent" />
 ```
 
-[Mira más ejemplos abajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Props {/*props*/}
 

@@ -16,12 +16,12 @@ export default function NotFound() {
       meta={{title: 'Something Went Wrong'}}>
       <MaxWidth>
         <Intro>
-          <P>Something went very wrong.</P>
-          <P>Sorry about that.</P>
+          <P>Algo salió muy mal.</P>
+          <P>Lo sentimos.</P>
           <P>
-            If you’d like, please{' '}
-            <A href="https://github.com/reactjs/react.dev/issues/new">
-              report a bug.
+            Si lo desea, por favor{' '}
+            <A href="https://github.com/reactjs/es.react.dev/issues/new">
+              informe el error.
             </A>
           </P>
         </Intro>

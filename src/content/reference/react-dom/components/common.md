@@ -336,7 +336,7 @@ Un tipo de manejador de eventos para los eventos de [animación CSS](https://dev
 * `e`: Un [objeto de evento de React](#react-event-object) con propiedades adicionales de [`AnimationEvent`](https://developer.mozilla.org/es/docs/Web/API/AnimationEvent):
   * [`animationName`](https://developer.mozilla.org/es/docs/Web/API/AnimationEvent/animationName)
   * [`elapsedTime`](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent/elapsedTime)
-  * [`pseudoElement`](https://developer.mozilla.org/es/docs/Web/API/AnimationEvent)
+  * [`pseudoElement`](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent/pseudoElement)
 
 ---
 
@@ -900,7 +900,7 @@ export default function Form() {
 
 </Sandpack>
 
-Lee más sobre [manipular el DOM con refs](/learn/manipulating-the-dom-with-refs) y [revisa más ejemplos.](/reference/react/useRef#examples-dom)
+Lee más sobre cómo [manipular el DOM con refs](/learn/manipulating-the-dom-with-refs) y [consulta más ejemplos.](/reference/react/useRef#examples-dom)
 
 Para casos de uso más avanzados, el atributo ref también acepta una [función callback.](#ref-callback)
 
