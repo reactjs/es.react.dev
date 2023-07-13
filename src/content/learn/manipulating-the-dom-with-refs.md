@@ -399,7 +399,7 @@ const MyInput = forwardRef((props, ref) => {
 Así es como funciona:
 
 1. `<MyInput ref={inputRef} />` le dice a React que coloque el nodo DOM correspondiente en `inputRef.current`. Sin embargo, depende del componente `MyInput` utilizarlo o no; por defecto no lo hace.
-2. El componente `MyInput` es declarado usando `forwardRef`. **Esto hace que pueda obtar por recibir el `inputRef` como segundo argumento de `ref`** la cual está declarada después de `props`.
+2. El componente `MyInput` es declarado usando `forwardRef`. **Esto hace que pueda optar por recibir el `inputRef` como segundo argumento de `ref`** la cual está declarada después de `props`.
 3. `MyInput` por si mismo pasa la `ref` que recibió del `<input>` dentro de él.
 
 Ahora al hacer clic en el botón para enfocar el _input_, funciona:
@@ -489,7 +489,7 @@ Aquí, `realInputRef` dentro de `MyInput` mantiene el nodo DOM de input actual. 
 
 En React, cada actualización está dividida en [dos fases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom):
 
-* Durante el **renderizado,** React llama a tus componentes para averiguar que deberia estar en la pantalla.
+* Durante el **renderizado,** React llama a tus componentes para averiguar que debería estar en la pantalla.
 * Durante la **confirmación,** React aplica los cambios a el DOM.
 
 En general, [no quieres](/learn/referencing-values-with-refs#best-practices-for-refs) acceder a las refs durante el renderizado. Eso va también para las refs que tienen nodos DOM. Durante el primer renderizado, los nodos DOM aún no han sido creados, entonces `ref.current` será `null`. Y durante el renderizado de actualizaciones, los nodos DOM aún no se han actualizado. Es muy temprano para leerlos.
@@ -684,7 +684,7 @@ button {
 
 Después de que hayas eliminado el elemento DOM, intentar usar `setState` para mostrarlo de nuevo provocará un fallo. Esto se debe a que has cambiado el DOM, y React no sabe cómo seguir gestionándolo correctamente.
 
-**Evita cambiar nodos DOM gestionados por React.** Modificar, agregar hijos, o eliminar hijos de elementos que son gestionados por React pueden traer resultados inconcistentes visuales o fallos como el de arriba. 
+**Evita cambiar nodos DOM gestionados por React.** Modificar, agregar hijos, o eliminar hijos de elementos que son gestionados por React pueden traer resultados inconsistentes visuales o fallos como el de arriba. 
 
 Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado. **Puedes modificar de manera segura partes del DOM que React _no tenga motivos_ para actualizar.** Por ejemplo, si algún `<div>` siempre está vacío en el JSX, React no tendrá un motivo para tocar su lista de elementos hijos. Por lo tanto, es seguro agregar o eliminar manualmente elementos allí.
 
@@ -705,7 +705,7 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 
 #### Reproduce y pausa el video {/*play-and-pause-the-video*/}
 
-En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduza o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para el `<video>`. Agrega una ref en él, y haz que el botón funcione. 
+En este ejemplo, el botón alterna una variable de estado para cambiar entre un estado de reproducción y un estado de pausa. Sin embargo, para que reproduzca o pause el video, alternar el estado no es suficiente. También necesitas llamar a [`play()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/play) y [`pause()`](https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement/pause) en el elemento DOM para el `<video>`. Agrega una ref en él, y haz que el botón funcione. 
 
 <Sandpack>
 
