@@ -87,14 +87,14 @@ A medida que exploramos cómo continuar mejorando React, nos dimos cuenta de que
 
 Estas funcionalidades están cada día más cerca de estar listas para producción, y hemos mantenido conversaciones con otros desarrolladores de paquetes y frameworks para integrarlas. Esperamos que en uno o dos años todos los frameworks que aparecen en esta página sean totalmente compatibles con estas funciones. (Si eres autor de un framework y estás interesado en colaborar con nosotros para experimentar con estas funciones, ¡háznoslo saber!).
 
-### Next.js (_App Router_) {/*nextjs-app-router*/}
+### Next.js (App Router) {/*nextjs-app-router*/}
 
-**[El _App Router_ de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de las API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa (_full-stack_) del equipo de React.** Te permite obtener datos en componentes asíncronos que se ejecutan en el servidor o incluso durante la compilación.
+**[El App Router de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de las API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa (_full-stack_) del equipo de React.** Te permite obtener datos en componentes asíncronos que se ejecutan en el servidor o incluso durante la compilación.
 
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también permite [exportar archivos estáticos](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
 <Pitfall>
 
-El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (a partir de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
+El App Router de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (a partir de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
 
 </Pitfall>
 
