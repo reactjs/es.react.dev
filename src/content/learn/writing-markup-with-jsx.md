@@ -273,7 +273,7 @@ Ahora sabes por qué existe JSX y cómo usarlo en componentes:
 
 #### Convierte algo de HTML a JSX {/*convert-some-html-to-jsx*/}
 
-Este HTML se pegó en un componente, pero no es JSX válido. Arreglalo;
+Este HTML se pegó en un componente, pero no es JSX válido. Arréglalo;
 
 <Sandpack>
 
