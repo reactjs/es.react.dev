@@ -87,7 +87,7 @@ A medida que exploramos cómo continuar mejorando React, nos dimos cuenta de que
 
 Estas funcionalidades están cada día más cerca de estar listas para producción, y hemos mantenido conversaciones con otros desarrolladores de paquetes y frameworks para integrarlas. Esperamos que en uno o dos años todos los frameworks que aparecen en esta página sean totalmente compatibles con estas funciones. (Si eres autor de un framework y estás interesado en colaborar con nosotros para experimentar con estas funciones, ¡háznoslo saber!).
 
-### Next.js (Enrutador de la aplicación) {/*nextjs-app-router*/}
+### Next.js (_App Router_) {/*nextjs-app-router*/}
 
 **[El _App Router_ de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de las API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa (_full-stack_) del equipo de React.** Te permite obtener datos en componentes asíncronos que se ejecutan en el servidor o incluso durante la compilación.
 
