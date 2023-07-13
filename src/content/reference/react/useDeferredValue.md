@@ -20,7 +20,7 @@ const deferredValue = useDeferredValue(value)
 
 ### `useDeferredValue(value)` {/*usedeferredvalue*/}
 
-Llama a `useDefferedValue` en el nivel superior de tu componente para obtener una versión diferida del valor.
+Llama a `useDeferredValue` en el nivel superior de tu componente para obtener una versión diferida del valor.
 
 ```js
 import { useState, useDeferredValue } from 'react';
@@ -40,21 +40,21 @@ function SearchPage() {
 
 #### Retornos {/*returns*/}
 
-Durante el renderizado inicial, el valor diferido retornado será el mismo que el valor que se haya proporcionado inicialmente. React realizará un primer intento de re-renderizado con el valor anterior (de modo que devolverá el valor anterior) e intentará realizar otro re-renderizado en segundo plano con el nuevo valor (por lo que devolverá el valor actualizado posteriormente).
+Durante el renderizado inicial, el valor diferido devuelto será el mismo que el valor que se haya proporcionado inicialmente. Durante las actualizaciones, React realizará un primer intento de re-renderizado con el valor anterior (de modo que devolverá el valor anterior) e intentará realizar otro re-renderizado en segundo plano con el nuevo valor (por lo que devolverá el valor actualizado).
 
 #### Limitaciones {/*caveats*/}
 
 - Los valores que se pasen a `useDeferredValue` deben ser tanto valores primitivos (como `string` y `number`) u objetos creados fuera del proceso de renderización. Si se crea un nuevo objeto durante el el proceso de renderización e inmediatamente se le pasa a `useDeferredValue` generará un valor distinto en cada renderizado causando re-renderizados innecesarios en segundo plano.
 
-- Cuando `useDeferredValue` reciva un valor distinto (realizado una comparación mediante [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), además del renderizado actual (cuando todavía se está empleando el valor anterior), se programa un re-renderizado en segundo plano con el nuevo valor. Este re-renderizado en segundo plano se puede interrumpir: Si se produce otra actualización al `valor`, React comenzará desde cero el re-renderizado en segundo plano. Por ejemplo, si el usuario está escribiendo en un `input` mas rapido de lo que un gráfico es capaz de recibir su valor diferido para renderizarse de nuevo, el gráfico solo se volverá a renderizar después de que el usuario deje de escribir.
+- Cuando `useDeferredValue` reciba un valor distinto (realizado una comparación mediante [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), además del renderizado actual (cuando todavía se está empleando el valor anterior), se programa un re-renderizado en segundo plano con el nuevo valor. Este re-renderizado en segundo plano se puede interrumpir: Si se produce otra actualización al `valor`, React comenzará desde cero el re-renderizado en segundo plano. Por ejemplo, si el usuario está escribiendo en un `input` mas rápido de lo que un gráfico es capaz de recibir su valor diferido para renderizarse de nuevo, el gráfico solo se volverá a renderizar después de que el usuario deje de escribir.
 
-- `useDeferredValue` está integrado con [`<Suspense>`.](/reference/react/Suspense). Si la actualización en segundo plano causada por un nuevo valor suspende la interfaz de usuario (_UI_), el usuario no podra ver el _fallback_. En su lugar, podrá el valor diferido anterior hasta que se carguen los datos.
+- `useDeferredValue` está integrado con [`<Suspense>`.](/reference/react/Suspense). Si la actualización en segundo plano causada por un nuevo valor suspende la interfaz de usuario (_UI_), el usuario no podrá ver el _fallback_. En su lugar, podrá el valor diferido anterior hasta que se carguen los datos.
 
 - `useDeferredValue` no previene peticiones de red por sí mismo.
 
-- No existe un retardo fijo causado por `useDeferredValue`. Tan pronto como React finaliza el renderizado original, inmediatamente, empezará a trabajar sobre el re-renderizado en segundo plano con el nuevo valor diferido. Cualquier actualización causada por eventos (como teclear) interrumpirá y tendrá prioridad respecto al proceso de re-renderizado en segundo plano.
+- No existe un retardo fijo causado por `useDeferredValue`. Tan pronto como React finalice el renderizado original, inmediatamente, empezará a trabajar sobre el re-renderizado en segundo plano con el nuevo valor diferido. Cualquier actualización causada por eventos (como escribir por teclado) interrumpirá y tendrá prioridad respecto al proceso de re-renderizado en segundo plano.
 
-- El re-renderizado en segundo plano causado por `useDeferredValue` no dispara Efectos hasta que se haya confirmado en pantalla. Si el proceso de re-renderizado en segundo plano se suspende, los Efectos volveran a ejecutarse una vez los datos hayan sido cargados y la interfaz de usuario (_UI_) se haya actualizado.
+- El re-renderizado en segundo plano causado por `useDeferredValue` no dispara Efectos hasta que se haya confirmado en pantalla. Si el proceso de re-renderizado en segundo plano se suspende, los Efectos volverán a ejecutarse una vez los datos hayan sido cargados y la interfaz de usuario (_UI_) se haya actualizado.
 
 ---
 
@@ -76,7 +76,7 @@ function SearchPage() {
 
 Durante el renderizado inicial,  el <CodeStep step={2}>valor diferido</CodeStep> será el mismo que el <CodeStep step={1}>valor</CodeStep> que se proporcione.
 
-Durante las actualizaciones, el <CodeStep step={2}>deferred value</CodeStep> estará "retrasado" o "rezagado" respecto al último <CodeStep step={1}>valor</CodeStep>. Concrétamente, React re-renderizará primero *sin* actualizar el valor diferido y posteriormente intentará re-renderizar con el nuevo valor recibido en segundo plano.
+Durante las actualizaciones, el <CodeStep step={2}>valor diferido</CodeStep> tendrá un "retardo" respecto al último <CodeStep step={1}>valor</CodeStep>. Concretamente, React re-renderizará primero *sin* actualizar el valor diferido y posteriormente intentará re-renderizar con el nuevo valor recibido en segundo plano.
 
 **Analicemos un ejemplo para ver en qué situaciones resulta útil."**
 
@@ -93,7 +93,7 @@ Este ejemplo asume que se está utilizando una origen de datos con _Suspense_ ha
 </Note>
 
 
-En este ejemplo, el componente `SearchResults` [se suspende](/reference/react/Suspense#displaying-a-fallback-while-content-is-loading) mientras se obtienen los resultados de búsqueda. Intenta escribir `"a"`, espera a que se muestren los resultados y luego edítalo a `"ab"`. El resultado para `"a"` sera reemplazado por el _fallback_ de carga que indica que se están obteniendo los nuevos resultados.
+En este ejemplo, el componente `SearchResults` [se suspende](/reference/react/Suspense#displaying-a-fallback-while-content-is-loading) mientras se obtienen los resultados de búsqueda. Intenta escribir `"a"`, espera a que se muestren los resultados y luego edita el valor a `"ab"`. El resultado para `"a"` sera reemplazado por el _fallback_ de carga que indica que se están obteniendo los nuevos resultados.
 
 <Sandpack>
 
@@ -285,7 +285,7 @@ input { margin: 10px; }
 
 </Sandpack>
 
-Una alternativa común en la interfaz de usuario (_UI_) es *diferir* la actualización de las listas de resultados y seguir mostrando los anteriores resultados hasta que los nuevos estén disponibles. Llamar a `useDeferredValue` para pasar una versión diferida de la `query`:
+Una alternativa común en la interfaz de usuario (_UI_) es *diferir* la actualización de las listas de resultados y seguir mostrando los anteriores resultados hasta que los nuevos estén disponibles. Llama a `useDeferredValue` para pasar una versión diferida de la `query`:
 
 ```js {3,11}
 export default function App() {
@@ -305,9 +305,9 @@ export default function App() {
 }
 ```
 
-La `query` se actualizará inmediatamente, por lo que el input mostrará el nuevo valor. No obstante, el `deferredQuery` mantendrá el valor previo hasta que los datos se hayan cargado, por lo que `SearchResults` mostrará resultados obsoletos durante un instante.
+La `query` se actualizará inmediatamente, por lo que el _input_ mostrará el nuevo valor. No obstante, el `deferredQuery` mantendrá el valor previo hasta que los datos se hayan cargado, por lo que `SearchResults` mostrará resultados obsoletos durante un instante.
 
-Escribe `"a"` en el siguiente ejemplo, espera a que se carguen los resultados y entonces edita el input a `"ab"`. Observa como, en lugar del _Suspense fallback_, ahora podrás ver los resultados obsoletos en la lista hasta que los nuevos valores se hayan cargado:
+Escribe `"a"` en el siguiente ejemplo, espera a que se carguen los resultados y entonces edita el valor del _input_ a `"ab"`. Observa como, en lugar del _Suspense fallback_, ahora podrás ver los resultados obsoletos en la lista hasta que los nuevos valores se hayan cargado:
 
 <Sandpack>
 
@@ -508,11 +508,11 @@ Puedes pensar que ocurre de acuerdo a estos dos pasos:
 
 1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero utilizando el anterior `deferredQuery` (cuyo valor aún es `"a")`.** El valor de `deferredQuery`, el cual se pasa a la lista resultante, está "diferido" respecto al valor de la `query`.
 
-2. **En segundo plano, React intentará re-renderizar con *ambos* `query` y `deferredQuery` actualizados con el valor `"ab"`.** Si este re-renderizado se completa, React lo mostrará por pantalla. De lo contrario, si se "suspende" (los resultados pra `"ab"` aún no se han cargado), React abanadonará este intento de renderización y re-intentará este re-renderizado nuevamente una vez los datos hayan sido cargados. El usuario seguirá viendo el valor diferido obsoleto hasta que los datos hayan sido cargados.
+2. **En segundo plano, React intentará re-renderizar con *ambos* `query` y `deferredQuery` actualizados con el valor `"ab"`.** Si este re-renderizado se completa, React lo mostrará por pantalla. De lo contrario, si se "suspende" (los resultados pra `"ab"` aún no se han cargado), React abandonará este intento de renderización y re-intentará este re-renderizado nuevamente una vez los datos hayan sido cargados. El usuario seguirá viendo el valor diferido obsoleto hasta que los datos hayan sido cargados.
 
 La renderización diferida en segundo plano se puede interrumpir. Por ejemplo, si escribimos en el _input_ nuevamente, React abandonará esa renderización y comenzará una nueva con el nuevo valor. React siempre utilizará el último valor proporcionado.
 
-Ten en cuenta que aún se realizará una nueva petición de red por cada vez que se actualice el valor del _input_ por teclado nuevamente. Lo que se "difiere" realmente es la visualicación de los resultados (hasta que estén disponibles) y no las peticiones de red. Los valores introducidos por el usuario son cacheados, por lo que modificar el valor actual a uno utilizado anteriormente mostrará los resultados inmediatamente y no se realizará una nueva petición de red.
+Ten en cuenta que aún se realizará una nueva petición de red por cada vez que se actualice el valor del _input_ por teclado nuevamente. Lo que se "difiere" realmente es la visualización de los resultados (hasta que estén disponibles) y no las peticiones de red. Los valores introducidos por el usuario son cacheados, por lo que modificar el valor actual a uno utilizado anteriormente mostrará los resultados, almacenados en la cache, inmediatamente y no se realizará una nueva petición de red.
 
 </DeepDive>
 
@@ -520,7 +520,7 @@ Ten en cuenta que aún se realizará una nueva petición de red por cada vez que
 
 ### Indicando que el contenido es obsoleto {/*indicating-that-the-content-is-stale*/}
 
-En el ejemplo anterior no se está indicando que los resultados de la lista para la ultima query ejecutada aún están cargando. Esto puede llegar a ser confuso para el usuario si los nuevos resultados toman un tiempo para cargarse y estar disponibles. Para hacer esto algo mas obvio para el usuario, se puede añadir una indicación visual cuando los resultados de la lista que se muestra están obsoletos:
+En el ejemplo anterior no se está indicando que los resultados de la lista, para la ultima query ejecutada, aún están cargando. Esto puede llegar a ser confuso para el usuario si los nuevos resultados toman un tiempo para cargarse y estar disponibles. Para hacer esto algo mas obvio para el usuario, se puede añadir una indicación visual cuando los resultados de la lista que se muestra están obsoletos:
 
 ```js {2}
 <div style={{
@@ -530,7 +530,7 @@ En el ejemplo anterior no se está indicando que los resultados de la lista para
 </div>
 ```
 
-Con este cambio, tan pronto como el usuario comience a escribir, los resultados obsoletos de la lista se atenuarán temporalmente hasta que los nuevos resultados estén disponibles. También puedes emplear una transición mediante CSS para crear un retardo a la hora de atenuar los resultados de tal forma que se produzca una transición suave y gradual cuando estos se atenuen. Observa el siguiente ejemplo:
+Con este cambio, tan pronto como el usuario comience a escribir, los resultados obsoletos de la lista se atenuarán temporalmente hasta que los nuevos resultados estén disponibles. También puedes emplear una transición mediante CSS para crear un retardo a la hora de atenuar los resultados de tal forma que se produzca una transición suave y gradual cuando estos se atenúen. Observa el siguiente ejemplo:
 
 <Sandpack>
 
@@ -733,9 +733,9 @@ input { margin: 10px; }
 
 ### Diferir el re-renderizando una parte de la interfaz de usuario (_UI_) {/*deferring-re-rendering-for-a-part-of-the-ui*/}
 
-Puedes utilizar `useDeferredValue` como medio para optimizar el rendimiento. Es útil cuando una parte de tu interfaz de usuario (_UI_) es más lenta a la hora de re-renderizar y no existe uan forma fácil de optimizarlo a fin de evitar que otras partes de la interfaz de usuario (_UI_) se bloqueen.
+Puedes utilizar `useDeferredValue` como medio para optimizar el rendimiento. Es útil cuando una parte de tu interfaz de usuario (_UI_) es más lenta a la hora de re-renderizar y no existe una forma fácil de optimizarlo a fin de evitar que otras partes de la interfaz de usuario (_UI_) se bloqueen.
 
-Imagina que, en un campo de entrada y un componente (como un gráfico o una lista con muchos datos) que se re-renderiza cada vez que se introduce un nuevo valor en el campo de entrada:
+Imagina un _input_ y un componente (como un gráfico o una lista con muchos datos) que se re-renderiza cada vez que se introduce un nuevo valor en el _input_:
 
 ```js
 function App() {
@@ -759,7 +759,7 @@ const SlowList = memo(function SlowList({ text }) {
 
 No obstante, esto solo serviría si las `props` de `SlowList` son *las mismas* que en el anterior renderizado. El problema que se experimenta ahora es que el componente es lento cuando las `props` son *distintas* y cuando se necesita mostrar valores distintos a los previos.
 
-En concreto, el principal problema de rendimiento es que, cada vez que se introduce un nuevo valor en el campo de entrada, el componente `SlowList` recive nuevas `props` y se re-renderiza por completo. Esto hace que el comportamiento del componente se sienta entrecortado. En este caso, `useDeferredValue` te permite priorizar la actualización del campo de entrada (que es más rápida) frente a la actualización de la lista de resultados (que es más lenta):
+En concreto, el principal problema de rendimiento es que, cada vez que se introduce un nuevo valor en el _input_, el componente `SlowList` recibe nuevas `props` y se re-renderiza por completo. Esto hace que el comportamiento del componente se sienta entrecortado. En este caso, `useDeferredValue` te permite priorizar la actualización del _input_ (que es más rápida) frente a la actualización de la lista de resultados (que es más lenta):
 
 ```js {3,7}
 function App() {
@@ -774,13 +774,13 @@ function App() {
 }
 ```
 
-Esto no hace que el re-renderizado de `SlowList` sea más rápido. Sin embargo indica a React que el re-renderizado de la lista puede se postergada para que no bloquee la introducción de nuevos valores al campo de entrada. La actualización de la lista tendrá un retardo con respecto al nuevo valor introducido en el campo de entrada y posteriormente se actualizará. Tal y como ocurría anteriormente, React intentará actualizar los resultados de la lista lo antes posible, pero no bloqueando al usuario de introducir nuevos valores en el campo de entrada.
+Esto no hace que el re-renderizado de `SlowList` sea más rápido. Sin embargo indica a React que el re-renderizado de la lista puede se postergado para que no bloquee la introducción de nuevos valores al _input_. La actualización de la lista tendrá un retardo con respecto al nuevo valor introducido en el _input_ y posteriormente se actualizará. Tal y como ocurría anteriormente, React intentará actualizar los resultados de la lista lo antes posible, pero no bloqueando al usuario de introducir nuevos valores en el _input_.
 
 <Recipes titleText="Diferencias entre el uso de useDeferredValue y un re-renderizado no optimizado" titleId="examples">
 
 #### Re-renderizado diferido de la lista {/*deferred-re-rendering-of-the-list*/}
 
-En este ejemplo, cada item del componente `SlowList` está **ralentizado artificialmente** para que puedas observar como `useDeferredValue` te permite mantener el campo de entrada con una respuesta rápida. Escribe en el campo de entrada y nota como la escritura se siente rápida mientras la lista tiene un retardo respecto a la escritura.
+En este ejemplo, cada item del componente `SlowList` está **ralentizado artificialmente** para que puedas observar como `useDeferredValue` te permite mantener el _input_ con una respuesta rápida. Escribe en el _input_ y nota como la escritura se siente rápida mientras la lista tiene un retardo respecto a la escritura.
 
 <Sandpack>
 
@@ -858,7 +858,7 @@ export default SlowList;
 
 En este ejemplo cada item del componente `SlowList` está **ralentizado artificialmente** pero no se está utilizando `useDeferredValue`.
 
-Nota como la escritura se nota muy entrecortada. Esto es porque, al no utilizar `useDeferredValue`, cada pulsación introducida fuerza a que toda la lista se re-renderice inmediatamente de forma ininterrumpida.
+Nota como la escritura se nota muy entrecortada. Esto es porque, al no utilizar `useDeferredValue`, cada pulsación de teclado, que introduce nuevos valores en el _input_, fuerza a que toda la lista se re-renderice inmediatamente de forma ininterrumpida.
 
 <Sandpack>
 
@@ -935,13 +935,13 @@ export default SlowList;
 
 <Pitfall>
 
-Esta optimización requirere que `SlowList` esté envuelto en [`memo`.](/reference/react/memo) Esto es porque, cada vez que se produce un cambio en `text`, React necesita ser capaz de re-renderizar el componente padre rápidamente. Durante este re-renderizado `deferredText`aún mantiene el valor previo, por lo que `SlowList` es capaz de saltarse el re-renderizado (las `props` no han cambiado). Sin utilizar [`memo`,](/reference/react/memo) esto podría desencadenar un nuevo re-renderizado, lo cual no cumpliría el propósito de la optimización.
+Esta optimización requiere que `SlowList` esté envuelto en [`memo`.](/reference/react/memo) Esto es porque, cada vez que se produce un cambio en `text`, React necesita ser capaz de re-renderizar el componente padre rápidamente. Durante este re-renderizado `deferredText` aún mantiene el valor previo, por lo que `SlowList` es capaz de saltarse el re-renderizado (las `props` no han cambiado). Sin utilizar [`memo`,](/reference/react/memo) esto podría desencadenar un nuevo re-renderizado, lo cual no cumpliría el propósito de la optimización.
 
 </Pitfall>
 
 <DeepDive>
 
-#### ¿Qué diferencia diferir un valor respecto a hacer debounce y throttle? {/*how-is-deferring-a-value-different-from-debouncing-and-throttling*/}
+#### ¿Qué diferencia "diferir un valor" respecto a hacer _debounce_ y _throttle_? {/*how-is-deferring-a-value-different-from-debouncing-and-throttling*/}
 
 Existen dos técnicas de optimización que podrías haber utilizado en esta situación:
 
@@ -950,10 +950,10 @@ Existen dos técnicas de optimización que podrías haber utilizado en esta situ
 
 Mientras que estas técnicas son útiles en algunos casos, `useDeferredValue` es mejor en cuanto a optimizar el proceso de renderizado ya que esta profundamente integrado con React y se adapta al dispositivo que utilice el usuario.
 
-En lugar de debounce o throttle, no requiere emplear un retardo fijo. Si el dispositivo del usuario es rápido (por ejemplo una computadora potente), el re-renderizado diferido ocurrirá practicamente de forma inmediata e inapreciable. Si el dispositivo del usuario es lento la actualización de la lista tras modificar el valor del campo de entrada tendrá un retardo proporcional a lo lento que sea dicho dispositivo.
+En lugar de _debounce_ o _throttle_, no requiere emplear un retardo fijo. Si el dispositivo del usuario es rápido (por ejemplo una computadora potente), el re-renderizado diferido ocurrirá prácticamente de forma inmediata e imperceptible. Si el dispositivo del usuario es lento la actualización de la lista tras modificar el valor del _input_ tendrá un retardo proporcional a lo lento que sea dicho dispositivo.
 
-Añadir que los re-renderizados diferidos realizados por `useDeferredValue` se pueden interrumpir por defecto. Esto significa que, si React se encuentra en mitad de un proceso de re-renderizado de una lista con muchos resultados, pero el usuario pulsa una tecla sobre el campo de entrada a fin de introducir un nuevo valor, React abandonará ese re-renderizado y comenzará uno nuevo en segundo plano. En contraste, debounce y throttle producen una experiencia entrecortada ya que *bloquean* y postponen el momento en el que se re-renderiza el contenido por cada pulsación de tecla cuando se introducen nuevos valores en el campo de entrada.
+Añadir que los re-renderizados diferidos realizados por `useDeferredValue` se pueden interrumpir por defecto. Esto significa que, si React se encuentra en mitad de un proceso de re-renderizado de una lista con muchos resultados, pero el usuario pulsa una tecla sobre el _input_, a fin de introducir un nuevo valor, React abandonará ese re-renderizado y comenzará uno nuevo en segundo plano. En contraste, _debounce_ y _throttle_ producen una experiencia entrecortada ya que *bloquean* y posponen el momento en el que se re-renderiza el contenido por cada pulsación de tecla cuando se introducen nuevos valores en el _input_.
 
-Si la optimización no ocurre durante el renderizado, debounce y throttle aún son útiles en ese caso. Por ejemplo te permitirán realizar menos peticiones de red. También puedes utilizar estas técnicas al mismo tiempo.
+Si la optimización no ocurre durante el renderizado, _debounce_ y _throttle_ aún son útiles en ese caso. Por ejemplo, te permitirán realizar menos peticiones de red. También puedes utilizar estas técnicas al mismo tiempo.
 
 </DeepDive>
