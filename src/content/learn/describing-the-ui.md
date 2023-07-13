@@ -405,7 +405,7 @@ export const people = [{
   imageId: 'MK3eW3A'
 }, {
   id: 1,
-  name: 'Mario José Molina-Pasquel Henríquez',
+  name: 'José Mario Molina-Pasquel Henríquez',
   profession: 'químico',
   accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
