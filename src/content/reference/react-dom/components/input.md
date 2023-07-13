@@ -67,7 +67,7 @@ Estas props de `<input>` son relevantes para ambos inputs controlados y no contr
 * [`min`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#min): Número. Especifica el valor mínimo de los inputs de tipo numérico y de fecha y hora.
 * [`minLength`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#minlength): Número. Especifica la longitud mínima de texto y otros inputs.
 * [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#multiple): Booleano. Especifica si valores múltiples son permitidos para `<type="file"` y `type="email"`.
-* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name): String. Especifica el nombre para este input que se [envia con el formulario.](#reading-the-input-values-when-submitting-a-form)
+* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name): String. Especifica el nombre para este input que se [envía con el formulario.](#reading-the-input-values-when-submitting-a-form)
 * `onChange`: Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Requerido para [inputs controlados.](#controlling-an-input-with-a-state-variable) Se activa inmediatamente cuando el valor del input es cambiado por el usuario (por ejemplo, se activa en cada pulsación de teclas). Se comporta como el [evento `input`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) del navegador.
 * `onChangeCapture`: Una versión de `onChange` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Se activa inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar que funciona de forma similar.
@@ -150,7 +150,7 @@ input { margin: 5px; }
 
 Típicamente, pondrás cada `<input>` dentro de una etiqueta [`<label>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/label). Esto le dice al navegador que esta etiqueta esta asociada con ese input. Cuando el usuario da click a la etiqueta, el navegador automáticamente enfocará al input. También es esencial para la accesibilidad: un lector de pantalla anunciará la etiqueta cuando el usuario enfoque el input asociado.
 
-Si no puedes anidar un `<input>` dentro de un `<label>`, asocialos pasando el mismo ID al `<input id>` y al [`<label htmlFor>`.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor) Para evitar conflictos entre múltiples instancias  de un componente, genera dicho ID con [`useId`.](/reference/react/useId)
+Si no puedes anidar un `<input>` dentro de un `<label>`, asócialos pasando el mismo ID al `<input id>` y al [`<label htmlFor>`.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor) Para evitar conflictos entre múltiples instancias  de un componente, genera dicho ID con [`useId`.](/reference/react/useId)
 
 <Sandpack>
 
@@ -268,8 +268,8 @@ export default function MyForm() {
       <hr />
       <p>
         Botones radio:
-        <label><input type="radio" name="myRadio" value="option1" /> Opctión 1</label>
-        <label><input type="radio" name="myRadio" value="option2" defaultChecked={true} /> Option 2</label>
+        <label><input type="radio" name="myRadio" value="option1" /> Opción 1</label>
+        <label><input type="radio" name="myRadio" value="option2" defaultChecked={true} /> Opción 2</label>
         <label><input type="radio" name="myRadio" value="option3" /> Opción 3</label>
       </p>
       <hr />
@@ -550,7 +550,7 @@ Si el checkbox es intencionalmente de solo lectura, añade una prop `readOnly` p
 
 Si [controlas un input,](#controlling-an-input-with-a-state-variable) debes actualizar su variable de estado con el valor del input desde el DOM durante `onChange`.
 
-No pudes actualizarlo a algo distinto a `e.target.value` (o `e.target.checked` para checkboxes):
+No puedes actualizarlo a algo distinto a `e.target.value` (o `e.target.checked` para checkboxes):
 
 ```js
 function handleChange(e) {
@@ -563,14 +563,14 @@ También no puedes actualizarlo asincrónicamente:
 
 ```js
 function handleChange(e) {
-  // 🔴 Error: actualizando un input asicrónicamente
+  // 🔴 Error: actualizando un input asincrónicamente
   setTimeout(() => {
     setFirstName(e.target.value);
   }, 100);
 }
 ```
 
-Para arreglar tu código, actualizalo sincrónicamente a `e.target.value`:
+Para arreglar tu código, actualízalo sincrónicamente a `e.target.value`:
 
 ```js
 function handleChange(e) {
@@ -579,7 +579,7 @@ function handleChange(e) {
 }
 ```
 
-Si esto no arregla el problema, es posible que el input sea removido y reañadido del DOM en cada pulsación del teclado. Esto puede psasr si accidentalmente estas [reseteando el estado](/learn/preserving-and-resetting-state) en cada re-renderizado. Por ejemplo, esto puede pasar si el input o uno de sus padres siempre recibe un atributo `key`, o si anidaste definiciones de componentes (lo cual no esta permitido en React y causa que el componente "interior" siempre sea considerado un árbol diferente).
+Si esto no repara el problema, es posible que el input sea removido y re-agregado al DOM en cada pulsación de tecla. Esto puede ocurrir si tú estás accidentalmente [reseteando el estado](/learn/preserving-and-resetting-state) en cada re-renderización, por ejemplo, si el input o uno de sus padres siempre recibe un atributo `key` diferente, o si tú anidas definiciones de funciones de componentes (lo cual no es soportado y causa que el componente "interno" siempre sea considerado un árbol diferente).
 
 ---
 
