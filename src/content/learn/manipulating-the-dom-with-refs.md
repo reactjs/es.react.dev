@@ -4,22 +4,22 @@ title: 'Manipular el DOM con Refs'
 
 <Intro>
 
-React automáticamente actualiza el [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes no necesitarán manipularlo con frecuencia. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM manipulados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer ese tipo de cosas en React, por lo que necesitarás una *ref* al nodo DOM.  
+React automáticamente actualiza el [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) para que coincida con tu salida de renderizado, por lo que tus componentes no necesitarán manipularlo con frecuencia. Sin embargo, a veces es posible que necesites acceder a los elementos del DOM gestionados por React, por ejemplo, enfocar un nodo, desplazarse hasta él, o medir su tamaño y posición. No hay una forma integrada para hacer ese tipo de cosas en React, por lo que necesitarás una *ref* al nodo DOM.  
 
 </Intro>
 
 <YouWillLearn>
 
-- Cómo acceder a un nodo DOM manipulado por React con el atributo `ref`
+- Cómo acceder a un nodo DOM gestionado por React con el atributo `ref`
 - Cómo el atributo `ref` de JSX se relaciona con el Hook `useRef`
 - Cómo acceder al nodo DOM de otro componente
-- En qué casos es seguro modificar el DOM manipulado por React
+- En qué casos es seguro modificar el DOM gestionado por React
 
 </YouWillLearn>
 
-## Obteniendo una ref al nodo {/*getting-a-ref-to-the-node*/}
+## Obtener una ref del nodo {/*getting-a-ref-to-the-node*/}
 
-Para acceder a un nodo DOM manipulado por React, primero importa el Hook `useRef`:
+Para acceder a un nodo DOM gestionado por React, primero importa el Hook `useRef`:
 
 ```js
 import { useRef } from 'react';
@@ -193,7 +193,7 @@ li {
 
 <DeepDive>
 
-#### Cómo manipular una lista de refs usando un callback ref {/*how-to-manage-a-list-of-refs-using-a-ref-callback*/}
+#### Cómo gestionar una lista de refs usando un callback ref {/*how-to-manage-a-list-of-refs-using-a-ref-callback*/}
 
 En los ejemplos de arriba, hay un número predefinido de refs. Sin embargo, algunas veces es posible que necesites una ref en cada elemento de la lista, y no sabes cuantos vas a tener. Algo como esto **no va a funcionar**:
 
@@ -684,7 +684,7 @@ button {
 
 Después de que hayas eliminado el elemento DOM, intentar usar `setState` para mostrarlo de nuevo provocará un fallo. Esto se debe a que has cambiado el DOM, y React no sabe cómo seguir gestionándolo correctamente.
 
-**Evita cambiar nodos DOM que React manipula.** Modificar, agregar hijos, o eliminar hijos de elementos que son manipulados por React pueden traer resultados inconcistentes visuales o fallos como el de arriba. 
+**Evita cambiar nodos DOM gestionados por React.** Modificar, agregar hijos, o eliminar hijos de elementos que son gestionados por React pueden traer resultados inconcistentes visuales o fallos como el de arriba. 
 
 Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado. **Puedes modificar de manera segura partes del DOM que React _no tenga motivos_ para actualizar.** Por ejemplo, si algún `<div>` siempre está vacío en el JSX, React no tendrá un motivo para tocar su lista de elementos hijos. Por lo tanto, es seguro agregar o eliminar manualmente elementos allí.
 
@@ -694,8 +694,8 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 - Tú le indicas a React a poner un nodo DOM dentro de `myRef.current` pasándole `<div ref={myRef}>`.
 - Normalmente, vas a usar las refs para acciones no destructivas como enfocar, desplazar, o medir elementos DOM.
 - Un componente no expone sus nodos DOM por defecto. Puedes optar por exponer un nodo DOM usando `forwardRef` y pasando el segundo argumento `ref` a un nodo específico.
-- Evita cambiar nodos DOM manipulados por React.
-- Si modificas nodos DOM manipulados por React, modifica las partes en donde React no tenga motivos para actualizar.
+- Evita cambiar nodos DOM gestionados por React.
+- Si modificas nodos DOM gestionados por React, modifica las partes en donde React no tenga motivos para actualizar.
 
 </Recap>
 
