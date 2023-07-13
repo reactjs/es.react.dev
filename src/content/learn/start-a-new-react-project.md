@@ -102,7 +102,7 @@ El App Router de Next.js está **actualmente en versión beta y aún no se recom
 
 #### ¿Qué características conforman la visión de la arquitectura completa del equipo de React? {/*which-features-make-up-the-react-teams-full-stack-architecture-vision*/}
 
-El paquete del enrutador de aplicaciones de Next.js implementa completamente la [especificación oficial de los componentes del servidor React](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). Esto te permite combinar componentes compilados, solo de servidor e interactivos en un solo árbol de React.
+El paquete App Router de Next.js implementa completamente la [especificación oficial de los componentes del servidor React](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). Esto te permite combinar componentes compilados, solo de servidor e interactivos en un solo árbol de React.
 
 Por ejemplo, puedes escribir un componente React solo para el servidor como una función "asincrónica" que es leída desde una base de datos o desde un archivo. Luego puedes pasar datos desde allí a tus componentes interactivos:
 
@@ -120,7 +120,7 @@ async function Talks({ confId }) {
 }
 ```
 
-El enrutador de aplicaciones de Next.js también integra [obtención de datos con Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Esto te permite especificar un estado de carga (como un esqueleto) para diferentes partes de tu interfaz de usuario directamente en tu árbol React:
+El App Router de Next.js también integra [obtención de datos con Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Esto te permite especificar un estado de carga (como un esqueleto) para diferentes partes de tu interfaz de usuario directamente en tu árbol React:
 
 ```js
 <Suspense fallback={<TalksLoading />}>
@@ -128,6 +128,6 @@ El enrutador de aplicaciones de Next.js también integra [obtención de datos co
 </Suspense>
 ```
 
-Server Components y Suspense son funciones de React en lugar de funciones de Next.js. Sin embargo, adoptarlos a nivel del framework requiere compromiso y un trabajo de implementación no trivial. Por el momento, el enrutador de aplicaciones Next.js es la implementación más completa. El equipo de React está trabajando con los desarrolladores de paquetes para que estas características sean más fáciles de implementar en la próxima generación de frameworks.
+Server Components y Suspense son funciones de React en lugar de funciones de Next.js. Sin embargo, adoptarlos a nivel del framework requiere compromiso y un trabajo de implementación no trivial. Por el momento, el App Router de Next.js es la implementación más completa. El equipo de React está trabajando con los desarrolladores de paquetes para que estas características sean más fáciles de implementar en la próxima generación de frameworks.
 
 </DeepDive>
