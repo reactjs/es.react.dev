@@ -78,7 +78,7 @@ Incluso si no necesitas enrutamiento u obtención de datos al principio, es prob
 
 **Los frameworks de React en esta página resuelven problemas como estos de forma predeterminada, sin trabajo adicional de tu parte.** Te permiten comenzar de manera muy sencilla y luego escalar tu aplicación según tus necesidades. Cada framework de React tiene una comunidad, por lo que es más fácil encontrar respuestas a las preguntas y actualizar las herramientas. Los frameworks también brindan estructura a tu código, ayudándote a ti y a otros a retener el contexto y las habilidades entre diferentes proyectos. Por el contrario, con una configuración personalizada es más fácil quedarte atascado en versiones de dependencia no admitidas, y esencialmente terminarás creando tu propio framework, aunque uno sin comunidad o ruta de actualización (y si es algo como los que hemos hecho en el pasado, diseñado al azar).
 
-Si todavía no estás convencido, o si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen bien y deseas implementar tu propia configuración personalizada, no podemos detenerte, ¡hazlo! Toma `react` y `react-dom` de npm, configura tu proceso de compilación personalizado con un paquete como [Vite](https://es.vitejs.dev/) o [Parcel](https://parceljs.org/) y agregua otras herramientas a medida que las necesites para el enrutamiento, la generación estática o la representación del lado del servidor, y más.
+Si todavía no estás convencido, o si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen bien y deseas implementar tu propia configuración personalizada, no podemos detenerte, ¡hazlo! Toma `react` y `react-dom` de npm, configura tu proceso de compilación personalizado con un paquete como [Vite](https://es.vitejs.dev/) o [Parcel](https://parceljs.org/) y agrega otras herramientas a medida que las necesites para el enrutamiento, la generación estática o la representación del lado del servidor, y más.
 </DeepDive>
 
 ## Frameworks React de última generación {/*bleeding-edge-react-frameworks*/}
@@ -89,7 +89,7 @@ Estas funcionalidades están cada día más cerca de estar listas para producci�
 
 ### Next.js (Enrutador de la aplicación) {/*nextjs-app-router*/}
 
-**[El enrutador de aplicaciones de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de la API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa del equipo de React.** te permite obtener datos en componentes asincrónicos que se ejecutan en el servidor o incluso durante la compilación.
+**[El _App Router_ de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de las API de Next.js con el objetivo de cumplir con la visión de arquitectura full-stack del equipo de React.** Te permite obtener datos en componentes asíncronos que se ejecutan en el servidor o incluso durante la compilación.
 
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también permite [exportar archivos estáticos](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
 <Pitfall>
@@ -104,7 +104,7 @@ El enrutador de aplicaciones de Next.js está **actualmente en versión beta y a
 
 El paquete del enrutador de aplicaciones de Next.js implementa completamente la [especificación oficial de los componentes del servidor React](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). Esto te permite combinar componentes compilados, solo de servidor e interactivos en un solo árbol de React.
 
-Por ejemplo, puedes escribir un componente React solo para el servidor como una función "asincrónica" que es leida desde una base de datos o desde un archivo. Luego puedes pasar datos desde allí a tus componentes interactivos:
+Por ejemplo, puedes escribir un componente React solo para el servidor como una función "asincrónica" que es leída desde una base de datos o desde un archivo. Luego puedes pasar datos desde allí a tus componentes interactivos:
 
 ```js
 // Este componente se ejecuta *solo* en el servidor (o durante la compilación).
