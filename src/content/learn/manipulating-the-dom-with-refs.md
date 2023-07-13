@@ -382,7 +382,7 @@ Para ayudarte a notar el problema, React también mostrará un error en la conso
 
 Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?  
 **(Traducción)**  
-Advertencia: A los componentes de función no se les pueden dar refs. Los intentos para acceder a esta ref no funcionará. ¿Quisiste decir usar React.forwardRef()? 
+Advertencia: Los componentes de función no pueden recibir refs. Los intentos de acceder a esta ref fallarán. ¿Querías usar React.forwardRef()?
 
 </ConsoleBlock>
 
