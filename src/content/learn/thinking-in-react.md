@@ -441,7 +441,9 @@ Nota que editar el formulario aún no funciona. Hay un error en la consola del _
 
 <ConsoleBlock level="error">
 
-You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field. (Has proporcionado una prop \`value\` a un campo de un formulario sin el manejador de eventos \`onChange\`. Esto hará que se renderice un campo de solo lectura.)
+Warning: You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field.  
+**(Traducción)**  
+Advertencia: Has proporcionado una prop \`value\` a un campo de un formulario sin el manejador de eventos \`onChange\`. Esto hará que se renderice un campo de solo lectura.
 
 </ConsoleBlock>
 
