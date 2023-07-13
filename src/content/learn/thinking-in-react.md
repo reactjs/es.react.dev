@@ -142,11 +142,11 @@ function ProductTable({ products }) {
 function SearchBar() {
   return (
     <form>
-      <input type="text" placeholder="Search..." />
+      <input type="text" placeholder="Buscar..." />
       <label>
         <input type="checkbox" />
         {' '}
-        Only show products in stock
+        Mostrar solo productos en stock
       </label>
     </form>
   );
@@ -392,13 +392,13 @@ function SearchBar({ filterText, inStockOnly }) {
       <input 
         type="text" 
         value={filterText} 
-        placeholder="Search..."/>
+        placeholder="Buscar..."/>
       <label>
         <input 
           type="checkbox" 
           checked={inStockOnly} />
         {' '}
-        Only show products in stock
+        Mostrar solo productos en stock
       </label>
     </form>
   );
@@ -454,7 +454,7 @@ function SearchBar({ filterText, inStockOnly }) {
       <input 
         type="text" 
         value={filterText} 
-        placeholder="Search..."/>
+        placeholder="Buscar..."/>
 ```
 
 Sin embargo, no has añadido ningún código para responder a las acciones del usuario como la escritura en el teclado. Este será tu último paso.
@@ -488,7 +488,7 @@ Dentro de `SearchBar`, añadirás el manejador del evento `onChange` y modificar
 <input 
   type="text" 
   value={filterText} 
-  placeholder="Search..." 
+  placeholder="Buscar..." 
   onChange={(e) => onFilterTextChange(e.target.value)} />
 ```
 
@@ -595,7 +595,7 @@ function SearchBar({
     <form>
       <input 
         type="text" 
-        value={filterText} placeholder="Search..." 
+        value={filterText} placeholder="Buscar..." 
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
         <input 
@@ -603,7 +603,7 @@ function SearchBar({
           checked={inStockOnly} 
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
-        Only show products in stock
+        Mostrar solo productos en stock
       </label>
     </form>
   );
