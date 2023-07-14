@@ -512,7 +512,7 @@ Puedes pensar que ocurre de acuerdo a estos dos pasos:
 
 La renderización diferida en segundo plano se puede interrumpir. Por ejemplo, si escribimos en el _input_ nuevamente, React abandonará esa renderización y comenzará una nueva con el nuevo valor. React siempre utilizará el último valor proporcionado.
 
-Ten en cuenta que aún se realizará una nueva petición de red por cada vez que se actualice el valor del _input_ por teclado nuevamente. Lo que se "difiere" realmente es la visualización de los resultados (hasta que estén disponibles) y no las peticiones de red. Los valores introducidos por el usuario son cacheados, por lo que modificar el valor actual a uno utilizado anteriormente mostrará los resultados, almacenados en la cache, inmediatamente y no se realizará una nueva petición de red.
+Ten en cuenta que sigue habiendo una petición de red por cada pulsación de tecla. Lo que se aplaza aquí es la visualización de los resultados (hasta que estén listos), no las peticiones de red en sí. Incluso si el usuario continúa escribiendo, las respuestas para cada pulsación de tecla se almacenan en caché, por lo que pulsar _Backspace_ es instantáneo y no se obtiene de nuevo.
 
 </DeepDive>
 
