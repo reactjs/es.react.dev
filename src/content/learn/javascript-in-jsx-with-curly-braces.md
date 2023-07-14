@@ -71,7 +71,7 @@ Observa la diferencia entre `className="avatar"`, que especifica un nombre de cl
 
 ## Usando llaves: Una ventana al mundo de JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX es una forma especial de escribir JavaScript. Eso significa que es posible utilizar JavaScript dentro de él, con llaves `{ }`. El ejemplo siguiente declara primero un nombre para el científico, `name`, y luego lo incrusta con llaves dentro de `<h1>`:
+JSX es una forma especial de escribir JavaScript. Eso significa que es posible utilizar JavaScript dentro de él, con llaves `{ }`. El ejemplo siguiente declara primero un nombre para el científico, `name`, y luego lo inserta con llaves dentro de `<h1>`:
 
 <Sandpack>
 
@@ -165,7 +165,7 @@ La próxima vez que veas `{{` y `}}` en JSX, ¡sabe que no es más que un objeto
 
 <Pitfall>
 
-Las propiedades de `style` en línea se escriben en camelCase. Por ejemplo, HTML `<ul style="background-color: black">` se escribiría como `<ul style={{ backgroundColor: 'black' }}>` en tu componente.
+Las propiedades de `style` en línea se escriben en camelCase. Por ejemplo, el HTML `<ul style="background-color: black">` se escribiría como `<ul style={{ backgroundColor: 'black' }}>` en tu componente.
 
 </Pitfall>
 
@@ -293,7 +293,7 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Esto sucede porque este ejemplo renderiza *un objeto en sí mismo* en el marcado en lugar de un string: `<h1>Tareas pendientes de {person}</h1>`¡está tratando de renderizar todo el objeto `person`! Incluir objetos sin procesar como contenido de texto arroja un error porque React no sabe cómo quieres mostrarlos.
+Esto sucede porque este ejemplo renderiza *un objeto en sí* en el marcado en lugar de un string: `<h1>Tareas pendientes de {person}</h1>`¡está tratando de renderizar todo el objeto `person`!. Incluir objetos sin procesar como contenido de texto arroja un error porque React no sabe cómo quieres mostrarlos.
 
 Para arreglarlo, reemplaza `<h1>Tareas pendientes de {person}</h1>` con `<h1>Tareas pendientes de {person.name}</h1>`:
 
@@ -337,9 +337,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Extraer información en un objeto {/*extract-information-into-an-object*/}
+#### Extraer información hacia un objeto {/*extract-information-into-an-object*/}
 
-Extrae la URL de la imagen en el objeto `person`.
+Extrae la URL de la imagen hacia el objeto `person`.
 
 <Sandpack>
 
@@ -426,9 +426,9 @@ body > div > div { padding: 20px; }
 
 #### Escribe una expresión dentro de llaves JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: `baseURL`, `imageId`, `imageSize` y la extensión del archivo.
+En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: la URL de base, `imageId`, `imageSize` y la extensión del archivo.
 
-Queremos que la URL de la imagen combine esos atributos juntos: `baseURL` (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
+Queremos que la URL de la imagen combine estos atributos juntos: la URL de base (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
 
 ¿Puedes arreglarlo?
 
