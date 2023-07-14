@@ -4,7 +4,7 @@ title: useDeferredValue
 
 <Intro>
 
-`useDeferredValue` es un Hook de React que permite realizar una actualización en diferido de una parte de la interfaz de usuario (_UI_).
+`useDeferredValue` es un Hook de React que permite realizar una actualización en diferido de una parte de la UI.
 
 ```js
 const deferredValue = useDeferredValue(value)
