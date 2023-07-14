@@ -38,7 +38,7 @@ function SearchPage() {
 
 * `value`: El valor que se quiere diferir. Puede ser de cualquier tipo.
 
-#### Retornos {/*returns*/}
+#### Devuelve {/*returns*/}
 
 Durante el renderizado inicial, el valor diferido devuelto será el mismo que el valor que se haya proporcionado inicialmente. Durante las actualizaciones, React realizará un primer intento de re-renderizado con el valor anterior (de modo que devolverá el valor anterior) e intentará realizar otro re-renderizado en segundo plano con el nuevo valor (por lo que devolverá el valor actualizado).
 
