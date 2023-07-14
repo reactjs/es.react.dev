@@ -518,7 +518,7 @@ Ten en cuenta que sigue habiendo una petición de red por cada pulsación de tec
 
 ---
 
-### Indicando que el contenido es obsoleto {/*indicating-that-the-content-is-stale*/}
+### Indicar que el contenido es obsoleto {/*indicating-that-the-content-is-stale*/}
 
 En el ejemplo anterior no se está indicando que los resultados de la lista, para la ultima query ejecutada, aún están cargando. Esto puede llegar a ser confuso para el usuario si los nuevos resultados toman un tiempo para cargarse y estar disponibles. Para hacer esto algo mas obvio para el usuario, se puede añadir una indicación visual cuando los resultados de la lista que se muestra están obsoletos:
 
