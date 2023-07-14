@@ -16,7 +16,7 @@ const deferredValue = useDeferredValue(value)
 
 ---
 
-## Referencias {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useDeferredValue(value)` {/*usedeferredvalue*/}
 
