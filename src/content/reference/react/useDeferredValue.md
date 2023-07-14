@@ -54,7 +54,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 - No existe un retardo fijo causado por `useDeferredValue`. Tan pronto como React finalice el renderizado original, inmediatamente, empezará a trabajar sobre el re-renderizado en segundo plano con el nuevo valor diferido. Cualquier actualización causada por eventos (como escribir por teclado) interrumpirá y tendrá prioridad respecto al proceso de re-renderizado en segundo plano.
 
-- El re-renderizado en segundo plano causado por `useDeferredValue` no dispara Efectos hasta que se haya confirmado en pantalla. Si el proceso de re-renderizado en segundo plano se suspende, los Efectos volverán a ejecutarse una vez los datos hayan sido cargados y la interfaz de usuario (_UI_) se haya actualizado.
+- El re-renderizado en segundo plano causado por `useDeferredValue` no dispara Efectos hasta que se haya confirmado en pantalla. Si el proceso de re-renderizado en segundo plano se suspende, los Efectos volverán a ejecutarse una vez los datos hayan sido cargados y la UI se haya actualizado.
 
 ---
 
