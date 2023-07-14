@@ -44,7 +44,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 #### Advertencias {/*caveats*/}
 
-- Los valores que se pasen a `useDeferredValue` deben ser tanto valores primitivos (como `string` y `number`) u objetos creados fuera del proceso de renderización. Si se crea un nuevo objeto durante el el proceso de renderización e inmediatamente se le pasa a `useDeferredValue` generará un valor distinto en cada renderizado causando re-renderizados innecesarios en segundo plano.
+- Los valores que pases a `useDeferredValue` deben ser tanto valores primitivos (como `string` y `number`) u objetos creados fuera del proceso de renderización. Si se crea un nuevo objeto durante el el proceso de renderización e inmediatamente se le pasa a `useDeferredValue` generará un valor distinto en cada renderizado causando re-renderizados innecesarios en segundo plano.
 
 - Cuando `useDeferredValue` reciba un valor distinto (realizado una comparación mediante [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), además del renderizado actual (cuando todavía se está empleando el valor anterior), se programa un re-renderizado en segundo plano con el nuevo valor. Este re-renderizado en segundo plano se puede interrumpir: Si se produce otra actualización al `valor`, React comenzará desde cero el re-renderizado en segundo plano. Por ejemplo, si el usuario está escribiendo en un `input` mas rápido de lo que un gráfico es capaz de recibir su valor diferido para renderizarse de nuevo, el gráfico solo se volverá a renderizar después de que el usuario deje de escribir.
 
