@@ -58,7 +58,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 ---
 
-## Cómo utilizar {/*usage*/}
+## Uso {/*usage*/}
 
 ### Mostrando contenido desactualizado mientras se carga el contenido actualizado. {/*showing-stale-content-while-fresh-content-is-loading*/}
 
