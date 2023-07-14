@@ -733,7 +733,7 @@ input { margin: 10px; }
 
 ### Diferir el re-renderizando una parte de la UI {/*deferring-re-rendering-for-a-part-of-the-ui*/}
 
-Puedes utilizar `useDeferredValue` como medio para optimizar el rendimiento. Es útil cuando una parte de tu interfaz de usuario (_UI_) es más lenta a la hora de re-renderizar y no existe una forma fácil de optimizarlo a fin de evitar que otras partes de la interfaz de usuario (_UI_) se bloqueen.
+Puedes utilizar `useDeferredValue` como medio para optimizar el rendimiento. Es útil cuando una parte de tu UI es más lenta a la hora de re-renderizar y no existe una forma fácil de optimizarlo a fin de evitar que otras partes de la UI se bloqueen.
 
 Imagina un _input_ y un componente (como un gráfico o una lista con muchos datos) que se re-renderiza cada vez que se introduce un nuevo valor en el _input_:
 
