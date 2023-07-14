@@ -50,7 +50,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 - `useDeferredValue` está integrado con [`<Suspense>`.](/reference/react/Suspense) Si la actualización en segundo plano causada por un nuevo valor suspende la UI, el usuario no verá el `fallback`. Verá el antiguo valor diferido hasta que se carguen los datos.
 
-- `useDeferredValue` no previene peticiones de red por sí mismo.
+- `useDeferredValue` no previene por sí mismo las peticiones de red adicionales.
 
 - No existe un retardo fijo causado por `useDeferredValue`. Tan pronto como React finalice el renderizado original, inmediatamente, empezará a trabajar sobre el re-renderizado en segundo plano con el nuevo valor diferido. Cualquier actualización causada por eventos (como escribir por teclado) interrumpirá y tendrá prioridad respecto al proceso de re-renderizado en segundo plano.
 
