@@ -23,7 +23,7 @@ Estas directivas son necesarias sólo si estás [usando React Server Components]
 
 ### `'use client'` {/*use-client*/}
 
-Agrega `'use client';` en la parte superior del archivo para marcar que el archivo (incluyendo cualquier componente hijo que utilice) se ejecuta en el cliente, independientemente de dónde se importe.
+Agrega `'use client';` en la parte superior de un archivo para marcar que este archivo (incluyendo cualquier componente hijo que utilice) se ejecuta en el cliente, independientemente de dónde se importe.
 
 ```js
 'use client';
