@@ -735,7 +735,7 @@ input { margin: 10px; }
 
 Puedes utilizar `useDeferredValue` como medio para optimizar el rendimiento. Es útil cuando una parte de tu UI es más lenta a la hora de re-renderizar y no existe una forma fácil de optimizarlo a fin de evitar que otras partes de la UI se bloqueen.
 
-Imagina un _input_ y un componente (como un gráfico o una lista con muchos datos) que se re-renderiza cada vez que se introduce un nuevo valor en el _input_:
+Imagina que tienes un campo de texto _input_ y un componente (como un gráfico o una lista larga) que se vuelve a mostrar cada vez que pulsas una tecla:
 
 ```js
 function App() {
