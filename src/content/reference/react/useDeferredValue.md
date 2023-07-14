@@ -60,7 +60,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 ## Uso {/*usage*/}
 
-### Mostrando contenido desactualizado mientras se carga el contenido actualizado. {/*showing-stale-content-while-fresh-content-is-loading*/}
+### Mostrar contenido desactualizado mientras se carga el contenido actualizado. {/*showing-stale-content-while-fresh-content-is-loading*/}
 
 Llama a `useDeferredValue` en el nivel superior de tu componente para retrasar la actualización de alguna parte de tu UI.
 
