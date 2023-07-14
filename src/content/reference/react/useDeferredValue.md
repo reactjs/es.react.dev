@@ -62,7 +62,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 ### Mostrando contenido desactualizado mientras se carga el contenido actualizado. {/*showing-stale-content-while-fresh-content-is-loading*/}
 
-Llama a `useDeferredValue` en el nivel superior de tu componente para retrasar la actualización de alguna parte de tu interfaz de usuario (_UI_).
+Llama a `useDeferredValue` en el nivel superior de tu componente para retrasar la actualización de alguna parte de tu UI.
 
 ```js [[1, 5, "query"], [2, 5, "deferredQuery"]]
 import { useState, useDeferredValue } from 'react';
