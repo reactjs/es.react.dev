@@ -48,7 +48,7 @@ Durante el renderizado inicial, el valor diferido devuelto será el mismo que el
 
 - Cuando `useDeferredValue` recibe un valor diferente (comparado con [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), además de la renderización actual (cuando aún utiliza el valor anterior), programa una re-renderización en segundo plano con el nuevo valor. La re-renderización en segundo plano es interrumpible: si hay otra actualización del `valor`, React reiniciará la re-renderización en segundo plano desde cero. Por ejemplo, si el usuario está escribiendo en un `input` más rápido de lo que la gráfica que recibe su valor diferido puede volver a renderizarse, la gráfica solo se volverá a renderizar cuando el usuario deje de escribir.
 
-- `useDeferredValue` está integrado con [`<Suspense>`.](/reference/react/Suspense). Si la actualización en segundo plano causada por un nuevo valor suspende la interfaz de usuario (_UI_), el usuario no podrá ver el _fallback_. En su lugar, podrá el valor diferido anterior hasta que se carguen los datos.
+- `useDeferredValue` está integrado con [`<Suspense>`.](/reference/react/Suspense) Si la actualización en segundo plano causada por un nuevo valor suspende la UI, el usuario no verá el `fallback`. Verá el antiguo valor diferido hasta que se carguen los datos.
 
 - `useDeferredValue` no previene peticiones de red por sí mismo.
 
