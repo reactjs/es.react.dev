@@ -731,7 +731,7 @@ input { margin: 10px; }
 
 ---
 
-### Diferir el re-renderizando una parte de la interfaz de usuario (_UI_) {/*deferring-re-rendering-for-a-part-of-the-ui*/}
+### Diferir el re-renderizando una parte de la UI {/*deferring-re-rendering-for-a-part-of-the-ui*/}
 
 Puedes utilizar `useDeferredValue` como medio para optimizar el rendimiento. Es útil cuando una parte de tu interfaz de usuario (_UI_) es más lenta a la hora de re-renderizar y no existe una forma fácil de optimizarlo a fin de evitar que otras partes de la interfaz de usuario (_UI_) se bloqueen.
 
