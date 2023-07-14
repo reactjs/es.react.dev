@@ -11,7 +11,7 @@ Estas directivas son necesarias sólo si estás [usando React Server Components]
 
 <Intro>
 
-`'use client'` marca los archivos cuyos componentes se ejecutan en el cliente.
+`'use client'` marca los archivos fuente cuyos componentes se ejecutan en el cliente.
 
 </Intro>
 
