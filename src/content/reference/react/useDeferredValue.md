@@ -42,7 +42,7 @@ function SearchPage() {
 
 Durante el renderizado inicial, el valor diferido devuelto será el mismo que el valor que se haya proporcionado inicialmente. Durante las actualizaciones, React realizará un primer intento de re-renderizado con el valor anterior (de modo que devolverá el valor anterior) e intentará realizar otro re-renderizado en segundo plano con el nuevo valor (por lo que devolverá el valor actualizado).
 
-#### Limitaciones {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
 - Los valores que se pasen a `useDeferredValue` deben ser tanto valores primitivos (como `string` y `number`) u objetos creados fuera del proceso de renderización. Si se crea un nuevo objeto durante el el proceso de renderización e inmediatamente se le pasa a `useDeferredValue` generará un valor distinto en cada renderizado causando re-renderizados innecesarios en segundo plano.
 
