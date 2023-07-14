@@ -285,7 +285,7 @@ input { margin: 10px; }
 
 </Sandpack>
 
-Una alternativa común en la interfaz de usuario (_UI_) es *diferir* la actualización de las listas de resultados y seguir mostrando los anteriores resultados hasta que los nuevos estén disponibles. Llama a `useDeferredValue` para pasar una versión diferida de la `query`:
+Una alternativa común en la UI es *diferir* la actualización de las listas de resultados y seguir mostrando los anteriores resultados hasta que los nuevos estén disponibles. Llama a `useDeferredValue` para pasar una versión diferida de la `query`:
 
 ```js {3,11}
 export default function App() {
