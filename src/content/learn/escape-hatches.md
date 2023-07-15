@@ -843,6 +843,6 @@ Lee **[Reutilizar la lógica con Hooks integrados](/learn/reusing-logic-with-cus
 
 </LearnMore>
 
-## Qué sigue? {/*whats-next*/}
+## ¿Qué sigue? {/*whats-next*/}
 
 ¡Dirígete a [Referenciar valores con refs](/learn/referencing-values-with-refs) para empezar a leer este capítulo!
