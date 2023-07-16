@@ -590,7 +590,7 @@ class Greeting extends Component {
 
 React puede llamar a `render` en cualquier momento, por lo que no debes asumir que se ejecuta en un momento determinado. Por lo general, el método `render` debería devolver una pieza de [JSX](/learn/writing-markup-with-jsx), pero se admiten algunos [otros tipos de retorno](#render-returns) (como cadenas). Para calcular el JSX devuelto, el método `render` puede leer [`this.props`](#props), [`this.state`](#state) y [`this.context`](#context).
 
-Deberías escribir el método `render` como una función pura, lo que significa que debería devolver el mismo resultado si las props, el estado y el contexto son iguales. Tampoco debería contener efectos secundarios (como configurar suscripciones) o interactuar con las APIs del navegador. Los efectos secundarios deberían ocurrir en controladores de eventos o en métodos como [`componentDidMount`.](#componentdidmount)
+Deberías escribir el método `render` como una función pura, lo que significa que debería devolver el mismo resultado si las props, el estado y el contexto son iguales. Tampoco debería contener efectos secundarios (como configurar suscripciones) o interactuar con las API del navegador. Los efectos secundarios deberían ocurrir en controladores de eventos o en métodos como [`componentDidMount`.](#componentdidmount)
 
 #### Parámetros {/*render-parameters*/}
 

@@ -39,7 +39,7 @@ A partir de ahora en este texto, "Efecto" en mayúsculas se refiere a la definic
 
 ## Quizás no necesites un Efecto {/*you-might-not-need-an-effect*/}
 
-**No te apresures en añadir Efectos en tus componentes.** Ten en cuenta que los Efectos se usan típicamente para "salir" de tu código React y sincronizar con algún sistema *externo*. Esto incluye APIs del navegador, widgets de terceros, red, etc. Si tu Efecto solo ajusta un estado basado en otro estado, [quizás no necesites un Efecto.](/learn/you-might-not-need-an-effect)
+**No te apresures en añadir Efectos en tus componentes.** Ten en cuenta que los Efectos se usan típicamente para "salir" de tu código React y sincronizar con algún sistema *externo*. Esto incluye las API del navegador, widgets de terceros, red, etc. Si tu Efecto solo ajusta un estado basado en otro estado, [quizás no necesites un Efecto.](/learn/you-might-not-need-an-effect)
 
 ## Cómo escribir un Efecto {/*how-to-write-an-effect*/}
 
@@ -611,7 +611,7 @@ useEffect(() => {
 
 Ten en cuenta que en este caso no se necesita limpiar nada. En desarrollo, React llamará al Efecto dos veces, pero esto no es un problema porque llamar a  `setZoomLevel` dos veces con el mismo valor no hace nada. Puede ser un poco más lento, pero no importa porque no se montará innecesariamente en producción.
 
-Algunas APIs pueden no permitir que se las llame dos veces seguidas. Por ejemplo, el método [`showModal`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) del elemento integrado [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) arrojará una excepción si se le llama dos veces. Implementa la función de limpieza para que cierre el elemento `<dialog>`.
+Algunas API pueden no permitir que se las llame dos veces seguidas. Por ejemplo, el método [`showModal`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) del elemento integrado [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) arrojará una excepción si se le llama dos veces. Implementa la función de limpieza para que cierre el elemento `<dialog>`.
 
 ```js {4}
 useEffect(() => {

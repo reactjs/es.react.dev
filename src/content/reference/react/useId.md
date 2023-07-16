@@ -4,7 +4,7 @@ title: useId
 
 <Intro>
 
-`useId` es un Hook de React para generar IDs únicos que se pueden pasar a los atributos de accesibilidad.
+`useId` es un Hook de React para generar los ID únicos que se pueden pasar a los atributos de accesibilidad.
 
 
 ```js
@@ -97,7 +97,7 @@ En HTML normal, lo escribirías así:
 </p>
 ```
 
-Sin embargo, escribir IDs fijos como este no es una buena práctica en React. Un componente puede renderizarse más de una vez en la página, ¡pero los IDs tienen que ser únicos! En lugar de utilizar un ID fijo, puedes generar un ID único con `useId`:
+Sin embargo, escribir los ID fijos como este no es una buena práctica en React. Un componente puede renderizarse más de una vez en la página, ¡pero los ID tienen que ser únicos! En lugar de utilizar un ID fijo, puedes generar un ID único con `useId`:
 
 ```js {4,11,14}
 import { useId } from 'react';
@@ -121,7 +121,7 @@ function PasswordField() {
 }
 ```
 
-Ahora, incluso si `PasswordField` aparece varias veces en la pantalla, no habrá conflicto entre los IDs generados.
+Ahora, incluso si `PasswordField` aparece varias veces en la pantalla, no habrá conflicto entre los ID generados.
 
 <Sandpack>
 
@@ -168,7 +168,7 @@ input { margin: 5px; }
 
 <Pitfall>
 
-**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando utilizas [renderizado en el servidor](/reference/react-dom/server). Si los árboles que se renderizan en el servidor y el cliente no coinciden exactamente, los IDs generados no coincidirán.
+**`useId` requiere un árbol de componentes idéntico en el servidor y el cliente** cuando utilizas [renderizado en el servidor](/reference/react-dom/server). Si los árboles que se renderizan en el servidor y el cliente no coinciden exactamente, los ID generados no coincidirán.
 
 </Pitfall>
 
@@ -188,9 +188,9 @@ Dentro de React, `useId` se genera a partir de la "ruta del padre" del component
 
 ---
 
-### Generar IDs para varios elementos relacionados {/*generating-ids-for-several-related-elements*/}
+### Generar los ID para varios elementos relacionados {/*generating-ids-for-several-related-elements*/}
 
-Si necesitas proporcionar IDs a varios elementos relacionados, puedes llamar a `useId` para generar un prefijo compartido para ellos:
+Si necesitas proporcionar los ID a varios elementos relacionados, puedes llamar a `useId` para generar un prefijo compartido para ellos:
 
 <Sandpack>
 
@@ -221,9 +221,9 @@ Esto te permite evitar llamar a `useId` para cada elemento que necesite un ID ú
 
 ---
 
-### Especificación de un prefijo compartido para todos los IDs generados {/*specifying-a-shared-prefix-for-all-generated-ids*/}
+### Especificación de un prefijo compartido para todos los ID generados {/*specifying-a-shared-prefix-for-all-generated-ids*/}
 
-Si renderizas varias aplicaciones de React independientes en una sola página, puedes pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/reference/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/reference/react-dom/client/hydrateRoot). Esto garantiza que los IDs generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que hayas especificado.
+Si renderizas varias aplicaciones de React independientes en una sola página, puedes pasar `identifierPrefix` como una opción para las llamadas [`createRoot`](/reference/react-dom/client/createRoot#parameters) o [`hydrateRoot`](/reference/react-dom/client/hydrateRoot). Esto garantiza que los ID generados por las dos aplicaciones diferentes nunca entren en conflicto porque cada identificador generado con `useId` comenzará con el prefijo distinto que hayas especificado.
 
 <Sandpack>
 

@@ -45,9 +45,9 @@ Las advertencias de desarrollo no afectarán el comportamiento del tiempo de eje
 En general, *no* cambiamos la versión mayor para cambios en:
 
 * **Advertencias de desarrollo.** Dado que estas no afectan el comportamiento de producción, podemos agregar nuevas advertencias o modificar advertencias existentes entre versiones mayores. De hecho, esto es lo que nos permite advertir de manera confiable sobre los próximos cambios importantes.
-* **APIs que comienzan con `unstable_`.** Estas son proporcionadas como funcionalidades experimentales cuyas APIs aún no confiamos. Al lanzarlas con un prefijo `unstable_`, podemos iterar más rápido y obtener una API estable antes.
-* **Versiones alfa y canary de React.** Proporcionamos versiones alfa de React como una forma de probar nuevas funciones tempranamente, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa. Si usas estas versiones, tenga en cuenta que las APIs pueden cambiar antes del lanzamiento estable.
-* **APIs no documentadas y estructuras de datos internas.** Si accedes a nombres de propiedades internas como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no hay garantía. Estas por tu cuenta.
+* **Las API que comienzan con `unstable_`.** Estas son proporcionadas como funcionalidades experimentales cuyas API aún no confiamos. Al lanzarlas con un prefijo `unstable_`, podemos iterar más rápido y obtener una API estable antes.
+* **Versiones alfa y canary de React.** Proporcionamos versiones alfa de React como una forma de probar nuevas funciones tempranamente, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa. Si usas estas versiones, tenga en cuenta que las API pueden cambiar antes del lanzamiento estable.
+* **Las API no documentadas y estructuras de datos internas.** Si accedes a nombres de propiedades internas como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no hay garantía. Estas por tu cuenta.
 
 Esta política está diseñada para ser pragmática: ciertamente, no queremos causarle dolores de cabeza. Si cambiamos la versión mayor para todos estos cambios, terminaríamos lanzando más versiones mayores y, en última instancia, causando más problemas de versionado para la comunidad. También significaría que no podemos hacer progreso en el mejoramiento de React tan rápido como nos gustaría.
 
@@ -69,7 +69,7 @@ Si un lanzamiento incluye cambios no esenciales, como refactorización interna, 
 
 ## Todos los canales de lanzamiento {/*all-release-channels*/}
 
-React se basa en una próspera comunidad de código abierto para presentar informes de errores, abrir solicitudes de incorporación de cambios y [enviar RFCs](https://github.com/reactjs/rfcs). Para alentar los comentarios, a veces compartimos compilaciones especiales de React que incluyen funciones inéditas.
+React se basa en una próspera comunidad de código abierto para presentar informes de errores, abrir solicitudes de incorporación de cambios y [enviar las RFC](https://github.com/reactjs/rfcs). Para alentar los comentarios, a veces compartimos compilaciones especiales de React que incluyen funciones inéditas.
 
 <Note>
 
@@ -83,7 +83,7 @@ Cada uno de los canales de lanzamiento de React está diseñado para un caso de 
 
 - [**Canary**](#canary-channel) rastrea la rama principal del repositorio del código fuente de React. Piense en estos como candidatos de lanzamiento para el próximo lanzamiento de semver. **[Los marcos de trabajo u otras configuraciones seleccionadas pueden elegir usar este canal con una versión fijada de React.](/blog/2023/05/03/react-canaries) También puede usar el canal canary para pruebas de integración entre React y proyectos de terceros.**
 
-- [**Experimental**](#experimental-channel) incluye APIs experimentales y funciones que no están disponibles en los lanzamientos estables. Estos también rastrean la rama principal, pero con indicadores de funciones adicionales activados. Use esto para probar las próximas funciones antes de su lanzamiento.
+- [**Experimental**](#experimental-channel) incluye las API experimentales y funciones que no están disponibles en los lanzamientos estables. Estos también rastrean la rama principal, pero con indicadores de funciones adicionales activados. Use esto para probar las próximas funciones antes de su lanzamiento.
 
 Todos los lanzamientos son publicados en npm, pero solo latest utiliza el versionado semántico. Los prelanzamientos (aquellos en los canales canary y experimental) tienen versiones generadas a partir de un hash de sus contenidos y la fecha de confirmación, ej. `18.3.0-canary-388686f29-20230503` para canary y `0.0.0-experimental-388686f29-20230503` para experimental.
 
@@ -141,7 +141,7 @@ Un proyecto que usa este flujo de trabajo es Next.js. Puedes referirte a su [con
 
 ### Canal experimental {/*experimental-channel*/}
 
-Como canary, el canal experimental es un canal de presentación que rastrea la rama principal del repositorio de React. A diferencia de canary, las versiones experimentales incluyen funciones adicionales y APIs que no están listas para una versión más amplia.
+Como canary, el canal experimental es un canal de presentación que rastrea la rama principal del repositorio de React. A diferencia de canary, las versiones experimentales incluyen funciones adicionales y las API que no están listas para una versión más amplia.
 
 Por lo general, una actualización en canary es acompañada por una actualización correspondiente a experimental. Se basan en la misma revisión de origen, pero son compilados usando un conjunto diferente de indicadores de funciones.
 

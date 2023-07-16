@@ -62,7 +62,7 @@ La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como �
 
 ### Ejecutar actualizaciones para integraciones de terceros {/*flushing-updates-for-third-party-integrations*/}
 
-Cuando se hace una integración con código de terceros, como las APIs del navegador o bibliotecas de interfaz de usuario, puede ser necesario forzar a React a ejecutar las actualizaciones. Utiliza `flushSync` para forzar a React a que ejecute cualquier <CodeStep step={1}>actualización de estado</CodeStep> dentro de la función *callback* de forma sincrónica:
+Cuando se hace una integración con código de terceros, como las API del navegador o bibliotecas de interfaz de usuario, puede ser necesario forzar a React a ejecutar las actualizaciones. Utiliza `flushSync` para forzar a React a que ejecute cualquier <CodeStep step={1}>actualización de estado</CodeStep> dentro de la función *callback* de forma sincrónica:
 
 ```js [[1, 2, "setSomething(123)"]]
 flushSync(() => {
@@ -73,11 +73,11 @@ flushSync(() => {
 
 Esto garantiza que, para cuando se ejecute la siguiente línea de código, React ya haya actualizado el DOM.
 
-**Usar `flushSync` es poco común, y usarlo con frecuencia puede afectar significativamente el rendimiento de tu aplicación.** Si tu aplicación solo usa las APIs de React y no se integra con bibliotecas de terceros, `flushSync` debería ser innecesario.
+**Usar `flushSync` es poco común, y usarlo con frecuencia puede afectar significativamente el rendimiento de tu aplicación.** Si tu aplicación solo usa las API de React y no se integra con bibliotecas de terceros, `flushSync` debería ser innecesario.
 
-Sin embargo, puede ser útil para la integración con código de terceros, como las APIs de los navegadores.
+Sin embargo, puede ser útil para la integración con código de terceros, como las API de los navegadores.
 
-Algunas APIs de los navegadores esperan que los resultados dentro de *callbacks* se escriban en el DOM de forma sincrónica, al final del *callback*, para que el navegador pueda hacer algo con el DOM renderizado. En la mayoría de los casos, React se encarga de esto automáticamente. Pero en algunos casos puede ser necesario salir de React y forzar una actualización sincrónica.
+Algunas API de los navegadores esperan que los resultados dentro de *callbacks* se escriban en el DOM de forma sincrónica, al final del *callback*, para que el navegador pueda hacer algo con el DOM renderizado. En la mayoría de los casos, React se encarga de esto automáticamente. Pero en algunos casos puede ser necesario salir de React y forzar una actualización sincrónica.
 
 Por ejemplo, la API `onbeforeprint` del navegador permite cambiar la página inmediatamente antes de que se abra el diálogo de impresión. Esto es útil para aplicar estilos de impresión personalizados que permiten que el documento se muestre mejor para la impresión.
 

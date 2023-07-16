@@ -47,11 +47,11 @@
       "path": "/reference/react/components"
     },
     {
-      "title": "APIs",
+      "title": "Las API",
       "path": "/reference/react/apis"
     },
     {
-      "title": "APIs legadas",
+      "title": "Las API legadas",
       "path": "/reference/react/legacy"
     },
     {
@@ -63,15 +63,15 @@
       "path": "/reference/react-dom/components"
     },
     {
-      "title": "APIs",
+      "title": "Las API",
       "path": "/reference/react-dom"
     },
     {
-      "title": "APIs del cliente",
+      "title": "Las API del cliente",
       "path": "/reference/react-dom/client"
     },
     {
-      "title": "APIs del servidor",
+      "title": "Las API del servidor",
       "path": "/reference/react-dom/server"
     },
     {

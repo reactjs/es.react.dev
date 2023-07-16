@@ -223,7 +223,7 @@ select { display: block; margin-top: 10px; width: 200px; }
 
 ### Leer el valor del recuadro de selección al enviar un formulario {/*reading-the-select-box-value-when-submitting-a-form*/}
 
-Añade un [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) que envuelve tu recuadro de selección con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) dentro. Llamará a tu event handler `<form onSubmit>`. Por defecto, el navegador enviará los datos del formularo a la URL actual y recargará la página. Puedes sobreescribir este comportamiento llamando a `e.preventDefault()`. Lee los datos del formulario con [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
+Añade un [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) que envuelve tu recuadro de selección con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) dentro. Llamará a tu event handler `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a el URL actual y recargará la página. Puedes sobreescribir este comportamiento llamando a `e.preventDefault()`. Lee los datos del formulario con [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
 <Sandpack>
 
 ```js

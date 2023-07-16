@@ -307,8 +307,8 @@ export function Footer() {
           <FooterLink href="/reference/react" isHeader={true}>
             Referencia de la API
           </FooterLink>
-          <FooterLink href="/reference/react">React APIs</FooterLink>
-          <FooterLink href="/reference/react-dom">React DOM APIs</FooterLink>
+          <FooterLink href="/reference/react">Las API React</FooterLink>
+          <FooterLink href="/reference/react-dom">Las API React DOM</FooterLink>
         </div>
         <div className="md:col-start-2 xl:col-start-4 flex flex-col">
           <FooterLink href="/community" isHeader={true}>

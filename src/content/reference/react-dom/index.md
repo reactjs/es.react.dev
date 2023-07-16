@@ -1,5 +1,5 @@
 ---
-title: React DOM APIs
+title: Las API React DOM
 ---
 
 <Intro>
@@ -10,9 +10,9 @@ El paquete `react-dom` incluye métodos que sólo son compatibles con aplicacion
 
 ---
 
-## APIs {/*apis*/}
+## Las API {/*apis*/}
 
-Puedes importar las siguientes APIs en tus componentes, pero su uso es poco común:
+Puedes importar las siguientes API en tus componentes, pero su uso es poco común:
 
 * [`createPortal`](/reference/react-dom/createPortal) permite renderizar componentes hijos en una parte diferente del árbol del DOM.
 * [`flushSync`](/reference/react-dom/flushSync) permite forzar a React a actualizar el estado y el DOM de manera síncrona.
@@ -23,16 +23,16 @@ Puedes importar las siguientes APIs en tus componentes, pero su uso es poco com�
 
 El paquete `react-dom` proporciona dos puntos de entrada adicionales:
 
-* [`react-dom/client`](/reference/react-dom/client) incluye APIs para renderizar componentes de React en el cliente, es decir, en el navegador.
-* [`react-dom/server`](/reference/react-dom/server) incluye APIs para renderizar componentes de react en el servidor.
+* [`react-dom/client`](/reference/react-dom/client) incluye las API para renderizar componentes de React en el cliente, es decir, en el navegador.
+* [`react-dom/server`](/reference/react-dom/server) incluye las API para renderizar componentes de react en el servidor.
 
 ---
 
-## APIs obsoletas {/*deprecated-apis*/}
+## Las API obsoletas {/*deprecated-apis*/}
 
 <Deprecated>
 
-Las siguientes APIs se eliminarán en una próxima versión mayor de React.
+Las siguientes API se eliminarán en una próxima versión mayor de React.
 
 </Deprecated>
 

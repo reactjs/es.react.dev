@@ -607,7 +607,7 @@ function Page({ url }) {
 }
 ```
 
-Piense en lo que quiere que haga el código. Usted *quiere* registrar una visita separada para diferentes URLs ya que cada URL representa una página diferente. En otras palabras, esta llamada a `logVisit` *debería* ser reactiva con respecto a la `url`. Por eso, en este caso, tiene sentido seguir el linter de dependencias, y añadir `url` como dependencia:
+Piense en lo que quiere que haga el código. Usted *quiere* registrar una visita separada para las diferentes URL ya que cada URL representa una página diferente. En otras palabras, esta llamada a `logVisit` *debería* ser reactiva con respecto a la `url`. Por eso, en este caso, tiene sentido seguir el linter de dependencias, y añadir `url` como dependencia:
 
 ```js {4}
 function Page({ url }) {

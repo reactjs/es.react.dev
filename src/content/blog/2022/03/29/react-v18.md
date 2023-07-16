@@ -38,9 +38,9 @@ Para los usuarios de React Native, React 18 se lanzará en React Native con la N
 
 La adición más importante en React 18 es algo en lo que esperamos que nunca tengas que pensar: la concurrencia. Creemos que esto es en gran medida cierto para los desarrolladores de aplicaciones, aunque la situación puede ser un poco más complicada para los mantenedores de bibliotecas.
 
-La concurrencia no es una funcionalidad en sí misma. Es un nuevo mecanismo detrás de escena que permite a React preparar múltiples versiones de tu interfaz de usuario al mismo tiempo. Puedes pensar en la concurrencia como un detalle de implementación: es valiosa debido a las funcionalidades que desbloquea. React utiliza técnicas sofisticadas en su implementación interna, como colas de prioridad y múltiples búferes. Pero no verás esos conceptos en ninguna de nuestras APIs públicas.
+La concurrencia no es una funcionalidad en sí misma. Es un nuevo mecanismo detrás de escena que permite a React preparar múltiples versiones de tu interfaz de usuario al mismo tiempo. Puedes pensar en la concurrencia como un detalle de implementación: es valiosa debido a las funcionalidades que desbloquea. React utiliza técnicas sofisticadas en su implementación interna, como colas de prioridad y múltiples búferes. Pero no verás esos conceptos en ninguna de nuestras API públicas.
 
-Cuando diseñamos las APIs, tratamos de ocultar los detalles de implementación a los desarrolladores. Como desarrollador de React, te enfocas en cómo quieres que sea la experiencia del usuario y React se encarga de cómo ofrecer esa experiencia. Por lo tanto, no esperamos que los desarrolladores de React sepan cómo funciona la concurrencia bajo el capó.
+Cuando diseñamos las API, tratamos de ocultar los detalles de implementación a los desarrolladores. Como desarrollador de React, te enfocas en cómo quieres que sea la experiencia del usuario y React se encarga de cómo ofrecer esa experiencia. Por lo tanto, no esperamos que los desarrolladores de React sepan cómo funciona la concurrencia bajo el capó.
 
 Sin embargo, React Concurrente es más importante que un simple detalle de implementación, es una actualización fundamental en el modelo de renderizado central de React. Entonces, aunque no es muy importante saber cómo funciona la concurrencia, puede valer la pena saber qué es a grandes rasgos.
 
@@ -62,9 +62,9 @@ La estrategia general de actualización consiste en hacer que tu aplicación fun
 
 Después de actualizar a React 18, podrás comenzar a utilizar funcionalidades concurrentes de inmediato. Por ejemplo, puedes utilizar startTransition para navegar entre pantallas sin bloquear la entrada del usuario. O usar useDeferredValue para limitar la frecuencia de las costosas re-renderizaciones.
 
-Sin embargo, a largo plazo, esperamos que la forma principal de agregar concurrencia a tu aplicación sea utilizando una biblioteca o marco de trabajo compatible con la concurrencia. En la mayoría de los casos, no interactuarás directamente con las APIs concurrentes. Por ejemplo, en lugar de que los desarrolladores llamen a startTransition cada vez que naveguen a una nueva pantalla, las bibliotecas de enrutamiento envolverán automáticamente las navegaciones en startTransition.
+Sin embargo, a largo plazo, esperamos que la forma principal de agregar concurrencia a tu aplicación sea utilizando una biblioteca o marco de trabajo compatible con la concurrencia. En la mayoría de los casos, no interactuarás directamente con las API concurrentes. Por ejemplo, en lugar de que los desarrolladores llamen a startTransition cada vez que naveguen a una nueva pantalla, las bibliotecas de enrutamiento envolverán automáticamente las navegaciones en startTransition.
 
-Puede llevar algún tiempo que las bibliotecas se actualicen para ser compatibles con la concurrencia. Hemos proporcionado nuevas APIs para facilitar a las bibliotecas aprovechar las funcionalidades concurrentes. Mientras tanto, te pedimos paciencia con los mantenedores mientras trabajamos en la migración gradual del ecosistema de React.
+Puede llevar algún tiempo que las bibliotecas se actualicen para ser compatibles con la concurrencia. Hemos proporcionado nuevas API para facilitar a las bibliotecas aprovechar las funcionalidades concurrentes. Mientras tanto, te pedimos paciencia con los mantenedores mientras trabajamos en la migración gradual del ecosistema de React.
 
 Para obtener más información, consulta nuestra publicación anterior: [Como actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide).
 
@@ -163,7 +163,7 @@ Suspense en React 18 funciona mejor cuando se combina con la API de transición.
 
 Para más información, consulta el RFC para [Suspense en React 18](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md).
 
-### Nuevas APIs de renderizado en cliente y servidor {/*new-client-and-server-rendering-apis*/}
+### Nuevas API de renderizado en cliente y servidor {/*new-client-and-server-rendering-apis*/}
 
 En esta versión, aprovechamos la oportunidad para rediseñar las API que exponemos para el renderizado en el cliente y en el servidor. Estos cambios permiten a los usuarios seguir utilizando las antiguas API en el modo React 17 mientras actualizan a las nuevas API en React 18.
 
@@ -180,7 +180,7 @@ Tanto `createRoot` como `hydrateRoot` aceptan una nueva opción llamada `onRecov
 
 #### Servidor React DOM {/*react-dom-server*/}
 
-Estas nuevas APIs son exportadas desde `react-dom/server` y tienen soporte completo para Suspense en el servidor:
+Estas nuevas API son exportadas desde `react-dom/server` y tienen soporte completo para Suspense en el servidor:
 * `renderToPipeableStream`: para transmisión en entornos de Node
 * `renderToReadableStream`: para entornos de tiempo de ejecución modernos, como Deno y Cloudflare workers.
 
@@ -225,7 +225,7 @@ Con el modo estricto (Strict Mode) en React 18, React simulará el desmontaje y 
 
 #### useId {/*useid*/}
 
-`useId` es un nuevo gancho (hook) para generar IDs unicos tanto en el cliente como en el servidor, evitando desajustes en la hidratación. Es especialmente útil para bibliotecas de componentes que se integran con API de accesibilidad que requieren identificadores únicos. Esto resuelve un problema que ya existe en React 17 y versiones anteriores, pero es aún más importante en React 18 debido a cómo el nuevo renderizador de servidor en streaming entrega el HTML sin un orden específico. [Consulta la documentación](/reference/react/useId).
+`useId` es un nuevo gancho (hook) para generar los ID únicos tanto en el cliente como en el servidor, evitando desajustes en la hidratación. Es especialmente útil para bibliotecas de componentes que se integran con API de accesibilidad que requieren identificadores únicos. Esto resuelve un problema que ya existe en React 17 y versiones anteriores, pero es aún más importante en React 18 debido a cómo el nuevo renderizador de servidor en streaming entrega el HTML sin un orden específico. [Consulta la documentación](/reference/react/useId).
 
 > Note
 >
@@ -264,7 +264,7 @@ Consulta [Cómo Actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide) 
 ### React {/*react*/}
 
 * Añadido `useTransition` y `useDeferredValue` para separar las actualizaciones urgentes de las transiciones. ([#10426](https://github.com/facebook/react/pull/10426), [#10715](https://github.com/facebook/react/pull/10715), [#15593](https://github.com/facebook/react/pull/15593), [#15272](https://github.com/facebook/react/pull/15272), [#15578](https://github.com/facebook/react/pull/15578), [#15769](https://github.com/facebook/react/pull/15769), [#17058](https://github.com/facebook/react/pull/17058), [#18796](https://github.com/facebook/react/pull/18796), [#19121](https://github.com/facebook/react/pull/19121), [#19703](https://github.com/facebook/react/pull/19703), [#19719](https://github.com/facebook/react/pull/19719), [#19724](https://github.com/facebook/react/pull/19724), [#20672](https://github.com/facebook/react/pull/20672), [#20976](https://github.com/facebook/react/pull/20976) por [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), [@rickhanlonii](https://github.com/rickhanlonii), y [@sebmarkbage](https://github.com/sebmarkbage))
-* Añadido `useId` para generar IDs únicos. ([#17322](https://github.com/facebook/react/pull/17322), [#18576](https://github.com/facebook/react/pull/18576), [#22644](https://github.com/facebook/react/pull/22644), [#22672](https://github.com/facebook/react/pull/22672), [#21260](https://github.com/facebook/react/pull/21260) por [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), y [@sebmarkbage](https://github.com/sebmarkbage))
+* Añadido `useId` para generar los ID únicos. ([#17322](https://github.com/facebook/react/pull/17322), [#18576](https://github.com/facebook/react/pull/18576), [#22644](https://github.com/facebook/react/pull/22644), [#22672](https://github.com/facebook/react/pull/22672), [#21260](https://github.com/facebook/react/pull/21260) por [@acdlite](https://github.com/acdlite), [@lunaruan](https://github.com/lunaruan), y [@sebmarkbage](https://github.com/sebmarkbage))
 * Añadido `useSyncExternalStore` para ayudar a liberías de tiendas externas a integrarse con React. ([#15022](https://github.com/facebook/react/pull/15022), [#18000](https://github.com/facebook/react/pull/18000), [#18771](https://github.com/facebook/react/pull/18771), [#22211](https://github.com/facebook/react/pull/22211), [#22292](https://github.com/facebook/react/pull/22292), [#22239](https://github.com/facebook/react/pull/22239), [#22347](https://github.com/facebook/react/pull/22347), [#23150](https://github.com/facebook/react/pull/23150) por [@acdlite](https://github.com/acdlite), [@bvaughn](https://github.com/bvaughn), y [@drarmstr](https://github.com/drarmstr))
 * Añadido `startTransition` como una versión de `useTransition` sin comentarios pendientes.([#19696](https://github.com/facebook/react/pull/19696) por [@rickhanlonii](https://github.com/rickhanlonii))
 * Añadido `useInsertionEffect` para librerías CSS-en-JS. ([#21913](https://github.com/facebook/react/pull/21913)  por [@rickhanlonii](https://github.com/rickhanlonii))
@@ -319,7 +319,7 @@ Consulta [Cómo Actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide) 
 
 * Lanzar error cuando se usa `act` en producción. ([#21686](https://github.com/facebook/react/pull/21686)  por [@acdlite](https://github.com/acdlite))
 * Soporte para deshabilitar las advertencias espurias con `global.IS_REACT_ACT_ENVIRONMENT`. ([#22561](https://github.com/facebook/react/pull/22561)  por [@acdlite](https://github.com/acdlite))
-* Expandir las advertencias act para cubrir todas las APIs que podrían crear trabajo en React. ([#22607](https://github.com/facebook/react/pull/22607)  por [@acdlite](https://github.com/acdlite))
+* Expandir las advertencias act para cubrir todas las API que podrían crear trabajo en React. ([#22607](https://github.com/facebook/react/pull/22607)  por [@acdlite](https://github.com/acdlite))
 * Hacer agrupamientos de actualizaciones `act`. ([#21797](https://github.com/facebook/react/pull/21797)  por [@acdlite](https://github.com/acdlite))
 * Remover advertencias por effectos pasivos colgados. ([#22609](https://github.com/facebook/react/pull/22609)  por [@acdlite](https://github.com/acdlite))
 

@@ -300,7 +300,7 @@ export function HomeContent() {
                         permite servir HTML bajo demanda mientras aún estás
                         cargando datos, rellenando progresivamente el contendido
                         faltante antes de que cargue ningún código de
-                        JavaScript. En el cliente, React puede usar APIs web
+                        JavaScript. En el cliente, React puede usar las API web
                         estándares para mantener tu interfaz de usuario
                         responsiva incluso en medio del renderizado.
                       </p>
@@ -392,10 +392,10 @@ export function HomeContent() {
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
                           te permiten construir aplicaciones en React para
                           Android, iOS y aún más. Lucen y se sienten como
-                          nativas porque sus UIs <i>son</i> realmente nativas.
-                          No es una vista web: tus componentes de React
-                          renderizan vistas reales de Android y iOS provistas
-                          por la plataforma.
+                          nativas porque sus UI <i>son</i> realmente nativas. No
+                          es una vista web: tus componentes de React renderizan
+                          vistas reales de Android y iOS provistas por la
+                          plataforma.
                         </p>
                       </div>
                     </div>

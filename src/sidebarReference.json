@@ -95,7 +95,7 @@
       ]
     },
     {
-      "title": "APIs",
+      "title": "Las API",
       "path": "/reference/react/apis",
       "routes": [
         {
@@ -169,7 +169,7 @@
       ]
     },
     {
-      "title": "APIs",
+      "title": "Las API",
       "path": "/reference/react-dom",
       "routes": [
         {
@@ -199,7 +199,7 @@
       ]
     },
     {
-      "title": "APIs del cliente",
+      "title": "Las API del cliente",
       "path": "/reference/react-dom/client",
       "routes": [
         {
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "title": "APIs del servidor",
+      "title": "Las API del servidor",
       "path": "/reference/react-dom/server",
       "routes": [
         {
@@ -244,10 +244,10 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "APIs heredadas"
+      "sectionHeader": "Las API heredadas"
     },
     {
-      "title": "APIs heredadas de React",
+      "title": "Las API heredadas de React",
       "path": "/reference/react/legacy",
       "routes": [
         {

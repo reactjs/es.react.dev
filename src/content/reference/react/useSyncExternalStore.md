@@ -66,7 +66,7 @@ La instantánea actual de la fuente de almacenamiento que puedes usar en tu lóg
 Normalmente la mayoría de tus componentes de React solo leerán datos de sus [props,](/learn/passing-props-to-a-component), [estado,](/reference/react/useState) y [contexto.](/reference/react/useContext). Sin embargo, a veces un componente necesita leer algunos datos de alguna fuente de almacenamiento fuera de React que cambia con el tiempo. Esto incluye:
 
 * Bibliotecas de gestión de estado de terceros que mantienen el estado fuera de React.
-* APIs del navegador que exponen un valor mutable y eventos para suscribirse a sus cambios.
+* Las API del navegador que exponen un valor mutable y eventos para suscribirse a sus cambios.
 
 Llama a `useSyncExternalStore` en el primer nivel de tu componente para leer un valor de una fuente de datos externa.
 

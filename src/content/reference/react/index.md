@@ -43,7 +43,7 @@ function Button() {
 
 ## Hooks de refs {/*ref-hooks*/}
 
-Las *refs* le permiten a un componente [mantener alguna información que no es utilizada para el renderizado](/learn/referencing-values-with-refs) como un nodo del DOM o el ID de un *timeout*. A diferencia del estado, actualizar una *ref* no vuelve a renderizar tu componente. Las *refs* son una "puerta de escape" del paradigma de React. Son útiles cuando necesitas trabajar con sistemas distintos de React, como las APIs integradas del navegador.
+Las *refs* le permiten a un componente [mantener alguna información que no es utilizada para el renderizado](/learn/referencing-values-with-refs) como un nodo del DOM o el ID de un *timeout*. A diferencia del estado, actualizar una *ref* no vuelve a renderizar tu componente. Las *refs* son una "puerta de escape" del paradigma de React. Son útiles cuando necesitas trabajar con sistemas distintos de React, como las API integradas del navegador.
 
 * [`useRef`](/reference/react/useRef) declara una ref. Puede contener cualquier valor, pero la mayoría de las veces se utiliza para contener un nodo del DOM.
 * [`useImperativeHandle`](/reference/react/useImperativeHandle) permite personalizar la *ref* expuesta por tu componente. Esto rara vez se usa.
@@ -111,7 +111,7 @@ Para priorizar el renderizado, usa uno de estos Hooks:
 Estos Hooks son mayormente útiles para autores de bibliotecas y no son comúnmente usadas en el código de la aplicación.
 
 - [`useDebugValue`](/reference/react/useDebugValue) permite personalizar la etiqueta que las Herramientas de Desarrollo de React muestran para tu Hook personalizado.
-- [`useId`](/reference/react/useId) permite que un componente se asocie un ID único. Normalmente, se utiliza con las APIs de accesibilidad.
+- [`useId`](/reference/react/useId) permite que un componente se asocie un ID único. Normalmente, se utiliza con las API de accesibilidad.
 - [`useSyncExternalStore`](/reference/react/useSyncExternalStore) permite que un componente se subscriba a un almacenamiento (*store*) externo.
 
 ---

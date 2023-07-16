@@ -2529,7 +2529,7 @@ Cambia la estructura de estado para admitir la selección múltiple. (¿Cómo lo
 
 <Hint>
 
-En lugar de un único ID seleccionado, es posible que desees mantener una matriz o un[Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) de IDs seleccionados en el estado.
+En lugar de un único ID seleccionado, es posible que desees mantener una matriz o un[Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) de los ID seleccionados en el estado.
 
 </Hint>
 

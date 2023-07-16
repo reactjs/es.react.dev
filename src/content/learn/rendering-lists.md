@@ -417,9 +417,9 @@ Los nombres de archivos en una carpeta y las _keys_ JSX en un array tienen un pr
 
 <Pitfall>
 
-Podrías estar tentado a usar el índice del elemento en el array como su _key_. De hecho, eso es lo que React usará si tu no especifícas una _`key`_ en absoluto. Pero el orden en el que renderizas elementos cambiará con el tiempo si un elemento es insertado, borrado, o si se reordena su array. El índice como _key_ lleva a menudo a sutiles y confusos errores.
+Podrías estar tentado a usar el índice del elemento en el array como su _key_. De hecho, eso es lo que React usará si tu no especificas una _`key`_ en absoluto. Pero el orden en el que renderizas elementos cambiará con el tiempo si un elemento es insertado, borrado, o si se reordena su array. El índice como _key_ lleva a menudo a sutiles y confusos errores.
 
-Igualmente, no generes _keys_ sobre la marcha, p. ej. con `key={Math.random()}`. Esto hará que las _keys_ nunca coincidan entre renderizados, llevando a todos tus componentes y al DOM a recrearse cada vez. No solo es una manera lenta, si no que también pierde cualquier input del usuario dentro de los elementos listados. En vez de eso, usa unas IDs basadas en datos.
+Igualmente, no generes _keys_ sobre la marcha, p. ej. con `key={Math.random()}`. Esto hará que las _keys_ nunca coincidan entre renderizados, llevando a todos tus componentes y al DOM a recrearse cada vez. No solo es una manera lenta, si no que también pierde cualquier input del usuario dentro de los elementos listados. En vez de eso, usa unos ID basados en datos.
 
 Date cuenta de que tus componentes no reciben la _`key`_ como un prop. Solo es usado como pista para React. Si tus componentes necesitan un ID, se lo tienes que pasar como una prop separada: `<Profile key={id} userId={id} />`.
 
@@ -972,7 +972,7 @@ export const recipes = [{
 
 </Sandpack>
 
-Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su _`key`_. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como _`key`_. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como _`key`_ (con la advertencia de que no puedes reordenar ingredientes de forma segura).
+Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su _`key`_. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como _`key`_. Alternativamente, podrías cambiar la estructura de los datos para añadir los ID, o usar el índice como _`key`_ (con la advertencia de que no puedes reordenar ingredientes de forma segura).
 
 </Solution>
 

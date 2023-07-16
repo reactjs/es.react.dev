@@ -42,7 +42,7 @@ React se unirá al HTML que existe dentro de `domNode`, y se encargará de gesti
 * **opcional** `options`: Un objeto que contiene opciones para esta raíz de React.
 
   * **opcional** `onRecoverableError`: *Callback* que se llama cuando React se recupera automáticamente de los errores.
-  * **opcional** `identifierPrefix`: Prefijo que React utiliza para los IDs generados por [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se utilizan varias raíces en la misma página. Debe ser el mismo prefijo que se utiliza en el servidor.
+  * **opcional** `identifierPrefix`: Prefijo que React utiliza para los ID generados por [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se utilizan varias raíces en la misma página. Debe ser el mismo prefijo que se utiliza en el servidor.
   * **opcional** `nonce`:
 
 #### Devuelve {/*returns*/}
@@ -190,7 +190,7 @@ Las causas más comunes que conducen a errores de hidratación incluyen:
 
 * Espacios en blanco extra (como nuevas líneas) alrededor del HTML generado por React dentro del nodo raíz.
 * Utilizar comprobaciones como `typeof window !== 'undefined'` en tu lógica de renderizado.
-* Utilizar APIs exclusivas del navegador como [`window.matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) en tu lógica de renderizado.
+* Utilizar las API exclusivas del navegador como [`window.matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) en tu lógica de renderizado.
 * Renderizar datos diferentes en el servidor y en el cliente.
 
 React puede recuperarse de algunos errores de hidratación, pero **debes solucionarlos como cualquier otro error.** En el mejor de los casos, conducirán a una aplicación más lenta; en el peor, los manejadores de eventos se adjuntarán a los elementos equivocados.

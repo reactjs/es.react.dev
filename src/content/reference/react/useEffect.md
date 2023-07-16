@@ -1150,7 +1150,7 @@ useEffect(() => {
 }, [a, b]); // Se ejecuta de nuevo si a o b son diferentes
 ```
 
-En el siguiente ejemplo, `serverUrl` y `roomId` son [valores reactivos,](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) por lo que ambos deben ser especificados como dependencias. Como resultado, la selección de un sitio diferente en el menú desplegable o la edición de la entrada de la URL del servidor hace que el chat se vuelva a conectar. Sin embargo, dado que `message` no se utiliza en el efecto (y por tanto no es una dependencia), la edición del mensaje no reconecta el chat.
+En el siguiente ejemplo, `serverUrl` y `roomId` son [valores reactivos,](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) por lo que ambos deben ser especificados como dependencias. Como resultado, la selección de un sitio diferente en el menú desplegable o la edición de la entrada de el URL del servidor hace que el chat se vuelva a conectar. Sin embargo, dado que `message` no se utiliza en el efecto (y por tanto no es una dependencia), la edición del mensaje no reconecta el chat.
 
 <Sandpack>
 

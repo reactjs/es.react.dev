@@ -256,7 +256,7 @@ React proporciona una versión integrada de `useRef` porque es suficientemente c
 
 ## ¿Cuándo usar refs? {/*when-to-use-refs*/}
 
-Típicamente, usarás una ref cuando tu componente necesite "salir" de React y comunicarse con APIs externas —a menudo una API del navegador no impactará en la apariencia de un componente. Estas son algunas de estas situaciones raras:
+Típicamente, usarás una ref cuando tu componente necesite "salir" de React y comunicarse con las API externas —a menudo una API del navegador no impactará en la apariencia de un componente. Estas son algunas de estas situaciones raras:
 
 - Almacenar [identificadores de timeouts](https://developer.mozilla.org/docs/Web/API/setTimeout)
 - Almacenar y manipular [elementos del DOM](https://developer.mozilla.org/docs/Web/API/Element), que cubrimos en [la siguiente página](/learn/manipulating-the-dom-with-refs)
@@ -268,7 +268,7 @@ Si tu componente necesita almacenar algún valor, pero no impacta la lógica del
 
 Seguir estos principios hará que tus componentes sean más predecibles:
 
-- **Trata a las refs como una puerta de escape.** Las refs son útiles cuando trabajas con sistemas externos o APIs del navegador. Si mucho de la lógica de tu aplicación y del flujo de los datos depende de las refs, es posible que quieras reconsiderar tu enfoque.
+- **Trata a las refs como una puerta de escape.** Las refs son útiles cuando trabajas con sistemas externos o las API del navegador. Si mucho de la lógica de tu aplicación y del flujo de los datos depende de las refs, es posible que quieras reconsiderar tu enfoque.
 - **No leas o escribas `ref.current` durante el renderizado.** Si se necesita alguna información durante el renderizado, usa en su lugar [el estado](/learn/state-a-components-memory). Como React no sabe cuándo `ref.current` cambia, incluso leerlo mientras se renderiza hace que el comportamiento de tu componente sea difícil de predecir. (La única excepción a esto es código como `if (!ref.current) ref.current = new Thing()` que solo asigna la ref una vez durante el renderizado inicial).
 
 Las limitaciones del estado en React no se aplican a las refs. Por ejemplo, el estado actúa como una [instantánea para cada renderizado](/learn/state-as-a-snapshot) y [no se actualiza de manera síncrona.](/learn/queueing-a-series-of-state-updates) Pero cuando mutas el valor actual de una ref, cambia inmediatamente:

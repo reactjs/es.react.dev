@@ -36,7 +36,7 @@ Para averiguar más a fondo, mira la charla de [Shaundai Person](https://twitter
 
 ### El primer grupo de trabajo de React {/*the-first-react-working-group*/}
 
-Para React 18, hemos creado nuestro primer grupo de trabajo para colaborar con un comité de expertos, desarrolladores, mantenedores de biblioteca, y educadores. Juntos hemos trabajado para crear nuestra estrategia de adopción gradual y para refinar nuestras APIs como `useId`, `useSyncExternalStore`, y `useInsertionEffect`.
+Para React 18, hemos creado nuestro primer grupo de trabajo para colaborar con un comité de expertos, desarrolladores, mantenedores de biblioteca, y educadores. Juntos hemos trabajado para crear nuestra estrategia de adopción gradual y para refinar nuestras API como `useId`, `useSyncExternalStore`, y `useInsertionEffect`.
 
 Para ver una descripción general sobre este trabajo, mira la charla de [Aakansha' Doshi](https://twitter.com/aakansha1216):
 

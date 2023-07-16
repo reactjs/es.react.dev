@@ -44,7 +44,7 @@ El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 
 - Tus componentes se [volverán a renderizar una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
 - Tus componentes [volverán a ejecutar los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
-- Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Se comprobará el uso en tus componentes de las [API obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
 #### Props {/*props*/}
 
@@ -87,7 +87,7 @@ El Modo Estricto habilita los siguientes chequeos en desarrollo:
 
 - Tus componentes se [renderizarán una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
 - Tus componentes [ejecutarán los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
-- Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Se comprobará el uso en tus componentes de las [API obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
 **Todos estos chequeos es hacen solo en desarrollo y no afectan la compilación de producción.**
 
@@ -820,11 +820,11 @@ Sin Modo Estricto, es fácil pasar por alto que tu Efecto necesita limpieza. Al 
 
 ### Arreglar advertencias de código obsoleto habilitadas en el Modo Estricto {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
 
-React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas APIs obsoletas: 
+React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas API obsoletas: 
 
 * [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 * Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
 * API antigua de contexto ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
 * Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
 
-Estas APIs son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.
+Estas API son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.

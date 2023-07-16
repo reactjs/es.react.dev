@@ -394,7 +394,7 @@ function ChatRoom({ roomId }) { // Las props cambian con el tiempo
 
 Al incluir `serverUrl` como una dependencia, te aseguras de que el Efecto se vuelva a sincronizar después de que cambie.
 
-Intenta cambiar la sala de chat seleccionada o editar la URL del servidor en este _sandbox_:
+Intenta cambiar la sala de chat seleccionada o editar el URL del servidor en este _sandbox_:
 
 <Sandpack>
 
@@ -1317,7 +1317,7 @@ Aprenderás un enfoque más general para este tipo de problema en [Separar Event
 
 #### Solucionar un cambio de conexión {/*fix-a-connection-switch*/}
 
-En este ejemplo, el servicio de chat en `chat.js` expone dos APIs diferentes: `createEncryptedConnection` y `createUnencryptedConnection`. El componente raíz `App` permite al usuario elegir si usar o no el cifrado, y luego pasa el método de API correspondiente al componente secundario `ChatRoom` como la prop `createConnection`.
+En este ejemplo, el servicio de chat en `chat.js` expone dos API diferentes: `createEncryptedConnection` y `createUnencryptedConnection`. El componente raíz `App` permite al usuario elegir si usar o no el cifrado, y luego pasa el método de API correspondiente al componente secundario `ChatRoom` como la prop `createConnection`.
 
 Nota que inicialmente, los registros de la consola dicen que la conexión no está cifrada. Intenta cambiar el valor del checkbox: no sucederá nada. Sin embargo, si cambias la sala de chat seleccionada después de eso, entonces el chat se reconectará *y* habilitará el cifrado (como verás en los mensajes de la consola). Esto es un error. Arregla el error para que el cambio del checkbox *también* haga que el chat se reconecte.
 

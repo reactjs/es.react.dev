@@ -1,16 +1,16 @@
 ---
-title: APIs del cliente React DOM
+title: Las API del cliente React DOM
 ---
 
 <Intro>
 
-Las APIs de `react-dom/client` te permiten renderizar componentes de React en el cliente (en el navegador). Estas APIs son típicamente usadas en el nivel superior de tu aplicación para inicializar tu árbol de React. Un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) podría llamar a estas APIs por ti. La mayoría de tus componentes no necesitan importarlas o usarlas.
+Las API de `react-dom/client` te permiten renderizar componentes de React en el cliente (en el navegador). Estas API son típicamente usadas en el nivel superior de tu aplicación para inicializar tu árbol de React. Un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) podría llamar a estas API por ti. La mayoría de tus componentes no necesitan importarlas o usarlas.
 
 </Intro>
 
 ---
 
-## APIs del cliente {/*client-apis*/}
+## Las API del cliente {/*client-apis*/}
 
 * [`createRoot`](/reference/react-dom/client/createRoot) te permite crear una raíz para mostrar componentes de React dentro de un nodo del DOM del navegador.
 * [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) te permite mostrar componentes de React dentro de un nodo DOM del navegador cuyo contenido HTML fue generado previamente por [`react-dom/server.`](/reference/react-dom/server)
