@@ -1363,7 +1363,7 @@ Luego, puedes envolver una parte de tu árbol de componentes con él:
 
 Si `Profile` o su componente hijo arroja un error, `ErrorBoundary` "capturará" ese error, mostrará una IU de respaldo con el mensaje de error que ha proporcionado y enviará un informe de error de producción a su servicio de informes de errores.
 
-No es necesario envolver cada componente en un error boundary por separado. Al considerar la [granularidad de los error boundaries,](https://aweary.dev/fault-tolerance-react/) considere dónde tiene sentido mostrar un mensaje de error. Por ejemplo, en una aplicación de mensajería, tiene sentido colocar un error boundary alrededor de la lista de conversaciones. También tiene sentido colocar uno alrededor de cada mensaje individual. Sin embargo, no tendría sentido colocar un límite alrededor de cada avatar.
+Tú no necesitas envolver cada componente en una barrera de error separada. Cuando pienses en la [granularidad de las barreras de error,](https://www.brandondail.com/posts/fault-tolerance-react) considera dónde tiene sentido mostrar un mensaje de error. Por ejemplo, en una aplicación de mensajería, tiene sentido colocar una barrera de error alrededor de la lista de conversaciones. También tiene sentido colocar una alrededor de cada mensaje individual. Sin embargo, no tendría sentido colocar una barrera alrededor de cada avatar.
 
 <Note>
 
