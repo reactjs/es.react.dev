@@ -923,7 +923,7 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 }
 ```
 
-Ahora el chat no se volverá a conectar cada vez que el componente `ChatRoom` se vuelva a renderizar. Aquí hay una demostración completamente funcional de pasar un controlador de eventos a un Hook personalizado con el que puedes manipular:
+Ahora el chat no se volverá a conectar cada vez que el componente `ChatRoom` se vuelva a renderizar. Aquí hay una demostración completamente funcional de pasar un controlador de evento a un Hook personalizado con el que puedes manipular:
 
 <Sandpack>
 
@@ -2181,7 +2181,7 @@ Después de arreglar el problema, deberías esperar que el fondo de la página s
 
 <Hint>
 
-Parece que tu Hook `useInterval` acepta un manejador de eventos como un argumento. ¿Puedes pensar en alguna forma de envolver ese manejador de eventos para que no tenga que ser una dependencia de tu Efecto?
+Parece que tu Hook `useInterval` acepta un controlador de evento como un argumento. ¿Puedes pensar en alguna forma de envolver ese controlador de evento para que no tenga que ser una dependencia de tu Efecto?
 
 </Hint>
 

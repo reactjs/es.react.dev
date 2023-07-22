@@ -10,7 +10,7 @@ Los controladores de eventos solo se vuelven a ejecutar cuando vuelves a realiza
 
 <YouWillLearn>
 
-- Cómo escoger entre un controlador de eventos y un Efecto
+- Cómo escoger entre un controlador de evento y un Efecto
 - Por qué los Efectos son reactivos, y los controladores de eventos no lo son
 - Qué hacer cuando quieres que una parte del código de tu Efecto no sea reactivo
 - Qué son los eventos de Efecto y cómo extraerlos de tus Efectos
@@ -31,7 +31,7 @@ Digamos que ya tienes el código implementado para ello, pero no estas seguro de
 
 ### Los controladores de eventos se ejecutan en respuesta a interacciones especificas {/*event-handlers-run-in-response-to-specific-interactions*/}
 
-Desde la perspectiva de un usuario, enviar un mensaje debería pasar *porque* específicamente se hizo click en el botón "Enviar". El usuario se molestará si tu envías su mensaje en otro momento o por cualquier otro motivo. Esta es la razón por la que enviar un mensaje debería de ser un controlador de Evento. Los controladores de eventos te permiten manejar interacciones especificas como por ejemplo, clicks:
+Desde la perspectiva de un usuario, enviar un mensaje debería pasar *porque* específicamente se hizo click en el botón "Enviar". El usuario se molestará si tu envías su mensaje en otro momento o por cualquier otro motivo. Esta es la razón por la que enviar un mensaje debería de ser un controlador de Evento. Los controladores de eventos te permiten controlar interacciones especificas como por ejemplo, clicks:
 
 ```js {4-6}
 function ChatRoom({ roomId }) {
@@ -189,7 +189,7 @@ Echa un vistazo a esta línea de código. ¿Esta lógica debería ser reactiva o
     // ...
 ```
 
-Desde la perspectiva del usuario, **un cambio en el `message` _no_ significa que quiera enviar un mensaje.** Solo significa que el usuario está escribiendo. En otras palabras, la lógica que envía un mensaje no debería ser reactiva. No debería volver a ejecutarse solo porque el <CodeStep step={2}>valor reactivo</CodeStep> ha cambiado. Por eso pertenece al manejador de eventos:
+Desde la perspectiva del usuario, **un cambio en el `message` _no_ significa que quiera enviar un mensaje.** Solo significa que el usuario está escribiendo. En otras palabras, la lógica que envía un mensaje no debería ser reactiva. No debería volver a ejecutarse solo porque el <CodeStep step={2}>valor reactivo</CodeStep> ha cambiado. Por eso pertenece al controlador de evento:
 
 ```js {2}
   function handleSendClick() {
@@ -418,7 +418,7 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
-Aquí, `onConnected` se llama un *Evento de Efecto.* Es una parte de tu lógica de Efecto, pero se comporta mucho más como un controlador de eventos. La lógica dentro de él no es reactiva, y siempre "ve" los últimos valores de tus props y estado.
+Aquí, `onConnected` se llama un *Evento de Efecto.* Es una parte de tu lógica de Efecto, pero se comporta mucho más como un controlador de evento. La lógica dentro de él no es reactiva, y siempre "ve" los últimos valores de tus props y estado.
 
 Ahora puedes llamar al Evento de Efecto `onConnected` desde dentro de tu Efecto:
 

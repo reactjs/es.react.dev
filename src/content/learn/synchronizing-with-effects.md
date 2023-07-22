@@ -24,7 +24,7 @@ Antes de empezar con los Efectos, necesitas familiarizarte con dos tipos de lóg
 
 - **Código renderizado** (introducido en [Describir la UI](/learn/describing-the-ui)) se encuentra en el nivel superior de tu componente. Aquí es donde tomas las props y el estado, los modificas, y se devuelve el JSX que se desea ver en la pantalla. [El código renderizado debe ser puro.](/learn/keeping-components-pure) Como si fuese una fórmula matemática, sólo debe _calcular_ el resultado, y no hacer nada más.
 
-- **Manejadores de eventos** (introducido en [Añadir interactividad](/learn/adding-interactivity)) son funciones anidadas dentro de tus componentes que *hacen* cosas en lugar de solo calcularlas. Un manejador de eventos podría actualizar un campo de un formulario, enviar una solicitud HTTP POST para comprar un producto, o hacer que el usuario navegue hacia otra pantalla. Los manejadores de eventos contienen ["efectos secundarios"](https://es.wikipedia.org/wiki/Efecto_secundario_(inform%C3%A1tica)) (Pueden cambiar el estado del programa) causado por una acción específica del usuario (por ejemplo, al hacer clic en un botón o al escribir).
+- **controladores de eventos** (introducido en [Añadir interactividad](/learn/adding-interactivity)) son funciones anidadas dentro de tus componentes que *hacen* cosas en lugar de solo calcularlas. Un controlador de evento podría actualizar un campo de un formulario, enviar una solicitud HTTP POST para comprar un producto, o hacer que el usuario navegue hacia otra pantalla. Los controladores de eventos contienen ["efectos secundarios"](https://es.wikipedia.org/wiki/Efecto_secundario_(inform%C3%A1tica)) (Pueden cambiar el estado del programa) causado por una acción específica del usuario (por ejemplo, al hacer clic en un botón o al escribir).
 
 A veces, esto no es suficiente. Considera un componente `ChatRoom` que debe conectarse al servidor del chat cada vez que esté visible en pantalla. Conectarse al servidor no es un cálculo puro (es un efecto secundario), por lo que no puede suceder durante el renderizado. Sin embargo, no hay un evento particular como un clic que haga que `ChatRoom` se muestre en pantalla.
 
@@ -637,7 +637,7 @@ useEffect(() => {
 }, []);
 ```
 
-En desarrollo, tu Efecto va a llamar a `addEventListener()`, e inmediatamente a `removeEventListener()`, y después a `addEventListener()` de nuevo con el mismo manejador de eventos. Por lo tanto, solo habría una suscripción activa a la vez. Esto tiene el mismo comportamiento visible para el usuario que llamar a `addEventLListener()` una vez, como en producción.
+En desarrollo, tu Efecto va a llamar a `addEventListener()`, e inmediatamente a `removeEventListener()`, y después a `addEventListener()` de nuevo con el mismo controlador de evento. Por lo tanto, solo habría una suscripción activa a la vez. Esto tiene el mismo comportamiento visible para el usuario que llamar a `addEventLListener()` una vez, como en producción.
 
 ### Desencadenar animaciones {/*triggering-animations*/}
 
@@ -726,7 +726,7 @@ En desarrollo, `logVisit` será llamado dos veces para cada URL, por lo que podr
 
 **En producción, no va a haber registro de visitas duplicados.**
 
-Para depurar los eventos de análisis que estás enviando, puedes implementar tu aplicación en un entorno de pruebas (que se ejecuta en modo producción) o temporalmente desactivar el [Modo estricto](/reference/react/StrictMode) y su control de remontaje en desarrollo. También puedes enviar análisis desde los manejadores de eventos de cambio de ruta en lugar de Efectos. Para análisis más precisos, la [API Observador de Intersección](https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API) puede ayudar a rastrear qué componentes están en la vista y cuánto tiempo permanecen visibles.
+Para depurar los eventos de análisis que estás enviando, puedes implementar tu aplicación en un entorno de pruebas (que se ejecuta en modo producción) o temporalmente desactivar el [Modo estricto](/reference/react/StrictMode) y su control de remontaje en desarrollo. También puedes enviar análisis desde los controladores de eventos de cambio de ruta en lugar de Efectos. Para análisis más precisos, la [API Observador de Intersección](https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API) puede ayudar a rastrear qué componentes están en la vista y cuánto tiempo permanecen visibles.
 
 ### No es un Efecto: Inicializar la aplicación {/*not-an-effect-initializing-the-application*/}
 
@@ -758,7 +758,7 @@ useEffect(() => {
 
 No quieres comprar el producto dos veces. Sin embargo, esta es también la razón por la que no debes poner esta lógica en un Efecto. ¿Qué pasa si el usuario va a otra página y luego presiona atrás? Tu Efecto se ejecutaría de nuevo. No quieres comprar el producto cuando el usuario *visita* una página; quieres comprarlo cuando el usuario hace *clic* en el botón de comprar.
 
-Comprar no es causado por un renderizado, sino por una interacción específica. Debería ejecutarse solo cuando el usuario presiona el botón. **Elimina el Efecto y mueve la solicitud `/api/buy` dentro del manejador de eventos del botón comprar:**
+Comprar no es causado por un renderizado, sino por una interacción específica. Debería ejecutarse solo cuando el usuario presiona el botón. **Elimina el Efecto y mueve la solicitud `/api/buy` dentro del controlador de evento del botón comprar:**
 
 ```js {2-3}
   function handleClick() {
@@ -1049,7 +1049,7 @@ Para verificar que tu solución funciona, presiona "Mostrar formulario" y verifi
 
 <Solution>
 
-Llamar a `ref.current.focus()` durante el renderizado está mal porque es un *efecto secundario*. Los efectos secundarios deben ser definidos dentro de un manejador de eventos o declarados con `useEffect`. En este caso, el efecto secundario es _causado_ por la aparición del componente en vez de alguna interacción específica, por lo tanto tiene sentido ponerlo dentro de un Efecto.
+Llamar a `ref.current.focus()` durante el renderizado está mal porque es un *efecto secundario*. Los efectos secundarios deben ser definidos dentro de un controlador de evento o declarados con `useEffect`. En este caso, el efecto secundario es _causado_ por la aparición del componente en vez de alguna interacción específica, por lo tanto tiene sentido ponerlo dentro de un Efecto.
 
 Para solucionar el error, envuelve la llamada `ref.current.focus()` dentro de un Efecto. Luego, para asegurarte que este Efecto se ejecute solo en el montaje en vez de después de cada renderizado, añade el array de dependencias vacío `[]`.
 

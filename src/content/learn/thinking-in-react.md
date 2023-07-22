@@ -443,7 +443,7 @@ Nota que editar el formulario aún no funciona. Hay un error en la consola del _
 
 Warning: You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field.  
 **(Traducción)**  
-Advertencia: Has proporcionado una prop \`value\` a un campo de un formulario sin el manejador de eventos \`onChange\`. Esto hará que se renderice un campo de solo lectura.
+Advertencia: Has proporcionado una prop \`value\` a un campo de un formulario sin el controlador de evento \`onChange\`. Esto hará que se renderice un campo de solo lectura.
 
 </ConsoleBlock>
 
@@ -484,7 +484,7 @@ function FilterableProductTable({ products }) {
         onInStockOnlyChange={setInStockOnly} />
 ```
 
-Dentro de `SearchBar`, añadirás el manejador del evento `onChange` y modificarás el estado del padre desde allí:
+Dentro de `SearchBar`, añadirás el controlador de evento `onChange` y modificarás el estado del padre desde allí:
 
 ```js {5}
 <input 
@@ -644,7 +644,7 @@ td {
 
 </Sandpack>
 
-Puedes aprender todo sobre el manejo de eventos y actualizar el estado en la sección [Añadir interactividad](/learn/adding-interactivity).
+Puedes aprender todo sobre el control de eventos y actualizar el estado en la sección [Añadir interactividad](/learn/adding-interactivity).
 
 ## ¿A dónde ir a partir de aquí? {/*where-to-go-from-here*/}
 

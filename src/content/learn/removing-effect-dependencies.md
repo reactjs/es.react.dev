@@ -366,11 +366,11 @@ Cada vez que ajustas las dependencias del Efecto para reflejar el código, mira 
 
 Para encontrar la solución correcta, necesitas responder algunas preguntas sobre tu Efecto. Revisémoslas.
 
-### ¿Debería moverse este código a un manejador de eventos? {/*should-this-code-move-to-an-event-handler*/}
+### ¿Debería moverse este código a un controlador de evento? {/*should-this-code-move-to-an-event-handler*/}
 
 Sobre lo primero que debes pensar es si este código debería ser un Efecto.
 
-Imagina un formulario. Al enviarse, actualizas la variable de estado `submitted` a `true`. Necesitas enviar una petición POST y mostrar una notificación. Has decidido ubicar esta lódigo dentro de un Efecto que "reacciona" al cambio de `submitted` a `true`:
+Imagina un formulario. Al enviarse, actualizas la variable de estado `submitted` a `true`. Necesitas enviar una petición POST y mostrar una notificación. Has decidido ubicar este código dentro de un Efecto que "reacciona" al cambio de `submitted` a `true`:
 
 ```js {6-8}
 function Form() {
@@ -417,14 +417,14 @@ function Form() {
 
 Pero al hacer esto, has introducido un bug. Imagina que envías un formulario primero y luego cambias entre temas oscuros y claros. La variable `theme` cambiará, el Efecto se volverá a ejecutar, ¡y por tanto mostrará la misma notificación nuevamente!
 
-**El problema aquí es que no debió haber sido nunca un Efecto**. Quieres enviar una petición POST y mostrar la notificación en respuesta al *envío del formulario*, que es una interacción particular. Cuando quieres ejecutar algún código en respuesta a una interacción particular, pon esa lógica directamente en el manejador de eventos correspondiente:
+**El problema aquí es que no debió haber sido nunca un Efecto**. Quieres enviar una petición POST y mostrar la notificación en respuesta al *envío del formulario*, que es una interacción particular. Cuando quieres ejecutar algún código en respuesta a una interacción particular, pon esa lógica directamente en el controlador de evento correspondiente:
 
 ```js {6-7}
 function Form() {
   const theme = useContext(ThemeContext);
 
   function handleSubmit() {
-    // ✅ Bien: Lógica específica de Evento se llama desde manejadores de evento
+    // ✅ Bien: Lógica específica de Evento se llama desde controladores de eventos
     post('/api/register');
     showNotification('Successfully registered!', theme);
   }  
@@ -433,7 +433,7 @@ function Form() {
 }
 ```
 
-Ahora que el código está en un manejador de evento, no es reactivo --por lo que solo se ejecutará cuando el usuario envía el formulario--. Lee más acerca de [escoger entre manejadores de eventos y Efectos](/learn/separating-events-from-effects#reactive-values-and-reactive-logic) y [cómo eliminar Efectos innecesarios ](/learn/you-might-not-need-an-effect).
+Ahora que el código está en un controlador de evento, no es reactivo --por lo que solo se ejecutará cuando el usuario envía el formulario--. Lee más acerca de [escoger entre controladores de eventos y Efectos](/learn/separating-events-from-effects#reactive-values-and-reactive-logic) y [cómo eliminar Efectos innecesarios ](/learn/you-might-not-need-an-effect).
 
 ### ¿Tú Efecto hace varias cosas no relacionadas? {/*is-your-effect-doing-several-unrelated-things*/}
 
@@ -463,7 +463,7 @@ function ShippingForm({ country }) {
   // ...
 ```
 
-Este es un buen ejemplo de [obtener datos en un Efecto](/learn/you-might-not-need-an-effect#fetching-data). Estás sincronizando el estado `cities` con la red de acuerdo a la prop `country`. No puedes hacer esto en un manejador de eventos porque necesitas obtener los datos tan pronto como se muestre `ShippingForm` y cada vez que cambie `country` (sin importar qué interacciones causa el cambio).
+Este es un buen ejemplo de [obtener datos en un Efecto](/learn/you-might-not-need-an-effect#fetching-data). Estás sincronizando el estado `cities` con la red de acuerdo a la prop `country`. No puedes hacer esto en un controlador de evento porque necesitas obtener los datos tan pronto como se muestre `ShippingForm` y cada vez que cambie `country` (sin importar qué interacciones causa el cambio).
 
 Digamos ahora que estás añadiendo una segunda caja de selección para las areas de la ciudad, que debería obtener las `areas` para la ciudad `city` actualmente seleccionada. Podrías comenzar añadiendo una segunda llamada `fetch` para la lista de areas dentro del mismo Efecto:
 
@@ -684,9 +684,9 @@ function ChatRoom({ roomId }) {
 
 Los Eventos de Efecto te permiten separar un Efecto en partes reactivas (que deben "reaccionar" a valores reactivos como `roomId` y sus cambios) y partes no reactivas (que solo leen sus últimos valores, como `onMessage` lee `isMuted`). **Ahora que has leído `isMuted` dentro de un Evento de Efecto, no necesita ser una dependencia de tu Efecto**. Como resultado, el chat no se reconectará cuando cambies la configuración "Muted" de _on_ a _off_, ¡solucionando el problema original!
 
-#### Envolver un manejador de evento de las props {/*wrapping-an-event-handler-from-the-props*/}
+#### Envolver un controlador de evento de las props {/*wrapping-an-event-handler-from-the-props*/}
 
-Puede que te hayas encontrado con un problema similar en el que tu componente recibe un manejador de eventos como una prop:
+Puede que te hayas encontrado con un problema similar en el que tu componente recibe un controlador de evento como una prop:
 
 ```js {1,8,11}
 function ChatRoom({ roomId, onReceiveMessage }) {
@@ -1152,7 +1152,7 @@ function ChatRoom({ getOptions }) {
   // ...
 ```
 
-Esto solo funciona para funciones [puras](/learn/keeping-components-pure) porque es seguro llamarlas durante el renderizado. Si tu función es un manejador de eventos, pero no quieres que sus cambios resincronicen tu Efecto, [envuélvela en un Evento de Efecto](#do-you-want-to-read-a-value-without-reacting-to-its-changes)
+Esto solo funciona para funciones [puras](/learn/keeping-components-pure) porque es seguro llamarlas durante el renderizado. Si tu función es un controlador de evento, pero no quieres que sus cambios resincronicen tu Efecto, [envuélvela en un Evento de Efecto](#do-you-want-to-read-a-value-without-reacting-to-its-changes)
 
 <Recap>
 
@@ -1160,7 +1160,7 @@ Esto solo funciona para funciones [puras](/learn/keeping-components-pure) porque
 - Cuando no estás a gusto con tus dependencias, lo que necesitas editar es el código.
 - Suprimir el linter lleva a errores confusos, y siempre deberías evitarlo.
 - Para eliminar una dependencia, debes "probarle" al linter que no es necesaria.
-- Si el código en tu Efecto debe ejecutarse como respuesta a una interacción específica, mueve el código a un manejador de eventos.
+- Si el código en tu Efecto debe ejecutarse como respuesta a una interacción específica, mueve el código a un controlador de evento.
 - Si partes diferentes de tu Efecto deberían volverse a ejecutar por diferentes razones, divídelo en diferentes Efectos.
 - Si quieres actualizar un estado basado en el estado anterior, pasa una función actualizadora.
 - Si quieres leer el último valor sin "reaccionar" a él, extrae un Evento de Efecto de tu Efecto.
@@ -1812,7 +1812,7 @@ No cambies ningún código dentro de `chat.js`. Aparte de eso, puedes cambiar cu
 
 Estás pasando hacia abajo dos funciones: `onMessage` y `createConnection`. Ambas se crean nuevas cada vez que `App` se rerenderiza. Se consideran nuevos valores cada vez, que es lo que provoca que se vuelva a ejecutar tu Efecto.
 
-Una de estas funciones es un manejador de eventos. ¿Sabes de alguna forma de llamar un manejador de eventos dentro de un Efecto sin "reaccionar" a los nuevos valores de la función manejadora de eventos? ¡Eso sería útil!
+Una de estas funciones es un controlador de evento. ¿Sabes de alguna forma de llamar un controlador de evento dentro de un Efecto sin "reaccionar" a los nuevos valores de la función controladora de evento? ¡Eso sería útil!
 
 La otra función solo existe para pasar algún estado a un método de una API importada. ¿Es esta función realmente necesaria? ¿Cuál es la información esencial que se pasa hacia abajo? Podrías necesitar mover algunas importaciones de `App.js` a `ChatRoo.js`.
 

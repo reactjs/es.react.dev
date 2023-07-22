@@ -280,7 +280,7 @@ export default function ShoppingList() {
 
 ## Responder a eventos {/*responding-to-events*/}
 
-Puedes responder a eventos declarando *manejadores de eventos* dentro de tus componentes:
+Puedes responder a eventos declarando funciones *controladoras de eventos* dentro de tus componentes:
 
 ```js {2-4,7}
 function MyButton() {
@@ -296,7 +296,7 @@ function MyButton() {
 }
 ```
 
-¡Nota que `onClick={handleClick}` no tiene paréntesis al final! No _llames_ a la función manejadora de eventos: solamente necesitas *pasarla hacia abajo*. React llamará a tu manejador de eventos cuando el usuario haga clic en el botón.
+¡Nota que `onClick={handleClick}` no tiene paréntesis al final! No _llames_ a la función controladora de evento: solamente necesitas *pasarla hacia abajo*. React llamará a tu controlador de evento cuando el usuario haga clic en el botón.
 
 ## Actualizar la pantalla {/*updating-the-screen*/}
 
@@ -456,7 +456,7 @@ function MyButton() {
 
 ```
 
-Luego, *pasa el estado hacia abajo* desde `MyApp` hacia cada `MyButton`, junto con la función compartida para manejar el evento de clic. Puedes pasar la información a `MyButton` usando las llaves de JSX, de la misma forma como lo hiciste anteriormente con las etiquetas nativas `<img>`:
+Luego, *pasa el estado hacia abajo* desde `MyApp` hacia cada `MyButton`, junto con la función compartida para controlar el evento de clic. Puedes pasar la información a `MyButton` usando las llaves de JSX, de la misma forma como lo hiciste anteriormente con las etiquetas nativas `<img>`:
 
 ```js {11-12}
 export default function MyApp() {
@@ -476,7 +476,7 @@ export default function MyApp() {
 }
 ```
 
-La información que pasas hacia abajo se llaman _props_. Ahora el componente `MyApp` contiene el estado `count` y el manejador de eventos `handleClick`, y *pasa ambos hacia abajo como props* a cada uno de los botones.
+La información que pasas hacia abajo se llaman _props_. Ahora el componente `MyApp` contiene el estado `count` y el controlador de evento `handleClick`, y *pasa ambos hacia abajo como props* a cada uno de los botones.
 
 Finalmente, cambia `MyButton` para que *lea* las props que le pasaste desde el componente padre:
 
@@ -490,9 +490,9 @@ function MyButton({ count, onClick }) {
 }
 ```
 
-Cuando haces clic en el botón, el manejador `onClick` se dispara. A la prop `onClick` de cada botón se le asignó la función `handleClick` dentro de `MyApp`, de forma que el código dentro de ella se ejecuta. Ese código llama a `setCount(count + 1)`, que incremente la variable de estado `count`. El nuevo valor de `count` se pasa como prop a cada botón, y así todos muestran el nuevo valor.
+Cuando haces clic en el botón, el controlador `onClick` se dispara. A la prop `onClick` de cada botón se le asignó la función `handleClick` dentro de `MyApp`, de forma que el código dentro de ella se ejecuta. Ese código llama a `setCount(count + 1)`, que incremente la variable de estado `count`. El nuevo valor de `count` se pasa como prop a cada botón, y así todos muestran el nuevo valor.
 
-Esto se llama "levantar el estado hacia arriba". Al mover el estado hacia arriba, lo compartimos entre componentes.
+Esto se llama "levantar el estado". Al mover el estado hacia arriba, lo compartimos entre componentes.
 
 <Sandpack>
 

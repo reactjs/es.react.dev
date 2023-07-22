@@ -168,7 +168,7 @@ export default function Stopwatch() {
 
 </Sandpack>
 
-Cuando una pieza de información es usada para el renderizado, guárdala en el estado. Cuando una pieza de información solo se necesita en los manejadores de eventos y no requiere un rerenderizado, usar una ref quizás sea más eficiente.
+Cuando una pieza de información es usada para el renderizado, guárdala en el estado. Cuando una pieza de información solo se necesita en los controladores de eventos y no requiere un rerenderizado, usar una ref quizás sea más eficiente.
 
 ## Diferencias entre las refs y el estado {/*differences-between-refs-and-state*/}
 
@@ -360,7 +360,7 @@ export default function Chat() {
 
 <Solution>
 
-Sin importar cuándo tu componente se rerenderice (como cuando asignas el estado), todas las variables locales se inicializan desde cero. Por eso es que no puedes guardar el identificador del timeout en una variable local como `timeoutID` y luego esperar que otro manejador de eventos lo "vea" en el futuro. En cambio, almacénalo en una ref, que React preservará entre renderizados.
+Sin importar cuándo tu componente se rerenderice (como cuando asignas el estado), todas las variables locales se inicializan desde cero. Por eso es que no puedes guardar el identificador del timeout en una variable local como `timeoutID` y luego esperar que otro controlador de evento lo "vea" en el futuro. En cambio, almacénalo en una ref, que React preservará entre renderizados.
 
 <Sandpack>
 
@@ -464,7 +464,7 @@ export default function Toggle() {
 
 #### Arregla el _debounce_ {/*fix-debouncing*/}
 
-En este ejemplo, todos los manejadores de clic usan [el "corte de rebote" o _"debounce"_.](https://redd.one/blog/debounce-vs-throttle) Para ver que significa esto, presiona uno de los botones. Fíjate como el mensaje aparece un segundo después. Si presionas el botón mientras esperas el mensaje, el temporizador se reiniciará. Así que si te mantienes cliqueando el mismo botón rápidamente muchas veces, el mensaje no aparecerá hasta un segundo *después* de que pares de hacer clic. El _debounce_ te permite retrasar algunas acciones hasta que el usuario "pare de hacer cosas".
+En este ejemplo, todos los controladores de clic usan [el "corte de rebote" o _"debounce"_.](https://redd.one/blog/debounce-vs-throttle) Para ver que significa esto, presiona uno de los botones. Fíjate como el mensaje aparece un segundo después. Si presionas el botón mientras esperas el mensaje, el temporizador se reiniciará. Así que si te mantienes cliqueando el mismo botón rápidamente muchas veces, el mensaje no aparecerá hasta un segundo *después* de que pares de hacer clic. El _debounce_ te permite retrasar algunas acciones hasta que el usuario "pare de hacer cosas".
 
 Este ejemplo funciona, pero no tan bien como se esperaba. Los botones no son independientes. Para ver el problema, haz clic en uno de los botones, y luego inmediatamente haz clic en otro botón. Esperarías que después de un retraso, podrías ver los mensajes de ambos botones. Pero solo se muestra el mensaje del último botón. El mensaje del primer botón se pierde.
 

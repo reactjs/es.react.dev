@@ -2164,7 +2164,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-Aunque podrías cambiar cuidadosamente cada controlador de eventos para actualizar correctamente los contadores `total` y `packed`, el problema principal es que estas variables de estado existan desde un inicio. Son redundantes porque siempre se puede calcular el número de elementos (empaquetados o totales) a partir de la propia matriz `items`. Elimine el estado redundante para corregir el error:
+Aunque podrías cambiar cuidadosamente cada controlador de evento para actualizar correctamente los contadores `total` y `packed`, el problema principal es que estas variables de estado existan desde un inicio. Son redundantes porque siempre se puede calcular el número de elementos (empaquetados o totales) a partir de la propia matriz `items`. Elimine el estado redundante para corregir el error:
 
 <Sandpack>
 

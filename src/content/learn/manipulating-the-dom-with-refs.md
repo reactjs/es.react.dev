@@ -37,7 +37,7 @@ Finalmente, pasa la ref como el atributo `ref` a la etiqueta JSX en el que quier
 <div ref={myRef}>
 ```
 
-El _Hook_ `useRef` devuelve un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React cree un nodo DOM para este `<div>`, React pondrá una referencia a este nodo en `myRef.current`. Entonces podrás acceder a este nodo DOM desde tus [manejadores de eventos](/learn/responding-to-events) y usar las [API de navegador](https://developer.mozilla.org/es/docs/Web/API/Element) integradas definidas en él.
+El _Hook_ `useRef` devuelve un objeto con una sola propiedad llamada `current`. Inicialmente, `myRef.current` va a ser `null`. Cuando React cree un nodo DOM para este `<div>`, React pondrá una referencia a este nodo en `myRef.current`. Entonces podrás acceder a este nodo DOM desde tus [controladores de eventos](/learn/responding-to-events) y usar las [API de navegador](https://developer.mozilla.org/es/docs/Web/API/Element) integradas definidas en él.
 
 ```js
 // Puedes usar cualquier API de navegador, por ejemplo:
@@ -78,7 +78,7 @@ Para implementar esto:
 1. Declara `inputRef` con el _Hook_ `useRef`.
 2. Pásalo como `<input ref={inputRef}>`. Esto le dice a React que **coloque el nodo DOM `<input>` en `inputRef.current`.**
 3. En la función `handleClick`, lee el nodo _input_ del DOM desde `inputRef.current` y llama a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él con `inputRef.current.focus()`.
-4. Pasa el manejador de eventos `handleClick` a `<button>` con `onClick`.
+4. Pasa el controlador de evento `handleClick` a `<button>` con `onClick`.
 
 Mientras manipular el DOM es el caso de uso más común para las refs, el _Hook_ `useRef` puede ser usado para almacenar otras cosas fuera de React, como las ID de temporizadores. De manera similar al estado, las refs permanecen entre renderizados. Las refs son como variables de estado que no desencadenan nuevos renderizados cuando las pones. Lee acerca de las refs en [Referenciar valores con refs.](/learn/referencing-values-with-refs)
 
@@ -496,7 +496,7 @@ En general, [no quieres](/learn/referencing-values-with-refs#best-practices-for-
 
 React establece `ref.current` durante la confirmación. Antes de actualizar el DOM, React establece los valores afectados de `ref.current` a `null`. Después de actualizar el DOM, React inmediatamente los establece en los nodos DOM correspondientes.
 
-**Generalmente, vas a acceder a las refs desde los manejadores de eventos.** Si quieres hacer algo con una ref, pero no hay un evento en particular para hacerlo, es posible que necesites un Efecto. Discutiremos los efectos en las próximas páginas. 
+**Generalmente, vas a acceder a las refs desde los controladores de eventos.** Si quieres hacer algo con una ref, pero no hay un evento en particular para hacerlo, es posible que necesites un Efecto. Discutiremos los efectos en las próximas páginas. 
 
 <DeepDive>
 
@@ -746,7 +746,7 @@ Para un desafío extra, mantén el botón "Reproducir" sincronizado con la repro
 
 <Solution>
 
-Declara una ref y colócala en el elemento `<video>`. Luego llama a `ref.current.play()` y `ref.current.pause()` en el manejador de evento dependiendo del siguiente estado.   
+Declara una ref y colócala en el elemento `<video>`. Luego llama a `ref.current.play()` y `ref.current.pause()` en el controlador de evento dependiendo del siguiente estado.   
 
 <Sandpack>
 
@@ -795,7 +795,7 @@ button { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-Para manejar los controles integrados del navegador, puedes agregar los manejadores `onPlay` y `onPause` al elemento `<video>` y llamar a `setIsPlaying` desde ellos. De esta manera, si el usuario reproduce el video usando los controles del navegador, el estado se ajustará en consecuencia.  
+Para manejar los controles integrados del navegador, puedes agregar los controladores `onPlay` y `onPause` al elemento `<video>` y llamar a `setIsPlaying` desde ellos. De esta manera, si el usuario reproduce el video usando los controles del navegador, el estado se ajustará en consecuencia.  
 
 </Solution>
 
@@ -1145,7 +1145,7 @@ button { display: block; margin-bottom: 10px; }
 
 <Solution>
 
-Necesitarás agregar una propiedad `onClick` a `SearchButton`, y hacer que `SearchButton` lo pase al `<button>` del navegador. También pasarás una ref a `<SearchInput>`, que lo va a redirigir al `<input>` real y la completará. Finalmente, en el manejador de clic, llamarás  a `focus` en el nodo DOM almacenado dentro de esa ref.
+Necesitarás agregar una propiedad `onClick` a `SearchButton`, y hacer que `SearchButton` lo pase al `<button>` del navegador. También pasarás una ref a `<SearchInput>`, que lo va a redirigir al `<input>` real y la completará. Finalmente, en el controlador de clic, llamarás  a `focus` en el nodo DOM almacenado dentro de esa ref.
 
 <Sandpack>
 

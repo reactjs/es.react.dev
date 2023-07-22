@@ -36,7 +36,7 @@ Puedes [hacer un text area controlado](#controlling-a-text-area-with-a-state-var
 
 * `value`: Un string. Controla el texto dentro del text area.
 
-Cuando pasas `value`, también debes pasar un manejador `onChange` que actualice el valor proporcionado.
+Cuando pasas `value`, también debes pasar un controlador `onChange` que actualice el valor proporcionado.
 
 En cambio, si tu `<textarea>` no es controlado, puedes pasar la prop `defaultValue`:
 
@@ -53,13 +53,13 @@ Estas props de `<textarea>` son relevantes tanto para text areas controlados com
 * [`maxLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-maxlength): Un número. Especifica la longitud máxima del texto.
 * [`minLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-minlength): Un número. Especifica la longitud mínima del texto.
 * [`name`](https://developer.mozilla.org/es/docs/Web/HTML/Element/input#attr-name): Un string. Especifica el nombre para este input que es [enviado con el formulario.](#reading-the-textarea-value-when-submitting-a-form)
-* `onChange`: Una función [manejadora de eventos](/reference/react-dom/components/common#event-handler). Requerida para [text areas controlados.](#controlling-a-text-area-with-a-state-variable) Es ejecutada inmediatamente cuando el valor del input es modificado por el usuario (por ejemplo, es ejecutada con cada pulsación de tecla). Se comporta como el [evento `input`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event) del navegador.
+* `onChange`: Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Requerida para [text areas controlados.](#controlling-a-text-area-with-a-state-variable) Es ejecutada inmediatamente cuando el valor del input es modificado por el usuario (por ejemplo, es ejecutada con cada pulsación de tecla). Se comporta como el [evento `input`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event) del navegador.
 * `onChangeCapture`: Una versión de `onChange` que es ejecutada en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Una función [manejadora de eventos](/reference/react-dom/components/common#event-handler). Es ejecutada inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar, el cual funciona de manera similar.
+* [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Es ejecutada inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar, el cual funciona de manera similar.
 * `onInputCapture`: Una versión de `onInput` que es ejecutada en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onInvalid`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/invalid_event): Una función [manejadora de eventos](/reference/react-dom/components/common#event-handler). Es ejecutada si la validación de un input fracasa al enviar el formulario. A diferencia del evento `invalid` que viene integrado, el evento `onInvalid` de React se propaga.
+* [`onInvalid`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/invalid_event): Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Es ejecutada si la validación de un input fracasa al enviar el formulario. A diferencia del evento `invalid` que viene integrado, el evento `onInvalid` de React se propaga.
 * `onInvalidCapture`: Una versión de `onInvalid` que es ejecutado en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSelect`](https://developer.mozilla.org/es-US/docs/Web/API/HTMLTextAreaElement/select_event): Una función [manejadora de eventos](/reference/react-dom/components/common#event-handler). Es ejecutada después de que la selección dentro de `<textarea>` cambia. React extiende el evento `onSelect` para que también sea ejecutado para selecciones vacías y en ediciones (las cuales puede afectar la selección).
+* [`onSelect`](https://developer.mozilla.org/es-US/docs/Web/API/HTMLTextAreaElement/select_event): Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Es ejecutada después de que la selección dentro de `<textarea>` cambia. React extiende el evento `onSelect` para que también sea ejecutado para selecciones vacías y en ediciones (las cuales puede afectar la selección).
 * `onSelectCapture`: Una versión de `onSelect` que es ejecutada en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`placeholder`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-placeholder): Un string. Mostrado en un color atenuado cuando el valor del text area está vacío.
 * [`readOnly`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-readonly): Un booleano. Si es `true`, el text area no puede ser editado por el usuario.
@@ -73,7 +73,7 @@ Estas props de `<textarea>` son relevantes tanto para text areas controlados com
 - Si un text area recibe una prop `value` string, este será [tratado como controlado.](#controlling-a-text-area-with-a-state-variable)
 - Un text area no puede ser controlado y no controlado a la vez.
 - Un text area no puede alternar entre ser controlado o no controlado a lo largo de su vida.
-- Todo text area controlado necesita un manejador de evento `onChange` que actualice su valor de manera síncrona.
+- Todo text area controlado necesita un controlador de evento `onChange` que actualice su valor de manera síncrona.
 
 ---
 
@@ -185,7 +185,7 @@ A diferencia de HTML, no es posible pasar el texto inicial como `<textarea>Algú
 
 ### Leer el valor de text area al enviar un formulario {/*reading-the-text-area-value-when-submitting-a-form*/}
 
- Agrega un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) alrededor de tu text area con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit) dentro. Este llamará a tu manejador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a el URL actual y actualizará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
+ Agrega un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) alrededor de tu text area con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit) dentro. Este llamará a tu controlador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a el URL actual y actualizará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
 
 <Sandpack>
 
@@ -331,7 +331,7 @@ textarea { display: block; margin-top: 5px; margin-bottom: 10px; }
 
 <Pitfall>
 
-**Si pasas `value` sin `onChange`, será imposible escribir en el text area.** Cuando controlas un text area pasándole un `value`, lo estás forzando a siempre tener el valor proporcionado. Así que si pasas una variable de estado como un `value` pero olvidas actualizar esa variable de estado de manera síncrona durante el manejador de eventos `onChange`, React revertirá el text area al `value` especificado después de cada pulsación de tecla.
+**Si pasas `value` sin `onChange`, será imposible escribir en el text area.** Cuando controlas un text area pasándole un `value`, lo estás forzando a siempre tener el valor proporcionado. Así que si pasas una variable de estado como un `value` pero olvidas actualizar esa variable de estado de manera síncrona durante el controlador de evento `onChange`, React revertirá el text area al `value` especificado después de cada pulsación de tecla.
 
 </Pitfall>
 
@@ -344,7 +344,7 @@ textarea { display: block; margin-top: 5px; margin-bottom: 10px; }
 Si renderizas un text area con `value` pero sin `onChange`, verás un error en la consola:
 
 ```js
-// 🔴 Error: text area controlado sin manejador onChange
+// 🔴 Error: text area controlado sin controlador onChange
 <textarea value={something} />
 ```
 
@@ -361,7 +361,7 @@ Como sugiere el mensaje de error, si solo quisiste [especificar el valor *inicia
 <textarea defaultValue={something} />
 ```
 
-Si quieres [controlar este text area con una variable de estado,](#controlling-a-text-area-with-a-state-variable) especifica un manejador `onChange`:
+Si quieres [controlar este text area con una variable de estado,](#controlling-a-text-area-with-a-state-variable) especifica un controlador `onChange`:
 
 ```js
 // ✅ Bien: text area controlado con onChange

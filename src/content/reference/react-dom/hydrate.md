@@ -74,7 +74,7 @@ Utilizar `hydrate()` para renderizar una aplicación del lado del cliente (una a
 
 ### Hidratar HTML renderizado por el servidor {/*hydrating-server-rendered-html*/}
 
-En React, la "hidratación" es la forma en que React se "adhiere" al HTML existente que ya fue renderizado por React en un entorno de servidor. Durante la hidratación, React intentará adjuntar manejadores de eventos al marcado existente y se encargará de renderizar la aplicación en el cliente.
+En React, la "hidratación" es la forma en que React se "adhiere" al HTML existente que ya fue renderizado por React en un entorno de servidor. Durante la hidratación, React intentará adjuntar controladores de eventos al marcado existente y se encargará de renderizar la aplicación en el cliente.
 
 En las aplicaciones totalmente construidas con React, **sólo se hidratará una "raíz", una vez al inicio para toda la aplicación**.
 

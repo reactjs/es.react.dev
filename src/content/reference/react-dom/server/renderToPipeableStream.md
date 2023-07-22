@@ -289,7 +289,7 @@ El *streaming* no necesita esperar a que React se cargue en el navegador o a que
 - Obtención de datos con *frameworks* habilitados para Suspense, como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
 - Carga diferida de código de componentes con [`lazy`](/reference/react/lazy)
 
-Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o manejador de eventos.
+Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o controlador de evento.
 
 La forma exacta de cargar los datos en el componente `Posts` anterior dependerá de tu *framework*. Si usas un *framework* habilitado para Suspense, encontrarás los detalles en su documentación de obtención de datos.
 

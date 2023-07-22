@@ -84,7 +84,7 @@ Las funciones `dispatch` no tienen valor de retorno.
 
 * Si el nuevo valor que proporcionas es idéntico al `state` actual, determinado por una comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **saltará el renderizado del componente y sus hijos.** Esto es una optimización. React aún puede necesitar llamar a tu componente antes de ignorar el resultado, pero no debería afectar a tu código.
 
-* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los manejadores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
+* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
 
 ---
 
@@ -157,7 +157,7 @@ button { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-`useReducer` es muy similar a [`useState`](/reference/react/useState), pero te permite mover la lógica de actualización de estado de los manejadores de eventos a una única función fuera de tu componente. Más información sobre [elegir entre `useState` y `useReducer`.](/learn/extracting-state-logic-into-a-reducer#comparing-usestate-and-usereducer)
+`useReducer` es muy similar a [`useState`](/reference/react/useState), pero te permite mover la lógica de actualización de estado de los controladores de eventos a una única función fuera de tu componente. Más información sobre [elegir entre `useState` y `useReducer`.](/learn/extracting-state-logic-into-a-reducer#comparing-usestate-and-usereducer)
 
 ---
 
@@ -955,7 +955,7 @@ function handleClick() {
 }
 ```
 
-Esto se debe a que [el estado se comporta como una instantánea] (/learn/state-as-a-snapshot) La actualización del estado solicita otra renderización con el nuevo valor de estado, pero no afecta a la variable JavaScript `state` en su manejador de eventos ya en ejecución.
+Esto se debe a que [el estado se comporta como una instantánea] (/learn/state-as-a-snapshot) La actualización del estado solicita otra renderización con el nuevo valor de estado, pero no afecta a la variable JavaScript `state` en su controlador de evento ya en ejecución.
 
 Si necesitas averiguar el valor del siguiente estado, puedes calcularlo manualmente llamando tú mismo al reducer:
 
@@ -1062,7 +1062,7 @@ También puedes utilizar un comprobador de tipos estático como TypeScript para 
 
 ### Recibo un error: "Too many re-renders" {/*im-getting-an-error-too-many-re-renders*/}
 
-Puede que obtengas un error que dice: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (Demasiados rerenderizados. React limita el número de renderizados para evitar un bucle infinito). Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un manejador de eventos:
+Puede que obtengas un error que dice: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (Demasiados rerenderizados. React limita el número de renderizados para evitar un bucle infinito). Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un controlador de evento:
 
 ```js {1-2}
 // 🚩 Wrong: calls the handler during render
@@ -1120,6 +1120,6 @@ function reducer(state, action) {
 }
 ```
 
-Ahora que esta función reducer es pura, llamarla una vez extra no hace ninguna diferencia en el comportamiento. Esta es la razón por la que React llamándola dos veces te ayuda a encontrar errores. **Los manejadores de eventos no necesitan ser puros.** así que React nunca llamará a tus manejadores de eventos dos veces.
+Ahora que esta función reducer es pura, llamarla una vez extra no hace ninguna diferencia en el comportamiento. Esta es la razón por la que React llamándola dos veces te ayuda a encontrar errores. **Los controladores de eventos no necesitan ser puros.** así que React nunca llamará a tus controladores de eventos dos veces.
 
 Lee [mantener los componentes puros](/learn/keeping-components-pure) para obtener más información.

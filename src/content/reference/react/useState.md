@@ -320,7 +320,7 @@ React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-f
 
 Es posible que escuches una recomendación para escribir siempre código como `setEdad(e => e + 1)` si el estado que está configurando se calcula a partir del estado anterior.  No hay daño en ello, pero tampoco es necesario siempre. 
 
-En la mayoría de los casos, no hay diferencia entre estos dos enfoques. React siempre se asegura de que para las acciones intencionales del usuario, como los clicks, la variable de estado `edad` se actualizará antes del siguiente click. Esto significa que no hay riesgo de que un controlador de clicks vea un mensaje "obsoleto" de `edad` al comienzo del controlador de eventos.
+En la mayoría de los casos, no hay diferencia entre estos dos enfoques. React siempre se asegura de que para las acciones intencionales del usuario, como los clicks, la variable de estado `edad` se actualizará antes del siguiente click. Esto significa que no hay riesgo de que un controlador de clicks vea un mensaje "obsoleto" de `edad` al comienzo del controlador de evento.
 
 Sin embargo, si realizas varias actualizaciones dentro del mismo evento, los actualizadores pueden ser útiles. También son útiles si acceder a la variable de estado en sí es un inconveniente (es posible que te encuentres con esto al optimizar los renderizados). 
 
@@ -1163,7 +1163,7 @@ function handleClick() {
 }
 ```
 
-Esto se debe a que [los estados se comportan como una instantánea.](/learn/state-as-a-snapshot) La actualización del estado solicita otro procesamiento con el nuevo valor del estado, pero no afecta la variable de JavaScript `count` en tu manejador de eventos que ya se está ejecutando.
+Esto se debe a que [los estados se comportan como una instantánea.](/learn/state-as-a-snapshot) La actualización del estado solicita otro procesamiento con el nuevo valor del estado, pero no afecta la variable de JavaScript `count` en tu controlador de evento que ya se está ejecutando.
 
 Si necesitas usar el siguiente estado, puedes guardarlo en una variable antes de pasarlo a la función `set`:
 
@@ -1200,13 +1200,13 @@ setObj({
 
 ### Recibo un error: "Demasiados renderizados" {/*im-getting-an-error-too-many-re-renders*/}
 
-Es posible que recibas un error que diga: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (`Demasiados renderizados. React limita la cantidad de renderizados para evitar un bucle infinito.`) Por lo general, esto significa que estás estableciendo el estado incondicionalmente *durante el renderizado*, por lo que tu componente entra en un bucle: renderizar, establecer el estado (lo que provoca un renderizado), renderizar, establecer estado (que provoca un renderizado), y así sucesivamente. Muy a menudo, esto se debe a un error al especificar un controlador de eventos:
+Es posible que recibas un error que diga: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (`Demasiados renderizados. React limita la cantidad de renderizados para evitar un bucle infinito.`) Por lo general, esto significa que estás estableciendo el estado incondicionalmente *durante el renderizado*, por lo que tu componente entra en un bucle: renderizar, establecer el estado (lo que provoca un renderizado), renderizar, establecer estado (que provoca un renderizado), y así sucesivamente. Muy a menudo, esto se debe a un error al especificar un controlador de evento:
 
 ```js {1-2}
 // 🚩 Incorrecto: llama al controlador durante el procesamiento
 return <button onClick={handleClick()}>Haz click en mi</button>
 
-// ✅ Correcto: pasa el controlador de eventos
+// ✅ Correcto: pasa el controlador de evento
 return <button onClick={handleClick}>Haz click en mi</button>
 
 // ✅ Correcto: pasa una función en línea

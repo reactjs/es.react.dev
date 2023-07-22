@@ -99,7 +99,7 @@ Lee **[Manipular el DOM con refs](/learn/manipulating-the-dom-with-refs)** para 
 
 ## Sincronizar con efectos {/*synchronizing-with-effects*/}
 
-Algunos componentes necesitan sincronizarse con sistemas externos. Por ejemplo, es posible que desees controlar un componente que no sea de React basado en el estado de React, establecer una conexión a un servidor, enviar reporte de analíticas cuando un componente aparece en la pantalla. A diferencia de los manejadores de eventos, que permiten manejar eventos concretos, los *Efectos* te permiten ejecutar algún código después de renderizar. Úsalos para sincronizar tu componente con un sistema externo a React.
+Algunos componentes necesitan sincronizarse con sistemas externos. Por ejemplo, es posible que desees controlar un componente que no sea de React basado en el estado de React, establecer una conexión a un servidor, enviar reporte de analíticas cuando un componente aparece en la pantalla. A diferencia de los controladores de eventos, que permiten controlar eventos concretos, los *Efectos* te permiten ejecutar algún código después de renderizar. Úsalos para sincronizar tu componente con un sistema externo a React.
 
 Presiona Reproducir/Pausar unas veces y mira cómo el reproductor de video permanece sincronizado al valor de la prop `isPlaying`:
 
@@ -197,7 +197,7 @@ Los Efectos son una puerta de escape del paradigma de React. Te permiten "salir"
 
 Hay dos casos comunes en los que no necesitas Efectos:
 - **No necesitas Efectos para transformar los datos para el renderizado.**
-- **No necesitas Efectos para manejar eventos de usuario.**
+- **No necesitas Efectos para controlar eventos de usuario.**
 
 Por ejemplo, no necesitas un Efecto para ajustar algún estado basado en otro estado:
 
@@ -318,7 +318,7 @@ Esta sección describe una **API experimental que aún no se ha publicado** en u
 
 </Wip>
 
-Los manejadores de eventos únicamente se vuelven a ejecutar cuando realizas de nuevo la misma interacción. A diferencia de los manejadores de eventos, los Efectos se vuelven a sincronizar si alguno de los valores que leen, como props o estados, son diferentes a los del último renderizado. Algunas veces, quieres una mezcla de ambos comportamientos: un Efecto que se vuelve a ejecutar en respuesta de algunos valores.
+Los controladores de eventos únicamente se vuelven a ejecutar cuando realizas de nuevo la misma interacción. A diferencia de los controladores de eventos, los Efectos se vuelven a sincronizar si alguno de los valores que leen, como props o estados, son diferentes a los del último renderizado. Algunas veces, quieres una mezcla de ambos comportamientos: un Efecto que se vuelve a ejecutar en respuesta de algunos valores.
 
 Todo el código dentro de los Efectos es *reactivo.* Se ejecutará de nuevo si algún valor reactivo que lee, ha cambiado debido a una nueva renderización. Por ejemplo, este Efecto volverá a conectarse con el chat si `roomId` o `theme` han cambiado:
 
