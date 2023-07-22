@@ -449,7 +449,7 @@ Cuando necesites compartir el estado en sí entre múltiples componentes, [levá
 
 El código dentro de los Hooks personalizados se volverá a ejecutar durante cada nuevo renderizado de tu componente. Por eso, como los componentes, los Hooks personalizados [deben ser puros.](/learn/keeping-components-pure) ¡Piensa en el código de los Hooks personalizados como parte del cuerpo de tu componente!
 
-Dado que los Hooks personalizados se rerenderizan en conjunto con tu componente, siempre reciben las últimas props y estado. Para ver qué significa esto, considera este ejemplo de una sala de chat. Cambia la URL del servidor o la sala de chat seleccionada:
+Dado que los Hooks personalizados se rerenderizan en conjunto con tu componente, siempre reciben las últimas props y estado. Para ver qué significa esto, considera este ejemplo de una sala de chat. Cambia el URL del servidor o la sala de chat seleccionada:
 
 <Sandpack>
 
@@ -645,7 +645,7 @@ export default function ChatRoom({ roomId }) {
 
 ¡Esto parece mucho más simple! (Pero hace lo mismo).
 
-Observa que la lógica *sigue respondiendo* a los cambios de props y estado. Intenta editar la URL o la sala seleccionada:
+Observa que la lógica *sigue respondiendo* a los cambios de props y estado. Intenta editar el URL o la sala seleccionada:
 
 <Sandpack>
 

@@ -1,10 +1,10 @@
 ---
-title: "APIs integradas de React"
+title: "Las API integradas de React"
 ---
 
 <Intro>
 
-Además de [Hooks](/reference/react) y [Componentes](/reference/react/components), el paquete `react` exporta algunas otras APIs que son útiles para definir componentes. Esta página lista todas las demás APIs modernas de React.
+Además de [Hooks](/reference/react) y [Componentes](/reference/react/components), el paquete `react` exporta algunas otras API que son útiles para definir componentes. Esta página lista todas las demás API modernas de React.
 
 </Intro>
 

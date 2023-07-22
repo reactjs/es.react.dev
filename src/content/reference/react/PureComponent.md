@@ -42,7 +42,7 @@ class Greeting extends PureComponent {
 }
 ```
 
-`PureComponent` es una subclase de `Component` y admite [todas las APIs de `Component`.](/reference/react/Component#reference) Extender `PureComponent` es equivalente a definir un método personalizado [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) que compara superficialmente las props y el estado.
+`PureComponent` es una subclase de `Component` y admite [todas las API de `Component`.](/reference/react/Component#reference) Extender `PureComponent` es equivalente a definir un método personalizado [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) que compara superficialmente las props y el estado.
 
 
 [Ver más ejemplos abajo.](#usage)

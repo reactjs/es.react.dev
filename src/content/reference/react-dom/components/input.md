@@ -235,7 +235,7 @@ input { margin: 5px; }
 
 ### Leer los valores de los inputs cuando se envía un formulario {/*reading-the-input-values-when-submitting-a-form*/}
 
-Añade un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) que rodee tus inputs con un [`<button type="submit">`](https://developer.mozilla.org/es/docs/Web/HTML/Element/button) dentro. Llamará tu manejador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a la URL actual y refrescará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
+Añade un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) que rodee tus inputs con un [`<button type="submit">`](https://developer.mozilla.org/es/docs/Web/HTML/Element/button) dentro. Llamará tu manejador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a el URL actual y refrescará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
 <Sandpack>
 
 ```js

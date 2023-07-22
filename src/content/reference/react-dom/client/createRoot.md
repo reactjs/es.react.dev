@@ -46,7 +46,7 @@ Una aplicación construida completamente con React suele llamar `createRoot` una
 * **opcional** `options`: Un objeto que contiene opciones para esta raíz de React.
 
   * **opcional** `onRecoverableError`: _callback_ que se llama cuando React se recupera de errores automáticamente.
-  * **opcional** `identifierPrefix`: prefijo de tipo string que React utiliza para IDs generados por [`useId`.](/apis/react/useId) Útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página.
+  * **opcional** `identifierPrefix`: prefijo de tipo string que React utiliza para los ID generados por [`useId`.](/apis/react/useId) Útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página.
 
 #### Devuelve {/*returns*/}
 

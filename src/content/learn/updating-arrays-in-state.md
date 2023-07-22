@@ -206,7 +206,7 @@ setArtists(
 );
 ```
 
-Aquí, `artists.filter(a => a.id !== artist.id)` significa "crea un nuevo _array_ conformado por aquellos `artists` cuyos IDs son diferentes de `artist.id`". En otras palabras, el botón "Eliminar" de cada artista filtrará a _ese_ artista del _array_ y luego solicitará un rerenderizado con el _array_ resultante. Ten en cuenta que `filter` no modifica el _array_ original.
+Aquí, `artists.filter(a => a.id !== artist.id)` significa "crea un nuevo _array_ conformado por aquellos `artists` cuyos ID son diferentes de `artist.id`". En otras palabras, el botón "Eliminar" de cada artista filtrará a _ese_ artista del _array_ y luego solicitará un rerenderizado con el _array_ resultante. Ten en cuenta que `filter` no modifica el _array_ original.
 
 ### Transformar un _array_ {/*transforming-an-array*/}
 

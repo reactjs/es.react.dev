@@ -4,7 +4,7 @@ title: Tu primer componente
 
 <Intro>
 
-Los *componentes* son uno de los conceptos esenciales de React. Constituyen los cimientos sobre los que construyes interfaces de usuario (UIs por sus siglas en inglés). ¡Y eso los convierte en el lugar perfecto para comenzar tu recorrido por React!
+Los *componentes* son uno de los conceptos esenciales de React. Constituyen los cimientos sobre los que construyes interfaces de usuario (las UI por sus siglas en inglés). ¡Y eso los convierte en el lugar perfecto para comenzar tu recorrido por React!
 
 </Intro>
 
@@ -16,7 +16,7 @@ Los *componentes* son uno de los conceptos esenciales de React. Constituyen los 
 
 </YouWillLearn>
 
-## Componentes: Elementos básicos para construir UIs {/*components-ui-building-blocks*/}
+## Componentes: Elementos básicos para construir las UI {/*components-ui-building-blocks*/}
 
 En la Web, HTML nos permite crear documentos estructurados con su conjunto integrado de etiquetas como `<h1>` y `<li>`:
 

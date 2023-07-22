@@ -22,7 +22,7 @@ Estas actualizaciones son principalmente apuntado a los mantenedores de otras bi
 
 ## ¿Qué hay de nuevo en React 18? {/*whats-coming-in-react-18*/}
 
-Cuando se publique, React 18 incluirá mejoras listas para usar (como [procesamiento por lotes automático](https://github.com/reactwg/react-18/discussions/21)), nuevas APIs (como [`startTransition`](https://github.com/reactwg/react-18/discussions/41)), y un [nuevo renderizad del lado del servidor con *streaming*](https://github.com/reactwg/react-18/discussions/37) integrado con `React.lazy`.
+Cuando se publique, React 18 incluirá mejoras listas para usar (como [procesamiento por lotes automático](https://github.com/reactwg/react-18/discussions/21)), nuevas API (como [`startTransition`](https://github.com/reactwg/react-18/discussions/41)), y un [nuevo renderizad del lado del servidor con *streaming*](https://github.com/reactwg/react-18/discussions/37) integrado con `React.lazy`.
 
 Estas características son posibles gracias a un nuevo mecanismo de suscripción que estamos agregando en React 18. Se llama "renderizado concurrente" y permite a React preparar múltiples versiones de la interfaz de usuario al mismo tiempo. Este cambio se produce principalmente tras bambalinas, pero abre nuevas posibilidades para mejorar el rendimiento real y percibido de tu aplicación.
 

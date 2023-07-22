@@ -50,9 +50,9 @@ En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) 
 
 * **opcional** `options`: Un objeto con opciones de *streaming*.
   * **opcional** `bootstrapScriptContent`: Si lo especificas, este *string* se colocará en una etiqueta `<script>` en línea.
-  * **opcional** `bootstrapScripts`: Un *array* de *strings* con URLs para las etiquetas `<script>` que quieres emitir en la página. Úsalo para incluir el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Si no deseas ejecutar React en el cliente, simplemente omítelo.
+  * **opcional** `bootstrapScripts`: Un *array* de *strings* con los URL para las etiquetas `<script>` que quieres emitir en la página. Úsalo para incluir el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Si no deseas ejecutar React en el cliente, simplemente omítelo.
   * **opcional** `bootstrapModules`: Igual que `bootstrapScripts`, pero emite [`<script type="module">`](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) en su lugar.
-  * **opcional** `identifierPrefix`: Un *string* que indica el prefijo que React usa para los IDs generados por [`useId`.](/reference/react/useId) Es útil para evitar conflictos cuando usas múltiples raíces en la misma página. Debe ser el mismo prefijo que se pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
+  * **opcional** `identifierPrefix`: Un *string* que indica el prefijo que React usa para los ID generados por [`useId`.](/reference/react/useId) Es útil para evitar conflictos cuando usas múltiples raíces en la misma página. Debe ser el mismo prefijo que se pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
   * **opcional** `namespaceURI`: Un *string* con la raíz del [namespace URI](https://developer.mozilla.org/es/docs/Web/API/Document/createElementNS#namespace_uris_v%C3%A1lidos) para el *stream*. El valor predeterminado es HTML estándar. Pasa `'http://www.w3.org/2000/svg'` para SVG o `'http://www.w3.org/1998/Math/MathML'` para MathML.
   * **opcional** `nonce`: Un *string* de [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) para permitir *scripts* de [`script-src` Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
   * **opcional** `onAllReady`: Un *callback* que se ejecuta cuando todo el renderizado está completo, incluyendo tanto el [*shell*](#specifying-what-goes-into-the-shell) como todo el [contenido adicional.](#streaming-more-content-as-it-loads) Puedes usarlo en lugar de `onShellReady` para [rastreadores y generación estática.](#waiting-for-all-content-to-load-for-crawlers-and-static-generation) Si comienzas el *streaming* aquí, no obtendrás ninguna carga progresiva. El *stream* contendrá el HTML final.
@@ -139,9 +139,9 @@ Esto adjuntará escuchadores de eventos al HTML generado por el servidor y lo ha
 
 #### Lectura de rutas de recursos CSS y JS desde la salida de compilación {/*reading-css-and-js-asset-paths-from-the-build-output*/}
 
-Las URLs finales de los recursos (como archivos JavaScript y CSS) a menudo se cifran después de la compilación. Por ejemplo, en lugar de `styles.css`, podrías terminar con `styles.123456.css`. El cifrado de los nombres de archivo de recursos estáticos garantiza que cada compilación distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite habilitar de manera segura el almacenamiento en caché a largo plazo para los recursos estáticos: un archivo con un nombre determinado nunca cambiará de contenido.
+Los URL finales de los recursos (como archivos JavaScript y CSS) a menudo se cifran después de la compilación. Por ejemplo, en lugar de `styles.css`, podrías terminar con `styles.123456.css`. El cifrado de los nombres de archivo de recursos estáticos garantiza que cada compilación distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite habilitar de manera segura el almacenamiento en caché a largo plazo para los recursos estáticos: un archivo con un nombre determinado nunca cambiará de contenido.
 
-Sin embargo, si no conoces las URLs de los recursos hasta después de la compilación, no hay forma de colocarlas en el código fuente. Por ejemplo, escribir `"/styles.css"` en JSX como se hizo antes no funcionaría. Para evitar incluirlos en el código fuente, tu componente raíz puede leer los nombres de archivo reales de un mapa pasado como una prop:
+Sin embargo, si no conoces los URL de los recursos hasta después de la compilación, no hay forma de colocarlas en el código fuente. Por ejemplo, escribir `"/styles.css"` en JSX como se hizo antes no funcionaría. Para evitar incluirlos en el código fuente, tu componente raíz puede leer los nombres de archivo reales de un mapa pasado como una prop:
 
 ```js {1,6}
 export default function App({ assetMap }) {
@@ -158,7 +158,7 @@ export default function App({ assetMap }) {
 }
 ```
 
-En el servidor, renderiza `<App assetMap={assetMap} />` y pasa tu `assetMap` con las URLs de los recursos:
+En el servidor, renderiza `<App assetMap={assetMap} />` y pasa tu `assetMap` con los URL de los recursos:
 
 ```js {1-5,8,9}
 // Deberás obtener este JSON desde tus herramientas de compilación, por ejemplo, leyéndolo desde la salida de compilación.

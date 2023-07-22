@@ -51,9 +51,9 @@ Desde el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoo
 
 * **opcional** `options`: Objeto con las opciones de streaming.
   * **opcional** `bootstrapScriptContent`: Si se especifica, esta cadena será colocada dentro de una etiqueta `<script>`.
-  * **opcional** `bootstrapScripts`: Array de strings que representan las URL para que la etiqueta `<script>` las emita en la página. Utiliza esto para incluír el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omítelo si no planeas usar React en el cliente.
+  * **opcional** `bootstrapScripts`: Array de strings que representan los URL para que la etiqueta `<script>` las emita en la página. Utiliza esto para incluír el `<script>` que llama a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omítelo si no planeas usar React en el cliente.
   * **opcional** `bootstrapModules`: Igual que `bootstrapScripts`, pero emite [`<script type="module">`](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) en su lugar.
-  * **opcional** `identifierPrefix`: Prefijo (string) que React usa para los IDs generados mediante [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se usan múltiples raíces (roots) en la misma página. Debe ser el mismo prefijo que se le pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
+  * **opcional** `identifierPrefix`: Prefijo (string) que React usa para los ID generados mediante [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se usan múltiples raíces (roots) en la misma página. Debe ser el mismo prefijo que se le pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
   * **opcional** `namespaceURI`: Un string con la raíz del [namespace URI](https://developer.mozilla.org/es/docs/Web/API/Document/createElementNS#namespace_uris_válidos) para el stream. Por defecto se usa HTML. Usa `'http://www.w3.org/2000/svg'` para SVG o `'http://www.w3.org/1998/Math/MathML'` para MathML.
   * **opcional** `nonce`: Un string [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) que le permite al script la [`script-src` política de contenido seguro (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
   * **opcional** `onError`: Callback que se activa cuando ocurre un error en el servidor, sea [recuperable](#recovering-from-errors-outside-the-shell) o [no.](#recovering-from-errors-inside-the-shell) Por defecto, solo ejecuta `console.error`. Si lo sobreescribes para [registrar errores en el servidor,](#logging-crashes-on-the-server) asegúrate que sigas llamando a `console.error`. También puedes usarlo para [ajustar el código de estado](#setting-the-status-code) antes de que el shell sea emitido.
@@ -142,7 +142,7 @@ Esto adjuntará detectores de eventos al HTML generado en el servidor, haciendo 
 
 Las URL finales de los recursos (como los archivos CSS y JS) suelen ser hasheadas después de la compilación. Por ejemplo, en lugar de `styles.css` podrías tener `styles.123456.css`. El hasheo de nombres de archivos estáticos garantiza que cada versión distinta del mismo recurso tendrá un nombre de archivo diferente. Esto es útil porque te permite activar de forma segura el almacenamiento en caché a largo plazo para recursos estáticos: un archivo con un nombre característico nunca cambiaría su contenido.
 
-Sin embargo, si no conoces las URLs de los recursos hasta después de tener el build, no te será posible ponerlas en el código fuente. Por ejemplo, si hardcodeas `"/styles.css"` en JSX, esto no funcionaría, puesto que es una URL relativa. Para mantenerlas fuera del código fuente, tu componente raíz puede leer el nombre real de un archivo a través de un mapa pasado como propiedad:
+Sin embargo, si no conoces los URL de los recursos hasta después de tener el build, no te será posible ponerlas en el código fuente. Por ejemplo, si hardcodeas `"/styles.css"` en JSX, esto no funcionaría, puesto que es una URL relativa. Para mantenerlas fuera del código fuente, tu componente raíz puede leer el nombre real de un archivo a través de un mapa pasado como propiedad:
 
 ```js {1,6}
 export default function App({ assetMap }) {
@@ -158,7 +158,7 @@ export default function App({ assetMap }) {
 }
 ```
 
-En el servidor, renderiza `<App assetMap={assetMap} />` y pasa tu `assetMap` con las URLs de los recursos:
+En el servidor, renderiza `<App assetMap={assetMap} />` y pasa tu `assetMap` con los URL de los recursos:
 
 ```js {1-5,8,9}
 // Necesitarás obtener este JSON a través de tus herramientas de compilación. Por ejemplo, leyéndolo desde la consola de compilación

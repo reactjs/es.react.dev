@@ -1,16 +1,16 @@
 ---
-title: "APIs heredadas de React"
+title: "Las API heredadas de React"
 ---
 
 <Intro>
 
-Estas APIs se exportan desde el paquete `react`, pero no se recomiendan para ser usadas en código nuevo. Consulta las páginas de API individuales vinculadas para conocer las alternativas sugeridas.
+Estas API se exportan desde el paquete `react`, pero no se recomiendan para ser usadas en código nuevo. Consulta las páginas de API individuales vinculadas para conocer las alternativas sugeridas.
 
 </Intro>
 
 ---
 
-## APIs heredadas {/*legacy-apis*/}
+## Las API heredadas {/*legacy-apis*/}
 
 * [`Children`](/reference/react/Children) te permite manipular y transformar el JSX recibido como la propiedad `children`. [Ver alternativas.](/reference/react/Children#alternatives)
 * [`cloneElement`](/reference/react/cloneElement) te permite crear un elemento React usando otro elemento como punto de partida. [Ver alternativas.](/reference/react/cloneElement#alternatives)
@@ -23,11 +23,11 @@ Estas APIs se exportan desde el paquete `react`, pero no se recomiendan para ser
 
 ---
 
-## APIs obsoletas {/*deprecated-apis*/}
+## Las API obsoletas {/*deprecated-apis*/}
 
 <Deprecated>
 
-Estas APIs se eliminarán en una futura versión mayor de React.
+Estas API se eliminarán en una futura versión mayor de React.
 
 </Deprecated>
 

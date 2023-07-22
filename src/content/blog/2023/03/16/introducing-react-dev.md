@@ -45,7 +45,7 @@ Veamos más de cerca qué puedes encontrar en cada sección.
 
 <Note>
 
-Todavía hay algunos casos raros de uso de componentes de clase que aún no tienen un equivalente basado en Hooks. Los componentes de clase siguen siendo compatibles y se documentan en la sección de [APIs heredadas de React](/reference/react/legacy) del nuevo sitio.
+Todavía hay algunos casos raros de uso de componentes de clase que aún no tienen un equivalente basado en Hooks. Los componentes de clase siguen siendo compatibles y se documentan en la sección de las [API heredadas de React](/reference/react/legacy) del nuevo sitio.
 
 </Note>
 
@@ -226,7 +226,7 @@ También nos gustaría destacar [Pensar en React](/learn/thinking-in-react), ese
 
 <Note>
 
-El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Bifurcar" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las APIs de React, explorar tus ideas y comprobar tu comprensión.
+El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Bifurcar" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las API de React, explorar tus ideas y comprobar tu comprensión.
 
 </Note>
 
@@ -454,19 +454,19 @@ Hemos confirmado con los proveedores de navegadores que esta representación es 
 
 ## Una nueva y detallada Referencia de la API {/*a-new-detailed-api-reference*/}
 
-En la [Referencia de la API](/reference/react), cada API de React ahora tiene una página dedicada. Esto incluye todo tipo de APIs:
+En la [Referencia de la API](/reference/react), cada API de React ahora tiene una página dedicada. Esto incluye todo tipo de las API:
 
 - Hooks incorporados como [`useState`](/reference/react/useState).
 - Componentes incorporados como [`<Suspense>`](/reference/react/Suspense).
 - Componentes de navegadores incorporados como [`<input>`](/reference/react-dom/components/input).
-- APIs orientadas al framework como [`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
-- Otras APIs de React como [`memo`](/reference/react/memo).
+- Las API orientadas al framework como [`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
+- Otras API de React como [`memo`](/reference/react/memo).
 
 Observarás que cada página de API se divide en al menos dos segmentos: *Referencia* y *Uso*.
 
 [Referencia](/reference/react/useState#reference) describe la firma formal de la API al listar sus argumentos y valores de retorno. Es concisa, pero puede sentirse un poco abstracta si no estás familiarizado con esa API. Describe qué hace una API, pero no cómo utilizarla.
 
-[Uso](/reference/react/useState#usage) muestra por qué y cómo utilizarías esta API en la práctica, como podría explicarlo un colega o un amigo. Muestra los **escenarios canónicos de cómo el equipo de React pretendía que se utilizara cada API.** Hemos añadido fragmentos de código con colores, ejemplos de cómo usar diferentes APIs juntas y recetas que puedes copiar y pegar:
+[Uso](/reference/react/useState#usage) muestra por qué y cómo utilizarías esta API en la práctica, como podría explicarlo un colega o un amigo. Muestra los **escenarios canónicos de cómo el equipo de React pretendía que se utilizara cada API.** Hemos añadido fragmentos de código con colores, ejemplos de cómo usar diferentes API juntas y recetas que puedes copiar y pegar:
 
 <Recipes titleText="Ejemplos básicos de useState" titleId="examples-basic">
 
@@ -604,7 +604,7 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
-Algunas páginas de la API también incluyen [solución de problemas](/reference/react/useEffect#troubleshooting) (para problemas comunes) y [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
+Algunas páginas de la API también incluyen [solución de problemas](/reference/react/useEffect#troubleshooting) (para problemas comunes) y [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para las API obsoletas).
 
 Esperamos que este enfoque haga que la referencia de la API sea útil no solo como una forma de buscar un argumento, sino también como una forma de ver todas las cosas diferentes que se pueden hacer con cualquier API y cómo se conecta con las demás.
 

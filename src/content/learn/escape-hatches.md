@@ -54,7 +54,7 @@ export default function Counter() {
 
 </Sandpack>
 
-Una ref es como un bolsillo secreto de tu componente que React no puede rastrear. Por ejemplo, puedes usar refs para almacenar [timeout IDs](https://developer.mozilla.org/es/docs/Web/API/setTimeout#valor_devuelto), [DOM elements](https://developer.mozilla.org/en-US/docs/Web/API/Element), y otros objetos que no tienen un impacto en el resultado del renderizado de tu componente.
+Una ref es como un bolsillo secreto de tu componente que React no puede rastrear. Por ejemplo, puedes usar refs para almacenar [los ID _timeout_](https://developer.mozilla.org/es/docs/Web/API/setTimeout#valor_devuelto), [elementos DOM](https://developer.mozilla.org/en-US/docs/Web/API/Element), y otros objetos que no tienen un impacto en el resultado del renderizado de tu componente.
 
 <LearnMore path="/learn/referencing-values-with-refs">
 

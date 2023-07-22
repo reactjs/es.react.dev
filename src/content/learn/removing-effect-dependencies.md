@@ -1509,7 +1509,7 @@ Los Eventos de Efecto como `onAppear` no son reactivos, por lo que puedes leer `
 
 #### Soluciona la reconexión del chat {/*fix-a-reconnecting-chat*/}
 
-En este ejemplo, cada vez que presionas "Toggle theme", el chat se reconecte. ¿Por qué pasa esto? Soluciona el error para que el chat se reconecte solo cuando edites la URL del servidor o elijas una habitación de chat diferente.
+En este ejemplo, cada vez que presionas "Toggle theme", el chat se reconecte. ¿Por qué pasa esto? Soluciona el error para que el chat se reconecte solo cuando edites el URL del servidor o elijas una habitación de chat diferente.
 
 Trata `chat.js` como una biblioteca externa de terceros: puedes consultarla para comprobar su API, pero no la edites.
 

@@ -339,7 +339,7 @@ body > div > div { padding: 20px; }
 
 #### Extraer información hacia un objeto {/*extract-information-into-an-object*/}
 
-Extrae la URL de la imagen hacia el objeto `person`.
+Extrae el URL de la imagen hacia el objeto `person`.
 
 <Sandpack>
 
@@ -381,7 +381,7 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Mueve la URL de la imagen a una propiedad llamada `person.imageUrl` y léela desde la etiqueta `<img>` usando las llaves:
+Mueve el URL de la imagen a una propiedad llamada `person.imageUrl` y léela desde la etiqueta `<img>` usando las llaves:
 
 <Sandpack>
 
@@ -426,9 +426,9 @@ body > div > div { padding: 20px; }
 
 #### Escribe una expresión dentro de llaves JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: la URL de base, `imageId`, `imageSize` y la extensión del archivo.
+En el objeto a continuación, el URL de la imagen completa está dividida en 4 partes: el URL de base, `imageId`, `imageSize` y la extensión del archivo.
 
-Queremos que la URL de la imagen combine estos atributos juntos: la URL de base (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
+Queremos que el URL de la imagen combine estos atributos juntos: el URL de base (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
 
 ¿Puedes arreglarlo?
 

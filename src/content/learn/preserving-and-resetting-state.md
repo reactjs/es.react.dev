@@ -1243,7 +1243,7 @@ textarea {
 
 En una aplicación de chat real, probablemente querrás recuperar el estado de la entrada cuando el usuario vuelva a seleccionar el destinatario anterior. Hay algunas maneras de mantener el estado "vivo" para un componente que ya no es visible:
 
-- Podrías mostrar _todos_ los chats en lugar de sólo el actual, pero ocultar todos los demás con CSS. Los chats no se eliminarían del árbol, por lo que su estado local se conservaría. Esta solución funciona muy bien para UIs simples. Pero puede ser muy lenta si los árboles ocultos son grandes y contienen muchos nodos DOM.
+- Podrías mostrar _todos_ los chats en lugar de sólo el actual, pero ocultar todos los demás con CSS. Los chats no se eliminarían del árbol, por lo que su estado local se conservaría. Esta solución funciona muy bien para las UI simples. Pero puede ser muy lenta si los árboles ocultos son grandes y contienen muchos nodos DOM.
 - Podrías [subir el estado](/learn/sharing-state-between-components) y mantener el mensaje pendiente para cada destinatario en el componente padre. De esta manera, cuando los componentes hijos se eliminan, no importa, porque es el padre el que mantiene la información importante. Esta es la solución más común.
 También podrías utilizar una fuente diferente además del estado de React. Por ejemplo, probablemente quieras que el borrador de un mensaje persista incluso si el usuario cierra accidentalmente la página. Para implementar esto, podrías hacer que el componente `Chat` inicialice su estado leyendo de [`localStorage`](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage) y guardar los borradores allí también.
 

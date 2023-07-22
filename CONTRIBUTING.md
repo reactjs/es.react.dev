@@ -20,11 +20,11 @@ La documentación está dividida en secciones para atender a diferentes estilos 
 
 **[Aprende React](https://es.react.dev/learn)** está diseñado para introducir conceptos fundamentales paso a paso. Cada artículo individual de Aprende React se basa en los conocimientos de los anteriores, así que asegúrate de no añadir ninguna "dependencia cíclica" entre ellos. Es importante que el lector pueda empezar por el primer artículo y llegar hasta el último artículo de Aprende React sin tener que "mirar hacia delante" en busca de una definición. Esto explica algunas opciones de ordenación (por ejemplo, que el estado se explique antes que los eventos, o que "pensar en React" no utilice refs). Learn React también sirve como manual de referencia para los conceptos de React, por lo que es importante ser muy estricto con sus definiciones y las relaciones entre ellas.
 
-**[Referencia API](https://es.react.dev/reference/react)** está organizada por APIs y no por conceptos. Pretende ser exhaustiva. Cualquier caso práctico o recomendación que se haya omitido por brevedad en Aprende React se mencionará en la documentación de referencia de las API correspondientes.
+**[Referencia API](https://es.react.dev/reference/react)** está organizada por las API y no por conceptos. Pretende ser exhaustiva. Cualquier caso práctico o recomendación que se haya omitido por brevedad en Aprende React se mencionará en la documentación de referencia de las API correspondientes.
 
 **Intenta seguir tus propias instrucciones.**
 
-Cuando escribas instrucciones paso a paso (por ejemplo, cómo instalar algo), intenta olvidar todo lo que sabes sobre el tema y sigue realmente las instrucciones que has escrito, paso a paso. A menudo descubrirás que hay conocimientos implícitos que olvidaste mencionar, o que en las instrucciones faltan pasos o están desordenados. Puntos extra por hacer que *otra persona* siga los pasos y observar con qué dificultades se encuentra. A menudo será algo muy sencillo que no has previsto.
+Cuando escribas instrucciones paso a paso (por ejemplo, cómo instalar algo), intenta olvidar todo lo que sabes sobre el tema y sigue realmente las instrucciones que has escrito, paso a paso. A menudo descubrirás que hay conocimientos implícitos que olvidaste mencionar, o que en las instrucciones faltan pasos o están desordenados. Puntos extra por hacer que _otra persona_ siga los pasos y observar con qué dificultades se encuentra. A menudo será algo muy sencillo que no has previsto.
 
 ## Pautas para los ejemplos de código
 
@@ -42,7 +42,7 @@ Ignora esto si estás escribiendo específicamente sobre ES5.
 
 Recuerda que ES6 es todavía nuevo para mucha gente. Aunque lo usamos en muchos sitios (`const` / `let`, clases, funciones de flecha), si el código ES5 equivalente es igual de sencillo y legible, considera usarlo.
 
-En particular, deberías preferir las declaraciones `function` con nombre a las flechas `const myFunction = () => ...` para las funciones de nivel superior. Sin embargo, *deberías* usar funciones de flecha cuando proporcionen una mejora tangible (como preservar el contexto `this` dentro de un componente). Considera ambos lados de la compensación cuando decidas si utilizar una nueva función.
+En particular, deberías preferir las declaraciones `function` con nombre a las flechas `const myFunction = () => ...` para las funciones de nivel superior. Sin embargo, _deberías_ usar funciones de flecha cuando proporcionen una mejora tangible (como preservar el contexto `this` dentro de un componente). Considera ambos lados de la compensación cuando decidas si utilizar una nueva función.
 
 #### No utilices funciones que aún no estén normalizadas.
 
