@@ -45,7 +45,7 @@ No se **permite** el uso de Hooks (funciones que comienzan con `use`) en ningún
 
 * 🔴 Dentro de condicionales o ciclos.
 * 🔴 Despúes de una declaración de `return` condicional.
-* 🔴 En manejadores de eventos.
+* 🔴 En controladores de eventos.
 * 🔴 En componentes de clase.
 * 🔴 Dentro de funciones pasadas a `useMemo`, `useReducer`, o `useEffect`.
 
@@ -79,7 +79,7 @@ function Bad({ cond }) {
 
 function Bad() {
   function handleClick() {
-    // 🔴 Incorrecto: dentro de un manejador de eventos (para solucionarlo, ¡colócalo fuera!)
+    // 🔴 Incorrecto: dentro de un controlador de evento (para solucionarlo, ¡colócalo fuera!)
     const theme = useContext(ThemeContext);
   }
   // ...

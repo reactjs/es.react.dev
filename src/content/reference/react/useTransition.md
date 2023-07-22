@@ -431,7 +431,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-Debido a que el componente padre actualiza su estado dentro del manejador de eventos `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea las interacciones del usuario.
+Debido a que el componente padre actualiza su estado dentro del controlador de evento `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea las interacciones del usuario.
 
 <Sandpack>
 

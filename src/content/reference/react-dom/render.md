@@ -60,7 +60,7 @@ Una aplicación totalmente construida con React tendrá usualmente una sola llam
 
 * En React 18, `render` fue reemplazado por [`createRoot`.](/reference/react-dom/client/createRoot) Por favor usa `createRoot` para React 18 y versiones posteriores.
 
-* La primera vez que llamas a `render`, React limpiará todo el contenido HTML existente dentro del `domNode` antes de renderizar el componente de React dentro de este. Si tu `domNode` contiene HTML generado por React en el servidor o durante la compilación, usa en su lugar [`hydrate()`](/reference/react-dom/hydrate), ya que este adjunta los manejadores de eventos al HTML existente.
+* La primera vez que llamas a `render`, React limpiará todo el contenido HTML existente dentro del `domNode` antes de renderizar el componente de React dentro de este. Si tu `domNode` contiene HTML generado por React en el servidor o durante la compilación, usa en su lugar [`hydrate()`](/reference/react-dom/hydrate), ya que este adjunta los controladores de eventos al HTML existente.
 
 * Si llamas a `render` en el mismo `domNode` más de una vez, React actualizará el DOM según sea necesario para reflejar el JSX más reciente que hayas pasado. React decidirá qué partes del DOM se pueden reutilizar y cuáles necesitan ser recreadas ["haciendo una comparación"](/learn/preserving-and-resetting-state) con el árbol previamente renderizado. Llamar de nuevo a `render` en el mismo `domNode` es similar a llamar a la función [`set` ](/reference/react/useState#setstate) en el componente raíz: React evita actualizaciones innecesarias del DOM.
 

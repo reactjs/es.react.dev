@@ -97,7 +97,7 @@ Para coordinar estos dos paneles, es necesario "elevar su estado" a un component
 
 1. **Remueve** el estado de los componentes hijos.
 2. **Transfiere** los datos codificados desde el padre común.
-3. **Añade** estado al padre común y pasarlo hacia abajo junto con los manejadores de eventos.
+3. **Añade** estado al padre común y pasarlo hacia abajo junto con los controladores de eventos.
 
 Esto permitirá que el componente `Accordion` coordine ambos `Panel` y sólo expanda uno a la vez.
 
@@ -185,7 +185,7 @@ const [activeIndex, setActiveIndex] = useState(0);
 ```
 Cuando el `activeIndex` es `0`, el primer panel está activo, y cuando es `1`, lo estará el segundo.
 
-Al hacer clic en el botón "Mostrar" en cualquiera de los dos `Paneles` es necesario cambiar el índice activo en el `Accordion`. Un `Panel` no puede establecer el estado `activeIndex` directamente porque está definido dentro del `Accordion`. El componente `Accordion` necesita *permitir explícitamente* que el componente `Panel` cambie su estado [pasando un manejador de eventos como prop](/learn/responding-to-events#passing-event-handlers-as-props):
+Al hacer clic en el botón "Mostrar" en cualquiera de los dos `Paneles` es necesario cambiar el índice activo en el `Accordion`. Un `Panel` no puede establecer el estado `activeIndex` directamente porque está definido dentro del `Accordion`. El componente `Accordion` necesita *permitir explícitamente* que el componente `Panel` cambie su estado [pasando un controlador de evento como prop](/learn/responding-to-events#passing-event-handlers-as-props):
 
 ```js
 <>
@@ -204,7 +204,7 @@ Al hacer clic en el botón "Mostrar" en cualquiera de los dos `Paneles` es neces
 </>
 ```
 
-El `<button>` dentro del `Panel` ahora usará como prop `onShow` como su manejador de eventos de click:
+El `<button>` dentro del `Panel` ahora usará como prop `onShow` como su controlador de evento de click:
 
 <Sandpack>
 
@@ -265,7 +265,7 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-¡Esto completa la elevación del estado! Mover el estado al componente padre común permitió coordinar los dos paneles. El uso de la activación por índice, en lugar de dos props "isShow", aseguró que solo un panel se encuentre activo en un momento dado. Y pasar el manejador de eventos al hijo permitió al hijo cambiar el estado del padre.
+¡Esto completa la elevación del estado! Mover el estado al componente padre común permitió coordinar los dos paneles. El uso de la activación por índice, en lugar de dos props "isShow", aseguró que solo un panel se encuentre activo en un momento dado. Y pasar el controlador de evento al hijo permitió al hijo cambiar el estado del padre.
 
 <DiagramGroup>
 
@@ -313,7 +313,7 @@ Para ver cómo se siente esto en la práctica con algunos componentes más, lee 
 
 * Cuando quieras coordinar dos componentes, mueve su estado a su padre común.
 * Luego pasa la información hacia abajo a través de props desde su padre común.
-* Finalmente, pasa los manejadores de eventos hacia abajo para que los hijos puedan cambiar el estado del padre.
+* Finalmente, pasa los controladores de eventos hacia abajo para que los hijos puedan cambiar el estado del padre.
 * Es útil considerar los componentes como "controlados" (manejados por accesorios) o "no controlados" (manejados por el estado).
 
 </Recap>
@@ -373,7 +373,7 @@ label { display: block; }
 
 <Solution>
 
-Mueve la variable de estado `text` al componente padre junto con el manejador `handleChange`. Luego pásalos como props a ambos componentes `Input`. Esto los mantendrá sincronizados.
+Mueve la variable de estado `text` al componente padre junto con la controladora `handleChange`. Luego pásalos como props a ambos componentes `Input`. Esto los mantendrá sincronizados.
 
 <Sandpack>
 
@@ -436,7 +436,7 @@ Tenga en cuenta que `filterItems` ya está implementado e importado, por lo que 
 
 <Hint>
 
-Querrás eliminar el estado `query` y el manejador `handleChange` de `SearchBar`, y moverlos a la `FilterableList`. Luego pásalos como props a la `SearchBar` como `query` y `onChange`.
+Querrás eliminar el estado `query` y la controladora `handleChange` de `SearchBar`, y moverlos a la `FilterableList`. Luego pásalos como props a la `SearchBar` como `query` y `onChange`.
 
 </Hint>
 

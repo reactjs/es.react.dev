@@ -4,7 +4,7 @@ title: Extraer lógica de estado en un reducer
 
 <Intro>
 
-Los componentes con muchas actualizaciones de estado distribuidas a través de varios manejadores de eventos pueden ser agobiantes. Para estos casos, puedes consolidar toda la lógica de actualización de estado fuera del componente en una única función, llamada _reducer._
+Los componentes con muchas actualizaciones de estado distribuidas a través de varios controladores de eventos pueden ser agobiantes. Para estos casos, puedes consolidar toda la lógica de actualización de estado fuera del componente en una única función, llamada _reducer._
 
 </Intro>
 
@@ -19,7 +19,7 @@ Los componentes con muchas actualizaciones de estado distribuidas a través de v
 
 ## Consolidar lógica de estado con un reducer {/*consolidate-state-logic-with-a-reducer*/}
 
-A medida que tus componentes crecen en complejidad, puede volverse difícil seguir a simple vista todas las formas en que el estado de un componente se actualiza. Por ejemplo, el componente `TaskApp` mantiene un *array* de `tasks` (tareas) en el estado y usa tres manejadores de eventos diferentes para agregar, borrar y editar tareas.
+A medida que tus componentes crecen en complejidad, puede volverse difícil seguir a simple vista todas las formas en que el estado de un componente se actualiza. Por ejemplo, el componente `TaskApp` mantiene un *array* de `tasks` (tareas) en el estado y usa tres controladores de eventos diferentes para agregar, borrar y editar tareas.
 
 <Sandpack>
 
@@ -179,7 +179,7 @@ li {
 
 </Sandpack>
 
-Cada uno de estos manejadores de eventos llama a `setTasks` con el fin de actualizar el estado. A medida que el componente crece, también lo hace la cantidad de lógica de estado esparcida a lo largo de este. Para reducir esta complejidad y mantener toda la lógica en un lugar de fácil acceso, puedes mover esa lógica de estado a una función única fuera del componente **llamada un "reducer".**
+Cada uno de estos controladores de eventos llama a `setTasks` con el fin de actualizar el estado. A medida que el componente crece, también lo hace la cantidad de lógica de estado esparcida a lo largo de este. Para reducir esta complejidad y mantener toda la lógica en un lugar de fácil acceso, puedes mover esa lógica de estado a una función única fuera del componente **llamada un "reducer".**
 
 Los *reducers* son una forma diferente de manejar el estado. Puedes migrar de `useState` a `useReducer` en tres pasos:
 
@@ -189,7 +189,7 @@ Los *reducers* son una forma diferente de manejar el estado. Puedes migrar de `u
 
 ### Paso 1: Cambia de establecer un estado a despachar acciones {/*step-1-move-from-setting-state-to-dispatching-actions*/}
 
-Tus manejadores de eventos actualmente especifican _qué hacer_ al asignar el estado:
+Tus controladores de eventos actualmente especifican _qué hacer_ al asignar el estado:
 
 ```js
 function handleAddTask(text) {
@@ -220,13 +220,13 @@ function handleDeleteTask(taskId) {
 }
 ```
 
-Elimina toda la lógica de asignación de estado. Lo que queda son estos tres manejadores de eventos:
+Elimina toda la lógica de asignación de estado. Lo que queda son estos tres controladores de eventos:
 
 - `handleAddTask(text)` se llama cuando el usuario presiona "Add".
 - `handleChangeTask(task)` se llama cuando el usuario cambia una tarea o presiona "Save".
 - `handleDeleteTask(taskId)` se llama cuando el usuario presiona "Delete".
 
-Manejar el estado con reducers es ligeramente diferente a asignar directamente el estado. En lugar de decirle a React "qué hacer" al asignar el estado, especificas "qué acaba de hacer el usuario" despachando "acciones" desde tus manejadores de eventos. (¡La lógica de actualización de estado estará en otro lugar!) Entonces, en lugar de "asignar `tasks`" a través de un manejador de eventos, estás despachando una acción de "tarea agregada/cambiada/borrada (added/changed/deleted)". Esta forma describe más la intención del usuario.
+Manejar el estado con reducers es ligeramente diferente a asignar directamente el estado. En lugar de decirle a React "qué hacer" al asignar el estado, especificas "qué acaba de hacer el usuario" despachando "acciones" desde tus controladores de eventos. (¡La lógica de actualización de estado estará en otro lugar!) Entonces, en lugar de "asignar `tasks`" a través de un controlador de evento, estás despachando una acción de "tarea agregada/cambiada/borrada (added/changed/deleted)". Esta forma describe más la intención del usuario.
 
 ```js
 function handleAddTask(text) {
@@ -296,7 +296,7 @@ function yourReducer(state, action) {
 
 React asignará el estado a lo que se devuelve desde el reducer.
 
-Para mover la lógica de asignación de estado desde tus manejadores de eventos a una función reducer en este ejemplo, vas a:
+Para mover la lógica de asignación de estado desde tus controladores de eventos a una función reducer en este ejemplo, vas a:
 
 1. Declarar el estado actual (`tasks`) como primer argumento.
 2. Declarar el objeto `action` como segundo argumento.
@@ -862,14 +862,14 @@ li {
 
 </Sandpack>
 
-La lógica del componente puede ser más sencilla de leer cuando separas conceptos como este. Ahora los manejadores de eventos sólo especifican _qué ocurrió_ despachando acciones, y la función reducer determina _cómo se actualiza el estado_ en respuesta a ellas.
+La lógica del componente puede ser más sencilla de leer cuando separas conceptos como este. Ahora los controladores de eventos sólo especifican _qué ocurrió_ despachando acciones, y la función reducer determina _cómo se actualiza el estado_ en respuesta a ellas.
 
 ## Comparación de `useState` y `useReducer` {/*comparing-usestate-and-usereducer*/}
 
 ¡Los reducers no carecen de desventajas! Aquí hay algunas maneras en las que puedas compararlos: 
 
-- **Tamaño del código:** Generalmente, con `useState` debes escribir menos código por adelantado. Con `useReducer`, debes escribir la función de reducer _y_ las actions a despachar. Sin embargo, `useReducer` puede ayudar a disminuir el código si demasiados manejadores de eventos modifican el estado de una manera similar
-- **Legibilidad:** `useState` es muy sencillo de leer cuando las actualizaciones de estado son simples. Cuando se vuelven más complejas, pueden inflar el código de tu componente y hacerlo difícil de escanear. En este caso, `useReducer` te permite separar limpiamente el _cómo_ de la lógica de actualización del _que ocurrió_ de los manejadores de eventos.
+- **Tamaño del código:** Generalmente, con `useState` debes escribir menos código por adelantado. Con `useReducer`, debes escribir la función de reducer _y_ las actions a despachar. Sin embargo, `useReducer` puede ayudar a disminuir el código si demasiados controladores de eventos modifican el estado de una manera similar
+- **Legibilidad:** `useState` es muy sencillo de leer cuando las actualizaciones de estado son simples. Cuando se vuelven más complejas, pueden inflar el código de tu componente y hacerlo difícil de escanear. En este caso, `useReducer` te permite separar limpiamente el _cómo_ de la lógica de actualización del _que ocurrió_ de los controladores de eventos.
 - **Depuración:** Cuando tienes un error con `useState`, puede ser difícil decir _dónde_ el estado se ha actualizado incorrectamente, y _por qué_. Con `useReducer`, puedes agregar un *log* de la consola en tu reducer para ver cada actualización de estado, y _por qué_ ocurrió (debido a qué acción). Si cada acción es correcta, sabrás que el error se encuentra en la propia lógica del reducer. Sin embargo, debes pasar por más código que con `useState`.
 - **Pruebas:** Un reducer es una función pura que no depende de tu componente. Esto significa que puedes exportarla y probarla separadamente de manera aislada. Mientras que generalmente es mejor probar componentes en un entorno más realista, para actualizaciones de estado complejas, puede ser útil asegurar que tu reducer devuelve un estado particular para un estado y acción particular.
 - **Preferencia personal:** Algunas personas prefieren reducers, otras no. Está bien. Es una cuestión de preferencia. Siempre puedes convertir entre `useState` y `useReducer` de un lado a otro: ¡son equivalentes!
@@ -1087,7 +1087,7 @@ Los reducers deben ser puros, así que no deberían mutar estado. Pero Immer te 
 <Recap>
 
 - Para convertir de `useState` a `useReducer`:
-  1. Despacha acciones desde manejadores de eventos.
+  1. Despacha acciones desde controladores de eventos.
   2. Escribe una función reducer que devuelve el siguiente estado para un estado y acción dados.
   3. Reemplaza `useState` con `useReducer`.
 - Los reducers requieren que escribas un poco más de código, pero ayudan con la depuración y las pruebas.
@@ -1099,9 +1099,9 @@ Los reducers deben ser puros, así que no deberían mutar estado. Pero Immer te 
 
 <Challenges>
 
-#### Despachar actions desde manejadores de eventos {/*dispatch-actions-from-event-handlers*/}
+#### Despachar actions desde controladores de eventos {/*dispatch-actions-from-event-handlers*/}
 
-Actualmente, los manejadores de eventos en `ContactList.js` y `Chat.js` tienen comentarios `// TODO`. Esta es la razón por la que escribir en el input no funciona, y hacer clic sobre los botones no cambia el destinatario seleccionado.
+Actualmente, los controladores de eventos en `ContactList.js` y `Chat.js` tienen comentarios `// TODO`. Esta es la razón por la que escribir en el input no funciona, y hacer clic sobre los botones no cambia el destinatario seleccionado.
 
 Reemplaza estos dos `// TODO`s con el código para hacer `dispatch` de las actions correspondientes. Para ver la forma y el tipo (_type_) esperados de las acciones, revisa el reducer en `messengerReducer.js`. El reducer ya está escrito, así que no necesitas cambiarlo. Solo tendrás que despachar las acciones en `ContactList.js` y `Chat.js`.
 
@@ -1413,7 +1413,7 @@ textarea {
 
 #### Limpiar el input al enviar un mensaje {/*clear-the-input-on-sending-a-message*/}
 
-Actualmente, si se presiona "Send" no pasa nada. Agrega un manejador de eventos al botón de "Send" que va a:
+Actualmente, si se presiona "Send" no pasa nada. Agrega un controlador de evento al botón de "Send" que va a:
 
 1. Mostrar un `alert` con el correo del destinatario y el mensaje.
 2. Limpiar el input del mensaje.
@@ -1555,7 +1555,7 @@ textarea {
 
 <Solution>
 
-Hay un par de maneras de hacerlo en el manejador de eventos del botón de "Send". Un enfoque es mostrar una alerta y luego despachar una acción `edited_message` con un `message` vacío.
+Hay un par de maneras de hacerlo en el controlador de evento del botón de "Send". Un enfoque es mostrar una alerta y luego despachar una acción `edited_message` con un `message` vacío.
 
 <Sandpack>
 
@@ -1856,7 +1856,7 @@ textarea {
 
 El comportamiento resultante es el mismo. Pero ten en mente que los tipos de las acciones deberían idealmente describir "qué hizo el usuario" más que "cómo quieres que el estado cambie". Esto simplifica agregar luego más funcionalidades.
 
-Con cualquiera de las dos soluciones, es importante que **no** coloques la `alert` dentro de un reducer. El reducer debe ser una función pura--solo debe calcular el siguiente estado. No debería "hacer" nada, incluyendo mostrar mensajes al usuario. Eso debería suceder en el manejador de eventos. (Para ayudar a detectar errores como este, React llamará a tus reducers varias veces en el Modo Estricto. Es por eso que, si colocas una alerta en un reducer, se llama dos veces).
+Con cualquiera de las dos soluciones, es importante que **no** coloques la `alert` dentro de un reducer. El reducer debe ser una función pura--solo debe calcular el siguiente estado. No debería "hacer" nada, incluyendo mostrar mensajes al usuario. Eso debería suceder en el controlador de evento. (Para ayudar a detectar errores como este, React llamará a tus reducers varias veces en el Modo Estricto. Es por eso que, si colocas una alerta en un reducer, se llama dos veces).
 
 </Solution>
 
@@ -2237,7 +2237,7 @@ textarea {
 
 </Sandpack>
 
-En particular, no necesitas cambiar ninguno de los manejadores de eventos para implementar este comportamiento diferente. Sin un reducer, necesitarías tener que cambiar cada manejador de eventos que actualice el estado.
+En particular, no necesitas cambiar ninguno de los controladores de eventos para implementar este comportamiento diferente. Sin un reducer, necesitarías tener que cambiar cada controlador de evento que actualice el estado.
 
 </Solution>
 

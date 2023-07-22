@@ -193,9 +193,9 @@ Sin embargo, está bien porque los has creado *durante el mismo renderizado*, de
 
 Si bien la programación funcional depende en gran medida de la pureza, en algún momento, en algún lugar, _algo_ tiene que cambiar. ¡Ese es el punto en programación! Estos cambios —actualizar la pantalla, iniciar una animación, cambiar los datos— se llaman **efectos secundarios.** Son cosas que suceden _"a un lado"_, no durante el renderizado.
 
-En React, **los efectos secundarios generalmente deberían estar dentro de los [manejadores de eventos.](/learn/responding-to-events)** Los manejadores de eventos son funciones que React ejecuta cuando realiza alguna acción (por ejemplo, cuando haces clic en un botón). ¡Aunque los manejadores de eventos están definidos *dentro* de tu componente, no corren *durante* el renderizado! **Por lo tanto, los manejadores de eventos no necesitan ser puros.**
+En React, **los efectos secundarios generalmente deberían estar dentro de los [controladores de eventos.](/learn/responding-to-events)** Los controladores de eventos son funciones que React ejecuta cuando realiza alguna acción (por ejemplo, cuando haces clic en un botón). ¡Aunque los controladores de eventos están definidos *dentro* de tu componente, no corren *durante* el renderizado! **Por lo tanto, los controladores de eventos no necesitan ser puros.**
 
-Si has agotado todas las demás opciones y no puedes encontrar el controlador de eventos adecuado para tu efecto secundario, aún puedes adjuntarlo en el retorno del JSX con un llamado a [`useEffect`](/reference/react/useEffect) en tu componente. Esto le dice a React que lo ejecute más tarde, después del renderizado, cuando se permiten efectos secundarios. **Sin embargo, este enfoque debería ser tu último recurso.**
+Si has agotado todas las demás opciones y no puedes encontrar el controlador de evento adecuado para tu efecto secundario, aún puedes adjuntarlo en el retorno del JSX con un llamado a [`useEffect`](/reference/react/useEffect) en tu componente. Esto le dice a React que lo ejecute más tarde, después del renderizado, cuando se permiten efectos secundarios. **Sin embargo, este enfoque debería ser tu último recurso.**
 
 Cuando sea posible, intenta expresar tu lógica con un solo renderizado. ¡Te sorprenderá lo lejos que esto puede llevarte!
 
@@ -220,7 +220,7 @@ Cada nueva característica de React que estamos construyendo aprovecha la pureza
   * **Las mismas entradas, la misma salida.** Dadas las mismas entradas, un componente siempre debe devolver el mismo JSX.
 * El renderizado puede ocurrir en cualquier momento, por lo que los componentes no deben depender de la secuencia de renderizado de los demás.
 * No debe mutar ninguna de las entradas que usan sus componentes para renderizar. Eso incluye props, estado y contexto. Para actualizar la pantalla, ["asignar" el estado](/learn/state-a-components-memory) en lugar de mutar objetos preexistentes.
-* Esfuérzate por expresar la lógica de tu componente en el JSX. Cuando necesites "cambiar cosas", generalmente querrás hacerlo en un manejador de eventos. Como último recurso, puedes usar `useEffect`.
+* Esfuérzate por expresar la lógica de tu componente en el JSX. Cuando necesites "cambiar cosas", generalmente querrás hacerlo en un controlador de evento. Como último recurso, puedes usar `useEffect`.
 * Escribir funciones puras requiere un poco de práctica, pero desbloquea el poder del paradigma de React.
 
 </Recap>

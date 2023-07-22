@@ -104,7 +104,7 @@ El cambio de una ref no desencadena un renderizado, por lo que las refs no son a
 
 #### Contador de clics {/*click-counter*/}
 
-Este componente utiliza una ref para llevar la cuenta de las veces que se ha pulsado el botón. Ten en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un manejador de eventos.
+Este componente utiliza una ref para llevar la cuenta de las veces que se ha pulsado el botón. Ten en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un controlador de evento.
 
 <Sandpack>
 
@@ -208,7 +208,7 @@ function MyComponent() {
 }
 ```
 
-Puedes, en su lugar, leer o escribir refs **desde manejadores de eventos o efectos**.
+Puedes, en su lugar, leer o escribir refs **desde controladores de eventos o efectos**.
 
 ```js {4-5,9-10}
 function MyComponent() {
@@ -219,7 +219,7 @@ function MyComponent() {
   });
   // ...
   function handleClick() {
-    // ✅ Puedes leer o escribir refs en los manejadores de eventos
+    // ✅ Puedes leer o escribir refs en los controladores de eventos
     doSomething(myOtherRef.current);
   }
   // ...
@@ -532,7 +532,7 @@ function Video() {
   // ...
 ```
 
-Aquí, el propio `playerRef` puede ser `null`. Sin embargo, deberías ser capaz de convencer a tu comprobador de tipos de que no hay ningún caso en el que `getPlayer()` devuelva `null`. Luego usa `getPlayer()` en tus manejadores de eventos.
+Aquí, el propio `playerRef` puede ser `null`. Sin embargo, deberías ser capaz de convencer a tu comprobador de tipos de que no hay ningún caso en el que `getPlayer()` devuelva `null`. Luego usa `getPlayer()` en tus controladores de eventos.
 
 </DeepDive>
 

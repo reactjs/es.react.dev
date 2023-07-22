@@ -128,7 +128,7 @@ En este ejemplo, el chequeo de Strict Mode no se ejecutarán en los componentes 
 
 Los componentes que rompen esta regla se comportan impredeciblemente y causan errores. Para ayudarte a encontrar código impuro accidental, el Modo Estricto llama algunas de tus funciones (solo las que deberían ser puras) **dos veces en desarrollo.** Esto incluye:
 
-- El cuerpo de la función de tu componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los manejadores de eventos)
+- El cuerpo de la función de tu componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los controladores de eventos)
 - Funciones que pasas a [`useState`](/reference/react/useState), [funciones `set`](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo), o [`useReducer`](/reference/react/useReducer)
 - Algunos métodos de los componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
 

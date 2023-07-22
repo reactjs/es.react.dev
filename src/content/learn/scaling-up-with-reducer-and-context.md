@@ -207,9 +207,9 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Un _reducer_ ayuda a mantener los manejadores de eventos cortos y concisos. Sin embargo, a medida que tu aplicación crece, puedes encontrarte con otra dificultad. **Actualmente, el estado `tasks` y la función `dispatch` sólo están disponibles en el componente de nivel superior `TaskApp`.** Para permitir que otros componentes lean la lista de tareas o la modifiquen, tienes que [pasar](/learn/passing-props-to-a-component) explícitamente el estado actual y los manejadores de eventos que lo cambian como props.
+Un _reducer_ ayuda a mantener los controladores de eventos cortos y concisos. Sin embargo, a medida que tu aplicación crece, puedes encontrarte con otra dificultad. **Actualmente, el estado `tasks` y la función `dispatch` sólo están disponibles en el componente de nivel superior `TaskApp`.** Para permitir que otros componentes lean la lista de tareas o la modifiquen, tienes que [pasar](/learn/passing-props-to-a-component) explícitamente el estado actual y los controladores de eventos que lo cambian como props.
 
-Por ejemplo, `TaskApp` pasa una lista de tareas y los manejadores de eventos a `TaskList`:
+Por ejemplo, `TaskApp` pasa una lista de tareas y los controladores de eventos a `TaskList`:
 
 ```js
 <TaskList
@@ -219,7 +219,7 @@ Por ejemplo, `TaskApp` pasa una lista de tareas y los manejadores de eventos a `
 />
 ```
 
-Y `TaskList` pasa los manejadores de eventos a `Task`:
+Y `TaskList` pasa los controladores de eventos a `Task`:
 
 ```js
 <Task
@@ -673,7 +673,7 @@ En el siguiente paso, se eliminará el paso de props.
 
 ### Paso 3: Utiliza el contexto en cualquier parte del árbol {/*step-3-use-context-anywhere-in-the-tree*/}
 
-Ahora no es necesario pasar la lista de tareas o los manejadores de eventos por el árbol:
+Ahora no es necesario pasar la lista de tareas o los controladores de eventos por el árbol:
 
 ```js {4-5}
 <TasksContext.Provider value={tasks}>
@@ -713,7 +713,7 @@ export default function AddTask() {
     // ...
 ```
 
-**El componente `TaskApp` no pasa ningún manejador de eventos hacia abajo, y `TaskList` tampoco pasa ningún manejador de eventos al componente `Task`.** Cada componente lee el contexto que necesita:
+**El componente `TaskApp` no pasa ningún controlador de evento hacia abajo, y `TaskList` tampoco pasa ningún controlador de evento al componente `Task`.** Cada componente lee el contexto que necesita:
 
 <Sandpack>
 

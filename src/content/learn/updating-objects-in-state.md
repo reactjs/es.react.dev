@@ -203,7 +203,7 @@ La mutación sólo es un problema cuando cambias objetos *existentes* que ya est
 
 En el ejemplo anterior, el objeto `position` se crea siempre de nuevo a partir de la posición actual del cursor. Pero a menudo, querrás incluir datos *existentes* como parte del nuevo objeto que estás creando. Por ejemplo, puedes querer actualizar *sólo un* campo de un formulario, pero mantener los valores anteriores de todos los demás campos.
 
-Estos campos de entrada no funcionan porque los manejadores `onChange` mutan el estado:
+Estos campos de entrada no funcionan porque los controladores `onChange` mutan el estado:
 
 <Sandpack>
 
@@ -375,9 +375,9 @@ Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las
 
 <DeepDive>
 
-#### Utilizar un único manejador de eventos para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
+#### Utilizar un único controlador de evento para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
-También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
+También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo controlador de evento en lugar de tres diferentes:
 
 <Sandpack>
 
@@ -788,7 +788,7 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-Fíjate en lo mucho más concisos que se han vuelto los manejadores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los manejadores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
+Fíjate en lo mucho más concisos que se han vuelto los controladores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los controladores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
 
 <DeepDive>
 
@@ -1454,7 +1454,7 @@ select { margin-bottom: 10px; }
 
 <Solution>
 
-Esta es la solución reescrita con Immer. Observa cómo los manejadores de eventos están escritos de forma mutante, pero el error no se produce. Esto se debe a que bajo el capó, Immer nunca muta los objetos existentes.
+Esta es la solución reescrita con Immer. Observa cómo los controladores de eventos están escritos de forma mutante, pero el error no se produce. Esto se debe a que bajo el capó, Immer nunca muta los objetos existentes.
 
 <Sandpack>
 

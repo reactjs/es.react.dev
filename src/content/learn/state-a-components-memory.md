@@ -151,7 +151,7 @@ button {
 
 </Sandpack>
 
-El controlador de eventos `handleClick` está actualizando una variable local, `index`. Pero dos cosas impiden que ese cambio sea visible:
+El controlador de evento `handleClick` está actualizando una variable local, `index`. Pero dos cosas impiden que ese cambio sea visible:
 
 1. **Las variables locales no persisten entre renderizaciones.** Cuando React renderiza este componente por segunda vez, lo hace desde cero, no considera ningún cambio en las variables locales.
 2. **Los cambios en las variables locales no activarán renderizaciones.** React no se da cuenta de que necesita renderizar el componente nuevamente con los nuevos datos.
@@ -915,7 +915,7 @@ También observemos cómo el componente de la página `Page` no "sabe" nada sobr
 
 #### Completa la galería {/*complete-the-gallery*/}
 
-Cuando presionamos "Siguiente" en la última escultura, el código falla. Arregla la lógica para evitar el bloqueo. Puedes hacer esto agregando lógica adicional al controlador de eventos o deshabilitando el botón cuando la acción no es posible.
+Cuando presionamos "Siguiente" en la última escultura, el código falla. Arregla la lógica para evitar el bloqueo. Puedes hacer esto agregando lógica adicional al controlador de evento o deshabilitando el botón cuando la acción no es posible.
 
 Después de arreglar el error, agrega un botón "Anterior" que muestre la escultura anterior. No debería chocar con la primera escultura.
 
@@ -1219,7 +1219,7 @@ img { width: 120px; height: 120px; }
 
 </Sandpack>
 
-¡Observa cómo `hasPrev` y `hasNext` se usan *ambos* para el JSX que se retorna y dentro de los controladores de eventos! Este práctico patrón funciona porque las funciones del controlador de eventos ["se cierran"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) sobre cualquier variable declarada durante la renderización.
+¡Observa cómo `hasPrev` y `hasNext` se usan *ambos* para el JSX que se retorna y dentro de los controladores de eventos! Este práctico patrón funciona porque las funciones controladoras de evento ["se cierran"](https://developer.mozilla.org/es/docs/Web/JavaScript/Closures) sobre cualquier variable declarada durante la renderización.
 
 </Solution>
 
@@ -1506,7 +1506,7 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Una variable de estado solo es necesaria para mantener la información entre renderizaciones de un componente. Dentro de un solo controlador de eventos, una variable regular funcionará bien. Es recomendable no usar variables de estado cuando una variable regular funciona bien.
+Una variable de estado solo es necesaria para mantener la información entre renderizaciones de un componente. Dentro de un solo controlador de evento, una variable regular funcionará bien. Es recomendable no usar variables de estado cuando una variable regular funciona bien.
 
 </Solution>
 

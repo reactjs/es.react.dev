@@ -349,7 +349,7 @@ Cuando hagas mediciones de rendimiento, asegúrate de que React se está ejecuta
 
 <Pitfall>
 
-Si proporcionas una implementación `arePropsEqual` personalizada, **debes comparar todas las props, incluyendo las funciones.** Las funciones a menudo [se cierran sobre](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) las props y el estado de los componentes padres. Si devuelves `true` cuando `oldProps.onClick !== newProps.onClick`, tu componente se mantendrá "viendo" las props y el estado de un renderizado previo dentro de su manejador `onClick`, lo que lleva a errores muy confusos.
+Si proporcionas una implementación `arePropsEqual` personalizada, **debes comparar todas las props, incluyendo las funciones.** Las funciones a menudo [se cierran sobre](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) las props y el estado de los componentes padres. Si devuelves `true` cuando `oldProps.onClick !== newProps.onClick`, tu componente se mantendrá "viendo" las props y el estado de un renderizado previo dentro de su controlador `onClick`, lo que lleva a errores muy confusos.
 
 Evita hacer verificaciones profundas de igualdad dentro de `arePropsEqual` a menos que estés 100% seguro de que la estructura de datos con la que estás trabajando tiene una profundidad limitada conocida. **Las verificaciones profundas de igualdad pueden volverse increíblemente lentas** y pueden congelar tu aplicación por varios segundos si alguien luego cambia la estructura de datos.
 
