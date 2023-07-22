@@ -37,7 +37,7 @@ Puedes [hacer un input controlado](#controlling-an-input-with-a-state-variable) 
 * [`checked`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#checked): Booleano. Para un entrada de tipo checkbox o radio button, controla si está seleccionado.
 * [`value`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#value): String. Para una entrada de texto, controla su texto. (Para un radio button, especifica sus datos de formulario.)
 
-Cuando pases cualquiera de ellos, debes también pasar un manejador `onChange` que actualice el valor pasado.
+Cuando pases cualquiera de ellos, debes también pasar un controlador `onChange` que actualice el valor pasado.
 
 Estas props de `<input>` son solamente relevantes para inputs no controlados:
 
@@ -68,13 +68,13 @@ Estas props de `<input>` son relevantes para ambos inputs controlados y no contr
 * [`minLength`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#minlength): Número. Especifica la longitud mínima de texto y otros inputs.
 * [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#multiple): Booleano. Especifica si valores múltiples son permitidos para `<type="file"` y `type="email"`.
 * [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name): String. Especifica el nombre para este input que se [envía con el formulario.](#reading-the-input-values-when-submitting-a-form)
-* `onChange`: Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Requerido para [inputs controlados.](#controlling-an-input-with-a-state-variable) Se activa inmediatamente cuando el valor del input es cambiado por el usuario (por ejemplo, se activa en cada pulsación de teclas). Se comporta como el [evento `input`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) del navegador.
+* `onChange`: Un [controlador de evento](/reference/react-dom/components/common#event-handler). Requerido para [inputs controlados.](#controlling-an-input-with-a-state-variable) Se activa inmediatamente cuando el valor del input es cambiado por el usuario (por ejemplo, se activa en cada pulsación de teclas). Se comporta como el [evento `input`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) del navegador.
 * `onChangeCapture`: Una versión de `onChange` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Se activa inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar que funciona de forma similar.
+* [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Un [controlador de evento](/reference/react-dom/components/common#event-handler). Se activa inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar que funciona de forma similar.
 * `onInputCapture`: Una version de `onInput` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): Un [manejador de eventos](/reference/react-dom/components/common#event-handler). Se activa si un input falla en la validación cuando se envía un formulario. A diferencia del evento integrado `invalid`, el evento `onInvalid` de React se propaga.
+* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): Un [controlador de evento](/reference/react-dom/components/common#event-handler). Se activa si un input falla en la validación cuando se envía un formulario. A diferencia del evento integrado `invalid`, el evento `onInvalid` de React se propaga.
 * `onInvalidCapture`: Una versión de `onInvalid` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSelect`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select_event): Un [manejador de evento](/reference/react-dom/components/common#event-handler). Se activa después de selección dentro de los cambios de un `<input>`. React hereda el evento `onSelect` para también activarse para selecciones vacías y en ediciones (las cuales pueden afectar la selección).
+* [`onSelect`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select_event): Un [controlador de evento](/reference/react-dom/components/common#event-handler). Se activa después de selección dentro de los cambios de un `<input>`. React hereda el evento `onSelect` para también activarse para selecciones vacías y en ediciones (las cuales pueden afectar la selección).
 * `onSelectCapture`: Una versión `onSelect` que se activa en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`pattern`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#pattern): String. Especifica el patrón con el cual `value` debe coincidir.
 * [`placeholder`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder): String. Mostrado en un color atenuado cuando el valor del input esta vació.
@@ -93,7 +93,7 @@ Estas props de `<input>` son relevantes para ambos inputs controlados y no contr
 - Si un checkbox o un radio button recibe una prop `checked` de tipo booleano, será [tratado como controlado.](#controlling-an-input-with-a-state-variable)
 - Un input no puede ser controlado o no controlado al mismo tiempo.
 - Un input no puede cambiar entre ser controlado o no durante su ciclo de vida.
-- Cada input controlado necesita un manejador de evento `onChange` que sincrónicamente actualice su valor de respaldo.
+- Cada input controlado necesita un controlador de evento `onChange` que sincrónicamente actualice su valor de respaldo.
 
 ---
 
@@ -235,7 +235,7 @@ input { margin: 5px; }
 
 ### Leer los valores de los inputs cuando se envía un formulario {/*reading-the-input-values-when-submitting-a-form*/}
 
-Añade un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) que rodee tus inputs con un [`<button type="submit">`](https://developer.mozilla.org/es/docs/Web/HTML/Element/button) dentro. Llamará tu manejador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a la URL actual y refrescará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
+Añade un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) que rodee tus inputs con un [`<button type="submit">`](https://developer.mozilla.org/es/docs/Web/HTML/Element/button) dentro. Llamará a tu controlador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a la URL actual y refrescará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
 <Sandpack>
 
 ```js
@@ -408,7 +408,7 @@ p { font-weight: bold; }
 
 <Pitfall>
 
-**Si pasas un `value` sin un `onChange`, será imposible escribir dentro del input.** Cuando controlas un input pasándole algún `value`, lo *fuerzas* a siempre tener el valor que le pasaste. Entonces si pasas una variable de estado como un `value` pero olvidaste actualizar esa variable de estado sincrónicamente durante el manejador evento `onChange`, React revertirá al input después de cada pulsación del teclado al `value` que especificaste.
+**Si pasas un `value` sin un `onChange`, será imposible escribir dentro del input.** Cuando controlas un input pasándole algún `value`, lo *fuerzas* a siempre tener el valor que le pasaste. Entonces si pasas una variable de estado como un `value` pero olvidaste actualizar esa variable de estado sincrónicamente durante el controlado de evento `onChange`, React revertirá el input después de cada pulsación del teclado al `value` que especificaste.
 
 </Pitfall>
 
@@ -469,13 +469,13 @@ Si no hay forma de evitar el re-renderizado (por ejemplo, si `PageContent` depen
 Si renderizas un input con un `value` pero sin un `onChange`, verás un error en la consola:
 
 ```js
-// 🔴 Error: input de texto controlado sin un manejador de evento onChange
+// 🔴 Error: input de texto controlado sin un controlador de evento onChange
 <input value={something} />
 ```
 
 <ConsoleBlock level="error">
 
-Proporcionaste una prop `value` a un campo de formulario sin un manejador de evento `onChange`. Esto renderiza un campo de solo lectura. Si el campo debe ser mutable usa `defaultValue`. En caso contrario, establece `onChange` o `readOnly`.
+Proporcionaste una prop `value` a un campo de formulario sin un controlador de evento `onChange`. Esto renderiza un campo de solo lectura. Si el campo debe ser mutable usa `defaultValue`. En caso contrario, establece `onChange` o `readOnly`.
 
 </ConsoleBlock>
 
@@ -486,7 +486,7 @@ Como el mensaje de error sugiere, si solo quieres [especificar el valor *inicial
 <input defaultValue={something} />
 ```
 
-Si quieres [controlar este input con una variable de estado,](#controlling-an-input-with-a-state-variable) especifica un manejador de evento `onChange`:
+Si quieres [controlar este input con una variable de estado,](#controlling-an-input-with-a-state-variable) especifica un controlador de evento `onChange`:
 
 ```js
 // ✅ Bien: input controlado con onChange
@@ -507,13 +507,13 @@ Si el valor es intencionalmente de solo lectura, añade una prop `readOnly` para
 Si renderizas un checkbox con `checked` pero sin `onChange`, verás un error en la consola:
 
 ```js
-// 🔴 Error: checkbox controlado sin un manejador de evento onChange
+// 🔴 Error: checkbox controlado sin un controlador de evento onChange
 <input type="checkbox" checked={something} />
 ```
 
 <ConsoleBlock level="error">
 
-Proporcionaste una prop `checked` a un campo de formulario sin un manejador de evento `onChange`. Esto renderizará un campo de solo lectura. Si el campo debe ser mutable usa `defaultChecked`. En caso contrario, establece `onChange` o `readOnly`.
+Proporcionaste una prop `checked` a un campo de formulario sin un controlador de evento `onChange`. Esto renderizará un campo de solo lectura. Si el campo debe ser mutable usa `defaultChecked`. En caso contrario, establece `onChange` o `readOnly`.
 
 </ConsoleBlock>
 
@@ -524,7 +524,7 @@ Como el error sugiere, si solo quieres [especificar el valor *inicial*,](#provid
 <input type="checkbox" defaultChecked={something} />
 ```
 
-Si quieres [controlar este checkbox con una variable de estado,](#controlling-an-input-with-a-state-variable) especifica un manejador de evento `onChange`:
+Si quieres [controlar este checkbox con una variable de estado,](#controlling-an-input-with-a-state-variable) especifica un controlador de evento `onChange`:
 
 ```js
 // ✅ Bien: checkbox controlado con onChange

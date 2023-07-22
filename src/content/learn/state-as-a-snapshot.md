@@ -63,7 +63,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 Esto es lo que ocurre cuando se hace clic en el botón:
 
-1. Se ejecuta el manejador de eventos `onSubmit`.
+1. Se ejecuta el controlador de evento `onSubmit`.
 2. `setIsSent(true)` asigna `isSent` a `true` y pone en cola un nuevo renderizado.
 3. React vuelve a renderizar el componente según el nuevo valor de `isSent`.
 
@@ -71,9 +71,9 @@ Veamos con más detalle la relación entre estado y renderizado.
 
 ## El renderizado toma una instantánea en el tiempo {/*rendering-takes-a-snapshot-in-time*/}
 
-["Renderizado"](/learn/render-and-commit#step-2-react-renders-your-components) significa que React está llamando a tu componente, que es una función. El JSX que devuelves de esa función es como una instantánea de la UI en el tiempo. Tus props, manejadores de eventos y variables locales fueron todos calculados **usando su estado en el momento del renderizado.**
+["Renderizado"](/learn/render-and-commit#step-2-react-renders-your-components) significa que React está llamando a tu componente, que es una función. El JSX que devuelves de esa función es como una instantánea de la UI en el tiempo. Tus props, controladores de eventos y variables locales fueron todos calculados **usando su estado en el momento del renderizado.**
 
-A diferencia de una fotografía o un fotograma de una película, la "instantánea" de la interfaz de usuario que devuelves es interactiva. Incluye lógica como manejadores de eventos que especifican lo que sucede en respuesta a las entradas. React entonces actualiza la pantalla para que coincida con esta instantánea y conecta los manejadores de eventos. Como resultado, al pulsar un botón se activará el controlador de clic de tu JSX.
+A diferencia de una fotografía o un fotograma de una película, la "instantánea" de la interfaz de usuario que devuelves es interactiva. Incluye lógica como controladores de eventos que especifican lo que sucede en respuesta a las entradas. React entonces actualiza la pantalla para que coincida con esta instantánea y conecta los controladores de eventos. Como resultado, al pulsar un botón se activará el controlador de clic de tu JSX.
 
 Cuando React vuelve a renderizar un componente:
 
@@ -87,7 +87,7 @@ Cuando React vuelve a renderizar un componente:
     <Illustration caption="Actualiza el árbol del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Como memoria de un componente, el estado no es como una variable regular que desaparece después de que tu función devuelva un valor. El estado en realidad "vive" en el propio React -como si estuviera en una estantería- fuera de tu función. Cuando React llama a tu componente, te da una instantánea del estado para ese renderizado en particular. Tu componente devuelve una instantánea de la interfaz de usuario con un nuevo conjunto de accesorios y manejadores de eventos en su JSX, todo calculado **usando los valores de estado de ese renderizado**.
+Como memoria de un componente, el estado no es como una variable regular que desaparece después de que tu función devuelva un valor. El estado en realidad "vive" en el propio React -como si estuviera en una estantería- fuera de tu función. Cuando React llama a tu componente, te da una instantánea del estado para ese renderizado en particular. Tu componente devuelve una instantánea de la interfaz de usuario con un nuevo conjunto de accesorios y controladores de eventos en su JSX, todo calculado **usando los valores de estado de ese renderizado**.
 
 <IllustrationBlock sequential>
   <Illustration caption="Le dices a React que actualice el estado" src="/images/docs/illustrations/i_state-snapshot1.png" />
@@ -129,7 +129,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 Observa que `number` sólo se incrementa una vez por clic.
 
-**La asignación del estado sólo lo cambia para el *siguiente* renderizado.** Durante el primer renderizado, `number` era `0`. Es por eso que en el manejador `onClick` de *ese renderizado* el valor de `number` sigue siendo `0`, incluso después de que se llamara `setNumber(number + 1)`:
+**La asignación del estado sólo lo cambia para el *siguiente* renderizado.** Durante el primer renderizado, `number` era `0`. Es por eso que en el controlador `onClick` de *ese renderizado* el valor de `number` sigue siendo `0`, incluso después de que se llamara `setNumber(number + 1)`:
 
 ```js
 <button onClick={() => {
@@ -139,7 +139,7 @@ Observa que `number` sólo se incrementa una vez por clic.
 }}>+3</button>
 ```
 
-Esto es lo que el manejador de clic de este botón le dice a React que haga:
+Esto es lo que el controlador de clic de este botón le dice a React que haga:
 
 1. `setNumber(number + 1)`: `number` es `0` así que `setNumber(0 + 1)`.
     - React se prepara para el cambiar `number` a `1` en el siguiente renderizado.
@@ -148,9 +148,9 @@ Esto es lo que el manejador de clic de este botón le dice a React que haga:
 3. `setNumber(number + 1)`: `number` es `0` así que `setNumber(0 + 1)`.
     - React se prepara para el cambiar `number` a `1` en el siguiente renderizado.
 
-Aunque hayas llamado a `setNumber(number + 1)` tres veces, en el manejador de eventos de *ese renderizado* `number` es siempre `0`, por lo que asignas el estado a `1` tres veces. Por eso, una vez que el manejador de eventos termina, React vuelve a renderizar el componente con `number` igual a `1` en lugar de `3`.
+Aunque hayas llamado a `setNumber(number + 1)` tres veces, en el controlador de evento de *ese renderizado* `number` es siempre `0`, por lo que asignas el estado a `1` tres veces. Por eso, una vez que el controlador de evento termina, React vuelve a renderizar el componente con `number` igual a `1` en lugar de `3`.
 
-También puedes visualizarlo sustituyendo mentalmente las variables de estado por sus valores en tu código. Haciendo que la variable de estado `number` sea `0` para *ese renderizado*, tu manejador de eventos se ve así:
+También puedes visualizarlo sustituyendo mentalmente las variables de estado por sus valores en tu código. Haciendo que la variable de estado `number` sea `0` para *ese renderizado*, tu controlador de evento se ve así:
 
 ```js
 <button onClick={() => {
@@ -160,7 +160,7 @@ También puedes visualizarlo sustituyendo mentalmente las variables de estado po
 }}>+3</button>
 ```
 
-Para el siguiente renderizado, `number` es `1`, así que en *ese renderizado* el manejador de clics luce así:
+Para el siguiente renderizado, `number` es `1`, así que en *ese renderizado* el controlador de clics luce así:
 
 ```js
 <button onClick={() => {
@@ -252,9 +252,9 @@ setTimeout(() => {
 
 El estado almacenado en React puede haber cambiado en el momento en que se ejecuta la alerta, pero se programó utilizando una instantánea del estado en el momento en que el usuario interactuó con ella.
 
-**El valor de una variable de estado nunca cambia dentro de un renderizado,** incluso si el código de tu manejador de eventos es asíncrono. Dentro del `onClick` de *ese renderizado*, el valor de `number` sigue siendo `0` incluso después de que se llama a `setNumber(number + 5)`. Su valor se "fijó" cuando React "tomó la instantánea" de la UI al llamar a tu componente.
+**El valor de una variable de estado nunca cambia dentro de un renderizado,** incluso si el código de tu controlador de evento es asíncrono. Dentro del `onClick` de *ese renderizado*, el valor de `number` sigue siendo `0` incluso después de que se llama a `setNumber(number + 5)`. Su valor se "fijó" cuando React "tomó la instantánea" de la UI al llamar a tu componente.
 
-Aquí hay un ejemplo de cómo eso hace que tus manejadores de eventos sean menos propensos a errores de sincronización. A continuación se muestra un formulario que envía un mensaje con un retraso de cinco segundos. Imagina este escenario:
+Aquí hay un ejemplo de cómo eso hace que tus controladores de eventos sean menos propensos a errores de sincronización. A continuación se muestra un formulario que envía un mensaje con un retraso de cinco segundos. Imagina este escenario:
 
 1. Pulsas el botón "Send", enviando "Hello" a Alice.
 2. Antes de que termine la demora de cinco segundos, cambia el valor del campo "To" a "Bob".
@@ -305,7 +305,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-**React mantiene los valores de estado "fijados" dentro de los manejadores de eventos de un renderizado.** No hay que preocuparse de si el estado ha cambiado mientras se ejecuta el código.
+**React mantiene los valores de estado "fijados" dentro de los controladores de eventos de un renderizado.** No hay que preocuparse de si el estado ha cambiado mientras se ejecuta el código.
 
 Pero, ¿y si quieres leer el último estado antes de un nuevo renderizado? Necesitarás usar una [función de actualización de estado](/learn/queueing-a-series-of-state-updates), ¡tratada en la siguiente página!
 
@@ -314,10 +314,10 @@ Pero, ¿y si quieres leer el último estado antes de un nuevo renderizado? Neces
 * Asignar un estado solicita un rerenderizado
 * React almacena el estado fuera de tu componente, como si estuviera en una estantería.
 * Cuando llamas a `useState`, React te da una instantánea del estado *para ese renderizado*.
-* Las variables y los manejadores de eventos no "sobreviven" a los rerenderizados. Cada renderizado tiene sus propios manejadores de eventos.
+* Las variables y los controladores de eventos no "sobreviven" a los rerenderizados. Cada renderizado tiene sus propios controladores de eventos.
 * Cada renderizado (y las funciones dentro de él) siempre "verán" la instantánea del estado que React dio a *ese* renderizado.
-* Puedes sustituir mentalmente el estado en los manejadores de eventos, de forma similar a como piensas en el JSX renderizado.
-* Los manejadores de eventos creados en el pasado tienen los valores de estado del renderizado en el que fueron creados.
+* Puedes sustituir mentalmente el estado en los controladores de eventos, de forma similar a como piensas en el JSX renderizado.
+* Los controladores de eventos creados en el pasado tienen los valores de estado del renderizado en el que fueron creados.
 
 </Recap>
 
@@ -362,7 +362,7 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Añade un `alert` al manejador de clics. Cuando la luz es verde y dice "Walk", al hacer clic en el botón debe decir "Stop is next". Cuando la luz es roja y dice "Stop", al hacer clic en el botón debe decir "Walk is next".
+Añade un `alert` al controlador de clics. Cuando la luz es verde y dice "Walk", al hacer clic en el botón debe decir "Stop is next". Cuando la luz es roja y dice "Stop", al hacer clic en el botón debe decir "Walk is next".
 
 ¿Hay alguna diferencia si se pone el `alert` antes o después de la llamada a `setWalk`?
 
@@ -412,7 +412,7 @@ Esta línea puede parecer paradójica en un inicio:
 alert(walk ? 'Stop is next' : 'Walk is next');
 ```
 
-Pero tiene sentido si lo lees como: "Si el semáforo muestra 'Walk now', el mensaje debería decir 'Stop is next'". La variable `walk` dentro de tu manejador de eventos coincide con el valor de `walk` de ese renderizado y no cambia.
+Pero tiene sentido si lo lees como: "Si el semáforo muestra 'Walk now', el mensaje debería decir 'Stop is next'". La variable `walk` dentro de tu controlador de evento coincide con el valor de `walk` de ese renderizado y no cambia.
 
 Puedes comprobar que es correcto aplicando el método de sustitución. Cuando `walk` es `true`, obtienes:
 

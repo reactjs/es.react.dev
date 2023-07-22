@@ -198,7 +198,7 @@ export default function List() {
 
 </Sandpack>
 
-Haz click en el botón "Eliminar" varias veces, y mira su manejador de clics.
+Haz click en el botón "Eliminar" varias veces, y mira su controlador de clics.
 
 ```js
 setArtists(
@@ -919,7 +919,7 @@ button { margin: 5px; }
 
 #### Eliminar un artículo del carrito de compras {/*remove-an-item-from-the-shopping-cart*/}
 
-Este carrito de compras tiene un botón "+" que funciona, pero el botón "–" no hace nada. Debes agregarle un controlador de eventos para que al presionarlo disminuya el `count` del producto correspondiente. Si presionas "–" cuando el conteo es 1, el producto debería eliminarse automáticamente del carrito. Asegúrate de que nunca muestre 0.
+Este carrito de compras tiene un botón "+" que funciona, pero el botón "–" no hace nada. Debes agregarle un controlador de evento para que al presionarlo disminuya el `count` del producto correspondiente. Si presionas "–" cuando el conteo es 1, el producto debería eliminarse automáticamente del carrito. Asegúrate de que nunca muestre 0.
 
 <Sandpack>
 

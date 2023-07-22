@@ -1506,7 +1506,7 @@ function Counter() {
   // ...
 ```
 
-A continuación, convierte los manejadores de eventos:
+A continuación, convierte los controladores de eventos:
 
 ```js {5-7,9-11}
 function Counter() {

@@ -732,7 +732,7 @@ function ChatRoom() {
 }
 ```
 
-**Los Efectos son bloques de código reactivos.** Se vuelven a sincronizar cuando los valores que lees dentro de ellos cambian. A diferencia de los manejadores de eventos, que solo se ejecutan una vez por interacción, los Efectos se ejecutan cada vez que es necesaria la sincronización.
+**Los Efectos son bloques de código reactivos.** Se vuelven a sincronizar cuando los valores que lees dentro de ellos cambian. A diferencia de los controladores de eventos, que solo se ejecutan una vez por interacción, los Efectos se ejecutan cada vez que es necesaria la sincronización.
 
 **No puedes "elegir" tus dependencias.** Tus dependencias deben incluir cada [valor reactivo](#all-variables-declared-in-the-component-body-are-reactive) que lees en el Efecto. El linter hace cumplir esto. A veces esto puede conducir a problemas como bucles infinitos y a que tu Efecto se vuelva a sincronizar demasiado a menudo. ¡No soluciones estos problemas suprimiendo el linter! Esto es lo que debes intentar en su lugar:
 
@@ -1119,7 +1119,7 @@ En ambos casos, `canMove` es una variable reactiva que lees dentro del Efecto. P
 
 #### Investiga un error de valor obsoleto {/*investigate-a-stale-value-bug*/}
 
-En este ejemplo, el punto rosa debería moverse cuando el checkbox está activado, y debería dejar de moverse cuando el checkbox está desactivado. La lógica para esto ya se ha implementado: el manejador de eventos `handleMove` comprueba la variable de estado `canMove`.
+En este ejemplo, el punto rosa debería moverse cuando el checkbox está activado, y debería dejar de moverse cuando el checkbox está desactivado. La lógica para esto ya se ha implementado: el controlador de evento `handleMove` comprueba la variable de estado `canMove`.
 
 Sin embargo, por alguna razón, la variable de estado `canMove` dentro de `handleMove` parece estar "obsoleta": siempre es `true`, incluso después de desmarcar el checkbox. ¿Cómo es posible esto? Encuentra el error en el código y arréglalo.
 

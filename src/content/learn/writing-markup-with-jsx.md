@@ -28,7 +28,7 @@ HTML
 
 </Diagram>
 
-<Diagram name="writing_jsx_js" height={237} width={325} alt="Tres manejadores de JavaScript con fondo amarillo: onSubmit, onLogin y onClick.">
+<Diagram name="writing_jsx_js" height={237} width={325} alt="Tres controladores de JavaScript con fondo amarillo: onSubmit, onLogin y onClick.">
 
 JavaScript
 
@@ -46,7 +46,7 @@ Componente de React `Sidebar.js`
 
 </Diagram>
 
-<Diagram name="writing_jsx_form" height={330} width={325} alt="Componente React con HTML y JavaScript de ejemplos anteriores mezclados. El nombre de la función es Form y contiene dos manejadores onClick y onSubmit resaltados en amarillo. Después de los manejadores está el HTML resaltado en celeste. El HTML contiene un elemento form con elementos input anidado, cada uno con una prop onClick.">
+<Diagram name="writing_jsx_form" height={330} width={325} alt="Componente React con HTML y JavaScript de ejemplos anteriores mezclados. El nombre de la función es Form y contiene dos controladores onClick y onSubmit resaltados en amarillo. Después de los controladores está el HTML resaltado en celeste. El HTML contiene un elemento form con elementos input anidado, cada uno con una prop onClick.">
 
 Componente de React `Form.js`
 

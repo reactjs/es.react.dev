@@ -502,7 +502,7 @@ Lee **[Preservación y restablecimiento del estado](/learn/preserving-and-resett
 
 ## Extracción de la lógica de estado en un reductor {/*extracting-state-logic-into-a-reducer*/}
 
-Los componentes con muchas actualizaciones de estado repartidas entre muchos manejadores de eventos pueden resultar abrumadores. Para estos casos, puedes consolidar toda la lógica de actualización de estado fuera de tu componente en una sola función, llamada "reductor". Tus manejadores de eventos se vuelven concisos porque sólo especifican las "acciones" del usuario. Al final del archivo, la función reductora especifica cómo debe actualizarse el estado en respuesta a cada acción.
+Los componentes con muchas actualizaciones de estado repartidas entre muchos controladores de eventos pueden resultar abrumadores. Para estos casos, puedes consolidar toda la lógica de actualización de estado fuera de tu componente en una sola función, llamada "reductor". Tus controladores de eventos se vuelven concisos porque sólo especifican las "acciones" del usuario. Al final del archivo, la función reductora especifica cómo debe actualizarse el estado en respuesta a cada acción.
 
 <Sandpack>
 

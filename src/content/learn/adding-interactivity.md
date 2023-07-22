@@ -4,13 +4,13 @@ title: Agregar interactividad
 
 <Intro>
 
-Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario. Por ejemplo, hacer clic en una galería de imágenes cambia la imagen activa. En React, los datos que cambian con el tiempo se denominan *estado.* Puedes agregar estado a cualquier componente y actualizarlo según sea necesario. En este capítulo, aprenderás a escribir componentes que manejen interacciones, actualicen tu estado y muestren resultados diferentes a lo largo del tiempo.
+Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario. Por ejemplo, hacer clic en una galería de imágenes cambia la imagen activa. En React, los datos que cambian con el tiempo se denominan *estado.* Puedes agregar estado a cualquier componente y actualizarlo según sea necesario. En este capítulo, aprenderás a escribir componentes que controlen interacciones, actualicen tu estado y muestren resultados diferentes a lo largo del tiempo.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [Cómo manejar eventos iniciados por el usuario](/learn/responding-to-events)
+* [Cómo controlar eventos iniciados por el usuario](/learn/responding-to-events)
 * [Cómo hacer que los componentes "recuerden" información con estado](/learn/state-a-components-memory)
 * [Cómo React actualiza la interfaz de usuario en dos fases](/learn/render-and-commit)
 * [Por qué el estado no se actualiza justo después de cambiarlo](/learn/state-as-a-snapshot)
@@ -22,9 +22,9 @@ Algunas cosas en la pantalla se actualizan en respuesta a la entrada del usuario
 
 ## Responder a eventos {/*responding-to-events*/}
 
-React te permite agregar manejadores de eventos a tu JSX. Los manejadores de eventos son tus propias funciones que se activarán en respuesta a las interacciones del usuario, como hacer clic, pasar el mouse, enfocarse en las entradas de un formulario, etc.
+React te permite agregar controladores de eventos a tu JSX. Los controladores de eventos son tus propias funciones que se activarán en respuesta a las interacciones del usuario, como hacer clic, pasar el mouse, enfocarse en las entradas de un formulario, etc.
 
-Los componentes integrados como `<button>` solo admiten eventos de navegador integrados como `onClick`. Sin embargo, también puedes crear tus propios componentes y darle a sus props de manejadores de eventos los nombres específicos de la aplicación que desees.
+Los componentes integrados como `<button>` solo admiten eventos de navegador integrados como `onClick`. Sin embargo, también puedes crear tus propios componentes y darle a sus props de controladores de eventos los nombres específicos de la aplicación que desees.
 
 <Sandpack>
 
@@ -68,7 +68,7 @@ button { margin-right: 10px; }
 
 <LearnMore path="/learn/responding-to-events">
 
-Lee **[Responder a eventos](/learn/responding-to-events)** para aprender cómo agregar manejadores de eventos.
+Lee **[Responder a eventos](/learn/responding-to-events)** para aprender cómo agregar controladores de eventos.
 
 </LearnMore>
 
@@ -314,7 +314,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <LearnMore path="/learn/state-as-a-snapshot">
 
-Lee **[El estado como una instantánea](/learn/state-as-a-snapshot)** para saber por qué el estado aparece "fijo" y sin cambios dentro de los manejadores de eventos.
+Lee **[El estado como una instantánea](/learn/state-as-a-snapshot)** para saber por qué el estado aparece "fijo" y sin cambios dentro de los controladores de eventos.
 
 </LearnMore>
 

@@ -776,7 +776,7 @@ export default function Board() {
 }
 ```
 
-Ahora cambia `Square` para mostrar una "X" cuando se haga clic. Reemplaza el controlador de eventos `console.log("¡haz hecho clic!");` con `setValue('X');`. Ahora tu componente `Square` se ve así:
+Ahora cambia `Square` para mostrar una "X" cuando se haga clic. Reemplaza el controlador de evento `console.log("¡haz hecho clic!");` con `setValue('X');`. Ahora tu componente `Square` se ve así:
 
 ```js {5}
 function Square() {
@@ -1333,7 +1333,7 @@ Al final, el usuario ve que el cuadrado superior izquierdo ha pasado de estar va
 
 <Note>
 
-El atributo `onClick` del elemento DOM `<button>` tiene un significado especial para React porque es un componente integrado. Para componentes personalizados como Square, el nombre depende de ti. Podrías dar cualquier nombre a la prop `onSquareClick` de `Square` o `handleClick` de `Board`, y el código funcionaría de la misma manera. En React, es convencional usar nombres `on[Event]` para props que representan eventos y `handle[Event]` para las definiciones de funciones que manejan los eventos.
+El atributo `onClick` del elemento DOM `<button>` tiene un significado especial para React porque es un componente integrado. Para componentes personalizados como Square, el nombre depende de ti. Podrías dar cualquier nombre a la prop `onSquareClick` de `Square` o `handleClick` de `Board`, y el código funcionaría de la misma manera. En React, es convencional usar nombres `on[Event]` para props que representan eventos y `handle[Event]` para las definiciones de funciones que controlan los eventos.
 
 </Note>
 
