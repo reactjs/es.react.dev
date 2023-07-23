@@ -101,7 +101,7 @@ import { useMemo, useState } from 'react';
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
   const visibleTodos = useMemo(() => {
-    // ✅ No se volverá a ejecutar a menos que todos o filter cambien
+    // ✅ No se vuelve a ejecutar a menos que cambien todos o filter.
     return getFilteredTodos(todos, filter);
   }, [todos, filter]);
   // ...
