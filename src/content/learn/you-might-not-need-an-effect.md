@@ -196,7 +196,7 @@ Normalmente, React preserva el estado cuando el mismo componente se renderiza en
 
 Ten en cuenta que en este ejemplo, solo el componente `ProfilePage` externo es exportado y visible para otros archivos en el proyecto. Los componentes que renderizan `ProfilePage` no necesitan pasar la _key_; simplemente pasan `userId` como una _prop_ regular. El hecho de que `ProfilePage` lo pase como una _`key`_ al componente interno `Profile` es un detalle de implementación.
 
-### Actualizar parte del estado cuando cambie una prop {/*adjusting-some-state-when-a-prop-changes*/}
+### Ajustar algún estado cuando cambia una _prop_ {/*adjusting-some-state-when-a-prop-changes*/}
 
 A veces, querrás resetear o ajustar una parte del estado según un cambio de prop, pero no todo.
 
