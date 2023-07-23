@@ -612,7 +612,7 @@ function Child({ onFetched }) {
 }
 ```
 
-En React, los datos fluyen de los componentes padres a sus hijos. Cuando ves algo incorrecto en la pantalla, puedes rastrear de dónde viene la información subiendo la cadena de componentes hasta que encuentres qué componente pasa la prop incorrecta o tiene el estado incorrecto. Cuando los componentes hijos actualizan el estado de sus componentes padres en Efectos, el flujo de datos se vuelve muy difícil de rastrear. Como tanto el hijo como el padre necesitan los mismos datos, deja que el componente padre recupere esos datos, y *pásalos hacia abajo* al hijo en su lugar:
+En React, los datos fluyen desde los componentes padres hacia sus hijos. Cuando ves algo incorrecto en la pantalla, puedes rastrear de dónde proviene la información siguiendo la cadena de componentes hacia arriba hasta encontrar qué componente pasa la _prop_ incorrecta o tiene el estado incorrecto. Cuando los componentes hijos actualizan el estado de sus componentes padres en Efectos, el flujo de datos se vuelve muy difícil de rastrear. Dado que tanto el hijo como el padre necesitan los mismos datos, permite que el componente padre obtenga esos datos y los *pase hacia abajo* al hijo en su lugar:
 
 ```js {4-5}
 function Parent() {
