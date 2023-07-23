@@ -534,7 +534,7 @@ function Toggle({ onChange }) {
 }
 ```
 
-Como antes, esto no es ideal. El `Toggle` actualiza su estado primero, y React actualiza la pantalla. Luego React ejecuta el Efecto, que llama a la función `onChange` pasada desde un componente padre. Ahora el componente padre actualizará su propio estado, iniciando otro proceso de renderizado. Sería mejor hacer todo en un solo paso.
+Como mencionamos anteriormente, esto no es ideal. El `Toggle` actualiza su estado primero, y React actualiza la pantalla. Luego, React ejecuta el Efecto, que llama a la función `onChange` pasada desde un componente padre. Ahora el componente padre actualizará su propio estado, iniciando otro proceso de renderizado. Sería mejor hacer todo en un solo paso.
 
 Elimina el Efecto y en su lugar actualiza el estado de *ambos* componentes dentro del mismo manejador de eventos:
 
