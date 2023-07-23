@@ -795,7 +795,7 @@ En general, cada vez que debas recurrir a escribir Efectos, busca cuándo puedes
 - Si puedes calcular algo durante el renderizado, no necesitas un Efecto.
 - Para almacenar en caché cálculos costosos, utiliza `useMemo` en lugar de `useEffect`.
 - Para restablecer el estado de todo el árbol de componentes, pasa una `key` diferente a este.
-- Para restablecer una porción de estado en respuesta a un cambio de prop, configúralo durante el renderizado.
+- Para restablecer una porción del estado en respuesta a un cambio de  _prop_, establécelo durante el renderizado.
 - El código que se ejecuta porque un componente fue *mostrado* debería estar en Efectos, el resto debería estar en eventos.
 - Si necesitas actualizar el estado de varios componentes, es mejor hacerlo durante un solo evento.
 - Siempre que intentes sincronizar variables de estado en diferentes componentes, considera elevar el estado.
