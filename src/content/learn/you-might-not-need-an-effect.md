@@ -371,7 +371,7 @@ function Game() {
   const [round, setRound] = useState(1);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  // 🔴 Evitar: Cadenas de Efectos que ajustan el estado solo para activarse entre sí
+  // 🔴 Evitar: Cadenas de Efectos que ajustan el estado solo para activarse entre sí.
   useEffect(() => {
     if (card !== null && card.gold) {
       setGoldCardCount(c => c + 1);
