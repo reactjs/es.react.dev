@@ -798,7 +798,7 @@ En general, cada vez que debas recurrir a escribir Efectos, busca cuándo puedes
 - Para restablecer una porción del estado en respuesta a un cambio de  _prop_, establécelo durante el renderizado.
 - El código que se ejecuta porque un componente fue *mostrado* debería estar en Efectos, el resto debería estar en eventos.
 - Si necesitas actualizar el estado de varios componentes, es mejor hacerlo durante un solo evento.
-- Siempre que intentes sincronizar variables de estado en diferentes componentes, considera elevar el estado.
+- Siempre que intentes sincronizar variables de estado en diferentes componentes, considera levantar el estado.
 - Puedes obtener datos con Efectos, pero necesitas implementar limpieza para evitar condiciones de carrera.
 
 </Recap>
