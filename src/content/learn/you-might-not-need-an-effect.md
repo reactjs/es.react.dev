@@ -54,7 +54,7 @@ Esto es más complicado de lo necesario. También es ineficiente: realiza un pas
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
-  // ✅ Buena práctica: calcularlo durante el renderizado
+  // ✅ Correcto: calculado durante el renderizado.
   const fullName = firstName + ' ' + lastName;
   // ...
 }
