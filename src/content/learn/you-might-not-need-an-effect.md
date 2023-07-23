@@ -351,7 +351,7 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // ✅ Buena práctica: La lógica para el evento se ejecuta en un manejador de eventos
+    // ✅ Correcto: La lógica específica del evento se encuentra en el controlador de eventos.
     post('/api/register', { firstName, lastName });
   }
   // ...
