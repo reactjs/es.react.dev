@@ -147,7 +147,7 @@ const visibleTodos = useMemo(() => {
 console.timeEnd('filter array');
 ```
 
-`useMemo` no hará que el *primer* renderizado sea más rápido. Solo te ayuda a evitar trabajo innecesario en las actualizaciones.
+`useMemo` no hará que el *primer* renderizado sea más rápido. Solo te ayuda a evitar trabajo innecesario en las actualizaciones posteriores.
 
 Ten en cuenta que tu máquina probablemente sea más rápida que la de tus usuarios, por lo que es una buena idea probar el rendimiento con una ralentización artificial. Por ejemplo, Chrome ofrece una opción de [limitación de CPU](https://developer.chrome.com/blog/new-in-devtools-61/#throttling) para esto.
 
