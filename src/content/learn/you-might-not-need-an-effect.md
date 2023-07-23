@@ -716,7 +716,7 @@ function SearchResults({ query }) {
 
 No *necesitas* mover esta solicitud (fetch) a un controlador de eventos.
 
-Esto puede parecer una contradicción con los ejemplos anteriores donde necesitabas poner la lógica en los manejadores de eventos. Sin embargo, considera que no es *el evento de escritura* el que es la razón principal para cargar datos. Las entradas de búsqueda a menudo se pre-rellenan desde la URL, y el usuario puede navegar hacia atrás y hacia adelante sin tocar la entrada de texto.
+Esto puede parecer una contradicción con los ejemplos anteriores donde necesitabas poner la lógica en los controladores de eventos. Sin embargo, considera que no es *el evento de escritura* la razón principal para realizar la solicitud (_fetch_). Los campos de búsqueda a menudo se precargan desde la URL, y el usuario podría navegar hacia atrás y adelante sin tocar el campo de entrada.
 
 No importa de dónde vengan `page` y `query`. Mientras este componente sea visible, querrás mantener los `results` [sincronizados](/learn/synchronizing-with-effects) con los datos de la red para la `page` y `query` actuales. Por eso es un Efecto.
 
