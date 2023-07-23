@@ -28,7 +28,7 @@ Hay dos casos comunes en los cuales no necesitas utilizar Efectos:
 
 Es *cierto* que necesitas Efectos para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemas externos. Por ejemplo, puedes escribir un Efecto que mantenga sincronizado un _widget_ de jQuery con el estado de React. También puedes obtener datos con Efectos, por ejemplo, puedes sincronizar los resultados de búsqueda con la consulta de búsqueda actual. Ten en cuenta que los [_frameworks_](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos proporcionan mecanismos más eficientes y nativos para obtener datos que escribir Efectos directamente en tus componentes.
 
-Para ayudarte a obtener una buena intuición, ¡veamos algunos ejemplos concretos comunes!
+Para ayudarte a desarrollar la intuición adecuada, ¡veamos algunos ejemplos concretos comunes!
 
 ### Actualizar un estado en relación a otras props o estados {/*updating-state-based-on-props-or-state*/}
 
