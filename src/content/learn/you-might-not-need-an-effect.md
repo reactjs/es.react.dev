@@ -70,7 +70,7 @@ Este componente calcula `visibleTodos` tomando los `todos` que recibe a través 
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
 
-  // 🔴 Desaconsejado: : estado redundante y Efecto innecesario
+  // 🔴 Evitar: estado redundante y Efecto innecesario
   const [visibleTodos, setVisibleTodos] = useState([]);
   useEffect(() => {
     setVisibleTodos(getFilteredTodos(todos, filter));
