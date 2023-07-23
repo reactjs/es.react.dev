@@ -689,7 +689,7 @@ function ChatIndicator() {
 }
 ```
 
-Este enfoque es menos propenso a errores que sincronizar manualmente datos mutables al estado de React con un Efecto. Generalmente, escribirás un Hook personalizado como `useOnlineStatus()` anteriormente para que no debas repetir este código en los componentes individuales. [Lee más sobre cómo suscribirte a fuentes externas desde componentes de React.](/reference/react/useSyncExternalStore)
+Este enfoque es menos propenso a errores que la sincronización manual de datos mutables al estado de React con un Efecto. Típicamente, escribirás un Hook personalizado como `useOnlineStatus()` como se muestra arriba, para que no necesites repetir este código en los componentes individuales. [Lee más sobre cómo suscribirte a almacenes externos desde componentes React.](/reference/react/useSyncExternalStore)
 
 ### Cargar datos {/*fetching-data*/}
 
