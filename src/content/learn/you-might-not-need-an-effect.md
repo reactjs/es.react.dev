@@ -635,7 +635,7 @@ A veces, tus componentes pueden necesitar suscribirse a algunos datos fuera del 
 
 ```js {2-17}
 function useOnlineStatus() {
-  // No ideal: Suscripción manual en un Efecto
+  // No es lo ideal: Suscripción manual a un almacén en un Efecto.
   const [isOnline, setIsOnline] = useState(true);
   useEffect(() => {
     function updateState() {
