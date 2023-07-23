@@ -618,7 +618,7 @@ En React, los datos fluyen desde los componentes padres hacia sus hijos. Cuando 
 function Parent() {
   const data = useSomeAPI();
   // ...
-  // ✅ Buena práctica: Pasar los datos desde padres a hijos
+  // ✅ Correcto: Pasando datos hacia abajo al hijo.
   return <Child data={data} />;
 }
 
