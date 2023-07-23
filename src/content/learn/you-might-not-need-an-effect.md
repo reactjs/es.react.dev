@@ -678,7 +678,7 @@ function useOnlineStatus() {
   // ✅ Bien: Suscribirse a un almacén externo con un Hook incorporado.
   return useSyncExternalStore(
     subscribe, // React no volverá a suscribirse mientras pases la misma función
-    () => navigator.onLine, // Acá va el cómo obtener el valor en el cliente
+    () => navigator.onLine, // Cómo obtener el valor en el cliente.
     () => true // Acá va el cómo obtener el valor en el servidor
   );
 }
