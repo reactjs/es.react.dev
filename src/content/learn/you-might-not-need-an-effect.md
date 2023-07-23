@@ -503,7 +503,7 @@ function App() {
 }
 ```
 
-El código en el nivel superior se ejecuta una vez cuando se importa tu componente, incluso si no termina siendo renderizado. Para evitar ralentizaciones o comportamientos inesperados al importar componentes arbitrarios, no abuses de este patrón. Mantén la lógica de inicialización de la aplicación en los módulos de componentes raíz como `App.js` o en el punto de entrada de tu aplicación.
+El código en el nivel superior se ejecuta una vez cuando se importa tu componente, incluso si no se llega a renderizar. Para evitar ralentización o comportamientos inesperados al importar componentes arbitrarios, no abuses de este patrón. Mantén la lógica de inicialización a nivel de la aplicación en módulos de componentes _root_, como `App.js`, o en el punto de entrada de tu aplicación.
 
 ### Notificar a los componentes padre sobre cambios de estado {/*notifying-parent-components-about-state-changes*/}
 
