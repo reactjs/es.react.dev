@@ -718,7 +718,7 @@ No *necesitas* mover esta solicitud (fetch) a un controlador de eventos.
 
 Esto puede parecer una contradicción con los ejemplos anteriores donde necesitabas poner la lógica en los controladores de eventos. Sin embargo, considera que no es *el evento de escritura* la razón principal para realizar la solicitud (_fetch_). Los campos de búsqueda a menudo se precargan desde la URL, y el usuario podría navegar hacia atrás y adelante sin tocar el campo de entrada.
 
-No importa de dónde vengan `page` y `query`. Mientras este componente sea visible, querrás mantener los `results` [sincronizados](/learn/synchronizing-with-effects) con los datos de la red para la `page` y `query` actuales. Por eso es un Efecto.
+No importa de dónde provengan `page` y `query`. Mientras este componente sea visible, deseas mantener `results` [sincronizado](/learn/synchronizing-with-effects) con los datos de la red para la `page` y `query` actuales. Por eso es un Efecto.
 
 Sin embargo, el código anterior tiene un error. Imagina que escribes "hola" rápidamente. Entonces la `query` cambiará de "h", a "ho", "hol", y "hola". Esto iniciará búsquedas separadas, pero no hay garantía sobre el orden en que llegarán las respuestas. Por ejemplo, la respuesta "hol" puede llegar *después* de la respuesta "hola". Como "hol" llamará a `setResults()` al final, estarás mostrando los resultados de búsqueda incorrectos. Esto se llama una ["condición de carrera"](https://es.wikipedia.org/wiki/Condición_de_carrera): dos solicitudes diferentes "compitieron" entre sí y llegaron en un orden diferente al que esperabas.
 
