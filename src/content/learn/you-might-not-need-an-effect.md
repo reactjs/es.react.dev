@@ -469,7 +469,7 @@ function App() {
 }
 ```
 
-Sin embargo, rápidamente descubrirás que [se ejecuta dos veces en desarrollo.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) Esto puede causar problemas: por ejemplo, quizás invalida el token de autenticación porque la función no fue diseñada para ser llamada dos veces. En general, tus componentes deberían ser resistentes a ser desmontados. Esto incluye tu componente `App` de nivel superior.
+Sin embargo, rápidamente descubrirás que esto [se ejecuta dos veces en desarrollo](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development). Esto puede causar problemas, por ejemplo, tal vez invalide el _token_ de autenticación porque la función no fue diseñada para ser llamada dos veces. En general, tus componentes deberían ser resistentes a ser montados de nuevo. Esto incluye tu componente de nivel superior `App`.
 
 Aunque puede que nunca se desmonte en la práctica en producción, seguir las mismas restricciones en todos los componentes facilita mover y reutilizar el código. Si alguna lógica debe ejecutarse *una vez por carga de la aplicación* en lugar de *una vez por montaje del componente*, añade una variable de nivel superior para rastrear si ya se ha ejecutado:
 
