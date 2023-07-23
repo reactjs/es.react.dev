@@ -693,7 +693,7 @@ Este enfoque es menos propenso a errores que la sincronización manual de datos 
 
 ### Obtención de datos {/*fetching-data*/}
 
-Muchas aplicaciones usan Efectos para iniciar la carga de datos. Es bastante común escribir un Efecto de carga de datos como este:
+Muchas aplicaciones utilizan Efectos para iniciar la obtención de datos. Es bastante común escribir un Efecto para obtener datos de esta manera:
 
 ```js {5-10}
 function SearchResults({ query }) {
