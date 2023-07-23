@@ -215,7 +215,7 @@ function List({ items }) {
 }
 ```
 
-Esto tampoco es ideal. Debido a que cada vez que los `items` cambien, `List` y sus componentes hijos renderizarán con un valor `selection` obsoleto al comienzo. Luego React actualizará el DOM y ejecutará los Efectos. Finalmente, la llamada a `setSelection(null)` provocará otro renderizado de `List` y sus componentes hijos, nuevamente reiniciando por completo este proceso.
+Esto, también, no es ideal. Cada vez que cambian los `items`, el componente `List` y sus componentes hijos se renderizarán inicialmente con un valor obsoleto de `selection`. Luego, React actualizará el DOM y ejecutará los Efectos. Finalmente, la llamada a `setSelection(null)` provocará otra nueva renderización del componente `List` y sus componentes hijos, reiniciando todo este proceso nuevamente.
 
 Comienza por eliminar el Efecto. En su lugar, ajusta el estado directamente durante el renderizado:
 
