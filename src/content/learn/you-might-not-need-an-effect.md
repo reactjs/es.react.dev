@@ -200,7 +200,7 @@ Ten en cuenta que en este ejemplo, solo el componente `ProfilePage` externo es e
 
 A veces, es posible que desees restablecer o ajustar una parte del estado cuando cambie una _prop_, pero no todo el estado.
 
-Este componente `List` recibe una lista de `items` como una prop y mantiene el elemento seleccionado en la variable de estado `selection`. Tu objetivo es resetear `selection` a `null` siempre que la prop `items` reciba un array diferente:
+Este componente `List` recibe una lista de `items` como una prop y mantiene el _item_ seleccionado en la variable de estado `selection`. Deseas restablecer la variable de estado `selection` a `null` cada vez que la _prop_ `items` reciba un _array_ diferente:
 
 ```js {5-8}
 function List({ items }) {
