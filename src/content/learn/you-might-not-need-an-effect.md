@@ -660,7 +660,7 @@ function ChatIndicator() {
 }
 ```
 
-Aquí, el componente se suscribe a una fuente de datos externa (en este caso, la API `navigator.onLine` del navegador). Dado que esta API no existe en el servidor (por lo que no puede usarse para el HTML inicial), inicialmente el estado se establece en `true`. Siempre que el valor de esa fuente de datos cambia en el navegador, el componente actualiza su estado.
+Aquí, el componente se suscribe a un almacén de datos externos (en este caso, la API `navigator.onLine` del navegador). Dado que esta API no existe en el servidor (por lo que no se puede utilizar para el HTML inicial), inicialmente el estado se establece en `true`. Cada vez que el valor de ese almacén de datos cambia en el navegador, el componente actualiza su estado.
 
 Aunque es común usar Efectos para esto, React tiene un Hook diseñado específicamente para suscribirse a una fuente externa que se prefiere en su lugar. Elimina el Efecto y reemplázalo con una llamada al Hook de React [`useSyncExternalStore`](/reference/react/useSyncExternalStore):
 
