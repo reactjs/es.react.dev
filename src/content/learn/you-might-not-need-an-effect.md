@@ -566,7 +566,7 @@ function Toggle({ onChange }) {
 
 Con este enfoque, tanto el componente `Toggle` como su componente padre actualizan su estado durante el evento. React [agrupa las actualizaciones](/learn/queueing-a-series-of-state-updates) de diferentes componentes juntas, por lo que solo habrá un pase de renderizado.
 
-También podrías eliminar el estado por completo, y en su lugar recibir `isOn` del componente padre:
+También podrías eliminar completamente el estado y, en su lugar, recibir `isOn` desde el componente padre:
 
 ```js {1,2}
 // ✅ También está bien: el componente está completamente controlado por su padre
