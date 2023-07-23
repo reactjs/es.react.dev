@@ -127,7 +127,7 @@ La función que envuelves en [`useMemo`](/reference/react/useMemo) se ejecuta du
 
 <DeepDive>
 
-#### ¿Cómo saber si un cálculo es costoso? {/*how-to-tell-if-a-calculation-is-expensive*/}
+#### ¿Cómo determinar si un cálculo es costoso? {/*how-to-tell-if-a-calculation-is-expensive*/}
 
 En general, a menos que estés creando o iterando sobre miles de objetos, probablemente no sea costoso. Si quieres tener más confianza, puedes imprimirlo en la consola y medir el tiempo que pasa en ese fragmento de código:
 
