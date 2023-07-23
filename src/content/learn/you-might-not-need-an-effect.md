@@ -337,7 +337,7 @@ Aplicaremos el mismo criterio que en el ejemplo anterior.
 
 La solicitud POST de analítica debe permanecer en un Efecto. Esto se debe a que la _razón_ para enviar el evento de analítica es que el formulario se mostró. (Puede dispararse dos veces en desarrollo, pero [ver aquí](/learn/synchronizing-with-effects#sending-analytics) para aprender cómo manejarlo).
 
-Sin embargo, la solicitud POST a `/api/register` no es causada por el formulario siendo _mostrado al usuario_. Solo quieres enviar la solicitud en un momento específico en el tiempo: cuando el usuario presiona el botón. Solo debería ocurrir _en esa interacción en particular_. Elimina el segundo Efecto y mueve esa solicitud POST al manejador de eventos:
+Sin embargo, la solicitud POST a `/api/register` no es causada por el formulario siendo _mostrado_. Solo deseas enviar la solicitud en un momento específico: cuando el usuario presiona el botón. Debería suceder solo durante _esa interacción particular_. Elimina el segundo Efecto y coloca esa solicitud POST dentro del controlador de eventos:
 
 ```js {12-13}
 function Form() {
