@@ -629,7 +629,7 @@ function Child({ data }) {
 
 Esto es más sencillo y mantiene el flujo de datos predecible: los datos fluyen hacia abajo desde el padre al hijo.
 
-### Suscribirse a una fuente de datos externa {/*subscribing-to-an-external-store*/}
+### Suscripción a un almacén externo {/*subscribing-to-an-external-store*/}
 
 A veces, tus componentes pueden necesitar suscribirse a algunos datos fuera del estado de React. Estos datos podrían provenir de una biblioteca de terceros o de una API incorporada en el navegador. Como estos datos pueden cambiar sin que React lo sepa, necesitas suscribir manualmente tus componentes a ellos. Esto se hace a menudo con un Efecto, por ejemplo:
 
