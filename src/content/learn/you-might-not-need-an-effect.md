@@ -258,7 +258,7 @@ Supongamos que tienes una página de producto con dos botones (Comprar y Pagar) 
 
 ```js {2-7}
 function ProductPage({ product, addToCart }) {
-  // 🔴 Evita: Lógica específica para evento dentro de un Efecto
+  // 🔴 Evitar: Lógica específica del evento dentro de un Efecto.
   useEffect(() => {
     if (product.isInCart) {
       showNotification(`Added ${product.name} to the shopping cart!`);
