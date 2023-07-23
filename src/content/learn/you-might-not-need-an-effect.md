@@ -591,7 +591,7 @@ function Toggle({ isOn, onChange }) {
 
 ### Pasar datos al componente padre {/*passing-data-to-the-parent*/}
 
-Este componente `Child` carga algunos datos y luego los pasa al componente `Parent` en un Efecto:
+Este componente `Child` obtiene algunos datos y luego los pasa al componente `Parent` en un Efecto:
 
 ```js {9-14}
 function Parent() {
