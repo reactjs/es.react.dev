@@ -305,7 +305,7 @@ Esto no solo elimina el Efecto innecesario, sino que también corrige el error.
 
 ### Realizar una petición POST {/*sending-a-post-request*/}
 
-Este componente `Form` envía dos tipos de solicitudes POST. Envía un evento de analíticas cuando se monta. Por otra parte, cuando llenas el formulario y haces clic en el botón Enviar, enviará una solicitud POST al endpoint `/api/register`:
+Este componente `Form` envía dos tipos de solicitudes POST. Envía un evento de analítica cuando se monta. Cuando completas el formulario y haces clic en el botón "Enviar", enviará una solicitud POST al punto final `/api/register`:
 
 ```js {5-8,10-16}
 function Form() {
