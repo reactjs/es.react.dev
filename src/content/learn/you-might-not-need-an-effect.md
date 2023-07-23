@@ -173,7 +173,7 @@ export default function ProfilePage({ userId }) {
 
 Esto es ineficiente porque `ProfilePage` y sus hijos primero se renderizarán con el valor obsoleto, y luego se renderizarán de nuevo. También es complicado porque necesitarías hacer esto en *cada* componente que tenga algún estado dentro de `ProfilePage`. Por ejemplo, si la interfaz de usuario del comentario está anidada, también querrías limpiar el estado del comentario anidado.
 
-En lugar de ello, puedes decirle a React que cada perfil de usuario es conceptualmente un perfil _diferente_ dándole una _key_ explícita. Divide tu componente en dos y pasa un atributo `key` del componente exterior al interior:
+En su lugar, puedes indicarle a React que el perfil de cada usuario es conceptualmente un perfil _diferente_ al proporcionarle una _key_ explícita. Divide tu componente en dos y pasa un atributo _`key`_ desde el componente externo al interno:
 
 ```js {5,11-12}
 export default function ProfilePage({ userId }) {
