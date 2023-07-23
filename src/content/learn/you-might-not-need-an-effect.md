@@ -163,7 +163,7 @@ Este componente `ProfilePage` recibe una prop `userId`. La página contiene una 
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
-  // 🔴 Desaconsejado: Reiniciar el estado según cambio de prop en un Efecto
+  // 🔴 Evitar: Restablecer el estado en un cambio de prop dentro de un Efecto.
   useEffect(() => {
     setComment('');
   }, [userId]);
