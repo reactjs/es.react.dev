@@ -186,7 +186,7 @@ export default function ProfilePage({ userId }) {
 }
 
 function Profile({ userId }) {
-  // ✅ Esto y cualquier otro estado a continuación se reiniciará automáticamente al cambiar la key
+  // ✅ Esto y cualquier otro estado a continuación se restablecerán automáticamente cuando cambie la key.
   const [comment, setComment] = useState('');
   // ...
 }
