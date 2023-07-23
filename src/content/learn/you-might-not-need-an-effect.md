@@ -675,7 +675,7 @@ function subscribe(callback) {
 }
 
 function useOnlineStatus() {
-  // ✅ Buena práctica: Suscribirse a una fuente externa con un Hook integrado
+  // ✅ Bien: Suscribirse a un almacén externo con un Hook incorporado.
   return useSyncExternalStore(
     subscribe, // React no volverá a suscribirse mientras pases la misma función
     () => navigator.onLine, // Acá va el cómo obtener el valor en el cliente
