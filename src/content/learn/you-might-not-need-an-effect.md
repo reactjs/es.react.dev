@@ -254,7 +254,7 @@ Ahora no hay necesidad de "ajustar" el estado en lo absoluto. Si el _item_ con e
 
 ### Compartir lógica entre controladores de eventos {/*sharing-logic-between-event-handlers*/}
 
-Supongamos que tienes una página de producto con dos botones (Comprar y Pagar) los cuales te permiten comprar ese producto. Quieres mostrar una notificación cada vez que el usuario pone el producto en el carrito. Llamar a `showNotification()` en los manejadores de clic de ambos botones se siente repetitivo, por lo que podrías estar tentado a colocar esta lógica en un Efecto:
+Supongamos que tienes una página de producto con dos botones (Comprar y Pagar) que permiten comprar ese producto. Deseas mostrar una notificación cada vez que el usuario agrega el producto al carrito. Llamar a `showNotification()` en los controladores de clic de ambos botones se siente repetitivo, por lo que podrías sentir la tentación de colocar esta lógica en un Efecto:
 
 ```js {2-7}
 function ProductPage({ product, addToCart }) {
