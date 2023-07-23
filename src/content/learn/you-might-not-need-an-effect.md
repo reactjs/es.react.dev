@@ -85,7 +85,7 @@ Al igual que en el ejemplo anterior, esto es innecesario e ineficiente. Primero,
 ```js {3-4}
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
-  // ✅ Esto está bien si getFilteredTodos() no es demasiado lento.
+  // ✅ Esto está bien si getFilteredTodos() no es lento.
   const visibleTodos = getFilteredTodos(todos, filter);
   // ...
 }
