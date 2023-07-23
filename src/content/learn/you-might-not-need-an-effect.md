@@ -722,7 +722,7 @@ No importa de dónde vengan `page` y `query`. Mientras este componente sea visib
 
 Sin embargo, el código anterior tiene un error. Imagina que escribes "hola" rápidamente. Entonces la `query` cambiará de "h", a "ho", "hol", y "hola". Esto iniciará búsquedas separadas, pero no hay garantía sobre el orden en que llegarán las respuestas. Por ejemplo, la respuesta "hol" puede llegar *después* de la respuesta "hola". Como "hol" llamará a `setResults()` al final, estarás mostrando los resultados de búsqueda incorrectos. Esto se llama una ["condición de carrera"](https://es.wikipedia.org/wiki/Condición_de_carrera): dos solicitudes diferentes "compitieron" entre sí y llegaron en un orden diferente al que esperabas.
 
-**Para corregir la condición de carrera, tendrás que [agregar una función de limpieza](/learn/synchronizing-with-effects#fetching-data) para ignorar las respuestas obsoletas:**
+**Para solucionar la condición de carrera, necesitas [agregar una función de limpieza](/learn/synchronizing-with-effects#fetching-data) para ignorar respuestas obsoletas:**
 
 ```js {5,7,9,11-13}
 function SearchResults({ query }) {
