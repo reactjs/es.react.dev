@@ -448,7 +448,7 @@ function Game() {
 
 Esto es mucho más eficiente. Además, si implementas una forma de ver el historial del juego, ahora podrás establecer cada variable de estado en un movimiento del pasado sin activar la cadena de Efectos que ajusta cada otro valor. Si necesitas reutilizar la lógica entre varios controladores de eventos, puedes [extraer una función](#sharing-logic-between-event-handlers) y llamarla desde esos controladores.
 
-Recuerda que dentro de los manejadores de eventos, [el estado se comporta como una instantánea.](/learn/state-as-a-snapshot) Por ejemplo, incluso después de llamar a `setRound(round + 1)`, la variable `round` reflejará el valor en el momento en que el usuario hizo clic en el botón. Si necesitas usar el siguiente valor para cálculos, defínelo manualmente como `const nextRound = round + 1`.
+Recuerda que dentro de los controladores de eventos, [el estado se comporta como una instantánea.](/learn/state-as-a-snapshot) Por ejemplo, incluso después de llamar a `setRound(round + 1)`, la variable `round` reflejará el valor en el momento en que el usuario hizo clic en el botón. Si necesitas usar el siguiente valor para cálculos, defínelo manualmente como `const nextRound = round + 1`.
 
 En algunos casos, *no puedes* calcular el siguiente estado directamente en el manejador de eventos. Por ejemplo, imagina un formulario con múltiples desplegables donde las opciones del siguiente desplegable dependen del valor seleccionado del desplegable anterior. Entonces, una cadena de Efectos es apropiada porque estás sincronizando con la red.
 
