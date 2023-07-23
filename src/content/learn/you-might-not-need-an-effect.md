@@ -224,7 +224,7 @@ function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
 
-  // Una mejor práctica: Actualizar el estado al renderizar
+  // Mejor: Ajusta el estado durante el renderizado.
   const [prevItems, setPrevItems] = useState(items);
   if (items !== prevItems) {
     setPrevItems(items);
