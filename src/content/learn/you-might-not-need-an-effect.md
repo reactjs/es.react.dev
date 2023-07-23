@@ -21,7 +21,7 @@ Los Efectos son una vía de escape del paradigma de React. Te permiten "salir" d
 
 ## Cómo eliminar Efectos innecesarios {/*how-to-remove-unnecessary-effects*/}
 
-Hay dos casos comunes en los que no necesitarás Efectos:
+Hay dos casos comunes en los cuales no necesitas utilizar Efectos:
 
 * **No es necesario usar Efectos a la hora de transformar datos para su renderizado.** Por ejemplo, supongamos que quieres filtrar una lista antes de mostrarla. Podrías sentirte tentado a escribir un Efecto que actualice una variable de estado cuando la lista cambie. Sin embargo, esto no es eficiente. Ya que cuando actualices el estado de tu componente, React primero llamará a las funciones de tu componente para determinar lo que debe aparecer en la pantalla. Luego React ["confirmará"](/learn/render-and-commit) estos cambios en el DOM, actualizando la pantalla. Luego de ello React ejecutará tus Efectos. Si tu Efecto *también* actualiza inmediatamente el estado, ¡esto reiniciará todo el proceso desde cero! Para evitar renderizaciones innecesarias, transforma todos los datos en el nivel superior de tus componentes. Ese código se volverá a ejecutar automáticamente cada vez que tus props o tu estado cambien.
 * **No necesitarás Efectos para manejar eventos de usuario.** Por ejemplo, digamos que quieres enviar una petición POST a `/api/buy` y mostrar una notificación cuando el usuario compra un producto. En el manejador de evento de clic del botón de compra, se sabe exactamente lo que ha pasado. En el momento en que se ejecuta un Efecto, no sabes *qué* hizo el usuario (por ejemplo, qué botón se pulsó). Es por esto que generalmente se manejan los eventos de usuario en sus respectivos manejadores de eventos.
