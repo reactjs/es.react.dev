@@ -198,7 +198,7 @@ Ten en cuenta que en este ejemplo, solo el componente `ProfilePage` externo es e
 
 ### Ajustar algún estado cuando cambia una _prop_ {/*adjusting-some-state-when-a-prop-changes*/}
 
-A veces, querrás resetear o ajustar una parte del estado según un cambio de prop, pero no todo.
+A veces, es posible que desees restablecer o ajustar una parte del estado cuando cambie una _prop_, pero no todo el estado.
 
 Este componente `List` recibe una lista de `items` como una prop y mantiene el elemento seleccionado en la variable de estado `selection`. Tu objetivo es resetear `selection` a `null` siempre que la prop `items` reciba un array diferente:
 
