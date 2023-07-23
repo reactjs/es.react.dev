@@ -32,7 +32,7 @@ Para ayudarte a desarrollar la intuición adecuada, ¡veamos algunos ejemplos co
 
 ### Actualización del estado basada en _props_ o estado {/*updating-state-based-on-props-or-state*/}
 
-Supongamos que tienes un componente con dos variables de estado: `firstName` para un nombre y `lastName` para un apellido. Y que quieres calcular un nombre completo como `fullName` a partir de la concatenación de los anteriores. Además, te gustaría que `fullName` se actualizara cada vez que `firstName` o `lastName` cambien. Tu primer impulso podría ser añadir una variable de estado `fullName` y actualizarla en un Efecto:
+Supongamos que tienes un componente con dos variables de estado: `firstName` y `lastName`. Deseas calcular un `fullName` a partir de ellos concatenándolos. Además, te gustaría que `fullName` se actualice cada vez que `firstName` o `lastName` cambien. Tu primer instinto podría ser agregar una variable de estado `fullName` y actualizarla en un Efecto:
 
 ```js {5-9}
 function Form() {
