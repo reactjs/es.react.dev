@@ -569,7 +569,7 @@ Con este enfoque, tanto el componente `Toggle` como su componente padre actualiz
 También podrías eliminar completamente el estado y, en su lugar, recibir `isOn` desde el componente padre:
 
 ```js {1,2}
-// ✅ También está bien: el componente está completamente controlado por su padre
+// ✅ También correcto: el componente está completamente controlado por su padre
 function Toggle({ isOn, onChange }) {
   function handleClick() {
     onChange(!isOn);
