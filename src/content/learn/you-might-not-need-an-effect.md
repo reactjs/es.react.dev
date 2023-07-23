@@ -420,7 +420,7 @@ function Game() {
   const [goldCardCount, setGoldCardCount] = useState(0);
   const [round, setRound] = useState(1);
 
-  // ✅ Calcula lo que puedas durante la renderización
+  // ✅ Calcula lo que puedas durante el proceso de renderizado.
   const isGameOver = round > 5;
 
   function handlePlaceCard(nextCard) {
