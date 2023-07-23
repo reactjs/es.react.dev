@@ -317,7 +317,7 @@ function Form() {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
 
-  // 🔴 Evita: Lógica específica de evento dentro de un Efecto
+  // 🔴 Evitar: Lógica específica de evento dentro de un Efecto
   const [jsonToSubmit, setJsonToSubmit] = useState(null);
   useEffect(() => {
     if (jsonToSubmit !== null) {
