@@ -679,7 +679,7 @@ function useOnlineStatus() {
   return useSyncExternalStore(
     subscribe, // React no volverá a suscribirse mientras pases la misma función.
     () => navigator.onLine, // Cómo obtener el valor en el cliente.
-    () => true // Acá va el cómo obtener el valor en el servidor
+    () => true // Cómo obtener el valor en el servidor.
   );
 }
 
