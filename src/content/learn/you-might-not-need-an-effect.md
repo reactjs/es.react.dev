@@ -460,7 +460,7 @@ Podrías sentirte tentado a colocarla en un Efecto en el componente de nivel sup
 
 ```js {2-6}
 function App() {
-  // 🔴 Evitar: Efectos con lógica que sólo debería ejecutarse una vez
+  // 🔴 Evitar: Efectos con lógica que solo deben ejecutarse una vez.
   useEffect(() => {
     loadDataFromLocalStorage();
     checkAuthToken();
