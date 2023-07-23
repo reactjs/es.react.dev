@@ -428,7 +428,7 @@ function Game() {
       throw Error('Game already ended.');
     }
 
-    // ✅ Calcula todo el siguiente estado en el manejador de eventos
+    // ✅ Calcula todo el próximo estado en el controlador de eventos.
     setCard(nextCard);
     if (nextCard.gold) {
       if (goldCardCount <= 3) {
