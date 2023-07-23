@@ -60,7 +60,7 @@ function Form() {
 }
 ```
 
-**Cuando algo puede ser calculado a partir de las props o el estado existente, [no lo pongas en un nuevo estado.](/learn/choosing-the-state-structure#avoid-redundant-state) Es mejor calcularlo durante el renderizado.** Esta manera hace que tu código sea más rápido (evitas las actualizaciones extra "en cascada"), más simple (te ahorras algo de código), y menos propenso a errores (evitas errores causados por diferentes variables de estado que no están sincronizadas entre sí). Si este enfoque es nuevo para ti, [pensar en React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) tiene algunas orientaciones sobre lo que debería ir en el estado.
+**Cuando algo puede calcularse a partir de las _props_ o el estado existente, [no lo pongas en el estado](/learn/choosing-the-state-structure#avoid-redundant-state). En su lugar, calcúlalo durante el renderizado.** Esto hace que tu código sea más rápido (evitas las actualizaciones adicionales "en cascada"), más simple (eliminas código innecesario) y menos propenso a errores (evitas errores causados por diferentes variables de estado desincronizadas entre sí). Si este enfoque te resulta nuevo, [Pensar en React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) explica qué debe ir en el estado.
 
 ### Almacenar en caché los cálculos costosos {/*caching-expensive-calculations*/}
 
