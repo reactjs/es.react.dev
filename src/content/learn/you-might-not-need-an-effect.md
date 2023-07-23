@@ -627,7 +627,7 @@ function Child({ data }) {
 }
 ```
 
-Esto es más sencillo y mantiene el flujo de datos predecible: los datos fluyen hacia abajo desde el padre al hijo.
+Esto es más simple y mantiene el flujo de datos predecible: los datos fluyen hacia abajo desde el padre hacia el hijo.
 
 ### Suscripción a un almacén externo {/*subscribing-to-an-external-store*/}
 
