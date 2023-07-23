@@ -10,7 +10,7 @@ Los Efectos son una vía de escape del paradigma de React. Te permiten "salir" d
 
 <YouWillLearn>
 
-* Por qué y cómo eliminar los Efectos innecesarios de tus componentes
+* Por qué y cómo eliminar Efectos innecesarios de tus componentes.
 * Cómo almacenar en caché cálculos costosos sin Efectos
 * Cómo restablecer y ajustar el estado de los componentes sin Efectos
 * Cómo compartir la lógica entre manejadores de eventos
