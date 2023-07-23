@@ -15,7 +15,7 @@ Los Efectos son una vía de escape del paradigma de React. Te permiten "salir" d
 * Cómo restablecer y ajustar el estado del componente sin utilizar Efectos.
 * Cómo compartir lógica entre controladores de eventos.
 * Qué lógica debería ser trasladada a los controladores de eventos.
-* Cómo notificar a los componentes padre sobre cambios
+* Cómo notificar a los componentes padre acerca de cambios.
 
 </YouWillLearn>
 
