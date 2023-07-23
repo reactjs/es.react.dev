@@ -543,7 +543,7 @@ function Toggle({ onChange }) {
   const [isOn, setIsOn] = useState(false);
 
   function updateToggle(nextIsOn) {
-    // ✅ Bien: Realiza todas las actualizaciones durante el evento que las causó
+    // ✅ Correcto: Realiza todas las actualizaciones durante el evento que las causó
     setIsOn(nextIsOn);
     onChange(nextIsOn);
   }
