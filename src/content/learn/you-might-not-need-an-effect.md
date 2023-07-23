@@ -454,7 +454,7 @@ En algunos casos, *no puedes* calcular el siguiente estado directamente en el co
 
 ### Inicializar la aplicación {/*initializing-the-application*/}
 
-Algunas lógicas sólo deben ejecutarse una vez cuando se carga la aplicación.
+Alguna lógica solo debería ejecutarse una vez cuando se carga la aplicación.
 
 Podrías estar tentado a colocarla en un Efecto en el componente de nivel superior:
 
