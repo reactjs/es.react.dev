@@ -456,7 +456,7 @@ En algunos casos, *no puedes* calcular el siguiente estado directamente en el co
 
 Alguna lógica solo debería ejecutarse una vez cuando se carga la aplicación.
 
-Podrías estar tentado a colocarla en un Efecto en el componente de nivel superior:
+Podrías sentirte tentado a colocarla en un Efecto en el componente de nivel superior:
 
 ```js {2-6}
 function App() {
