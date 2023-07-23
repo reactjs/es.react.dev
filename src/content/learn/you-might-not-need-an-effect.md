@@ -701,7 +701,7 @@ function SearchResults({ query }) {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    // 🔴 Evita: Obtener datos sin lógica de limpieza
+    // 🔴 Evitar: Obtener datos sin lógica de limpieza.
     fetchResults(query, page).then(json => {
       setResults(json);
     });
