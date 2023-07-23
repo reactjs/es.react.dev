@@ -362,7 +362,7 @@ Cuando decidas si colocar cierta lógica en un controlador de eventos o en un Ef
 
 ### Cadenas de cálculos {/*chains-of-computations*/}
 
-A veces podrías sentirte tentado a encadenar Efectos que ajustan una pieza de estado basada en otro estado:
+A veces podrías sentirte tentado a encadenar Efectos que ajustan cada uno una parte del estado basándose en otro estado:
 
 ```js {7-29}
 function Game() {
