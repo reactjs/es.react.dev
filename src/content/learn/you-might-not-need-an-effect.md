@@ -155,7 +155,7 @@ También ten en cuenta que medir el rendimiento en desarrollo no te dará los re
 
 </DeepDive>
 
-### Reiniciar de cero el estado cuando una prop cambie {/*resetting-all-state-when-a-prop-changes*/}
+### Restablecer todo el estado cuando una _prop_ cambia {/*resetting-all-state-when-a-prop-changes*/}
 
 Este componente `ProfilePage` recibe una prop `userId`. La página contiene una entrada de texto de comentario, y utiliza una variable de estado `comment` para guardar su valor. Un día, te das cuenta de un problema: cuando navegas de un perfil a otro, el estado `comment` no se reinicia. Como resultado, es fácil publicar accidentalmente un comentario en el perfil de un usuario incorrecto. Para solucionar el problema, quieres limpiar la variable de estado `comment` cada vez que el `userId` cambie:
 
