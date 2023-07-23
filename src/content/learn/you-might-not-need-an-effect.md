@@ -64,7 +64,7 @@ function Form() {
 
 ### Almacenar en caché los cálculos costosos {/*caching-expensive-calculations*/}
 
-El objetivo del siguiente componente `TodoList` es mostrar una lista de tareas pendientes, en él tenemos el cálculo de las tareas pendientes a mostrar (`visibleTodos`) tomando las tareas (`todos`) que recibe por props, filtrándolas de acuerdo al filtro (`filter`) que también recibe por props. Podrías sentirte tentado a almacenar el resultado de este cálculo en una variable de estado y actualizarlo en un efecto:
+Este componente calcula `visibleTodos` tomando los `todos` que recibe a través de _props_ y filtrándolos según la _prop_ `filter`. Podrías sentirte tentado/a de almacenar el resultado en el estado y actualizarlo desde un Efecto:
 
 ```js {4-8}
 function TodoList({ todos, filter }) {
