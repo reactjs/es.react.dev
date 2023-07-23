@@ -301,7 +301,7 @@ function ProductPage({ product, addToCart }) {
 }
 ```
 
-Esto tanto elimina el Efecto innecesario como corrige el error.
+Esto no solo elimina el Efecto innecesario, sino que también corrige el error.
 
 ### Realizar una petición POST {/*sending-a-post-request*/}
 
