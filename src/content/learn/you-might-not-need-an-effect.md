@@ -39,7 +39,7 @@ function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
 
-  // 🔴 Desaconsejado: estado redundante y Efecto innecesario
+  // 🔴 Evitar: estado redundante y Efecto innecesario
   const [fullName, setFullName] = useState('');
   useEffect(() => {
     setFullName(firstName + ' ' + lastName);
