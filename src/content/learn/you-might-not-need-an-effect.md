@@ -129,7 +129,7 @@ La función que envuelves en [`useMemo`](/reference/react/useMemo) se ejecuta du
 
 #### ¿Cómo determinar si un cálculo es costoso? {/*how-to-tell-if-a-calculation-is-expensive*/}
 
-En general, a menos que estés creando o iterando sobre miles de objetos, probablemente no sea costoso. Si quieres tener más confianza, puedes imprimirlo en la consola y medir el tiempo que pasa en ese fragmento de código:
+En general, a menos que estés creando o iterando sobre miles de objetos, probablemente no es costoso. Si deseas tener más confianza, puedes agregar un registro en la consola para medir el tiempo que se tarda en ejecutar una pieza de código:
 
 ```js {1,3}
 console.time('filter array');
