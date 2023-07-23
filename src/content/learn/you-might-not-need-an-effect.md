@@ -587,7 +587,7 @@ function Toggle({ isOn, onChange }) {
 }
 ```
 
-["Elevar el estado"](/learn/sharing-state-between-components) te permite que el componente padre controle completamente el `Toggle` cambiando el estado propio del padre. Esto significa que el componente padre tendrá que contener más lógica, pero habrá menos estado en general de qué preocuparse. ¡Cada vez que intentes mantener dos variables de estado diferentes sincronizadas, intenta elevar el estado en su lugar!
+["Levantar el estado"](/learn/sharing-state-between-components)" permite que el componente padre controle completamente el `Toggle` al alternar el estado del propio componente padre. Esto significa que el componente padre deberá contener más lógica, pero en general habrá menos estado con el que preocuparse. Siempre que intentes mantener sincronizadas dos variables de estado diferentes, ¡intenta levantar el estado en su lugar!
 
 ### Pasar datos al componente padre {/*passing-data-to-the-parent*/}
 
