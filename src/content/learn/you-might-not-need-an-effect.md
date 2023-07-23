@@ -137,7 +137,7 @@ const visibleTodos = getFilteredTodos(todos, filter);
 console.timeEnd('filter array');
 ```
 
-Realiza la interacción que estás midiendo (por ejemplo, escribir en la entrada de texto). Luego verás registros como `filter array: 0.15ms` en tu consola. Si el tiempo total registrado suma una cantidad significativa (digamos, `1ms` o más), podría tener sentido memoizar ese cálculo. Como experimento, puedes envolver el cálculo en `useMemo` para verificar si el tiempo total registrado ha disminuido para esa interacción o no:
+Realiza la interacción que estás midiendo (por ejemplo, escribir en el campo de entrada (_input_)). Luego, verás registros en la consola como `filter array: 0.15ms`. Si el tiempo total registrado suma una cantidad significativa (digamos, `1ms` o más), podría tener sentido memoizar ese cálculo. Como experimento, puedes envolver el cálculo en `useMemo` para verificar si el tiempo total registrado ha disminuido para esa interacción o no:
 
 ```js
 console.time('filter array');
