@@ -749,7 +749,7 @@ function SearchResults({ query }) {
 
 Esto asegura que cuando tu Efecto obtiene datos, todas las respuestas excepto la última solicitada serán ignoradas.
 
-Manejar las condiciones de carrera no es la única dificultad al implementar la carga de datos. También podrías querer pensar en almacenar en caché las respuestas (para que el usuario pueda hacer clic en "Atrás" y ver la pantalla anterior instantáneamente), en cómo obtener datos en el servidor (para que el HTML inicial renderizado por el servidor contenga el contenido obtenido en lugar de un spinner), y en cómo evitar cascadas de red (para que un hijo pueda cargar datos sin esperar a cada padre).
+Manejar las condiciones de carrera no es la única dificultad al implementar la obtención de datos. También podrías considerar el almacenamiento en caché de las respuestas (para que el usuario pueda hacer clic en "Atrás" y ver la pantalla anterior instantáneamente), cómo obtener datos en el servidor (para que el HTML renderizado inicialmente por el servidor contenga el contenido obtenido en lugar de un indicador de carga (_spinner_)), y cómo evitar cascadas de red (para que un hijo pueda obtener datos sin tener que esperar por cada padre).
 
 **Estos problemas aplican a cualquier biblioteca de UI, no solo a React. Resolverlos no es trivial, por eso los [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos ofrecen mecanismos incorporados más eficientes de obtención de datos que obtener datos en Efectos.**
 
