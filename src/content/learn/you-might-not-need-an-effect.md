@@ -631,7 +631,7 @@ Esto es más sencillo y mantiene el flujo de datos predecible: los datos fluyen 
 
 ### Suscripción a un almacén externo {/*subscribing-to-an-external-store*/}
 
-A veces, tus componentes pueden necesitar suscribirse a algunos datos fuera del estado de React. Estos datos podrían provenir de una biblioteca de terceros o de una API incorporada en el navegador. Como estos datos pueden cambiar sin que React lo sepa, necesitas suscribir manualmente tus componentes a ellos. Esto se hace a menudo con un Efecto, por ejemplo:
+A veces, tus componentes pueden necesitar suscribirse a algunos datos fuera del estado de React. Estos datos podrían provenir de una biblioteca de terceros o de una API incorporada en el navegador. Dado que estos datos pueden cambiar sin que React lo sepa, es necesario suscribir manualmente tus componentes a ellos. Esto se hace frecuentemente con un Efecto, por ejemplo:
 
 ```js {2-17}
 function useOnlineStatus() {
