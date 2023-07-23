@@ -62,7 +62,7 @@ function Form() {
 
 **Cuando algo puede calcularse a partir de las _props_ o el estado existente, [no lo pongas en el estado](/learn/choosing-the-state-structure#avoid-redundant-state). En su lugar, calcúlalo durante el renderizado.** Esto hace que tu código sea más rápido (evitas las actualizaciones adicionales "en cascada"), más simple (eliminas código innecesario) y menos propenso a errores (evitas errores causados por diferentes variables de estado desincronizadas entre sí). Si este enfoque te resulta nuevo, [Pensar en React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) explica qué debe ir en el estado.
 
-### Almacenar en caché los cálculos costosos {/*caching-expensive-calculations*/}
+### Almacenamiento en caché de cálculos costosos{/*caching-expensive-calculations*/}
 
 Este componente calcula `visibleTodos` tomando los `todos` que recibe a través de _props_ y filtrándolos según la _prop_ `filter`. Podrías sentirte tentado/a de almacenar el resultado en el estado y actualizarlo desde un Efecto:
 
