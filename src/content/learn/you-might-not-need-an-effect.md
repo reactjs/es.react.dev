@@ -312,7 +312,7 @@ function Form() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  // ✅ Buena práctica: Esta lógica debe ejecutarse porque el componente se mostró al usuario
+  // ✅ Correcto: Esta lógica debe ejecutarse porque el componente fue mostrado al usuario.
   useEffect(() => {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
