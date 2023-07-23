@@ -244,7 +244,7 @@ Cuando actualizas un componente durante el renderizado, React descarta el JSX de
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
-  // ✅ Una mejor práctica: Calcular todo durante el renderizado
+  // ✅ Mejor: Calcular todo durante el renderizado.
   const selection = items.find(item => item.id === selectedId) ?? null;
   // ...
 }
