@@ -714,7 +714,7 @@ function SearchResults({ query }) {
 }
 ```
 
-No necesitas mover esta carga de datos a un manejador de eventos.
+No *necesitas* mover esta solicitud (fetch) a un controlador de eventos.
 
 Esto puede parecer una contradicción con los ejemplos anteriores donde necesitabas poner la lógica en los manejadores de eventos. Sin embargo, considera que no es *el evento de escritura* el que es la razón principal para cargar datos. Las entradas de búsqueda a menudo se pre-rellenan desde la URL, y el usuario puede navegar hacia atrás y hacia adelante sin tocar la entrada de texto.
 
