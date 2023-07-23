@@ -80,7 +80,7 @@ function TodoList({ todos, filter }) {
 }
 ```
 
-Como en el ejemplo anterior, esto es innecesario e ineficiente. En primera instancia, elimina el estado y el Efecto:
+Al igual que en el ejemplo anterior, esto es innecesario e ineficiente. Primero, elimina el estado y el Efecto:
 
 ```js {3-4}
 function TodoList({ todos, filter }) {
