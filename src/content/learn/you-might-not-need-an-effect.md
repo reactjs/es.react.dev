@@ -30,7 +30,7 @@ Es *cierto* que necesitas Efectos para [sincronizar](/learn/synchronizing-with-e
 
 Para ayudarte a desarrollar la intuición adecuada, ¡veamos algunos ejemplos concretos comunes!
 
-### Actualizar un estado en relación a otras props o estados {/*updating-state-based-on-props-or-state*/}
+### Actualización del estado basada en _props_ o estado {/*updating-state-based-on-props-or-state*/}
 
 Supongamos que tienes un componente con dos variables de estado: `firstName` para un nombre y `lastName` para un apellido. Y que quieres calcular un nombre completo como `fullName` a partir de la concatenación de los anteriores. Además, te gustaría que `fullName` se actualizara cada vez que `firstName` o `lastName` cambien. Tu primer impulso podría ser añadir una variable de estado `fullName` y actualizarla en un Efecto:
 
