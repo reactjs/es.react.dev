@@ -1,5 +1,5 @@
 ---
-title: 'Quizá no necesites un Efecto'
+title: 'Quizás no necesites un Efecto'
 ---
 
 <Intro>
