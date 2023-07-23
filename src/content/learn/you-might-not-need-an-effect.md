@@ -799,7 +799,7 @@ En general, cada vez que debas recurrir a escribir Efectos, busca cuándo puedes
 - El código que se ejecuta porque un componente se *mostró* al usuario debería estar en Efectos, el resto debería estar en eventos.
 - Si necesitas actualizar el estado de varios componentes, es mejor hacerlo durante un solo evento.
 - Siempre que intentes sincronizar variables de estado en diferentes componentes, considera elevar el estado.
-- Puedes obtener datos con Efectos, pero necesitas implementar la lógica de limpieza para evitar las "condiciones de carrera".
+- Puedes obtener datos con Efectos, pero necesitas implementar limpieza para evitar condiciones de carrera.
 
 </Recap>
 
