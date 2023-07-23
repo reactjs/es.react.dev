@@ -450,7 +450,7 @@ Esto es mucho más eficiente. Además, si implementas una forma de ver el histor
 
 Recuerda que dentro de los controladores de eventos, [el estado se comporta como una instantánea.](/learn/state-as-a-snapshot) Por ejemplo, incluso después de llamar a `setRound(round + 1)`, la variable `round` reflejará el valor en el momento en que el usuario hizo clic en el botón. Si necesitas usar el siguiente valor para cálculos, defínelo manualmente como `const nextRound = round + 1`.
 
-En algunos casos, *no puedes* calcular el siguiente estado directamente en el manejador de eventos. Por ejemplo, imagina un formulario con múltiples desplegables donde las opciones del siguiente desplegable dependen del valor seleccionado del desplegable anterior. Entonces, una cadena de Efectos es apropiada porque estás sincronizando con la red.
+En algunos casos, *no puedes* calcular el siguiente estado directamente en el controlador de eventos. Por ejemplo, imagina un formulario con múltiples menús desplegables donde las opciones del siguiente menú desplegable dependen del valor seleccionado en el menú desplegable anterior. En este caso, una cadena de Efectos es apropiada porque estás sincronizando con la red.
 
 ### Inicializar la aplicación {/*initializing-the-application*/}
 
