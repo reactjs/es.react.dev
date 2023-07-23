@@ -602,7 +602,7 @@ function Parent() {
 
 function Child({ onFetched }) {
   const data = useSomeAPI();
-  // 🔴 Evitar: Pasar datos de hijo a padre en un Efecto
+  // 🔴 Evitar: Pasar datos al padre en un Efecto
   useEffect(() => {
     if (data) {
       onFetched(data);
