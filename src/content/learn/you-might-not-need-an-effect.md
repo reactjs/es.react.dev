@@ -507,7 +507,7 @@ El código en el nivel superior se ejecuta una vez cuando se importa tu componen
 
 ### Notificar a los componentes padre sobre cambios de estado {/*notifying-parent-components-about-state-changes*/}
 
-Digamos que estás escribiendo un componente `Toggle` con un estado interno `isOn` que puede ser `true` o `false`. Hay varias formas diferentes de cambiarlo (haciendo clic o arrastrando). Quieres notificar al componente padre cada vez que el estado interno de `Toggle` cambia, así que expones un evento `onChange` y lo llamas desde un Efecto:
+Digamos que estás escribiendo un componente `Toggle` con un estado interno `isOn` que puede ser `true` o `false`. Hay algunas formas diferentes de alternarlo (haciendo clic o arrastrando). Quieres notificar al componente padre cada vez que el estado interno del `Toggle` cambie, por lo que expones un evento `onChange` y lo llamas desde un Efecto:
 
 ```js {4-7}
 function Toggle({ onChange }) {
