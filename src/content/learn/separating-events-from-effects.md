@@ -1,5 +1,5 @@
 ---
-title: 'Separar Eventos de Efectos'
+title: 'Separar eventos de Efectos'
 ---
 
 <Intro>
