@@ -283,7 +283,7 @@ Este Efecto es innecesario. También es muy probable que cause errores. Por ejem
 
 ```js {2-6,9,13}
 function ProductPage({ product, addToCart }) {
-  // ✅ Buena práctica: La lógica específica para eventos se llama desde los manejadores de eventos
+  // ✅ Correcto: La lógica específica del evento se llama desde los controladores de eventos.
   function buyProduct() {
     addToCart(product);
     showNotification(`Added ${product.name} to the shopping cart!`);
