@@ -691,7 +691,7 @@ function ChatIndicator() {
 
 Este enfoque es menos propenso a errores que la sincronización manual de datos mutables al estado de React con un Efecto. Típicamente, escribirás un Hook personalizado como `useOnlineStatus()` como se muestra arriba, para que no necesites repetir este código en los componentes individuales. [Lee más sobre cómo suscribirte a almacenes externos desde componentes React.](/reference/react/useSyncExternalStore)
 
-### Cargar datos {/*fetching-data*/}
+### Obtención de datos {/*fetching-data*/}
 
 Muchas aplicaciones usan Efectos para iniciar la carga de datos. Es bastante común escribir un Efecto de carga de datos como este:
 
