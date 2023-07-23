@@ -480,7 +480,7 @@ function App() {
   useEffect(() => {
     if (!didInit) {
       didInit = true;
-      // ✅ Solo se ejecuta una vez por carga de la aplicación
+      // ✅ Se ejecuta solo una vez por carga de la aplicación.
       loadDataFromLocalStorage();
       checkAuthToken();
     }
