@@ -4,7 +4,7 @@ title: 'Quizás no necesites un Efecto'
 
 <Intro>
 
-Los Efectos son una puerta de escape del paradigma de React. Te permiten "salir" de React y sincronizar tus componentes con algún sistema externo como un widget externo a React, una red o el DOM del navegador. Si no hay algún sistema externo involucrado (por ejemplo, si quieres actualizar el estado de un componente cuando algunas props o estados cambien), no deberías necesitar un Efecto. Eliminar los Efectos innecesarios hará que tu código sea más fácil de comprender, más rápido de ejecutar y menos propenso a errores.
+Los Efectos son una vía de escape del paradigma de React. Te permiten "salir" de React y sincronizar tus componentes con algún sistema externo, como un _widget_ que no es de React, una red o el DOM del navegador. Si no hay ningún sistema externo involucrado (por ejemplo, si deseas actualizar el estado de un componente cuando cambian ciertas _props_ o el estado), no deberías necesitar un Efecto. Eliminar Efectos innecesarios hará que tu código sea más fácil de seguir, se ejecute más rápido y sea menos propenso a errores.
 
 </Intro>
 
