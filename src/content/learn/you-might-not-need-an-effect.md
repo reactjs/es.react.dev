@@ -151,7 +151,7 @@ console.timeEnd('filter array');
 
 Ten en cuenta que tu máquina probablemente sea más rápida que la de tus usuarios, por lo que es una buena idea probar el rendimiento con una ralentización artificial. Por ejemplo, Chrome ofrece una opción de [limitación de CPU](https://developer.chrome.com/blog/new-in-devtools-61/#throttling) para esto.
 
-También ten en cuenta que medir el rendimiento en desarrollo no te dará los resultados más precisos. (Por ejemplo, cuando el "[Modo Estricto](/reference/react/StrictMode)" está activado, verás que cada componente se renderiza dos veces en lugar de una.) Para obtener los tiempos más precisos, compila tu aplicación para producción y pruébala en un dispositivo como el que tienen tus usuarios.
+También ten en cuenta que medir el rendimiento en desarrollo no te dará los resultados más precisos. (Por ejemplo, cuando [Modo Estricto](/reference/react/StrictMode) está activado, verás que cada componente se renderiza dos veces en lugar de una). Para obtener los tiempos más precisos, construye tu aplicación para producción y pruébala en un dispositivo similar al que usan tus usuarios.
 
 </DeepDive>
 
