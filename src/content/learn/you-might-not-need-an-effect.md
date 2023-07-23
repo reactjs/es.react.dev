@@ -48,7 +48,7 @@ function Form() {
 }
 ```
 
-Esto es más complicado de lo necesario. También es ineficiente: desencadena un ciclo completo de renderizado con un valor antiguo para `fullName`, y luego inmediatamente vuelve a renderizar con el valor actualizado. Es mejor que elimines tanto la variable de estado como el efecto:
+Esto es más complicado de lo necesario. También es ineficiente: realiza un pase de renderización completo con un valor obsoleto para `fullName`, y luego se vuelve a renderizar inmediatamente con el valor actualizado. Elimina la variable de estado y el Efecto:
 
 ```js {4-5}
 function Form() {
