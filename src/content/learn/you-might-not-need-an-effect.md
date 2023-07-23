@@ -252,7 +252,7 @@ function List({ items }) {
 
 Ahora no hay necesidad de "ajustar" el estado en lo absoluto. Si el _item_ con el ID seleccionado está en la lista, permanecerá seleccionado. Si no lo está, la `selection` calculada durante el renderizado será `null` porque no se encontró ningún _item_ coincidente. Este comportamiento es diferente, pero se podría decir que es mejor porque la mayoría de los cambios en `items` preservan la selección.
 
-### Compartir la lógica entre manejadores de eventos {/*sharing-logic-between-event-handlers*/}
+### Compartir lógica entre controladores de eventos {/*sharing-logic-between-event-handlers*/}
 
 Supongamos que tienes una página de producto con dos botones (Comprar y Pagar) los cuales te permiten comprar ese producto. Quieres mostrar una notificación cada vez que el usuario pone el producto en el carrito. Llamar a `showNotification()` en los manejadores de clic de ambos botones se siente repetitivo, por lo que podrías estar tentado a colocar esta lógica en un Efecto:
 
