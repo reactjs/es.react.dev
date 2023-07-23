@@ -279,7 +279,7 @@ function ProductPage({ product, addToCart }) {
 
 Este Efecto es innecesario. Incluso es muy probable que cause errores. Por ejemplo, digamos que tu aplicación "recuerda" el carrito de compras entre recargas de la página. Si añades un producto al carrito una vez y refrescas la página, la notificación aparecerá de nuevo. Y seguirá apareciendo cada vez que refresques la página del producto. Esto se debe a que `product.isInCart` ya será `true` en la carga de la página, por lo que el Efecto anterior llamará a `showNotification()`.
 
-**Cuando no estés seguro de si algún código debería estar en un Efecto o en un manejador de eventos, pregúntate *por qué* este código necesita ejecutarse. Usa Efectos solo para el código que debe ejecutarse *porque* el componente se mostró al usuario.** En este ejemplo, la notificación debería aparecer porque el usuario *presionó el botón*, ¡no porque se mostró la página! Elimina el Efecto y coloca la lógica compartida en una función llamada desde ambos manejadores de eventos:
+**Cuando no estés seguro si algún código debe estar en un Efecto o en un controlador de eventos, pregúntate *por qué* este código necesita ejecutarse. Usa Efectos solo para el código que debe ejecutarse *porque* el componente fue mostrado al usuario.** En este ejemplo, la notificación debería aparecer porque el usuario *presionó el botón*, ¡no porque la página fue mostrada! Elimina el Efecto y coloca la lógica compartida en una función llamada desde ambos controladores de eventos:
 
 ```js {2-6,9,13}
 function ProductPage({ product, addToCart }) {
