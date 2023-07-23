@@ -207,7 +207,7 @@ function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
 
-  // 🔴 Desaconsejado: Ajustar el estado según un cambio de prop en un Efecto
+  // 🔴 Evitar: Ajustar el estado en un cambio de prop dentro de un Efecto.
   useEffect(() => {
     setSelection(null);
   }, [items]);
