@@ -513,7 +513,7 @@ Digamos que estás escribiendo un componente `Toggle` con un estado interno `isO
 function Toggle({ onChange }) {
   const [isOn, setIsOn] = useState(false);
 
-  // 🔴 Evitar: El manejador onChange se ejecuta demasiado tarde
+  // 🔴 Evitar: El controlador `onChange` se ejecuta demasiado tarde.
   useEffect(() => {
     onChange(isOn);
   }, [isOn, onChange])
