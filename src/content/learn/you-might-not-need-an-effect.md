@@ -192,7 +192,7 @@ function Profile({ userId }) {
 }
 ```
 
-Usualmente, React conserva el estado cuando el mismo componente se renderiza en el mismo lugar. **Al pasar `userId` como una `key` al componente `Profile`, le estás pidiendo a React que trate a dos componentes `Profile` con diferentes `userId` como dos componentes diferentes que no deberían compartir ningún estado.** Cuando la key (que has establecido como `userId`) cambie, React recreará el DOM y [reiniciará el estado](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) del componente `Profile` y todos sus hijos. Ahora el campo `comment` se borrará automáticamente cuando se navegue entre perfiles.
+Normalmente, React preserva el estado cuando el mismo componente se renderiza en el mismo lugar. **Al pasar `userId` como una _`key`_ al componente `Profile`, le estás indicando a React que trate dos componentes `Profile` con diferentes `userId` como dos componentes diferentes que no deben compartir ningún estado.** Cada vez que cambie la _key_ (que has establecido como `userId`), React recreará el DOM y [restablecerá el estado](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) del componente `Profile` y de todos sus hijos. Ahora, el campo `comment` se borrará automáticamente al navegar entre perfiles.
 
 Ten en cuenta que en este ejemplo, solo el componente externo `ProfilePage` es exportado y visible para otros archivos en el proyecto. Los componentes que renderizan `ProfilePage` no necesitan pasar la key a este: pasan `userId` como una prop regular. El hecho de que `ProfilePage` lo pase como una `key` al componente interno `Profile` es un detalle de implementación.
 
