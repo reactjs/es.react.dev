@@ -91,7 +91,7 @@ function TodoList({ todos, filter }) {
 }
 ```
 
-Por lo general, ¡este código está bien! Pero quizás `getFilteredTodos()` es lento o tienes muchos `todos`. En ese caso, no querrás volver a calcular `getFilteredTodos()` si alguna variable de estado no relacionada como `newTodo` ha cambiado.
+Usualmente, ¡este código está bien! Pero tal vez `getFilteredTodos()` sea lento o tengas muchos `todos`. En ese caso, no querrás recalcular `getFilteredTodos()` si alguna variable de estado no relacionada, como `newTodo`, ha cambiado.
 
 Puedes almacenar en caché (o ["memoizar"](https://es.wikipedia.org/wiki/Memoización)) un cálculo costoso envolviéndolo en un Hook de React [`useMemo`](/reference/react/useMemo):
 
