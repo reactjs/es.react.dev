@@ -788,7 +788,7 @@ function useData(url) {
 
 Probablemente también querrás agregar lógica para el manejo de errores y para rastrear si el contenido está cargando. Puedes construir un Hook como este por ti mismo o utilizar una de las muchas soluciones ya disponibles en el ecosistema de React. **Aunque por sí solo esto no será tan eficiente como usar el mecanismo incorporado de obtención de datos de un framework, al mover la lógica de obtención de datos a un Hook personalizado, será más fácil adoptar una estrategia eficiente de obtención de datos más adelante.**
 
-En general, cada vez que debas recurrir a escribir Efectos, busca cuándo puedes extraer una pieza de funcionalidad a un Hook personalizado con una API más declarativa y diseñada específicamente como el `useData` anterior. Cuantas menos llamadas innecesarias a `useEffect` tengas en tus componentes, más fácil será el mantenimiento de tu aplicación.
+En general, cada vez que te veas obligado a escribir Efectos, mantén un ojo para identificar cuándo puedes extraer una funcionalidad en un Hook personalizado con una API más declarativa y específica, como `useData` mencionado anteriormente. Cuantas menos llamadas directas a `useEffect` tengas en tus componentes, más fácil te resultará mantener tu aplicación.
 
 <Recap>
 
