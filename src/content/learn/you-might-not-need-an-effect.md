@@ -751,7 +751,7 @@ Esto asegura que cuando tu Efecto obtiene datos, todas las respuestas excepto la
 
 Manejar las condiciones de carrera no es la única dificultad al implementar la carga de datos. También podrías querer pensar en almacenar en caché las respuestas (para que el usuario pueda hacer clic en "Atrás" y ver la pantalla anterior instantáneamente), en cómo obtener datos en el servidor (para que el HTML inicial renderizado por el servidor contenga el contenido obtenido en lugar de un spinner), y en cómo evitar cascadas de red (para que un hijo pueda cargar datos sin esperar a cada padre).
 
-**Estos problemas se aplican a cualquier biblioteca de interfaz de usuario, no solo a React. Resolverlos no es trivial, por lo que los [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos proporcionan mecanismos de carga de datos integrados más eficientes que la carga de datos con Efectos.**
+**Estos problemas aplican a cualquier biblioteca de UI, no solo a React. Resolverlos no es trivial, por eso los [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos ofrecen mecanismos incorporados más eficientes de obtención de datos que obtener datos en Efectos.**
 
 Si no usas un framework (y no quieres construir el tuyo propio) pero te gustaría hacer que la carga de datos desde Efectos sea más ergonómica, considera extraer tu lógica de obtención a un Hook personalizado como en el siguiente ejemplo:
 
