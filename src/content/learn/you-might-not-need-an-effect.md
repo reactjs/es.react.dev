@@ -753,7 +753,7 @@ Manejar las condiciones de carrera no es la única dificultad al implementar la 
 
 **Estos problemas aplican a cualquier biblioteca de UI, no solo a React. Resolverlos no es trivial, por eso los [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos ofrecen mecanismos incorporados más eficientes de obtención de datos que obtener datos en Efectos.**
 
-Si no usas un framework (y no quieres construir el tuyo propio) pero te gustaría hacer que la carga de datos desde Efectos sea más ergonómica, considera extraer tu lógica de obtención a un Hook personalizado como en el siguiente ejemplo:
+Si no utilizas un framework (y no quieres construir el tuyo propio) pero te gustaría hacer que la obtención de datos desde Efectos sea más cómoda, considera extraer tu lógica de obtención de datos en un Hook personalizado, como en este ejemplo:
 
 ```js {4}
 function SearchResults({ query }) {
