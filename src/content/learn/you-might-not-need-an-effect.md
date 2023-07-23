@@ -333,7 +333,7 @@ function Form() {
 }
 ```
 
-Apliquemos el mismo criterio que en el ejemplo anterior.
+Aplicaremos el mismo criterio que en el ejemplo anterior.
 
 La solicitud POST de analíticas debe permanecer en un Efecto. Esto es porque la _razón_ para enviar el evento de analíticas es que el formulario se mostró. (Se dispararía dos veces en desarrollo, pero [mira aquí](/learn/synchronizing-with-effects#sending-analytics) cómo lidiar con eso.)
 
