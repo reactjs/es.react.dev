@@ -358,7 +358,7 @@ function Form() {
 }
 ```
 
-Cuando estaás por decidir si poner alguna lógica en un manejador de eventos o un Efecto, la pregunta principal que debes responder es _qué tipo de lógica_ es desde la perspectiva del usuario. Si esta lógica es causada por una interacción en particular, mantenla en el manejador de eventos. Si es causada porque el usuario _ve_ el componente en la pantalla, mantenla en el Efecto.
+Cuando decidas si colocar cierta lógica en un controlador de eventos o en un Efecto, la pregunta principal que debes responder es _qué tipo de lógica_ es desde la perspectiva del usuario. Si esta lógica es causada por una interacción particular, mantenla en el controlador de eventos. Si es causada por el usuario _visualizando_ el componente en la pantalla, mantenla en el Efecto.
 
 ### Cadenas de cálculos {/*chains-of-computations*/}
 
