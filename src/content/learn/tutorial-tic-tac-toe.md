@@ -362,8 +362,8 @@ Obtendrás este error:
 
 <ConsoleBlock level="error">
 
-/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment `<>...</>`?
-**(Traducción)**
+/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment `<>...</>`?  
+**(Traducción)**  
 /src/App.js: Los elementos JSX adyacentes deben estar envueltos en una etiqueta contenedora. ¿Querías un fragmento JSX `<>...</>`?
 
 </ConsoleBlock>
@@ -1171,8 +1171,8 @@ La llamada a `handleClick(0)` será parte de la renderización del componente de
 
 <ConsoleBlock level="error">
 
-Too many re-renders. React limits the number of renders to prevent an infinite loop.
-**(Traducción)**
+Too many re-renders. React limits the number of renders to prevent an infinite loop.  
+**(Traducción)**  
 Demasiados re-renderizados. React limita el número de renderizados para evitar un bucle infinito.
 
 </ConsoleBlock>

@@ -89,8 +89,8 @@ Date cuenta que el sandbox anterior muestra un error por consola:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
-**(Traducción)**
+Warning: Each child in a list should have a unique "key" prop.  
+**(Traducción)**  
 Advertencia: Cada hijo en una lista debe tener una única prop "key".
 
 </ConsoleBlock>
@@ -272,8 +272,8 @@ Fíjate que todos los sandboxes anteriores mostraban un error en la consola:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
-**(Traducción)**
+Warning: Each child in a list should have a unique "key" prop.  
+**(Traducción)**  
 Advertencia: Cada hijo en una lista debe tener una única prop "key".
 
 </ConsoleBlock>

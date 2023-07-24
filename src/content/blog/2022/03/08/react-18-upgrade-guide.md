@@ -273,8 +273,8 @@ Cuando actualices tus pruebas para usar `createRoot`, es posible que veas esta a
 
 <ConsoleBlock level="error">
 
-The current testing environment is not configured to support act(...)
-**(Traducción)**
+The current testing environment is not configured to support act(...)  
+**(Traducción)**  
 El entorno de pruebas actual no está configurado para soportar act(...)
 
 </ConsoleBlock>

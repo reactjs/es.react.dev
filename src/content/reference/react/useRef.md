@@ -554,8 +554,8 @@ Es posible que aparezca un error en la consola:
 
 <ConsoleBlock level="error">
 
-Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-**(Traducción)**
+Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?  
+**(Traducción)**  
 Advertencia: Componentes de función no pueden recibir refs. Los intentos de acceder a esta ref fallarán. ¿Querías usar React.forwardRef()?
 
 </ConsoleBlock>

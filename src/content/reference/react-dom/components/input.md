@@ -475,8 +475,8 @@ Si renderizas un input con un `value` pero sin un `onChange`, verás un error en
 
 <ConsoleBlock level="error">
 
-You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
-**(Traducción)**
+You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.  
+**(Traducción)**  
 Proporcionaste una prop `value` a un campo de formulario sin un controlador `onChange`. Esto renderiza un campo de solo lectura. Si el campo debe ser mutable usa `defaultValue`. En caso contrario, establece `onChange` o `readOnly`.
 
 </ConsoleBlock>
@@ -515,8 +515,8 @@ Si renderizas un checkbox con `checked` pero sin `onChange`, verás un error en 
 
 <ConsoleBlock level="error">
 
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-**(Traducción)**
+You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.  
+**(Traducción)**  
 Proporcionaste una prop `checked` a un campo de formulario sin un controlador `onChange`. Esto renderiza un campo de solo lectura. Si el campo debe ser mutable usa `defaultChecked`. En caso contrario, establece `onChange` o `readOnly`.
 
 </ConsoleBlock>
