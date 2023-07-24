@@ -130,7 +130,7 @@ Los componentes que rompen esta regla se comportan impredeciblemente y causan er
 
 - El cuerpo de la función de tu componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los controladores de eventos)
 - Funciones que pasas a [`useState`](/reference/react/useState), [funciones `set`](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo), o [`useReducer`](/reference/react/useReducer)
-- Algunos métodos de los componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
+- Algunos métodos de los componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://es.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
 
 Si una función es pura, ejecutarla dos veces no cambia su comportamiento porque una función pura produce el mismo resultado cada vez. Sin embargo, si una función es impura (por ejemplo, si muta los datos que recibe), ejecutarla dos veces tiende a ser perceptible (¡eso es lo que la hace impura!) Esto te ayuda a detectar y corregir el error antes.
 
@@ -822,9 +822,9 @@ Sin Modo Estricto, es fácil pasar por alto que tu Efecto necesita limpieza. Al 
 
 React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas APIs obsoletas: 
 
-* [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
-* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
+* [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://es.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
 * API antigua de contexto ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
-* Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
+* Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://es.reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
 
 Estas APIs son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.
