@@ -1066,7 +1066,7 @@ let nextId = 0;
 let calls = 0;
 
 export function getVisibleTodos(todos, showActive) {
-  console.log(`getVisibleTodos() was called ${++calls} times`);
+  console.log(`getVisibleTodos() se llamó ${++calls} veces`);
   const activeTodos = todos.filter(todo => !todo.completed);
   const visibleTodos = showActive ? activeTodos : todos;
   return visibleTodos;
@@ -1149,7 +1149,7 @@ let nextId = 0;
 let calls = 0;
 
 export function getVisibleTodos(todos, showActive) {
-  console.log(`getVisibleTodos() was called ${++calls} times`);
+  console.log(`getVisibleTodos() se llamó ${++calls} veces`);
   const activeTodos = todos.filter(todo => !todo.completed);
   const visibleTodos = showActive ? activeTodos : todos;
   return visibleTodos;
