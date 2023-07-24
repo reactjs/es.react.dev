@@ -113,7 +113,7 @@ Esta API será eliminada en una versión mayor futura de React. [Usa createRef e
 
 </Deprecated>
 
-Te permite acceder a [legacy string refs](https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs) para este componente.
+Te permite acceder a las [_refs_ antiguas de _string_](https://es.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs) para este componente.
 
 ---
 
@@ -502,7 +502,7 @@ Esta API será eliminada en una versión importante futura de React. [Usa en su 
 
 </Deprecated>
 
-Permite especificar los valores para el [contexto heredado](https://reactjs.org/docs/legacy-context.html) que es proporcionado por este componente.
+Permite especificar los valores para el [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) que es proporcionado por este componente.
 
 ---
 
@@ -882,7 +882,7 @@ Esta API será eliminada en una futura versión importante de React. [En su luga
 
 </Deprecated>
 
-Te permite especificar qué [contexto legado](https://reactjs.org/docs/legacy-context.html) es proporcionado por este componente.
+Te permite especificar qué [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) es proporcionado por este componente.
 
 ---
 
@@ -890,11 +890,11 @@ Te permite especificar qué [contexto legado](https://reactjs.org/docs/legacy-co
 
 <Deprecated>
 
-Esta API será eliminada en una versión mayor futura de React. [Use `static contextType` en su lugar.](#static-contexttype)
+Esta API será eliminada en una versión mayor futura de React. [Usa `static contextType` en su lugar.](#static-contexttype)
 
 </Deprecated>
 
-Te permite especificar qué [contexto heredado](https://reactjs.org/docs/legacy-context.html) es consumido por este componente.
+Te permite especificar qué [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) es consumido por este componente.
 
 ---
 
