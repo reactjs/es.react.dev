@@ -794,7 +794,7 @@ En general, cada vez que te veas obligado a escribir Efectos, mantén un ojo par
 
 - Si puedes calcular algo durante el renderizado, no necesitas un Efecto.
 - Para almacenar en caché cálculos costosos, utiliza `useMemo` en lugar de `useEffect`.
-- Para restablecer el estado de todo el árbol de componentes, pasa una `key` diferente a este.
+- Para restablecer el estado de todo el árbol de componentes, pasa una _`key`_ diferente a este.
 - Para restablecer una porción del estado en respuesta a un cambio de  _prop_, establécelo durante el renderizado.
 - El código que se ejecuta porque un componente fue *mostrado* debería estar en Efectos, el resto debería estar en eventos.
 - Si necesitas actualizar el estado de varios componentes, es mejor hacerlo durante un solo evento.
@@ -1266,7 +1266,7 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-Este enfoque también cumple con los requisitos. Cuando escribes en el campo de texto, solo se actualiza la variable de estado `text`. Dado que la variable de estado `text` se encuentra en el componente secundario `NuevoTodo`, el componente padre `TodoList` no se volverá a renderizar. Por eso `getVisibleTodos()` no se llama cuando escribes en el campo de texto (aunque aún se llamaría si `TodoList` se volviera a renderizar por otro motivo).
+Este enfoque también cumple con los requisitos. Cuando escribes en el campo de texto, solo se actualiza la variable de estado `text`. Dado que la variable de estado `text` se encuentra en el componente secundario `NewTodo`, el componente padre `TodoList` no se volverá a renderizar. Por eso `getVisibleTodos()` no se llama cuando escribes en el campo de texto (aunque aún se llamaría si `TodoList` se volviera a renderizar por otro motivo).
 
 </Solution>
 
@@ -1438,7 +1438,7 @@ Sería bueno si hubiera una forma de decirle a React que cuando `savedContact.id
 
 <Solution>
 
-Divide el componente `EditContact` en dos. Mueve todo el estado del formulario al componente interno `EditForm`. Exporta el componente externo `EditContact` y haz que pase `savedContact.id` como la `key` al componente interno `EditForm`. Como resultado, el componente interno `EditForm` restablecerá todo el estado del formulario y recreará el DOM cada vez que selecciones un contacto diferente.
+Divide el componente `EditContact` en dos. Mueve todo el estado del formulario al componente interno `EditForm`. Exporta el componente externo `EditContact` y haz que pase `savedContact.id` como la _`key`_ al componente interno `EditForm`. Como resultado, el componente interno `EditForm` restablecerá todo el estado del formulario y recreará el DOM cada vez que selecciones un contacto diferente.
 
 <Sandpack>
 
