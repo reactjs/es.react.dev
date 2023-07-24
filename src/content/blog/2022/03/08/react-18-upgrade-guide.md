@@ -41,7 +41,7 @@ Cuando instales React 18 por primera vez, verás una advertencia en la consola:
 <ConsoleBlock level="error">
 
 ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot  
-**(Traducción)**
+**(Traducción)**  
 ReactDOM.render ya no está soportado en React 18. Usa createRoot en su lugar. Hasta que cambies a la nueva API, tu aplicación se comportará como si estuviera ejecutando React 17. Más información: https://reactjs.org/link/switch-to-createroot
 
 </ConsoleBlock>
