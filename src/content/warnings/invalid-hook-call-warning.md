@@ -6,9 +6,7 @@ Probablemente estás aquí porque te ha aparecido el siguiente mensaje de error:
 
 <ConsoleBlock level="error">
 
-Hooks can only be called inside the body of a function component.  
-**(Traducción)**  
-Hooks sólo pueden ser llamados dentro del cuerpo de un componente de función.
+Hooks can only be called inside the body of a function component.<div>**(Traducción)**</div>Hooks sólo pueden ser llamados dentro del cuerpo de un componente de función.
 
 </ConsoleBlock>
 
