@@ -174,7 +174,7 @@ Y `Profile` contiene aún más HTML: `<img />`. Al final lo que el navegador ve 
 
 Los componentes son funciones regulares de JavaScript, por lo que puedes tener múltiples componentes en el mismo archivo. Esto es conveniente cuando los componentes son relativamente pequeños o están estrechamente relacionados entre sí. Si este archivo se torna abarrotado, siempre puedes mover `Profile` a un archivo separado. Aprenderás como hacer esto pronto en la [página sobre *importaciones*](/learn/importing-and-exporting-components).
 
-Dado que el componente `Profile` se renderiza dentro de `Gallery` (¡incluso varias veces!) podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
+Dado que los componentes `Profile` se renderizan dentro de `Gallery` (¡incluso varias veces!) podemos decir que `Gallery` es un **componente padre**, que renderiza cada `Profile` como un "hijo". Este es la parte mágica de React: puedes definir un componente una vez, y luego usarlo en muchos lugares y tantas veces como quieras.
 
 <Pitfall>
 
