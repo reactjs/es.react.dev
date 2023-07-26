@@ -8,7 +8,7 @@ title: "Resumen de React Conf 2021"
 
 <Intro>
 
-La semana pasada organizamos nuestra 6ª React Conf. En años anteriores, usamos el escenario React Conf para ofrecer anuncios que cambiaron la industria, como [_React Native_](https://engineering.fb.com/2015/03/26/android/react-native-bringing-modern-web-techniques-to-mobile/) y [_React Hooks_](https://reactjs.org/docs/hooks-intro.html). Este año, compartimos nuestra visión multiplataforma para React, comenzando con el lanzamiento de React 18 y la adopción gradual de funcionalidades concurrentes.
+La semana pasada organizamos nuestra 6ª React Conf. En años anteriores, usamos el escenario React Conf para ofrecer anuncios que cambiaron la industria, como [_React Native_](https://engineering.fb.com/2015/03/26/android/react-native-bringing-modern-web-techniques-to-mobile/) y [_React Hooks_](https://es.reactjs.org/docs/hooks-intro.html). Este año, compartimos nuestra visión multiplataforma para React, comenzando con el lanzamiento de React 18 y la adopción gradual de funcionalidades concurrentes.
 
 </Intro>
 

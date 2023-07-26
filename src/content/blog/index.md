@@ -70,6 +70,6 @@ No todas las versiones de React merecen su propia entrada en el blog, pero puede
 
 ### Posts antiguos {/*older-posts*/}
 
-Ver los [posts más antiguos.](https://reactjs.org/blog/all.html)
+Ver los [posts antiguos.](https://es.reactjs.org/blog/all.html)
 
 <div className="h-12"></div>
