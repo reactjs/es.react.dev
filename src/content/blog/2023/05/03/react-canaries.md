@@ -1,5 +1,5 @@
 ---
-title: "React Canaries: Habilitar el despliegue de funcionalidades incrementales por fuera de Meta"
+title: "React Canaries: Habilitar el despliegue incremental de características fuera de Meta"
 ---
 
 3 de Mayo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Andrew Clark](https://twitter.com/acdlite)

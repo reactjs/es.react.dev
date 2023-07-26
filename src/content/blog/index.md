@@ -10,7 +10,7 @@ Este blog es la fuente oficial de las actualizaciones del equipo React. Cualquie
 
 <div className="sm:-mx-5 flex flex-col gap-5 mt-12">
 
-<BlogCard title="React Canaries: Habilitar el despliegue de funcionalidades incrementales por fuera de Meta" date="3 de mayo de 2023" url="/blog/2023/05/03/react-canaries">
+<BlogCard title="React Canaries: Habilitar el despliegue incremental de características fuera de Meta" date="3 de mayo de 2023" url="/blog/2023/05/03/react-canaries">
 
 Nos gustaría ofrecer a la comunidad de React una opción para adoptar las nuevas características tan pronto su diseño está cerca de su etapa final, antes de que sean lanzados a una versión estable (similar a cómo Meta ha utilizado internamente las más recientes versiones de React). Estamos presentando oficialmente un nuevo canal de lanzamiento Canary con apoyo oficial. Permite que las configuraciones seleccionadas como los frameworks desvinculen la adopción de funcionalidades individuales de React del calendario de lanzamiento de React...
 
@@ -54,7 +54,7 @@ El equipo de React está emocionado por compartir algunas novedades:
 - Publicamos React 18 Alpha para que los autores de bibliotecas puedan probarlo y darnos sus impresiones...
 </BlogCard>
 
-<BlogCard title="Presentación de los Componentes de React en el Servidor" date="21 de diciembre de 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
+<BlogCard title="Presentación de los componentes de React en el servidor" date="21 de diciembre de 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
 2020 ha sido un año bastante largo. Antes de que termine queremos compartirte una actualización especial de fin de año sobre nuestra investigación acerca de los **Componentes de React en el Servidor** (*React Server Components* o RSC) con cero JavaScript del lado del cliente. Para introducir los Componentes de React en el Servidor, hemos preparado una charla y una demo. Si lo deseas, puedes revisarlas durante las vacaciones decembrinas, o después cuando el trabajo se reanude en el año nuevo...
 </BlogCard>
 
