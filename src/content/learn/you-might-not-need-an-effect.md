@@ -62,7 +62,7 @@ function Form() {
 
 **Cuando algo puede calcularse a partir de las _props_ o el estado existente, [no lo pongas en el estado](/learn/choosing-the-state-structure#avoid-redundant-state). En su lugar, calcúlalo durante el renderizado.** Esto hace que tu código sea más rápido (evitas las actualizaciones adicionales "en cascada"), más simple (eliminas código innecesario) y menos propenso a errores (evitas errores causados por diferentes variables de estado desincronizadas entre sí). Si este enfoque te resulta nuevo, [Pensar en React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) explica qué debe ir en el estado.
 
-### Almacenamiento en caché de cálculos costosos{/*caching-expensive-calculations*/}
+### Almacenamiento en caché de cálculos costosos {/*caching-expensive-calculations*/}
 
 Este componente calcula `visibleTodos` tomando los `todos` que recibe a través de _props_ y filtrándolos según la _prop_ `filter`. Podrías sentirte tentado/a de almacenar el resultado en el estado y actualizarlo desde un Efecto:
 
@@ -137,7 +137,7 @@ const visibleTodos = getFilteredTodos(todos, filter);
 console.timeEnd('filter array');
 ```
 
-Realiza la interacción que estás midiendo (por ejemplo, escribir en el campo de entrada (_input_)). Luego, verás registros en la consola como `filter array: 0.15ms`. Si el tiempo total registrado suma una cantidad significativa (digamos, `1ms` o más), podría tener sentido memoizar ese cálculo. Como experimento, puedes envolver el cálculo en `useMemo` para verificar si el tiempo total registrado ha disminuido para esa interacción o no:
+Realiza la interacción que estás midiendo (por ejemplo, escribir en el campo de texto (_input_)). Luego, verás registros en la consola como `filter array: 0.15ms`. Si el tiempo total registrado suma una cantidad significativa (digamos, `1ms` o más), podría tener sentido memoizar ese cálculo. Como experimento, puedes envolver el cálculo en `useMemo` para verificar si el tiempo total registrado ha disminuido para esa interacción o no:
 
 ```js
 console.time('filter array');
@@ -236,7 +236,7 @@ function List({ items }) {
 
 [Almacenar información de renderizados previos](/reference/react/useState#storing-information-from-previous-renders) como se muestra en este ejemplo puede ser difícil de entender, pero es mejor que actualizar el mismo estado en un Efecto. En el ejemplo anterior, `setSelection` se llama directamente durante un renderizado. React volverá a renderizar el componente `List` *inmediatamente* después de salir del bloque de `return`. React aún no ha renderizado los hijos de `List` ni ha actualizado el DOM, lo que permite a los hijos de `List` omitir el renderizado del valor obsoleto de `selection`.
 
-Cuando actualizas un componente durante el renderizado, React descarta el JSX devuelto y vuelve a intentar el renderizado de inmediato. Para evitar reintentos en cascada muy lentos, React solo te permite actualizar el estado del *mismo* componente durante el renderizado. Si intentas actualizar el estado de otro componente durante el renderizado, verás un error. Una condición como `items !== prevItems` es necesaria para evitar bucles. Puedes ajustar el estado de esta manera, pero cualquier otro efecto secundario (como cambios en el DOM o establecer tiempos de espera) debe mantenerse en los controladores de eventos o en Efectos para [mantener los componentes puros.](/learn/keeping-components-pure)
+Cuando actualizas un componente durante el renderizado, React descarta el JSX devuelto y vuelve a intentar el renderizado de inmediato. Para evitar reintentos en cascada muy lentos, React solo te permite actualizar el estado del *mismo* componente durante el renderizado. Si intentas actualizar el estado de otro componente durante el renderizado, verás un error. Una condición como `items !== prevItems` es necesaria para evitar bucles. Puedes ajustar el estado de esta manera, pero otros efectos secundarios (como cambios en el DOM o establecer tiempos de espera) debe mantenerse en los controladores de eventos o en Efectos para [mantener los componentes puros.](/learn/keeping-components-pure)
 
 **Aunque este patrón es más eficiente que un Efecto, la mayoría de los componentes tampoco lo necesitan.** Sin importar cómo lo hagas, ajustar el estado basado en _props_ u otro estado hace que el flujo de datos sea más difícil de entender y depurar. Siempre verifica si puedes [restablecer todo el estado con una _key_](#resetting-all-state-when-a-prop-changes) o [calcular todo durante el renderizado](#updating-state-based-on-props-or-state) en su lugar. Por ejemplo, en lugar de almacenar (y restablecer) el *item* seleccionado, puedes almacenar el *item ID* seleccionado:
 
@@ -714,9 +714,9 @@ function SearchResults({ query }) {
 }
 ```
 
-No *necesitas* mover esta solicitud (fetch) a un controlador de eventos.
+No *necesitas* mover esta solicitud (_fetch_) a un controlador de eventos.
 
-Esto puede parecer una contradicción con los ejemplos anteriores donde necesitabas poner la lógica en los controladores de eventos. Sin embargo, considera que no es *el evento de escritura* la razón principal para realizar la solicitud (_fetch_). Los campos de búsqueda a menudo se precargan desde la URL, y el usuario podría navegar hacia atrás y adelante sin tocar el campo de entrada.
+Esto puede parecer una contradicción con los ejemplos anteriores donde necesitabas poner la lógica en los controladores de eventos. Sin embargo, considera que no es *el evento de escritura* la razón principal para realizar la solicitud (_fetch_). Los campos de búsqueda a menudo se precargan desde la URL, y el usuario podría navegar hacia atrás y adelante sin tocar el campo de búsqueda.
 
 No importa de dónde provengan `page` y `query`. Mientras este componente sea visible, deseas mantener `results` [sincronizado](/learn/synchronizing-with-effects) con los datos de la red para la `page` y `query` actuales. Por eso es un Efecto.
 
@@ -794,7 +794,7 @@ En general, cada vez que te veas obligado a escribir Efectos, mantén un ojo par
 
 - Si puedes calcular algo durante el renderizado, no necesitas un Efecto.
 - Para almacenar en caché cálculos costosos, utiliza `useMemo` en lugar de `useEffect`.
-- Para restablecer el estado de todo el árbol de componentes, pasa una `key` diferente a este.
+- Para restablecer el estado de todo el árbol de componentes, pasa una _`key`_ diferente a este.
 - Para restablecer una porción del estado en respuesta a un cambio de  _prop_, establécelo durante el renderizado.
 - El código que se ejecuta porque un componente fue *mostrado* debería estar en Efectos, el resto debería estar en eventos.
 - Si necesitas actualizar el estado de varios componentes, es mejor hacerlo durante un solo evento.
@@ -805,11 +805,11 @@ En general, cada vez que te veas obligado a escribir Efectos, mantén un ojo par
 
 <Challenges>
 
-#### Transform data without Effects {/*transform-data-without-effects*/}
+#### Transformar datos sin Efectos {/*transform-data-without-effects*/}
 
-The `TodoList` below displays a list of todos. When the "Show only active todos" checkbox is ticked, completed todos are not displayed in the list. Regardless of which todos are visible, the footer displays the count of todos that are not yet completed.
+El `TodoList` a continuación muestra una lista de tareas pendientes. Cuando se marca la casilla "Mostrar solo tareas activas", las tareas completadas no se muestran en la lista. Independientemente de las tareas que sean visibles, el pie de página muestra la cantidad de tareas que aún no han sido completadas.
 
-Simplify this component by removing all the unnecessary state and Effects.
+Simplifica este componente eliminando todo el estado y los Efectos innecesarios.
 
 <Sandpack>
 
@@ -835,7 +835,7 @@ export default function TodoList() {
   useEffect(() => {
     setFooter(
       <footer>
-        {activeTodos.length} todos left
+        {activeTodos.length} tareas restantes
       </footer>
     );
   }, [activeTodos]);
@@ -848,7 +848,7 @@ export default function TodoList() {
           checked={showActive}
           onChange={e => setShowActive(e.target.checked)}
         />
-        Show only active todos
+        Mostrar solo tareas activas
       </label>
       <NewTodo onAdd={newTodo => setTodos([...todos, newTodo])} />
       <ul>
@@ -875,7 +875,7 @@ function NewTodo({ onAdd }) {
     <>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={handleAddClick}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -894,9 +894,9 @@ export function createTodo(text, completed = false) {
 }
 
 export const initialTodos = [
-  createTodo('Get apples', true),
-  createTodo('Get oranges', true),
-  createTodo('Get carrots'),
+  createTodo('Comprar manzanas', true),
+  createTodo('Comprar naranjas', true),
+  createTodo('Comprar zanahorias'),
 ];
 ```
 
@@ -909,15 +909,15 @@ input { margin-top: 10px; }
 
 <Hint>
 
-If you can calculate something during rendering, you don't need state or an Effect that updates it.
+Si puedes calcular algo durante el renderizado, no necesitas estado ni un Efecto que lo actualice.
 
 </Hint>
 
 <Solution>
 
-There are only two essential pieces of state in this example: the list of `todos` and the `showActive` state variable which represents whether the checkbox is ticked. All of the other state variables are [redundant](/learn/choosing-the-state-structure#avoid-redundant-state) and can be calculated during rendering instead. This includes the `footer` which you can move directly into the surrounding JSX.
+Solo hay dos piezas esenciales de estado en este ejemplo: la lista de `todos` y la variable de estado `showActive` que representa si la casilla de verificación está marcada. Todas las demás variables de estado son [redundantes](/learn/choosing-the-state-structure#avoid-redundant-state) y se pueden calcular durante el renderizado. Esto incluye el `footer` que puedes mover directamente al JSX que lo rodea.
 
-Your result should end up looking like this:
+Tu resultado debería verse así:
 
 <Sandpack>
 
@@ -939,7 +939,7 @@ export default function TodoList() {
           checked={showActive}
           onChange={e => setShowActive(e.target.checked)}
         />
-        Show only active todos
+        Mostrar solo tareas activas
       </label>
       <NewTodo onAdd={newTodo => setTodos([...todos, newTodo])} />
       <ul>
@@ -950,7 +950,7 @@ export default function TodoList() {
         ))}
       </ul>
       <footer>
-        {activeTodos.length} todos left
+        {activeTodos.length} tareas restantes
       </footer>
     </>
   );
@@ -968,7 +968,7 @@ function NewTodo({ onAdd }) {
     <>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={handleAddClick}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -987,9 +987,9 @@ export function createTodo(text, completed = false) {
 }
 
 export const initialTodos = [
-  createTodo('Get apples', true),
-  createTodo('Get oranges', true),
-  createTodo('Get carrots'),
+  createTodo('Comprar manzanas', true),
+  createTodo('Comprar naranjas', true),
+  createTodo('Comprar zanahorias'),
 ];
 ```
 
@@ -1002,15 +1002,15 @@ input { margin-top: 10px; }
 
 </Solution>
 
-#### Cache a calculation without Effects {/*cache-a-calculation-without-effects*/}
+#### Cachear un cálculo sin usar Efectos {/*cache-a-calculation-without-effects*/}
 
-In this example, filtering the todos was extracted into a separate function called `getVisibleTodos()`. This function contains a `console.log()` call inside of it which helps you notice when it's being called. Toggle "Show only active todos" and notice that it causes `getVisibleTodos()` to re-run. This is expected because visible todos change when you toggle which ones to display.
+En este ejemplo, se extrajo el filtrado de las tareas en una función separada llamada `getVisibleTodos()`. Esta función contiene una llamada a `console.log()` que te ayuda a darte cuenta de cuándo se llama. Alterna "Mostrar solo tareas activas" y observa que esto causa que `getVisibleTodos()` se vuelva a ejecutar. Esto es esperado porque las tareas visibles cambian cuando alternas cuáles se deben mostrar.
 
-Your task is to remove the Effect that recomputes the `visibleTodos` list in the `TodoList` component. However, you need to make sure that `getVisibleTodos()` does *not* re-run (and so does not print any logs) when you type into the input.
+Tu tarea es eliminar el Efecto que recalcula la lista de `visibleTodos` en el componente `TodoList`. Sin embargo, debes asegurarte de que `getVisibleTodos()` **no** se vuelva a ejecutar (y, por lo tanto, no muestre ningún registro) cuando escribas en el campo de texto.
 
 <Hint>
 
-One solution is to add a `useMemo` call to cache the visible todos. There is also another, less obvious solution.
+Una solución es agregar una llamada a `useMemo` para cachear las tareas visibles. También hay otra solución, menos evidente.
 
 </Hint>
 
@@ -1043,11 +1043,11 @@ export default function TodoList() {
           checked={showActive}
           onChange={e => setShowActive(e.target.checked)}
         />
-        Show only active todos
+        Mostrar solo tareas activas
       </label>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={handleAddClick}>
-        Add
+        Agregar
       </button>
       <ul>
         {visibleTodos.map(todo => (
@@ -1066,7 +1066,7 @@ let nextId = 0;
 let calls = 0;
 
 export function getVisibleTodos(todos, showActive) {
-  console.log(`getVisibleTodos() was called ${++calls} times`);
+  console.log(`getVisibleTodos() se llamó ${++calls} veces`);
   const activeTodos = todos.filter(todo => !todo.completed);
   const visibleTodos = showActive ? activeTodos : todos;
   return visibleTodos;
@@ -1081,9 +1081,9 @@ export function createTodo(text, completed = false) {
 }
 
 export const initialTodos = [
-  createTodo('Get apples', true),
-  createTodo('Get oranges', true),
-  createTodo('Get carrots'),
+  createTodo('Comprar manzanas', true),
+  createTodo('Comprar naranjas', true),
+  createTodo('Comprar zanahorias'),
 ];
 ```
 
@@ -1096,7 +1096,7 @@ input { margin-top: 10px; }
 
 <Solution>
 
-Remove the state variable and the Effect, and instead add a `useMemo` call to cache the result of calling `getVisibleTodos()`:
+Elimina la variable de estado y el Efecto, y en su lugar, agrega una llamada a `useMemo` para cachear el resultado de la función `getVisibleTodos()`:
 
 <Sandpack>
 
@@ -1126,11 +1126,11 @@ export default function TodoList() {
           checked={showActive}
           onChange={e => setShowActive(e.target.checked)}
         />
-        Show only active todos
+        Mostrar solo tareas activas
       </label>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={handleAddClick}>
-        Add
+        Agregar
       </button>
       <ul>
         {visibleTodos.map(todo => (
@@ -1149,7 +1149,7 @@ let nextId = 0;
 let calls = 0;
 
 export function getVisibleTodos(todos, showActive) {
-  console.log(`getVisibleTodos() was called ${++calls} times`);
+  console.log(`getVisibleTodos() se llamó ${++calls} veces`);
   const activeTodos = todos.filter(todo => !todo.completed);
   const visibleTodos = showActive ? activeTodos : todos;
   return visibleTodos;
@@ -1164,9 +1164,9 @@ export function createTodo(text, completed = false) {
 }
 
 export const initialTodos = [
-  createTodo('Get apples', true),
-  createTodo('Get oranges', true),
-  createTodo('Get carrots'),
+  createTodo('Comprar manzanas', true),
+  createTodo('Comprar naranjas', true),
+  createTodo('Comprar zanahorias'),
 ];
 ```
 
@@ -1177,9 +1177,9 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-With this change, `getVisibleTodos()` will be called only if `todos` or `showActive` change. Typing into the input only changes the `text` state variable, so it does not trigger a call to `getVisibleTodos()`.
+Con este cambio, getVisibleTodos() solo se llamará si cambian todos o showActive. Escribir en el campo de texto solo cambia la variable de estado text, por lo que no provoca una llamada a getVisibleTodos().
 
-There is also another solution which does not need `useMemo`. Since the `text` state variable can't possibly affect the list of todos, you can extract the `NewTodo` form into a separate component, and move the `text` state variable inside of it:
+También hay otra solución que no necesita `useMemo`. Dado que la variable de estado `text` no puede afectar la lista de tareas, puedes extraer el formulario `NewTodo` en un componente separado y mover la variable de estado `text` dentro de él:
 
 <Sandpack>
 
@@ -1200,7 +1200,7 @@ export default function TodoList() {
           checked={showActive}
           onChange={e => setShowActive(e.target.checked)}
         />
-        Show only active todos
+        Mostrar solo tareas activas
       </label>
       <NewTodo onAdd={newTodo => setTodos([...todos, newTodo])} />
       <ul>
@@ -1226,7 +1226,7 @@ function NewTodo({ onAdd }) {
     <>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={handleAddClick}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -1238,7 +1238,7 @@ let nextId = 0;
 let calls = 0;
 
 export function getVisibleTodos(todos, showActive) {
-  console.log(`getVisibleTodos() was called ${++calls} times`);
+  console.log(`getVisibleTodos() se llamó ${++calls} veces`);
   const activeTodos = todos.filter(todo => !todo.completed);
   const visibleTodos = showActive ? activeTodos : todos;
   return visibleTodos;
@@ -1253,9 +1253,9 @@ export function createTodo(text, completed = false) {
 }
 
 export const initialTodos = [
-  createTodo('Get apples', true),
-  createTodo('Get oranges', true),
-  createTodo('Get carrots'),
+  createTodo('Comprar manzanas', true),
+  createTodo('Comprar naranjas', true),
+  createTodo('Comprar zanahorias'),
 ];
 ```
 
@@ -1266,15 +1266,15 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-This approach satisfies the requirements too. When you type into the input, only the `text` state variable updates. Since the `text` state variable is in the child `NewTodo` component, the parent `TodoList` component won't get re-rendered. This is why `getVisibleTodos()` doesn't get called when you type. (It would still be called if the `TodoList` re-renders for another reason.)
+Este enfoque también cumple con los requisitos. Cuando escribes en el campo de texto, solo se actualiza la variable de estado `text`. Dado que la variable de estado `text` se encuentra en el componente secundario `NewTodo`, el componente padre `TodoList` no se volverá a renderizar. Por eso `getVisibleTodos()` no se llama cuando escribes en el campo de texto (aunque aún se llamaría si `TodoList` se volviera a renderizar por otro motivo).
 
 </Solution>
 
-#### Reset state without Effects {/*reset-state-without-effects*/}
+#### Restablecer estado sin Efectos {/*reset-state-without-effects*/}
 
-This `EditContact` component receives a contact object shaped like `{ id, name, email }` as the `savedContact` prop. Try editing the name and email input fields. When you press Save, the contact's button above the form updates to the edited name. When you press Reset, any pending changes in the form are discarded. Play around with this UI to get a feel for it.
+Este componente `EditContact` recibe un objeto de contacto con la forma `{ id, name, email }` como _prop_ `savedContact`. Intenta editar los campos de nombre y correo electrónico. Cuando presiones Guardar, el botón del contacto sobre el formulario se actualizará con el nombre editado. Cuando presiones Restablecer, cualquier cambio pendiente en el formulario se descartará. Juega con esta interfaz para familiarizarte con ella.
 
-When you select a contact with the buttons at the top, the form resets to reflect that contact's details. This is done with an Effect inside `EditContact.js`. Remove this Effect. Find another way to reset the form when `savedContact.id` changes.
+Cuando seleccionas un contacto con los botones en la parte superior, el formulario se restablece para reflejar los detalles de ese contacto. Esto se hace con un Efecto dentro de `EditContact.js`. Elimina este Efecto. Encuentra otra forma de restablecer el formulario cuando cambie `savedContact.id`.
 
 <Sandpack>
 
@@ -1372,7 +1372,7 @@ export default function EditContact({ savedContact, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Nombre:{' '}
         <input
           type="text"
           value={name}
@@ -1395,13 +1395,13 @@ export default function EditContact({ savedContact, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Guardar
       </button>
       <button onClick={() => {
         setName(savedContact.name);
         setEmail(savedContact.email);
       }}>
-        Reset
+        Restablecer
       </button>
     </section>
   );
@@ -1432,13 +1432,13 @@ button {
 
 <Hint>
 
-It would be nice if there was a way to tell React that when `savedContact.id` is different, the `EditContact` form is conceptually a _different contact's form_ and should not preserve state. Do you recall any such way?
+Sería bueno si hubiera una forma de decirle a React que cuando `savedContact.id` sea diferente, el formulario de `EditContact` es conceptualmente el _formulario de un contacto diferente_ y no debe preservar el estado. ¿Recuerdas alguna forma así?
 
 </Hint>
 
 <Solution>
 
-Split the `EditContact` component in two. Move all the form state into the inner `EditForm` component. Export the outer `EditContact` component, and make it pass `savedContact.id` as the `key` to the inner `EditForm` component. As a result, the inner `EditForm` component resets all of the form state and recreates the DOM whenever you select a different contact.
+Divide el componente `EditContact` en dos. Mueve todo el estado del formulario al componente interno `EditForm`. Exporta el componente externo `EditContact` y haz que pase `savedContact.id` como la _`key`_ al componente interno `EditForm`. Como resultado, el componente interno `EditForm` restablecerá todo el estado del formulario y recreará el DOM cada vez que selecciones un contacto diferente.
 
 <Sandpack>
 
@@ -1540,7 +1540,7 @@ function EditForm({ savedContact, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Nombre:{' '}
         <input
           type="text"
           value={name}
@@ -1563,13 +1563,13 @@ function EditForm({ savedContact, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Guardar
       </button>
       <button onClick={() => {
         setName(savedContact.name);
         setEmail(savedContact.email);
       }}>
-        Reset
+        Restablecer
       </button>
     </section>
   );
@@ -1600,17 +1600,17 @@ button {
 
 </Solution>
 
-#### Submit a form without Effects {/*submit-a-form-without-effects*/}
+#### Enviar un formulario sin Efectos {/*submit-a-form-without-effects*/}
 
-This `Form` component lets you send a message to a friend. When you submit the form, the `showForm` state variable is set to `false`. This triggers an Effect calling `sendMessage(message)`, which sends the message (you can see it in the console). After the message is sent, you see a "Thank you" dialog with an "Open chat" button that lets you get back to the form.
+Este componente `Form` te permite enviar un mensaje a un amigo. Cuando envías el formulario, la variable de estado `showForm` se establece en `false`. Esto desencadena un Efecto llamando a `sendMessage(message)`, que envía el mensaje (puedes verlo en la consola). Después de enviar el mensaje, aparece un diálogo de "Gracias" con un botón "Abrir chat" que te permite volver al formulario.
 
-Your app's users are sending way too many messages. To make chatting a little bit more difficult, you've decided to show the "Thank you" dialog *first* rather than the form. Change the `showForm` state variable to initialize to `false` instead of `true`. As soon as you make that change, the console will show that an empty message was sent. Something in this logic is wrong!
+Los usuarios de tu aplicación están enviando demasiados mensajes. Para dificultar un poco más el chat, has decidido mostrar el diálogo "Gracias" *primero*, en lugar del formulario. Cambia la variable de estado `showForm` para que se inicialice en `false` en lugar de `true`. Tan pronto como hagas ese cambio, la consola mostrará que se envió un mensaje vacío. ¡Algo en esta lógica está mal!
 
-What's the root cause of this problem? And how can you fix it?
+¿Cuál es la causa principal de este problema? ¿Y cómo puedes solucionarlo?
 
 <Hint>
 
-Should the message be sent _because_ the user saw the "Thank you" dialog? Or is it the other way around?
+¿Debería enviarse el mensaje _porque_ el usuario vio el diálogo de "Gracias"? ¿O es al revés?
 
 </Hint>
 
@@ -1637,12 +1637,12 @@ export default function Form() {
   if (!showForm) {
     return (
       <>
-        <h1>Thanks for using our services!</h1>
+        <h1>¡Gracias por usar nuestros servicios!</h1>
         <button onClick={() => {
           setMessage('');
           setShowForm(true);
         }}>
-          Open chat
+          Abrir chat
         </button>
       </>
     );
@@ -1651,19 +1651,19 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <textarea
-        placeholder="Message"
+        placeholder="Mensaje"
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
       <button type="submit" disabled={message === ''}>
-        Send
+        Enviar
       </button>
     </form>
   );
 }
 
 function sendMessage(message) {
-  console.log('Sending message: ' + message);
+  console.log('Enviando mensaje: ' + message);
 }
 ```
 
@@ -1675,7 +1675,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <Solution>
 
-The `showForm` state variable determines whether to show the form or the "Thank you" dialog. However, you aren't sending the message because the "Thank you" dialog was _displayed_. You want to send the message because the user has _submitted the form._ Delete the misleading Effect and move the `sendMessage` call inside the `handleSubmit` event handler:
+La variable de estado `showForm` determina si se muestra el formulario o el diálogo de "Gracias". Sin embargo, no se está enviando el mensaje porque se _mostró_ el diálogo de "Gracias". Lo que deseas es enviar el mensaje porque el usuario ha _enviado el formulario_. Elimina el Efecto engañoso y mueve la llamada a `sendMessage` dentro del controlador de eventos `handleSubmit`:
 
 <Sandpack>
 
@@ -1695,12 +1695,12 @@ export default function Form() {
   if (!showForm) {
     return (
       <>
-        <h1>Thanks for using our services!</h1>
+        <h1>¡Gracias por usar nuestros servicios!</h1>
         <button onClick={() => {
           setMessage('');
           setShowForm(true);
         }}>
-          Open chat
+          Abrir chat
         </button>
       </>
     );
@@ -1709,19 +1709,19 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <textarea
-        placeholder="Message"
+        placeholder="Mensaje"
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
       <button type="submit" disabled={message === ''}>
-        Send
+        Enviar
       </button>
     </form>
   );
 }
 
 function sendMessage(message) {
-  console.log('Sending message: ' + message);
+  console.log('Enviando mensaje: ' + message);
 }
 ```
 
@@ -1731,7 +1731,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Notice how in this version, only _submitting the form_ (which is an event) causes the message to be sent. It works equally well regardless of whether `showForm` is initially set to `true` or `false`. (Set it to `false` and notice no extra console messages.)
+Observa cómo en esta versión, solo _enviar el formulario_ (que es un evento) hace que se envíe el mensaje. Funciona igual de bien independientemente de si `showForm` se inicializa en `true` o `false`. (Configúralo en `false` y notarás que no hay mensajes adicionales en la consola.)
 
 </Solution>
 

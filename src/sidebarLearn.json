@@ -173,7 +173,7 @@
           "path": "/learn/synchronizing-with-effects"
         },
         {
-          "title": "You Might Not Need an Effect",
+          "title": "Quizás no necesites un Efecto",
           "path": "/learn/you-might-not-need-an-effect"
         },
         {
@@ -181,7 +181,7 @@
           "path": "/learn/lifecycle-of-reactive-effects"
         },
         {
-          "title": "Separar Eventos de Efectos",
+          "title": "Separar eventos de Efectos",
           "path": "/learn/separating-events-from-effects"
         },
         {
