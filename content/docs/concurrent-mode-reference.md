@@ -32,7 +32,7 @@ Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-m
     - [`createRoot`](#createroot)
 - [Suspense](#suspense)
     - [`Suspense`](#suspensecomponent)
-  - [`SuspenseList`](#suspenselist)
+    - [`SuspenseList`](#suspenselist)
   - [`useTransition`](#usetransition)
   - [`useDeferredValue`](#usedeferredvalue)
 
