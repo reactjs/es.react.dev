@@ -110,7 +110,7 @@ const [startTransition, isPending] = useTransition(SUSPENSE_CONFIG);
 
 El hook `useTransition` devuelve dos valores en un array.
 * `startTransition` es una función que toma un callback. Nosotros podemos usarlo para decirle a React cual estado queremos diferir.
-- `isPending` es un booleano. Es la manera en que React nos informa si estamos esperando que la transición termine.
+* `isPending` es un booleano. Es la manera en que React nos informa si estamos esperando que la transición termine.
 
 **Si alguna actualización de estado causa que un componente se suspenda, esa actualización de estado debería estar envuelta en una transición.**
 
