@@ -94,7 +94,7 @@ Cuando varios componentes necesitan obtener datos, estos datos pueden llegar en 
 * **tail (collapsed, hidden)** decide como los contenidos de respaldo en un `SuspenseList` son mostrados.
     * Por defecto, `SuspenseList` va a mostrar todos los contenidos de respaldo en la lista.
     * `collapsed` solo muestra el siguiente contenido de respaldo en la lista.
-  - `hidden` no muestra ningun contenido de respaldo.
+    * `hidden` no muestra ningun contenido de respaldo.
 
 Tener en cuenta que `SuspenseList` solo funciona en los componentes `Suspense` y `SuspenseList` más cercanos debajo de él. No busca límites más profundos que un nivel. Sin embargo, es posible anidar múltiples componentes `SuspenseList` entre sí para construir grillas.
 
