@@ -89,7 +89,7 @@ En este ejemplo, `ProfileDetails` está esperando una llamada asíncrona del API
 Cuando varios componentes necesitan obtener datos, estos datos pueden llegar en un orden impredecible. Sin embargo, si envuelves estos elementos en un `SuspenseList`, React no mostrará un elemento de la lista hasta que todos los elementos anteriores se hayan mostrado (este comportamiente es ajustable).
 
 `SuspenseList` lleva dos props:
-- **revealOrder (forwards, backwards, together)** define el orden en el cual los hijos de `SuspenseList` deberían ser mostrados.
+* **revealOrder (forwards, backwards, together)** define el orden en el cual los hijos de `SuspenseList` deberían ser mostrados.
   - `together` muestra _todos_ ellos cuando estén listos en lugar de uno por uno.
 - **tail (collapsed, hidden)** decide como los contenidos de respaldo en un `SuspenseList` son mostrados.
   - Por defecto, `SuspenseList` va a mostrar todos los contenidos de respaldo en la lista.
