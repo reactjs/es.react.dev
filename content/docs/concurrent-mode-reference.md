@@ -29,7 +29,7 @@ Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-m
 **Nota: Esto es un una vista previa de la comunidad y no es la versión final estable. Es probable que existan futuros cambios a estas APIs. ¡Úsalas bajo tu propio riesgo!**
 
 - [Habilitando el modo concurrente](#concurrent-mode)
-  - [`createRoot`](#createroot)
+    - [`createRoot`](#createroot)
 - [Suspense](#suspense)
   - [`Suspense`](#suspensecomponent)
   - [`SuspenseList`](#suspenselist)
