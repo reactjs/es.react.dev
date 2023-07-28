@@ -64,7 +64,7 @@ Para más información del Modo concurrente, revisa la [documentación del modo 
 En este ejemplo, `ProfileDetails` está esperando una llamada asíncrona del API para obtener algunos datos. Mientras esperamos a `ProfileDetails` y `ProfilePhoto`, vamos a ir mostrando `Loading...` como contenido de respaldo mientras tanto. Es importante tener en cuenta que hasta que todos los hijos de `<Suspense>` hayan cargado, continuaremos mostrando el contenido de respaldo.
 
 `Suspense` lleva dos props:
-- **fallback** lleva un indicador de carga. El contenido de respaldo es mostrado hasta que todos los hijos de `Suspense` hayan terminado de renderizar.
+* **fallback** lleva un indicador de carga. El contenido de respaldo es mostrado hasta que todos los hijos de `Suspense` hayan terminado de renderizar.
 - **unstable_avoidThisFallback** lleva un booleano. Le dice a React si debe "omitir" revelar este límite durante la carga inicial. Es probable que esta API sea eliminada en una versión futura.
 
 ### `<SuspenseList>` {#suspenselist}
