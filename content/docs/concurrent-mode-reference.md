@@ -18,7 +18,7 @@ prev: concurrent-mode-adoption.html
 >
 >Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
 >
-> Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html) para obtener información actualizada.**
+>Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html) para obtener información actualizada.**
 >
 > Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
 
