@@ -92,7 +92,7 @@ Cuando varios componentes necesitan obtener datos, estos datos pueden llegar en 
 * **revealOrder (forwards, backwards, together)** define el orden en el cual los hijos de `SuspenseList` deberían ser mostrados.
   * `together` muestra *todos* ellos cuando estén listos en lugar de uno por uno.
 * **tail (collapsed, hidden)** decide como los contenidos de respaldo en un `SuspenseList` son mostrados.
-  * Por defecto, `SuspenseList` va a mostrar todos los contenidos de respaldo en la lista.
+    * Por defecto, `SuspenseList` va a mostrar todos los contenidos de respaldo en la lista.
   - `collapsed` solo muestra el siguiente contenido de respaldo en la lista.
   - `hidden` no muestra ningun contenido de respaldo.
 
