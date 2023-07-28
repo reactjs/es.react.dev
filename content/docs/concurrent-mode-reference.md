@@ -33,7 +33,7 @@ Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-m
 - [Suspense](#suspense)
     - [`Suspense`](#suspensecomponent)
     - [`SuspenseList`](#suspenselist)
-  - [`useTransition`](#usetransition)
+    - [`useTransition`](#usetransition)
   - [`useDeferredValue`](#usedeferredvalue)
 
 ## Habilitando el modo concurrente {#concurrent-mode}
