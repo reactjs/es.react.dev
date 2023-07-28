@@ -38,7 +38,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 #### Parámetros {/*parameters*/}
 
-* `fn`: La función que deseas guardar en caché. Puede recibir cualquier argumento y devolver cualquier valor. React retornará (¡no llamará!) tu función durante el renderizado inicial. En los renderizados subsecuentes, React retornará la misma función nuevamente si las `dependencias` no han cambiado desde el último renderizado. Si no es así, React retornará la función que pasaste durante el renderizado actual, y la almacenará en caso de que se necesite reutilizar más adelante. React no llamará a la función. La función se retornará para que puedas decidir si y cuándo llamarla.
+* `fn`: La función que deseas guardar en caché. Puede recibir cualquier argumento y devolver cualquier valor. React devolverá (¡no llamará!) tu función durante el renderizado inicial. En los renderizados subsecuentes, React devolverá la misma función nuevamente si las `dependencias` no han cambiado desde el último renderizado. Si no es así, React devolverá la función que pasaste durante el renderizado actual, y la almacenará en caso de que se necesite reutilizar más adelante. React no llamará a la función. La función se devolverá para que puedas decidir si y cuándo llamarla.
 
 * `dependencias`: La lista de todos los valores reactivos dentro de la función `fn`. Los valores reactivos incluyen props, estado y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu *linter* está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté debidamente especificado como una dependencia. La lista de dependencias debe tener un número constante de elementos y estar escrita en línea, de la forma `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is).
 
@@ -81,9 +81,9 @@ Debes enviar dos elementos a `useCallback`:
 1. La definición de la función que quieres almacenar en caché entre rerenderizados.
 2. Una <CodeStep step={2}>lista de dependencias</CodeStep> que incluya cada valor dentro de tu componente que se usa dentro de tu función.
 
-En el primer renderizado, la <CodeStep step={3}>función retornada</CodeStep> por `useCallback` será la función que pasaste.
+En el primer renderizado, la <CodeStep step={3}>función devuelta</CodeStep> por `useCallback` será la función que pasaste.
 
-En los siguientes renderizados, React comparará las <CodeStep step={2}>dependencias</CodeStep> con aquellas que pasaste en el renderizado anterior. Si ninguna de las dependencias ha cambiado (comparadas con [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), `useCallback` retornará la misma función que antes. De lo contrario, `useCallback` retornará la función que pasaste en *este* renderizado.
+En los siguientes renderizados, React comparará las <CodeStep step={2}>dependencias</CodeStep> con aquellas que pasaste en el renderizado anterior. Si ninguna de las dependencias ha cambiado (comparadas con [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), `useCallback` devolverá la misma función que antes. De lo contrario, `useCallback` devolverá la función que pasaste en *este* renderizado.
 
 En otras palabras, `useCallback` almacena una función entre renderizados subsecuentes hasta que sus dependencias cambien.
 
@@ -779,7 +779,7 @@ Ahora tu código es mucho más simple y no requiere de `useCallback`. [Aprende m
 
 ### Optimizar un Hook personalizado {/*optimizing-a-custom-hook*/}
 
-Si estás escribiendo un [Hook personalizado,](/learn/reusing-logic-with-custom-hooks) es recomendable envolver cualquier función que el Hook retorne con `useCallback`:
+Si estás escribiendo un [Hook personalizado,](/learn/reusing-logic-with-custom-hooks) es recomendable envolver cualquier función que el Hook devuelva con `useCallback`:
 
 ```js {4-6,8-10}
 function useRouter() {
@@ -806,11 +806,11 @@ Esto asegura que los consumidores de tu Hook puedan optimizar su propio código 
 
 ## Solución de problemas {/*troubleshooting*/}
 
-### Cada ves que mi componente se renderiza, `useCallback` retorna una función diferente {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
+### Cada ves que mi componente se renderiza, `useCallback` devuelve una función diferente {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
 
 ¡Asegúrate de haber especificado el *array* de dependencias como un segundo argumento!
 
-Si olvidas el *array* de dependencias, `useCallback` retornará una nueva función cada vez:
+Si olvidas el *array* de dependencias, `useCallback` devolverá una nueva función cada vez:
 
 ```js {7}
 function ProductPage({ productId, referrer }) {
@@ -819,7 +819,7 @@ function ProductPage({ productId, referrer }) {
       referrer,
       orderDetails,
     });
-  }); // 🔴 Retorna una función cada vez: no existe un array de dependencias
+  }); // 🔴 Devuelve una función cada vez: no existe un array de dependencias
   // ...
 ```
 
@@ -832,7 +832,7 @@ function ProductPage({ productId, referrer }) {
       referrer,
       orderDetails,
     });
-  }, [productId, referrer]); // ✅ No retorna una nueva función innecesariamente
+  }, [productId, referrer]); // ✅ No devuelve una nueva función innecesariamente
   // ...
 ```
 

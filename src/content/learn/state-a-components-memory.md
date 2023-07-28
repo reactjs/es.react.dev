@@ -188,7 +188,7 @@ const [index, setIndex] = useState(0);
 
 `index` es una variable de estado y `setIndex` es la función que setea el estado.
 
-> La sintaxis de `[` y `]` se le conoce cómo [desestructuración de un array](https://javascript.info/destructuring-assignment) y permite leer valores de un array. El array retornado por `useState` siempre contará con exactamente dos valores.
+> La sintaxis de `[` y `]` se le conoce cómo [desestructuración de un array](https://javascript.info/destructuring-assignment) y permite leer valores de un array. El array devuelto por `useState` siempre contará con exactamente dos valores.
 
 Así es como funcionan juntos en el `handleClick`:
 
@@ -570,7 +570,7 @@ function useState(initialState) {
 }
 
 function Gallery() {
-  // Cada llamada a useState() retornará el siguiente par.
+  // Cada llamada a useState() devolverá el siguiente par.
   const [index, setIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
 
@@ -903,7 +903,7 @@ También observemos cómo el componente de la página `Page` no "sabe" nada sobr
 * Las variables de estado se declaran llamando al Hook `useState`.
 * Los Hooks son funciones especiales que comienzan con `use`. Nos permiten "enlazarnos" a funciones de React como el estado.
 * Evita llamar a Hooks de manera anidada (por ejemplo, dentro de bucles o condicionales). Llamar a Hooks -incluyendo al useState- solo es válido en el nivel superior de un componente u otro Hook.
-* El Hook `useState` retorna un *array* de dos valores: el estado actual y la función para actualizarlo.
+* El Hook `useState` devuelve un *array* de dos valores: el estado actual y la función para actualizarlo.
 * Puede tener más de una variable de estado. Internamente, React los empareja por orden.
 * El estado es privado para un componente. Si los renderizamos en dos lugares, cada componente lo maneja individualmente.
 
@@ -1219,7 +1219,7 @@ img { width: 120px; height: 120px; }
 
 </Sandpack>
 
-¡Observa cómo `hasPrev` y `hasNext` se usan *ambos* para el JSX que se retorna y dentro de los controladores de eventos! Este práctico patrón funciona porque las funciones controladoras de evento ["se cierran"](https://developer.mozilla.org/es/docs/Web/JavaScript/Closures) sobre cualquier variable declarada durante la renderización.
+¡Observa cómo `hasPrev` y `hasNext` se usan *ambos* para el JSX que se devuelve y dentro de los controladores de eventos! Este práctico patrón funciona porque las funciones controladoras de evento ["se cierran"](https://developer.mozilla.org/es/docs/Web/JavaScript/Closures) sobre cualquier variable declarada durante la renderización.
 
 </Solution>
 

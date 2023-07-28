@@ -52,7 +52,7 @@ Un portal modifica solamente la ubicación física del nodo de DOM, mientras que
 
 * **opcional** `key`: Un valor único en forma de string o número que se usará como [key](/learn/rendering-lists/#keeping-list-items-in-order-with-key) para el portal.
 
-#### Valor devuelto {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `createPortal` devuelve un nodo de React que puede incluirse en JSX o ser devuelto desde un componente de React. Si React encuentra el nodo en la salida del renderizado, insertará `children` dentro del `domNode` proporcionado.
 

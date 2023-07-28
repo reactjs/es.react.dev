@@ -36,7 +36,7 @@ function MyComponent() {
 
 * `SomeContext`: El contexto que creaste previamente con [`createContext`](/reference/react/createContext). El propio contexto no guarda información, solo representa el tipo de información que puedes proporcionar o leer desde tus componentes.
 
-#### Salidas {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/reference/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React rerenderiza automáticamente los componentes que leen algún contexto si este cambia.
 

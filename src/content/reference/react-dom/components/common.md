@@ -262,9 +262,9 @@ React también llamará a tu callback `ref` cada vez que pases un callback `ref`
 
 * `node`: Un nodo del DOM o `null`. React te pasará el nodo del DOM cuando se vincule la ref, y `null` cuando la ref se desvincule. A menos que pases la misma función ref para el callback `ref` en cada renderizado, el callback se desprenderá temporalmente y se volverá a vincular durante cada renderizado del componente.
 
-#### Retornos {/*returns*/}
+#### Devuelve {/*returns*/}
 
-No retornes nada desde el callback `ref`.
+No devuelve nada desde el callback `ref`.
 
 ---
 

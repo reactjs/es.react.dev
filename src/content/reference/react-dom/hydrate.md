@@ -48,7 +48,7 @@ React se unirá al HTML que existe dentro del nodo DOM `domNode`, y se encargar�
 
 * **optional**: `callback`: Es una función. Si se pasa, React la llamará después de que tu componente se haya hidratado.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `hydrate` devuelve null.
 

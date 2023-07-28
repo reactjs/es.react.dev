@@ -43,7 +43,7 @@ En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) 
 
 * `reactNode`: Un nodo de React que deseas representar en HTML. Por ejemplo, un elemento JSX como `<App />`.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
 Un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que produce una cadena de HTML.
 

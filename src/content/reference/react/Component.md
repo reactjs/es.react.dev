@@ -190,9 +190,9 @@ Un constructor no debería tener efectos secundarios ni suscripciones.
 
 * `props`: Las props iniciales del componente.
 
-#### Retorna {/*constructor-returns*/}
+#### Devuelve {/*constructor-returns*/}
 
-El `constructor` no debe retornar nada.
+El `constructor` no debe devolver nada.
 
 #### Precauciones {/*constructor-caveats*/}
 
@@ -229,9 +229,9 @@ Normalmente, se utiliza junto con [`static getDerivedStateFromError`](#static-ge
 
 * `info`: Un objeto que contiene información adicional sobre el error. Su campo `componentStack` contiene una pila de rastreo con el componente que lanzó el error, así como los nombres y ubicaciones de origen de todos sus componentes padres. En producción, los nombres de los componentes se reducirán. Si configuras la notificación de errores en producción, puedes decodificar la pila de componentes utilizando sourcemaps de la misma manera que lo harías con las pilas de errores regulares de JavaScript.
 
-#### Retorna {/*componentdidcatch-returns*/}
+#### Devuelve {/*componentdidcatch-returns*/}
 
-`componentDidCatch` no debería retornar nada.
+`componentDidCatch` no debería devolver nada.
 
 #### Precauciones {/*componentdidcatch-caveats*/}
 
@@ -287,7 +287,7 @@ class ChatRoom extends Component {
 
 `componentDidMount` no toma ningún parámetro.
 
-#### Retorna {/*componentdidmount-returns*/}
+#### Devuelve {/*componentdidmount-returns*/}
 
 `componentDidMount` no debería devolver nada.
 
@@ -350,9 +350,9 @@ class ChatRoom extends Component {
 
 * `prevState`: El estado antes de la actualización. Compara `prevState` con [`this.state`](#state) para determinar lo que cambió.
 
-* `snapshot`: Si implementaste [`getSnapshotBeforeUpdate`](#getsnapshotbeforeupdate), `snapshot` contendrá el valor que retornaste desde ese método. De lo contrario, será `undefined`.
+* `snapshot`: Si implementaste [`getSnapshotBeforeUpdate`](#getsnapshotbeforeupdate), `snapshot` contendrá el valor que devolviste desde ese método. De lo contrario, será `undefined`.
 
-#### Retorna {/*componentdidupdate-returns*/}
+#### Devuelve {/*componentdidupdate-returns*/}
 
 `componentDidUpdate` no debería devolver nada.
 
@@ -449,7 +449,7 @@ class ChatRoom extends Component {
 
 `componentWillUnmount` no recibe ningún parámetro.
 
-#### Retorna {/*componentwillunmount-returns*/}
+#### Devuelve {/*componentwillunmount-returns*/}
 
 `componentWillUnmount` no debería devolver nada.
 
@@ -478,7 +478,7 @@ Trata de evitar todas las situaciones donde se necesita utilizar `forceUpdate` y
 
 * **opcional** `callback` Si se especifica, React llamará al `callback` que hayas proporcionado después de que se haya realizado la actualización.
 
-#### Retorna {/*forceupdate-returns*/}
+#### Devuelve {/*forceupdate-returns*/}
 
 `forceUpdate` no devuelve nada.
 
@@ -556,7 +556,7 @@ En el ejemplo anterior, es importante leer la propiedad `scrollHeight` directame
 
 * `prevState`: Estado antes de la actualización. Compara `prevState` con [`this.state`](#state) para determinar lo que cambió.
 
-#### Retorna {/*getsnapshotbeforeupdate-returns*/}
+#### Devuelve {/*getsnapshotbeforeupdate-returns*/}
 
 Deberías devolver un valor de instantánea de cualquier tipo que desees o `null`. El valor que devuelvas se pasará como tercer argumento a [`componentDidUpdate`.](#componentdidupdate)
 
@@ -588,7 +588,7 @@ class Greeting extends Component {
 }
 ```
 
-React puede llamar a `render` en cualquier momento, por lo que no debes asumir que se ejecuta en un momento determinado. Por lo general, el método `render` debería devolver una pieza de [JSX](/learn/writing-markup-with-jsx), pero se admiten algunos [otros tipos de retorno](#render-returns) (como cadenas). Para calcular el JSX devuelto, el método `render` puede leer [`this.props`](#props), [`this.state`](#state) y [`this.context`](#context).
+React puede llamar a `render` en cualquier momento, por lo que no debes asumir que se ejecuta en un momento determinado. Por lo general, el método `render` debería devolver una pieza de [JSX](/learn/writing-markup-with-jsx), pero se admiten algunos [otros tipos de devolución](#render-returns) (como cadenas). Para calcular el JSX devuelto, el método `render` puede leer [`this.props`](#props), [`this.state`](#state) y [`this.context`](#context).
 
 Deberías escribir el método `render` como una función pura, lo que significa que debería devolver el mismo resultado si las props, el estado y el contexto son iguales. Tampoco debería contener efectos secundarios (como configurar suscripciones) o interactuar con las APIs del navegador. Los efectos secundarios deberían ocurrir en controladores de eventos o en métodos como [`componentDidMount`.](#componentdidmount)
 
@@ -598,7 +598,7 @@ Deberías escribir el método `render` como una función pura, lo que significa 
 
 * `prevState`: Estado anterior a la actualización. Compara `prevState` con [`this.state`](#state) para determinar qué cambió.
 
-#### Retorna {/*render-returns*/}
+#### Devuelve {/*render-returns*/}
 
 `render` puede devolver cualquier nodo React válido. Esto incluye elementos React como `<div />`, cadenas de texto, números, [portales](/reference/react-dom/createPortal), nodos vacíos (`null`, `undefined`, `true` y `false`), y arrays de nodos de React.
 
@@ -679,7 +679,7 @@ No es necesario hacer esto, pero es útil si desea actualizar el estado varias v
 
 * **opcional** `callback`: Si se especifica, React llamará al `callback` que ha proporcionado después de que se haya confirmado la actualización.
 
-#### Retorna {/*setstate-returns*/}
+#### Devuelve {/*setstate-returns*/}
 
 `setState` no devuelve nada.
 
@@ -738,7 +738,7 @@ React llama a `shouldComponentUpdate` antes de renderizar cuando se reciben nuev
 - `nextState`: El próximo estado con el que el componente está a punto de renderizar. Compare `nextState` con [`this.state`](#props) para determinar lo que cambió.
 - `nextContext`: El próximo contexto con el que el componente está a punto de renderizar. Compare `nextContext` con [`this.context`](#context) para determinar lo que cambió. Solo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (legado).
 
-#### Retorna {/*shouldcomponentupdate-returns*/}
+#### Devuelve {/*shouldcomponentupdate-returns*/}
 
 Devuelve `true` si quieres que el componente se vuelva a renderizar. Ese es el comportamiento predeterminado.
 
@@ -754,7 +754,7 @@ Devuelve `false` para indicar a React que se puede omitir la re-renderización.
 
 - Devolver `false` no impide que los componentes secundarios se vuelvan a renderizar cuando cambia su estado.
 
-- Devolver `false` no *garantiza* que el componente no se volverá a renderizar. React utilizará el valor de retorno como una sugerencia, pero aún puede elegir volver a renderizar el componente si tiene sentido hacerlo por otras razones.
+- Devolver `false` no *garantiza* que el componente no se volverá a renderizar. React utilizará el valor de devolución como una sugerencia, pero aún puede elegir volver a renderizar el componente si tiene sentido hacerlo por otras razones.
 
 <Note>
 
@@ -777,9 +777,9 @@ Si defines `UNSAFE_componentWillMount`, React lo llamará inmediatamente despué
 
 `UNSAFE_componentWillMount` no acepta ningún parámetro.
 
-#### Retorna {/*unsafe_componentwillmount-returns*/}
+#### Devuelve {/*unsafe_componentwillmount-returns*/}
 
-`UNSAFE_componentWillMount` no debería retornar nada.
+`UNSAFE_componentWillMount` no debería devolver nada.
 
 #### Precauciones {/*unsafe_componentwillmount-caveats*/}
 
@@ -812,7 +812,7 @@ Si defines `UNSAFE_componentWillReceiveProps`, React lo llamará cuando el compo
 - `nextProps`: Las próximas props que el componente está a punto de recibir de su componente padre. Compara `nextProps` con [`this.props`](#props) para determinar qué ha cambiado.
 - `nextContext`: El próximo contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Solo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (legado).
 
-#### Retorna {/*unsafe_componentwillreceiveprops-returns*/}
+#### Devuelve {/*unsafe_componentwillreceiveprops-returns*/}
 
 `UNSAFE_componentWillReceiveProps` no debe devolver nada.
 
@@ -848,7 +848,7 @@ Si defines `UNSAFE_componentWillUpdate`, React lo llamará antes de renderizar c
 - `nextProps`: Las próximas props con las que el componente está a punto de renderizarse. Compara `nextProps` con [`this.props`](#props) para determinar qué ha cambiado.
 - `nextState`: El próximo estado con el que el componente está a punto de renderizarse. Compara `nextState` con [`this.state`](#state) para determinar qué ha cambiado.
 
-#### Retorna {/*unsafe_componentwillupdate-returns*/}
+#### Devuelve {/*unsafe_componentwillupdate-returns*/}
 
 `UNSAFE_componentWillUpdate` no debería devolver nada.
 
@@ -984,7 +984,7 @@ Por lo general, se utiliza junto con [`componentDidCatch`](#componentDidCatch), 
 
 * `error`: El error que se produjo. En la práctica, generalmente será una instancia de [`Error`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Error), pero esto no está garantizado porque JavaScript permite arrojar cualquier valor, incluyendo cadenas o incluso `null`.
 
-#### Retorna {/*static-getderivedstatefromerror-returns*/}
+#### Devuelve {/*static-getderivedstatefromerror-returns*/}
 
 `static getDerivedStateFromError` debería devolver el estado que indica al componente que muestre el mensaje de error.
 
@@ -1052,7 +1052,7 @@ Derivar el estado conduce a un código verboso y hace que tus componentes sean d
 - `props`: Las próximas props que el componente está a punto de renderizar.
 - `state`: El próximo estado que el componente está a punto de renderizar.
 
-#### Retorna {/*static-getderivedstatefromprops-returns*/}
+#### Devuelve {/*static-getderivedstatefromprops-returns*/}
 
 `static getDerivedStateFromProps` devuelve un objeto para actualizar el estado, o `null` para no actualizar nada.
 

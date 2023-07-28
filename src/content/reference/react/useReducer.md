@@ -38,11 +38,11 @@ function MyComponent() {
 
 #### Parámetros {/*parameters*/}
 
-* `reducer`: La función reductora que debe retornar el estado inicial. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
+* `reducer`: La función reductora que debe devolver el estado inicial. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
 * `initialArg`: El valor a partir del cual se calcula el estado inicial. Puede ser un valor de cualquier tipo. Cómo se calcula el estado inicial depende del siguiente argumento `init`.
 **opcional** `init`: La función inicializadora que especifica cómo se calcula el estado inicial. Si no se especifica, el estado inicial se establece en `initialArg`. En caso contrario, el estado inicial es el resultado de llamar a `init(initialArg)`.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `useReducer` devuelve un array con exactamente dos valores:
 
@@ -74,9 +74,9 @@ React establecerá el siguiente estado al resultado de llamar a la función `red
 
 * `action`: La acción realizada por el usuario. Puede ser un valor de cualquier tipo. Por convención, una acción suele ser un objeto con una propiedad `type` que lo identifica y, opcionalmente, otras propiedades con información adicional.
 
-#### Retorna {/*dispatch-returns*/}
+#### Devuelve {/*dispatch-returns*/}
 
-Las funciones `dispatch` no tienen valor de retorno.
+Las funciones `dispatch` no tienen un valor de devolución.
 
 #### Advertencias {/*setstate-caveats*/}
 
@@ -106,7 +106,7 @@ function MyComponent() {
   // ...
 ```
 
-`useReducer` retorna un array con exactamente dos elementos:
+`useReducer` devuelve un array con exactamente dos elementos:
 
 1. El <CodeStep step={1}>estado actual</CodeStep> de esta variable de estado, inicialmente asignado al <CodeStep step={3}>estado inicial</CodeStep> que proporcionaste.
 2. La función <CodeStep step={2}>`dispatch` </CodeStep> que te permite cambiarlo en respuesta a la interacción.
@@ -119,7 +119,7 @@ function handleClick() {
 }
 ```
 
-React pasará el estado actual y la acción a tu <CodeStep step={4}>función reducer</CodeStep>. Tu reducer calculará y retornará el siguiente estado. React almacenará ese siguiente estado, renderizará tu componente con él y actualizará la UI.
+React pasará el estado actual y la acción a tu <CodeStep step={4}>función reducer</CodeStep>. Tu reducer calculará y devolverá el siguiente estado. React almacenará ese siguiente estado, renderizará tu componente con él y actualizará la UI.
 
 <Sandpack>
 
@@ -171,7 +171,7 @@ function reducer(state, action) {
 }
 ```
 
-Luego hay que completar el código que calculará y retornará el siguiente estado. Por convención, es común escribirlo como una [declaración `switch`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) Para cada `case` en el `switch`, calcula y devuelve un estado siguiente.
+Luego hay que completar el código que calculará y devolverá el siguiente estado. Por convención, es común escribirlo como una [declaración `switch`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) Para cada `case` en el `switch`, calcula y devuelve un estado siguiente.
 
 ```js {4-7,10-13}
 function reducer(state, action) {

@@ -464,7 +464,7 @@ En la [Referencia de la API](/reference/react), cada API de React ahora tiene un
 
 Observarás que cada página de API se divide en al menos dos segmentos: *Referencia* y *Uso*.
 
-[Referencia](/reference/react/useState#reference) describe la firma formal de la API al listar sus argumentos y valores de retorno. Es concisa, pero puede sentirse un poco abstracta si no estás familiarizado con esa API. Describe qué hace una API, pero no cómo utilizarla.
+[Referencia](/reference/react/useState#reference) describe la firma formal de la API al listar sus argumentos y valores de devolución. Es concisa, pero puede sentirse un poco abstracta si no estás familiarizado con esa API. Describe qué hace una API, pero no cómo utilizarla.
 
 [Uso](/reference/react/useState#usage) muestra por qué y cómo utilizarías esta API en la práctica, como podría explicarlo un colega o un amigo. Muestra los **escenarios canónicos de cómo el equipo de React pretendía que se utilizara cada API.** Hemos añadido fragmentos de código con colores, ejemplos de cómo usar diferentes APIs juntas y recetas que puedes copiar y pegar:
 

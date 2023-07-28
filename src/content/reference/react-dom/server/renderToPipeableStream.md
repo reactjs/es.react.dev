@@ -62,9 +62,9 @@ En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) 
   * **opcional** `progressiveChunkSize`: Define el número de *bytes* en un *chunk*. [Lee más acerca de la heurística predeterminada.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
 
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`renderToPipeableStream` retorna un objeto con dos métodos:
+`renderToPipeableStream` devuelve un objeto con dos métodos:
 
 * `pipe` envía el HTML al [*stream* escribible de Node.js.](https://nodejs.org/api/stream.html#writable-streams) Llama a `pipe` en `onShellReady` si quieres habilitar el *streaming*, o en `onAllReady` para rastreadores y generación estática.
 * `abort` te permite [abortar el renderizado del servidor](#aborting-server-rendering) y renderizar el resto en el cliente.
@@ -92,7 +92,7 @@ app.use('/', (request, response) => {
 });
 ```
 
-Debes proporcionar el <CodeStep step={1}>componente raíz</CodeStep> y una lista de <CodeStep step={2}>rutas de `<script>` de arranque</CodeStep>. Tu componente raíz debe retornar **el documento completo, incluyendo la etiqueta `<html>` raíz.**
+Debes proporcionar el <CodeStep step={1}>componente raíz</CodeStep> y una lista de <CodeStep step={2}>rutas de `<script>` de arranque</CodeStep>. Tu componente raíz debe devolver **el documento completo, incluyendo la etiqueta `<html>` raíz.**
 
 Por ejemplo, tu componente raíz podría verse así:
 

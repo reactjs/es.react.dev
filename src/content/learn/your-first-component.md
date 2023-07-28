@@ -94,7 +94,7 @@ Con `function Profile() { }` defines una función con el nombre `Profile`.
 
 ### Paso 3: Añade marcado {/*step-3-add-markup*/}
 
-El componente retorna una etiqueta `<img />` con atributos `src` y `alt`. `<img />` se escribe como en HTML, ¡pero en realidad es JavaScript por detrás! Esta sintaxis se llama [JSX](/learn/writing-markup-with-jsx), y te permite incorporar marcado dentro de JavaScript.
+El componente devuelve una etiqueta `<img />` con atributos `src` y `alt`. `<img />` se escribe como en HTML, ¡pero en realidad es JavaScript por detrás! Esta sintaxis se llama [JSX](/learn/writing-markup-with-jsx), y te permite incorporar marcado dentro de JavaScript.
 
 Las sentencias `return` se pueden escribir todo en una línea, como en este componente:
 
@@ -230,7 +230,7 @@ Aún así, muchos sitios web sólo usan React para [añadir interactividad a pá
 * Los componentes de React son funciones regulares de JavaScript excepto que:
 
   1. Sus nombres siempre empiezan con mayúscula.
-  2. Retorna marcado JSX.
+  2. Devuelven marcado JSX.
 
 </Recap>
 
@@ -290,7 +290,7 @@ Puedes estar preguntándote por qué escribir solo `export` no es suficiente par
 
 </Solution>
 
-#### Arregla la sentencia de retorno {/*fix-the-return-statement*/}
+#### Arregla la sentencia de devolución {/*fix-the-return-statement*/}
 
 Algo no está bien con esta sentencia `return`. ¿Puedes arreglarla?
 
@@ -334,7 +334,7 @@ img { height: 180px; }
 
 </Sandpack>
 
-O poniendo el marcado JSX que se va a retornar dentro de paréntesis que se abren justo luego del `return`:
+O poniendo el marcado JSX que se va a devolver dentro de paréntesis que se abren justo luego del `return`:
 
 <Sandpack>
 
@@ -431,7 +431,7 @@ img { margin: 0 10px 10px 0; }
 
 #### Tu propio componente {/*your-own-component*/}
 
-Escribe un componente desde cero. Puedes darle cualquier nombre válido y retornar cualquier marcado. Si te quedas sin ideas, puedes escribir un componente `Congratulations` que muestre `<h1>¡Buen trabajo!</h1>`. ¡No olvides exportarlo!
+Escribe un componente desde cero. Puedes darle cualquier nombre válido y devolver cualquier marcado. Si te quedas sin ideas, puedes escribir un componente `Congratulations` que muestre `<h1>¡Buen trabajo!</h1>`. ¡No olvides exportarlo!
 
 <Sandpack>
 
