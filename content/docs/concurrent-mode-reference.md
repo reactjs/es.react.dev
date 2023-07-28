@@ -14,7 +14,7 @@ prev: concurrent-mode-adoption.html
 
 <div class="scary">
 
-> Advertencia:
+>Advertencia:
 >
 > Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
 >
