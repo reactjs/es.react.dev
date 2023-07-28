@@ -72,7 +72,7 @@ function Bad({ cond }) {
   if (cond) {
     return;
   }
-  // 🔴 Incorrecto: después de un devolución condicional (para solucionarlo, ¡colócalo antes de la devolución!)
+  // 🔴 Incorrecto: después de una devolución condicional (para solucionarlo, ¡colócalo antes de la devolución!)
   const theme = useContext(ThemeContext);
   // ...
 }
