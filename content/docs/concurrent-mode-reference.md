@@ -109,7 +109,7 @@ const [startTransition, isPending] = useTransition(SUSPENSE_CONFIG);
 `useTransition` permite a los componentes evitar estados de carga no deseada al esperar que se cargue el contenido antes de **transicionar hacia la siguiente pantalla**. También permite que los componentes difieran las actualizaciones de datos obtenidos más lentas hasta la siguiente renderización, de modo que se puedan presentar actualizaciones más cruciales de inmediato.
 
 El hook `useTransition` devuelve dos valores en un array.
-- `startTransition` es una función que toma un callback. Nosotros podemos usarlo para decirle a React cual estado queremos diferir.
+* `startTransition` es una función que toma un callback. Nosotros podemos usarlo para decirle a React cual estado queremos diferir.
 - `isPending` es un booleano. Es la manera en que React nos informa si estamos esperando que la transición termine.
 
 **Si alguna actualización de estado causa que un componente se suspenda, esa actualización de estado debería estar envuelta en una transición.**
