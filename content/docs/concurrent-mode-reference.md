@@ -20,7 +20,7 @@ prev: concurrent-mode-adoption.html
 >
 >Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html) para obtener información actualizada.**
 >
-> Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
+>Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
 
 </div>
 
