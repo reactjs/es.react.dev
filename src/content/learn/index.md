@@ -23,7 +23,7 @@ title: Inicio rápido
 
 Las aplicaciones de React están hechas a partir de *componentes*. Un componente es una pieza de UI (siglas en inglés de interfaz de usuario) que tiene su propia lógica y apariencia. Un componente puede ser tan pequeño como un botón, o tan grande como toda una página.
 
-Los componentes de React son funciones de JavaScript que devuelven marcado (*markup*):
+Los componentes de React son funciones de JavaScript que devuelven _markup_ (marcado):
 
 ```js
 function MyButton() {
