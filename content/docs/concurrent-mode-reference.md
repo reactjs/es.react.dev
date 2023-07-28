@@ -65,7 +65,7 @@ En este ejemplo, `ProfileDetails` está esperando una llamada asíncrona del API
 
 `Suspense` lleva dos props:
 * **fallback** lleva un indicador de carga. El contenido de respaldo es mostrado hasta que todos los hijos de `Suspense` hayan terminado de renderizar.
-- **unstable_avoidThisFallback** lleva un booleano. Le dice a React si debe "omitir" revelar este límite durante la carga inicial. Es probable que esta API sea eliminada en una versión futura.
+* **unstable_avoidThisFallback** lleva un booleano. Le dice a React si debe "omitir" revelar este límite durante la carga inicial. Es probable que esta API sea eliminada en una versión futura.
 
 ### `<SuspenseList>` {#suspenselist}
 
