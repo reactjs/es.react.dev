@@ -22,7 +22,7 @@ Veamos cada uno de estos casos.
 
 Las funciones que comienzan con `use` se conocen como [*Hooks*](/reference/react) en React.
 
-**Evita utilizar Hooks dentro de ciclos, condicionales o funciones anidadas.** En su lugar, utiliza los Hooks únicamente en el nivel superior de tu función de React, antes de cualquier retorno anticipado. Los Hooks sólo deben ser utilizados durante la renderización de un componente de función en React:
+**Evita utilizar Hooks dentro de ciclos, condicionales o funciones anidadas.** En su lugar, utiliza los Hooks únicamente en el nivel superior de tu función de React, antes de cualquier devolución anticipada. Los Hooks sólo deben ser utilizados durante la renderización de un componente de función en React:
 
 * ✅ Utilízalos en el nivel superior del cuerpo de un [componente de función](/learn/your-first-component).
 * ✅ Utilízalos en el nivel superior del cuerpo de un [Hook personalizado](/learn/reusing-logic-with-custom-hooks).
@@ -44,7 +44,7 @@ function useWindowWidth() {
 No se **permite** el uso de Hooks (funciones que comienzan con `use`) en ningún otro caso, por ejemplo:
 
 * 🔴 Dentro de condicionales o ciclos.
-* 🔴 Despúes de una declaración de `return` condicional.
+* 🔴 Después de una declaración de `return` condicional.
 * 🔴 En controladores de eventos.
 * 🔴 En componentes de clase.
 * 🔴 Dentro de funciones pasadas a `useMemo`, `useReducer`, o `useEffect`.
@@ -72,7 +72,7 @@ function Bad({ cond }) {
   if (cond) {
     return;
   }
-  // 🔴 Incorrecto: después de un retorno condicional (para solucionarlo, ¡colócalo antes del retorno!)
+  // 🔴 Incorrecto: después de una devolución condicional (para solucionarlo, ¡colócalo antes de la devolución!)
   const theme = useContext(ThemeContext);
   // ...
 }

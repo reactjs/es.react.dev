@@ -148,7 +148,7 @@ function useOnlineStatus() {
 }
 ```
 
-En el final de la función, retorna `isOnline`. Esto permite a tus componentes leer ese valor:
+En el final de la función, devuelve `isOnline`. Esto permite a tus componentes leer ese valor:
 
 <Sandpack>
 
@@ -221,8 +221,8 @@ Las aplicaciones de React están construidas por componentes. Los componentes so
 
 Debes seguir estas convenciones de nomenclatura:
 
-1. **Los nombres de componentes de React deben empezar con mayúscula,** como `StatusBar` y `SaveButton`. Los componentes de React también necesitan retornar algo que React conozca cómo mostrar, como un bloque de JSX
-2. **Los nombres de Hooks deben empezar con `use` seguido por una mayúscula,** como [`useState`](/reference/react/useState) (integrado) o `useOnlineStatus` (personalizado, como antes en la página). Los Hooks pueden retornar valores arbitrarios.
+1. **Los nombres de componentes de React deben empezar con mayúscula,** como `StatusBar` y `SaveButton`. Los componentes de React también necesitan devolver algo que React conozca cómo mostrar, como un bloque de JSX
+2. **Los nombres de Hooks deben empezar con `use` seguido por una mayúscula,** como [`useState`](/reference/react/useState) (integrado) o `useOnlineStatus` (personalizado, como antes en la página). Los Hooks pueden devolver valores arbitrarios.
 
 Esta convención garantiza que siempre puedas mirar un componente y saber dónde pueden "esconder" su estado, Efectos, y otras características de React. Por ejemplo, si ves una invocación de función denominada `getColor()` en tu componente, puedes estar seguro de que no contiene un estado de React, porque su nombre no empieza con `use`. Sin embargo, una invocación de función como `useOnlineStatus()`, probablemente contendrá otros Hooks.
 
@@ -807,7 +807,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Observa cómo estás tomando el valor de retorno de un Hook:
+Observa cómo estás tomando el valor de devolución de un Hook:
 
 ```js {2}
 export default function ChatRoom({ roomId }) {
@@ -2327,7 +2327,7 @@ En este ejemplo, el Hook `usePointerPosition()` rastrea la posición actual del 
 
 De hecho, se renderizan cinco (!) puntos rojos diferentes. No los ves porque actualmente todos aparecen en la misma posición. Esto es lo que necesitas arreglar. Lo que quieres implementar en su lugar es un movimiento "escalonado": cada punto debe "seguir" el camino del punto anterior. Por ejemplo, si mueves rápidamente el cursor, el primer punto debería seguirlo inmediatamente, el segundo punto debería seguir el primer punto con un pequeño retraso, el tercer punto debería seguir al segundo punto, y así sucesivamente.
 
-Necesitas implementar el Hook personalizado `useDelayedValue`. Su implementación actual retorna el `value` proporcionado. En su lugar, quieres retornar el valor de vuelta de `delay` hace ciertos milisegundos. Es posible que necesites algún estado y un Efecto para hacer esto.
+Necesitas implementar el Hook personalizado `useDelayedValue`. Su implementación actual devuelve el `value` proporcionado. En su lugar, quieres devolver el valor de vuelta de `delay` hace ciertos milisegundos. Es posible que necesites algún estado y un Efecto para hacer esto.
 
 Después de implementar `useDelayedValue`, deberías ver que los puntos se mueven uno tras otro.
 

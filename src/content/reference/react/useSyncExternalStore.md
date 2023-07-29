@@ -366,7 +366,7 @@ function getSnapshot() {
 }
 ```
 
-React volverá a rerenderizar el componente si el valor de retorno de `getSnapshot` es diferente al de la última vez. Por eso, si siempre devuelves un valor diferente, entrarás en un bucle infinito y obtendrás este error.
+React volverá a rerenderizar el componente si el valor de devolución de `getSnapshot` es diferente al de la última vez. Por eso, si siempre devuelves un valor diferente, entrarás en un bucle infinito y obtendrás este error.
 
 Tu objeto `getSnapshot` solo debería devolver un objeto diferente si algo realmente ha cambiado. Si tu fuente de almacenamiento de datos externa contiene datos inmutables, puede devolver esos datos directamente:
 

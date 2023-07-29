@@ -24,7 +24,7 @@ En su lugar, cada vez que quieras actualizar un _array_, querrás pasar un *nuev
 
 Aquí hay una tabla de referencia con las operaciones más comunes con _arrays_. Cuando se trata de _arrays_ dentro del estado de React, necesitarás evitar los métodos de la columna izquierda, y en su lugar es preferible usar los métodos de la columna derecha.
 
-|              | evita (muta el _array_)                  | preferido (retorna un nuevo _array_)                                         |
+|              | evita (muta el _array_)                  | preferido (devuelve un nuevo _array_)                                         |
 |--------------|------------------------------------------|------------------------------------------------------------------------------|
 | añadir    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
 | eliminar   | `pop`, `shift`, `splice`                 | `filter`, `slice` ([ejemplo](#removing-from-an-array))                       |

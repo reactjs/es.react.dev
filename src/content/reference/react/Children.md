@@ -161,7 +161,7 @@ De lo contrario, lanza un error.
 
 #### Advertencias {/*children-only-caveats*/}
 
-- Este método siempre **lanza un error si pasas un *array* (como el valor de retorno de `Children.map`) como `children`.** En otras palabras, hace cumplir que `children` es un solo elemento de React, no que sea un *array* con un solo elemento.
+- Este método siempre **lanza un error si pasas un *array* (como el valor de devolución de `Children.map`) como `children`.** En otras palabras, hace cumplir que `children` es un solo elemento de React, no que sea un *array* con un solo elemento.
 
 ---
 

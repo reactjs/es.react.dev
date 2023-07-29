@@ -39,9 +39,9 @@ Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde neces
 
 ## Uso {/*usage*/}
 
-### Retornar múltiples elementos {/*returning-multiple-elements*/}
+### Devolver múltiples elementos {/*returning-multiple-elements*/}
 
-Usa `Fragment`, o la sintaxis equivalente `<>...</>`, para agrupar múltiples elementos. Puedes usarlo para poner múltiples elementos en cualquier lugar donde un solo elemento puede ir. Por ejemplo, un componente solo puede retornar un elemento, pero usando un Fragmento puedes agrupar múltiples elementos y retornarlos como un grupo:
+Usa `Fragment`, o la sintaxis equivalente `<>...</>`, para agrupar múltiples elementos. Puedes usarlo para poner múltiples elementos en cualquier lugar donde un solo elemento puede ir. Por ejemplo, un componente solo puede devolver un elemento, pero usando un Fragmento puedes agrupar múltiples elementos y devolverlos como un grupo:
 
 ```js {3,6}
 function Post() {

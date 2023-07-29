@@ -116,7 +116,7 @@ Así es como funciona React a través de estas líneas de código mientras se ej
 2. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 3. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 
-Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de retorno de tu función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
+Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de devolución de tu función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
 
 | Actualización en cola | `n` | Devuelve    |
 |-----------------------|-----|-------------|

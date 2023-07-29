@@ -48,9 +48,9 @@ function ChatRoom({ roomId }) {
 
 * `dependencias` **opcionales**: La lista de todos los valores reactivos referenciados dentro del código de `configuración`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias debe tener un número constante de elementos y estar escrita en línea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior utilizando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no se especifican las dependencias en absoluto, su efecto se volverá a ejecutar después de cada renderizado del componente. [ Mira la diferencia entre pasar un _array_ de dependencias, un _array_ vacío y ninguna dependencia.](#examples-dependencies)
 
-#### Retorno {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`useEffect` retorna `undefined`.
+`useEffect` devuelve `undefined`.
 
 #### Advertencias {/*caveats*/}
 
@@ -99,7 +99,7 @@ function ChatRoom({ roomId }) {
 Tienes que pasar dos argumentos a `useEffect`:
 
 1. Una *función de configuración* con <CodeStep step={1}>código de configuración</CodeStep> que se conecta a ese sistema.
-   - La cual debería retornar una *función de limpieza* con <CodeStep step={2}>código de limpieza</CodeStep> que se desconecta de ese sistema.
+   - La cual debería devolver una *función de limpieza* con <CodeStep step={2}>código de limpieza</CodeStep> que se desconecta de ese sistema.
 2. Una <CodeStep step={3}>lista de dependencias</CodeStep> incluyendo cada valor de tu componente utilizado dentro de esas funciones.
 
 **React llama a tus funciones de configuración y limpieza siempre que sea necesario, lo que puede ocurrir varias veces:**

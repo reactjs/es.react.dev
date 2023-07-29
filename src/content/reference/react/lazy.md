@@ -46,7 +46,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 `load` no recibe parámetros.
 
-#### Returns {/*load-returns*/}
+#### Devuelve {/*load-returns*/}
 
 Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/api/react/memo), o un componente [`forwardRef`](/api/react/forwardRef).
 

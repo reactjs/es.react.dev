@@ -320,7 +320,7 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 
 ### React {/*react*/}
 
-- Ahora los componentes pueden renderizar `undefined`: React ya no muestra advertencias si retornas `undefined` desde un componente. Esto hace que los valores de retorno permitidos en los componentes sean consistentes con los valores permitidos en medio de un árbol de componentes. Te sugerimos usar un linter para evitar errores como olvidar una declaración de retorno antes de JSX.
+- Ahora los componentes pueden renderizar `undefined`: React ya no muestra advertencias si devuelves `undefined` desde un componente. Esto hace que los valores de devolución permitidos en los componentes sean consistentes con los valores permitidos en medio de un árbol de componentes. Te sugerimos usar un linter para evitar errores como olvidar una declaración de devolución antes de JSX.
 
 - **En las pruebas, las advertencias de `act` ahora son opcionales:** Si estás ejecutando pruebas de extremo a extremo, las advertencias de `act` son innecesarias. Hemos introducido un mecanismo [opcional](https://github.com/reactwg/react-18/discussions/102) para que puedas habilitarlas solo en pruebas unitarias donde sean útiles y beneficiosas.
 

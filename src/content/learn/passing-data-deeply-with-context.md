@@ -444,7 +444,7 @@ export const LevelContext = createContext(1);
 
 Nota que este ejemplo no funciona, ¡Aún! Todos los encabezados tienen el mismo tamaño porque **pese a que estás *usando* el contexto, no lo has *proveído* aún.** ¡React no sabe dónde obtenerlo!
 
-Si no provees el contexto, React usará el valor predeterminado que especificaste en el paso previo. En este ejemplo, especificaste `1` como el parámetro de `createContext`, entonces `useContext(LevelContext)` retorna `1`, ajustando todos los encabezados a `<h1>`. Arreglemos este problema haciendo que cada `Section` provea su propio contexto.
+Si no provees el contexto, React usará el valor predeterminado que especificaste en el paso previo. En este ejemplo, especificaste `1` como el parámetro de `createContext`, entonces `useContext(LevelContext)` devuelve `1`, ajustando todos los encabezados a `<h1>`. Arreglemos este problema haciendo que cada `Section` provea su propio contexto.
 
 ### Paso 3: Proveer el contexto {/*step-3-provide-the-context*/}
 

@@ -121,7 +121,7 @@ function TodoList({ todos, filter }) {
 }
 ```
 
-**Esto le indica a React que no deseas que la función interna se vuelva a ejecutar a menos que `todos` o `filter` hayan cambiado.** React recordará el valor de retorno de `getFilteredTodos()` durante el renderizado inicial. Durante los siguientes renderizados, verificará si `todos` o `filter` son diferentes. Si son iguales que la última vez, `useMemo` devolverá el último resultado almacenado. Pero si son diferentes, React llamará nuevamente a la función interna (y almacenará su resultado).
+**Esto le indica a React que no deseas que la función interna se vuelva a ejecutar a menos que `todos` o `filter` hayan cambiado.** React recordará el valor de devolución de `getFilteredTodos()` durante el renderizado inicial. Durante los siguientes renderizados, verificará si `todos` o `filter` son diferentes. Si son iguales que la última vez, `useMemo` devolverá el último resultado almacenado. Pero si son diferentes, React llamará nuevamente a la función interna (y almacenará su resultado).
 
 La función que envuelves en [`useMemo`](/reference/react/useMemo) se ejecuta durante el renderizado, por lo que esto solo funciona para [cálculos puros.](/learn/keeping-components-pure)
 

@@ -47,7 +47,7 @@ function Tooltip() {
 
 #### Parámetros {/*parameters*/}
 
-* `setup`: La función con la lógica de tu Efecto. Tu función setup puede retornar opcionalmente una función de *limpieza*. Antes que tu componente sea agregado al DOM, React va a ejecutar tu función setup. Después de cada renderizado con dependencias modificadas, React primero va a ejecutar la función de limpieza (si tú lo provees) con los valores anteriores, y luego ejecuta tu función setup con los nuevos valores. Antes que tu componente sea eliminado del DOM, React va a ejecutar tu función de limpieza.
+* `setup`: La función con la lógica de tu Efecto. Tu función setup puede devolver opcionalmente una función de *limpieza*. Antes que tu componente sea agregado al DOM, React va a ejecutar tu función setup. Después de cada renderizado con dependencias modificadas, React primero va a ejecutar la función de limpieza (si tú lo provees) con los valores anteriores, y luego ejecuta tu función setup con los nuevos valores. Antes que tu componente sea eliminado del DOM, React va a ejecutar tu función de limpieza.
  
 * **opcional** `dependencies`: La lista de todos los valores reactivos referenciados dentro del código de `setup`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), va a verificar que cada valor reactivo este correctamente especificado como una dependencia. La lista de dependencias tiene que tener un número constante de elementos y ser escritos en linea como `[dep1, dep2, dep3]`. React va a comparar cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no especificas del todo las dependencias, tu Efecto se volverá a ejecutar después de cada renderizado del componente.
 
@@ -73,7 +73,7 @@ function Tooltip() {
 
 ### Medir el layout antes que el navegador vuelva a pintar la pantalla {/*measuring-layout-before-the-browser-repaints-the-screen*/}
 
-La mayoría de los componentes no necesitan conocer sus posiciones y tamaños en la pantalla para decidir qué renderizar. Ellos solo retornan algo de JSX con CSS. Luego, el navegador calcula sus layout (posición y tamaño) y vuelve a pintar la pantalla. 
+La mayoría de los componentes no necesitan conocer sus posiciones y tamaños en la pantalla para decidir qué renderizar. Ellos solo devuelven algo de JSX con CSS. Luego, el navegador calcula sus layout (posición y tamaño) y vuelve a pintar la pantalla. 
 
 A veces, eso no es suficiente. Imagina un tooltip que aparece junto a algún elemento cuando pasas con el ratón por encima de él. Si hay suficiente espacio, el tooltip debe aparecer arriba del elemento, pero si no tiene suficiente espacio para encajar, debe aparecer debajo. Esto significa que para renderizar el tooltip en la posición final correcta, necesitas saber su altura (quiere decir, si cabe en la parte superior).
 

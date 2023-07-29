@@ -37,7 +37,7 @@ function PasswordField() {
 
 `useId` no toma ningún parámetro.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `useId` devuelve una cadena de ID única asociada con esta llamada `useId` llamado en un componente particular.
 

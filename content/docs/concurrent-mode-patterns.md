@@ -84,7 +84,7 @@ function App() {
   // ...
 ```
 
-**Por sí solo, este código no hace nada aún.** Necesitaremos utilizar los valor de retorno de este Hook para establecer nuestra transición de estado. Hay dos valores retornados por `useTransition`:
+**Por sí solo, este código no hace nada aún.** Necesitaremos utilizar los valores de devolución de este Hook para establecer nuestra transición de estado. Hay dos valores devueltos por `useTransition`:
 
 - `startTransition` es una función. La usaremos para decirle a React _qué_ actualización de estado queremos postergar.
 - `isPending` es un booleano. Es React diciéndonos si esa transición está ocurriendo actualmente.

@@ -87,7 +87,7 @@ Puedes pensar en tus componentes como recetas: si las sigues y no agregas nuevos
 
 ## Efectos secundarios: consecuencias (no)deseadas {/*side-effects-unintended-consequences*/}
 
-El proceso de renderizado de React siempre debe ser puro. Los componentes solo deben *retornar* su JSX, y no *cambiar* cualquier objeto o variable que existiera antes de renderizar: ¡Eso los haría impuros!
+El proceso de renderizado de React siempre debe ser puro. Los componentes solo deben *devolver* su JSX, y no *cambiar* cualquier objeto o variable que existiera antes de renderizar: ¡Eso los haría impuros!
 
 Aquí hay un componente que rompe esta regla:
 
@@ -155,7 +155,7 @@ Cuando quieras *cambiar* algo en respuesta a la entrada del usuario, debes [asig
 
 React ofrece un "Modo estricto" en el que llama a la función de cada componente dos veces durante el desarrollo. **Al llamar a las funciones del componente dos veces, el modo estricto ayuda a encontrar componentes que rompan estas reglas.**
 
-Observa cómo el ejemplo original mostraba "Guest #2", "Guest #4", y "Guest #6" en lugar de "Guest #1", "Guest #2", y "Guest #3". La función original era impura, por lo que al llamarla dos veces se rompió. Pero la versión corregida funciona sin importar que la función sea llamada dos veces cada vez. **Las funciones puras solo se calculan, por lo que llamarlas dos veces no cambiará nada** —como llamar `double(2)` dos veces no cambia lo que se devuelve, y retorna <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> dos veces no cambia lo que <MathI>y</MathI> es. Las mismas entradas, las mismas salidas. Siempre.
+Observa cómo el ejemplo original mostraba "Guest #2", "Guest #4", y "Guest #6" en lugar de "Guest #1", "Guest #2", y "Guest #3". La función original era impura, por lo que al llamarla dos veces se rompió. Pero la versión corregida funciona sin importar que la función sea llamada dos veces cada vez. **Las funciones puras solo se calculan, por lo que llamarlas dos veces no cambiará nada** —como llamar `double(2)` dos veces no cambia lo que se devuelve, y devuelve <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> dos veces, no cambia lo que <MathI>y</MathI> es. Las mismas entradas, las mismas salidas. Siempre.
 
 El modo estricto no tiene ningún efecto en producción, por lo que no ralentizará la aplicación para tus usuarios. Para optar por el modo estricto, puedes envolver tu componente raíz en `<React.StrictMode>`. Algunos frameworks hacen esto por defecto.
 
@@ -195,7 +195,7 @@ Si bien la programación funcional depende en gran medida de la pureza, en algú
 
 En React, **los efectos secundarios generalmente deberían estar dentro de los [controladores de eventos.](/learn/responding-to-events)** Los controladores de eventos son funciones que React ejecuta cuando realiza alguna acción (por ejemplo, cuando haces clic en un botón). ¡Aunque los controladores de eventos están definidos *dentro* de tu componente, no corren *durante* el renderizado! **Por lo tanto, los controladores de eventos no necesitan ser puros.**
 
-Si has agotado todas las demás opciones y no puedes encontrar el controlador de evento adecuado para tu efecto secundario, aún puedes adjuntarlo en el retorno del JSX con un llamado a [`useEffect`](/reference/react/useEffect) en tu componente. Esto le dice a React que lo ejecute más tarde, después del renderizado, cuando se permiten efectos secundarios. **Sin embargo, este enfoque debería ser tu último recurso.**
+Si has agotado todas las demás opciones y no puedes encontrar el controlador de evento adecuado para tu efecto secundario, aún puedes adjuntarlo en la devolución del JSX con un llamado a [`useEffect`](/reference/react/useEffect) en tu componente. Esto le dice a React que lo ejecute más tarde, después del renderizado, cuando se permiten efectos secundarios. **Sin embargo, este enfoque debería ser tu último recurso.**
 
 Cuando sea posible, intenta expresar tu lógica con un solo renderizado. ¡Te sorprenderá lo lejos que esto puede llevarte!
 

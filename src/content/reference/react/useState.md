@@ -39,7 +39,7 @@ La convención es nombrar variables de estado como `[algo, setAlgo]` usando [des
 #### Parámetros {/*parameters*/}
 
 * `initialState`: El valor que deseas que tenga el estado inicialmente. Puede ser un valor de cualquier tipo, pero hay un comportamiento especial para las funciones. Este argumento se ignora después del renderizado inicial.
-  * Si pasa una función como `initialState`, se tratará como una _función inicializadora_. Debe ser pura, no debe aceptar argumentos y debe devolver un valor de cualquier tipo. React llamará a tu función de inicialización al inicializar el componente y almacenará su valor de retorno como el estado inicial. [Ve un ejemplo debajo.](#avoiding-recreating-the-initial-state)
+  * Si pasa una función como `initialState`, se tratará como una _función inicializadora_. Debe ser pura, no debe aceptar argumentos y debe devolver un valor de cualquier tipo. React llamará a tu función de inicialización al inicializar el componente y almacenará su valor de devolución como el estado inicial. [Ve un ejemplo debajo.](#avoiding-recreating-the-initial-state)
 
 #### Devuelve {/*returns*/}
 
@@ -75,7 +75,7 @@ function handleClick() {
 
 #### Devuelve {/*setstate-returns*/}
 
-Las funciones `set` no tienen un valor de retorno.
+Las funciones `set` no tienen un valor de devolución.
 
 #### Advertencias {/*setstate-caveats*/}
 

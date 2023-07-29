@@ -43,7 +43,7 @@ function TabContainer() {
 
 * `scope`: Una función que actualiza algún estado llamando a una o más [funciones `set`](/reference/react/useState#setstate). React llama inmediatamente a `scope` sin parámetros y marca todas las actualizaciones de estado programadas de forma síncrona durante la llamada a la función `scope` como transiciones. Estas serán [sin bloqueo](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados.](/reference/react/useTransition#preventing-unwanted-loading-indicators)
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `startTransition` no devuelve nada.
 
@@ -51,7 +51,7 @@ function TabContainer() {
 
 * `startTransition` no proporciona una forma de rastrear si hay una transición pendiente. Para mostrar un indicador pendiente mientras se produce la transición, debes utilizar [`useTransition`](/reference/react/useTransition) en su lugar.
 
-* Solo puedes envolver una actualización en una transición si tienes acceso a la función `set`  de ese estado. Si deseas iniciar una transición en respuesta a alguna prop o un valor de retorno de un Hook personalizado, intenta usar [`useDeferredValue`](/reference/react/usedeferredvalue) en su lugar.
+* Solo puedes envolver una actualización en una transición si tienes acceso a la función `set`  de ese estado. Si deseas iniciar una transición en respuesta a alguna prop o un valor de devolución de un Hook personalizado, intenta usar [`useDeferredValue`](/reference/react/usedeferredvalue) en su lugar.
 
 * La función que pasas a `startTransition` debe ser sincrónica. React ejecuta inmediatamente esta función, marcando todas las actualizaciones de estado que ocurren mientras se ejecuta como transiciones. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un timeout), no se marcarán como transiciones.
 
