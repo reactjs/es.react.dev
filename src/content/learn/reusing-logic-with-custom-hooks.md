@@ -2012,7 +2012,7 @@ export function useCounter() {
 
 <Solution>
 
-Pasa el `delay` a tu Hook con `useCounter(delay)`. Luego, dentro del Hook, usa `delay` en lugar del valor escrito `1000`. Deberás agregar `delay` a las dependencias de tu Efecto. Esto asegura que el cambio en `delay` restablecerá el intervalo.
+Pasa el `delay` a tu Hook con `useCounter(delay)`. Luego, dentro del Hook, usa `delay` en lugar del valor escrito `1000`. Deberás agregar `delay` a las dependencias de tu Efecto. Esto asegura que el cambio en `delay` reiniciará el intervalo.
 
 <Sandpack>
 
@@ -2252,7 +2252,7 @@ export function useInterval(onTick, delay) {
 
 Dentro de `useInterval`, envuelve el callback del marcador en un Evento de Efecto, como lo hiciste [anteriormente en esta página.](/learn/reusing-logic-with-custom-hooks#passing-event-handlers-to-custom-hooks)
 
-Esto te permitirá omitir `onTick` de las dependencias de tu Efecto. El Efecto no volverá a sincronizarse en cada nuevo renderizado del componente, entonces el cambio de color de fondo de la página no se restablecerá cada segundo antes de que tenga la oportunidad de activarse.
+Esto te permitirá omitir `onTick` de las dependencias de tu Efecto. El Efecto no volverá a sincronizarse en cada nuevo renderizado del componente, entonces el cambio de color de fondo de la página no se reiniciará cada segundo antes de que tenga la oportunidad de activarse.
 
 Con este cambio, ambos intervalos funcionan como se esperaba y no interfieren entre sí:
 
@@ -2485,7 +2485,7 @@ body { min-height: 300px; }
 
 </Sandpack>
 
-Ten en cuenta que este Efecto *no* necesita limpieza. Si invocas `clearTimeout` en la función de limpieza, entonces cada vez que `value` cambia, restablecerá el tiempo de espera ya programado. Para mantener el movimiento continuo, quieres que se disparen todos los tiempos de espera.
+Ten en cuenta que este Efecto *no* necesita limpieza. Si invocas `clearTimeout` en la función de limpieza, entonces cada vez que `value` cambia, reiniciará el tiempo de espera ya programado. Para mantener el movimiento continuo, quieres que se disparen todos los tiempos de espera.
 
 </Solution>
 

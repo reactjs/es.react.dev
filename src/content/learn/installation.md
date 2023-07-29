@@ -11,7 +11,7 @@ React se ha diseñado desde un inicio para una adopción gradual. Puedes usar ta
 <YouWillLearn isChapter={true}>
 
 * [Cómo iniciar un nuevo proyecto de React](/learn/start-a-new-react-project)
-* [Cómo añadir React a un proyecto existente](/learn/add-react-to-an-existing-project)
+* [Cómo agregar React a un proyecto existente](/learn/add-react-to-an-existing-project)
 * [Cómo configurar el editor](/learn/editor-setup)
 * [Cómo instalar las Herramientas de Desarrollo de React](/learn/react-developer-tools)
 

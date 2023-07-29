@@ -112,7 +112,7 @@ export default function MarkdownEditor() {
   );
 }
 
-// Add a fixed delay so you can see the loading state
+// Agrega un retardo fijo para que puedas ver el estado de carga
 function delayForDemo(promise) {
   return new Promise(resolve => {
     setTimeout(resolve, 2000);
@@ -175,7 +175,7 @@ body {
 
 </Sandpack>
 
-Esta demostración se carga con un retraso artificial. La próxima vez que desmarques y marques el checkbox, `Preview` se almacenará en caché, por lo que no se mostrará ningún estado de carga. Para ver nuevamente el estado de carga, haz clic en "Restablecer" en el sandbox.
+Esta demostración se carga con un retraso artificial. La próxima vez que desmarques y marques el checkbox, `Preview` se almacenará en caché, por lo que no se mostrará ningún estado de carga. Para ver nuevamente el estado de carga, haz clic en "Reiniciar" en el sandbox.
 
 [Obtén más información sobre cómo administrar los estados de carga con Suspense.](/reference/react/Suspense)
 
@@ -183,7 +183,7 @@ Esta demostración se carga con un retraso artificial. La próxima vez que desma
 
 ## Solución de problemas {/*troubleshooting*/}
 
-### Mi estado del componente `lazy` se restablece inesperadamente {/*my-lazy-components-state-gets-reset-unexpectedly*/}
+### Mi estado del componente `lazy` se reinicia inesperadamente {/*my-lazy-components-state-gets-reset-unexpectedly*/}
 
 No declarares componentes `lazy` _dentro_ de otros componentes:
 
@@ -191,7 +191,7 @@ No declarares componentes `lazy` _dentro_ de otros componentes:
 import { lazy } from 'react';
 
 function Editor() {
-  // 🔴 Bad: This will cause all state to be reset on re-renders
+  // 🔴 Mal: Esto causará que todo el estado se reinicie en los re-renderizados.
   const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
   // ...
 }

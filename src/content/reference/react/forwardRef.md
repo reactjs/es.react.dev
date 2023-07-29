@@ -124,7 +124,7 @@ function Form() {
     <form>
       <MyInput label="Enter your name:" ref={ref} />
       <button type="button" onClick={handleClick}>
-        Edit
+        Editar
       </button>
     </form>
   );
@@ -158,7 +158,7 @@ export default function Form() {
     <form>
       <MyInput label="Enter your name:" ref={ref} />
       <button type="button" onClick={handleClick}>
-        Edit
+        Editar
       </button>
     </form>
   );
@@ -282,7 +282,7 @@ function Form() {
     <form>
       <FormField label="Enter your name:" ref={ref} isRequired={true} />
       <button type="button" onClick={handleClick}>
-        Edit
+        Editar
       </button>
     </form>
   );
@@ -309,7 +309,7 @@ export default function Form() {
     <form>
       <FormField label="Enter your name:" ref={ref} isRequired={true} />
       <button type="button" onClick={handleClick}>
-        Edit
+        Editar
       </button>
     </form>
   );
@@ -425,7 +425,7 @@ export default function Form() {
     <form>
       <MyInput label="Enter your name:" ref={ref} />
       <button type="button" onClick={handleClick}>
-        Edit
+        Editar
       </button>
     </form>
   );

@@ -12,7 +12,7 @@ Los Efectos son una vía de escape del paradigma de React. Te permiten "salir" d
 
 * Por qué y cómo eliminar Efectos innecesarios de tus componentes.
 * Cómo almacenar en caché cálculos costosos sin utilizar Efectos.
-* Cómo restablecer y ajustar el estado del componente sin utilizar Efectos.
+* Cómo reiniciar y ajustar el estado del componente sin utilizar Efectos.
 * Cómo compartir lógica entre controladores de eventos.
 * Qué lógica debería ser trasladada a los controladores de eventos.
 * Cómo notificar a los componentes padre acerca de cambios.
@@ -23,7 +23,7 @@ Los Efectos son una vía de escape del paradigma de React. Te permiten "salir" d
 
 Hay dos casos comunes en los cuales no necesitas utilizar Efectos:
 
-* **No necesitas Efectos para transformar datos antes de renderizar.** Por ejemplo, supongamos que deseas filtrar una lista antes de mostrarla. Podrías sentirte tentado/a a escribir un Efecto que actualice una variable de estado cuando cambie la lista. Sin embargo, esto es ineficiente. Cuando actualizas el estado, React primero llama a las funciones de tu componente para calcular lo que debería mostrarse en la pantalla. Luego, React ["confirmará"](/learn/render-and-commit) estos cambios en el DOM, actualizando la pantalla. Después, React ejecuta tus Efectos. ¡Si tu Efecto también actualiza inmediatamente el estado, esto reinicia todo el proceso desde cero! Para evitar pasadas de renderizado innecesarias, transforma todos los datos en el nivel superior de tus componentes. Ese código se volverá a ejecutar automáticamente cada vez que tus _props_ o estado cambien.
+* **No necesitas Efectos para transformar datos antes de renderizar.** Por ejemplo, supongamos que deseas filtrar una lista antes de mostrarla. Podrías sentirte tentado/a a escribir un Efecto que actualice una variable de estado cuando cambie la lista. Sin embargo, esto es ineficiente. Cuando actualizas el estado, React primero llama a las funciones de tu componente para calcular lo que debería mostrarse en la pantalla. Luego, React ["confirmará"](/learn/render-and-commit) estos cambios en el DOM, actualizando la pantalla. Después, React ejecuta tus Efectos. Si tu Efecto también actualiza inmediatamente el estado, ¡esto reinicia todo el proceso desde cero! Para evitar pasadas de renderizado innecesarias, transforma todos los datos en el nivel superior de tus componentes. Ese código se volverá a ejecutar automáticamente cada vez que tus _props_ o estado cambien.
 * **No necesitas Efectos para manejar eventos del usuario.** Por ejemplo, supongamos que deseas enviar una solicitud POST `/api/buy` y mostrar una notificación cuando el usuario compra un producto. En el controlador de eventos del botón "Comprar", sabes exactamente lo que sucedió. Para el momento en que se ejecuta un Efecto, no sabes *qué* hizo el usuario (por ejemplo, qué botón se hizo clic). Por esta razón, generalmente se manejan los eventos del usuario en los controladores de eventos correspondientes.
 
 Es *cierto* que necesitas Efectos para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemas externos. Por ejemplo, puedes escribir un Efecto que mantenga sincronizado un _widget_ de jQuery con el estado de React. También puedes obtener datos con Efectos, por ejemplo, puedes sincronizar los resultados de búsqueda con la consulta de búsqueda actual. Ten en cuenta que los [_frameworks_](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos proporcionan mecanismos más eficientes y nativos para obtener datos que escribir Efectos directamente en tus componentes.
@@ -155,7 +155,7 @@ También ten en cuenta que medir el rendimiento en desarrollo no te dará los re
 
 </DeepDive>
 
-### Restablecer todo el estado cuando una _prop_ cambia {/*resetting-all-state-when-a-prop-changes*/}
+### Reiniciar todo el estado cuando una _prop_ cambia {/*resetting-all-state-when-a-prop-changes*/}
 
 Este componente `ProfilePage` recibe una _prop_ `userId`. La página contiene una _input_ (entrada) de comentario, y tú usas una variable de estado `comment` para mantener este valor. Un día, tú te das cuenta de un problema: cuando navegas de un perfil a otro, el estado `comment` no se reinicia. Como resultado, es fácil publicar accidentalmente un comentario en el perfil de un usuario equivocado. Para arreglar el problema, tú quieres borrar la variable de estado `comment` cada vez que el `userId` cambie:
 
@@ -163,7 +163,7 @@ Este componente `ProfilePage` recibe una _prop_ `userId`. La página contiene un
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
-  // 🔴 Evitar: Restablecer el estado en un cambio de prop dentro de un Efecto.
+  // 🔴 Evitar: Reiniciar el estado en un cambio de prop dentro de un Efecto.
   useEffect(() => {
     setComment('');
   }, [userId]);
@@ -171,7 +171,7 @@ export default function ProfilePage({ userId }) {
 }
 ```
 
-Esto es ineficiente porque `ProfilePage` y sus hijos se renderizarán primero con el valor obsoleto, y luego se volverán a renderizar. También es complicado porque tendrías que hacer esto en *cada* componente que tenga algún estado dentro de `ProfilePage`. Por ejemplo, si la UI de comentarios está anidada, también querrías restablecer el estado de los comentarios anidados.
+Esto es ineficiente porque `ProfilePage` y sus hijos se renderizarán primero con el valor obsoleto, y luego se volverán a renderizar. También es complicado porque tendrías que hacer esto en *cada* componente que tenga algún estado dentro de `ProfilePage`. Por ejemplo, si la UI de comentarios está anidada, también querrías quitar el estado de los comentarios anidados.
 
 En su lugar, puedes indicarle a React que el perfil de cada usuario es conceptualmente un perfil _diferente_ al proporcionarle una _key_ explícita. Divide tu componente en dos y pasa un atributo _`key`_ desde el componente externo al interno:
 
@@ -186,21 +186,21 @@ export default function ProfilePage({ userId }) {
 }
 
 function Profile({ userId }) {
-  // ✅ Esto y cualquier otro estado a continuación se restablecerán automáticamente cuando cambie la key.
+  // ✅ Esto y cualquier otro estado a continuación se reiniciarán automáticamente cuando cambie la key.
   const [comment, setComment] = useState('');
   // ...
 }
 ```
 
-Normalmente, React preserva el estado cuando el mismo componente se renderiza en el mismo lugar. **Al pasar `userId` como una _`key`_ al componente `Profile`, le estás indicando a React que trate dos componentes `Profile` con diferentes `userId` como dos componentes diferentes que no deben compartir ningún estado.** Cada vez que cambie la _key_ (que has establecido como `userId`), React recreará el DOM y [restablecerá el estado](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) del componente `Profile` y de todos sus hijos. Ahora, el campo `comment` se borrará automáticamente al navegar entre perfiles.
+Normalmente, React preserva el estado cuando el mismo componente se renderiza en el mismo lugar. **Al pasar `userId` como una _`key`_ al componente `Profile`, le estás indicando a React que trate dos componentes `Profile` con diferentes `userId` como dos componentes diferentes que no deben compartir ningún estado.** Cada vez que cambie la _key_ (que has establecido como `userId`), React recreará el DOM y [reiniciará el estado](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) del componente `Profile` y de todos sus hijos. Ahora, el campo `comment` se borrará automáticamente al navegar entre perfiles.
 
 Ten en cuenta que en este ejemplo, solo el componente `ProfilePage` externo es exportado y visible para otros archivos en el proyecto. Los componentes que renderizan `ProfilePage` no necesitan pasar la _key_; simplemente pasan `userId` como una _prop_ regular. El hecho de que `ProfilePage` lo pase como una _`key`_ al componente interno `Profile` es un detalle de implementación.
 
 ### Ajustar algún estado cuando cambia una _prop_ {/*adjusting-some-state-when-a-prop-changes*/}
 
-A veces, es posible que desees restablecer o ajustar una parte del estado cuando cambie una _prop_, pero no todo el estado.
+A veces, es posible que desees reiniciar o ajustar una parte del estado cuando cambie una _prop_, pero no todo el estado.
 
-Este componente `List` recibe una lista de `items` como una prop y mantiene el _item_ seleccionado en la variable de estado `selection`. Deseas restablecer la variable de estado `selection` a `null` cada vez que la _prop_ `items` reciba un _array_ diferente:
+Este componente `List` recibe una lista de `items` como prop y mantiene el _item_ seleccionado en la variable de estado `selection`. Deseas reiniciar la `selection` a `null` cada vez que la _prop_ `items` reciba un _array_ diferente:
 
 ```js {5-8}
 function List({ items }) {
@@ -238,7 +238,7 @@ function List({ items }) {
 
 Cuando actualizas un componente durante el renderizado, React descarta el JSX devuelto y vuelve a intentar el renderizado de inmediato. Para evitar reintentos en cascada muy lentos, React solo te permite actualizar el estado del *mismo* componente durante el renderizado. Si intentas actualizar el estado de otro componente durante el renderizado, verás un error. Una condición como `items !== prevItems` es necesaria para evitar bucles. Puedes ajustar el estado de esta manera, pero otros efectos secundarios (como cambios en el DOM o establecer tiempos de espera) debe mantenerse en los controladores de eventos o en Efectos para [mantener los componentes puros.](/learn/keeping-components-pure)
 
-**Aunque este patrón es más eficiente que un Efecto, la mayoría de los componentes tampoco lo necesitan.** Sin importar cómo lo hagas, ajustar el estado basado en _props_ u otro estado hace que el flujo de datos sea más difícil de entender y depurar. Siempre verifica si puedes [restablecer todo el estado con una _key_](#resetting-all-state-when-a-prop-changes) o [calcular todo durante el renderizado](#updating-state-based-on-props-or-state) en su lugar. Por ejemplo, en lugar de almacenar (y restablecer) el *item* seleccionado, puedes almacenar el *item ID* seleccionado:
+**Aunque este patrón es más eficiente que un Efecto, la mayoría de los componentes tampoco lo necesitan.** Sin importar cómo lo hagas, ajustar el estado basado en _props_ u otro estado hace que el flujo de datos sea más difícil de entender y depurar. Siempre verifica si puedes [reiniciar todo el estado con una _key_](#resetting-all-state-when-a-prop-changes) o [calcular todo durante el renderizado](#updating-state-based-on-props-or-state) en su lugar. Por ejemplo, en lugar de almacenar (y reiniciar) el *item* seleccionado, puedes almacenar el *item ID* seleccionado:
 
 ```js {3-5}
 function List({ items }) {
@@ -794,8 +794,8 @@ En general, cada vez que te veas obligado a escribir Efectos, mantén un ojo par
 
 - Si puedes calcular algo durante el renderizado, no necesitas un Efecto.
 - Para almacenar en caché cálculos costosos, utiliza `useMemo` en lugar de `useEffect`.
-- Para restablecer el estado de todo el árbol de componentes, pasa una _`key`_ diferente a este.
-- Para restablecer una porción del estado en respuesta a un cambio de  _prop_, establécelo durante el renderizado.
+- Para reiniciar el estado de todo el árbol de componentes, pasa una _`key`_ diferente a este.
+- Para reiniciar una porción del estado en respuesta a un cambio de  _prop_, establécelo durante el renderizado.
 - El código que se ejecuta porque un componente fue *mostrado* debería estar en Efectos, el resto debería estar en eventos.
 - Si necesitas actualizar el estado de varios componentes, es mejor hacerlo durante un solo evento.
 - Siempre que intentes sincronizar variables de estado en diferentes componentes, considera levantar el estado.
@@ -1270,11 +1270,11 @@ Este enfoque también cumple con los requisitos. Cuando escribes en el campo de 
 
 </Solution>
 
-#### Restablecer estado sin Efectos {/*reset-state-without-effects*/}
+#### Reiniciar el estado sin Efectos {/*reset-state-without-effects*/}
 
-Este componente `EditContact` recibe un objeto de contacto con la forma `{ id, name, email }` como _prop_ `savedContact`. Intenta editar los campos de nombre y correo electrónico. Cuando presiones Guardar, el botón del contacto sobre el formulario se actualizará con el nombre editado. Cuando presiones Restablecer, cualquier cambio pendiente en el formulario se descartará. Juega con esta interfaz para familiarizarte con ella.
+Este componente `EditContact` recibe un objeto de contacto con la forma `{ id, name, email }` como _prop_ `savedContact`. Intenta editar los campos de nombre y correo electrónico. Cuando presiones Guardar, el botón del contacto sobre el formulario se actualizará con el nombre editado. Cuando presiones Reiniciar, cualquier cambio pendiente en el formulario se descartará. Juega con esta interfaz para familiarizarte con ella.
 
-Cuando seleccionas un contacto con los botones en la parte superior, el formulario se restablece para reflejar los detalles de ese contacto. Esto se hace con un Efecto dentro de `EditContact.js`. Elimina este Efecto. Encuentra otra forma de restablecer el formulario cuando cambie `savedContact.id`.
+Cuando seleccionas un contacto con los botones en la parte superior, el formulario se reinicia para reflejar los detalles de ese contacto. Esto se hace con un Efecto dentro de `EditContact.js`. Elimina este Efecto. Encuentra otra forma de reiniciar el formulario cuando cambie `savedContact.id`.
 
 <Sandpack>
 
@@ -1401,7 +1401,7 @@ export default function EditContact({ savedContact, onSave }) {
         setName(savedContact.name);
         setEmail(savedContact.email);
       }}>
-        Restablecer
+        Reiniciar
       </button>
     </section>
   );
@@ -1438,7 +1438,7 @@ Sería bueno si hubiera una forma de decirle a React que cuando `savedContact.id
 
 <Solution>
 
-Divide el componente `EditContact` en dos. Mueve todo el estado del formulario al componente interno `EditForm`. Exporta el componente externo `EditContact` y haz que pase `savedContact.id` como la _`key`_ al componente interno `EditForm`. Como resultado, el componente interno `EditForm` restablecerá todo el estado del formulario y recreará el DOM cada vez que selecciones un contacto diferente.
+Divide el componente `EditContact` en dos. Mueve todo el estado del formulario al componente interno `EditForm`. Exporta el componente externo `EditContact` y haz que pase `savedContact.id` como la _`key`_ al componente interno `EditForm`. Como resultado, el componente interno `EditForm` reiniciará todo el estado del formulario y recreará el DOM cada vez que selecciones un contacto diferente.
 
 <Sandpack>
 
@@ -1569,7 +1569,7 @@ function EditForm({ savedContact, onSave }) {
         setName(savedContact.name);
         setEmail(savedContact.email);
       }}>
-        Restablecer
+        Reiniciar
       </button>
     </section>
   );

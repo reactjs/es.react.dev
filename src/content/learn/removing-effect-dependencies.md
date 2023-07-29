@@ -322,7 +322,7 @@ export default function Timer() {
     <>
       <h1>
         Counter: {count}
-        <button onClick={() => setCount(0)}>Reset</button>
+        <button onClick={() => setCount(0)}>Reiniciar</button>
       </h1>
       <hr />
       <p>

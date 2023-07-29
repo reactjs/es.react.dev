@@ -268,7 +268,7 @@ export default function EditPost() {
         </select>
       </label>
       <hr />
-      <button type="reset">Reset</button>
+      <button type="reset">Reiniciar</button>
       <button type="submit">Submit</button>
     </form>
   );

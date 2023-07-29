@@ -579,7 +579,7 @@ function handleChange(e) {
 }
 ```
 
-Si esto no repara el problema, es posible que el input sea removido y re-agregado al DOM en cada pulsación de tecla. Esto puede ocurrir si tú estás accidentalmente [reseteando el estado](/learn/preserving-and-resetting-state) en cada re-renderización, por ejemplo, si el input o uno de sus padres siempre recibe un atributo `key` diferente, o si tú anidas definiciones de funciones de componentes (lo cual no es soportado y causa que el componente "interno" siempre sea considerado un árbol diferente).
+Si esto no repara el problema, es posible que el input sea removido y re-agregado al DOM en cada pulsación de tecla. Esto puede ocurrir si tú estás accidentalmente [reiniciando el estado](/learn/preserving-and-resetting-state) en cada re-renderización, por ejemplo, si el input o uno de sus padres siempre recibe un atributo `key` diferente, o si tú anidas definiciones de funciones de componentes (lo cual no es soportado y causa que el componente "interno" siempre sea considerado un árbol diferente).
 
 ---
 

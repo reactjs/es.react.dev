@@ -110,7 +110,7 @@ label {
 
 <DeepDive>
 
-#### ¿Deberías añadir memo en todos lados? {/*should-you-add-memo-everywhere*/}
+#### ¿Deberías agregar memo en todos lados? {/*should-you-add-memo-everywhere*/}
 
 Si tu aplicación es como este sitio, y la mayoría de las interacciones son bruscas (como reemplazar una página o una sección completa), la memoización es usualmente innecesaria. Por otro lado, si tu aplicación es más como un editor de dibujos, y la mayoría de las interacciones son granulares (como mover formas), entonces puede que la memoización sea muy útil.
 

@@ -1428,7 +1428,7 @@ function Counter() {
       setCount(count + 1); // Quieres incrementar el contador cada segundo...
     }, 1000)
     return () => clearInterval(intervalId);
-  }, [count]); // 🚩 ... pero al especificar `count` como dependencia siempre se restablece el intervalo.
+  }, [count]); // 🚩 ... pero al especificar `count` como dependencia siempre reinician el intervalo.
   // ...
 }
 ```

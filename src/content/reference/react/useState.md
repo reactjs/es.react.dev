@@ -695,7 +695,7 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Agregar tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
@@ -944,7 +944,7 @@ export default function TodoList() {
           id: todos.length,
           text: text
         }, ...todos]);
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
@@ -997,7 +997,7 @@ export default function TodoList() {
           id: todos.length,
           text: text
         }, ...todos]);
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
@@ -1018,13 +1018,13 @@ export default function TodoList() {
 
 ---
 
-### Restablecimiento de estado con una _key_ {/*resetting-state-with-a-key*/}
+### Reinicio del estado con una _key_ {/*resetting-state-with-a-key*/}
 
 Por lo general, es posible que encuentre el atributo _`key`_ al [renderizar listas.](/learn/rendering-lists) Sin embargo, también tiene otro propósito.
 
-Puede **restablecer el estado de un componente pasando una _`key`_ diferente a un componente.** En este ejemplo, el botón Restablecer cambia la variable de estado `versión`, que pasamos como una _`key`_ al `Formulario`. Cuando la _`key`_ cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se restablece.
+Puede **reiniciar el estado de un componente pasando una _`key`_ diferente a un componente.** En este ejemplo, el botón Reiniciar cambia la variable de estado `versión`, que pasamos como una _`key`_ al `Formulario`. Cuando la _`key`_ cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se reinicia.
 
-Lea [preservar y restablecer el estado](/learn/preserving-and-resetting-state) para obtener más información.
+Lea [preservar y reiniciar el estado](/learn/preserving-and-resetting-state) para obtener más información.
 
 <Sandpack>
 
@@ -1040,7 +1040,7 @@ export default function App() {
 
   return (
     <>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleReset}>Reiniciar</button>
       <Form key={version} />
     </>
   );
@@ -1076,7 +1076,7 @@ Por lo general, actualizarás el estado en los controladores de eventos. Sin emb
 En la mayoría de los casos, no lo necesitas:
 
 * **Si el valor que necesitas se puede calcular completamente a partir de las props actuales u otro estado, [elimina ese estado redundante por completo.](/learn/choosing-the-state-structure#avoid-redundant-state)** Si te preocupa volver a calcular con demasiada frecuencia, el [Hook `useMemo`](/reference/react/useMemo) puede ayudarte.
-* Si deseas restablecer el estado de todo el árbol de componentes, [pasa una _`key`_ diferente a tu componente.](#resetting-state-with-a-key)
+* Si deseas reiniciar el estado de todo el árbol de componentes, [pasa una _`key`_ diferente a tu componente.](#resetting-state-with-a-key)
 * Si puedes, actualiza todo el estado relevante en los controladores de eventos.
 
 En el raro caso de que ninguno de estos se aplique, hay un patrón que puedes usar para actualizar el estado en función de los valores que se han renderizado hasta el momento, llamando a una función `set` mientras tu componente se está renderizando.

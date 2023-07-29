@@ -309,7 +309,7 @@ Mayormente es útil si tus componentes de React están dentro de una aplicación
 
 ### Actualización de un componente raíz {/*updating-a-root-component*/}
 
-Puedes llamar a `render` más de una vez en la misma raíz. Siempre que el árbol de componentes corresponda con lo que se había renderizado anteriormente, React [mantendrá el estado.](/learn/preserving-and-resetting-state) Fíjate que puedes escribir en el input, lo que significa que las actualizaciones por llamar repetidamente a `render` cada segundo en este ejemplo no son destructivas:
+Puedes llamar a `render` más de una vez en la misma raíz. Siempre que el árbol de componentes corresponda con lo que se había renderizado anteriormente, React [preservará el estado.](/learn/preserving-and-resetting-state) Fíjate que puedes escribir en el input, lo que significa que las actualizaciones por llamar repetidamente a `render` cada segundo en este ejemplo no son destructivas:
 
 <Sandpack>
 
@@ -414,7 +414,7 @@ Si no puedes hacerlo funcionar, consulte [Añadir React a un sitio web](/learn/a
 
 ### Mi HTML renderizado en el servidor se recrea desde cero {/*my-server-rendered-html-gets-re-created-from-scratch*/}
 
-Si tu aplicación está renderizada en el servidor e incluye el HTML inicial generado por React, puedes notar que crear una raíz y llamar a `root.render` elimina todo ese HTML, y luego recrea todos los nodos del DOM desde cero. Esto puede ser más lento, restablece el foco y las posiciones de desplazamiento y puede perder otras entradas del usuario.
+Si tu aplicación está renderizada en el servidor e incluye el HTML inicial generado por React, puedes notar que crear una raíz y llamar a `root.render` elimina todo ese HTML, y luego recrea todos los nodos del DOM desde cero. Esto puede ser más lento, reinicia el foco y las posiciones de desplazamiento y puede perder otras entradas del usuario.
 
 Las aplicaciones renderizadas por el servidor deben usar [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en lugar de `createRoot`:
 

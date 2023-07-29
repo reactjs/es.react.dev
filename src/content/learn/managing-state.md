@@ -13,9 +13,9 @@ A medida que tu aplicación crece, es de ayuda ser más intencional sobre cómo 
 * [Cómo pensar en los cambios de la interfaz de usuario como cambios de estado](/learn/reacting-to-input-with-state)
 * [Cómo estructurar bien el estado](/learn/choosing-the-state-structure)
 * [Cómo "levantar el estado" para compartirlo entre componentes](/learn/sharing-state-between-components)
-* [Cómo controlar si el estado se conserva o se restablece](/learn/preserving-and-resetting-state)
+* [Cómo controlar si el estado se preserva o se reinicia](/learn/preserving-and-resetting-state)
 * [Cómo consolidar una lógica de estado compleja en una función](/learn/extracting-state-logic-into-a-reducer)
-* [Cómo pasar la información sin "_prop drilling_ (taladro de props)"](/learn/passing-data-deeply-with-context)
+* [Cómo pasar la información sin "_prop drilling_" (perforación de _prop_)](/learn/passing-data-deeply-with-context)
 * [Cómo escalar la administración del estado a medida que crece tu aplicación](/learn/scaling-up-with-reducer-and-context)
 
 </YouWillLearn>
@@ -300,11 +300,11 @@ Lee **[Compartir estado entre componentes](/learn/sharing-state-between-componen
 
 </LearnMore>
 
-## Conservación y reinicio del estado {/*preserving-and-resetting-state*/}
+## Preservar y reiniciar el estado {/*preserving-and-resetting-state*/}
 
 Cuando se vuelve a renderizar un componente, React necesita decidir qué partes del árbol se mantienen (y se actualizan), y qué partes se descartan o se vuelven a crear desde cero. En la mayoría de los casos, el comportamiento automático de React funciona bastante bien. Por defecto, React conserva las partes del árbol que "coinciden" con el árbol de componentes previamente renderizado.
 
-Sin embargo, a veces esto no es lo que quieres. Por ejemplo, en esta aplicación, si se escribe un mensaje y luego se cambia de destinatario no se restablece la entrada. Esto puede hacer que el usuario envíe accidentalmente un mensaje a la persona equivocada:
+Sin embargo, a veces esto no es lo que quieres. Por ejemplo, en esta aplicación, si se escribe un mensaje y luego se cambia de destinatario no se reinicia la entrada. Esto puede hacer que el usuario envíe accidentalmente un mensaje a la persona equivocada:
 
 <Sandpack>
 
@@ -399,7 +399,7 @@ textarea {
 
 </Sandpack>
 
-React permite anular el comportamiento por defecto, y *forzar* a un componente a restablecer su estado pasándole una `key` diferente, como `<Chat key={email} />`. Esto le dice a React que si el destinatario es diferente, debe ser considerado como un componente `Chat` diferente que necesita ser recreado desde cero con los nuevos datos (y entradas de UI). Ahora al cambiar de destinatario siempre se reinicia el campo de entrada, aunque se renderice el mismo componente.
+React permite anular el comportamiento por defecto, y *forzar* a un componente a reiniciar su estado pasándole una `key` diferente, como `<Chat key={email} />`. Esto le dice a React que si el destinatario es diferente, debe ser considerado como un componente `Chat` diferente que necesita ser recreado desde cero con los nuevos datos (y entradas de UI). Ahora al cambiar de destinatario siempre se reinicia el campo de entrada, aunque se renderice el mismo componente.
 
 <Sandpack>
 
@@ -496,7 +496,7 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Lee **[Preservación y restablecimiento del estado](/learn/preserving-and-resetting-state)** para aprender la vida del estado y cómo controlarla.
+Lee **[Preservar y reiniciar el estado](/learn/preserving-and-resetting-state)** para aprender la vida del estado y cómo controlarla.
 
 </LearnMore>
 
@@ -597,7 +597,7 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
@@ -898,7 +898,7 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />

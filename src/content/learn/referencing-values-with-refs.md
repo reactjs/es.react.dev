@@ -70,7 +70,7 @@ export default function Counter() {
 
 La ref hace referencia a un número, pero, al igual que [el estado](/learn/state-a-components-memory), podrías hace referencia a cualquier cosa: un string, un objeto, o incluso una función. A diferencia del estado, la ref es un objeto plano de JavaScript con la propiedad `current` que puedes leer y modificar.
 
-Fíjate como **el componente no se rerenderiza con cada incremento.** React (al igual que con el estado) preserva las refs entre rerenderizados. Sin embargo, asignar el estado rerenderiza un componente. ¡Cambiar una ref no!
+Fíjate como **el componente no se rerenderiza con cada incremento.** Al igual que con el estado, las refs son retenidas por React entre rerenderizados. Sin embargo, asignar el estado rerenderiza un componente. ¡Cambiar una ref no!
 
 ## Ejemplo: crear un cronómetro {/*example-building-a-stopwatch*/}
 
