@@ -206,7 +206,7 @@ Puedes leerlo como *"si `isPacked` es verdadero, entonces (`?`) renderiza `name 
 
 <DeepDive>
 
-#### Are these two examples fully equivalent? {/*are-these-two-examples-fully-equivalent*/}
+#### ¿Son estos dos ejemplos totalmente equivalentes? {/*are-these-two-examples-fully-equivalent*/}
 
 Si vienes de un entorno de programación orientada a objetos, podrías asumir que los dos ejemplos anteriores son sutilmente diferentes porque uno de ellos puede crear dos "instancias" diferentes de `<li>`. Pero los elementos JSX no son "instancias" porque no contienen ningún estado interno y no son nodos reales del DOM. Son descripciones ligeras, como los planos. Así que estos dos ejemplos, de hecho, *son* completamente equivalentes. En [Conservación y Restablecimiento del estado](/learn/preserving-and-resetting-state) se explica en detalle cómo funciona esto.
 
