@@ -885,7 +885,7 @@ export default function EditProfile() {
         )}
       </label>
       <button type="submit">
-        {isEditing ? 'Save' : 'Edit'} Profile
+        {isEditing ? 'Guardar' : 'Editar'} Profile
       </button>
       <p><i>Hola, {firstName} {lastName}!</i></p>
     </form>

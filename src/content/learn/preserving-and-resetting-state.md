@@ -1,10 +1,10 @@
 ---
-title: Conservar y reiniciar el estado
+title: Preservar y reiniciar el estado
 ---
  
 <Intro>
 
-El estado está aislado entre los componentes. React mantiene un registro de qué estado pertenece a qué componente basándose en su lugar en el árbol de la interfaz de usuario (UI). Puedes controlar cuándo conservar el estado y cuándo restablecerlo entre rerenderizados.
+El estado está aislado entre los componentes. React mantiene un registro de qué estado pertenece a qué componente basándose en su lugar en el árbol de la interfaz de usuario (UI). Puedes controlar cuándo preservar el estado y cuándo reiniciarlo entre rerenderizados.
 
 </Intro>
 
@@ -12,7 +12,7 @@ El estado está aislado entre los componentes. React mantiene un registro de qu�
 
 * Cómo React "ve" las estructuras de los componentes
 * Cuándo React elige preservar o reiniciar el estado
-* Cómo forzar a React a restablecer el estado del componente
+* Cómo forzar a React a reiniciar el estado del componente
 * Cómo las claves y los tipos afectan a la preservación del estado
 
 </YouWillLearn>
@@ -72,7 +72,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -151,7 +151,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -234,7 +234,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -290,7 +290,7 @@ Añadiendo un componente
 
 **React preserva el estado de un componente mientras se renderiza en su posición en el árbol de la interfaz de usuario.** Si se elimina, o se renderiza un componente diferente en la misma posición, React descarta su estado.
 
-## El mismo componente en la misma posición conserva el estado {/*same-component-at-the-same-position-preserves-state*/}
+## El mismo componente en la misma posición preserva el estado {/*same-component-at-the-same-position-preserves-state*/}
 
 En este ejemplo, hay dos tipos diferentes de etiquetas `<Counter />`:
 
@@ -342,7 +342,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -457,7 +457,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -492,7 +492,7 @@ label {
 
 </Sandpack>
 
-Se podría esperar que el estado se restableciera al marcar la casilla de verificación, pero no es así. Esto se debe a que **las dos etiquetas `<Counter />` se renderizan en la misma posición.** React no sabe dónde colocas las condiciones en tu función. Todo lo que "ve" es el árbol que devuelves. En ambos casos, el componente `App` devuelve un `<div>` con `<Counter />` como primer hijo. Por eso React los considera como _el mismo_ `<Counter />`.
+Se podría esperar que el estado se reiniciara al marcar la casilla de verificación, pero no es así. Esto se debe a que **las dos etiquetas `<Counter />` se renderizan en la misma posición.** React no sabe dónde colocas las condiciones en tu función. Todo lo que "ve" es el árbol que devuelves. En ambos casos, el componente `App` devuelve un `<div>` con `<Counter />` como primer hijo. Por eso React los considera como _el mismo_ `<Counter />`.
 
 Puedes pensar que tienen la misma "dirección": el primer hijo del primer hijo de la raíz. Así es como React los hace coincidir entre los renderizados anteriores y los siguientes, independientemente de cómo estructures tu lógica.
 
@@ -547,7 +547,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -653,7 +653,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -688,7 +688,7 @@ label {
 
 </Sandpack>
 
-El estado del contador se restablece cuando se hace clic en la casilla de verificación. Aunque se renderiza un `Counter`, el primer hijo del `div` cambia de `div` a `section`. Cuando el `div` hijo se eliminó del DOM, todo el árbol debajo de él (incluyendo el `Counter` y su estado) se destruyó también.
+El estado del contador se reinicia cuando se hace clic en la casilla de verificación. Aunque se renderiza un `Counter`, el primer hijo del `div` cambia de `div` a `section`. Cuando el `div` hijo se eliminó del DOM, todo el árbol debajo de él (incluyendo el `Counter` y su estado) se destruyó también.
 
 <DiagramGroup>
 
@@ -799,7 +799,7 @@ function Counter({ person }) {
     >
       <h1>{person}'s score: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -831,7 +831,7 @@ Actualmente, cuando se cambia de jugador, la puntuación se conserva. Los dos `C
 
 Pero conceptualmente, en esta aplicación deberían ser dos contadores separados. Podrían aparecer en el mismo lugar en la UI, pero uno es un contador para Taylor, y otro es un contador para Sarah.
 
-Hay dos maneras de restablecer el estado al cambiar entre ellos:
+Hay dos maneras de reiniciar el estado al cambiar entre ellos:
 
 1. Renderizar los componentes en diferentes posiciones
 2. Dar a cada componente una identidad explícita con `key`.
@@ -882,7 +882,7 @@ function Counter({ person }) {
     >
       <h1>{person}'s score: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -939,9 +939,9 @@ Pulsando "next" de nuevo
 
 Esta solución es conveniente cuando sólo tienes unos pocos componentes independientes renderizados en el mismo lugar. En este ejemplo, sólo tienes dos, por lo que no es una molestia renderizar ambos por separado en el JSX.
 
-### Option 2: Opción 2: Restablecer el estado con _key_ {/*option-2-resetting-state-with-a-key*/}
+### Option 2: Opción 2: Reiniciar el estado con una _key_ {/*option-2-resetting-state-with-a-key*/}
 
-También hay otra forma, más genérica, de restablecer el estado de un componente.
+También hay otra forma, más genérica, de reiniciar el estado de un componente.
 
 Es posible que hayas visto _`key`_ al [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) Las _keys_ no son sólo para las listas. Puedes usar _keys_ para que React distinga entre cualquier componente. Por defecto, React utiliza el orden dentro del padre ("primer contador", "segundo contador") para discernir entre los componentes. Pero las _keys_ te permiten decirle a React que no es sólo un *primer* contador, o un *segundo* contador, sino un contador específico; por ejemplo, el contador de *Taylor*. De esta manera, React conocerá el contador de *Taylor* dondequiera que aparezca en el árbol!
 
@@ -987,7 +987,7 @@ function Counter({ person }) {
     >
       <h1>{person}'s score: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -1015,7 +1015,7 @@ h1 {
 
 </Sandpack>
 
-El cambio entre Taylor y Sarah no conserva el estado. Esto se debe a que **le asignaste diferentes `key`s:**
+El cambio entre Taylor y Sarah no preserva el estado. Esto se debe a que **le asignaste diferentes `key`s:**
 
 ```js
 {isPlayerA ? (
@@ -1033,9 +1033,9 @@ Especificar una _`key`_ le dice a React que use la propia _`key`_ como parte de 
 
 </Note>
 
-### Restablecer un formulario con una _key_ {/*resetting-a-form-with-a-key*/}
+### Reiniciar un formulario con una _key_ {/*resetting-a-form-with-a-key*/}
 
-Restablecer el estado con una _key_ es especialmente útil cuando se trata de formularios.
+Reiniciar el estado con una _key_ es especialmente útil cuando se trata de formularios.
 
 En esta aplicación de chat, el componente `<Chat>` contiene el estado del cuadro de texto:
 
@@ -1239,7 +1239,7 @@ textarea {
 
 <DeepDive>
 
-#### Preserving state for removed components {/*preserving-state-for-removed-components*/}
+#### Preservar el estado de los componentes removidos {/*preserving-state-for-removed-components*/}
 
 En una aplicación de chat real, probablemente querrás recuperar el estado de la entrada cuando el usuario vuelva a seleccionar el destinatario anterior. Hay algunas maneras de mantener el estado "vivo" para un componente que ya no es visible:
 
@@ -1255,8 +1255,8 @@ Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptua
 
 - React mantiene el estado mientras el mismo componente se renderice en la misma posición.
 - El estado no se mantiene en las etiquetas JSX. Se asocia a la posición del árbol en la que se coloca ese JSX.
-- Puedes forzar a un subárbol a restablecer su estado dándole una _key_ diferente.
-- No anides las definiciones de los componentes, o restablecerás el estado por accidente.
+- Puedes forzar a un subárbol a reiniciar su estado dándole una _key_ diferente.
+- No anides las definiciones de los componentes, o reiniciarás el estado por accidente.
 
 </Recap>
 
@@ -1266,7 +1266,7 @@ Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptua
 
 #### Corregir la desaparición del texto de entrada {/*fix-disappearing-input-text*/}
 
-Este ejemplo muestra un mensaje cuando se pulsa el botón. Sin embargo, al pulsar el botón también se reinicia accidentalmente la entrada. ¿Por qué ocurre esto? Arréglalo para que al pulsar el botón no se restablezca el texto de entrada.
+Este ejemplo muestra un mensaje cuando se pulsa el botón. Sin embargo, al pulsar el botón también se reinicia accidentalmente la entrada. ¿Por qué ocurre esto? Arréglalo para que al pulsar el botón no se reinicie el texto de entrada.
 
 <Sandpack>
 
@@ -1315,7 +1315,7 @@ textarea { display: block; margin: 10px 0; }
 
 <Solution>
 
-El problema es que `Form` se renderiza en diferentes posiciones. En la rama `if`, es el segundo hijo del `<div>`, pero en la rama `else`, es el primer hijo. Por lo tanto, el tipo de componente en cada posición cambia. La primera posición cambia entre tener un `p` y un `Form`, mientras que la segunda posición cambia entre tener un `Form` y un `button`. React restablece el estado cada vez que cambia el tipo de componente.
+El problema es que `Form` se renderiza en diferentes posiciones. En la rama `if`, es el segundo hijo del `<div>`, pero en la rama `else`, es el primer hijo. Por lo tanto, el tipo de componente en cada posición cambia. La primera posición cambia entre tener un `p` y un `Form`, mientras que la segunda posición cambia entre tener un `Form` y un `button`. React reinicia el estado cada vez que cambia el tipo de componente.
 
 La solución más sencilla es unificar las ramas para que `Form` se renderice siempre en la misma posición:
 
@@ -1549,11 +1549,11 @@ label { display: block; margin: 10px 0; }
 
 </Solution>
 
-#### Restablecer un formulario detallado {/*reset-a-detail-form*/}
+#### Reiniciar un formulario detallado {/*reset-a-detail-form*/}
 
-Esta es una lista de contactos editable. Puedes editar los datos del contacto seleccionado y luego pulsar "Save" para actualizarlo, o "Reset" para deshacer los cambios.
+Esta es una lista de contactos editable. Puedes editar los datos del contacto seleccionado y luego pulsar "Guardar" para actualizarlo, o "Reiniciar" para deshacer los cambios.
 
-Cuando seleccionas un contacto diferente (por ejemplo, Alicia), el estado se actualiza pero el formulario sigue mostrando los detalles del contacto anterior. Arréglalo para que el formulario se restablezca cuando cambie el contacto seleccionado.
+Cuando seleccionas un contacto diferente (por ejemplo, Alicia), el estado se actualiza pero el formulario sigue mostrando los detalles del contacto anterior. Arréglalo para que el formulario se reinicie cuando cambie el contacto seleccionado.
 
 <Sandpack>
 
@@ -1668,13 +1668,13 @@ export default function EditContact({ initialData, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Guardar
       </button>
       <button onClick={() => {
         setName(initialData.name);
         setEmail(initialData.email);
       }}>
-        Reset
+        Reiniciar
       </button>
     </section>
   );
@@ -1705,7 +1705,7 @@ button {
 
 <Solution>
 
-Proporciona una `key={selectedId}` al componente `EditContact`. De esta manera, al cambiar entre diferentes contactos se restablecerá el formulario:
+Proporciona una `key={selectedId}` al componente `EditContact`. De esta manera, al cambiar entre diferentes contactos se reiniciará el formulario:
 
 <Sandpack>
 
@@ -1821,13 +1821,13 @@ export default function EditContact({ initialData, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Guardar
       </button>
       <button onClick={() => {
         setName(initialData.name);
         setEmail(initialData.email);
       }}>
-        Reset
+        Reiniciar
       </button>
     </section>
   );

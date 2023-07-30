@@ -438,7 +438,7 @@ Observa el botón "Mostrar solución" en la esquina inferior izquierda. Es útil
 
 ### Desarrolla una intuición con diagramas e ilustraciones {/*build-an-intuition-with-diagrams-and-illustrations*/}
 
-Cuando no pudimos descubrir cómo explicar algo solo con código y palabras, hemos agregado diagramas que ayudan a proporcionar cierta intuición. Por ejemplo, aquí hay uno de los diagramas de [Conservar y reiniciar el estado](/learn/preserving-and-resetting-state):
+Cuando no pudimos descubrir cómo explicar algo solo con código y palabras, hemos agregado diagramas que ayudan a proporcionar cierta intuición. Por ejemplo, aquí hay uno de los diagramas de [Preservar y reiniciar el estado](/learn/preserving-and-resetting-state):
 
 <Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagrama con tres secciones, con una flecha que transiciona entre cada sección. La primera sección contiene un componente de React etiquetado como 'div' con un único hijo etiquetado como 'section', el cual tiene un único hijo etiquetado como 'Counter' que contiene una burbuja de estado etiquetada como 'count' con un valor de 3. En la sección del medio, el mismo componente 'div' padre se encuentra presente, pero los componentes hijos han sido eliminados, indicado por una imagen de 'prueba' amarilla. La tercera sección tiene nuevamente el mismo componente 'div' padre, ahora con un nuevo hijo etiquetado como 'div', resaltado en amarillo, y también con un nuevo hijo etiquetado como 'Counter' que contiene una burbuja de estado etiquetada como 'count' con un valor de 0, todos ellos resaltados en amarillo.">
 
@@ -508,7 +508,7 @@ En este ejemplo, la variables de estado `text` almacena un string. Cuando escrib
 import { useState } from 'react';
 
 export default function MyInput() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('hola');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -518,8 +518,8 @@ export default function MyInput() {
     <>
       <input value={text} onChange={handleChange} />
       <p>Escribiste: {text}</p>
-      <button onClick={() => setText('hello')}>
-        Restablecer
+      <button onClick={() => setText('hola')}>
+        Reiniciar
       </button>
     </>
   );

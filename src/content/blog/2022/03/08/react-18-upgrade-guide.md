@@ -234,7 +234,7 @@ React 18 también introduce nuevas API para la representación concurrente, como
 
 ## Actualizaciones en Strict Mode {/*updates-to-strict-mode*/}
 
-En el futuro, nos gustaría agregar una función que permita a React agregar y eliminar secciones de la interfaz de usuario mientras se conserva el estado. Por ejemplo, cuando un usuario cambia de pestaña en una pantalla y regresa, React debería mostrar de inmediato la pantalla anterior. Para lograr esto, React desmontaría y volvería a montar árboles utilizando el mismo estado de componente que antes.
+En el futuro, nos gustaría agregar una función que permita a React agregar y eliminar secciones de la interfaz de usuario mientras se preserva el estado. Por ejemplo, cuando un usuario cambia de pestaña en una pantalla y regresa, React debería mostrar de inmediato la pantalla anterior. Para lograr esto, React desmontaría y volvería a montar árboles utilizando el mismo estado de componente que antes.
 
 Esta función brindará un mejor rendimiento por defecto en React, pero requiere que los componentes sean resistentes a que los efectos se monten y desmonten varias veces. La mayoría de los efectos funcionarán sin cambios, pero algunos efectos asumen que solo se montan o desmontan una vez.
 

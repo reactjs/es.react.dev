@@ -89,7 +89,7 @@ Renderiza `<textarea>` para mostrar un text area. Puedes especificar su tamaño 
 export default function NewPost() {
   return (
     <label>
-      Write your post:
+      Escribe tu mensaje:
       <textarea name="postContent" rows={4} cols={40} />
     </label>
   );
@@ -123,7 +123,7 @@ export default function Form() {
   return (
     <>
       <label htmlFor={postTextAreaId}>
-        Write your post:
+        Escribe tu mensaje:
       </label>
       <textarea
         id={postTextAreaId}
@@ -154,10 +154,10 @@ Opcionalmente puedes especificar el valor inicial de un text area. Pásalo a tra
 export default function EditPost() {
   return (
     <label>
-      Edit your post:
+      Edita tu mensaje:
       <textarea
         name="postContent"
-        defaultValue="I really enjoyed biking yesterday!"
+        defaultValue="¡Yo realmente disfruté del ciclismo ayer!"
         rows={4}
         cols={40}
       />
@@ -186,7 +186,6 @@ A diferencia de HTML, no es posible pasar el texto inicial como `<textarea>Algú
 ### Leer el valor de text area al enviar un formulario {/*reading-the-text-area-value-when-submitting-a-form*/}
 
  Agrega un [`<form>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) alrededor de tu text area con un [`<button type="submit">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit) dentro. Este llamará a tu controlador de evento `<form onSubmit>`. Por defecto, el navegador enviará los datos del formulario a el URL actual y actualizará la página. Puedes sobrescribir ese comportamiento llamando `e.preventDefault()`. Para leer los datos del formulario, usa [`new FormData(e.target)`](https://developer.mozilla.org/es/docs/Web/API/FormData).
-
 <Sandpack>
 
 ```js
@@ -210,20 +209,20 @@ export default function EditPost() {
   return (
     <form method="post" onSubmit={handleSubmit}>
       <label>
-        Post title: <input name="postTitle" defaultValue="Biking" />
+        Título del mensaje: <input name="postTitle" defaultValue="Ciclismo" />
       </label>
       <label>
-        Edit your post:
+        Edita tu mensaje:
         <textarea
           name="postContent"
-          defaultValue="I really enjoyed biking yesterday!"
+          defaultValue="¡Yo realmente disfruté del ciclismo ayer!"
           rows={4}
           cols={40}
         />
       </label>
       <hr />
-      <button type="reset">Reset edits</button>
-      <button type="submit">Save post</button>
+      <button type="reset">Reiniciar edición</button>
+      <button type="submit">Guardar mensaje</button>
     </form>
   );
 }
@@ -278,11 +277,11 @@ import { useState } from 'react';
 import MarkdownPreview from './MarkdownPreview.js';
 
 export default function MarkdownEditor() {
-  const [postContent, setPostContent] = useState('_Hello,_ **Markdown**!');
+  const [postContent, setPostContent] = useState('¡_Hola,_ **Marcado**!');
   return (
     <>
       <label>
-        Enter some markdown:
+        Ingrese algún marcado:
         <textarea
           value={postContent}
           onChange={e => setPostContent(e.target.value)}

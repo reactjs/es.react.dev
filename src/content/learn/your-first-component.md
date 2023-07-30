@@ -92,7 +92,7 @@ Con `function Profile() { }` defines una función con el nombre `Profile`.
 
 </Pitfall>
 
-### Paso 3: Añade marcado {/*step-3-add-markup*/}
+### Paso 3: Agrega marcado {/*step-3-add-markup*/}
 
 El componente devuelve una etiqueta `<img />` con atributos `src` y `alt`. `<img />` se escribe como en HTML, ¡pero en realidad es JavaScript por detrás! Esta sintaxis se llama [JSX](/learn/writing-markup-with-jsx), y te permite incorporar marcado dentro de JavaScript.
 

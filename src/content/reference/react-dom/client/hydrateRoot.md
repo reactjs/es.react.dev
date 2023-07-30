@@ -232,20 +232,20 @@ hydrateRoot(document, <App />);
 
 ---
 
-### Suppressing unavoidable hydration mismatch errors {/*suppressing-unavoidable-hydration-mismatch-errors*/}
+### Suprimir errores inevitables de desajuste de hidratación {/*suppressing-unavoidable-hydration-mismatch-errors*/}
 
-If a single element’s attribute or text content is unavoidably different between the server and the client (for example, a timestamp), you may silence the hydration mismatch warning.
+Si el atributo o contenido de texto de un único elemento es inevitablemente diferente entre el servidor y el cliente (por ejemplo, una marca de tiempo), puede silenciar la advertencia de desajuste de hidratación.
 
-To silence hydration warnings on an element, add `suppressHydrationWarning={true}`:
+Para silenciar las advertencias de hidratación en un elemento, agrega `suppressHydrationWarning={true}`:
 
 <Sandpack>
 
 ```html public/index.html
 <!--
-  HTML content inside <div id="root">...</div>
-  was generated from App by react-dom/server.
+  El contenido HTML dentro de <div id="root">...</div>
+  fue generado desde App por react-dom/server.
 -->
-<div id="root"><h1>Current Date: <!-- -->01/01/2020</h1></div>
+<div id="root" ><h1>Fecha actual: <!-- -->01/01/2020</h1></div>
 ```
 
 ```js index.js
@@ -260,7 +260,7 @@ hydrateRoot(document.getElementById('root'), <App />);
 export default function App() {
   return (
     <h1 suppressHydrationWarning={true}>
-      Current Date: {new Date().toLocaleDateString()}
+      Fecha actual: {new Date().toLocaleDateString()}
     </h1>
   );
 }
@@ -268,22 +268,22 @@ export default function App() {
 
 </Sandpack>
 
-This only works one level deep, and is intended to be an escape hatch. Don’t overuse it. Unless it’s text content, React still won’t attempt to patch it up, so it may remain inconsistent until future updates.
+Esto sólo funciona a un nivel de profundidad, y pretende ser una vía de escape. No abuses de su uso. A menos que sea contenido de texto, React aún no intentará parchearlo, por lo que puede permanecer inconsistente hasta futuras actualizaciones.
 
 ---
 
-### Handling different client and server content {/*handling-different-client-and-server-content*/}
+### Manejar diferentes contenidos de cliente y servidor {/*handling-different-client-and-server-content*/}
 
-If you intentionally need to render something different on the server and the client, you can do a two-pass rendering. Components that render something different on the client can read a [state variable](/reference/react/useState) like `isClient`, which you can set to `true` in an [Effect](/reference/react/useEffect):
+Si intencionalmente necesitas renderizar algo diferente en el servidor y en el cliente, puedes hacer un renderizado de dos pasadas. Los componentes que renderizan algo diferente en el cliente pueden leer una [variable de estado](/reference/react/useState) como `isClient`, que puedes establecer en `true` en un [Efecto](/reference/react/useEffect):
 
 <Sandpack>
 
 ```html public/index.html
 <!--
-  HTML content inside <div id="root">...</div>
-  was generated from App by react-dom/server.
+  El contenido HTML dentro de <div id="root">...</div>
+  fue generado desde App por react-dom/server.
 -->
-<div id="root"><h1>Is Server</h1></div>
+<div id="root"><h1>Es Servidor</h1></div>
 ```
 
 ```js index.js
@@ -306,7 +306,7 @@ export default function App() {
 
   return (
     <h1>
-      {isClient ? 'Is Client' : 'Is Server'}
+      {isClient ? 'Es Cliente' : 'Es Servidor'}
     </h1>
   );
 }
@@ -314,11 +314,11 @@ export default function App() {
 
 </Sandpack>
 
-This way the initial render pass will render the same content as the server, avoiding mismatches, but an additional pass will happen synchronously right after hydration.
+De esta forma el pase de render inicial renderizará el mismo contenido que el servidor, evitando desajustes, pero un pase adicional sucederá de forma sincrónica justo después de la hidratación.
 
 <Pitfall>
 
-This approach makes hydration slower because your components have to render twice. Be mindful of the user experience on slow connections. The JavaScript code may load significantly later than the initial HTML render, so rendering a different UI immediately after hydration may also feel jarring to the user.
+Este enfoque hace que la hidratación sea más lenta porque sus componentes tienen que renderizar dos veces. Tenga en cuenta la experiencia del usuario en conexiones lentas. El código JavaScript puede cargarse significativamente más tarde que el renderizado HTML inicial, por lo que renderizar una interfaz de usuario diferente inmediatamente después de la hidratación también puede resultar molesto para el usuario.
 
 </Pitfall>
 

@@ -87,7 +87,7 @@ export default function AddTask({onAddTask}) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
@@ -96,7 +96,7 @@ export default function AddTask({onAddTask}) {
           setText('');
           onAddTask(text);
         }}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -133,14 +133,14 @@ function Task({task, onChange, onDelete}) {
             });
           }}
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditing(false)}>Guardar</button>
       </>
     );
   } else {
     taskContent = (
       <>
         {task.text}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button onClick={() => setIsEditing(true)}>Editar</button>
       </>
     );
   }
@@ -222,8 +222,8 @@ function handleDeleteTask(taskId) {
 
 Elimina toda la lógica de asignación de estado. Lo que queda son estos tres controladores de eventos:
 
-- `handleAddTask(text)` se llama cuando el usuario presiona "Add".
-- `handleChangeTask(task)` se llama cuando el usuario cambia una tarea o presiona "Save".
+- `handleAddTask(text)` se llama cuando el usuario presiona "Agregar".
+- `handleChangeTask(task)` se llama cuando el usuario cambia una tarea o presiona "Guardar".
 - `handleDeleteTask(taskId)` se llama cuando el usuario presiona "Delete".
 
 Manejar el estado con reducers es ligeramente diferente a asignar directamente el estado. En lugar de decirle a React "qué hacer" al asignar el estado, especificas "qué acaba de hacer el usuario" despachando "acciones" desde tus controladores de eventos. (¡La lógica de actualización de estado estará en otro lugar!) Entonces, en lugar de "asignar `tasks`" a través de un controlador de evento, estás despachando una acción de "tarea agregada/cambiada/borrada (added/changed/deleted)". Esta forma describe más la intención del usuario.
@@ -582,7 +582,7 @@ export default function AddTask({onAddTask}) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
@@ -591,7 +591,7 @@ export default function AddTask({onAddTask}) {
           setText('');
           onAddTask(text);
         }}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -628,14 +628,14 @@ function Task({task, onChange, onDelete}) {
             });
           }}
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditing(false)}>Guardar</button>
       </>
     );
   } else {
     taskContent = (
       <>
         {task.text}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button onClick={() => setIsEditing(true)}>Editar</button>
       </>
     );
   }
@@ -770,7 +770,7 @@ export default function AddTask({onAddTask}) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
@@ -779,7 +779,7 @@ export default function AddTask({onAddTask}) {
           setText('');
           onAddTask(text);
         }}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -816,14 +816,14 @@ function Task({task, onChange, onDelete}) {
             });
           }}
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditing(false)}>Guardar</button>
       </>
     );
   } else {
     taskContent = (
       <>
         {task.text}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button onClick={() => setIsEditing(true)}>Editar</button>
       </>
     );
   }
@@ -881,7 +881,7 @@ Recomendamos utilizar un reducer si a menudo encuentras errores debidos a actual
 Ten en cuenta estos dos consejos al escribir reducers:
 
 - **Los reducers deben ser puros.** Al igual que las [funciones de actualización de estado](/learn/queueing-a-series-of-state-updates), los reducers ¡se ejecutan durante el renderizado! (Las *actions* se ponen en cola hasta el siguiente renderizado) Esto significa que los reducers [deben ser puros](/learn/keeping-components-pure) —la misma entrada siempre produce el mismo resultado—. No deben enviar peticiones de red, programar *timeouts*, o realizar ningún tipo de *efecto secundario* (operaciones con impacto fuera del componente). Deben actualizar [objetos](/learn/updating-objects-in-state) y [arrays](/learn/updating-arrays-in-state) sin mutaciones.
-- **Cada acción describe una única interacción del usuario, incluso si eso conduce a múltiples cambios en los datos.** Por ejemplo, si un usuario presiona "Reset" en un formulario con cinco campos manejados por un reducer, tiene más sentido despachar una acción `reset_form` en lugar de cinco acciones de `set_field`. Si registras cada acción en un reducer, ese registro debería ser suficientemente claro como para reconstruir qué interacciones o respuestas pasaron y en que orden. ¡Esto ayuda en la depuración!
+- **Cada acción describe una única interacción del usuario, incluso si eso conduce a múltiples cambios en los datos.** Por ejemplo, si un usuario presiona "Reiniciar" en un formulario con cinco campos manejados por un reducer, tiene más sentido despachar una acción `reset_form` en lugar de cinco acciones de `set_field`. Si registras cada acción en un reducer, ese registro debería ser suficientemente claro como para reconstruir qué interacciones o respuestas pasaron y en que orden. ¡Esto ayuda en la depuración!
 
 ## Escribir reducers concisos con Immer {/*writing-concise-reducers-with-immer*/}
 
@@ -972,7 +972,7 @@ export default function AddTask({onAddTask}) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
@@ -981,7 +981,7 @@ export default function AddTask({onAddTask}) {
           setText('');
           onAddTask(text);
         }}>
-        Add
+        Agregar
       </button>
     </>
   );
@@ -1018,14 +1018,14 @@ function Task({task, onChange, onDelete}) {
             });
           }}
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditing(false)}>Guardar</button>
       </>
     );
   } else {
     taskContent = (
       <>
         {task.text}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button onClick={() => setIsEditing(true)}>Editar</button>
       </>
     );
   }
