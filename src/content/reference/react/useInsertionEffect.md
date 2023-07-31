@@ -10,7 +10,7 @@ title: useInsertionEffect
 
 <Intro>
 
-`useInsertionEffect` es una versión de [`useEffect`](/reference/react/useEffect) que se dispara antes de cualquier mutación del DOM.
+`useInsertionEffect` permite insertar elementos en el DOM antes de que se disparen los efectos de diseño.
 
 ```js
 useInsertionEffect(setup, dependencies?)
@@ -52,12 +52,11 @@ function useCSS(rule) {
 
 `useInsertionEffect` devuelve `undefined`.
 
-#### Advertencias {/*caveats*/}
-
-* Los Efectos que sólo se ejecutan en el cliente. No se ejecutan durante el renderizado en el servidor.
-* No puedes actualizar el estado dentro de `useInsertionEffect`.
-* En el tiempo en que `useInsertionEffect` se ejecuta, las referencias aún no han sido acopladas y el DOM todavía no ha sido actualizado.
-
+* Effects only run on the client. They don't run during server rendering.
+* You can't update state from inside `useInsertionEffect`.
+* By the time `useInsertionEffect` runs, refs are not attached yet.
+* `useInsertionEffect` may run either before or after the DOM has been updated. You shouldn't rely on the DOM being updated at any particular time.
+* Unlike other types of Effects, which fire cleanup for every Effect and then setup for every Effect, `useInsertionEffect` will fire both cleanup and setup one component at a time. This results in an "interleaving" of the cleanup and setup functions.
 ---
 
 ## Uso {/*usage*/}
