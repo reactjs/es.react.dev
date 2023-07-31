@@ -16,7 +16,7 @@ const value = useContext(SomeContext)
 
 ---
 
-## Referencias {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useContext(SomeContext)` {/*usecontext*/}
 

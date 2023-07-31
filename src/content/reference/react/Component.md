@@ -947,7 +947,7 @@ class Button extends Component {
   };
 
   render() {
-    return <button className={this.props.color}>click me</button>;
+    return <button className={this.props.color}>Hazme clic</button>;
   }
 }
 ```

@@ -55,12 +55,12 @@ export default function Counter() {
 
   function handleClick() {
     ref.current = ref.current + 1;
-    alert('Has hecho clic ' + ref.current + ' veces!');
+    alert('Hiciste clic ' + ref.current + ' veces!');
   }
 
   return (
     <button onClick={handleClick}>
-      ¡Clic aquí!
+      ¡Hazme clic!
     </button>
   );
 }
@@ -197,7 +197,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      Has hecho {count} clics
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -224,7 +224,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      Has hecho {countRef.current} clics
+      Hiciste clic {countRef.current} veces
     </button>
   );
 }
@@ -579,7 +579,7 @@ button { display: block; margin: 10px; }
 
 #### Lee el último estado {/*read-the-latest-state*/}
 
-En este ejemplo, después de que presionas "Enviar", hay un pequeño retraso antes de que el mensaje se muestre. Escribe "hola", presiona Enviar, y luego rápidamente edita el input otra vez. A pesar de tus cambios, la alerta seguirá mostrando "hola" (que fue el valor del estado [en el momento](/learn/state-as-a-snapshot#state-over-time) en que se presionó el botón).
+En este ejemplo, después de que presionas "Enviar", hay un pequeño retraso antes de que el mensaje se muestre. Escribe "hola", presiona Enviar, y luego rápidamente edita el input otra vez. A pesar de tus cambios, la alerta seguirá mostrando "hola" (que fue el valor del estado [en el momento](/learn/state-as-a-snapshot#state-over-time) en el que hiciste clic en el botón).
 
 Normalmente, este es el comportamiento que quieres en una aplicación. Sin embargo, en ocasiones quieres que algún código asíncrono lea la *última* versión de algún estado. ¿Se te ocurre alguna manera de hacer que la alerta muestre el texto *actual* del input en lugar del que estaba en el momento del clic?
 

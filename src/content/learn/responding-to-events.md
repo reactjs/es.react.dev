@@ -45,12 +45,12 @@ Puedes hacer que muestre un mensaje cuando un usuario haga clic siguiendo estos 
 ```js
 export default function Button() {
   function handleClick() {
-    alert('¡Me cliqueaste!');
+    alert('¡Me hiciste clic!');
   }
 
   return (
     <button onClick={handleClick}>
-      Cliquéame
+      Hazme clic
     </button>
   );
 }
@@ -73,7 +73,7 @@ Por otro lado, puedes definir un controlador de evento en línea en el JSX:
 
 ```jsx
 <button onClick={function handleClick() {
-  alert('¡Me cliqueaste!');
+  alert('¡Me hiciste clic!');
 }}>
 ```
 
@@ -81,7 +81,7 @@ O, de manera más corta, usando una función flecha:
 
 ```jsx
 <button onClick={() => {
-  alert('¡Me cliqueaste!');
+  alert('¡Me hiciste clic!');
 }}>
 ```
 
@@ -109,14 +109,14 @@ Cuando escribes código en línea, la misma trampa se presenta de otra manera:
 Pasar código en línea así no lo ejecutará al hacer clic; lo ejecutará cada vez que el componente se renderice:
 
 ```jsx
-// Esta alerta se ejecuta cuando el componente se renderiza, ¡no cuando se hace clic!
-<button onClick={alert('¡Me cliqueaste!')}>
+// Esta alerta se ejecuta cuando el componente se renderiza, no cuando ¡hiciste clic!
+<button onClick={alert('¡Me hiciste clic!')}>
 ```
 
 Si quieres definir un controlador de evento en línea, envuélvelo en una función anónima de esta forma:
 
 ```jsx
-<button onClick={() => alert('¡Me cliqueaste!')}>
+<button onClick={() => alert('¡Me hiciste clic!')}>
 ```
 
 En lugar de ejecutar el código que está dentro cada vez que se renderiza, esto crea una función para que se llame más tarde.
@@ -132,7 +132,7 @@ En ambos casos, lo que quieres pasar es una función:
 
 ### Leyendo las props en controladores de eventos {/*reading-props-in-event-handlers*/}
 
-Como los controladores de eventos son declarados dentro de un componente, tienen acceso a las props del componente. Este es  un botón que, cuando recibe el clic, muestra una alerta con su prop `message`:
+Como los controladores de eventos son declarados dentro de un componente, tienen acceso a las props del componente. Este es  un botón que, cuando se hace clic, muestra una alerta con su prop `message`:
 
 <Sandpack>
 
@@ -332,7 +332,7 @@ Este `<div>` contiene dos botones. Tanto el `<div>` *como* cada botón tienen su
 export default function Toolbar() {
   return (
     <div className="Toolbar" onClick={() => {
-      alert('¡Cliqueaste el Toolbar!');
+      alert('¡Hiciste clic en la barra de herramientas!');
     }}>
       <button onClick={() => alert('¡Reproduciendo!')}>
         Reproducir película
@@ -386,7 +386,7 @@ function Button({ onClick, children }) {
 export default function Toolbar() {
   return (
     <div className="Toolbar" onClick={() => {
-      alert('¡Cliqueaste el Toolbar!');
+      alert('¡Hiciste clic en la barra de herramientas!');
     }}>
       <Button onClick={() => alert('¡Reproduciendo!')}>
         Reproducir película
@@ -436,7 +436,7 @@ En raros casos, puede que necesites capturar todos los eventos en elementos hijo
 Cada evento se propaga en tres fases: 
 
 1. Viaja hacia abajo, llamando a todos los controladores `onClickCapture`.
-2. Ejecuta el controlador `onClick` del elemento pulsado. 
+2. Ejecuta el controlador `onClick` del elemento en que se hace clic. 
 3. Viaja hacia arriba, llamando a todos los controladores `onClick`.
 
 Los eventos de captura son útiles para código como enrutadores o para analítica, pero probablemente no lo usarás en código de aplicaciones.
@@ -466,7 +466,7 @@ Si dependes de la propagación y es difícil rastrear cuales controladores se ej
 
 ### Evitar el comportamiento por defecto {/*preventing-default-behavior*/}
 
-Algunos eventos del navegador tienen comportamientos por defecto asociados a ellos. Por ejemplo, un evento submit de un `<form>`, que ocurre cuando se pulsa un botón que está dentro de él, por defecto recargará la página completa:
+Algunos eventos del navegador tienen comportamientos por defecto asociados a ellos. Por ejemplo, un evento submit de un `<form>`, que ocurre cuando se hace clic en un botón que está dentro de él, por defecto recargará la página completa:
 
 <Sandpack>
 

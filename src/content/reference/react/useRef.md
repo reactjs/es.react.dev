@@ -104,7 +104,7 @@ El cambio de una ref no desencadena un renderizado, por lo que las refs no son a
 
 #### Contador de clics {/*click-counter*/}
 
-Este componente utiliza una ref para llevar la cuenta de las veces que se ha pulsado el botón. Ten en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un controlador de evento.
+Este componente utiliza una ref para llevar la cuenta de las veces que hiciste clic en el botón. Ten en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un controlador de evento.
 
 <Sandpack>
 
@@ -116,12 +116,12 @@ export default function Counter() {
 
   function handleClick() {
     ref.current = ref.current + 1;
-    alert('You clicked ' + ref.current + ' times!');
+    alert('¡Hiciste clic ' + ref.current + ' veces!');
   }
 
   return (
     <button onClick={handleClick}>
-      Click me!
+      ¡Hazme clic!
     </button>
   );
 }

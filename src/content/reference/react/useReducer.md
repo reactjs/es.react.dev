@@ -1066,13 +1066,13 @@ Puede que obtengas un error que dice: `Too many re-renders. React limits the num
 
 ```js {1-2}
 // 🚩 Wrong: calls the handler during render
-return <button onClick={handleClick()}>Click me</button>
+return <button onClick={handleClick()}>Hazme clic</button>
 
 // ✅ Correct: passes down the event handler
-return <button onClick={handleClick}>Click me</button>
+return <button onClick={handleClick}>Hazme clic</button>
 
 // ✅ Correct: passes down an inline function
-return <button onClick={(e) => handleClick(e)}>Click me</button>
+return <button onClick={(e) => handleClick(e)}>Hazme clic</button>
 ```
 
 Si no puedes encontrar la causa de este error, haz clic en la flecha situada junto al error en la consola y busque en la pila de JavaScript la llamada específica a la función `dispatch` responsable del error.

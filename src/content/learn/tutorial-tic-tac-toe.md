@@ -709,7 +709,7 @@ Rellenemos el componente `Square` con una `X` al hacer clic en él. Declara una 
 ```js {2-4,9}
 function Square({ value }) {
   function handleClick() {
-    console.log('¡haz hecho clic!');
+    console.log('¡hiciste clic!');
   }
 
   return (
@@ -723,7 +723,7 @@ function Square({ value }) {
 }
 ```
 
-Si haces clic en un cuadrado ahora, deberías ver un registro que dice `"¡haz hecho clic!"` en la pestaña *Consola* en la parte inferior de la sección *Navegador* de CodeSandbox. Al hacer clic en el cuadrado más de una vez, se registrará `"¡haz hecho clic!"` de nuevo. Los registros repetidos en la consola con el mismo mensaje no crearán más líneas en la consola. En su lugar, verás un contador incremental al lado de su primer registro `"¡haz hecho clic!"`.
+Si haces clic en un cuadrado ahora, deberías ver un registro que dice `"¡hiciste clic!"` en la pestaña *Consola* en la parte inferior de la sección *Navegador* de CodeSandbox. Al hacer clic en el cuadrado más de una vez, se registrará `"¡hiciste clic!"` de nuevo. Los registros repetidos en la consola con el mismo mensaje no crearán más líneas en la consola. En su lugar, verás un contador incremental al lado de su primer registro `"¡hiciste clic!"`.
 
 <Note>
 
@@ -731,7 +731,7 @@ Si estás siguiendo este tutorial utilizando tu entorno de desarrollo local, deb
 
 </Note>
 
-Como siguiente paso, deseas que el componente `Square` "recuerde" que se hizo clic y lo rellene con una marca "X". Para "recordar" cosas, los componentes usan *estado*.
+Como siguiente paso, deseas que el componente `Square` "recuerde" que hiciste clic y lo rellene con una marca "X". Para "recordar" cosas, los componentes usan *estado*.
 
 React proporciona una función especial llamada `useState` que puedes llamar desde tu componente para permitirle "recordar" cosas. Almacenemos el valor actual del `Square` en el estado, y cambiémoslo cuando se haga clic en `Square`.
 
@@ -776,7 +776,7 @@ export default function Board() {
 }
 ```
 
-Ahora cambia `Square` para mostrar una "X" cuando se haga clic. Reemplaza el controlador de evento `console.log("¡haz hecho clic!");` con `setValue('X');`. Ahora tu componente `Square` se ve así:
+Ahora cambia `Square` para mostrar una "X" cuando se haga clic. Reemplaza el controlador de evento `console.log("¡hiciste clic!");` con `setValue('X');`. Ahora tu componente `Square` se ve así:
 
 ```js {5}
 function Square() {

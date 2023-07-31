@@ -285,12 +285,12 @@ Puedes responder a eventos declarando funciones *controladoras de eventos* dentr
 ```js {2-4,7}
 function MyButton() {
   function handleClick() {
-    alert('¡Me presionaste!');
+    alert('¡Me hiciste clic!');
   }
 
   return (
     <button onClick={handleClick}>
-      Presióname
+      Hazme clic
     </button>
   );
 }
@@ -300,7 +300,7 @@ function MyButton() {
 
 ## Actualizar la pantalla {/*updating-the-screen*/}
 
-A menudo, querrás que tu componente "recuerde" alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
+A menudo, querrás que tu componente "recuerde" alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que hiciste clic en un botón. Para lograrlo, añade *estado* a tu componente.
 
 Primero, importa [`useState`](/reference/react/useState) de React:
 
@@ -330,7 +330,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Presionado {count} veces
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -364,7 +364,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Presionado {count} veces
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -389,7 +389,7 @@ Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar 
 
 ## Compartir datos entre componentes {/*sharing-data-between-components*/}
 
-En el ejemplo anterior, cada `MyButton` tenía su propio `count` independiente, y cuando se hacía clic en cada botón, solo el `count` del botón cliqueado cambiaba:
+En el ejemplo anterior, cada `MyButton` tenía su propio `count` independiente, y cuando hiciste clic en cada botón, solo el `count` del botón en hiciste clic cambiaba:
 
 <DiagramGroup>
 
@@ -484,7 +484,7 @@ Finalmente, cambia `MyButton` para que *lea* las props que le pasaste desde el c
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Presionado {count} veces
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -518,7 +518,7 @@ export default function MyApp() {
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Presionado {count} veces
+      Hiciste clic {count} veces
     </button>
   );
 }

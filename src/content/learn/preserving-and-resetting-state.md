@@ -742,7 +742,7 @@ export default function MyComponent() {
       <MyTextField />
       <button onClick={() => {
         setCounter(counter + 1)
-      }}>Clicked {counter} times</button>
+      }}>Hiciste clic {counter} veces</button>
     </>
   );
 }

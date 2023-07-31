@@ -31,7 +31,7 @@ const root = hydrateRoot(domNode, reactNode);
 
 React se unirá al HTML que existe dentro de `domNode`, y se encargará de gestionar el DOM dentro de él. Una aplicación completamente construida con React normalmente sólo tendrá una llamada a `hydrateRoot` con su componente raíz.
 
-[Consulta los ejemplos anteriores.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -140,7 +140,7 @@ Para hidratar tu aplicación, React "adjuntará" la lógica de tus componentes a
   El contenido HTML dentro de <div id="root">...</div>
   fue generado a partir de App por react-dom/server.
 -->
-<div id="root"><h1>Hola, mundo!</h1><button>Me has hecho clic <!-- -->0<!-- --> veces</button></div>
+<div id="root"><h1>Hola, mundo!</h1><button>Me hiciste clic <!-- -->0<!-- --> veces</button></div>
 ```
 
 ```js index.js active
@@ -170,7 +170,7 @@ function Counter() {
   const [count, setCount] = useState(0);
   return (
     <button onClick={() => setCount(count + 1)}>
-      Me has hecho clic {count} veces
+      Me hiciste clic {count} veces
     </button>
   );
 }

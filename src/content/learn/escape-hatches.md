@@ -41,12 +41,12 @@ export default function Counter() {
 
   function handleClick() {
     ref.current = ref.current + 1;
-    alert('¡Has hecho click ' + ref.current + ' veces!');
+    alert('¡Hiciste clic ' + ref.current + ' veces!');
   }
 
   return (
     <button onClick={handleClick}>
-      ¡Haz clic aquí!
+      ¡Hazme clic!
     </button>
   );
 }

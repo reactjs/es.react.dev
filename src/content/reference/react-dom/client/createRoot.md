@@ -69,7 +69,7 @@ root.render(<App />);
 
 React mostrará `<App />` en la raíz (`root`) y se encargará de administrar el DOM dentro de ella.
 
-[Ver más ejemplos abajo](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*root-render-parameters*/}
 
@@ -168,7 +168,7 @@ import { useState } from 'react';
 export default function App() {
   return (
     <>
-      <h1>Hello, world!</h1>
+      <h1>¡Hola, mundo!</h1>
       <Counter />
     </>
   );
@@ -178,7 +178,7 @@ function Counter() {
   const [count, setCount] = useState(0);
   return (
     <button onClick={() => setCount(count + 1)}>
-      You clicked me {count} times
+      Me hiciste clic {count} veces
     </button>
   );
 }

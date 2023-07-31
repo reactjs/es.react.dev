@@ -16,7 +16,7 @@ const [isPending, startTransition] = useTransition()
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useTransition()` {/*usetransition*/}
 

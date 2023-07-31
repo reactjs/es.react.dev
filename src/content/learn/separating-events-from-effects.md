@@ -31,7 +31,7 @@ Digamos que ya tienes el código implementado para ello, pero no estas seguro de
 
 ### Los controladores de eventos se ejecutan en respuesta a interacciones especificas {/*event-handlers-run-in-response-to-specific-interactions*/}
 
-Desde la perspectiva de un usuario, enviar un mensaje debería pasar *porque* específicamente se hizo click en el botón "Enviar". El usuario se molestará si tu envías su mensaje en otro momento o por cualquier otro motivo. Esta es la razón por la que enviar un mensaje debería de ser un controlador de Evento. Los controladores de eventos te permiten controlar interacciones especificas como por ejemplo, clicks:
+Desde la perspectiva del usuario, el envío de un mensaje debe producirse *porque* se hace clic en particular en el botón "Enviar". El usuario se enfadará bastante si envías su mensaje en cualquier otro momento o por cualquier otro motivo. Esta es la razón por la que enviar un mensaje debería ser un controlador de evento. Los controladores de eventos te permiten controlar interacciones específicas:
 
 ```js {4-6}
 function ChatRoom({ roomId }) {
@@ -44,7 +44,7 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <input value={message} onChange={e => setMessage(e.target.value)} />
-      <button onClick={handleSendClick}>Send</button>;
+      <button onClick={handleSendClick}>Enviar</button>;
     </>
   );
 }

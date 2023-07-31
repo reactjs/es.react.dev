@@ -40,7 +40,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Ver más ejemplos.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

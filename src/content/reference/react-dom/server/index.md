@@ -46,4 +46,4 @@ Estas APIs se eliminarán en una versión principal futura de React.
 
 </Deprecated>
 
-* [`renderToNodeStream`](/reference/react-dom/server/renderToNodeStream) renderiza un árbol de React a un [Node.js Readable stream.](https://nodejs.org/api/stream.html#readable-streams) (Obsoleto.)
+* [`renderToNodeStream`](/reference/react-dom/server/renderToNodeStream) renderiza un árbol de React a un [Node.js Readable stream.](https://nodejs.org/api/stream.html#readable-streams) (Obsoleta.)

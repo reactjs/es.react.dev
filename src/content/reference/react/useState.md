@@ -1204,13 +1204,13 @@ Es posible que recibas un error que diga: `Too many re-renders. React limits the
 
 ```js {1-2}
 // 🚩 Incorrecto: llama al controlador durante el procesamiento
-return <button onClick={handleClick()}>Haz click en mi</button>
+return <button onClick={handleClick()}>Hazme clic</button>
 
 // ✅ Correcto: pasa el controlador de evento
-return <button onClick={handleClick}>Haz click en mi</button>
+return <button onClick={handleClick}>Hazme clic</button>
 
 // ✅ Correcto: pasa una función en línea
-return <button onClick={(e) => handleClick(e)}>Haz click en mi</button>
+return <button onClick={(e) => handleClick(e)}>Hazme clic</button>
 ```
 
 Si no puedes encontrar la causa de este error, haz clic en la flecha al lado del error en la consola y mira a través de la pila de JavaScript para encontrar la llamada de función `set` específica responsable del error.
