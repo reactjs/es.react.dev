@@ -2513,7 +2513,8 @@ Sin embargo, imagina ahora que estás navegando entre dos perfiles de usuario di
 
 ---
 
-### Proporcionar un *fallback* para los errores del servidor y el contenido exclusivo del servidor {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
+### Proporcionar un _fallback_ para errores de servidor y contenido solo-cliente {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
+
 
 Si utilizas una de las [APIs de renderizado en el servidor con *streaming*](/reference/react-dom/server) (o un *framework* que depende de ellas), React también utilizará tus barreras de `<Suspense>` para manejar errores en el servidor. Si un componente lanza un error en el servidor, React no abortará el renderizado en el servidor. Lo que hará será encontrar el componente `<Suspense>` más cercano encima de este e incluirá su *fallback* (un *spinner*, por ejemplo) dentro del HTML generado en el  servidor. El usuario verá un *spinner* en lugar de un error.
 

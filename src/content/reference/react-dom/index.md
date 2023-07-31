@@ -39,5 +39,4 @@ Las siguientes APIs se eliminarán en una próxima versión mayor de React.
 * [`findDOMNode`](/reference/react-dom/findDOMNode) busca el nodo de DOM más cercano correspondiente a una instancia de componente de clase.
 * [`hydrate`](/reference/react-dom/hydrate) monta un árbol en el DOM creado a partir de HTML generado en el servidor. En su lugar, se recomienda usar [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
 * [`render`](/reference/react-dom/render) monta un árbol en el DOM. En su lugar, se recomienda usar [`createRoot`](/reference/react-dom/client/createRoot).
-* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) desmonta un árbol del DOM. En su lugar, se recomienda usar [`root.unmount()`.](/reference/react-dom/client/createRoot#root-unmount)
-
+* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) desmonta un árbol del DOM. En su lugar, se recomienda usar [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
