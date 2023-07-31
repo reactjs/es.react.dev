@@ -107,7 +107,7 @@ Al llamar a `root.unmount` se desmontarán todos los componentes de la raíz y s
 
 #### Devuelve {/*root-unmount-returns*/}
 
-`render` devuelve `undefined`.
+`root.unmount` devuelve `undefined`.
 
 #### Advertencias {/*root-unmount-caveats*/}
 

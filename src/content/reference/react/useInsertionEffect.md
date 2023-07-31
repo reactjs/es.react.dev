@@ -10,7 +10,7 @@ title: useInsertionEffect
 
 <Intro>
 
-`useInsertionEffect` permite insertar elementos en el DOM antes de que se disparen los efectos de diseño.
+`useInsertionEffect` permite insertar elementos en el DOM antes de que se dispare cualquier efecto de diseño.
 
 ```js
 useInsertionEffect(setup, dependencies?)
@@ -26,7 +26,7 @@ useInsertionEffect(setup, dependencies?)
 
 ### `useInsertionEffect(setup, dependencies?)` {/*useinsertioneffect*/}
 
-Llama a `useInsertionEffect` para insertar los estilos antes de cualquier mutación en el DOM:
+Llama a `useInsertionEffect` para insertar estilos antes de que se dispare cualquier efecto que pueda necesitar leer el diseño:
 
 ```js
 import { useInsertionEffect } from 'react';
@@ -44,7 +44,7 @@ function useCSS(rule) {
 
 #### Parámetros {/*parameters*/}
 
-* `setup`: La función con la lógica de tu Efecto. Tu función setup puede opcionalmente devolver una función de *limpieza*. Antes de que tu componente sea añadido primero al DOM, React ejecutará tu función setup. Después de cada re-renderizado con dependencias modificadas, React ejecutará primero la función de limpieza (si es que la habías incluido) con los valores antiguos y entonces ejecutará tu función setup con los nuevos valores. Antes de que tu componente sea eliminado del DOM, React ejecutará tu función de limpieza una última vez.
+* `setup`: La función con la lógica de tus Efectos. Tu función _setup_ también puede devolver opcionalmente una función de *limpieza*. Cuando tu componente es añadido al DOM, pero antes de que se dispare cualquier efecto de diseño, React ejecutará tu función _setup_. Después de cada re-renderizado con dependencias modificadas, React ejecutará primero la función de limpieza (si la has proporcionado) con los valores antiguos, y luego ejecutará tu función _setup_ con los nuevos valores. Cuando tu componente es removido del DOM, React ejecutará tu función de limpieza.
 
 * ***opcional** `dependencias`: La lista de todos los valores reactivos referenciados dentro del el código de `setup`. Los valores reactivos incluyen props, estado y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté correctamente especificado como dependencia. La lista de dependencias tienen que tener un número constante de elementos y que sean escritos en línea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor previo usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no especificas ninguna dependencia, tu Efecto se volverá a ejecutar después de cada renderizado del componente.
 
@@ -52,11 +52,13 @@ function useCSS(rule) {
 
 `useInsertionEffect` devuelve `undefined`.
 
-* Effects only run on the client. They don't run during server rendering.
-* You can't update state from inside `useInsertionEffect`.
-* By the time `useInsertionEffect` runs, refs are not attached yet.
-* `useInsertionEffect` may run either before or after the DOM has been updated. You shouldn't rely on the DOM being updated at any particular time.
-* Unlike other types of Effects, which fire cleanup for every Effect and then setup for every Effect, `useInsertionEffect` will fire both cleanup and setup one component at a time. This results in an "interleaving" of the cleanup and setup functions.
+#### Advertencias {/*caveats*/}
+
+* Los Efectos sólo se ejecutan en el cliente. No se ejecutan durante el renderizado del servidor.
+* No puedes actualizar el estado desde dentro de `useInsertionEffect`.
+* En el momento en que se ejecuta `useInsertionEffect`, las referencias aún no se han adjuntado.
+* `useInsertionEffect` puede ejecutarse antes o después de que el DOM haya sido actualizado. No debes confiar en que el DOM se actualice en un momento determinado.
+* A diferencia de otros tipos de Efectos, que disparan la limpieza por cada Efecto y luego el _setup_ por cada Efecto, `useInsertionEffect` disparará ambos, limpieza y _setup_, un componente a la vez. El resultado es un "intercalado" de funciones de limpieza y _setup_.
 ---
 
 ## Uso {/*usage*/}
@@ -86,7 +88,7 @@ Si usas CSS-en-JS, recomendamos la combinación de los dos primeros enfoques (ar
 
 El primer problema no se puede resolver, pero `useInsertionEffect` te ayuda a solucionar el segundo problema.
 
-Llama a `useInsertionEffect` para insertar los estilos antes de cualquier mutación del DOM:
+Llama a `useInsertionEffect` para insertar los estilos antes de que se disparen los efectos de diseño:
 
 ```js {4-11}
 // En tu biblioteca CSS-en-JS

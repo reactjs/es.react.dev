@@ -96,7 +96,7 @@ Estas propiedades DOM estándar también son compatibles con todos los component
 * `onDragStartCapture`: Una versión de `onDragStart` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onDrop`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drop_event): Una función controladora de evento [`DragEvent`](#dragevent-handler). Se dispara cuando se suelta algo en un objetivo de soltar válido.
 * `onDropCapture`: Una versión de `onDrop` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* `onFocus`: A [`FocusEvent`](#focusevent-handler). Se dispara cuando un elemento pierde el foco. A diferencia del evento de [`focus`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event) integrado del navegador, en React el evento `onFocus` se propaga.
+* `onFocus`: A [`FocusEvent`](#focusevent-handler). Se dispara cuando un elemento recibe el foco. A diferencia del evento de [`focus`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event) integrado del navegador, en React el evento `onFocus` se propaga.
 * `onFocusCapture`: Una versión de `onFocus` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onGotPointerCapture`](https://developer.mozilla.org/es/docs/Web/API/Element/gotpointercapture_event): Una función controladora de evento [`PointerEvent`](#pointerevent-handler). Se dispara cuando un elemento captura un puntero.
 * `onGotPointerCaptureCapture`: Una versión de `onGotPointerCapture` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
@@ -149,7 +149,6 @@ Estas propiedades DOM estándar también son compatibles con todos los component
 * [`onWheel`](https://developer.mozilla.org/es/docs/Web/API/Element/wheel_event): Una función controladora de evento [`WheelEvent`](#wheelevent-handler). Se dispara cuando el usuario gira un botón de rueda en un dispositivo señalador.
 * `onWheelCapture`: Una versión de `onWheel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`role`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles): Un string. Especifica el rol del elemento explícitamente para las tecnologías de asistencia.
-
 * [`slot`](https://developer.mozilla.org/en-US/docs/Web/API/Element/slot): Un string. Especifica el nombre del slot cuando se utiliza shadow DOM. En React, normalmente se logra un patrón equivalente al pasar JSX como props, por ejemplo `<Layout left={<Sidebar />} right={<Content />} />`.
 * [`spellCheck`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/spellcheck): Un booleano o `null`. Si explícitamente se establece en `true` o `false`, habilita o deshabilita la corrección ortográfica.
 * [`tabIndex`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/tabindex): Un número. Anula el comportamiento por defecto del botón Tab. [Evita utilizar valores distintos de -1 y 0.](https://www.tpgi.com/using-the-tabindex-attribute/)
@@ -169,7 +168,6 @@ Estos eventos se disparan sólo para los elementos [`<dialog>`](https://develope
 
 * [`onCancel`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/cancel_event): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando el usuario intenta cerrar el diálogo.
 * `onCancelCapture`: Una versión de `onCancel` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-
 * [`onClose`](https://developer.mozilla.org/es/docs/Web/API/HTMLDialogElement/close_event): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando un diálogo ha sido cerrado.
 * `onCloseCapture`: Una versión de `onClose` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 
@@ -177,7 +175,6 @@ Estos eventos sólo se disparan para los elementos [`<details>`](https://develop
 
 * [`onToggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement/toggle_event): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando el usuario cambia el estado de los detalles.
 * `onToggleCapture`: Una versión de `onToggle` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-
 
 Estos eventos se disparan para los elementos [`<img>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/img), [`<iframe>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/iframe), [`<object>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/object), [`<embed>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/embed), [`<link>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/link), and [SVG `<image>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_Image_Tag). A diferencia de los eventos del navegador, se propagan en React:
 
