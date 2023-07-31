@@ -1010,7 +1010,11 @@ Recomendamos utilizar [TypeScript](https://www.typescriptlang.org/) en lugar de 
 
 Si defines `static getDerivedStateFromError`, React lo llamará cuando un componente hijo (incluyendo componentes hijos distantes) arroje un error durante el rendering. Esto te permite mostrar un mensaje de error en lugar de limpiar la interfaz de usuario.
 
+<<<<<<< HEAD
 Por lo general, se utiliza junto con [`componentDidCatch`](#componentDidCatch), que te permite enviar el informe de errores a algún servicio de análisis. Un componente con estos métodos se llama una *línea de error*.
+=======
+Typically, it is used together with [`componentDidCatch`](#componentdidcatch) which lets you send the error report to some analytics service. A component with these methods is called an *error boundary.*
+>>>>>>> a472775b7c15f41b21865db1698113ca49ca95c4
 
 [Mira un ejemplo.](#catching-rendering-errors-with-an-error-boundary)
 
