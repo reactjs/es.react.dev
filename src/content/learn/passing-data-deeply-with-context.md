@@ -58,7 +58,7 @@ export default function Page() {
       <Heading level={3}>Sub-encabezado</Heading>
       <Heading level={4}>Sub-sub-encabezado</Heading>
       <Heading level={5}>Sub-sub-sub-encabezado</Heading>
-      <Heading level={6}>Sub-sub-sub-sub-heading</Heading>
+      <Heading level={6}>Sub-sub-sub-sub-encabezado</Heading>
     </Section>
   );
 }
