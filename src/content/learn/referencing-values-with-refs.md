@@ -428,7 +428,7 @@ export default function Toggle() {
     <button onClick={() => {
       isOnRef.current = !isOnRef.current;
     }}>
-      {isOnRef.current ? 'On' : 'Off'}
+      {isOnRef.current ? 'Encendido' : 'Apagado'}
     </button>
   );
 }

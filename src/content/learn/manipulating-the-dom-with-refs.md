@@ -769,7 +769,7 @@ export default function VideoPlayer() {
   return (
     <>
       <button onClick={handleClick}>
-        {isPlaying ? 'Pause' : 'Play'}
+        {isPlaying ? 'Pausar' : 'Reproducir'}
       </button>
       <video
         width="250"

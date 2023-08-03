@@ -227,7 +227,7 @@ Por ejemplo, digamos que tienes un arreglo de productos:
 
 ```js
 const products = [
-  { title: 'Repollo', id: 1 },
+  { title: 'Col', id: 1 },
   { title: 'Ajo', id: 2 },
   { title: 'Manzana', id: 3 },
 ];
@@ -253,7 +253,7 @@ Nota que `<li>` tiene un atributo `key` (llave). Para cada elemento en una lista
 
 ```js
 const products = [
-  { title: 'Repollo', isFruit: false, id: 1 },
+  { title: 'Col', isFruit: false, id: 1 },
   { title: 'Ajo', isFruit: false, id: 2 },
   { title: 'Manzana', isFruit: true, id: 3 },
 ];

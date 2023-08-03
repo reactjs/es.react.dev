@@ -33,7 +33,7 @@ A partir de los componentes, React crea un árbol de interfaz de usuario que Rea
 
 </DiagramGroup>
 
-## State is tied to a position in the tree {/*state-is-tied-to-a-position-in-the-tree*/}
+## El estado está atado a una posición en el árbol {/*state-is-tied-to-a-position-in-the-tree*/}
 
 Cuando se le da un estado a un componente, podrías pensar que el estado "vive" dentro del componente. Pero en realidad el estado se mantiene en React. React asocia cada pieza de estado que mantiene con el componente correcto gracias al lugar que ocupa ese componente en el árbol de la UI.
 
@@ -190,7 +190,7 @@ Actualización del estado
 </DiagramGroup>
 
 
-React mantendrá el estado mientras se renderice el mismo componente en la misma posición. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Render the second counter", y luego vuelve a añadirlo marcándola de nuevo:
+React mantendrá el estado mientras se renderice el mismo componente en la misma posición. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Renderizar el segundo contador", y luego vuelve a añadirlo marcándola de nuevo:
 
 <Sandpack>
 
@@ -211,7 +211,7 @@ export default function App() {
             setShowB(e.target.checked)
           }}
         />
-        Render the second counter
+        Renderizar el segundo contador
       </label>
     </div>
   );
@@ -316,7 +316,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Usar un estilo elegante
       </label>
     </div>
   );
@@ -415,7 +415,7 @@ export default function App() {
               setIsFancy(e.target.checked)
             }}
           />
-          Use fancy styling
+          Usar un estilo elegante
         </label>
       </div>
     );
@@ -431,7 +431,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Usar un estilo elegante
       </label>
     </div>
   );
@@ -512,7 +512,7 @@ export default function App() {
   return (
     <div>
       {isPaused ? (
-        <p>See you later!</p> 
+        <p>¡Nos vemos luego!</p> 
       ) : (
         <Counter /> 
       )}
@@ -524,7 +524,7 @@ export default function App() {
             setIsPaused(e.target.checked)
           }}
         />
-        Take a break
+        Tómate un descanso
       </label>
     </div>
   );
@@ -627,7 +627,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Usar un estilo elegante
       </label>
     </div>
   );
@@ -776,7 +776,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        ¡Siguiente jugador!
       </button>
     </div>
   );
@@ -797,7 +797,7 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Puntos de {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
         Agregar uno
       </button>
@@ -859,7 +859,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        ¡Siguiente jugador!
       </button>
     </div>
   );
@@ -880,7 +880,7 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Puntos de {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
         Agregar uno
       </button>
@@ -911,7 +911,7 @@ h1 {
 </Sandpack>
 
 * Inicialmente, `isPlayerA` es `true`. Así que la primera posición contiene el estado `Counter`, y la segunda está vacía.
-* Cuando haces clic en el botón "Next player", la primera posición se borra, pero la segunda contiene ahora un 'Counter'.
+* Cuando haces clic en el botón "Siguiente jugador", la primera posición se borra, pero la segunda contiene ahora un 'Counter'.
 
 <DiagramGroup>
 
@@ -964,7 +964,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        ¡Siguiente jugador!
       </button>
     </div>
   );
@@ -985,7 +985,7 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Puntos de {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
         Agregar uno
       </button>
@@ -1015,7 +1015,7 @@ h1 {
 
 </Sandpack>
 
-El cambio entre Taylor y Sarah no preserva el estado. Esto se debe a que **le asignaste diferentes `key`s:**
+El cambio entre Taylor y Sarah no preserva el estado. Esto se debe a que **le asignaste diferentes _`keys`_:**
 
 ```js
 {isPlayerA ? (
@@ -1100,11 +1100,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1205,11 +1205,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1278,11 +1278,11 @@ export default function App() {
   if (showHint) {
     return (
       <div>
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Pista: ¿Tu ciudad favorita?</i></p>
         <Form />
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ocultar pista</button>
       </div>
     );
   }
@@ -1291,7 +1291,7 @@ export default function App() {
       <Form />
       <button onClick={() => {
         setShowHint(true);
-      }}>Show hint</button>
+      }}>Mostrar pista</button>
     </div>
   );
 }
@@ -1329,17 +1329,17 @@ export default function App() {
   return (
     <div>
       {showHint &&
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Pista: ¿Tu ciudad favorita?</i></p>
       }
       <Form />
       {showHint ? (
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ocultar pista</button>
       ) : (
         <button onClick={() => {
           setShowHint(true);
-        }}>Show hint</button>
+        }}>Mostrar pista</button>
       )}
     </div>
   );
@@ -1375,11 +1375,11 @@ export default function App() {
   if (showHint) {
     return (
       <div>
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Pista: ¿Tu ciudad favorita?</i></p>
         <Form />
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ocultar pista</button>
       </div>
     );
   }
@@ -1389,7 +1389,7 @@ export default function App() {
       <Form />
       <button onClick={() => {
         setShowHint(true);
-      }}>Show hint</button>
+      }}>Mostrar pista</button>
     </div>
   );
 }
@@ -1417,9 +1417,9 @@ De esta manera, `Form` es siempre el segundo hijo, por lo que permanece en la mi
 
 #### Intercambiar dos campos de formulario {/*swap-two-form-fields*/}
 
-Este formulario permite introducir el nombre y los apellidos. También tiene una casilla de verificación que controla qué campo va primero. Si marca la casilla, el campo "Last name" aparecerá antes que el campo "First name".
+Este formulario permite introducir el nombre y los apellidos. También tiene una casilla de verificación que controla qué campo va primero. Si marca la casilla, el campo "Apellido" aparecerá antes que el campo "Nombre".
 
-Casi funciona, pero hay un error. Si rellenas la entrada "First name" y marcas la casilla, el texto se queda en la primera entrada (que ahora es "Last name"). Arréglalo para que el texto de la entrada *también* se mueva cuando inviertas el orden.
+Casi funciona, pero hay un error. Si rellenas la entrada "Nombre" y marcas la casilla, el texto se queda en la primera entrada (que ahora es "Apellido"). Arréglalo para que el texto de la entrada *también* se mueva cuando inviertas el orden.
 
 <Hint>
 
@@ -1441,22 +1441,22 @@ export default function App() {
         checked={reverse}
         onChange={e => setReverse(e.target.checked)}
       />
-      Reverse order
+      Invertir el orden
     </label>
   );
   if (reverse) {
     return (
       <>
-        <Field label="Last name" /> 
-        <Field label="First name" />
+        <Field label="Apellido" /> 
+        <Field label="Nombre" />
         {checkbox}
       </>
     );
   } else {
     return (
       <>
-        <Field label="First name" /> 
-        <Field label="Last name" />
+        <Field label="Nombre" /> 
+        <Field label="Apellido" />
         {checkbox}
       </>
     );    
@@ -1503,22 +1503,22 @@ export default function App() {
         checked={reverse}
         onChange={e => setReverse(e.target.checked)}
       />
-      Reverse order
+      Invertir el orden
     </label>
   );
   if (reverse) {
     return (
       <>
-        <Field key="lastName" label="Last name" /> 
-        <Field key="firstName" label="First name" />
+        <Field key="lastName" label="Apellido" /> 
+        <Field key="firstName" label="Nombre" />
         {checkbox}
       </>
     );
   } else {
     return (
       <>
-        <Field key="firstName" label="First name" /> 
-        <Field key="lastName" label="Last name" />
+        <Field key="firstName" label="Nombre" /> 
+        <Field key="lastName" label="Apellido" />
         {checkbox}
       </>
     );    
@@ -1645,7 +1645,7 @@ export default function EditContact({ initialData, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Nombre:{' '}
         <input
           type="text"
           value={name}
@@ -1653,7 +1653,7 @@ export default function EditContact({ initialData, onSave }) {
         />
       </label>
       <label>
-        Email:{' '}
+        Correo electrónico:{' '}
         <input
           type="email"
           value={email}
@@ -1798,7 +1798,7 @@ export default function EditContact({ initialData, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Nombre:{' '}
         <input
           type="text"
           value={name}
@@ -1806,7 +1806,7 @@ export default function EditContact({ initialData, onSave }) {
         />
       </label>
       <label>
-        Email:{' '}
+        Correo electrónico:{' '}
         <input
           type="email"
           value={email}
@@ -1860,7 +1860,7 @@ button {
 
 #### Borrar una imagen mientras se carga {/*clear-an-image-while-its-loading*/}
 
-Al pulsar "Next", el navegador comienza a cargar la siguiente imagen.  Sin embargo, como se muestra en la misma etiqueta `<img>`, por defecto se seguiría viendo la imagen anterior hasta que se cargue la siguiente. Esto puede ser indeseable si es importante que el texto coincida siempre con la imagen. Cámbialo para que en el momento en que pulses "Next", la imagen anterior se borre inmediatamente.
+Al pulsar "Siguiente", el navegador comienza a cargar la siguiente imagen.  Sin embargo, como se muestra en la misma etiqueta `<img>`, por defecto se seguiría viendo la imagen anterior hasta que se cargue la siguiente. Esto puede ser indeseable si es importante que el texto coincida siempre con la imagen. Cámbialo para que en el momento en que pulses "Siguiente", la imagen anterior se borre inmediatamente.
 
 <Hint>
 
@@ -1889,10 +1889,10 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleClick}>
-        Next
+        Siguiente
       </button>
       <h3>
-        Image {index + 1} of {images.length}
+        Imagen {index + 1} de {images.length}
       </h3>
       <img src={image.src} />
       <p>
@@ -1903,25 +1903,25 @@ export default function Gallery() {
 }
 
 let images = [{
-  place: 'Penang, Malaysia',
+  place: 'Penang, Malasia',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
-  place: 'Lisbon, Portugal',
+  place: 'Lisboa, Portugal',
   src: 'https://i.imgur.com/dB2LRbj.jpg'
 }, {
-  place: 'Bilbao, Spain',
+  place: 'Bilbao, España',
   src: 'https://i.imgur.com/z08o2TS.jpg'
 }, {
   place: 'Valparaíso, Chile',
   src: 'https://i.imgur.com/Y3utgTi.jpg'
 }, {
-  place: 'Schwyz, Switzerland',
+  place: 'Schwyz, Suiza',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
-  place: 'Prague, Czechia',
+  place: 'Praga, Chequia',
   src: 'https://i.imgur.com/QwUKKmF.jpg'
 }, {
-  place: 'Ljubljana, Slovenia',
+  place: 'Liubliana, Eslovenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
 }];
 ```
@@ -1957,10 +1957,10 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleClick}>
-        Next
+        Siguiente
       </button>
       <h3>
-        Image {index + 1} of {images.length}
+        Imagen {index + 1} de {images.length}
       </h3>
       <img key={image.src} src={image.src} />
       <p>
@@ -1971,25 +1971,25 @@ export default function Gallery() {
 }
 
 let images = [{
-  place: 'Penang, Malaysia',
+  place: 'Penang, Malasia',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
-  place: 'Lisbon, Portugal',
+  place: 'Lisboa, Portugal',
   src: 'https://i.imgur.com/dB2LRbj.jpg'
 }, {
-  place: 'Bilbao, Spain',
+  place: 'Bilbao, España',
   src: 'https://i.imgur.com/z08o2TS.jpg'
 }, {
   place: 'Valparaíso, Chile',
   src: 'https://i.imgur.com/Y3utgTi.jpg'
 }, {
-  place: 'Schwyz, Switzerland',
+  place: 'Schwyz, Suiza',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
-  place: 'Prague, Czechia',
+  place: 'Praga, Chequia',
   src: 'https://i.imgur.com/QwUKKmF.jpg'
 }, {
-  place: 'Ljubljana, Slovenia',
+  place: 'Liubliana, Eslovenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
 }];
 ```
@@ -2004,7 +2004,7 @@ img { width: 150px; height: 150px; }
 
 #### Arreglar un estado mal colocado en la lista {/*fix-misplaced-state-in-the-list*/}
 
-En esta lista, cada `Contact` tiene un estado que determina si se ha pulsado "Show email" para él. Pulsa "Show email" para Alice, y luego marca la casilla "Show in reverse order". Notarás que ahora es el correo electrónico de _Taylor_ el que está expandido, pero el de Alice --que se ha movido a la parte inferior-- aparece colapsado.
+En esta lista, cada `Contact` tiene un estado que determina si se ha pulsado "Mostrar correo electrónico" para él. Pulsa "Mostrar correo electrónico" para Alice, y luego marca la casilla "Mostrar en orden inverso". Notarás que ahora es el correo electrónico de _Taylor_ el que está expandido, pero el de Alice --que se ha movido a la parte inferior-- aparece colapsado.
 
 Arréglalo para que el estado expandido se asocie a cada contacto, independientemente del orden elegido.
 
@@ -2032,7 +2032,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Show in reverse order
+        Mostrar en orden inverso
       </label>
       <ul>
         {displayedContacts.map((contact, i) =>
@@ -2066,7 +2066,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Hide' : 'Show'} email
+        {expanded ? 'Ocultar' : 'Mostrar'} correo electrónico
       </button>
     </>
   );
@@ -2131,7 +2131,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Show in reverse order
+        Mostrar en orden inverso
       </label>
       <ul>
         {displayedContacts.map(contact =>
@@ -2165,7 +2165,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Hide' : 'Show'} email
+        {expanded ? 'Ocultar' : 'Mostrar'} correo electrónico
       </button>
     </>
   );

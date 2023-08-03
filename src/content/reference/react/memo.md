@@ -54,7 +54,7 @@ Para memoizar un componente, envuélvelo en una llamada a `memo` y usa el valor 
 
 ```js
 const Greeting = memo(function Greeting({ name }) {
-  return <h1>Hello, {name}!</h1>;
+  return <h1>¡Hola, {name}!</h1>;
 });
 
 export default Greeting;
@@ -75,11 +75,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -89,7 +89,7 @@ export default function MyApp() {
 
 const Greeting = memo(function Greeting({ name }) {
   console.log("Greeting was rendered at", new Date().toLocaleTimeString());
-  return <h3>Hello{name && ', '}{name}!</h3>;
+  return <h3>¡Hola{name && ', '}{name}!</h3>;
 });
 ```
 
@@ -147,11 +147,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -161,7 +161,7 @@ export default function MyApp() {
 
 const Greeting = memo(function Greeting({ name }) {
   console.log('Greeting was rendered at', new Date().toLocaleTimeString());
-  const [greeting, setGreeting] = useState('Hello');
+  const [greeting, setGreeting] = useState('Hola');
   return (
     <>
       <h3>{greeting}{name && ', '}{name}!</h3>
@@ -176,16 +176,16 @@ function GreetingSelector({ value, onChange }) {
       <label>
         <input
           type="radio"
-          checked={value === 'Hello'}
-          onChange={e => onChange('Hello')}
+          checked={value === 'Hola'}
+          onChange={e => onChange('Hola')}
         />
         Regular greeting
       </label>
       <label>
         <input
           type="radio"
-          checked={value === 'Hello and welcome'}
-          onChange={e => onChange('Hello and welcome')}
+          checked={value === 'Hola y bienvenido'}
+          onChange={e => onChange('Hola y bienvenido')}
         />
         Enthusiastic greeting
       </label>
@@ -239,7 +239,7 @@ const Greeting = memo(function Greeting({ name }) {
   console.log("Greeting was rendered at", new Date().toLocaleTimeString());
   const theme = useContext(ThemeContext);
   return (
-    <h3 className={theme}>Hello, {name}!</h3>
+    <h3 className={theme}>¡Hola, {name}!</h3>
   );
 });
 ```

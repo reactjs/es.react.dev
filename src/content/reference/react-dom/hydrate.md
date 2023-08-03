@@ -85,7 +85,7 @@ En las aplicaciones totalmente construidas con React, **sólo se hidratará una 
   HTML content inside <div id="root">...</div>
   was generated from App by react-dom/server.
 -->
-<div id="root"><h1>Hello, world!</h1></div>
+<div id="root"><h1>¡Hola, mundo!</h1></div>
 ```
 
 ```js index.js active
@@ -98,7 +98,7 @@ hydrate(<App />, document.getElementById('root'));
 
 ```js App.js
 export default function App() {
-  return <h1>Hello, world!</h1>;
+  return <h1>¡Hola, mundo!</h1>;
 }
 ```
 

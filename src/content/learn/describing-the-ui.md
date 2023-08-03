@@ -65,6 +65,7 @@ Lee **[Tu primer componente](/learn/your-first-component)** para que aprendas c�
 
 Es posible declarar muchos componentes en un archivo, pero los archivos grandes pueden resultar difíciles de navegar. Como solución, puedes *exportar* un componente a su propio archivo, y luego *importar* ese componente desde otro archivo:
 
+
 <Sandpack>
 
 ```js App.js hidden
@@ -134,7 +135,7 @@ export default function TodoList() {
       class="photo"
     >
     <ul>
-      <li>Inventar nuevos semáforos
+      <li>Inventar nuevo semáforo
       <li>Ensayar la escena de la película
       <li>Mejorar la tecnología del espectro
     </ul>
@@ -163,7 +164,7 @@ export default function TodoList() {
         className="photo"
       />
       <ul>
-        <li>Inventar nuevos semáforos</li>
+        <li>Inventar nuevo semáforo</li>
         <li>Ensayar la escena de la película</li>
         <li>Mejorar la tecnología del espectro</li>
       </ul>

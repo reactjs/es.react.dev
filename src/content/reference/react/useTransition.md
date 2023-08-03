@@ -161,7 +161,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => selectTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -231,7 +231,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -297,7 +297,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => selectTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -367,7 +367,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -450,7 +450,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -522,7 +522,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -593,7 +593,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -668,7 +668,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -728,7 +728,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -914,7 +914,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}

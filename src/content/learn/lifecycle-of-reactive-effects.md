@@ -111,27 +111,27 @@ function ChatRoom({ roomId /* "general" */ }) {
 
 Hasta ahora, todo bien.
 
-Luego, el usuario selecciona una sala diferente en el menú desplegable (por ejemplo, `"travel"`). Primero, React actualizará la UI:
+Luego, el usuario selecciona una sala diferente en el menú desplegable (por ejemplo, `"viaje"`). Primero, React actualizará la UI:
 
 ```js {1}
-function ChatRoom({ roomId /* "travel" */ }) {
+function ChatRoom({ roomId /* "viaje" */ }) {
   // ...
   return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 ```
 
-Piensa en que debería suceder luego. El usuario ve que `"travel"` es la sala de chat en la UI. Sin embargo, el Efecto que se ejecutó la última vez aun está conectada a la sala `"general"`. **La prop `"roomId"` ha cambiado, asi que lo que el Efecto hizo en ese entonces (conectarse a la sala `"general"`) ya no coincide con la UI.**
+Piensa en que debería suceder luego. El usuario ve que `"viaje"` es la sala de chat en la UI. Sin embargo, el Efecto que se ejecutó la última vez aun está conectada a la sala `"general"`. **La prop `"roomId"` ha cambiado, asi que lo que el Efecto hizo en ese entonces (conectarse a la sala `"general"`) ya no coincide con la UI.**
 
 En este punto, deseas que React haga dos cosas:
 
 1. Que detenga la sincronización con el antiguo `roomId` (desconectarse de la sala `"general"`)
-2. Que inicie la sincronización con el nuevo `roomId` (conectarse a la sala `"travel"`)
+2. Que inicie la sincronización con el nuevo `roomId` (conectarse a la sala `"viaje"`)
 
 **Afortunadamente, ¡ya has enseñado a React a cómo hacer ambas cosas!** El cuerpo del Efecto especifica cómo iniciar la sincronización, y su función de limpieza especifica cómo detener la sincronización. Todo lo que React necesita hacer ahora es llamarlos en el orden correcto y con las props y estado correctos. Veamos cómo sucede esto exactamente.
 
 ### Cómo React vuelve a sincronizar tu Efecto {/*how-react-re-synchronizes-your-effect*/}
 
-Recuerda que tu componente `ChatRoom` había recibido un nuevo valor para su prop `roomId`. Solía ser `"general"`, y ahora es `"travel"`. React necesita volver a sincronizar tu Efecto para volver a conectar a una sala diferente.
+Recuerda que tu componente `ChatRoom` había recibido un nuevo valor para su prop `roomId`. Solía ser `"general"`, y ahora es `"viaje"`. React necesita volver a sincronizar tu Efecto para volver a conectar a una sala diferente.
 
 Para **detener la sincronización,** React llamará a la función de limpieza que tu Efecto devolvió después de conectarse a la sala `"general"`. Dado que `roomId` era `"general"`, la función de limpieza se desconecta de la sala `"general"`:
 
@@ -146,37 +146,37 @@ function ChatRoom({ roomId /* "general" */ }) {
     // ...
 ```
 
-Luego, React ejecutará el Efecto que hayas proporcionado durante este renderizado. Esta vez, `roomId` es `"travel"` por lo que **comenzará a sincronizar** la sala de chat `"travel"` (hasta que su función de limpieza eventualmente también se llame):
+Luego, React ejecutará el Efecto que hayas proporcionado durante este renderizado. Esta vez, `roomId` es `"viaje"` por lo que **comenzará a sincronizar** la sala de chat `"viaje"` (hasta que su función de limpieza eventualmente también se llame):
 
 ```js {3,4}
-function ChatRoom({ roomId /* "travel" */ }) {
+function ChatRoom({ roomId /* "viaje" */ }) {
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId); // Se conecta a la sala "travel"
+    const connection = createConnection(serverUrl, roomId); // Se conecta a la sala "viaje"
     connection.connect();
     // ...
 ```
 
 Gracias a esto, ahora estás conectado a la misma sala que el usuario eligió en la UI. ¡Desastre evitado!
 
-Cada vez que tu componente se vuelve a renderizar con un `roomId` diferente, tu Efecto se volverá a sincronizar. Por ejemplo, digamos que el usuario cambió el `roomId` de `"travel"` a `"music"`. React volverá a **detener la sincronización** de tu Efecto llamando a la función de limpieza (desconectándose de la sala `"travel"`). Luego, **comenzará a sincronizarse** nuevamente al ejecutar su cuerpo con la nueva prop `roomId` (conectándose a la sala `"music"`).
+Cada vez que tu componente se vuelve a renderizar con un `roomId` diferente, tu Efecto se volverá a sincronizar. Por ejemplo, digamos que el usuario cambió el `roomId` de `"viaje"` a `"música"`. React volverá a **detener la sincronización** de tu Efecto llamando a la función de limpieza (desconectándose de la sala `"viaje"`). Luego, **comenzará a sincronizarse** nuevamente al ejecutar su cuerpo con la nueva prop `roomId` (conectándose a la sala `"música"`).
 
-Finalmente, cuando el usuario vaya a una pantalla diferente, `ChatRoom` se desmonta. Ahora no hay necesidad de permanecer conectado en absoluto. React **detendrá la sincronización** de tu Efecto por última vez y te desconectará de la sala de chat `"music"`.
+Finalmente, cuando el usuario vaya a una pantalla diferente, `ChatRoom` se desmonta. Ahora no hay necesidad de permanecer conectado en absoluto. React **detendrá la sincronización** de tu Efecto por última vez y te desconectará de la sala de chat `"música"`.
 
 ### Pensar desde la perspectiva del Efecto {/*thinking-from-the-effects-perspective*/}
 
 Recapitulemos todo lo que sucedió desde la perspectiva del componente `ChatRoom`: 
 
 1. `ChatRoom` se montó con `roomId` establecido en `"general"`
-2. `ChatRoom` se actualizó con `roomId` establecido en `"travel"`
-3. `ChatRoom` se actualizó con `roomId` establecido en `"music"`
+2. `ChatRoom` se actualizó con `roomId` establecido en `"viaje"`
+3. `ChatRoom` se actualizó con `roomId` establecido en `"música"`
 4. `ChatRoom` se desmontó
 
 Durante cada uno de estos puntos en el ciclo de vida del componente, tu Efecto hizo diferentes cosas:
 
 1. Tu Efecto se conectó a la sala `"general"`
-2. Tu Efecto se desconectó de la sala `"general"` y se conectó a la sala `"travel"`
-3. Tu Efecto se desconectó de la sala `"travel"` y se conectó a la sala `"music"`
-4. Tu Efecto se desconectó de la sala `"music"`
+2. Tu Efecto se desconectó de la sala `"general"` y se conectó a la sala `"viaje"`
+3. Tu Efecto se desconectó de la sala `"viaje"` y se conectó a la sala `"música"`
+4. Tu Efecto se desconectó de la sala `"música"`
 
 Ahora pensemos qué sucedió desde la perspectiva del Efecto mismo:
 
@@ -195,8 +195,8 @@ Ahora pensemos qué sucedió desde la perspectiva del Efecto mismo:
 Esta estructura de código podría inspirarte a ver lo que sucedió como una secuencia de períodos de tiempo no superpuestos:
 
 1. Tu Efecto se conectó a la sala `"general"` (hasta que se desconectó)
-2. Tu Efecto se conectó a la sala `"travel"` (hasta que se desconectó)
-3. Tu Efecto se conectó a la sala `"music"` (hasta que se desconectó)
+2. Tu Efecto se conectó a la sala `"viaje"` (hasta que se desconectó)
+3. Tu Efecto se conectó a la sala `"música"` (hasta que se desconectó)
 
 Previamente, pensabas desde la perspectiva del componente. Cuando miraste desde la perspectiva del componente, era tentador pensar en los Efectos como "_callbacks_" o "eventos del ciclo de vida" que se disparaban en un momento específico como "después de renderizar" o "antes de desmontar". Esta forma de pensar se complica muy rápido, por lo que es mejor evitarla.
 
@@ -237,8 +237,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -310,7 +310,7 @@ Así es como funciona esto:
 
 Cada vez que tu componente se vuelve a renderizar, React mirará el _array_ de dependencias que has pasado. Si alguno de los valores en el _array_ de dependencias es diferente del valor en el mismo lugar que pasaste durante el renderizado anterior, React volverá a sincronizar tu Efecto.
 
-Por ejemplo, si pasaste `["general"]` durante el renderizado inicial, y luego pasaste `["travel"]` durante el siguiente renderizado, React comparará `"general"` y `"travel"`. Estos son valores diferentes (comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), por lo que React volverá a sincronizar tu Efecto. Por otro lado, si tu componente se vuelve a renderizar pero `roomId` no ha cambiado, tu Efecto permanecerá conectado a la misma sala.
+Por ejemplo, si pasaste `["general"]` durante el renderizado inicial, y luego pasaste `["viaje"]` durante el siguiente renderizado, React comparará `"general"` y `"viaje"`. Estos son valores diferentes (comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), por lo que React volverá a sincronizar tu Efecto. Por otro lado, si tu componente se vuelve a renderizar pero `roomId` no ha cambiado, tu Efecto permanecerá conectado a la misma sala.
 
 ### Cada Efecto representa un proceso de sincronización separado {/*each-effect-represents-a-separate-synchronization-process*/}
 
@@ -436,8 +436,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -635,8 +635,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -826,8 +826,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -901,8 +901,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1317,9 +1317,9 @@ Aprenderás un enfoque más general para este tipo de problema en [Separar Event
 
 #### Solucionar un cambio de conexión {/*fix-a-connection-switch*/}
 
-En este ejemplo, el servicio de chat en `chat.js` expone dos APIs diferentes: `createEncryptedConnection` y `createUnencryptedConnection`. El componente raíz `App` permite al usuario elegir si usar o no el cifrado, y luego pasa el método de API correspondiente al componente secundario `ChatRoom` como la prop `createConnection`.
+En este ejemplo, el servicio de chat en `chat.js` expone dos APIs diferentes: `createEncryptedConnection` y `createUnencryptedConnection`. El componente raíz `App` permite al usuario elegir si usar o no la encriptación, y luego pasa el método de API correspondiente al componente secundario `ChatRoom` como la prop `createConnection`.
 
-Nota que inicialmente, los registros de la consola dicen que la conexión no está cifrada. Intenta cambiar el valor del checkbox: no sucederá nada. Sin embargo, si cambias la sala de chat seleccionada después de eso, entonces el chat se reconectará *y* habilitará el cifrado (como verás en los mensajes de la consola). Esto es un error. Arregla el error para que el cambio del checkbox *también* haga que el chat se reconecte.
+Nota que inicialmente, los registros de la consola dicen que la conexión no está cifrada. Intenta cambiar el valor del checkbox: no sucederá nada. Sin embargo, si cambias la sala de chat seleccionada después de eso, entonces el chat se reconectará *y* habilitará la encriptación (como verás en los mensajes de la consola). Esto es un error. Arregla el error para que el cambio del checkbox *también* haga que el chat se reconecte.
 
 <Hint>
 
@@ -1349,8 +1349,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -1359,7 +1359,7 @@ export default function App() {
           checked={isEncrypted}
           onChange={e => setIsEncrypted(e.target.checked)}
         />
-        Activar cifrado
+        Activar encriptación
       </label>
       <hr />
       <ChatRoom
@@ -1394,10 +1394,10 @@ export function createEncryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor 
   return {
     connect() {
-      console.log('✅ 🔐 Conectando a "' + roomId + '... (cifrado)');
+      console.log('✅ 🔐 Conectando a "' + roomId + '... (encriptado)');
     },
     disconnect() {
-      console.log('❌ 🔐 Desconectando de la sala "' + roomId + '" (cifrado)');
+      console.log('❌ 🔐 Desconectando de la sala "' + roomId + '" (encriptado)');
     }
   };
 }
@@ -1406,10 +1406,10 @@ export function createUnencryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor 
   return {
     connect() {
-      console.log('✅ Conectando a "' + roomId + '... (sin cifrar)');
+      console.log('✅ Conectando a "' + roomId + '... (sin encriptado)');
     },
     disconnect() {
-      console.log('❌ Desconectando de la sala "' + roomId + '" (sin cifrar)');
+      console.log('❌ Desconectando de la sala "' + roomId + '" (sin encriptado)');
     }
   };
 }
@@ -1447,8 +1447,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -1457,7 +1457,7 @@ export default function App() {
           checked={isEncrypted}
           onChange={e => setIsEncrypted(e.target.checked)}
         />
-        Activar cifrado
+        Activar encriptación
       </label>
       <hr />
       <ChatRoom
@@ -1491,10 +1491,10 @@ export function createEncryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
-      console.log('✅ 🔐 Conectando a "' + roomId + '... (cifrado)');
+      console.log('✅ 🔐 Conectando a "' + roomId + '... (encriptado)');
     },
     disconnect() {
-      console.log('❌ 🔐 Desconectando de la sala "' + roomId + '" (cifrado)');
+      console.log('❌ 🔐 Desconectando de la sala "' + roomId + '" (encriptado)');
     }
   };
 }
@@ -1503,10 +1503,10 @@ export function createUnencryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
-      console.log('✅ Conectando a "' + roomId + '... (sin cifrar)');
+      console.log('✅ Conectando a "' + roomId + '... (sin encriptado)');
     },
     disconnect() {
-      console.log('❌ Desconectando de la sala "' + roomId + '" (sin cifrar)');
+      console.log('❌ Desconectando de la sala "' + roomId + '" (sin encriptado)');
     }
   };
 }
@@ -1538,8 +1538,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -1548,7 +1548,7 @@ export default function App() {
           checked={isEncrypted}
           onChange={e => setIsEncrypted(e.target.checked)}
         />
-        Activar cifrado
+        Activar encriptación
       </label>
       <hr />
       <ChatRoom
@@ -1586,10 +1586,10 @@ export function createEncryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
-      console.log('✅ 🔐 Conectando a "' + roomId + '... (cifrado)');
+      console.log('✅ 🔐 Conectando a "' + roomId + '... (encriptado)');
     },
     disconnect() {
-      console.log('❌ 🔐 Desconectando de la sala "' + roomId + '" (cifrado)');
+      console.log('❌ 🔐 Desconectando de la sala "' + roomId + '" (encriptado)');
     }
   };
 }
@@ -1598,10 +1598,10 @@ export function createUnencryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor
   return {
     connect() {
-      console.log('✅ Conectando a "' + roomId + '... (sin cifrar)');
+      console.log('✅ Conectando a "' + roomId + '... (sin encriptado)');
     },
     disconnect() {
-      console.log('❌ Desconectando de la sala "' + roomId + '" (sin cifrar)');
+      console.log('❌ Desconectando de la sala "' + roomId + '" (sin encriptado)');
     }
   };
 }
@@ -1705,13 +1705,13 @@ async function fetchPlanets() {
     setTimeout(() => {
       resolve([{
         id: 'earth',
-        name: 'Earth'
+        name: 'Tierra'
       }, {
         id: 'venus',
         name: 'Venus'
       }, {
         id: 'mars',
-        name: 'Mars'        
+        name: 'Marte'        
       }]);
     }, 1000);
   });
@@ -1732,7 +1732,7 @@ async function fetchPlaces(planetId) {
           name: 'Laos'
         }, {
           id: 'spain',
-          name: 'Spain'
+          name: 'España'
         }, {
           id: 'vietnam',
           name: 'Vietnam'        
@@ -1751,10 +1751,10 @@ async function fetchPlaces(planetId) {
       } else if (planetId === 'mars') {
         resolve([{
           id: 'aluminum-city',
-          name: 'Aluminum City'
+          name: 'Ciudad Aluminio'
         }, {
           id: 'new-new-york',
-          name: 'New New York'
+          name: 'Nueva Nueva York'
         }, {
           id: 'vishniac',
           name: 'Vishniac'
@@ -1839,7 +1839,7 @@ export default function Page() {
         </select>
       </label>
       <label>
-        Escoge un logar:{' '}
+        Escoge un lugar:{' '}
         <select value={placeId} onChange={e => {
           setPlaceId(e.target.value);
         }}>
@@ -1873,13 +1873,13 @@ async function fetchPlanets() {
     setTimeout(() => {
       resolve([{
         id: 'earth',
-        name: 'Earth'
+        name: 'Tierra'
       }, {
         id: 'venus',
         name: 'Venus'
       }, {
         id: 'mars',
-        name: 'Mars'        
+        name: 'Marte'        
       }]);
     }, 1000);
   });
@@ -1900,7 +1900,7 @@ async function fetchPlaces(planetId) {
           name: 'Laos'
         }, {
           id: 'spain',
-          name: 'Spain'
+          name: 'España'
         }, {
           id: 'vietnam',
           name: 'Vietnam'        
@@ -1919,10 +1919,10 @@ async function fetchPlaces(planetId) {
       } else if (planetId === 'mars') {
         resolve([{
           id: 'aluminum-city',
-          name: 'Aluminum City'
+          name: 'Ciudad Aluminio'
         }, {
           id: 'new-new-york',
-          name: 'New New York'
+          name: 'Nueva Nueva York'
         }, {
           id: 'vishniac',
           name: 'Vishniac'
@@ -2036,13 +2036,13 @@ async function fetchPlanets() {
     setTimeout(() => {
       resolve([{
         id: 'earth',
-        name: 'Earth'
+        name: 'Tierra'
       }, {
         id: 'venus',
         name: 'Venus'
       }, {
         id: 'mars',
-        name: 'Mars'        
+        name: 'Marte'        
       }]);
     }, 1000);
   });
@@ -2063,7 +2063,7 @@ async function fetchPlaces(planetId) {
           name: 'Laos'
         }, {
           id: 'spain',
-          name: 'Spain'
+          name: 'España'
         }, {
           id: 'vietnam',
           name: 'Vietnam'        
@@ -2082,10 +2082,10 @@ async function fetchPlaces(planetId) {
       } else if (planetId === 'mars') {
         resolve([{
           id: 'aluminum-city',
-          name: 'Aluminum City'
+          name: 'Ciudad Aluminio'
         }, {
           id: 'new-new-york',
-          name: 'New New York'
+          name: 'Nueva Nueva York'
         }, {
           id: 'vishniac',
           name: 'Vishniac'

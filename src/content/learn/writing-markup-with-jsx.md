@@ -77,7 +77,7 @@ Supongamos que tienes algo de HTML (perfectamente válido):
   class="photo"
 >
 <ul>
-    <li>Inventar nuevos semáforos
+    <li>Inventar nuevo semáforo
     <li>Ensayar la escena de la película
     <li>Mejorar la tecnología del espectro
 </ul>
@@ -109,7 +109,7 @@ export default function TodoList() {
       class="photo"
     >
     <ul>
-      <li>Inventar nuevos semáforos
+      <li>Inventar nuevo semáforo
       <li>Ensayar la escena de la película
       <li>Mejorar la tecnología del espectro
     </ul>
@@ -194,7 +194,7 @@ Así es como la imagen y los elementos de lista de Hedy Lamarr se ven cerrados:
     class="photo"
    />
   <ul>
-    <li>Inventar nuevos semáforos</li>
+    <li>Inventar nuevo semáforo</li>
     <li>Ensayar la escena de la película</li>
     <li>Mejorar la tecnología del espectro</li>
   </ul>
@@ -242,7 +242,7 @@ export default function TodoList() {
         className="photo" 
       />
       <ul>
-        <li>Inventar nuevos semáforos</li>
+        <li>Inventar nuevo semáforo</li>
         <li>Ensayar la escena de la película</li>
         <li>Mejorar la tecnología del espectro</li>
       </ul>
@@ -273,7 +273,7 @@ Ahora sabes por qué existe JSX y cómo usarlo en componentes:
 
 #### Convierte algo de HTML a JSX {/*convert-some-html-to-jsx*/}
 
-Este HTML se pegó en un componente, pero no es JSX válido. Arréglalo;
+Este HTML se pegó en un componente, pero no es JSX válido. Arréglalo:
 
 <Sandpack>
 

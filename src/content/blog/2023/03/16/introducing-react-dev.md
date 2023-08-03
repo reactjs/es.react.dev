@@ -360,7 +360,7 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
@@ -395,7 +395,7 @@ function Item({ name, importance }) {
       {name}
       {importance > 0 && ' '}
       {importance > 0 &&
-        <i>(Importance: {importance})</i>
+        <i>(Importancia: {importance})</i>
       }
     </li>
   );
@@ -404,7 +404,7 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 

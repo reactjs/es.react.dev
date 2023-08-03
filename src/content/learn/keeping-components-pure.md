@@ -53,9 +53,9 @@ React está diseñado en torno a este concepto. **React supone que cada componen
 function Recipe({ drinkers }) {
   return (
     <ol>    
-      <li>Boil {drinkers} cups of water.</li>
-      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
-      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+      <li>Hervir {drinkers} tazas de agua.</li>
+      <li>Añadir {drinkers} cucharadas de té y {0.5 * drinkers} cucharada de especias.</li>
+      <li>Añadir {0.5 * drinkers} tazas de leche hirviendo y azúcar a gusto.</li>
     </ol>
   );
 }
@@ -63,10 +63,10 @@ function Recipe({ drinkers }) {
 export default function App() {
   return (
     <section>
-      <h1>Spiced Chai Recipe</h1>
-      <h2>For two</h2>
+      <h1>Receta de té Chai especiado</h1>
+      <h2>Para dos</h2>
       <Recipe drinkers={2} />
-      <h2>For a gathering</h2>
+      <h2>Para una reunión</h2>
       <Recipe drinkers={4} />
     </section>
   );
@@ -99,7 +99,7 @@ let guest = 0;
 function Cup() {
   // Mal: ¡Cambiar una variable preexistente!
   guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Taza de té para invitado #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -125,7 +125,7 @@ Puedes arreglar este componente [pasando `guest` como prop en su lugar](/learn/p
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Taza de té para invitado #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -171,7 +171,7 @@ Sin embargo, **está completamente bien cambiar variables y objetos que acabas d
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Taza de té para invitado #{guest}</h2>;
 }
 
 export default function TeaGathering() {
@@ -368,7 +368,7 @@ En este ejemplo, el efecto secundario (que modifica el DOM) no fue necesario en 
 
 #### Arreglar un perfil roto {/*fix-a-broken-profile*/}
 
-Dos componentes `Profile` son renderizados uno al lado del otro con datos diferentes. Presiona "Collapse" en el primer perfil, Y luego "Expand".  Notarás que ambos perfiles ahora muestran a la misma persona. Esto es un error.
+Dos componentes `Profile` son renderizados uno al lado del otro con datos diferentes. Presiona "Contraer" en el primer perfil, Y luego "Expandir".  Notarás que ambos perfiles ahora muestran a la misma persona. Esto es un error.
 
 Encuentra la causa del error y arréglalo.
 
@@ -421,7 +421,7 @@ export default function Panel({ children }) {
   return (
     <section className="panel">
       <button onClick={() => setOpen(!open)}>
-        {open ? 'Collapse' : 'Expand'}
+        {open ? 'Contraer' : 'Expandir'}
       </button>
       {open && children}
     </section>
@@ -519,7 +519,7 @@ export default function Panel({ children }) {
   return (
     <section className="panel">
       <button onClick={() => setOpen(!open)}>
-        {open ? 'Collapse' : 'Expand'}
+        {open ? 'Contraer' : 'Expandir'}
       </button>
       {open && children}
     </section>
@@ -577,9 +577,9 @@ Recuerda que React no garantiza que las funciones de los componentes se ejecutar
 
 #### Arregla una bandeja de historias rota {/*fix-a-broken-story-tray*/}
 
-El CEO de su empresa te pide que agregues "historias" a tu aplicación de reloj en línea, y no puedes decir que no. Has escrito un componente `StoryTray` que acepta una lista de `stories`, seguido del placeholder "Create Story".
+El CEO de su empresa te pide que agregues "historias" a tu aplicación de reloj en línea, y no puedes decir que no. Has escrito un componente `StoryTray` que acepta una lista de `stories`, seguido del placeholder "Crear historia".
 
-Implementaste el placeholder "Create Story" para incluir más historias falsas al final del array `stories` que recibes por props. Pero por alguna razón, "Create Story" aparece más de una vez. Arregla el problema.
+Implementaste el placeholder "Crear historia" para incluir más historias falsas al final del array `stories` que recibes por props. Pero por alguna razón, "Crear historia" aparece más de una vez. Arregla el problema.
 
 <Sandpack>
 
@@ -587,7 +587,7 @@ Implementaste el placeholder "Create Story" para incluir más historias falsas a
 export default function StoryTray({ stories }) {
   stories.push({
     id: 'create',
-    label: 'Create Story'
+    label: 'Crear historia'
   });
 
   return (
@@ -607,8 +607,8 @@ import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -629,7 +629,7 @@ export default function App() {
         textAlign: 'center',
       }}
     >
-      <h2>It is {time.toLocaleTimeString()} now.</h2>
+      <h2>Son las {time.toLocaleTimeString()} ahora.</h2>
       <StoryTray stories={stories} />
     </div>
   );
@@ -675,11 +675,11 @@ li {
 
 <Solution>
 
-Observa cómo cada vez que se actualiza el reloj, se agrega "Create Story" *dos veces*. Esto sirve como una pista de que tenemos una mutación durante el renderizado —El modo estricto llama a los componentes dos veces para que estos problemas sean más notables.
+Observa cómo cada vez que se actualiza el reloj, se agrega "Crear historia" *dos veces*. Esto sirve como una pista de que tenemos una mutación durante el renderizado —El modo estricto llama a los componentes dos veces para que estos problemas sean más notables.
 
 La función `StoryTray` no es pura. Al llamar `push` en el _array_ de `stories` recibido (¡como prop!), está mutando un objecto que fue creado *antes* de comenzar el renderizado de `StoryTray`. Esto lo hace defectuoso y muy difícil de predecir.
 
-La solución más simple es no tocar el _array_ y renderizar "Create Story" por separado:
+La solución más simple es no tocar el _array_ y renderizar "Crear historia" por separado:
 
 <Sandpack>
 
@@ -692,7 +692,7 @@ export default function StoryTray({ stories }) {
           {story.label}
         </li>
       ))}
-      <li>Create Story</li>
+      <li>Crear historia</li>
     </ul>
   );
 }
@@ -703,8 +703,8 @@ import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -725,7 +725,7 @@ export default function App() {
         textAlign: 'center',
       }}
     >
-      <h2>It is {time.toLocaleTimeString()} now.</h2>
+      <h2>Son las {time.toLocaleTimeString()} ahora.</h2>
       <StoryTray stories={stories} />
     </div>
   );
@@ -769,13 +769,13 @@ Como alternativa, podrías crear un _nuevo_ array (copiando el existente) antes 
 
 ```js StoryTray.js active
 export default function StoryTray({ stories }) {
-  // Copy the array!
+  // ¡Copia el array!
   let storiesToDisplay = stories.slice();
 
-  // Does not affect the original array:
+  // Esto no afecta al array original:
   storiesToDisplay.push({
     id: 'create',
-    label: 'Create Story'
+    label: 'Crear historia'
   });
 
   return (
@@ -795,8 +795,8 @@ import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -817,7 +817,7 @@ export default function App() {
         textAlign: 'center',
       }}
     >
-      <h2>It is {time.toLocaleTimeString()} now.</h2>
+      <h2>Son las {time.toLocaleTimeString()} ahora.</h2>
       <StoryTray stories={stories} />
     </div>
   );

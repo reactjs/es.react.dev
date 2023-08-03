@@ -195,7 +195,7 @@ Estos eventos se disparan para recursos como [`<audio>`](https://developer.mozil
 * `onDurationChangeCapture`: Una versión de `onDurationChange` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onEmptied`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/emptied_event): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando el recurso multimedia se ha quedado vacío.
 * `onEmptiedCapture`: Una versión de `onEmptied` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onEncrypted`](https://w3c.github.io/encrypted-media/#dom-evt-encrypted): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando el navegador encuentra contenido multimedia cifrado.
+* [`onEncrypted`](https://w3c.github.io/encrypted-media/#dom-evt-encrypted): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando el navegador encuentra contenido multimedia encriptado.
 * `onEncryptedCapture`: Una versión de `onEncrypted` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onEnded`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event): Una función controladora de evento [`Event`](#event-handler). Se dispara cuando la reproducción se detiene porque no hay nada más que reproducir.
 * `onEndedCapture`: Una versión de `onEnded` que se dispara en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
@@ -1131,11 +1131,11 @@ export default function FocusExample() {
       }}
     >
       <label>
-        First name:
+        Nombre:
         <input name="firstName" />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input name="lastName" />
       </label>
     </div>
@@ -1162,7 +1162,7 @@ Este ejemplo muestra algunos [eventos del teclado](#keyboardevent-handler) comun
 export default function KeyboardExample() {
   return (
     <label>
-      First name:
+      Nombre:
       <input
         name="firstName"
         onKeyDown={e => console.log('onKeyDown:', e.key, e.code)}

@@ -53,10 +53,10 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
-      <Heading level={2}>Heading</Heading>
-      <Heading level={3}>Sub-heading</Heading>
-      <Heading level={4}>Sub-sub-heading</Heading>
+      <Heading level={1}>Título</Heading>
+      <Heading level={2}>Encabezado</Heading>
+      <Heading level={3}>Sub-encabezado</Heading>
+      <Heading level={4}>Sub-sub-encabezado</Heading>
       <Heading level={5}>Sub-sub-sub-heading</Heading>
       <Heading level={6}>Sub-sub-sub-sub-heading</Heading>
     </Section>
@@ -117,19 +117,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
+      <Heading level={1}>Título</Heading>
       <Section>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
+        <Heading level={2}>Encabezado</Heading>
+        <Heading level={2}>Encabezado</Heading>
+        <Heading level={2}>Encabezado</Heading>
         <Section>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
+          <Heading level={3}>Sub-encabezado</Heading>
+          <Heading level={3}>Sub-encabezado</Heading>
+          <Heading level={3}>Sub-encabezado</Heading>
           <Section>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
+            <Heading level={4}>Sub-sub-encabezado</Heading>
+            <Heading level={4}>Sub-sub-encabezado</Heading>
+            <Heading level={4}>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -184,8 +184,8 @@ Actualmente, estás pasando la prop `level` a cada `<Heading>` separadamente:
 
 ```js
 <Section>
-  <Heading level={3}>About</Heading>
-  <Heading level={3}>Photos</Heading>
+  <Heading level={3}>Acerca de</Heading>
+  <Heading level={3}>Fotos</Heading>
   <Heading level={3}>Videos</Heading>
 </Section>
 ```
@@ -194,8 +194,8 @@ Sería genial si pudieras pasar la prop `level` al componente `<Section>` y remo
 
 ```js
 <Section level={3}>
-  <Heading>About</Heading>
-  <Heading>Photos</Heading>
+  <Heading>Acerca de</Heading>
+  <Heading>Fotos</Heading>
   <Heading>Videos</Heading>
 </Section>
 ```
@@ -239,19 +239,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
+      <Heading level={1}>Título</Heading>
       <Section>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
+        <Heading level={2}>Encabezado</Heading>
+        <Heading level={2}>Encabezado</Heading>
+        <Heading level={2}>Encabezado</Heading>
         <Section>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
+          <Heading level={3}>Sub-encabezado</Heading>
+          <Heading level={3}>Sub-encabezado</Heading>
+          <Heading level={3}>Sub-encabezado</Heading>
           <Section>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
+            <Heading level={4}>Sub-sub-encabezado</Heading>
+            <Heading level={4}>Sub-sub-encabezado</Heading>
+            <Heading level={4}>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -342,9 +342,9 @@ Ahora que el componente `Heading` no tiene una prop `level`, ya no tienes que pa
 
 ```js
 <Section>
-  <Heading level={4}>Sub-sub-heading</Heading>
-  <Heading level={4}>Sub-sub-heading</Heading>
-  <Heading level={4}>Sub-sub-heading</Heading>
+  <Heading level={4}>Sub-sub-encabezado</Heading>
+  <Heading level={4}>Sub-sub-encabezado</Heading>
+  <Heading level={4}>Sub-sub-encabezado</Heading>
 </Section>
 ```
 
@@ -352,9 +352,9 @@ Actualiza el JSX para que sea `Section` el que recibe la prop:
 
 ```jsx
 <Section level={4}>
-  <Heading>Sub-sub-heading</Heading>
-  <Heading>Sub-sub-heading</Heading>
-  <Heading>Sub-sub-heading</Heading>
+  <Heading>Sub-sub-encabezado</Heading>
+  <Heading>Sub-sub-encabezado</Heading>
+  <Heading>Sub-sub-encabezado</Heading>
 </Section>
 ```
 
@@ -369,19 +369,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section level={1}>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section level={2}>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
         <Section level={3}>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
           <Section level={4}>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -487,19 +487,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section level={1}>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section level={2}>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
         <Section level={3}>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
           <Section level={4}>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -614,19 +614,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
         <Section>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
           <Section>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -718,10 +718,10 @@ import Section from './Section.js';
 export default function ProfilePage() {
   return (
     <Section>
-      <Heading>My Profile</Heading>
+      <Heading>Mi perfil</Heading>
       <Post
-        title="Hello traveller!"
-        body="Read about my adventures."
+        title="¡Hola viajero!"
+        body="Lee sobre mis aventuras."
       />
       <AllPosts />
     </Section>
@@ -731,7 +731,7 @@ export default function ProfilePage() {
 function AllPosts() {
   return (
     <Section>
-      <Heading>Posts</Heading>
+      <Heading>Publicaciones</Heading>
       <RecentPosts />
     </Section>
   );
@@ -740,14 +740,14 @@ function AllPosts() {
 function RecentPosts() {
   return (
     <Section>
-      <Heading>Recent Posts</Heading>
+      <Heading>Publicaciones recientes</Heading>
       <Post
-        title="Flavors of Lisbon"
-        body="...those pastéis de nata!"
+        title="Sabores de Lisboa"
+        body="¡...esos pastéis de nata!"
       />
       <Post
-        title="Buenos Aires in the rhythm of tango"
-        body="I loved it!"
+        title="Buenos Aires a ritmo de tango"
+        body="¡Me encantó!"
       />
     </Section>
   );
@@ -905,7 +905,7 @@ export default function App() {
             setIsLarge(e.target.checked);
           }}
         />
-        Use large images
+        Usa imágenes grandes
       </label>
       <hr />
       <List imageSize={imageSize} />
@@ -959,38 +959,38 @@ function PlaceImage({ place, imageSize }) {
 ```js data.js
 export const places = [{
   id: 0,
-  name: 'Bo-Kaap in Cape Town, South Africa',
-  description: 'The tradition of choosing bright colors for houses began in the late 20th century.',
+  name: 'Bo-Kaap en Ciudad del Cabo, Sudáfrica',
+  description: 'La tradición de elegir colores vivos para las casas comenzó a finales del siglo XX.',
   imageId: 'K9HVAGH'
 }, {
   id: 1, 
-  name: 'Rainbow Village in Taichung, Taiwan',
-  description: 'To save the houses from demolition, Huang Yung-Fu, a local resident, painted all 1,200 of them in 1924.',
+  name: 'Pueblo del Arco Iris en Taichung, Taiwán',
+  description: 'Para salvar las casas de la demolición, Huang Yung-Fu, un residente local, pintó la totalidad de las 1.200 de ellas en 1924.',
   imageId: '9EAYZrt'
 }, {
   id: 2, 
-  name: 'Macromural de Pachuca, Mexico',
-  description: 'One of the largest murals in the world covering homes in a hillside neighborhood.',
+  name: 'Macromural de Pachuca, México',
+  description: 'Uno de los murales más grandes del mundo cubre las casas de un barrio en la ladera de una colina.',
   imageId: 'DgXHVwu'
 }, {
   id: 3, 
-  name: 'Selarón Staircase in Rio de Janeiro, Brazil',
-  description: 'This landmark was created by Jorge Selarón, a Chilean-born artist, as a "tribute to the Brazilian people."',
+  name: 'Escalera Selarón en Río de Janeiro, Brasil',
+  description: 'Este lugar emblemático fue creado por Jorge Selarón, artista de origen chileno, como "homenaje al pueblo brasileño".',
   imageId: 'aeO3rpI'
 }, {
   id: 4, 
-  name: 'Burano, Italy',
-  description: 'The houses are painted following a specific color system dating back to 16th century.',
+  name: 'Burano, Italia',
+  description: 'Las casas están pintadas siguiendo un sistema de colores específico que se remonta al siglo XVI.',
   imageId: 'kxsph5C'
 }, {
   id: 5, 
-  name: 'Chefchaouen, Marocco',
-  description: 'There are a few theories on why the houses are painted blue, including that the color repells mosquitos or that it symbolizes sky and heaven.',
+  name: 'Chefchaouen, Marruecos',
+  description: 'Hay varias teorías sobre por qué las casas están pintadas de azul, entre ellas que el color repele a los mosquitos o que simboliza el cielo y el paraíso.',
   imageId: 'rTqKo46'
 }, {
   id: 6,
-  name: 'Gamcheon Culture Village in Busan, South Korea',
-  description: 'In 2009, the village was converted into a cultural hub by painting the houses and featuring exhibitions and art installations.',
+  name: 'Aldea Cultural de Gamcheon en Busan, Corea del Sur',
+  description: 'En 2009, el pueblo se convirtió en un centro cultural pintando las casas y presentando exposiciones e instalaciones artísticas.',
   imageId: 'ZfQOOzf'
 }];
 ```
@@ -1047,7 +1047,7 @@ export default function App() {
             setIsLarge(e.target.checked);
           }}
         />
-        Use large images
+        Usa imágenes grandes
       </label>
       <hr />
       <List />
@@ -1098,38 +1098,38 @@ export const ImageSizeContext = createContext(500);
 ```js data.js
 export const places = [{
   id: 0,
-  name: 'Bo-Kaap in Cape Town, South Africa',
-  description: 'The tradition of choosing bright colors for houses began in the late 20th century.',
+  name: 'Bo-Kaap en Ciudad del Cabo, Sudáfrica',
+  description: 'La tradición de elegir colores vivos para las casas comenzó a finales del siglo XX.',
   imageId: 'K9HVAGH'
 }, {
   id: 1, 
-  name: 'Rainbow Village in Taichung, Taiwan',
-  description: 'To save the houses from demolition, Huang Yung-Fu, a local resident, painted all 1,200 of them in 1924.',
+  name: 'Pueblo del Arco Iris en Taichung, Taiwán',
+  description: 'Para salvar las casas de la demolición, Huang Yung-Fu, un residente local, pintó la totalidad de las 1.200 de ellas en 1924.',
   imageId: '9EAYZrt'
 }, {
   id: 2, 
-  name: 'Macromural de Pachuca, Mexico',
-  description: 'One of the largest murals in the world covering homes in a hillside neighborhood.',
+  name: 'Macromural de Pachuca, México',
+  description: 'Uno de los murales más grandes del mundo cubre las casas de un barrio en la ladera de una colina.',
   imageId: 'DgXHVwu'
 }, {
   id: 3, 
-  name: 'Selarón Staircase in Rio de Janeiro, Brazil',
-  description: 'This landmark was created by Jorge Selarón, a Chilean-born artist, as a "tribute to the Brazilian people".',
+  name: 'Escalera Selarón en Río de Janeiro, Brasil',
+  description: 'Este lugar emblemático fue creado por Jorge Selarón, artista de origen chileno, como "homenaje al pueblo brasileño".',
   imageId: 'aeO3rpI'
 }, {
   id: 4, 
-  name: 'Burano, Italy',
-  description: 'The houses are painted following a specific color system dating back to 16th century.',
+  name: 'Burano, Italia',
+  description: 'Las casas están pintadas siguiendo un sistema de colores específico que se remonta al siglo XVI.',
   imageId: 'kxsph5C'
 }, {
   id: 5, 
-  name: 'Chefchaouen, Marocco',
-  description: 'There are a few theories on why the houses are painted blue, including that the color repells mosquitos or that it symbolizes sky and heaven.',
+  name: 'Chefchaouen, Marruecos',
+  description: 'Hay varias teorías sobre por qué las casas están pintadas de azul, entre ellas que el color repele a los mosquitos o que simboliza el cielo y el paraíso.',
   imageId: 'rTqKo46'
 }, {
   id: 6,
-  name: 'Gamcheon Culture Village in Busan, South Korea',
-  description: 'In 2009, the village was converted into a cultural hub by painting the houses and featuring exhibitions and art installations.',
+  name: 'Aldea Cultural de Gamcheon en Busan, Corea del Sur',
+  description: 'En 2009, el pueblo se convirtió en un centro cultural pintando las casas y presentando exposiciones e instalaciones artísticas.',
   imageId: 'ZfQOOzf'
 }];
 ```

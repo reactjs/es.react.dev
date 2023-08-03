@@ -215,7 +215,7 @@ const Post = forwardRef((props, ref) => {
   return (
     <>
       <article>
-        <p>Bienvenidos a mi blog!</p>
+        <p>¡Bienvenidos a mi blog!</p>
       </article>
       <CommentList ref={commentsRef} />
       <AddComment ref={addCommentRef} />

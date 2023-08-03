@@ -14,13 +14,13 @@ prev: concurrent-mode-adoption.html
 
 <div class="scary">
 
->Advertencia:
+> Advertencia:
 >
->Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
+> Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
 >
->Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html) para obtener información actualizada.**
+> Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html) para obtener información actualizada.**
 >
->Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
+> Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
 
 </div>
 
@@ -29,12 +29,12 @@ Esta página es una referencia del API del [Modo concurrente](/docs/concurrent-m
 **Nota: Esto es un una vista previa de la comunidad y no es la versión final estable. Es probable que existan futuros cambios a estas APIs. ¡Úsalas bajo tu propio riesgo!**
 
 - [Habilitando el modo concurrente](#concurrent-mode)
-    - [`createRoot`](#createroot)
+  - [`createRoot`](#createroot)
 - [Suspense](#suspense)
-    - [`Suspense`](#suspensecomponent)
-    - [`SuspenseList`](#suspenselist)
-    - [`useTransition`](#usetransition)
-    - [`useDeferredValue`](#usedeferredvalue)
+  - [`Suspense`](#suspensecomponent)
+  - [`SuspenseList`](#suspenselist)
+  - [`useTransition`](#usetransition)
+  - [`useDeferredValue`](#usedeferredvalue)
 
 ## Habilitando el modo concurrente {#concurrent-mode}
 
@@ -64,8 +64,9 @@ Para más información del Modo concurrente, revisa la [documentación del modo 
 En este ejemplo, `ProfileDetails` está esperando una llamada asíncrona del API para obtener algunos datos. Mientras esperamos a `ProfileDetails` y `ProfilePhoto`, vamos a ir mostrando `Loading...` como contenido de respaldo mientras tanto. Es importante tener en cuenta que hasta que todos los hijos de `<Suspense>` hayan cargado, continuaremos mostrando el contenido de respaldo.
 
 `Suspense` lleva dos props:
-* **fallback** lleva un indicador de carga. El contenido de respaldo es mostrado hasta que todos los hijos de `Suspense` hayan terminado de renderizar.
-* **unstable_avoidThisFallback** lleva un booleano. Le dice a React si debe "omitir" revelar este límite durante la carga inicial. Es probable que esta API sea eliminada en una versión futura.
+
+- **fallback** lleva un indicador de carga. El contenido de respaldo es mostrado hasta que todos los hijos de `Suspense` hayan terminado de renderizar.
+- **unstable_avoidThisFallback** lleva un booleano. Le dice a React si debe "omitir" revelar este límite durante la carga inicial. Es probable que esta API sea eliminada en una versión futura.
 
 ### `<SuspenseList>` {#suspenselist}
 
@@ -89,12 +90,13 @@ En este ejemplo, `ProfileDetails` está esperando una llamada asíncrona del API
 Cuando varios componentes necesitan obtener datos, estos datos pueden llegar en un orden impredecible. Sin embargo, si envuelves estos elementos en un `SuspenseList`, React no mostrará un elemento de la lista hasta que todos los elementos anteriores se hayan mostrado (este comportamiente es ajustable).
 
 `SuspenseList` lleva dos props:
-* **revealOrder (forwards, backwards, together)** define el orden en el cual los hijos de `SuspenseList` deberían ser mostrados.
-  * `together` muestra *todos* ellos cuando estén listos en lugar de uno por uno.
-* **tail (collapsed, hidden)** decide como los contenidos de respaldo en un `SuspenseList` son mostrados.
-    * Por defecto, `SuspenseList` va a mostrar todos los contenidos de respaldo en la lista.
-    * `collapsed` solo muestra el siguiente contenido de respaldo en la lista.
-    * `hidden` no muestra ningun contenido de respaldo.
+
+- **revealOrder (forwards, backwards, together)** define el orden en el cual los hijos de `SuspenseList` deberían ser mostrados.
+  - `together` muestra _todos_ ellos cuando estén listos en lugar de uno por uno.
+- **tail (collapsed, hidden)** decide como los contenidos de respaldo en un `SuspenseList` son mostrados.
+  - Por defecto, `SuspenseList` va a mostrar todos los contenidos de respaldo en la lista.
+  - `collapsed` solo muestra el siguiente contenido de respaldo en la lista.
+  - `hidden` no muestra ningun contenido de respaldo.
 
 Tener en cuenta que `SuspenseList` solo funciona en los componentes `Suspense` y `SuspenseList` más cercanos debajo de él. No busca límites más profundos que un nivel. Sin embargo, es posible anidar múltiples componentes `SuspenseList` entre sí para construir grillas.
 
@@ -109,8 +111,9 @@ const [startTransition, isPending] = useTransition(SUSPENSE_CONFIG);
 `useTransition` permite a los componentes evitar estados de carga no deseada al esperar que se cargue el contenido antes de **transicionar hacia la siguiente pantalla**. También permite que los componentes difieran las actualizaciones de datos obtenidos más lentas hasta la siguiente renderización, de modo que se puedan presentar actualizaciones más cruciales de inmediato.
 
 El hook `useTransition` devuelve dos valores en un array.
-* `startTransition` es una función que toma un callback. Nosotros podemos usarlo para decirle a React cual estado queremos diferir.
-* `isPending` es un booleano. Es la manera en que React nos informa si estamos esperando que la transición termine.
+
+- `startTransition` es una función que toma un callback. Nosotros podemos usarlo para decirle a React cual estado queremos diferir.
+- `isPending` es un booleano. Es la manera en que React nos informa si estamos esperando que la transición termine.
 
 **Si alguna actualización de estado causa que un componente se suspenda, esa actualización de estado debería estar envuelta en una transición.**
 
@@ -171,7 +174,7 @@ Un buen ejemplo de esto es una entrada de texto.
 
 ```js
 function App() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('hola');
   const deferredText = useDeferredValue(text, {timeoutMs: 2000});
 
   return (

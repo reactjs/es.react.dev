@@ -250,8 +250,8 @@ commentRoot.render(<Comments />);
 export function Navigation() {
   return (
     <ul>
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/about">About</NavLink>
+      <NavLink href="/">Inicio</NavLink>
+      <NavLink href="/about">Acerca de</NavLink>
     </ul>
   );
 }
@@ -268,7 +268,7 @@ export function Comments() {
   return (
     <>
       <h2>Comments</h2>
-      <Comment text="Hello!" author="Sophie" />
+      <Comment text="¡Hola!" author="Sophie" />
       <Comment text="How are you?" author="Sunil" />
     </>
   );
@@ -331,7 +331,7 @@ setInterval(() => {
 export default function App({counter}) {
   return (
     <>
-      <h1>Hello, world! {counter}</h1>
+      <h1>¡Hola, mundo! {counter}</h1>
       <input placeholder="Type something here" />
     </>
   );

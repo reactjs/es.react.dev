@@ -162,7 +162,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -179,8 +179,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -198,10 +198,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando con el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -308,7 +308,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Eliminar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -566,7 +566,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -583,8 +583,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -617,10 +617,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando con el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio"' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala"' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1108,7 +1108,7 @@ Ahora que `serverUrl` no es un valor reactivo (y no puede cambiar en un renderiz
 
 ```js {1,2,9}
 const serverUrl = 'https://localhost:1234'; // Ya no es un valor reactivo
-const roomId = 'music'; // Ya no es un valor reactivo
+const roomId = 'música'; // Ya no es un valor reactivo
 
 function ChatRoom() {
   useEffect(() => {
@@ -1179,7 +1179,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <label>
         Tu mensaje:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
@@ -1200,8 +1200,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
         <button onClick={() => setShow(!show)}>
           {show ? 'Cerrar chat' : 'Abrir chat'}
@@ -1222,7 +1222,7 @@ export function createConnection(serverUrl, roomId) {
       console.log('✅ Conexión a el sitio "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1259,7 +1259,7 @@ import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
-const roomId = 'music';
+const roomId = 'música';
 
 function ChatRoom() {
   const [message, setMessage] = useState('');
@@ -1272,7 +1272,7 @@ function ChatRoom() {
 
   return (
     <>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <label>
         Tu mensaje:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
@@ -1300,10 +1300,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando a el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectado de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1353,7 +1353,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <label>
         Tu mensaje:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
@@ -1368,14 +1368,14 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
         <button onClick={() => setShow(!show)}>
           {show ? 'Cerrar chat' : 'Abrir chat'}
@@ -1393,10 +1393,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando al sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectando del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1523,7 +1523,7 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
     </>
   );
@@ -1534,14 +1534,14 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1556,10 +1556,10 @@ export function createConnection({ serverUrl, roomId }) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando con el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1633,7 +1633,7 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
     </>
   );
@@ -1650,8 +1650,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1666,10 +1666,10 @@ export function createConnection({ serverUrl, roomId }) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando al sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectando del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }

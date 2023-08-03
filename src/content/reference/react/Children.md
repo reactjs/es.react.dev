@@ -939,7 +939,7 @@ Supongamos que pasa dos hijos a `RowList` como esto:
 
 ```js
 <RowList>
-  <p>First item</p>
+  <p>Primer ítem</p>
   <MoreRows />
 </RowList>
 ```

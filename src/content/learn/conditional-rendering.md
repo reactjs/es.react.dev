@@ -30,19 +30,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -78,19 +78,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -130,19 +130,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -234,19 +234,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -288,19 +288,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -369,19 +369,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -415,19 +415,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -472,19 +472,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -510,19 +510,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -536,11 +536,11 @@ export default function PackingList() {
 
 #### Mostrar la importancia del elemento con `&&` {/*show-the-item-importance-with-*/}
 
-En este ejemplo, cada "elemento" recibe una "importancia" numérica. Utiliza el operador `&&` para mostrar "_(Importance: X)_" en cursiva, pero sólo para los elementos que tienen una importancia distinta de cero. Tu lista de elementos debería tener este aspecto:
+En este ejemplo, cada "elemento" recibe una "importancia" numérica. Utiliza el operador `&&` para mostrar "_(Importancia: X)_" en cursiva, pero sólo para los elementos que tienen una importancia distinta de cero. Tu lista de elementos debería tener este aspecto:
 
-* Space suit _(Importance: 9)_
-* Helmet with a golden leaf
-* Photo of Tam _(Importance: 6)_
+* Traje de vuelo _(Importancia: 9)_
+* Casco con dorado a la hoja
+* Fotografía de Tam _(Importancia: 6)_
 
 ¡No olvides añadir un espacio entre las dos etiquetas!
 
@@ -558,19 +558,19 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -593,7 +593,7 @@ function Item({ name, importance }) {
       {name}
       {importance > 0 && ' '}
       {importance > 0 &&
-        <i>(Importance: {importance})</i>
+        <i>(Importancia: {importance})</i>
       }
     </li>
   );
@@ -602,19 +602,19 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Traje de vuelo" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Casco con dorado a la hoja" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Fotografía de Tam" 
         />
       </ul>
     </section>
@@ -642,12 +642,12 @@ function Drink({ name }) {
     <section>
       <h1>{name}</h1>
       <dl>
-        <dt>Part of plant</dt>
-        <dd>{name === 'tea' ? 'leaf' : 'bean'}</dd>
-        <dt>Caffeine content</dt>
-        <dd>{name === 'tea' ? '15–70 mg/cup' : '80–185 mg/cup'}</dd>
-        <dt>Age</dt>
-        <dd>{name === 'tea' ? '4,000+ years' : '1,000+ years'}</dd>
+        <dt>Parte de la planta</dt>
+        <dd>{name === 'té' ? 'hoja' : 'grano'}</dd>
+        <dt>Contenido de cafeína</dt>
+        <dd>{name === 'té' ? '15–70 mg/taza' : '80–185 mg/taza'}</dd>
+        <dt>Antigüedad</dt>
+        <dd>{name === 'té' ? '4,000+ años' : '1,000+ años'}</dd>
       </dl>
     </section>
   );
@@ -656,8 +656,8 @@ function Drink({ name }) {
 export default function DrinkList() {
   return (
     <div>
-      <Drink name="tea" />
-      <Drink name="coffee" />
+      <Drink name="té" />
+      <Drink name="café" />
     </div>
   );
 }
@@ -676,24 +676,24 @@ Hay muchas maneras de hacerlo, pero este es un punto de partida:
 ```js
 function Drink({ name }) {
   let part, caffeine, age;
-  if (name === 'tea') {
-    part = 'leaf';
-    caffeine = '15–70 mg/cup';
-    age = '4,000+ years';
-  } else if (name === 'coffee') {
-    part = 'bean';
-    caffeine = '80–185 mg/cup';
-    age = '1,000+ years';
+  if (name === 'té') {
+    part = 'hoja';
+    caffeine = '15–70 mg/taza';
+    age = '4,000+ años';
+  } else if (name === 'café') {
+    part = 'grano';
+    caffeine = '80–185 mg/taza';
+    age = '1,000+ años';
   }
   return (
     <section>
       <h1>{name}</h1>
       <dl>
-        <dt>Part of plant</dt>
+        <dt>Parte de la planta</dt>
         <dd>{part}</dd>
-        <dt>Caffeine content</dt>
+        <dt>Contenido de cafeína</dt>
         <dd>{caffeine}</dd>
-        <dt>Age</dt>
+        <dt>Antigüedad</dt>
         <dd>{age}</dd>
       </dl>
     </section>
@@ -703,8 +703,8 @@ function Drink({ name }) {
 export default function DrinkList() {
   return (
     <div>
-      <Drink name="tea" />
-      <Drink name="coffee" />
+      <Drink name="té" />
+      <Drink name="café" />
     </div>
   );
 }
@@ -720,15 +720,15 @@ Otra solución sería eliminar la condición por completo moviendo la informaci�
 
 ```js
 const drinks = {
-  tea: {
-    part: 'leaf',
-    caffeine: '15–70 mg/cup',
-    age: '4,000+ years'
+  té: {
+    part: 'hoja',
+    caffeine: '15–70 mg/taza',
+    age: '4,000+ años'
   },
-  coffee: {
-    part: 'bean',
-    caffeine: '80–185 mg/cup',
-    age: '1,000+ years'
+  café: {
+    part: 'grano',
+    caffeine: '80–185 mg/taza',
+    age: '1,000+ años'
   }
 };
 
@@ -738,11 +738,11 @@ function Drink({ name }) {
     <section>
       <h1>{name}</h1>
       <dl>
-        <dt>Part of plant</dt>
+        <dt>Parte de la planta</dt>
         <dd>{info.part}</dd>
-        <dt>Caffeine content</dt>
+        <dt>Contenido de cafeína</dt>
         <dd>{info.caffeine}</dd>
-        <dt>Age</dt>
+        <dt>Antigüedad</dt>
         <dd>{info.age}</dd>
       </dl>
     </section>
@@ -752,8 +752,8 @@ function Drink({ name }) {
 export default function DrinkList() {
   return (
     <div>
-      <Drink name="tea" />
-      <Drink name="coffee" />
+      <Drink name="té" />
+      <Drink name="café" />
     </div>
   );
 }

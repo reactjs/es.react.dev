@@ -139,8 +139,8 @@ render(
 export function Navigation() {
   return (
     <ul>
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/about">About</NavLink>
+      <NavLink href="/">Inicio</NavLink>
+      <NavLink href="/about">Acerca de</NavLink>
     </ul>
   );
 }

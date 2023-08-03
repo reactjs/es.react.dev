@@ -478,7 +478,7 @@ export default function Gallery() {
         <ul>
           <li>
             <b>Profesión: </b> 
-            geoquímico
+            geoquímica
           </li>
           <li>
             <b>Premios: 2 </b> 
