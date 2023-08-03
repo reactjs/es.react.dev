@@ -156,7 +156,7 @@ export const sculptureList = [{
 }, {
   name: 'Moái',
   artist: 'Artista desconocido',
-  description: 'Ubicados en la Isla de Pascua, hay 1,000 moái, o estatuas monumentales existentes, creadas por los primeros rapanui , que algunos creen que representan a ancestros deificados.',
+  description: 'Ubicados en la Isla de Pascua, hay 1,000 moái, o estatuas monumentales existentes, creadas por los primeros rapanui, que algunos creen que representan a ancestros deificados.',
   url: 'https://i.imgur.com/RCwLEoQm.jpg',
   alt: 'Tres bustos monumentales de piedra con las cabezas desproporcionadamente grandes con rostros sombríos.'
 }, {
