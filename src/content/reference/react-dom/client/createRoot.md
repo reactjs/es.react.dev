@@ -46,16 +46,16 @@ Una aplicación construida completamente con React suele llamar `createRoot` una
 * **opcional** `options`: Un objeto que contiene opciones para esta raíz de React.
 
   * **opcional** `onRecoverableError`: _callback_ que se llama cuando React se recupera de errores automáticamente.
-  * **opcional** `identifierPrefix`: prefijo de tipo string que React utiliza para IDs generados por [`useId`.](/apis/react/useId) Útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página.
+  * **opcional** `identifierPrefix`: prefijo de tipo string que React utiliza para IDs generados por [`useId`.](/reference/react/useId) Útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página.
 
 #### Devuelve {/*returns*/}
 
 `createRoot` devuelve un objeto con dos métodos: [`render`](#root-render) y [`unmount`.](#root-unmount)
 
 #### Advertencias {/*caveats*/}
-* Si tu aplicación se renderiza por el servidor, usar `createRoot()` no es permitido. En su lugar, utiliza [`hydrateRoot()`](/apis/react-dom/client/hydrateRoot).
+* Si tu aplicación se renderiza por el servidor, usar `createRoot()` no es permitido. En su lugar, utiliza [`hydrateRoot()`](/reference/react-dom/client/hydrateRoot).
 * Probablemente, solo se llamará `createRoot` una vez en tu aplicación. Si utilizas un framework, puede que haga esta llamada por ti.
-* Cuando quieres renderizar una pieza de JSX en otra parte del árbol del DOM que no es un hijo de tu componente (por ejemplo, un modal o un *tooltip*), usa [`createPortal`](/apis/react-dom/createPortal) en vez de `createRoot`.
+* Cuando quieres renderizar una pieza de JSX en otra parte del árbol del DOM que no es un hijo de tu componente (por ejemplo, un modal o un *tooltip*), usa [`createPortal`](/reference/react-dom/createPortal) en vez de `createRoot`.
 
 ---
 
@@ -73,7 +73,7 @@ React mostrará `<App />` en la raíz (`root`) y se encargará de administrar el
 
 #### Parámetros {/*root-render-parameters*/}
 
-* `reactNode`: Un *Nodo de React* que deseas mostrar. Por lo general, será una pieza de JSX como `<App />`, pero también puedes pasar un elemento de React construido con [`createElement()`](/apis/react/createElement), un string, un número, `null`, o `undefined`.
+* `reactNode`: Un *Nodo de React* que deseas mostrar. Por lo general, será una pieza de JSX como `<App />`, pero también puedes pasar un elemento de React construido con [`createElement()`](/reference/react/createElement), un string, un número, `null`, o `undefined`.
 
 
 #### Devuelve {/*root-render-returns*/}
@@ -84,9 +84,9 @@ React mostrará `<App />` en la raíz (`root`) y se encargará de administrar el
 
 * La primera vez que llamas a `root.render`, React borrará todo el contenido HTML existente dentro de la raíz de React antes de renderizar el componente de React dentro de ella.
 
-* Si el nodo del DOM de tu raíz contiene HTML generado por React en el servidor o durante la compilación , usa [`hydrateRoot()`](/apis/react-dom/client/hydrateRoot) en su lugar, que adjunta los controladores de eventos al HTML existente.
+* Si el nodo del DOM de tu raíz contiene HTML generado por React en el servidor o durante la compilación , usa [`hydrateRoot()`](/reference/react-dom/client/hydrateRoot) en su lugar, que adjunta los controladores de eventos al HTML existente.
 
-* Si llamas a `render` en la misma raíz más de una vez, React actualizará el DOM según sea necesario para reflejar el último JSX que pasaste. React decidirá qué partes del DOM se pueden reutilizar y cuáles deben ser recreadas para ["emparejarlo"](/learn/preserving-and-resetting-state) con el árbol renderizado previamente. Llamar a `render` en la misma raíz nuevamente es similar a llamar a la [función `set`](/apis/react/useState#setstate) en el componente raíz: React evita actualizaciones del DOM innecesarias.
+* Si llamas a `render` en la misma raíz más de una vez, React actualizará el DOM según sea necesario para reflejar el último JSX que pasaste. React decidirá qué partes del DOM se pueden reutilizar y cuáles deben ser recreadas para ["emparejarlo"](/learn/preserving-and-resetting-state) con el árbol renderizado previamente. Llamar a `render` en la misma raíz nuevamente es similar a llamar a la [función `set`](/reference/react/useState#setstate) en el componente raíz: React evita actualizaciones del DOM innecesarias.
 
 ---
 
@@ -212,7 +212,7 @@ Cuando tu HTML está vacío, el usuario ve una página en blanco hasta que el c�
 
 ### Renderizar una página construida parcialmente con React {/*rendering-a-page-partially-built-with-react*/}
 
-Si tu página [no está construida completamente con React](/learn/add-react-to-a-website), puedes llamar a `createRoot` varias veces para crear una raíz para cada pieza de nivel superior de la UI administrada por React. Puedes mostrar contenido diferente en cada raíz con una llamada a [`root.render`.](#root-render)
+Si tu página [no está construida completamente con React](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page), puedes llamar a `createRoot` varias veces para crear una raíz para cada pieza de nivel superior de la UI administrada por React. Puedes mostrar contenido diferente en cada raíz con una llamada a [`root.render`.](#root-render)
 
 Aquí, dos componentes diferentes de React se renderizan dentro de dos nodos del DOM definidos en el archivo `index.html`:
 
@@ -379,8 +379,6 @@ Por ejemplo, si `domNode` es `null`, significa que [`getElementById`](https://de
 1. El ID que estás buscando puede diferir del ID que usaste en el archivo HTML. ¡Comprueba si hay errores tipográficos!
 2. La etiqueta `<script>` de tu paquete no puede "ver" ningún nodo del DOM que aparezca *después* de ella en el HTML.
 
-Si no puedes hacerlo funcionar, consulta [Añadir React a un sitio web](/learn/add-react-to-a-website) para ver un ejemplo que funciona.
-
 Otra forma común de obtener este error es escribir `createRoot(<App />)` en lugar de `createRoot(domNode)`.
 
 ---
@@ -407,8 +405,6 @@ O si pasas una función a `root.render`, en lugar del resultado de llamarla:
 // ✅ Correcto: llama a createApp para devolver un componente.
 root.render(createApp());
 ```
-
-Si no puedes hacerlo funcionar, consulte [Añadir React a un sitio web](/learn/add-react-to-a-website) para ver un ejemplo que funciona.
 
 ---
 

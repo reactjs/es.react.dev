@@ -131,7 +131,7 @@ function Form() {
 }
 ```
 
-Este componente `Form` [pasa una ref](/reference/useRef#manipulating-the-dom-with-a-ref) a `MyInput`. El componente `MyInput` *pasa* esa ref a la etiqueta `<input>` del navegador. Como resultado, el componente `Form` puede acceder a ese nodo DOM `<input>` y llamar a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él.
+Este componente `Form` [pasa una ref](reference/react/useRef#manipulating-the-dom-with-a-ref) a `MyInput`. El componente `MyInput` *pasa* esa ref a la etiqueta `<input>` del navegador. Como resultado, el componente `Form` puede acceder a ese nodo DOM `<input>` y llamar a [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) en él.
 
 Ten en cuenta que al exponer una ref al nodo DOM dentro de tu componente, estás dificultando la posibilidad de cambiar el interior de tu componente más adelante. Por lo general, expondrás los nodos DOM de los componentes reutilizables de bajo nivel como los botones o las entradas de texto, pero no lo harás para los componentes de nivel de aplicación como un avatar o un comentario.
 

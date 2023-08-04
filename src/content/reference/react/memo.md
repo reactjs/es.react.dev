@@ -34,7 +34,7 @@ const SomeComponent = memo(function SomeComponent(props) {
 
 #### Parámetros {/*parameters*/}
 
-* `Component`: El componente que quieres memoizar. El `memo` no modifica este componente, pero devuelve un nuevo componente memoizado en su lugar. Cualquier componente válido de React, incluyendo funciones y componentes [`forwardRef`](/apis/react/forwardRef), es aceptado.
+* `Component`: El componente que quieres memoizar. El `memo` no modifica este componente, pero devuelve un nuevo componente memoizado en su lugar. Cualquier componente válido de React, incluyendo funciones y componentes [`forwardRef`](/reference/react/forwardRef), es aceptado.
 
 * **opcional** `arePropsEqual`: Una función que acepta dos parámetros: las props previas del componente y las nuevas. Debería devolver `true` si las props antiguas y las nuevas son iguales: es decir, si el componente renderizará la misma salida y se comportará de la misma manera con las nuevas props que con las antiguas. De lo contrario, debería devolver `false`.
 

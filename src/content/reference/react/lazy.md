@@ -36,7 +36,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Devuelve {/*returns*/}
 
-`lazy` devuelve un componente React que puedes renderizar en tu árbol. Mientras el código del componente lazy sigue cargando, el intento de renderizarlo se _suspenderá._ Usa [`<Suspense>`](/apis/react/Suspense) para mostrar un indicador de carga mientras se carga.
+`lazy` devuelve un componente React que puedes renderizar en tu árbol. Mientras el código del componente lazy sigue cargando, el intento de renderizarlo se _suspenderá._ Usa [`<Suspense>`](/reference/react/Suspense) para mostrar un indicador de carga mientras se carga.
 
 ---
 
@@ -48,7 +48,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Devuelve {/*load-returns*/}
 
-Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/api/react/memo), o un componente [`forwardRef`](/api/react/forwardRef).
+Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/reference/react/memo), o un componente [`forwardRef`](/reference/react/forwardRef).
 
 ---
 

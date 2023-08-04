@@ -107,7 +107,7 @@ Generalmente no necesitas llamar a `render` de nuevo o llamarlo en otros lugares
 
 ### Renderizar múltiples raíces {/*rendering-multiple-roots*/}
 
-Si tu página [no está totalmente construida con React](/learn/add-react-to-a-website), llama a `render` por cada pieza de UI de nivel superior que esté administrada por React.
+Si tu página [no está totalmente construida con React](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page), llama a `render` por cada pieza de UI de nivel superior que esté administrada por React.
 
 <Sandpack>
 

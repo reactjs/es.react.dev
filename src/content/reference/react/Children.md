@@ -58,7 +58,7 @@ El número de nodos dentro de estos hijos (`children`).
 
 #### Advertencias {/*children-count-caveats*/}
 
-- Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/apis/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos sí. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y no se recorren sus hijos. Los [Fragmentos](/apis/react/Fragment) no se recorren.
+- Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/reference/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos sí. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y no se recorren sus hijos. Los [Fragmentos](/reference/react/Fragment) no se recorren.
 
 ---
 
@@ -92,7 +92,7 @@ function SeparatorList({ children }) {
 
 #### Advertencias {/*children-foreach-caveats*/}
 
-- Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/apis/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos si. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y sus hijos no se recorren. Los [Fragmentos](/apis/react/Fragment) no se recorren.
+- Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/reference/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos si. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y sus hijos no se recorren. Los [Fragmentos](/reference/react/Fragment) no se recorren.
 
 ---
 
@@ -132,7 +132,7 @@ De lo contrario, devuelve un array plano que consta de los nodos que ha devuelto
 
 #### Advertencias {/*children-map-caveats*/}
 
-- Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/apis/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos sí. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y no se recorren sus hijos. Los [Fragmentos](/apis/react/Fragment) no se recorren.
+- Nodos vacíos (`null`, `undefined`, y booleanos), strings, números, y [elementos de React](/reference/react/createElement) cuentan como nodos individuales. Los *arrays* no cuentan como nodos individuales, pero sus hijos sí. **El recorrido no va más profundo que al nivel de los elementos de React:** no se renderizan, y no se recorren sus hijos. Los [Fragmentos](/reference/react/Fragment) no se recorren.
 
 - Si devuelve un elemento o un *array* de elementos con _keys_ desde `fn`, **las _keys_ de los elementos devueltos se combinarán automáticamente con la clave del elemento original correspondiente de `children`.** Cuando devuelves múltiples elementos desde `fn` en un *array*, sus _keys_ solo necesitan ser únicas localmente entre sí.
 
@@ -155,7 +155,7 @@ function Box({ children }) {
 
 #### Devuelve {/*children-only-returns*/}
 
-Si `children` [es un elemento válido,](/apis/react/isValidElement) devuelve ese elemento.
+Si `children` [es un elemento válido,](/reference/react/isValidElement) devuelve ese elemento.
 
 De lo contrario, lanza un error.
 
