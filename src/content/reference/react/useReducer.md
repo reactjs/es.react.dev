@@ -84,7 +84,7 @@ Las funciones `dispatch` no tienen un valor de devolución.
 
 * Si el nuevo valor que proporcionas es idéntico al `state` actual, determinado por una comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **saltará el renderizado del componente y sus hijos.** Esto es una optimización. React aún puede necesitar llamar a tu componente antes de ignorar el resultado, pero no debería afectar a tu código.
 
-* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
+* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/reference/react-dom/flushSync)
 
 ---
 
@@ -1081,7 +1081,7 @@ Si no puedes encontrar la causa de este error, haz clic en la flecha situada jun
 
 ### Mi función reductora o inicializadora se ejecuta dos veces {/*my-reducer-or-initializer-function-runs-twice*/}
 
-En [Modo Estricto](/apis/react/StrictMode), React llamará a tus funciones reductoras e inicializadoras dos veces. Esto no debería romper tu código.
+En [Modo Estricto](/reference/react/StrictMode), React llamará a tus funciones reductoras e inicializadoras dos veces. Esto no debería romper tu código.
 
 Este comportamiento **sólo para desarrollo** te ayuda a [mantener los componentes puros.](/learn/keeping-components-pure) React utiliza el resultado de una de las llamadas, e ignora el resultado de la otra llamada. Mientras tus funciones de componente, inicializadora y reducer sean puras, esto no debería afectar a tu lógica. Sin embargo, si accidentalmente son impuras, esto te ayuda a detectar los errores.
 
