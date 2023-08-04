@@ -21,7 +21,7 @@ Las variables de estado pueden parecerse a las variables normales de JavaScript 
 
 Puedes hacerte la idea de tu interfaz de usuario como una que cambia directamente al evento del usuario como un clic. En React, funciona un poco diferente de este modelo mental. En la página anterior, viste que [al asignar estado se solicita un rerenderizado](/learn/render-and-commit#step-1-trigger-a-render) de React. Esto significa que para que una interfaz reaccione al evento, es necesario *actualizar el estado*.
 
-En este ejemplo, al pulsar "Send", `setIsSent(true)` indica a React que vuelva a renderizar la UI:
+En este ejemplo, al pulsar "Enviar", `setIsSent(true)` indica a React que vuelva a renderizar la UI:
 
 <Sandpack>
 
@@ -30,9 +30,9 @@ import { useState } from 'react';
 
 export default function Form() {
   const [isSent, setIsSent] = useState(false);
-  const [message, setMessage] = useState('Hi!');
+  const [message, setMessage] = useState('¡Hola!');
   if (isSent) {
-    return <h1>Your message is on its way!</h1>
+    return <h1>¡Tu mensaje está en camino!</h1>
   }
   return (
     <form onSubmit={(e) => {
@@ -41,11 +41,11 @@ export default function Form() {
       sendMessage(message);
     }}>
       <textarea
-        placeholder="Message"
+        placeholder="Mensaje"
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit">Enviar</button>
     </form>
   );
 }
@@ -256,10 +256,10 @@ El estado almacenado en React puede haber cambiado en el momento en que se ejecu
 
 Aquí hay un ejemplo de cómo eso hace que tus controladores de eventos sean menos propensos a errores de sincronización. A continuación se muestra un formulario que envía un mensaje con un retraso de cinco segundos. Imagina este escenario:
 
-1. Pulsas el botón "Send", enviando "Hello" a Alice.
-2. Antes de que termine la demora de cinco segundos, cambia el valor del campo "To" a "Bob".
+1. Pulsas el botón "Enviar", enviando "Hola" a Alice.
+2. Antes de que termine la demora de cinco segundos, cambia el valor del campo "Para" a "Bob".
 
-¿Qué esperas que muestre la alerta (`alert`)? ¿Mostrará "You said Hello to Alice"? ¿O será "You said Hello to Bob"? Haz una suposición con base en lo que sabes y luego pruébalo:
+¿Qué esperas que muestre la alerta (`alert`)? ¿Mostrará "Has dicho Hola a Alice"? ¿O será "Has dicho Hola a Bob"? Haz una suposición con base en lo que sabes y luego pruébalo:
 
 <Sandpack>
 
@@ -268,19 +268,19 @@ import { useState } from 'react';
 
 export default function Form() {
   const [to, setTo] = useState('Alice');
-  const [message, setMessage] = useState('Hello');
+  const [message, setMessage] = useState('Hola');
 
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`You said ${message} to ${to}`);
+      alert(`Has dicho ${message} a ${to}`);
     }, 5000);
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        To:{' '}
+        Para:{' '}
         <select
           value={to}
           onChange={e => setTo(e.target.value)}>
@@ -289,11 +289,11 @@ export default function Form() {
         </select>
       </label>
       <textarea
-        placeholder="Message"
+        placeholder="Mensaje"
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit">Enviar</button>
     </form>
   );
 }
@@ -344,12 +344,12 @@ export default function TrafficLight() {
   return (
     <>
       <button onClick={handleClick}>
-        Change to {walk ? 'Stop' : 'Walk'}
+        Cambia a {walk ? 'Parar' : 'Caminar'}
       </button>
       <h1 style={{
         color: walk ? 'darkgreen' : 'darkred'
       }}>
-        {walk ? 'Walk' : 'Stop'}
+        {walk ? 'Caminar' : 'Parar'}
       </h1>
     </>
   );
@@ -362,7 +362,7 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Añade un `alert` al controlador de clics. Cuando la luz es verde y dice "Walk", al hacer clic en el botón debe decir "Stop is next". Cuando la luz es roja y dice "Stop", al hacer clic en el botón debe decir "Walk is next".
+Añade un `alert` al controlador de clics. Cuando la luz es verde y dice "Caminar", al hacer clic en el botón debe decir "Parar es lo siguiente". Cuando la luz es roja y dice "Parar", al hacer clic en el botón debe decir "Caminar es lo siguiente".
 
 ¿Hay alguna diferencia si se pone el `alert` antes o después de la llamada a `setWalk`?
 
@@ -380,18 +380,18 @@ export default function TrafficLight() {
 
   function handleClick() {
     setWalk(!walk);
-    alert(walk ? 'Stop is next' : 'Walk is next');
+    alert(walk ? 'Parar es lo siguiente' : 'Caminar es lo siguiente');
   }
 
   return (
     <>
       <button onClick={handleClick}>
-        Change to {walk ? 'Stop' : 'Walk'}
+        Cambia a {walk ? 'Parar' : 'Caminar'}
       </button>
       <h1 style={{
         color: walk ? 'darkgreen' : 'darkred'
       }}>
-        {walk ? 'Walk' : 'Stop'}
+        {walk ? 'Caminar' : 'Parar'}
       </h1>
     </>
   );
@@ -409,26 +409,26 @@ Ya sea que lo pongas antes o después del `setWalk` no hace ninguna diferencia. 
 Esta línea puede parecer paradójica en un inicio:
 
 ```js
-alert(walk ? 'Stop is next' : 'Walk is next');
+alert(walk ? 'Parar es lo siguiente' : 'Caminar es lo siguiente');
 ```
 
-Pero tiene sentido si lo lees como: "Si el semáforo muestra 'Walk now', el mensaje debería decir 'Stop is next'". La variable `walk` dentro de tu controlador de evento coincide con el valor de `walk` de ese renderizado y no cambia.
+Pero tiene sentido si lo lees como: "Si el semáforo muestra 'Caminar ahora', el mensaje debería decir 'Parar es lo siguiente'". La variable `walk` dentro de tu controlador de evento coincide con el valor de `walk` de ese renderizado y no cambia.
 
 Puedes comprobar que es correcto aplicando el método de sustitución. Cuando `walk` es `true`, obtienes:
 
 ```js
 <button onClick={() => {
   setWalk(false);
-  alert('Stop is next');
+  alert('Parar es lo siguiente');
 }}>
-  Change to Stop
+  Cambia a Parar
 </button>
 <h1 style={{color: 'darkgreen'}}>
-  Walk
+  Caminar
 </h1>
 ```
 
-Así, al hacer clic en "Change to Stop" se pone en cola un renderizado con `walk` ajustado a `false`, y avisa de que "Stop is next".
+Así, al hacer clic en "Cambia a Parar" se pone en cola un renderizado con `walk` ajustado a `false`, y avisa de que "Parar es lo siguiente".
 
 </Solution>
 

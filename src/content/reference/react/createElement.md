@@ -29,7 +29,7 @@ function Greeting({ name }) {
   return createElement(
     'h1',
     { className: 'greeting' },
-    'Hello'
+    'Hola'
   );
 }
 ```
@@ -73,27 +73,27 @@ Si no te gusta [JSX](/learn/writing-markup-with-jsx) o no puedes usarlo en tu pr
 
 Para crear un elemento sin JSX, llamas a `createElement` con <CodeStep step={1}>type</CodeStep>, <CodeStep step={2}>props</CodeStep> y <CodeStep step={3}>children</CodeStep>:
 
-```js [[1, 5, "'h1'"], [2, 6, "{ className: 'greeting' }"], [3, 7, "'Hello ',"], [3, 8, "createElement('i', null, name),"], [3, 9, "'. Welcome!'"]]
+```js [[1, 5, "'h1'"], [2, 6, "{ className: 'greeting' }"], [3, 7, "'¡Hola ',"], [3, 8, "createElement('i', null, name),"], [3, 9, "'. Bienvenido!'"]]
 import { createElement } from 'react';
 
 function Greeting({ name }) {
   return createElement(
     'h1',
     { className: 'greeting' },
-    'Hello ',
+    '¡Hola ',
     createElement('i', null, name),
-    '. Welcome!'
+    '. Bienvenido!'
   );
 }
 ```
 
 Los <CodeStep step={3}>children</CodeStep> son opcionales, y puedes pasar tantos como necesites (el ejemplo anterior tiene tres hijos). Este código mostrará un encabezado `<h1>` con un saludo. A modo de comparación, aquí está el mismo ejemplo reescrito con JSX:
 
-```js [[1, 3, "h1"], [2, 3, "className=\\"greeting\\""], [3, 4, "Hello <i>{name}</i>. Welcome!"], [1, 5, "h1"]]
+```js [[1, 3, "h1"], [2, 3, "className=\\"greeting\\""], [3, 4, "¡Hola <i>{name}</i>. Bienvenido!"], [1, 5, "h1"]]
 function Greeting({ name }) {
   return (
     <h1 className="greeting">
-      Hello <i>{name}</i>. Welcome!
+      ¡Hola <i>{name}</i>. Bienvenido!
     </h1>
   );
 }
@@ -126,9 +126,9 @@ function Greeting({ name }) {
   return createElement(
     'h1',
     { className: 'greeting' },
-    'Hello ',
+    '¡Hola ',
     createElement('i', null, name),
-    '. Welcome!'
+    '. Bienvenido!'
   );
 }
 
@@ -157,7 +157,7 @@ Y aquí está el mismo ejemplo usando JSX:
 function Greeting({ name }) {
   return (
     <h1 className="greeting">
-      Hello <i>{name}</i>. Welcome!
+      ¡Hola <i>{name}</i>. Bienvenido!
     </h1>
   );
 }

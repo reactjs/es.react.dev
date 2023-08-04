@@ -26,13 +26,13 @@ Llama a `isValidElement(value)` para comprobar si `value` es un elemento de Reac
 import { isValidElement, createElement } from 'react';
 
 // ✅ Elementos de React
-console.log(isValidElement(<p />)); // true
-console.log(isValidElement(createElement('p'))); // true
+console.log(isValidElement(<p />)); // verdadero
+console.log(isValidElement(createElement('p'))); // verdadero
 
 // ❌ No son elementos de React
-console.log(isValidElement(25)); // false
-console.log(isValidElement('Hello')); // false
-console.log(isValidElement({ age: 42 })); // false
+console.log(isValidElement(25)); // falso
+console.log(isValidElement('Hola')); // falso
+console.log(isValidElement({ age: 42 })); // falso
 ```
 
 [Ver más ejemplos abajo.](#usage)
@@ -68,12 +68,12 @@ Para los elementos de React, `isValidElement` devuelve `true`:
 import { isValidElement, createElement } from 'react';
 
 // ✅ Las etiquetas JSX son elementos de React
-console.log(isValidElement(<p />)); // true
-console.log(isValidElement(<MyComponent />)); // true
+console.log(isValidElement(<p />)); // verdadero
+console.log(isValidElement(<MyComponent />)); // verdadero
 
 // ✅ Los valores devueltos por createElement son elementos de React
-console.log(isValidElement(createElement('p'))); // true
-console.log(isValidElement(createElement(MyComponent))); // true
+console.log(isValidElement(createElement('p'))); // verdadero
+console.log(isValidElement(createElement(MyComponent))); // verdadero
 ```
 
 Cualquier otro valor, como _strings_, números u objetos arbitrarios y _arrays_, no son elementos de React.
@@ -82,12 +82,12 @@ Para ellos, `isValidElement` devuelve `false`:
 
 ```js
 // ❌ Estos *no* son elementos de React
-console.log(isValidElement(null)); // false
-console.log(isValidElement(25)); // false
-console.log(isValidElement('Hello')); // false
-console.log(isValidElement({ age: 42 })); // false
-console.log(isValidElement([<div />, <div />])); // false
-console.log(isValidElement(MyComponent)); // false
+console.log(isValidElement(null)); // falso
+console.log(isValidElement(25)); // falso
+console.log(isValidElement('Hola')); // falso
+console.log(isValidElement({ age: 42 })); // falso
+console.log(isValidElement([<div />, <div />])); // falso
+console.log(isValidElement(MyComponent)); // falso
 ```
 
 Es muy poco común necesitar `isValidElement`. Es más útil si estás llamando a otra API que *sólo* acepta elementos (como hace [`cloneElement`](/reference/react/cloneElement) y quieres evitar un error cuando tu argumento no es un elemento de React.

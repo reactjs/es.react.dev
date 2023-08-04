@@ -1725,7 +1725,7 @@ body {
 
 </Sandpack>
 
-## Adicionar viajes en el tiempo {/*adding-time-travel*/}
+## Agregar viajes en el tiempo {/*adding-time-travel*/}
 
 Como ejercicio final, hagamos posible "retroceder en el tiempo" a los movimientos anteriores del juego.
 

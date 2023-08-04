@@ -238,7 +238,7 @@ function List({ items }) {
 
 Cuando actualizas un componente durante el renderizado, React descarta el JSX devuelto y vuelve a intentar el renderizado de inmediato. Para evitar reintentos en cascada muy lentos, React solo te permite actualizar el estado del *mismo* componente durante el renderizado. Si intentas actualizar el estado de otro componente durante el renderizado, verás un error. Una condición como `items !== prevItems` es necesaria para evitar bucles. Puedes ajustar el estado de esta manera, pero otros efectos secundarios (como cambios en el DOM o establecer tiempos de espera) debe mantenerse en los controladores de eventos o en Efectos para [mantener los componentes puros.](/learn/keeping-components-pure)
 
-**Aunque este patrón es más eficiente que un Efecto, la mayoría de los componentes tampoco lo necesitan.** Sin importar cómo lo hagas, ajustar el estado basado en _props_ u otro estado hace que el flujo de datos sea más difícil de entender y depurar. Siempre verifica si puedes [reiniciar todo el estado con una _key_](#resetting-all-state-when-a-prop-changes) o [calcular todo durante el renderizado](#updating-state-based-on-props-or-state) en su lugar. Por ejemplo, en lugar de almacenar (y reiniciar) el *item* seleccionado, puedes almacenar el *item ID* seleccionado:
+**Aunque este patrón es más eficiente que un Efecto, la mayoría de los componentes tampoco lo necesitan.** Sin importar cómo lo hagas, ajustar el estado basado en _props_ u otro estado hace que el flujo de datos sea más difícil de entender y depurar. Siempre verifica si puedes [reiniciar todo el estado con una _key_](#resetting-all-state-when-a-prop-changes) o [calcular todo durante el renderizado](#updating-state-based-on-props-or-state) en su lugar. Por ejemplo, en lugar de almacenar (y reiniciar) el *ítem* seleccionado, puedes almacenar el *ítem ID* seleccionado:
 
 ```js {3-5}
 function List({ items }) {
@@ -1380,7 +1380,7 @@ export default function EditContact({ savedContact, onSave }) {
         />
       </label>
       <label>
-        Email:{' '}
+        Correo electrónico:{' '}
         <input
           type="email"
           value={email}
@@ -1548,7 +1548,7 @@ function EditForm({ savedContact, onSave }) {
         />
       </label>
       <label>
-        Email:{' '}
+        Correo electrónico:{' '}
         <input
           type="email"
           value={email}

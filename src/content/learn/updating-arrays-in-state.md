@@ -361,7 +361,7 @@ export default function List() {
     const nextArtists = [
       // Elementos antes del punto de inserción:
       ...artists.slice(0, insertAt),
-      // New item:
+      // Nuevo ítem:
       { id: nextId++, name: name },
       // Elementos después del punto de inserción:
       ...artists.slice(insertAt)
@@ -411,9 +411,9 @@ import { useState } from 'react';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies' },
-  { id: 1, title: 'Lunar Landscape' },
-  { id: 2, title: 'Terracotta Army' },
+  { id: 0, title: 'Grandes barrigas' },
+  { id: 1, title: 'Paisaje lunar' },
+  { id: 2, title: 'Guerreros de terracota' },
 ];
 
 export default function List() {
@@ -428,7 +428,7 @@ export default function List() {
   return (
     <>
       <button onClick={handleClick}>
-        Inverso
+        Invertir
       </button>
       <ul>
         {list.map(artwork => (
@@ -469,9 +469,9 @@ import { useState } from 'react';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -576,9 +576,9 @@ import { useState } from 'react';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -672,9 +672,9 @@ import { useImmer } from 'use-immer';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {

@@ -58,9 +58,9 @@ export default function Form() {
 
   return (
     <>
-      <h2>Concurso de la ciudad</h2>
+      <h2>Cuestionario sobre ciudades</h2>
       <p>
-        ¿En qué ciudad hay una valla publicitaria que convierte el aire en agua potable?
+        ¿En qué ciudad hay un cartel publicitario que convierte el aire en agua potable?
       </p>
       <form onSubmit={handleSubmit}>
         <textarea
@@ -244,20 +244,20 @@ export default function Accordion() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-      <h2>Almaty, Kazajistán</h2>
+      <h2>Alma Ata, Kazajistán</h2>
       <Panel
-        title="About"
+        title="Acerca de"
         isActive={activeIndex === 0}
         onShow={() => setActiveIndex(0)}
       >
-        Con una población de unos 2 millones de habitantes, Almaty es la mayor ciudad de Kazajistán. De 1929 a 1997 fue su capital.
+        Con una población de unos 2 millones de habitantes, Alma Ata es la mayor ciudad de Kazajistán. De 1929 a 1997 fue su capital.
       </Panel>
       <Panel
-        title="Etymology"
+        title="Etimología"
         isActive={activeIndex === 1}
         onShow={() => setActiveIndex(1)}
       >
-        El nombre proviene de <span lang="kk-KZ">алма</span>, la palabra kazaja para "manzana", y suele traducirse como "lleno de manzanas". De hecho, se cree que la región que rodea a Almaty es el hogar ancestral de la manzana, y el <i lang="la">Malus Silvestris</i> se considera un candidato probable para el ancestro de la manzana doméstica moderna.
+        El nombre proviene de <span lang="kk-KZ">алма</span>, la palabra en kazajo para "manzana", y suele traducirse como "lleno de manzanas". De hecho, se cree que la región que rodea a Alma Ata es el hogar ancestral de la manzana, y el <i lang="la">Malus Silvestris</i> se considera un candidato probable para el ancestro de la manzana doméstica moderna.
       </Panel>
     </>
   );
@@ -367,7 +367,7 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
@@ -462,7 +462,7 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
@@ -583,9 +583,9 @@ function tasksReducer(tasks, action) {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false }
+  { id: 0, text: 'Visitar el Museo Kafka', done: true },
+  { id: 1, text: 'Ver espectáculo de títeres', done: false },
+  { id: 2, text: 'Foto del muro de Lennon', done: false }
 ];
 ```
 
@@ -712,19 +712,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
         <Section>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
           <Section>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -882,9 +882,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 

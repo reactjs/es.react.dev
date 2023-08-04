@@ -143,9 +143,9 @@ export default function Counter() {
       <button onClick={() => {
         dispatch({ type: 'incremented_age' })
       }}>
-        Increment age
+        Incrementar edad
       </button>
-      <p>Hello! You are {state.age}.</p>
+      <p>¡Hola! Tú tienes {state.age}.</p>
     </>
   );
 }
@@ -300,9 +300,9 @@ export default function Form() {
         onChange={handleInputChange}
       />
       <button onClick={handleButtonClick}>
-        Increment age
+        Incrementar edad
       </button>
-      <p>Hello, {state.name}. You are {state.age}.</p>
+      <p>Hola, {state.name}. Tú tienes {state.age}.</p>
     </>
   );
 }
@@ -384,7 +384,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -399,9 +399,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false }
+  { id: 0, text: 'Visitar el Museo Kafka', done: true },
+  { id: 1, text: 'Ver espectáculo de títeres', done: false },
+  { id: 2, text: 'Foto del muro de Lennon', done: false }
 ];
 ```
 
@@ -492,7 +492,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -576,7 +576,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -591,9 +591,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false },
+  { id: 0, text: 'Visitar el Museo Kafka', done: true },
+  { id: 1, text: 'Ver espectáculo de títeres', done: false },
+  { id: 2, text: 'Foto del muro de Lennon', done: false },
 ];
 ```
 
@@ -684,7 +684,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );

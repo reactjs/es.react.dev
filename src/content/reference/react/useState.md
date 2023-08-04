@@ -178,7 +178,7 @@ En este ejemplo, la variable de estado `texto` contiene una cadena. Cuando escri
 import { useState } from 'react';
 
 export default function MyInput() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('hola');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -188,7 +188,7 @@ export default function MyInput() {
     <>
       <input value={text} onChange={handleChange} />
       <p>Escribiste: {text}</p>
-      <button onClick={() => setText('hello')}>
+      <button onClick={() => setText('hola')}>
         Reiniciar
       </button>
     </>
@@ -525,8 +525,8 @@ export default function Form() {
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',
     artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
+      title: 'Nana azul',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -803,9 +803,9 @@ import { useImmer } from 'use-immer';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {

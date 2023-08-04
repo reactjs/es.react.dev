@@ -97,7 +97,7 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>Bienvenido a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
       <button onClick={handleSendClick}>Enviar</button>
     </>
@@ -116,8 +116,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viajes</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -210,7 +210,7 @@ Ahora volvamos a estas líneas:
     // ...
 ```
 
-Desde la perspectiva del usuario, **un cambio en el `roomId` *significa* que quieren conectarse a una habitación diferente.** En otras palabras, la lógica para conectarse a la habitación debe ser reactiva. Usted *quiere* estas líneas de código para "mantenerse al día" con el <CodeStep step={2}>valor reactivo</CodeStep>, y para ejecutar de nuevo si ese valor es diferente. Es por eso que pertenece en un Efecto:
+Desde la perspectiva del usuario, **un cambio en el `roomId` *significa* que quieren conectarse a una sala diferente.** En otras palabras, la lógica para conectarse a la sala debe ser reactiva. Usted *quiere* estas líneas de código para "mantenerse al día" con el <CodeStep step={2}>valor reactivo</CodeStep>, y para ejecutar de nuevo si ese valor es diferente. Es por eso que pertenece en un Efecto:
 
 ```js {2-3}
   useEffect(() => {
@@ -235,7 +235,7 @@ function ChatRoom({ roomId, theme }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
-      showNotification('Conectado!', theme);
+      showNotification('¡Conectado!', theme);
     });
     connection.connect();
     // ...
@@ -248,7 +248,7 @@ function ChatRoom({ roomId, theme }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
-      showNotification('Conectado!', theme);
+      showNotification('¡Conectado!', theme);
     });
     connection.connect();
     return () => {
@@ -296,7 +296,7 @@ function ChatRoom({ roomId, theme }) {
     return () => connection.disconnect();
   }, [roomId, theme]);
 
-  return <h1>Bienvenido a la sala {roomId}!</h1>
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -311,8 +311,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viajes</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -440,7 +440,7 @@ function ChatRoom({ roomId, theme }) {
 ```
 
 Esto resuelve el problema. Ten en cuenta que has tenido que *eliminar* `onConnected` de la lista de dependencias de tu Efecto. **Los Eventos de Efecto no son reactivos y deben ser omitidos de las dependencias.**
-Verify that the new behavior works as you would expect:
+Verifica que el nuevo comportamiento funciona como esperas:
 
 <Sandpack>
 
@@ -483,7 +483,7 @@ function ChatRoom({ roomId, theme }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Bienvenido a la sala {roomId}!</h1>
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -498,8 +498,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viajes</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -602,7 +602,7 @@ Más tarde, añades múltiples rutas a tu sitio. Ahora tu componente `Page` reci
 function Page({ url }) {
   useEffect(() => {
     logVisit(url);
-  }, []); // 🔴 React Hook useEffect has a missing dependency: 'url'
+  }, []); // 🔴 Hook de React useEffect tiene una dependencia que falta: 'url'
   // ...
 }
 ```
@@ -647,7 +647,7 @@ function Page({ url }) {
 
   useEffect(() => {
     onVisit(url);
-  }, [url]); // ✅ All dependencies declared
+  }, [url]); // ✅ Todas las dependencias declaradas
   // ...
 }
 ```
@@ -760,7 +760,7 @@ export default function App() {
           checked={canMove}
           onChange={e => setCanMove(e.target.checked)}
         />
-        The dot is allowed to move
+        El punto puede moverse
       </label>
       <hr />
       <div style={{
@@ -1409,9 +1409,9 @@ En general, deberías desconfiar de funciones como `onMount` que se centran en e
 
 Al entrar en una sala de chat, este componente muestra una notificación. Sin embargo, no muestra la notificación inmediatamente. En su lugar, la notificación se retrasa artificialmente dos segundos para que el usuario tenga la oportunidad de echar un vistazo a la interfaz de usuario.
 
-Esto casi funciona, pero hay un error. Intenta cambiar el menú desplegable de "general" a "travel" y luego a "music" rápidamente. Si lo haces lo suficientemente rápido, verás dos notificaciones (¡como era de esperar!) pero *ambas* dirán "Bienvenido a la música".
+Esto casi funciona, pero hay un error. Intenta cambiar el menú desplegable de "general" a "viaje" y luego a "música" rápidamente. Si lo haces lo suficientemente rápido, verás dos notificaciones (¡como era de esperar!) pero *ambas* dirán "Bienvenido a la música".
 
-Arréglalo para que cuando cambies de "general" a "travel" y luego a "music" muy rápidamente, veas dos notificaciones, la primera sea "Bienvenido a viajes" y la segunda "Bienvenido a música". (Para un reto adicional, suponiendo que *ya* has hecho que las notificaciones muestren las salas correctas, cambia el código para que solo se muestre la última notificación).
+Arréglalo para que cuando cambies de "general" a "viaje" y luego a "música" muy rápidamente, veas dos notificaciones, la primera sea "Bienvenido a viaje" y la segunda "Bienvenido a música". (Para un reto adicional, suponiendo que *ya* has hecho que las notificaciones muestren las salas correctas, cambia el código para que solo se muestre la última notificación).
 
 <Hint>
 
@@ -1448,7 +1448,7 @@ const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(() => {
-    showNotification('Welcome to ' + roomId, theme);
+    showNotification('Bienvenido a ' + roomId, theme);
   });
 
   useEffect(() => {
@@ -1462,7 +1462,7 @@ function ChatRoom({ roomId, theme }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Bienvenido a la sala {roomId}!</h1>
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -1477,8 +1477,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viajes</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -1556,7 +1556,7 @@ label { display: block; margin-top: 10px; }
 
 Dentro de tu Evento de Efecto, `roomId` es el valor *en el momento en que el Evento de Efecto fue llamado.*
 
-Su Evento de Efecto es llamado con un retraso de dos segundos. Si estás cambiando rápidamente de la sala de viaje a la sala de música, en el momento en que se muestra la notificación de la sala de viaje, `roomId` ya es `"music"`. Por eso ambas notificaciones dicen "Bienvenido a música".
+Su Evento de Efecto es llamado con un retraso de dos segundos. Si estás cambiando rápidamente de la sala de viaje a la sala de música, en el momento en que se muestra la notificación de la sala de viaje, `roomId` ya es `"música"`. Por eso ambas notificaciones dicen "Bienvenido a música".
 
 Para solucionar el problema, en lugar de leer el *latest* `roomId` dentro del Evento de Efecto, hazlo un parámetro de tu Evento de Efecto, como `connectedRoomId` abajo. Luego pasa `roomId` desde tu Efecto llamando a `onConnected(roomId)`:
 
@@ -1618,8 +1618,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viajes</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -1693,7 +1693,7 @@ label { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-El Efecto que tenía `roomId` como `"travel"` (por lo que se conectó a la sala `"travel"`) mostrará la notificación de `"travel"`. El Efecto que tiene `roomId` como `"music"` (por lo que se conectó a la sala `"music"`) mostrará la notificación de `"music"`. En otras palabras, `connectedRoomId` viene de tu Efecto (que es reactivo), mientras que `theme` siempre utiliza el último valor.
+El Efecto que tenía `roomId` como `"viaje"` (por lo que se conectó a la sala `"viaje"`) mostrará la notificación de `"viaje"`. El Efecto que tiene `roomId` como `"música"` (por lo que se conectó a la sala `"música"`) mostrará la notificación de `"música"`. En otras palabras, `connectedRoomId` viene de tu Efecto (que es reactivo), mientras que `theme` siempre utiliza el último valor.
 
 Para resolver el problema adicional, guarda el ID del tiempo de espera de la notificación y elimínalo en la función de limpieza de tu Efecto:
 
@@ -1726,7 +1726,7 @@ const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
   const onConnected = useEffectEvent(connectedRoomId => {
-    showNotification('Welcome to ' + connectedRoomId, theme);
+    showNotification('Bienvenido a ' + connectedRoomId, theme);
   });
 
   useEffect(() => {
@@ -1746,7 +1746,7 @@ function ChatRoom({ roomId, theme }) {
     };
   }, [roomId]);
 
-  return <h1>Bienvenido a la sala {roomId}!</h1>
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>
 }
 
 export default function App() {
@@ -1761,8 +1761,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viajes</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -1836,7 +1836,7 @@ label { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-Esto garantiza que las notificaciones ya programadas (pero aún no mostradas) se cancelen cuando cambie de habitación.
+Esto garantiza que las notificaciones ya programadas (pero aún no mostradas) se cancelen cuando cambie de sala.
 
 </Solution>
 

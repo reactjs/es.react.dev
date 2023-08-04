@@ -498,7 +498,7 @@ export default function ChatRoom() {
     const connection = createConnection();
     connection.connect();
   }, []);
-  return <h1>Bienvenido al chat!</h1>;
+  return <h1>¡Bienvenido al chat!</h1>;
 }
 ```
 
@@ -556,13 +556,13 @@ export default function ChatRoom() {
     connection.connect();
     return () => connection.disconnect();
   }, []);
-  return <h1>Bienvenido al chat!</h1>;
+  return <h1>¡Bienvenido al chat!</h1>;
 }
 ```
 
 ```js chat.js
 export function createConnection() {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
       console.log('✅ Conectando...');
@@ -909,37 +909,37 @@ React compara `['general']` del segundo renderizado con `['general']` del primer
 
 #### Volver a renderizar con diferentes dependencias {/*re-render-with-different-dependencies*/}
 
-Luego, el usuario visita `<ChatRoom roomId="travel" />`. Esta vez, el componente devuelve un JSX diferente:
+Luego, el usuario visita `<ChatRoom roomId="viaje" />`. Esta vez, el componente devuelve un JSX diferente:
 
 ```js
-  // JSX para el tercer renderizado (roomId = "travel")
-  return <h1>¡Bienvenido a travel!</h1>;
+  // JSX para el tercer renderizado (roomId = "viaje")
+  return <h1>¡Bienvenido a viaje!</h1>;
 ```
 
-React actualiza el DOM para cambiar `"Bienvenido a general"` a `"Bienvenido a travel"`.
+React actualiza el DOM para cambiar `"Bienvenido a general"` a `"Bienvenido a viaje"`.
 
 El Efecto del tercer renderizado se ve así:
 
 ```js
-  // Efecto del tercer renderizado (roomId = "travel")
+  // Efecto del tercer renderizado (roomId = "viaje")
   () => {
-    const connection = createConnection('travel');
+    const connection = createConnection('viaje');
     connection.connect();
     return () => connection.disconnect();
   },
-  // Dependencias para el tercer renderizado (roomId = "travel")
-  ['travel']
+  // Dependencias para el tercer renderizado (roomId = "viaje")
+  ['viaje']
 ```
 
-React compara `['travel']` del tercer renderizado con `['general']` del segundo renderizado. Una dependencia es diferente: `Object.is('travel', 'general')` es `false`. El Efecto no puede ser omitido.
+React compara `['viaje']` del tercer renderizado con `['general']` del segundo renderizado. Una dependencia es diferente: `Object.is('viaje', 'general')` es `false`. El Efecto no puede ser omitido.
 
 **Antes de que React pueda aplicar el Efecto de la tercera renderización, necesita limpiar el último Efecto que _sí_ se ejecutó.** El Efecto de la segunda renderización fue omitido, por lo que React necesita limpiar el Efecto de la primer renderización. Si te desplazas hacia arriba hasta la primera renderización, verás que su limpieza llama a `disconnect()` en la conexión que se creó con `createConnection('general')`. Esto desconecta la aplicación de la sala de chat `'general'`.
 
-Después de eso, React ejecuta el Efecto del tercer renderizado que conecta a la sala de chat `'travel'`.
+Después de eso, React ejecuta el Efecto del tercer renderizado que conecta a la sala de chat `'viaje'`.
 
 #### Desmontar {/*unmount*/}
 
-Finalmente, supongamos que el usuario cambia de página y el componente `ChatRoom` se desmonta. React ejecuta la función de limpieza del último Efecto. El último Efecto fue del tercer renderizado. La limpieza del tercer renderizado destruye la conexión a `createConnection('travel')`. Por lo tanto la aplicación se desconecta de la sala de chat `'travel'`.
+Finalmente, supongamos que el usuario cambia de página y el componente `ChatRoom` se desmonta. React ejecuta la función de limpieza del último Efecto. El último Efecto fue del tercer renderizado. La limpieza del tercer renderizado destruye la conexión a `createConnection('viaje')`. Por lo tanto la aplicación se desconecta de la sala de chat `'viaje'`.
 
 #### Comportamiento solo en modo de desarrollo {/*development-only-behaviors*/}
 
@@ -1477,7 +1477,7 @@ export async function fetchBio(person) {
   const delay = person === 'Bob' ? 2000 : 200;
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve('This is ' + person + '’s bio.');
+      resolve('Esta es la biografía de ' + person + '.');
     }, delay);
   })
 }
@@ -1504,9 +1504,9 @@ Para desencadenar el error, las cosas deben ocurrir en el siguiente orden:
 - Seleccionar `'Bob'` desencadena `fetchBio('Bob')`
 - Seleccionar `'Taylor'` desencadena `fetchBio('Taylor')`
 - **La solicitud para `'Taylor'` se completa *antes* que la solicitud para `'Bob'`**
-- El Efecto del renderizado de `'Taylor'` llama a `setBio('This is Taylor’s bio')`
+- El Efecto del renderizado de `'Taylor'` llama a `setBio('Esta es la biografía de Taylor.')`
 - La solicitud para `'Bob'` se completa
-- El Efecto del renderizado de `'Bob'` llama a `setBio('This is Bob’s bio')`
+- El Efecto del renderizado de `'Bob'` llama a `setBio('Esta es la biografía de Bob.')`
 
 Esto es porque ves la biografía de Bob incluso si la de Taylor es la que está seleccionada. Estos errores son llamados [condiciones de carrera](https://es.wikipedia.org/wiki/Condici%C3%B3n_de_carrera) porque dos operaciones asíncronas están "compitiendo" entre sí y podrían llegar en un orden inesperado.
 
@@ -1555,7 +1555,7 @@ export async function fetchBio(person) {
   const delay = person === 'Bob' ? 2000 : 200;
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve('This is ' + person + '’s bio.');
+      resolve('Esta es la biografía de ' + person + '.');
     }, delay);
   })
 }
@@ -1569,7 +1569,7 @@ El Efecto de cada uno de los renderizados tiene su propia variable `ignore`. Ini
 - Seleccionar a `'Bob'` desencadena `fetchBio('Bob')`
 - Seleccionar a `'Taylor'` desencadena `fetchBio('Taylor')` **y limpia el anterior Efecto (de Bob)**
 - La solicitud para `'Taylor'` se completa *antes* que la solicitud para `'Bob'`
-- El Efecto del renderizado de `'Taylor'` llama a `setBio('This is Taylor’s bio')`
+- El Efecto del renderizado de `'Taylor'` llama a `setBio('Esta es la biografía de Taylor.')`
 - La solicitud para `'Bob'` se completa
 - El Efecto del renderizado de `'Bob'` **no hace nada porque su variable `ignore` fue definida como `true`**
 

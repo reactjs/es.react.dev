@@ -129,7 +129,7 @@ export default function FeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>¿Cómo fue tu estadía en The Prancing Pony?</p>
+      <p>¿Cómo fue tu estadía en El Poney Pisador?</p>
       <textarea
         disabled={isSending}
         value={text}
@@ -186,7 +186,7 @@ export default function FeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>¿Cómo fue tu estadía en The Prancing Pony?</p>
+      <p>¿Cómo fue tu estadía en El Poney Pisador?</p>
       <textarea
         disabled={isSending}
         value={text}
@@ -386,8 +386,8 @@ import { useState } from 'react';
 
 const initialItems = [
   { title: 'pretzels', id: 0 },
-  { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'crujiente de algas', id: 1 },
+  { title: 'barra de granola', id: 2 },
 ];
 
 export default function Menu() {
@@ -433,8 +433,8 @@ import { useState } from 'react';
 
 const initialItems = [
   { title: 'pretzels', id: 0 },
-  { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'crujiente de algas', id: 1 },
+  { title: 'barra de granola', id: 2 },
 ];
 
 export default function Menu() {
@@ -498,8 +498,8 @@ import { useState } from 'react';
 
 const initialItems = [
   { title: 'pretzels', id: 0 },
-  { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'crujiente de algas', id: 1 },
+  { title: 'barra de granola', id: 2 },
 ];
 
 export default function Menu() {
@@ -568,7 +568,7 @@ Pero después del cambio es así:
 
 ¡La duplicación se ha ido, y solo conservas el estado esencial!
 
-Ahora, si editas el item *seleccionado*, el siguiente mensaje se actualizará inmediatamente. Esto se debe a que `setItems` desencadena una nueva representación, y `items.find(...)` encontraría el item con el título actualizado. No era necesario mantener *el item seleccionado* en el estado, porque solo el *ID seleccionado* es esencial. El resto podría calcularse durante el renderizado.
+Ahora, si editas el ítem *seleccionado*, el siguiente mensaje se actualizará inmediatamente. Esto se debe a que `setItems` desencadena una nueva representación, y `items.find(...)` encontraría el ítem con el título actualizado. No era necesario mantener *el ítem seleccionado* en el estado, porque solo el *ID seleccionado* es esencial. El resto podría calcularse durante el renderizado.
 
 ## Evita el estado profundamente anidado {/*avoid-deeply-nested-state*/}
 
@@ -621,10 +621,10 @@ export const initialTravelPlan = {
     title: 'Tierra',
     childPlaces: [{
       id: 2,
-      title: 'Africa',
+      title: 'África',
       childPlaces: [{
         id: 3,
-        title: 'Botswana',
+        title: 'Botsuana',
         childPlaces: []
       }, {
         id: 4,
@@ -648,12 +648,12 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 9,
-        title: 'Sudafrica',
+        title: 'Sudáfrica',
         childPlaces: []
       }]
     }, {
       id: 10,
-      title: 'Las Americas',
+      title: 'Las Américas',
       childPlaces: [{
         id: 11,
         title: 'Argentina',
@@ -668,7 +668,7 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 14,
-        title: 'Canada',
+        title: 'Canadá',
         childPlaces: []
       }, {
         id: 15,
@@ -676,7 +676,7 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 16,
-        title: 'Mexico',
+        title: 'México',
         childPlaces: []
       }, {
         id: 17,
@@ -748,19 +748,19 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 34,
-        title: 'Turquia',
+        title: 'Turquía',
         childPlaces: [],
       }]
     }, {
       id: 35,
-      title: 'Oceania',
+      title: 'Oceanía',
       childPlaces: [{
         id: 36,
         title: 'Australia',
         childPlaces: [],
       }, {
         id: 37,
-        title: 'Bora Bora (Polinesia Franciasa)',
+        title: 'Bora Bora (Polinesia Francesa)',
         childPlaces: [],
       }, {
         id: 38,
@@ -768,11 +768,11 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 39,
-        title: 'Fiji',
+        title: 'Fiyi',
         childPlaces: [],
       }, {
         id: 40,
-        title: 'Hawaii (Estados Unidos)',
+        title: 'Hawái (Estados Unidos)',
         childPlaces: [],
       }, {
         id: 41,
@@ -886,12 +886,12 @@ export const initialTravelPlan = {
   },
   2: {
     id: 2,
-    title: 'Africa',
+    title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
   },
   3: {
     id: 3,
-    title: 'Botswana',
+    title: 'Botsuana',
     childIds: []
   },
   4: {
@@ -921,12 +921,12 @@ export const initialTravelPlan = {
   },
   9: {
     id: 9,
-    title: 'Sudafrica',
+    title: 'Sudáfrica',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Las Americas',
+    title: 'Las Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
@@ -946,7 +946,7 @@ export const initialTravelPlan = {
   },
   14: {
     id: 14,
-    title: 'Canada',
+    title: 'Canadá',
     childIds: []
   },
   15: {
@@ -956,7 +956,7 @@ export const initialTravelPlan = {
   },
   16: {
     id: 16,
-    title: 'Mexico',
+    title: 'México',
     childIds: []
   },
   17: {
@@ -1046,12 +1046,12 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
-    title: 'Turquia',
+    title: 'Turquía',
     childIds: []
   },
   35: {
     id: 35,
-    title: 'Oceania',
+    title: 'Oceanía',
     childIds: [36, 37, 38, 39, 40, 41, 42],
   },
   36: {
@@ -1071,12 +1071,12 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Fiji',
+    title: 'Fiyi',
     childIds: []
   },
   40: {
     id: 40,
-    title: 'Hawaii (Estados Unidos)',
+    title: 'Hawái (Estados Unidos)',
     childIds: []
   },
   41: {
@@ -1168,7 +1168,7 @@ export default function TravelPlan() {
   const planetIds = root.childIds;
   return (
     <>
-      <h2>Logares a visitar</h2>
+      <h2>Lugares a visitar</h2>
       <ol>
         {planetIds.map(id => (
           <PlaceTree
@@ -1227,12 +1227,12 @@ export const initialTravelPlan = {
   },
   2: {
     id: 2,
-    title: 'Africa',
+    title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
   },
   3: {
     id: 3,
-    title: 'Botswana',
+    title: 'Botsuana',
     childIds: []
   },
   4: {
@@ -1262,12 +1262,12 @@ export const initialTravelPlan = {
   },
   9: {
     id: 9,
-    title: 'Sudafrica',
+    title: 'Sudáfrica',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Las Americas',
+    title: 'Las Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
@@ -1287,7 +1287,7 @@ export const initialTravelPlan = {
   },
   14: {
     id: 14,
-    title: 'Canada',
+    title: 'Canadá',
     childIds: []
   },
   15: {
@@ -1297,7 +1297,7 @@ export const initialTravelPlan = {
   },
   16: {
     id: 16,
-    title: 'Mexico',
+    title: 'México',
     childIds: []
   },
   17: {
@@ -1387,12 +1387,12 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
-    title: 'Turquia',
+    title: 'Turquía',
     childIds: []
   },
   35: {
     id: 35,
-    title: 'Oceania',
+    title: 'Oceanía',
     childIds: [36, 37, 38, 39, 40, 41,, 42],
   },
   36: {
@@ -1412,12 +1412,12 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Fiji',
+    title: 'Fiyi',
     childIds: []
   },
   40: {
     id: 40,
-    title: 'Hawaii (Estados Unidos)',
+    title: 'Hawái (Estados Unidos)',
     childIds: []
   },
   41: {
@@ -1571,12 +1571,12 @@ export const initialTravelPlan = {
   },
   2: {
     id: 2,
-    title: 'Africa',
+    title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
   },
   3: {
     id: 3,
-    title: 'Botswana',
+    title: 'Botsuana',
     childIds: []
   },
   4: {
@@ -1606,12 +1606,12 @@ export const initialTravelPlan = {
   },
   9: {
     id: 9,
-    title: 'Sudafrica',
+    title: 'Sudáfrica',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Las Americas',
+    title: 'Las Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
@@ -1631,7 +1631,7 @@ export const initialTravelPlan = {
   },
   14: {
     id: 14,
-    title: 'Canada',
+    title: 'Canadá',
     childIds: []
   },
   15: {
@@ -1641,7 +1641,7 @@ export const initialTravelPlan = {
   },
   16: {
     id: 16,
-    title: 'Mexico',
+    title: 'México',
     childIds: []
   },
   17: {
@@ -1731,12 +1731,12 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
-    title: 'Turquia',
+    title: 'Turquía',
     childIds: []
   },
   35: {
     id: 35,
-    title: 'Oceania',
+    title: 'Oceanía',
     childIds: [36, 37, 38, 39, 40, 41,, 42],
   },
   36: {
@@ -1756,12 +1756,12 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Fiji',
+    title: 'Fiyi',
     childIds: []
   },
   40: {
     id: 40,
-    title: 'Hawaii (Estados Unidos)',
+    title: 'Hawái (Estados Unidos)',
     childIds: []
   },
   41: {
@@ -2105,14 +2105,14 @@ export default function AddItem({ onAddItem }) {
   return (
     <>
       <input
-        placeholder="Adicionar item"
+        placeholder="Agregar ítem"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddItem(title);
-      }}>Adicionar</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -2240,14 +2240,14 @@ export default function AddItem({ onAddItem }) {
   return (
     <>
       <input
-        placeholder="Adicionar item"
+        placeholder="Agregar ítem"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddItem(title);
-      }}>Adicionar</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -2303,9 +2303,9 @@ Observa cómo los controladores de eventos solo se preocupan por llamar a `setIt
 
 #### Reparar la selección que desaparece {/*fix-the-disappearing-selection*/}
 
-Hay una lista de `letters` en el estado. Cuando pasas el cursor o enfocas una letra en particular, se resalta. La letra actualmente resaltada se almacena en la variable de estado `highlightedLetter`. Puede "destacar" y "desmarcar" letras individuales, lo que actualiza la matriz de `letters` en el estado.
+Hay una lista de `letters` en el estado. Cuando se pasa el ratón o se enfoca una carta en particular, ésta se resalta. La carta resaltada actualmente se almacena en la variable de estado `highlightedLetter`. Puedes "marcar" y "desmarcar" cartas individuales, lo que actualiza el _array_ de `letters` en el estado.
 
-Este código funciona, pero hay una pequeña falla en la interfaz de usuario. Cuando presiona "destacar" o "desmarcar", el resaltado desaparece por un momento. Sin embargo, vuelve a aparecer tan pronto como mueve el puntero o cambia a otra letra con el teclado. ¿Por qué sucede esto? Corríjalo para que el resaltado no desaparezca después de hacer clic en el botón.
+Este código funciona, pero hay un pequeño fallo en la UI. Cuando presionas "Marcar" o "Desmarcar", el resaltado desaparece por un momento. Sin embargo, reaparece en cuanto mueves el puntero o cambias a otra carta con el teclado. ¿Por qué ocurre esto? Arréglalo para que el resaltado no desaparezca después de hacer clic en el botón.
 
 <Sandpack>
 
@@ -2337,7 +2337,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Bandeja de entrada</h2>
+      <h2>Buzón de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2378,7 +2378,7 @@ export default function Letter({
       <button onClick={() => {
         onToggleStar(letter);
       }}>
-        {letter.isStarred ? 'Unstar' : 'Star'}
+        {letter.isStarred ? 'Desmarcar' : 'Marcar'}
       </button>
       {letter.subject}
     </li>
@@ -2412,9 +2412,9 @@ li { border-radius: 5px; }
 
 <Solution>
 
-El problema es que tienes el objeto de la letra en `highlightedLetter`. Pero también tienes la misma información en la matriz `letters`. ¡Así que tu estado tiene duplicación! Cuando actualizas la matriz de `letters` después de hacer clic en el botón, crea un nuevo objeto de letra que es diferente de `highlightedLetter`. Esta es la razón por la cual la verificación `highlightedLetter === letter` se convierte en `false`, y el resaltado desaparece. Vuelve a aparecer la próxima vez que llamas a `setHighlightedLetter` cuando el puntero se mueve.
+El problema es que estás manteniendo el objeto carta en `highlightedLetter`. Pero también estás guardando la misma información en el _array_ `letters`. Así que tu estado está duplicado. Cuando actualizas el _array_ `letters` después de pulsar el botón, creas un nuevo objeto carta que es diferente de `highlightedLetter`. Esta es la razón por la que la verificación `highlightedLetter === letter` se convierte en `false`, y el resaltado desaparece. Reaparecerá la próxima vez que llames a `setHighlightedLetter` cuando el puntero se mueva.
 
-Para solucionar el problema, elimine la duplicación del estado. En lugar de almacenar *la letra misma* en dos lugares, almacena el `highlightedId` en su lugar. Luego, puedes verificar `isHighlighted` para cada letra con `letter.id === HighlightId`, que funcionará incluso si el objeto `letter` ha cambiado desde el último renderizado.
+Para solucionar el problema, elimina la duplicación del estado. En lugar de almacenar *la propia carta* en dos lugares, almacena el `highlightedId` en su lugar. Entonces puedes comprobar `isHighlighted` para cada carta con `letter.id === highlightedId`, lo que funcionará incluso si el objeto `letter` ha cambiado desde el último renderizado.
 
 <Sandpack>
 
@@ -2446,7 +2446,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Bandeja de entrada</h2>
+      <h2>Buzón de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2487,7 +2487,7 @@ export default function Letter({
       <button onClick={() => {
         onToggleStar(letter.id);
       }}>
-        {letter.isStarred ? 'Unstar' : 'Star'}
+        {letter.isStarred ? 'Desmarcar' : 'Marcar'}
       </button>
       {letter.subject}
     </li>
@@ -2523,9 +2523,9 @@ li { border-radius: 5px; }
 
 #### Implementar la selección múltiple. {/*implement-multiple-selection*/}
 
-En este ejemplo, cada `Letter` tiene una propiedad `isSelected` y un controlador `onToggle` que la marca como seleccionada. Esto funciona, pero el estado se almacena como un `selectedId` (ya sea `null` o un ID), por lo que solo se puede seleccionar una letra en un momento dado.
+En este ejemplo, cada `Letter` tiene una propiedad `isSelected` y un controlador `onToggle` que la marca como seleccionada. Esto funciona, pero el estado se almacena como un `selectedId` (ya sea `null` o un ID), por lo que solo se puede seleccionar una carta en un momento dado.
 
-Cambia la estructura de estado para admitir la selección múltiple. (¿Cómo lo estructurarías? Piensa en esto antes de escribir el código). Cada casilla de verificación debe independizarse de las demás. Al hacer clic en una letra seleccionada, debería desmarcarse. Por último, el pie de página debe mostrar el número correcto de los elementos seleccionados.
+Cambia la estructura de estado para admitir la selección múltiple. (¿Cómo lo estructurarías? Piensa en esto antes de escribir el código). Cada casilla de verificación debe independizarse de las demás. Al hacer clic en una carta seleccionada, debería desmarcarse. Por último, el pie de página debe mostrar el número correcto de los elementos seleccionados.
 
 <Hint>
 
@@ -2553,7 +2553,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Bandeja de entrada</h2>
+      <h2>Buzón de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2569,7 +2569,7 @@ export default function MailClient() {
         <hr />
         <p>
           <b>
-            You selected {selectedCount} letters
+            Has seleccionado {selectedCount} cartas
           </b>
         </p>
       </ul>
@@ -2630,7 +2630,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 <Solution>
 
-En lugar de un solo `selectedId`, mantén un *array* `selectedIds` en el estado. Por ejemplo, si selecciona la primera y la última letra, contendría `[0, 2]`. Cuando no se selecciona nada, sería un *array* `[]` vacío:
+En lugar de un solo `selectedId`, mantén un *array* `selectedIds` en el estado. Por ejemplo, si selecciona la primera y la última carta, contendría `[0, 2]`. Cuando no se selecciona nada, sería un *array* `[]` vacío:
 
 <Sandpack>
 
@@ -2662,7 +2662,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Bandeja de entrada</h2>
+      <h2>Buzón de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2677,7 +2677,7 @@ export default function MailClient() {
         <hr />
         <p>
           <b>
-            You selected {selectedCount} letters
+            Has seleccionado {selectedCount} cartas
           </b>
         </p>
       </ul>
@@ -2767,7 +2767,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Bandeja de entrada</h2>
+      <h2>Buzón de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2782,7 +2782,7 @@ export default function MailClient() {
         <hr />
         <p>
           <b>
-            You selected {selectedCount} letters
+            Has seleccionado {selectedCount} cartas
           </b>
         </p>
       </ul>

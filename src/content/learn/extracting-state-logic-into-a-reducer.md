@@ -60,7 +60,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
@@ -73,9 +73,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  {id: 0, text: 'Visit Kafka Museum', done: true},
-  {id: 1, text: 'Watch a puppet show', done: false},
-  {id: 2, text: 'Lennon Wall pic', done: false},
+  {id: 0, text: 'Visitar el Museo Kafka', done: true},
+  {id: 1, text: 'Ver espectáculo de títeres', done: false},
+  {id: 2, text: 'Foto del muro de Lennon', done: false},
 ];
 ```
 
@@ -157,7 +157,7 @@ function Task({task, onChange, onDelete}) {
         }}
       />
       {taskContent}
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      <button onClick={() => onDelete(task.id)}>Borrar</button>
     </label>
   );
 }
@@ -224,7 +224,7 @@ Elimina toda la lógica de asignación de estado. Lo que queda son estos tres co
 
 - `handleAddTask(text)` se llama cuando el usuario presiona "Agregar".
 - `handleChangeTask(task)` se llama cuando el usuario cambia una tarea o presiona "Guardar".
-- `handleDeleteTask(taskId)` se llama cuando el usuario presiona "Delete".
+- `handleDeleteTask(taskId)` se llama cuando el usuario presiona "Borrar".
 
 Manejar el estado con reducers es ligeramente diferente a asignar directamente el estado. En lugar de decirle a React "qué hacer" al asignar el estado, especificas "qué acaba de hacer el usuario" despachando "acciones" desde tus controladores de eventos. (¡La lógica de actualización de estado estará en otro lugar!) Entonces, en lugar de "asignar `tasks`" a través de un controlador de evento, estás despachando una acción de "tarea agregada/cambiada/borrada (added/changed/deleted)". Esta forma describe más la intención del usuario.
 
@@ -403,10 +403,10 @@ import tasksReducer from './tasksReducer.js';
 
 let initialState = [];
 let actions = [
-  {type: 'added', id: 1, text: 'Visit Kafka Museum'},
-  {type: 'added', id: 2, text: 'Watch a puppet show'},
+  {type: 'added', id: 1, text: 'Visitar el Museo Kafka'},
+  {type: 'added', id: 2, text: 'Ver espectáculo de títeres'},
   {type: 'deleted', id: 1},
-  {type: 'added', id: 3, text: 'Lennon Wall pic'},
+  {type: 'added', id: 3, text: 'Foto del muro de Lennon'},
 ];
 
 let finalState = actions.reduce(tasksReducer, initialState);
@@ -525,7 +525,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
@@ -568,9 +568,9 @@ function tasksReducer(tasks, action) {
 
 let nextId = 3;
 const initialTasks = [
-  {id: 0, text: 'Visit Kafka Museum', done: true},
-  {id: 1, text: 'Watch a puppet show', done: false},
-  {id: 2, text: 'Lennon Wall pic', done: false},
+  {id: 0, text: 'Visitar el Museo Kafka', done: true},
+  {id: 1, text: 'Ver espectáculo de títeres', done: false},
+  {id: 2, text: 'Foto del muro de Lennon', done: false},
 ];
 ```
 
@@ -652,7 +652,7 @@ function Task({task, onChange, onDelete}) {
         }}
       />
       {taskContent}
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      <button onClick={() => onDelete(task.id)}>Borrar</button>
     </label>
   );
 }
@@ -711,7 +711,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
@@ -724,9 +724,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  {id: 0, text: 'Visit Kafka Museum', done: true},
-  {id: 1, text: 'Watch a puppet show', done: false},
-  {id: 2, text: 'Lennon Wall pic', done: false},
+  {id: 0, text: 'Visitar el Museo Kafka', done: true},
+  {id: 1, text: 'Ver espectáculo de títeres', done: false},
+  {id: 2, text: 'Foto del muro de Lennon', done: false},
 ];
 ```
 
@@ -840,7 +840,7 @@ function Task({task, onChange, onDelete}) {
         }}
       />
       {taskContent}
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      <button onClick={() => onDelete(task.id)}>Borrar</button>
     </label>
   );
 }
@@ -945,7 +945,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
@@ -958,9 +958,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  {id: 0, text: 'Visit Kafka Museum', done: true},
-  {id: 1, text: 'Watch a puppet show', done: false},
-  {id: 2, text: 'Lennon Wall pic', done: false},
+  {id: 0, text: 'Visitar el Museo Kafka', done: true},
+  {id: 1, text: 'Ver espectáculo de títeres', done: false},
+  {id: 2, text: 'Foto del muro de Lennon', done: false},
 ];
 ```
 
@@ -1042,7 +1042,7 @@ function Task({task, onChange, onDelete}) {
         }}
       />
       {taskContent}
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      <button onClick={() => onDelete(task.id)}>Borrar</button>
     </label>
   );
 }
@@ -1163,7 +1163,7 @@ const contacts = [
 ```js messengerReducer.js
 export const initialState = {
   selectedId: 0,
-  message: 'Hello',
+  message: 'Hola',
 };
 
 export function messengerReducer(state, action) {
@@ -1217,14 +1217,14 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           // TODO: Despachar edited_message
           // (Lee el valor del input en e.target.value)
         }}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1265,10 +1265,10 @@ dispatch({
   contactId: 1,
 });
 
-// Cuando el usuario escribe "Hello!"
+// Cuando el usuario escribe "¡Hola!"
 dispatch({
   type: 'edited_message',
-  message: 'Hello!',
+  message: '¡Hola!',
 });
 ```
 
@@ -1313,7 +1313,7 @@ const contacts = [
 ```js messengerReducer.js
 export const initialState = {
   selectedId: 0,
-  message: 'Hello',
+  message: 'Hola',
 };
 
 export function messengerReducer(state, action) {
@@ -1370,7 +1370,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -1379,7 +1379,7 @@ export default function Chat({contact, message, dispatch}) {
         }}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1413,7 +1413,7 @@ textarea {
 
 #### Limpiar el input al enviar un mensaje {/*clear-the-input-on-sending-a-message*/}
 
-Actualmente, si se presiona "Send" no pasa nada. Agrega un controlador de evento al botón de "Send" que va a:
+Actualmente, si se presiona "Enviar" no pasa nada. Agrega un controlador de evento al botón de "Enviar" que va a:
 
 1. Mostrar un `alert` con el correo del destinatario y el mensaje.
 2. Limpiar el input del mensaje.
@@ -1457,7 +1457,7 @@ const contacts = [
 ```js messengerReducer.js
 export const initialState = {
   selectedId: 0,
-  message: 'Hello',
+  message: 'Hola',
 };
 
 export function messengerReducer(state, action) {
@@ -1514,7 +1514,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -1523,7 +1523,7 @@ export default function Chat({contact, message, dispatch}) {
         }}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1555,7 +1555,7 @@ textarea {
 
 <Solution>
 
-Hay un par de maneras de hacerlo en el controlador de evento del botón de "Send". Un enfoque es mostrar una alerta y luego despachar una acción `edited_message` con un `message` vacío.
+Hay un par de maneras de hacerlo en el controlador de evento del botón de "Enviar". Un enfoque es mostrar una alerta y luego despachar una acción `edited_message` con un `message` vacío.
 
 <Sandpack>
 
@@ -1596,7 +1596,7 @@ const contacts = [
 ```js messengerReducer.js
 export const initialState = {
   selectedId: 0,
-  message: 'Hello',
+  message: 'Hola',
 };
 
 export function messengerReducer(state, action) {
@@ -1653,7 +1653,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -1664,13 +1664,13 @@ export default function Chat({contact, message, dispatch}) {
       <br />
       <button
         onClick={() => {
-          alert(`Sending "${message}" to ${contact.email}`);
+          alert(`Enviando "${message}" a ${contact.email}`);
           dispatch({
             type: 'edited_message',
             message: '',
           });
         }}>
-        Send to {contact.email}
+        Enviar a {contact.email}
       </button>
     </section>
   );
@@ -1701,7 +1701,7 @@ textarea {
 
 </Sandpack>
 
-Esto funciona y limpia el input cuando se presiona "Send"
+Esto funciona y limpia el input cuando se presiona "Enviar"
 
 Sin embargo, _desde la perspectiva del usuario_, enviar un mensaje es una acción diferente a editar un campo. Para reflejar esto, puedes crear en su lugar una _nueva_ acción llamada `sent_message`, y manejarla de manera separada en el reducer.
 
@@ -1744,7 +1744,7 @@ const contacts = [
 ```js messengerReducer.js active
 export const initialState = {
   selectedId: 0,
-  message: 'Hello',
+  message: 'Hola',
 };
 
 export function messengerReducer(state, action) {
@@ -1807,7 +1807,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -1818,12 +1818,12 @@ export default function Chat({contact, message, dispatch}) {
       <br />
       <button
         onClick={() => {
-          alert(`Sending "${message}" to ${contact.email}`);
+          alert(`Enviando "${message}" a ${contact.email}`);
           dispatch({
             type: 'sent_message',
           });
         }}>
-        Send to {contact.email}
+        Enviar a {contact.email}
       </button>
     </section>
   );
@@ -1885,8 +1885,8 @@ Puedes estructurar el estado así:
 export const initialState = {
   selectedId: 0,
   messages: {
-    0: 'Hello, Taylor', // Borrador para contactId = 0
-    1: 'Hello, Alice', // Borrador para contactId = 1
+    0: 'Hola, Taylor', // Borrador para contactId = 0
+    1: 'Hola, Alice', // Borrador para contactId = 1
   },
 };
 ```
@@ -1941,7 +1941,7 @@ const contacts = [
 ```js messengerReducer.js
 export const initialState = {
   selectedId: 0,
-  message: 'Hello',
+  message: 'Hola',
 };
 
 export function messengerReducer(state, action) {
@@ -2004,7 +2004,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -2015,12 +2015,12 @@ export default function Chat({contact, message, dispatch}) {
       <br />
       <button
         onClick={() => {
-          alert(`Sending "${message}" to ${contact.email}`);
+          alert(`Enviando "${message}" a ${contact.email}`);
           dispatch({
             type: 'sent_message',
           });
         }}>
-        Send to {contact.email}
+        Enviar a {contact.email}
       </button>
     </section>
   );
@@ -2119,9 +2119,9 @@ const contacts = [
 export const initialState = {
   selectedId: 0,
   messages: {
-    0: 'Hello, Taylor',
-    1: 'Hello, Alice',
-    2: 'Hello, Bob',
+    0: 'Hola, Taylor',
+    1: 'Hola, Alice',
+    2: 'Hola, Bob',
   },
 };
 
@@ -2190,7 +2190,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -2201,12 +2201,12 @@ export default function Chat({contact, message, dispatch}) {
       <br />
       <button
         onClick={() => {
-          alert(`Sending "${message}" to ${contact.email}`);
+          alert(`Enviando "${message}" a ${contact.email}`);
           dispatch({
             type: 'sent_message',
           });
         }}>
-        Send to {contact.email}
+        Enviar a {contact.email}
       </button>
     </section>
   );
@@ -2307,9 +2307,9 @@ const contacts = [
 export const initialState = {
   selectedId: 0,
   messages: {
-    0: 'Hello, Taylor',
-    1: 'Hello, Alice',
-    2: 'Hello, Bob',
+    0: 'Hola, Taylor',
+    1: 'Hola, Alice',
+    2: 'Hola, Bob',
   },
 };
 
@@ -2390,7 +2390,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -2401,12 +2401,12 @@ export default function Chat({contact, message, dispatch}) {
       <br />
       <button
         onClick={() => {
-          alert(`Sending "${message}" to ${contact.email}`);
+          alert(`Enviando "${message}" a ${contact.email}`);
           dispatch({
             type: 'sent_message',
           });
         }}>
-        Send to {contact.email}
+        Enviar a {contact.email}
       </button>
     </section>
   );
@@ -2481,9 +2481,9 @@ const contacts = [
 export const initialState = {
   selectedId: 0,
   messages: {
-    0: 'Hello, Taylor',
-    1: 'Hello, Alice',
-    2: 'Hello, Bob',
+    0: 'Hola, Taylor',
+    1: 'Hola, Alice',
+    2: 'Hola, Bob',
   },
 };
 
@@ -2567,7 +2567,7 @@ export default function Chat({contact, message, dispatch}) {
     <section className="chat">
       <textarea
         value={message}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={(e) => {
           dispatch({
             type: 'edited_message',
@@ -2578,12 +2578,12 @@ export default function Chat({contact, message, dispatch}) {
       <br />
       <button
         onClick={() => {
-          alert(`Sending "${message}" to ${contact.email}`);
+          alert(`Enviando "${message}" a ${contact.email}`);
           dispatch({
             type: 'sent_message',
           });
         }}>
-        Send to {contact.email}
+        Enviar a {contact.email}
       </button>
     </section>
   );

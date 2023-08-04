@@ -328,7 +328,7 @@ function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input value={firstName} onChange={e => setFirstName(e.target.value)} />
       </label>
       {firstName !== '' && <p>Tu nombre es {firstName}.</p>}
@@ -370,7 +370,7 @@ export default function Form() {
   return (
     <>
       <label>
-        Primer nombre:
+        Nombre:
         <input
           value={firstName}
           onChange={e => setFirstName(e.target.value)}

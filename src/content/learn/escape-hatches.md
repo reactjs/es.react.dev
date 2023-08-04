@@ -21,7 +21,7 @@ Algunos de tus componentes puede que necesiten controlar y sincronizarse con sis
 
 </YouWillLearn>
 
-## Referencia valores con refs {/*referencing-values-with-refs*/}
+## Referenciar valores con refs {/*referencing-values-with-refs*/}
 
 Cuando quieres que un componente "recuerde" cierta información, pero no quieres que esa información [desencadene nuevos renderizados](/learn/render-and-commit), puedes usar una *ref*:
 
@@ -97,7 +97,7 @@ Lee **[Manipular el DOM con refs](/learn/manipulating-the-dom-with-refs)** para 
 
 </LearnMore>
 
-## Sincronizar con efectos {/*synchronizing-with-effects*/}
+## Sincronizar con Efectos {/*synchronizing-with-effects*/}
 
 Algunos componentes necesitan sincronizarse con sistemas externos. Por ejemplo, es posible que desees controlar un componente que no sea de React basado en el estado de React, establecer una conexión a un servidor, enviar reporte de analíticas cuando un componente aparece en la pantalla. A diferencia de los controladores de eventos, que permiten controlar eventos concretos, los *Efectos* te permiten ejecutar algún código después de renderizar. Úsalos para sincronizar tu componente con un sistema externo a React.
 
@@ -191,7 +191,7 @@ Lee **[Sincronizar con Efectos](/learn/synchronizing-with-effects)** para aprend
 
 </LearnMore>
 
-## Puede que no necesites un Efecto {/*you-might-not-need-an-effect*/}
+## Quizás no necesites un Efecto {/*you-might-not-need-an-effect*/}
 
 Los Efectos son una puerta de escape del paradigma de React. Te permiten "salir" de React y sincronizar tus componentes con algún sistema externo. Si no hay un sistema externo involucrado (por ejemplo, si quieres actualizar el estado de un componente cuando cambien algunas props o estados), no deberías necesitar un Efecto. La eliminación de Efectos innecesarios harán tu código más fácil de comprender, más rápido de ejecutar y menos propenso a errores.
 
@@ -235,7 +235,7 @@ Lee **[Puede que no necesites un Efecto](/learn/you-might-not-need-an-effect)** 
 
 </LearnMore>
 
-## Ciclo de vida de los efectos reactivos {/*lifecycle-of-reactive-effects*/}
+## Ciclo de vida de los Efectos reactivos {/*lifecycle-of-reactive-effects*/}
 
 Los Efectos tienen un ciclo de vida diferente al de los componentes. Los componentes se pueden montar, actualizar, o desmontar. Un Efecto puede únicamente hacer dos cosas: empezar a sincronizar algo, y a detener ese sincronizado más adelante. Este ciclo puede suceder varias veces si tu Efecto depende de props y estados que pueden cambiar sobre el tiempo.
 
@@ -270,8 +270,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -310,7 +310,7 @@ Lee **[Ciclo de vida de eventos reactivos](/learn/lifecycle-of-reactive-effects)
 
 </LearnMore>
 
-## Separar los eventos de los efectos {/*separating-events-from-effects*/}
+## Separar eventos de Efectos {/*separating-events-from-effects*/}
 
 <Wip>
 
@@ -373,8 +373,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -506,8 +506,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <label>
@@ -589,7 +589,7 @@ Lee **[Separar Eventos de Efectos](/learn/separating-events-from-effects)** para
 
 </LearnMore>
 
-## Eliminar dependencias de efectos {/*removing-effect-dependencies*/}
+## Eliminar dependencias de Efectos {/*removing-effect-dependencies*/}
 
 Cuando escribes un Efecto, el linter verificará que hayas incluido cada valor reactivo (como props y estados) que el Efecto lee en la lista de tus dependencias de Efectos. Esto asegura que tus Efectos permanezcan sincronizados con las últimas props y estados de tu componente. Las dependencias innecesarias pueden causar que tu Efecto se ejecute frecuentemente, incluso llegar a crear un ciclo infinito. La manera en que los elimines dependerá de cada caso.
 
@@ -636,8 +636,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -652,10 +652,10 @@ export function createConnection({ serverUrl, roomId }) {
   // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -710,8 +710,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -750,7 +750,7 @@ Lee **[Eliminar dependencias de Efectos](/learn/removing-effect-dependencies)** 
 
 </LearnMore>
 
-## Reutilizar la lógica con hooks integrados {/*reusing-logic-with-custom-hooks*/}
+## Reutilizar la lógica con hooks personalizados {/*reusing-logic-with-custom-hooks*/}
 
 React viene con Hooks integrados como `useState`, `useContext`, y `useEffect`. Algunas veces, desearás que existiera un Hook para un propósito específico: por ejemplo, para llamar datos, para saber si el usuario está conectado, o para conectarse a una sala de chat. Para realizar esto, puedes crear tus propios Hooks de acuerdo a las necesidades de tu aplicación.
 

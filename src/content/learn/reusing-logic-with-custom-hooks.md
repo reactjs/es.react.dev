@@ -1,5 +1,5 @@
 ---
-title: 'Reutilización de lógica con Hooks personalizados'
+title: 'Reutilizar la lógica con hooks personalizados'
 ---
 
 <Intro>
@@ -468,7 +468,7 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="viajes">viajes</option>
+          <option value="viaje">viaje</option>
           <option value="música">música</option>
         </select>
       </label>
@@ -508,7 +508,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -637,7 +637,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -658,7 +658,7 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
@@ -695,7 +695,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -977,7 +977,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -1486,7 +1486,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1496,7 +1496,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1535,7 +1535,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1545,7 +1545,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1626,7 +1626,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1636,7 +1636,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1730,7 +1730,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1740,7 +1740,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1826,7 +1826,7 @@ import './welcome.css';
 function Welcome() {
   return (
     <h1 className="welcome">
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1836,7 +1836,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1976,7 +1976,7 @@ export default function Counter() {
   return (
     <>
       <label>
-        Duración de la marca: {delay} ms
+        Duración del tic: {delay} ms
         <br />
         <input
           type="range"
@@ -1987,7 +1987,7 @@ export default function Counter() {
         />
       </label>
       <hr />
-      <h1>Marcas: {count}</h1>
+      <h1>Tics: {count}</h1>
     </>
   );
 }
@@ -2026,7 +2026,7 @@ export default function Counter() {
   return (
     <>
       <label>
-        Duración de la marca: {delay} ms
+        Duración del tic: {delay} ms
         <br />
         <input
           type="range"
@@ -2037,7 +2037,7 @@ export default function Counter() {
         />
       </label>
       <hr />
-      <h1>Marcas: {count}</h1>
+      <h1>Tics: {count}</h1>
     </>
   );
 }

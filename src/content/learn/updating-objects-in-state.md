@@ -232,21 +232,21 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
           value={person.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={person.lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
           value={person.email}
           onChange={handleEmailChange}
@@ -334,21 +334,21 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
           value={person.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={person.lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
           value={person.email}
           onChange={handleEmailChange}
@@ -401,7 +401,7 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
           name="firstName"
           value={person.firstName}
@@ -409,7 +409,7 @@ export default function Form() {
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           name="lastName"
           value={person.lastName}
@@ -417,7 +417,7 @@ export default function Form() {
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
           name="email"
           value={person.email}
@@ -453,8 +453,8 @@ Considera una estructura de objetos anidados como esta:
 const [person, setPerson] = useState({
   name: 'Niki de Saint Phalle',
   artwork: {
-    title: 'Blue Nana',
-    city: 'Hamburg',
+    title: 'Nana azul',
+    city: 'Hamburgo',
     image: 'https://i.imgur.com/Sd1AgUOm.jpg',
   }
 });
@@ -463,13 +463,13 @@ const [person, setPerson] = useState({
 Si quisieras actualizar `person.artwork.city`, está claro cómo hacerlo con la mutación:
 
 ```js
-person.artwork.city = 'New Delhi';
+person.artwork.city = 'Nueva Delhi';
 ```
 
 Pero en React, ¡se trata el estado como inmutable! Para cambiar la "ciudad", primero tendrías que producir el nuevo objeto "artwork" (pre-poblado con los datos de la anterior), y luego producir el nuevo objeto "person" que apunta a la nueva "artwork":
 
 ```js
-const nextArtwork = { ...person.artwork, city: 'New Delhi' };
+const nextArtwork = { ...person.artwork, city: 'Nueva Delhi' };
 const nextPerson = { ...person, artwork: nextArtwork };
 setPerson(nextPerson);
 ```
@@ -478,10 +478,10 @@ O, escrito como una sola llamada a la función:
 
 ```js
 setPerson({
-  ...person, // Copy other fields
-  artwork: { // but replace the artwork
-    ...person.artwork, // with the same one
-    city: 'New Delhi' // but in New Delhi!
+  ...person, // Copia otros campos
+  artwork: { // pero sustituye el artwork
+    ...person.artwork, // por el mismo
+    city: 'Nueva Delhi' // ¡pero en Nueva Delhi!
   }
 });
 ```
@@ -497,8 +497,8 @@ export default function Form() {
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',
     artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
+      title: 'Nana azul',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -543,28 +543,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Título:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -572,10 +572,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' por '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (situada en {person.artwork.city})
       </p>
       <img 
         src={person.artwork.image} 
@@ -604,8 +604,8 @@ Un objeto de este tipo aparece "anidado" en el código:
 let obj = {
   name: 'Niki de Saint Phalle',
   artwork: {
-    title: 'Blue Nana',
-    city: 'Hamburg',
+    title: 'Nana azul',
+    city: 'Hamburgo',
     image: 'https://i.imgur.com/Sd1AgUOm.jpg',
   }
 };
@@ -615,8 +615,8 @@ Sin embargo, la "anidación" es una forma inexacta de pensar en el comportamient
 
 ```js
 let obj1 = {
-  title: 'Blue Nana',
-  city: 'Hamburg',
+  title: 'Nana azul',
+  city: 'Hamburgo',
   image: 'https://i.imgur.com/Sd1AgUOm.jpg',
 };
 
@@ -630,8 +630,8 @@ El objeto `obj1` no está "dentro" de `obj2`. Por ejemplo, `obj3` también podr�
 
 ```js
 let obj1 = {
-  title: 'Blue Nana',
-  city: 'Hamburg',
+  title: 'Nana azul',
+  city: 'Hamburgo',
   image: 'https://i.imgur.com/Sd1AgUOm.jpg',
 };
 
@@ -686,8 +686,8 @@ export default function Form() {
   const [person, updatePerson] = useImmer({
     name: 'Niki de Saint Phalle',
     artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
+      title: 'Nana azul',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -719,28 +719,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Título:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -748,10 +748,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' por '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (situada en {person.artwork.city})
       </p>
       <img 
         src={person.artwork.image} 
@@ -867,14 +867,14 @@ export default function Scoreboard() {
         </button>
       </label>
       <label>
-        First name:
+        Nombre:
         <input
           value={player.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={player.lastName}
           onChange={handleLastNameChange}
@@ -939,14 +939,14 @@ export default function Scoreboard() {
         </button>
       </label>
       <label>
-        First name:
+        Nombre:
         <input
           value={player.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={player.lastName}
           onChange={handleLastNameChange}
@@ -1032,7 +1032,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );
@@ -1187,7 +1187,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );
@@ -1338,7 +1338,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );
@@ -1505,7 +1505,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );

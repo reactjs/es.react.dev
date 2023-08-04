@@ -207,7 +207,7 @@ function UploadButton() {
 export default function Toolbar() {
   return (
     <div>
-      <PlayButton movieName="Kiki's Delivery Service" />
+      <PlayButton movieName="Kiki: Entregas a domicilio" />
       <UploadButton />
     </div>
   );
@@ -475,7 +475,7 @@ export default function Signup() {
   return (
     <form onSubmit={() => alert('¡Enviando!')}>
       <input />
-      <button>Send</button>
+      <button>Enviar</button>
     </form>
   );
 }

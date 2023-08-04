@@ -155,8 +155,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -233,8 +233,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -336,8 +336,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -417,8 +417,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -531,7 +531,7 @@ export default function ChatRoom() {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
   }, []);
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 ```
 
@@ -539,17 +539,17 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -564,7 +564,7 @@ button { margin-left: 10px; }
 
 Hay un problema con este código pero podría no quedar claro inmediatamente.
 
-Para hacer este problema más obvio, implementemos una funcionalidad. En el siguiente ejemplo, `roomId` no está codificado de forma fija. En cambio, el usuario puede seleccionar el `roomId` al que quiere conectarse desde un dropdown. Haz clic en "Open chat" y luego selecciona diferentes salas de chat una por una. Mantén la cuenta del número de conexiones activas en la consola:
+Para hacer este problema más obvio, implementemos una funcionalidad. En el siguiente ejemplo, `roomId` no está codificado de forma fija. En cambio, el usuario puede seleccionar el `roomId` al que quiere conectarse desde un dropdown. Haz clic en "Abrir chat" y luego selecciona diferentes salas de chat una por una. Mantén la cuenta del número de conexiones activas en la consola:
 
 <Sandpack>
 
@@ -590,7 +590,7 @@ function ChatRoom({ roomId }) {
     connection.connect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 
 export default function App() {
@@ -599,18 +599,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Cerrar chat' : 'Abrir chat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -623,17 +623,17 @@ export default function App() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -689,7 +689,7 @@ export default function ChatRoom() {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
   }, []);
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 ```
 
@@ -697,17 +697,17 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -754,7 +754,7 @@ function ChatRoom({ roomId }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 
 export default function App() {
@@ -763,18 +763,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Cerrar chat' : 'Abrir chat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -787,17 +787,17 @@ export default function App() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }

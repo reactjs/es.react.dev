@@ -952,7 +952,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -1125,7 +1125,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -1179,7 +1179,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>

@@ -22,11 +22,11 @@ Digamos que tienes una lista de contenido.
 
 ```js
 <ul>
-  <li>Creola Katherine Johnson: mathematician</li>
-  <li>Mario José Molina-Pasquel Henríquez: chemist</li>
-  <li>Mohammad Abdus Salam: physicist</li>
-  <li>Percy Lavon Julian: chemist</li>
-  <li>Subrahmanyan Chandrasekhar: astrophysicist</li>
+  <li>Creola Katherine Johnson: matemática</li>
+  <li>Mario José Molina-Pasquel Henríquez: químico</li>
+  <li>Mohammad Abdus Salam: físico</li>
+  <li>Percy Lavon Julian: químico</li>
+  <li>Subrahmanyan Chandrasekhar: astrofísico</li>
 </ul>
 ```
 
@@ -38,11 +38,11 @@ Aquí hay un corto ejemplo de como generar una lista de elementos de un array:
 
 ```js
 const people = [
-  'Creola Katherine Johnson: mathematician',
-  'Mario José Molina-Pasquel Henríquez: chemist',
-  'Mohammad Abdus Salam: physicist',
-  'Percy Lavon Julian: chemist',
-  'Subrahmanyan Chandrasekhar: astrophysicist'
+  'Creola Katherine Johnson: matemática',
+  'Mario José Molina-Pasquel Henríquez: químico',
+  'Mohammad Abdus Salam: físico',
+  'Percy Lavon Julian: químico',
+  'Subrahmanyan Chandrasekhar: astrofísico'
 ];
 ```
 
@@ -64,11 +64,11 @@ Aquí está el resultado:
 
 ```js
 const people = [
-  'Creola Katherine Johnson: mathematician',
-  'Mario José Molina-Pasquel Henríquez: chemist',
-  'Mohammad Abdus Salam: physicist',
-  'Percy Lavon Julian: chemist',
-  'Subrahmanyan Chandrasekhar: astrophysicist'
+  'Creola Katherine Johnson: matemática',
+  'Mario José Molina-Pasquel Henríquez: químico',
+  'Mohammad Abdus Salam: físico',
+  'Percy Lavon Julian: químico',
+  'Subrahmanyan Chandrasekhar: astrofísico'
 ];
 
 export default function List() {
@@ -103,33 +103,33 @@ Estos datos pueden ser estructurados incluso más.
 const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
+  profession: 'matemática',
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
+  profession: 'químico',
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
+  profession: 'físico',
 }, {
   name: 'Percy Lavon Julian',
-  profession: 'chemist',  
+  profession: 'químico',  
 }, {
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
+  profession: 'astrofísico',
 }];
 ```
 
-Digamos que quieres una manera de mostrar solo las personas cuya profesión sea `'chemist'`. Puedes usar el método `filter()` de JavaScript para devolver solo esas personas. Este método coge un array de objetos, los pasa por un "test" (una función que devuelve `true` o `false`), y devuelve un nuevo array de solo esos objetos que han pasado el test (que han devuelto `true`).
+Digamos que quieres una manera de mostrar solo las personas cuya profesión sea `'químico'`. Puedes usar el método `filter()` de JavaScript para devolver solo esas personas. Este método coge un array de objetos, los pasa por un "test" (una función que devuelve `true` o `false`), y devuelve un nuevo array de solo esos objetos que han pasado el test (que han devuelto `true`).
 
-Tú solo quieres  los objetos donde `profession` es `'chemist'`. La función "test" para esto se ve como `(person) => person.profession === 'chemist'`. Aquí está cómo juntarlo:
+Tú solo quieres  los objetos donde `profession` es `'químico'`. La función "test" para esto se ve como `(person) => person.profession === 'químico'`. Aquí está cómo juntarlo:
 
-1. **Crea** un nuevo array solo de personas que sean "químicos", `chemists`, llamando al método `filter()` en `people` filtrando por `person.profession === 'chemist'`:
+1. **Crea** un nuevo array solo de personas que sean "químicos", `chemists`, llamando al método `filter()` en `people` filtrando por `person.profession === 'químico'`:
 
 ```js
 const chemists = people.filter(person =>
-  person.profession === 'chemist'
+  person.profession === 'químico'
 );
 ```
 
@@ -145,7 +145,7 @@ const listItems = chemists.map(person =>
      <p>
        <b>{person.name}:</b>
        {' ' + person.profession + ' '}
-       known for {person.accomplishment}
+       conocido/a por {person.accomplishment}
      </p>
   </li>
 );
@@ -165,7 +165,7 @@ import { getImageUrl } from './utils.js';
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'químico'
   );
   const listItems = chemists.map(person =>
     <li>
@@ -176,7 +176,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        conocido/a por {person.accomplishment}
       </p>
     </li>
   );
@@ -188,32 +188,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -306,7 +306,7 @@ export default function List() {
       <p>
         <b>{person.name}</b>
           {' ' + person.profession + ' '}
-          known for {person.accomplishment}
+          conocido/a por {person.accomplishment}
       </p>
     </li>
   );
@@ -318,32 +318,32 @@ export default function List() {
 export const people = [{
   id: 0, // Usado en JSX como key
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1, // Usado en JSX como key
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2, // Usado en JSX como key
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3, // Usado en JSX como key
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Usado en JSX como key
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -444,7 +444,7 @@ En esta página has aprendido:
 
 Este ejemplo muestra una lista de todas las personas.
 
-Cambiala para mostrar dos listas separadas, una detrás de otra : **Químicos** y **Cualquier otro.** Como antes, puedes saber que persona es química comprobando si `person.profession === 'chemist'`.
+Cambiala para mostrar dos listas separadas, una detrás de otra : **Químicos** y **Todos los demás.** Como antes, puedes saber que persona es química comprobando si `person.profession === 'químico'`.
 
 <Sandpack>
 
@@ -462,13 +462,13 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        conocido/a por {person.accomplishment}
       </p>
     </li>
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ul>{listItems}</ul>
     </article>
   );
@@ -479,32 +479,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -545,15 +545,15 @@ import { getImageUrl } from './utils.js';
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'químico'
   );
   const everyoneElse = people.filter(person =>
-    person.profession !== 'chemist'
+    person.profession !== 'químico'
   );
   return (
     <article>
-      <h1>Scientists</h1>
-      <h2>Chemists</h2>
+      <h1>Científicos</h1>
+      <h2>Químicos</h2>
       <ul>
         {chemists.map(person =>
           <li key={person.id}>
@@ -564,12 +564,12 @@ export default function List() {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
       </ul>
-      <h2>Everyone Else</h2>
+      <h2>Todos los demás</h2>
       <ul>
         {everyoneElse.map(person =>
           <li key={person.id}>
@@ -580,7 +580,7 @@ export default function List() {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
@@ -594,32 +594,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -672,7 +672,7 @@ function ListSection({ title, people }) {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
@@ -683,20 +683,20 @@ function ListSection({ title, people }) {
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'químico'
   );
   const everyoneElse = people.filter(person =>
-    person.profession !== 'chemist'
+    person.profession !== 'químico'
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ListSection
-        title="Chemists"
+        title="Químicos"
         people={chemists}
       />
       <ListSection
-        title="Everyone Else"
+        title="Todos los demás"
         people={everyoneElse}
       />
     </article>
@@ -708,32 +708,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -775,7 +775,7 @@ import { getImageUrl } from './utils.js';
 let chemists = [];
 let everyoneElse = [];
 people.forEach(person => {
-  if (person.profession === 'chemist') {
+  if (person.profession === 'químico') {
     chemists.push(person);
   } else {
     everyoneElse.push(person);
@@ -796,7 +796,7 @@ function ListSection({ title, people }) {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
@@ -808,13 +808,13 @@ function ListSection({ title, people }) {
 export default function List() {
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ListSection
-        title="Chemists"
+        title="Químicos"
         people={chemists}
       />
       <ListSection
-        title="Everyone Else"
+        title="Todos los demás"
         people={everyoneElse}
       />
     </article>
@@ -826,32 +826,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -900,7 +900,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
     </div>
   );
 }
@@ -909,16 +909,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -936,7 +936,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
       {recipes.map(recipe =>
         <div key={recipe.id}>
           <h2>{recipe.name}</h2>
@@ -957,16 +957,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -988,7 +988,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
       {recipes.map(recipe =>
         <div key={recipe.id}>
           <h2>{recipe.name}</h2>
@@ -1009,16 +1009,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -1051,7 +1051,7 @@ function Recipe({ id, name, ingredients }) {
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
       {recipes.map(recipe =>
         <Recipe {...recipe} key={recipe.id} />
       )}
@@ -1063,16 +1063,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -1090,11 +1090,11 @@ Este ejemplo renderiza un haiku famoso escrito por Katsushika Hokusai, con cada 
 
 ```js
 <article>
-  <p>I write, erase, rewrite</p>
+  <p>Escribo, borro y reescribo</p>
   <hr />
-  <p>Erase again, and then</p>
+  <p>Borro de nuevo, y luego</p>
   <hr />
-  <p>A poppy blooms.</p>
+  <p>Florece una amapola.</p>
 </article>
 ```
 
@@ -1105,9 +1105,9 @@ Un haiku solo tiene tres líneas, pero tu solución debería funcionar con cualq
 ```js
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Escribo, borro y reescribo',
+    'Borro de nuevo, y luego',
+    'Florece una amapola.'
   ]
 };
 
@@ -1158,9 +1158,9 @@ Puedes escribir un bucle manual, insertando `<hr />` y `<p>...</p>` en el array 
 ```js
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Escribo, borro y reescribo',
+    'Borro de nuevo, y luego',
+    'Florece una amapola.'
   ]
 };
 
@@ -1217,9 +1217,9 @@ import { Fragment } from 'react';
 
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Escribo, borro y reescribo',
+    'Borro de nuevo, y luego',
+    'Florece una amapola.'
   ]
 };
 

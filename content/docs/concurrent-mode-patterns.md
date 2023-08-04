@@ -625,7 +625,7 @@ Cuando diseñas componentes de React, comúnmente es mejor encontrar la "represe
 Sin embargo, en Modo Concurrente hay casos en los que quizá _quieras_ "duplicar" algunos datos en diferentes variables de estado. Considera esta pequeña aplicación de traducción:
 
 ```js
-const initialQuery = 'Hello, world';
+const initialQuery = 'Hola, mundo';
 const initialResource = fetchTranslation(initialQuery);
 
 function App() {
@@ -797,7 +797,7 @@ Por ejemplo, considera una lista filtrable como esta:
 
 ```js
 function App() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('hola');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -823,7 +823,7 @@ Podemos ver ahora como cuando escribimos en la entrada de texto causa demoras. A
 
 ```js{3-5,18}
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("hola");
   const deferredText = useDeferredValue(text, {
     timeoutMs: 5000
   });

@@ -93,7 +93,7 @@ const MarkdownPreview = lazy(() => delayForDemo(import('./MarkdownPreview.js')))
 
 export default function MarkdownEditor() {
   const [showPreview, setShowPreview] = useState(false);
-  const [markdown, setMarkdown] = useState('Hello, **world**!');
+  const [markdown, setMarkdown] = useState('¡Hola, **mundo**!');
   return (
     <>
       <textarea value={markdown} onChange={e => setMarkdown(e.target.value)} />

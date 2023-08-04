@@ -436,7 +436,7 @@ Escribe un componente desde cero. Puedes darle cualquier nombre válido y devolv
 <Sandpack>
 
 ```js
-// Write your component below!
+// ¡Escribe tu componente a continuación!
 
 ```
 

@@ -819,9 +819,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -926,7 +926,7 @@ function Task({ task }) {
           id: task.id
         });
       }}>
-        Delete
+        Borrar
       </button>
     </label>
   );

@@ -121,7 +121,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -294,7 +294,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -336,7 +336,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -560,7 +560,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -780,7 +780,7 @@ Esto no hace que el re-renderizado de `SlowList` sea más rápido. Sin embargo i
 
 #### Re-renderizado diferido de la lista {/*deferred-re-rendering-of-the-list*/}
 
-En este ejemplo, cada item del componente `SlowList` está **ralentizado artificialmente** para que puedas observar como `useDeferredValue` te permite mantener el _input_ con una respuesta rápida. Escribe en el _input_ y nota como la escritura se siente rápida mientras la lista tiene un retardo respecto a la escritura.
+En este ejemplo, cada ítem del componente `SlowList` está **ralentizado artificialmente** para que puedas observar como `useDeferredValue` te permite mantener el _input_ con una respuesta rápida. Escribe en el _input_ y nota como la escritura se siente rápida mientras la lista tiene un retardo respecto a la escritura.
 
 <Sandpack>
 
@@ -821,7 +821,7 @@ const SlowList = memo(function SlowList({ text }) {
 function SlowItem({ text }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -856,7 +856,7 @@ export default SlowList;
 
 #### Re-renderizado de la lista sin optimizar {/*unoptimized-re-rendering-of-the-list*/}
 
-En este ejemplo cada item del componente `SlowList` está **ralentizado artificialmente** pero no se está utilizando `useDeferredValue`.
+En este ejemplo cada ítem del componente `SlowList` está **ralentizado artificialmente** pero no se está utilizando `useDeferredValue`.
 
 Nota como la escritura se nota muy entrecortada. Esto es porque, al no utilizar `useDeferredValue`, cada pulsación de teclado, que introduce nuevos valores en el _input_, fuerza a que toda la lista se re-renderice inmediatamente de forma ininterrumpida.
 
@@ -898,7 +898,7 @@ const SlowList = memo(function SlowList({ text }) {
 function SlowItem({ text }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
