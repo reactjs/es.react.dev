@@ -904,7 +904,7 @@ function TodoList() {
 
 Observa que estás pasando `createInitialTodos`, que es la *función misma*, y no `createInitialTodos()`, que es el resultado de llamarla. Si pasas una función a `useState`, React solo la llamará durante la inicialización.
 
-React puede [llamar a tus inicializadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/manteniendo-componentes-puros)
+React puede [llamar a tus inicializadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
 <Recipes tituloText="La diferencia entre pasar un inicializador y pasar el valor inicial directamente" titleId="examples-initializer">
 
