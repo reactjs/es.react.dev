@@ -15,14 +15,13 @@ next: concurrent-mode-reference.html
 
 <div class="scary">
 
->Advertencia:
+> Advertencia:
 >
->Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
+> Esta página describía **funcionalidades experimentales que aún no están disponibles en una versión estable**. Estaba dirigida a usuarios pioneros y personas curiosas.
 >
->Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html
-) para obtener información actualizada.**
+> Una gran parte de la información disponible en esta página está desactualizada y existe solo por motivos de archivo. **Por favor dirígete al [artículo del anuncio de React 18 Alfa](/blog/2021/06/08/the-plan-for-react-18.html) para obtener información actualizada.**
 >
->Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
+> Antes de que se lance React 18, reemplazaremos esta página con documentación estable.
 
 </div>
 
@@ -47,9 +46,9 @@ Se puede añadir, cambiar o eliminar las API en cualquier versión `@experimenta
 
 **Las versiones experimentales tendrán frecuentes cambios disruptivos.**
 
-Puedes probar estos compilados en proyectos personales o en una rama, pero no recomendamos ejecutarlos en producción. En Facebook, *sí* los ejecutamos en producción, pero solo porque también estamos ahí para solucionar los errores cuando algo se rompe. ¡Has sido advertido!
+Puedes probar estos compilados en proyectos personales o en una rama, pero no recomendamos ejecutarlos en producción. En Facebook, _sí_ los ejecutamos en producción, pero solo porque también estamos ahí para solucionar los errores cuando algo se rompe. ¡Has sido advertido!
 
-### ¿Para quién es la versión experimental?  {#who-is-this-experimental-release-for}
+### ¿Para quién es la versión experimental? {#who-is-this-experimental-release-for}
 
 Esta versión está dirigida principalmente a los pioneros, autores de bibliotecas y gente curiosa.
 
@@ -59,7 +58,7 @@ Estamos usando este código en producción (y nos funciona), pero aún existen a
 
 Normalmente, cuando añadimos nuevas funcionalidades a React, puedes comenzar a usarlas inmediantamente. Los Fragmentos, el contexto, e incluso los Hooks son ejemplos de tales funcionalidades. Las puedes usar en código nuevo sin hacer ningún cambio al código existente.
 
-El Modo Concurrente es diferente. Introduce cambios semánticos a cómo React funciona. De otra forma, las [nuevas funcionalidades](/docs/concurrent-mode-patterns.html) que se habilitan *no serían posibles*. Es por eso que están agrupadas en un nuevo "modo" en lugar de ser lanzadas una por una por separado.
+El Modo Concurrente es diferente. Introduce cambios semánticos a cómo React funciona. De otra forma, las [nuevas funcionalidades](/docs/concurrent-mode-patterns.html) que se habilitan _no serían posibles_. Es por eso que están agrupadas en un nuevo "modo" en lugar de ser lanzadas una por una por separado.
 
 No puedes optar por el Modo Concurrente en base a subárboles. En cambio, para optar por él, tienes que hacerlo en el lugar donde hoy llamas a `ReactDOM.render()`.
 
@@ -74,14 +73,12 @@ import ReactDOM from 'react-dom';
 //
 // Puedes optar por el modo concurrente escribiendo:
 
-ReactDOM.unstable_createRoot(
-  document.getElementById('root')
-).render(<App />);
+ReactDOM.unstable_createRoot(document.getElementById('root')).render(<App />);
 ```
 
->Nota:
+> Nota:
 >
->Las API del Modo Concurrente como `createRoot` solo existen en los compilados experimentadles de React.
+> Las API del Modo Concurrente como `createRoot` solo existen en los compilados experimentadles de React.
 
 En el Modo Concurrente, los métodos de ciclo de vida [previamente marcados](/blog/2018/03/27/update-on-async-rendering.html) como "inseguros" de hecho son inseguros, y conducen aún a más errores que en React hoy en día. No recomendamos intentar el Modo Concurrente hasta que tu aplicación sea compatible con el [Modo estricto](/docs/strict-mode.html).
 
@@ -93,19 +90,19 @@ En nuestra experiencia, el código que usa patrones idiomáticos de React y que 
 
 ### Paso de migración: Modo de bloqueo {#migration-step-blocking-mode}
 
-Para bases de código más antiguas, el Modo Concurrente pueden ser un paso que vaya demasiado lejos. Por eso es que también proporcionamos un nuevo "Modo de bloqueo" en los compilados experimentales de React. Puedes probarlos sustituyendo`createRoot` con `createBlockingRoot`.  Solo ofrece un *pequeño subconjunto* de la funcionalidades del Modo Concurrente, pero es más cercano a como React funciona hoy y puede servir como un paso de migración.
+Para bases de código más antiguas, el Modo Concurrente pueden ser un paso que vaya demasiado lejos. Por eso es que también proporcionamos un nuevo "Modo de bloqueo" en los compilados experimentales de React. Puedes probarlos sustituyendo`createRoot` con `createBlockingRoot`. Solo ofrece un _pequeño subconjunto_ de la funcionalidades del Modo Concurrente, pero es más cercano a como React funciona hoy y puede servir como un paso de migración.
 
 Para recapitular:
 
-* **Modo legado:** `ReactDOM.render(<App />, rootNode)`. Es el que las aplicaciones de React utilizan hoy en día. No hay planes para eliminar el modo legado en el futuro cercano, pero no será capaz de incluir estas nuevas funcionalidades. 
-* **Modo de bloqueo:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. Actualmente es experimental. Su intención es ser un primer paso para la migración de las aplicaciones que quieran obtener un subconjunto de las funcionalidades del Modo Concurrente.
-* **Modo Concurrente:** `ReactDOM.createRoot(rootNode).render(<App />)`. . Actualmente es experimental. En el futuro, luego de que se estabilice, esperamos convertirlo en el modo predeterminado para React. Este modo habilita *todas* las nuevas funcionalidades.
+- **Modo legado:** `ReactDOM.render(<App />, rootNode)`. Es el que las aplicaciones de React utilizan hoy en día. No hay planes para eliminar el modo legado en el futuro cercano, pero no será capaz de incluir estas nuevas funcionalidades.
+- **Modo de bloqueo:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. Actualmente es experimental. Su intención es ser un primer paso para la migración de las aplicaciones que quieran obtener un subconjunto de las funcionalidades del Modo Concurrente.
+- **Modo Concurrente:** `ReactDOM.createRoot(rootNode).render(<App />)`. . Actualmente es experimental. En el futuro, luego de que se estabilice, esperamos convertirlo en el modo predeterminado para React. Este modo habilita _todas_ las nuevas funcionalidades.
 
 ### ¿Por qúe tantos modos? {#why-so-many-modes}
 
 Pensamos que es mejor ofrecer una [estrategia gradual de migración](/docs/faq-versioning.html#commitment-to-stability) que hacer grandes cambios disruptivos, o dejar que React se estanque hasta la irrelevancia.
 
-En la práctica, esperamos que la mayoría de las aplicaciones que usan el Modo Legado hoy sean capaces de migrar al menos al Modo de bloqueo (si no al Modo Concurrente). Esta fragmentación puede ser molesta para las bibliotecas que se propongan ser compatibles con todos los modos a corto plazo. Sin embargo, mover gradualmente al ecosistema lejos del Modo Legado, también *resolverá* problemas que afectan a bibliotecas importantes en el ecosistema, como el [comportamiento confuso de Suspense al leer una disposición de elementos](https://github.com/facebook/react/issues/14536) y la [falta de garantías consistentes en el procesamiento por lotes](https://github.com/facebook/react/issues/15080). Existen un número de errores que no pueden ser solucionados en el Modo Legado sin cambiar semánticas, pero que no existen en el Modo de bloqueo o el Concurrente.
+En la práctica, esperamos que la mayoría de las aplicaciones que usan el Modo Legado hoy sean capaces de migrar al menos al Modo de bloqueo (si no al Modo Concurrente). Esta fragmentación puede ser molesta para las bibliotecas que se propongan ser compatibles con todos los modos a corto plazo. Sin embargo, mover gradualmente al ecosistema lejos del Modo Legado, también _resolverá_ problemas que afectan a bibliotecas importantes en el ecosistema, como el [comportamiento confuso de Suspense al leer una disposición de elementos](https://github.com/facebook/react/issues/14536) y la [falta de garantías consistentes en el procesamiento por lotes](https://github.com/facebook/react/issues/15080). Existen un número de errores que no pueden ser solucionados en el Modo Legado sin cambiar semánticas, pero que no existen en el Modo de bloqueo o el Concurrente.
 
 Puedes hacerte la idea del Modo de bloqueo como una versión "graciosamente degradada" del Modo Concurrente. **Como resultado, a largo plazo debemos ser capaces de converger y parar de pensar de una vez por todas acerca de los distintos Modos.** Pero por ahora, los modos son una estrategia importante de migración. Le permiten a todos decidir cuándo vale la pena migrar, y realizar las actualizaciones a su propio paso.
 
@@ -119,26 +116,26 @@ Puedes hacerte la idea del Modo de bloqueo como una versión "graciosamente degr
 
 <div id="feature-table">
 
-|   |Modo Heredado|Modo Bloqueo   |Modo Concurrente |
-|---  |---  |---  |---  |
-|[String Refs](/docs/refs-and-the-dom.html#legacy-api-string-refs)  |✅  |🚫**  |🚫**  |
-|[Legacy Context](/docs/legacy-context.html) |✅  |🚫**  |🚫**  |
-|[findDOMNode](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)  |✅  |🚫**  |🚫**  |
-|[Suspense](/docs/concurrent-mode-suspense.html#what-is-suspense-exactly) |✅  |✅  |✅  |
-|[SuspenseList](/docs/concurrent-mode-patterns.html#suspenselist) |🚫  |✅  |✅  |
-|Suspense SSR + Hydration |🚫  |✅  |✅  |
-|Progressive Hydration  |🚫  |✅  |✅  |
-|Selective Hydration  |🚫  |🚫  |✅  |
-|Cooperative Multitasking |🚫  |🚫  |✅  |
-|Automatic batching of multiple setStates     |🚫* |✅  |✅  |
-|[Priority-based Rendering](/docs/concurrent-mode-patterns.html#splitting-high-and-low-priority-state) |🚫  |🚫  |✅  |
-|[Interruptible Prerendering](/docs/concurrent-mode-intro.html#interruptible-rendering) |🚫  |🚫  |✅  |
-|[useTransition](/docs/concurrent-mode-patterns.html#transitions)  |🚫  |🚫  |✅  |
-|[useDeferredValue](/docs/concurrent-mode-patterns.html#deferring-a-value) |🚫  |🚫  |✅  |
-|[Suspense Reveal "Train"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)  |🚫  |🚫  |✅  |
+|                                                                                                       | Modo Heredado | Modo Bloqueo | Modo Concurrente |
+| ----------------------------------------------------------------------------------------------------- | ------------- | ------------ | ---------------- |
+| [String Refs](/docs/refs-and-the-dom.html#legacy-api-string-refs)                                     | ✅            | 🚫\*\*       | 🚫\*\*           |
+| [Legacy Context](/docs/legacy-context.html)                                                           | ✅            | 🚫\*\*       | 🚫\*\*           |
+| [findDOMNode](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)                      | ✅            | 🚫\*\*       | 🚫\*\*           |
+| [Suspense](/docs/concurrent-mode-suspense.html#what-is-suspense-exactly)                              | ✅            | ✅           | ✅               |
+| [SuspenseList](/docs/concurrent-mode-patterns.html#suspenselist)                                      | 🚫            | ✅           | ✅               |
+| Suspense SSR + Hydration                                                                              | 🚫            | ✅           | ✅               |
+| Progressive Hydration                                                                                 | 🚫            | ✅           | ✅               |
+| Selective Hydration                                                                                   | 🚫            | 🚫           | ✅               |
+| Cooperative Multitasking                                                                              | 🚫            | 🚫           | ✅               |
+| Automatic batching of multiple setStates                                                              | 🚫\*          | ✅           | ✅               |
+| [Priority-based Rendering](/docs/concurrent-mode-patterns.html#splitting-high-and-low-priority-state) | 🚫            | 🚫           | ✅               |
+| [Interruptible Prerendering](/docs/concurrent-mode-intro.html#interruptible-rendering)                | 🚫            | 🚫           | ✅               |
+| [useTransition](/docs/concurrent-mode-patterns.html#transitions)                                      | 🚫            | 🚫           | ✅               |
+| [useDeferredValue](/docs/concurrent-mode-patterns.html#deferring-a-value)                             | 🚫            | 🚫           | ✅               |
+| [Suspense Reveal "Train"](/docs/concurrent-mode-patterns.html#suspense-reveal-train)                  | 🚫            | 🚫           | ✅               |
 
 </div>
 
-\*: El modo legado tiene procesamiento por lotes automático en los eventos manejados por React, pero está limitado a una tarea del navegador. Los eventos que no son de React deben optar por ese comportamiento usando `unstable_batchedUpdates`. En el Modo de bloqueo y el concurrente, todos los `setState` son procesados en lote de forma predeterminada.
+\*: El modo legado tiene procesamiento por lotes automático en los eventos controlados por React, pero está limitado a una tarea del navegador. Los eventos que no son de React deben optar por ese comportamiento usando `unstable_batchedUpdates`. En el Modo de bloqueo y el concurrente, todos los `setState` son procesados en lote de forma predeterminada.
 
 \*\*: Muestra advertencias en desarrollo.

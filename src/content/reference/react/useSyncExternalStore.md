@@ -37,7 +37,7 @@ Devuelve la instantánea de los datos en la fuente de almacenamiento de datos. N
 1. La función `subscribe` debe suscribirse a la fuente de almacenamiento de datos y devolver una función que cancela dicha suscripción.
 2. La función `getSnapshot` debería obtener una instantánea de los datos de la fuente de almacenamiento de datos.
 
-[Ver más ejemplos debajo.](#uso)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -99,7 +99,7 @@ export default function TodosApp() {
   const todos = useSyncExternalStore(todosStore.subscribe, todosStore.getSnapshot);
   return (
     <>
-      <button onClick={() => todosStore.addTodo()}>Add todo</button>
+      <button onClick={() => todosStore.addTodo()}>Agregar tarea</button>
       <hr />
       <ul>
         {todos.map(todo => (
@@ -366,7 +366,7 @@ function getSnapshot() {
 }
 ```
 
-React volverá a rerenderizar el componente si el valor de retorno de `getSnapshot` es diferente al de la última vez. Por eso, si siempre devuelves un valor diferente, entrarás en un bucle infinito y obtendrás este error.
+React volverá a rerenderizar el componente si el valor de devolución de `getSnapshot` es diferente al de la última vez. Por eso, si siempre devuelves un valor diferente, entrarás en un bucle infinito y obtendrás este error.
 
 Tu objeto `getSnapshot` solo debería devolver un objeto diferente si algo realmente ha cambiado. Si tu fuente de almacenamiento de datos externa contiene datos inmutables, puede devolver esos datos directamente:
 

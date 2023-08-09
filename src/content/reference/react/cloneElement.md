@@ -33,17 +33,17 @@ import { cloneElement } from 'react';
 
 // ...
 const clonedElement = cloneElement(
-  <Row title="Cabbage">
-    Hello
+  <Row title="Col">
+    Hola
   </Row>,
   { isHighlighted: true },
-  'Goodbye'
+  'Adiós'
 );
 
-console.log(clonedElement); // <Row title="Cabbage">Goodbye</Row>
+console.log(clonedElement); // <Row title="Col">Adiós</Row>
 ```
 
-[Ver más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -80,21 +80,21 @@ Usualmente, devolverás el elemento desde tu componente o lo harás hijo de otro
 
 Para sobrescribir las props de algún <CodeStep step={1}>elemento de React</CodeStep>, pásalo a `cloneElement` con las <CodeStep step={2}>props que quieres sobrescribir</CodeStep>:
 
-```js [[1, 5, "<Row title=\\"Cabbage\\" />"], [2, 6, "{ isHighlighted: true }"], [3, 4, "clonedElement"]]
+```js [[1, 5, "<Row title=\\"Col\\" />"], [2, 6, "{ isHighlighted: true }"], [3, 4, "clonedElement"]]
 import { cloneElement } from 'react';
 
 // ...
 const clonedElement = cloneElement(
-  <Row title="Cabbage" />,
+  <Row title="Col" />,
   { isHighlighted: true }
 );
 ```
 
-Aquí, el <CodeStep step={3}>elemento clonado</CodeStep> resultante será `<Row title="Cabbage" isHighlighted={true} />`.
+Aquí, el <CodeStep step={3}>elemento clonado</CodeStep> resultante será `<Row title="Col" isHighlighted={true} />`.
 
 **Veamos un ejemplo para ver cuándo es útil.**
 
-Imagina un componente `List` que renderiza sus [`children`](/learn/passing-props-to-a-component#passing-jsx-as-children) como una lista de filas seleccionables con un botón "Next" que cambia qué fila está seleccionada. El componente `List` necesita renderizar la `Row` seleccionada de manera diferente, por lo que clona cada hijo `<Row>` que ha recibido y agrega una propiedad extra `isHighlighted: true` o `isHighlighted: false`:
+Imagina un componente `List` que renderiza sus [`children`](/learn/passing-props-to-a-component#passing-jsx-as-children) como una lista de filas seleccionables con un botón "Siguiente" que cambia qué fila está seleccionada. El componente `List` necesita renderizar la `Row` seleccionada de manera diferente, por lo que clona cada hijo `<Row>` que ha recibido y agrega una propiedad extra `isHighlighted: true` o `isHighlighted: false`:
 
 ```js {6-8}
 export default function List({ children }) {
@@ -112,9 +112,9 @@ Digamos que el JSX original recibido por `List` se ve así:
 
 ```js {2-4}
 <List>
-  <Row title="Cabbage" />
-  <Row title="Garlic" />
-  <Row title="Apple" />
+  <Row title="Col" />
+  <Row title="Ajo" />
+  <Row title="Manzana" />
 </List>
 ```
 
@@ -123,21 +123,21 @@ Clonando sus hijos, `List` puede pasar información adicional a cada `Row` dentr
 ```js {4,8,12}
 <List>
   <Row
-    title="Cabbage"
+    title="Col"
     isHighlighted={true} 
   />
   <Row
-    title="Garlic"
+    title="Ajo"
     isHighlighted={false} 
   />
   <Row
-    title="Apple"
+    title="Manzana"
     isHighlighted={false} 
   />
 </List>
 ```
 
-Observa cómo al presionar "Next" se actualiza el estado del `List`, y resalta una fila diferente:
+Observa cómo al presionar "Siguiente" se actualiza el estado del `List`, y resalta una fila diferente:
 
 <Sandpack>
 
@@ -178,7 +178,7 @@ export default function List({ children }) {
           (i + 1) % Children.count(children)
         );
       }}>
-        Next
+        Siguiente
       </button>
     </div>
   );
@@ -200,9 +200,9 @@ export default function Row({ title, isHighlighted }) {
 
 ```js data.js
 export const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Col', id: 1 },
+  { title: 'Ajo', id: 2 },
+  { title: 'Manzana', id: 3 },
 ];
 ```
 
@@ -279,15 +279,15 @@ El resultado final es el mismo que con `cloneElement`:
 ```js {4,8,12}
 <List>
   <Row
-    title="Cabbage"
+    title="Col"
     isHighlighted={true} 
   />
   <Row
-    title="Garlic"
+    title="Ajo"
     isHighlighted={false} 
   />
   <Row
-    title="Apple"
+    title="Manzana"
     isHighlighted={false} 
   />
 </List>
@@ -335,7 +335,7 @@ export default function List({ items, renderItem }) {
           (i + 1) % items.length
         );
       }}>
-        Next
+        Siguiente
       </button>
     </div>
   );
@@ -357,9 +357,9 @@ export default function Row({ title, isHighlighted }) {
 
 ```js data.js
 export const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Col', id: 1 },
+  { title: 'Ajo', id: 2 },
+  { title: 'Manzana', id: 3 },
 ];
 ```
 
@@ -486,7 +486,7 @@ export default function List({ items, renderItem }) {
           (i + 1) % items.length
         );
       }}>
-        Next
+        Siguiente
       </button>
     </div>
   );
@@ -518,9 +518,9 @@ export const HighlightContext = createContext(false);
 
 ```js data.js
 export const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Col', id: 1 },
+  { title: 'Ajo', id: 2 },
+  { title: 'Manzana', id: 3 },
 ];
 ```
 
@@ -591,7 +591,7 @@ export default function App() {
       )}
       <hr />
       <button onClick={onNext}>
-        Next
+        Siguiente
       </button>
     </div>
   );
@@ -620,7 +620,7 @@ export default function App() {
       )}
       <hr />
       <button onClick={onNext}>
-        Next
+        Siguiente
       </button>
     </div>
   );
@@ -659,9 +659,9 @@ export default function Row({ title, isHighlighted }) {
 
 ```js data.js
 export const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Col', id: 1 },
+  { title: 'Ajo', id: 2 },
+  { title: 'Manzana', id: 3 },
 ];
 ```
 

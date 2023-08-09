@@ -18,7 +18,7 @@ interface ExpandableCalloutProps {
 
 const variantMap = {
   deprecated: {
-    title: 'Deprecated',
+    title: 'Obsoleta',
     Icon: IconWarning,
     containerClasses: 'bg-red-5 dark:bg-red-60 dark:bg-opacity-20',
     textColor: 'text-red-50 dark:text-red-40',
@@ -43,7 +43,7 @@ const variantMap = {
       'linear-gradient(rgba(249, 247, 243, 0), rgba(249, 247, 243, 1)',
   },
   wip: {
-    title: 'Under Construction',
+    title: 'En construcción',
     Icon: IconNote,
     containerClasses: 'bg-yellow-5 dark:bg-yellow-60 dark:bg-opacity-20',
     textColor: 'text-yellow-50 dark:text-yellow-40',

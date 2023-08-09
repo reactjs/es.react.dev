@@ -34,14 +34,14 @@ import { findDOMNode } from 'react-dom';
 const domNode = findDOMNode(componentInstance);
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 * `componentInstance`: Una instancia de la subclase [`Componente`](/reference/react/Component). Por ejemplo, `this` dentro de un componente de clase.
 
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `findDOMNode` devuelve el primer nodo DOM del navegador más cercano dentro del `componentInstance` dado. Cuando un componente renderiza `null` o `false`, `findDOMNode` devuelve `null`. Cuando un componente renderiza un string, `findDOMNode` devuelve un nodo DOM de texto que contiene ese valor.
 

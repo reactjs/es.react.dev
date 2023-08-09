@@ -1,52 +1,52 @@
-# Contributing
+# Contribuir
 
-Thank you for your interest in contributing to the React Docs!
+¡Gracias por tu interés en contribuir a React Docs!
 
-## Code of Conduct
+## Código de conducta
 
-Facebook has adopted a Code of Conduct that we expect project
-participants to adhere to. Please [read the full text](https://code.facebook.com/codeofconduct)
-so that you can understand what actions will and will not be tolerated.
+Facebook ha adoptado un Código de Conducta que esperamos que cumplan
+del proyecto. Por favor, [lee el texto completo](https://code.facebook.com/codeofconduct)
+para que puedas comprender qué acciones se tolerarán y cuáles no.
 
-## Technical Writing Tips
+## Consejos de redacción técnica
 
-This is a [good summary](https://medium.com/@kvosswinkel/coding-like-a-journalist-ee52360a16bc) for things to keep in mind when writing technical docs.
+Este es un [buen resumen](https://medium.com/@kvosswinkel/coding-like-a-journalist-ee52360a16bc) de cosas a tener en cuenta al escribir documentos técnicos.
 
-## Guidelines for Text
+## Pautas para el texto
 
-**Different sections intentionally have different styles.**
+**Las distintas secciones tienen intencionadamente estilos diferentes.**
 
-The documentation is divided into sections to cater to different learning styles and use cases. When editing an article, try to match the surrounding text in tone and style. When creating a new article, try to match the tone of the other articles in the same section. Learn about the motivation behind each section below.
+La documentación está dividida en secciones para atender a diferentes estilos de aprendizaje y casos de uso. Cuando edites un artículo, intenta igualar el tono y el estilo del texto que lo rodea. Al crear un nuevo artículo, intenta que coincida con el tono de los demás artículos de la misma sección. Conoce a continuación la motivación de cada sección.
 
-**[Learn React](https://react.dev/learn)** is designed to introduce fundamental concepts in a step-by-step way. Each individual article in Learn React builds on the knowledge from the previous ones, so make sure not to add any "cyclical dependencies" between them. It is important that the reader can start with the first article and work their way to the last Learn React article without ever having to "look ahead" for a definition. This explains some ordering choices (e.g. that state is explained before events, or that "thinking in React" doesn't use refs). Learn React also serves as a reference manual for React concepts, so it is important to be very strict about their definitions and relationships between them.
+**[Aprende React](https://es.react.dev/learn)** está diseñado para introducir conceptos fundamentales paso a paso. Cada artículo individual de Aprende React se basa en los conocimientos de los anteriores, así que asegúrate de no añadir ninguna "dependencia cíclica" entre ellos. Es importante que el lector pueda empezar por el primer artículo y llegar hasta el último artículo de Aprende React sin tener que "mirar hacia delante" en busca de una definición. Esto explica algunas opciones de ordenación (por ejemplo, que el estado se explique antes que los eventos, o que "pensar en React" no utilice refs). Learn React también sirve como manual de referencia para los conceptos de React, por lo que es importante ser muy estricto con sus definiciones y las relaciones entre ellas.
 
-**[API Reference](https://react.dev/reference/react)** is organized by APIs rather than concepts. It is intended to be exhaustive. Any corner cases or recommendations that were skipped for brevity in Learn React should be mentioned in the reference documentation for the corresponding APIs.
+**[Referencia API](https://es.react.dev/reference/react)** está organizada por APIs y no por conceptos. Pretende ser exhaustiva. Cualquier caso práctico o recomendación que se haya omitido por brevedad en Aprende React se mencionará en la documentación de referencia de las API correspondientes.
 
-**Try to follow your own instructions.**
+**Intenta seguir tus propias instrucciones.**
 
-When writing step-by-step instructions (e.g. how to install something), try to forget everything you know about the topic, and actually follow the instructions you wrote, a single step at time. Often you will discover that there is implicit knowledge that you forgot to mention, or that there are missing or out-of-order steps in the instructions. Bonus points for getting *somebody else* to follow the steps and watching what they struggle with. Often it would be something very simple that you have not anticipated.
+Cuando escribas instrucciones paso a paso (por ejemplo, cómo instalar algo), intenta olvidar todo lo que sabes sobre el tema y sigue realmente las instrucciones que has escrito, paso a paso. A menudo descubrirás que hay conocimientos implícitos que olvidaste mencionar, o que en las instrucciones faltan pasos o están desordenados. Puntos extra por hacer que *otra persona* siga los pasos y observar con qué dificultades se encuentra. A menudo será algo muy sencillo que no has previsto.
 
-## Guidelines for Code Examples
+## Pautas para los ejemplos de código
 
-### Syntax
+### Sintaxis
 
-#### Prefer JSX to `createElement`.
+#### Prefiere JSX a `createElement`.
 
-Ignore this if you're specifically describing `createElement`.
+Ignora esto si estás describiendo específicamente `createElement`.
 
-#### Use `const` where possible, otherwise `let`. Don't use `var`.
+#### Usa `const` cuando sea posible, si no `let`. No uses `var`.
 
-Ignore this if you're specifically writing about ES5.
+Ignora esto si estás escribiendo específicamente sobre ES5.
 
-#### Don't use ES6 features when equivalent ES5 features have no downsides.
+#### No utilices funciones de ES6 cuando las funciones equivalentes de ES5 no tienen inconvenientes.
 
-Remember that ES6 is still new to a lot of people. While we use it in many places (`const` / `let`, classes, arrow functions), if the equivalent ES5 code is just as straightforward and readable, consider using it.
+Recuerda que ES6 es todavía nuevo para mucha gente. Aunque lo usamos en muchos sitios (`const` / `let`, clases, funciones de flecha), si el código ES5 equivalente es igual de sencillo y legible, considera usarlo.
 
-In particular, you should prefer named `function` declarations over `const myFunction = () => ...` arrows for top-level functions. However, you *should* use arrow functions where they provide a tangible improvement (such as preserving `this` context inside a component). Consider both sides of the tradeoff when deciding whether to use a new feature.
+En particular, deberías preferir las declaraciones `function` con nombre a las flechas `const myFunction = () => ...` para las funciones de nivel superior. Sin embargo, *deberías* usar funciones de flecha cuando proporcionen una mejora tangible (como preservar el contexto `this` dentro de un componente). Considera ambos lados de la compensación cuando decidas si utilizar una nueva función.
 
-#### Don't use features that aren't standardized yet.
+#### No utilices funciones que aún no estén normalizadas.
 
-For example, **don't** write this:
+Por ejemplo, **no** escribas esto:
 
 ```js
 class MyComponent extends React.Component {
@@ -57,7 +57,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-Instead, **do** write this:
+En su lugar, **escribe** esto:
 
 ```js
 class MyComponent extends React.Component {
@@ -72,64 +72,64 @@ class MyComponent extends React.Component {
 }
 ```
 
-Ignore this rule if you're specifically describing an experimental proposal. Make sure to mention its experimental nature in the code and in the surrounding text.
+Ignora esta regla si estás describiendo específicamente una propuesta experimental. Asegúrate de mencionar su carácter experimental en el código y en el texto que lo acompaña.
 
-### Style
+### Estilo
 
-- Use semicolons.
-- No space between function names and parens (`method() {}` not `method () {}`).
-- When in doubt, use the default style favored by [Prettier](https://prettier.io/playground/).
+- Utiliza punto y coma.
+- No dejes espacio entre los nombres de las funciones y los paréntesis (`method() {}` no `method () {}`).
+- En caso de duda, utiliza el estilo por defecto preferido por [Prettier](https://prettier.io/playground/).
 
-### Highlighting
+### Resaltar
 
-Use `js` as the highlighting language in Markdown code blocks:
+Utiliza `js` como lenguaje de resaltado en los bloques de código Markdown:
 
 ````
 ```js
-// code
+// Código
 ```
 ````
 
-Sometimes you'll see blocks with numbers.  
-They tell the website to highlight specific lines.
+A veces verás bloques con números.  
+Indican al sitio web que resalte líneas concretas.
 
-You can highlight a single line:
+Puedes resaltar una sola línea:
 
 ````
 ```js {2}
 function hello() {
-  // this line will get highlighted
+  // esta línea quedará resaltada
 }
 ```
 ````
 
-A range of lines:
+Un rango de líneas:
 
 ````
 ```js {2-4}
 function hello() {
-  // these lines
-  // will get
-  // highlighted
+  // estas líneas
+  // quedarán
+  // resaltadas
 }
 ```
 ````
 
-Or even multiple ranges:
+O incluso varios rangos:
 
 ````
 ```js {2-4,6}
 function hello() {
-  // these lines
-  // will get
-  // highlighted
-  console.log('hello');
-  // also this one
-  console.log('there');
+  // estas líneas
+  // quedarán
+  // resaltadas
+  console.log('Hola');
+  // también ésta
+  console.log('a todos');
 }
 ```
 ````
 
-Be mindful that if you move some code in an example with highlighting, you also need to update the highlighting.
+Ten en cuenta que si mueves algún código en un ejemplo con resaltado, también tendrás que actualizar el resaltado.
 
-Don't be afraid to often use highlighting! It is very valuable when you need to focus the reader's attention on a particular detail that's easy to miss.
+¡No tengas miedo de utilizar a menudo el resaltado! Es muy valioso cuando necesitas centrar la atención del lector en un detalle concreto que es fácil pasar por alto.

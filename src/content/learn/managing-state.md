@@ -13,9 +13,9 @@ A medida que tu aplicación crece, es de ayuda ser más intencional sobre cómo 
 * [Cómo pensar en los cambios de la interfaz de usuario como cambios de estado](/learn/reacting-to-input-with-state)
 * [Cómo estructurar bien el estado](/learn/choosing-the-state-structure)
 * [Cómo "levantar el estado" para compartirlo entre componentes](/learn/sharing-state-between-components)
-* [Cómo controlar si el estado se conserva o se restablece](/learn/preserving-and-resetting-state)
+* [Cómo controlar si el estado se preserva o se reinicia](/learn/preserving-and-resetting-state)
 * [Cómo consolidar una lógica de estado compleja en una función](/learn/extracting-state-logic-into-a-reducer)
-* [Cómo pasar la información sin "_prop drilling_ (taladro de props)"](/learn/passing-data-deeply-with-context)
+* [Cómo pasar la información sin "_prop drilling_" (perforación de _prop_)](/learn/passing-data-deeply-with-context)
 * [Cómo escalar la administración del estado a medida que crece tu aplicación](/learn/scaling-up-with-reducer-and-context)
 
 </YouWillLearn>
@@ -58,9 +58,9 @@ export default function Form() {
 
   return (
     <>
-      <h2>Concurso de la ciudad</h2>
+      <h2>Cuestionario sobre ciudades</h2>
       <p>
-        ¿En qué ciudad hay una valla publicitaria que convierte el aire en agua potable?
+        ¿En qué ciudad hay un cartel publicitario que convierte el aire en agua potable?
       </p>
       <form onSubmit={handleSubmit}>
         <textarea
@@ -244,20 +244,20 @@ export default function Accordion() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-      <h2>Almaty, Kazajistán</h2>
+      <h2>Alma Ata, Kazajistán</h2>
       <Panel
-        title="About"
+        title="Acerca de"
         isActive={activeIndex === 0}
         onShow={() => setActiveIndex(0)}
       >
-        Con una población de unos 2 millones de habitantes, Almaty es la mayor ciudad de Kazajistán. De 1929 a 1997 fue su capital.
+        Con una población de unos 2 millones de habitantes, Alma Ata es la mayor ciudad de Kazajistán. De 1929 a 1997 fue su capital.
       </Panel>
       <Panel
-        title="Etymology"
+        title="Etimología"
         isActive={activeIndex === 1}
         onShow={() => setActiveIndex(1)}
       >
-        El nombre proviene de <span lang="kk-KZ">алма</span>, la palabra kazaja para "manzana", y suele traducirse como "lleno de manzanas". De hecho, se cree que la región que rodea a Almaty es el hogar ancestral de la manzana, y el <i lang="la">Malus Silvestris</i> se considera un candidato probable para el ancestro de la manzana doméstica moderna.
+        El nombre proviene de <span lang="kk-KZ">алма</span>, la palabra en kazajo para "manzana", y suele traducirse como "lleno de manzanas". De hecho, se cree que la región que rodea a Alma Ata es el hogar ancestral de la manzana, y el <i lang="la">Malus Silvestris</i> se considera un candidato probable para el ancestro de la manzana doméstica moderna.
       </Panel>
     </>
   );
@@ -300,11 +300,11 @@ Lee **[Compartir estado entre componentes](/learn/sharing-state-between-componen
 
 </LearnMore>
 
-## Conservación y reinicio del estado {/*preserving-and-resetting-state*/}
+## Preservar y reiniciar el estado {/*preserving-and-resetting-state*/}
 
 Cuando se vuelve a renderizar un componente, React necesita decidir qué partes del árbol se mantienen (y se actualizan), y qué partes se descartan o se vuelven a crear desde cero. En la mayoría de los casos, el comportamiento automático de React funciona bastante bien. Por defecto, React conserva las partes del árbol que "coinciden" con el árbol de componentes previamente renderizado.
 
-Sin embargo, a veces esto no es lo que quieres. Por ejemplo, en esta aplicación, si se escribe un mensaje y luego se cambia de destinatario no se restablece la entrada. Esto puede hacer que el usuario envíe accidentalmente un mensaje a la persona equivocada:
+Sin embargo, a veces esto no es lo que quieres. Por ejemplo, en esta aplicación, si se escribe un mensaje y luego se cambia de destinatario no se reinicia la entrada. Esto puede hacer que el usuario envíe accidentalmente un mensaje a la persona equivocada:
 
 <Sandpack>
 
@@ -367,7 +367,7 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
@@ -399,7 +399,7 @@ textarea {
 
 </Sandpack>
 
-React permite anular el comportamiento por defecto, y *forzar* a un componente a restablecer su estado pasándole una `key` diferente, como `<Chat key={email} />`. Esto le dice a React que si el destinatario es diferente, debe ser considerado como un componente `Chat` diferente que necesita ser recreado desde cero con los nuevos datos (y entradas de UI). Ahora al cambiar de destinatario siempre se reinicia el campo de entrada, aunque se renderice el mismo componente.
+React permite anular el comportamiento por defecto, y *forzar* a un componente a reiniciar su estado pasándole una `key` diferente, como `<Chat key={email} />`. Esto le dice a React que si el destinatario es diferente, debe ser considerado como un componente `Chat` diferente que necesita ser recreado desde cero con los nuevos datos (y entradas de UI). Ahora al cambiar de destinatario siempre se reinicia el campo de entrada, aunque se renderice el mismo componente.
 
 <Sandpack>
 
@@ -462,7 +462,7 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
@@ -496,13 +496,13 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Lee **[Preservación y restablecimiento del estado](/learn/preserving-and-resetting-state)** para aprender la vida del estado y cómo controlarla.
+Lee **[Preservar y reiniciar el estado](/learn/preserving-and-resetting-state)** para aprender la vida del estado y cómo controlarla.
 
 </LearnMore>
 
 ## Extracción de la lógica de estado en un reductor {/*extracting-state-logic-into-a-reducer*/}
 
-Los componentes con muchas actualizaciones de estado repartidas entre muchos manejadores de eventos pueden resultar abrumadores. Para estos casos, puedes consolidar toda la lógica de actualización de estado fuera de tu componente en una sola función, llamada "reductor". Tus manejadores de eventos se vuelven concisos porque sólo especifican las "acciones" del usuario. Al final del archivo, la función reductora especifica cómo debe actualizarse el estado en respuesta a cada acción.
+Los componentes con muchas actualizaciones de estado repartidas entre muchos controladores de eventos pueden resultar abrumadores. Para estos casos, puedes consolidar toda la lógica de actualización de estado fuera de tu componente en una sola función, llamada "reductor". Tus controladores de eventos se vuelven concisos porque sólo especifican las "acciones" del usuario. Al final del archivo, la función reductora especifica cómo debe actualizarse el estado en respuesta a cada acción.
 
 <Sandpack>
 
@@ -583,9 +583,9 @@ function tasksReducer(tasks, action) {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false }
+  { id: 0, text: 'Visitar el Museo Kafka', done: true },
+  { id: 1, text: 'Ver espectáculo de títeres', done: false },
+  { id: 2, text: 'Foto del muro de Lennon', done: false }
 ];
 ```
 
@@ -597,7 +597,7 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
@@ -712,19 +712,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
+        <Heading>Encabezado</Heading>
         <Section>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
+          <Heading>Sub-encabezado</Heading>
           <Section>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
+            <Heading>Sub-sub-encabezado</Heading>
           </Section>
         </Section>
       </Section>
@@ -882,9 +882,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -898,7 +898,7 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />

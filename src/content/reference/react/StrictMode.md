@@ -38,7 +38,7 @@ root.render(
 );
 ```
 
-[Ve más ejemplos abajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 
@@ -128,9 +128,9 @@ En este ejemplo, el chequeo de Strict Mode no se ejecutarán en los componentes 
 
 Los componentes que rompen esta regla se comportan impredeciblemente y causan errores. Para ayudarte a encontrar código impuro accidental, el Modo Estricto llama algunas de tus funciones (solo las que deberían ser puras) **dos veces en desarrollo.** Esto incluye:
 
-- El cuerpo de la función de tu componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los manejadores de eventos)
+- El cuerpo de la función de tu componente (solo lógica de nivel superior, por lo que esto no incluye el código dentro de los controladores de eventos)
 - Funciones que pasas a [`useState`](/reference/react/useState), [funciones `set`](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo), o [`useReducer`](/reference/react/useReducer)
-- Algunos métodos de los componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
+- Algunos métodos de los componentes de clase como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([ve la lista entera](https://es.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
 
 Si una función es pura, ejecutarla dos veces no cambia su comportamiento porque una función pura produce el mismo resultado cada vez. Sin embargo, si una función es impura (por ejemplo, si muta los datos que recibe), ejecutarla dos veces tiende a ser perceptible (¡eso es lo que la hace impura!) Esto te ayuda a detectar y corregir el error antes.
 
@@ -155,8 +155,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -233,8 +233,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -336,8 +336,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -417,8 +417,8 @@ import { useState } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia de Ankit" },
+  {id: 1, label: "Historia de Taylor" },
 ];
 
 export default function App() {
@@ -531,7 +531,7 @@ export default function ChatRoom() {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
   }, []);
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 ```
 
@@ -539,17 +539,17 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -564,7 +564,7 @@ button { margin-left: 10px; }
 
 Hay un problema con este código pero podría no quedar claro inmediatamente.
 
-Para hacer este problema más obvio, implementemos una funcionalidad. En el siguiente ejemplo, `roomId` no está codificado de forma fija. En cambio, el usuario puede seleccionar el `roomId` al que quiere conectarse desde un dropdown. Haz clic en "Open chat" y luego selecciona diferentes salas de chat una por una. Mantén la cuenta del número de conexiones activas en la consola:
+Para hacer este problema más obvio, implementemos una funcionalidad. En el siguiente ejemplo, `roomId` no está codificado de forma fija. En cambio, el usuario puede seleccionar el `roomId` al que quiere conectarse desde un dropdown. Haz clic en "Abrir chat" y luego selecciona diferentes salas de chat una por una. Mantén la cuenta del número de conexiones activas en la consola:
 
 <Sandpack>
 
@@ -590,7 +590,7 @@ function ChatRoom({ roomId }) {
     connection.connect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 
 export default function App() {
@@ -599,18 +599,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Cerrar chat' : 'Abrir chat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -623,17 +623,17 @@ export default function App() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -689,7 +689,7 @@ export default function ChatRoom() {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
   }, []);
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 ```
 
@@ -697,17 +697,17 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -754,7 +754,7 @@ function ChatRoom({ roomId }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>¡Bienvenido a la sala {roomId}!</h1>;
 }
 
 export default function App() {
@@ -763,18 +763,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Cerrar chat' : 'Abrir chat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -787,17 +787,17 @@ export default function App() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Una aplicación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
       connections++;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
       connections--;
-      console.log('Active connections: ' + connections);
+      console.log('Conexiones activas: ' + connections);
     }
   };
 }
@@ -822,9 +822,9 @@ Sin Modo Estricto, es fácil pasar por alto que tu Efecto necesita limpieza. Al 
 
 React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas APIs obsoletas: 
 
-* [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
-* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
+* [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://es.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
 * API antigua de contexto ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
-* Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
+* Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://es.reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
 
 Estas APIs son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.

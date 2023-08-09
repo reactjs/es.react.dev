@@ -23,12 +23,12 @@ title: Inicio rápido
 
 Las aplicaciones de React están hechas a partir de *componentes*. Un componente es una pieza de UI (siglas en inglés de interfaz de usuario) que tiene su propia lógica y apariencia. Un componente puede ser tan pequeño como un botón, o tan grande como toda una página.
 
-Los componentes de React son funciones de JavaScript que retornan marcado (*markup*):
+Los componentes de React son funciones de JavaScript que devuelven _markup_ (marcado):
 
 ```js
 function MyButton() {
   return (
-    <button>I'm a button</button>
+    <button>Soy un botón</button>
   );
 }
 ```
@@ -39,7 +39,7 @@ Ahora que has declarado `MyButton`, puedes anidarlo en otro componente:
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Bienvenido a mi aplicación</h1>
       <MyButton />
     </div>
   );
@@ -56,7 +56,7 @@ Mira el resultado:
 function MyButton() {
   return (
     <button>
-      I'm a button
+      Soy un botón
     </button>
   );
 }
@@ -64,7 +64,7 @@ function MyButton() {
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Bienvenido a mi aplicación</h1>
       <MyButton />
     </div>
   );
@@ -85,8 +85,8 @@ JSX es más estricto que HTML. Tienes que cerrar etiquetas como `<br />`. Tu com
 function AboutPage() {
   return (
     <>
-      <h1>About</h1>
-      <p>Hello there.<br />How do you do?</p>
+      <h1>Acerca de</h1>
+      <p>Hola.<br />¿Cómo vas?</p>
     </>
   );
 }
@@ -154,7 +154,7 @@ export default function Profile() {
       <img
         className="avatar"
         src={user.imageUrl}
-        alt={'Photo of ' + user.name}
+        alt={'Foto de ' + user.name}
         style={{
           width: user.imageSize,
           height: user.imageSize
@@ -227,9 +227,9 @@ Por ejemplo, digamos que tienes un arreglo de productos:
 
 ```js
 const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Col', id: 1 },
+  { title: 'Ajo', id: 2 },
+  { title: 'Manzana', id: 3 },
 ];
 ```
 
@@ -253,9 +253,9 @@ Nota que `<li>` tiene un atributo `key` (llave). Para cada elemento en una lista
 
 ```js
 const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
+  { title: 'Col', isFruit: false, id: 1 },
+  { title: 'Ajo', isFruit: false, id: 2 },
+  { title: 'Manzana', isFruit: true, id: 3 },
 ];
 
 export default function ShoppingList() {
@@ -280,27 +280,27 @@ export default function ShoppingList() {
 
 ## Responder a eventos {/*responding-to-events*/}
 
-Puedes responder a eventos declarando *manejadores de eventos* dentro de tus componentes:
+Puedes responder a eventos declarando funciones *controladoras de eventos* dentro de tus componentes:
 
 ```js {2-4,7}
 function MyButton() {
   function handleClick() {
-    alert('You clicked me!');
+    alert('¡Me hiciste clic!');
   }
 
   return (
     <button onClick={handleClick}>
-      Click me
+      Hazme clic
     </button>
   );
 }
 ```
 
-¡Nota que `onClick={handleClick}` no tiene paréntesis al final! No _llames_ a la función manejadora de eventos: solamente necesitas *pasarla hacia abajo*. React llamará a tu manejador de eventos cuando el usuario haga clic en el botón.
+¡Nota que `onClick={handleClick}` no tiene paréntesis al final! No _llames_ a la función controladora de evento: solamente necesitas *pasarla hacia abajo*. React llamará a tu controlador de evento cuando el usuario haga clic en el botón.
 
 ## Actualizar la pantalla {/*updating-the-screen*/}
 
-A menudo, querrás que tu componente "recuerde" alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que se hace clic en un botón. Para lograrlo, añade *estado* a tu componente.
+A menudo, querrás que tu componente "recuerde" alguna información y la muestre. Por ejemplo, quizá quieras contar el número de veces que hiciste clic en un botón. Para lograrlo, añade *estado* a tu componente.
 
 Primero, importa [`useState`](/reference/react/useState) de React:
 
@@ -330,7 +330,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -348,7 +348,7 @@ import { useState } from 'react';
 export default function MyApp() {
   return (
     <div>
-      <h1>Counters that update separately</h1>
+      <h1>Contadores que se actualizan separadamente</h1>
       <MyButton />
       <MyButton />
     </div>
@@ -364,7 +364,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -389,7 +389,7 @@ Los Hooks son más restrictivos que las funciones regulares. Solo puedes llamar 
 
 ## Compartir datos entre componentes {/*sharing-data-between-components*/}
 
-En el ejemplo anterior, cada `MyButton` tenía su propio `count` independiente, y cuando se hacía clic en cada botón, solo el `count` del botón cliqueado cambiaba:
+En el ejemplo anterior, cada `MyButton` tenía su propio `count` independiente, y cuando hiciste clic en cada botón, solo el `count` del botón en hiciste clic cambiaba:
 
 <DiagramGroup>
 
@@ -443,7 +443,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update separately</h1>
+      <h1>Contadores que se actualizan separadamente</h1>
       <MyButton />
       <MyButton />
     </div>
@@ -451,12 +451,12 @@ export default function MyApp() {
 }
 
 function MyButton() {
-  // ... we're moving code from here ...
+  // ... estamos moviendo el código de aquí ...
 }
 
 ```
 
-Luego, *pasa el estado hacia abajo* desde `MyApp` hacia cada `MyButton`, junto con la función compartida para manejar el evento de clic. Puedes pasar la información a `MyButton` usando las llaves de JSX, de la misma forma como lo hiciste anteriormente con las etiquetas nativas `<img>`:
+Luego, *pasa el estado hacia abajo* desde `MyApp` hacia cada `MyButton`, junto con la función compartida para controlar el evento de clic. Puedes pasar la información a `MyButton` usando las llaves de JSX, de la misma forma como lo hiciste anteriormente con las etiquetas nativas `<img>`:
 
 ```js {11-12}
 export default function MyApp() {
@@ -468,7 +468,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update together</h1>
+      <h1>Contadores que se actualizan juntos</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
@@ -476,7 +476,7 @@ export default function MyApp() {
 }
 ```
 
-La información que pasas hacia abajo se llaman _props_. Ahora el componente `MyApp` contiene el estado `count` y el manejador de eventos `handleClick`, y *pasa ambos hacia abajo como props* a cada uno de los botones.
+La información que pasas hacia abajo se llaman _props_. Ahora el componente `MyApp` contiene el estado `count` y el controlador de evento `handleClick`, y *pasa ambos hacia abajo como props* a cada uno de los botones.
 
 Finalmente, cambia `MyButton` para que *lea* las props que le pasaste desde el componente padre:
 
@@ -484,15 +484,15 @@ Finalmente, cambia `MyButton` para que *lea* las props que le pasaste desde el c
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Clicked {count} times
+      Hiciste clic {count} veces
     </button>
   );
 }
 ```
 
-Cuando haces clic en el botón, el manejador `onClick` se dispara. A la prop `onClick` de cada botón se le asignó la función `handleClick` dentro de `MyApp`, de forma que el código dentro de ella se ejecuta. Ese código llama a `setCount(count + 1)`, que incremente la variable de estado `count`. El nuevo valor de `count` se pasa como prop a cada botón, y así todos muestran el nuevo valor.
+Cuando haces clic en el botón, el controlador `onClick` se dispara. A la prop `onClick` de cada botón se le asignó la función `handleClick` dentro de `MyApp`, de forma que el código dentro de ella se ejecuta. Ese código llama a `setCount(count + 1)`, que incremente la variable de estado `count`. El nuevo valor de `count` se pasa como prop a cada botón, y así todos muestran el nuevo valor.
 
-Esto se llama "levantar el estado hacia arriba". Al mover el estado hacia arriba, lo compartimos entre componentes.
+Esto se llama "levantar el estado". Al mover el estado hacia arriba, lo compartimos entre componentes.
 
 <Sandpack>
 
@@ -508,7 +508,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update together</h1>
+      <h1>Contadores que se actualizan juntos</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
@@ -518,7 +518,7 @@ export default function MyApp() {
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Clicked {count} times
+      Hiciste clic {count} veces
     </button>
   );
 }

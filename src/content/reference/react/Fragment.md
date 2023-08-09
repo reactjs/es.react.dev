@@ -27,21 +27,21 @@ Envuelve elementos en un `<Fragment>` para agruparlos en situaciones donde neces
 
 #### Props {/*props*/}
 
-- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [llaves.](https://beta.reactjs.org/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- **Opcional** `key`: Los Fragmentos declarados con la sintaxis explícita `<Fragment>` pueden tener [*keys*.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
 
 #### Advertencias {/*caveats*/}
 
 - Si quisieras pasarle una `key` a un Fragmento, no podrias usar la sintaxis `<>...</>`. Tendrias que importar explícitamente `Fragment` desde `'react'` y renderizar `<Fragment key={yourKey}>...</Fragment>`.
 
-- React no [restablece el estado](/learn/preserving-and-resetting-state) cuando renderizas desde un `<><Child /></>` a un `[<Child />]` y viceversa, o cuando renderizas desde un `<><Child /></>` a un `<Child />` y viceversa. Ten en cuenta de que esto sólo funciona a un nivel de profundidad: por ejemplo, ir desde un `<><><Child /></></>` a un `<Child />` restablece el estado. Échale un ojo a la sintaxis en detalle [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
+- React no [reinicia el estado](/learn/preserving-and-resetting-state) cuando renderizas desde un `<><Child /></>` a un `[<Child />]` y viceversa, o cuando renderizas desde un `<><Child /></>` a un `<Child />` y viceversa. Ten en cuenta de que esto sólo funciona a un nivel de profundidad: por ejemplo, ir desde un `<><><Child /></></>` a un `<Child />` reinicia el estado. Échale un ojo a la sintaxis en detalle [aquí.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
 ---
 
 ## Uso {/*usage*/}
 
-### Retornar múltiples elementos {/*returning-multiple-elements*/}
+### Devolver múltiples elementos {/*returning-multiple-elements*/}
 
-Usa `Fragment`, o la sintaxis equivalente `<>...</>`, para agrupar múltiples elementos. Puedes usarlo para poner múltiples elementos en cualquier lugar donde un solo elemento puede ir. Por ejemplo, un componente solo puede retornar un elemento, pero usando un Fragmento puedes agrupar múltiples elementos y retornarlos como un grupo:
+Usa `Fragment`, o la sintaxis equivalente `<>...</>`, para agrupar múltiples elementos. Puedes usarlo para poner múltiples elementos en cualquier lugar donde un solo elemento puede ir. Por ejemplo, un componente solo puede devolver un elemento, pero usando un Fragmento puedes agrupar múltiples elementos y devolverlos como un grupo:
 
 ```js {3,6}
 function Post() {

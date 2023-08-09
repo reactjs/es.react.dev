@@ -37,7 +37,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -89,7 +89,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -165,7 +165,7 @@ export function Profile() {
 }
 ```
 
-Luego, **importa** `Profile` desde `Gallery.js` hacia `App.js` usando un export con nombre (con llaves):
+Luego, **importa** `Profile` de `Gallery.js` a `App.js` usando un import con nombre (con llaves):
 
 ```js
 import { Profile } from './Gallery.js';
@@ -207,7 +207,7 @@ export function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -222,7 +222,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Ahora estás usando a una mezcla de exports por defecto y con nombre:
+Ahora estás usando una mezcla de exports por defecto y con nombre:
 
 * `Gallery.js`:
   - Exporta el componente `Profile` como un **export con nombre llamado `Profile`**.
@@ -262,7 +262,7 @@ Puedes usar o bien un export por defecto o bien un export con nombre para `Profi
 
 <Hint>
 
-No te olvides de importar tus componentes cuando se llaman. ¿No usa `Gallery` también a `Profile`?
+No olvides importar tus componentes donde se llamen. ¿Acaso `Gallery` no usa también a `Profile`?
 
 </Hint>
 
@@ -282,7 +282,7 @@ export default function App() {
 ```
 
 ```js Gallery.js active
-// Move me to Profile.js!
+// ¡Muéveme a Profile.js!
 export function Profile() {
   return (
     <img
@@ -295,7 +295,7 @@ export function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -341,7 +341,7 @@ import { Profile } from './Profile.js';
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -391,7 +391,7 @@ import Profile from './Profile.js';
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />

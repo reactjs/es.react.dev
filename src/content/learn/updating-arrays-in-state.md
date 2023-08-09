@@ -24,7 +24,7 @@ En su lugar, cada vez que quieras actualizar un _array_, querrás pasar un *nuev
 
 Aquí hay una tabla de referencia con las operaciones más comunes con _arrays_. Cuando se trata de _arrays_ dentro del estado de React, necesitarás evitar los métodos de la columna izquierda, y en su lugar es preferible usar los métodos de la columna derecha.
 
-|              | evita (muta el _array_)                  | preferido (retorna un nuevo _array_)                                         |
+|              | evita (muta el _array_)                  | preferido (devuelve un nuevo _array_)                                         |
 |--------------|------------------------------------------|------------------------------------------------------------------------------|
 | añadir    | `push`, `unshift`                        | `concat`, `[...arr]` operador de propagación ([ejemplo](#adding-to-an-array))|
 | eliminar   | `pop`, `shift`, `splice`                 | `filter`, `slice` ([ejemplo](#removing-from-an-array))                       |
@@ -198,7 +198,7 @@ export default function List() {
 
 </Sandpack>
 
-Haz click en el botón "Eliminar" varias veces, y mira su manejador de clics.
+Haz click en el botón "Eliminar" varias veces, y mira su controlador de clics.
 
 ```js
 setArtists(
@@ -361,7 +361,7 @@ export default function List() {
     const nextArtists = [
       // Elementos antes del punto de inserción:
       ...artists.slice(0, insertAt),
-      // New item:
+      // Nuevo ítem:
       { id: nextId++, name: name },
       // Elementos después del punto de inserción:
       ...artists.slice(insertAt)
@@ -411,9 +411,9 @@ import { useState } from 'react';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies' },
-  { id: 1, title: 'Lunar Landscape' },
-  { id: 2, title: 'Terracotta Army' },
+  { id: 0, title: 'Grandes barrigas' },
+  { id: 1, title: 'Paisaje lunar' },
+  { id: 2, title: 'Guerreros de terracota' },
 ];
 
 export default function List() {
@@ -428,7 +428,7 @@ export default function List() {
   return (
     <>
       <button onClick={handleClick}>
-        Inverso
+        Invertir
       </button>
       <ul>
         {list.map(artwork => (
@@ -469,9 +469,9 @@ import { useState } from 'react';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -576,9 +576,9 @@ import { useState } from 'react';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -672,9 +672,9 @@ import { useImmer } from 'use-immer';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -919,7 +919,7 @@ button { margin: 5px; }
 
 #### Eliminar un artículo del carrito de compras {/*remove-an-item-from-the-shopping-cart*/}
 
-Este carrito de compras tiene un botón "+" que funciona, pero el botón "–" no hace nada. Debes agregarle un controlador de eventos para que al presionarlo disminuya el `count` del producto correspondiente. Si presionas "–" cuando el conteo es 1, el producto debería eliminarse automáticamente del carrito. Asegúrate de que nunca muestre 0.
+Este carrito de compras tiene un botón "+" que funciona, pero el botón "–" no hace nada. Debes agregarle un controlador de evento para que al presionarlo disminuya el `count` del producto correspondiente. Si presionas "–" cuando el conteo es 1, el producto debería eliminarse automáticamente del carrito. Asegúrate de que nunca muestre 0.
 
 <Sandpack>
 

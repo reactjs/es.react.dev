@@ -32,7 +32,7 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 </select>
 ```
 
-[Mira más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Props {/*props*/}
 

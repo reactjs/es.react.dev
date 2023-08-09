@@ -16,7 +16,7 @@ const value = useContext(SomeContext)
 
 ---
 
-## Referencias {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useContext(SomeContext)` {/*usecontext*/}
 
@@ -30,13 +30,13 @@ function MyComponent() {
   // ...
 ```
 
-[Observa más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 * `SomeContext`: El contexto que creaste previamente con [`createContext`](/reference/react/createContext). El propio contexto no guarda información, solo representa el tipo de información que puedes proporcionar o leer desde tus componentes.
 
-#### Salidas {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/reference/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React rerenderiza automáticamente los componentes que leen algún contexto si este cambia.
 
@@ -819,9 +819,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -926,7 +926,7 @@ function Task({ task }) {
           id: task.id
         });
       }}>
-        Delete
+        Borrar
       </button>
     </label>
   );

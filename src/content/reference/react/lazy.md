@@ -28,7 +28,7 @@ import { lazy } from 'react';
 const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -36,7 +36,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Devuelve {/*returns*/}
 
-`lazy` devuelve un componente React que puedes renderizar en tu árbol. Mientras el código del componente lazy sigue cargando, el intento de renderizarlo se _suspenderá._ Usa [`<Suspense>`](/apis/react/Suspense) para mostrar un indicador de carga mientras se carga.
+`lazy` devuelve un componente React que puedes renderizar en tu árbol. Mientras el código del componente lazy sigue cargando, el intento de renderizarlo se _suspenderá._ Usa [`<Suspense>`](/reference/react/Suspense) para mostrar un indicador de carga mientras se carga.
 
 ---
 
@@ -46,9 +46,9 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 `load` no recibe parámetros.
 
-#### Returns {/*load-returns*/}
+#### Devuelve {/*load-returns*/}
 
-Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/api/react/memo), o un componente [`forwardRef`](/api/react/forwardRef).
+Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/reference/react/memo), o un componente [`forwardRef`](/reference/react/forwardRef).
 
 ---
 
@@ -93,7 +93,7 @@ const MarkdownPreview = lazy(() => delayForDemo(import('./MarkdownPreview.js')))
 
 export default function MarkdownEditor() {
   const [showPreview, setShowPreview] = useState(false);
-  const [markdown, setMarkdown] = useState('Hello, **world**!');
+  const [markdown, setMarkdown] = useState('¡Hola, **mundo**!');
   return (
     <>
       <textarea value={markdown} onChange={e => setMarkdown(e.target.value)} />
@@ -112,7 +112,7 @@ export default function MarkdownEditor() {
   );
 }
 
-// Add a fixed delay so you can see the loading state
+// Agrega un retardo fijo para que puedas ver el estado de carga
 function delayForDemo(promise) {
   return new Promise(resolve => {
     setTimeout(resolve, 2000);
@@ -175,7 +175,7 @@ body {
 
 </Sandpack>
 
-Esta demostración se carga con un retraso artificial. La próxima vez que desmarques y marques el checkbox, `Preview` se almacenará en caché, por lo que no se mostrará ningún estado de carga. Para ver nuevamente el estado de carga, haz clic en "Restablecer" en el sandbox.
+Esta demostración se carga con un retraso artificial. La próxima vez que desmarques y marques el checkbox, `Preview` se almacenará en caché, por lo que no se mostrará ningún estado de carga. Para ver nuevamente el estado de carga, haz clic en "Reiniciar" en el sandbox.
 
 [Obtén más información sobre cómo administrar los estados de carga con Suspense.](/reference/react/Suspense)
 
@@ -183,7 +183,7 @@ Esta demostración se carga con un retraso artificial. La próxima vez que desma
 
 ## Solución de problemas {/*troubleshooting*/}
 
-### Mi estado del componente `lazy` se restablece inesperadamente {/*my-lazy-components-state-gets-reset-unexpectedly*/}
+### Mi estado del componente `lazy` se reinicia inesperadamente {/*my-lazy-components-state-gets-reset-unexpectedly*/}
 
 No declarares componentes `lazy` _dentro_ de otros componentes:
 
@@ -191,7 +191,7 @@ No declarares componentes `lazy` _dentro_ de otros componentes:
 import { lazy } from 'react';
 
 function Editor() {
-  // 🔴 Bad: This will cause all state to be reset on re-renders
+  // 🔴 Mal: Esto causará que todo el estado se reinicie en los re-renderizados.
   const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
   // ...
 }

@@ -12,7 +12,7 @@ A menudo querrás mostrar muchos componentes similares de una colección de dato
 
 * Cómo renderizar componentes desde un array usando el método `map()` de JavaScript
 * Cómo renderizar solo un componente específico usando `filter()` de JavaScript
-* Cuándo y cómo usar las keys de React
+* Cuándo y cómo usar las _keys_ de React
 
 </YouWillLearn>
 
@@ -22,11 +22,11 @@ Digamos que tienes una lista de contenido.
 
 ```js
 <ul>
-  <li>Creola Katherine Johnson: mathematician</li>
-  <li>Mario José Molina-Pasquel Henríquez: chemist</li>
-  <li>Mohammad Abdus Salam: physicist</li>
-  <li>Percy Lavon Julian: chemist</li>
-  <li>Subrahmanyan Chandrasekhar: astrophysicist</li>
+  <li>Creola Katherine Johnson: matemática</li>
+  <li>Mario José Molina-Pasquel Henríquez: químico</li>
+  <li>Mohammad Abdus Salam: físico</li>
+  <li>Percy Lavon Julian: químico</li>
+  <li>Subrahmanyan Chandrasekhar: astrofísico</li>
 </ul>
 ```
 
@@ -38,11 +38,11 @@ Aquí hay un corto ejemplo de como generar una lista de elementos de un array:
 
 ```js
 const people = [
-  'Creola Katherine Johnson: mathematician',
-  'Mario José Molina-Pasquel Henríquez: chemist',
-  'Mohammad Abdus Salam: physicist',
-  'Percy Lavon Julian: chemist',
-  'Subrahmanyan Chandrasekhar: astrophysicist'
+  'Creola Katherine Johnson: matemática',
+  'Mario José Molina-Pasquel Henríquez: químico',
+  'Mohammad Abdus Salam: físico',
+  'Percy Lavon Julian: químico',
+  'Subrahmanyan Chandrasekhar: astrofísico'
 ];
 ```
 
@@ -64,11 +64,11 @@ Aquí está el resultado:
 
 ```js
 const people = [
-  'Creola Katherine Johnson: mathematician',
-  'Mario José Molina-Pasquel Henríquez: chemist',
-  'Mohammad Abdus Salam: physicist',
-  'Percy Lavon Julian: chemist',
-  'Subrahmanyan Chandrasekhar: astrophysicist'
+  'Creola Katherine Johnson: matemática',
+  'Mario José Molina-Pasquel Henríquez: químico',
+  'Mohammad Abdus Salam: físico',
+  'Percy Lavon Julian: químico',
+  'Subrahmanyan Chandrasekhar: astrofísico'
 ];
 
 export default function List() {
@@ -89,7 +89,7 @@ Date cuenta que el sandbox anterior muestra un error por consola:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
+Warning: Each child in a list should have a unique "key" prop.<div>**(Traducción)**</div>Advertencia: Cada hijo en una lista debe tener una única prop "key".
 
 </ConsoleBlock>
 
@@ -103,33 +103,33 @@ Estos datos pueden ser estructurados incluso más.
 const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
+  profession: 'matemática',
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
+  profession: 'químico',
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
+  profession: 'físico',
 }, {
   name: 'Percy Lavon Julian',
-  profession: 'chemist',  
+  profession: 'químico',  
 }, {
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
+  profession: 'astrofísico',
 }];
 ```
 
-Digamos que quieres una manera de mostrar solo las personas cuya profesión sea `'chemist'`. Puedes usar el método `filter()` de JavaScript para devolver solo esas personas. Este método coge un array de objetos, los pasa por un "test" (una función que devuelve `true` o `false`), y devuelve un nuevo array de solo esos objetos que han pasado el test (que han devuelto `true`).
+Digamos que quieres una manera de mostrar solo las personas cuya profesión sea `'químico'`. Puedes usar el método `filter()` de JavaScript para devolver solo esas personas. Este método coge un array de objetos, los pasa por un "test" (una función que devuelve `true` o `false`), y devuelve un nuevo array de solo esos objetos que han pasado el test (que han devuelto `true`).
 
-Tú solo quieres  los objetos donde `profession` es `'chemist'`. La función "test" para esto se ve como `(person) => person.profession === 'chemist'`. Aquí está cómo juntarlo:
+Tú solo quieres  los objetos donde `profession` es `'químico'`. La función "test" para esto se ve como `(person) => person.profession === 'químico'`. Aquí está cómo juntarlo:
 
-1. **Crea** un nuevo array solo de personas que sean "químicos", `chemists`, llamando al método `filter()` en `people` filtrando por `person.profession === 'chemist'`:
+1. **Crea** un nuevo array solo de personas que sean "químicos", `chemists`, llamando al método `filter()` en `people` filtrando por `person.profession === 'químico'`:
 
 ```js
 const chemists = people.filter(person =>
-  person.profession === 'chemist'
+  person.profession === 'químico'
 );
 ```
 
@@ -145,7 +145,7 @@ const listItems = chemists.map(person =>
      <p>
        <b>{person.name}:</b>
        {' ' + person.profession + ' '}
-       known for {person.accomplishment}
+       conocido/a por {person.accomplishment}
      </p>
   </li>
 );
@@ -165,7 +165,7 @@ import { getImageUrl } from './utils.js';
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'químico'
   );
   const listItems = chemists.map(person =>
     <li>
@@ -176,7 +176,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        conocido/a por {person.accomplishment}
       </p>
     </li>
   );
@@ -188,32 +188,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -264,17 +264,17 @@ Las funciones de flecha que tienen `=> {` se dice que tienen un ["cuerpo de bloq
 
 </Pitfall>
 
-## Mantener los elementos de una lista en orden con `key` {/*keeping-list-items-in-order-with-key*/}
+## Mantener los elementos de una lista en orden con _`key`_ {/*keeping-list-items-in-order-with-key*/}
 
 Fíjate que todos los sandboxes anteriores mostraban un error en la consola:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
+Warning: Each child in a list should have a unique "key" prop.<div>**(Traducción)**</div>Advertencia: Cada hijo en una lista debe tener una única prop "key".
 
 </ConsoleBlock>
 
-Tienes que darle a cada elemento del array una `key` -- una cadena de texto o un número que lo identifique de manera única entre otros elementos del array:
+Tienes que darle a cada elemento del array una _`key`_ (una cadena de texto o un número) que lo identifique de manera única entre otros elementos del array:
 
 ```js
 <li key={person.id}>...</li>
@@ -282,13 +282,13 @@ Tienes que darle a cada elemento del array una `key` -- una cadena de texto o un
 
 <Note>
 
-¡Los elementos JSX directamente dentro de una llamada a un `map()` siempre necesitan keys!
+¡Los elementos JSX directamente dentro de una llamada a un `map()` siempre necesitan _keys_!
 
 </Note>
 
-Las keys le indican a React que objeto del array corresponde a cada componente, para así poder emparejarlo más tarde. Esto se vuelve más importante si los objetos de tus arrays se pueden mover (p. ej. devido a un ordenamiento), insertar, o eliminar. Una `key` bien escogida ayuda a React a entender lo que ha sucedido exactamente, y hacer las correctas actualizaciones en el árbol del DOM.
+Las _keys_ le indican a React que objeto del array corresponde a cada componente, para así poder emparejarlo más tarde. Esto se vuelve más importante si los objetos de tus arrays se pueden mover (<abbr title="por ejemplo">p. ej.</abbr> debido a un ordenamiento), insertar, o eliminar. Una _`key`_ bien escogida ayuda a React a entender lo que ha sucedido exactamente, y hacer las correctas actualizaciones en el árbol del DOM.
 
-En vez de generar keys sobre la marcha, deberías incluirlas en tus datos:
+En vez de generar _keys_ sobre la marcha, deberías incluirlas en tus datos:
 
 <Sandpack>
 
@@ -306,7 +306,7 @@ export default function List() {
       <p>
         <b>{person.name}</b>
           {' ' + person.profession + ' '}
-          known for {person.accomplishment}
+          conocido/a por {person.accomplishment}
       </p>
     </li>
   );
@@ -316,34 +316,34 @@ export default function List() {
 
 ```js data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Usado en JSX como key
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Usado en JSX como key
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Usado en JSX como key
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Usado en JSX como key
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Usado en JSX como key
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -374,7 +374,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <DeepDive>
 
-#### Displaying several DOM nodes for each list item {/*displaying-several-dom-nodes-for-each-list-item*/}
+#### Mostrar varios nodos DOM para cada elemento de una lista {/*displaying-several-dom-nodes-for-each-list-item*/}
 
 ¿Qué haces cuándo cada objeto necesita renderizar no uno, sino varios nodos del DOM?
 
@@ -397,31 +397,31 @@ Los Fragments desaparecen del DOM, así que esto producirá una lista plana de `
 
 </DeepDive>
 
-### Dónde conseguir tu `key` {/*where-to-get-your-key*/}
+### Dónde conseguir tu _`key`_ {/*where-to-get-your-key*/}
 
-Distintas fuentes de datos dan diferentes fuentes de keys:
+Distintas fuentes de datos dan diferentes fuentes de _keys_:
 
-* **Datos de una base de datos:** Si tus datos vienen de una base de datos, puedes usar las keys/IDs de la base de datos, que son únicas por naturaleza.
-* **Datos generados localmente:** Si tus datos son generados y persistidos localmente (p. ej. notas en una app de tomar notas), usa un contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/es/docs/Web/API/Crypto/randomUUID) o un paquete como [`uuid`](https://www.npmjs.com/package/uuid) cuando este creando objetos.
+* **Datos de una base de datos:** Si tus datos vienen de una base de datos, puedes usar las _keys_/ID de la base de datos, que son únicas por naturaleza.
+* **Datos generados localmente:** Si tus datos son generados y persistidos localmente (p. ej. notas en una app de tomar notas), usa un contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) o un paquete como [`uuid`](https://www.npmjs.com/package/uuid) cuando este creando objetos.
 
-### Reglas de las keys {/*rules-of-keys*/}
+### Reglas de las _keys_ {/*rules-of-keys*/}
 
-* **Las keys tienen que ser únicas entre elementos hermanos.** Sin embargo, está bien usar las mismas keys para nodos JSX en arrays _diferentes_.
-* **Las keys no tienen que cambiar** o ¡eso quitará su propósito! No las generes mientras renderizas.
+* **Las _keys_ tienen que ser únicas entre elementos hermanos.** Sin embargo, está bien usar las mismas _keys_ para nodos JSX en arrays _diferentes_.
+* **Las _keys_ no tienen que cambiar** o ¡eso quitará su propósito! No las generes mientras renderizas.
 
-### ¿Por qué React necesita keys? {/*why-does-react-need-keys*/}
+### ¿Por qué React necesita _keys_? {/*why-does-react-need-keys*/}
 
 Imagina que los archivos de tu escritorio no tuvieran nombres. En vez de eso, tu te referirías a ellos por su orden -- el primer archivo, el segundo, y así. Podrías acostumbrarte a ello, pero una vez borres un archivo, se volvería algo confuso. El segundo archivo se convertiría en el primero, el tercer archivo se convertiría en el segundo, y así.
 
-Los nombres de archivos en una carpeta y las keys JSX en un array tienen un propósito similar. Nos permiten identificar un objeto de manera única entre sus hermanos. Una key bien escogida da más información aparte de la posición en el array. incluso si la _posición_ cambia devido a un reordenamiento, la `key` permite a React identificar al elemento a lo largo de su ciclo de vida.
+Los nombres de archivos en una carpeta y las _keys_ JSX en un array tienen un propósito similar. Nos permiten identificar un objeto de manera única entre sus hermanos. Una _key_ bien escogida da más información aparte de la posición en el array. incluso si la _posición_ cambia devido a un reordenamiento, la _`key`_ permite a React identificar al elemento a lo largo de su ciclo de vida.
 
 <Pitfall>
 
-Podrías estar tentado a usar el índice del elemento en el array como su key. De hecho, eso es lo que React usará si tu no especifícas un `key` en absoluto. Pero el orden en el que renderizas elementos cambiará con el tiempo si un elemento es insertado, borrado, o si se reordena su array. El índice como key lleva a menudo a sutiles y confusos errores.
+Podrías estar tentado a usar el índice del elemento en el array como su _key_. De hecho, eso es lo que React usará si tu no especifícas una _`key`_ en absoluto. Pero el orden en el que renderizas elementos cambiará con el tiempo si un elemento es insertado, borrado, o si se reordena su array. El índice como _key_ lleva a menudo a sutiles y confusos errores.
 
-Igualmente, no generes keys sobre la marcha, p. ej. con `key={Math.random()}`. Esto hará que las keys nunca coincidan entre renderizados, llevando a todos tus componentes y al DOM a recrearse cada vez. No solo es una manera lenta, si no que también pierde cualquier input del usuario dentro de los elementos listados. En vez de eso, usa unas IDs basadas en datos.
+Igualmente, no generes _keys_ sobre la marcha, p. ej. con `key={Math.random()}`. Esto hará que las _keys_ nunca coincidan entre renderizados, llevando a todos tus componentes y al DOM a recrearse cada vez. No solo es una manera lenta, si no que también pierde cualquier input del usuario dentro de los elementos listados. En vez de eso, usa unas IDs basadas en datos.
 
-Date cuenta de que tus componentes no reciben la `key` como un prop. Solo es usado como pista para React. Si tus componentes necesitan un ID, se lo tienes que pasar como una prop separada: `<Profile key={id} userId={id} />`.
+Date cuenta de que tus componentes no reciben la _`key`_ como un prop. Solo es usado como pista para React. Si tus componentes necesitan un ID, se lo tienes que pasar como una prop separada: `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
@@ -432,7 +432,7 @@ En esta página has aprendido:
 * Como mover datos fuera de componentes y en estructuras de datos como arrays y objetos.
 * Como genrerar sets de componentes similares con el método `map()` de JavaScript.
 * Como crear arrays de objetos filtrados con el método `filter()` de JavaScript.
-* Por qué y cómo poner la `key` en cada componente en una colección para que React pueda seguir la pista de cada uno de ellos incluso si su posición o datos cambia.
+* Por qué y cómo poner la _`key`_ en cada componente en una colección para que React pueda seguir la pista de cada uno de ellos incluso si su posición o datos cambia.
 
 </Recap>
 
@@ -444,7 +444,7 @@ En esta página has aprendido:
 
 Este ejemplo muestra una lista de todas las personas.
 
-Cambiala para mostrar dos listas separadas, una detrás de otra : **Químicos** y **Cualquier otro.** Como antes, puedes saber que persona es química comprobando si `person.profession === 'chemist'`.
+Cambiala para mostrar dos listas separadas, una detrás de otra : **Químicos** y **Todos los demás.** Como antes, puedes saber que persona es química comprobando si `person.profession === 'químico'`.
 
 <Sandpack>
 
@@ -462,13 +462,13 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        conocido/a por {person.accomplishment}
       </p>
     </li>
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ul>{listItems}</ul>
     </article>
   );
@@ -479,32 +479,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -545,15 +545,15 @@ import { getImageUrl } from './utils.js';
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'químico'
   );
   const everyoneElse = people.filter(person =>
-    person.profession !== 'chemist'
+    person.profession !== 'químico'
   );
   return (
     <article>
-      <h1>Scientists</h1>
-      <h2>Chemists</h2>
+      <h1>Científicos</h1>
+      <h2>Químicos</h2>
       <ul>
         {chemists.map(person =>
           <li key={person.id}>
@@ -564,12 +564,12 @@ export default function List() {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
       </ul>
-      <h2>Everyone Else</h2>
+      <h2>Todos los demás</h2>
       <ul>
         {everyoneElse.map(person =>
           <li key={person.id}>
@@ -580,7 +580,7 @@ export default function List() {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
@@ -594,32 +594,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -672,7 +672,7 @@ function ListSection({ title, people }) {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
@@ -683,20 +683,20 @@ function ListSection({ title, people }) {
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'químico'
   );
   const everyoneElse = people.filter(person =>
-    person.profession !== 'chemist'
+    person.profession !== 'químico'
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ListSection
-        title="Chemists"
+        title="Químicos"
         people={chemists}
       />
       <ListSection
-        title="Everyone Else"
+        title="Todos los demás"
         people={everyoneElse}
       />
     </article>
@@ -708,32 +708,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -775,7 +775,7 @@ import { getImageUrl } from './utils.js';
 let chemists = [];
 let everyoneElse = [];
 people.forEach(person => {
-  if (person.profession === 'chemist') {
+  if (person.profession === 'químico') {
     chemists.push(person);
   } else {
     everyoneElse.push(person);
@@ -796,7 +796,7 @@ function ListSection({ title, people }) {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              conocido/a por {person.accomplishment}
             </p>
           </li>
         )}
@@ -808,13 +808,13 @@ function ListSection({ title, people }) {
 export default function List() {
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ListSection
-        title="Chemists"
+        title="Químicos"
         people={chemists}
       />
       <ListSection
-        title="Everyone Else"
+        title="Todos los demás"
         people={everyoneElse}
       />
     </article>
@@ -826,32 +826,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -900,7 +900,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
     </div>
   );
 }
@@ -909,16 +909,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -936,7 +936,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
       {recipes.map(recipe =>
         <div key={recipe.id}>
           <h2>{recipe.name}</h2>
@@ -957,28 +957,28 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
 </Sandpack>
 
-Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su `key`. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como `key`. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como `key` (con la advertencia de que no puedes reordenar ingredientes de forma segura).
+Cada una de las `recipes` ya incluye un campo `id`, y eso es lo que el bucle exterior usa para su _`key`_. No hay un ID que puedas usar para hacer un bucle sobre los ingredientes. Sin embargo, es razonable asumir que el mismo ingrediente no estará listado dos veces dentro de la misma receta, por lo tanto su nombre puede servir como _`key`_. Alternativamente, podrías cambiar la estructura de los datos para añadir IDs, o usar el índice como _`key`_ (con la advertencia de que no puedes reordenar ingredientes de forma segura).
 
 </Solution>
 
 #### Extraer un componente de elemento de lista {/*extracting-a-list-item-component*/}
 
-Este componente `RecipeList` contiene dos llamadas `map` anidadas. Para simplificarlo, extrae un componente `Recipe` de el que aceptará las props `id`, `name`, y `ingredients`. ¿Dónde colocarías la `key` exterior y por qué?
+Este componente `RecipeList` contiene dos llamadas `map` anidadas. Para simplificarlo, extrae un componente `Recipe` de el que aceptará las props `id`, `name`, y `ingredients`. ¿Dónde colocarías la _`key`_ exterior y por qué?
 
 <Sandpack>
 
@@ -988,7 +988,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
       {recipes.map(recipe =>
         <div key={recipe.id}>
           <h2>{recipe.name}</h2>
@@ -1009,16 +1009,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -1051,7 +1051,7 @@ function Recipe({ id, name, ingredients }) {
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Recetas</h1>
       {recipes.map(recipe =>
         <Recipe {...recipe} key={recipe.id} />
       )}
@@ -1063,16 +1063,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Ensalada griega',
+  ingredients: ['tomates', 'pepino', 'cebolla', 'aceitunas', 'queso feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawaiana',
+  ingredients: ['masa de pizza', 'salsa de pizza', 'mozzarella', 'jamón', 'piña']
 }, {
   id: 'hummus',
   name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  ingredients: ['garbanzos', 'aceite de oliva', 'dientes de ajo', 'limón', 'tahini']
 }];
 ```
 
@@ -1080,7 +1080,7 @@ export const recipes = [{
 
 Aquí, `<Recipe {...recipe} key={recipe.id} />` es un atajo de sintaxis diciendo "pasa todas las propiedades del obejto `recipe` como props al componente `Recipe`". También podrías escribir cada prop explícitamente: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
-**Date cuente que la `key` está especificada en el `<Recipe>` en sí más que en el `<div>` raíz devuelto de `Recipe`.** Esto es porque esta `key` es necesaria directamente dentro del contexto del array circundante. Anteriormente, tenías un array de `<div>`s así que cada uno necesitaba una `key`, pero ahora tienes un array de `<Recipe>`s. Es decir, cuando extraes un componente, no te olvides de dejar la `key` fuera del JSX que has copiado y pegado.
+**Date cuente que la _`key`_ está especificada en el `<Recipe>` en sí más que en el `<div>` raíz devuelto de `Recipe`.** Esto es porque esta _`key`_ es necesaria directamente dentro del contexto del array circundante. Anteriormente, tenías un array de `<div>`s así que cada uno necesitaba una `key`, pero ahora tienes un array de `<Recipe>`s. Es decir, cuando extraes un componente, no te olvides de dejar la _`key`_ fuera del JSX que has copiado y pegado.
 
 </Solution>
 
@@ -1090,11 +1090,11 @@ Este ejemplo renderiza un haiku famoso escrito por Katsushika Hokusai, con cada 
 
 ```js
 <article>
-  <p>I write, erase, rewrite</p>
+  <p>Escribo, borro y reescribo</p>
   <hr />
-  <p>Erase again, and then</p>
+  <p>Borro de nuevo, y luego</p>
   <hr />
-  <p>A poppy blooms.</p>
+  <p>Florece una amapola.</p>
 </article>
 ```
 
@@ -1105,9 +1105,9 @@ Un haiku solo tiene tres líneas, pero tu solución debería funcionar con cualq
 ```js
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Escribo, borro y reescribo',
+    'Borro de nuevo, y luego',
+    'Florece una amapola.'
   ]
 };
 
@@ -1141,7 +1141,7 @@ hr {
 
 </Sandpack>
 
-(Este es un caso raro donde el índice como key es aceptable porque las líneas de los poemas nunca se van a reordenar.)
+(Este es un caso raro donde el índice como _key_ es aceptable porque las líneas de los poemas nunca se van a reordenar.)
 
 <Hint>
 
@@ -1158,9 +1158,9 @@ Puedes escribir un bucle manual, insertando `<hr />` y `<p>...</p>` en el array 
 ```js
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Escribo, borro y reescribo',
+    'Borro de nuevo, y luego',
+    'Florece una amapola.'
   ]
 };
 
@@ -1206,9 +1206,9 @@ hr {
 
 </Sandpack>
 
-Usar el índice de la línea original como `key` ya no funciona porque cada separador y cada párrafo están ahora en el mismo array. Sin embargo, puedes darle a cada uno de ellos una key distintiva usando un sufijo, p. ej. `key={i + '-text'}`.
+Usar el índice de la línea original como _`key`_ ya no funciona porque cada separador y cada párrafo están ahora en el mismo array. Sin embargo, puedes darle a cada uno de ellos una _key_ distintiva usando un sufijo, p. ej. `key={i + '-text'}`.
 
-De forma alternativa, puedes renderizar una colección de fragments que contengan `<hr />` y `<p>...</p>`. Sin embargo, el atajo de sintaxis `<>...</>` no admite pasarle keys, así que tendrás que escribir `<Fragment>` explícitamente:
+De forma alternativa, puedes renderizar una colección de fragments que contengan `<hr />` y `<p>...</p>`. Sin embargo, el atajo de sintaxis `<>...</>` no admite pasarle _keys_, así que tendrás que escribir `<Fragment>` explícitamente:
 
 <Sandpack>
 
@@ -1217,9 +1217,9 @@ import { Fragment } from 'react';
 
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Escribo, borro y reescribo',
+    'Borro de nuevo, y luego',
+    'Florece una amapola.'
   ]
 };
 

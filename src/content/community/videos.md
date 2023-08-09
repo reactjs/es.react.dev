@@ -68,7 +68,7 @@ De vista al futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxpro) una actual
 
 * Debbie O'Brien: [Cosas que aprender desde la nueva documentación de React (en inglés, ubtítulos en español)](https://youtu.be/-7odLW_hG7s).
 * Sarah Rainsberger: [Aprendiendo en el navegador (en inglés, subtítulos en español)](https://youtu.be/5X-WEQflCL0).
-* Linton Ye: [El Retorno de Inversión de diseñar con React (en inglés, subtítulos en español)](https://youtu.be/7cPWmID5XAk).
+* Linton Ye: [El ROI (Retorno de Inversión) de diseñar con React (en inglés, subtítulos en español)](https://youtu.be/7cPWmID5XAk).
 * Delba de Oliveira: [Sitios interactivos con React (en inglés, subtítulos en español)](https://youtu.be/zL8cz2W0z34).
 
 **Charlas sobre los equipos de Relay, React Native, y PyTorch:**

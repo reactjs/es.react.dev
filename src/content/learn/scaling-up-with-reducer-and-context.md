@@ -57,7 +57,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Day off in Kyoto</h1>
+      <h1>Día libre en Kyoto</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -99,9 +99,9 @@ function tasksReducer(tasks, action) {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -113,14 +113,14 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
         setText('');
         onAddTask(text);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -164,7 +164,7 @@ function Task({ task, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -173,7 +173,7 @@ function Task({ task, onChange, onDelete }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -192,7 +192,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -207,9 +207,9 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Un _reducer_ ayuda a mantener los manejadores de eventos cortos y concisos. Sin embargo, a medida que tu aplicación crece, puedes encontrarte con otra dificultad. **Actualmente, el estado `tasks` y la función `dispatch` sólo están disponibles en el componente de nivel superior `TaskApp`.** Para permitir que otros componentes lean la lista de tareas o la modifiquen, tienes que [pasar](/learn/passing-props-to-a-component) explícitamente el estado actual y los manejadores de eventos que lo cambian como props.
+Un _reducer_ ayuda a mantener los controladores de eventos cortos y concisos. Sin embargo, a medida que tu aplicación crece, puedes encontrarte con otra dificultad. **Actualmente, el estado `tasks` y la función `dispatch` sólo están disponibles en el componente de nivel superior `TaskApp`.** Para permitir que otros componentes lean la lista de tareas o la modifiquen, tienes que [pasar](/learn/passing-props-to-a-component) explícitamente el estado actual y los controladores de eventos que lo cambian como props.
 
-Por ejemplo, `TaskApp` pasa una lista de tareas y los manejadores de eventos a `TaskList`:
+Por ejemplo, `TaskApp` pasa una lista de tareas y los controladores de eventos a `TaskList`:
 
 ```js
 <TaskList
@@ -219,7 +219,7 @@ Por ejemplo, `TaskApp` pasa una lista de tareas y los manejadores de eventos a `
 />
 ```
 
-Y `TaskList` pasa los manejadores de eventos a `Task`:
+Y `TaskList` pasa los controladores de eventos a `Task`:
 
 ```js
 <Task
@@ -291,7 +291,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Day off in Kyoto</h1>
+      <h1>Día libre en Kyoto</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -333,9 +333,9 @@ function tasksReducer(tasks, action) {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -354,14 +354,14 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
         setText('');
         onAddTask(text);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -405,7 +405,7 @@ function Task({ task, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -414,7 +414,7 @@ function Task({ task, onChange, onDelete }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -433,7 +433,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -511,7 +511,7 @@ export default function TaskApp() {
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
-        <h1>Day off in Kyoto</h1>
+        <h1>Día libre en Kyoto</h1>
         <AddTask
           onAddTask={handleAddTask}
         />
@@ -554,9 +554,9 @@ function tasksReducer(tasks, action) {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -575,14 +575,14 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
         setText('');
         onAddTask(text);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -626,7 +626,7 @@ function Task({ task, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -635,7 +635,7 @@ function Task({ task, onChange, onDelete }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -654,7 +654,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -673,12 +673,12 @@ En el siguiente paso, se eliminará el paso de props.
 
 ### Paso 3: Utiliza el contexto en cualquier parte del árbol {/*step-3-use-context-anywhere-in-the-tree*/}
 
-Ahora no es necesario pasar la lista de tareas o los manejadores de eventos por el árbol:
+Ahora no es necesario pasar la lista de tareas o los controladores de eventos por el árbol:
 
 ```js {4-5}
 <TasksContext.Provider value={tasks}>
   <TasksDispatchContext.Provider value={dispatch}>
-    <h1>Day off in Kyoto</h1>
+    <h1>Día libre en Kyoto</h1>
     <AddTask />
     <TaskList />
   </TasksDispatchContext.Provider>
@@ -709,11 +709,11 @@ export default function AddTask() {
         id: nextId++,
         text: text,
       });
-    }}>Add</button>
+    }}>Agregar</button>
     // ...
 ```
 
-**El componente `TaskApp` no pasa ningún manejador de eventos hacia abajo, y `TaskList` tampoco pasa ningún manejador de eventos al componente `Task`.** Cada componente lee el contexto que necesita:
+**El componente `TaskApp` no pasa ningún controlador de evento hacia abajo, y `TaskList` tampoco pasa ningún controlador de evento al componente `Task`.** Cada componente lee el contexto que necesita:
 
 <Sandpack>
 
@@ -732,7 +732,7 @@ export default function TaskApp() {
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
-        <h1>Day off in Kyoto</h1>
+        <h1>Día libre en Kyoto</h1>
         <AddTask />
         <TaskList />
       </TasksDispatchContext.Provider>
@@ -768,9 +768,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -791,7 +791,7 @@ export default function AddTask() {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
@@ -802,7 +802,7 @@ export default function AddTask() {
           id: nextId++,
           text: text,
         }); 
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   );
 }
@@ -846,7 +846,7 @@ function Task({ task }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -855,7 +855,7 @@ function Task({ task }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -882,7 +882,7 @@ function Task({ task }) {
           id: task.id
         });
       }}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -942,7 +942,7 @@ import { TasksProvider } from './TasksContext.js';
 export default function TaskApp() {
   return (
     <TasksProvider>
-      <h1>Day off in Kyoto</h1>
+      <h1>Día libre en Kyoto</h1>
       <AddTask />
       <TaskList />
     </TasksProvider>
@@ -999,9 +999,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -1015,7 +1015,7 @@ export default function AddTask() {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
@@ -1026,7 +1026,7 @@ export default function AddTask() {
           id: nextId++,
           text: text,
         }); 
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   );
 }
@@ -1070,7 +1070,7 @@ function Task({ task }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -1079,7 +1079,7 @@ function Task({ task }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1106,7 +1106,7 @@ function Task({ task }) {
           id: task.id
         });
       }}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -1152,7 +1152,7 @@ import { TasksProvider } from './TasksContext.js';
 export default function TaskApp() {
   return (
     <TasksProvider>
-      <h1>Day off in Kyoto</h1>
+      <h1>Día libre en Kyoto</h1>
       <AddTask />
       <TaskList />
     </TasksProvider>
@@ -1218,9 +1218,9 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'El Camino del Filósofo', done: true },
+  { id: 1, text: 'Visitar el templo', done: false },
+  { id: 2, text: 'Beber té matcha', done: false }
 ];
 ```
 
@@ -1234,7 +1234,7 @@ export default function AddTask() {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
@@ -1245,7 +1245,7 @@ export default function AddTask() {
           id: nextId++,
           text: text,
         }); 
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   );
 }
@@ -1289,7 +1289,7 @@ function Task({ task }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -1298,7 +1298,7 @@ function Task({ task }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -1325,7 +1325,7 @@ function Task({ task }) {
           id: task.id
         });
       }}>
-        Delete
+        Borrar
       </button>
     </label>
   );

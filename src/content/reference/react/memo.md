@@ -30,11 +30,11 @@ const SomeComponent = memo(function SomeComponent(props) {
 });
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
-* `Component`: El componente que quieres memoizar. El `memo` no modifica este componente, pero devuelve un nuevo componente memoizado en su lugar. Cualquier componente válido de React, incluyendo funciones y componentes [`forwardRef`](/apis/react/forwardRef), es aceptado.
+* `Component`: El componente que quieres memoizar. El `memo` no modifica este componente, pero devuelve un nuevo componente memoizado en su lugar. Cualquier componente válido de React, incluyendo funciones y componentes [`forwardRef`](/reference/react/forwardRef), es aceptado.
 
 * **opcional** `arePropsEqual`: Una función que acepta dos parámetros: las props previas del componente y las nuevas. Debería devolver `true` si las props antiguas y las nuevas son iguales: es decir, si el componente renderizará la misma salida y se comportará de la misma manera con las nuevas props que con las antiguas. De lo contrario, debería devolver `false`.
 
@@ -54,7 +54,7 @@ Para memoizar un componente, envuélvelo en una llamada a `memo` y usa el valor 
 
 ```js
 const Greeting = memo(function Greeting({ name }) {
-  return <h1>Hello, {name}!</h1>;
+  return <h1>¡Hola, {name}!</h1>;
 });
 
 export default Greeting;
@@ -75,11 +75,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -89,7 +89,7 @@ export default function MyApp() {
 
 const Greeting = memo(function Greeting({ name }) {
   console.log("Greeting was rendered at", new Date().toLocaleTimeString());
-  return <h3>Hello{name && ', '}{name}!</h3>;
+  return <h3>¡Hola{name && ', '}{name}!</h3>;
 });
 ```
 
@@ -110,7 +110,7 @@ label {
 
 <DeepDive>
 
-#### ¿Deberías añadir memo en todos lados? {/*should-you-add-memo-everywhere*/}
+#### ¿Deberías agregar memo en todos lados? {/*should-you-add-memo-everywhere*/}
 
 Si tu aplicación es como este sitio, y la mayoría de las interacciones son bruscas (como reemplazar una página o una sección completa), la memoización es usualmente innecesaria. Por otro lado, si tu aplicación es más como un editor de dibujos, y la mayoría de las interacciones son granulares (como mover formas), entonces puede que la memoización sea muy útil.
 
@@ -147,11 +147,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nombre{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Dirección{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -161,7 +161,7 @@ export default function MyApp() {
 
 const Greeting = memo(function Greeting({ name }) {
   console.log('Greeting was rendered at', new Date().toLocaleTimeString());
-  const [greeting, setGreeting] = useState('Hello');
+  const [greeting, setGreeting] = useState('Hola');
   return (
     <>
       <h3>{greeting}{name && ', '}{name}!</h3>
@@ -176,16 +176,16 @@ function GreetingSelector({ value, onChange }) {
       <label>
         <input
           type="radio"
-          checked={value === 'Hello'}
-          onChange={e => onChange('Hello')}
+          checked={value === 'Hola'}
+          onChange={e => onChange('Hola')}
         />
         Regular greeting
       </label>
       <label>
         <input
           type="radio"
-          checked={value === 'Hello and welcome'}
-          onChange={e => onChange('Hello and welcome')}
+          checked={value === 'Hola y bienvenido'}
+          onChange={e => onChange('Hola y bienvenido')}
         />
         Enthusiastic greeting
       </label>
@@ -239,7 +239,7 @@ const Greeting = memo(function Greeting({ name }) {
   console.log("Greeting was rendered at", new Date().toLocaleTimeString());
   const theme = useContext(ThemeContext);
   return (
-    <h3 className={theme}>Hello, {name}!</h3>
+    <h3 className={theme}>¡Hola, {name}!</h3>
   );
 });
 ```
@@ -349,7 +349,7 @@ Cuando hagas mediciones de rendimiento, asegúrate de que React se está ejecuta
 
 <Pitfall>
 
-Si proporcionas una implementación `arePropsEqual` personalizada, **debes comparar todas las props, incluyendo las funciones.** Las funciones a menudo [se cierran sobre](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) las props y el estado de los componentes padres. Si devuelves `true` cuando `oldProps.onClick !== newProps.onClick`, tu componente se mantendrá "viendo" las props y el estado de un renderizado previo dentro de su manejador `onClick`, lo que lleva a errores muy confusos.
+Si proporcionas una implementación `arePropsEqual` personalizada, **debes comparar todas las props, incluyendo las funciones.** Las funciones a menudo [se cierran sobre](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) las props y el estado de los componentes padres. Si devuelves `true` cuando `oldProps.onClick !== newProps.onClick`, tu componente se mantendrá "viendo" las props y el estado de un renderizado previo dentro de su controlador `onClick`, lo que lleva a errores muy confusos.
 
 Evita hacer verificaciones profundas de igualdad dentro de `arePropsEqual` a menos que estés 100% seguro de que la estructura de datos con la que estás trabajando tiene una profundidad limitada conocida. **Las verificaciones profundas de igualdad pueden volverse increíblemente lentas** y pueden congelar tu aplicación por varios segundos si alguien luego cambia la estructura de datos.
 

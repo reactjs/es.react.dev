@@ -34,15 +34,15 @@ function MyComponent() {
   // ...
 ```
 
-[Ve más ejemplos debajo.](#examples-basic)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
-* `reducer`: La función reductora que debe retornar el estado inicial. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
+* `reducer`: La función reductora que debe devolver el estado inicial. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
 * `initialArg`: El valor a partir del cual se calcula el estado inicial. Puede ser un valor de cualquier tipo. Cómo se calcula el estado inicial depende del siguiente argumento `init`.
 **opcional** `init`: La función inicializadora que especifica cómo se calcula el estado inicial. Si no se especifica, el estado inicial se establece en `initialArg`. En caso contrario, el estado inicial es el resultado de llamar a `init(initialArg)`.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `useReducer` devuelve un array con exactamente dos valores:
 
@@ -74,9 +74,9 @@ React establecerá el siguiente estado al resultado de llamar a la función `red
 
 * `action`: La acción realizada por el usuario. Puede ser un valor de cualquier tipo. Por convención, una acción suele ser un objeto con una propiedad `type` que lo identifica y, opcionalmente, otras propiedades con información adicional.
 
-#### Retorna {/*dispatch-returns*/}
+#### Devuelve {/*dispatch-returns*/}
 
-Las funciones `dispatch` no tienen valor de retorno.
+Las funciones `dispatch` no tienen un valor de devolución.
 
 #### Advertencias {/*setstate-caveats*/}
 
@@ -84,7 +84,7 @@ Las funciones `dispatch` no tienen valor de retorno.
 
 * Si el nuevo valor que proporcionas es idéntico al `state` actual, determinado por una comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **saltará el renderizado del componente y sus hijos.** Esto es una optimización. React aún puede necesitar llamar a tu componente antes de ignorar el resultado, pero no debería afectar a tu código.
 
-* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los manejadores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
+* React [agrupa las actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples rerenderizados durante un único evento. En el raro caso de que necesites forzar a React a actualizar la pantalla antes, por ejemplo para acceder al DOM, puedes usar [`flushSync`.](/reference/react-dom/flushSync)
 
 ---
 
@@ -106,7 +106,7 @@ function MyComponent() {
   // ...
 ```
 
-`useReducer` retorna un array con exactamente dos elementos:
+`useReducer` devuelve un array con exactamente dos elementos:
 
 1. El <CodeStep step={1}>estado actual</CodeStep> de esta variable de estado, inicialmente asignado al <CodeStep step={3}>estado inicial</CodeStep> que proporcionaste.
 2. La función <CodeStep step={2}>`dispatch` </CodeStep> que te permite cambiarlo en respuesta a la interacción.
@@ -119,7 +119,7 @@ function handleClick() {
 }
 ```
 
-React pasará el estado actual y la acción a tu <CodeStep step={4}>función reducer</CodeStep>. Tu reducer calculará y retornará el siguiente estado. React almacenará ese siguiente estado, renderizará tu componente con él y actualizará la UI.
+React pasará el estado actual y la acción a tu <CodeStep step={4}>función reducer</CodeStep>. Tu reducer calculará y devolverá el siguiente estado. React almacenará ese siguiente estado, renderizará tu componente con él y actualizará la UI.
 
 <Sandpack>
 
@@ -143,9 +143,9 @@ export default function Counter() {
       <button onClick={() => {
         dispatch({ type: 'incremented_age' })
       }}>
-        Increment age
+        Incrementar edad
       </button>
-      <p>Hello! You are {state.age}.</p>
+      <p>¡Hola! Tú tienes {state.age}.</p>
     </>
   );
 }
@@ -157,7 +157,7 @@ button { display: block; margin-top: 10px; }
 
 </Sandpack>
 
-`useReducer` es muy similar a [`useState`](/reference/react/useState), pero te permite mover la lógica de actualización de estado de los manejadores de eventos a una única función fuera de tu componente. Más información sobre [elegir entre `useState` y `useReducer`.](/learn/extracting-state-logic-into-a-reducer#comparing-usestate-and-usereducer)
+`useReducer` es muy similar a [`useState`](/reference/react/useState), pero te permite mover la lógica de actualización de estado de los controladores de eventos a una única función fuera de tu componente. Más información sobre [elegir entre `useState` y `useReducer`.](/learn/extracting-state-logic-into-a-reducer#comparing-usestate-and-usereducer)
 
 ---
 
@@ -171,7 +171,7 @@ function reducer(state, action) {
 }
 ```
 
-Luego hay que completar el código que calculará y retornará el siguiente estado. Por convención, es común escribirlo como una [declaración `switch`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) Para cada `case` en el `switch`, calcula y devuelve un estado siguiente.
+Luego hay que completar el código que calculará y devolverá el siguiente estado. Por convención, es común escribirlo como una [declaración `switch`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) Para cada `case` en el `switch`, calcula y devuelve un estado siguiente.
 
 ```js {4-7,10-13}
 function reducer(state, action) {
@@ -300,9 +300,9 @@ export default function Form() {
         onChange={handleInputChange}
       />
       <button onClick={handleButtonClick}>
-        Increment age
+        Incrementar edad
       </button>
-      <p>Hello, {state.name}. You are {state.age}.</p>
+      <p>Hola, {state.name}. Tú tienes {state.age}.</p>
     </>
   );
 }
@@ -384,7 +384,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -399,9 +399,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false }
+  { id: 0, text: 'Visitar el Museo Kafka', done: true },
+  { id: 1, text: 'Ver espectáculo de títeres', done: false },
+  { id: 2, text: 'Foto del muro de Lennon', done: false }
 ];
 ```
 
@@ -413,14 +413,14 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
         setText('');
         onAddTask(text);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -464,7 +464,7 @@ function Task({ task, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -473,7 +473,7 @@ function Task({ task, onChange, onDelete }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -492,7 +492,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -576,7 +576,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Itinerario en Praga</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -591,9 +591,9 @@ export default function TaskApp() {
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false },
+  { id: 0, text: 'Visitar el Museo Kafka', done: true },
+  { id: 1, text: 'Ver espectáculo de títeres', done: false },
+  { id: 2, text: 'Foto del muro de Lennon', done: false },
 ];
 ```
 
@@ -605,14 +605,14 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Agregar tarea"
         value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
         setText('');
         onAddTask(text);
-      }}>Add</button>
+      }}>Agregar</button>
     </>
   )
 }
@@ -656,7 +656,7 @@ function Task({ task, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Guardar
         </button>
       </>
     );
@@ -665,7 +665,7 @@ function Task({ task, onChange, onDelete }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Editar
         </button>
       </>
     );
@@ -684,7 +684,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Borrar
       </button>
     </label>
   );
@@ -828,7 +828,7 @@ export default function TodoList({ username }) {
       />
       <button onClick={() => {
         dispatch({ type: 'added_todo' });
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {state.todos.map(item => (
           <li key={item.id}>
@@ -915,7 +915,7 @@ export default function TodoList({ username }) {
       />
       <button onClick={() => {
         dispatch({ type: 'added_todo' });
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {state.todos.map(item => (
           <li key={item.id}>
@@ -955,7 +955,7 @@ function handleClick() {
 }
 ```
 
-Esto se debe a que [el estado se comporta como una instantánea] (/learn/state-as-a-snapshot) La actualización del estado solicita otra renderización con el nuevo valor de estado, pero no afecta a la variable JavaScript `state` en su manejador de eventos ya en ejecución.
+Esto se debe a que [el estado se comporta como una instantánea] (/learn/state-as-a-snapshot) La actualización del estado solicita otra renderización con el nuevo valor de estado, pero no afecta a la variable JavaScript `state` en su controlador de evento ya en ejecución.
 
 Si necesitas averiguar el valor del siguiente estado, puedes calcularlo manualmente llamando tú mismo al reducer:
 
@@ -1062,17 +1062,17 @@ También puedes utilizar un comprobador de tipos estático como TypeScript para 
 
 ### Recibo un error: "Too many re-renders" {/*im-getting-an-error-too-many-re-renders*/}
 
-Puede que obtengas un error que dice: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (Demasiados rerenderizados. React limita el número de renderizados para evitar un bucle infinito). Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un manejador de eventos:
+Puede que obtengas un error que dice: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (Demasiados rerenderizados. React limita el número de renderizados para evitar un bucle infinito). Normalmente, esto significa que estás enviando incondicionalmente una acción *durante la renderización*, por lo que tu componente entra en un bucle: renderización, envío (que provoca una renderización), renderización, envío (que provoca una renderización), y así sucesivamente. Muy a menudo, esto es causado por un error al especificar un controlador de evento:
 
 ```js {1-2}
 // 🚩 Wrong: calls the handler during render
-return <button onClick={handleClick()}>Click me</button>
+return <button onClick={handleClick()}>Hazme clic</button>
 
 // ✅ Correct: passes down the event handler
-return <button onClick={handleClick}>Click me</button>
+return <button onClick={handleClick}>Hazme clic</button>
 
 // ✅ Correct: passes down an inline function
-return <button onClick={(e) => handleClick(e)}>Click me</button>
+return <button onClick={(e) => handleClick(e)}>Hazme clic</button>
 ```
 
 Si no puedes encontrar la causa de este error, haz clic en la flecha situada junto al error en la consola y busque en la pila de JavaScript la llamada específica a la función `dispatch` responsable del error.
@@ -1081,7 +1081,7 @@ Si no puedes encontrar la causa de este error, haz clic en la flecha situada jun
 
 ### Mi función reductora o inicializadora se ejecuta dos veces {/*my-reducer-or-initializer-function-runs-twice*/}
 
-En [Modo Estricto](/apis/react/StrictMode), React llamará a tus funciones reductoras e inicializadoras dos veces. Esto no debería romper tu código.
+En [Modo Estricto](/reference/react/StrictMode), React llamará a tus funciones reductoras e inicializadoras dos veces. Esto no debería romper tu código.
 
 Este comportamiento **sólo para desarrollo** te ayuda a [mantener los componentes puros.](/learn/keeping-components-pure) React utiliza el resultado de una de las llamadas, e ignora el resultado de la otra llamada. Mientras tus funciones de componente, inicializadora y reducer sean puras, esto no debería afectar a tu lógica. Sin embargo, si accidentalmente son impuras, esto te ayuda a detectar los errores.
 
@@ -1120,6 +1120,6 @@ function reducer(state, action) {
 }
 ```
 
-Ahora que esta función reducer es pura, llamarla una vez extra no hace ninguna diferencia en el comportamiento. Esta es la razón por la que React llamándola dos veces te ayuda a encontrar errores. **Los manejadores de eventos no necesitan ser puros.** así que React nunca llamará a tus manejadores de eventos dos veces.
+Ahora que esta función reducer es pura, llamarla una vez extra no hace ninguna diferencia en el comportamiento. Esta es la razón por la que React llamándola dos veces te ayuda a encontrar errores. **Los controladores de eventos no necesitan ser puros.** así que React nunca llamará a tus controladores de eventos dos veces.
 
 Lee [mantener los componentes puros](/learn/keeping-components-pure) para obtener más información.

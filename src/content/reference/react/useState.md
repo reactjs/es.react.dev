@@ -16,7 +16,7 @@ const [state, setState] = useState(initialState);
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useState(initialState)` {/*usestate*/}
 
@@ -34,12 +34,12 @@ function MyComponent() {
 
 La convención es nombrar variables de estado como `[algo, setAlgo]` usando [desestructuración de arrays](https://javascript.info/destructuring-assignment).
 
-[Vea más ejemplos arriba.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 * `initialState`: El valor que deseas que tenga el estado inicialmente. Puede ser un valor de cualquier tipo, pero hay un comportamiento especial para las funciones. Este argumento se ignora después del renderizado inicial.
-  * Si pasa una función como `initialState`, se tratará como una _función inicializadora_. Debe ser pura, no debe aceptar argumentos y debe devolver un valor de cualquier tipo. React llamará a tu función de inicialización al inicializar el componente y almacenará su valor de retorno como el estado inicial. [Ve un ejemplo debajo.](#avoiding-recreating-the-initial-state)
+  * Si pasa una función como `initialState`, se tratará como una _función inicializadora_. Debe ser pura, no debe aceptar argumentos y debe devolver un valor de cualquier tipo. React llamará a tu función de inicialización al inicializar el componente y almacenará su valor de devolución como el estado inicial. [Ve un ejemplo debajo.](#avoiding-recreating-the-initial-state)
 
 #### Devuelve {/*returns*/}
 
@@ -75,7 +75,7 @@ function handleClick() {
 
 #### Devuelve {/*setstate-returns*/}
 
-Las funciones `set` no tienen un valor de retorno.
+Las funciones `set` no tienen un valor de devolución.
 
 #### Advertencias {/*setstate-caveats*/}
 
@@ -83,7 +83,7 @@ Las funciones `set` no tienen un valor de retorno.
 
 * Si el nuevo valor que proporcionas es idéntico al `estado` actual, según lo determinado por un [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is), React **omitirá volver a renderizar el componente y sus hijos.** Esta es una optimización. Aunque en algunos casos React aún puede necesitar llamar a tu componente antes de omitir los hijos, no debería afectar tu código.
 
-* React [agrupa actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples renderizados durante un solo evento. En el raro caso de que necesite forzar a React a actualizar la pantalla antes, por ejemplo, para acceder al DOM, puedes usar [`flushSync`.](/apis/react-dom/flushsync)
+* React [agrupa actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples renderizados durante un solo evento. En el raro caso de que necesite forzar a React a actualizar la pantalla antes, por ejemplo, para acceder al DOM, puedes usar [`flushSync`.](/reference/react-dom/flushSync)
 
 * Llamar a la función `set` *durante el renderizado* solo está permitido desde el componente que se está renderizando. React descartará su salida e inmediatamente intentará renderizarlo nuevamente con el nuevo estado. Este patrón rara vez se necesita, pero puedes usarlo para **almacenar información de los renderizados anteriores**. [Ve un ejemplo debajo.](#storing-information-from-previous-renders)
 
@@ -178,7 +178,7 @@ En este ejemplo, la variable de estado `texto` contiene una cadena. Cuando escri
 import { useState } from 'react';
 
 export default function MyInput() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('hola');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -188,7 +188,7 @@ export default function MyInput() {
     <>
       <input value={text} onChange={handleChange} />
       <p>Escribiste: {text}</p>
-      <button onClick={() => setText('hello')}>
+      <button onClick={() => setText('hola')}>
         Reiniciar
       </button>
     </>
@@ -310,7 +310,7 @@ React pone sus funciones de actualización en una [cola.](/learn/queueing-a-seri
 
 No hay otras actualizaciones en cola, por lo que React almacenará `45` como el estado actual al final.
 
-Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `e` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
+Por convención, es común nombrar el argumento de estado pendiente como la primera letra del nombre de la variable de estado, como `a` para `age`. No obstante, también puedes llamarlo como `prevAge` o cualquier otra cosa que te resulte más clara.
 
 React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
@@ -320,7 +320,7 @@ React puede [llamar a tus actualizadores dos veces](#my-initializer-or-updater-f
 
 Es posible que escuches una recomendación para escribir siempre código como `setEdad(e => e + 1)` si el estado que está configurando se calcula a partir del estado anterior.  No hay daño en ello, pero tampoco es necesario siempre. 
 
-En la mayoría de los casos, no hay diferencia entre estos dos enfoques. React siempre se asegura de que para las acciones intencionales del usuario, como los clicks, la variable de estado `edad` se actualizará antes del siguiente click. Esto significa que no hay riesgo de que un controlador de clicks vea un mensaje "obsoleto" de `edad` al comienzo del controlador de eventos.
+En la mayoría de los casos, no hay diferencia entre estos dos enfoques. React siempre se asegura de que para las acciones intencionales del usuario, como los clicks, la variable de estado `edad` se actualizará antes del siguiente click. Esto significa que no hay riesgo de que un controlador de clicks vea un mensaje "obsoleto" de `edad` al comienzo del controlador de evento.
 
 Sin embargo, si realizas varias actualizaciones dentro del mismo evento, los actualizadores pueden ser útiles. También son útiles si acceder a la variable de estado en sí es un inconveniente (es posible que te encuentres con esto al optimizar los renderizados). 
 
@@ -525,8 +525,8 @@ export default function Form() {
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',
     artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
+      title: 'Nana azul',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -695,7 +695,7 @@ export default function AddTodo({ onAddTodo }) {
   return (
     <>
       <input
-        placeholder="Add todo"
+        placeholder="Agregar tarea"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
@@ -803,9 +803,9 @@ import { useImmer } from 'use-immer';
 
 let nextId = 3;
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Grandes barrigas', seen: false },
+  { id: 1, title: 'Paisaje lunar', seen: false },
+  { id: 2, title: 'Guerreros de terracota', seen: true },
 ];
 
 export default function BucketList() {
@@ -904,7 +904,7 @@ function TodoList() {
 
 Observa que estás pasando `createInitialTodos`, que es la *función misma*, y no `createInitialTodos()`, que es el resultado de llamarla. Si pasas una función a `useState`, React solo la llamará durante la inicialización.
 
-React puede [llamar a tus inicializadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/manteniendo-componentes-puros)
+React puede [llamar a tus inicializadores dos veces](#my-initializer-or-updater-function-runs-twice) en desarrollo para verificar que sean [puros.](/learn/keeping-components-pure)
 
 <Recipes tituloText="La diferencia entre pasar un inicializador y pasar el valor inicial directamente" titleId="examples-initializer">
 
@@ -944,7 +944,7 @@ export default function TodoList() {
           id: todos.length,
           text: text
         }, ...todos]);
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
@@ -997,7 +997,7 @@ export default function TodoList() {
           id: todos.length,
           text: text
         }, ...todos]);
-      }}>Add</button>
+      }}>Agregar</button>
       <ul>
         {todos.map(item => (
           <li key={item.id}>
@@ -1018,13 +1018,13 @@ export default function TodoList() {
 
 ---
 
-### Restablecimiento de estado con una key {/*resetting-state-with-a-key*/}
+### Reinicio del estado con una _key_ {/*resetting-state-with-a-key*/}
 
-Por lo general, es posible que encuentre el atributo `key` al [renderizar listas.](/learn/rendering-lists) Sin embargo, también tiene otro propósito.
+Por lo general, es posible que encuentre el atributo _`key`_ al [renderizar listas.](/learn/rendering-lists) Sin embargo, también tiene otro propósito.
 
-Puede **restablecer el estado de un componente pasando una `key` diferente a un componente.** En este ejemplo, el botón Restablecer cambia la variable de estado `versión`, que pasamos como una `key` al `Formulario`. Cuando la `key` cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se restablece.
+Puede **reiniciar el estado de un componente pasando una _`key`_ diferente a un componente.** En este ejemplo, el botón Reiniciar cambia la variable de estado `versión`, que pasamos como una _`key`_ al `Formulario`. Cuando la _`key`_ cambia, React vuelve a crear el componente `Formulario` (y todos sus hijos) desde cero, por lo que su estado se reinicia.
 
-Lea [preservar y restablecer el estado](/learn/preserving-and-resetting-state) para obtener más información.
+Lea [preservar y reiniciar el estado](/learn/preserving-and-resetting-state) para obtener más información.
 
 <Sandpack>
 
@@ -1040,7 +1040,7 @@ export default function App() {
 
   return (
     <>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleReset}>Reiniciar</button>
       <Form key={version} />
     </>
   );
@@ -1076,7 +1076,7 @@ Por lo general, actualizarás el estado en los controladores de eventos. Sin emb
 En la mayoría de los casos, no lo necesitas:
 
 * **Si el valor que necesitas se puede calcular completamente a partir de las props actuales u otro estado, [elimina ese estado redundante por completo.](/learn/choosing-the-state-structure#avoid-redundant-state)** Si te preocupa volver a calcular con demasiada frecuencia, el [Hook `useMemo`](/reference/react/useMemo) puede ayudarte.
-* Si deseas restablecer el estado de todo el árbol de componentes, [pasa una `key` diferente a tu componente.](#resetting-state-with-a-key)
+* Si deseas reiniciar el estado de todo el árbol de componentes, [pasa una _`key`_ diferente a tu componente.](#resetting-state-with-a-key)
 * Si puedes, actualiza todo el estado relevante en los controladores de eventos.
 
 En el raro caso de que ninguno de estos se aplique, hay un patrón que puedes usar para actualizar el estado en función de los valores que se han renderizado hasta el momento, llamando a una función `set` mientras tu componente se está renderizando.
@@ -1163,7 +1163,7 @@ function handleClick() {
 }
 ```
 
-Esto se debe a que [los estados se comportan como una instantánea.](/learn/state-as-a-snapshot) La actualización del estado solicita otro procesamiento con el nuevo valor del estado, pero no afecta la variable de JavaScript `count` en tu manejador de eventos que ya se está ejecutando.
+Esto se debe a que [los estados se comportan como una instantánea.](/learn/state-as-a-snapshot) La actualización del estado solicita otro procesamiento con el nuevo valor del estado, pero no afecta la variable de JavaScript `count` en tu controlador de evento que ya se está ejecutando.
 
 Si necesitas usar el siguiente estado, puedes guardarlo en una variable antes de pasarlo a la función `set`:
 
@@ -1200,17 +1200,17 @@ setObj({
 
 ### Recibo un error: "Demasiados renderizados" {/*im-getting-an-error-too-many-re-renders*/}
 
-Es posible que recibas un error que diga: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (`Demasiados renderizados. React limita la cantidad de renderizados para evitar un bucle infinito.`) Por lo general, esto significa que estás estableciendo el estado incondicionalmente *durante el renderizado*, por lo que tu componente entra en un bucle: renderizar, establecer el estado (lo que provoca un renderizado), renderizar, establecer estado (que provoca un renderizado), y así sucesivamente. Muy a menudo, esto se debe a un error al especificar un controlador de eventos:
+Es posible que recibas un error que diga: `Too many re-renders. React limits the number of renders to prevent an infinite loop.` (`Demasiados renderizados. React limita la cantidad de renderizados para evitar un bucle infinito.`) Por lo general, esto significa que estás estableciendo el estado incondicionalmente *durante el renderizado*, por lo que tu componente entra en un bucle: renderizar, establecer el estado (lo que provoca un renderizado), renderizar, establecer estado (que provoca un renderizado), y así sucesivamente. Muy a menudo, esto se debe a un error al especificar un controlador de evento:
 
 ```js {1-2}
 // 🚩 Incorrecto: llama al controlador durante el procesamiento
-return <button onClick={handleClick()}>Haz click en mi</button>
+return <button onClick={handleClick()}>Hazme clic</button>
 
-// ✅ Correcto: pasa el controlador de eventos
-return <button onClick={handleClick}>Haz click en mi</button>
+// ✅ Correcto: pasa el controlador de evento
+return <button onClick={handleClick}>Hazme clic</button>
 
 // ✅ Correcto: pasa una función en línea
-return <button onClick={(e) => handleClick(e)}>Haz click en mi</button>
+return <button onClick={(e) => handleClick(e)}>Hazme clic</button>
 ```
 
 Si no puedes encontrar la causa de este error, haz clic en la flecha al lado del error en la consola y mira a través de la pila de JavaScript para encontrar la llamada de función `set` específica responsable del error.

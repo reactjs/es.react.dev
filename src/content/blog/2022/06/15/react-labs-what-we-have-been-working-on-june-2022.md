@@ -20,7 +20,7 @@ Para establecer expectativas, esta no es una ruta con plazos definidos. Muchos d
 
 ## Server Components {/*server-components*/}
 
-En diciembre de 2020 anunciamos un [experimental demo of React Server Components](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components) (RSC). Desde entonces, hemos estado finalizando sus dependencias en React 18 y trabajando en cambios inspirados por la retroalimentación recibida durante las pruebas.
+En diciembre de 2020 anunciamos un [experimental demo of React Server Components](https://legacy.reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html) (RSC). Desde entonces, hemos estado finalizando sus dependencias en React 18 y trabajando en cambios inspirados por la retroalimentación recibida durante las pruebas.
 
 En particular, estamos dejando la idea de tener bibliotecas de I/O bifurcadas (por ejemplo, react-fetch) y, en su lugar, adoptando un modelo de async/await para una mejor compatibilidad. Esto no bloquea técnicamente el lanzamiento de los RSC porque también se puede hacer uso de enrutadores para la recuperación de datos. Otro cambio es que también nos estamos alejando del enfoque de la extensión de archivo en favor de [annotating boundaries](https://github.com/reactjs/rfcs/pull/189#issuecomment-1116482278).
 

@@ -31,13 +31,13 @@ function PasswordField() {
   // ...
 ```
 
-[Ve más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 `useId` no toma ningún parámetro.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `useId` devuelve una cadena de ID única asociada con esta llamada `useId` llamado en un componente particular.
 
@@ -45,7 +45,7 @@ function PasswordField() {
 
 * `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si necesitas hacerlo, extrae un nuevo componente y mueve allí el estado.
 
-* `useId` **no debe usarse para generar keys** en una lista. [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
+* `useId` **no debe usarse para generar _keys_** en una lista. [Las _keys_ deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 ---
 
@@ -53,7 +53,7 @@ function PasswordField() {
 
 <Pitfall>
 
-**No utilices `useId` para generar keys en una lista.** [Las keys deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
+**No utilices `useId` para generar _keys_ en una lista.** [Las _keys_ deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
 
 </Pitfall>
 
@@ -201,10 +201,10 @@ export default function Form() {
   const id = useId();
   return (
     <form>
-      <label htmlFor={id + '-firstName'}>First Name:</label>
+      <label htmlFor={id + '-firstName'}>Nombre:</label>
       <input id={id + '-firstName'} type="text" />
       <hr />
-      <label htmlFor={id + '-lastName'}>Last Name:</label>
+      <label htmlFor={id + '-lastName'}>Apellido:</label>
       <input id={id + '-lastName'} type="text" />
     </form>
   );

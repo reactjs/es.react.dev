@@ -47,7 +47,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Sin embargo, como se puede recordar de la sección anterior, [los valores del estado de cada renderizado son fijos](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time), por lo que el valor de `number` dentro del manejador de eventos del primer renderizado siempre es `0`, sin importar cuántas veces se llame a `setNumber(1)`:
+Sin embargo, como se puede recordar de la sección anterior, [los valores del estado de cada renderizado son fijos](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time), por lo que el valor de `number` dentro del controlador de evento del primer renderizado siempre es `0`, sin importar cuántas veces se llame a `setNumber(1)`:
 
 ```js
 setNumber(0 + 1);
@@ -55,15 +55,15 @@ setNumber(0 + 1);
 setNumber(0 + 1);
 ```
 
-Pero hay otro factor a analizar aquí. **React espera a que *todo* el código de los manejadores de eventos se haya ejecutado antes de procesar tus actualizaciones de estado.** Por ello, el rerenderizado sólo se produce *después* de todas las llamadas `setNumber()`.
+Pero hay otro factor a analizar aquí. **React espera a que *todo* el código de los controladores de eventos se haya ejecutado antes de procesar tus actualizaciones de estado.** Por ello, el rerenderizado sólo se produce *después* de todas las llamadas `setNumber()`.
 
 Esto puede recordarte a un camarero que toma nota de un pedido en un restaurante. ¡El camarero no corre a la cocina al mencionar tu primer plato! En cambio, te deja terminar tu pedido, te permite hacerle cambios e incluso toma nota de los pedidos de las otras personas en la mesa.
 
 <Illustration src="/images/docs/illustrations/i_react-batching.png"  alt="Un elegante cursor en un restaurante hace un pedido varias veces con React, que interpreta el papel de camarero. Después de que ella llama a setState() múltiples veces, el camarero anota lo último que ella pidió como su pedido final." />
 
-Esto te permite actualizar múltiples variables del estado -incluso de múltiples componentes- sin realizar demasiados [rerenderizados.](/learn/render-and-commit#re-renders-when-state-updates) Pero esto también significa que la UI no se actualizará hasta _después_ de que tu manejador de eventos, y cualquier código en él, se complete. Este comportamiento, también conocido como **batching**, hace que tu aplicación de React se ejecute mucho más rápido. También evita tener que lidiar con confusos renderizados "a medio terminar" en los que sólo se han actualizado algunas de las variables.
+Esto te permite actualizar múltiples variables del estado -incluso de múltiples componentes- sin realizar demasiados [rerenderizados.](/learn/render-and-commit#re-renders-when-state-updates) Pero esto también significa que la UI no se actualizará hasta _después_ de que tu controlador de evento, y cualquier código en él, se complete. Este comportamiento, también conocido como **batching**, hace que tu aplicación de React se ejecute mucho más rápido. También evita tener que lidiar con confusos renderizados "a medio terminar" en los que sólo se han actualizado algunas de las variables.
 
-**React no agrupa *múltiples* eventos intencionados como los clics** --cada clic se maneja por separado. Puedes estar seguro de que React sólo actualizará por lotes cuando sea seguro hacerlo. Esto garantiza que, por ejemplo, si el primer clic del botón desactiva un formulario, el segundo clic no lo enviará de nuevo.
+**React no agrupa *múltiples* eventos intencionados como los clics** --cada clic se controla por separado. Puedes estar seguro de que React sólo actualizará por lotes cuando sea seguro hacerlo. Esto garantiza que, por ejemplo, si el primer clic del botón desactiva un formulario, el segundo clic no lo enviará de nuevo.
 
 ## Actualización de la misma variable de estado varias veces antes del siguiente renderizado {/*updating-the-same-state-variable-multiple-times-before-the-next-render*/}
 
@@ -101,7 +101,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 Aquí, `n => n + 1` se la llama una **función de actualización.** Cuando la pasas a una asignación de estado:
 
-1. React pone en cola esta función para que se procese después de que se haya ejecutado el resto del código del manejador de eventos.
+1. React pone en cola esta función para que se procese después de que se haya ejecutado el resto del código del controlador de evento.
 2. Durante el siguiente renderizado, React recorre la cola y te da el estado final actualizado.
 
 ```js
@@ -110,13 +110,13 @@ setNumber(n => n + 1);
 setNumber(n => n + 1);
 ```
 
-Así es como funciona React a través de estas líneas de código mientras se ejecuta el manejador de eventos:
+Así es como funciona React a través de estas líneas de código mientras se ejecuta el controlador de evento:
 
 1. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 2. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 3. `setNumber(n => n + 1)`: `n => n + 1` es una función. React la añade a la cola.
 
-Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de retorno de tu función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
+Cuando llamas a `useState` durante el siguiente renderizado, React recorre la cola. El estado anterior `number` era `0`, así que eso es lo que React pasa a la primera función actualizadora como el argumento `n`. Luego React toma el valor de devolución de tu función actualizadora anterior y lo pasa al siguiente actualizador como `n`, y así sucesivamente:
 
 | Actualización en cola | `n` | Devuelve    |
 |-----------------------|-----|-------------|
@@ -129,7 +129,7 @@ React almacena `3` como resultado final y lo devuelve desde `useState`.
 Por eso, al hacer clic en "+3" en el ejemplo anterior, el valor se incrementa correctamente en 3.
 ### ¿Qué ocurre si se actualiza el estado después de sustituirlo? {/*what-happens-if-you-update-state-after-replacing-it*/}
 
-¿Qué pasa con este manejador de eventos? ¿Qué valor crees que tendrá `number` en el próximo renderizado?
+¿Qué pasa con este controlador de evento? ¿Qué valor crees que tendrá `number` en el próximo renderizado?
 
 ```js
 <button onClick={() => {
@@ -165,7 +165,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Esto es lo que este manejador de eventos le dice a React que haga:
+Esto es lo que este controlador de evento le dice a React que haga:
 
 1. `setNumber(number + 5)`: `number` es `0`, así que `setNumber(0 + 5)`. React añade *"reemplazar con `5`"* a su cola.
 2. `setNumber(n => n + 1)`: `n => n + 1` es una función de actualización. React añade *esa función* a su cola.
@@ -225,7 +225,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Así es como funciona React a través de estas líneas de código mientras se ejecuta este manejador de eventos:
+Así es como funciona React a través de estas líneas de código mientras se ejecuta este controlador de evento:
 
 1. `setNumber(number + 5)`: `number` es `0`, así que `setNumber(0 + 5)`. React añade *"reemplazar con `5`"* a su cola.
 2. `setNumber(n => n + 1)`: `n => n + 1` es una función de actualización. React añade *esa función* a su cola.
@@ -246,7 +246,7 @@ Para resumir, así es como puedes pensar en lo que estás pasando a la función 
 * **Una función de actualización** (p. ej. `n => n + 1`) se añade a la cola.
 * **Cualquier otro valor** (p. ej. pasarle un `5`) añade "reemplazar con `5`" a la cola, ignorando lo que ya está en cola.
 
-Después de que el manejador de eventos se complete, React lanzará un rerenderizado. Durante el rerenderizado, React procesará la cola. Las funciones de actualización se ejecutan durante el renderizado, por lo que **las funciones de actualización deben ser [puras](/learn/keeping-components-pure)** y sólo *devuelven* el resultado. No intentes establecer el estado desde dentro de ellas o ejecutar otros efectos secundarios. En modo estricto, React ejecutará cada función de actualización dos veces (pero descartará el segundo resultado) para ayudarte a encontrar errores.
+Después de que el controlador de evento se complete, React lanzará un rerenderizado. Durante el rerenderizado, React procesará la cola. Las funciones de actualización se ejecutan durante el renderizado, por lo que **las funciones de actualización deben ser [puras](/learn/keeping-components-pure)** y sólo *devuelven* el resultado. No intentes establecer el estado desde dentro de ellas o ejecutar otros efectos secundarios. En modo estricto, React ejecutará cada función de actualización dos veces (pero descartará el segundo resultado) para ayudarte a encontrar errores.
 
 ### Convenciones de nomenclatura {/*naming-conventions*/}
 
@@ -263,7 +263,7 @@ Si prefieres un código más detallado, otra opción habitual es repetir el nomb
 <Recap>
 
 * Establecer el estado no cambia la variable en el renderizado existente, pero si solicita un nuevo renderizado.
-* React procesa las actualizaciones de estado después de que los manejadores de eventos hayan terminado de ejecutarse. Esto se llama _batching_.
+* React procesa las actualizaciones de estado después de que los controladores de eventos hayan terminado de ejecutarse. Esto se llama _batching_.
 * Para actualizar algún estado varias veces en un evento, puedes utilizar la función de actualización `setNumber(n => n + 1)`.
 
 </Recap>
@@ -322,7 +322,7 @@ function delay(ms) {
 
 <Solution>
 
-Dentro del manejador de eventos `handleClick`, los valores de `pending` y `completed` corresponden a lo que eran en el momento del evento de clic. Para el primer renderizado, `pending` era `0`, por lo que `setPending(pending - 1)` se convierte en `setPending(-1)`, lo cual es incorrecto. Como quieres *incrementar* o *disminuir* los contadores, en lugar de establecerlos a un valor concreto determinado durante el clic, puedes pasar las funciones de actualización:
+Dentro del controlador de evento `handleClick`, los valores de `pending` y `completed` corresponden a lo que eran en el momento del evento de clic. Para el primer renderizado, `pending` era `0`, por lo que `setPending(pending - 1)` se convierte en `setPending(-1)`, lo cual es incorrecto. Como quieres *incrementar* o *disminuir* los contadores, en lugar de establecerlos a un valor concreto determinado durante el clic, puedes pasar las funciones de actualización:
 
 <Sandpack>
 

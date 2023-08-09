@@ -32,7 +32,7 @@ function useOnlineStatus() {
 }
 ```
 
-[Más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -117,6 +117,6 @@ Puedes también pasar una función de formateo como segundo argumento para `useD
 useDebugValue(date, date => date.toDateString());
 ```
 
-Tu función de formateo recibirá el <CodeStep step={1}>valor de depuración</CodeStep> como parámetro y debe retornar un <CodeStep step={2}>valor de visualización formateado</CodeStep>. Cuando tu componente es inspeccionado, las herramientas de desarrollo de React llamarán a la función de formateo y mostrarán el resultado.
+Tu función de formateo recibirá el <CodeStep step={1}>valor de depuración</CodeStep> como parámetro y debe devolver un <CodeStep step={2}>valor de visualización formateado</CodeStep>. Cuando tu componente es inspeccionado, las herramientas de desarrollo de React llamarán a la función de formateo y mostrarán el resultado.
 
 Esto permite evitar ejecutar una lógica de formateo potencialmente costosa a no ser que el componente esté siendo inspeccionado. Por ejemplo, si `date` es un valor de fecha, evita llamar a `toDateString()` para cada renderizado del componente.

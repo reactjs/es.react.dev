@@ -1,5 +1,5 @@
 ---
-title: Política de versionado
+title: Política de versiones
 ---
 
 <Intro>

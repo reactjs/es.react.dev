@@ -10,9 +10,9 @@ React se ha diseñado desde un inicio para una adopción gradual. Puedes usar ta
 
 <YouWillLearn isChapter={true}>
 
-* [Cómo añadir React a una página HTML](/learn/add-react-to-a-website)
-* [Cómo iniciar un proyecto completo en React](/learn/start-a-new-react-project)
-* [Cómo configurar tu editor](/learn/editor-setup)
+* [Cómo iniciar un nuevo proyecto de React](/learn/start-a-new-react-project)
+* [Cómo agregar React a un proyecto existente](/learn/add-react-to-an-existing-project)
+* [Cómo configurar el editor](/learn/editor-setup)
 * [Cómo instalar las Herramientas de Desarrollo de React](/learn/react-developer-tools)
 
 </YouWillLearn>
@@ -25,31 +25,31 @@ No necesitas instalar nada para jugar con React. ¡Prueba editar este ejemplo de
 
 ```js
 function Greeting({ name }) {
-  return <h1>Hello, {name}</h1>;
+  return <h1>Hola, {name}</h1>;
 }
 
 export default function App() {
-  return <Greeting name="world" />
+  return <Greeting name="mundo" />
 }
 ```
 
 </Sandpack>
 
-Puedes editarlo directamente of abrirlo en una nueva pestaña presionando el botón "Fork" en la esquina superior derecha.
+Puedes editarlo directamente o abrirlo en una nueva pestaña presionando el botón "Bifurcar" en la esquina superior derecha.
 
 La mayoría de las páginas de la documentación de React contienen ejemplos interactivos como este. Fuera de la documentación de React, también existen muchos *sandboxes* en línea que permiten usar React: por ejemplo, [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), o [CodePen](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb).
 
-### Prueba React localmente {/*try-react-locally*/}
+### Probar React localmente {/*try-react-locally*/}
 
-Para probar React de forma local en tu computadora, [descarga esta página HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html). ¡Ábrela en tu editor y en tu navegador!
+Para probar React de forma local en tu computadora, [descarga esta página HTML](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html). ¡Ábrela en tu editor y en tu navegador!
 
-## Añade React a una página {/*add-react-to-a-page*/}
+## Iniciar un nuevo proyecto React {/*start-a-react-project*/}
 
-Si estás trabajando con un sitio existente y necesitas añadir un poco de React, puedes [añadir React con una etiqueta script](/learn/add-react-to-a-website).
+Si quieres crear una aplicación o un sitio web completamente con React, [inicia un nuevo proyecto React](/learn/start-a-new-react-project).
 
-## Iniciar un proyecto de React {/*start-a-react-project*/}
+## Añadir React a un proyecto existente {/*add-react-to-an-existing-project*/}
 
-Si estás listo para [iniciar un proyecto completamente](/learn/start-a-new-react-project) en React, puedes configurar una herramienta mínima que provea una agradable experiencia de desarrollo. También puedes comenzar con un framework que tome más decisiones por ti desde un inicio.
+Si quieres probar usando React en tu aplicación existente o en un sitio web, [añade React a un proyecto existente](/learn/add-react-to-an-existing-project).
 
 ## Próximos pasos {/*next-steps*/}
 

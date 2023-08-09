@@ -14,7 +14,7 @@ title: "React v18.0"
 
 ---
 
-Nuestra última versión importante incluye mejoras listas para usar, como el procesamiento por lotes automático, nuevas API como startTransition y renderizado en el servidor con transmisión con soporte para Suspense.
+Nuestra última versión mayor incluye mejoras listas para usar, como el procesamiento por lotes automático, nuevas API como startTransition y renderizado en el servidor con transmisión con soporte para Suspense.
 
 Muchas de las funcionalidades en React 18 se basan en nuestro nuevo renderizador concurrente, un cambio interno que desbloquea nuevas y poderosas capacidades. React Concurrente es opcional, solo se activa cuando se utiliza una funcionalidad concurrente, pero creemos que tendrá un gran impacto en la forma en que las personas construyen aplicaciones.
 
@@ -287,7 +287,7 @@ Consulta [Cómo Actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide) 
 * Corregir un choque cuando se renderiza `ZonedDateTime` en el árbol. ([#20617](https://github.com/facebook/react/pull/20617)  por [@dimaqq](https://github.com/dimaqq))
 * Corregir un choque cuando el document es pasado a `null` en los tests. ([#22695](https://github.com/facebook/react/pull/22695)  por [@SimenB](https://github.com/SimenB))
 * Corregir que `onLoad` no se activa cuando las funcionalidades concurrentes están activadas ([#23316](https://github.com/facebook/react/pull/23316)  por [@gnoff](https://github.com/gnoff))
-* Corregir una advertencia cuando el selector retorna `NaN`.  ([#23333](https://github.com/facebook/react/pull/23333)  por [@hachibeeDI](https://github.com/hachibeeDI))
+* Corregir una advertencia cuando el selector devuelve `NaN`.  ([#23333](https://github.com/facebook/react/pull/23333)  por [@hachibeeDI](https://github.com/hachibeeDI))
 * Corregir un choque cuando el documento es pasado a `null` en los tests. ([#22695](https://github.com/facebook/react/pull/22695) por [@SimenB](https://github.com/SimenB))
 * Corregir el encabezado de licencia generado. ([#23004](https://github.com/facebook/react/pull/23004)  por [@vitaliemiron](https://github.com/vitaliemiron))
 * Añadir `package.json` como uno de los puntos de entrada. ([#22954](https://github.com/facebook/react/pull/22954)  por [@Jack](https://github.com/Jack-Works))

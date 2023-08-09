@@ -185,7 +185,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -255,7 +255,7 @@ async function getAlbums() {
 - Carga de datos en frameworks capaces de manejar Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
 - Código de carga diferida de componentes con [`lazy`](/reference/react/lazy)
 
-Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un manejador de eventos.
+Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un controlador de evento.
 
 La forma exacta en que cargarías los datos en el componente `Albums` de arriba depende de tu framework. Si usas un framework capaz de manejar Suspense, encontrarás los detalles en su documentación de la carga de datos.
 
@@ -476,7 +476,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 1500);
   });
@@ -488,7 +488,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -813,7 +813,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -825,7 +825,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -952,7 +952,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -1040,7 +1040,7 @@ async function getData(url) {
 }
 
 async function getSearchResults(query) {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1125,7 +1125,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -1179,7 +1179,7 @@ export default function App() {
   return (
     <>
       <label>
-        Search albums:
+        Buscar álbumes:
         <input value={query} onChange={e => setQuery(e.target.value)} />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
@@ -1269,7 +1269,7 @@ async function getData(url) {
 }
 
 async function getSearchResults(query) {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1605,7 +1605,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1617,7 +1617,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1992,7 +1992,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -2004,7 +2004,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -2378,7 +2378,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -2390,7 +2390,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -2513,7 +2513,8 @@ Sin embargo, imagina ahora que estás navegando entre dos perfiles de usuario di
 
 ---
 
-### Proporcionar un *fallback* para los errores del servidor y el contenido exclusivo del servidor {/*providing-a-fallback-for-server-errors-and-server-only-content*/}
+### Proporcionar un _fallback_ para errores de servidor y contenido solo-cliente {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
+
 
 Si utilizas una de las [APIs de renderizado en el servidor con *streaming*](/reference/react-dom/server) (o un *framework* que depende de ellas), React también utilizará tus barreras de `<Suspense>` para manejar errores en el servidor. Si un componente lanza un error en el servidor, React no abortará el renderizado en el servidor. Lo que hará será encontrar el componente `<Suspense>` más cercano encima de este e incluirá su *fallback* (un *spinner*, por ejemplo) dentro del HTML generado en el  servidor. El usuario verá un *spinner* en lugar de un error.
 

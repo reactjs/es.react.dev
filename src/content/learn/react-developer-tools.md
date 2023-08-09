@@ -18,8 +18,8 @@ Utiliza las Herramientas de Desarrollo de React (*React Developer Tools*) para i
 
 La forma más fácil de depurar sitios web construidos con React es instalar la extensión de las Herramientas de Desarrollo de React. Está disponible para varios de los navegadores más populares:
 
-* [Instálalas para **Chrome**](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-* [Instálalas para **Firefox**](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+* [Instálalas para **Chrome**](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=es)
+* [Instálalas para **Firefox**](https://addons.mozilla.org/es/firefox/addon/react-devtools/)
 * [Instálalas para **Edge**](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 
 Ahora, si visitas un sitio web **construido con React**, verás los paneles de _Components_ (componentes) y _Profiler_ (perfilador o generador de perfiles).

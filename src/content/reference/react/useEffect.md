@@ -40,7 +40,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Ver más ejemplos.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -48,9 +48,9 @@ function ChatRoom({ roomId }) {
 
 * `dependencias` **opcionales**: La lista de todos los valores reactivos referenciados dentro del código de `configuración`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias debe tener un número constante de elementos y estar escrita en línea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior utilizando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no se especifican las dependencias en absoluto, su efecto se volverá a ejecutar después de cada renderizado del componente. [ Mira la diferencia entre pasar un _array_ de dependencias, un _array_ vacío y ninguna dependencia.](#examples-dependencies)
 
-#### Retorno {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`useEffect` retorna `undefined`.
+`useEffect` devuelve `undefined`.
 
 #### Advertencias {/*caveats*/}
 
@@ -99,7 +99,7 @@ function ChatRoom({ roomId }) {
 Tienes que pasar dos argumentos a `useEffect`:
 
 1. Una *función de configuración* con <CodeStep step={1}>código de configuración</CodeStep> que se conecta a ese sistema.
-   - La cual debería retornar una *función de limpieza* con <CodeStep step={2}>código de limpieza</CodeStep> que se desconecta de ese sistema.
+   - La cual debería devolver una *función de limpieza* con <CodeStep step={2}>código de limpieza</CodeStep> que se desconecta de ese sistema.
 2. Una <CodeStep step={3}>lista de dependencias</CodeStep> incluyendo cada valor de tu componente utilizado dentro de esas funciones.
 
 **React llama a tus funciones de configuración y limpieza siempre que sea necesario, lo que puede ocurrir varias veces:**
@@ -162,7 +162,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -179,8 +179,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -198,10 +198,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando con el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -308,7 +308,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Eliminar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -566,7 +566,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -583,8 +583,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -617,10 +617,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando con el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio"' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala"' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1108,7 +1108,7 @@ Ahora que `serverUrl` no es un valor reactivo (y no puede cambiar en un renderiz
 
 ```js {1,2,9}
 const serverUrl = 'https://localhost:1234'; // Ya no es un valor reactivo
-const roomId = 'music'; // Ya no es un valor reactivo
+const roomId = 'música'; // Ya no es un valor reactivo
 
 function ChatRoom() {
   useEffect(() => {
@@ -1179,7 +1179,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <label>
         Tu mensaje:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
@@ -1200,8 +1200,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
         <button onClick={() => setShow(!show)}>
           {show ? 'Cerrar chat' : 'Abrir chat'}
@@ -1222,7 +1222,7 @@ export function createConnection(serverUrl, roomId) {
       console.log('✅ Conexión a el sitio "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1259,7 +1259,7 @@ import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
-const roomId = 'music';
+const roomId = 'música';
 
 function ChatRoom() {
   const [message, setMessage] = useState('');
@@ -1272,7 +1272,7 @@ function ChatRoom() {
 
   return (
     <>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <label>
         Tu mensaje:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
@@ -1300,10 +1300,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando a el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectado de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1353,7 +1353,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <label>
         Tu mensaje:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
@@ -1368,14 +1368,14 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
         <button onClick={() => setShow(!show)}>
           {show ? 'Cerrar chat' : 'Abrir chat'}
@@ -1393,10 +1393,10 @@ export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando al sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectando del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1428,7 +1428,7 @@ function Counter() {
       setCount(count + 1); // Quieres incrementar el contador cada segundo...
     }, 1000)
     return () => clearInterval(intervalId);
-  }, [count]); // 🚩 ... pero al especificar `count` como dependencia siempre se restablece el intervalo.
+  }, [count]); // 🚩 ... pero al especificar `count` como dependencia siempre reinician el intervalo.
   // ...
 }
 ```
@@ -1523,7 +1523,7 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
     </>
   );
@@ -1534,14 +1534,14 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1556,10 +1556,10 @@ export function createConnection({ serverUrl, roomId }) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando con el sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectado del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1633,7 +1633,7 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>¡Bienvenido al sitio {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
     </>
   );
@@ -1650,8 +1650,8 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="travel">viaje</option>
-          <option value="music">música</option>
+          <option value="viaje">viaje</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1666,10 +1666,10 @@ export function createConnection({ serverUrl, roomId }) {
   // Una implementación real se conectaría al servidor
   return {
     connect() {
-      console.log('✅ Conectando al sitio "' + roomId + '" en ' + serverUrl + '...');
+      console.log('✅ Conectando a la sala "' + roomId + '" en ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Desconectando del sitio "' + roomId + '" en ' + serverUrl);
+      console.log('❌ Desconectando de la sala "' + roomId + '" en ' + serverUrl);
     }
   };
 }
@@ -1707,7 +1707,7 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
-**¿Qué pasa si quieres registrar una nueva visita a la página después de cada cambio de `url`, pero *no* si sólo cambia el `shoppingCart`?** No puedes excluir `shoppingCart` de las dependencias sin romper las [reglas de reactividad.](#specifying-reactive-dependencies) Sin embargo, puedes expresar que *no quieres* que una parte de código "reaccione" a los cambios aunque sea llamado desde dentro de un Efecto. Para hacer esto, [declara un *Efecto de evento*](/learn/separating-events-from-effects#declaring-an-effect-event) con el Hook [`useEffectEvent`](/reference/react/useEffectEvent), y mueve el código que lea al `shoppingCart` dentro de tal Hook:
+**¿Qué pasa si quieres registrar una nueva visita a la página después de cada cambio de `url`, pero *no* si sólo cambia el `shoppingCart`?** No puedes excluir `shoppingCart` de las dependencias sin romper las [reglas de reactividad.](#specifying-reactive-dependencies) Sin embargo, puedes expresar que *no quieres* que una parte de código "reaccione" a los cambios aunque sea llamado desde dentro de un Efecto. Para hacer esto, [declara un *Efecto de evento*](/learn/separating-events-from-effects#declaring-an-effect-event) con el Hook [`useEffectEvent`](/reference/react/experimental_useEffectEvent), y mueve el código que lea al `shoppingCart` dentro de tal Hook:
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
@@ -1731,7 +1731,7 @@ function Page({ url, shoppingCart }) {
 
 ### Mostrar contenidos diferentes en el servidor y en el cliente {/*displaying-different-content-on-the-server-and-the-client*/}
 
-Si tu aplicación utiliza renderizado de lado del servidor (ya sea [directamente](/reference/react-dom/server) o a través de un [framework](/learn/start-a-new-react-project#building-with-a-full-featured-framework)), tu componente se renderizará en dos entornos diferentes. En el servidor, se renderizará para producir el HTML inicial. En el cliente, React ejecutará de nuevo el código de renderizado para poder adjuntar tus manejadores de eventos a ese HTML. Por eso, para que la [hidratación](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcione, tu salida inicial de renderizado debe ser idéntica en el cliente y en el servidor.
+Si tu aplicación utiliza renderizado de lado del servidor (ya sea [directamente](/reference/react-dom/server) o a través de un [framework](/learn/start-a-new-react-project#building-with-a-full-featured-framework)), tu componente se renderizará en dos entornos diferentes. En el servidor, se renderizará para producir el HTML inicial. En el cliente, React ejecutará de nuevo el código de renderizado para poder adjuntar tus controladores de eventos a ese HTML. Por eso, para que la [hidratación](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcione, tu salida inicial de renderizado debe ser idéntica en el cliente y en el servidor.
 
 En raras ocasiones, es posible que necesites mostrar un contenido diferente en el cliente. Por ejemplo, si su aplicación lee algunos datos del [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), no puede hacerlo en el servidor. Así es como típicamente se implementaría esto:
 

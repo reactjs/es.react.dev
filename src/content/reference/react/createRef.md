@@ -40,15 +40,15 @@ class MyComponent extends Component {
   // ...
 ```
 
-[Ver más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 `createRef` no recibe parámetros.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`createRef` retorna un objeto con una única propiedad:
+`createRef` devuelve un objeto con una única propiedad:
 
 * `current`: Inicialmente, se inicializa en `null`. Posteriormente, se puede asignar a cualquier otra cosa. Si pasas el objeto ref a React como un atributo `ref` de un nodo JSX, React asignará su propiedad `current`.
 

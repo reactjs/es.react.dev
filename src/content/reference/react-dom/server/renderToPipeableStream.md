@@ -40,9 +40,9 @@ const { pipe } = renderToPipeableStream(<App />, {
 });
 ```
 
-Para que el HTML generado por el servidor sea interactivo, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el cliente.
+En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer interactivo el HTML generado por el servidor.
 
-[Ve más ejemplos.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -62,9 +62,9 @@ Para que el HTML generado por el servidor sea interactivo, llama a [`hydrateRoot
   * **opcional** `progressiveChunkSize`: Define el número de *bytes* en un *chunk*. [Lee más acerca de la heurística predeterminada.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
 
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`renderToPipeableStream` retorna un objeto con dos métodos:
+`renderToPipeableStream` devuelve un objeto con dos métodos:
 
 * `pipe` envía el HTML al [*stream* escribible de Node.js.](https://nodejs.org/api/stream.html#writable-streams) Llama a `pipe` en `onShellReady` si quieres habilitar el *streaming*, o en `onAllReady` para rastreadores y generación estática.
 * `abort` te permite [abortar el renderizado del servidor](#aborting-server-rendering) y renderizar el resto en el cliente.
@@ -92,7 +92,7 @@ app.use('/', (request, response) => {
 });
 ```
 
-Debes proporcionar el <CodeStep step={1}>componente raíz</CodeStep> y una lista de <CodeStep step={2}>rutas de `<script>` de arranque</CodeStep>. Tu componente raíz debe retornar **el documento completo, incluyendo la etiqueta `<html>` raíz.**
+Debes proporcionar el <CodeStep step={1}>componente raíz</CodeStep> y una lista de <CodeStep step={2}>rutas de `<script>` de arranque</CodeStep>. Tu componente raíz debe devolver **el documento completo, incluyendo la etiqueta `<html>` raíz.**
 
 Por ejemplo, tu componente raíz podría verse así:
 
@@ -289,7 +289,7 @@ El *streaming* no necesita esperar a que React se cargue en el navegador o a que
 - Obtención de datos con *frameworks* habilitados para Suspense, como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
 - Carga diferida de código de componentes con [`lazy`](/reference/react/lazy)
 
-Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o manejador de eventos.
+Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o controlador de evento.
 
 La forma exacta de cargar los datos en el componente `Posts` anterior dependerá de tu *framework*. Si usas un *framework* habilitado para Suspense, encontrarás los detalles en su documentación de obtención de datos.
 

@@ -111,7 +111,7 @@ textarea.oninput = handleTextareaChange;
 
 ```html public/index.html
 <form id="form">
-  <h2>Cuestionario de ciudades</h2>
+  <h2>Cuestionario sobre ciudades</h2>
   <p>
     ¿Qué ciudad se ubica entre dos continentes?
   </p>
@@ -174,7 +174,7 @@ export default function Form({
   }
   return (
     <>
-      <h2>Cuestionario de ciudades</h2>
+      <h2>Cuestionario sobre ciudades</h2>
       <p>
        ¿En qué ciudad hay un cartel que convierte el aire en agua potable?
       </p>
@@ -206,7 +206,7 @@ export default function Form({
   }
   return (
     <>
-      <h2>Cuestionario de ciudades</h2>
+      <h2>Cuestionario sobre ciudades</h2>
       <p>
         ¿En qué ciudad hay un cartel que convierte el aire en agua potable?
       </p>
@@ -388,7 +388,7 @@ Después de esta limpieza, nos quedamos con 3 (¡a partir de 7!) variables de es
 ```js
 const [answer, setAnswer] = useState('');
 const [error, setError] = useState(null);
-const [status, setStatus] = useState('typing'); // 'typing', 'submitting', or 'success'
+const [status, setStatus] = useState('typing'); // 'typing', 'submitting', o 'success'
 ```
 
 Sabes que son esenciales, porque no puedes eliminar ninguna de ellos sin romper la funcionalidad.
@@ -437,7 +437,7 @@ export default function Form() {
 
   return (
     <>
-      <h2>Cuestionario de ciudades</h2>
+      <h2>Cuestionario sobre ciudades</h2>
       <p>
         ¿En qué ciudad hay un cartel que convierte el aire en agua potable?
       </p>
@@ -772,7 +772,7 @@ lastNameInput.oninput = handleLastNameChange;
 ```html public/index.html
 <form id="form">
   <label>
-    Primer nombre:
+    Nombre:
     <b id="firstNameText">Jane</b>
     <input
       id="firstNameInput"
@@ -780,7 +780,7 @@ lastNameInput.oninput = handleLastNameChange;
       style="display: none">
   </label>
   <label>
-    Segundo nombre:
+    Apellido:
     <b id="lastNameText">Jacobs</b>
     <input
       id="lastNameInput"
@@ -813,12 +813,12 @@ export default function EditProfile() {
   return (
     <form>
       <label>
-        Primer nombre:{' '}
+        Nombre:{' '}
         <b>Jane</b>
         <input />
       </label>
       <label>
-        Segundo nombre:{' '}
+        Apellido:{' '}
         <b>Jacobs</b>
         <input />
       </label>
@@ -859,7 +859,7 @@ export default function EditProfile() {
       setIsEditing(!isEditing);
     }}>
       <label>
-        Primer nombre:{' '}
+        Nombre:{' '}
         {isEditing ? (
           <input
             value={firstName}
@@ -872,7 +872,7 @@ export default function EditProfile() {
         )}
       </label>
       <label>
-        Segundo nombre:{' '}
+        Apellido:{' '}
         {isEditing ? (
           <input
             value={lastName}
@@ -885,7 +885,7 @@ export default function EditProfile() {
         )}
       </label>
       <button type="submit">
-        {isEditing ? 'Save' : 'Edit'} Profile
+        {isEditing ? 'Guardar' : 'Editar'} Profile
       </button>
       <p><i>Hola, {firstName} {lastName}!</i></p>
     </form>
@@ -974,7 +974,7 @@ lastNameInput.oninput = handleLastNameChange;
 ```html public/index.html
 <form id="form">
   <label>
-    Primer nombre:
+    Nombre:
     <b id="firstNameText">Jane</b>
     <input
       id="firstNameInput"
@@ -982,7 +982,7 @@ lastNameInput.oninput = handleLastNameChange;
       style="display: none">
   </label>
   <label>
-    Segundo nombre:
+    Apellido:
     <b id="lastNameText">Jacobs</b>
     <input
       id="lastNameInput"
@@ -1081,7 +1081,7 @@ lastNameInput.oninput = handleLastNameChange;
 ```html public/index.html
 <form id="form">
   <label>
-    Primer nombre:
+    Nombre:
     <b id="firstNameText">Jane</b>
     <input
       id="firstNameInput"
@@ -1089,7 +1089,7 @@ lastNameInput.oninput = handleLastNameChange;
       style="display: none">
   </label>
   <label>
-    Segundo nombre:
+    Apellido:
     <b id="lastNameText">Jacobs</b>
     <input
       id="lastNameInput"
@@ -1200,7 +1200,7 @@ lastNameInput.oninput = handleLastNameChange;
 ```html public/index.html
 <form id="form">
   <label>
-    Primer nombre:
+    Nombre:
     <b id="firstNameText">Jane</b>
     <input
       id="firstNameInput"
@@ -1208,7 +1208,7 @@ lastNameInput.oninput = handleLastNameChange;
       style="display: none">
   </label>
   <label>
-    Segundo nombre:
+    Apellido:
     <b id="lastNameText">Jacobs</b>
     <input
       id="lastNameInput"

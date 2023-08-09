@@ -36,13 +36,13 @@ const html = renderToString(<App />);
 
 En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para hacer que el HTML generado por el servidor sea interactivo.
 
-[Ver más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 * `reactNode`: Un nodo de React que deseas renderizar como HTML. Por ejemplo, un nodo JSX como `<App />`.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
 Una cadena de caracteres HTML.
 

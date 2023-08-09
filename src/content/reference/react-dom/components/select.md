@@ -32,7 +32,7 @@ Para mostrar un recuadro de selección, renderiza el componente [nativo del nave
 </select>
 ```
 
-[Ver más ejemplos a continuación.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Props {/*props*/}
 
@@ -268,7 +268,7 @@ export default function EditPost() {
         </select>
       </label>
       <hr />
-      <button type="reset">Reset</button>
+      <button type="reset">Reiniciar</button>
       <button type="submit">Submit</button>
     </form>
   );
@@ -284,7 +284,7 @@ label { margin-bottom: 20px; }
 
 <Note>
 
-Da un `name` a tu `<select>`, por ejemplo `<select name="selectedFruit" />`. El `name` que especifiques será usado como key en los datos del formulario, por ejemplo `{ selectedFruit: "orange" }`.
+Da un `name` a tu `<select>`, por ejemplo `<select name="selectedFruit" />`. El `name` que especifiques será usado como _key_ en los datos del formulario, por ejemplo `{ selectedFruit: "orange" }`.
 
 Si usas `<select multiple={true}>`, el [`FormData`](https://developer.mozilla.org/es/docs/Web/API/FormData) leerás del formulario que incluirá cada valor seleccionado como un par name-value separado. Revisa detenidamente los console logs en el ejemplo de arriba.
 

@@ -1,5 +1,5 @@
 ---
-title: "Presentando react.dev"
+title: "Presentación de react.dev"
 ---
 
 16 de Marzo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) y [Rachel Nabors](https://twitter.com/rachelnabors)
@@ -226,7 +226,7 @@ También nos gustaría destacar [Pensar en React](/learn/thinking-in-react), ese
 
 <Note>
 
-El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Fork" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las APIs de React, explorar tus ideas y comprobar tu comprensión.
+El ejemplo anterior es un *sandbox*. ¡Hemos agregado muchos sandboxes, más de 600, por todas partes en el sitio! Puedes editar cualquier sandbox o presionar "Bifurcar" en la esquina superior derecha para abrirlo en una pestaña separada. Los sandboxes te permiten jugar rápidamente con las APIs de React, explorar tus ideas y comprobar tu comprensión.
 
 </Note>
 
@@ -360,7 +360,7 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
@@ -395,7 +395,7 @@ function Item({ name, importance }) {
       {name}
       {importance > 0 && ' '}
       {importance > 0 &&
-        <i>(Importance: {importance})</i>
+        <i>(Importancia: {importance})</i>
       }
     </li>
   );
@@ -404,7 +404,7 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
@@ -438,7 +438,7 @@ Observa el botón "Mostrar solución" en la esquina inferior izquierda. Es útil
 
 ### Desarrolla una intuición con diagramas e ilustraciones {/*build-an-intuition-with-diagrams-and-illustrations*/}
 
-Cuando no pudimos descubrir cómo explicar algo solo con código y palabras, hemos agregado diagramas que ayudan a proporcionar cierta intuición. Por ejemplo, aquí hay uno de los diagramas de [Conservar y reiniciar el estado](/learn/preserving-and-resetting-state):
+Cuando no pudimos descubrir cómo explicar algo solo con código y palabras, hemos agregado diagramas que ayudan a proporcionar cierta intuición. Por ejemplo, aquí hay uno de los diagramas de [Preservar y reiniciar el estado](/learn/preserving-and-resetting-state):
 
 <Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagrama con tres secciones, con una flecha que transiciona entre cada sección. La primera sección contiene un componente de React etiquetado como 'div' con un único hijo etiquetado como 'section', el cual tiene un único hijo etiquetado como 'Counter' que contiene una burbuja de estado etiquetada como 'count' con un valor de 3. En la sección del medio, el mismo componente 'div' padre se encuentra presente, pero los componentes hijos han sido eliminados, indicado por una imagen de 'prueba' amarilla. La tercera sección tiene nuevamente el mismo componente 'div' padre, ahora con un nuevo hijo etiquetado como 'div', resaltado en amarillo, y también con un nuevo hijo etiquetado como 'Counter' que contiene una burbuja de estado etiquetada como 'count' con un valor de 0, todos ellos resaltados en amarillo.">
 
@@ -446,7 +446,7 @@ Cuando `section` cambia a `div`, `section` es eliminada y el nuevo `div` is aña
 
 </Diagram>
 
-También encontrarás algunas ilustraciones a lo largo de la documentación--aquí tienes una de ellas que muestra al [navegador pintando la pantalla](/learn/render-and-commit#epilogue-browser-paint):
+También encontrarás algunas ilustraciones a lo largo de la documentación (aquí tienes una de ellas que muestra al [navegador pintando la pantalla](/learn/render-and-commit#epilogue-browser-paint)):
 
 <Illustration alt="Un navegador pintando un bodegón con un elemento card'." src="/images/docs/illustrations/i_browser-paint.png" />
 
@@ -464,7 +464,7 @@ En la [Referencia de la API](/reference/react), cada API de React ahora tiene un
 
 Observarás que cada página de API se divide en al menos dos segmentos: *Referencia* y *Uso*.
 
-[Referencia](/reference/react/useState#reference) describe la firma formal de la API al listar sus argumentos y valores de retorno. Es concisa, pero puede sentirse un poco abstracta si no estás familiarizado con esa API. Describe qué hace una API, pero no cómo utilizarla.
+[Referencia](/reference/react/useState#reference) describe la firma formal de la API al listar sus argumentos y valores de devolución. Es concisa, pero puede sentirse un poco abstracta si no estás familiarizado con esa API. Describe qué hace una API, pero no cómo utilizarla.
 
 [Uso](/reference/react/useState#usage) muestra por qué y cómo utilizarías esta API en la práctica, como podría explicarlo un colega o un amigo. Muestra los **escenarios canónicos de cómo el equipo de React pretendía que se utilizara cada API.** Hemos añadido fragmentos de código con colores, ejemplos de cómo usar diferentes APIs juntas y recetas que puedes copiar y pegar:
 
@@ -508,7 +508,7 @@ En este ejemplo, la variables de estado `text` almacena un string. Cuando escrib
 import { useState } from 'react';
 
 export default function MyInput() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('hola');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -518,8 +518,8 @@ export default function MyInput() {
     <>
       <input value={text} onChange={handleChange} />
       <p>Escribiste: {text}</p>
-      <button onClick={() => setText('hello')}>
-        Restablecer
+      <button onClick={() => setText('hola')}>
+        Reiniciar
       </button>
     </>
   );

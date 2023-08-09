@@ -16,7 +16,7 @@ const [isPending, startTransition] = useTransition()
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `useTransition()` {/*usetransition*/}
 
@@ -31,7 +31,7 @@ function TabContainer() {
 }
 ```
 
-[Ver más ejemplos debajo.](#uso)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -161,7 +161,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => selectTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -231,7 +231,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -297,7 +297,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => selectTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -367,7 +367,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -431,7 +431,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-Debido a que el componente padre actualiza su estado dentro del manejador de eventos `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea las interacciones del usuario.
+Debido a que el componente padre actualiza su estado dentro del controlador de evento `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea las interacciones del usuario.
 
 <Sandpack>
 
@@ -450,7 +450,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -522,7 +522,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -593,7 +593,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -668,7 +668,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
+    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
   return (
@@ -728,7 +728,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -870,7 +870,7 @@ async function getData(url) {
 }
 
 async function getPosts() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -914,7 +914,7 @@ export default function TabContainer() {
         isActive={tab === 'about'}
         onClick={() => setTab('about')}
       >
-        About
+        Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
@@ -1064,7 +1064,7 @@ async function getData(url) {
 }
 
 async function getPosts() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -1374,7 +1374,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1386,7 +1386,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Agrega un falso retraso para que se note la espera.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });

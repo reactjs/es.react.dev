@@ -38,7 +38,7 @@ flushSync(() => {
 
 La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como último recurso.
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -53,7 +53,7 @@ La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como �
 
 * `flushSync` puede perjudicar significativamente el rendimiento. Utilízalo con moderación.
 * `flushSync` puede forzar que las barreras de Suspense pendientes muestren su estado de `fallback`.
-* `flushSync` puede ejecutar Efectos pendientes y aplicar sincrónicamente cualquier actualización que contengan antes de retornar.
+* `flushSync` puede ejecutar Efectos pendientes y aplicar sincrónicamente cualquier actualización que contengan antes de devolver.
 * `flushSync` puede ejecutar actualizaciones fuera del *callback* cuando sea necesario para ejecutar las actualizaciones dentro del *callback*. Por ejemplo, si hay actualizaciones pendientes de un clic, React puede ejecutarlas antes de ejecutar las actualizaciones dentro del *callback*.
 
 ---

@@ -16,12 +16,12 @@ La API JSON devuelve algunos datos como estos:
 
 ```json
 [
-  { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
-  { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
-  { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
-  { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
-  { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
-  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
+  { category: "Frutas", price: "$1", stocked: true, name: "Manzana" },
+  { category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón" },
+  { category: "Frutas", price: "$2", stocked: false, name: "Maracuyá" },
+  { category: "Verduras", price: "$2", stocked: true, name: "Espinaca" },
+  { category: "Verduras", price: "$4", stocked: false, name: "Calabaza" },
+  { category: "Verduras", price: "$1", stocked: true, name: "Guisantes" }
 ]
 ```
 
@@ -35,10 +35,10 @@ Para implementar una UI en React, a menudo seguirás los mismos cinco pasos.
 
 Comienza por dibujar cuadros alrededor de cada componente y subcomponente en el boceto y nómbralos. Si trabajas con un diseñador puede que ya les haya dado nombres a estos componentes en su herramienta de diseño. ¡Chequea primero!
 
-En dependencia de tu formación y experiencia, puedes pensar sobre la separación de un diseño en componentes de diferentes maneras: 
+Dependiendo de tu formación y experiencia, puedes pensar en dividir un diseño en componentes de distintas maneras:
 
-* **Programación**--usa las mismas técnicas para decidir si debes crear una nueva función u objeto. Una de esas técnicas es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_única), o sea, un componente debería hacer idealmente solo una cosa. Si termina creciendo, debería ser descompuesto en subcomponentes más pequeños.
-* **CSS**--considera para qué cosas hubieras creado selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
+* **Programación**--utiliza las mismas técnicas para decidir si debes crear una nueva función o un objeto. Una de estas técnicas es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_única), es decir, lo ideal es que un componente sólo haga una cosa. Si termina creciendo, debería descomponerse en subcomponentes más pequeños.
+* **CSS**--considera para qué harías selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
 * **Diseño**--considera cómo organizarías las capas del diseño.
 
 Si tu JSON está bien estructurado, a menudo encontrarás que se corresponde naturalmente con la estructura de componentes de tu UI. Esto ocurre porque la UI y los modelos de datos a menudo tienen la misma arquitectura de información--o sea, la misma forma. Separa tu UI en componentes, de manera que cada componente se corresponda con una pieza de tu modelo de datos.
@@ -61,7 +61,7 @@ Hay cinco componentes en esta pantalla:
 
 </FullWidth>
 
-Si miras a `ProductTable` (lavanda), verás que el encabezado de la tabla (que contiene las etiquetas "Name"  y "Price") no es un componente independiente. Esto es una cuestión de preferencias, y podrías hacerlo de ambas formas. Para este ejemplo, es parte de `ProductTable` porque aparece dentro de la lista de `ProductTable`. Sin embargo, si este encabezado crece y se vuelve complejo (por ejemplo, si añades ordenamiento), tendría sentido convertirlo en un componente independiente `ProductTableHeader`.
+Si miras a `ProductTable` (lavanda), verás que el encabezado de la tabla (que contiene las etiquetas "Nombre"  y "Precio") no es un componente independiente. Esto es una cuestión de preferencias, y podrías hacerlo de ambas formas. Para este ejemplo, es parte de `ProductTable` porque aparece dentro de la lista de `ProductTable`. Sin embargo, si este encabezado crece y se vuelve complejo (por ejemplo, si añades ordenamiento), tendría sentido convertirlo en un componente independiente `ProductTableHeader`.
 
 Ahora que has identificado los componentes en el boceto, ordénalos en una jerarquía:
 
@@ -77,7 +77,7 @@ Ahora que tienes tu jerarquía de componentes, es momento de implementar tu apli
 
 Para construir la versión estática de tu aplicación que renderiza tu modelo de datos querrás construir [componentes](/learn/your-first-component) que reutilicen otros componentes y pasen datos usando [props](/learn/passing-props-to-a-component). Las props son una forma de pasar datos de padres a hijos. (Si estás familiarizado con el concepto de [estado](/learn/state-a-components-memory) no utilices nada de estado para construir esta versión estática. El estado se reserva solo para la interactividad, o sea, datos que cambian con el tiempo. Dado que esto es una versión estática de la aplicación, no lo necesitas).
 
-Puedes o bien construir de "arriba a abajo" comenzando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) or de "abajo a arriba" trabajando con los componentes más abajo (como `ProductRow`). En ejemplos más simples, usualmente es más fácil ir de arriba a abajo, y en proyectos más grandes, es más fácil ir de abajo a arriba.
+Puedes construir "de arriba hacia abajo" empezando por construir los componentes más arriba en la jerarquía (como `FilterableProductTable`) o "de abajo hacia arriba" trabajando a partir de los componentes más abajo (como `ProductRow`). En ejemplos más simples, suele ser más fácil ir de arriba hacia abajo, y en proyectos más grandes, es más fácil ir de abajo hacia arriba.
 
 <Sandpack>
 
@@ -130,8 +130,8 @@ function ProductTable({ products }) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>Nombre</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -142,11 +142,11 @@ function ProductTable({ products }) {
 function SearchBar() {
   return (
     <form>
-      <input type="text" placeholder="Search..." />
+      <input type="text" placeholder="Buscar..." />
       <label>
         <input type="checkbox" />
         {' '}
-        Only show products in stock
+        Mostrar solo productos en stock
       </label>
     </form>
   );
@@ -162,12 +162,12 @@ function FilterableProductTable({ products }) {
 }
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  {category: "Frutas", price: "$1", stocked: true, name: "Manzana"},
+  {category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón"},
+  {category: "Frutas", price: "$2", stocked: false, name: "Maracuyá"},
+  {category: "Verduras", price: "$2", stocked: true, name: "Espinaca"},
+  {category: "Verduras", price: "$4", stocked: false, name: "Calabaza"},
+  {category: "Verduras", price: "$1", stocked: true, name: "Guisantes"}
 ];
 
 export default function App() {
@@ -250,7 +250,7 @@ Las props y el estado son diferentes, pero trabajan en conjunto. Un componente p
 
 ## Paso 4: Identificar dónde debe vivir tu estado {/*step-4-identify-where-your-state-should-live*/}
 
-Después de identificar los datos mínimos de estado de tu aplicación, debes identificar qué componente es responsable de cambiar este estado, o *posee** el estado. Recuerda: React utiliza un flujo de datos en una sola dirección, pasando datos hacia abajo de la jerarquía de componentes desde el componente padre al hijo. Puede no ser inmediatamente claro qué componente debe poseer qué estado. Esto puede suponer un resto si este concepto es nuevo para ti, pero puedes lograrlo si sigues los siguientes pasos.
+Después de identificar los datos mínimos de estado de tu aplicación, debes identificar qué componente es responsable de cambiar este estado, o *posee* el estado. Recuerda: React utiliza un flujo de datos en una sola dirección, pasando datos hacia abajo de la jerarquía de componentes desde el componente padre al hijo. Puede no ser inmediatamente claro qué componente debe poseer qué estado. Esto puede suponer un reto si este concepto es nuevo para ti, pero puedes lograrlo si sigues los siguientes pasos.
 
 Por cada pieza de estado en tu aplicación:
 
@@ -258,7 +258,7 @@ Por cada pieza de estado en tu aplicación:
 2. Encuentra su componente ancestro común más cercano--un componente que esté encima de todos en la jerarquía
 3. Decide dónde debe residir el estado:
    1. A menudo, puedes poner el estado directamente en su ancestro común.
-   2. También puedes poner el estado en algún componete encima de su ancestro común.
+   2. También puedes poner el estado en algún componente encima de su ancestro común.
    3. Si no puedes encontrar un componente donde tiene sentido poseer el estado, crea un nuevo componente solo para almacenar ese estado y añádelo en algún lugar de la jerarquía encima del componente ancestro común.
 
 En el paso anterior, encontraste dos elementos de estado en esta aplicación: el texto de la barra de búsqueda, y el valor del *checkbox*. En este ejemplo, siempre aparecen juntos, por lo que es más fácil pensar en ellos como un solo elemento de estado.
@@ -273,7 +273,7 @@ Ahora utilicemos nuestra estrategia para este estado:
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 
-Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten "engancharte" al [ciclo de renderizado](/learn/render-and-commit) de un componente (N. de T.: *hook* en inglés se puede traducir como "gancho"). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
+Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten "engancharte" al [ciclo de renderizado](/learn/render-and-commit) de un componente (<abbr title="Nota de Traducción">N. de T.</abbr>: *hook* en inglés se puede traducir como "gancho"). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
 
 ```js
 function FilterableProductTable({ products }) {
@@ -377,8 +377,8 @@ function ProductTable({ products, filterText, inStockOnly }) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>Nombre</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -392,25 +392,25 @@ function SearchBar({ filterText, inStockOnly }) {
       <input 
         type="text" 
         value={filterText} 
-        placeholder="Search..."/>
+        placeholder="Buscar..."/>
       <label>
         <input 
           type="checkbox" 
           checked={inStockOnly} />
         {' '}
-        Only show products in stock
+        Mostrar solo productos en stock
       </label>
     </form>
   );
 }
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  {category: "Frutas", price: "$1", stocked: true, name: "Manzana"},
+  {category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón"},
+  {category: "Frutas", price: "$2", stocked: false, name: "Maracuyá"},
+  {category: "Verduras", price: "$2", stocked: true, name: "Espinaca"},
+  {category: "Verduras", price: "$4", stocked: false, name: "Calabaza"},
+  {category: "Verduras", price: "$1", stocked: true, name: "Guisantes"}
 ];
 
 export default function App() {
@@ -441,7 +441,7 @@ Nota que editar el formulario aún no funciona. Hay un error en la consola del _
 
 <ConsoleBlock level="error">
 
-You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field. (Has proporcionado una prop \`value\` a un campo de un formulario sin el manejador de eventos \`onChange\`. Esto hará que se renderice un campo de solo lectura.)
+Warning: You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field.<div>**(Traducción)**</div>Advertencia: Has proporcionado una prop \`value\` a un campo de un formulario sin el controlador de evento \`onChange\`. Esto hará que se renderice un campo de solo lectura.
 
 </ConsoleBlock>
 
@@ -454,7 +454,7 @@ function SearchBar({ filterText, inStockOnly }) {
       <input 
         type="text" 
         value={filterText} 
-        placeholder="Search..."/>
+        placeholder="Buscar..."/>
 ```
 
 Sin embargo, no has añadido ningún código para responder a las acciones del usuario como la escritura en el teclado. Este será tu último paso.
@@ -482,13 +482,13 @@ function FilterableProductTable({ products }) {
         onInStockOnlyChange={setInStockOnly} />
 ```
 
-Dentro de `SearchBar`, añadirás el manejador del evento `onChange` y modificarás el estado del padre desde allí:
+Dentro de `SearchBar`, añadirás el controlador de evento `onChange` y modificarás el estado del padre desde allí:
 
 ```js {5}
 <input 
   type="text" 
   value={filterText} 
-  placeholder="Search..." 
+  placeholder="Buscar..." 
   onChange={(e) => onFilterTextChange(e.target.value)} />
 ```
 
@@ -576,8 +576,8 @@ function ProductTable({ products, filterText, inStockOnly }) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>Nombre</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -595,7 +595,7 @@ function SearchBar({
     <form>
       <input 
         type="text" 
-        value={filterText} placeholder="Search..." 
+        value={filterText} placeholder="Buscar..." 
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
         <input 
@@ -603,19 +603,19 @@ function SearchBar({
           checked={inStockOnly} 
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
-        Only show products in stock
+        Mostrar solo productos en stock
       </label>
     </form>
   );
 }
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  {category: "Frutas", price: "$1", stocked: true, name: "Manzana"},
+  {category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón"},
+  {category: "Frutas", price: "$2", stocked: false, name: "Maracuyá"},
+  {category: "Verduras", price: "$2", stocked: true, name: "Espinaca"},
+  {category: "Verduras", price: "$4", stocked: false, name: "Calabaza"},
+  {category: "Verduras", price: "$1", stocked: true, name: "Guisantes"}
 ];
 
 export default function App() {
@@ -642,7 +642,7 @@ td {
 
 </Sandpack>
 
-Puedes aprender todo sobre el manejo de eventos y actualizar el estado en la sección [Añadir interactividad](/learn/adding-interactivity).
+Puedes aprender todo sobre el control de eventos y actualizar el estado en la sección [Añadir interactividad](/learn/adding-interactivity).
 
 ## ¿A dónde ir a partir de aquí? {/*where-to-go-from-here*/}
 

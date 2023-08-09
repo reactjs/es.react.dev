@@ -1,5 +1,5 @@
 ---
-title: 'Reutilización de lógica con Hooks personalizados'
+title: 'Reutilizar la lógica con hooks personalizados'
 ---
 
 <Intro>
@@ -148,7 +148,7 @@ function useOnlineStatus() {
 }
 ```
 
-En el final de la función, retorna `isOnline`. Esto permite a tus componentes leer ese valor:
+En el final de la función, devuelve `isOnline`. Esto permite a tus componentes leer ese valor:
 
 <Sandpack>
 
@@ -221,8 +221,8 @@ Las aplicaciones de React están construidas por componentes. Los componentes so
 
 Debes seguir estas convenciones de nomenclatura:
 
-1. **Los nombres de componentes de React deben empezar con mayúscula,** como `StatusBar` y `SaveButton`. Los componentes de React también necesitan retornar algo que React conozca cómo mostrar, como un bloque de JSX
-2. **Los nombres de Hooks deben empezar con `use` seguido por una mayúscula,** como [`useState`](/reference/react/useState) (integrado) o `useOnlineStatus` (personalizado, como antes en la página). Los Hooks pueden retornar valores arbitrarios.
+1. **Los nombres de componentes de React deben empezar con mayúscula,** como `StatusBar` y `SaveButton`. Los componentes de React también necesitan devolver algo que React conozca cómo mostrar, como un bloque de JSX
+2. **Los nombres de Hooks deben empezar con `use` seguido por una mayúscula,** como [`useState`](/reference/react/useState) (integrado) o `useOnlineStatus` (personalizado, como antes en la página). Los Hooks pueden devolver valores arbitrarios.
 
 Esta convención garantiza que siempre puedas mirar un componente y saber dónde pueden "esconder" su estado, Efectos, y otras características de React. Por ejemplo, si ves una invocación de función denominada `getColor()` en tu componente, puedes estar seguro de que no contiene un estado de React, porque su nombre no empieza con `use`. Sin embargo, una invocación de función como `useOnlineStatus()`, probablemente contendrá otros Hooks.
 
@@ -468,7 +468,7 @@ export default function App() {
           onChange={e => setRoomId(e.target.value)}
         >
           <option value="general">general</option>
-          <option value="viajes">viajes</option>
+          <option value="viaje">viaje</option>
           <option value="música">música</option>
         </select>
       </label>
@@ -508,7 +508,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -637,7 +637,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -658,7 +658,7 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escoge la sala de chat:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
@@ -695,7 +695,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -807,7 +807,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Observa cómo estás tomando el valor de retorno de un Hook:
+Observa cómo estás tomando el valor de devolución de un Hook:
 
 ```js {2}
 export default function ChatRoom({ roomId }) {
@@ -923,7 +923,7 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 }
 ```
 
-Ahora el chat no se volverá a conectar cada vez que el componente `ChatRoom` se vuelva a renderizar. Aquí hay una demostración completamente funcional de pasar un controlador de eventos a un Hook personalizado con el que puedes manipular:
+Ahora el chat no se volverá a conectar cada vez que el componente `ChatRoom` se vuelva a renderizar. Aquí hay una demostración completamente funcional de pasar un controlador de evento a un Hook personalizado con el que puedes manipular:
 
 <Sandpack>
 
@@ -977,7 +977,7 @@ export default function ChatRoom({ roomId }) {
         URL del servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>¡Te doy la bienvenida a la sala {roomId}!</h1>
+      <h1>¡Bienvenido a la sala {roomId}!</h1>
     </>
   );
 }
@@ -1486,7 +1486,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1496,7 +1496,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1535,7 +1535,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1545,7 +1545,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1626,7 +1626,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1636,7 +1636,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1730,7 +1730,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1740,7 +1740,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1826,7 +1826,7 @@ import './welcome.css';
 function Welcome() {
   return (
     <h1 className="welcome">
-      Te doy la bienvenida
+      Bienvenido
     </h1>
   );
 }
@@ -1836,7 +1836,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Quitar' : 'Mostrar'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1976,7 +1976,7 @@ export default function Counter() {
   return (
     <>
       <label>
-        Duración de la marca: {delay} ms
+        Duración del tic: {delay} ms
         <br />
         <input
           type="range"
@@ -1987,7 +1987,7 @@ export default function Counter() {
         />
       </label>
       <hr />
-      <h1>Marcas: {count}</h1>
+      <h1>Tics: {count}</h1>
     </>
   );
 }
@@ -2012,7 +2012,7 @@ export function useCounter() {
 
 <Solution>
 
-Pasa el `delay` a tu Hook con `useCounter(delay)`. Luego, dentro del Hook, usa `delay` en lugar del valor escrito `1000`. Deberás agregar `delay` a las dependencias de tu Efecto. Esto asegura que el cambio en `delay` restablecerá el intervalo.
+Pasa el `delay` a tu Hook con `useCounter(delay)`. Luego, dentro del Hook, usa `delay` en lugar del valor escrito `1000`. Deberás agregar `delay` a las dependencias de tu Efecto. Esto asegura que el cambio en `delay` reiniciará el intervalo.
 
 <Sandpack>
 
@@ -2026,7 +2026,7 @@ export default function Counter() {
   return (
     <>
       <label>
-        Duración de la marca: {delay} ms
+        Duración del tic: {delay} ms
         <br />
         <input
           type="range"
@@ -2037,7 +2037,7 @@ export default function Counter() {
         />
       </label>
       <hr />
-      <h1>Marcas: {count}</h1>
+      <h1>Tics: {count}</h1>
     </>
   );
 }
@@ -2181,7 +2181,7 @@ Después de arreglar el problema, deberías esperar que el fondo de la página s
 
 <Hint>
 
-Parece que tu Hook `useInterval` acepta un manejador de eventos como un argumento. ¿Puedes pensar en alguna forma de envolver ese manejador de eventos para que no tenga que ser una dependencia de tu Efecto?
+Parece que tu Hook `useInterval` acepta un controlador de evento como un argumento. ¿Puedes pensar en alguna forma de envolver ese controlador de evento para que no tenga que ser una dependencia de tu Efecto?
 
 </Hint>
 
@@ -2252,7 +2252,7 @@ export function useInterval(onTick, delay) {
 
 Dentro de `useInterval`, envuelve el callback del marcador en un Evento de Efecto, como lo hiciste [anteriormente en esta página.](/learn/reusing-logic-with-custom-hooks#passing-event-handlers-to-custom-hooks)
 
-Esto te permitirá omitir `onTick` de las dependencias de tu Efecto. El Efecto no volverá a sincronizarse en cada nuevo renderizado del componente, entonces el cambio de color de fondo de la página no se restablecerá cada segundo antes de que tenga la oportunidad de activarse.
+Esto te permitirá omitir `onTick` de las dependencias de tu Efecto. El Efecto no volverá a sincronizarse en cada nuevo renderizado del componente, entonces el cambio de color de fondo de la página no se reiniciará cada segundo antes de que tenga la oportunidad de activarse.
 
 Con este cambio, ambos intervalos funcionan como se esperaba y no interfieren entre sí:
 
@@ -2327,7 +2327,7 @@ En este ejemplo, el Hook `usePointerPosition()` rastrea la posición actual del 
 
 De hecho, se renderizan cinco (!) puntos rojos diferentes. No los ves porque actualmente todos aparecen en la misma posición. Esto es lo que necesitas arreglar. Lo que quieres implementar en su lugar es un movimiento "escalonado": cada punto debe "seguir" el camino del punto anterior. Por ejemplo, si mueves rápidamente el cursor, el primer punto debería seguirlo inmediatamente, el segundo punto debería seguir el primer punto con un pequeño retraso, el tercer punto debería seguir al segundo punto, y así sucesivamente.
 
-Necesitas implementar el Hook personalizado `useDelayedValue`. Su implementación actual retorna el `value` proporcionado. En su lugar, quieres retornar el valor de vuelta de `delay` hace ciertos milisegundos. Es posible que necesites algún estado y un Efecto para hacer esto.
+Necesitas implementar el Hook personalizado `useDelayedValue`. Su implementación actual devuelve el `value` proporcionado. En su lugar, quieres devolver el valor de vuelta de `delay` hace ciertos milisegundos. Es posible que necesites algún estado y un Efecto para hacer esto.
 
 Después de implementar `useDelayedValue`, deberías ver que los puntos se mueven uno tras otro.
 
@@ -2485,7 +2485,7 @@ body { min-height: 300px; }
 
 </Sandpack>
 
-Ten en cuenta que este Efecto *no* necesita limpieza. Si invocas `clearTimeout` en la función de limpieza, entonces cada vez que `value` cambia, restablecerá el tiempo de espera ya programado. Para mantener el movimiento continuo, quieres que se disparen todos los tiempos de espera.
+Ten en cuenta que este Efecto *no* necesita limpieza. Si invocas `clearTimeout` en la función de limpieza, entonces cada vez que `value` cambia, reiniciará el tiempo de espera ya programado. Para mantener el movimiento continuo, quieres que se disparen todos los tiempos de espera.
 
 </Solution>
 

@@ -38,7 +38,7 @@ hydrate(reactNode, domNode);
 
 React se unirá al HTML que existe dentro del nodo DOM `domNode`, y se encargará de gestionar el DOM dentro de él. Una aplicación completamente construida con React normalmente sólo tendrá una llamada a `hydrate` con su componente raíz.
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -48,7 +48,7 @@ React se unirá al HTML que existe dentro del nodo DOM `domNode`, y se encargar�
 
 * **optional**: `callback`: Es una función. Si se pasa, React la llamará después de que tu componente se haya hidratado.
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `hydrate` devuelve null.
 
@@ -74,7 +74,7 @@ Utilizar `hydrate()` para renderizar una aplicación del lado del cliente (una a
 
 ### Hidratar HTML renderizado por el servidor {/*hydrating-server-rendered-html*/}
 
-En React, la "hidratación" es la forma en que React se "adhiere" al HTML existente que ya fue renderizado por React en un entorno de servidor. Durante la hidratación, React intentará adjuntar manejadores de eventos al marcado existente y se encargará de renderizar la aplicación en el cliente.
+En React, la "hidratación" es la forma en que React se "adhiere" al HTML existente que ya fue renderizado por React en un entorno de servidor. Durante la hidratación, React intentará adjuntar controladores de eventos al marcado existente y se encargará de renderizar la aplicación en el cliente.
 
 En las aplicaciones totalmente construidas con React, **sólo se hidratará una "raíz", una vez al inicio para toda la aplicación**.
 
@@ -85,7 +85,7 @@ En las aplicaciones totalmente construidas con React, **sólo se hidratará una 
   HTML content inside <div id="root">...</div>
   was generated from App by react-dom/server.
 -->
-<div id="root"><h1>Hello, world!</h1></div>
+<div id="root"><h1>¡Hola, mundo!</h1></div>
 ```
 
 ```js index.js active
@@ -98,7 +98,7 @@ hydrate(<App />, document.getElementById('root'));
 
 ```js App.js
 export default function App() {
-  return <h1>Hello, world!</h1>;
+  return <h1>¡Hola, mundo!</h1>;
 }
 ```
 

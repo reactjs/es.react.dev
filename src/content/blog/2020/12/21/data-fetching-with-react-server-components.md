@@ -1,5 +1,5 @@
 ---
-title: "Presentación de los Componentes de React en el Servidor"
+title: "Presentación de los componentes de React en el servidor"
 ---
 
 21 de diciembre de 2020 por [Dan Abramov](https://twitter.com/dan_abramov), [Lauren Tan](https://twitter.com/potetotes), [Joseph Savona](https://twitter.com/en_JS) y [Sebastian Markbåge](https://twitter.com/sebmarkbage)

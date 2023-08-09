@@ -40,7 +40,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -65,6 +65,7 @@ Lee **[Tu primer componente](/learn/your-first-component)** para que aprendas c�
 
 Es posible declarar muchos componentes en un archivo, pero los archivos grandes pueden resultar difíciles de navegar. Como solución, puedes *exportar* un componente a su propio archivo, y luego *importar* ese componente desde otro archivo:
 
+
 <Sandpack>
 
 ```js App.js hidden
@@ -83,7 +84,7 @@ import Profile from './Profile.js';
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Científicos increíbles</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -126,17 +127,17 @@ Si pegamos marcado existente HTML en un componente de React, no funcionará siem
 ```js
 export default function TodoList() {
   return (
-    // This doesn't quite work!
-    <h1>Hedy Lamarr's Todos</h1>
+    // ¡Esto no funciona!
+    <h1>Tareas Pendientes de Hedy Lamarr</h1>
     <img
       src="https://i.imgur.com/yXOvdOSs.jpg"
       alt="Hedy Lamarr"
       class="photo"
     >
     <ul>
-      <li>Invent new traffic lights
-      <li>Rehearse a movie scene
-      <li>Improve spectrum technology
+      <li>Inventar nuevo semáforo
+      <li>Ensayar la escena de la película
+      <li>Mejorar la tecnología del espectro
     </ul>
   );
 }
@@ -156,16 +157,16 @@ Si tienes HTML existente como este, puedes arreglarlo usando un [convertidor](ht
 export default function TodoList() {
   return (
     <>
-      <h1>Hedy Lamarr's Todos</h1>
+      <h1>Tareas Pendientes de Hedy Lamarr</h1>
       <img
         src="https://i.imgur.com/yXOvdOSs.jpg"
         alt="Hedy Lamarr"
         className="photo"
       />
       <ul>
-        <li>Invent new traffic lights</li>
-        <li>Rehearse a movie scene</li>
-        <li>Improve spectrum technology</li>
+        <li>Inventar nuevo semáforo</li>
+        <li>Ensayar la escena de la película</li>
+        <li>Mejorar la tecnología del espectro</li>
       </ul>
     </>
   );
@@ -202,16 +203,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas Pendientes de {person.name}</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Mejorar el videoteléfono</li>
+        <li>Preparar clases de aeronáutica</li>
+        <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -228,7 +229,7 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Lee **[JavaScript y JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
+Lee **[JavaScript en JSX con llaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender cómo acceder a JavaScript desde JSX.
 
 </LearnMore>
 
@@ -333,19 +334,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
         <Item
           isPacked={true}
-          name="Space suit"
+          name="Traje de vuelo"
         />
         <Item
           isPacked={true}
-          name="Helmet with a golden leaf"
+          name="Casco con dorado a la hoja"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
+          name="Fotografía de Tam"
         />
       </ul>
     </section>
@@ -365,7 +366,7 @@ Lee **[Renderizado condicional](/learn/conditional-rendering)** para aprender la
 
 A menudo querrás mostrar múltiples componentes similares a partir de una colección de datos. Puedes utilizar `filter()` y `map()` de JavaScript junto con React para filtrar y transformar tus arreglos de datos en un arreglo de componentes.
 
-Para cada elemento del arreglo, deberás especificar una llave (la prop `key`). Usualmente, querrás usar un ID de la base de datos como `key`. Las llaves le permiten a React seguir el lugar de cada elemento en la lista aún cuando la lista cambie.
+Para cada elemento del arreglo, deberás especificar una prop `key`. Usualmente, querrás usar un ID de la base de datos como `key`. Las `key` le permiten a React seguir el lugar de cada elemento en la lista aún cuando la lista cambie.
 
 <Sandpack>
 
@@ -383,13 +384,13 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        conocido/a por {person.accomplishment}
       </p>
     </li>
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Científicos</h1>
       <ul>{listItems}</ul>
     </article>
   );
@@ -400,32 +401,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matemática',
+  accomplishment: 'los cálculos de vuelos espaciales',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
-  name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  name: 'José Mario Molina-Pasquel Henríquez',
+  profession: 'químico',
+  accomplishment: 'el descubrimiento del agujero de ozono en el Ártico',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'físico',
+  accomplishment: 'la teoría del electromagnetismo',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'químico',
+  accomplishment: 'ser pionero en el uso de cortisona, esteroides y píldoras anticonceptivas',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofísico',
+  accomplishment: 'los cálculos de masa de estrellas enanas blancas',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -457,7 +458,7 @@ h2 { font-size: 20px; }
 
 <LearnMore path="/learn/rendering-lists">
 
-Lee **[Renderizado de listas](/learn/rendering-lists)** para aprender cómo renderizar una lista de componentes, y cómo elegir una llave.
+Lee **[Renderizado de listas](/learn/rendering-lists)** para aprender cómo renderizar una lista de componentes, y cómo elegir una `key`.
 
 </LearnMore>
 
@@ -476,9 +477,9 @@ Si de forma estricta solo escribes tus componentes como funciones puras, puedes 
 let guest = 0;
 
 function Cup() {
-  // Bad: changing a preexisting variable!
+  // Mal: ¡cambiar una variable preexistente!
   guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Taza de té para invitado #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -500,7 +501,7 @@ Puedes hacer este componente puro pasando una prop en lugar de modificar una var
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Taza de té para invitado #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -526,4 +527,4 @@ Lee **[Mantener los componentes puros](/learn/keeping-components-pure)** para ap
 
 ¡Dirígete a [Tu primer componente](/learn/your-first-component) para que comiences a leer este capítulo página por página!
 
-O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Añadir interactividad](/learn/adding-interactivity)?
+O, si ya te resultan familiares estos temas, ¿por qué no leer sobre cómo [Agregar interactividad](/learn/adding-interactivity)?

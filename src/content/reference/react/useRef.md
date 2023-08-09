@@ -31,7 +31,7 @@ function MyComponent() {
   // ...
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -104,7 +104,7 @@ El cambio de una ref no desencadena un renderizado, por lo que las refs no son a
 
 #### Contador de clics {/*click-counter*/}
 
-Este componente utiliza una ref para llevar la cuenta de las veces que se ha pulsado el botón. Ten en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un manejador de eventos.
+Este componente utiliza una ref para llevar la cuenta de las veces que hiciste clic en el botón. Ten en cuenta que está bien usar una ref en lugar de un estado aquí porque el recuento de clics sólo se lee y se escribe en un controlador de evento.
 
 <Sandpack>
 
@@ -116,12 +116,12 @@ export default function Counter() {
 
   function handleClick() {
     ref.current = ref.current + 1;
-    alert('You clicked ' + ref.current + ' times!');
+    alert('¡Hiciste clic ' + ref.current + ' veces!');
   }
 
   return (
     <button onClick={handleClick}>
-      Click me!
+      ¡Hazme clic!
     </button>
   );
 }
@@ -208,7 +208,7 @@ function MyComponent() {
 }
 ```
 
-Puedes, en su lugar, leer o escribir refs **desde manejadores de eventos o efectos**.
+Puedes, en su lugar, leer o escribir refs **desde controladores de eventos o efectos**.
 
 ```js {4-5,9-10}
 function MyComponent() {
@@ -219,7 +219,7 @@ function MyComponent() {
   });
   // ...
   function handleClick() {
-    // ✅ Puedes leer o escribir refs en los manejadores de eventos
+    // ✅ Puedes leer o escribir refs en los controladores de eventos
     doSomething(myOtherRef.current);
   }
   // ...
@@ -228,7 +228,7 @@ function MyComponent() {
 
 Si *tienes* que leer [o escribir](/reference/react/useState#storing-information-from-previous-renders) algo durante el renderizado, [utiliza el estado](/reference/react/useState) en su lugar.
 
-Si rompes estas reglas, tu componente puede seguir funcionando, pero la mayoría de las nuevas características que estamos añadiendo a React se basarán en estas expectativas. Lee más sobre [mantener tus componentes puros.](/learn/keeping-components-pure#where-you-can-cause-side-effects)
+Si rompes estas reglas, tu componente puede seguir funcionando, pero la mayoría de las nuevas características que estamos añadiendo a React se basarán en estas expectativas. Lee más sobre [mantener tus componentes puros.](/learn/keeping-components-pure#where-you-_can_-cause-side-effects)
 
 </Pitfall>
 
@@ -532,7 +532,7 @@ function Video() {
   // ...
 ```
 
-Aquí, el propio `playerRef` puede ser `null`. Sin embargo, deberías ser capaz de convencer a tu comprobador de tipos de que no hay ningún caso en el que `getPlayer()` devuelva `null`. Luego usa `getPlayer()` en tus manejadores de eventos.
+Aquí, el propio `playerRef` puede ser `null`. Sin embargo, deberías ser capaz de convencer a tu comprobador de tipos de que no hay ningún caso en el que `getPlayer()` devuelva `null`. Luego usa `getPlayer()` en tus controladores de eventos.
 
 </DeepDive>
 
@@ -554,7 +554,7 @@ Es posible que aparezca un error en la consola:
 
 <ConsoleBlock level="error">
 
-Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()? (Advertencia: Los componentes de función no pueden recibir refs. Los intentos de acceso a esta ref fallarán. ¿Era tu intención usar React.forwardRef()?)
+Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?<div>**(Traducción)**</div>Advertencia: Componentes de función no pueden recibir refs. Los intentos de acceder a esta ref fallarán. ¿Querías usar React.forwardRef()?
 
 </ConsoleBlock>
 

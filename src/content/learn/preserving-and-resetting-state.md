@@ -1,10 +1,10 @@
 ---
-title: Conservar y reiniciar el estado
+title: Preservar y reiniciar el estado
 ---
  
 <Intro>
 
-El estado está aislado entre los componentes. React mantiene un registro de qué estado pertenece a qué componente basándose en su lugar en el árbol de la interfaz de usuario (UI). Puedes controlar cuándo conservar el estado y cuándo restablecerlo entre rerenderizados.
+El estado está aislado entre los componentes. React mantiene un registro de qué estado pertenece a qué componente basándose en su lugar en el árbol de la interfaz de usuario (UI). Puedes controlar cuándo preservar el estado y cuándo reiniciarlo entre rerenderizados.
 
 </Intro>
 
@@ -12,7 +12,7 @@ El estado está aislado entre los componentes. React mantiene un registro de qu�
 
 * Cómo React "ve" las estructuras de los componentes
 * Cuándo React elige preservar o reiniciar el estado
-* Cómo forzar a React a restablecer el estado del componente
+* Cómo forzar a React a reiniciar el estado del componente
 * Cómo las claves y los tipos afectan a la preservación del estado
 
 </YouWillLearn>
@@ -33,7 +33,7 @@ A partir de los componentes, React crea un árbol de interfaz de usuario que Rea
 
 </DiagramGroup>
 
-## State is tied to a position in the tree {/*state-is-tied-to-a-position-in-the-tree*/}
+## El estado está atado a una posición en el árbol {/*state-is-tied-to-a-position-in-the-tree*/}
 
 Cuando se le da un estado a un componente, podrías pensar que el estado "vive" dentro del componente. Pero en realidad el estado se mantiene en React. React asocia cada pieza de estado que mantiene con el componente correcto gracias al lugar que ocupa ese componente en el árbol de la UI.
 
@@ -72,7 +72,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -151,7 +151,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -190,7 +190,7 @@ Actualización del estado
 </DiagramGroup>
 
 
-React mantendrá el estado mientras se renderice el mismo componente en la misma posición. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Render the second counter", y luego vuelve a añadirlo marcándola de nuevo:
+React mantendrá el estado mientras se renderice el mismo componente en la misma posición. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Renderizar el segundo contador", y luego vuelve a añadirlo marcándola de nuevo:
 
 <Sandpack>
 
@@ -211,7 +211,7 @@ export default function App() {
             setShowB(e.target.checked)
           }}
         />
-        Render the second counter
+        Renderizar el segundo contador
       </label>
     </div>
   );
@@ -234,7 +234,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -290,7 +290,7 @@ Añadiendo un componente
 
 **React preserva el estado de un componente mientras se renderiza en su posición en el árbol de la interfaz de usuario.** Si se elimina, o se renderiza un componente diferente en la misma posición, React descarta su estado.
 
-## El mismo componente en la misma posición conserva el estado {/*same-component-at-the-same-position-preserves-state*/}
+## El mismo componente en la misma posición preserva el estado {/*same-component-at-the-same-position-preserves-state*/}
 
 En este ejemplo, hay dos tipos diferentes de etiquetas `<Counter />`:
 
@@ -316,7 +316,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Usar un estilo elegante
       </label>
     </div>
   );
@@ -342,7 +342,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -415,7 +415,7 @@ export default function App() {
               setIsFancy(e.target.checked)
             }}
           />
-          Use fancy styling
+          Usar un estilo elegante
         </label>
       </div>
     );
@@ -431,7 +431,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Usar un estilo elegante
       </label>
     </div>
   );
@@ -457,7 +457,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -492,7 +492,7 @@ label {
 
 </Sandpack>
 
-Se podría esperar que el estado se restableciera al marcar la casilla de verificación, pero no es así. Esto se debe a que **las dos etiquetas `<Counter />` se renderizan en la misma posición.** React no sabe dónde colocas las condiciones en tu función. Todo lo que "ve" es el árbol que devuelves. En ambos casos, el componente `App` devuelve un `<div>` con `<Counter />` como primer hijo. Por eso React los considera como _el mismo_ `<Counter />`.
+Se podría esperar que el estado se reiniciara al marcar la casilla de verificación, pero no es así. Esto se debe a que **las dos etiquetas `<Counter />` se renderizan en la misma posición.** React no sabe dónde colocas las condiciones en tu función. Todo lo que "ve" es el árbol que devuelves. En ambos casos, el componente `App` devuelve un `<div>` con `<Counter />` como primer hijo. Por eso React los considera como _el mismo_ `<Counter />`.
 
 Puedes pensar que tienen la misma "dirección": el primer hijo del primer hijo de la raíz. Así es como React los hace coincidir entre los renderizados anteriores y los siguientes, independientemente de cómo estructures tu lógica.
 
@@ -512,7 +512,7 @@ export default function App() {
   return (
     <div>
       {isPaused ? (
-        <p>See you later!</p> 
+        <p>¡Nos vemos luego!</p> 
       ) : (
         <Counter /> 
       )}
@@ -524,7 +524,7 @@ export default function App() {
             setIsPaused(e.target.checked)
           }}
         />
-        Take a break
+        Tómate un descanso
       </label>
     </div>
   );
@@ -547,7 +547,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -627,7 +627,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Usar un estilo elegante
       </label>
     </div>
   );
@@ -653,7 +653,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -688,7 +688,7 @@ label {
 
 </Sandpack>
 
-El estado del contador se restablece cuando se hace clic en la casilla de verificación. Aunque se renderiza un `Counter`, el primer hijo del `div` cambia de `div` a `section`. Cuando el `div` hijo se eliminó del DOM, todo el árbol debajo de él (incluyendo el `Counter` y su estado) se destruyó también.
+El estado del contador se reinicia cuando se hace clic en la casilla de verificación. Aunque se renderiza un `Counter`, el primer hijo del `div` cambia de `div` a `section`. Cuando el `div` hijo se eliminó del DOM, todo el árbol debajo de él (incluyendo el `Counter` y su estado) se destruyó también.
 
 <DiagramGroup>
 
@@ -742,7 +742,7 @@ export default function MyComponent() {
       <MyTextField />
       <button onClick={() => {
         setCounter(counter + 1)
-      }}>Clicked {counter} times</button>
+      }}>Hiciste clic {counter} veces</button>
     </>
   );
 }
@@ -776,7 +776,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        ¡Siguiente jugador!
       </button>
     </div>
   );
@@ -797,9 +797,9 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Puntos de {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -831,7 +831,7 @@ Actualmente, cuando se cambia de jugador, la puntuación se conserva. Los dos `C
 
 Pero conceptualmente, en esta aplicación deberían ser dos contadores separados. Podrían aparecer en el mismo lugar en la UI, pero uno es un contador para Taylor, y otro es un contador para Sarah.
 
-Hay dos maneras de restablecer el estado al cambiar entre ellos:
+Hay dos maneras de reiniciar el estado al cambiar entre ellos:
 
 1. Renderizar los componentes en diferentes posiciones
 2. Dar a cada componente una identidad explícita con `key`.
@@ -859,7 +859,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        ¡Siguiente jugador!
       </button>
     </div>
   );
@@ -880,9 +880,9 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Puntos de {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -911,7 +911,7 @@ h1 {
 </Sandpack>
 
 * Inicialmente, `isPlayerA` es `true`. Así que la primera posición contiene el estado `Counter`, y la segunda está vacía.
-* Cuando haces clic en el botón "Next player", la primera posición se borra, pero la segunda contiene ahora un 'Counter'.
+* Cuando haces clic en el botón "Siguiente jugador", la primera posición se borra, pero la segunda contiene ahora un 'Counter'.
 
 <DiagramGroup>
 
@@ -939,11 +939,11 @@ Pulsando "next" de nuevo
 
 Esta solución es conveniente cuando sólo tienes unos pocos componentes independientes renderizados en el mismo lugar. En este ejemplo, sólo tienes dos, por lo que no es una molestia renderizar ambos por separado en el JSX.
 
-### Option 2: Opción 2: Restablecer el estado con key {/*option-2-resetting-state-with-a-key*/}
+### Option 2: Opción 2: Reiniciar el estado con una _key_ {/*option-2-resetting-state-with-a-key*/}
 
-También hay otra forma, más genérica, de restablecer el estado de un componente.
+También hay otra forma, más genérica, de reiniciar el estado de un componente.
 
-Es posible que hayas visto `key` al [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) Las keys no son sólo para las listas. Puedes usar keys para que React distinga entre cualquier componente. Por defecto, React utiliza el orden dentro del padre ("primer contador", "segundo contador") para discernir entre los componentes. Pero las keys te permiten decirle a React que no es sólo un *primer* contador, o un *segundo* contador, sino un contador específico; por ejemplo, el contador de *Taylor*. De esta manera, React conocerá el contador de *Taylor* dondequiera que aparezca en el árbol!
+Es posible que hayas visto _`key`_ al [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) Las _keys_ no son sólo para las listas. Puedes usar _keys_ para que React distinga entre cualquier componente. Por defecto, React utiliza el orden dentro del padre ("primer contador", "segundo contador") para discernir entre los componentes. Pero las _keys_ te permiten decirle a React que no es sólo un *primer* contador, o un *segundo* contador, sino un contador específico; por ejemplo, el contador de *Taylor*. De esta manera, React conocerá el contador de *Taylor* dondequiera que aparezca en el árbol!
 
 En este ejemplo, los dos `<Counter />` no comparten estado aunque aparezcan en el mismo lugar en JSX:
 
@@ -964,7 +964,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        ¡Siguiente jugador!
       </button>
     </div>
   );
@@ -985,9 +985,9 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Puntos de {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Agregar uno
       </button>
     </div>
   );
@@ -1015,7 +1015,7 @@ h1 {
 
 </Sandpack>
 
-El cambio entre Taylor y Sarah no conserva el estado. Esto se debe a que **le asignaste diferentes `key`s:**
+El cambio entre Taylor y Sarah no preserva el estado. Esto se debe a que **le asignaste diferentes _`keys`_:**
 
 ```js
 {isPlayerA ? (
@@ -1025,17 +1025,17 @@ El cambio entre Taylor y Sarah no conserva el estado. Esto se debe a que **le as
 )}
 ```
 
-Especificar una `key` le dice a React que use la propia `key` como parte de la posición, en lugar de su orden dentro del padre. Por eso, aunque los renderices en el mismo lugar en JSX, desde la perspectiva de React, son dos contadores diferentes. Como resultado, nunca compartirán estado. Cada vez que un contador aparece en la pantalla, su estado se crea. Cada vez que se elimina, su estado se destruye. Alternar entre ellos reinicia su estado una y otra vez.
+Especificar una _`key`_ le dice a React que use la propia _`key`_ como parte de la posición, en lugar de su orden dentro del padre. Por eso, aunque los renderices en el mismo lugar en JSX, desde la perspectiva de React, son dos contadores diferentes. Como resultado, nunca compartirán estado. Cada vez que un contador aparece en la pantalla, su estado se crea. Cada vez que se elimina, su estado se destruye. Alternar entre ellos reinicia su estado una y otra vez.
 
 <Note>
 
-> Recuerda que las keys no son únicas globalmente. Sólo especifican la posición *dentro del padre*.
+> Recuerda que las _keys_ no son únicas globalmente. Sólo especifican la posición *dentro del padre*.
 
 </Note>
 
-### Restablecer un formulario con una key {/*resetting-a-form-with-a-key*/}
+### Reiniciar un formulario con una _key_ {/*resetting-a-form-with-a-key*/}
 
-Restablecer el estado con una key es especialmente útil cuando se trata de formularios.
+Reiniciar el estado con una _key_ es especialmente útil cuando se trata de formularios.
 
 En esta aplicación de chat, el componente `<Chat>` contiene el estado del cuadro de texto:
 
@@ -1100,11 +1100,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1205,11 +1205,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Chatear con ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Enviar a {contact.email}</button>
     </section>
   );
 }
@@ -1239,7 +1239,7 @@ textarea {
 
 <DeepDive>
 
-#### Preserving state for removed components {/*preserving-state-for-removed-components*/}
+#### Preservar el estado de los componentes removidos {/*preserving-state-for-removed-components*/}
 
 En una aplicación de chat real, probablemente querrás recuperar el estado de la entrada cuando el usuario vuelva a seleccionar el destinatario anterior. Hay algunas maneras de mantener el estado "vivo" para un componente que ya no es visible:
 
@@ -1247,7 +1247,7 @@ En una aplicación de chat real, probablemente querrás recuperar el estado de l
 - Podrías [subir el estado](/learn/sharing-state-between-components) y mantener el mensaje pendiente para cada destinatario en el componente padre. De esta manera, cuando los componentes hijos se eliminan, no importa, porque es el padre el que mantiene la información importante. Esta es la solución más común.
 También podrías utilizar una fuente diferente además del estado de React. Por ejemplo, probablemente quieras que el borrador de un mensaje persista incluso si el usuario cierra accidentalmente la página. Para implementar esto, podrías hacer que el componente `Chat` inicialice su estado leyendo de [`localStorage`](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage) y guardar los borradores allí también.
 
-Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptualmente distinto de un chat _con Bob_, por lo que tiene sentido dar una `key` al árbol `<Chat>` basado en el destinatario actual.
+Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptualmente distinto de un chat _con Bob_, por lo que tiene sentido dar una _`key`_ al árbol `<Chat>` basado en el destinatario actual.
 
 </DeepDive>
 
@@ -1255,8 +1255,8 @@ Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptua
 
 - React mantiene el estado mientras el mismo componente se renderice en la misma posición.
 - El estado no se mantiene en las etiquetas JSX. Se asocia a la posición del árbol en la que se coloca ese JSX.
-- Puedes forzar a un subárbol a restablecer su estado dándole una key diferente.
-- No anides las definiciones de los componentes, o restablecerás el estado por accidente.
+- Puedes forzar a un subárbol a reiniciar su estado dándole una _key_ diferente.
+- No anides las definiciones de los componentes, o reiniciarás el estado por accidente.
 
 </Recap>
 
@@ -1266,7 +1266,7 @@ Independientemente de la estrategia que elijas, un chat _con Alice_ es conceptua
 
 #### Corregir la desaparición del texto de entrada {/*fix-disappearing-input-text*/}
 
-Este ejemplo muestra un mensaje cuando se pulsa el botón. Sin embargo, al pulsar el botón también se reinicia accidentalmente la entrada. ¿Por qué ocurre esto? Arréglalo para que al pulsar el botón no se restablezca el texto de entrada.
+Este ejemplo muestra un mensaje cuando se pulsa el botón. Sin embargo, al pulsar el botón también se reinicia accidentalmente la entrada. ¿Por qué ocurre esto? Arréglalo para que al pulsar el botón no se reinicie el texto de entrada.
 
 <Sandpack>
 
@@ -1278,11 +1278,11 @@ export default function App() {
   if (showHint) {
     return (
       <div>
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Pista: ¿Tu ciudad favorita?</i></p>
         <Form />
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ocultar pista</button>
       </div>
     );
   }
@@ -1291,7 +1291,7 @@ export default function App() {
       <Form />
       <button onClick={() => {
         setShowHint(true);
-      }}>Show hint</button>
+      }}>Mostrar pista</button>
     </div>
   );
 }
@@ -1315,7 +1315,7 @@ textarea { display: block; margin: 10px 0; }
 
 <Solution>
 
-El problema es que `Form` se renderiza en diferentes posiciones. En la rama `if`, es el segundo hijo del `<div>`, pero en la rama `else`, es el primer hijo. Por lo tanto, el tipo de componente en cada posición cambia. La primera posición cambia entre tener un `p` y un `Form`, mientras que la segunda posición cambia entre tener un `Form` y un `button`. React restablece el estado cada vez que cambia el tipo de componente.
+El problema es que `Form` se renderiza en diferentes posiciones. En la rama `if`, es el segundo hijo del `<div>`, pero en la rama `else`, es el primer hijo. Por lo tanto, el tipo de componente en cada posición cambia. La primera posición cambia entre tener un `p` y un `Form`, mientras que la segunda posición cambia entre tener un `Form` y un `button`. React reinicia el estado cada vez que cambia el tipo de componente.
 
 La solución más sencilla es unificar las ramas para que `Form` se renderice siempre en la misma posición:
 
@@ -1329,17 +1329,17 @@ export default function App() {
   return (
     <div>
       {showHint &&
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Pista: ¿Tu ciudad favorita?</i></p>
       }
       <Form />
       {showHint ? (
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ocultar pista</button>
       ) : (
         <button onClick={() => {
           setShowHint(true);
-        }}>Show hint</button>
+        }}>Mostrar pista</button>
       )}
     </div>
   );
@@ -1375,11 +1375,11 @@ export default function App() {
   if (showHint) {
     return (
       <div>
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Pista: ¿Tu ciudad favorita?</i></p>
         <Form />
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ocultar pista</button>
       </div>
     );
   }
@@ -1389,7 +1389,7 @@ export default function App() {
       <Form />
       <button onClick={() => {
         setShowHint(true);
-      }}>Show hint</button>
+      }}>Mostrar pista</button>
     </div>
   );
 }
@@ -1417,9 +1417,9 @@ De esta manera, `Form` es siempre el segundo hijo, por lo que permanece en la mi
 
 #### Intercambiar dos campos de formulario {/*swap-two-form-fields*/}
 
-Este formulario permite introducir el nombre y los apellidos. También tiene una casilla de verificación que controla qué campo va primero. Si marca la casilla, el campo "Last name" aparecerá antes que el campo "First name".
+Este formulario permite introducir el nombre y los apellidos. También tiene una casilla de verificación que controla qué campo va primero. Si marca la casilla, el campo "Apellido" aparecerá antes que el campo "Nombre".
 
-Casi funciona, pero hay un error. Si rellenas la entrada "First name" y marcas la casilla, el texto se queda en la primera entrada (que ahora es "Last name"). Arréglalo para que el texto de la entrada *también* se mueva cuando inviertas el orden.
+Casi funciona, pero hay un error. Si rellenas la entrada "Nombre" y marcas la casilla, el texto se queda en la primera entrada (que ahora es "Apellido"). Arréglalo para que el texto de la entrada *también* se mueva cuando inviertas el orden.
 
 <Hint>
 
@@ -1441,22 +1441,22 @@ export default function App() {
         checked={reverse}
         onChange={e => setReverse(e.target.checked)}
       />
-      Reverse order
+      Invertir el orden
     </label>
   );
   if (reverse) {
     return (
       <>
-        <Field label="Last name" /> 
-        <Field label="First name" />
+        <Field label="Apellido" /> 
+        <Field label="Nombre" />
         {checkbox}
       </>
     );
   } else {
     return (
       <>
-        <Field label="First name" /> 
-        <Field label="Last name" />
+        <Field label="Nombre" /> 
+        <Field label="Apellido" />
         {checkbox}
       </>
     );    
@@ -1487,7 +1487,7 @@ label { display: block; margin: 10px 0; }
 
 <Solution>
 
-Da una `key` a ambos componentes `<Field>` en ambas ramas `if` y `else`. Esto le dice a React cómo "emparejar" el estado correcto para cualquiera de los dos `<Field>` incluso si su orden dentro del padre cambia:
+Da una _`key`_ a ambos componentes `<Field>` en ambas ramas `if` y `else`. Esto le dice a React cómo "emparejar" el estado correcto para cualquiera de los dos `<Field>` incluso si su orden dentro del padre cambia:
 
 <Sandpack>
 
@@ -1503,22 +1503,22 @@ export default function App() {
         checked={reverse}
         onChange={e => setReverse(e.target.checked)}
       />
-      Reverse order
+      Invertir el orden
     </label>
   );
   if (reverse) {
     return (
       <>
-        <Field key="lastName" label="Last name" /> 
-        <Field key="firstName" label="First name" />
+        <Field key="lastName" label="Apellido" /> 
+        <Field key="firstName" label="Nombre" />
         {checkbox}
       </>
     );
   } else {
     return (
       <>
-        <Field key="firstName" label="First name" /> 
-        <Field key="lastName" label="Last name" />
+        <Field key="firstName" label="Nombre" /> 
+        <Field key="lastName" label="Apellido" />
         {checkbox}
       </>
     );    
@@ -1549,11 +1549,11 @@ label { display: block; margin: 10px 0; }
 
 </Solution>
 
-#### Restablecer un formulario detallado {/*reset-a-detail-form*/}
+#### Reiniciar un formulario detallado {/*reset-a-detail-form*/}
 
-Esta es una lista de contactos editable. Puedes editar los datos del contacto seleccionado y luego pulsar "Save" para actualizarlo, o "Reset" para deshacer los cambios.
+Esta es una lista de contactos editable. Puedes editar los datos del contacto seleccionado y luego pulsar "Guardar" para actualizarlo, o "Reiniciar" para deshacer los cambios.
 
-Cuando seleccionas un contacto diferente (por ejemplo, Alicia), el estado se actualiza pero el formulario sigue mostrando los detalles del contacto anterior. Arréglalo para que el formulario se restablezca cuando cambie el contacto seleccionado.
+Cuando seleccionas un contacto diferente (por ejemplo, Alicia), el estado se actualiza pero el formulario sigue mostrando los detalles del contacto anterior. Arréglalo para que el formulario se reinicie cuando cambie el contacto seleccionado.
 
 <Sandpack>
 
@@ -1645,7 +1645,7 @@ export default function EditContact({ initialData, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Nombre:{' '}
         <input
           type="text"
           value={name}
@@ -1653,7 +1653,7 @@ export default function EditContact({ initialData, onSave }) {
         />
       </label>
       <label>
-        Email:{' '}
+        Correo electrónico:{' '}
         <input
           type="email"
           value={email}
@@ -1668,13 +1668,13 @@ export default function EditContact({ initialData, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Guardar
       </button>
       <button onClick={() => {
         setName(initialData.name);
         setEmail(initialData.email);
       }}>
-        Reset
+        Reiniciar
       </button>
     </section>
   );
@@ -1705,7 +1705,7 @@ button {
 
 <Solution>
 
-Proporciona una `key={selectedId}` al componente `EditContact`. De esta manera, al cambiar entre diferentes contactos se restablecerá el formulario:
+Proporciona una `key={selectedId}` al componente `EditContact`. De esta manera, al cambiar entre diferentes contactos se reiniciará el formulario:
 
 <Sandpack>
 
@@ -1798,7 +1798,7 @@ export default function EditContact({ initialData, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Nombre:{' '}
         <input
           type="text"
           value={name}
@@ -1806,7 +1806,7 @@ export default function EditContact({ initialData, onSave }) {
         />
       </label>
       <label>
-        Email:{' '}
+        Correo electrónico:{' '}
         <input
           type="email"
           value={email}
@@ -1821,13 +1821,13 @@ export default function EditContact({ initialData, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Guardar
       </button>
       <button onClick={() => {
         setName(initialData.name);
         setEmail(initialData.email);
       }}>
-        Reset
+        Reiniciar
       </button>
     </section>
   );
@@ -1860,7 +1860,7 @@ button {
 
 #### Borrar una imagen mientras se carga {/*clear-an-image-while-its-loading*/}
 
-Al pulsar "Next", el navegador comienza a cargar la siguiente imagen.  Sin embargo, como se muestra en la misma etiqueta `<img>`, por defecto se seguiría viendo la imagen anterior hasta que se cargue la siguiente. Esto puede ser indeseable si es importante que el texto coincida siempre con la imagen. Cámbialo para que en el momento en que pulses "Next", la imagen anterior se borre inmediatamente.
+Al pulsar "Siguiente", el navegador comienza a cargar la siguiente imagen.  Sin embargo, como se muestra en la misma etiqueta `<img>`, por defecto se seguiría viendo la imagen anterior hasta que se cargue la siguiente. Esto puede ser indeseable si es importante que el texto coincida siempre con la imagen. Cámbialo para que en el momento en que pulses "Siguiente", la imagen anterior se borre inmediatamente.
 
 <Hint>
 
@@ -1889,10 +1889,10 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleClick}>
-        Next
+        Siguiente
       </button>
       <h3>
-        Image {index + 1} of {images.length}
+        Imagen {index + 1} de {images.length}
       </h3>
       <img src={image.src} />
       <p>
@@ -1903,25 +1903,25 @@ export default function Gallery() {
 }
 
 let images = [{
-  place: 'Penang, Malaysia',
+  place: 'Penang, Malasia',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
-  place: 'Lisbon, Portugal',
+  place: 'Lisboa, Portugal',
   src: 'https://i.imgur.com/dB2LRbj.jpg'
 }, {
-  place: 'Bilbao, Spain',
+  place: 'Bilbao, España',
   src: 'https://i.imgur.com/z08o2TS.jpg'
 }, {
   place: 'Valparaíso, Chile',
   src: 'https://i.imgur.com/Y3utgTi.jpg'
 }, {
-  place: 'Schwyz, Switzerland',
+  place: 'Schwyz, Suiza',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
-  place: 'Prague, Czechia',
+  place: 'Praga, Chequia',
   src: 'https://i.imgur.com/QwUKKmF.jpg'
 }, {
-  place: 'Ljubljana, Slovenia',
+  place: 'Liubliana, Eslovenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
 }];
 ```
@@ -1934,7 +1934,7 @@ img { width: 150px; height: 150px; }
 
 <Solution>
 
-Puede proporcionar una `key` a la etiqueta `<img>`. Cuando esa `key` cambie, React volverá a crear el nodo DOM `<img>` desde cero. Esto provoca un breve destello cuando se carga cada imagen, por lo que no es algo que quieras hacer para cada imagen de tu aplicación. Pero tiene sentido si quieres asegurarte de que la imagen siempre coincide con el texto.
+Puede proporcionar una _`key`_ a la etiqueta `<img>`. Cuando esa _`key`_ cambie, React volverá a crear el nodo DOM `<img>` desde cero. Esto provoca un breve destello cuando se carga cada imagen, por lo que no es algo que quieras hacer para cada imagen de tu aplicación. Pero tiene sentido si quieres asegurarte de que la imagen siempre coincide con el texto.
 
 <Sandpack>
 
@@ -1957,10 +1957,10 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleClick}>
-        Next
+        Siguiente
       </button>
       <h3>
-        Image {index + 1} of {images.length}
+        Imagen {index + 1} de {images.length}
       </h3>
       <img key={image.src} src={image.src} />
       <p>
@@ -1971,25 +1971,25 @@ export default function Gallery() {
 }
 
 let images = [{
-  place: 'Penang, Malaysia',
+  place: 'Penang, Malasia',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
-  place: 'Lisbon, Portugal',
+  place: 'Lisboa, Portugal',
   src: 'https://i.imgur.com/dB2LRbj.jpg'
 }, {
-  place: 'Bilbao, Spain',
+  place: 'Bilbao, España',
   src: 'https://i.imgur.com/z08o2TS.jpg'
 }, {
   place: 'Valparaíso, Chile',
   src: 'https://i.imgur.com/Y3utgTi.jpg'
 }, {
-  place: 'Schwyz, Switzerland',
+  place: 'Schwyz, Suiza',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
-  place: 'Prague, Czechia',
+  place: 'Praga, Chequia',
   src: 'https://i.imgur.com/QwUKKmF.jpg'
 }, {
-  place: 'Ljubljana, Slovenia',
+  place: 'Liubliana, Eslovenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
 }];
 ```
@@ -2004,7 +2004,7 @@ img { width: 150px; height: 150px; }
 
 #### Arreglar un estado mal colocado en la lista {/*fix-misplaced-state-in-the-list*/}
 
-En esta lista, cada `Contact` tiene un estado que determina si se ha pulsado "Show email" para él. Pulsa "Show email" para Alice, y luego marca la casilla "Show in reverse order". Notarás que ahora es el correo electrónico de _Taylor_ el que está expandido, pero el de Alice --que se ha movido a la parte inferior-- aparece colapsado.
+En esta lista, cada `Contact` tiene un estado que determina si se ha pulsado "Mostrar correo electrónico" para él. Pulsa "Mostrar correo electrónico" para Alice, y luego marca la casilla "Mostrar en orden inverso". Notarás que ahora es el correo electrónico de _Taylor_ el que está expandido, pero el de Alice --que se ha movido a la parte inferior-- aparece colapsado.
 
 Arréglalo para que el estado expandido se asocie a cada contacto, independientemente del orden elegido.
 
@@ -2032,7 +2032,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Show in reverse order
+        Mostrar en orden inverso
       </label>
       <ul>
         {displayedContacts.map((contact, i) =>
@@ -2066,7 +2066,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Hide' : 'Show'} email
+        {expanded ? 'Ocultar' : 'Mostrar'} correo electrónico
       </button>
     </>
   );
@@ -2105,7 +2105,7 @@ El problema es que este ejemplo utilizaba el índice como `key`:
 
 Sin embargo,  queremos que el estado se asocie a _cada contacto en particular_.
 
-Si se utiliza el ID del contacto como `key` se soluciona el problema:
+Si se utiliza el ID del contacto como _`key`_ se soluciona el problema:
 
 <Sandpack>
 
@@ -2131,7 +2131,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Show in reverse order
+        Mostrar en orden inverso
       </label>
       <ul>
         {displayedContacts.map(contact =>
@@ -2165,7 +2165,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Hide' : 'Show'} email
+        {expanded ? 'Ocultar' : 'Mostrar'} correo electrónico
       </button>
     </>
   );
@@ -2193,7 +2193,7 @@ button {
 
 </Sandpack>
 
-El estado está asociado a la posición del árbol. Una `key` permite especificar una posición con nombre en lugar de depender del orden.
+El estado está asociado a la posición del árbol. Una _`key`_ permite especificar una posición con nombre en lugar de depender del orden.
 
 </Solution>
 

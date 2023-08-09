@@ -55,12 +55,12 @@ export default function Counter() {
 
   function handleClick() {
     ref.current = ref.current + 1;
-    alert('Has hecho clic ' + ref.current + ' veces!');
+    alert('Hiciste clic ' + ref.current + ' veces!');
   }
 
   return (
     <button onClick={handleClick}>
-      ¡Clic aquí!
+      ¡Hazme clic!
     </button>
   );
 }
@@ -70,7 +70,7 @@ export default function Counter() {
 
 La ref hace referencia a un número, pero, al igual que [el estado](/learn/state-a-components-memory), podrías hace referencia a cualquier cosa: un string, un objeto, o incluso una función. A diferencia del estado, la ref es un objeto plano de JavaScript con la propiedad `current` que puedes leer y modificar.
 
-Fíjate como **el componente no se rerenderiza con cada incremento.** React (al igual que con el estado) preserva las refs entre rerenderizados. Sin embargo, asignar el estado rerenderiza un componente. ¡Cambiar una ref no!
+Fíjate como **el componente no se rerenderiza con cada incremento.** Al igual que con el estado, las refs son retenidas por React entre rerenderizados. Sin embargo, asignar el estado rerenderiza un componente. ¡Cambiar una ref no!
 
 ## Ejemplo: crear un cronómetro {/*example-building-a-stopwatch*/}
 
@@ -168,7 +168,7 @@ export default function Stopwatch() {
 
 </Sandpack>
 
-Cuando una pieza de información es usada para el renderizado, guárdala en el estado. Cuando una pieza de información solo se necesita en los manejadores de eventos y no requiere un rerenderizado, usar una ref quizás sea más eficiente.
+Cuando una pieza de información es usada para el renderizado, guárdala en el estado. Cuando una pieza de información solo se necesita en los controladores de eventos y no requiere un rerenderizado, usar una ref quizás sea más eficiente.
 
 ## Diferencias entre las refs y el estado {/*differences-between-refs-and-state*/}
 
@@ -197,7 +197,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      Has hecho {count} clics
+      Hiciste clic {count} veces
     </button>
   );
 }
@@ -224,7 +224,7 @@ export default function Counter() {
 
   return (
     <button onClick={handleClick}>
-      Has hecho {countRef.current} clics
+      Hiciste clic {countRef.current} veces
     </button>
   );
 }
@@ -360,7 +360,7 @@ export default function Chat() {
 
 <Solution>
 
-Sin importar cuándo tu componente se rerenderice (como cuando asignas el estado), todas las variables locales se inicializan desde cero. Por eso es que no puedes guardar el identificador del timeout en una variable local como `timeoutID` y luego esperar que otro manejador de eventos lo "vea" en el futuro. En cambio, almacénalo en una ref, que React preservará entre renderizados.
+Sin importar cuándo tu componente se rerenderice (como cuando asignas el estado), todas las variables locales se inicializan desde cero. Por eso es que no puedes guardar el identificador del timeout en una variable local como `timeoutID` y luego esperar que otro controlador de evento lo "vea" en el futuro. En cambio, almacénalo en una ref, que React preservará entre renderizados.
 
 <Sandpack>
 
@@ -428,7 +428,7 @@ export default function Toggle() {
     <button onClick={() => {
       isOnRef.current = !isOnRef.current;
     }}>
-      {isOnRef.current ? 'On' : 'Off'}
+      {isOnRef.current ? 'Encendido' : 'Apagado'}
     </button>
   );
 }
@@ -464,7 +464,7 @@ export default function Toggle() {
 
 #### Arregla el _debounce_ {/*fix-debouncing*/}
 
-En este ejemplo, todos los manejadores de clic usan [el "corte de rebote" o _"debounce"_.](https://redd.one/blog/debounce-vs-throttle) Para ver que significa esto, presiona uno de los botones. Fíjate como el mensaje aparece un segundo después. Si presionas el botón mientras esperas el mensaje, el temporizador se reiniciará. Así que si te mantienes cliqueando el mismo botón rápidamente muchas veces, el mensaje no aparecerá hasta un segundo *después* de que pares de hacer clic. El _debounce_ te permite retrasar algunas acciones hasta que el usuario "pare de hacer cosas".
+En este ejemplo, todos los controladores de clic usan [el "corte de rebote" o _"debounce"_.](https://redd.one/blog/debounce-vs-throttle) Para ver que significa esto, presiona uno de los botones. Fíjate como el mensaje aparece un segundo después. Si presionas el botón mientras esperas el mensaje, el temporizador se reiniciará. Así que si te mantienes cliqueando el mismo botón rápidamente muchas veces, el mensaje no aparecerá hasta un segundo *después* de que pares de hacer clic. El _debounce_ te permite retrasar algunas acciones hasta que el usuario "pare de hacer cosas".
 
 Este ejemplo funciona, pero no tan bien como se esperaba. Los botones no son independientes. Para ver el problema, haz clic en uno de los botones, y luego inmediatamente haz clic en otro botón. Esperarías que después de un retraso, podrías ver los mensajes de ambos botones. Pero solo se muestra el mensaje del último botón. El mensaje del primer botón se pierde.
 
@@ -579,7 +579,7 @@ button { display: block; margin: 10px; }
 
 #### Lee el último estado {/*read-the-latest-state*/}
 
-En este ejemplo, después de que presionas "Enviar", hay un pequeño retraso antes de que el mensaje se muestre. Escribe "hola", presiona Enviar, y luego rápidamente edita el input otra vez. A pesar de tus cambios, la alerta seguirá mostrando "hola" (que fue el valor del estado [en el momento](/learn/state-as-a-snapshot#state-over-time) en que se presionó el botón).
+En este ejemplo, después de que presionas "Enviar", hay un pequeño retraso antes de que el mensaje se muestre. Escribe "hola", presiona Enviar, y luego rápidamente edita el input otra vez. A pesar de tus cambios, la alerta seguirá mostrando "hola" (que fue el valor del estado [en el momento](/learn/state-as-a-snapshot#state-over-time) en el que hiciste clic en el botón).
 
 Normalmente, este es el comportamiento que quieres en una aplicación. Sin embargo, en ocasiones quieres que algún código asíncrono lea la *última* versión de algún estado. ¿Se te ocurre alguna manera de hacer que la alerta muestre el texto *actual* del input en lugar del que estaba en el momento del clic?
 

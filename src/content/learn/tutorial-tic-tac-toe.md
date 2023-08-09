@@ -4,7 +4,7 @@ title: 'Tutorial: Tres en línea'
 
 <Intro>
 
-En este tutorial construirás un pequeño juego de Tres en linea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo te dará una comprensión profunda de React.
+En este tutorial construirás un pequeño juego de Tres en línea. Este tutorial no asume ningún conocimiento previo de React. Las técnicas que aprenderás en el tutorial son fundamentales para crear cualquier aplicación de React, y comprenderlas por completo te dará una comprensión profunda de React.
 
 </Intro>
 
@@ -202,7 +202,7 @@ Una vez que hayas jugado un poco con el juego Tres en línea terminado, sigue de
 
 ## Configuración para el tutorial {/*setup-for-the-tutorial*/}
 
-En el editor de código en vivo a continuación, haz clic en **Fork** en la esquina superior derecha para abrir el editor en una nueva pestaña usando el sitio web CodeSandbox. CodeSandbox te permite escribir código en su navegador e inmediatamente ver cómo sus usuarios verán la aplicación que ha creado. La nueva pestaña debería mostrarte un cuadrado vacío y el código de inicio para este tutorial.
+En el editor de código en vivo a continuación, haz clic en **Bifurcar** en la esquina superior derecha para abrir el editor en una nueva pestaña usando el sitio web CodeSandbox. CodeSandbox te permite escribir código en su navegador e inmediatamente ver cómo sus usuarios verán la aplicación que ha creado. La nueva pestaña debería mostrarte un cuadrado vacío y el código de inicio para este tutorial.
 
 <Sandpack>
 
@@ -346,7 +346,7 @@ Las líneas 1-5 reúnen todas las piezas necesarias:
 
 El resto del archivo reúne todas las piezas e inyecta el producto final en `index.html` en la carpeta `public`.
 
-### Construyendo el tablero {/*building-the-board*/}
+### Construir el tablero {/*building-the-board*/}
 
 Volvamos a `App.js`. Aquí es donde pasarás el resto del tutorial.
 
@@ -362,7 +362,7 @@ Obtendrás este error:
 
 <ConsoleBlock level="error">
 
-/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment `<>...</>`?
+/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment `<>...</>`<div>**(Traducción)**</div>/src/App.js: Los elementos JSX adyacentes deben estar envueltos en una etiqueta contenedora. ¿Querías un fragmento JSX `<>...</>`?
 
 </ConsoleBlock>
 
@@ -415,9 +415,9 @@ export default function Square() {
 }
 ```
 
-El CSS definido en `styles.css` diseña los `div`s con `className` de `board-row`. Ahora que agrupaste tus componentes en filas con el estilo `div`s, tienes un tablero de tres en linea:
+El CSS definido en `styles.css` diseña los `div`s con `className` de `board-row`. Ahora que agrupaste tus componentes en filas con el estilo `div`s, tienes un tablero de tres en línea:
 
-![El tablero de Tres en linea esta lleno con números del 1 al 9](../images/tutorial/number-filled-board.png)
+![El tablero de Tres en línea esta lleno con números del 1 al 9](../images/tutorial/number-filled-board.png)
 
 Pero ahora tienes un problema. Tu componente llamado `Square`, en realidad ya no es un cuadrado. Arreglemos esto cambiando el nombre a `Board`:
 
@@ -621,7 +621,7 @@ export default function Board() {
 
 Ahora deberías ver una cuadrícula de números nuevamente:
 
-![tablero de Tres en linea lleno de números del 1 al 9](../images/tutorial/number-filled-board.png)
+![tablero de Tres en línea lleno de números del 1 al 9](../images/tutorial/number-filled-board.png)
 
 Tu código actualizado debería verse así:
 
@@ -702,14 +702,14 @@ body {
 
 </Sandpack>
 
-### Haciendo un componente interactivo. {/*making-an-interactive-component*/}
+### Hacer un componente interactivo. {/*making-an-interactive-component*/}
 
 Rellenemos el componente `Square` con una `X` al hacer clic en él. Declara una función llamada `handleClick` dentro del `Square`. Luego, agrega `onClick` a las props del elemento `<button>` JSX devuelto por el componente `Square`:
 
 ```js {2-4,9}
 function Square({ value }) {
   function handleClick() {
-    console.log('¡haz hecho clic!');
+    console.log('¡hiciste clic!');
   }
 
   return (
@@ -723,7 +723,7 @@ function Square({ value }) {
 }
 ```
 
-Si haces clic en un cuadrado ahora, deberías ver un registro que dice `"¡haz hecho clic!"` en la pestaña *Consola* en la parte inferior de la sección *Navegador* de CodeSandbox. Al hacer clic en el cuadrado más de una vez, se registrará `"¡haz hecho clic!"` de nuevo. Los registros repetidos en la consola con el mismo mensaje no crearán más líneas en la consola. En su lugar, verás un contador incremental al lado de su primer registro `"¡haz hecho clic!"`.
+Si haces clic en un cuadrado ahora, deberías ver un registro que dice `"¡hiciste clic!"` en la pestaña *Consola* en la parte inferior de la sección *Navegador* de CodeSandbox. Al hacer clic en el cuadrado más de una vez, se registrará `"¡hiciste clic!"` de nuevo. Los registros repetidos en la consola con el mismo mensaje no crearán más líneas en la consola. En su lugar, verás un contador incremental al lado de su primer registro `"¡hiciste clic!"`.
 
 <Note>
 
@@ -731,7 +731,7 @@ Si estás siguiendo este tutorial utilizando tu entorno de desarrollo local, deb
 
 </Note>
 
-Como siguiente paso, deseas que el componente `Square` "recuerde" que se hizo clic y lo rellene con una marca "X". Para "recordar" cosas, los componentes usan *estado*.
+Como siguiente paso, deseas que el componente `Square` "recuerde" que hiciste clic y lo rellene con una marca "X". Para "recordar" cosas, los componentes usan *estado*.
 
 React proporciona una función especial llamada `useState` que puedes llamar desde tu componente para permitirle "recordar" cosas. Almacenemos el valor actual del `Square` en el estado, y cambiémoslo cuando se haga clic en `Square`.
 
@@ -776,7 +776,7 @@ export default function Board() {
 }
 ```
 
-Ahora cambia `Square` para mostrar una "X" cuando se haga clic. Reemplaza el controlador de eventos `console.log("¡haz hecho clic!");` con `setValue('X');`. Ahora tu componente `Square` se ve así:
+Ahora cambia `Square` para mostrar una "X" cuando se haga clic. Reemplaza el controlador de evento `console.log("¡hiciste clic!");` con `setValue('X');`. Ahora tu componente `Square` se ve así:
 
 ```js {5}
 function Square() {
@@ -915,19 +915,19 @@ Para el desarrollo local, React DevTools está disponible como [Chrome](https://
 
 </Note>
 
-## Completando el juego {/*completing-the-game*/}
+## Completar el juego {/*completing-the-game*/}
 
-En este punto, tienes todos los componentes básicos para tu juego de tres en linea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
+En este punto, tienes todos los componentes básicos para tu juego de tres en línea. Para tener un juego completo, ahora necesitas alternar la colocación de "X" y "O" en el tablero, y necesitas una forma de determinar un ganador.
 
-### Levantando el estado {/*lifting-state-up*/}
+### Levantar el estado {/*lifting-state-up*/}
 
-Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en linea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
+Actualmente, cada componente `Square` mantiene una parte del estado del juego. Para comprobar si hay un ganador en un juego de tres en línea, el `Board` necesitaría saber de alguna manera el estado de cada uno de los 9 componentes del `Square`.
 
 ¿Cómo abordarías eso? Al principio, puedes suponer que el `Board` necesita "preguntar" a cada `Square` por el estado de ese `Square`. Aunque este enfoque es técnicamente posible en React, no lo aconsejamos porque el código se vuelve difícil de entender, susceptible a errores y difícil de refactorizar. En cambio, el mejor enfoque es almacenar el estado del juego en el componente `Board` principal en lugar de en cada `Square`. El componente `Board` puede decirle a cada `Square` qué mostrar al pasar una prop, como lo hizo cuando pasó un número a cada Cuadrado.
 
 **Para recopilar datos de varios elementos secundarios o para que dos componentes secundarios se comuniquen entre sí, declara el estado compartido en tu componente principal. El componente padre puede devolver ese estado a los hijos a través de props. Esto mantiene los componentes secundarios sincronizados entre sí y con el componente principal.**
 
-Elevar el estado a un componente principal es común cuando se refactorizan los componentes de React.
+Levantar el estado a un componente principal es común cuando se refactorizan los componentes de React.
 
 Aprovechemos esta oportunidad para probarlo. Edita el componente `Board` para que declare una variable de estado llamada `Square` que por defecto sea una matriz de 9 valores nulos correspondientes a los 9 cuadrados:
 
@@ -1169,7 +1169,7 @@ La llamada a `handleClick(0)` será parte de la renderización del componente de
 
 <ConsoleBlock level="error">
 
-Demasiados renderizados. React limita el número de renderizaciones para evitar un bucle infinito.
+Too many re-renders. React limits the number of renders to prevent an infinite loop.<div>**(Traducción)**</div>Demasiados re-renderizados. React limita el número de renderizados para evitar un bucle infinito.
 
 </ConsoleBlock>
 
@@ -1333,7 +1333,7 @@ Al final, el usuario ve que el cuadrado superior izquierdo ha pasado de estar va
 
 <Note>
 
-El atributo `onClick` del elemento DOM `<button>` tiene un significado especial para React porque es un componente integrado. Para componentes personalizados como Square, el nombre depende de ti. Podrías dar cualquier nombre a la prop `onSquareClick` de `Square` o `handleClick` de `Board`, y el código funcionaría de la misma manera. En React, es convencional usar nombres `on[Event]` para props que representan eventos y `handle[Event]` para las definiciones de funciones que manejan los eventos.
+El atributo `onClick` del elemento DOM `<button>` tiene un significado especial para React porque es un componente integrado. Para componentes personalizados como Square, el nombre depende de ti. Podrías dar cualquier nombre a la prop `onSquareClick` de `Square` o `handleClick` de `Board`, y el código funcionaría de la misma manera. En React, es convencional usar nombres `on[Event]` para props que representan eventos y `handle[Event]` para las definiciones de funciones que controlan los eventos.
 
 </Note>
 
@@ -1346,7 +1346,7 @@ En general, hay dos enfoques para cambiar los datos. El primer enfoque es *mutar
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 squares[0] = 'X';
-// Now `squares` is ["X", null, null, null, null, null, null, null, null];
+// Ahora `squares` es ["X", null, null, null, null, null, null, null, null];
 ```
 
 Y así es como se vería si cambiaras los datos sin mutar de la matriz `squares`:
@@ -1354,18 +1354,18 @@ Y así es como se vería si cambiaras los datos sin mutar de la matriz `squares`
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 const nextSquares = ['X', null, null, null, null, null, null, null, null];
-// Now `squares` is unchanged, but `nextSquares` first element is 'X' rather than `null`
+// Ahora `squares` no ha cambiado, pero el primer elemento de `nextSquares` es 'X' en lugar de `null`
 ```
 
 El resultado final es el mismo, pero al no mutar (cambiar los datos subyacentes) directamente, obtienes varios beneficios.
 
-La inmutabilidad hace que las características complejas sean mucho más fáciles de implementar. Más adelante en este tutorial, implementarás una función de "viaje en el tiempo" que te permitirá revisar el historial del juego y "retroceder" a movimientos anteriores. Esta funcionalidad no es específica de los juegos: la capacidad de deshacer y rehacer ciertas acciones es un requisito común para las aplicaciones. Por eso, evitar la mutación directa de datos te permite mantener intactas las versiones anteriores de los datos y reutilizarlas (o restablecerlas) más adelante.
+La inmutabilidad hace que las características complejas sean mucho más fáciles de implementar. Más adelante en este tutorial, implementarás una característica de "viaje en el tiempo" que te permitirá revisar el historial del juego y "saltar atrás" a movimientos pasados. Esta funcionalidad no es específica de los juegos: la habilidad de deshacer y rehacer ciertas acciones es un requisito común para las aplicaciones. Evitar la mutación directa de los datos permite mantener intactas las versiones previas de los datos y reutilizarlas más adelante.
 
 También hay otro beneficio de la inmutabilidad. De forma predeterminada, todos los componentes secundarios se vuelven a renderizar automáticamente cuando cambias el estado de un componente principal. Esto incluye incluso los componentes secundarios que no se vieron afectados por el cambio. Aunque el usuario no nota la renderización en sí misma (¡no debes tratar de evitarla de forma activa!), es posible que desees omitir la renderización de una parte del árbol que claramente no se vio afectada por razones de rendimiento. La inmutabilidad hace que sea muy barato para los componentes comparar si sus datos han cambiado o no. Puedes obtener más información sobre cómo React elige cuándo volver a renderizar un componente en la documentación de [referencia de la API `memo`](/reference/react/memo).
 
-### Tomando turnos {/*taking-turns*/}
+### Tomar turnos {/*taking-turns*/}
 
-Ahora es el momento de corregir un defecto importante en este juego de tres en linea: las "O" no se pueden marcar en el tablero.
+Ahora es el momento de corregir un defecto importante en este juego de tres en línea: las "O" no se pueden marcar en el tablero.
 
 Establece que el primer movimiento sea "X" de forma predeterminada. Hagamos un seguimiento de esto agregando otra parte del estado al componente `Board`:
 
@@ -1410,7 +1410,7 @@ Pero espera, hay un problema. Intenta hacer clic en el mismo cuadrado varias vec
 
 ¡La `X` se sobrescribe con una `O`! Si bien esto agregaría un giro muy interesante al juego, por ahora nos apegaremos a las reglas originales.
 
-Cuando marcas un cuadrado con una `X` o una `O`, no estás comprobando primero si el cuadrado ya tiene un valor `X` u `O`. Puedes arreglar esto *regresando rapidante en el estado*. Verifica si el cuadrado ya tiene una `X` o una `O`. Si el cuadrado ya está lleno, genera un `return` en la función `handleClick`, antes de que intente actualizar el estado del tablero.
+Cuando marcas un cuadrado con una `X` o una `O`, no estás comprobando primero si el cuadrado ya tiene un valor `X` u `O`. Puedes arreglar esto *regresando rápidamente en el estado*. Verifica si el cuadrado ya tiene una `X` o una `O`. Si el cuadrado ya está lleno, genera un `return` en la función `handleClick`, antes de que intente actualizar el estado del tablero.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1524,7 +1524,7 @@ body {
 
 </Sandpack>
 
-### Declaring a winner {/*declaring-a-winner*/}
+### Declarar un ganador {/*declaring-a-winner*/}
 
 Ahora que muestras el turno del siguiente jugador, también debes mostrar cuándo se gana el juego y cuando no hay más turnos. Para hacer esto, agrega una función de ayuda llamada `calculateWinner` que toma una matriz de 9 cuadrados, busca un ganador y devuelve `'X'`, `'O'` o `null` según corresponda. No te preocupes demasiado por la función `calculateWinner`; no es específica de React:
 
@@ -1594,7 +1594,7 @@ export default function Board() {
 }
 ```
 
-¡Felicidades! Ahora tienes un juego de Tres en linea que funciona. Y acabas de aprender los conceptos básicos de React también. Así que *tú* eres el verdadero ganador aquí. Así es como debería verse el código:
+¡Felicidades! Ahora tienes un juego de Tres en línea que funciona. Y acabas de aprender los conceptos básicos de React también. Así que *tú* eres el verdadero ganador aquí. Así es como debería verse el código:
 
 <Sandpack>
 
@@ -1725,7 +1725,7 @@ body {
 
 </Sandpack>
 
-## Adicionando viajes en el tiempo {/*adding-time-travel*/}
+## Agregar viajes en el tiempo {/*adding-time-travel*/}
 
 Como ejercicio final, hagamos posible "retroceder en el tiempo" a los movimientos anteriores del juego.
 
@@ -1739,23 +1739,23 @@ Almacena las matrices anteriores de `squares` en otra matriz llamada `history`, 
 
 ```jsx
 [
-  // Before first move
+  // Antes del primer movimiento
   [null, null, null, null, null, null, null, null, null],
-  // After first move
+  // Después del primer movimiento
   [null, null, null, null, 'X', null, null, null, null],
-  // After second move
+  // Después del segundo movimiento
   [null, null, null, null, 'X', null, null, null, 'O'],
   // ...
 ]
 ```
 
-### Levantando el estado, otra vez {/*lifting-state-up-again*/}
+### Levantar el estado, otra vez {/*lifting-state-up-again*/}
 
 Ahora escribe un nuevo componente de nivel superior llamado `Game` para mostrar una lista de movimientos anteriores. Ahí es donde colocarás el estado de `history` que contiene todo el historial del juego.
 
-Colocar el estado `history` en el componente `Game` te permite eliminar el estado `squares` de tu componente hijo `Board`. Al igual que "levantar el estado" del componente `Square` al componente `Board`, ahora puedes elevarlo del `Board` al componente `Game` de nivel superior. Esto le da al componente `Game` control total sobre los datos del `Board` y e permite instruir al `Game` para renderizar los turnos anteriores del `history`.
+Colocar el estado `history` en el componente `Game` te permite eliminar el estado `squares` de tu componente hijo `Board`. Al igual que "levantar el estado" del componente `Square` al componente `Board`, ahora puedes levantarlo del `Board` al componente `Game` de nivel superior. Esto le da al componente `Game` control total sobre los datos del `Board` y le permite instruir al `Game` para renderizar los turnos anteriores del `history`.
 
-Primero, agrega un componente `Game` con `export default`. Haz que represente el componente `Board` dentro de algunas marcas:
+Primero, agrega un componente `Game` con `export default`. Haz que represente el componente `Board` dentro de algunas marcas JSX:
 
 ```js {1,5-16}
 function Board() {
@@ -1868,7 +1868,7 @@ export default function Game() {
 }
 ```
 
-Aquí, `[...history, nextSquares]` crea una nueva matriz que contiene todos los elementos en `history`, seguido de `nextSquares`. (Puedes leer el `...history` [*sintaxis extendida*](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax) como "enumerar todos los elementos en `history`".)
+Aquí, `[...history, nextSquares]` crea una nueva matriz que contiene todos los elementos en `history`, seguido de `nextSquares`. (Puedes leer la [*sintaxis extendida*](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax) `...history` como "enumerar todos los elementos en `history`".)
 
 Por ejemplo, si `history` es igual a `[[null,null,null], ["X",null,null]]` y `nextSquares` es igual a `["X",null,"O"]`, entonces el nuevo arreglo`[...history, nextSquares]` será `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
 
@@ -2021,9 +2021,9 @@ body {
 
 </Sandpack>
 
-### Mostrando los movimientos anteriores {/*showing-the-past-moves*/}
+### Mostrar los movimientos anteriores {/*showing-the-past-moves*/}
 
-Dado que estás grabando el historial del juego de tres en linea, ahora puede mostrárselo al jugador como una lista de movimientos anteriores.
+Dado que estás grabando el historial del juego de tres en línea, ahora puede mostrárselo al jugador como una lista de movimientos anteriores.
 
 Los elementos de React como `<button>` son objetos regulares de JavaScript; puedes pasarlos en tu aplicación. Para representar varios elementos en React, puedes usar una matriz de elementos de React.
 
@@ -2033,7 +2033,7 @@ Ya tienes una matriz de movimientos `history` en el estado, por lo que ahora nec
 [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
 ```
 
-Usar `map` para transformará tu `history` de movimientos en elementos de React que representan botones en la pantalla, y mostrará una lista de botones para "saltar" a movimientos anteriores. Hagamos un `map` sobre la  `history` en el componente Game:
+Utilizarás `map` para transformar tu matriz de movimientos `history` en elementos React que representen botones en la pantalla, y mostrarás una lista de botones para "saltar" a movimientos anteriores. Hagamos un `map` sobre la matriz `history` en el componente Game:
 
 ```js {11-13,15-27,35}
 export default function Game() {
@@ -2245,17 +2245,17 @@ body {
 
 </Sandpack>
 
-A medida que iteras a través de la matriz `history` dentro de la función que pasó a `map`, el argumento `squares` pasa por cada elemento de `history`, y el argumento `move` pasa por cada índice de matriz: `0`, `1`, `2`, …. (En la mayoría de los casos, necesitarías los elementos de la matriz real, pero en este caso no usas "cuadrados" para representar una lista de movimientos).
+Cuando recorres la matriz `history` dentro de la función que has pasado a `map`, el argumento `squares` recorre cada elemento de `history`, y el argumento `move` recorre cada índice de la matriz: `0`, `1`, `2`, …. (En la mayoría de los casos, necesitarías los elementos concretos de la matriz, pero para representar una lista de movimientos sólo necesitarás los índices).
 
-Para cada movimiento en el historial del juego de tres en linea, crea un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un controlador `onClick` que llama a una función llamada `jumpTo` (que aún no has implementado).
+Para cada movimiento en el historial del juego de tres en línea, creas un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un controlador `onClick` que llama a una función llamada `jumpTo` (que aún no has implementado).
 
 Por ahora, deberías ver una lista de los movimientos que ocurrieron en el juego y un error en la consola de herramientas del desarrollador.
 
 Analicemos qué significa el error "key".
 
-### Elegir una llave {/*picking-a-key*/}
+### Elegir una *key* {/*picking-a-key*/}
 
-Cuando renderizas una lista, React almacena cierta información sobre cada elemento de la lista renderizada. Cuando actualizas la lista, React necesita determinar qué ha cambiado. Podrías haber agregado, eliminado, reorganizado o actualizado los elementos de la lista.
+Cuando renderizas una lista, React almacena cierta información sobre cada elemento renderizado. Cuando actualizas la lista, React necesita determinar qué ha cambiado. Podrías haber agregado, eliminado, reorganizado o actualizado los elementos de la lista.
 
 Imagina la transición de
 
@@ -2272,7 +2272,7 @@ hacia
 <li>Alexa: Quedan 5 tareas pendientes</li>
 ```
 
-Además de los recuentos actualizados, una persona que lea esto probablemente diría que intercambiaste los pedidos de Alexa y Ben e insertaste a Claudia entre Alexa y Ben. Sin embargo, React es un programa de computadora y no puede saber lo que pretendías, por lo que debes especificar una propiedad *key* para cada elemento de la lista y diferenciar cada elemento de la lista de sus hermanos. Si estabas mostrando datos de una base de datos, los ID de la base de datos de Alexa, Ben y Claudia podrían usarse como `key`.
+Además de los recuentos actualizados, un humano que leyera esto probablemente diría que has intercambiado el orden de Alexa y Ben e insertado a Claudia entre Alexa y Ben. Sin embargo, React es un programa de computadora y no puede saber lo que pretendías, por lo que necesitas especificar una propiedad *key* para cada elemento de la lista y así diferenciar cada elemento de la lista de sus hermanos. Si tus datos provinieran de una base de datos, los ID de Alexa, Ben y Claudia podrían usarse como `key`.
 
 ```js {1}
 <li key={user.id}>
@@ -2294,7 +2294,7 @@ Las `key`s no necesitan ser globalmente únicas; solo necesitan ser únicas entr
 
 ### Implementación de viajes en el tiempo {/*implementing-time-travel*/}
 
-En la historia del juego de tres en linea, cada movimiento pasado tiene una identificación única asociada: es el número secuencial del movimiento. Los movimientos nunca se reordenarán, eliminarán o insertarán en el medio, por lo que es seguro usar el índice de movimiento como `key`.
+En la historia del juego de tres en línea, cada movimiento pasado tiene una identificación única asociada: es el número secuencial del movimiento. Los movimientos nunca se reordenarán, eliminarán o insertarán en el medio, por lo que es seguro usar el índice de movimiento como `key`.
 
 En la función `Game`, puedes agregar la `key` como `<li key={move}>`, y si vuelves a cargar el juego renderizado, el error de "`key`" de React debería desaparecer:
 
@@ -2476,7 +2476,7 @@ body {
 
 </Sandpack>
 
-Antes de que puedas implementar `jumpTo`, necesitas el componente `Game` para realizar un seguimiento de qué paso está viendo actualmente el usuario. Para hacer esto, define una nueva variable de estado llamada `currentMove`, que reciba como valor por defecto a `0`:
+Antes de que puedas implementar `jumpTo`, necesitas que el componente `Game` lleve la cuenta del paso que el usuario está viendo en ese momento. Para ello, define una nueva variable de estado llamada `currentMove`, que reciba como valor por defecto a `0`:
 
 ```js {4}
 export default function Game() {
@@ -2503,8 +2503,8 @@ export default function Game() {
 
 Ahora haz dos cambios en la función `handlePlay` del `Game` que se llama cuando haces clic en un cuadrado.
 
-- Si "retrocedes en el tiempo" y luego haces un nuevo movimiento desde ese punto, solo querrás mantener el historial hasta ese punto. En lugar de agregar `nextSquares` después de todos los elementos (`...` sintaxis extendida) en `history`, lo agregalo después de todos los elementos en `history.slice (0, currentMove + 1)` para que solo mantengas esa parte de la historia antigua.
-- Cada vez que se realiza un movimiento, debes actualizar `currentMove` para que apunte a la última entrada del historial.
+- Si "retrocedes en el tiempo" y luego haces un nuevo movimiento desde ese punto, sólo querrás mantener el historial hasta ese punto. En lugar de añadir `nextSquares` después de todos los elementos (sintaxis extendida `...`) en `history`, lo agregarás después de todos los elementos en `history.slice(0, currentMove + 1)` para que sólo estés manteniendo esa porción de la historia antigua.
+- Cada vez que se realiza un movimiento, es necesario actualizar `currentMove` para que apunte a la última entrada del historial.
 
 ```js {2-4}
 function handlePlay(nextSquares) {
@@ -2528,7 +2528,7 @@ export default function Game() {
 }
 ```
 
-Si haces clic en cualquier paso en el historial del juego, el tablero de tres en linea debería actualizarse inmediatamente para mostrar cómo se veía el tablero después de que ocurriera ese paso.
+Si haces clic en cualquier paso en el historial del juego, el tablero de tres en línea debería actualizarse inmediatamente para mostrar cómo se veía el tablero después de que ocurriera ese paso.
 
 <Sandpack>
 
@@ -2703,7 +2703,7 @@ body {
 
 Si miras el código muy de cerca, puedes notar que `xIsNext === true` cuando `currentMove` es par y `xIsNext === false` cuando `currentMove` es impar. En otras palabras, si conoces el valor de `movimientoActual`, entonces siempre puedes averiguar cuál debería ser `xIsNext`.
 
-No hay ninguna razón para que almacenes ambos en el estado. De hecho, trata siempre de evitar el estado redundante. Simplificar lo que almacenas en el estado ayuda a reducir los errores y hace que tu código sea más fácil de entender. Cambia `Game` para que ya no almacene `xIsNext` como una variable de estado separada y, en su lugar, lo descubra en función de `currentMove`:
+No hay ninguna razón para que almacenes ambos en el estado. De hecho, intenta siempre evitar el estado redundante. Simplificar lo que almacenas en el estado reduce los errores y hace que tu código sea más fácil de entender. Cambia `Game` para que no almacene `xIsNext` como una variable de estado separada y en su lugar lo calcule basándose en el `currentMove`:
 
 ```js {4,11,15}
 export default function Game() {
@@ -2727,11 +2727,11 @@ export default function Game() {
 
 Ya no necesitas la declaración de estado `xIsNext` ni las llamadas a `setXIsNext`. Ahora, no hay posibilidad de que `xIsNext` no esté sincronizado con `currentMove`, incluso si cometes un error al codificar los componentes.
 
-### Terminando {/*wrapping-up*/}
+### Finalizar {/*wrapping-up*/}
 
-¡Felicidades! Has creado un juego de Tres en linea que:
+¡Felicidades! Has creado un juego de Tres en línea que:
 
-- Te permite jugar Tres en linea,
+- Te permite jugar Tres en línea,
 - Indica cuando un jugador ha ganado el juego,
 - Almacena el historial de un juego a medida que avanza un juego,
 - Permite a los jugadores revisar el historial de un juego y ver versiones anteriores del tablero de un juego.
@@ -2907,7 +2907,7 @@ body {
 
 </Sandpack>
 
-Si tienes tiempo extra o quieres practicar tus nuevas habilidades de React, aquí hay algunas ideas de mejoras que podría hacer al juego de tres en linea, enumeradas en orden de dificultad creciente:
+Si tienes tiempo extra o quieres practicar tus nuevas habilidades de React, aquí hay algunas ideas de mejoras que podría hacer al juego de tres en línea, enumeradas en orden de dificultad creciente:
 
 1. Solo para el movimiento actual, muestra "Estás en el movimiento #..." en lugar de un botón
 2. Vuelve a escribir `Board` para usar dos bucles para crear los cuadrados en lugar de codificarlos.

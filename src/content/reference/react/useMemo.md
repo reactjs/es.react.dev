@@ -34,7 +34,7 @@ function TodoList({ todos, tab }) {
 }
 ```
 
-[Mira más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 

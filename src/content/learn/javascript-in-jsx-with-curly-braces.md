@@ -43,7 +43,7 @@ export default function Avatar() {
 
 Aquí, `"https://i.imgur.com/7vQD0fPs.jpg"` y `"Gregorio Y. Zara"` están siendo pasados como strings.
 
-Pero, ¿qué sucede si quieres especificar dinámicamente el texto `src` o `alt`? Puedes **usar un valor de JavaScript reemplazando `"` y `"` con `{` y `}`**:
+Pero, ¿qué sucede si quieres especificar dinámicamente el texto `src` o `alt`? Puedes **usar un valor de JavaScript reemplazando las comillas de apertura `"` y de cierre `"` con las llaves de apertura `{` y de cierre `}`**:
 
 <Sandpack>
 
@@ -71,7 +71,7 @@ Observa la diferencia entre `className="avatar"`, que especifica un nombre de cl
 
 ## Usando llaves: Una ventana al mundo de JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX es una forma especial de escribir JavaScript. Esto significa que es posible usar JavaScript dentro el, con llaves `{ }`. El siguiente ejemplo declara primero declara un nombre para el científico, `name`, luego lo incrusta con llaves dentro de `<h1>`:  
+JSX es una forma especial de escribir JavaScript. Eso significa que es posible utilizar JavaScript dentro de él, con llaves `{ }`. El ejemplo siguiente declara primero un nombre para el científico, `name`, y luego lo inserta con llaves dentro de `<h1>`:
 
 <Sandpack>
 
@@ -79,7 +79,7 @@ JSX es una forma especial de escribir JavaScript. Esto significa que es posible 
 export default function TodoList() {
   const name = 'Gregorio Y. Zara';
   return (
-    <h1>{name}'s To Do List</h1>
+    <h1>Lista de tareas pendientes de {name}</h1>
   );
 }
 ```
@@ -97,14 +97,14 @@ const today = new Date();
 
 function formatDate(date) {
   return new Intl.DateTimeFormat(
-    'en-US',
+    'es-ES',
     { weekday: 'long' }
   ).format(date);
 }
 
 export default function TodoList() {
   return (
-    <h1>To Do List for {formatDate(today)}</h1>
+    <h1>Lista de tareas pendientes del {formatDate(today)}</h1>
   );
 }
 ```
@@ -115,14 +115,14 @@ export default function TodoList() {
 
 Solo puedes usar llaves de dos maneras dentro de JSX:
 
-1. **Como texto** directamente dentro de una etiqueta JSX: `<h1>{name}'s To Do List</h1>` funciona, pero `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` no lo hará.
-2. **Como atributos** inmediatamente después del signo `=`: `src={avatar}` leerá la variable `avatar`, pero `src="{avatar}"` pasará el string `{avatar}`.  
+1. **Como texto** directamente dentro de una etiqueta JSX: `<h1>Lista de tareas pendientes de {name}</h1>` funcionará, pero `<{tag}>Lista de tareas pendientes de Gregorio Y. Zara</{tag}>` no lo hará.
+2. **Como atributos** inmediatamente después del signo `=`: `src={avatar}` leerá la variable `avatar`, pero `src="{avatar}"` pasará el string `"{avatar}"`.  
 
 ## Usando "llaves dobles": CSS y otros objetos en JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
 Además de strings, números, y otras expresiones de JavaScript, incluso puedes pasar objetos en JSX. Los objetos también se indican con llaves, como `{ name: "Hedy Lamarr", inventions: 5 }`. Por lo tanto, para pasar un objeto de JavaScript en JSX, debes envolver el objeto en otro par de llaves: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-Puedes ver esto con estilos CSS en línea en JSX. React no requiere que uses estilos en línea (las clases CSS funcionan muy bien en la mayoría de los casos). Pero cuando necesites un estilo en línea, pasa un objeto al atributo `style`:
+Puedes ver esto con estilos en línea CSS, en JSX. React no requiere que uses estilos en línea (las clases CSS funcionan muy bien para la mayoría de los casos). Pero cuando necesitas un estilo en línea, pasas un objeto al atributo `style`:
 
 <Sandpack>
 
@@ -133,9 +133,9 @@ export default function TodoList() {
       backgroundColor: 'black',
       color: 'pink'
     }}>
-      <li>Improve the videophone</li>
-      <li>Prepare aeronautics lectures</li>
-      <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
     </ul>
   );
 }
@@ -161,11 +161,11 @@ Realmente puedes ver el objeto JavaScript dentro de las llaves cuando lo escribe
 }>
 ```
 
-La próxima vez que veas `{{` y `}}` en JSX, ¡sepa que no es más que un objeto dentro de las llaves de JSX!
+La próxima vez que veas `{{` y `}}` en JSX, ¡sabe que no es más que un objeto dentro de las llaves JSX!
 
 <Pitfall>
 
-Las propiedades de `style` en línea se escriben en camelCase. Por ejemplo, HTML `<ul style="background-color: black">` se escribiría como `<ul style={{ backgroundColor: 'black' }}>` en tu componente.
+Las propiedades de `style` en línea se escriben en camelCase. Por ejemplo, el HTML `<ul style="background-color: black">` se escribiría como `<ul style={{ backgroundColor: 'black' }}>` en tu componente.
 
 </Pitfall>
 
@@ -187,16 +187,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -223,11 +223,11 @@ const person = {
 };
 ```
 
-El componente puede usar estos valores de `persona` así:
+El componente puede usar estos valores de `person` así:
 
 ```js
 <div style={person.theme}>
-  <h1>{person.name}'s Todos</h1>
+  <h1>Tareas pendientes de {person.name}</h1>
 ```
 
 JSX es muy mínimo como lenguaje de plantillas porque te permite organizar datos y lógica usando JavaScript. 
@@ -263,16 +263,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person}'s Todos</h1>
+      <h1>Tareas pendientes de {person}</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -293,9 +293,9 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Esto sucede porque este ejemplo renderiza *un objeto en sí mismo* en el marcado en lugar de un string: `<h1>{person}'s Todos</h1>`¡está tratando de renderizar todo el objeto `person`! Incluir objetos sin procesar como contenido de texto arroja un error porque React no sabe cómo quieres mostrarlos.
+Esto sucede porque este ejemplo renderiza *un objeto en sí* en el marcado en lugar de un string: `<h1>Tareas pendientes de {person}</h1>`¡está tratando de renderizar todo el objeto `person`!. Incluir objetos sin procesar como contenido de texto arroja un error porque React no sabe cómo quieres mostrarlos.
 
-Para arreglarlo, reemplaza `<h1>{person}'s Todos</h1>` con `<h1>{person.name}'s Todos</h1>`:
+Para arreglarlo, reemplaza `<h1>Tareas pendientes de {person}</h1>` con `<h1>Tareas pendientes de {person.name}</h1>`:
 
 <Sandpack>
 
@@ -311,16 +311,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -337,9 +337,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Extraer información en un objeto {/*extract-information-into-an-object*/}
+#### Extraer información hacia un objeto {/*extract-information-into-an-object*/}
 
-Extrae la URL de la imagen en el objeto `person`.
+Extrae la URL de la imagen hacia el objeto `person`.
 
 <Sandpack>
 
@@ -355,16 +355,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -398,16 +398,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src={person.imageUrl}
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -426,9 +426,9 @@ body > div > div { padding: 20px; }
 
 #### Escribe una expresión dentro de llaves JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: URL base, `imageId`, `imageSize` y la extensión del archivo.
+En el objeto a continuación, la URL de la imagen completa está dividida en 4 partes: la URL de base, `imageId`, `imageSize` y la extensión del archivo.
 
-Queremos que la URL de la imagen combine esos atributos juntos: base URL (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
+Queremos que la URL de la imagen combine estos atributos juntos: la URL de base (siempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), y la extensión del archivo (siempre `'.jpg'`). Sin embargo, algo está mal con la forma en que la etiqueta `<img>` especifica su `src`.
 
 ¿Puedes arreglarlo?
 
@@ -450,16 +450,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src="{baseUrl}{person.imageId}{person.imageSize}.jpg"
         alt={person.name}
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -501,16 +501,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src={baseUrl + person.imageId + person.imageSize + '.jpg'}
         alt={person.name}
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );
@@ -545,16 +545,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Tareas pendientes de {person.name}</h1>
       <img
         className="avatar"
         src={getImageUrl(person)}
         alt={person.name}
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+      <li>Mejorar el videoteléfono</li>
+      <li>Preparar clases de aeronáutica</li>
+      <li>Trabajar en el motor de alcohol</li>
       </ul>
     </div>
   );

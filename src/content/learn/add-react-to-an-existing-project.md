@@ -26,7 +26,7 @@ Así es como recomendamos configurarlo:
 
 Esto garantiza que la parte React de tu aplicación se pueda [beneficiar de las mejoras practicas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) integradas en aquellos frameworks.
 
-Muchos frameworks basados en React son full-stack y permiten que tu aplicación React aproveche del servidor. Sin embargo, puedes utilizar el mismo enfoque incluso si no puedes o no quieres ejecutar JavaScript en el servidor. En ese caso, sirve el HTML/CSS/JS exportado ([`next export` output](https://nextjs.org/docs/advanced-features/static-html-export) para Next.js, por defecto con Gatsby) en `/some-app/` en su lugar.
+Muchos frameworks basados en React son full-stack y permiten que tu aplicación React aproveche el servidor. Sin embargo, puedes utilizar el mismo enfoque incluso si no puedes o no quieres ejecutar JavaScript en el servidor. En ese caso, sirve la exportación HTML/CSS/JS ([`next export` output](https://nextjs.org/docs/advanced-features/static-html-export) para Next.js, por defecto para Gatsby) en `/some-app/` en su lugar.
 
 ## Utilizar React para una parte de tu página existente {/*using-react-for-a-part-of-your-existing-page*/}
 
@@ -34,8 +34,8 @@ Digamos que tienes una página existente creada con otra tecnología (una de ser
 
 Puedes hacer esto en dos pasos:
 
-1. **Configurar un entorno de JavaScript** que te permite utilizar la [sintaxis JSX](/learn/writing-markup-with-jsx), dividir tu código en módulos con la sintaxis [`import`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import) / [`export`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export), y utilizar paquetes (por ejemplo React) del gestor de paquetes [npm](https://www.npmjs.com/).
-2. **Renderizar tus componentes React** donde las deseas ver en la página.
+1. **Configura un entorno de JavaScript** que te permita utilizar la [sintaxis JSX](/learn/writing-markup-with-jsx), dividir tu código en módulos con la sintaxis [`import`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import) / [`export`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export), y utilizar paquetes (por ejemplo React) del gestor de paquetes [npm](https://www.npmjs.com/).
+2. **Renderiza tus componentes React** donde quieras verlos en la página.
 
 El método exacto dependerá de la configuración de tu página existente, así que repasemos algunos detalles.
 
@@ -62,7 +62,7 @@ Después agrega las siguientes líneas de código al principio de tu archivo Jav
 <html>
   <head><title>My app</title></head>
   <body>
-    <!-- El contenido de tu página actual (en este ejemplo, es reemplazado) -->
+    <!-- El contenido existente de tu página (en este ejemplo, es reemplazado) -->
   </body>
 </html>
 ```
@@ -70,17 +70,17 @@ Después agrega las siguientes líneas de código al principio de tu archivo Jav
 ```js index.js active
 import { createRoot } from 'react-dom/client';
 
-// Borrar el contenido HTML existente
+// Borra el contenido HTML existente
 document.body.innerHTML = '<div id="app"></div>';
 
-// Renderizar tu componente React en su lugar
+// Renderiza tu componente React en su lugar
 const root = createRoot(document.getElementById('app'));
 root.render(<h1>¡Hola, mundo!</h1>);
 ```
 
 </Sandpack>
 
-Si el contenido completo de tu página fue reemplazado por un "¡Hola, mundo!", ¡todo ha funcionado! Sigue leyendo.
+Si el contenido completo de tu página fue reemplazado por un "¡Hola, mundo!", ¡todo ha funcionado!. Sigue leyendo.
 
 <Note>
 
@@ -95,15 +95,15 @@ En el paso anterior, pusiste el siguiente código al principio de tu archivo pri
 ```js
 import { createRoot } from 'react-dom/client';
 
-// Borrar el contenido HTML existente
+// Borra el contenido HTML existente
 document.body.innerHTML = '<div id="app"></div>';
 
-// Renderizar tu componente React en su lugar
+// Renderiza tu componente React en su lugar
 const root = createRoot(document.getElementById('app'));
 root.render(<h1>¡Hola, mundo!</h1>);
 ```
 
-Por supuesto, ¡en realidad no deseas borrar el contenido HTML existente!
+Por supuesto, ¡en realidad no deseas borrar el contenido HTML existente!.
 
 Elimina este código.
 
@@ -135,7 +135,7 @@ Esto te permite encontrar aquel elemento HTML con [`document.getElementById`](ht
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {
-  // TODO: Realmente implementar una barra de navegación
+  // TODO: Implementar realmente una barra de navegación
   return <h1>Hola desde React!</h1>;
 }
 

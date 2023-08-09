@@ -203,7 +203,7 @@ La mutación sólo es un problema cuando cambias objetos *existentes* que ya est
 
 En el ejemplo anterior, el objeto `position` se crea siempre de nuevo a partir de la posición actual del cursor. Pero a menudo, querrás incluir datos *existentes* como parte del nuevo objeto que estás creando. Por ejemplo, puedes querer actualizar *sólo un* campo de un formulario, pero mantener los valores anteriores de todos los demás campos.
 
-Estos campos de entrada no funcionan porque los manejadores `onChange` mutan el estado:
+Estos campos de entrada no funcionan porque los controladores `onChange` mutan el estado:
 
 <Sandpack>
 
@@ -232,21 +232,21 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
           value={person.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={person.lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
           value={person.email}
           onChange={handleEmailChange}
@@ -334,21 +334,21 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
           value={person.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={person.lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
           value={person.email}
           onChange={handleEmailChange}
@@ -375,9 +375,9 @@ Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las
 
 <DeepDive>
 
-#### Utilizar un único manejador de eventos para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
+#### Utilizar un único controlador de evento para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
-También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo manejador de eventos en lugar de tres diferentes:
+También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo controlador de evento en lugar de tres diferentes:
 
 <Sandpack>
 
@@ -401,7 +401,7 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Nombre:
         <input
           name="firstName"
           value={person.firstName}
@@ -409,7 +409,7 @@ export default function Form() {
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           name="lastName"
           value={person.lastName}
@@ -417,7 +417,7 @@ export default function Form() {
         />
       </label>
       <label>
-        Email:
+        Correo electrónico:
         <input
           name="email"
           value={person.email}
@@ -453,8 +453,8 @@ Considera una estructura de objetos anidados como esta:
 const [person, setPerson] = useState({
   name: 'Niki de Saint Phalle',
   artwork: {
-    title: 'Blue Nana',
-    city: 'Hamburg',
+    title: 'Nana azul',
+    city: 'Hamburgo',
     image: 'https://i.imgur.com/Sd1AgUOm.jpg',
   }
 });
@@ -463,13 +463,13 @@ const [person, setPerson] = useState({
 Si quisieras actualizar `person.artwork.city`, está claro cómo hacerlo con la mutación:
 
 ```js
-person.artwork.city = 'New Delhi';
+person.artwork.city = 'Nueva Delhi';
 ```
 
 Pero en React, ¡se trata el estado como inmutable! Para cambiar la "ciudad", primero tendrías que producir el nuevo objeto "artwork" (pre-poblado con los datos de la anterior), y luego producir el nuevo objeto "person" que apunta a la nueva "artwork":
 
 ```js
-const nextArtwork = { ...person.artwork, city: 'New Delhi' };
+const nextArtwork = { ...person.artwork, city: 'Nueva Delhi' };
 const nextPerson = { ...person, artwork: nextArtwork };
 setPerson(nextPerson);
 ```
@@ -478,10 +478,10 @@ O, escrito como una sola llamada a la función:
 
 ```js
 setPerson({
-  ...person, // Copy other fields
-  artwork: { // but replace the artwork
-    ...person.artwork, // with the same one
-    city: 'New Delhi' // but in New Delhi!
+  ...person, // Copia otros campos
+  artwork: { // pero sustituye el artwork
+    ...person.artwork, // por el mismo
+    city: 'Nueva Delhi' // ¡pero en Nueva Delhi!
   }
 });
 ```
@@ -497,8 +497,8 @@ export default function Form() {
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',
     artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
+      title: 'Nana azul',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -543,28 +543,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Título:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -572,10 +572,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' por '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (situada en {person.artwork.city})
       </p>
       <img 
         src={person.artwork.image} 
@@ -604,8 +604,8 @@ Un objeto de este tipo aparece "anidado" en el código:
 let obj = {
   name: 'Niki de Saint Phalle',
   artwork: {
-    title: 'Blue Nana',
-    city: 'Hamburg',
+    title: 'Nana azul',
+    city: 'Hamburgo',
     image: 'https://i.imgur.com/Sd1AgUOm.jpg',
   }
 };
@@ -615,8 +615,8 @@ Sin embargo, la "anidación" es una forma inexacta de pensar en el comportamient
 
 ```js
 let obj1 = {
-  title: 'Blue Nana',
-  city: 'Hamburg',
+  title: 'Nana azul',
+  city: 'Hamburgo',
   image: 'https://i.imgur.com/Sd1AgUOm.jpg',
 };
 
@@ -630,8 +630,8 @@ El objeto `obj1` no está "dentro" de `obj2`. Por ejemplo, `obj3` también podr�
 
 ```js
 let obj1 = {
-  title: 'Blue Nana',
-  city: 'Hamburg',
+  title: 'Nana azul',
+  city: 'Hamburgo',
   image: 'https://i.imgur.com/Sd1AgUOm.jpg',
 };
 
@@ -686,8 +686,8 @@ export default function Form() {
   const [person, updatePerson] = useImmer({
     name: 'Niki de Saint Phalle',
     artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
+      title: 'Nana azul',
+      city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
     }
   });
@@ -719,28 +719,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Nombre:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Título:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Ciudad:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Imagen:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -748,10 +748,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' por '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (situada en {person.artwork.city})
       </p>
       <img 
         src={person.artwork.image} 
@@ -788,7 +788,7 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-Fíjate en lo mucho más concisos que se han vuelto los manejadores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los manejadores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
+Fíjate en lo mucho más concisos que se han vuelto los controladores de eventos. Puedes mezclar y combinar `useState` y `useImmer` en un mismo componente tanto como quieras. Immer es una gran manera de mantener los controladores de actualización de manera concisa, especialmente si hay anidación en su estado, y la copia de objetos conduce a código repetitivo.
 
 <DeepDive>
 
@@ -799,7 +799,7 @@ Hay algunas razones:
 * **Debugging:** Si usas `console.log` y no mutas el estado, tus registros anteriores no se verán afectados por los cambios de estado más recientes. Así puedes ver claramente cómo ha cambiado el estado entre renders.
 * **Optimizaciones:** Las [estrategias de optimización](/reference/react/memo) más comunes en React se basan en ahorrar trabajo si las props o el estado anteriores son los mismos que los siguientes. Si nunca se muta el estado, es muy rápido comprobar si ha habido algún cambio. Si `prevObj === obj`, puedes estar seguro de que nada ha podido cambiar en su interior.
 * **Nuevas características:** Las nuevas características de React que estamos construyendo dependen de que el estado sea [tratado como una instantánea.](/learn/state-as-a-snapshot) Si estás mutando versiones anteriores del estado, eso puede impedirte utilizar las nuevas funciones.
-* **Cambios de requisitos:** Algunas características de la aplicación, como la implementación de Deshacer/Rehacer, mostrar un historial de cambios, o permitir al usuario restablecer un formulario a valores anteriores, son más fáciles de hacer cuando no se muta nada. Esto se debe a que puedes mantener copias pasadas del estado en la memoria, y reutilizarlas cuando sea apropiado. Si empiezas con un enfoque mutativo, características como estas pueden ser difíciles de añadir más adelante.
+* **Cambios de requisitos:** Algunas características de la aplicación, como la implementación de Deshacer/Rehacer, mostrar un historial de cambios, o permitir al usuario reiniciar un formulario a valores anteriores, son más fáciles de hacer cuando no se muta nada. Esto se debe a que puedes mantener copias pasadas del estado en la memoria, y reutilizarlas cuando sea apropiado. Si empiezas con un enfoque mutativo, características como estas pueden ser difíciles de añadir más adelante.
 * **Implementación más sencilla:** Como React no se basa en la mutación, no necesita hacer nada especial con tus objetos. No necesita apropiarse de sus propiedades, envolverlos siempre en Proxies, o hacer otro trabajo en la inicialización como hacen muchas soluciones "reactivas". Esta es también la razón por la que React te permite poner cualquier objeto en el estado - no importa lo grande que sea - sin problemas adicionales de rendimiento o corrección.
 
 En la práctica, a menudo puedes "salirte con la tuya" con la mutación de estado en React, pero te aconsejamos encarecidamente que no lo hagas para que puedas utilizar las nuevas características de React desarrolladas con este enfoque en mente. Los futuros colaboradores y quizás incluso tú mismo en el futuro te lo agradecerán.
@@ -867,14 +867,14 @@ export default function Scoreboard() {
         </button>
       </label>
       <label>
-        First name:
+        Nombre:
         <input
           value={player.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={player.lastName}
           onChange={handleLastNameChange}
@@ -939,14 +939,14 @@ export default function Scoreboard() {
         </button>
       </label>
       <label>
-        First name:
+        Nombre:
         <input
           value={player.firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:
+        Apellido:
         <input
           value={player.lastName}
           onChange={handleLastNameChange}
@@ -1032,7 +1032,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );
@@ -1187,7 +1187,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );
@@ -1338,7 +1338,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );
@@ -1454,7 +1454,7 @@ select { margin-bottom: 10px; }
 
 <Solution>
 
-Esta es la solución reescrita con Immer. Observa cómo los manejadores de eventos están escritos de forma mutante, pero el error no se produce. Esto se debe a que bajo el capó, Immer nunca muta los objetos existentes.
+Esta es la solución reescrita con Immer. Observa cómo los controladores de eventos están escritos de forma mutante, pero el error no se produce. Esto se debe a que bajo el capó, Immer nunca muta los objetos existentes.
 
 <Sandpack>
 
@@ -1505,7 +1505,7 @@ export default function Canvas() {
         position={shape.position}
         onMove={handleMove}
       >
-        Drag me!
+        ¡Arrástrame!
       </Box>
     </>
   );

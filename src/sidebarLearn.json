@@ -68,7 +68,7 @@
           "path": "/learn/javascript-in-jsx-with-curly-braces"
         },
         {
-          "title": "Passing Props to a Component",
+          "title": "Pasar props a un componente",
           "path": "/learn/passing-props-to-a-component"
         },
         {
@@ -138,7 +138,7 @@
           "path": "/learn/sharing-state-between-components"
         },
         {
-          "title": "Conservar y reiniciar el estado",
+          "title": "Preservar y reiniciar el estado",
           "path": "/learn/preserving-and-resetting-state"
         },
         {
@@ -165,7 +165,7 @@
           "path": "/learn/referencing-values-with-refs"
         },
         {
-          "title": "Manipulating the DOM with Refs",
+          "title": "Manipular el DOM con Refs",
           "path": "/learn/manipulating-the-dom-with-refs"
         },
         {
@@ -173,15 +173,15 @@
           "path": "/learn/synchronizing-with-effects"
         },
         {
-          "title": "You Might Not Need an Effect",
+          "title": "Quizás no necesites un Efecto",
           "path": "/learn/you-might-not-need-an-effect"
         },
         {
-          "title": "Lifecycle of Reactive Effects",
+          "title": "Ciclo de vida de los Efectos reactivos",
           "path": "/learn/lifecycle-of-reactive-effects"
         },
         {
-          "title": "Separating Events from Effects",
+          "title": "Separar eventos de Efectos",
           "path": "/learn/separating-events-from-effects"
         },
         {
@@ -189,7 +189,7 @@
           "path": "/learn/removing-effect-dependencies"
         },
         {
-          "title": "Reutilización de lógica con Hooks personalizados",
+          "title": "Reutilizar la lógica con hooks personalizados",
           "path": "/learn/reusing-logic-with-custom-hooks"
         }
       ]

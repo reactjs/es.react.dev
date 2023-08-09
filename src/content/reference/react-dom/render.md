@@ -41,7 +41,7 @@ React mostrará `<App />`  en el `domNode`, y se encargará de gestionar el DOM 
 
 Una aplicación totalmente construida con React tendrá usualmente una sola llamada a `render` con su componente raíz. Una página que utiliza React para partes de la página puede tener tantas llamadas a `render` como sean necesarias.
 
-[Mira más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
@@ -52,15 +52,15 @@ Una aplicación totalmente construida con React tendrá usualmente una sola llam
 * `callback` **opcional**: Una función. Si se pasa, React la llamará luego de que tu componente sea colocado dentro del DOM.
 
 
-#### Retorno {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`render` Por lo general retorna `null`. Sin embargo, si el `reactNode` que pasas es un *component de clase*, entonces retornará una instancia de ese componente.
+`render` Por lo general devuelve `null`. Sin embargo, si el `reactNode` que pasas es un *component de clase*, entonces devolverá una instancia de ese componente.
 
 #### Advertencias {/*caveats*/}
 
 * En React 18, `render` fue reemplazado por [`createRoot`.](/reference/react-dom/client/createRoot) Por favor usa `createRoot` para React 18 y versiones posteriores.
 
-* La primera vez que llamas a `render`, React limpiará todo el contenido HTML existente dentro del `domNode` antes de renderizar el componente de React dentro de este. Si tu `domNode` contiene HTML generado por React en el servidor o durante la compilación, usa en su lugar [`hydrate()`](/reference/react-dom/hydrate), ya que este adjunta los manejadores de eventos al HTML existente.
+* La primera vez que llamas a `render`, React limpiará todo el contenido HTML existente dentro del `domNode` antes de renderizar el componente de React dentro de este. Si tu `domNode` contiene HTML generado por React en el servidor o durante la compilación, usa en su lugar [`hydrate()`](/reference/react-dom/hydrate), ya que este adjunta los controladores de eventos al HTML existente.
 
 * Si llamas a `render` en el mismo `domNode` más de una vez, React actualizará el DOM según sea necesario para reflejar el JSX más reciente que hayas pasado. React decidirá qué partes del DOM se pueden reutilizar y cuáles necesitan ser recreadas ["haciendo una comparación"](/learn/preserving-and-resetting-state) con el árbol previamente renderizado. Llamar de nuevo a `render` en el mismo `domNode` es similar a llamar a la función [`set` ](/reference/react/useState#setstate) en el componente raíz: React evita actualizaciones innecesarias del DOM.
 
@@ -107,7 +107,7 @@ Generalmente no necesitas llamar a `render` de nuevo o llamarlo en otros lugares
 
 ### Renderizar múltiples raíces {/*rendering-multiple-roots*/}
 
-Si tu página [no está totalmente construida con React](/learn/add-react-to-a-website), llama a `render` por cada pieza de UI de nivel superior que esté administrada por React.
+Si tu página [no está totalmente construida con React](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page), llama a `render` por cada pieza de UI de nivel superior que esté administrada por React.
 
 <Sandpack>
 
@@ -139,8 +139,8 @@ render(
 export function Navigation() {
   return (
     <ul>
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/about">About</NavLink>
+      <NavLink href="/">Inicio</NavLink>
+      <NavLink href="/about">Acerca de</NavLink>
     </ul>
   );
 }

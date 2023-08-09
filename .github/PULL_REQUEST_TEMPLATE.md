@@ -1,11 +1,11 @@
 <!--
 
-Thank you for the PR! Contributors like you keep React awesome!
+¡Gracias por el PR! Colaboradores como tú hacen que ¡React siga siendo increíble!
 
-Please see the Contribution Guide for guidelines:
+Consulte las directrices en la Guía de contribuciones:
 
-https://github.com/reactjs/react.dev/blob/main/CONTRIBUTING.md
+https://github.com/reactjs/es.react.dev/blob/main/CONTRIBUTING.md
 
-If your PR references an existing issue, please add the issue number below
+Si tu PR hace referencia a una incidencia (issue) ya existente, añade el número de incidencia a continuación
 
 -->

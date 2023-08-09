@@ -78,23 +78,23 @@ Incluso si no necesitas enrutamiento u obtención de datos al principio, es prob
 
 **Los frameworks de React en esta página resuelven problemas como estos de forma predeterminada, sin trabajo adicional de tu parte.** Te permiten comenzar de manera muy sencilla y luego escalar tu aplicación según tus necesidades. Cada framework de React tiene una comunidad, por lo que es más fácil encontrar respuestas a las preguntas y actualizar las herramientas. Los frameworks también brindan estructura a tu código, ayudándote a ti y a otros a retener el contexto y las habilidades entre diferentes proyectos. Por el contrario, con una configuración personalizada es más fácil quedarte atascado en versiones de dependencia no admitidas, y esencialmente terminarás creando tu propio framework, aunque uno sin comunidad o ruta de actualización (y si es algo como los que hemos hecho en el pasado, diseñado al azar).
 
-Si todavía no estás convencido, o si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen bien y deseas implementar tu propia configuración personalizada, no podemos detenerte, ¡hazlo! Toma `react` y `react-dom` de npm, configura tu proceso de compilación personalizado con un paquete como [Vite](https://es.vitejs.dev/) o [Parcel](https://parceljs.org/) y agregua otras herramientas a medida que las necesites para el enrutamiento, la generación estática o la representación del lado del servidor, y más.
+Si todavía no estás convencido, o si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen bien y deseas implementar tu propia configuración personalizada, no podemos detenerte, ¡hazlo! Toma `react` y `react-dom` de npm, configura tu proceso de compilación personalizado con un paquete como [Vite](https://es.vitejs.dev/) o [Parcel](https://parceljs.org/) y agrega otras herramientas a medida que las necesites para el enrutamiento, la generación estática o la representación del lado del servidor, y más.
 </DeepDive>
 
 ## Frameworks React de última generación {/*bleeding-edge-react-frameworks*/}
 
 A medida que exploramos cómo continuar mejorando React, nos dimos cuenta de que integrar React más estrechamente con los frameworks (específicamente, con tecnologías de enrutamiento, agrupación y servidor) es nuestra mayor oportunidad para ayudar a los usuarios de React a crear mejores aplicaciones. El equipo de Next.js acordó colaborar con nosotros en la investigación, el desarrollo, la integración y la prueba de funciones de React de última generación independientes del framework como [React Server Components.](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
 
-Estas funciones están cada vez más cerca de estar listas para la producción todos los días, y hemos estado en conversaciones con otros desarrolladores de paquetes y frameworks para integrarlas. Nuestra esperanza es que en un año o dos, todos los frameworks enumerados en esta página tengan soporte completo para estas funciones. (Si eres un autor de framework interesado en asociarte con nosotros para experimentar con estas características, ¡háznoslo saber!)
+Estas funcionalidades están cada día más cerca de estar listas para producción, y hemos mantenido conversaciones con otros desarrolladores de paquetes y frameworks para integrarlas. Esperamos que en uno o dos años todos los frameworks que aparecen en esta página sean totalmente compatibles con estas funciones. (Si eres autor de un framework y estás interesado en colaborar con nosotros para experimentar con estas funciones, ¡háznoslo saber!).
 
-### Next.js (Enrutador de la aplicación) {/*nextjs-app-router*/}
+### Next.js (App Router) {/*nextjs-app-router*/}
 
-**[El enrutador de aplicaciones de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de la API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa del equipo de React.** te permite obtener datos en componentes asincrónicos que se ejecutan en el servidor o incluso durante la compilación.
+**[El App Router de Next.js](https://beta.nextjs.org/docs/getting-started) es un rediseño de las API de Next.js con el objetivo de cumplir con la visión de arquitectura de pila completa (_full-stack_) del equipo de React.** Te permite obtener datos en componentes asíncronos que se ejecutan en el servidor o incluso durante la compilación.
 
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. Next.js también permite [exportar archivos estáticos](https://beta.nextjs.org/docs/configuring/static-export) que no requiere un servidor.
 <Pitfall>
 
-El enrutador de aplicaciones de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (para de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
+El App Router de Next.js está **actualmente en versión beta y aún no se recomienda para producción** (a partir de marzo de 2023). Para experimentar con él en un proyecto Next.js existente, [sigue esta guía de migración incremental](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
 
 </Pitfall>
 
@@ -102,9 +102,9 @@ El enrutador de aplicaciones de Next.js está **actualmente en versión beta y a
 
 #### ¿Qué características conforman la visión de la arquitectura completa del equipo de React? {/*which-features-make-up-the-react-teams-full-stack-architecture-vision*/}
 
-El paquete del enrutador de aplicaciones de Next.js implementa completamente la [especificación oficial de los componentes del servidor React](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). Esto te permite combinar componentes compilados, solo de servidor e interactivos en un solo árbol de React.
+El paquete App Router de Next.js implementa completamente la [especificación oficial de los componentes del servidor React](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). Esto te permite combinar componentes compilados, solo de servidor e interactivos en un solo árbol de React.
 
-Por ejemplo, puedes escribir un componente React solo para el servidor como una función "asincrónica" que es leida desde una base de datos o desde un archivo. Luego puedes pasar datos desde allí a tus componentes interactivos:
+Por ejemplo, puedes escribir un componente React solo para el servidor como una función "asincrónica" que es leída desde una base de datos o desde un archivo. Luego puedes pasar datos desde allí a tus componentes interactivos:
 
 ```js
 // Este componente se ejecuta *solo* en el servidor (o durante la compilación).
@@ -120,7 +120,7 @@ async function Talks({ confId }) {
 }
 ```
 
-El enrutador de aplicaciones de Next.js también integra [obtención de datos con Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Esto te permite especificar un estado de carga (como un esqueleto) para diferentes partes de tu interfaz de usuario directamente en tu árbol React:
+El App Router de Next.js también integra [obtención de datos con Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Esto te permite especificar un estado de carga (como un esqueleto) para diferentes partes de tu interfaz de usuario directamente en tu árbol React:
 
 ```js
 <Suspense fallback={<TalksLoading />}>
@@ -128,6 +128,6 @@ El enrutador de aplicaciones de Next.js también integra [obtención de datos co
 </Suspense>
 ```
 
-Server Components y Suspense son funciones de React en lugar de funciones de Next.js. Sin embargo, adoptarlos a nivel del framework requiere compromiso y un trabajo de implementación no trivial. Por el momento, el enrutador de aplicaciones Next.js es la implementación más completa. El equipo de React está trabajando con los desarrolladores de paquetes para que estas características sean más fáciles de implementar en la próxima generación de frameworks.
+Server Components y Suspense son funciones de React en lugar de funciones de Next.js. Sin embargo, adoptarlos a nivel del framework requiere compromiso y un trabajo de implementación no trivial. Por el momento, el App Router de Next.js es la implementación más completa. El equipo de React está trabajando con los desarrolladores de paquetes para que estas características sean más fáciles de implementar en la próxima generación de frameworks.
 
 </DeepDive>

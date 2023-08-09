@@ -16,27 +16,27 @@
           "path": "/community/conferences"
         },
         {
-          "title": "React Meetups",
+          "title": "Reuniones de React",
           "path": "/community/meetups"
         },
         {
-          "title": "React Videos",
+          "title": "Videos de React",
           "path": "/community/videos"
         },
         {
-          "title": "Meet the Team",
+          "title": "Conoce al equipo",
           "path": "/community/team"
         },
         {
-          "title": "Docs Contributors",
+          "title": "Contribuidores de la documentación",
           "path": "/community/docs-contributors"
         },
         {
-          "title": "Acknowledgements",
+          "title": "Agradecimientos",
           "path": "/community/acknowledgements"
         },
         {
-          "title": "Versioning Policy",
+          "title": "Política de versiones",
           "path": "/community/versioning-policy"
         }
       ]

@@ -28,13 +28,13 @@ import { createContext } from 'react';
 const ThemeContext = createContext('light');
 ```
 
-[Consulta más ejemplos debajo.](#usage)
+[Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
 
 * `defaultValue`: El valor que desees que tenga el contexto cuando no hay un proveedor de contexto coincidente en el árbol sobre el componente que lee el contexto. Si no tiene ningún valor predeterminado significativo, especifica `null`. El valor predeterminado se entiende como una reserva de "último recurso". Es estático y nunca cambia con el tiempo.
 
-#### Retorna {/*returns*/}
+#### Devuelve {/*returns*/}
 
 `createContext` devuelve un objeto de contexto.
 
@@ -115,7 +115,7 @@ const ThemeContext = createContext('light');
 const AuthContext = createContext(null);
 ```
 
-`createContext` retorna un <CodeStep step={1}>objeto context</CodeStep>. Los componentes pueden leer el contexto pasándolo a [`useContext()`](/reference/react/useContext):
+`createContext` devuelve un <CodeStep step={1}>objeto context</CodeStep>. Los componentes pueden leer el contexto pasándolo a [`useContext()`](/reference/react/useContext):
 
 ```js [[1, 2, "ThemeContext"], [1, 7, "AuthContext"]]
 function Button() {

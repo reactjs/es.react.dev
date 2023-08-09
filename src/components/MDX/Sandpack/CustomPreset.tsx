@@ -54,7 +54,6 @@ export const CustomPreset = memo(function CustomPreset({
 
 const SandboxShell = memo(function SandboxShell({
   showDevTools,
-  onDevToolsLoad,
   devToolsLoaded,
   providedFiles,
   lintErrors,
@@ -119,7 +118,7 @@ const SandboxShell = memo(function SandboxShell({
                   className="inline mr-1.5 text-xl"
                   displayDirection={isExpanded ? 'up' : 'down'}
                 />
-                {isExpanded ? 'Show less' : 'Show more'}
+                {isExpanded ? 'Mostrar menos' : 'Mostrar más'}
               </span>
             </button>
           )}
