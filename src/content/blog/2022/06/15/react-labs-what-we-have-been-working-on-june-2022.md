@@ -30,7 +30,7 @@ Estamos trabajando en colaboración con Vercel y Shopify para unificar el soport
 
 Actualmente, los recursos como scripts, estilos externos, fuentes e imágenes generalmente se precargan y cargan utilizando sistemas externos. Esto puede dificultar la coordinación en nuevos entornos como la transmisión de datos, los componentes del servidor y otros. Estamos evaluando la posibilidad de agregar APIs para precargar y cargar recursos externos sin duplicaciones a través de APIs de React que funcionen en todos los entornos de React.
 
-También estamos considerando que sean compatibles con Suspense, de modo que puedas tener imágenes, CSS y fuentes que bloqueen la visualización hasta que se carguen, pero que no bloqueen la transmisión y el renderizado simultáneo. Esto puede ayudar a evitar el [“popcorning“](https://twitter.com/sebmarkbage/status/1516852731251724293) cuando los elementos visuales aparecen y provocan cambios en la presentación.
+También estamos considerando que sean compatibles con Suspense, de modo que puedas tener imágenes, CSS y fuentes que bloqueen la visualización hasta que se carguen, pero que no bloqueen la transmisión y el renderizado simultáneo. Esto puede ayudar a evitar [cambios rápidos y caóticos (popcorning)](https://twitter.com/sebmarkbage/status/1516852731251724293) cuando los elementos visuales aparecen y provocan cambios en la presentación.
 
 ## Optimizaciones del renderizado estático de servidor {/*static-server-rendering-optimizations*/}
 
@@ -61,7 +61,7 @@ Offscreen es una función de bajo nivel que desbloquea funciones de alto nivel. 
 
 ## Rastreo de transiciones {/*transition-tracing*/}
 
-Actualmente, React cuenta con dos herramientas de perfilado. El [original Profiler](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) muestra una descripción general de todos los commits en una sesión de perfilado. Para cada commit, también muestra todos los componentes que se han renderizado y el tiempo que les llevó renderizarse. También tenemos una versión beta de un [Timeline Profiler](https://github.com/reactwg/react-18/discussions/76) presentado en React 18, que muestra cuándo los componentes programan actualizaciones y cuándo React trabaja en estas actualizaciones. Ambos perfiladores ayudan a los desarrolladores a identificar problemas de rendimiento en su código.
+Actualmente, React cuenta con dos herramientas de perfilado. El [perfilador original](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) muestra una descripción general de todos los commits en una sesión de perfilado. Para cada commit, también muestra todos los componentes que se han renderizado y el tiempo que les llevó renderizarse. También tenemos una versión beta de un [Timeline Profiler](https://github.com/reactwg/react-18/discussions/76) presentado en React 18, que muestra cuándo los componentes programan actualizaciones y cuándo React trabaja en estas actualizaciones. Ambos perfiladores ayudan a los desarrolladores a identificar problemas de rendimiento en su código.e
 
 Nos hemos dado cuenta que a los desarrolladores no les resulta muy útil conocer acerca de commits individuales lentos o componentes fuera de contexto. Es más util saber qué es lo que realmente provoca que los commits sean lentos. Y que los desarrolladores desean poder rastrear interacciones específicas (por ejemplo, un clic en un botón, una carga inicial o una navegación de página) para detectar regresiones de rendimiento y comprender por qué una interacción fue lenta y cómo solucionarla.
 
