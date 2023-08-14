@@ -969,7 +969,6 @@ export const initialTravelPlan = {
     id: 19,
     title: 'Asia',
 <<<<<<< HEAD
-    childIds: [20, 21, 22, 23, 24, 25, 26],
 =======
     childIds: [20, 21, 22, 23, 24, 25],   
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
