@@ -1312,118 +1312,144 @@ export const initialTravelPlan = {
     childIds: []
   },
   21: {
-        id: 21,
-        title: 'India',
-        childPlaces: []
-      }, {
-        id: 22,
-        title: 'Singapur',
-        childPlaces: []
-      }, {
-        id: 23,
-        title: 'Corea del sur',
-        childPlaces: []
-      }, {
-        id: 24,
-        title: 'Tailandia',
-        childPlaces: []
-      }, {
-        id: 25,
-        title: 'Vietnam',
-        childPlaces: []
-      }]
-    }, {
-      id: 26,
-      title: 'Europa',
-      childPlaces: [{
-        id: 27,
-        title: 'Croacia',
-        childPlaces: [],
-      }, {
-        id: 28,
-        title: 'Francia',
-        childPlaces: [],
-      }, {
-        id: 29,
-        title: 'Alemania',
-        childPlaces: [],
-      }, {
-        id: 30,
-        title: 'Italia',
-        childPlaces: [],
-      }, {
-        id: 31,
-        title: 'Portugal',
-        childPlaces: [],
-      }, {
-        id: 32,
-        title: 'España',
-        childPlaces: [],
-      }, {
-        id: 33,
-        title: 'Turquía',
-        childPlaces: [],
-      }]
-    }, {
-      id: 34,
-      title: 'Oceanía',
-      childPlaces: [{
-        id: 35,
-        title: 'Australia',
-        childPlaces: [],
-      }, {
-        id: 36,
-        title: 'Bora Bora (Polinesia Francesa)',
-        childPlaces: [],
-      }, {
-        id: 37,
-        title: 'Isla de pascua (Chile)',
-        childPlaces: [],
-      }, {
-        id: 38,
-        title: 'Fiyi',
-        childPlaces: [],
-      }, {
-        id: 39,
-        title: 'Hawái (Estados Unidos)',
-        childPlaces: [],
-      }, {
-        id: 40,
-        title: 'Nueva Zelanda',
-        childPlaces: [],
-      }, {
-        id: 41,
-        title: 'Vanuatu',
-        childPlaces: [],
-      }]
-    }]
-  }, {
+    id: 21,
+    title: 'India',
+    childIds: []
+  },
+  22: {
+    id: 22,
+    title: 'Singapur',
+    childIds: []
+  },
+  23: {
+    id: 23,
+    title: 'Corea del sur',
+    childIds: []
+  },
+  24: {
+    id: 24,
+    title: 'Tailandia',
+    childIds: []
+  },
+  25: {
+    id: 25,
+    title: 'Vietnam',
+    childIds: []
+  },
+  26: {
+    id: 26,
+    title: 'Europa',
+    childIds: [27, 28, 29, 30, 31, 32, 33],   
+  },
+  27: {
+    id: 27,
+    title: 'Croacia',
+    childIds: []
+  },
+  28: {
+    id: 28,
+    title: 'Francia',
+    childIds: []
+  },
+  29: {
+    id: 29,
+    title: 'Alemania',
+    childIds: []
+  },
+  30: {
+    id: 30,
+    title: 'Italia',
+    childIds: []
+  },
+  31: {
+    id: 31,
+    title: 'Portugal',
+    childIds: []
+  },
+  32: {
+    id: 32,
+    title: 'España',
+    childIds: []
+  },
+  33: {
+    id: 33,
+    title: 'Turquía',
+    childIds: []
+  },
+  34: {
+    id: 34,
+    title: 'Oceanía',
+    childIds: [35, 36, 37, 38, 39, 40, 41],   
+  },
+  35: {
+    id: 35,
+    title: 'Australia',
+    childIds: []
+  },
+  36: {
+    id: 36,
+    title: 'Bora Bora (Polinesia Francesa)',
+    childIds: []
+  },
+  37: {
+    id: 37,
+    title: 'Isla de Pascua (Chile)',
+    childIds: []
+  },
+  38: {
+    id: 38,
+    title: 'Fiyi',
+    childIds: []
+  },
+  39: {
+    id: 40,
+    title: 'Hawái (Estados Unidos)',
+    childIds: []
+  },
+  40: {
+    id: 40,
+    title: 'Nueva Zelanda',
+    childIds: []
+  },
+  41: {
+    id: 41,
+    title: 'Vanuatu',
+    childIds: []
+  },
+  42: {
     id: 42,
     title: 'Luna',
-    childPlaces: [{
-      id: 43,
-      title: 'Rheita',
-      childPlaces: []
-    }, {
-      id: 44,
-      title: 'Piccolomini',
-      childPlaces: []
-    }, {
-      id: 45,
-      title: 'Tycho',
-      childPlaces: []
-    }]
-  }, {
+    childIds: [43, 44, 45]
+  },
+  43: {
+    id: 43,
+    title: 'Rheita',
+    childIds: []
+  },
+  44: {
+    id: 44,
+    title: 'Piccolomini',
+    childIds: []
+  },
+  45: {
+    id: 45,
+    title: 'Tycho',
+    childIds: []
+  },
+  46: {
     id: 46,
     title: 'Marte',
-    childPlaces: [{
-      id: 47,
-      title: 'Corn Town',
-      childPlaces: []
-    }, {
-      id: 48,
-      title: 'Green Hill',
-      childPlaces: []
+    childIds: [47, 48]
+  },
+  47: {
+    id: 47,
+    title: 'Corn Town',
+    childIds: []
+  },
+  48: {
+    id: 48,
+    title: 'Green Hill',
+    childIds: []
   }
 };
 ```
