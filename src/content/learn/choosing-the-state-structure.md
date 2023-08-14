@@ -740,7 +740,6 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
 <<<<<<< HEAD
-        title: 'Turquía',
 =======
         id: 32,
         title: 'Spain',
