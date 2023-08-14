@@ -988,7 +988,6 @@ export const initialTravelPlan = {
   23: {
     id: 23,
 <<<<<<< HEAD
-    title: 'Singapur',
 =======
     title: 'Corea del sur',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
