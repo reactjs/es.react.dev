@@ -702,7 +702,6 @@ export const initialTravelPlan = {
 <<<<<<< HEAD
         id: 23,
         title: 'Singapur',
-        childPlaces: []
 =======
         id: 22,
         title: 'Singapur',
