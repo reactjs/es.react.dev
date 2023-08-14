@@ -69,7 +69,7 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
           : '¿Fue útil esta página?'}
 =======
       <p className="w-full font-bold text-primary dark:text-primary-dark text-lg me-4">
-        {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
+        {isSubmitted ? '¡Gracias por tus comentarios!' : 'Fue útil esta página?'}
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
       </p>
       {!isSubmitted && (
