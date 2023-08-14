@@ -704,7 +704,6 @@ export const initialTravelPlan = {
         title: 'Singapur',
         childPlaces: []
       }, {
-        id: 24,
 =======
         id: 22,
         title: 'Singapur',
