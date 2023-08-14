@@ -63,7 +63,6 @@ export function Challenge({
           <div>
 <<<<<<< HEAD
             <Button className="mr-2" onClick={toggleHint} active={showHint}>
-              <IconHint className="mr-1.5" />{' '}
 =======
             <Button className="me-2" onClick={toggleHint} active={showHint}>
               <IconHint className="me-1.5" />{' '}
