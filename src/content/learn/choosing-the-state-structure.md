@@ -881,7 +881,6 @@ export const initialTravelPlan = {
 =======
     title: 'Tierra',
     childIds: [2, 10, 19, 26, 34]
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
   },
   2: {
     id: 2,
