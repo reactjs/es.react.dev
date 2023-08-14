@@ -127,7 +127,6 @@ function LearnMore({
               href={path}
               type="primary">
 <<<<<<< HEAD
-              Lee más
               <IconNavArrow displayDirection="end" className="inline ms-1" />
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </ButtonLink>
