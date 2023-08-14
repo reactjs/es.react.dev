@@ -1062,16 +1062,7 @@ export const initialTravelPlan = {
   },
   38: {
     id: 38,
-<<<<<<< HEAD
-    title: 'Isla de Pascua (Chile)',
-    childIds: []
-  },
-  39: {
-    id: 39,
     title: 'Fiyi',
-=======
-    title: 'Fiyi',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   39: {
@@ -1086,11 +1077,7 @@ export const initialTravelPlan = {
   },
   41: {
     id: 41,
-<<<<<<< HEAD
-    title: 'Nueva Zelanda',
-=======
     title: 'Vanuatu',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   42: {
@@ -1100,52 +1087,26 @@ export const initialTravelPlan = {
   },
   43: {
     id: 43,
-<<<<<<< HEAD
-    title: 'Luna',
-    childIds: [44, 45, 46]
-  },
-  44: {
-    id: 44,
-    title: 'Rheita',
-=======
     title: 'Rheita',
     childIds: []
   },
   44: {
     id: 44,
     title: 'Piccolomini',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   45: {
     id: 45,
-<<<<<<< HEAD
-    title: 'Piccolomini (cráter)',
-=======
     title: 'Tycho',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   46: {
     id: 46,
-<<<<<<< HEAD
-    title: 'Tycho (cráter)',
-    childIds: []
-  },
-  47: {
-    id: 47,
     title: 'Marte',
-    childIds: [48, 49]
-  },
-  48: {
-    id: 48,
-=======
-    title: 'Mars',
     childIds: [47, 48]
   },
   47: {
     id: 47,
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     title: 'Corn Town',
     childIds: []
   },
