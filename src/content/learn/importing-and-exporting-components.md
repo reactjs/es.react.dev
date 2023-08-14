@@ -52,7 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Estos viven actualmente en un **archivo de componente raíz**, llamado `App.js` en este ejemplo. No obstante, dependiendo de tu configuración, tu componente raíz podría estar en otro archivo. Si utilizas un framework con enrutamiento basado en archivos, como Next.js, tu componente raíz será diferente para cada página.
+Estos viven actualmente en este ejemplo en un **archivo de componente raíz**, llamado `App.js`. No obstante, dependiendo de tu configuración, tu componente raíz podría estar en otro archivo. Si utilizas un framework con enrutamiento basado en archivos, como Next.js, tu componente raíz será diferente para cada página.
 
 ## Exportar e importar un componente {/*exporting-and-importing-a-component*/}
 
