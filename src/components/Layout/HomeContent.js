@@ -391,7 +391,7 @@ export function HomeContent() {
                           renderizan vistas reales de Android y iOS provistas
                           por la plataforma.
 =======
-                          let you build apps in React for Android, iOS, and
+                          te permiten construir aplicaciones en React para Android, iOS y
                           more. They look and feel native because their UIs{' '}
                           <i>are</i> truly native. It’s not a web view—your
                           React components render real Android and iOS views
