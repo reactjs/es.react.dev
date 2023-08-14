@@ -270,7 +270,6 @@ export default function TopNav({
 <<<<<<< HEAD
                 <IconSearch className="mr-3 align-middle text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
                 Búsqueda
-                <span className="ml-auto hidden sm:flex item-center mr-1">
 =======
                 <IconSearch className="me-3 align-middle text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
                 Búsqueda
