@@ -1034,7 +1034,6 @@ export const initialTravelPlan = {
   31: {
     id: 31,
 <<<<<<< HEAD
-    title: 'Italia',
 =======
     title: 'Portugal',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
