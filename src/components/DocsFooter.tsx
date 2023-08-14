@@ -79,7 +79,7 @@ function FooterLink({
 <<<<<<< HEAD
         displayDirection={type === 'Anterior' ? 'left' : 'right'}
 =======
-        displayDirection={type === 'Previous' ? 'start' : 'end'}
+        displayDirection={type === 'Anterior' ? 'start' : 'end'}
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
       />
       <span>
