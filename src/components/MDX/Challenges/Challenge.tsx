@@ -96,7 +96,6 @@ export function Challenge({
             active>
 <<<<<<< HEAD
             Próximo {isRecipes ? 'ejemplo' : 'desafío'}
-            <IconArrowSmall displayDirection="right" className="block ml-1.5" />
 =======
             Próximo {isRecipes ? 'ejemplo' : 'desafío'}
             <IconArrowSmall displayDirection="end" className="block ms-1.5" />
