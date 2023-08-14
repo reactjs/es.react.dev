@@ -1482,7 +1482,6 @@ function SearchInput({value, onChange}) {
         <input
           type="text"
           id={id}
-<<<<<<< HEAD
           className="flex ps-11 py-4 h-10 w-full text-start bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-primary rounded-full align-middle text-base"
           placeholder="Buscar"
           value={value}
