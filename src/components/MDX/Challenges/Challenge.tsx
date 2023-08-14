@@ -98,7 +98,7 @@ export function Challenge({
             Próximo {isRecipes ? 'ejemplo' : 'desafío'}
             <IconArrowSmall displayDirection="right" className="block ml-1.5" />
 =======
-            Next {isRecipes ? 'Example' : 'Challenge'}
+            Próximo {isRecipes ? 'ejemplo' : 'desafío'}
             <IconArrowSmall displayDirection="end" className="block ms-1.5" />
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
           </Button>
