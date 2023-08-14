@@ -1136,7 +1136,7 @@ export const initialTravelPlan = {
   },
   44: {
     id: 44,
-    title: 'Rheita (cráter)',
+    title: 'Rheita',
 =======
     title: 'Rheita',
     childIds: []
