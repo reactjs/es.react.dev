@@ -52,11 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
-Estos viven actualmente en este ejemplo en un **archivo de componente raíz,** llamado `App.js`. En [Create React App](https://create-react-app.dev/), tu aplicación vive en `src/App.js`. No obstante, en dependencia de tu configuración, tu componente raíz podría estar en otro archivo. Si utilizas un framework con enrutamiento basado en archivos, como Next.js, tu componente raíz será diferente para cada página.
-=======
-These currently live in a **root component file,** named `App.js` in this example. Depending on your setup, your root component could be in another file, though. If you use a framework with file-based routing, such as Next.js, your root component will be different for every page.
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
+Estos viven actualmente en un **archivo de componente raíz**, llamado `App.js` en este ejemplo. No obstante, dependiendo de tu configuración, tu componente raíz podría estar en otro archivo. Si utilizas un framework con enrutamiento basado en archivos, como Next.js, tu componente raíz será diferente para cada página.
 
 ## Exportar e importar un componente {/*exporting-and-importing-a-component*/}
 
