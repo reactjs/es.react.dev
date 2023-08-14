@@ -734,7 +734,6 @@ export const initialTravelPlan = {
       }, {
         id: 30,
         title: 'Italia',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
         childPlaces: [],
       }, {
         id: 31,
