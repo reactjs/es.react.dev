@@ -84,7 +84,7 @@ export function Challenge({
               {showSolution ? 'Ocultar solución' : 'Mostrar solución'}
 =======
               <IconSolution className="me-1.5" />{' '}
-              {showSolution ? 'Hide solution' : 'Show solution'}
+              {showSolution ? 'Ocultar solución' : 'Mostrar solución'}
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </Button>
           )
