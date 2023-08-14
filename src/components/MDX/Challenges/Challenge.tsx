@@ -80,7 +80,6 @@ export function Challenge({
               onClick={toggleSolution}
               active={showSolution}>
 <<<<<<< HEAD
-              <IconSolution className="mr-1.5" />{' '}
               <IconSolution className="me-1.5" />{' '}
               {showSolution ? 'Ocultar solución' : 'Mostrar solución'}
             </Button>
