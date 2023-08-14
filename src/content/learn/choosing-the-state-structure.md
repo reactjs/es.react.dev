@@ -782,7 +782,6 @@ export const initialTravelPlan = {
     }]
   }, {
 <<<<<<< HEAD
-      id: 44,
       title: 'Rheita (cráter)',
       childPlaces: []
     }, {
