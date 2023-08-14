@@ -392,7 +392,7 @@ export function HomeContent() {
                           por la plataforma.
 =======
                           te permiten construir aplicaciones en React para Android, iOS y
-                          more. They look and feel native because their UIs{' '}
+                          más. Lucen y se sienten como nativas porque sus UIs{' '}
                           <i>are</i> truly native. It’s not a web view—your
                           React components render real Android and iOS views
                           provided by the platform.
