@@ -1044,7 +1044,7 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Spain',
+    title: 'España',
     childIds: []
   },
   33: {
