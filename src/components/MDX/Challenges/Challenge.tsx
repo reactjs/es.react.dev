@@ -96,7 +96,6 @@ export function Challenge({
             active>
 <<<<<<< HEAD
             <IconArrowSmall displayDirection="end" className="block ms-1.5" />
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
           </Button>
         )}
       </div>
