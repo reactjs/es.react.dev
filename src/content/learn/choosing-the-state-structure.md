@@ -1043,7 +1043,6 @@ export const initialTravelPlan = {
   34: {
     id: 34,
 <<<<<<< HEAD
-  },
   35: {
     id: 35,
     title: 'Oceanía',
