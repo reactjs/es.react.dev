@@ -421,7 +421,7 @@ export function HomeContent() {
                 <Header>Actualiza cuando el futuro esté listo</Header>
 =======
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:ps-5 lg:pe-10">
-                <Header>Upgrade when the future is ready</Header>
+                <Header>Actualiza cuando el futuro esté listo</Header>
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
                 <Para>
                   React atiende los cambios con cuidado. Cada commit de React se
