@@ -739,7 +739,6 @@ export const initialTravelPlan = {
         title: 'Portugal',
         childPlaces: [],
       }, {
-<<<<<<< HEAD
         id: 32,
         title: 'España',
         childPlaces: [],
