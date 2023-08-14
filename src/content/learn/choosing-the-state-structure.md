@@ -713,7 +713,7 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 23,
-        title: 'South Korea',
+        title: 'Corea del sur',
         childPlaces: []
       }, {
         id: 24,
