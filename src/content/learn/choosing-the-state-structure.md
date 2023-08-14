@@ -1078,7 +1078,7 @@ export const initialTravelPlan = {
   },
   36: {
     id: 36,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinesia Francesa)',
     childIds: []
   },
   37: {
