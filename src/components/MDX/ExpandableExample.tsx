@@ -73,7 +73,6 @@ function ExpandableExample({children, excerpt, type}: ExpandableExampleProps) {
 <<<<<<< HEAD
               <IconDeepDive className="inline me-2 dark:text-purple-30 text-purple-40" />
               Profundizar
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </>
           )}
           {isExample && (
