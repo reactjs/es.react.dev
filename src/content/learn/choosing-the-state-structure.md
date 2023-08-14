@@ -716,7 +716,6 @@ export const initialTravelPlan = {
         childPlaces: []
       }]
     }, {
-<<<<<<< HEAD
       id: 26,
       title: 'Europa',
       childPlaces: [{
