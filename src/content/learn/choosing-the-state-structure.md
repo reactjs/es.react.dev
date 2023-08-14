@@ -712,7 +712,7 @@ export const initialTravelPlan = {
         title: 'Tailandia',
 =======
         id: 22,
-        title: 'Singapore',
+        title: 'Singapur',
         childPlaces: []
       }, {
         id: 23,
