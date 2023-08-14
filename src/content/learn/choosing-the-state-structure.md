@@ -756,7 +756,6 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
 <<<<<<< HEAD
-        title: 'Fiyi',
         childPlaces: [],
       }, {
 =======
