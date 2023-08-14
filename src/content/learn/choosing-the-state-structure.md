@@ -878,7 +878,6 @@ export const initialTravelPlan = {
   1: {
     id: 1,
 <<<<<<< HEAD
-    title: 'Tierra',
     childIds: [2, 10, 19, 27, 35]
 =======
     title: 'Tierra',
