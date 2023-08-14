@@ -1052,7 +1052,7 @@ export const initialTravelPlan = {
 <<<<<<< HEAD
     title: 'España',
 =======
-    title: 'Turkey',
+    title: 'Turquía',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
