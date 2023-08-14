@@ -273,7 +273,7 @@ export default function TopNav({
                 <span className="ml-auto hidden sm:flex item-center mr-1">
 =======
                 <IconSearch className="me-3 align-middle text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
-                Search
+                Búsqueda
                 <span className="ms-auto hidden sm:flex item-center me-1">
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
                   <Kbd data-platform="mac">⌘</Kbd>
