@@ -79,7 +79,6 @@ function ExpandableExample({children, excerpt, type}: ExpandableExampleProps) {
 <<<<<<< HEAD
               <IconCodeBlock className="inline me-2 dark:text-yellow-30 text-yellow-50" />
               Ejemplo
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </>
           )}
         </h5>
