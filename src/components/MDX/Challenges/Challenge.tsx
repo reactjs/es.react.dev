@@ -65,7 +65,6 @@ export function Challenge({
             <Button className="me-2" onClick={toggleHint} active={showHint}>
               <IconHint className="me-1.5" />{' '}
               {showHint ? 'Ocultar pista' : 'Mostrar pista'}
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </Button>
             <Button
               className="me-2"
