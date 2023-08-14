@@ -708,7 +708,6 @@ export const initialTravelPlan = {
         title: 'Corea del sur',
         childPlaces: []
       }, {
-        id: 25,
         title: 'Tailandia',
 =======
         id: 22,
