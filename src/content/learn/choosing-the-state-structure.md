@@ -774,7 +774,7 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 37,
-        title: 'Easter Island (Chile)',
+        title: 'Isla de pascua (Chile)',
         childPlaces: [],
       }, {
         id: 38,
