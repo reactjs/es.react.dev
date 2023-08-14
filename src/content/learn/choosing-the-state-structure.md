@@ -756,7 +756,6 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
 <<<<<<< HEAD
-      }, {
         id: 38,
         title: 'Isla de pascua (Chile)',
         childPlaces: [],
