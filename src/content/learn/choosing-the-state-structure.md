@@ -1008,7 +1008,6 @@ export const initialTravelPlan = {
   27: {
     id: 27,
 <<<<<<< HEAD
-  },
   28: {
     id: 28,
 =======
