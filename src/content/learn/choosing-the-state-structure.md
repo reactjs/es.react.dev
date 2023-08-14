@@ -756,7 +756,6 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
 <<<<<<< HEAD
-        title: 'Bora Bora (Polinesia Francesa)',
         childPlaces: [],
       }, {
         id: 38,
