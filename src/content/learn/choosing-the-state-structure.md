@@ -762,7 +762,6 @@ export const initialTravelPlan = {
         title: 'Fiyi',
         childPlaces: [],
       }, {
-        childPlaces: [],
 =======
         id: 36,
         title: 'Bora Bora (Polinesia Francesa)',
