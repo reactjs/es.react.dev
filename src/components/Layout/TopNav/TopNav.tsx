@@ -268,7 +268,6 @@ export default function TopNav({
                 )}
                 onClick={onOpenSearch}>
 <<<<<<< HEAD
-                <IconSearch className="mr-3 align-middle text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
 =======
                 <IconSearch className="me-3 align-middle text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
                 Búsqueda
