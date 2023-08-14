@@ -717,7 +717,6 @@ export const initialTravelPlan = {
       }]
     }, {
 <<<<<<< HEAD
-      childPlaces: [{
         id: 28,
         title: 'Croacia',
         childPlaces: [],
