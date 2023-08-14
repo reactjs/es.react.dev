@@ -83,7 +83,6 @@ export function Challenge({
               <IconSolution className="mr-1.5" />{' '}
               <IconSolution className="me-1.5" />{' '}
               {showSolution ? 'Ocultar solución' : 'Mostrar solución'}
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </Button>
           )
         )}
