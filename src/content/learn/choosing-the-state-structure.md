@@ -768,7 +768,6 @@ export const initialTravelPlan = {
         id: 40,
         title: 'Hawái (Estados Unidos)',
         childPlaces: [],
-      }, {
         id: 41,
         title: 'Nueva Zelanda',
 =======
