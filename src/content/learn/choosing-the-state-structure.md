@@ -1038,7 +1038,6 @@ export const initialTravelPlan = {
   33: {
     id: 33,
 <<<<<<< HEAD
-=======
     title: 'Turquía',
     childIds: []
   },
