@@ -788,7 +788,6 @@ export const initialTravelPlan = {
       childPlaces: []
     }, {
       id: 46,
-    }]
 =======
     id: 42,
     title: 'Luna',
