@@ -990,7 +990,6 @@ export const initialTravelPlan = {
 <<<<<<< HEAD
 =======
     title: 'Corea del sur',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   24: {
