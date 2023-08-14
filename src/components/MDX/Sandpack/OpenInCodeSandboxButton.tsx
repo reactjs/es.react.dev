@@ -9,7 +9,6 @@ export const OpenInCodeSandboxButton = () => {
   return (
     <UnstyledOpenInCodeSandboxButton
 <<<<<<< HEAD
-=======
       className="text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1 ms-2 md:ms-1"
       title="Abrir en CodeSandbox">
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
