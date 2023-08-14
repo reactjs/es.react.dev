@@ -794,7 +794,6 @@ export const initialTravelPlan = {
       title: 'Tycho (cráter)',
       childPlaces: []
     }]
-    id: 47,
     title: 'Marte',
 =======
     id: 42,
