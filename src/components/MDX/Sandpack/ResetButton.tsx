@@ -16,7 +16,6 @@ export function ResetButton({onReset}: ResetButtonProps) {
       title="Reiniciar Sandbox"
       type="button">
 <<<<<<< HEAD
-=======
       <IconRestart className="inline ms-1 me-1 relative" /> Reiniciar
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     </button>
