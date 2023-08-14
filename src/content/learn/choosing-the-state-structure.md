@@ -1111,7 +1111,7 @@ export const initialTravelPlan = {
   },
   40: {
     id: 40,
-    title: 'New Zealand',
+    title: 'Nueva Zelanda',
     childIds: []
   },
   41: {
