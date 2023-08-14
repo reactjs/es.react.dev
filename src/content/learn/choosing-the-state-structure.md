@@ -1049,7 +1049,6 @@ export const initialTravelPlan = {
   35: {
     id: 35,
     title: 'Oceanía',
-    childIds: [36, 37, 38, 39, 40, 41, 42],
 =======
     title: 'Oceanía',
     childIds: [35, 36, 37, 38, 39, 40, 41],   
