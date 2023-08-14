@@ -29,7 +29,6 @@ function YouWillLearnCard({title, path, children}: YouWillLearnCardProps) {
           size="md"
           label={title}>
 <<<<<<< HEAD
-          Seguir Leyendo
 =======
           Seguir Leyendo
           <IconNavArrow displayDirection="end" className="inline ms-1" />
