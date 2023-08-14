@@ -1100,7 +1100,7 @@ export const initialTravelPlan = {
     id: 39,
     title: 'Fiyi',
 =======
-    title: 'Fiji',
+    title: 'Fiyi',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
