@@ -505,7 +505,6 @@ export function HomeContent() {
             <Header>
 <<<<<<< HEAD
               Bienvenido a la <br className="" />
-              comunidad de React
 =======
               Bienvenido a la <br className="hidden lg:inline" />
               comunidad de React
