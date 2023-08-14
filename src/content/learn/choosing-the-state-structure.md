@@ -699,7 +699,6 @@ export const initialTravelPlan = {
         title: 'India',
         childPlaces: []
       }, {
-<<<<<<< HEAD
         id: 22,
         title: 'Singapur',
         childPlaces: []
