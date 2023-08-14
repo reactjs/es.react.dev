@@ -987,7 +987,6 @@ export const initialTravelPlan = {
   },
   23: {
     id: 23,
-<<<<<<< HEAD
     title: 'Corea del sur',
     childIds: []
   },
