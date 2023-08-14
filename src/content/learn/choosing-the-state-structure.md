@@ -781,7 +781,6 @@ export const initialTravelPlan = {
       }]
     }]
   }, {
-=======
     id: 42,
     title: 'Luna',
     childPlaces: [{
