@@ -802,7 +802,7 @@ export const initialTravelPlan = {
     title: 'Marte',
 =======
     id: 42,
-    title: 'Moon',
+    title: 'Luna',
     childPlaces: [{
       id: 43,
       title: 'Rheita',
