@@ -95,7 +95,6 @@ export function Challenge({
             onClick={handleClickNextChallenge}
             active>
 <<<<<<< HEAD
-=======
             Próximo {isRecipes ? 'ejemplo' : 'desafío'}
             <IconArrowSmall displayDirection="end" className="block ms-1.5" />
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
