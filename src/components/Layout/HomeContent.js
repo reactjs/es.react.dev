@@ -508,7 +508,7 @@ export function HomeContent() {
               comunidad de React
 =======
               Bienvenido a la <br className="hidden lg:inline" />
-              React community
+              comunidad de React
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </Header>
             <ButtonLink
