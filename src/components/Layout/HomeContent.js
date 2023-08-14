@@ -418,7 +418,6 @@ export function HomeContent() {
             <div className="max-w-3xl lg:max-w-7xl gap-5 flex flex-col lg:flex-row lg:px-5">
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:ps-5 lg:pe-10">
                 <Header>Actualiza cuando el futuro esté listo</Header>
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
                 <Para>
                   React atiende los cambios con cuidado. Cada commit de React se
                   prueba en escenarios críticos para el negocio con más de mil
