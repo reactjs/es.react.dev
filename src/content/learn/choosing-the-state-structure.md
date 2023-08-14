@@ -751,7 +751,7 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 30,
-        title: 'Italy',
+        title: 'Italia',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
         childPlaces: [],
       }, {
