@@ -1029,7 +1029,7 @@ export const initialTravelPlan = {
   },
   28: {
     id: 28,
-    title: 'France',
+    title: 'Francia',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
