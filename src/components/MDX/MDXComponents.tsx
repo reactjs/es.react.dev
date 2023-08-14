@@ -126,7 +126,7 @@ function LearnMore({
               label="Lee más"
               href={path}
               type="primary">
-           Lee más
+              Lee más
               <IconNavArrow displayDirection="end" className="inline ms-1" />
             </ButtonLink>
           ) : null}
