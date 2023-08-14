@@ -75,7 +75,7 @@ function ExpandableExample({children, excerpt, type}: ExpandableExampleProps) {
               Profundizar
 =======
               <IconDeepDive className="inline me-2 dark:text-purple-30 text-purple-40" />
-              Deep Dive
+              Profundizar
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </>
           )}
