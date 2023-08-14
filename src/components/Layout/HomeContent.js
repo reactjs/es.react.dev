@@ -388,7 +388,6 @@ export function HomeContent() {
                           <i>son</i> realmente nativas. No es una vista web: tus
                           componentes de React renderizan vistas reales de Android e iOS 
                           provistas por la plataforma.
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
                         </p>
                       </div>
                     </div>
