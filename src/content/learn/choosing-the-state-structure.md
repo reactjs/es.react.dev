@@ -773,7 +773,6 @@ export const initialTravelPlan = {
       }, {
         id: 40,
         title: 'Nueva Zelanda',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
         childPlaces: [],
       }, {
         id: 41,
