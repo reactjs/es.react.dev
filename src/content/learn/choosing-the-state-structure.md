@@ -1086,7 +1086,7 @@ export const initialTravelPlan = {
 <<<<<<< HEAD
     title: 'Bora Bora (Polinesia Francesa)',
 =======
-    title: 'Easter Island (Chile)',
+    title: 'Isla de Pascua (Chile)',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
