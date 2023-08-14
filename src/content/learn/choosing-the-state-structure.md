@@ -700,7 +700,6 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
 <<<<<<< HEAD
-        id: 23,
 =======
         id: 22,
         title: 'Singapur',
