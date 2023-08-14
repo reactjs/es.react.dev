@@ -1017,7 +1017,6 @@ export const initialTravelPlan = {
   },
   29: {
     id: 29,
-<<<<<<< HEAD
     title: 'Alemania',
     childIds: []
   },
