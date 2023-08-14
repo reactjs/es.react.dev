@@ -128,7 +128,6 @@ function LearnMore({
               type="primary">
 <<<<<<< HEAD
               Lee más
-              <IconNavArrow displayDirection="right" className="inline ml-1" />
 =======
               Lee más
               <IconNavArrow displayDirection="end" className="inline ms-1" />
