@@ -507,7 +507,7 @@ export function HomeContent() {
               Bienvenido a la <br className="" />
               comunidad de React
 =======
-              Welcome to the <br className="hidden lg:inline" />
+              Bienvenido a la <br className="hidden lg:inline" />
               React community
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
             </Header>
