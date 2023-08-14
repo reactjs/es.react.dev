@@ -701,7 +701,6 @@ export const initialTravelPlan = {
       }, {
 <<<<<<< HEAD
         id: 23,
-        title: 'Singapur',
 =======
         id: 22,
         title: 'Singapur',
