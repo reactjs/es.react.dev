@@ -756,7 +756,6 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
 <<<<<<< HEAD
-        childPlaces: [],
       }, {
 =======
         id: 36,
