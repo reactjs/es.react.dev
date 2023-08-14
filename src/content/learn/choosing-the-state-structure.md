@@ -782,7 +782,6 @@ export const initialTravelPlan = {
     }]
   }, {
 <<<<<<< HEAD
-      id: 45,
       title: 'Piccolomini (cráter)',
       childPlaces: []
     }, {
