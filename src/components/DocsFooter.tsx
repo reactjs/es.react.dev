@@ -74,7 +74,7 @@ function FooterLink({
 <<<<<<< HEAD
           'flex-row-reverse justify-self-end text-right': type === 'Siguiente',
 =======
-          'flex-row-reverse justify-self-end text-end': type === 'Next',
+          'flex-row-reverse justify-self-end text-end': type === 'Siguiente',
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
         }
       )}>
