@@ -62,7 +62,6 @@ export function Challenge({
         {currentChallenge.hint ? (
           <div>
 <<<<<<< HEAD
-=======
             <Button className="me-2" onClick={toggleHint} active={showHint}>
               <IconHint className="me-1.5" />{' '}
               {showHint ? 'Ocultar pista' : 'Mostrar pista'}
