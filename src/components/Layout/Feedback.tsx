@@ -64,7 +64,6 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
     <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
       <p className="w-full font-bold text-primary dark:text-primary-dark text-lg me-4">
         {isSubmitted ? '¡Gracias por tus comentarios!' : 'Fue útil esta página?'}
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
       </p>
       {!isSubmitted && (
         <button
