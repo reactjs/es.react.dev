@@ -1067,7 +1067,7 @@ export const initialTravelPlan = {
     title: 'Oceanía',
     childIds: [36, 37, 38, 39, 40, 41, 42],
 =======
-    title: 'Oceania',
+    title: 'Oceanía',
     childIds: [35, 36, 37, 38, 39, 40, 41],   
   },
   35: {
