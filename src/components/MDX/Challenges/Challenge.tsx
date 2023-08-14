@@ -62,7 +62,6 @@ export function Challenge({
         {currentChallenge.hint ? (
           <div>
 <<<<<<< HEAD
-            <Button className="mr-2" onClick={toggleHint} active={showHint}>
 =======
             <Button className="me-2" onClick={toggleHint} active={showHint}>
               <IconHint className="me-1.5" />{' '}
