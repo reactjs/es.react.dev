@@ -1042,8 +1042,6 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
-<<<<<<< HEAD
-=======
     title: 'Oceanía',
     childIds: [35, 36, 37, 38, 39, 40, 41],   
   },
@@ -1051,7 +1049,6 @@ export const initialTravelPlan = {
     id: 35,
     title: 'Australia',
     childIds: []
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
   },
   36: {
     id: 36,
@@ -1060,11 +1057,7 @@ export const initialTravelPlan = {
   },
   37: {
     id: 37,
-<<<<<<< HEAD
-    title: 'Bora Bora (Polinesia Francesa)',
-=======
     title: 'Isla de Pascua (Chile)',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   38: {
