@@ -135,7 +135,11 @@ Este componente `Form` [pasa una ref](reference/react/useRef#manipulating-the-do
 
 Ten en cuenta que al exponer una ref al nodo DOM dentro de tu componente, estás dificultando la posibilidad de cambiar el interior de tu componente más adelante. Por lo general, expondrás los nodos DOM de los componentes reutilizables de bajo nivel como los botones o las entradas de texto, pero no lo harás para los componentes de nivel de aplicación como un avatar o un comentario.
 
+<<<<<<< HEAD
 <Recipes title="Ejemplos del paso de una ref">
+=======
+<Recipes titleText="Examples of forwarding a ref">
+>>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
 
 #### Enfocar una entrada de texto {/*focusing-a-text-input*/}
 

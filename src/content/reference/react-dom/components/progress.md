@@ -34,8 +34,13 @@ Para mostrar un indicador de progreso, renderiza el componente [`<progress>` inc
 
 Además, `<progress>` admite estas propiedades:
 
+<<<<<<< HEAD
 * [`max`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#attr-max): Un número. Especifica el `valor` máximo. Por defecto es `1`.
 * [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#attr-value): Un número entre `0` y `max`, o `null` para un progreso indeterminado. Especifica cuánto se ha completado.
+=======
+* [`max`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#max): A number. Specifies the maximum `value`. Defaults to `1`.
+* [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#value): A number between `0` and `max`, or `null` for indeterminate progress. Specifies how much was done.
+>>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
 
 ---
 

@@ -1,12 +1,18 @@
 ---
 title: "'use client'"
+canary: true
 ---
 
-<Note>
+<Canary>
 
+<<<<<<< HEAD
 Estas directivas son necesarias sólo si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o desarrollando una biblioteca compatible con ellos.
 
 </Note>
+=======
+`'use client'` is needed only if you're [using React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) or building a library compatible with them.
+</Canary>
+>>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
 
 
 <Intro>

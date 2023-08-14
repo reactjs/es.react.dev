@@ -1177,7 +1177,11 @@ Too many re-renders. React limits the number of renders to prevent an infinite l
 
 Cuando estabas pasando `onSquareClick={handleClick}`, estabas pasando la función `handleClick` como una prop. ¡No lo estabas llamando! Pero ahora estás *llamando* a esa función de inmediato, observa los paréntesis en `handleClick(0)`, y es por eso que se ejecuta demasiado rápido. ¡No *quieres* llamar a `handleClick` hasta que el usuario haga clic!
 
+<<<<<<< HEAD
 Para solucionar esto, puedes crear una función como `handleFirstSquareClick` que llame a `handleClick(0)`, una función como `handleSecondSquareClick` que llame a `handleClick(1)`, y así sucesivamente. En lugar de llamarlas, pasarías estas funciones como props `onSquareClick={handleFirstSquareClick}`. Esto resolvería el bucle infinito.
+=======
+You could fix this by creating a function like `handleFirstSquareClick` that calls `handleClick(0)`, a function like `handleSecondSquareClick` that calls `handleClick(1)`, and so on. You would pass (rather than call) these functions down as props like `onSquareClick={handleFirstSquareClick}`. This would solve the infinite loop.
+>>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
 
 Sin embargo, definir nueve funciones diferentes y darles un nombre a cada una de ellas es demasiado detallado. En cambio, hagamos esto:
 
