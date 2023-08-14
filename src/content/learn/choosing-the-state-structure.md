@@ -768,7 +768,6 @@ export const initialTravelPlan = {
         id: 40,
         title: 'Hawái (Estados Unidos)',
         childPlaces: [],
-        title: 'Nueva Zelanda',
 =======
         id: 36,
         title: 'Bora Bora (Polinesia Francesa)',
