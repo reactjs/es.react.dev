@@ -504,7 +504,6 @@ export function HomeContent() {
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
 <<<<<<< HEAD
-              Bienvenido a la <br className="" />
 =======
               Bienvenido a la <br className="hidden lg:inline" />
               comunidad de React
