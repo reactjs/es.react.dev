@@ -1144,7 +1144,7 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Moon',
+    title: 'Luna',
     childIds: [43, 44, 45]
   },
   43: {
