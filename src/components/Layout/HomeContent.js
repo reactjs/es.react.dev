@@ -1487,7 +1487,7 @@ function SearchInput({value, onChange}) {
           placeholder="Buscar"
 =======
           className="flex ps-11 py-4 h-10 w-full text-start bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-primary rounded-full align-middle text-base"
-          placeholder="Search"
+          placeholder="Buscar"
 >>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
           value={value}
           onChange={(e) => onChange(e.target.value)}
