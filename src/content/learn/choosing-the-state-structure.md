@@ -1008,7 +1008,6 @@ export const initialTravelPlan = {
   27: {
     id: 27,
 <<<<<<< HEAD
-    title: 'Europa',
     childIds: [28, 29, 30, 31, 32, 33, 34],
   },
   28: {
