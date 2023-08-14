@@ -1013,7 +1013,6 @@ export const initialTravelPlan = {
   },
   28: {
     id: 28,
-    title: 'Croacia',
 =======
     title: 'Croacia',
     childIds: []
