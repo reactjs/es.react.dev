@@ -105,7 +105,6 @@ ${css}
       type="button">
 <<<<<<< HEAD
       <IconDownload className="inline me-1" /> Descargar
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     </button>
   );
 }
