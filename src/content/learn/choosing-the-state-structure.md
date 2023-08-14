@@ -995,7 +995,6 @@ export const initialTravelPlan = {
 <<<<<<< HEAD
 =======
     title: 'Tailandia',
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
     childIds: []
   },
   25: {
