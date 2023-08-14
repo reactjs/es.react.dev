@@ -783,7 +783,6 @@ export const initialTravelPlan = {
   }, {
 <<<<<<< HEAD
     }, {
-      id: 46,
 =======
     id: 42,
     title: 'Luna',
