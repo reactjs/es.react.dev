@@ -745,7 +745,6 @@ export const initialTravelPlan = {
         title: 'Turquía',
         childPlaces: [],
       }]
-      title: 'Oceanía',
 =======
         id: 32,
         title: 'Spain',
