@@ -982,7 +982,7 @@ export const initialTravelPlan = {
   },
   22: {
     id: 22,
-    title: 'Singapore',
+    title: 'Singapur',
     childIds: []
   },
   23: {
