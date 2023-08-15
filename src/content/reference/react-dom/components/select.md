@@ -50,12 +50,6 @@ Si tu `<select>` es no controlado, deberías incluir en su lugar la prop `defaul
 
 Estas props del `<select>` son relevantes tanto para recuadros de selección no controlados como controlados:
 
-<<<<<<< HEAD
-* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): Una función [`Event` handler](/reference/react-dom/components/common#event-handler). Se ejecuta si un input falla en la validación en el envío de un formulario. A diferencia del evento nativo `invalid`, el evento `onInvalid` de React se propaga.
-* `onInvalidCapture`: Una versión de `onInvalid` que se ejecuta en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`required`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#required): Un booleano. Si es `true`, el valor tiene que ser incluido por el formulario para que se envíe.
-* [`size`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#size): Un número. Para selecciones de `multiple={true}`, especifica el número escogido de elementos visibles inicialmente.
-=======
 * [`autoComplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autocomplete): Un string. Especifica uno de los posibles [comportamientos de autocompletado](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values).
 * [`autoFocus`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#autofocus): Un booleano. Si es `true`, React enfocará el elemento en su montaje.
 * `children`: `<select>` acepta [`<option>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), y el componente [`<datalist>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/datalist) como hijo. También puedes pasarle tus propios componentes siempre y cuando ellos rendericen eventualmente uno de los componentes aceptados. Si pasas tus propios componentes que eventualmente rendericen la etiqueta `<option>`, cada `<option>` que renderices debe tener un `value`.
@@ -67,11 +61,10 @@ Estas props del `<select>` son relevantes tanto para recuadros de selección no 
 * `onChangeCapture`: Una versión de `onChange` que se ejecuta en la [fase de captura](/learn/responding-to-events#capture-phase-events).
 * [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Una función [controladora de `evento`](/reference/react-dom/components/common#event-handler) Se ejecuta inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es propio al lenguaje usar `onChange` en su lugar que funciona de forma similar.
 * `onInputCapture`: Una versión de `onInput` que se ejecuta en la [fase de captura](/learn/responding-to-events#capture-phase-events).
-* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Fires if an input fails validation on form submit. Unlike the built-in `invalid` event, the React `onInvalid` event bubbles.
-* `onInvalidCapture`: A version of `onInvalid` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`required`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#required): A boolean. If `true`, the value must be provided for the form to submit.
-* [`size`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#size): A number. For `multiple={true}` selects, specifies the preferred number of initially visible items.
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
+* [`onInvalid`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/invalid_event): Una función [controladora de `evento`](/reference/react-dom/components/common#event-handler). Se ejecuta si un input falla en la validación en el envío de un formulario. A diferencia del evento nativo `invalid`, el evento `onInvalid` de React se propaga.
+* `onInvalidCapture`: Una versión de `onInvalid` que se ejecuta en la [fase de captura](/learn/responding-to-events#capture-phase-events).
+* [`required`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#required): Un booleano. Si es `true`, el valor tiene que ser incluido por el formulario para que se envíe.
+* [`size`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#size): Un número. Para selecciones de `multiple={true}`, especifica el número escogido de elementos visibles inicialmente.
 
 #### Advertencias {/*caveats*/}
 
