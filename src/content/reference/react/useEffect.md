@@ -426,7 +426,7 @@ body {
 
 #### Monitorear visibilidad de un elemento {/*tracking-element-visibility*/}
 
-En este ejemplo, el sistema externo es de nuevo el DOM del navegador. El componente `App` muestra una lista larga, luego un componente `Box`, y luego otra lista larga. Desplaza la lista hacia abajo. Observa que cuando todo el componente `Box` es completamente visible en la ventana gráfica, el color de fondo cambia a negro. Para esto, el componente `Box` utiliza un efecto para gestionar un [`IntersectionObserver`] (https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API). Esta API del navegador te notifica cuando el elemento DOM es visible en la pantalla.
+En este ejemplo, el sistema externo es de nuevo el DOM del navegador. El componente `App` muestra una lista larga, luego un componente `Box`, y luego otra lista larga. Desplaza la lista hacia abajo. Observa que cuando todo el componente `Box` es completamente visible en la pantalla, el color de fondo cambia a negro. Para esto, el componente `Box` utiliza un efecto para gestionar un [`IntersectionObserver`](https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API). Esta API del navegador te notifica cuando el elemento DOM es visible en la pantalla.
 
 <Sandpack>
 
