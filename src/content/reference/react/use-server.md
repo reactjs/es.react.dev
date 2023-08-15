@@ -5,18 +5,9 @@ canary: true
 
 <Canary>
 
-<<<<<<< HEAD
-Esta sección está incompleta.
-
-Estas directivas solo son necesarias si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o construyendo una librería compatible con ellos.
-
-</Wip>
-=======
-`'use server'` is needed only if you're [using React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) or building a library compatible with them.
+`'use server'` sólo es necesario si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o construyendo una librería compatible con ellos.
 
 </Canary>
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
-
 
 <Intro>
 
