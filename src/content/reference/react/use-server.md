@@ -43,7 +43,7 @@ Alternativamente, añade `'use server'` en la parte superior de un archivo para 
 * Recuerda que los parámetros de las funciones marcadas con `'use server'` están totalmente controlados por el cliente. Por seguridad, trátalos siempre como entradas no confiables, asegurándote de validar y escapar los argumentos como sea apropiado.
 * Para evitar la confusión que podría resultar de mezclar código del lado del cliente y del lado del servidor en el mismo archivo, `'use server'` sólo puede usarse en archivos del lado del servidor; las funciones resultantes pueden pasarse a componentes del cliente a través de _props_.
 * Dado que las llamadas de red subyacentes son siempre asíncronas, `'use server'` sólo puede usarse en funciones asíncronas.
-* Directivas como `'use server'` deben estar al principio de tu función o fichero, por encima de cualquier otro código incluyendo importaciones (los comentarios sobre las directivas están bien). Deben escribirse con comillas simples o dobles, no con comillas invertidas. (El formato de la directiva `'use xyz'` se parece un poco a la convención de nomenclatura del Hook `useXyz()`, pero el parecido es coincidencia).
+* Directivas como `'use server'` deben estar al principio de tu función o archivo, por encima de cualquier otro código incluyendo importaciones (los comentarios sobre las directivas están bien). Deben escribirse con comillas simples o dobles, no con comillas invertidas. (El formato de la directiva `'use xyz'` se parece un poco a la convención de nomenclatura del Hook `useXyz()`, pero el parecido es coincidencia).
 
 ## Uso {/*usage*/}
 
