@@ -383,11 +383,11 @@ export function HomeContent() {
                           </Link>{' '}
                           y{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-                          te permiten construir aplicaciones en React para Android, iOS y
-                          más. Lucen y se sienten como nativas porque sus UIs{' '}
-                          <i>son</i> realmente nativas. No es una vista web: tus
-                          componentes de React renderizan vistas reales de Android e iOS 
-                          provistas por la plataforma.
+                          te permiten construir aplicaciones en React para
+                          Android, iOS y más. Lucen y se sienten como nativas
+                          porque sus UIs <i>son</i> realmente nativas. No es una
+                          vista web: tus componentes de React renderizan vistas
+                          reales de Android e iOS provistas por la plataforma.
                         </p>
                       </div>
                     </div>
