@@ -49,22 +49,15 @@ Alternativamente, añade `'use server'` en la parte superior de un archivo para 
 
 #### Advertencias {/*caveats*/}
 
-<<<<<<< HEAD
-* Recuerda que los parámetros de las funciones marcadas con `'use server'` están totalmente controlados en el cliente. Por seguridad, siempre tratálos como entradas no confiables, asegúrate de validar y escapar los argumentos según corresponda.
-* Para evitar la confusión que podría resultar de mezclar el código del lado del cliente y del lado del servidor en el mismo archivo, `'use server'` solo puede ser usado en archivos del lado del servidor; las funciones resultantes pueden pasarse a componentes de cliente a través de las _props_.
-* Dado que las llamadas a la red subyacente son siempre asíncronas, `'use server'` solo puede utilizarse en funciones asíncronas.
-* Directivas como `'use server'` deben estar en el inicio de su función o archivo, por encima de cualquier otro código incluyendo importaciones (comentarios por encima de las directivas están bien). Deben escribirse con comillas simples o dobles, no con comillas invertidas. (El formato de la directiva `'use xyz'` se parece en algo a la convención de nombres de los Hooks `useXyz()`, pero el parecido es coincidencia).
-=======
-* Remember that parameters to functions marked with `'use server'` are fully client-controlled. For security, always treat them as untrusted input, making sure to validate and escape the arguments as appropriate.
-* To avoid the confusion that might result from mixing client- and server-side code in the same file, `'use server'` can only be used in server-side files; the resulting functions can be passed to client components through props.
-* Because the underlying network calls are always asynchronous, `'use server'` can be used only on async functions.
-* Directives like `'use server'` must be at the very beginning of their function or file, above any other code including imports (comments above directives are OK). They must be written with single or double quotes, not backticks. (The `'use xyz'` directive format somewhat resembles the `useXyz()` Hook naming convention, but the similarity is coincidental.)
+* Recuerda que los parámetros de las funciones marcadas con `'use server'` están totalmente controladas por el cliente. Por seguridad, trátalos siempre como entradas no confiables, asegurándote de validar y escapar los argumentos como sea apropiado.
+* Para evitar la confusión que podría resultar de mezclar código del lado del cliente y del lado del servidor en el mismo fichero, `'use server'` sólo puede usarse en ficheros del lado del servidor; las funciones resultantes pueden pasarse a componentes del cliente a través de props.
+* Dado que las llamadas de red subyacentes son siempre asíncronas, `'use server'` sólo puede usarse en funciones asíncronas.
+* Directivas como `'use server'` deben estar al principio de tu función o fichero, por encima de cualquier otro código incluyendo importaciones (los comentarios sobre las directivas están bien). Deben escribirse con comillas simples o dobles, no con comillas invertidas. (El formato de la directiva `'use xyz'` se parece un poco a la convención de nomenclatura del Hook `useXyz()`, pero el parecido es coincidencia).
 
 ## Usage {/*usage*/}
 
 <Wip>
 
-This section is incomplete. See also the [Next.js documentation for Server Components](https://beta.nextjs.org/docs/rendering/server-and-client-components).
+Esta sección está incompleta. Consulte también la [Documentación de Next.js para componentes de servidor](https://beta.nextjs.org/docs/rendering/server-and-client-components).
 
 </Wip>
->>>>>>> 819518cfe32dd2db3b765410247c30feea713c77
