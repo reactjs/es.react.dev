@@ -54,7 +54,7 @@ Alternativamente, añade `'use server'` en la parte superior de un archivo para 
 * Dado que las llamadas de red subyacentes son siempre asíncronas, `'use server'` sólo puede usarse en funciones asíncronas.
 * Directivas como `'use server'` deben estar al principio de tu función o fichero, por encima de cualquier otro código incluyendo importaciones (los comentarios sobre las directivas están bien). Deben escribirse con comillas simples o dobles, no con comillas invertidas. (El formato de la directiva `'use xyz'` se parece un poco a la convención de nomenclatura del Hook `useXyz()`, pero el parecido es coincidencia).
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
 <Wip>
 
