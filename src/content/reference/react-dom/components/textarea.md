@@ -44,28 +44,28 @@ En cambio, si tu `<textarea>` no es controlado, puedes pasar la prop `defaultVal
 
 Estas props de `<textarea>` son relevantes tanto para text areas controlados como no controlados:
 
-* [`autoComplete`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-autocomplete): `'on'` u `'off'`. Especifica el comportamiento del autocompletado.
-* [`autoFocus`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-autofocus): Un booleano. Si es `true`, React enfocará el elemento al montarlo.
-* `children`: `<textarea>` no acepta hijos. Para establecer el valor inicial, usa `defaultValue`.
-* [`cols`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-cols): Un número. Especifica la anchura por defecto en promedio de anchura de carácter. El valor por defecto es `20`.
-* [`disabled`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-disabled): Un booleano. Si es `true`, el input no será interactivo y aparecerá atenuado.
-* [`form`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-form): Un string. Especifica el `id` del `<form>` al que este input pertenece. Si es omitido, es el formulario padre más cercano.
-* [`maxLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-maxlength): Un número. Especifica la longitud máxima del texto.
-* [`minLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-minlength): Un número. Especifica la longitud mínima del texto.
-* [`name`](https://developer.mozilla.org/es/docs/Web/HTML/Element/input#attr-name): Un string. Especifica el nombre para este input que es [enviado con el formulario.](#reading-the-textarea-value-when-submitting-a-form)
-* `onChange`: Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Requerida para [text areas controlados.](#controlling-a-text-area-with-a-state-variable) Es ejecutada inmediatamente cuando el valor del input es modificado por el usuario (por ejemplo, es ejecutada con cada pulsación de tecla). Se comporta como el [evento `input`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event) del navegador.
-* `onChangeCapture`: Una versión de `onChange` que es ejecutada en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Es ejecutada inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar, el cual funciona de manera similar.
-* `onInputCapture`: Una versión de `onInput` que es ejecutada en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onInvalid`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/invalid_event): Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Es ejecutada si la validación de un input fracasa al enviar el formulario. A diferencia del evento `invalid` que viene integrado, el evento `onInvalid` de React se propaga.
-* `onInvalidCapture`: Una versión de `onInvalid` que es ejecutado en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`onSelect`](https://developer.mozilla.org/es-US/docs/Web/API/HTMLTextAreaElement/select_event): Una función [controladora de evento](/reference/react-dom/components/common#event-handler). Es ejecutada después de que la selección dentro de `<textarea>` cambia. React extiende el evento `onSelect` para que también sea ejecutado para selecciones vacías y en ediciones (las cuales puede afectar la selección).
-* `onSelectCapture`: Una versión de `onSelect` que es ejecutada en la [fase de captura.](/learn/responding-to-events#capture-phase-events)
-* [`placeholder`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-placeholder): Un string. Mostrado en un color atenuado cuando el valor del text area está vacío.
-* [`readOnly`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-readonly): Un booleano. Si es `true`, el text area no puede ser editado por el usuario.
-* [`required`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-required): Un booleano. Si es `true`, el valor debe ser proporcionado para que el formulario sea enviado.
-* [`rows`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-rows): Un número. Especifica la altura por defecto en promedio de altura de carácter. El valor por defecto es `2`.
-* [`wrap`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#attr-wrap): `'hard'`, `'soft'`, u `'off'`. Especifica la manera en que el texto debe ser envuelto al enviar un form.
+* [`autoComplete`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#autocomplete): Puede ser `'on'` u `'off'`. Especifica el comportamiento de autocompletar.
+* [`autoFocus`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#autofocus): Un booleano. Si es `true`, React enfocará el elemento en el montaje.
+* `children`: `<textarea>` no acepta hijos. Para establecer el valor inicial, utiliza `defaultValue`.
+* [`cols`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#cols): Un número. Especifica el ancho por defecto en anchos promedio de caracteres. Por defecto es `20`.
+* [`disabled`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#disabled): Un booleano. Si es `true`, el input no será interactivo y aparecerá atenuado.
+* [`form`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#form): Un string. Especifica el `id` del `<form>` al que este input pertenece. Si es omitido, es el formulario padre más cercano.
+* [`maxLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#maxlength): Un número. Especifica la longitud máxima del texto.
+* [`minLength`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#minlength): Un número. Especifica la longitud mínima del texto.
+* [`name`](https://developer.mozilla.org/es/docs/Web/HTML/Element/input#name): Un string. Especifica el nombre para este input que es [enviado con el formulario](#reading-the-textarea-value-when-submitting-a-form).
+* `onChange`: Una función [controladora de `evento`](/reference/react-dom/components/common#event-handler). Requerida para [text areas controlados](#controlling-a-text-area-with-a-state-variable). Es ejecutada inmediatamente cuando el valor del input es modificado por el usuario (por ejemplo, es ejecutada con cada pulsación de tecla). Se comporta como el [evento `input`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event) del navegador.
+* `onChangeCapture`: Una versión de `onChange` que es ejecutada en la [fase de captura](/learn/responding-to-events#capture-phase-events).
+* [`onInput`](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/input_event): Una función [controladora de `evento`](/reference/react-dom/components/common#event-handler). Es ejecutada inmediatamente cuando el valor es cambiado por el usuario. Por razones históricas, en React es idiomático usar `onChange` en su lugar, el cual funciona de manera similar.
+* `onInputCapture`: Una versión de `onInput` que es ejecutada en la [fase de captura](/learn/responding-to-events#capture-phase-events).
+* [`onInvalid`](https://developer.mozilla.org/es/docs/Web/API/HTMLInputElement/invalid_event): Una función [controladora de `evento`](/reference/react-dom/components/common#event-handler). Es ejecutada si la validación de un input fracasa al enviar el formulario. A diferencia del evento `invalid` que viene integrado, el evento `onInvalid` de React se propaga.
+* `onInvalidCapture`: Una versión de `onInvalid` que es ejecutado en la [fase de captura](/learn/responding-to-events#capture-phase-events).
+* [`onSelect`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/select_event): Una función [controladora de `evento`](/reference/react-dom/components/common#event-handler). Es ejecutada después de que la selección dentro de `<textarea>` cambia. React extiende el evento `onSelect` para que también sea ejecutado para selecciones vacías y en ediciones (las cuales puede afectar la selección).
+* `onSelectCapture`: Una versión de `onSelect` que es ejecutada en la [fase de captura](/learn/responding-to-events#capture-phase-events).
+* [`placeholder`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#placeholder): Un string. Mostrado en un color atenuado cuando el valor del text area está vacío.
+* [`readOnly`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#readonly): Un booleano. Si es `true`, el text area no puede ser editado por el usuario.
+* [`required`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#required): Un booleano. Si es `true`, el valor debe ser proporcionado para que el formulario sea enviado.
+* [`rows`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#rows): Un número. Especifica la altura por defecto en promedio de altura de carácter. El valor por defecto es `2`.
+* [`wrap`](https://developer.mozilla.org/es/docs/Web/HTML/Element/textarea#wrap): Puede ser `'hard'`, `'soft'`, u `'off'`. Especifica cómo debe envolverse el texto al enviar un formulario.
 
 #### Advertencias {/*caveats*/}
 

@@ -1,10 +1,17 @@
 ---
 title: "Directivas"
+canary: true
 ---
+
+<Canary>
+
+Estas directivas sólo son necesarias si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o construyendo una librería compatible con ellos.
+
+</Canary>
 
 <Intro>
 
-React utiliza dos directivas para proporcionar instrucciones a [_bundlers_ compatibles con _React Server Components_](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+Las directivas proporcionan instrucciones para [bundlers compatibles con React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
 
 </Intro>
 

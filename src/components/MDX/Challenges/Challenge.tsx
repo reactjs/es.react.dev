@@ -61,25 +61,25 @@ export function Challenge({
       <div className="flex justify-between items-center mt-4">
         {currentChallenge.hint ? (
           <div>
-            <Button className="mr-2" onClick={toggleHint} active={showHint}>
-              <IconHint className="mr-1.5" />{' '}
+            <Button className="me-2" onClick={toggleHint} active={showHint}>
+              <IconHint className="me-1.5" />{' '}
               {showHint ? 'Ocultar pista' : 'Mostrar pista'}
             </Button>
             <Button
-              className="mr-2"
+              className="me-2"
               onClick={toggleSolution}
               active={showSolution}>
-              <IconSolution className="mr-1.5" />{' '}
+              <IconSolution className="me-1.5" />{' '}
               {showSolution ? 'Ocultar solución' : 'Mostrar solución'}
             </Button>
           </div>
         ) : (
           !isRecipes && (
             <Button
-              className="mr-2"
+              className="me-2"
               onClick={toggleSolution}
               active={showSolution}>
-              <IconSolution className="mr-1.5" />{' '}
+              <IconSolution className="me-1.5" />{' '}
               {showSolution ? 'Ocultar solución' : 'Mostrar solución'}
             </Button>
           )
@@ -95,7 +95,7 @@ export function Challenge({
             onClick={handleClickNextChallenge}
             active>
             Próximo {isRecipes ? 'ejemplo' : 'desafío'}
-            <IconArrowSmall displayDirection="right" className="block ml-1.5" />
+            <IconArrowSmall displayDirection="end" className="block ms-1.5" />
           </Button>
         )}
       </div>
@@ -120,8 +120,8 @@ export function Challenge({
                 active>
                 Próximo desafío
                 <IconArrowSmall
-                  displayDirection="right"
-                  className="block ml-1.5"
+                  displayDirection="end"
+                  className="block ms-1.5"
                 />
               </Button>
             )}

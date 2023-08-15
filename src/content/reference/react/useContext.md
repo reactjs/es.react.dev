@@ -1078,7 +1078,7 @@ Puedes sobreescribir el contexto para una parte del árbol al envolver esa parte
 
 Puedes anidar y sobreescribir proveedores tantas veces como necesites.
 
-<Recipes title="Ejemplos de sobreescribir el contexto">
+<Recipes titleText="Ejemplos de sobreescribir el contexto">
 
 #### Sobreescribir un tema {/*overriding-a-theme*/}
 

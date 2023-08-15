@@ -211,7 +211,7 @@ Cuando un componente hijo necesita datos de su padre, [pásalo por props](/learn
 
 #### Componentes de arriba a abajo {/*components-all-the-way-down*/}
 
-Tu aplicación React comienza en un componente *`root`* (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si utilizas [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), el componente *root* se define en `src/App.js`. Si utilizas el framework [Next.js](https://nextjs.org/), el componente *root* se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes *root*.
+Tu aplicación React comienza en un componente _"root"_ (raíz). Normalmente, se crea automáticamente al iniciar un nuevo proyecto. Por ejemplo, si usas [CodeSandbox](https://codesandbox.io/) o si usas el framework [Next.js](https://nextjs.org/), el componente _root_ se define en `pages/index.js`. En estos ejemplos, has estado exportando componentes _root_.
 
 La mayoría de las aplicaciones React usan componentes *root*. Esto significa que no solo usarás componentes para piezas reutilizables como botones, sino también para piezas más grandes como barras laterales, listas y, en última instancia, ¡páginas completas! Los componentes son una forma práctica de organizar el código de UI y el marcado, incluso si algunos de ellos solo se utilicen una vez.
 
