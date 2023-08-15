@@ -49,6 +49,6 @@ Alternativamente, añade `'use server'` en la parte superior de un archivo para 
 
 <Wip>
 
-Esta sección está incompleta. Consulte también la [Documentación de Next.js para componentes de servidor](https://beta.nextjs.org/docs/rendering/server-and-client-components).
+Esta sección está incompleta. Consulta también la [Documentación de Next.js para componentes de servidor](https://beta.nextjs.org/docs/rendering/server-and-client-components).
 
 </Wip>
