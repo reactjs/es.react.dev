@@ -255,11 +255,11 @@ Después de identificar los datos mínimos de estado de tu aplicación, debes id
 Por cada pieza de estado en tu aplicación:
 
 1. Identifica *cada* componente que renderiza algo basado en ese estado.
-2. Encuentra su componente ancestro común más cercano--un componente que esté encima de todos en la jerarquía
+2. Encuentra su componente padre común más cercano--un componente que esté encima de todos en la jerarquía
 3. Decide dónde debe residir el estado:
-   1. A menudo, puedes poner el estado directamente en su ancestro común.
-   2. También puedes poner el estado en algún componente encima de su ancestro común.
-   3. Si no puedes encontrar un componente donde tiene sentido poseer el estado, crea un nuevo componente solo para almacenar ese estado y añádelo en algún lugar de la jerarquía encima del componente ancestro común.
+   1. A menudo, puedes poner el estado directamente en su padre común.
+   2. También puedes poner el estado en algún componente encima de su padre común.
+   3. Si no puedes encontrar un componente donde tiene sentido poseer el estado, crea un nuevo componente solo para almacenar ese estado y añádelo en algún lugar de la jerarquía encima del componente padre común.
 
 En el paso anterior, encontraste dos elementos de estado en esta aplicación: el texto de la barra de búsqueda, y el valor del *checkbox*. En este ejemplo, siempre aparecen juntos, por lo que es más fácil pensar en ellos como un solo elemento de estado.
 
@@ -268,7 +268,7 @@ Ahora utilicemos nuestra estrategia para este estado:
 1. **Identifica componentes que usen estado:**
     * `ProductTable` necesita filtrar la lista de productos con base en ese estado (texto de búsqueda y valor del *checkbox*).
     * `SearchBar` necesita mostrar ese estado (texto de búsqueda y valor del *checkbox*).
-2. **Encuentra su ancestro común:** El primer componente ancestro que ambos componentes comparten es `FilterableProductTable`.
+2. **Encuentra su padre común:** El primer componente padre que ambos componentes comparten es `FilterableProductTable`.
 3. **Decide donde reside el estado:** Mantendremos el texto de filtrado y el estado de valor seleccionado en `FilterableProductTable`.
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
