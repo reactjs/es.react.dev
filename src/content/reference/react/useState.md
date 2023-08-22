@@ -300,13 +300,13 @@ function handleClick() {
 }
 ```
 
-Aquí, `e => e + 1` es la función de actualización. Toma el <CodeStep step={1}>estado pendiente</CodeStep> y calcula el <CodeStep step={2}>siguiente estado</CodeStep> a partir de él.
+Aquí, `a => a + 1` es la función de actualización. Toma el <CodeStep step={1}>estado pendiente</CodeStep> y calcula el <CodeStep step={2}>siguiente estado</CodeStep> a partir de él.
 
 React pone sus funciones de actualización en una [cola.](/learn/queueing-a-series-of-state-updates) Entonces, durante el siguiente renderizado, las llamará en el mismo orden:
 
-1. `e => e + 1` recibirá `42` como estado pendiente y devolverá `43` como el siguiente estado.
-1. `e => e + 1` recibirá `43` como estado pendiente y devolverá `44` como el siguiente estado.
-1. `e => e + 1` recibirá `44` como estado pendiente y devolverá `45` como el siguiente estado.
+1. `a => a + 1` recibirá `42` como estado pendiente y devolverá `43` como el siguiente estado.
+1. `a => a + 1` recibirá `43` como estado pendiente y devolverá `44` como el siguiente estado.
+1. `a => a + 1` recibirá `44` como estado pendiente y devolverá `45` como el siguiente estado.
 
 No hay otras actualizaciones en cola, por lo que React almacenará `45` como el estado actual al final.
 
