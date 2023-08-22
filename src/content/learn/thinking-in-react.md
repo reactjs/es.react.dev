@@ -255,7 +255,7 @@ Después de identificar los datos mínimos de estado de tu aplicación, debes id
 Por cada pieza de estado en tu aplicación:
 
 1. Identifica *cada* componente que renderiza algo basado en ese estado.
-2. Encuentra su componente padre común más cercano--un componente que esté encima de todos en la jerarquía
+2. Encuentra su componente padre común más cercano, un componente que esté encima de todos en la jerarquía
 3. Decide dónde debe residir el estado:
    1. A menudo, puedes poner el estado directamente en su padre común.
    2. También puedes poner el estado en algún componente encima de su padre común.
