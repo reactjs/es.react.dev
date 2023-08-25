@@ -126,7 +126,7 @@ El tipo que describe las props de tu componente puede ser tan simple o tan compl
 
 Las definiciones de tipos de `@types/react` incluyen tipos para los hooks incorporados, por lo que puedes usarlos en tus componentes sin ninguna configuración adicional. Están construidos para tener en cuenta el código que escribes en tu componente, por lo que obtendrás [tipos inferidos](https://www.typescriptlang.org/docs/handbook/type-inference.html) la mayor parte del tiempo e idealmente no necesitarás manejar las minucias de proporcionar los tipos.
 
-No obstante, podemos explorar algunos ejemplos de cómo proporcionar tipos para los hooks.
+Sin embargo, podemos ver algunos ejemplos de cómo proporcionar tipos para hooks.
 
 ### `useState` {/*typing-usestate*/}
 
