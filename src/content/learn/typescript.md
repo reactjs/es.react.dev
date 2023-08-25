@@ -350,7 +350,7 @@ const handleClick = useCallback(() => {
 
 Cuando trabajas en el modo estricto de TypeScript, `useCallback` necesita que agregues tipos para los parámetros en tu función callback. Esto se debe a que el tipo del callback se infiere a partir del valor de devolución de la función, y sin parámetros no se puede entender completamente el tipo.
 
-Según tus preferencias de estilo de código, podrías utilizar las funciones `*EventHandler` de los tipos de React para proporcionar el tipo para el controlador de eventos al mismo tiempo que defines el callback: 
+Dependiendo de tus preferencias de estilo de código, podrías usar las funciones `*EventHandler` de los tipos de React para proporcionar el tipo para el controlador de eventos al mismo tiempo que defines el callback:
 
 ```ts
 import { useState, useCallback } from 'react';
