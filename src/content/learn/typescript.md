@@ -144,7 +144,7 @@ Asignará el tipo `boolean` a `enabled`, y `setEnabled` será una función que a
 const [enabled, setEnabled] = useState<boolean>(false);
 ```
 
-Aunque no es muy útil en este caso, una situación común donde querrías proporcionar un tipo es cuando tienes un tipo de unión. Por ejemplo, aquí `status` podría ser uno de varios strings diferentes:
+Esto no es muy útil en este caso, pero un caso común en el que es posible que desees proporcionar un tipo es cuando tienes un tipo de unión. Por ejemplo, `status` puede ser uno de varios strings diferentes:
 
 ```ts
 type Status = "idle" | "loading" | "success" | "error";
