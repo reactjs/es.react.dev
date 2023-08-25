@@ -119,7 +119,7 @@ export default App = AppTSX;
 
 </Sandpack>
 
-El tipo que describe las props de tu componente puede ser tan simple o complejo como requieras, aunque debería ser un tipo de objeto descrito mediante una instrucción `type` o `interface`. Puedes aprender sobre cómo TypeScript describe objectos en [Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html) pero también podría interesarte el uso de [Union Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) para describir una prop que puede ser de varios tipos, y consultar la guía de [Creating Types from Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) para casos de uso más avanzados.
+El tipo que describe las props de tu componente puede ser tan simple o tan complejo como necesites, aunque debería ser un tipo de objeto descrito con `type` o `interface`. Puedes aprender sobre cómo TypeScript describe objetos en [Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html) pero también puedes estar interesado en usar [Union Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) para describir una prop que puede ser uno de varios tipos diferentes y la guía [Creating Types from Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) para casos de uso más avanzados.
 
 
 ## Ejemplos de Hooks {/*example-hooks*/}
