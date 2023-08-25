@@ -137,7 +137,7 @@ El [hook `useState`](/reference/react/useState) reutilizará el valor pasado com
 const [enabled, setEnabled] = useState(false);
 ```
 
-Asignará el tipo `boolean` a `enabled`, y `setEnabled` será una function que aceptará un argumento `boolean` o una función que devolverá un valor `boolean`. Si deseas proporcionar explícitamente un tipo para el estado, puedes hacerlo proporcionando un argumento de tipo en la llamada a `useState`:
+Asignará el tipo `boolean` a `enabled`, y `setEnabled` será una función que acepte un argumento `boolean`, o una función que devuelva un `boolean`. Si quieres proporcionar explícitamente un tipo para el estado, puedes hacerlo proporcionando un argumento de tipo a la llamada `useState`:
 
 ```ts 
 // Definiendo explícitamente el tipo como "boolean"
