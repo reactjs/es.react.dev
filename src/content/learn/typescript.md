@@ -51,7 +51,7 @@ Cada archivo que contenga JSX debe usar la extensión de archivo `.tsx`. Esta es
 
 Escribir TypeScript con React es muy similar a escribir JavaScript con React. La diferencia clave cuando se trabaja con un componente es que puedes proporcionar tipos para las props de tu componente. Estos tipos se pueden usar para comprobar la corrección y proporcionar documentación en línea en los editores.
 
-Si tomamos el [componente `MyButton`](/learn#components) de la guía de [Inicio Rápido](/learn), podemos agregar un tipo que describa el `title` del botón:
+Tomando el [componente `MyButton`](/learn#components) de la guía [Inicio Rápido](/learn), podemos añadir un tipo que describa el `title` para el botón:
 
 <Sandpack>
 
