@@ -286,7 +286,7 @@ export default App = AppTSX;
 
 Esta técnica funciona cuando tienes un valor por defecto que tiene sentido - pero hay casos ocasionales en los que no, y en esos casos `null` puede parecer razonable como valor por defecto. Sin embargo, para permitir que el sistema de tipos entienda tu código, necesitas establecer explícitamente `ContextShape | null` en el `createContext`.
 
-Esto genera el problema de que debes eliminar el `| null` en el tipo para los consumidores del context. Nuestra recomendación es que el hook realice una comprobación en tiempo de ejecución para asegurarse de su existencia y lance un error cuando no esté presente:
+Esto causa el problema de que necesitas eliminar el `| null` en el tipo para los consumidores de contexto. Nuestra recomendación es que el hook compruebe su existencia en tiempo de ejecución y lance un error si no está presente:
 
 ```js {5, 16-20}
 import { createContext, useContext, useState, useMemo } from 'react';
