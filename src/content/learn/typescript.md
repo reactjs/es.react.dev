@@ -242,7 +242,7 @@ export default function App() {
 
 ### `useContext` {/*typing-usecontext*/}
 
-El [hook `useContext`](/reference/react/useContext) es una técnica para pasar datos por el árbol de componentes sin tener que pasar props a través de ellos. Se utiliza creando un componente provider y, a menudo, creando un hook que consuma el valor en un componente hijo.
+El [hook `useContext`](/reference/react/useContext) es una técnica para pasar datos hacia abajo en el árbol de componentes sin tener que pasar props a través de los componentes. Se utiliza creando un componente proveedor y, a menudo, creando un hook para consumir el valor en un componente hijo.
 
 El tipo del valor proporcionado por el contexto se infiere a partir del valor pasado a la llamada de `createContext`:
 
