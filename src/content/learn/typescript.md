@@ -415,7 +415,7 @@ Si necesitas utilizar un evento que no está incluido en esta lista, puedes empl
 
 ### Elementos hijos {/*typing-children*/}
 
-Hay dos enfoques comunes para describir los elementos hijos de un componente. El primero es usar el tipo `React.ReactNode`, que es una unión de todos los tipos posibles que se pueden pasar como elementos hijos en JSX:
+Hay dos caminos comunes para describir los hijos de un componente. El primero es utilizar el tipo `React.ReactNode`, que es una unión de todos los tipos posibles que se pueden pasar como hijos en JSX:
 
 ```ts
 interface ModalRendererProps {
