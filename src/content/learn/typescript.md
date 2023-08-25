@@ -27,7 +27,7 @@ Todos los [frameworks React de grado de producción](https://react-dev-git-fork-
 - [Gatsby](https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/)
 - [Expo](https://docs.expo.dev/guides/typescript/)
 
-### Agregar TypeScript a un proyecto de React ya existente {/*adding-typescript-to-an-existing-react-project*/}
+### Añadir TypeScript a un proyecto React existente {/*adding-typescript-to-an-existing-react-project*/}
 
 Para instalar las definiciones de tipos más recientes de React:
 
