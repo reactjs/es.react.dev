@@ -329,7 +329,7 @@ function MyComponent() {
 
 ### `useMemo` {/*typing-usememo*/}
 
-El hook [`useMemo`](/reference/react/useMemo) creará o reaccederá a un valor memorizado a partir de una llamada a una función, volviendo a ejecutar la función sólo cuando cambien las dependencias pasadas como segundo parámetro. El resultado de llamar al hook se infiere a partir del valor de devolución de la función en el primer parámetro. Puedes ser más explícito al proporcionar un argumento de tipo al hook.
+Los hooks [`useMemo`](/reference/react/useMemo) crearán/reaccederán a un valor memorizado desde una llamada a una función, reejecutando la función sólo cuando las dependencias pasadas como segundo parámetro cambien. El resultado de llamar al hook se infiere del valor de devolución de la función en el primer parámetro. Se puede ser más explícito proporcionando un argumento de tipo al hook.
 
 ```ts
 // El tipo de visibleTodos se infiere del valor de devolución de filterTodos
