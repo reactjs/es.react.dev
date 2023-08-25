@@ -124,7 +124,7 @@ El tipo que describe las props de tu componente puede ser tan simple o tan compl
 
 ## Ejemplos de Hooks {/*example-hooks*/}
 
-Las definiciones de tipos proporcionados por `@types/react` incluyen tipos para hooks nativos, lo que te permite usarlos en tus componentes sin necesidad de configuración adicional. Estos tipos están diseñados para tener en cuenta el código que escribes en tu componente, por lo que la mayoría de las veces obtendrás [tipos inferidos](https://www.typescriptlang.org/docs/handbook/type-inference.html) y, en teoría, no necesitarás ocuparte de proporcionar tipos. 
+Las definiciones de tipos de `@types/react` incluyen tipos para los hooks incorporados, por lo que puedes usarlos en tus componentes sin ninguna configuración adicional. Están construidos para tener en cuenta el código que escribes en tu componente, por lo que obtendrás [tipos inferidos](https://www.typescriptlang.org/docs/handbook/type-inference.html) la mayor parte del tiempo e idealmente no necesitarás manejar las minucias de proporcionar los tipos.
 
 No obstante, podemos explorar algunos ejemplos de cómo proporcionar tipos para los hooks.
 
