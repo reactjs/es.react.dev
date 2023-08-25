@@ -39,7 +39,7 @@ Las siguientes opciones del compilador deben ser configuradas en tu `tsconfig.js
 
 1. `dom` debe incluirse en [`lib`](https://www.typescriptlang.org/tsconfig/#lib) (Nota: Si no se especifica la opción `lib`, `dom` se incluye por defecto).
 1. [`jsx`](https://www.typescriptlang.org/tsconfig/#jsx) debe configurarse con una de las opciones válidas. `preserve` debería ser suficiente para la mayoría de las aplicaciones.
-  Si estás publicando una biblioteca, consulta la [documentación de `jsx`](https://www.typescriptlang.org/tsconfig/#jsx) para elegir el valor adecuado.
+  Si vas a publicar una biblioteca, consulta la [documentación `jsx`](https://www.typescriptlang.org/tsconfig/#jsx) para saber qué valor elegir.
 
 ## TypeScript con Componentes de React {/*typescript-with-react-components*/}
 
