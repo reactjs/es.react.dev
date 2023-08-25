@@ -84,7 +84,7 @@ Estos entornos de pruebas pueden manejar código TypeScript, pero no ejecutan el
 
 </Note>
 
-Esta sintaxis inline es la forma más sencilla de definir tipos para un componente, aunque a medida que empieces a tener varios campos que describir, puede volverse incómodo. En cambio, puedes usar una `interface` o `type` para describir las props del componente:
+Esta sintaxis en línea es la forma más sencilla de proporcionar tipos para un componente, aunque una vez que empiezas a tener unos cuantos campos para describir puede llegar a ser inmanejable. En su lugar, puedes utilizar una `interface` o `type` para describir las props del componente:
 
 <Sandpack>
 
