@@ -37,7 +37,7 @@ npm install @types/react @types/react-dom
 
 Las siguientes opciones del compilador deben ser configuradas en tu `tsconfig.json`:
 
-1. Incluye `dom` en [`lib`](https://www.typescriptlang.org/tsconfig/#lib) (Nota: Si no se especifica ninguna opción `lib`, `dom` se incluye de manera predeterminada).
+1. `dom` debe incluirse en [`lib`](https://www.typescriptlang.org/tsconfig/#lib) (Nota: Si no se especifica la opción `lib`, `dom` se incluye por defecto).
 1. Establece [`jsx`](https://www.typescriptlang.org/tsconfig/#jsx) en una de las opciones válidas. Para la mayoría de aplicaciones, `preserve` debería ser suficiente.
   Si estás publicando una biblioteca, consulta la [documentación de `jsx`](https://www.typescriptlang.org/tsconfig/#jsx) para elegir el valor adecuado.
 
