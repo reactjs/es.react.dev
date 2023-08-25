@@ -284,7 +284,7 @@ export default App = AppTSX;
 
 </Sandpack>
 
-Esta técnica funciona cuando tienes un valor por defecto que hace sentido - pero ocasionalmente hay casos en los que no lo tienes, y en esos casos, `null` puede ser un valor por defecto razonable. Sin embargo, para permitir el sistema de tipos comprenda tu código, tienes que establecer de manera explícita `ContextShape | null` en la llamada a `createContext`. 
+Esta técnica funciona cuando tienes un valor por defecto que tiene sentido - pero hay casos ocasionales en los que no, y en esos casos `null` puede parecer razonable como valor por defecto. Sin embargo, para permitir que el sistema de tipos entienda tu código, necesitas establecer explícitamente `ContextShape | null` en el `createContext`.
 
 Esto genera el problema de que debes eliminar el `| null` en el tipo para los consumidores del context. Nuestra recomendación es que el hook realice una comprobación en tiempo de ejecución para asegurarse de su existencia y lance un error cuando no esté presente:
 
