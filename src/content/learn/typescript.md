@@ -424,7 +424,7 @@ interface ModalRendererProps {
 }
 ```
 
-Esta es una definición bastante amplia de children. La segunda opción es emplear el tipo `React.ReactElement`, que incluye solamente elementos JSX y no incluye primitivos de JavaScript como strings o números:
+Esta es una definición muy amplia de hijos. El segundo es utilizar el tipo `React.ReactElement`, que es sólo elementos JSX y no primitivas JavaScript como strings o numbers:
 
 ```ts
 interface ModalRendererProps {
