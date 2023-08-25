@@ -5,7 +5,7 @@ re: https://github.com/reactjs/react.dev/issues/5960
 
 <Intro>
 
-TypeScript es una opción popular para incorporar definiciones de tipos en bases de código de JavaScript. De manera nativa, TypeScript [es compatible con JSX](/learn/writing-markup-with-jsx) y puedes obtener soporte completo para React en la web al añadir [`@types/react`](https://www.npmjs.com/package/@types/react) y [`@types/react-dom`](https://www.npmjs.com/package/@types/react-dom) a tu proyecto.
+TypeScript es una forma popular de añadir definiciones de tipos a bases de código JavaScript. De manera predeterminada, TypeScript [soporta JSX](/learn/writing-markup-with-jsx) y puedes obtener soporte completo para React Web añadiendo [`@types/react`](https://www.npmjs.com/package/@types/react) y [`@types/react-dom`](https://www.npmjs.com/package/@types/react-dom) a tu proyecto.
 
 </Intro>
 
