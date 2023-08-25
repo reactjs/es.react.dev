@@ -29,7 +29,7 @@ Todos los [frameworks React de grado de producción](https://react-dev-git-fork-
 
 ### Añadir TypeScript a un proyecto React existente {/*adding-typescript-to-an-existing-react-project*/}
 
-Para instalar las definiciones de tipos más recientes de React:
+Para instalar la última versión de las definiciones de tipos de React:
 
 <TerminalBlock>
 npm install @types/react @types/react-dom
