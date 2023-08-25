@@ -80,7 +80,7 @@ export default App = AppTSX;
 
  <Note>
 
-Si bien estos entornos de prueba pueden manejar código TypeScript, no ejecutan la verificación de tipos. Esto significa que puedes ajustar los entornos de prueba de TypeScript para aprender, pero no recibirás errores o advertencias de tipo. Si deseas la verificación de tipos, puedes utilizar el [TypeScript Playground](https://www.typescriptlang.org/play) o recurrir a un entorno de pruebas en línea más completo.
+Estos entornos de pruebas pueden manejar código TypeScript, pero no ejecutan el comprobador de tipos. Esto significa que puedes modificar los entornos de pruebas de TypeScript para aprender, pero no obtendrás errores de tipo ni advertencias. Para obtener la comprobación de tipos, puedes usar el [TypeScript Playground](https://www.typescriptlang.org/play) o usar un entorno de pruebas en línea más completo.
 
 </Note>
 
