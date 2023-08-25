@@ -373,7 +373,7 @@ export default function Form() {
 
 ## Tipos útiles {/*useful-types*/}
 
-Dentro del paquete `@types/react` se encuentra un conjunto bastante amplio de tipos. Te sugerimos revisarlos cuando te sientas cómodo con la interacción entre React y TypeScript. Puedes encontrarlos [en la carpeta de React en DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts). A continuación, vamos a repasar algunos de los tipos más frecuentes.
+Hay un conjunto bastante amplio de tipos que provienen del paquete `@types/react`, vale la pena leerlo cuando te sientas cómodo con cómo interactúan React y TypeScript. Puedes encontrarlos [en la carpeta de React en DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts). Cubriremos algunos de los tipos más comunes aquí.
 
 ### Eventos del DOM {/*typing-dom-events*/}
 
