@@ -14,7 +14,7 @@ TypeScript es una forma popular de añadir definiciones de tipos a bases de cód
 * [TypeScript con Componentes de React](/learn/typescript#typescript-with-react-components)
 * [Ejemplos de tipado con hooks](/learn/typescript#example-hooks)
 * [Tipos comunes de `@types/react`](/learn/typescript/#useful-types)
-* [Recursos adicionales para aprender](/learn/typescript/#further-learning)
+* [Lugares de aprendizaje adicional](/learn/typescript/#further-learning)
 
 </YouWillLearn>
 
