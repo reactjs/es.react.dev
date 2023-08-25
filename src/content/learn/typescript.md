@@ -35,7 +35,7 @@ Para instalar la última versión de las definiciones de tipos de React:
 npm install @types/react @types/react-dom
 </TerminalBlock>
 
-En tu archivo `tsconfig.json`, debes configurar las siguientes opciones del compilador:
+Las siguientes opciones del compilador deben ser configuradas en tu `tsconfig.json`:
 
 1. Incluye `dom` en [`lib`](https://www.typescriptlang.org/tsconfig/#lib) (Nota: Si no se especifica ninguna opción `lib`, `dom` se incluye de manera predeterminada).
 1. Establece [`jsx`](https://www.typescriptlang.org/tsconfig/#jsx) en una de las opciones válidas. Para la mayoría de aplicaciones, `preserve` debería ser suficiente.
