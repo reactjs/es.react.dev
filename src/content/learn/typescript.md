@@ -92,7 +92,7 @@ Esta sintaxis en línea es la forma más sencilla de proporcionar tipos para un 
 interface MyButtonProps {
   /** El texto que se mostrará dentro del botón */
   title: string;
-  /** Si el botón es interactivo */
+  /** Si se puede interactuar con el botón */
   disabled: boolean;
 }
 
