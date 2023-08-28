@@ -48,7 +48,9 @@ Alternativamente, añade `'use server'` en la parte superior de un archivo para 
 ## Uso {/*usage*/}
 
 <Wip>
-
-Esta sección está incompleta. Consulta también la [Documentación de Next.js para componentes de servidor](https://beta.nextjs.org/docs/rendering/server-and-client-components).
-
+Esta sección es un trabajo en progreso.
+  
+Esta API puede ser utilizada en cualquier framework que soporte React Server Components. Puede encontrar documentación adicional desde ellos.
+* [Next.js documentation](https://nextjs.org/docs/getting-started/react-essentials)
+* Más próximamente
 </Wip>
