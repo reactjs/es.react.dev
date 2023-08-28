@@ -51,15 +51,9 @@ Cuando un archivo marcado con `'use client'` es importado desde un componente de
 ## Uso {/*usage*/}
 
 <Wip>
-This section is a work in progress. 
+Esta sección es un trabajo en progreso.  
 
-<<<<<<< HEAD
-Esta sección está incompleta. Revisa también la [documentación de Next.js para componentes de servidor](https://beta.nextjs.org/docs/rendering/server-and-client-components).
-
-</Wip>
-=======
-This API can be used in any framework that supports React Server Components. You may find additional documentation from them.
+Esta API puede ser utilizada en cualquier framework que soporte React Server Components. Puede encontrar documentación adicional desde ellos.
 * [Next.js documentation](https://nextjs.org/docs/getting-started/react-essentials)
-* More coming soon
+* Más próximamente
 </Wip>
->>>>>>> 3189529259e89240a88c05680849ce4a8c454ed2
