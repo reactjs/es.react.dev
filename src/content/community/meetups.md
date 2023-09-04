@@ -100,12 +100,7 @@ title: Reuniones de React
 * [Bangalore (React Native)](https://www.meetup.com/React-Native-Bangalore-Meetup)
 * [Chennai](https://www.meetup.com/React-Chennai/)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
-<<<<<<< HEAD
-* [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
-* [Puno](https://www.meetup.com/ReactJS-and-Friends/)
-=======
 * [Pune](https://www.meetup.com/ReactJS-and-Friends/)
->>>>>>> 722b54640ea8ef146ef59558100819a6bb31c252
 
 ## Indonesia {/*indonesia*/}
 * [Indonesia](https://www.meetup.com/reactindonesia/)
