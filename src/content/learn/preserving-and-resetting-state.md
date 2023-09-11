@@ -935,7 +935,11 @@ Pulsando "next" de nuevo
 
 </DiagramGroup>
 
+<<<<<<< HEAD
 > El estado de cada `Counter` se destruye cada vez que se elimina del DOM. Por eso se reinician cada vez que se hace clic en el botón.
+=======
+Each `Counter`'s state gets destroyed each time it's removed from the DOM. This is why they reset every time you click the button.
+>>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
 
 Esta solución es conveniente cuando sólo tienes unos pocos componentes independientes renderizados en el mismo lugar. En este ejemplo, sólo tienes dos, por lo que no es una molestia renderizar ambos por separado en el JSX.
 

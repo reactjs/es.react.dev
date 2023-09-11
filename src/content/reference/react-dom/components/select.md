@@ -50,6 +50,7 @@ Si tu `<select>` es no controlado, deberías incluir en su lugar la prop `defaul
 
 Estas props del `<select>` son relevantes tanto para recuadros de selección no controlados como controlados:
 
+<<<<<<< HEAD
 * [`autoComplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autocomplete): Un string. Especifica uno de los posibles [comportamientos de autocompletado](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values).
 * [`autoFocus`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#autofocus): Un booleano. Si es `true`, React enfocará el elemento en su montaje.
 * `children`: `<select>` acepta [`<option>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), y el componente [`<datalist>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/datalist) como hijo. También puedes pasarle tus propios componentes siempre y cuando ellos rendericen eventualmente uno de los componentes aceptados. Si pasas tus propios componentes que eventualmente rendericen la etiqueta `<option>`, cada `<option>` que renderices debe tener un `value`.
@@ -65,6 +66,23 @@ Estas props del `<select>` son relevantes tanto para recuadros de selección no 
 * `onInvalidCapture`: Una versión de `onInvalid` que se ejecuta en la [fase de captura](/learn/responding-to-events#capture-phase-events).
 * [`required`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#required): Un booleano. Si es `true`, el valor tiene que ser incluido por el formulario para que se envíe.
 * [`size`](https://developer.mozilla.org/es/docs/Web/HTML/Element/select#size): Un número. Para selecciones de `multiple={true}`, especifica el número escogido de elementos visibles inicialmente.
+=======
+* [`autoComplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autocomplete): A string. Specifies one of the possible [autocomplete behaviors.](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values)
+* [`autoFocus`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autofocus): A boolean. If `true`, React will focus the element on mount.
+* `children`: `<select>` accepts [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), and [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) components as children. You can also pass your own components as long as they eventually render one of the allowed components. If you pass your own components that eventually render `<option>` tags, each `<option>` you render must have a `value`.
+* [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#disabled): A boolean. If `true`, the select box will not be interactive and will appear dimmed.
+* [`form`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#form): A string. Specifies the `id` of the `<form>` this select box belongs to. If omitted, it's the closest parent form.
+* [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#multiple): A boolean. If `true`, the browser allows [multiple selection.](#enabling-multiple-selection)
+* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#name): A string. Specifies the name for this select box that's [submitted with the form.](#reading-the-select-box-value-when-submitting-a-form)
+* `onChange`: An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Required for [controlled select boxes.](#controlling-a-select-box-with-a-state-variable) Fires immediately when the user picks a different option. Behaves like the browser [`input` event.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)
+* `onChangeCapture`: A version of `onChange` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
+* [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event): An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Fires immediately when the value is changed by the user. For historical reasons, in React it is idiomatic to use `onChange` instead which works similarly.
+* `onInputCapture`: A version of `onInput` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
+* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Fires if an input fails validation on form submit. Unlike the built-in `invalid` event, the React `onInvalid` event bubbles.
+* `onInvalidCapture`: A version of `onInvalid` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
+* [`required`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#required): A boolean. If `true`, the value must be provided for the form to submit.
+* [`size`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#size): A number. For `multiple={true}` selects, specifies the preferred number of initially visible items.
+>>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
 
 #### Advertencias {/*caveats*/}
 
