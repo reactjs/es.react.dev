@@ -32,7 +32,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Parámetros {/*parameters*/}
 
-- `load`: Una función que devuelve una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto como un componente de React. Tanto la promesa devuelta como el valor resuelto de la promesa serán almacenados en caché, por lo que React no llamará a `load` más de una vez. Si la promesa se rechaza, React lanzará la razón de rechazo para dejar que el barrera de error más cercana lo maneje.
+* `load`: Una función que devuelve una [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) u otro *thenable* (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto `.default` como un componente React. Tanto la Promise devuelta como el valor resuelto de la Promise se almacenarán en caché, por lo que React no llamará a `load` más de una vez. Si la Promise es rechazada, React lanzará el motivo de rechazo a la barrera de error más cercana.
 
 #### Devuelve {/*returns*/}
 
@@ -48,7 +48,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Devuelve {/*load-returns*/}
 
-Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/reference/react/memo), o un componente [`forwardRef`](/reference/react/forwardRef).
+Necesitas devolver una [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro *thenable* (un objeto tipo Promise con un método `then`). Es necesario que eventualmente resuelva a un objeto cuya propiedad `.default` sea un tipo de componente React válido, como una función, [`memo`](/reference/react/memo), o un componente [`forwardRef`](/reference/react/forwardRef).
 
 ---
 
@@ -70,7 +70,7 @@ import { lazy } from 'react';
 const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 ```
 
-Este código se basa en [`import()` dinámico,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) que puede requerir el apoyo del empaquetador o del framework.
+Este código se basa en [`import()` dinámico](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import), que puede requerir el soporte de tu empaquetador o framework. Usar este patrón requiere que el componente lazy que estás importando haya sido exportado como export `default`.
 
 Ahora que el código de tu componente se carga bajo demanda, también debes especificar qué debe mostrarse mientras se carga. Puedes hacer esto envolviendo el componente lazy o cualquiera de sus padres en una barrera de [`<Suspense>`](/reference/react/Suspense):
 

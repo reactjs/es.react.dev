@@ -106,6 +106,24 @@ Para priorizar el renderizado, usa uno de estos Hooks:
 
 ---
 
+## Hooks de recursos {/*resource-hooks*/}
+
+Un componente puede acceder a *recursos* sin tenerlos como parte de su estado. Por ejemplo, un componente puede leer un mensaje de una Promesa o leer información de estilo de un contexto.
+
+Para leer un valor de un recurso, utilice este Hook:
+
+- [`use`](/reference/react/use) te permite leer el valor de un recurso como una [Promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o [contexto](/learn/passing-data-deeply-with-context).
+
+```js
+function MessageComponent({ messagePromise }) {
+  const message = use(messagePromise);
+  const theme = use(ThemeContext);
+  // ...
+}
+```
+
+---
+
 ## Otros Hooks {/*other-hooks*/}
 
 Estos Hooks son mayormente útiles para autores de bibliotecas y no son comúnmente usadas en el código de la aplicación.

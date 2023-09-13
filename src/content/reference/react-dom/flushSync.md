@@ -91,14 +91,14 @@ import { flushSync } from 'react-dom';
 
 export default function PrintApp() {
   const [isPrinting, setIsPrinting] = useState(false);
-  
+
   useEffect(() => {
     function handleBeforePrint() {
       flushSync(() => {
         setIsPrinting(true);
       })
     }
-    
+
     function handleAfterPrint() {
       setIsPrinting(false);
     }
@@ -110,7 +110,7 @@ export default function PrintApp() {
       window.removeEventListener('afterprint', handleAfterPrint);
     }
   }, []);
-  
+
   return (
     <>
       <h1>isPrinting: {isPrinting ? 'yes' : 'no'}</h1>
@@ -124,7 +124,7 @@ export default function PrintApp() {
 
 </Sandpack>
 
-Si eliminas la llamada a `flushSync`, entonces el diálogo de impresión mostrará `isPrinting` como "no". Esto se debe a que React agrupa las actualizaciones de forma asíncrona y el diálogo de impresión se muestra antes de que se actualice el estado.
+Sin `flushSync`, el diálogo de impresión mostrará `isPrinting` como "no". Esto se debe a que React procesa las actualizaciones de forma asíncrona y el diálogo de impresión se muestra antes de que se actualice el estado.
 
 <Pitfall>
 
