@@ -32,7 +32,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Parámetros {/*parameters*/}
 
-* `load`: Una función que devuelve un [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) u otro *thenable* (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto `.default` como un componente React. Tanto la Promise devuelta como el valor resuelto de la Promise se almacenarán en caché, por lo que React no llamará a `load` más de una vez. Si la Promise es rechazada, React lanzará el motivo de rechazo a la barrera de error más cercana.
+* `load`: Una función que devuelve una [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) u otro *thenable* (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto `.default` como un componente React. Tanto la Promise devuelta como el valor resuelto de la Promise se almacenarán en caché, por lo que React no llamará a `load` más de una vez. Si la Promise es rechazada, React lanzará el motivo de rechazo a la barrera de error más cercana.
 
 #### Devuelve {/*returns*/}
 
