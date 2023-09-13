@@ -70,11 +70,7 @@ import { lazy } from 'react';
 const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 ```
 
-<<<<<<< HEAD
-Este código se basa en [`import()` dinámico,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) que puede requerir el apoyo del empaquetador o del framework.
-=======
-This code relies on [dynamic `import()`,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) which might require support from your bundler or framework. Using this pattern requires that the lazy component you're importing was exported as the `default` export.
->>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
+Este código se basa en [`import()` dinámico](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import), que puede requerir el soporte de tu empaquetador o framework. Usar este patrón requiere que el componente lazy que estás importando haya sido exportado como export `default`.
 
 Ahora que el código de tu componente se carga bajo demanda, también debes especificar qué debe mostrarse mientras se carga. Puedes hacer esto envolviendo el componente lazy o cualquiera de sus padres en una barrera de [`<Suspense>`](/reference/react/Suspense):
 
