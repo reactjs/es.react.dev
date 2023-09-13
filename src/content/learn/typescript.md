@@ -20,11 +20,7 @@ TypeScript es una forma popular de añadir definiciones de tipos a bases de cód
 
 ## Instalación {/*installation*/}
 
-<<<<<<< HEAD
-Todos los [frameworks React de grado de producción](https://react-dev-git-fork-orta-typescriptpage-fbopensource.vercel.app/learn/start-a-new-react-project#production-grade-react-frameworks) ofrecen soporte para el uso de TypeScript. Sigue la guía específica del framework para la instalación:
-=======
-All [production-grade React frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) offer support for using TypeScript. Follow the framework specific guide for installation:
->>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
+Todos los [frameworks React de grado de producción](/learn/start-a-new-react-project#production-grade-react-frameworks) ofrecen soporte para el uso de TypeScript. Sigue la guía específica del framework para la instalación:
 
 - [Next.js](https://nextjs.org/docs/pages/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)
