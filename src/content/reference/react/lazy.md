@@ -32,11 +32,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Parámetros {/*parameters*/}
 
-<<<<<<< HEAD
-- `load`: Una función que devuelve una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto como un componente de React. Tanto la promesa devuelta como el valor resuelto de la promesa serán almacenados en caché, por lo que React no llamará a `load` más de una vez. Si la promesa se rechaza, React lanzará la razón de rechazo para dejar que el barrera de error más cercana lo maneje.
-=======
-* `load`: A function that returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or another *thenable* (a Promise-like object with a `then` method). React will not call `load` until the first time you attempt to render the returned component. After React first calls `load`, it will wait for it to resolve, and then render the resolved value's `.default` as a React component. Both the returned Promise and the Promise's resolved value will be cached, so React will not call `load` more than once. If the Promise rejects, React will `throw` the rejection reason for the nearest Error Boundary to handle.
->>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
+* `load`: Una función que devuelve un [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) u otro *thenable* (un objeto tipo Promise con un método `then`). React no llamará a `load` hasta la primera vez que intentes renderizar el componente devuelto. Después de que React llame por primera vez a `load`, esperará a que se resuelva, y entonces renderizará el valor resuelto `.default` como un componente React. Tanto la Promise devuelta como el valor resuelto de la Promise se almacenarán en caché, por lo que React no llamará a `load` más de una vez. Si la Promise es rechazada, React lanzará el motivo de rechazo a la barrera de error más cercana.
 
 #### Devuelve {/*returns*/}
 
@@ -52,11 +48,7 @@ const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 #### Devuelve {/*load-returns*/}
 
-<<<<<<< HEAD
-Necesitas devolver una [promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro _thenable_ (un objeto tipo Promise con un método `then`). Eventualmente debes resolver un tipo de componente de React válido, como una función, [`memo`](/reference/react/memo), o un componente [`forwardRef`](/reference/react/forwardRef).
-=======
-You need to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or some other *thenable* (a Promise-like object with a `then` method). It needs to eventually resolve to an object whose `.default` property is a valid React component type, such as a function, [`memo`](/reference/react/memo), or a [`forwardRef`](/reference/react/forwardRef) component.
->>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
+Necesitas devolver una [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o algún otro *thenable* (un objeto tipo Promise con un método `then`). Es necesario que eventualmente resuelva a un objeto cuya propiedad `.default` sea un tipo de componente React válido, como una función, [`memo`](/reference/react/memo), o un componente [`forwardRef`](/reference/react/forwardRef).
 
 ---
 
