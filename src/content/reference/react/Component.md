@@ -812,13 +812,8 @@ Si defines `UNSAFE_componentWillReceiveProps`, React lo llamará cuando el compo
 
 #### Parámetros {/*unsafe_componentwillreceiveprops-parameters*/}
 
-<<<<<<< HEAD
-- `nextProps`: Las próximas props que el componente está a punto de recibir de su componente padre. Compara `nextProps` con [`this.props`](#props) para determinar qué ha cambiado.
-- `nextContext`: El próximo contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Solo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (legado).
-=======
-- `nextProps`: The next props that the component is about to receive from its parent component. Compare `nextProps` to [`this.props`](#props) to determine what changed.
-- `nextContext`: The next context that the component is about to receive from the closest provider. Compare `nextContext` to [`this.context`](#context) to determine what changed. Only available if you specify [`static contextType`](#static-contexttype) (modern) or [`static contextTypes`](#static-contexttypes) (legacy).
->>>>>>> bdc60c26848820239db732b7218d41f4c2b204af
+- `nextProps`: Las siguientes props que el componente está a punto de recibir de su componente padre. Compara `nextProps` con [`this.props`](#props) para determinar qué ha cambiado.
+- `nextContext`: El siguiente contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Sólo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (heredado).
 
 #### Devuelve {/*unsafe_componentwillreceiveprops-returns*/}
 
