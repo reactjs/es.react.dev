@@ -767,7 +767,11 @@ Comprar no es causado por un renderizado, sino por una interacción específica.
   }
 ```
 
+<<<<<<< HEAD
 **Esto ejemplifica que si volver a montar rompe la lógica de tu aplicación, usualmente se descubren errores existentes.** Desde la perspectiva del usuario, visitar una página no debe ser diferente de visitarla, hacer clic en un link, y presionar atrás. React verifica que tus componentes cumplen este principio volviendo a montarlos una vez en desarrollo.
+=======
+**This illustrates that if remounting breaks the logic of your application, this usually uncovers existing bugs.** From a user's perspective, visiting a page shouldn't be different from visiting it, clicking a link, then pressing Back to view the page again. React verifies that your components abide by this principle by remounting them once in development.
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 
 ## Poner todo junto {/*putting-it-all-together*/}
 

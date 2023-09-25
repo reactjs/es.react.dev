@@ -26,12 +26,17 @@ Engineer at Meta
     Dan comenzó a programar después de que accidentalmente descubrió Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación al convertir los tweets de [Sebastian](#sebastian-markbåge) en extensas publicaciones de blog. Dan gana ocasionalmente en Fortnite escondiéndose en un arbusto hasta que termina el juego.
 </TeamMember>
 
+<<<<<<< HEAD
 <TeamMember name="Dave McCabe" permalink="dave-mccabe" photo="/images/team/dave-mccabe.jpg" github="davidmccabe" twitter="mcc_abe" title="Ingeniero en Meta">
     Ingeniero de profesión y amante de la naturaleza de corazón, David lleva mucho tiempo innovando en el campo de la programación mientras se toma el sol. Además de sorprender a sus colegas con fondos de videollamada únicos al aire libre, le gusta tocar la guitarra (en praderas iluminadas por el sol, por supuesto) y las artes marciales (todavía en interiores, debe trabajar en ello).
 </TeamMember>
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="TheSavior" twitter="Eli_White" title="Gerente de ingeniería en Meta">
     Eli comenzó a programar después de que lo suspendieran de la escuela secundaria por piratería informática. Ha estado trabajando en React y React Native desde 2017. Le gusta comer golosinas, especialmente helados y tartas de manzana. Puedes encontrar a Eli probando actividades extravagantes como parkour, paracaidismo bajo techo y actividades aéreas.
+=======
+<TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="TheSavior" twitter="Eli_White" title="Engineering Manager at Meta">
+    Eli got into programming after he got suspended from middle school for hacking. He has been working on React and React Native since 2017. He enjoys eating treats, especially ice cream and apple pie. You can find Eli trying quirky activities like parkour, indoor skydiving, and aerial silks.
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 </TeamMember>
 
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" title="Gerente de ingeniería en Meta">
@@ -54,24 +59,34 @@ Engineer at Meta
     La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
 </TeamMember>
 
+<<<<<<< HEAD
 <TeamMember name="Luna Ruan" permalink="luna-ruan" photo="/images/team/lunaruan.jpg" github="lunaruan" twitter="lunaruan" title="Ingeniera Independiente">
     Luna aprendió a programar porque pensaba que significaba crear videojuegos. En lugar de eso, acabó trabajando en la aplicación web Pinterest, y ahora en el propio React. Luna ya no quiere crear videojuegos, pero planea dedicarse a la escritura creativa si alguna vez se aburre.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" title="Ingeniera en Meta">
     Luna aprendió por primera vez los fundamentos de Python de la mano de su padre cuando tenia 6. Desde entonces, ha sido imparable. Luna aspira a ser una generación Z, y el camino hacia el éxito está pavimentado con la defensa del medio ambiente, la jardinería urbana y mucho tiempo de calidad con su Voo-Doo'd (como se muestra en la imagen).
+=======
+<TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" title="Engineer at Meta">
+    Luna first learnt the fundamentals of python at the age of 6 from her father. Since then, she has been unstoppable. Luna aspires to be a gen z, and the road to success is paved with environmental advocacy, urban gardening and lots of quality time with her Voo-Doo’d (as pictured). 
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 </TeamMember>
 
 <TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/matt-carroll.png" github="mattcarrollcode" twitter="mattcarrollcode" title="Defensor del Desarrollador en Meta">
     Matt tropezó con la codificación y, desde entonces, se ha enamorado de crear cosas en comunidades que no pueden crearse en solitario. Antes de React, trabajó en YouTube, Google Assistant, Fuchsia, Google Cloud AI y Evernote. Cuando no está intentando crear mejores herramientas para desarrolladores, le gusta la montaña, el jazz y pasar tiempo con su familia.
 </TeamMember>
 
+<<<<<<< HEAD
 <TeamMember name="Mengdi Chen" permalink="mengdi-chen" photo="/images/team/mengdi-chen.jpg" github="mondaychen" twitter="mengdi_en" title="Ingeniero en Meta">
     Mientras cursaba la carrera de Artes Digitales, Mengdi presumía de sus habilidades front-end porque su CSS funcionaba perfectamente incluso en IE6. Pero pronto React le abrió una nueva puerta de la programación, y desde entonces sueña con unirse al equipo de React. Fuera del trabajo, suele estar ocupado persiguiendo a sus dos hijos o coleccionando recetas extrañas.
 </TeamMember>
 
 <TeamMember name="Mofei Zhang" permalink="mofei-zhang" photo="/images/team/mofei-zhang.png" github="mofeiZ" title="Ingeniera en Meta">
     Mofei empezó a programar cuando se dio cuenta de que podía ayudarle a hacer trampas en los videojuegos. Se centró en los sistemas operativos en la licenciatura / posgrado, pero ahora se encuentra feliz jugando en React. Fuera del trabajo, disfruta depurando problemas de boulder y planificando su(s) próximo(s) viaje(s) de mochilera.
+=======
+<TeamMember name="Mofei Zhang" permalink="mofei-zhang" photo="/images/team/mofei-zhang.png" github="mofeiZ" title="Engineer at Meta">
+    Mofei started programming when she realized it can help her cheat in video games. She focused on operating systems in undergrad / grad school, but now finds herself happily tinkering on React. Outside of work, she enjoys debugging bouldering problems and planning her next backpacking trip(s).
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 </TeamMember>
 
 <TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" personal="rickhanlon.codes" title="Ingeniero en Meta">
@@ -86,12 +101,17 @@ Engineer at Meta
     Sathya odiaba el Libro del Dragón en la escuela, pero de alguna manera terminó trabajando en compiladores toda su carrera. Cuando no está compilando componentes de React, está bebiendo café o comiendo otra Dosa.
 </TeamMember>
 
+<<<<<<< HEAD
 <TeamMember name="Sean Keegan" permalink="sean-keegan" photo="/images/team/sean-keegan.jpg" github="seanryankeegan" twitter="DevRelSean" title="Defensor del Desarrollador en Meta">
     Tras una primera carrera como profesor de matemáticas, Sean recordó aquella clase de introducción a las ciencias de la computación que tuvo que tomar como prerrequisito y pensó "¡eso era divertido!". Después de un curso de programación y varios trabajos tecnológicos, Sean descubrió la defensa de los desarrolladores y no ha mirado atrás. Fuera del trabajo, a Sean le gusta jugar al frisbee, los videojuegos e investigar (pero rara vez poner en práctica) mejores formas de cuidar sus plantas de interior.
 </TeamMember>
 
 <TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" title="Ingeniero en Vercel">
     Sebastian se especializó en psicología. Suele ser callado. Incluso cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se ha decantado por "mark-beige" por pragmatismo, y así es como se acerca a React.
+=======
+<TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" title="Engineer at Vercel">
+    Sebastian majored in psychology. He's usually quiet. Even when he says something, it often doesn't make sense to the rest of us until a few months later. The correct way to pronounce his surname is "mark-boa-geh" but he settled for "mark-beige" out of pragmatism -- and that's how he approaches React.
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 </TeamMember>
 
 <TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" title="Ingeniero Independiente">

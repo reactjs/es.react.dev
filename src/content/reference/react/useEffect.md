@@ -60,7 +60,11 @@ function ChatRoom({ roomId }) {
 
 * Cuando el modo estricto está activado, React en el modo desarrollo **ejecutará un ciclo extra de configuración y limpieza** antes de la primera configuración real. Esta es una prueba de estrés que asegura que tu lógica de limpieza "refleje" tu lógica de configuración y que detenga o deshaga cualquier cosa que la configuración esté haciendo. Si esto causa un problema, [necesitas implementar la función de limpieza.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
+<<<<<<< HEAD
 * Si alguna de tus dependencias son objetos o funciones definidas dentro del componente, existe el riesgo de que **provoquen que el Efecto se re-ejecute más veces de las necesarias.** Para solucionar esto, elimina las dependencias innecesarias de [objetos](#removing-unnecessary-object-dependencies) y [funciones](#removing-unnecessary-function-dependencies). También puedes [extraer las actualizaciones de estados](#updating-state-based-on-previous-state-from-an-effect) y la [lógica no reactiva](#reading-the-latest-props-and-state-from-an-effect) fuera de tu Efecto.
+=======
+* If your Effect wasn't caused by an interaction (like a click), React will generally let the browser **paint the updated screen first before running your Effect.** If your Effect is doing something visual (for example, positioning a tooltip), and the delay is noticeable (for example, it flickers), replace `useEffect` with [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 
 * Si tu efecto no ha sido causado por una interacción (como un clic), React dejará que el navegador **pinte primero la pantalla actualizada antes de ejecutar tu efecto.** Si tu efecto está haciendo algo visual (por ejemplo, posicionar un tooltip), y el retraso es notable (por ejemplo, parpadea), tendrás que reemplazar `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
