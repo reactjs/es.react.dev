@@ -1488,8 +1488,6 @@ Aquí está la versión con la solución que usa una variable `name` regular dec
 <Sandpack>
 
 ```js
-import { useState } from 'react';
-
 export default function FeedbackForm() {
   function handleClick() {
     const name = prompt('¿Cuál es tu nombre?');

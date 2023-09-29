@@ -767,7 +767,7 @@ Comprar no es causado por un renderizado, sino por una interacción específica.
   }
 ```
 
-**Esto ejemplifica que si volver a montar rompe la lógica de tu aplicación, usualmente se descubren errores existentes.** Desde la perspectiva del usuario, visitar una página no debe ser diferente de visitarla, hacer clic en un link, y presionar atrás. React verifica que tus componentes cumplen este principio volviendo a montarlos una vez en desarrollo.
+**Esto ilustra que si volver a montar rompe la lógica de tu aplicación, esto normalmente descubre errores existentes.** Desde la perspectiva del usuario, visitar una página no debería ser diferente de visitarla, hacer clic en un enlace y, a continuación, pulsar atrás para volver a ver la página. React verifica que tus componentes cumplen este principio volviendo a montarlos una vez en desarrollo.
 
 ## Poner todo junto {/*putting-it-all-together*/}
 

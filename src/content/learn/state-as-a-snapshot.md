@@ -77,9 +77,9 @@ A diferencia de una fotografía o un fotograma de una película, la "instantáne
 
 Cuando React vuelve a renderizar un componente:
 
-1. React llama de nuevo a tu función.
+1. React vuelve a llamar a tu función.
 2. Tu función devuelve una nueva instantánea JSX.
-3. A continuación, React actualiza la pantalla para que coincida con la instantánea que has devuelto.
+3. React entonces actualiza la pantalla para que coincida con la instantánea devuelta por tu función.
 
 <IllustrationBlock sequential>
     <Illustration caption="React ejecuta la función" src="/images/docs/illustrations/i_render1.png" />

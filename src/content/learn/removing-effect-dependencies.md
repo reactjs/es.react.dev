@@ -924,7 +924,7 @@ function ChatRoom() {
 
   useEffect(() => {
     const options = createOptions();
-    const connection = createConnection();
+    const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
   }, []); // ✅ Todas las dependencias declaradas
@@ -1611,7 +1611,7 @@ label, button { display: block; margin-bottom: 5px; }
 
 Tu Efecto se vuelve a ejecutar porque depende en el objeto `options`. Los objetos se pueden recrear inintencionadamente, deberías intentar evitar tenerlos como dependencias de tus Efectos siempre que sea posible.
 
-La solución menos invasiva consiste en leer `roomId` y `serverUrl` fuera del Efecto y hacer que el Efecto dependa de esos valores primitivos (que no pueden cambiar inintencionadamente). Dentro del Efecto, crea un objeto y pásalo a `createConnection`:
+La solución menos invasiva es leer `roomId` y `serverUrl` fuera del Efecto, y luego hacer que el Efecto dependa de esos valores primitivos (que no pueden cambiar inintencionadamente). Dentro del Efecto, crea un objeto y pásalo a `createConnection`:
 
 <Sandpack>
 
