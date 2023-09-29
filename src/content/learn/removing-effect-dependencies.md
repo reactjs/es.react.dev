@@ -1611,11 +1611,7 @@ label, button { display: block; margin-bottom: 5px; }
 
 Tu Efecto se vuelve a ejecutar porque depende en el objeto `options`. Los objetos se pueden recrear inintencionadamente, deberías intentar evitar tenerlos como dependencias de tus Efectos siempre que sea posible.
 
-<<<<<<< HEAD
-La solución menos invasiva consiste en leer `roomId` y `serverUrl` fuera del Efecto y hacer que el Efecto dependa de esos valores primitivos (que no pueden cambiar inintencionadamente). Dentro del Efecto, crea un objeto y pásalo a `createConnection`:
-=======
-The least invasive fix is to read `roomId` and `serverUrl` right outside the Effect, and then make the Effect depend on those primitive values (which can't change unintentionally). Inside the Effect, create an object and pass it to `createConnection`:
->>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
+La solución menos invasiva es leer `roomId` y `serverUrl` fuera del Efecto, y luego hacer que el Efecto dependa de esos valores primitivos (que no pueden cambiar inintencionadamente). Dentro del Efecto, crea un objeto y pásalo a `createConnection`:
 
 <Sandpack>
 
