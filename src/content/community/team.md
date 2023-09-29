@@ -74,17 +74,8 @@ Engineer at Meta
     Sathya odiaba el Libro del Dragón en la escuela, pero de alguna manera terminó trabajando en compiladores toda su carrera. Cuando no está compilando componentes de React, está bebiendo café o comiendo otra Dosa.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Sean Keegan" permalink="sean-keegan" photo="/images/team/sean-keegan.jpg" github="seanryankeegan" twitter="DevRelSean" title="Defensor del Desarrollador en Meta">
-    Tras una primera carrera como profesor de matemáticas, Sean recordó aquella clase de introducción a las ciencias de la computación que tuvo que tomar como prerrequisito y pensó "¡eso era divertido!". Después de un curso de programación y varios trabajos tecnológicos, Sean descubrió la defensa de los desarrolladores y no ha mirado atrás. Fuera del trabajo, a Sean le gusta jugar al frisbee, los videojuegos e investigar (pero rara vez poner en práctica) mejores formas de cuidar sus plantas de interior.
-</TeamMember>
-
 <TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" title="Ingeniero en Vercel">
-    Sebastian se especializó en psicología. Suele ser callado. Incluso cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se ha decantado por "mark-beige" por pragmatismo, y así es como se acerca a React.
-=======
-<TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" title="Engineer at Vercel">
-    Sebastian majored in psychology. He's usually quiet. Even when he says something, it often doesn't make sense to the rest of us until a few months later. The correct way to pronounce his surname is "mark-boa-geh" but he settled for "mark-beige" out of pragmatism -- and that's how he approaches React.
->>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
+    Sebastian se especializó en psicología. Suele ser callado. Incluso, cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se ha decantado por "mark-beige" por pragmatismo, y así es como se acerca a React.
 </TeamMember>
 
 <TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" title="Ingeniero Independiente">
