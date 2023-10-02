@@ -647,7 +647,11 @@ En este ejemplo, el componente `List` se **ralentiza artificialmente** para que 
 
 Cambiar las pestañas se siente lento porque obliga a que `List` se rerenderice. Eso es de esperar porque `tab` ha cambiado, y necesitas reflejar la nueva elección del usuario en la pantalla.
 
+<<<<<<< HEAD
 A continuación, intenta alternar el tema. **¡Gracias a `useMemo` junto con [`memo`](/reference/react/memo), es rápido a pesar de la ralentización artificial!** El componente `List` omitió rerenderizar porque el *array* `visibleItems` no ha cambiado desde el último renderizado. El *array* `visibleItems` no ha cambiado porque tanto `todos` como `tab` (que pasas como dependencias a `useMemo`) no han cambiado desde el último renderizado.
+=======
+Next, try toggling the theme. **Thanks to `useMemo` together with [`memo`](/reference/react/memo), it’s fast despite the artificial slowdown!** The `List` skipped re-rendering because the `visibleTodos` array has not changed since the last render. The `visibleTodos` array has not changed because both `todos` and `tab` (which you pass as dependencies to `useMemo`) haven't changed since the last render.
+>>>>>>> 68f417a600c7d7b8c4131e39f8a843a856ae3909
 
 <Sandpack>
 

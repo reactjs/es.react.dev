@@ -8,7 +8,11 @@ title: "React Labs: En qué hemos estado trabajando – junio 2022"
 
 <Intro>
 
+<<<<<<< HEAD
 [React 18](https://reactjs.org/blog/2022/03/29/react-v18) estuvo por años en desarrollo y con él llegaron lecciones valiosas para el equipo de React. Su lanzamiento fue el resultado de muchos años de investigación y exploración de diversos caminos. Algunos de esos caminos fueron exitosos; muchos otros fueron callejones sin salida que nos llevaron a nuevas ideas. Una lección que hemos aprendido es que resulta frustrante para la comunidad esperar nuevas funcionalidades sin tener información sobre las rutas que estamos explorando.
+=======
+[React 18](https://react.dev/blog/2022/03/29/react-v18) was years in the making, and with it brought valuable lessons for the React team. Its release was the result of many years of research and exploring many paths. Some of those paths were successful; many more were dead-ends that led to new insights. One lesson we’ve learned is that it’s frustrating for the community to wait for new features without having insight into these paths that we’re exploring.
+>>>>>>> 68f417a600c7d7b8c4131e39f8a843a856ae3909
 
 </Intro>
 
