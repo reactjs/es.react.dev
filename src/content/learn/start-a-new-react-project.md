@@ -26,11 +26,7 @@ npx create-next-app@latest
 
 Si eres nuevo en Next.js, mira el [tutorial de Next.js.](https://nextjs.org/learn/foundations/about-nextjs)
 
-<<<<<<< HEAD
-Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/deployment) en cualquier alojamiento Node.js, sin servidor, o en tu propio servidor. [Las aplicaciones Next.js estáticas](https://nextjs.org/docs/advanced-features/static-html-export) se pueden implementar en cualquier alojamiento estático.
-=======
-Next.js is maintained by [Vercel](https://vercel.com/). You can [deploy a Next.js app](https://nextjs.org/docs/app/building-your-application/deploying) to any Node.js or serverless hosting, or to your own server. Next.js also supports a [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) which doesn't require a server.
->>>>>>> 68f417a600c7d7b8c4131e39f8a843a856ae3909
+Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/app/building-your-application/deploying) en cualquier alojamiento Node.js o sin servidor, o en tu propio servidor. Next.js también admite una [exportación estática](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) que no requiere un servidor.
 
 ### Remix {/*remix*/}
 
