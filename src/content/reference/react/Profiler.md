@@ -58,7 +58,7 @@ function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime
 * `actualDuration`: El número de milisegundos que se tardó en renderizar el árbol `<Profiler>` Esto indica qué tan bien el subárbol hace uso de la memoización (por ejemplo, [`memo`](/reference/react/memo) y [`useMemo`](/reference/react/useMemo)). Idealmente, este valor debería disminuir significativamente después del montaje inicial, ya que muchos de los descendientes solo necesitarán volver a renderizarse si cambian sus propiedades específicas.
 * `baseDuration`: El número de milisegundos que estima cuánto tiempo tardaría en volver a renderizar todo el subárbol `<Profiler>` sin ninguna optimización. Se calcula sumando las duraciones de renderizado más recientes de cada componente en el árbol. Este valor estima el costo del renderizado para el peor de caso (por ejemplo, el montaje inicial o un árbol sin memoización). Compara `actualDuration` con este valor para ver si la memorización está funcionando.
 * `startTime`: Una marca de tiempo numérica para cuando React comenzó a renderizar la actualización actual.
-* `endTime`: Una marca de tiempo numérica para cuando React entregó la actualización actual. Este valor se comparte entre todos los perfiles en una entrega, lo que permite agruparlos si es deseable.
+* `commitTime`: Una marca de tiempo numérica para cuando React entregó la actualización actual. Este valor se comparte entre todos los perfiles en una entrega, lo que permite agruparlos si es deseable.
 
 ---
 

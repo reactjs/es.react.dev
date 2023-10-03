@@ -284,7 +284,7 @@ Tampoco tienes que preocuparte por [evitar la mutación](/learn/updating-objects
 
 ## Las refs y el DOM {/*refs-and-the-dom*/}
 
-Puedes apuntar una ref hacia cualquier valor. Sin embargo, el caso de uso más común para una ref es acceder a un elemento del DOM. Por ejemplo, esto es útil cuando quieres enfocar un input programáticamente. Cuando pasas una ref a un atributo `ref` en JSX, así `<div ref={myRef}>`, React colocará el elemento del DOM correspondiente en `myRef.current`. Puedes leer más sobre esto en [Manipular el DOM con refs.](/learn/manipulating-the-dom-with-refs)
+Puedes apuntar una ref a cualquier valor. Sin embargo, el uso más común para una ref es acceder a un elemento DOM. Por ejemplo, esto es útil si deseas enfocar un input programáticamente. Cuando pasas una ref a un atributo `ref` en JSX, como `<div ref={myRef}>`, React pondrá el elemento DOM correspondiente en `myRef.current`. Una vez que el elemento es eliminado del DOM, React actualizará `myRef.current` a `null`. Puedes leer más sobre esto en [Manipular el DOM con Refs.](/learn/manipulating-the-dom-with-refs)
 
 <Recap>
 
