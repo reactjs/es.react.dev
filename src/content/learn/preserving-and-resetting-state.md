@@ -10,6 +10,7 @@ El estado está aislado entre los componentes. React mantiene un registro de qu�
 
 <YouWillLearn>
 
+<<<<<<< HEAD
 * Cómo React "ve" las estructuras de los componentes
 * Cuándo React elige preservar o reiniciar el estado
 * Cómo forzar a React a reiniciar el estado del componente
@@ -36,7 +37,19 @@ A partir de los componentes, React crea un árbol de interfaz de usuario que Rea
 ## El estado está atado a una posición en el árbol {/*state-is-tied-to-a-position-in-the-tree*/}
 
 Cuando se le da un estado a un componente, podrías pensar que el estado "vive" dentro del componente. Pero en realidad el estado se mantiene en React. React asocia cada pieza de estado que mantiene con el componente correcto gracias al lugar que ocupa ese componente en el árbol de la UI.
+=======
+* When React chooses to preserve or reset the state
+* How to force React to reset component's state
+* How keys and types affect whether the state is preserved
 
+</YouWillLearn>
+
+## State is tied to a position in the render tree {/*state-is-tied-to-a-position-in-the-tree*/}
+
+React builds [render trees](learn/understanding-your-ui-as-a-tree#the-render-tree) for the component structure in your UI.
+>>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
+
+When you give a component state, you might think the state "lives" inside the component. But the state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the render tree.
 
 En este caso, sólo hay una etiqueta JSX  `<Counter />`, pero se representa en dos posiciones diferentes:
 
@@ -190,7 +203,11 @@ Actualización del estado
 </DiagramGroup>
 
 
+<<<<<<< HEAD
 React mantendrá el estado mientras se renderice el mismo componente en la misma posición. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Renderizar el segundo contador", y luego vuelve a añadirlo marcándola de nuevo:
+=======
+React will keep the state around for as long as you render the same component at the same position in the tree. To see this, increment both counters, then remove the second component by unchecking "Render the second counter" checkbox, and then add it back by ticking it again:
+>>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
 
 <Sandpack>
 

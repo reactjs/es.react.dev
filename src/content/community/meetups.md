@@ -48,6 +48,7 @@ title: Reuniones de React
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
+* [Saskatoon, SK](https://www.meetup.com/saskatoon-react-meetup/)
 * [Toronto, ON](https://www.meetup.com/Toronto-React-Native/events/)
 
 ## Chile {/*chile*/}

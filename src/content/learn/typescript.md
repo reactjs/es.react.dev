@@ -284,7 +284,11 @@ export default App = AppTSX;
 
 </Sandpack>
 
+<<<<<<< HEAD
 Esta técnica funciona cuando tienes un valor por defecto que tiene sentido - pero hay casos ocasionales en los que no, y en esos casos `null` puede parecer razonable como valor por defecto. Sin embargo, para permitir que el sistema de tipos entienda tu código, necesitas establecer explícitamente `ContextShape | null` en el `createContext`.
+=======
+This technique works when you have a default value which makes sense - but there are occasionally cases when you do not, and in those cases `null` can feel reasonable as a default value. However, to allow the type-system to understand your code, you need to explicitly set `ContextShape | null` on the `createContext`. 
+>>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
 
 Esto causa el problema de que necesitas eliminar el `| null` en el tipo para los consumidores de contexto. Nuestra recomendación es que el hook compruebe su existencia en tiempo de ejecución y lance un error si no está presente:
 
@@ -460,4 +464,8 @@ Recomendamos los siguientes recursos:
 
  - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/) es una hoja de referencia mantenida por la comunidad que trata sobre cómo utilizar TypeScript con React, abordando muchos casos útiles y proporcionando un enfoque más amplio que este documento.
 
+<<<<<<< HEAD
  - [TypeScript Community Discord](https://discord.com/invite/typescript) es excelente lugar para hacer preguntas y obtener ayuda con problemas de TypeScript y React.
+=======
+ - [TypeScript Community Discord](https://discord.com/invite/typescript) is a great place to ask questions and get help with TypeScript and React issues.
+>>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
