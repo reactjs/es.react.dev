@@ -460,4 +460,4 @@ Recomendamos los siguientes recursos:
 
  - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/) es una hoja de referencia mantenida por la comunidad que trata sobre cómo utilizar TypeScript con React, abordando muchos casos útiles y proporcionando un enfoque más amplio que este documento.
 
- - [TypeScript Community Discord](https://discord.com/invite/typescript) es excelente lugar para hacer preguntas y obtener ayuda con problemas de TypeScript y React.
+ - [TypeScript Community Discord](https://discord.com/invite/typescript) es un lugar excelente para hacer preguntas y obtener ayuda con problemas de TypeScript y React.

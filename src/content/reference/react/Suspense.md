@@ -254,6 +254,7 @@ async function getAlbums() {
 
 - Carga de datos en frameworks capaces de manejar Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
 - Código de carga diferida de componentes con [`lazy`](/reference/react/lazy)
+- Leer el valor de una promesa con [`use`](/reference/react/use)
 
 Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un controlador de evento.
 

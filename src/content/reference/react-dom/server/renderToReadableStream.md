@@ -287,6 +287,7 @@ Cuando se streamea no es necesario esperar a que React en sí mismo cargue en el
 
 - Obtención de datos con frameworks "Suspense-enabled" como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
 - Código de componentes lazy-loading con [`lazy`](/reference/react/lazy)
+- Leer el valor de una promesa con [`use`](/reference/react/use)
 
 Suspense **no** detecta cuando la información es obtenida dentro de un Hook de efecto o un controlador de eventos.
 
