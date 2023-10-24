@@ -10,46 +10,17 @@ El estado está aislado entre los componentes. React mantiene un registro de qu�
 
 <YouWillLearn>
 
-<<<<<<< HEAD
-* Cómo React "ve" las estructuras de los componentes
-* Cuándo React elige preservar o reiniciar el estado
-* Cómo forzar a React a reiniciar el estado del componente
-* Cómo las claves y los tipos afectan a la preservación del estado
-
-</YouWillLearn>
-
-## El árbol de la UI {/*the-ui-tree*/}
-
-Los navegadores utilizan muchas estructuras de árbol para modelar la interfaz de usuario. El [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) representa los elementos HTML, el [CSSOM](https://developer.mozilla.org/es/docs/Web/API/CSS_Object_Model) hace lo mismo con el CSS. ¡Hay incluso un  [árbol de accesibilidad](https://developer.mozilla.org/es/docs/Glossary/Accessibility_tree)!
-
-React también utiliza estructuras de árbol para gestionar y modelar la UI que estás generando. React crea **árboles de UI** a partir de su JSX. Posteriormente, React DOM actualiza los elementos del DOM del navegador para que coincidan con ese árbol UI. (React Native traduce estos árboles en elementos específicos para plataformas móviles).
-
-<DiagramGroup>
-
-<Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Diagrama con tres secciones dispuestas horizontalmente. En la primera sección, hay tres rectángulos apilados verticalmente, con las etiquetas 'Componente A', 'Componente B', y 'Componente C'. La transición al siguiente panel es una flecha con el logo de React en la parte superior etiquetada como 'React'. La sección central contiene un árbol de componentes, con la raíz etiquetada 'A' y dos hijos etiquetados 'B' y 'C'. La siguiente sección vuelve a ser una transición con una flecha con el logo de React en la parte superior, etiquetada como 'React'. La tercera y última sección es un wireframe de un navegador, que contiene un árbol de 8 nodos, que sólo tiene un subconjunto resaltado (indicando el subárbol de la sección central).">
-
-A partir de los componentes, React crea un árbol de interfaz de usuario que React DOM utiliza para representar el DOM.
-
-</Diagram>
-
-</DiagramGroup>
-
-## El estado está atado a una posición en el árbol {/*state-is-tied-to-a-position-in-the-tree*/}
-
-Cuando se le da un estado a un componente, podrías pensar que el estado "vive" dentro del componente. Pero en realidad el estado se mantiene en React. React asocia cada pieza de estado que mantiene con el componente correcto gracias al lugar que ocupa ese componente en el árbol de la UI.
-=======
 * When React chooses to preserve or reset the state
 * How to force React to reset component's state
 * How keys and types affect whether the state is preserved
 
 </YouWillLearn>
 
-## State is tied to a position in the render tree {/*state-is-tied-to-a-position-in-the-tree*/}
+## El estado está atado a la posición en el árbol de renderizado {/*state-is-tied-to-a-position-in-the-tree*/}
 
-React builds [render trees](learn/understanding-your-ui-as-a-tree#the-render-tree) for the component structure in your UI.
->>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
+React construye [árboles de renderizado](learn/understanding-your-ui-as-a-tree#the-render-tree) para la estructura de componentes en tu UI.
 
-When you give a component state, you might think the state "lives" inside the component. But the state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the render tree.
+Cuando le das estado a tu componente, podrías pensar que el estado "vive" dentro del componente. Pero el estado en realidad se guarda dentro de React. React asocia cada pieza de estado que mantiene con el componente correcto por la posición en la que se encuentra ese componente en el árbol de renderizado.
 
 En este caso, sólo hay una etiqueta JSX  `<Counter />`, pero se representa en dos posiciones diferentes:
 
@@ -203,11 +174,7 @@ Actualización del estado
 </DiagramGroup>
 
 
-<<<<<<< HEAD
-React mantendrá el estado mientras se renderice el mismo componente en la misma posición. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Renderizar el segundo contador", y luego vuelve a añadirlo marcándola de nuevo:
-=======
-React will keep the state around for as long as you render the same component at the same position in the tree. To see this, increment both counters, then remove the second component by unchecking "Render the second counter" checkbox, and then add it back by ticking it again:
->>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
+React mantendrá el estado mientras se renderice el mismo componente en la misma posición en el árbol. Para ver esto, incrementa ambos contadores, luego quita el segundo componente desmarcando la casilla "Renderizar el segundo contador", y luego vuelve a añadirlo marcándola de nuevo:
 
 <Sandpack>
 

@@ -446,7 +446,3 @@ function ChatIndicator({ userId }) {
   // ...
 }
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> a0cacd7d3a89375e5689ccfba0461e293bfe9eeb
