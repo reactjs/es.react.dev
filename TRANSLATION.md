@@ -11,4 +11,4 @@ Por favor consulta la [guía de estilo](https://github.com/reactjs/es.react.dev/
 
 Si luego de asignada la traducción no puedes continuar trabajando en ella deja un comentario para poder asignársela a alguien más. También considera abrir un PR con el trabajo que tengas adelantado y que pueda servir como base para quien tome la traducción.
 
-Para más información consultar la Wiki: [wiki](https://github.com/reactjs/es.react.dev/wiki).
+Para más información consultar la [Wiki](https://github.com/reactjs/es.react.dev/wiki).
