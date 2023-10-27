@@ -130,6 +130,7 @@ En este ejemplo, la constante `password` está marcada. Luego, `password` se uti
 
 Otras formas similares de derivar nuevos valores a partir de valores marcados, como la concatenación en una cadena más grande, la conversión a base64 o la obtención de una subcadena, crean valores no marcados.
 
+
 El marcado protege solo contra errores simples, como pasar explícitamente valores secretos al cliente. Errores en la llamada a `taintUniqueValue`, como usar un almacén global fuera de React sin el objeto de duración correspondiente, pueden hacer que el valor marcado deje de estar marcado. El marcado es una capa de protección; una aplicación segura tendrá múltiples capas de protección, APIs bien diseñadas y patrones de aislamiento.
 
 
