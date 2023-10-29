@@ -73,7 +73,7 @@ experimental_taintUniqueValue(
 
 ## Usage {/*usage*/}
 
-### Prevent a token from being passed to Client Components {/*prevent-a-token-from-being-passed-to-client-components*/}
+### Evitar que un token se pase a los Componentes del Cliente. {/*prevent-a-token-from-being-passed-to-client-components*/}
 
 Para garantizar que información sensible como contraseñas, tokens de sesión u otros valores únicos no se pasen involuntariamente a componentes del cliente, la función `taintUniqueValue` proporciona una capa de protección. Cuando un valor está marcado, cualquier intento de pasarlo a un componente del cliente resultará en un error.
 
@@ -109,7 +109,7 @@ En este ejemplo, el objeto `user` actúa como el argumento `lifetime. Si este ob
 
 <Pitfall>
 
-**Do not rely solely on tainting for security.** El marcado de un valor no bloquea todos los valores derivados posibles. Por ejemplo, crear un nuevo valor convirtiendo en mayúsculas una cadena marcada no marcará el nuevo valor.
+**No confíes únicamente en el marcado para la seguridad.** El marcado de un valor no bloquea todos los valores derivados posibles. Por ejemplo, crear un nuevo valor convirtiendo en mayúsculas una cadena marcada no marcará el nuevo valor.
 
 
 ```js
@@ -130,7 +130,6 @@ En este ejemplo, la constante `password` está marcada. Luego, `password` se uti
 
 Otras formas similares de derivar nuevos valores a partir de valores marcados, como la concatenación en una cadena más grande, la conversión a base64 o la obtención de una subcadena, crean valores no marcados.
 
-
 El marcado protege solo contra errores simples, como pasar explícitamente valores secretos al cliente. Errores en la llamada a `taintUniqueValue`, como usar un almacén global fuera de React sin el objeto de duración correspondiente, pueden hacer que el valor marcado deje de estar marcado. El marcado es una capa de protección; una aplicación segura tendrá múltiples capas de protección, APIs bien diseñadas y patrones de aislamiento.
 
 
@@ -138,7 +137,7 @@ El marcado protege solo contra errores simples, como pasar explícitamente valor
 
 <DeepDive>
 
-#### Using `server-only` and `taintUniqueValue` to prevent leaking secrets {/*using-server-only-and-taintuniquevalue-to-prevent-leaking-secrets*/}
+#### Usar `solo-servidor` y `taintUniqueValue` para prevenir la filtración de secretos {/*using-server-only-and-taintuniquevalue-to-prevent-leaking-secrets*/}
 
 Si estás ejecutando un entorno de Componentes del Servidor que tiene acceso a claves privadas o contraseñas, como contraseñas de bases de datos, debes tener cuidado de no pasar eso a un Componente del Cliente.
 
