@@ -1501,18 +1501,15 @@ Se espera que los enredadores [preparados para Suspense](/reference/react/Suspen
 
 ---
 
-<<<<<<< HEAD
-## Solución de problemas {/*troubleshooting*/}
-=======
 ### Displaying an error to users with a error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
 
 <Canary>
 
-Error Boundary for useTransition is currently only available in React's canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+La barrera de error para useTransition está disponible actualmente solo en los canales experimental y canary de React. Más información sobre [los canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
-If a function passed to `startTransition` throws an error, you can display an error to your user with an [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). To use an error boundary, wrap the component where you are calling the `useTransition` in an error boundary. Once the function passed to `startTransition` errors, the fallback for the error boundary will be displayed.
+Si una función que se pasa a `startTransition` lanza un error, puedes mostrar un error a tu usuario con una [barrera de error](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar una barrera de error, envuelve el componente en el que estás llamando a `useTransition` en una barrera de error. Una vez que la función que se pasa a `startTransition` lanza un error se mostrará el _fallback_ de la barrera de error.
 
 <Sandpack>
 
@@ -1598,8 +1595,7 @@ root.render(
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
->>>>>>> 4bdb87b172a7723d56d03a5630c8a9870f6f03ec
+## Solución de problemas {/*troubleshooting*/}
 
 ### No funciona la actualización de una entrada en una transición {/*updating-an-input-in-a-transition-doesnt-work*/}
 
