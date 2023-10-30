@@ -732,7 +732,11 @@ Sin embargo, si estás pasando por este problema, tienes algunas opciones:
 
 1. Puedes reemplazar `useLayoutEffect` con [`useEffect`.](/reference/react/useEffect) Esto le dice a React que está bien mostrar el resultado inicial del renderizado sin bloquear el pintado (porque el HTML original se convierte en visible antes que tu Efecto se ejecute).
 
+<<<<<<< HEAD
 2. Puedes [marcar tu componente como solo cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content) Esto le indica a React que debe reemplazar su contenido hasta la barrera de [`<Suspense>`](/reference/react/Suspense) más cercana con un *fallback* de carga (por ejemplo, un spinner o un glimmer) durante el renderizado en el lado del servidor)
+=======
+- Alternatively, [mark your component as client-only.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content) This tells React to replace its content up to the closest [`<Suspense>`](/reference/react/Suspense) boundary with a loading fallback (for example, a spinner or a glimmer) during server rendering.
+>>>>>>> 4bdb87b172a7723d56d03a5630c8a9870f6f03ec
 
 3. Puedes mostrar diferentes componentes en el servidor y en el cliente. Una manera de hacer esto es mantener el estado booleano `isMounted` que está inicializado en `false`, y cambiarlo a `true` dentro de la llamada de un `useEffect`. La lógica de renderizado puede ser entonces como `return isMounted ? <RealContent /> : <FallbackContent />`. En el servidor y durante la hidratación, el usuario va a ver `FallbackContent` que no debe llamar `useLayoutEffect`. Luego React va a reemplazarlo con `RealContent` que se ejecuta solo en el lado del cliente y puede incluir llamadas a `useLayoutEffect`.
 
