@@ -361,7 +361,7 @@ La función `getServerSnapshot` es similar a `getSnapshot`, pero solo se ejecuta
 - Se ejecuta en el servidor al generar el HTML.
 - Se ejecuta en el cliente durante la [hidratación](/reference/react-dom/client/hydrateRoot), es decir, cuando React toma el HTML del servidor y lo hace interactivo.
 
-Esto te permite proporcionar la instantánea del valor inicial que se utilizará antes de que la aplicación se vuelva interactiva. Si no hay un valor inicial significativo para el renderizado en el servidor, puedes [forzar el componente para que se renderice solo en el cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
+Esto te permite proporcionar la instantánea del valor inicial que se utilizará antes de que la aplicación se vuelva interactiva. Si no hay un valor inicial significativo para el renderizado en el servidor, puedes [forzar el componente para que se renderice solo en el cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content)
 
 <Note>
 

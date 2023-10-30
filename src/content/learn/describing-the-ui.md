@@ -530,13 +530,21 @@ React utiliza árboles para modelar las relaciones entre componentes y módulos.
 
 Un árbol de renderizado de React es una representación de la relación padre-hijo entre componentes.
 
-<Diagram name="generic_render_tree" height={250} width={500} alt="Un gráfo de árbol con cinco nodos, con cada nodo que representa un componente. El nodo raíz se localiza en la cima del grafo de árbol y está etiquetado como 'Root Component'. Tiene dos flechas que se extienden hacia abajo a dos nodos etiquetados como 'Component A' y 'Component C'. Cada una de las flechas está etiquetada con 'renders'. El 'Component A' tiene una sola flecha 'renders' hacia un nodo etiquetado como 'Component B'. 'Component C' tiene una sola flecha 'renders' hacia un nodo etiquetado como 'Component D'.">Un ejemplo de un árbol de renderizado de React.</Diagram>
+<Diagram name="generic_render_tree" height={250} width={500} alt="Un gráfo de árbol con cinco nodos, con cada nodo que representa un componente. El nodo raíz se localiza en la cima del grafo de árbol y está etiquetado como 'Root Component'. Tiene dos flechas que se extienden hacia abajo a dos nodos etiquetados como 'Component A' y 'Component C'. Cada una de las flechas está etiquetada con 'renders'. El 'Component A' tiene una sola flecha 'renders' hacia un nodo etiquetado como 'Component B'. 'Component C' tiene una sola flecha 'renders' hacia un nodo etiquetado como 'Component D'.">
+
+Un ejemplo de un árbol de renderizado de React.
+
+</Diagram>
 
 Los componentes cercanos a la cima del árbol, cerca del componente raíz, se consideran componentes de nivel superior. Los componentes sin componentes hijos son componentes hoja. Esta categorización de los componentes es útil para entender el flujo de datos y el rendimiento del renderizado.
 
 Modelar la relación entre los módulos de JavaScript es otra forma útil de entender tu apliación. Nos referimos a esto como un árbol de dependencia de módulos.
 
-<Diagram name="generic_dependency_tree" height={250} width={500} alt="Un grafo de árbol con cinco nodos. Cada nodo representa un módulo de JavaScript. El nodo superior está etiquetado como 'RootModule.js'. Tiene tres flechas que se extienden hacia los nodos: 'ModuleA.js', 'ModuleB.js' y 'ModuleC.js'. Cada flecha se etiqueta como 'imports'. El nodo 'ModuleC.js' tiene una sola flecha 'imports' que apunta al nodo etiquetado como 'ModuleD.js'.">Un ejemplo de un árbol de dependecias de módulos.</Diagram>
+<Diagram name="generic_dependency_tree" height={250} width={500} alt="Un grafo de árbol con cinco nodos. Cada nodo representa un módulo de JavaScript. El nodo superior está etiquetado como 'RootModule.js'. Tiene tres flechas que se extienden hacia los nodos: 'ModuleA.js', 'ModuleB.js' y 'ModuleC.js'. Cada flecha se etiqueta como 'imports'. El nodo 'ModuleC.js' tiene una sola flecha 'imports' que apunta al nodo etiquetado como 'ModuleD.js'.">
+
+Un ejemplo de un árbol de dependecias de módulos.
+
+</Diagram>
 
 Un árbol de dependencias se usa a menudo para construir herramientas que empaquetan todo el código relevante de JavaScript para que el cliente descargue y renderice. Un tamaño grande del paquete significa una regresión en la experiencia de usuario para las aplicaciones de React. Entender el árbol de dependencias de los móduls ayuda a depurar tales problemas.
 
