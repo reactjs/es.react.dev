@@ -984,13 +984,8 @@ export const places = [{
   imageId: 'kxsph5C'
 }, {
   id: 5, 
-<<<<<<< HEAD
   name: 'Chefchaouen, Marruecos',
   description: 'Hay varias teorías sobre por qué las casas están pintadas de azul, entre ellas que el color repele a los mosquitos o que simboliza el cielo y el paraíso.',
-=======
-  name: 'Chefchaouen, Marocco',
-  description: 'There are a few theories on why the houses are painted blue, including that the color repels mosquitos or that it symbolizes sky and heaven.',
->>>>>>> a8790ca810c1cebd114db35a433b90eb223dbb04
   imageId: 'rTqKo46'
 }, {
   id: 6,
@@ -1128,13 +1123,8 @@ export const places = [{
   imageId: 'kxsph5C'
 }, {
   id: 5, 
-<<<<<<< HEAD
   name: 'Chefchaouen, Marruecos',
   description: 'Hay varias teorías sobre por qué las casas están pintadas de azul, entre ellas que el color repele a los mosquitos o que simboliza el cielo y el paraíso.',
-=======
-  name: 'Chefchaouen, Marocco',
-  description: 'There are a few theories on why the houses are painted blue, including that the color repels mosquitos or that it symbolizes sky and heaven.',
->>>>>>> a8790ca810c1cebd114db35a433b90eb223dbb04
   imageId: 'rTqKo46'
 }, {
   id: 6,

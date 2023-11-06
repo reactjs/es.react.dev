@@ -632,11 +632,7 @@ class Form extends Component {
     return (
       <>
         <input value={this.state.name} onChange={this.handleNameChange} />
-<<<<<<< HEAD
-        <p>Hola, {this.state.name}.
-=======
-        <p>Hello, {this.state.name}.</p>
->>>>>>> a8790ca810c1cebd114db35a433b90eb223dbb04
+        <p>Hola, {this.state.name}.</p>
       </>
     );
   }
