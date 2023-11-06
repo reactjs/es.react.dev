@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "Hooks integrados de React"
 ---
 
@@ -6,10 +7,19 @@ title: "Hooks integrados de React"
 
 Los *Hooks* te permiten usar diferentes funciones de React desde tus componentes. Puedes usar los Hooks integrados o combinarlos para construir tu propio Hook. Esta página lista todos los *Hooks integrados* en React.
 
-</Intro>
-
+=======
+title: React Reference Overview
 ---
 
+<Intro>
+This section provides detailed reference documentation for working with React. 
+For an introduction to React, please visit the [Learn](/learn) section. 
+>>>>>>> a8790ca810c1cebd114db35a433b90eb223dbb04
+</Intro>
+
+Our The React reference documentation is broken down into functional subsections: 
+
+<<<<<<< HEAD
 ## Hooks de estado {/*state-hooks*/}
 
 El *estado* permite que un componente ["recuerde" información como la entrada de un usuario.](/learn/state-a-components-memory) Por ejemplo, un componente de formulario puede utilizar un estado para guardar la entrada del valor mientras que un componente de galería de imágenes puede utilizar un estado para guardar el índice de la imagen seleccionada.
@@ -137,3 +147,24 @@ Estos Hooks son mayormente útiles para autores de bibliotecas y no son comúnme
 ## Tus propios Hooks {/*your-own-hooks*/}
 
 También puedes [definir tus propios Hooks personalizados](/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component) como funciones JavaScript.
+=======
+## React {/*react*/}
+Programmatic React features:  
+* [Hooks](/reference/react/hooks) - Use different React features from your components.
+* [Components](/reference/react/components) - Documents built-in components that you can use in your JSX.
+* [APIs](/reference/react/apis) - APIs that are useful for defining components. 
+* [Directives](/reference/react/directives) - Provide instructions to bundlers compatible with React Server Components.
+
+## React DOM {/*react-dom*/}
+React-dom contains features that are only supported for web applications 
+(which run in the browser DOM environment). This section is broken into the following:
+
+* [Hooks](/reference/react-dom/hooks) - Hooks for web applications which run in the browser DOM environment.
+* [Components](/reference/react-dom/components) - React supports all of the browser built-in HTML and SVG components.
+* [APIs](/reference/react-dom) - The `react-dom` package contains methods supported only in web applications.
+* [Client APIs](/reference/react-dom/client) - The `react-dom/client` APIs let you render React components on the client (in the browser). 
+* [Server APIs](/reference/react-dom/server) - The `react-dom/server` APIs let you render React components to HTML on the server.
+
+## Legacy APIs {/*legacy-apis*/}
+* [Legacy APIs](/reference/react/legacy) - Exported from the react package, but not recommended for use in newly written code. 
+>>>>>>> a8790ca810c1cebd114db35a433b90eb223dbb04
