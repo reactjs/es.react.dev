@@ -140,7 +140,12 @@ Las actualizaciones envueltas en startTransition se manejan como no urgentes y s
 * `useTransition`: un gancho (hook) para iniciar transiciones, que incluya un valor para rastrear el estado pendiente.
 * `startTransition`: un método para iniciar transiciones cuando el gancho (hook) no es utilizado.
 
+<<<<<<< HEAD
 (Las transiciones optarán por el renderizado concurrente, lo cual permite interrumpir la actualización. Si el contenido se suspende de nuevo, las transiciones también indican a React que continúe mostrando el contenido actual mientras renderiza el contenido de la transición en segundo plano. Consulta [Suspense RFC](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md) para obtener más información).
+=======
+* `useTransition`: a Hook to start transitions, including a value to track the pending state.
+* `startTransition`: a method to start transitions when the Hook cannot be used.
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 [Consulta la documentación de transiciones aquí](/reference/react/useTransition).
 
@@ -225,7 +230,11 @@ Con el modo estricto (Strict Mode) en React 18, React simulará el desmontaje y 
 
 #### useId {/*useid*/}
 
+<<<<<<< HEAD
 `useId` es un nuevo gancho (hook) para generar IDs unicos tanto en el cliente como en el servidor, evitando desajustes en la hidratación. Es especialmente útil para bibliotecas de componentes que se integran con API de accesibilidad que requieren identificadores únicos. Esto resuelve un problema que ya existe en React 17 y versiones anteriores, pero es aún más importante en React 18 debido a cómo el nuevo renderizador de servidor en streaming entrega el HTML sin un orden específico. [Consulta la documentación](/reference/react/useId).
+=======
+`useId` is a new Hook for generating unique IDs on both the client and server, while avoiding hydration mismatches. It is primarily useful for component libraries integrating with accessibility APIs that require unique IDs. This solves an issue that already exists in React 17 and below, but it's even more important in React 18 because of how the new streaming server renderer delivers HTML out-of-order. [See docs here](/reference/react/useId).
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 > Note
 >
@@ -241,7 +250,11 @@ Con el modo estricto (Strict Mode) en React 18, React simulará el desmontaje y 
 
 #### useSyncExternalStore {/*usesyncexternalstore*/}
 
+<<<<<<< HEAD
 `useSyncExternalStore` es un nuevo hook que permite a las tiendas externas admitir lecturas concurrentes al forzar que las actualizaciones de la tienda sean síncronas. Elimina la necesidad de usar useEffect al implementar suscripciones a fuentes de datos externas, y se recomienda para cualquier biblioteca que se integre con un estado externo a React. [Consulte la documentación aquí](/reference/react/useSyncExternalStore).
+=======
+`useSyncExternalStore` is a new Hook that allows external stores to support concurrent reads by forcing updates to the store to be synchronous. It removes the need for useEffect when implementing subscriptions to external data sources, and is recommended for any library that integrates with state external to React. [See docs here](/reference/react/useSyncExternalStore).
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 > Note
 >
@@ -249,7 +262,11 @@ Con el modo estricto (Strict Mode) en React 18, React simulará el desmontaje y 
 
 #### useInsertionEffect {/*useinsertioneffect*/}
 
+<<<<<<< HEAD
 `useInsertionEffect`  es un nuevo hook que permite a las bibliotecas de CSS-in-JS abordar problemas de rendimiento al inyectar estilos durante el renderizado. A menos que ya hayas construido una biblioteca de CSS-in-JS, no esperamos que nunca lo utilices. Este hook se ejecutará después de que el DOM haya sido mutado, pero antes de que los efectos de diseño (layout effects) lean el nuevo diseño. Esto resuelve un problema que ya existe en React 17 y versiones anteriores, pero es aún más importante en React 18 porque React cede al navegador durante el renderizado concurrente, dándole la oportunidad de recalcular el diseño. [Consulta la documentación aquí](/reference/react/useInsertionEffect).
+=======
+`useInsertionEffect` is a new Hook that allows CSS-in-JS libraries to address performance issues of injecting styles in render. Unless you’ve already built a CSS-in-JS library we don’t expect you to ever use this. This Hook will run after the DOM is mutated, but before layout effects read the new layout. This solves an issue that already exists in React 17 and below, but is even more important in React 18 because React yields to the browser during concurrent rendering, giving it a chance to recalculate layout. [See docs here](/reference/react/useInsertionEffect).
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 > Note
 >
@@ -330,9 +347,17 @@ Consulta [Cómo Actualizar a React 18](/blog/2022/03/08/react-18-upgrade-guide) 
 
 ### Componentes del Servidor (Experimental) {/*server-components-experimental*/}
 
+<<<<<<< HEAD
 * Añadir soporte a Server Context. ([#23244](https://github.com/facebook/react/pull/23244)  por [@salazarm](https://github.com/salazarm))
 * Añadir soporte a `lazy`. ([#24068](https://github.com/facebook/react/pull/24068)  por [@gnoff](https://github.com/gnoff))
 * Actualizar insersiones de webpack para webpack 5 ([#22739](https://github.com/facebook/react/pull/22739)  por [@michenly](https://github.com/michenly))
 * Corregir un error en el cargador de Node. ([#22537](https://github.com/facebook/react/pull/22537)  por [@btea](https://github.com/btea))
 * Usar `globalThis` en lugar de `window` para entornos de borde. ([#22777](https://github.com/facebook/react/pull/22777)  por [@huozhi](https://github.com/huozhi))
 
+=======
+* Add Server Context support. ([#23244](https://github.com/facebook/react/pull/23244)  by [@salazarm](https://github.com/salazarm))
+* Add `lazy` support. ([#24068](https://github.com/facebook/react/pull/24068)  by [@gnoff](https://github.com/gnoff))
+* Update webpack plugin for webpack 5 ([#22739](https://github.com/facebook/react/pull/22739)  by [@michenly](https://github.com/michenly))
+* Fix a mistake in the Node loader. ([#22537](https://github.com/facebook/react/pull/22537)  by [@btea](https://github.com/btea))
+* Use `globalThis` instead of `window` for edge environments. ([#22777](https://github.com/facebook/react/pull/22777)  by [@huozhi](https://github.com/huozhi))
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc

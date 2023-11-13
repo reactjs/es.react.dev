@@ -28,7 +28,12 @@ Estamos trabajando en colaboración con Vercel y Shopify para unificar el soport
 
 ## Carga de recursos {/*asset-loading*/}
 
+<<<<<<< HEAD
 Actualmente, los recursos como scripts, estilos externos, fuentes e imágenes generalmente se precargan y cargan utilizando sistemas externos. Esto puede dificultar la coordinación en nuevos entornos como la transmisión de datos, los componentes del servidor y otros. Estamos evaluando la posibilidad de agregar APIs para precargar y cargar recursos externos sin duplicaciones a través de APIs de React que funcionen en todos los entornos de React.
+=======
+Currently, assets like scripts, external styles, fonts, and images are typically preloaded and loaded using external systems. This can make it tricky to coordinate across new environments like streaming, Server Components, and more.
+We’re looking at adding APIs to preload and load deduplicated external assets through React APIs that work in all React environments.
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 También estamos considerando que sean compatibles con Suspense, de modo que puedas tener imágenes, CSS y fuentes que bloqueen la visualización hasta que se carguen, pero que no bloqueen la transmisión y el renderizado simultáneo. Esto puede ayudar a evitar [cambios rápidos y caóticos (popcorning)](https://twitter.com/sebmarkbage/status/1516852731251724293) cuando los elementos visuales aparecen y provocan cambios en la presentación.
 
@@ -40,7 +45,11 @@ La Generación de Sitios Estáticos (SSG) y la Regeneración Estática Increment
 
 Presentamos una [early preview](https://www.youtube.com/watch?v=lGEMwh32soc) de React Forget en React Conf 2021. Es un compilador que genera automáticamente llamadas equivalentes a `useMemo` y `useCallback` para minimizar el costo de volver a renderizar, al mismo tiempo que conserva el modelo de programación de React.
 
+<<<<<<< HEAD
 Recientemente, terminamos una reescritura del compilador para hacerlo más confiable y eficiente. Esta nueva arquitectura nos permite analizar y memorizar patrones más complejos, como el uso de [mutaciones locales](/learn/keeping-components-pure#local-mutation-your-components-little-secret), y abre muchas nuevas oportunidades de optimización en tiempo de compilación más allá de simplemente igualar los hooks de memoización.
+=======
+Recently, we finished a rewrite of the compiler to make it more reliable and capable. This new architecture allows us to analyze and memoize more complex patterns such as the use of [local mutations](/learn/keeping-components-pure#local-mutation-your-components-little-secret), and opens up many new compile-time optimization opportunities beyond just being on par with memoization Hooks.
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 También estamos trabajando en un espacio de experimentación para explorar muchos aspectos del compilador. Si bien el objetivo del espacio de experimentación es facilitar el desarrollo del compilador, creemos que también facilitará probarlo y desarrollar percepción sobre lo que hace el compilador. Revela varias ideas sobre cómo funciona internamente y muestra en tiempo real las salidas del compilador mientras escribes. Esto se incluirá junto con el compilador cuando se lance.
 

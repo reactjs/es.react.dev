@@ -224,7 +224,12 @@ Para obtener más información, consulta la [explicación detallada sobre la bat
 
 En el Grupo de Trabajo de React 18, trabajamos con los
 
+<<<<<<< HEAD
  mantenedores de bibliotecas para crear nuevas API necesarias para admitir la representación concurrente en casos de uso específicos de las bibliotecas, como estilos y almacenes externos. Para admitir React 18, algunas bibliotecas deberán cambiar a una de las siguientes API:
+=======
+* `useSyncExternalStore` is a new Hook that allows external stores to support concurrent reads by forcing updates to the store to be synchronous. This new API is recommended for any library that integrates with state external to React. For more information, see the [useSyncExternalStore overview post](https://github.com/reactwg/react-18/discussions/70) and [useSyncExternalStore API details](https://github.com/reactwg/react-18/discussions/86).
+* `useInsertionEffect` is a new Hook that allows CSS-in-JS libraries to address performance issues of injecting styles in render. Unless you've already built a CSS-in-JS library we don't expect you to ever use this. This Hook will run after the DOM is mutated, but before layout effects read the new layout. This solves an issue that already exists in React 17 and below, but is even more important in React 18 because React yields to the browser during concurrent rendering, giving it a chance to recalculate layout. For more information, see the [Library Upgrade Guide for `<style>`](https://github.com/reactwg/react-18/discussions/110).
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 - `useSyncExternalStore` es un nuevo hook que permite a los almacenes externos admitir lecturas concurrentes forzando que las actualizaciones del almacén sean síncronas. Esta nueva API se recomienda para cualquier biblioteca que se integre con el estado externo a React. Para obtener más información, consulta la publicación general y los detalles de la API de `useSyncExternalStore`.
 
