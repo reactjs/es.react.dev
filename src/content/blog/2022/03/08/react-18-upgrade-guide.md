@@ -222,13 +222,11 @@ Para obtener más información, consulta la [explicación detallada sobre la bat
 
 ## Nuevas API para bibliotecas {/*new-apis-for-libraries*/}
 
-En el Grupo de Trabajo de React 18, trabajamos con los
+En el Grupo de Trabajo de React 18, trabajamos con los mantenedores de bibliotecas para crear nuevas API necesarias para admitir la representación concurrente en casos de uso específicos de las bibliotecas, como estilos y almacenes externos. Para admitir React 18, algunas bibliotecas deberán cambiar a una de las siguientes API:
 
- mantenedores de bibliotecas para crear nuevas API necesarias para admitir la representación concurrente en casos de uso específicos de las bibliotecas, como estilos y almacenes externos. Para admitir React 18, algunas bibliotecas deberán cambiar a una de las siguientes API:
+- `useSyncExternalStore` es un nuevo Hook que permite a los almacenes externos admitir lecturas concurrentes forzando que las actualizaciones del almacén sean síncronas. Esta nueva API se recomienda para cualquier biblioteca que se integre con el estado externo a React. Para obtener más información, consulta la publicación general y los detalles de la API de `useSyncExternalStore`.
 
-- `useSyncExternalStore` es un nuevo hook que permite a los almacenes externos admitir lecturas concurrentes forzando que las actualizaciones del almacén sean síncronas. Esta nueva API se recomienda para cualquier biblioteca que se integre con el estado externo a React. Para obtener más información, consulta la publicación general y los detalles de la API de `useSyncExternalStore`.
-
-- `useInsertionEffect` es un nuevo hook que permite a las bibliotecas de CSS-in-JS abordar problemas de rendimiento al inyectar estilos en la representación. A menos que ya hayas creado una biblioteca de CSS-in-JS, no esperamos que uses esto. Este hook se ejecutará después de que el DOM haya sufrido mutaciones, pero antes de que los efectos de diseño lean el nuevo diseño. Esto soluciona un problema que ya existía en React 17 y versiones anteriores, pero es aún más importante en React 18 porque React le da prioridad al navegador durante la representación concurrente, lo que le permite volver a calcular el diseño. Para obtener más información, consulta la [Guía de actualización de bibliotecas para `<style>`](https://github.com/reactwg/react-18/discussions/110).
+- `useInsertionEffect` es un nuevo Hook que permite a las bibliotecas de CSS-in-JS abordar problemas de rendimiento al inyectar estilos en la representación. A menos que ya hayas creado una biblioteca de CSS-in-JS, no esperamos que uses esto. Este Hook se ejecutará después de que el DOM haya sufrido mutaciones, pero antes de que los efectos de diseño lean el nuevo diseño. Esto soluciona un problema que ya existía en React 17 y versiones anteriores, pero es aún más importante en React 18 porque React le da prioridad al navegador durante la representación concurrente, lo que le permite volver a calcular el diseño. Para obtener más información, consulta la [Guía de actualización de bibliotecas para `<style>`](https://github.com/reactwg/react-18/discussions/110).
 
 React 18 también introduce nuevas API para la representación concurrente, como `startTransition`, `useDeferredValue` y `useId`, de las cuales compartimos más detalles en la publicación de lanzamiento.
 

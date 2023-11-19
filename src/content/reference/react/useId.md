@@ -180,7 +180,7 @@ Puede que te preguntes por qué `useId` es mejor que incrementar una variable gl
 
 El principal beneficio de `useId` es que React se asegura de que funcione con el [renderizado en el servidor.](/reference/react-dom/server) Durante el renderizado en el servidos, tus componentes generan salida HTML. Más tarde, en el cliente, [la hidratación](/reference/react-dom/client/hydrateRoot) adjunta tus controladores de eventos al HTML generado. Para que la hidratación funcione, la salida del cliente debe coincidir con el HTML del servidor.
 
-Esto es muy difícil de garantizar con un contador incremental porque el orden en que se hidratan los componentes del cliente puede no coincidir con el orden en que se emitió el HTML del servidor. Al llamar a `useId`, te aseguras de que la hidratación funcionará y la salida coincidirá entre el servidor y el cliente.
+Esto es muy difícil de garantizar con un contador incremental porque el orden en que se hidratan los Componentes del Cliente puede no coincidir con el orden en que se emitió el HTML del servidor. Al llamar a `useId`, te aseguras de que la hidratación funcionará y la salida coincidirá entre el servidor y el cliente.
 
 Dentro de React, `useId` se genera a partir de la "ruta del padre" del componente llamado. Esta es la razón por la que, si el cliente y el árbol del servidor son iguales, la "ruta del padre" coincidirá independientemente del orden del renderizado.
 
@@ -303,4 +303,3 @@ input { margin: 5px; }
 ```
 
 </Sandpack>
-
