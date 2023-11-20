@@ -34,7 +34,11 @@ Para mostrar un input, renderiza el componente [`<input>` incorporado en el nave
 
 <Canary>
 
+<<<<<<< HEAD
 Las extensiones a la prop `formAction` solo están disponible actualmente en los canales experimental y canary de React. En versiones estables de React `formAction` funciona solo como un [componente integrado HTML del navegador](https://react.dev/reference/react-dom/components#all-html-components). Más información sobre [los canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
+=======
+React's extensions to the `formAction` prop are currently only available in React's Canary and experimental channels. In stable releases of React `formAction` works only as a [built-in browser HTML component](https://react.dev/reference/react-dom/components#all-html-components). Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 </Canary>
 
 [`formAction`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction): Un string o una función. Sobreescribe el `<form action>` padre para `type="submit"` y `type="image"`. Cuando se pasa una URL a `action` el formulario se comportará como un formulario HTML estándar. Cuando se pasa una función a `formAction` la función manejará el envío del formulario. Consulta [`<form action>`](/reference/react-dom/components/form#props).

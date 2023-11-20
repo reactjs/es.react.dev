@@ -1145,7 +1145,11 @@ hr {
 
 <Hint>
 
+<<<<<<< HEAD
 Tendrás que convertir los `map` en un bucle manual, o usar un fragment.
+=======
+You'll either need to convert `map` to a manual loop, or use a Fragment.
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 </Hint>
 
@@ -1208,7 +1212,11 @@ hr {
 
 Usar el índice de la línea original como _`key`_ ya no funciona porque cada separador y cada párrafo están ahora en el mismo array. Sin embargo, puedes darle a cada uno de ellos una _key_ distintiva usando un sufijo, p. ej. `key={i + '-text'}`.
 
+<<<<<<< HEAD
 De forma alternativa, puedes renderizar una colección de fragments que contengan `<hr />` y `<p>...</p>`. Sin embargo, el atajo de sintaxis `<>...</>` no admite pasarle _keys_, así que tendrás que escribir `<Fragment>` explícitamente:
+=======
+Alternatively, you could render a collection of Fragments which contain `<hr />` and `<p>...</p>`. However, the `<>...</>` shorthand syntax doesn't support passing keys, so you'd have to write `<Fragment>` explicitly:
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 <Sandpack>
 
@@ -1254,7 +1262,11 @@ hr {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Recuerda, ¡los fragments (a menudo escritos como `<> </>`) te permiten agrupar nodos JSX sin añadir `<div>`s extra!
+=======
+Remember, Fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 </Solution>
 
