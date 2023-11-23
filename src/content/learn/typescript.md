@@ -12,7 +12,7 @@ TypeScript es una forma popular de añadir definiciones de tipos a bases de cód
 <YouWillLearn>
 
 * [TypeScript con Componentes de React](/learn/typescript#typescript-with-react-components)
-* [Ejemplos de tipado con hooks](/learn/typescript#example-hooks)
+* [Ejemplos de tipado con Hooks](/learn/typescript#example-hooks)
 * [Tipos comunes de `@types/react`](/learn/typescript/#useful-types)
 * [Lugares de aprendizaje adicional](/learn/typescript/#further-learning)
 
@@ -124,13 +124,13 @@ El tipo que describe las props de tu componente puede ser tan simple o tan compl
 
 ## Ejemplos de Hooks {/*example-hooks*/}
 
-Las definiciones de tipos de `@types/react` incluyen tipos para los hooks incorporados, por lo que puedes usarlos en tus componentes sin ninguna configuración adicional. Están construidos para tener en cuenta el código que escribes en tu componente, por lo que obtendrás [tipos inferidos](https://www.typescriptlang.org/docs/handbook/type-inference.html) la mayor parte del tiempo e idealmente no necesitarás manejar las minucias de proporcionar los tipos.
+Las definiciones de tipos de `@types/react` incluyen tipos para los Hooks incorporados, por lo que puedes usarlos en tus componentes sin ninguna configuración adicional. Están construidos para tener en cuenta el código que escribes en tu componente, por lo que obtendrás [tipos inferidos](https://www.typescriptlang.org/docs/handbook/type-inference.html) la mayor parte del tiempo e idealmente no necesitarás manejar las minucias de proporcionar los tipos.
 
-Sin embargo, podemos ver algunos ejemplos de cómo proporcionar tipos para hooks.
+Sin embargo, podemos ver algunos ejemplos de cómo proporcionar tipos para Hooks.
 
 ### `useState` {/*typing-usestate*/}
 
-El [hook `useState`](/reference/react/useState) reutilizará el valor pasado como estado inicial para determinar cuál debe ser el tipo del valor. Por ejemplo:
+El [Hook `useState`](/reference/react/useState) reutilizará el valor pasado como estado inicial para determinar cuál debe ser el tipo del valor. Por ejemplo:
 
 ```ts
 // Infiere el tipo como "boolean"
@@ -166,7 +166,7 @@ const [requestState, setRequestState] = useState<RequestState>({ status: 'idle' 
 
 ### `useReducer` {/*typing-usereducer*/}
 
-El [hook `useReducer`](/reference/react/useReducer) es un hook más complejo que recibe una función reductora y un estado inicial. Los tipos para la función reductora se infieren a partir del estado inicial. Opcionalmente, puedes proporcionar un argumento de tipo a la llamada del `useReducer` para dar un tipo al estado, pero generalmente es mejor establecer el tipo en el estado inicial:
+El [Hook `useReducer`](/reference/react/useReducer) es un Hook más complejo que recibe una función reductora y un estado inicial. Los tipos para la función reductora se infieren a partir del estado inicial. Opcionalmente, puedes proporcionar un argumento de tipo a la llamada del `useReducer` para dar un tipo al estado, pero generalmente es mejor establecer el tipo en el estado inicial:
 
 <Sandpack>
 
@@ -242,7 +242,7 @@ export default function App() {
 
 ### `useContext` {/*typing-usecontext*/}
 
-El [hook `useContext`](/reference/react/useContext) es una técnica para pasar datos hacia abajo en el árbol de componentes sin tener que pasar props a través de los componentes. Se utiliza creando un componente proveedor y, a menudo, creando un hook para consumir el valor en un componente hijo.
+El [Hook `useContext`](/reference/react/useContext) es una técnica para pasar datos hacia abajo en el árbol de componentes sin tener que pasar props a través de los componentes. Se utiliza creando un componente proveedor y, a menudo, creando un Hook para consumir el valor en un componente hijo.
 
 El tipo del valor proporcionado por el contexto se infiere a partir del valor pasado a la llamada de `createContext`:
 
@@ -286,7 +286,7 @@ export default App = AppTSX;
 
 Esta técnica funciona cuando tienes un valor por defecto que tiene sentido - pero hay casos ocasionales en los que no, y en esos casos `null` puede parecer razonable como valor por defecto. Sin embargo, para permitir que el sistema de tipos entienda tu código, necesitas establecer explícitamente `ContextShape | null` en el `createContext`.
 
-Esto causa el problema de que necesitas eliminar el `| null` en el tipo para los consumidores de contexto. Nuestra recomendación es que el hook compruebe su existencia en tiempo de ejecución y lance un error si no está presente:
+Esto causa el problema de que necesitas eliminar el `| null` en el tipo para los consumidores de contexto. Nuestra recomendación es que el Hook compruebe su existencia en tiempo de ejecución y lance un error si no está presente:
 
 ```js {5, 16-20}
 import { createContext, useContext, useState, useMemo } from 'react';
@@ -299,7 +299,7 @@ type ComplexObject = {
 // El context se crea con `| null` en el tipo, para reflejar con exactitud el valor predeterminado.
 const Context = createContext<ComplexObject | null>(null);
 
-// El `| null` será eliminado mediante la verificación en el hook.
+// El `| null` será eliminado mediante la verificación en el Hook.
 const useGetComplexObject = () => {
   const object = useContext(Context);
   if (!object) { throw new Error("useGetComplexObject must be used within a Provider") }
@@ -329,7 +329,7 @@ function MyComponent() {
 
 ### `useMemo` {/*typing-usememo*/}
 
-Los hooks [`useMemo`](/reference/react/useMemo) crearán/reaccederán a un valor memorizado desde una llamada a una función, reejecutando la función sólo cuando las dependencias pasadas como segundo parámetro cambien. El resultado de llamar al hook se infiere del valor de devolución de la función en el primer parámetro. Se puede ser más explícito proporcionando un argumento de tipo al hook.
+Los hooks [`useMemo`](/reference/react/useMemo) crearán/reaccederán a un valor memorizado desde una llamada a una función, reejecutando la función sólo cuando las dependencias pasadas como segundo parámetro cambien. El resultado de llamar al Hook se infiere del valor de devolución de la función en el primer parámetro. Se puede ser más explícito proporcionando un argumento de tipo al Hook.
 
 ```ts
 // El tipo de visibleTodos se infiere del valor de devolución de filterTodos
@@ -339,7 +339,7 @@ const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 
 ### `useCallback` {/*typing-usecallback*/}
 
-El [`useCallback`](/reference/react/useCallback) proporciona una referencia estable a una funcion siempre y cuando las dependencias pasadas como segundo parámetro sean las mismas. Al igual que con `useMemo`, el tipo de la función se infiere del valor de devolución de la función en el primer parámetro, y puedes ser más explícito al proporcionar un argumento de tipo al hook.
+El [`useCallback`](/reference/react/useCallback) proporciona una referencia estable a una funcion siempre y cuando las dependencias pasadas como segundo parámetro sean las mismas. Al igual que con `useMemo`, el tipo de la función se infiere del valor de devolución de la función en el primer parámetro, y puedes ser más explícito al proporcionar un argumento de tipo al Hook.
 
 
 ```ts
