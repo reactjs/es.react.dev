@@ -331,7 +331,7 @@ Al pasar una Promesa de un Server Component a un Client Component, su valor resu
 
 <DeepDive>
 
-#### ¿Deberia resolver una promesa en un Server Component o en un Client Component? {/*resolve-promise-in-server-or-client-component*/}
+#### ¿Debo resolver una promesa en un Server Component o en un Client Component? {/*resolve-promise-in-server-or-client-component*/}
 
 Una Promesa se puede pasar de un Server Component a un Client Component y resolverse en el Client Component con el Hook `use`. También puedes resolver la Promesa en un Server Component con `await` y pasar los datos requeridos al Client Component como un prop.
 
