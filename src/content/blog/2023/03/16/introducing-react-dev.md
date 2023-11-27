@@ -428,7 +428,11 @@ export default function PackingList() {
 
 Ten en cuenta que debes escribir  `importance > 0 && ...` en lugar de `importance && ...` para que si `importance` es `0`, `0` no sea mostrado como el resultado.
 
+<<<<<<< HEAD
 En esta solución, se utilizan dos condiciones separadas para insertar un espacio entre el nombre y la etiqueta de importancia. Alternativamente, podrías usar un fragmento con un espacio inicial: `importance > 0 && <> <i>...</i></>` o agregar un espacio inmediatamente dentro de `<i>`:  `importance > 0 && <i> ...</i>`.
+=======
+In this solution, two separate conditions are used to insert a space between then name and the importance label. Alternatively, you could use a Fragment with a leading space: `importance > 0 && <> <i>...</i></>` or add a space immediately inside the `<i>`:  `importance > 0 && <i> ...</i>`.
+>>>>>>> 6570e6cd79a16ac3b1a2902632eddab7e6abb9ad
 
 </Solution>
 
@@ -640,6 +644,12 @@ Gracias a [Dan Lebowitz](https://twitter.com/lebo) por el diseño del sitio y a 
 
 En el ámbito del desarrollo, gracias a [Jared Palmer](https://twitter.com/jaredpalmer) por el desarrollo del prototipo. Gracias a  [Dane Grant](https://twitter.com/danecando) y a [Dustin Goodman](https://twitter.com/dustinsgoodman) de [ThisDotLabs](https://www.thisdot.co/) por su apoyo en el desarrollo de la interfaz de usuario. Gracias a [Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), y a [Danilo Woznica](https://twitter.com/danilowoz) de [CodeSandbox](https://codesandbox.io/) por su trabajo en la integración del sandbox. Gracias a [Rick Hanlon](https://twitter.com/rickhanlonii) por el desarrollo y trabajo de diseño,  puliendo nuestros colores y detalles más finos. Gracias a [Harish Kumar](https://www.strek.in/) y [Luna Ruan](https://twitter.com/lunaruan) por agregar nuevas características al sitio y ayudar a mantenerlo.
 
+<<<<<<< HEAD
 Un enorme agradecimiento a todas las personas que se ofrecieron voluntariamente para participar en el programa de pruebas alfa y beta. Su entusiasmo y valiosos comentarios nos ayudaron a dar forma a estos documentos. Un agradecimiento especial a nuestra probadora beta, [Debbie O'Brien](https://twitter.com/debs_obrien), quien dio una charla sobre su experiencia utilizando los documentos de React en React Conf 2021.
 
 Por último, gracias a la comunidad de React por ser la inspiración detrás de este esfuerzo. Ustedes son la razón por la que hacemos esto, y esperamos que los nuevos documentos les ayuden a utilizar React para construir cualquier interfaz de usuario que deseen.
+=======
+Huge thanks to the folks who volunteered their time to participate in the alpha and beta testing program. Your enthusiasm and invaluable feedback helped us shape these docs. A special shout out to our beta tester, [Debbie O'Brien](https://twitter.com/debs_obrien), who gave a talk about her experience using the React docs at React Conf 2021.
+
+Finally, thanks to the React community for being the inspiration behind this effort. You are the reason we do this, and we hope that the new docs will help you use React to build any user interface that you want.
+>>>>>>> 6570e6cd79a16ac3b1a2902632eddab7e6abb9ad

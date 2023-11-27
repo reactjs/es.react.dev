@@ -362,11 +362,19 @@ Obtendrás este error:
 
 <ConsoleBlock level="error">
 
+<<<<<<< HEAD
 /src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment `<>...</>`<div>**(Traducción)**</div>/src/App.js: Los elementos JSX adyacentes deben estar envueltos en una etiqueta contenedora. ¿Querías un fragmento JSX `<>...</>`?
 
 </ConsoleBlock>
 
 Los componentes de React deben devolver un solo elemento JSX y no múltiples elementos JSX adyacentes como dos botones. Para solucionar esto, puedes usar *fragmentos* (`<>` y `</>`) para envolver múltiples elementos JSX adyacentes como este:
+=======
+/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX Fragment `<>...</>`?
+
+</ConsoleBlock>
+
+React components need to return a single JSX element and not multiple adjacent JSX elements like two buttons. To fix this you can use *Fragments* (`<>` and `</>`) to wrap multiple adjacent JSX elements like this:
+>>>>>>> 6570e6cd79a16ac3b1a2902632eddab7e6abb9ad
 
 ```js {3-6}
 export default function Square() {
