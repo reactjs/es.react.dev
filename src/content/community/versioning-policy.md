@@ -44,17 +44,10 @@ Las advertencias de desarrollo no afectarán el comportamiento del tiempo de eje
 
 En general, *no* cambiamos la versión mayor para cambios en:
 
-<<<<<<< HEAD
 * **Advertencias de desarrollo.** Dado que estas no afectan el comportamiento de producción, podemos agregar nuevas advertencias o modificar advertencias existentes entre versiones mayores. De hecho, esto es lo que nos permite advertir de manera confiable sobre los próximos cambios importantes.
 * **APIs que comienzan con `unstable_`.** Estas son proporcionadas como funcionalidades experimentales cuyas APIs aún no confiamos. Al lanzarlas con un prefijo `unstable_`, podemos iterar más rápido y obtener una API estable antes.
-* **Versiones alfa y canary de React.** Proporcionamos versiones alfa de React como una forma de probar nuevas funciones tempranamente, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa. Si usas estas versiones, tenga en cuenta que las APIs pueden cambiar antes del lanzamiento estable.
+* **Versiones Alfa y Canary de React.** Proporcionamos versiones alfa de React como una forma de probar nuevas funciones tempranamente, pero necesitamos la flexibilidad para hacer cambios basados en lo que aprendemos en el período alfa. Si usas estas versiones, tenga en cuenta que las APIs pueden cambiar antes del lanzamiento estable.
 * **APIs no documentadas y estructuras de datos internas.** Si accedes a nombres de propiedades internas como `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, no hay garantía. Estas por tu cuenta.
-=======
-* **Development warnings.** Since these don't affect production behavior, we may add new warnings or modify existing warnings in between major versions. In fact, this is what allows us to reliably warn about upcoming breaking changes.
-* **APIs starting with `unstable_`.** These are provided as experimental features whose APIs we are not yet confident in. By releasing these with an `unstable_` prefix, we can iterate faster and get to a stable API sooner.
-* **Alpha and Canary versions of React.** We provide alpha versions of React as a way to test new features early, but we need the flexibility to make changes based on what we learn in the alpha period. If you use these versions, note that APIs may change before the stable release.
-* **Undocumented APIs and internal data structures.** If you access internal property names like `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` or `__reactInternalInstance$uk43rzhitjg`, there is no warranty.  You are on your own.
->>>>>>> 6570e6cd79a16ac3b1a2902632eddab7e6abb9ad
 
 Esta política está diseñada para ser pragmática: ciertamente, no queremos causarle dolores de cabeza. Si cambiamos la versión mayor para todos estos cambios, terminaríamos lanzando más versiones mayores y, en última instancia, causando más problemas de versionado para la comunidad. También significaría que no podemos hacer progreso en el mejoramiento de React tan rápido como nos gustaría.
 
