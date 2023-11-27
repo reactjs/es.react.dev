@@ -428,7 +428,7 @@ export default function PackingList() {
 
 Ten en cuenta que debes escribir  `importance > 0 && ...` en lugar de `importance && ...` para que si `importance` es `0`, `0` no sea mostrado como el resultado.
 
-En esta solución, se utilizan dos condiciones separadas para insertar un espacio entre el nombre y la etiqueta de importancia. Alternativamente, podrías usar un fragmento con un espacio inicial: `importance > 0 && <> <i>...</i></>` o agregar un espacio inmediatamente dentro de `<i>`:  `importance > 0 && <i> ...</i>`.
+En esta solución, se utilizan dos condiciones separadas para insertar un espacio entre el nombre y la etiqueta de importancia. Alternativamente, podrías usar un Fragmento con un espacio inicial: `importance > 0 && <> <i>...</i></>` o agregar un espacio inmediatamente dentro de `<i>`:  `importance > 0 && <i> ...</i>`.
 
 </Solution>
 
