@@ -95,7 +95,11 @@ El Modo Estricto habilita los siguientes chequeos en desarrollo:
 
 ---
 
+<<<<<<< HEAD
 ### Habilitar el Modo Estricto para una parte de la aplicación {/*enabling-strict-mode-for-a-part-of-the-app*/}
+=======
+### Enabling Strict Mode for a part of the app {/*enabling-strict-mode-for-a-part-of-the-app*/}
+>>>>>>> 943e3ce4e52be56bcd75b679448847302f557da1
 
 También puedes habilitar el Modo Estricto para cualquier parte de tu aplicación:
 
