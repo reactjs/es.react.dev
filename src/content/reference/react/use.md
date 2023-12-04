@@ -55,8 +55,8 @@ El Hook `use`  devuelve el valor que se leyó del recurso como el valor resuelto
 #### Advertencias {/*caveats*/}
 
 * El Hook `use` debe ser llamado dentro de un componente o un Hook.
-* Cuando se recupera datos en un [Server Component](/reference/react/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
-* Se prefiere la creación de Promesas en los [Server Components](/reference/react/use-server) y pasarlos a los [Client Components](/reference/react/use-client) por encima de crear Promesas en los Client Components. Las Promesas creadas en los Client Components son recreadas en cada renderizado. Las Promesas que son pasadas de un Server Component a un Client Component son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
+* Cuando se recupera datos en un [Componente del Servidor](/reference/react/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
+* Se prefiere la creación de Promesas en los [Componente del Servidors](/reference/react/use-server) y pasarlos a los [Componente del Clientes](/reference/react/use-client) por encima de crear Promesas en los Componente del Clientes. Las Promesas creadas en los Componente del Clientes son recreadas en cada renderizado. Las Promesas que son pasadas de un Componente del Servidor a un Componente del Cliente son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
 
 ---
 
@@ -212,9 +212,9 @@ function Button({ show, children }) {
 
 </Sandpack>
 
-### Transmitir datos del servidor al cliente {/*streaming-data-from-server-to-client*/}
+### Transmisión de datos del servidor al cliente (streaming) {/*streaming-data-from-server-to-client*/}
 
-Los datos pueden ser transmitidos del servidor al cliente pasándole una Promesa como un prop desde un <CodeStep step={1}>Server Component</CodeStep> a un <CodeStep step={2}>Client Component</CodeStep>.  
+Se puede transmitir un flujo de datos del servidor al cliente (*streaming*) pasando una Promesa como una prop desde un <CodeStep step={1}>Componente del Servidor</CodeStep> a un <CodeStep step={2}>Componente del Cliente</CodeStep>.  
 
 ```js [[1, 4, "App"], [2, 2, "Message"], [3, 7, "Suspense"], [4, 8, "messagePromise", 30], [4, 5, "messagePromise"]]
 import { fetchMessage } from './lib.js';
@@ -230,7 +230,7 @@ export default function App() {
 }
 ```
 
-El <CodeStep step={2}>Client Component</CodeStep> toma la <CodeStep step={4}>Promesa que ha recibido como un prop</CodeStep> y lo pasa al Hook <CodeStep step={5}>`use`</CodeStep>. Esto permite al <CodeStep step={2}>Client Component</CodeStep> leer el valor de <CodeStep step={4}>la Promesa</CodeStep> que fue inicialmente creada por el Server Component.
+El <CodeStep step={2}>Componente del Cliente</CodeStep> toma la <CodeStep step={4}>Promesa que ha recibido como una prop</CodeStep> y la pasa al Hook <CodeStep step={5}>`use`</CodeStep>. Esto permite al <CodeStep step={2}>Componente del Cliente</CodeStep> leer el valor de <CodeStep step={4}>la Promesa</CodeStep> que fue inicialmente creada por el Componente del Servidor.
 
 ```js [[2, 6, "Message"], [4, 6, "messagePromise"], [4, 7, "messagePromise"], [5, 7, "use"]]
 // message.js
@@ -243,7 +243,7 @@ export function Message({ messagePromise }) {
   return <p>Aquí está el mensaje: {messageContent}</p>;
 }
 ```
-Debido a que <CodeStep step={2}>`Message`</CodeStep> está envuelto en <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, el fallback se mostrará hasta que la Promesa esté resuelta. Cuando se resuelva la Promesa, el valor va a ser leído por el Hook  <CodeStep step={5}>`use`</CodeStep> y el componente <CodeStep step={2}>`Message`</CodeStep> reemplazará el fallback de Suspense.
+Debido a que <CodeStep step={2}>`Message`</CodeStep> está envuelto en <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, el fallback se mostrará hasta que la Promesa esté resuelta. Cuando se resuelva la Promesa, el valor será leído por el Hook  <CodeStep step={5}>`use`</CodeStep> y el componente <CodeStep step={2}>`Message`</CodeStep> reemplazará el fallback de Suspense.
 
 <Sandpack>
 
@@ -325,16 +325,16 @@ root.render(
 
 <Note>
 
-Al pasar una Promesa de un Server Component a un Client Component, su valor resuelto debe ser serializable para pasar entre el servidor y el cliente. Los tipos de datos como las funciones no son serializables y no pueden ser el valor resuelto de dicha Promesa.
+Al pasar una Promesa de un Componente del Servidor a un Componente del Cliente, su valor resuelto debe ser serializable para pasar entre el servidor y el cliente. Los tipos de datos como las funciones no son serializables y no pueden ser el valor resuelto de dicha Promesa.
 
 </Note>
 
 
 <DeepDive>
 
-#### ¿Debo resolver una promesa en un Server Component o en un Client Component? {/*resolve-promise-in-server-or-client-component*/}
+#### ¿Debo resolver una promesa en un Componente del Servidor o en un Componente del Cliente? {/*resolve-promise-in-server-or-client-component*/}
 
-Una Promesa se puede pasar de un Server Component a un Client Component y resolverse en el Client Component con el Hook `use`. También puedes resolver la Promesa en un Server Component con `await` y pasar los datos requeridos al Client Component como un prop.
+Una Promesa se puede pasar de un Componente del Servidor a un Componente del Cliente y resolverse en el Componente del Cliente con el Hook `use`. También puedes resolver la Promesa en un Componente del Servidor con `await` y pasar los datos requeridos al Componente del Cliente como una prop.
 
 ```js
 export default function App() {
@@ -343,7 +343,7 @@ export default function App() {
 }
 ```
 
-Pero el uso de `await` en un [Server Component](/reference/react/components#server-components) bloqueará su renderizado hasta que finalice la declaración de `await`. Pasar una Promesa de un Server Component a un Client Component evita que la Promesa bloquee la representación del Server Component.
+Pero el uso de `await` en un [Componente del Servidor](/reference/react/components#server-components) bloqueará su renderizado hasta que finalice la declaración de `await`. Pasar una Promesa de un Componente del Servidor a un Componente del Cliente evita que la Promesa bloquee la representación del Componente del Servidor.
 
 </DeepDive>
 
@@ -486,7 +486,7 @@ function MessageComponent({messagePromise}) {
     // ...
 ```
 
-En su lugar, llama a `use` fuera de los cierres de cualquier componente, donde la función que llama a `use` es un componente o gancho.
+En su lugar, llama a `use` fuera de las clausuras de cualquier componente, donde la función que llama a `use` es un componente o un Hook.
 
 ```jsx
 function MessageComponent({messagePromise}) {
