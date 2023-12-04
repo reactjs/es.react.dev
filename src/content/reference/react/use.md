@@ -42,7 +42,6 @@ A diferencia de otros Hooks de React, `use` puede ser llamado dentro de bucles y
 
 Cuando es llamado con una Promesa, el Hook de `use` se integra con [`Suspense`](/reference/react/Suspense) y [barreras de error](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). El componente que llama a `use` *se suspende* mientras que la Promesa pasada a `use` es pendiente. Si el componente que llama a `use` es envuelto en una barrera de Suspense, el fallback será mostrado. Una vez que la Promesa es resuelta, el fallback de Suspense es remplazada por los componentes renderizados usando los datos devueltos por el Hook `use`. Si la Promesa pasada a `use` es rechazada, se mostrará el fallback del error mas cercano a la barrera de error.
 
-
 [Ver más ejemplos abajo.](#usage)
 
 #### Parámetros {/*parameters*/}
@@ -56,8 +55,8 @@ El Hook `use`  devuelve el valor que se leyó del recurso como el valor resuelto
 #### Advertencias {/*caveats*/}
 
 * El Hook `use` debe ser llamado dentro de un componente o un Hook.
-* Cuando se recupera datos en un [Server Component](/reference/react/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman la renderización desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
-* Se prefiere la creación de Promesas en los [Server Components](/reference/react/use-server) y pasarlos a los [Client Components](/reference/react/use-client) por encima de crear Promesas en los Client Components. Las Promesas creadas en los Client Components son recreadas en cada renderización. Las Promesas que son pasadas de un Server Component a un Client Component son estables en todas las renderizaciones. [Ver este ejemplo](#streaming-data-from-server-to-client).
+* Cuando se recupera datos en un [Server Component](/reference/react/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
+* Se prefiere la creación de Promesas en los [Server Components](/reference/react/use-server) y pasarlos a los [Client Components](/reference/react/use-client) por encima de crear Promesas en los Client Components. Las Promesas creadas en los Client Components son recreadas en cada renderizado. Las Promesas que son pasadas de un Server Component a un Client Component son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
 
 ---
 
@@ -74,6 +73,7 @@ function Button() {
   const theme = use(ThemeContext);
   // ... 
 ```
+
 `use` devuelve el <CodeStep step={2}>valor de contexto</CodeStep> para el <CodeStep step={1}>contexto</CodeStep> que pasas. Para determinar el valor del contexto, React busca en el árbol de componentes y encuentra  **el proveedor de contexto más cercano arriba** para ese contexto en particular.  
 
 Para pasar el contexto a un `Button`, envuélvalo en uno de sus componentes padres en el proveedor de contexto correspondiente.
@@ -107,6 +107,7 @@ function HorizontalRule({ show }) {
 ```
 
 <CodeStep step={2}>`use`</CodeStep> se llama desde dentro de una declaración <CodeStep step={1}>`if`</CodeStep>, lo que te permite leer valores condicionalmente de un contexto.
+
 <Pitfall>
 
 Al igual que `useContext`, `use(context)` siempre busca el proveedor de contexto más cercano *arriba* del componente que lo llama. Busca hacia arriba y no considera los proveedores de contexto en el componente desde el cual llamas `use(context)`.
@@ -242,7 +243,7 @@ export function Message({ messagePromise }) {
   return <p>Aquí está el mensaje: {messageContent}</p>;
 }
 ```
-Debido a que <CodeStep step={2}>`Message`</CodeStep> está envuelto en <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, el fallback se mostrará hasta que la Promesa esté resuelta. Cuando se resuelva la Promesa, el valor va a ser leido por el Hook  <CodeStep step={5}>`use`</CodeStep> y el componente <CodeStep step={2}>`Message`</CodeStep> reemplazará el fallback de Suspense.
+Debido a que <CodeStep step={2}>`Message`</CodeStep> está envuelto en <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, el fallback se mostrará hasta que la Promesa esté resuelta. Cuando se resuelva la Promesa, el valor va a ser leído por el Hook  <CodeStep step={5}>`use`</CodeStep> y el componente <CodeStep step={2}>`Message`</CodeStep> reemplazará el fallback de Suspense.
 
 <Sandpack>
 
@@ -341,20 +342,20 @@ export default function App() {
   return <Message messageContent={messageContent} />
 }
 ```
+
 Pero el uso de `await` en un [Server Component](/reference/react/components#server-components) bloqueará su renderizado hasta que finalice la declaración de `await`. Pasar una Promesa de un Server Component a un Client Component evita que la Promesa bloquee la representación del Server Component.
 
 </DeepDive>
 
 ### Lidiar con las promesas rechazadas {/*dealing-with-rejected-promises*/}
 
-En algunas ocaciones una Promesa pasada a `use` puede ser rechazada. Puedes manejar Promesas rechazadas de estas maneras:
+En algunas ocasiones una Promesa pasada a `use` puede ser rechazada. Puedes manejar Promesas rechazadas de estas maneras:
+
 1. [Mostrar un error a los usuarios con una barrera de error.](#displaying-an-error-to-users-with-error-boundary)
 2. [Proporcionar un valor alternativo con `Promise.catch`](#providing-an-alternative-value-with-promise-catch)
 
 <Pitfall>
-
 `use` no puede ser llamado en un bloque try-catch. En vez de un bloque try-catch [envuelve tu componente con una barrera de error](#displaying-an-error-to-users-with-error-boundary), o [proporciona un valor alternativo para usar con el método `.catch` de Promise](#providing-an-alternative-value-with-promise-catch).
-
 </Pitfall>
 
 #### Mostrar un error a los usuarios con una barrera de error {/*displaying-an-error-to-users-with-error-boundary*/}
