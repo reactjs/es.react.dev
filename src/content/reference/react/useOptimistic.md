@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-El Hook `useOptimistic`  está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels)
+El Hook `useOptimistic` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels)
 
 </Canary>
 
@@ -29,8 +29,7 @@ El Hook `useOptimistic`  está actualmente disponible solo en React Canary y can
 
 `useOptimistic` es un Hook de React que permite mostrar un estado diferente mientras una acción asíncrona está en marcha. Acepta algún estado como argumento y devuelve una copia de ese estado que puede ser diferente durante la duración de una acción asíncrona como una petición de red. Provees una función que toma el estado actual y la entrada de la acción, y retorna el estado optimista para ser usado mientras la acción esté pendiente.
 
-Este estado es llamado el estado “optimista” porque normalmente es usado para presentar inmediatamente al usuario el resultado de una acción, aunque la acción en realidad tarde tiempo para completarse.
-
+Este estado es llamado el estado "optimista" porque normalmente es usado para presentar inmediatamente al usuario el resultado de una acción, aunque la acción en realidad tarde tiempo para completarse.
 
 ```js
 import { useOptimistic } from 'react';
@@ -67,7 +66,7 @@ function AppContainer() {
 
 El Hook `useOptimistic` provee una manera optimista de actualizar la interfaz de usuario antes de que una operación en segundo plano se complete, como una petición de red. En el contexto de los formularios, esta técnica ayuda a que las aplicaciones se sientan más receptivas. Cuando un usuario envía un formulario, en lugar de esperar la respuesta del servidor para reflejar los cambios, la interfaz se actualiza inmediatamente con el resultado esperado.
 
-Por ejemplo, cuando un usuario escribe un mensaje en el formulario y luego presiona el botón de “Enviar”, el Hook `useOptimistic` permite al mensaje aparecer inmediatamente en la lista con un label de “Enviando...”, incluso antes que el mensaje sea enviado al servidor. Este enfoque  “optimista” da la impresión de velocidad y capacidad de respuesta. Luego, el formulario intenta enviar realmente el mensaje en segundo plano. Una vez que el servidor confirme que el mensaje ha sido recibido, el label “Enviando...” se elimina.
+Por ejemplo, cuando un usuario escribe un mensaje en el formulario y luego presiona el botón de "Enviar", el Hook `useOptimistic` permite al mensaje aparecer inmediatamente en la lista con un label de "Enviando...", incluso antes que el mensaje sea enviado al servidor. Este enfoque  "optimista" da la impresión de velocidad y capacidad de respuesta. Luego, el formulario intenta enviar realmente el mensaje en segundo plano. Una vez que el servidor confirme que el mensaje ha sido recibido, el label "Enviando..." se elimina.
 
 <Sandpack>
 
