@@ -53,6 +53,7 @@ function AppContainer() {
 * `state`: el valor que se devolverá inicialmente y siempre que no haya acción pendiente.
 * `updateFn(currentState, optimisticValue)`: una función que toma el estado actual y el valor optimista pasado a `addOptimistic` y devuelve el estado optimista resultante. Debe ser una función pura. `updateFn` toma dos parámetros. El `currentState` y el `optimisticValue`. El valor resultante será el valor combinado de `currentState` y `optimisticValue`.
 
+
 #### Devuelve {/*returns*/}
 
 * `optimisticState`: El estado optimista resultante. Es igual al estado a menos que una acción esté pendiente, en cuyo caso es igual al valor devuelto por `updateFn`.
