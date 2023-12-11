@@ -37,6 +37,9 @@ El stream producirá, en la salida, HTML no interactivo de tus componentes de Re
 
 * `reactNode`: Un nodo de React que quieres renderizar a HTML. Por ejemplo, un elemento JSX como `<Page />`.
 
+* **opcional** `options`: Un objeto de configuración para el renderizado en el servidor.
+  * **opcional** `identifierPrefix`: Un prefijo de *string* que React utiliza para los IDs generados por [`useId`.](/reference/react/useId) Es útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página.
+
 #### Devuelve {/*returns*/}
 
 Un [Stream legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que produce un string HTML como salida. El HTML resultante no puede hidratarse en el cliente.
