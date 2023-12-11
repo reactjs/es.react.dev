@@ -35,8 +35,6 @@ Esto producirá una salida de HTML no interactiva de tus componentes de React.
 #### Parámetros {/*parameters*/}
 
 * `reactNode`: Un nodo React que deseas renderizar a HTML. Por ejemplo, un nodo JSX como `<Page />`.
-* **opcional** `options`: Un objeto de configuración para el renderizado en el servidor.
-  * **opcional** `identifierPrefix`: Un prefijo de *string* que React utiliza para los IDs generados por [`useId`.](/reference/react/useId) Es útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página.
 
 #### Devuelve {/*returns*/}
 

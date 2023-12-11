@@ -43,9 +43,6 @@ En el cliente, llama a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) 
 
 * `reactNode`: Un nodo de React que deseas representar en HTML. Por ejemplo, un elemento JSX como `<App />`.
 
-* **opcional** `options`: Un objeto de configuración para el renderizado en el servidor.
-  * **opcional** `identifierPrefix`: Un prefijo de *string* que React utiliza para los IDs generados por [`useId`.](/reference/react/useId) Es útil para evitar conflictos cuando se utilizan múltiples raíces en la misma página. Debe ser el mismo prefijo que se pasa a [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
-
 #### Devuelve {/*returns*/}
 
 Un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que produce una cadena de HTML.

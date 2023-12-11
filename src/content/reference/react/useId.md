@@ -303,33 +303,3 @@ input { margin: 5px; }
 ```
 
 </Sandpack>
-
----
-
-### Uso del mismo prefijo de ID en el cliente y el servidor {/*using-the-same-id-prefix-on-the-client-and-the-server*/}
-
-Si [renderizas múltiples aplicaciones de React independientes en la misma página](#specifying-a-shared-prefix-for-all-generated-ids), y algunas de esas aplicaciones son renderizadas en el servidor, asegúrate de que el prefijo `identifierPrefix` que le pases a la llamada a [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en el lado del cliente sea el mismo `identifierPrefix` que le pases a las [APIs del servidor](/reference/react-dom/server) tales como [`renderToPipeableStream`.](/reference/react-dom/server/renderToPipeableStream)
-
-```js
-// Server
-import { renderToPipeableStream } from 'react-dom/server';
-
-const { pipe } = renderToPipeableStream(
-  <App />,
-  { identifierPrefix: 'react-app1' }
-);
-```
-
-```js
-// Client
-import { hydrateRoot } from 'react-dom/client';
-
-const domNode = document.getElementById('root');
-const root = hydrateRoot(
-  domNode,
-  reactNode,
-  { identifierPrefix: 'react-app1' }
-);
-```
-
-No necesitas pasar `identifierPrefix` si solo tienes una aplicación de React en la página.
