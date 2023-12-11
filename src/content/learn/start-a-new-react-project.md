@@ -24,7 +24,11 @@ Si deseas crear una nueva aplicación o un nuevo sitio web completamente con Rea
 npx create-next-app@latest
 </TerminalBlock>
 
+<<<<<<< HEAD
 Si eres nuevo en Next.js, mira el [tutorial de Next.js.](https://nextjs.org/learn/foundations/about-nextjs)
+=======
+If you're new to Next.js, check out the [learn Next.js course.](https://nextjs.org/learn)
+>>>>>>> af54fc873819892f6050340df236f33a18ba5fb8
 
 Next.js es mantenido por [Vercel](https://vercel.com/). Puedes [implementar una aplicación Next.js](https://nextjs.org/docs/app/building-your-application/deploying) en cualquier alojamiento Node.js o sin servidor, o en tu propio servidor. Next.js también admite una [exportación estática](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) que no requiere un servidor.
 
