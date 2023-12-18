@@ -35,7 +35,7 @@ En este ejemplo de UI declarativa, el formulario esta construido *sin* React. Ut
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 async function handleFormSubmit(e) {
   e.preventDefault();
   disable(textarea);
@@ -246,7 +246,7 @@ Si un componente tiene un montón de estados visuales, puede resultar convenient
 
 <Sandpack>
 
-```js App.js active
+```js src/App.js active
 import Form from './Form.js';
 
 let statuses = [
@@ -271,7 +271,7 @@ export default function App() {
 }
 ```
 
-```js Form.js
+```js src/Form.js
 export default function Form({ status }) {
   if (status === 'success') {
     return <h1>¡Correcto!</h1>
@@ -707,7 +707,7 @@ Aquí está un pequeño formulario implementado con JavaScript y DOM. Juega con 
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 function handleFormSubmit(e) {
   e.preventDefault();
   if (editButton.textContent === 'Editar Perfil') {
@@ -909,7 +909,7 @@ Aquí está el *sandbox* original del desafío anterior, escrito de forma impera
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 function handleFormSubmit(e) {
   e.preventDefault();
   if (editButton.textContent === 'Editar Perfil') {
@@ -1008,7 +1008,7 @@ Si te cuesta pensar por dónde empezar, el código de abajo ya tiene la mayoría
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 let firstName = 'Jane';
 let lastName = 'Jacobs';
 let isEditing = false;
@@ -1115,7 +1115,7 @@ La lógica faltante incluye el cambio de la visualización de las entradas y el 
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 let firstName = 'Jane';
 let lastName = 'Jacobs';
 let isEditing = false;

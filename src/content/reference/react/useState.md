@@ -630,7 +630,7 @@ En este ejemplo, la variable de estado `todos` contiene un _array_. Cada control
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -687,7 +687,7 @@ export default function TaskApp() {
 }
 ```
 
-```js AddTodo.js
+```js src/AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -708,7 +708,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js TaskList.js
+```js src/TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1028,7 +1028,7 @@ Lea [preservar y reiniciar el estado](/learn/preserving-and-resetting-state) par
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 export default function App() {
@@ -1083,7 +1083,7 @@ En el raro caso de que ninguno de estos se aplique, hay un patrón que puedes us
 
 Aquí hay un ejemplo. Este componente `CountLabel` muestra la propiedad `count` que se le pasó:
 
-```js CountLabel.js
+```js src/CountLabel.js
 export default function CountLabel({ count }) {
   return <h1>{count}</h1>
 }
@@ -1093,7 +1093,7 @@ Digamos que quieres mostrar si el contador ha *aumentado o disminuido* desde el 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import CountLabel from './CountLabel.js';
 
@@ -1113,7 +1113,7 @@ export default function App() {
 }
 ```
 
-```js CountLabel.js active
+```js src/CountLabel.js active
 import { useState } from 'react';
 
 export default function CountLabel({ count }) {

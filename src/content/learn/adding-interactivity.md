@@ -134,7 +134,7 @@ export default function Gallery() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const sculptureList = [{
   name: 'Homenaje a la neurocirugía',
   artist: 'Marta Colvin Andrade',

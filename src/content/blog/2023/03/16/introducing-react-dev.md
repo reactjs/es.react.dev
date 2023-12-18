@@ -57,7 +57,7 @@ Si te gusta aprender haciendo, te recomendamos que consultes el [tutorial de Tic
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -175,7 +175,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }

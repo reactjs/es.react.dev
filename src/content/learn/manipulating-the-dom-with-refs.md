@@ -1099,7 +1099,7 @@ Necesitarás `forwardRef` para optar a exponer un nodo DOM de tu propio componen
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import SearchButton from './SearchButton.js';
 import SearchInput from './SearchInput.js';
 
@@ -1115,7 +1115,7 @@ export default function Page() {
 }
 ```
 
-```js SearchButton.js
+```js src/SearchButton.js
 export default function SearchButton() {
   return (
     <button>
@@ -1125,7 +1125,7 @@ export default function SearchButton() {
 }
 ```
 
-```js SearchInput.js
+```js src/SearchInput.js
 export default function SearchInput() {
   return (
     <input
@@ -1147,7 +1147,7 @@ Necesitarás agregar una propiedad `onClick` a `SearchButton`, y hacer que `Sear
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useRef } from 'react';
 import SearchButton from './SearchButton.js';
 import SearchInput from './SearchInput.js';
@@ -1167,7 +1167,7 @@ export default function Page() {
 }
 ```
 
-```js SearchButton.js
+```js src/SearchButton.js
 export default function SearchButton({ onClick }) {
   return (
     <button onClick={onClick}>
@@ -1177,7 +1177,7 @@ export default function SearchButton({ onClick }) {
 }
 ```
 
-```js SearchInput.js
+```js src/SearchInput.js
 import { forwardRef } from 'react';
 
 export default forwardRef(

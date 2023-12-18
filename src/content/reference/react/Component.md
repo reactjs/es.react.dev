@@ -1221,7 +1221,7 @@ Por ejemplo, este componente `ChatRoom` mantiene una conexión de chat sincroniz
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1251,7 +1251,7 @@ export default function App() {
 }
 ```
 
-```js ChatRoom.js active
+```js src/ChatRoom.js active
 import { Component } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1312,7 +1312,7 @@ export default class ChatRoom extends Component {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una aplicación real se conectaría al servidor
   return {
@@ -1601,7 +1601,7 @@ Supongamos que estás convirtiendo este componente de clase `ChatRoom` con méto
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1631,7 +1631,7 @@ export default function App() {
 }
 ```
 
-```js ChatRoom.js active
+```js src/ChatRoom.js active
 import { Component } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1692,7 +1692,7 @@ export default class ChatRoom extends Component {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una aplicación real se conectaría al servidor
   return {
@@ -1741,7 +1741,7 @@ Esta llamada a [`useEffect`](/reference/react/useEffect) es equivalente a la ló
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1771,7 +1771,7 @@ export default function App() {
 }
 ```
 
-```js ChatRoom.js active
+```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1801,7 +1801,7 @@ export default function ChatRoom({ roomId }) {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una aplicación real se conectaría al servidor
   return {

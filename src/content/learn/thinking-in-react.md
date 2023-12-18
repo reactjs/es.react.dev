@@ -81,7 +81,7 @@ Puedes construir "de arriba hacia abajo" empezando por construir los componentes
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -299,7 +299,7 @@ Puedes comenzar a ver como tu aplicación se comportará. Edita el valor inicial
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -496,7 +496,7 @@ Dentro de `SearchBar`, añadirás el controlador de evento `onChange` y modifica
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {

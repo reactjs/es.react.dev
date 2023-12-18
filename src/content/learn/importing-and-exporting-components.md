@@ -66,7 +66,7 @@ Aquí tanto `Profile` y `Gallery` se han movido fuera de `App.js` en un nuevo ar
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 
 export default function App() {
@@ -76,7 +76,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 function Profile() {
   return (
     <img
@@ -183,7 +183,7 @@ Ahora `Gallery.js` contiene dos exports: un export por defecto `Gallery`, y un e
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import { Profile } from './Gallery.js';
 
@@ -194,7 +194,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 export function Profile() {
   return (
     <img
@@ -268,7 +268,7 @@ No olvides importar tus componentes donde se llamen. ¿Acaso `Gallery` no usa ta
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import { Profile } from './Gallery.js';
 
@@ -281,8 +281,13 @@ export default function App() {
 }
 ```
 
+<<<<<<< HEAD
 ```js Gallery.js active
 // ¡Muéveme a Profile.js!
+=======
+```js src/Gallery.js active
+// Move me to Profile.js!
+>>>>>>> 303ecae3dd4c7b570cf18e0115b94188f6aad5a1
 export function Profile() {
   return (
     <img
@@ -304,7 +309,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 ```
 
 ```css
@@ -321,7 +326,7 @@ Esta es la solución con exports con nombre:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import { Profile } from './Profile.js';
 
@@ -335,7 +340,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 import { Profile } from './Profile.js';
 
 export default function Gallery() {
@@ -350,7 +355,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 export function Profile() {
   return (
     <img
@@ -371,7 +376,7 @@ Esta es la solución con exports por defecto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import Profile from './Profile.js';
 
@@ -385,7 +390,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 import Profile from './Profile.js';
 
 export default function Gallery() {
@@ -400,7 +405,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 export default function Profile() {
   return (
     <img
