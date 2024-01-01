@@ -986,7 +986,7 @@ Si algo inesperado cambia, hay una mutación. Encuentra la mutación en `App.js`
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1039,7 +1039,7 @@ export default function Canvas() {
 }
 ```
 
-```js Box.js
+```js src/Box.js
 import { useState } from 'react';
 
 export default function Box({
@@ -1102,7 +1102,7 @@ export default function Box({
 }
 ```
 
-```js Background.js
+```js src/Background.js
 export default function Background({
   position
 }) {
@@ -1136,7 +1136,7 @@ La solución es eliminar la mutación de `handleMove`, y utilizar la sintaxis ex
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1194,7 +1194,7 @@ export default function Canvas() {
 }
 ```
 
-```js Box.js
+```js src/Box.js
 import { useState } from 'react';
 
 export default function Box({
@@ -1257,7 +1257,7 @@ export default function Box({
 }
 ```
 
-```js Background.js
+```js src/Background.js
 export default function Background({
   position
 }) {
@@ -1291,7 +1291,7 @@ Este es el mismo ejemplo con errores que en el desafío anterior. Esta vez, arre
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import Background from './Background.js';
@@ -1345,7 +1345,7 @@ export default function Canvas() {
 }
 ```
 
-```js Box.js
+```js src/Box.js
 import { useState } from 'react';
 
 export default function Box({
@@ -1408,7 +1408,7 @@ export default function Box({
 }
 ```
 
-```js Background.js
+```js src/Background.js
 export default function Background({
   position
 }) {
@@ -1458,7 +1458,7 @@ Esta es la solución reescrita con Immer. Observa cómo los controladores de eve
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useImmer } from 'use-immer';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1512,7 +1512,7 @@ export default function Canvas() {
 }
 ```
 
-```js Box.js
+```js src/Box.js
 import { useState } from 'react';
 
 export default function Box({
@@ -1575,7 +1575,7 @@ export default function Box({
 }
 ```
 
-```js Background.js
+```js src/Background.js
 export default function Background({
   position
 }) {

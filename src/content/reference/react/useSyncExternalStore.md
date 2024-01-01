@@ -59,7 +59,7 @@ La instantánea actual de la fuente de almacenamiento que puedes usar en tu lóg
 
 * If the store is mutated during a [non-blocking transition update](/reference/react/useTransition), React will fall back to performing that update as blocking. Specifically, for every transition update, React will call `getSnapshot` a second time just before applying changes to the DOM. If it returns a different value than when it was called originally, React will restart the update from scratch, this time applying it as a blocking update, to ensure that every component on screen is reflecting the same version of the store.
 
-* It's not recommended to _suspend_ a render based on a store value returned by `useSyncExternalStore`. The reason is that mutations to the external store cannot be [marked as non-blocking transition updates](/reference/react/useTransition), so they will trigger the nearest [`Suspense` fallback](/reference/react/Suspense), replacing already-rendered content on screen with a loading spinner, which typically makes a poor UX.
+* It's not recommended to _suspend_ a render based on a store value returned by `useSyncExternalStore`. The reason is that mutations to the external store cannot be marked as [non-blocking transition updates](/reference/react/useTransition), so they will trigger the nearest [`Suspense` fallback](/reference/react/Suspense), replacing already-rendered content on screen with a loading spinner, which typically makes a poor UX.
 
   For example, the following are discouraged:
 
@@ -131,9 +131,15 @@ export default function TodosApp() {
 }
 ```
 
+<<<<<<< HEAD
 ```js todoStore.js
 // Este es un ejemplo de una fuente de almacenamiento de datos de terceros
 // que podría necesitar integrarse con React.
+=======
+```js src/todoStore.js
+// This is an example of a third-party store
+// that you might need to integrate with React.
+>>>>>>> bbb08a5a04b0221137e5d60472fc979747af2954
 
 // Si tu aplicación está completamente construida con React,
 // recomendamos usar el control de estado de React en su lugar.
@@ -300,7 +306,7 @@ export default function App() {
 }
 ```
 
-```js useOnlineStatus.js
+```js src/useOnlineStatus.js
 import { useSyncExternalStore } from 'react';
 
 export function useOnlineStatus() {

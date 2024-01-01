@@ -629,7 +629,7 @@ Después que hagas esto, fíjate que al pulsar el botón también incrementa el 
 
 <Sandpack>
 
-```js ColorSwitch.js active
+```js src/ColorSwitch.js active
 export default function ColorSwitch({
   onChangeColor
 }) {
@@ -641,7 +641,7 @@ export default function ColorSwitch({
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState } from 'react';
 import ColorSwitch from './ColorSwitch.js';
 
@@ -685,7 +685,7 @@ Sin embargo, esto introduce el problema de incrementar el contador. Si `onChange
 
 <Sandpack>
 
-```js ColorSwitch.js active
+```js src/ColorSwitch.js active
 export default function ColorSwitch({
   onChangeColor
 }) {
@@ -700,7 +700,7 @@ export default function ColorSwitch({
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState } from 'react';
 import ColorSwitch from './ColorSwitch.js';
 

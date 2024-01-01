@@ -143,7 +143,7 @@ Para hidratar tu aplicación, React "adjuntará" la lógica de tus componentes a
 <div id="root"><h1>Hola, mundo!</h1><button>Me hiciste clic <!-- -->0<!-- --> veces</button></div>
 ```
 
-```js index.js active
+```js src/index.js active
 import './styles.css';
 import { hydrateRoot } from 'react-dom/client';
 import App from './App.js';
@@ -154,7 +154,7 @@ hydrateRoot(
 );
 ```
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 export default function App() {
@@ -248,7 +248,7 @@ Para silenciar las advertencias de hidratación en un elemento, agrega `suppress
 <div id="root" ><h1>Fecha actual: <!-- -->01/01/2020</h1></div>
 ```
 
-```js index.js
+```js src/index.js
 import './styles.css';
 import { hydrateRoot } from 'react-dom/client';
 import App from './App.js';
@@ -256,7 +256,7 @@ import App from './App.js';
 hydrateRoot(document.getElementById('root'), <App />);
 ```
 
-```js App.js active
+```js src/App.js active
 export default function App() {
   return (
     <h1 suppressHydrationWarning={true}>
@@ -286,7 +286,7 @@ Si intencionalmente necesitas renderizar algo diferente en el servidor y en el c
 <div id="root"><h1>Es Servidor</h1></div>
 ```
 
-```js index.js
+```js src/index.js
 import './styles.css';
 import { hydrateRoot } from 'react-dom/client';
 import App from './App.js';
@@ -294,7 +294,7 @@ import App from './App.js';
 hydrateRoot(document.getElementById('root'), <App />);
 ```
 
-```js App.js active
+```js src/App.js active
 import { useState, useEffect } from "react";
 
 export default function App() {
@@ -340,7 +340,7 @@ Si llamas a `root.render` en algún momento después de la hidratación, y la es
 <div id="root"><h1>¡Hola, mundo! <!-- -->0</h1><input placeholder="Escriba algo aquí"/></div>
 ```
 
-```js index.js active
+```js src/index.js active
 import { hydrateRoot } from 'react-dom/client';
 import './styles.css';
 import App from './App.js';
@@ -357,7 +357,7 @@ setInterval(() => {
 }, 1000);
 ```
 
-```js App.js
+```js src/App.js
 export default function App({counter}) {
   return (
     <>
