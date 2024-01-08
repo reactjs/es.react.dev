@@ -251,7 +251,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una implementación real se conectaría realmente al servidor.
   return {
@@ -447,7 +447,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una implementación real en realidad se conectaría al servidor
   return {
@@ -527,7 +527,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una implementación real en realidad conectaría al servidor
   return {
@@ -646,7 +646,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una implementación real en realidad se conectaría al servidor
   return {
@@ -837,7 +837,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una implementación real en realidad conectaría al servidor
   return {
@@ -912,7 +912,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Una implementación real en realidad conectaría al servidor
   return {
@@ -1329,7 +1329,7 @@ Suprimir el linter es siempre sospechoso. ¿Podría ser esto un error?
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 import {
@@ -1374,7 +1374,7 @@ export default function App() {
 }
 ```
 
-```js ChatRoom.js active
+```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
 
 export default function ChatRoom({ roomId, createConnection }) {
@@ -1389,7 +1389,7 @@ export default function ChatRoom({ roomId, createConnection }) {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createEncryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor 
   return {
@@ -1427,7 +1427,7 @@ Si quitas la supresión del linter, verás un error de lint. El problema es que 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 import {
@@ -1472,7 +1472,7 @@ export default function App() {
 }
 ```
 
-```js ChatRoom.js active
+```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
 
 export default function ChatRoom({ roomId, createConnection }) {
@@ -1486,7 +1486,7 @@ export default function ChatRoom({ roomId, createConnection }) {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createEncryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor
   return {
@@ -1522,7 +1522,7 @@ Es correcto que `createConnection` sea una dependencia. Sin embargo, este códig
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1560,7 +1560,7 @@ export default function App() {
 }
 ```
 
-```js ChatRoom.js active
+```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
 import {
   createEncryptedConnection,
@@ -1581,7 +1581,7 @@ export default function ChatRoom({ roomId, isEncrypted }) {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createEncryptedConnection(roomId) {
   // Una implementación real se conectaría realmente al servidor
   return {
@@ -1633,7 +1633,7 @@ Si tienes dos procesos de sincronización independientes, necesitas escribir dos
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState, useEffect } from 'react';
 import { fetchData } from './api.js';
 
@@ -1687,7 +1687,7 @@ export default function Page() {
 }
 ```
 
-```js api.js hidden
+```js src/api.js hidden
 export function fetchData(url) {
   if (url === '/planets') {
     return fetchPlanets();
@@ -1782,7 +1782,7 @@ Por eso tiene sentido describirlos como dos Efectos separados. Aquí tienes un e
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState, useEffect } from 'react';
 import { fetchData } from './api.js';
 
@@ -1855,7 +1855,7 @@ export default function Page() {
 }
 ```
 
-```js api.js hidden
+```js src/api.js hidden
 export function fetchData(url) {
   if (url === '/planets') {
     return fetchPlanets();
@@ -1945,7 +1945,7 @@ En su lugar, para reducir la repetición, puede extraer algo de lógica en un Ho
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { useSelectOptions } from './useSelectOptions.js';
 
@@ -1991,7 +1991,7 @@ export default function Page() {
 }
 ```
 
-```js useSelectOptions.js
+```js src/useSelectOptions.js
 import { useState, useEffect } from 'react';
 import { fetchData } from './api.js';
 
@@ -2018,7 +2018,7 @@ export function useSelectOptions(url) {
 }
 ```
 
-```js api.js hidden
+```js src/api.js hidden
 export function fetchData(url) {
   if (url === '/planets') {
     return fetchPlanets();

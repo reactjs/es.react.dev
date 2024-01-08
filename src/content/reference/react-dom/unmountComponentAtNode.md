@@ -88,7 +88,7 @@ En este ejemplo, al hacer clic en "Renderizar aplicación de React" se renderiza
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import './styles.css';
 import { render, unmountComponentAtNode } from 'react-dom';
 import App from './App.js';
@@ -104,7 +104,7 @@ document.getElementById('unmount').addEventListener('click', () => {
 });
 ```
 
-```js App.js
+```js src/App.js
 export default function App() {
   return <h1>¡Hola, mundo!</h1>;
 }

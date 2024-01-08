@@ -67,7 +67,7 @@ Después agrega las siguientes líneas de código al principio de tu archivo Jav
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 
 // Borra el contenido HTML existente
@@ -131,7 +131,7 @@ Esto te permite encontrar aquel elemento HTML con [`document.getElementById`](ht
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {

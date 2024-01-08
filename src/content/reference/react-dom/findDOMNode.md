@@ -80,7 +80,7 @@ Aquí, la variable `input` se establecerá en el elemento DOM `<input>`. Esto te
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -98,7 +98,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 
@@ -128,7 +128,7 @@ El código que utiliza `findDOMNode` es frágil debido a que la conexión entre 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -146,7 +146,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 
@@ -171,7 +171,7 @@ En este ejemplo, ya no se usa `findDOMNode`. En su lugar, se define `inputRef = 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -189,7 +189,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { createRef, Component } from 'react';
 
 class AutoselectingInput extends Component {
@@ -216,7 +216,7 @@ En React moderno sin componentes de clase, el código equivalente llamaría a [`
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -234,7 +234,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { useRef, useEffect } from 'react';
 
 export default function AutoselectingInput() {
@@ -261,7 +261,7 @@ En este ejemplo, `findDOMNode(this)` encuentra un nodo DOM que pertenece a otro 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -279,7 +279,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import MyInput from './MyInput.js';
@@ -297,7 +297,7 @@ class AutoselectingInput extends Component {
 export default AutoselectingInput;
 ```
 
-```js MyInput.js
+```js src/MyInput.js
 export default function MyInput() {
   return <input defaultValue="Hola" />;
 }
@@ -316,7 +316,7 @@ Esta versión hace eso, por lo que ya no necesita `findDOMNode`:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -334,7 +334,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { createRef, Component } from 'react';
 import MyInput from './MyInput.js';
 
@@ -356,7 +356,7 @@ class AutoselectingInput extends Component {
 export default AutoselectingInput;
 ```
 
-```js MyInput.js
+```js src/MyInput.js
 import { forwardRef } from 'react';
 
 const MyInput = forwardRef(function MyInput(props, ref) {
@@ -372,7 +372,7 @@ Así es como se vería este código con componentes de función en lugar de clas
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AutoselectingInput from './AutoselectingInput.js';
 
@@ -390,7 +390,7 @@ export default function App() {
 }
 ```
 
-```js AutoselectingInput.js active
+```js src/AutoselectingInput.js active
 import { useRef, useEffect } from 'react';
 import MyInput from './MyInput.js';
 
@@ -406,7 +406,7 @@ export default function AutoselectingInput() {
 }
 ```
 
-```js MyInput.js
+```js src/MyInput.js
 import { forwardRef } from 'react';
 
 const MyInput = forwardRef(function MyInput(props, ref) {

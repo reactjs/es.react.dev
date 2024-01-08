@@ -153,7 +153,7 @@ Usualmente, solo necesitarás ejecutar este código una vez al inicio. Este cód
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 import App from './App.js';
 import './styles.css';
@@ -162,7 +162,7 @@ const root = createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 export default function App() {
@@ -232,7 +232,7 @@ Aquí, dos componentes diferentes de React se renderizan dentro de dos nodos del
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import './styles.css';
 import { createRoot } from 'react-dom/client';
 import { Comments, Navigation } from './Components.js';
@@ -246,7 +246,7 @@ const commentRoot = createRoot(commentDomNode);
 commentRoot.render(<Comments />);
 ```
 
-```js Components.js
+```js src/Components.js
 export function Navigation() {
   return (
     <ul>
@@ -313,7 +313,7 @@ Puedes llamar a `render` más de una vez en la misma raíz. Siempre que el árbo
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import App from './App.js';
@@ -327,7 +327,7 @@ setInterval(() => {
 }, 1000);
 ```
 
-```js App.js
+```js src/App.js
 export default function App({counter}) {
   return (
     <>

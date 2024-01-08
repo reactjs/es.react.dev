@@ -404,7 +404,7 @@ export function getFinalState(baseState, queue) {
 
 <Sandpack>
 
-```js processQueue.js active
+```js src/processQueue.js active
 export function getFinalState(baseState, queue) {
   let finalState = baseState;
 
@@ -414,7 +414,7 @@ export function getFinalState(baseState, queue) {
 }
 ```
 
-```js App.js
+```js src/App.js
 import { getFinalState } from './processQueue.js';
 
 function increment(n) {
@@ -499,7 +499,7 @@ Este es el algoritmo exacto descrito en esta página que React utiliza para calc
 
 <Sandpack>
 
-```js processQueue.js active
+```js src/processQueue.js active
 export function getFinalState(baseState, queue) {
   let finalState = baseState;
 
@@ -517,7 +517,7 @@ export function getFinalState(baseState, queue) {
 }
 ```
 
-```js App.js
+```js src/App.js
 import { getFinalState } from './processQueue.js';
 
 function increment(n) {
