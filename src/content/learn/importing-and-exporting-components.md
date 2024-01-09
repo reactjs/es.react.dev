@@ -281,13 +281,8 @@ export default function App() {
 }
 ```
 
-<<<<<<< HEAD
-```js Gallery.js active
-// ¡Muéveme a Profile.js!
-=======
 ```js src/Gallery.js active
-// Move me to Profile.js!
->>>>>>> 315cb7a38a1645623fc55501429285ab680b8a6a
+// ¡Muéveme a Profile.js!
 export function Profile() {
   return (
     <img
