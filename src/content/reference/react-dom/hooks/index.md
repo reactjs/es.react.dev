@@ -4,7 +4,7 @@ title: "Hooks integrados de React DOM"
 
 <Intro>
 
-El paquete de `react-dom` contiene Hooks que es solo se admiten para aplicaciones web (que se ejecutan en el entorno DOM del navegador). Estos Hooks no son compatibles en entornos que no son de navegador, como en aplicaciones de iOS, Android o Windows. Si estas buscando Hooks que sean compatibles en navegadores web *y otros entornos*, consulta [la página de React Hooks](/reference/react). Esta página enumera todos los Hooks en el paquete `react-dom`.
+El paquete de `react-dom` contiene Hooks que solo se admiten para aplicaciones web (que se ejecutan en el entorno DOM del navegador). Estos Hooks no son compatibles en entornos que no son de navegador, como en aplicaciones de iOS, Android o Windows. Si estas buscando Hooks que sean compatibles en navegadores web *y otros entornos*, consulta [la página de React Hooks](/reference/react). Esta página enumera todos los Hooks en el paquete `react-dom`.
 
 </Intro>
 
@@ -14,14 +14,14 @@ El paquete de `react-dom` contiene Hooks que es solo se admiten para aplicacione
 
 <Canary>
 
-Los Form Hooks actualmente solo están disponibles en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
+Form Hooks actualmente solo están disponibles en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
-*Forms* let you create interactive controls for submitting information.  To manage forms in your components, use one of these Hooks:
+*Forms* te permiten crear controles interactivos para enviar información. Para manejar forms en tus componentes, usa uno de estos Hooks :
 
-* [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) allows you to make updates to the UI based on the status of the a form.
-* [`useFormState`](/reference/react-dom/hooks/useFormState) allows you to manage state inside a form.
+* [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) facilita la actualización de la interfaz de usuario basada en el estado del formulario.
+* [`useFormState`](/reference/react-dom/hooks/useFormState) te permite gestionar el estado dentro de un formulario.
 
 ```js
 function Form({ action }) {
