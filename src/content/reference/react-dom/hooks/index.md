@@ -14,7 +14,7 @@ El paquete de `react-dom` contiene Hooks que es solo se admiten para aplicacione
 
 <Canary>
 
-Form Hooks are currently only available in React's canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+Los Form Hooks actualmente solo están disponibles en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
