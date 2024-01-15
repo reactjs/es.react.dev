@@ -50,7 +50,7 @@ En los siguientes renderizados, `useRef` devolverá el mismo objeto.
 * Puedes mutar la propiedad `ref.current`. A diferencia del estado, es mutable. Sin embargo, si contiene un objeto que se utiliza para el renderizado (por ejemplo, una parte de tu estado), entonces no deberías mutar ese objeto.
 * Cuando cambias la propiedad `ref.current`, React no vuelve a renderizar tu componente. React no está al tanto de cuándo la cambias porque una ref es un objeto JavaScript plano.
 * No escribas _ni leas_ `ref.current` durante el renderizado, excepto para la [inicialización.](#avoiding-recreating-the-ref-contents) Esto hace que el comportamiento de tu componente sea impredecible.
-* En el modo estricto, React **llamará a la función de tu componente dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twice) Este es un comportamiento solo de desarrollo y no afecta en producción. Esto significa que cada objeto ref se creará dos veces, y una de las versiones se descartará. Si la función de tu componente es pura (como debería ser), no debería afectar a la lógica de tu componente.
+* En el modo estricto, React **llamará a la función de tu componente dos veces** para [ayudarte a encontrar impurezas accidentales.](/reference/react/useState#my-initializer-or-updater-function-runs-twice) Este es un comportamiento solo de desarrollo y no afecta en producción. Esto significa que cada objeto ref se creará dos veces, y una de las versiones se descartará. Si la función de tu componente es pura (como debería ser), no debería afectar a la lógica de tu componente.
 
 ---
 

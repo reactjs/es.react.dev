@@ -76,7 +76,7 @@ Llamar a esa función fábrica producirá elementos React con las props e hijos 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { createFactory } from 'react';
 
 const button = createFactory('button');
@@ -104,7 +104,7 @@ Si tu proyecto tiene muchas llamadas a `createFactory`, copia esta implementaci�
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { createFactory } from './createFactory.js';
 
 const button = createFactory('button');
@@ -118,7 +118,7 @@ export default function App() {
 }
 ```
 
-```js createFactory.js
+```js src/createFactory.js
 import { createElement } from 'react';
 
 export function createFactory(type) {
@@ -168,7 +168,7 @@ Este es un ejemplo completo de uso de React sin JSX:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { createElement } from 'react';
 
 export default function App() {
@@ -190,7 +190,7 @@ Finalmente, puedes usar JSX en lugar de `createFactory`. Esta es la forma más c
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 export default function App() {
   return (
     <button onClick={() => {

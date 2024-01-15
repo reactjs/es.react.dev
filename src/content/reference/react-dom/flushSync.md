@@ -85,7 +85,7 @@ En el ejemplo siguiente, se utiliza `flushSync` dentro de la función *callback*
 
 <Sandpack>
 
-```js App.js active
+```js src/App.js active
 import { useState, useEffect } from 'react';
 import { flushSync } from 'react-dom';
 

@@ -771,7 +771,7 @@ En el ejemplo anterior, `style={{}}` no es una sintaxis especial, sino un objeto
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Avatar from './Avatar.js';
 
 const user = {
@@ -785,7 +785,7 @@ export default function App() {
 }
 ```
 
-```js Avatar.js active
+```js src/Avatar.js active
 export default function Avatar({ user }) {
   return (
     <img
@@ -801,7 +801,7 @@ export default function Avatar({ user }) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 .avatar {
   border-radius: 50%;
 }
@@ -940,7 +940,7 @@ export default function MarkdownEditor() {
 }
 ```
 
-```js MarkdownPreview.js active
+```js src/MarkdownPreview.js active
 import { Remarkable } from 'remarkable';
 
 const md = new Remarkable();
@@ -982,7 +982,9 @@ textarea { display: block; margin-top: 5px; margin-bottom: 10px; }
 
 </Sandpack>
 
-Para entender por qué el renderizado arbitrario de HTML es peligroso, reemplaza el código anterior con esto: 
+El objeto `{__html}` debe ser creado tan cerca a donde se genera el HTML como sea posible, como el ejemplo de arriba lo hace en la función `renderMarkdownToHTML`. Esto garantiza que todo el HTML sin procesar que se usa en tu código se marque explícitamente como tal, y que solo variables que esperas que contengan HTML se pasen a `dangerouslySetInnerHTML`. No se recomienda crear el objeto en línea de esta forma: `<div dangerouslySetInnerHTML={{__html: markup}} />`.
+
+Para entender por qué el renderizado arbitrario de HTML es peligroso, reemplaza el código anterior con esto:
 
 ```js {1-4,7,8}
 const post = {

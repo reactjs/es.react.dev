@@ -55,7 +55,7 @@ Tomando el [componente `MyButton`](/learn#components) de la guía [Inicio Rápid
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 function MyButton({ title }: { title: string }) {
   return (
     <button>{title}</button>
@@ -72,7 +72,7 @@ export default function MyApp() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -88,7 +88,7 @@ Esta sintaxis en línea es la forma más sencilla de proporcionar tipos para un 
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 interface MyButtonProps {
   /** El texto que se mostrará dentro del botón */
   title: string;
@@ -112,7 +112,7 @@ export default function MyApp() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -170,7 +170,7 @@ El [Hook `useReducer`](/reference/react/useReducer) es un Hook más complejo que
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 import {useReducer} from 'react';
 
 interface State {
@@ -213,7 +213,7 @@ export default function App() {
 
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -248,7 +248,7 @@ El tipo del valor proporcionado por el contexto se infiere a partir del valor pa
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 import { createContext, useContext, useState } from 'react';
 
 type Theme = "light" | "dark" | "system";
@@ -277,7 +277,7 @@ function MyComponent() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -381,7 +381,7 @@ Cuando trabajas con eventos del DOM en React, el tipo del evento suele inferirse
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 import { useState } from 'react';
 
 export default function Form() {
@@ -400,7 +400,7 @@ export default function Form() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```

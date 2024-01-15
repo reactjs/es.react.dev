@@ -80,9 +80,7 @@ Esta sección será más relevante para los desarrolladores que trabajan en marc
 Cada uno de los canales de lanzamiento de React está diseñado para un caso de uso distinto:
 
 - [**Latest**](#latest-channel) es para lanzamientos estables semver React. Es lo que obtienes cuando instalas React desde npm. Este es el canal que ya estás usando hoy. **Las aplicaciones orientadas al usuario que consumen React, directamente usan este canal.**
-
 - [**Canary**](#canary-channel) rastrea la rama principal del repositorio del código fuente de React. Piense en estos como candidatos de lanzamiento para el próximo lanzamiento de semver. **[Los marcos de trabajo u otras configuraciones seleccionadas pueden elegir usar este canal con una versión fijada de React.](/blog/2023/05/03/react-canaries) También puede usar el canal canary para pruebas de integración entre React y proyectos de terceros.**
-
 - [**Experimental**](#experimental-channel) incluye APIs experimentales y funciones que no están disponibles en los lanzamientos estables. Estos también rastrean la rama principal, pero con indicadores de funciones adicionales activados. Use esto para probar las próximas funciones antes de su lanzamiento.
 
 Todos los lanzamientos son publicados en npm, pero solo latest utiliza el versionado semántico. Los prelanzamientos (aquellos en los canales canary y experimental) tienen versiones generadas a partir de un hash de sus contenidos y la fecha de confirmación, ej. `18.3.0-canary-388686f29-20230503` para canary y `0.0.0-experimental-388686f29-20230503` para experimental.
