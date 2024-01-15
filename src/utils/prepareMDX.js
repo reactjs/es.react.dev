@@ -7,8 +7,13 @@ import {Children} from 'react';
 // TODO: Esta lógica podría estar en plugins MDX en lugar de esto.
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<<<<<<< HEAD
 export const PREPARE_MDX_CACHE_BREAKER = 2;
 // !!! IMPORTANTE !!! Revisa esto si cambias alguna lógica.
+=======
+export const PREPARE_MDX_CACHE_BREAKER = 3;
+// !!! IMPORTANT !!! Bump this if you change any logic.
+>>>>>>> 6bfde58c109ec86fd6c5767421404cb679ffba9a
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export function prepareMDX(rawChildren) {

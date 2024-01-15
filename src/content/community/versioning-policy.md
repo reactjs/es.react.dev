@@ -79,7 +79,13 @@ Esta sección será más relevante para los desarrolladores que trabajan en marc
 
 Cada uno de los canales de lanzamiento de React está diseñado para un caso de uso distinto:
 
+<<<<<<< HEAD
 - [**Latest**](#latest-channel) es para lanzamientos estables semver React. Es lo que obtienes cuando instalas React desde npm. Este es el canal que ya estás usando hoy. **Las aplicaciones orientadas al usuario que consumen React, directamente usan este canal.**
+=======
+- [**Latest**](#latest-channel) is for stable, semver React releases. It's what you get when you install React from npm. This is the channel you're already using today. **User-facing applications that consume React directly use this channel.**
+- [**Canary**](#canary-channel) tracks the main branch of the React source code repository. Think of these as release candidates for the next semver release. **[Frameworks or other curated setups may choose to use this channel with a pinned version of React.](/blog/2023/05/03/react-canaries) You can also use Canaries for integration testing between React and third party projects.**
+- [**Experimental**](#experimental-channel) includes experimental APIs and features that aren't available in the stable releases. These also track the main branch, but with additional feature flags turned on. Use this to try out upcoming features before they are released.
+>>>>>>> 6bfde58c109ec86fd6c5767421404cb679ffba9a
 
 - [**Canary**](#canary-channel) rastrea la rama principal del repositorio del código fuente de React. Piense en estos como candidatos de lanzamiento para el próximo lanzamiento de semver. **[Los marcos de trabajo u otras configuraciones seleccionadas pueden elegir usar este canal con una versión fijada de React.](/blog/2023/05/03/react-canaries) También puede usar el canal canary para pruebas de integración entre React y proyectos de terceros.**
 

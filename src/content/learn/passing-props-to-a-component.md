@@ -106,7 +106,7 @@ Ahora puedes configurar `Avatar` para que se renderice de diferentes maneras con
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 function Avatar({ person, size }) {
@@ -150,7 +150,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -275,7 +275,7 @@ Al anidar contenido dentro de una etiqueta JSX, el componente padre recibirá es
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Avatar from './Avatar.js';
 
 function Card({ children }) {
@@ -301,7 +301,7 @@ export default function Profile() {
 }
 ```
 
-```js Avatar.js
+```js src/Avatar.js
 import { getImageUrl } from './utils.js';
 
 export default function Avatar({ person, size }) {
@@ -317,7 +317,7 @@ export default function Avatar({ person, size }) {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -361,7 +361,7 @@ Prueba cambiando el color en la lista desplegable que aparece a continuación:
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 export default function Clock({ color, time }) {
   return (
     <h1 style={{ color: color }}>
@@ -371,7 +371,7 @@ export default function Clock({ color, time }) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -435,7 +435,7 @@ Este componente `Gallery` contiene un marcado muy similar para dos perfiles. Ext
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 export default function Gallery() {
@@ -495,7 +495,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(imageId, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -536,7 +536,7 @@ Nota que la prop `imageSize` tiene un valor predeterminado, por eso no se la pas
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 function Profile({
@@ -603,7 +603,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(imageId, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -636,7 +636,7 @@ Otra solución, que es más similares a los ejemplos antes expuestos en esta pá
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 function Profile({ person, imageSize = 70 }) {
@@ -700,7 +700,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -739,7 +739,7 @@ Modifica el componente `Avatar` para que solicite el tamaño de imagen más adec
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 function Avatar({ person, size }) {
@@ -767,7 +767,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return (
     'https://i.imgur.com/' +
@@ -790,7 +790,7 @@ Aquí tienes una posible forma de hacerlo:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 function Avatar({ person, size }) {
@@ -831,7 +831,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return (
     'https://i.imgur.com/' +
@@ -852,7 +852,7 @@ También podrías mostrar una imagen más nítida en pantallas de alta DPI tenie
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js';
 
 const ratio = window.devicePixelRatio;
@@ -902,7 +902,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return (
     'https://i.imgur.com/' +
