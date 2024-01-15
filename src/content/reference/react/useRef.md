@@ -47,17 +47,10 @@ En los siguientes renderizados, `useRef` devolverá el mismo objeto.
 
 #### Advertencias {/*caveats*/}
 
-<<<<<<< HEAD
 * Puedes mutar la propiedad `ref.current`. A diferencia del estado, es mutable. Sin embargo, si contiene un objeto que se utiliza para el renderizado (por ejemplo, una parte de tu estado), entonces no deberías mutar ese objeto.
 * Cuando cambias la propiedad `ref.current`, React no vuelve a renderizar tu componente. React no está al tanto de cuándo la cambias porque una ref es un objeto JavaScript plano.
 * No escribas _ni leas_ `ref.current` durante el renderizado, excepto para la [inicialización.](#avoiding-recreating-the-ref-contents) Esto hace que el comportamiento de tu componente sea impredecible.
-* En el modo estricto, React **llamará a la función de tu componente dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twice) Este es un comportamiento solo de desarrollo y no afecta en producción. Esto significa que cada objeto ref se creará dos veces, y una de las versiones se descartará. Si la función de tu componente es pura (como debería ser), no debería afectar a la lógica de tu componente.
-=======
-* You can mutate the `ref.current` property. Unlike state, it is mutable. However, if it holds an object that is used for rendering (for example, a piece of your state), then you shouldn't mutate that object.
-* When you change the `ref.current` property, React does not re-render your component. React is not aware of when you change it because a ref is a plain JavaScript object.
-* Do not write _or read_ `ref.current` during rendering, except for [initialization.](#avoiding-recreating-the-ref-contents) This makes your component's behavior unpredictable.
-* In Strict Mode, React will **call your component function twice** in order to [help you find accidental impurities.](/reference/react/useState#my-initializer-or-updater-function-runs-twice) This is development-only behavior and does not affect production. Each ref object will be created twice, but one of the versions will be discarded. If your component function is pure (as it should be), this should not affect the behavior.
->>>>>>> 6bfde58c109ec86fd6c5767421404cb679ffba9a
+* En el modo estricto, React **llamará a la función de tu componente dos veces** para [ayudarte a encontrar impurezas accidentales.](/reference/react/useState#my-initializer-or-updater-function-runs-twice) Este es un comportamiento solo de desarrollo y no afecta en producción. Esto significa que cada objeto ref se creará dos veces, y una de las versiones se descartará. Si la función de tu componente es pura (como debería ser), no debería afectar a la lógica de tu componente.
 
 ---
 

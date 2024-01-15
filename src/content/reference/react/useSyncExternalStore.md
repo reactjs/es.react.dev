@@ -131,15 +131,9 @@ export default function TodosApp() {
 }
 ```
 
-<<<<<<< HEAD
-```js todoStore.js
+```js src/todoStore.js
 // Este es un ejemplo de una fuente de almacenamiento de datos de terceros
 // que podría necesitar integrarse con React.
-=======
-```js src/todoStore.js
-// This is an example of a third-party store
-// that you might need to integrate with React.
->>>>>>> 6bfde58c109ec86fd6c5767421404cb679ffba9a
 
 // Si tu aplicación está completamente construida con React,
 // recomendamos usar el control de estado de React en su lugar.
