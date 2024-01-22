@@ -66,15 +66,10 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
         'max-w-custom-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex',
         {exit: isSubmitted}
       )}>
-<<<<<<< HEAD
-      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg me-4">
+      <p className="w-full text-lg font-bold text-primary dark:text-primary-dark me-4">
         {isSubmitted
           ? '¡Gracias por tus comentarios!'
-          : 'Fue útil esta página?'}
-=======
-      <p className="w-full text-lg font-bold text-primary dark:text-primary-dark me-4">
-        {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
->>>>>>> 3563d95efe8719bdae8bbd258e6ab4134753348b
+          : '¿Fue útil esta página?'}
       </p>
       {!isSubmitted && (
         <button
