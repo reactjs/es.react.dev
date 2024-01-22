@@ -337,7 +337,7 @@ Al pasar una Promesa de un Componente del Servidor a un Componente del Cliente, 
 Una Promesa se puede pasar de un Componente del Servidor a un Componente del Cliente y resolverse en el Componente del Cliente con el Hook `use`. También puedes resolver la Promesa en un Componente del Servidor con `await` y pasar los datos requeridos al Componente del Cliente como una prop.
 
 ```js
-export default function App() {
+export default async function App() {
   const messageContent = await fetchMessage();
   return <Message messageContent={messageContent} />
 }

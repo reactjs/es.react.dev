@@ -337,7 +337,11 @@ import './styles.css';
 import App from './App';
 ```
 
+<<<<<<< HEAD
 Las líneas 1-5 reúnen todas las piezas necesarias:
+=======
+Lines 1-5 bring all the necessary pieces together: 
+>>>>>>> 3563d95efe8719bdae8bbd258e6ab4134753348b
 
 - React
 - Biblioteca de React para hablar con los navegadores web (React DOM)
