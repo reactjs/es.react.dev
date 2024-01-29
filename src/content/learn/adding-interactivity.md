@@ -646,7 +646,6 @@ Los arrays son otro tipo de objetos de JavaScript mutables que puedes almacenar 
 ```js
 import { useState } from 'react';
 
-let nextId = 3;
 const initialList = [
   { id: 0, title: 'Grandes barrigas', seen: false },
   { id: 1, title: 'Paisaje lunar', seen: false },
@@ -714,7 +713,6 @@ Si copiar arrays en el código se vuelve tedioso, puedes usar una biblioteca com
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 
-let nextId = 3;
 const initialList = [
   { id: 0, title: 'Grandes barrigas', seen: false },
   { id: 1, title: 'Paisaje lunar', seen: false },
