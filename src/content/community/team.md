@@ -42,17 +42,8 @@ Engineer at Meta
     Josh se especializó en Matemáticas y descubrió la programación en la universidad. Su primer trabajo como desarrollador profesional fue programar cálculos de tarifas de seguros en Microsoft Excel, el parangón de la Programación Reactiva, que debe ser la razón por la que ahora trabaja en React. En el medio de ese tiempo Josh ha sido un IC, Gerente y Ejecutivo en algunas nuevas empresas. fuera del trabajo le gusta empujar sus límites con la cocina.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Kathryn Middleton" permalink="kathryn-middleton" photo="/images/team/kathryn-middleton.jpg" github="kmiddleton14" twitter="kmiddleton14" title="Gerente de ingeniería en Meta">
-    Kathryn descubrió inicialmente el desarrollo web cuando quería que su página de myspace se viera genial. Terminó especializándose en Informática y rápidamente se convirtió en una gran admiradora de las funciones de creación de React en el equipo de Instagram.com. Fuera del trabajo, le encanta jugar al ping pong, dar clases de spinning e ir a comprar plantas.
-</TeamMember>
-
-<TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" personal="no.lol" title="Ingeniera en Meta">
-    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
-=======
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" personal="no.lol" title="Engineer at Meta">
-    Lauren’s programming career peaked when she first discovered the `<marquee>` tag. She’s been chasing that high ever since. When she’s not adding bugs into React, she enjoys dropping cheeky memes in chat, and playing all too many video games with her partner, and her dog Zelda.
->>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
+    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Ingeniera en Meta">
@@ -67,21 +58,12 @@ Engineer at Meta
     Mofei empezó a programar cuando se dio cuenta de que podía ayudarle a hacer trampas en los videojuegos. Se centró en los sistemas operativos en la licenciatura / posgrado, pero ahora se encuentra feliz jugando en React. Fuera del trabajo, disfruta depurando problemas de boulder y planificando su(s) próximo(s) viaje(s) de mochilera.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" threads="rickhanlonii" personal="rickhanlon.codes" title="Ingeniero en Meta">
-    Ricky se especializó en matemáticas teóricas y de alguna manera se encontró en el equipo de React Native durante un par de años antes de unirse al equipo de React. Cuando no está programando, puedes encontrarlo haciendo snowboard, andando en bicicleta, escalando, jugando al golf o cerrando problemas de GitHub que no coinciden con la plantilla de problemas.
-</TeamMember>
-
-<TeamMember name="Samuel Susla" permalink="samuel-susla" photo="/images/team/sam.jpg" github="sammy-SC" twitter="SamuelSusla" threads="samuelsusla" title="Ingeniero en Meta">
-    El interés de Samuel por la programación empezó con la película Matrix. Todavía tiene el protector de pantalla de Matrix. Antes de trabajar en React, se dedicaba a escribir aplicaciones para iOS. Fuera del trabajo, Samuel disfruta jugando al voley de playa, squash, bádminton y pasar tiempo con su familia.
-=======
 <TeamMember name="Noah Lemen" permalink="noah-lemen" photo="/images/team/noahlemen.jpg" github="noahlemen" twitter="noahlemen" threads="noahlemen" personal="noahle.men" title="Engineer at Meta">
-    Noah’s interest in UI programming sparked during his education in music technology at NYU. At Meta, he's worked on internal tools, browsers, web performance, and is currently focused on React. Outside of work, Noah can be found tinkering with synthesizers or spending time with his cat.
+    El interés de Noah en la programación de interfaces de usuario se despertó durante su educación en tecnología musical en la Universidad de Nueva York. En Meta, ha trabajando en herramientas internas, navegadores, rendimiento web y actualmente está concentrado en React. Fuera del trabajo, puedes encontrar a Noah jugando con sintetizadores o pasando el tiempo con su gato.
 </TeamMember>
 
 <TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" threads="rickhanlonii" personal="rickhanlon.codes" title="Engineer at Meta">
-    Ricky majored in theoretical math and somehow found himself on the React Native team for a couple years before joining the React team. When he's not programming you can find him snowboarding, biking, climbing, golfing, or closing GitHub issues that do not match the issue template.
->>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
+    Ricky se especializó en matemáticas teóricas y de alguna manera se encontró en el equipo de React Native durante un par de años antes de unirse al equipo de React. Cuando no está programando, puedes encontrarlo haciendo snowboard, andando en bicicleta, escalando, jugando al golf o cerrando problemas de GitHub que no coinciden con la plantilla de problemas.
 </TeamMember>
 
 <TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" threads="gsathya.03" title="Ingeniero en Meta">
