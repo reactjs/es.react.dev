@@ -32,25 +32,21 @@ Son especiales en React porque pasando el prop `value` los hace *[controlados.](
 
 ---
 
-<<<<<<< HEAD
-## Todos los componentes HTML {/*all-html-components*/}
-=======
-## Resource and Metadata Components {/*resource-and-metadata-components*/}
+## Componentes de Recursos y Metadatos {/*resource-and-metadata-components*/}
 
-These bulit-in browser components let you load external resources or annotate the document with metadata:
+Estos componentes integrados del navegador te permiten cargar recursos externos o anotar el documento con metadatos:
 
-* [`<link>`](/reference/react-dom/components/link)
-* [`<meta>`](/reference/react-dom/components/meta)
-* [`<script>`](/reference/react-dom/components/script)
-* [`<style>`](/reference/react-dom/components/style)
-* [`<title>`](/reference/react-dom/components/title)
+- [`<link>`](/reference/react-dom/components/link)
+- [`<meta>`](/reference/react-dom/components/meta)
+- [`<script>`](/reference/react-dom/components/script)
+- [`<style>`](/reference/react-dom/components/style)
+- [`<title>`](/reference/react-dom/components/title)
 
-They are special in React because React can render them into the document head, suspend while resources are loading, and enact other behaviors that are described on the reference page for each specific component.
+Son especiales en React porque React puede renderizarlos en el encabezado del documento, suspender mientras se cargan los recursos y aplicar otros comportamientos que se describen en la página de referencia de cada componente específico.
 
 ---
 
-## All HTML components {/*all-html-components*/}
->>>>>>> bb3a0f5c10aaeba6e6fb35f31f36b47812ece158
+## Todos los componentes HTML {/*all-html-components*/}
 
 React admite todos los componentes HTML integrados en el navegador. Esto incluye:
 
