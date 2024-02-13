@@ -1501,7 +1501,7 @@ Se espera que los enredadores [preparados para Suspense](/reference/react/Suspen
 
 ---
 
-### Displaying an error to users with a error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
+### Displaying an error to users with an error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
 
 <Canary>
 

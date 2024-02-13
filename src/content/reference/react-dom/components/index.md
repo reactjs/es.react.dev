@@ -32,6 +32,20 @@ Son especiales en React porque pasando el prop `value` los hace *[controlados.](
 
 ---
 
+## Componentes de Recursos y Metadatos {/*resource-and-metadata-components*/}
+
+Estos componentes integrados del navegador te permiten cargar recursos externos o anotar el documento con metadatos:
+
+- [`<link>`](/reference/react-dom/components/link)
+- [`<meta>`](/reference/react-dom/components/meta)
+- [`<script>`](/reference/react-dom/components/script)
+- [`<style>`](/reference/react-dom/components/style)
+- [`<title>`](/reference/react-dom/components/title)
+
+Son especiales en React porque React puede renderizarlos en el encabezado del documento, suspender mientras se cargan los recursos y aplicar otros comportamientos que se describen en la página de referencia de cada componente específico.
+
+---
+
 ## Todos los componentes HTML {/*all-html-components*/}
 
 React admite todos los componentes HTML integrados en el navegador. Esto incluye:

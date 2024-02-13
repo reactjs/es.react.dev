@@ -4,21 +4,38 @@ title: Iniciar un nuevo proyecto de React
 
 <Intro>
 
-Si deseas crear una nueva aplicación o un nuevo sitio web completamente con React, te recomendamos que elijas uno de los frameworks hechos con React y más populares en la comunidad. Los frameworks brindan funciones que la mayoría de las aplicaciones y los sitios eventualmente necesitan, incluido el enrutamiento, la obtención de datos y la generación de HTML.
+Si deseas crear una nueva aplicación o un nuevo sitio web completamente con React, te recomendamos que elijas uno de los frameworks hechos con React y más populares en la comunidad.
 
 </Intro>
 
-<Note>
 
-**Necesitarás instalar [Node.js](https://nodejs.org/es/) para el desarrollo local.** Puedes *también* optar por usar Node.js en producción, pero no tienes que hacerlo. Muchos frameworks de React permiten exportar a una carpeta HTML/CSS/JS estática.
+Puedes usar React sin un framework, sin embargo, hemos descubierto que la mayoría de las aplicaciones y sitios web terminan creando soluciones a problemas comunes como la división de código, el enrutamiento, la obtención de datos y la generación de HTML. Estos problemas son comunes a todas las bibliotecas de interfaz de usuario, no solo a React.
 
-</Note>
+Al comenzar con un framework, puedes empezar con React rápidamente y evitar esencialmente tener que construir tu propio framework más adelante.
+
+<DeepDive>
+
+#### ¿Puedo usar React sin un framework? {/*can-i-use-react-without-a-framework*/}
+
+Definitivamente puedes usar React sin un framework; así es como [usarías React para una parte de tu página.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) **Sin embargo, si estás creando una nueva aplicación o un sitio completamente con React, te recomendamos que uses un framework.**
+
+Aquí esta el porqué.
+
+Incluso si no necesitas enrutamiento u obtención de datos al principio, es probable que desees agregar algunas bibliotecas para ello. A medida que tu paquete de JavaScript crece con cada nueva función, es posible que debas descubrir cómo dividir el código para cada ruta individualmente. A medida que tus necesidades de obtención de datos se vuelven más complejas, es probable que encuentres cascadas de red servidor-cliente que hacen que tu aplicación se sienta muy lenta. A medida que tu audiencia incluye más usuarios con malas condiciones de red y dispositivos de gama baja, es posible que debas generar HTML a partir de tus componentes para mostrar el contenido antes, ya sea en el servidor o durante el tiempo de compilación. Cambiar tu configuración para ejecutar parte de su código en el servidor o durante la compilación puede ser muy complicado.
+
+**Estos problemas no son específicos de React. Esta es la razón por la que Svelte tiene SvelteKit, Vue tiene Nuxt, etc.** Para resolver estos problemas por tu cuenta, deberás integrar tu paquete con tu enrutador y con tu biblioteca de obtención de datos. No es difícil hacer que funcione una configuración inicial, pero hay muchas sutilezas involucradas en hacer una aplicación que se cargue rápidamente incluso a medida que crece con el tiempo. Querrás enviar la cantidad mínima de código de la aplicación, pero hacerlo en una sola petición de ida y vuelta entre el cliente y el servidor, en paralelo con los datos necesarios para la página. Es probable que desees que la página sea interactiva incluso antes de que se ejecute tu código JavaScript, para admitir la mejora progresiva. Es posible que desees generar una carpeta de archivos HTML completamente estáticos para tus páginas de marketing que se pueden alojar en cualquier lugar y seguir funcionando con JavaScript deshabilitado. Desarrollar estas capacidades por tu cuenta requiere mucho trabajo.
+
+**Los frameworks de React en esta página resuelven problemas como estos de forma predeterminada, sin trabajo adicional de tu parte.** Te permiten comenzar de manera muy sencilla y luego escalar tu aplicación según tus necesidades. Cada framework de React tiene una comunidad, por lo que es más fácil encontrar respuestas a las preguntas y actualizar las herramientas. Los frameworks también brindan estructura a tu código, ayudándote a ti y a otros a retener el contexto y las habilidades entre diferentes proyectos. Por el contrario, con una configuración personalizada es más fácil quedarte atascado en versiones de dependencia no admitidas, y esencialmente terminarás creando tu propio framework, aunque uno sin comunidad o ruta de actualización (y si es algo como los que hemos hecho en el pasado, diseñado al azar).
+
+Si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen bien o prefieres resolver estos problemas tú mismo, puedes implementar tu propia configuración personalizada con React. Toma `react` y `react-dom` de npm, configura tu proceso de compilación personalizado con un paquete como [Vite](https://es.vitejs.dev/) o [Parcel](https://parceljs.org/) y agrega otras herramientas a medida que las necesites para el enrutamiento, la generación estática o el renderizado del lado del servidor, y más.
+
+</DeepDive>
 
 ## Frameworks React de nivel de producción {/*production-grade-react-frameworks*/}
 
-### Next.js {/*nextjs*/}
+Estos frameworks brindan todas las características que necesitas para implementar y escalar tu aplicación en producción y están trabajando para respaldar nuestra [visión de arquitectura full-stack](#which-features-make-up-the-react-teams-full-stack-architecture-vision). Todos los frameworks que recomendamos son de código abierto, con comunidades activas que brindan soporte, y pueden ser desplegados en tu propio servidor o en un proveedor de alojamiento. Si eres autor de un framework interesado en ser incluido en esta lista, [por favor, háznoslo saber](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
 
-**[Next.js](https://nextjs.org/) es un framework de React muy completo.** Es versátil y te permite crear aplicaciones React de cualquier tamaño, desde un blog estático hasta una aplicación dinámica compleja. Para crear un nuevo proyecto Next.js, ejecuta en tu terminal:
+**[Next.js' (Pages Router)](https://nextjs.org/) es un framework completo de React. Es versátil y te permite crear aplicaciones React de cualquier tamaño, desde un blog mayormente estático hasta una aplicación dinámica compleja. Para crear un nuevo proyecto de Next.js, ejecuta en tu terminal:
 
 <TerminalBlock>
 npx create-next-app@latest
@@ -64,23 +81,6 @@ Si eres nuevo en Expo, revisa el [tutorial de Expo](https://docs.expo.dev/tutori
 
 Expo es mantenida por [Expo (empresa)](https://expo.dev/about). La creación de aplicaciones con Expo es gratuita y puede enviarlas a las tiendas de aplicaciones de Google y Apple sin restricciones. Expo también ofrece servicios en la nube de pago opcionales.
 
-<DeepDive>
-
-#### ¿Puedo usar React sin un framework? {/*can-i-use-react-without-a-framework*/}
-
-Definitivamente puedes usar React sin un framework; así es como [usarías React para una parte de tu página.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) **Sin embargo, si estás creando una nueva aplicación o un sitio completamente con React, te recomendamos que uses un framework.**
-
-Aquí esta el porqué.
-
-Incluso si no necesitas enrutamiento u obtención de datos al principio, es probable que desees agregar algunas bibliotecas para ello. A medida que tu paquete de JavaScript crece con cada nueva función, es posible que debas descubrir cómo dividir el código para cada ruta individualmente. A medida que tus necesidades de obtención de datos se vuelven más complejas, es probable que encuentres cascadas de red servidor-cliente que hacen que tu aplicación se sienta muy lenta. A medida que tu audiencia incluye más usuarios con malas condiciones de red y dispositivos de gama baja, es posible que debas generar HTML a partir de tus componentes para mostrar el contenido antes, ya sea en el servidor o durante el tiempo de compilación. Cambiar tu configuración para ejecutar parte de su código en el servidor o durante la compilación puede ser muy complicado.
-
-**Estos problemas no son específicos de React. Esta es la razón por la que Svelte tiene SvelteKit, Vue tiene Nuxt, etc.** Para resolver estos problemas por tu cuenta, deberás integrar tu paquete con tu enrutador y con tu biblioteca de obtención de datos. No es difícil hacer que funcione una configuración inicial, pero hay muchas sutilezas involucradas en hacer una aplicación que se cargue rápidamente incluso a medida que crece con el tiempo. Querrás enviar la cantidad mínima de código de la aplicación, pero hacerlo en una sola petición de ida y vuelta entre el cliente y el servidor, en paralelo con los datos necesarios para la página. Es probable que desees que la página sea interactiva incluso antes de que se ejecute tu código JavaScript, para admitir la mejora progresiva. Es posible que desees generar una carpeta de archivos HTML completamente estáticos para tus páginas de marketing que se pueden alojar en cualquier lugar y seguir funcionando con JavaScript deshabilitado. Desarrollar estas capacidades por tu cuenta requiere mucho trabajo.
-
-**Los frameworks de React en esta página resuelven problemas como estos de forma predeterminada, sin trabajo adicional de tu parte.** Te permiten comenzar de manera muy sencilla y luego escalar tu aplicación según tus necesidades. Cada framework de React tiene una comunidad, por lo que es más fácil encontrar respuestas a las preguntas y actualizar las herramientas. Los frameworks también brindan estructura a tu código, ayudándote a ti y a otros a retener el contexto y las habilidades entre diferentes proyectos. Por el contrario, con una configuración personalizada es más fácil quedarte atascado en versiones de dependencia no admitidas, y esencialmente terminarás creando tu propio framework, aunque uno sin comunidad o ruta de actualización (y si es algo como los que hemos hecho en el pasado, diseñado al azar).
-
-Si todavía no estás convencido, o si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen bien y deseas implementar tu propia configuración personalizada, no podemos detenerte, ¡hazlo! Toma `react` y `react-dom` de npm, configura tu proceso de compilación personalizado con un paquete como [Vite](https://es.vitejs.dev/) o [Parcel](https://parceljs.org/) y agrega otras herramientas a medida que las necesites para el enrutamiento, la generación estática o la representación del lado del servidor, y más.
-</DeepDive>
-
 ## Frameworks React de última generación {/*bleeding-edge-react-frameworks*/}
 
 A medida que exploramos cómo continuar mejorando React, nos dimos cuenta de que integrar React más estrechamente con los frameworks (específicamente, con tecnologías de enrutamiento, agrupación y servidor) es nuestra mayor oportunidad para ayudar a los usuarios de React a crear mejores aplicaciones. El equipo de Next.js acordó colaborar con nosotros en la investigación, el desarrollo, la integración y la prueba de funciones de React de última generación independientes del framework como [React Server Components.](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
@@ -123,6 +123,6 @@ El App Router de Next.js también integra [obtención de datos con Suspense](/bl
 </Suspense>
 ```
 
-Server Components y Suspense son funciones de React en lugar de funciones de Next.js. Sin embargo, adoptarlos a nivel del framework requiere compromiso y un trabajo de implementación no trivial. Por el momento, el App Router de Next.js es la implementación más completa. El equipo de React está trabajando con los desarrolladores de paquetes para que estas características sean más fáciles de implementar en la próxima generación de frameworks.
+Los Componentes del Servidor y Suspense son funcionalidades de React, no funcionalidades de Next.js. Sin embargo, adoptarlos a nivel del framework requiere compromiso y un trabajo de implementación no trivial. Por el momento, el App Router de Next.js es la implementación más completa. El equipo de React está trabajando con los desarrolladores de paquetes para que estas características sean más fáciles de implementar en la próxima generación de frameworks.
 
 </DeepDive>
