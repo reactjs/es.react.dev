@@ -12,66 +12,73 @@
       "skipBreadcrumb": true,
       "routes": [
         {
+          "title": "React Labs: What We've Been Working On – February 2024",
+          "titleForHomepage": "React Labs: February 2024",
+          "icon": "labs",
+          "date": "15 de febrero de 2024",
+          "path": "/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024"
+        },
+        {
           "title": "React Canaries: Habilitar el despliegue incremental de características fuera de Meta",
           "titleForHomepage": "React Canaries: Despliegue incremental de características",
           "icon": "blog",
-          "date": "Mayo 3, 2023",
+          "date": "3 de mayo de 2023",
           "path": "/blog/2023/05/03/react-canaries"
         },
         {
           "title": "React Labs: What We've Been Working On – March 2023",
           "titleForHomepage": "React Labs: Marzo 2023",
           "icon": "labs",
-          "date": "Marzo 22, 2023",
+          "date": "22 de marzo de 2023",
           "path": "/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023"
         },
         {
           "title": "Presentación de react.dev",
           "titleForHomepage": "Presentación de react.dev",
           "icon": "blog",
-          "date": "Marzo 16, 2023",
+          "date": "16 de marzo de 2023",
           "path": "/blog/2023/03/16/introducing-react-dev"
         },
         {
           "title": "React Labs: What We've Been Working On – June 2022",
           "titleForHomepage": "React Labs: Junio 2022",
           "icon": "labs",
-          "date": "Junio 15, 2022",
+          "date": "15 de junio de 2022",
           "path": "/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022"
         },
         {
           "title": "React v18.0",
           "titleForHomepage": "React v18.0",
           "icon": "blog",
-          "date": "Marzo 29, 2022",
+          "date": "29 de marzo de 2022",
           "path": "/blog/2022/03/29/react-v18"
         },
         {
           "title": "Cómo actualizar a React 18",
           "titleForHomepage": "Actualización a React 18",
           "icon": "blog",
-          "date": "Marzo 8, 2022",
+          "date": "8 de marzo de 2022",
           "path": "/blog/2022/03/08/react-18-upgrade-guide"
         },
         {
           "title": "Resumen de React Conf 2021",
           "titleForHomepage": "Resumen de React Conf 2021",
           "icon": "blog",
-          "date": "Diciembre 17, 2021",
+          "date": "17 de diciembre de 2021",
           "path": "/blog/2021/12/17/react-conf-2021-recap"
         },
         {
           "title": "El plan para React 18",
           "titleForHomepage": "El plan para React 18",
           "icon": "blog",
-          "date": "Junio 8, 2021",
+          "date": "8 de junio de 2021",
           "path": "/blog/2021/06/08/the-plan-for-react-18"
         },
         {
           "title": "Presentación de los Server Components",
           "titleForHomepage": "Presentación de los Server Components",
           "icon": "labs",
-          "date": "Diciembre 21, 2020",
+          "date": "21 de diciembre de 2020",
           "path": "/blog/2020/12/21/data-fetching-with-react-server-components"
         },
         {
