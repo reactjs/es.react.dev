@@ -554,8 +554,6 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-(Alternativamente, puedes mantener el índice seleccionado en el estado).
-
 El estado solía duplicarse de esta manera:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
