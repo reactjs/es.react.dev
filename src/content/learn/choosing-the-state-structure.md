@@ -554,13 +554,7 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
-(Alternativamente, puedes mantener el índice seleccionado en el estado).
-
 El estado solía duplicarse de esta manera:
-=======
-The state used to be duplicated like this:
->>>>>>> 081d1008dd1eebffb9550a3ff623860a7d977acf
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedItem = {id: 0, title: 'pretzels'}`

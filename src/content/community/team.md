@@ -22,13 +22,8 @@ Engineer at Meta
     Andrey comenzó su carrera como diseñador y luego pasó gradualmente al desarrollo web. Después de unirse al equipo de React Data en Meta, trabajó para agregar un compilador de JavaScript incremental a Relay y, más tarde, trabajó para eliminar el mismo compilador de Relay. Fuera del trabajo, a Andrey le gusta tocar música y practicar varios deportes.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov" title="Ingeniero en Meta">
+<TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov" title="Ingeniero independiente">
     Dan comenzó a programar después de que accidentalmente descubrió Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación al convertir los tweets de [Sebastian](#sebastian-markbåge) en extensas publicaciones de blog. Dan gana ocasionalmente en Fortnite escondiéndose en un arbusto hasta que termina el juego.
-=======
-<TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov" title="Independent Engineer">
-    Dan got into programming after he accidentally discovered Visual Basic inside Microsoft PowerPoint. He has found his true calling in turning [Sebastian](#sebastian-markbåge)'s tweets into long-form blog posts. Dan occasionally wins at Fortnite by hiding in a bush until the game ends.
->>>>>>> 081d1008dd1eebffb9550a3ff623860a7d977acf
 </TeamMember>
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="TheSavior" twitter="Eli_White" threads="elicwhite" title="Gerente de ingeniería en Meta">
