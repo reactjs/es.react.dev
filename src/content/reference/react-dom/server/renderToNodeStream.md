@@ -13,7 +13,7 @@ Esta API se eliminará en una futura versión de React. En su lugar, usa [`rende
 `renderToNodeStream` renderiza un árbol de React en un [*Stream* legible de Node.js.](https://nodejs.org/api/stream.html#readable-streams)
 
 ```js
-const stream = renderToNodeStream(reactNode)
+const stream = renderToNodeStream(reactNode, options?)
 ```
 
 </Intro>
@@ -24,7 +24,7 @@ const stream = renderToNodeStream(reactNode)
 
 ## Referencia {/*reference*/}
 
-### `renderToNodeStream(reactNode)` {/*rendertonodestream*/}
+### `renderToNodeStream(reactNode, options?)` {/*rendertonodestream*/}
 
 En el servidor, llama a `renderToNodeStream` para obtener un [*Stream* legible de Node.js](https://nodejs.org/api/stream.html#readable-streams) que puedes enviar al flujo de la respuesta.
 
