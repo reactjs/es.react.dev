@@ -40,7 +40,11 @@ function SearchPage() {
 
 #### Devuelve {/*returns*/}
 
+<<<<<<< HEAD
 Durante el renderizado inicial, el valor diferido devuelto será el mismo que el valor que se haya proporcionado inicialmente. Durante las actualizaciones, React realizará un primer intento de re-renderizado con el valor anterior (de modo que devolverá el valor anterior) e intentará realizar otro re-renderizado en segundo plano con el nuevo valor (por lo que devolverá el valor actualizado).
+=======
+During the initial render, the returned deferred value will be the same as the value you provided. During updates, React will first attempt a re-render with the old value (so it will return the old value), and then try another re-render in the background with the new value (so it will return the updated value). 
+>>>>>>> 265fa26e3b39739f06c956140d9acf618c6b4e6b
 
 #### Advertencias {/*caveats*/}
 
@@ -76,7 +80,11 @@ function SearchPage() {
 
 Durante el renderizado inicial,  el <CodeStep step={2}>valor diferido</CodeStep> será el mismo que el <CodeStep step={1}>valor</CodeStep> que se proporcione.
 
+<<<<<<< HEAD
 Durante las actualizaciones, el <CodeStep step={2}>valor diferido</CodeStep> tendrá un "retardo" respecto al último <CodeStep step={1}>valor</CodeStep>. Concretamente, React re-renderizará primero *sin* actualizar el valor diferido y posteriormente intentará re-renderizar con el nuevo valor recibido en segundo plano.
+=======
+During updates, the <CodeStep step={2}>deferred value</CodeStep> will "lag behind" the latest <CodeStep step={1}>value</CodeStep>. In particular, React will first re-render *without* updating the deferred value, and then try to re-render with the newly received value in the background.
+>>>>>>> 265fa26e3b39739f06c956140d9acf618c6b4e6b
 
 **Analicemos un ejemplo para ver en qué situaciones resulta útil."**
 
@@ -510,7 +518,11 @@ Puedes pensar que ocurre de acuerdo a estos dos pasos:
 
 1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero utilizando el anterior `deferredQuery` (cuyo valor aún es `"a")`.** El valor de `deferredQuery`, el cual se pasa a la lista resultante, está "diferido" respecto al valor de la `query`.
 
+<<<<<<< HEAD
 2. **En segundo plano, React intentará re-renderizar con *ambos* `query` y `deferredQuery` actualizados con el valor `"ab"`.** Si este re-renderizado se completa, React lo mostrará por pantalla. De lo contrario, si se "suspende" (los resultados para `"ab"` aún no se han cargado), React abandonará este intento de renderización y re-intentará este re-renderizado nuevamente una vez los datos hayan sido cargados. El usuario seguirá viendo el valor diferido obsoleto hasta que los datos hayan sido cargados.
+=======
+2. **In the background, React tries to re-render with *both* `query` and `deferredQuery` updated to `"ab"`.** If this re-render completes, React will show it on the screen. However, if it suspends (the results for `"ab"` have not loaded yet), React will abandon this rendering attempt, and retry this re-render again after the data has loaded. The user will keep seeing the stale deferred value until the data is ready.
+>>>>>>> 265fa26e3b39739f06c956140d9acf618c6b4e6b
 
 La renderización diferida en segundo plano se puede interrumpir. Por ejemplo, si escribimos en el _input_ nuevamente, React abandonará esa renderización y comenzará una nueva con el nuevo valor. React siempre utilizará el último valor proporcionado.
 
@@ -954,7 +966,11 @@ Mientras que estas técnicas son útiles en algunos casos, `useDeferredValue` es
 
 En lugar de _debounce_ o _throttle_, no requiere emplear un retardo fijo. Si el dispositivo del usuario es rápido (por ejemplo una computadora potente), el re-renderizado diferido ocurrirá prácticamente de forma inmediata e imperceptible. Si el dispositivo del usuario es lento la actualización de la lista tras modificar el valor del _input_ tendrá un retardo proporcional a lo lento que sea dicho dispositivo.
 
+<<<<<<< HEAD
 Añadir que los re-renderizados diferidos realizados por `useDeferredValue` se pueden interrumpir por defecto. Esto significa que, si React se encuentra en mitad de un proceso de re-renderizado de una lista con muchos resultados, pero el usuario pulsa una tecla sobre el _input_, a fin de introducir un nuevo valor, React abandonará ese re-renderizado y comenzará uno nuevo en segundo plano. En contraste, _debounce_ y _throttle_ producen una experiencia entrecortada ya que *bloquean* y posponen el momento en el que se re-renderiza el contenido por cada pulsación de tecla cuando se introducen nuevos valores en el _input_.
+=======
+Also, unlike with debouncing or throttling, deferred re-renders done by `useDeferredValue` are interruptible by default. This means that if React is in the middle of re-rendering a large list, but the user makes another keystroke, React will abandon that re-render, handle the keystroke, and then start rendering in the background again. By contrast, debouncing and throttling still produce a janky experience because they're *blocking:* they merely postpone the moment when rendering blocks the keystroke.
+>>>>>>> 265fa26e3b39739f06c956140d9acf618c6b4e6b
 
 Si la optimización no ocurre durante el renderizado, _debounce_ y _throttle_ aún son útiles en ese caso. Por ejemplo, te permitirán realizar menos peticiones de red. También puedes utilizar estas técnicas al mismo tiempo.
 
