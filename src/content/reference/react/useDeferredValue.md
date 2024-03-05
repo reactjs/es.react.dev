@@ -508,7 +508,7 @@ input { margin: 10px; }
 
 Puedes pensar que ocurre de acuerdo a estos dos pasos:
 
-1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero utilizando el anterior `deferredQuery` (cuyo valor aún es `"a")`.** El valor de `deferredQuery`, el cual se pasa a la lista resultante, está "diferido" respecto al valor de la `query`.
+1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero utilizando el anterior `deferredQuery` (cuyo valor aún es `"a"`).** El valor de `deferredQuery`, el cual se pasa a la lista resultante, está "diferido" respecto al valor de la `query`.
 
 2. **En segundo plano, React intentará re-renderizar con *ambos* `query` y `deferredQuery` actualizados con el valor `"ab"`.** Si este re-renderizado se completa, React lo mostrará por pantalla. De lo contrario, si se "suspende" (los resultados para `"ab"` aún no se han cargado), React abandonará este intento de renderización y re-intentará este re-renderizado nuevamente una vez los datos hayan sido cargados. El usuario seguirá viendo el valor diferido obsoleto hasta que los datos hayan sido cargados.
 

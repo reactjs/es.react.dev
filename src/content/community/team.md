@@ -22,7 +22,7 @@ Engineer at Meta
     Andrey comenzó su carrera como diseñador y luego pasó gradualmente al desarrollo web. Después de unirse al equipo de React Data en Meta, trabajó para agregar un compilador de JavaScript incremental a Relay y, más tarde, trabajó para eliminar el mismo compilador de Relay. Fuera del trabajo, a Andrey le gusta tocar música y practicar varios deportes.
 </TeamMember>
 
-<TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov" title="Ingeniero independiente">
+<TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov2" title="Ingeniero independiente">
     Dan comenzó a programar después de que accidentalmente descubrió Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación al convertir los tweets de [Sebastian](#sebastian-markbåge) en extensas publicaciones de blog. Dan gana ocasionalmente en Fortnite escondiéndose en un arbusto hasta que termina el juego.
 </TeamMember>
 
