@@ -141,7 +141,7 @@ React, como framework de UI, es independiente de la plataforma. En react.dev, mo
 
 Estas primitivas de UI de plataforma no son parte de React. Los árboles de renderizado de React pueden proporcionar información sobre nuestra aplicación de React independientemente de la plataforma en la que se renderice tu aplicación.
 
-<DeepDive>
+</DeepDive>
 
 Un árbol de renderizado representa un único pase de renderizado de una aplicación de React. Con [renderizado condicional](/learn/conditional-rendering), un componente padre puede renderizar diferentes hijos dependiendo de los datos pasados.
 
