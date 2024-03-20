@@ -7,7 +7,7 @@
       "sectionHeader": "react@18.2.0"
     },
     {
-      "title": "Overview",
+      "title": "Descripción general",
       "path": "/reference/react"
     },
     {
@@ -349,6 +349,26 @@
           "path": "/reference/react-dom/server/renderToString"
         }
       ]
+    },
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "Reglas de React"
+    },
+    {
+      "title": "Descripción general",
+      "path": "/reference/rules"
+    },
+    {
+      "title": "Los componentes y Hooks deben ser puros",
+      "path": "/reference/rules/components-and-hooks-must-be-pure"
+    },
+    {
+      "title": "React llama a los components y Hooks",
+      "path": "/reference/rules/react-calls-components-and-hooks"
+    },
+    {
+      "title": "Reglas de los Hooks",
+      "path": "/reference/rules/rules-of-hooks"
     },
     {
       "hasSectionHeader": true,
