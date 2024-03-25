@@ -435,7 +435,11 @@ interface ModalRendererProps {
 
 Ten en cuenta que no puedes usar TypeScript para describir que los hijos son un cierto tipo de elementos JSX, por lo que no puedes usar el sistema de tipos para describir un componente que sólo acepta hijos `<li>`.
 
+<<<<<<< HEAD
 Puedes ver un ejemplo tanto de `React.ReactNode` como de `React.ReactElement` con el verificador de tipos en [este TypeScript playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgIilQ3wChSB6CxYmAOmXRgDkIATJOdNJMGAZzgwAFpxAR+8YADswAVwGkZMJFEzpOjDKw4AFHGEEBvUnDhphwADZsi0gFw0mDWjqQBuUgF9yaCNMlENzgAXjgACjADfkctFnYkfQhDAEpQgD44AB42YAA3dKMo5P46C2tbJGkvLIpcgt9-QLi3AEEwMFCItJDMrPTTbIQ3dKywdIB5aU4kKyQQKpha8drhhIGzLLWODbNs3b3s8YAxKBQAcwXpAThMaGWDvbH0gFloGbmrgQfBzYpd1YjQZbEYARkB6zMwO2SHSAAlZlYIBCdtCRkZpHIrFYahQYQD8UYYFA5EhcfjyGYqHAXnJAsIUHlOOUbHYhMIIHJzsI0Qk4P9SLUBuRqXEXEwAKKfRZcNA8PiCfxWACecAAUgBlAAacFm80W-CU11U6h4TgwUv11yShjgJjMLMqDnN9Dilq+nh8pD8AXgCHdMrCkWisVoAet0R6fXqhWKhjKllZVVxMcavpd4Zg7U6Qaj+2hmdG4zeRF10uu-Aeq0LBfLMEe-V+T2L7zLVu+FBWLdLeq+lc7DYFf39deFVOotMCACNOCh1dq219a+30uC8YWoZsRyuEdjkevR8uvoVMdjyTWt4WiSSydXD4NqZP4AymeZE072ZzuUeZQKheQgA).
+=======
+You can see an example of both `React.ReactNode` and `React.ReactElement` with the type-checker in [this TypeScript playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgIilQ3wChSB6CxYmAOmXRgDkIATJOdNJMGAZzgwAFpxAR+8YADswAVwGkZMJFEzpOjDKw4AFHGEEBvUnDhphwADZsi0gFw0mDWjqQBuUgF9yaCNMlENzgAXjgACjADfkctFnYkfQhDAEpQgD44AB42YAA3dKMo5P46C2tbJGkvLIpcgt9-QLi3AEEwMFCItJDMrPTTbIQ3dKywdIB5aU4kKyQQKpha8drhhIGzLLWODbNs3b3s8YAxKBQAcwXpAThMaGWDvbH0gFloGbmrgQfBzYpd1YjQZbEYARkB6zMwO2SHSAAlZlYIBCdtCRkZpHIrFYahQYQD8UYYFA5EhcfjyGYqHAXnJAsIUHlOOUbHYhMIIHJzsI0Qk4P9SLUBuRqXEXEwAKKfRZcNA8PiCfxWACecAAUgBlAAacFm80W-CU11U6h4TgwUv11yShjgJjMLMqDnN9Dilq+nh8pD8AXgCHdMrCkWisVoAet0R6fXqhWKhjKllZVVxMcavpd4Zg7U6Qaj+2hmdG4zeRF10uu-Aeq0LBfLMEe-V+T2L7zLVu+FBWLdLeq+lc7DYFf39deFVOotMCACNOCh1dq219a+30uC8YWoZsRyuEdjkevR8uvoVMdjyTWt4WiSSydXD4NqZP4AymeZE072ZzuUeZQKheQgA).
+>>>>>>> 7bdbab144e09d4edf793ff5128080eb1dba79be4
 
 ### Props de estilo {/*typing-style-props*/}
 
@@ -456,7 +460,11 @@ Recomendamos los siguientes recursos:
 
  - [The TypeScript handbook](https://www.typescriptlang.org/docs/handbook/) es la documentación oficial para TypeScript, y abarca la mayoría de las características clave del lenguaje.
 
+<<<<<<< HEAD
  - [The TypeScript release notes](https://devblogs.microsoft.com/typescript/) cubre cada una de las nuevas característica en profundidad.
+=======
+ - [The TypeScript release notes](https://devblogs.microsoft.com/typescript/) cover new features in depth.
+>>>>>>> 7bdbab144e09d4edf793ff5128080eb1dba79be4
 
  - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/) es una hoja de referencia mantenida por la comunidad que trata sobre cómo utilizar TypeScript con React, abordando muchos casos útiles y proporcionando un enfoque más amplio que este documento.
 
