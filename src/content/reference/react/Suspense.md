@@ -1348,7 +1348,11 @@ input { margin: 10px; }
 
 <Note>
 
+<<<<<<< HEAD
 Tanto los valores aplazados como las [transiciones](#preventing-already-revealed-content-from-hiding) te permiten evitar *fallbacks* de Suspense y en su lugar usar indicadores en línea. Las transiciones marcan todas la actualización como no urgente, por lo que se usan típicamente por frameworks y bibliotecas de enrutamiento para la navegación. Los valores aplazados, en cambio, son útiles sobre todo en código de aplicación en el que quieres marcar una parte de la UI como no urgente, traducido como que está permitido que *se quede por detrás* del resto de la UI.
+=======
+Both deferred values and [Transitions](#preventing-already-revealed-content-from-hiding) let you avoid showing Suspense fallback in favor of inline indicators. Transitions mark the whole update as non-urgent so they are typically used by frameworks and router libraries for navigation. Deferred values, on the other hand, are mostly useful in application code where you want to mark a part of UI as non-urgent and let it "lag behind" the rest of the UI.
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 </Note>
 
@@ -1727,7 +1731,11 @@ main {
 
 Cuando presionaste el botón, el componente `Router` renderizó `ArtistPage` en lugar de `IndexPage`. Un componente dentro de `ArtistPage` se suspendió, por lo que la barrera de Suspense más cercana comenzó a mostrar un *fallback* La barrera de Suspense más cercana estaba cerca de la raíz, por lo que todo el sitio quedó reemplazado por `BigSpinner`.
 
+<<<<<<< HEAD
 Para prevenir que esto pase, puedes marcar la actualización del estado de navegación como una *transición* con [`startTransition`:](/reference/react/startTransition)
+=======
+To prevent this, you can mark the navigation state update as a *Transition* with [`startTransition`:](/reference/react/startTransition)
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 ```js {5,7}
 function Router() {
@@ -1741,7 +1749,11 @@ function Router() {
   // ...
 ```
 
+<<<<<<< HEAD
 Esto le dice a React que la transición de estado no es urgente y que es mejor seguir mostrando la página anterior en lugar de esconder contenido ya revelado. Nota como al hacer clic el botón ahora "espera" a que se carga `Biography`:
+=======
+This tells React that the state Transition is not urgent, and it's better to keep showing the previous page instead of hiding any already revealed content. Now clicking the button "waits" for the `Biography` to load:
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 <Sandpack>
 
@@ -2112,19 +2124,33 @@ main {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Una transición no espera por que cargue *todo* el contenido. Espera lo suficiente para evitar esconder contenido ya revelado. Por ejemplo, la maquetación (definida por `Layout`) del sitio ya había sido revelada, por lo que estaría mal esconderla dentro de un indicador de carga. Sin embargo, la barrera de `Suspense` anidada alrededor de `Albums` es nueva, por lo que la transición no espera por ella.
 
 <Note>
 
 Los enrutadores preparados para Suspense deberian envolver por defecto las actualizaciones de navegación dentro de transiciones.
+=======
+A Transition doesn't wait for *all* content to load. It only waits long enough to avoid hiding already revealed content. For example, the website `Layout` was already revealed, so it would be bad to hide it behind a loading spinner. However, the nested `Suspense` boundary around `Albums` is new, so the Transition doesn't wait for it.
+
+<Note>
+
+Suspense-enabled routers are expected to wrap the navigation updates into Transitions by default.
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 </Note>
 
 ---
 
+<<<<<<< HEAD
 ### Indicar que está ocurriendo una transición {/*indicating-that-a-transition-is-happening*/}
 
 En el ejemplo de arriba, una vez que haces clic al botón, no hay un indicador visual de que hay una navegación en proceso. Para añadir un indicador, puedes reemplazar [`startTransition`](/reference/react/startTransition) con [`useTransition`](/reference/react/useTransition) que te da un valor booleano `isPending` (que indica si la transición está pendiente). En el ejemplo de abajo, se usa para cambiar el estilo del encabezado del sitio mientras ocurre la transición:
+=======
+### Indicating that a Transition is happening {/*indicating-that-a-transition-is-happening*/}
+
+In the above example, once you click the button, there is no visual indication that a navigation is in progress. To add an indicator, you can replace [`startTransition`](/reference/react/startTransition) with [`useTransition`](/reference/react/useTransition) which gives you a boolean `isPending` value. In the example below, it's used to change the website header styling while a Transition is happening:
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 <Sandpack>
 
@@ -2502,13 +2528,21 @@ main {
 
 ### Reiniciar las barreras de Suspense al navegar {/*resetting-suspense-boundaries-on-navigation*/}
 
+<<<<<<< HEAD
 Durante una transición, React evitará esconder el contenido que ya ha sido revelado. Sin embargo, si navegas a una ruta con distintos parámetros, querrías decirle a React que es un contenido *diferente*. Puedes expresar esto con una `key`:
+=======
+During a Transition, React will avoid hiding already revealed content. However, if you navigate to a route with different parameters, you might want to tell React it is *different* content. You can express this with a `key`:
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 ```js
 <ProfilePage key={queryParams.id} />
 ```
 
+<<<<<<< HEAD
 Imagina que estás navegando dentro de la página del perfil de un usuario, y algo se suspende. Si esa actualización se envuelve en una transición no activará el *fallback* para el contenido ya visible. Ese es el comportamiento esperado.
+=======
+Imagine you're navigating within a user's profile page, and something suspends. If that update is wrapped in a Transition, it will not trigger the fallback for already visible content. That's the expected behavior.
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 Sin embargo, imagina ahora que estás navegando entre dos perfiles de usuario distintos. En ese caso, tiene sentido mostrar el *fallback*. Por ejemplo, la línea de tiempo de un usuario es un *contenido diferente* a la línea de tiempo de otro usuario. Al especificar una `key`, te aseguras de que React trate distintos perfiles de usuario como componentes diferente y reinicie las barreras de Suspense durante la navegación. Un framework de enrutamiento integrado con Suspense debería hacerlo automáticamente.
 
@@ -2546,7 +2580,11 @@ El HTML del servidor incluirá el indicador de carga. Este será reemplazado por
 
 Reemplazar la interfaz de usuario visible por una de reserva crea una experiencia de usuario discordante. Esto puede ocurrir cuando una actualización hace que un componente se suspenda, y la barrera de Suspense más cercana ya está mostrando contenido al usuario.
 
+<<<<<<< HEAD
 Para evitar que esto ocurra, [marca la actualización como no urgente utilizando `startTransition`](#preventing-already-revealed-content-from-hiding). Durante una transición, React esperará hasta que se hayan cargado suficientes datos para evitar que aparezca un *fallback* no deseado:
+=======
+To prevent this from happening, [mark the update as non-urgent using `startTransition`](#preventing-already-revealed-content-from-hiding). During a Transition, React will wait until enough data has loaded to prevent an unwanted fallback from appearing:
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 ```js {2-3,5}
 function handleNextPageClick() {
