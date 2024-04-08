@@ -76,9 +76,16 @@ Ignora esta regla si estás describiendo específicamente una propuesta experime
 
 ### Estilo
 
+<<<<<<< HEAD
 - Utiliza punto y coma.
 - No dejes espacio entre los nombres de las funciones y los paréntesis (`method() {}` no `method () {}`).
 - En caso de duda, utiliza el estilo por defecto preferido por [Prettier](https://prettier.io/playground/).
+=======
+- Use semicolons.
+- No space between function names and parens (`method() {}` not `method () {}`).
+- When in doubt, use the default style favored by [Prettier](https://prettier.io/playground/).
+- Always capitalize React concepts such as Hooks, Effects, and Transitions.
+>>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
 
 ### Resaltar
 
