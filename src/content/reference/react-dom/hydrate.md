@@ -152,7 +152,7 @@ Esto solo funciona a un nivel de profundidad, y pretende ser una escotilla de es
 
 ### Manejar contenido diferente entre el cliente y el servidor {/*handling-different-client-and-server-content*/}
 
-Si intencionalmente necesitas renderizar algo distinto en el servidor y el cliente, puedes hacer un renderizado en dos pasos. Los componentes que renderizan algo diferente en el cliente pueden leer una [variable de estado](/reference/react/useState) como `isClient`, que puedes establecer en `true` en un [efecto](/reference/react/useEffect):
+Si intencionalmente necesitas renderizar algo distinto en el servidor y el cliente, puedes hacer un renderizado en dos pasos. Los componentes que renderizan algo diferente en el cliente pueden leer una [variable de estado](/reference/react/useState) como `isClient`, que puedes establecer en `true` en un [Efecto](/reference/react/useEffect):
 
 <Sandpack>
 

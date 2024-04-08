@@ -494,7 +494,7 @@ En general, [no quieres](/learn/referencing-values-with-refs#best-practices-for-
 
 React establece `ref.current` durante la confirmación. Antes de actualizar el DOM, React establece los valores afectados de `ref.current` a `null`. Después de actualizar el DOM, React inmediatamente los establece en los nodos DOM correspondientes.
 
-**Generalmente, vas a acceder a las refs desde los controladores de eventos.** Si quieres hacer algo con una ref, pero no hay un evento en particular para hacerlo, es posible que necesites un Efecto. Discutiremos los efectos en las próximas páginas. 
+**Generalmente, vas a acceder a las refs desde los controladores de eventos.** Si quieres hacer algo con una ref, pero no hay un evento en particular para hacerlo, es posible que necesites un Efecto. Discutiremos los Efectos en las próximas páginas. 
 
 <DeepDive>
 

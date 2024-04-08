@@ -18,16 +18,16 @@ Engineer at Meta
     Andrew comenzó con el desarrollo web creando sitios con WordPress, y y finalmente se engañó a sí mismo para hacer JavaScript. Su pasatiempo favorito es el karaoke. Andrew es un villano o una princesa de Disney, según el día.
 </TeamMember>
 
-<TeamMember name="Andrey Lunyov" permalink="andrey-lunyov" photo="/images/team/andrey-lunyov.jpg" github="alunyov" twitter="alunyov" threads="alunyov" title="Ingeniero en Meta">
-    Andrey comenzó su carrera como diseñador y luego pasó gradualmente al desarrollo web. Después de unirse al equipo de React Data en Meta, trabajó para agregar un compilador de JavaScript incremental a Relay y, más tarde, trabajó para eliminar el mismo compilador de Relay. Fuera del trabajo, a Andrey le gusta tocar música y practicar varios deportes.
-</TeamMember>
-
 <TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov2" title="Ingeniero independiente">
     Dan comenzó a programar después de que accidentalmente descubrió Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación al convertir los tweets de [Sebastian](#sebastian-markbåge) en extensas publicaciones de blog. Dan gana ocasionalmente en Fortnite escondiéndose en un arbusto hasta que termina el juego.
 </TeamMember>
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="TheSavior" twitter="Eli_White" threads="elicwhite" title="Gerente de ingeniería en Meta">
     Eli se metió en la programación después de que lo suspendieran de la escuela secundaria por piratear. Lleva trabajando en React y React Native desde 2017. Le gusta comer cosas ricas, especialmente helado y tarta de manzana. Puedes encontrar a Eli probando actividades extravagantes como parkour, paracaidismo en interiores y acrobacia en tela.
+</TeamMember>
+
+<TeamMember name="Jack Pope" permalink="jack-pope" photo="/images/team/jack-pope.jpg" github="jackpope" personal="jackpope.me" title="Ingeniero en Meta">
+    Poco después de aprender AutoHotkey, Jack empezó a escribir scripts para automatizar todo lo que se le pasara por la mente. Cuando alcanzó limitaciones allí, se sumergió de lleno en el desarrollo de aplicaciones web y no ha mirado hacia atrás. Más recientemente, Jack trabajó en la plataforma web de Instagram antes de pasar a React. Su lenguaje de programación favorito es JSX.
 </TeamMember>
 
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent"  title="Gerente de ingeniería en Meta">
@@ -74,7 +74,7 @@ Engineer at Meta
     Sebastian se especializó en psicología. Suele ser callado. Incluso, cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se ha decantado por "mark-beige" por pragmatismo, y así es como se acerca a React.
 </TeamMember>
 
-<TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" threads="sebsilbermann" title="Ingeniero Independiente">
+<TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" threads="sebsilbermann" title="Ingeniero en Vercel">
     Sebastian aprendió a programar para hacer más divertidos los juegos de navegador a los que jugaba en clase. Con el tiempo, esto le llevó a contribuir a la mayor cantidad de código abierto posible. Fuera de la programación, está ocupado asegurándose de que la gente no lo confunda con los otros Sebastian y Zilberman de la comunidad React.
 </TeamMember>
 

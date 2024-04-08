@@ -79,6 +79,7 @@ Ignora esta regla si estás describiendo específicamente una propuesta experime
 - Utiliza punto y coma.
 - No dejes espacio entre los nombres de las funciones y los paréntesis (`method() {}` no `method () {}`).
 - En caso de duda, utiliza el estilo por defecto preferido por [Prettier](https://prettier.io/playground/).
+- Siempre utiliza mayúsculas para conceptos de React como Hooks, Efectos y Transiciones.
 
 ### Resaltar
 

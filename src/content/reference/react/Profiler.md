@@ -54,7 +54,7 @@ function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime
 #### Parámetros {/*onrender-parameters*/}
 
 * `id`: La prop `id` del árbol `<Profiler>` que acaba de ser entregado.  Esto te permite identificar qué parte del árbol se entregó si estás usando varios perfiles.
-* `phase`: `"mount"`, `"update"` o `"nested-update"`. Esto te indica si el árbol acaba de ser montado por primera vez o se ha vuelto a renderizar debido a un cambio en las props, el estado o los hooks.
+* `phase`: `"mount"`, `"update"` o `"nested-update"`. Esto te indica si el árbol acaba de ser montado por primera vez o se ha vuelto a renderizar debido a un cambio en las props, el estado o los Hooks.
 * `actualDuration`: El número de milisegundos que se tardó en renderizar el árbol `<Profiler>` Esto indica qué tan bien el subárbol hace uso de la memoización (por ejemplo, [`memo`](/reference/react/memo) y [`useMemo`](/reference/react/useMemo)). Idealmente, este valor debería disminuir significativamente después del montaje inicial, ya que muchos de los descendientes solo necesitarán volver a renderizarse si cambian sus propiedades específicas.
 * `baseDuration`: El número de milisegundos que estima cuánto tiempo tardaría en volver a renderizar todo el subárbol `<Profiler>` sin ninguna optimización. Se calcula sumando las duraciones de renderizado más recientes de cada componente en el árbol. Este valor estima el costo del renderizado para el peor de caso (por ejemplo, el montaje inicial o un árbol sin memoización). Compara `actualDuration` con este valor para ver si la memorización está funcionando.
 * `startTime`: Una marca de tiempo numérica para cuando React comenzó a renderizar la actualización actual.
