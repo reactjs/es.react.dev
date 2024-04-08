@@ -18,34 +18,20 @@ Engineer at Meta
     Andrew comenzó con el desarrollo web creando sitios con WordPress, y y finalmente se engañó a sí mismo para hacer JavaScript. Su pasatiempo favorito es el karaoke. Andrew es un villano o una princesa de Disney, según el día.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Andrey Lunyov" permalink="andrey-lunyov" photo="/images/team/andrey-lunyov.jpg" github="alunyov" twitter="alunyov" threads="alunyov" title="Ingeniero en Meta">
-    Andrey comenzó su carrera como diseñador y luego pasó gradualmente al desarrollo web. Después de unirse al equipo de React Data en Meta, trabajó para agregar un compilador de JavaScript incremental a Relay y, más tarde, trabajó para eliminar el mismo compilador de Relay. Fuera del trabajo, a Andrey le gusta tocar música y practicar varios deportes.
-</TeamMember>
-
 <TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov2" title="Ingeniero independiente">
     Dan comenzó a programar después de que accidentalmente descubrió Visual Basic dentro de Microsoft PowerPoint. Ha encontrado su verdadera vocación al convertir los tweets de [Sebastian](#sebastian-markbåge) en extensas publicaciones de blog. Dan gana ocasionalmente en Fortnite escondiéndose en un arbusto hasta que termina el juego.
-=======
-<TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" twitter="dan_abramov2" title="Independent Engineer">
-    Dan got into programming after he accidentally discovered Visual Basic inside Microsoft PowerPoint. He has found his true calling in turning [Sebastian](#sebastian-markbåge)'s tweets into long-form blog posts. Dan occasionally wins at Fortnite by hiding in a bush until the game ends.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
 </TeamMember>
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="TheSavior" twitter="Eli_White" threads="elicwhite" title="Gerente de ingeniería en Meta">
     Eli se metió en la programación después de que lo suspendieran de la escuela secundaria por piratear. Lleva trabajando en React y React Native desde 2017. Le gusta comer cosas ricas, especialmente helado y tarta de manzana. Puedes encontrar a Eli probando actividades extravagantes como parkour, paracaidismo en interiores y acrobacia en tela.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent"  title="Gerente de ingeniería en Meta">
-    A Jason le gusta recibir grandes cantidades de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se aísla literalmente de su equipo y no entiende cómo funcionan los bucles de for-of, le apreciamos por las cualidades únicas que aporta a su trabajo.
-=======
-<TeamMember name="Jack Pope" permalink="jack-pope" photo="/images/team/jack-pope.jpg" github="jackpope" personal="jackpope.me" title="Engineer at Meta">
-    Shortly after being introduced to AutoHotkey, Jack had written scripts to automate everything he could think of. When reaching limitations there, he dove headfirst into web app development and hasn't looked back. Most recently, Jack worked on the web platform at Instagram before moving to React. His favorite programming language is JSX.
+<TeamMember name="Jack Pope" permalink="jack-pope" photo="/images/team/jack-pope.jpg" github="jackpope" personal="jackpope.me" title="Ingeniero en Meta">
+    Poco después de aprender AutoHotkey, Jack empezó a escribir scripts para automatizar todo lo que se le pasara por la mente. Cuando alcanzó limitaciones allí, se sumergió de lleno en el desarrollo de aplicaciones web y no ha mirado hacia atrás. Más recientemente, Jack trabajó en la plataforma web de Instagram antes de pasar a React. Su lenguaje de programación favorito es JSX.
 </TeamMember>
 
-<TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent" title="Engineering Manager at Meta">
-    Jason likes having large volumes of Amazon packages delivered to the office so that he can build forts. Despite literally walling himself off from his team at times and not understanding how for-of loops work, we appreciate him for the unique qualities he brings to his work.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
+<TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent"  title="Gerente de ingeniería en Meta">
+    A Jason le gusta recibir grandes cantidades de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se aísla literalmente de su equipo y no entiende cómo funcionan los bucles de for-of, le apreciamos por las cualidades únicas que aporta a su trabajo.
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Ingeniero en Meta">
@@ -88,13 +74,8 @@ Engineer at Meta
     Sebastian se especializó en psicología. Suele ser callado. Incluso, cuando dice algo, a menudo no tiene sentido para el resto de nosotros hasta unos meses después. La forma correcta de pronunciar su apellido es "mark-boa-geh", pero se ha decantado por "mark-beige" por pragmatismo, y así es como se acerca a React.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" threads="sebsilbermann" title="Ingeniero Independiente">
+<TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" threads="sebsilbermann" title="Ingeniero en Vercel">
     Sebastian aprendió a programar para hacer más divertidos los juegos de navegador a los que jugaba en clase. Con el tiempo, esto le llevó a contribuir a la mayor cantidad de código abierto posible. Fuera de la programación, está ocupado asegurándose de que la gente no lo confunda con los otros Sebastian y Zilberman de la comunidad React.
-=======
-<TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" threads="sebsilbermann" title="Engineer at Vercel">
-    Sebastian learned programming to make the browser games he played during class more enjoyable. Eventually this lead to contributing to as much open source code as possible. Outside of coding he's busy making sure people don't confuse him with the other Sebastians and Zilberman of the React community.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
 </TeamMember>
 
 <TeamMember name="Seth Webster" permalink="seth-webster" photo="/images/team/seth.jpg" github="sethwebster" twitter="sethwebster" threads="sethwebster" personal="sethwebster.com" title="Gerente de ingeniería en Meta">

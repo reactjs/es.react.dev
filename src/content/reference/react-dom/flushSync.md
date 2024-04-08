@@ -51,17 +51,10 @@ La mayoría de las veces, `flushSync` puede evitarse. Utiliza `flushSync` como �
 
 #### Advertencias {/*caveats*/}
 
-<<<<<<< HEAD
 * `flushSync` puede perjudicar significativamente el rendimiento. Utilízalo con moderación.
 * `flushSync` puede forzar que las barreras de Suspense pendientes muestren su estado de `fallback`.
 * `flushSync` puede ejecutar Efectos pendientes y aplicar sincrónicamente cualquier actualización que contengan antes de devolver.
 * `flushSync` puede ejecutar actualizaciones fuera del *callback* cuando sea necesario para ejecutar las actualizaciones dentro del *callback*. Por ejemplo, si hay actualizaciones pendientes de un clic, React puede ejecutarlas antes de ejecutar las actualizaciones dentro del *callback*.
-=======
-* `flushSync` can significantly hurt performance. Use sparingly.
-* `flushSync` may force pending Suspense boundaries to show their `fallback` state.
-* `flushSync` may run pending Effects and synchronously apply any updates they contain before returning.
-* `flushSync` may flush updates outside the callback when necessary to flush the updates inside the callback. For example, if there are pending updates from a click, React may flush those before flushing the updates inside the callback.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
 
 ---
 

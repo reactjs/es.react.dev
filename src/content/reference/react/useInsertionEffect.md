@@ -10,11 +10,7 @@ title: useInsertionEffect
 
 <Intro>
 
-<<<<<<< HEAD
-`useInsertionEffect` permite insertar elementos en el DOM antes de que se dispare cualquier efecto de diseño.
-=======
-`useInsertionEffect` allows inserting elements into the DOM before any layout Effects fire.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
+`useInsertionEffect` permite insertar elementos en el DOM antes de que se dispare cualquier Efecto de diseño (*layout*).
 
 ```js
 useInsertionEffect(setup, dependencies?)
@@ -30,11 +26,7 @@ useInsertionEffect(setup, dependencies?)
 
 ### `useInsertionEffect(setup, dependencies?)` {/*useinsertioneffect*/}
 
-<<<<<<< HEAD
-Llama a `useInsertionEffect` para insertar estilos antes de que se dispare cualquier efecto que pueda necesitar leer el diseño:
-=======
-Call `useInsertionEffect` to insert styles before any Effects fire that may need to read layout:
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
+Llama a `useInsertionEffect` para insertar estilos antes de que se dispare cualquier Efecto que pueda necesitar leer el diseño:
 
 ```js
 import { useInsertionEffect } from 'react';
@@ -52,13 +44,7 @@ function useCSS(rule) {
 
 #### Parámetros {/*parameters*/}
 
-<<<<<<< HEAD
-* `setup`: La función con la lógica de tus Efectos. Tu función _setup_ también puede devolver opcionalmente una función de *limpieza*. Cuando tu componente es añadido al DOM, pero antes de que se dispare cualquier efecto de diseño, React ejecutará tu función _setup_. Después de cada re-renderizado con dependencias modificadas, React ejecutará primero la función de limpieza (si la has proporcionado) con los valores antiguos, y luego ejecutará tu función _setup_ con los nuevos valores. Cuando tu componente es removido del DOM, React ejecutará tu función de limpieza.
-=======
-* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. When your component is added to the DOM, but before any layout Effects fire, React will run your setup function. After every re-render with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. When your component is removed from the DOM, React will run your cleanup function.
- 
-* **optional** `dependencies`: The list of all reactive values referenced inside of the `setup` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison algorithm. If you don't specify the dependencies at all, your Effect will re-run after every re-render of the component.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
+* `setup`: La función con la lógica de tus Efectos. Tu función _setup_ también puede devolver opcionalmente una función de *limpieza*. Cuando tu componente es añadido al DOM, pero antes de que se dispare cualquier Efecto de diseño, React ejecutará tu función _setup_. Después de cada re-renderizado con dependencias modificadas, React ejecutará primero la función de limpieza (si la has proporcionado) con los valores antiguos, y luego ejecutará tu función _setup_ con los nuevos valores. Cuando tu componente es removido del DOM, React ejecutará tu función de limpieza.
 
 * ***opcional** `dependencias`: La lista de todos los valores reactivos referenciados dentro del el código de `setup`. Los valores reactivos incluyen props, estado y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), verificará que cada valor reactivo esté correctamente especificado como dependencia. La lista de dependencias tienen que tener un número constante de elementos y que sean escritos en línea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor previo usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no especificas ninguna dependencia, tu Efecto se volverá a ejecutar después de cada renderizado del componente.
 
@@ -102,11 +88,7 @@ Si usas CSS-en-JS, recomendamos la combinación de los dos primeros enfoques (ar
 
 El primer problema no se puede resolver, pero `useInsertionEffect` te ayuda a solucionar el segundo problema.
 
-<<<<<<< HEAD
-Llama a `useInsertionEffect` para insertar los estilos antes de que se disparen los efectos de diseño:
-=======
-Call `useInsertionEffect` to insert the styles before any layout Effects fire:
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
+Llama a `useInsertionEffect` para insertar los estilos antes de que se disparen los Efectos de diseño:
 
 ```js {4-11}
 // En tu biblioteca CSS-en-JS

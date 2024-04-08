@@ -40,11 +40,7 @@ Las herramientas de análisis de código de tipo *linters* permiten encontrar pr
 
 ### Formateo {/*formatting*/}
 
-<<<<<<< HEAD
 ¡Lo último que quieres al compartir tu código con otro contribuidor es entrar en un debate sobre [tabuladores vs. espacios](https://www.google.com/search?q=tabuladores+vs+espacios)! Afortunadamente, [Prettier](https://prettier.io/) limpiará tu código al reformatearlo para que se ajuste a unas reglas predefinidas y configurables. Ejecuta Prettier y todas tus tabuladores se convertirán en espacios-y tu nivel de sangrado, comillas, etc. también se cambiarán para ajustarse a la configuración. En la configuración ideal, Prettier se ejecutará cuando guardas tu archivo, realizando estas ediciones rápidamente por ti.
-=======
-The last thing you want to do when sharing your code with another contributor is get into a discussion about [tabs vs spaces](https://www.google.com/search?q=tabs+vs+spaces)! Fortunately, [Prettier](https://prettier.io/) will clean up your code by reformatting it to conform to preset, configurable rules. Run Prettier, and all your tabs will be converted to spaces—and your indentation, quotes, etc will also all be changed to conform to the configuration. In the ideal setup, Prettier will run when you save your file, quickly making these edits for you.
->>>>>>> 93177e6ceac8ffb5c2a8f3ed4bd1f80b63097078
 
 Puedes instalar la [extensión de Prettier en VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) siguiendo estos pasos:
 
