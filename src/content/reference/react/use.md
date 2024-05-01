@@ -5,13 +5,21 @@ canary: true
 
 <Canary>
 
+<<<<<<< HEAD
 El Hook `use` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).   
+=======
+The `use` API is currently only available in React's Canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 </Canary>
 
 <Intro>
 
+<<<<<<< HEAD
 `use` es un Hook de React que te permite leer el valor de un recurso como una [Promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o [contexto](/learn/passing-data-deeply-with-context).
+=======
+`use` is a React API that lets you read the value of a resource like a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 ```js
 const value = use(resource);
@@ -38,9 +46,15 @@ function MessageComponent({ messagePromise }) {
   // ...
 ```
 
+<<<<<<< HEAD
 A diferencia de otros Hooks de React, `use` puede ser llamado dentro de bucles y condicionales como `if`. Al igual que otros Hooks de React, la función que llama a `use` tiene que ser un componente o Hook.
 
 Cuando es llamado con una Promesa, el Hook de `use` se integra con [`Suspense`](/reference/react/Suspense) y [barreras de error](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). El componente que llama a `use` *se suspende* mientras que la Promesa pasada a `use` es pendiente. Si el componente que llama a `use` es envuelto en una barrera de Suspense, el fallback será mostrado. Una vez que la Promesa es resuelta, el fallback de Suspense es remplazada por los componentes renderizados usando los datos devueltos por el Hook `use`. Si la Promesa pasada a `use` es rechazada, se mostrará el fallback del error mas cercano a la barrera de error.
+=======
+Unlike React Hooks, `use` can be called within loops and conditional statements like `if`. Like React Hooks, the function that calls `use` must be a Component or Hook.
+
+When called with a Promise, the `use` API integrates with [`Suspense`](/reference/react/Suspense) and [error boundaries](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). The component calling `use` *suspends* while the Promise passed to `use` is pending. If the component that calls `use` is wrapped in a Suspense boundary, the fallback will be displayed.  Once the Promise is resolved, the Suspense fallback is replaced by the rendered components using the data returned by the `use` API. If the Promise passed to `use` is rejected, the fallback of the nearest Error Boundary will be displayed.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 [Ver más ejemplos abajo.](#usage)
 
@@ -50,13 +64,23 @@ Cuando es llamado con una Promesa, el Hook de `use` se integra con [`Suspense`](
 
 #### Devuelve {/*returns*/}
 
+<<<<<<< HEAD
 El Hook `use`  devuelve el valor que se leyó del recurso como el valor resuelto de una [Promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o [contexto](/learn/passing-data-deeply-with-context).
+=======
+The `use` API returns the value that was read from the resource like the resolved value of a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 #### Advertencias {/*caveats*/}
 
+<<<<<<< HEAD
 * El Hook `use` debe ser llamado dentro de un componente o un Hook.
 * Cuando se recupera datos en un [Componente del Servidor](/reference/react/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
 * Se prefiere la creación de Promesas en los [Componente del Servidors](/reference/react/use-server) y pasarlos a los [Componente del Clientes](/reference/react/use-client) por encima de crear Promesas en los Componente del Clientes. Las Promesas creadas en los Componente del Clientes son recreadas en cada renderizado. Las Promesas que son pasadas de un Componente del Servidor a un Componente del Cliente son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
+=======
+* The `use` API must be called inside a Component or a Hook.
+* When fetching data in a [Server Component](/reference/rsc/use-server), prefer `async` and `await` over `use`. `async` and `await` pick up rendering from the point where `await` was invoked, whereas `use` re-renders the component after the data is resolved.
+* Prefer creating Promises in [Server Components](/reference/rsc/use-server) and passing them to [Client Components](/reference/rsc/use-client) over creating Promises in Client Components. Promises created in Client Components are recreated on every render. Promises passed from a Server Component to a Client Component are stable across re-renders. [See this example](#streaming-data-from-server-to-client).
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 ---
 
@@ -230,7 +254,11 @@ export default function App() {
 }
 ```
 
+<<<<<<< HEAD
 El <CodeStep step={2}>Componente del Cliente</CodeStep> toma la <CodeStep step={4}>Promesa que ha recibido como una prop</CodeStep> y la pasa al Hook <CodeStep step={5}>`use`</CodeStep>. Esto permite al <CodeStep step={2}>Componente del Cliente</CodeStep> leer el valor de <CodeStep step={4}>la Promesa</CodeStep> que fue inicialmente creada por el Componente del Servidor.
+=======
+The <CodeStep step={2}>Client Component</CodeStep> then takes <CodeStep step={4}>the Promise it received as a prop</CodeStep> and passes it to the <CodeStep step={5}>`use`</CodeStep> API. This allows the <CodeStep step={2}>Client Component</CodeStep> to read the value from <CodeStep step={4}>the Promise</CodeStep> that was initially created by the Server Component.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 ```js [[2, 6, "Message"], [4, 6, "messagePromise"], [4, 7, "messagePromise"], [5, 7, "use"]]
 // message.js
@@ -243,7 +271,11 @@ export function Message({ messagePromise }) {
   return <p>Aquí está el mensaje: {messageContent}</p>;
 }
 ```
+<<<<<<< HEAD
 Debido a que <CodeStep step={2}>`Message`</CodeStep> está envuelto en <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, el fallback se mostrará hasta que la Promesa esté resuelta. Cuando se resuelva la Promesa, el valor será leído por el Hook  <CodeStep step={5}>`use`</CodeStep> y el componente <CodeStep step={2}>`Message`</CodeStep> reemplazará el fallback de Suspense.
+=======
+Because <CodeStep step={2}>`Message`</CodeStep> is wrapped in <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, the fallback will be displayed until the Promise is resolved. When the Promise is resolved, the value will be read by the <CodeStep step={5}>`use`</CodeStep> API and the <CodeStep step={2}>`Message`</CodeStep> component will replace the Suspense fallback.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 <Sandpack>
 
@@ -293,7 +325,7 @@ export default function App() {
 ```js src/index.js hidden
 // TODO: update to import from stable
 // react instead of canary once the `use`
-// Hook is in a stable release of React
+// API is in a stable release of React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
@@ -334,7 +366,11 @@ Al pasar una Promesa de un Componente del Servidor a un Componente del Cliente, 
 
 #### ¿Debo resolver una promesa en un Componente del Servidor o en un Componente del Cliente? {/*resolve-promise-in-server-or-client-component*/}
 
+<<<<<<< HEAD
 Una Promesa se puede pasar de un Componente del Servidor a un Componente del Cliente y resolverse en el Componente del Cliente con el Hook `use`. También puedes resolver la Promesa en un Componente del Servidor con `await` y pasar los datos requeridos al Componente del Cliente como una prop.
+=======
+A Promise can be passed from a Server Component to a Client Component and resolved in the Client Component with the `use` API. You can also resolve the Promise in a Server Component with `await` and pass the required data to the Client Component as a prop.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 ```js
 export default async function App() {
@@ -360,7 +396,11 @@ En algunas ocasiones una Promesa pasada a `use` puede ser rechazada. Puedes mane
 
 #### Mostrar un error a los usuarios con una barrera de error {/*displaying-an-error-to-users-with-error-boundary*/}
 
+<<<<<<< HEAD
 Si quieres mostrar un error a tus usuarios cuando se rechaza una Promesa, puedes usar una [barrera de error](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar una barrera de error, envuelve el componente donde estás llamando al Hook `use` en una barrera de error. Si se rechaza la Promesa que fue pasada a `use`, se mostrará el fallback para la barrera de error.
+=======
+If you'd like to display an error to your users when a Promise is rejected, you can use an [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). To use an error boundary, wrap the component where you are calling the `use` API in an error boundary. If the Promise passed to `use` is rejected the fallback for the error boundary will be displayed.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 <Sandpack>
 
@@ -413,7 +453,7 @@ export default function App() {
 ```js src/index.js hidden
 // TODO: update to import from stable
 // react instead of canary once the `use`
-// Hook is in a stable release of React
+// API is in a stable release of React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
@@ -474,9 +514,15 @@ Para usar el método <CodeStep step={1}>`catch`</CodeStep> de la Promesa, llama 
 
 ### “Excepción de Suspense: ¡Esto no es un error real!” {/*suspense-exception-error*/}
 
+<<<<<<< HEAD
 Estás llamando a `use` fuera de un componente de React o función Hook, o llamando a `use` en un bloque try-catch. Si estás llamando a `use` dentro de un bloque try-catch, envuelve tu componente en una barrera de error o llama al `catch` de la Promesa para detectar el error y resolver la Promesa con otro valor. [Ver estos ejemplos](#dealing-with-rejected-promises).
 
 Si estás llamando a `use` fuera de un componente de React o función Hook, mueve la llamada de `use` a un componente de React o función Hook.
+=======
+You are either calling `use` outside of a React Component or Hook function, or calling `use` in a try–catch block. If you are calling `use` inside a try–catch block, wrap your component in an error boundary, or call the Promise's `catch` to catch the error and resolve the Promise with another value. [See these examples](#dealing-with-rejected-promises).
+
+If you are calling `use` outside a React Component or Hook function, move the `use` call to a React Component or Hook function.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 ```jsx
 function MessageComponent({messagePromise}) {
@@ -486,7 +532,11 @@ function MessageComponent({messagePromise}) {
     // ...
 ```
 
+<<<<<<< HEAD
 En su lugar, llama a `use` fuera de las clausuras de cualquier componente, donde la función que llama a `use` es un componente o un Hook.
+=======
+Instead, call `use` outside any component closures, where the function that calls `use` is a Component or Hook.
+>>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
 
 ```jsx
 function MessageComponent({messagePromise}) {
