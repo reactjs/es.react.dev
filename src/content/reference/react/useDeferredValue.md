@@ -18,7 +18,7 @@ const deferredValue = useDeferredValue(value)
 
 ## Referencia {/*reference*/}
 
-### `useDeferredValue(value)` {/*usedeferredvalue*/}
+### `useDeferredValue(value, initialValue?)` {/*usedeferredvalue*/}
 
 Llama a `useDeferredValue` en el nivel superior de tu componente para obtener una versión diferida del valor.
 
@@ -36,15 +36,37 @@ function SearchPage() {
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `value`: El valor que se quiere diferir. Puede ser de cualquier tipo.
+=======
+* `value`: The value you want to defer. It can have any type.
+* <CanaryBadge title="This feature is only available in the Canary channel" /> **optional** `initialValue`: A value to use during the initial render of a component. If this option is omitted, `useDeferredValue` will not defer during the initial render, because there's no previous version of `value` that it can render instead.
+
+>>>>>>> 556063bdce0ed00f29824bc628f79dac0a4be9f4
 
 #### Devuelve {/*returns*/}
 
+<<<<<<< HEAD
 Durante el renderizado inicial, el valor diferido devuelto será el mismo que el valor que se haya proporcionado inicialmente. Durante las actualizaciones, React realizará un primer intento de re-renderizado con el valor anterior (de modo que devolverá el valor anterior) e intentará realizar otro re-renderizado en segundo plano con el nuevo valor (por lo que devolverá el valor actualizado).
+=======
+- `currentValue`: During the initial render, the returned deferred value will be the same as the value you provided. During updates, React will first attempt a re-render with the old value (so it will return the old value), and then try another re-render in the background with the new value (so it will return the updated value).
+
+<Canary>
+
+In the latest React Canary versions, `useDeferredValue` returns the `initialValue` on initial render, and schedules a re-render in the background with the `value` returned.
+
+</Canary>
+>>>>>>> 556063bdce0ed00f29824bc628f79dac0a4be9f4
 
 #### Advertencias {/*caveats*/}
 
+<<<<<<< HEAD
 - Los valores que pases a `useDeferredValue` deben ser tanto valores primitivos (como `string` y `number`) u objetos creados fuera del proceso de renderización. Si se crea un nuevo objeto durante el el proceso de renderización e inmediatamente se le pasa a `useDeferredValue` generará un valor distinto en cada renderizado causando re-renderizados innecesarios en segundo plano.
+=======
+- When an update is inside a Transition, `useDeferredValue` always returns the new `value` and does not spawn a deferred render, since the update is already deferred.
+
+- The values you pass to `useDeferredValue` should either be primitive values (like strings and numbers) or objects created outside of rendering. If you create a new object during rendering and immediately pass it to `useDeferredValue`, it will be different on every render, causing unnecessary background re-renders.
+>>>>>>> 556063bdce0ed00f29824bc628f79dac0a4be9f4
 
 - Cuando `useDeferredValue` recibe un valor diferente (comparado con [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), además de la renderización actual (cuando aún utiliza el valor anterior), programa una re-renderización en segundo plano con el nuevo valor. La re-renderización en segundo plano es interrumpible: si hay otra actualización del `valor`, React reiniciará la re-renderización en segundo plano desde cero. Por ejemplo, si el usuario está escribiendo en un `input` más rápido de lo que la gráfica que recibe su valor diferido puede volver a renderizarse, la gráfica solo se volverá a renderizar cuando el usuario deje de escribir.
 
