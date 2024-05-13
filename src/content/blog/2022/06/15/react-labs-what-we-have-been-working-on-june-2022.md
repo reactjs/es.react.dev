@@ -1,5 +1,12 @@
 ---
+<<<<<<< HEAD
 title: "React Labs: En qué hemos estado trabajando – junio 2022"
+=======
+title: "React Labs: What We've Been Working On – June 2022"
+author:  Andrew Clark, Dan Abramov, Jan Kassens, Joseph Savona, Josh Story, Lauren Tan, Luna Ruan, Mengdi Chen, Rick Hanlon, Robert Zhang, Sathya Gunasekaran, Sebastian Markbage, and Xuan Huang
+date: 2022/06/15
+description: React 18 was years in the making, and with it brought valuable lessons for the React team. Its release was the result of many years of research and exploring many paths. Some of those paths were successful; many more were dead-ends that led to new insights. One lesson we’ve learned is that it’s frustrating for the community to wait for new features without having insight into these paths that we’re exploring.
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 ---
 
 15 de junio de 2022 por [Andrew Clark](https://twitter.com/acdlite), [Dan Abramov](https://twitter.com/dan_abramov), [Jan Kassens](https://twitter.com/kassens), [Joseph Savona](https://twitter.com/en_JS), [Josh Story](https://twitter.com/joshcstory), [Lauren Tan](https://twitter.com/potetotes), [Luna Ruan](https://twitter.com/lunaruan), [Mengdi Chen](https://twitter.com/mengdi_en), [Rick Hanlon](https://twitter.com/rickhanlonii), [Robert Zhang](https://twitter.com/jiaxuanzhang01), [Sathya Gunasekaran](https://twitter.com/_gsathya), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Xuan Huang](https://twitter.com/Huxpro)
@@ -73,6 +80,10 @@ Estamos trabajando en una nueva versión de la API de Rastreo de Interacciones (
 
 El año pasado, anunciamos la versión beta del nuevo sitio web de documentación de React ([más tarde lanzado como react.dev](/blog/2023/03/16/introducing-react-dev)). Los nuevos materiales de aprendizaje enseñan primero los Hooks y cuentan con nuevos diagramas, ilustraciones, así como muchos ejemplos y desafíos interactivos. Pausamos ese trabajo para centrarnos en el lanzamiento de React 18, pero ahora que React 18 ya está disponible, estamos trabajando activamente para finalizar y lanzar la nueva documentación.
 
+<<<<<<< HEAD
 Actualmente estamos redactando una sección detallada sobre los efectos, ya que hemos escuchado que es uno de los temas más desafiantes tanto para usuarios nuevos como experimentados de React. [Sincronizar con Efectos](/learn/synchronizing-with-effects) es la primera página publicada en la serie, y habrá más en las próximas semanas. Cuando comenzamos a escribir una sección detallada sobre los efectos, nos dimos cuenta de que muchos patrones comunes de efectos pueden simplificarse al agregar un nuevo primitivo a React. Hemos compartido algunas ideas iniciales sobre esto en el [useEvent RFC](https://github.com/reactjs/rfcs/pull/220). Actualmente se encuentra en una etapa inicial de investigación y aún estamos iterando sobre la idea. Agradecemos los comentarios de la comunidad hasta ahora sobre el RFC, así como el [feedback](https://github.com/reactjs/reactjs.org/issues/3308) y contribuciones a la reescritura en curso de la documentación. Queremos agradecer especialmente a [Harish Kumar](https://github.com/harish-sethuraman) por enviar y revisar muchas mejoras en la implementación del nuevo sitio web.
+=======
+We are currently writing a detailed section about effects, as we’ve heard that is one of the more challenging topics for both new and experienced React users. [Synchronizing with Effects](/learn/synchronizing-with-effects) is the first published page in the series, and there are more to come in the following weeks. When we first started writing a detailed section about effects, we’ve realized that many common effect patterns can be simplified by adding a new primitive to React. We’ve shared some initial thoughts on that in the [useEvent RFC](https://github.com/reactjs/rfcs/pull/220). It is currently in early research, and we are still iterating on the idea. We appreciate the community’s comments on the RFC so far, as well as the [feedback](https://github.com/reactjs/react.dev/issues/3308) and contributions to the ongoing documentation rewrite. We’d specifically like to thank [Harish Kumar](https://github.com/harish-sethuraman) for submitting and reviewing many improvements to the new website implementation.
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 
 *¡Gracias a [Sophie Alpert](https://twitter.com/sophiebits) por revisar esta publicación del blog!*

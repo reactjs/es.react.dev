@@ -43,11 +43,19 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" personal="no.lol" title="Engineer at Meta">
+<<<<<<< HEAD
     La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Ingeniera en Meta">
     Luna aprendió por primera vez los fundamentos de python a la edad de 6 años de la mano de su padre. Desde entonces, ha sido imparable. Luna aspira a ser una generación z, y el camino hacia el éxito está pavimentado con la defensa del medio ambiente, la jardinería urbana y mucho tiempo de calidad con su Voo-Doo'd (como en la foto). 
+=======
+    Lauren's programming career peaked when she first discovered the `<marquee>` tag. She’s been chasing that high ever since. She studied Finance instead of CS in college, so she learned to code using Excel instead of Java. Lauren enjoys dropping cheeky memes in chat, playing video games with her partner, and petting her dog Zelda.
+</TeamMember>
+
+<TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Engineer at Meta">
+    Luna first learnt the fundamentals of python at the age of 6 from her father. Since then, she has been unstoppable. Luna aspires to be a gen z, and the road to success is paved with environmental advocacy, urban gardening and lots of quality time with her Voo-Doo’d (as pictured).
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 </TeamMember>
 
 <TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/matt-carroll.png" github="mattcarrollcode" twitter="mattcarrollcode" threads="mattcarrollcode" title="Defensor del Desarrollador en Meta">
@@ -66,8 +74,17 @@ Engineer at Meta
     Ricky se especializó en matemáticas teóricas y de alguna manera se encontró en el equipo de React Native durante un par de años antes de unirse al equipo de React. Cuando no está programando, puedes encontrarlo haciendo snowboard, andando en bicicleta, escalando, jugando al golf o cerrando problemas de GitHub que no coinciden con la plantilla de problemas.
 </TeamMember>
 
+<<<<<<< HEAD
 <TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" threads="gsathya.03" title="Ingeniero en Meta">
     Sathya odiaba el Libro del Dragón en la escuela, pero de alguna manera terminó trabajando en compiladores toda su carrera. Cuando no está compilando componentes de React, está bebiendo café o comiendo otra Dosa.
+=======
+<TeamMember name="Ruslan Lesiutin" permalink="ruslan-lesiutin" photo="/images/team/lesiutin.jpg" github="hoxyq" twitter="ruslanlesiutin" threads="lesiutin" title="Engineer at Meta">
+    Ruslan's introduction to UI programming started when he was a kid by manually editing HTML templates for his custom gaming forums. Somehow, he ended up majoring in Computer Science. He enjoys music, games, and memes. Mostly memes.
+</TeamMember>
+
+<TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" threads="gsathya.03" title="Engineer at Meta">
+    Sathya hated the Dragon Book in school but somehow ended up working on compilers all his career. When he's not compiling React components, he's either drinking coffee or eating yet another Dosa.
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 </TeamMember>
 
 <TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" threads="sebmarkbage" title="Ingeniero en Vercel">

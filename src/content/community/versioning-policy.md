@@ -8,7 +8,13 @@ Todas las compilaciones estables de React pasan por un alto nivel de pruebas y s
 
 </Intro>
 
+<<<<<<< HEAD
 ## Lanzamientos estables {/*stable-releases*/}
+=======
+For a list of previous releases, see the [Versions](/versions) page.
+
+## Stable releases {/*stable-releases*/}
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 
 Los lanzamientos estables de React (también conocidos como canal de lanzamiento "latest") siguen los principios de [versionado semántico (semver)](https://semver.org/).
 

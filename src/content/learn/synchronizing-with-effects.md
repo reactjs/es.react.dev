@@ -45,9 +45,15 @@ A partir de ahora en este texto, "Efecto" en mayúsculas se refiere a la definic
 
 Para escribir un Efecto, sigue los siguientes pasos:
 
+<<<<<<< HEAD
 1. **Declara un Efecto.** Por defecto, tu Efecto se ejecutará después de cada renderizado.
 2. **Define las dependencias del Efecto.** La mayoría de los Efectos solo deben volver a ejecutarse *cuando sea necesario* en lugar de hacerlo después de cada renderizado. Por ejemplo, una animación de desvanecimiento solo debe desencadenarse cuando aparece el componente. La conexión y desconexión a una sala de chat solo debe suceder cuando el componente aparece y desaparece, o cuando cambia la sala de chat. Aprenderás cómo controlar esto especificando las *dependencias*.
 3. **Añade limpieza si es necesario.** Algunos Efectos necesitan especificar cómo detener, deshacer, o limpiar cualquier cosa que estaban haciendo. Por ejemplo, "conectar" necesita "desconectar", "suscribirse" necesita "anular suscripción" y "buscar" necesita "cancelar" o "ignorar". Aprenderás cómo hacer esto devolviendo una *función de limpieza*
+=======
+1. **Declare an Effect.** By default, your Effect will run after every [commit](/learn/render-and-commit).
+2. **Specify the Effect dependencies.** Most Effects should only re-run *when needed* rather than after every render. For example, a fade-in animation should only trigger when a component appears. Connecting and disconnecting to a chat room should only happen when the component appears and disappears, or when the chat room changes. You will learn how to control this by specifying *dependencies.*
+3. **Add cleanup if needed.** Some Effects need to specify how to stop, undo, or clean up whatever they were doing. For example, "connect" needs "disconnect", "subscribe" needs "unsubscribe", and "fetch" needs either "cancel" or "ignore". You will learn how to do this by returning a *cleanup function*.
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 
 Veamos cada uno de estos pasos en detalle.
 
@@ -598,7 +604,38 @@ Usualmente, la respuesta es implementar una función de limpieza. La función de
 
 La gran parte de los Efectos que escribas se ajustan a uno de los patrones comunes que se describen a continuación.
 
+<<<<<<< HEAD
 ### Controlar widgets que no son de React {/*controlling-non-react-widgets*/}
+=======
+<Pitfall>
+
+#### Don't use refs to prevent Effects from firing {/*dont-use-refs-to-prevent-effects-from-firing*/}
+
+A common pitfall for preventing Effects firing twice in development is to use a `ref` to prevent the Effect from running more than once. For example, you could "fix" the above bug with a `useRef`:
+
+```js {1,3-4}
+  const connectionRef = useRef(null);
+  useEffect(() => {
+    // 🚩 This wont fix the bug!!!
+    if (!connectionRef.current) {
+      connectionRef.current = createConnection();
+      connectionRef.current.connect();
+    }
+  }, []);
+```
+
+This makes it so you only see `"✅ Connecting..."` once in development, but it doesn't fix the bug.
+
+When the user navigates away, the connection still isn't closed and when they navigate back, a new connection is created. As the user navigates across the app, the connections would keep piling up, the same as it would before the "fix". 
+
+To fix the bug, it is not enough to just make the Effect run once. The effect needs to work after re-mounting, which means the connection needs to be cleaned up like in the solution above.
+
+See the examples below for how to handle common patterns.
+
+</Pitfall>
+
+### Controlling non-React widgets {/*controlling-non-react-widgets*/}
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 
 A veces necesitas añadir widgets UI que no estén escritos en React. Por ejemplo, digamos que añades un componente de mapa a tu página y tiene un método `setZoomLevel()` y te gustaría mantener el nivel de zoom sincronizado con una variable de estado `zoomLevel` en tu código de React. Tu Efecto se vería similar a esto:
 
