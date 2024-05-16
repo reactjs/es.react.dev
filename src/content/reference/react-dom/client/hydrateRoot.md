@@ -371,10 +371,7 @@ export default function App({counter}) {
 
 </Sandpack>
 
-<<<<<<< HEAD
 Es poco común llamar a [`root.render`](#root-render) en una raíz hidratada. Por lo general, lo que deberías hacer es [actualizar el estado](/reference/react/useState) dentro de uno de los componentes.
-=======
-It is uncommon to call [`root.render`](#root-render) on a hydrated root. Usually, you'll [update state](/reference/react/useState) inside one of the components instead.
 
 ### Show a dialog for uncaught errors {/*show-a-dialog-for-uncaught-errors*/}
 
@@ -1198,4 +1195,3 @@ root.render(App, {onUncaughtError});
 // ✅ Correct: pass options to createRoot.
 const root = hydrateRoot(container, <App />, {onUncaughtError});
 ```
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
