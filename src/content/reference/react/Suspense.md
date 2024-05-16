@@ -1741,11 +1741,7 @@ function Router() {
   // ...
 ```
 
-<<<<<<< HEAD
-Esto le dice a React que la Transición de estado no es urgente y que es mejor seguir mostrando la página anterior en lugar de esconder contenido ya revelado. Nota como al hacer clic el botón ahora "espera" a que se carga `Biography`:
-=======
-This tells React that the state transition is not urgent, and it's better to keep showing the previous page instead of hiding any already revealed content. Now clicking the button "waits" for the `Biography` to load:
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
+Esto le dice a React que la transición de estado no es urgente y que es mejor seguir mostrando la página anterior en lugar de esconder contenido ya revelado. Nota como al hacer clic el botón ahora "espera" a que se carga `Biography`:
 
 <Sandpack>
 

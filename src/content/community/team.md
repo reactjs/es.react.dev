@@ -43,19 +43,11 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" personal="no.lol" title="Engineer at Meta">
-<<<<<<< HEAD
-    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
+    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Estudió Finanzas en lugar de Ciencias de la Computación en la universidad, por lo que aprendió a programar en Excel en lugar de Java. Lauren disfruta lanzando memes descarados en el chat, jugando videojuegos con su pareja y acariciando a su perra Zelda.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Ingeniera en Meta">
     Luna aprendió por primera vez los fundamentos de python a la edad de 6 años de la mano de su padre. Desde entonces, ha sido imparable. Luna aspira a ser una generación z, y el camino hacia el éxito está pavimentado con la defensa del medio ambiente, la jardinería urbana y mucho tiempo de calidad con su Voo-Doo'd (como en la foto). 
-=======
-    Lauren's programming career peaked when she first discovered the `<marquee>` tag. She’s been chasing that high ever since. She studied Finance instead of CS in college, so she learned to code using Excel instead of Java. Lauren enjoys dropping cheeky memes in chat, playing video games with her partner, and petting her dog Zelda.
-</TeamMember>
-
-<TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Engineer at Meta">
-    Luna first learnt the fundamentals of python at the age of 6 from her father. Since then, she has been unstoppable. Luna aspires to be a gen z, and the road to success is paved with environmental advocacy, urban gardening and lots of quality time with her Voo-Doo’d (as pictured).
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
 </TeamMember>
 
 <TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/matt-carroll.png" github="mattcarrollcode" twitter="mattcarrollcode" threads="mattcarrollcode" title="Defensor del Desarrollador en Meta">

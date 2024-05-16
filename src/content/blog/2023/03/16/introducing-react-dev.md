@@ -1,12 +1,8 @@
 ---
-<<<<<<< HEAD
 title: "Presentación de react.dev"
-=======
-title: "Introducing react.dev"
-author: Dan Abramov and Rachel Nabors
+author: Dan Abramov y Rachel Nabors
 date: 2023/03/16
-description: Today we are thrilled to launch react.dev, the new home for React and its documentation. In this post, we would like to give you a tour of the new site.
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
+description: Hoy estamos encantados de lanzar react.dev, el nuevo hogar de React y su documentación. En esta publicación, nos gustaría mostrarte el nuevo sitio.
 ---
 
 16 de Marzo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) y [Rachel Nabors](https://twitter.com/rachelnabors)

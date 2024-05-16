@@ -155,26 +155,6 @@
       ]
     },
     {
-<<<<<<< HEAD
-      "title": "Directivas",
-      "path": "/reference/react/directives",
-      "canary": true,
-      "routes": [
-        {
-          "title": "'use client'",
-          "path": "/reference/react/use-client",
-          "canary": true
-        },
-        {
-          "title": "'use server'",
-          "path": "/reference/react/use-server",
-          "canary": true
-        }
-      ]
-    },
-    {
-=======
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
       "hasSectionHeader": true,
       "sectionHeader": "react-dom@{{version}}"
     },
@@ -358,35 +338,19 @@
       "sectionHeader": "Reglas de React"
     },
     {
-<<<<<<< HEAD
       "title": "Descripción general",
-      "path": "/reference/rules"
-    },
-    {
-      "title": "Los componentes y Hooks deben ser puros",
-      "path": "/reference/rules/components-and-hooks-must-be-pure"
-    },
-    {
-      "title": "React llama a los components y Hooks",
-      "path": "/reference/rules/react-calls-components-and-hooks"
-    },
-    {
-      "title": "Reglas de los Hooks",
-      "path": "/reference/rules/rules-of-hooks"
-=======
-      "title": "Overview",
       "path": "/reference/rules",
       "routes": [
         {
-        "title": "Components and Hooks must be pure",
+        "title": "Los componentes y Hooks deben ser puros",
         "path": "/reference/rules/components-and-hooks-must-be-pure"
         },
         {
-          "title": "React calls Components and Hooks",
+          "title": "React llama a los components y Hooks",
           "path": "/reference/rules/react-calls-components-and-hooks"
         },
         {
-          "title": "Rules of Hooks",
+          "title": "Reglas de los Hooks",
           "path": "/reference/rules/rules-of-hooks"
         }
       ]
@@ -421,7 +385,6 @@
           "canary": true
         }
       ]
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
     },
     {
       "hasSectionHeader": true,

@@ -10,23 +10,19 @@ Este blog es la fuente oficial de las actualizaciones del equipo React. Cualquie
 
 <div className="sm:-mx-5 flex flex-col gap-5 mt-12">
 
-<<<<<<< HEAD
-<BlogCard title="React Labs: What We've Been Working On – February 2024" date="15 de febrero de 2024" url="/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024">
-=======
-<BlogCard title="React 19 Beta " date="April 25, 2024" url="/blog/2024/04/25/react-19">
+<BlogCard title="React 19 Beta " date="25 de abril de 2024" url="/blog/2024/04/25/react-19">
 
 In the React 19 Beta Upgrade Guide, we shared step-by-step instructions for upgrading your app to React 19 Beta. In this post, we'll give an overview of the new features in React 19, and how you can adopt them.
 
 </BlogCard>
 
-<BlogCard title="React 19 Beta Upgrade Guide" date="April 25, 2024" url="/blog/2024/04/25/react-19-upgrade-guide">
+<BlogCard title="React 19 Beta Upgrade Guide" date="25 de abril de 2024" url="/blog/2024/04/25/react-19-upgrade-guide">
 
 The improvements added to React 19 require some breaking changes, but we've worked to make the upgrade as smooth as possible and we don't expect the changes to impact most apps. In this post, we will guide you through the steps for upgrading libraries to React 19 beta.
 
 </BlogCard>
 
-<BlogCard title="React Labs: What We've Been Working On – February 2024" date="February 15, 2024" url="/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024">
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
+<BlogCard title="React Labs: What We've Been Working On – February 2024" date="15 de febrero de 2024" url="/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024">
 
 In React Labs posts, we write about projects in active research and development. Since our last update, we've made significant progress on React Compiler, new features, and React 19, and we'd like to share what we learned.
 

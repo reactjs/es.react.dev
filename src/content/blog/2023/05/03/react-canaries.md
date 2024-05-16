@@ -1,12 +1,8 @@
 ---
-<<<<<<< HEAD
 title: "React Canaries: Habilitar el despliegue incremental de características fuera de Meta"
-=======
-title: "React Canaries: Enabling Incremental Feature Rollout Outside Meta"
 author: Dan Abramov, Sophie Alpert, Rick Hanlon, Sebastian Markbage, and Andrew Clark
 date: 2023/05/03
-description: We'd like to offer the React community an option to adopt individual new features as soon as their design is close to final, before they're released in a stable version--similar to how Meta has long used bleeding-edge versions of React internally. We are introducing a new officially supported [Canary release channel](/community/versioning-policy#canary-channel). It lets curated setups like frameworks decouple adoption of individual React features from the React release schedule.
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
+description: Nos gustaría ofrecer a la comunidad de React una opción para adoptar las nuevas características tan pronto su diseño está cerca de su etapa final, antes de que sean lanzados a una versión estable (similar a cómo Meta ha utilizado internamente las más recientes versiones de React). Estamos presentando oficialmente un nuevo [canal de lanzamiento Canary](/community/versioning-policy#canary-channel) con apoyo oficial. Permite que las configuraciones seleccionadas como los frameworks desvinculen la adopción de funcionalidades individuales de React del calendario de lanzamiento de React.
 ---
 
 3 de Mayo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Andrew Clark](https://twitter.com/acdlite)

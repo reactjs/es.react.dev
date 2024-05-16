@@ -330,19 +330,11 @@ En este ejemplo, `itemsRef` no contiene un solo nodo DOM. En su lugar, contiene 
   ref={node => {
     const map = getMap();
     if (node) {
-<<<<<<< HEAD
-      // Agregar al Map
-      map.set(cat.id, node);
-    } else {
-      // Eliminar del Map
-      map.delete(cat.id);
-=======
       // Add to the Map
       map.set(cat, node);
     } else {
       // Remove from the Map
       map.delete(cat);
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
     }
   }}
 >

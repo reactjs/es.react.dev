@@ -237,11 +237,7 @@ Con el modo estricto (Strict Mode) en React 18, React simulará el desmontaje y 
 
 #### useTransition {/*usetransition*/}
 
-<<<<<<< HEAD
-`useTransition` y `startTransition` te permiten marcar algunas actualizaciones de estado como no urgentes. Otras actualizaciones de estado se consideran urgentes de manera predeterminada. React permitirá que las actualizaciones de estado urgentes (por ejemplo, actualizar un campo de texto) interrumpan las actualizaciones de estado no urgentes (por ejemplo, renderizar una lista de resultados de búsqueda). [Consulta la documentación aquí](/reference/react/useTransition)
-=======
-`useTransition` and `startTransition` let you mark some state updates as not urgent. Other state updates are considered urgent by default. React will allow urgent state updates (for example, updating a text input) to interrupt non-urgent state updates (for example, rendering a list of search results). [See docs here](/reference/react/useTransition).
->>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
+`useTransition` y `startTransition` te permiten marcar algunas actualizaciones de estado como no urgentes. Otras actualizaciones de estado se consideran urgentes de manera predeterminada. React permitirá que las actualizaciones de estado urgentes (por ejemplo, actualizar un campo de texto) interrumpan las actualizaciones de estado no urgentes (por ejemplo, renderizar una lista de resultados de búsqueda). [Consulta la documentación aquí](/reference/react/useTransition).
 
 #### useDeferredValue {/*usedeferredvalue*/}
 
