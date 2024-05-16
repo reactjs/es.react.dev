@@ -21,14 +21,13 @@ Los Hooks de Formularios actualmente solo están disponibles en React Canary y c
 Los formularios (*forms*) te permiten crear controles interactivos para enviar información. Para manejar formularios en tus componentes, usa uno de estos Hooks:
 
 * [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) facilita la actualización de la interfaz de usuario basada en el estado del formulario.
-* [`useFormState`](/reference/react-dom/hooks/useFormState) te permite gestionar el estado dentro de un formulario.
 
 ```js
 function Form({ action }) {
   async function increment(n) {
     return n + 1;
   }
-  const [count, incrementFormAction] = useFormState(increment, 0);
+  const [count, incrementFormAction] = useActionState(increment, 0);
   return (
     <form action={action}>
       <button formAction={incrementFormAction}>Count: {count}</button>
@@ -46,4 +45,3 @@ function Button() {
   );
 }
 ```
-

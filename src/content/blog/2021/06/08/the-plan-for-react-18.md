@@ -1,5 +1,8 @@
 ---
 title: "El plan para React 18"
+author: Andrew Clark, Brian Vaughn, Christine Abernathy, Dan Abramov, Rachel Nabors, Rick Hanlon, Sebastian Markbage, and Seth Webster
+date: 2021/06/08
+description: El equipo de React está emocionado por compartir algunas novedades. Empezamos a trabajar en el lanzamiento de React 18, nuestra próxima versión mayor. Creamos un grupo de trabajo para preparar a la comunidad ante una adopción gradual de las nuevas características en React 18. Publicamos React 18 Alpha para que los autores de bibliotecas puedan probarlo y darnos sus impresiones...
 ---
 
 8 de junio de 2021 por [Andrew Clark](https://twitter.com/acdlite), [Brian Vaughn](https://github.com/bvaughn), [Christine Abernathy](https://twitter.com/abernathyca), [Dan Abramov](https://twitter.com/dan_abramov), [Rachel Nabors](https://twitter.com/rachelnabors), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage) y [Seth Webster](https://twitter.com/sethwebster)

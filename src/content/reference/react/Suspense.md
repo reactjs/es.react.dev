@@ -1741,7 +1741,7 @@ function Router() {
   // ...
 ```
 
-Esto le dice a React que la Transición de estado no es urgente y que es mejor seguir mostrando la página anterior en lugar de esconder contenido ya revelado. Nota como al hacer clic el botón ahora "espera" a que se carga `Biography`:
+Esto le dice a React que la transición de estado no es urgente y que es mejor seguir mostrando la página anterior en lugar de esconder contenido ya revelado. Nota como al hacer clic el botón ahora "espera" a que se carga `Biography`:
 
 <Sandpack>
 

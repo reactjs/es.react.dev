@@ -19,5 +19,5 @@ Las directivas proporcionan instrucciones para [bundlers compatibles con React S
 
 ## Directivas de código fuente {/*source-code-directives*/}
 
-* [`'use client'`](/reference/react/use-client) te permite marcar qué código se ejecuta en el cliente.
-* [`'use server'`](/reference/react/use-server) marca funciones del lado del servidor que pueden ser llamadas desde código del lado del cliente.
+* [`'use client'`](/reference/rsc/use-client) te permite marcar qué código se ejecuta en el cliente.
+* [`'use server'`](/reference/rsc/use-server) marca funciones del lado del servidor que pueden ser llamadas desde código del lado del cliente.

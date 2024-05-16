@@ -45,7 +45,7 @@ A partir de ahora en este texto, "Efecto" en mayúsculas se refiere a la definic
 
 Para escribir un Efecto, sigue los siguientes pasos:
 
-1. **Declara un Efecto.** Por defecto, tu Efecto se ejecutará después de cada renderizado.
+1. **Declara un Efecto.** Por defecto, tu Efecto se ejecutará después de cada [_confirmación_](/learn/render-and-commit).
 2. **Define las dependencias del Efecto.** La mayoría de los Efectos solo deben volver a ejecutarse *cuando sea necesario* en lugar de hacerlo después de cada renderizado. Por ejemplo, una animación de desvanecimiento solo debe desencadenarse cuando aparece el componente. La conexión y desconexión a una sala de chat solo debe suceder cuando el componente aparece y desaparece, o cuando cambia la sala de chat. Aprenderás cómo controlar esto especificando las *dependencias*.
 3. **Añade limpieza si es necesario.** Algunos Efectos necesitan especificar cómo detener, deshacer, o limpiar cualquier cosa que estaban haciendo. Por ejemplo, "conectar" necesita "desconectar", "suscribirse" necesita "anular suscripción" y "buscar" necesita "cancelar" o "ignorar". Aprenderás cómo hacer esto devolviendo una *función de limpieza*
 
@@ -597,6 +597,33 @@ React intencionalmente vuelve a montar tus componentes en desarrollo con el fin 
 Usualmente, la respuesta es implementar una función de limpieza. La función de limpieza debería detener o deshacer lo que sea que el Efecto hacía. Generalmente, la respuesta es implementar la función de limpieza. La regla general es que el usuario no deba ser capaz de distinguir si el Efecto se ejecutó una sola vez (como en producción) o en una secuencia _configurar → limpiar → configurar_ (como se vería en desarrollo).
 
 La gran parte de los Efectos que escribas se ajustan a uno de los patrones comunes que se describen a continuación.
+
+<Pitfall>
+
+#### Don't use refs to prevent Effects from firing {/*dont-use-refs-to-prevent-effects-from-firing*/}
+
+A common pitfall for preventing Effects firing twice in development is to use a `ref` to prevent the Effect from running more than once. For example, you could "fix" the above bug with a `useRef`:
+
+```js {1,3-4}
+  const connectionRef = useRef(null);
+  useEffect(() => {
+    // 🚩 This wont fix the bug!!!
+    if (!connectionRef.current) {
+      connectionRef.current = createConnection();
+      connectionRef.current.connect();
+    }
+  }, []);
+```
+
+This makes it so you only see `"✅ Connecting..."` once in development, but it doesn't fix the bug.
+
+When the user navigates away, the connection still isn't closed and when they navigate back, a new connection is created. As the user navigates across the app, the connections would keep piling up, the same as it would before the "fix". 
+
+To fix the bug, it is not enough to just make the Effect run once. The effect needs to work after re-mounting, which means the connection needs to be cleaned up like in the solution above.
+
+See the examples below for how to handle common patterns.
+
+</Pitfall>
 
 ### Controlar widgets que no son de React {/*controlling-non-react-widgets*/}
 
