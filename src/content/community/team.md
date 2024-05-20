@@ -30,8 +30,13 @@ Engineer at Meta
     Poco después de aprender AutoHotkey, Jack empezó a escribir scripts para automatizar todo lo que se le pasara por la mente. Cuando alcanzó limitaciones allí, se sumergió de lleno en el desarrollo de aplicaciones web y no ha mirado hacia atrás. Más recientemente, Jack trabajó en la plataforma web de Instagram antes de pasar a React. Su lenguaje de programación favorito es JSX.
 </TeamMember>
 
+<<<<<<< HEAD
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent"  title="Gerente de ingeniería en Meta">
     A Jason le gusta recibir grandes cantidades de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se aísla literalmente de su equipo y no entiende cómo funcionan los bucles de for-of, le apreciamos por las cualidades únicas que aporta a su trabajo.
+=======
+<TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent" title="Engineering Manager at Meta">
+    Jason abandoned embedded C for a career in front-end engineering and never looked back. Armed with esoteric CSS knowledge and a passion for beautiful UI, Jason joined Facebook in 2010, where he now feels privileged to have seen JavaScript development come of age. Though he may not understand how `for...of` loops work, he loves getting to work with brilliant people on projects that enable amazing UX.
+>>>>>>> 9967ded394d85af74e0ecdbf00feeb7921a28142
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Ingeniero en Meta">
