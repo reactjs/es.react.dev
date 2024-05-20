@@ -4,7 +4,7 @@ title: 'Separar eventos de Efectos'
 
 <Intro>
 
-Los controladores de eventos solo se vuelven a ejecutar cuando vuelves a realizar la misma interacción. A diferencia de los controladores de eventos, los Efectos se resincronizan si algún valor que leen, como una prop o una variable de estado, es diferente de lo que era durante la última renderización. A veces, también quieres una mezcla de ambos comportamientos: un Efecto que se vuleve a ejecutar en respuesta a algunos valores pero no a otros. Esta página te enseñará cómo hacerlo.
+Los controladores de eventos solo se vuelven a ejecutar cuando vuelves a realizar la misma interacción. A diferencia de los controladores de eventos, los Efectos se resincronizan si algún valor que leen, como una prop o una variable de estado, es diferente de lo que era durante el último renderizado. A veces, también quieres una mezcla de ambos comportamientos: un Efecto que se vuelve a ejecutar en respuesta a algunos valores pero no a otros. Esta página te enseñará cómo hacerlo.
 
 </Intro>
 
@@ -44,7 +44,7 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <input value={message} onChange={e => setMessage(e.target.value)} />
-      <button onClick={handleSendClick}>Enviar</button>;
+      <button onClick={handleSendClick}>Enviar</button>
     </>
   );
 }
@@ -72,7 +72,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Con este código, puedes estar seguro que siempre hay una conexión activa al servidor de chat seleccionado actualmente, *independientemente* de las interacciones específicas realizadas por el usuario. Si el usuario solo ha abierto tu aplicación, seleccionado una sala diferente o navegado a otra pantalla y volvió, tu Efecto garantiza que el componente *permanecerá sincronizado* con la sala seleccionada a ctualmente, y [volverá a conectarse cuando sea necesario.](/learn/lifecycle-of-reactive-effects#why-synchronization-may-need-to-happen-more-than-once)
+Con este código, puedes estar seguro que siempre hay una conexión activa al servidor de chat seleccionado actualmente, *independientemente* de las interacciones específicas realizadas por el usuario. Si el usuario solo ha abierto tu aplicación, seleccionado una sala diferente o navegado a otra pantalla y volvió, tu Efecto garantiza que el componente *permanecerá sincronizado* con la sala seleccionada a actualmente, y [volverá a conectarse cuando sea necesario.](/learn/lifecycle-of-reactive-effects#why-synchronization-may-need-to-happen-more-than-once)
 
 <Sandpack>
 
@@ -226,7 +226,7 @@ Los Efectos son reactivos, por lo que `createConnection(serverUrl, roomId)` y `c
 
 ## Extraer lógica no reactiva fuera de los Efectos {/*extracting-non-reactive-logic-out-of-effects*/}
 
-Las cosas se vuelven más complicadas cuando tu quieres combinar lógica reactiva con lógina no reactiva.
+Las cosas se vuelven más complicadas cuando tu quieres combinar lógica reactiva con lógica no reactiva.
 
 Por ejemplo, imagina que quieres mostrar una notificación cuando el usuario se conecta al chat. Lees el tema actual (oscuro o claro) de los accesorios para poder mostrar la notificación en el color correcto:
 
@@ -654,7 +654,7 @@ function Page({ url }) {
 
 Aquí, `onVisit` es un Evento de Efecto. El código que contiene no es reactivo. Por eso puedes usar `numberOfItems` (¡o cualquier otro valor reactivo!) sin preocuparte de que cause que el código circundante se vuelva a ejecutar con los cambios.
 
-Por otro lado, el Efecto en sí sigue siendo reactivo. El código dentro del Efecto utiliza la propiedad `url`, por lo que el Efecto se volverá a ejecutar después de cada re-renderización con una `url` diferente. Esto, a su vez, llamará al Evento de Efecto "onVisit".
+Por otro lado, el Efecto en sí sigue siendo reactivo. El código dentro del Efecto utiliza la propiedad `url`, por lo que el Efecto se volverá a ejecutar después de cada rerenderizado con una `url` diferente. Esto, a su vez, llamará al Evento de Efecto "onVisit".
 
 Como resultado, se llamará a `logVisit` por cada cambio en la `url`, y siempre se leerá el último `numberOfItems`. Sin embargo, si `numberOfItems` cambia por sí mismo, esto no hará que se vuelva a ejecutar el código.
 

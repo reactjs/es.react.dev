@@ -31,7 +31,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent"  title="Gerente de ingeniería en Meta">
-    A Jason le gusta recibir grandes cantidades de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se aísla literalmente de su equipo y no entiende cómo funcionan los bucles de for-of, le apreciamos por las cualidades únicas que aporta a su trabajo.
+    Jason abandonó _Embedded C_ para dedicarse a la ingeniería de front-end y nunca miró hacia atrás. Armado con un conocimiento esotérico de CSS y una pasión por las interfaces de usuario hermosas, Jason se unió a Facebook en 2010, donde ahora se siente privilegiado de haber presenciado el desarrollo de JavaScript. Aunque puede que no comprenda cómo funcionan los bucles `for...of`, le encanta trabajar con personas brillantes en proyectos que permiten una experiencia de usuario asombrosa.
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Ingeniero en Meta">
