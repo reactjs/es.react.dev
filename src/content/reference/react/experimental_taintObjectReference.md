@@ -14,7 +14,7 @@ Puedes probarla actualizando los paquetes de React a la versión experimental m�
 
 Las versiones experimentales de React pueden contener errores. No las uses en producción.
 
-Esta API unicamente está disponible dentro de Componentes de Servidor en React
+Esta API únicamente está disponible dentro de Componentes de Servidor en React
 
 </Wip>
 
@@ -70,7 +70,7 @@ experimental_taintObjectReference(
 
 <Pitfall>
 
-**No confíes únicamente en la 'contaminación' para la seguridad.** No confíes únicamente en la 'contaminación' para la seguridad. Contaminar un objeto no evita la filtración de todos los valores derivados posibles. Por ejemplo, el clon de un objeto contaminado creará un nuevo objeto no contaminado. Usar datos de un objeto contaminado (e.j. `{secret: taintedObj.secret}`) creará un nuevo valor u objeto que no esté contaminado. La contaminación es una capa de protección; una aplicación segura tendrá múltiples capas de protección, APIs bien diseñadas y patrones de aislamiento.
+**No confíes únicamente en la 'contaminación' para la seguridad.** Contaminar un objeto no evita la filtración de todos los valores derivados posibles. Por ejemplo, el clon de un objeto contaminado creará un nuevo objeto no contaminado. Usar datos de un objeto contaminado (e.j. `{secret: taintedObj.secret}`) creará un nuevo valor u objeto que no esté contaminado. La contaminación es una capa de protección; una aplicación segura tendrá múltiples capas de protección, APIs bien diseñadas y patrones de aislamiento.
 
 </Pitfall>
 
