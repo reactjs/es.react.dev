@@ -64,7 +64,9 @@ function ChatRoom({ roomId }) {
 
 * Si tu efecto no ha sido causado por una interacción (como un clic), React dejará que el navegador **pinte primero la pantalla actualizada antes de ejecutar tu efecto.** Si tu efecto está haciendo algo visual (por ejemplo, posicionar un tooltip), y el retraso es notable (por ejemplo, parpadea), tendrás que reemplazar `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
-* Incluso si tu Efecto fue causado por una interacción (como un clic), el navegador podría **volver a pintar la pantalla antes de procesar las actualizaciones de estado dentro de tu Efecto.** Normalmente, eso es lo que quieres. Sin embargo, si debes impedir que el navegador pinte de nuevo la pantalla, tendrás que reemplazar `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Si tu Efecto es causado por una interacción (como un clic), **React puede ejecutar tu Efecto antes de que el navegador pinte la pantalla actualizada**. Esto asegura que el resultado del Efecto pueda ser observado por el sistema de eventos. Normalmente, esto funciona como se espera. Sin embargo, si necesitas posponer el trabajo hasta después de pintar, como una `alert()`, puedes usar `setTimeout`. Consulta [reactwg/react-18/128](https://github.com/reactwg/react-18/discussions/128) para más información.
+
+* Incluso si tu Efecto fue causado por una interacción (como un clic), **React podría permitir al navegador que volviera a pintar la pantalla antes de procesar las actualizaciones de estado dentro de tu Efecto.** Normalmente, eso es lo que quieres. Sin embargo, si debes impedir que el navegador pinte de nuevo la pantalla, tendrás que reemplazar `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
 * Los efectos **sólo se ejecutan en el lado del cliente.** No se ejecutan durante el renderizado del lado del servidor.
 
