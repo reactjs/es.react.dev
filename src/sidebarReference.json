@@ -346,13 +346,8 @@
       "path": "/reference/rules",
       "routes": [
         {
-<<<<<<< HEAD
-        "title": "Los componentes y Hooks deben ser puros",
-        "path": "/reference/rules/components-and-hooks-must-be-pure"
-=======
-          "title": "Components and Hooks must be pure",
+          "title": "Los componentes y Hooks deben ser puros",
           "path": "/reference/rules/components-and-hooks-must-be-pure"
->>>>>>> b12743c31af7f5cda2c25534f64281ff030b7205
         },
         {
           "title": "React llama a los components y Hooks",

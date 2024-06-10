@@ -1600,11 +1600,7 @@ El Efecto de cada uno de los renderizados tiene su propia variable `ignore`. Ini
 - La solicitud para `'Bob'` se completa
 - El Efecto del renderizado de `'Bob'` **no hace nada porque su variable `ignore` fue definida como `true`**
 
-<<<<<<< HEAD
 Para ignorar el resultado de una llamada de API desactualizada, también puedes usar [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) para cancelar solicitudes que ya no son necesarias. Sin embargo, por sí solo esto no es suficiente para protegerse contra las condiciones de carrera. Se podrían encadenar más pasos asíncronos después del fetch, por lo que el uso de una bandera explícita como `ignore` es la forma más confiable de solucionar este tipo de problemas.
-=======
-In addition to ignoring the result of an outdated API call, you can also use [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to cancel the requests that are no longer needed. However, by itself this is not enough to protect against race conditions. More asynchronous steps could be chained after the fetch, so using an explicit flag like `ignore` is the most reliable way to fix this type of problem.
->>>>>>> b12743c31af7f5cda2c25534f64281ff030b7205
 
 </Solution>
 
