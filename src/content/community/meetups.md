@@ -100,7 +100,7 @@ title: Reuniones de React
 * [Ahmedabad](https://www.meetup.com/react-ahmedabad/)
 * [Bangalore (React)](https://www.meetup.com/ReactJS-Bangalore/)
 * [Bangalore (React Native)](https://www.meetup.com/React-Native-Bangalore-Meetup)
-* [Chennai](https://www.meetup.com/React-Chennai/)
+* [Chennai](https://www.linkedin.com/company/chennaireact)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Mumbai](https://reactmumbai.dev)
 * [Pune](https://www.meetup.com/ReactJS-and-Friends/)
