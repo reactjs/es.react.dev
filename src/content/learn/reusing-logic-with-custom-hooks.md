@@ -1899,7 +1899,11 @@ export default function Counter() {
 }
 ```
 
+<<<<<<< HEAD
 Deberás escribir tu Hook personalizado en `useCounter.js` e importarlo en el archivo `Counter.js`.
+=======
+You'll need to write your custom Hook in `useCounter.js` and import it into the `App.js` file.
+>>>>>>> 4c91abc78b20be10e7d40cf57a80a6a6247e6e9a
 
 <Sandpack>
 
