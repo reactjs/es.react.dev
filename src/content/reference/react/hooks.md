@@ -27,11 +27,11 @@ function ImageGallery() {
 
 ---
 
-## Hooks de contexto {/*context-hooks*/}
+## Hooks de Contexto {/*context-hooks*/}
 
 El *Contexto* permite a un componente [recibir información desde un componente padre distante sin pasarsela como props.](/learn/passing-props-to-a-component) Por ejemplo, tu componente en el nivel más alto de tu aplicación puede pasar el tema de interfaz de usuario actual a todos los componentes debajo, no importa que tan profundo estén.
 
-* [`useContext`](/reference/react/useContext) lee y se suscribe a un contexto.
+* [`useContext`](/reference/react/useContext) lee y se suscribe a un Contexto.
 
 ```js
 function Button() {
@@ -56,7 +56,7 @@ function Form() {
 
 ---
 
-## Hooks de efecto {/*effect-hooks*/}
+## Hooks de Efecto {/*effect-hooks*/}
 
 Los *Efectos* permiten a un componente [conectarse y sincronizarse con sistemas externos.](/learn/synchronizing-with-effects) Esto incluye lidiar con la red, el DOM del navegador, animaciones, widgets escritos usando una biblioteca UI distinta, y otro código que no sea de React.
 
@@ -72,7 +72,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-Los efectos son una "puerta de escape" del paradigma de React. No utilices los efectos para orquestar el flujo de los datos de tu aplicación. Si no estas interactuando con un sistema externo, [puede que no necesites un efecto.](/learn/you-might-not-need-an-effect)
+Los Efectos son una "puerta de escape" del paradigma de React. No utilices los Efectos para orquestar el flujo de los datos de tu aplicación. Si no estas interactuando con un sistema externo, [puede que no necesites un Efecto.](/learn/you-might-not-need-an-effect)
 
 Hay dos variaciones raramente usadas de `useEffect` con diferencias en la sincronización:
 
