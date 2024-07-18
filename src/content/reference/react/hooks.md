@@ -85,7 +85,7 @@ Hay dos variaciones raramente usadas de `useEffect` con diferencias en la sincro
 
 Una forma común de optimizar el rendimiento del re-renderizado es saltarse el trabajo innecesario. Por ejemplo, puedes decirle a React que reutilice cálculos que están en la cache o que se salte un re-renderizado si los datos no han cambiado desde el renderizado anterior.
 
-Para saltarse cálculos y re-renderizados innecesarios, usa uno de estos hooks:
+Para saltarse cálculos y re-renderizados innecesarios, usa uno de estos Hooks:
 
 - [`useMemo`](/reference/react/useMemo) te permite almacenar en caché el resultado de un cálculo costoso.
 - [`useCallback`](/reference/react/useCallback) te permite almacenar en caché la definición de una función antes de pasarla a un componente optimizado.
@@ -99,24 +99,24 @@ function TodoList({ todos, tab, theme }) {
 
 A veces, no podrás saltarte re-renderizados porque la pantalla realmente necesita actualizarse. En ese caso, puede mejorar el rendimiento separando actualizaciones bloqueantes que deben ser síncronas (como escribir en un input) desde actualizaciones no bloqueantes las cuales no necesitan bloquear la interfaz de usuario (como actualizar una gráfica).
 
-Para priorizar el renderizado, usa uno de estos hooks:
+Para priorizar el renderizado, usa uno de estos Hooks:
 
 - [`useTransition`](/reference/react/useTransition) te permite marcar un estado de transición como no bloqueante y permite a otras actualizaciones interrumpirlo.
 - [`useDeferredValue`](/reference/react/useDeferredValue) te permite aplazar la actualización de una parte no critica de la UI y permite a las otras partes actualizarse primero.
 
 ---
 
-## Otros hooks {/*other-hooks*/}
+## Otros Hooks {/*other-hooks*/}
 
-Estos hooks son mayormente útiles para los autores de bibliotecas y no son comúnmente utilizados para el código de una aplicación.
+Estos Hooks son mayormente útiles para los autores de bibliotecas y no son comúnmente utilizados para el código de una aplicación.
 
-- [`useDebugValue`](/reference/react/useDebugValue) te permite personalizar la etiqueta que las herramientas de desarrollo de muestran para tu hook personalizado.
+- [`useDebugValue`](/reference/react/useDebugValue) te permite personalizar la etiqueta que las herramientas de desarrollo de muestran para tu Hook personalizado.
 - [`useId`](/reference/react/useId) permite a un componente se asocie a sí mismo un identificador único. Típicamente es usado con APIs de accesibilidad.
 - [`useSyncExternalStore`](/reference/react/useSyncExternalStore) permite a un componente suscribirse a una store externo.
 * [`useActionState`](/reference/react/useActionState) allows you to manage state of actions.
 
 ---
 
-## Tus propios hooks {/*your-own-hooks*/}
+## Tus propios Hooks {/*your-own-hooks*/}
 
-Puedes también [definir tus propios hooks personalizados](/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component) como funciones de JavaScript.
+Puedes también [definir tus propios Hooks personalizados](/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component) como funciones de JavaScript.
