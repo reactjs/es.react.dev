@@ -31,7 +31,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent"  title="Gerente de ingeniería en Meta">
-    A Jason le gusta recibir grandes cantidades de paquetes de Amazon en la oficina para poder construir fuertes. A pesar de que a veces se aísla literalmente de su equipo y no entiende cómo funcionan los bucles de for-of, le apreciamos por las cualidades únicas que aporta a su trabajo.
+    Jason abandonó _Embedded C_ para dedicarse a la ingeniería de front-end y nunca miró hacia atrás. Armado con un conocimiento esotérico de CSS y una pasión por las interfaces de usuario hermosas, Jason se unió a Facebook en 2010, donde ahora se siente privilegiado de haber presenciado el desarrollo de JavaScript. Aunque puede que no comprenda cómo funcionan los bucles `for...of`, le encanta trabajar con personas brillantes en proyectos que permiten una experiencia de usuario asombrosa.
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Ingeniero en Meta">
@@ -43,7 +43,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" personal="no.lol" title="Engineer at Meta">
-    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Cuando no está añadiendo errores a React, disfruta lanzando memes descarados en el chat y jugando a demasiados videojuegos con su pareja y su perra Zelda.
+    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Estudió Finanzas en lugar de Ciencias de la Computación en la universidad, por lo que aprendió a programar en Excel en lugar de Java. Lauren disfruta lanzando memes descarados en el chat, jugando videojuegos con su pareja y acariciando a su perra Zelda.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Ingeniera en Meta">
@@ -64,6 +64,10 @@ Engineer at Meta
 
 <TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" threads="rickhanlonii" personal="rickhanlon.codes" title="Engineer at Meta">
     Ricky se especializó en matemáticas teóricas y de alguna manera se encontró en el equipo de React Native durante un par de años antes de unirse al equipo de React. Cuando no está programando, puedes encontrarlo haciendo snowboard, andando en bicicleta, escalando, jugando al golf o cerrando problemas de GitHub que no coinciden con la plantilla de problemas.
+</TeamMember>
+
+<TeamMember name="Ruslan Lesiutin" permalink="ruslan-lesiutin" photo="/images/team/lesiutin.jpg" github="hoxyq" twitter="ruslanlesiutin" threads="lesiutin" title="Engineer at Meta">
+    Ruslan's introduction to UI programming started when he was a kid by manually editing HTML templates for his custom gaming forums. Somehow, he ended up majoring in Computer Science. He enjoys music, games, and memes. Mostly memes.
 </TeamMember>
 
 <TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" threads="gsathya.03" title="Ingeniero en Meta">

@@ -202,7 +202,7 @@ En cambio, decláralos siempre en el nivel superior de tu módulo:
 ```js {3-4}
 import { lazy } from 'react';
 
-// ✅ Good: Declare lazy components outside of your components
+// ✅ Bien: Declarar componentes lazy fuera de tus componentes
 const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
 
 function Editor() {
