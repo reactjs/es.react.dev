@@ -4,7 +4,7 @@ title: Contribuidores de la documentación
 
 <Intro>
 
-La documentación de React es escrita y mantenida por el [equipo de React](/community/team) y [contribuidores externos.](https://github.com/reactjs/reactjs.org/graphs/contributors) En esta página, nos gustaría agradecer a algunas personas que han realizado contribuciones significativas a este sitio.
+La documentación de React es escrita y mantenida por el [equipo de React](/community/team) y [contribuidores externos.](https://github.com/reactjs/react.dev/graphs/contributors) En esta página, nos gustaría agradecer a algunas personas que han realizado contribuciones significativas a este sitio.
 
 </Intro>
 

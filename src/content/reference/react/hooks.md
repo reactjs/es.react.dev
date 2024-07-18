@@ -106,24 +106,6 @@ Para priorizar el renderizado, usa uno de estos hooks:
 
 ---
 
-## Hooks de recursos {/*resource-hooks*/}
-
-Los *Recursos* puede ser accedidos por un componente sin tenerlos como parte de su estado. Por ejemplo, un componente puede leer un mensaje de una promesa o leer la información de estilo de un contexto.
-
-To read a value from a resource, use this Hook:
-
-- [`use`](/reference/react/use) te permite leer el valor de un recurso como una [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o un [contexto](/learn/passing-data-deeply-with-context).
-
-```js
-function MessageComponent({ messagePromise }) {
-  const message = use(messagePromise);
-  const theme = use(ThemeContext);
-  // ...
-}
-```
-
----
-
 ## Otros hooks {/*other-hooks*/}
 
 Estos hooks son mayormente útiles para los autores de bibliotecas y no son comúnmente utilizados para el código de una aplicación.
@@ -131,6 +113,7 @@ Estos hooks son mayormente útiles para los autores de bibliotecas y no son com�
 - [`useDebugValue`](/reference/react/useDebugValue) te permite personalizar la etiqueta que las herramientas de desarrollo de muestran para tu hook personalizado.
 - [`useId`](/reference/react/useId) permite a un componente se asocie a sí mismo un identificador único. Típicamente es usado con APIs de accesibilidad.
 - [`useSyncExternalStore`](/reference/react/useSyncExternalStore) permite a un componente suscribirse a una store externo.
+* [`useActionState`](/reference/react/useActionState) allows you to manage state of actions.
 
 ---
 

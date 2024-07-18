@@ -20,7 +20,7 @@ const [isPending, startTransition] = useTransition()
 
 ### `useTransition()` {/*usetransition*/}
 
-Llama a `useTransition` en el nivel superior de tu componente para marcar algunas actualizaciones de estado como transiciones.
+Llama a `useTransition` en el nivel superior de tu componente para marcar algunas actualizaciones de estado como Transiciones.
 
 ```js
 import { useTransition } from 'react';
@@ -41,14 +41,14 @@ function TabContainer() {
 
 `useTransition` devuelve un _array_ con exactamente dos elementos:
 
-1. `isPending` que indica si hay una transición pendiente.
-2. [`startTransition` function](#starttransition) que permite marcar una actualización de estado como una transición.
+1. `isPending` que indica si hay una Transición pendiente.
+2. [`startTransition` function](#starttransition) que permite marcar una actualización de estado como una Transición.
 
 ---
 
 ### Función `startTransition` {/*starttransition*/}
 
-La función `startTransition` devuelta por `useTransition` permite marcar una actualización de estado como una transición.
+La función `startTransition` devuelta por `useTransition` permite marcar una actualización de estado como una Transición.
 
 ```js {6,8}
 function TabContainer() {
@@ -66,7 +66,7 @@ function TabContainer() {
 
 #### Parámetros {/*starttransition-parameters*/}
 
-* `scope`: Una función que actualiza algún estado llamando a una o varias [funciones `set`.](/reference/react/useState#setstate) React inmediatamente llama a `scope` sin parámetros y marca todas las actualizaciones de estado programadas sincrónicamente durante la llamada a la función `scope` como transiciones. Serán [sin bloqueo](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados.](#preventing-unwanted-loading-indicators)
+* `scope`: Una función que actualiza algún estado llamando a una o varias [funciones `set`.](/reference/react/useState#setstate) React inmediatamente llama a `scope` sin parámetros y marca todas las actualizaciones de estado programadas sincrónicamente durante la llamada a la función `scope` como Transiciones. Serán [sin bloqueo](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados.](#preventing-unwanted-loading-indicators)
 
 #### Devuelve {/*starttransition-returns*/}
 
@@ -74,25 +74,25 @@ function TabContainer() {
 
 #### Advertencias {/*starttransition-caveats*/}
 
-* `useTransition` es un Hook, por lo que sólo puede ser llamado dentro de componentes o Hooks personalizados. Si necesitas iniciar una transición en otro lugar (por ejemplo, desde una biblioteca de datos), llama a la función independiente [`startTransition`](/reference/react/startTransition) en su lugar.
+* `useTransition` es un Hook, por lo que sólo puede ser llamado dentro de componentes o Hooks personalizados. Si necesitas iniciar una Transición en otro lugar (por ejemplo, desde una biblioteca de datos), llama a la función independiente [`startTransition`](/reference/react/startTransition) en su lugar.
 
-* Puedes envolver una actualización en una transición sólo si tienes acceso a la función `set` de ese estado. Si deseas iniciar una transición en respuesta a alguna prop o algún valor de un Hook personalizado, prueba [`useDeferredValue`](/reference/react/useDeferredValue) en su lugar.
+* Puedes envolver una actualización en una Transición sólo si tienes acceso a la función `set` de ese estado. Si deseas iniciar una Transición en respuesta a alguna prop o algún valor de un Hook personalizado, prueba [`useDeferredValue`](/reference/react/useDeferredValue) en su lugar.
 
-* La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como transiciones.
+* La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como Transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como Transiciones.
 
-* Una actualización de estado marcada como transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un rerenderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de gestionar la actualización del input.
+* Una actualización de estado marcada como Transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una Transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un rerenderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de gestionar la actualización del input.
 
-* Las actualizaciones de transición no pueden utilizarse para controlar las entradas de texto.
+* Las actualizaciones de Transición no pueden utilizarse para controlar las entradas de texto.
 
-* Si hay varias transiciones en curso, React las agrupa. Se trata de una limitación que probablemente se eliminará en una versión futura.
+* Si hay varias Transiciones en curso, React las agrupa. Se trata de una limitación que probablemente se eliminará en una versión futura.
 
 ---
 
 ## Uso {/*usage*/}
 
-### Marcar una actualización de estado como transición no bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
+### Marcar una actualización de estado como Transición no bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-Llama a `useTransition` en el nivel superior de tu componente para marcar las actualizaciones de estado como *transiciones* no bloqueantes.
+Llama a `useTransition` en el nivel superior de tu componente para marcar las actualizaciones de estado como *Transiciones* no bloqueantes.
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
 import { useState, useTransition } from 'react';
@@ -105,10 +105,10 @@ function TabContainer() {
 
 `useTransition` devuelve un array con exactamente dos elementos:
 
-1. <CodeStep step={1}>`isPending` flag</CodeStep> que te indica si hay una transición pendiente.
-2. <CodeStep step={2}>`startTransition` function</CodeStep> que permite marcar una actualización de estado como una transición.
+1. <CodeStep step={1}>`isPending` flag</CodeStep> que te indica si hay una Transición pendiente.
+2. <CodeStep step={2}>`startTransition` function</CodeStep> que permite marcar una actualización de estado como una Transición.
 
-A continuación, puedes marcar una actualización de estado como una transición de esta manera:
+A continuación, puedes marcar una actualización de estado como una Transición de esta manera:
 
 ```js {6,8}
 function TabContainer() {
@@ -124,17 +124,17 @@ function TabContainer() {
 }
 ```
 
-Las transiciones permiten mantener la capacidad de respuesta de las actualizaciones de la interfaz de usuario incluso en dispositivos lentos.
+Las Transiciones permiten mantener la capacidad de respuesta de las actualizaciones de la interfaz de usuario incluso en dispositivos lentos.
 
-Con una transición, la interfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace clic en una pestaña pero luego cambia de opinión y hace clic en otra, puede hacerlo sin esperar a que termine la primera renderización.
+Con una Transición, la interfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace clic en una pestaña pero luego cambia de opinión y hace clic en otra, puede hacerlo sin esperar a que termine la primera renderización.
 
 <Recipes titleText="Diferencia entre useTransition y las actualizaciones de estado normales" titleId="examples">
 
-#### Actualizar la pestaña actual en una transición {/*updating-the-current-tab-in-a-transition*/}
+#### Actualizar la pestaña actual en una Transición {/*updating-the-current-tab-in-a-transition*/}
 
 En este ejemplo, la pestaña "Posts" está **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse.
 
-Haz clic en "Mensajes" y luego inmediatamente en "Contacto". Observa que esto interrumpe la renderización lenta de "Posts". La pestaña _"Contact"_ se muestra inmediatamente. Debido a que esta actualización de estado está marcada como una transición, una renderización lenta no congela la interfaz de usuario.
+Haz clic en "Mensajes" y luego inmediatamente en "Contacto". Observa que esto interrumpe la renderización lenta de "Posts". La pestaña _"Contact"_ se muestra inmediatamente. Debido a que esta actualización de estado está marcada como una Transición, una renderización lenta no congela la interfaz de usuario.
 
 <Sandpack>
 
@@ -269,11 +269,11 @@ b { display: inline-block; margin-right: 10px; }
 
 <Solution />
 
-#### Actualizar la pestaña actual sin transición {/*updating-the-current-tab-without-a-transition*/}
+#### Actualizar la pestaña actual sin Transición {/*updating-the-current-tab-without-a-transition*/}
 
-En este ejemplo, la pestaña "Posts" también es **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse. A diferencia del ejemplo anterior, esta actualización de estado **no es una transición.**
+En este ejemplo, la pestaña "Posts" también es **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse. A diferencia del ejemplo anterior, esta actualización de estado **no es una Transición.**
 
-Haz clic en "Mensajes" e inmediatamente después en "Contacto". Observa que la aplicación se congela mientras se renderiza la pestaña ralentizada, y la interfaz de usuario deja de responder. Esta actualización de estado no es una transición, por lo que una renderización lenta congela la interfaz de usuario.
+Haz clic en "Mensajes" e inmediatamente después en "Contacto". Observa que la aplicación se congela mientras se renderiza la pestaña ralentizada, y la interfaz de usuario deja de responder. Esta actualización de estado no es una Transición, por lo que una renderización lenta congela la interfaz de usuario.
 
 <Sandpack>
 
@@ -409,9 +409,9 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-### Actualización del componente principal en una transición {/*updating-the-parent-component-in-a-transition*/}
+### Actualización del componente principal en una Transición {/*updating-the-parent-component-in-a-transition*/}
 
-También puedes actualizar el estado de un componente padre desde la llamada "useTransition". Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una transición:
+También puedes actualizar el estado de un componente padre desde la llamada "useTransition". Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una Transición:
 
 ```js {8-10}
 export default function TabButton({ children, isActive, onClick }) {
@@ -431,7 +431,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-Debido a que el componente padre actualiza su estado dentro del controlador de evento `onClick`, esa actualización de estado se marca como una transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una transición, por lo que no bloquea las interacciones del usuario.
+Debido a que el componente padre actualiza su estado dentro del controlador de evento `onClick`, esa actualización de estado se marca como una Transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una Transición, por lo que no bloquea las interacciones del usuario.
 
 <Sandpack>
 
@@ -560,9 +560,9 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-### Visualización de un estado visual pendiente durante la transición {/*displaying-a-pending-visual-state-during-the-transition*/}
+### Visualización de un estado visual pendiente durante la Transición {/*displaying-a-pending-visual-state-during-the-transition*/}
 
-Puedes utilizar el valor booleano `isPending` devuelto por `useTransition` para indicar al usuario que una transición está en curso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente":
+Puedes utilizar el valor booleano `isPending` devuelto por `useTransition` para indicar al usuario que una Transición está en curso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente":
 
 ```js {4-6}
 function TabButton({ children, isActive, onClick }) {
@@ -1087,11 +1087,11 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
-[Más información sobre el uso de transiciones con Suspense.](/reference/react/Suspense#preventing-already-revealed-content-from-hiding)
+[Más información sobre el uso de Transiciones con Suspense.](/reference/react/Suspense#preventing-already-revealed-content-from-hiding)
 
 <Note>
 
-Las transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de la pestaña). Si la pestaña Entradas tuviera una [barrera de `<Suspense>` anidada,](/reference/react/Suspense#revealing-nested-content-as-it-loads) la transición no la "esperaría".
+Las Transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de la pestaña). Si la pestaña Entradas tuviera una [barrera de `<Suspense>` anidada,](/reference/react/Suspense#revealing-nested-content-as-it-loads) la Transición no la "esperaría".
 
 </Note>
 
@@ -1099,7 +1099,7 @@ Las transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el 
 
 ### Construir un enrutador preparado para Suspense {/*building-a-suspense-enabled-router*/}
 
-Si estás construyendo un framework de React o un enrutador, te recomendamos marcar las navegaciones de página como transiciones.
+Si estás construyendo un framework de React o un enrutador, te recomendamos marcar las navegaciones de página como Transiciones.
 
 ```js {3,6,8}
 function Router() {
@@ -1116,10 +1116,10 @@ function Router() {
 
 Esto se recomienda por dos razones:
 
-- [Las transiciones son interrumpibles,](#marking-a-state-update-as-a-non-blocking-transition) que permite al usuario hacer clic sin esperar a que se complete la nueva renderización.
-- [Las transiciones evitan indicadores de carga no deseados,](#preventing-unwanted-loading-indicators) que permite al usuario evitar saltos bruscos en la navegación.
+- [Las Transiciones son interrumpibles,](#marking-a-state-update-as-a-non-blocking-transition) que permite al usuario hacer clic sin esperar a que se complete la nueva renderización.
+- [Las Transiciones evitan indicadores de carga no deseados,](#preventing-unwanted-loading-indicators) que permite al usuario evitar saltos bruscos en la navegación.
 
-He aquí un pequeño ejemplo de enrutador simplificado que utiliza transiciones para las navegaciones.
+He aquí un pequeño ejemplo de enrutador simplificado que utiliza Transiciones para las navegaciones.
 
 <Sandpack>
 
@@ -1495,7 +1495,7 @@ main {
 
 <Note>
 
-Se espera que los enredadores [preparados para Suspense](/reference/react/Suspense) envuelvan las actualizaciones de navegación en transiciones por defecto.
+Se espera que los enredadores [preparados para Suspense](/reference/react/Suspense) envuelvan las actualizaciones de navegación en Transiciones por defecto.
 
 </Note>
 
@@ -1598,15 +1598,15 @@ root.render(
 
 ## Solución de problemas {/*troubleshooting*/}
 
-### No funciona la actualización de una entrada en una transición {/*updating-an-input-in-a-transition-doesnt-work*/}
+### No funciona la actualización de una entrada en una Transición {/*updating-an-input-in-a-transition-doesnt-work*/}
 
-No se puede utilizar una transición para una variable de estado que controla una entrada:
+No se puede utilizar una Transición para una variable de estado que controla una entrada:
 
 ```js {4,10}
 const [text, setText] = useState('');
 // ...
 function handleChange(e) {
-  // ❌ Can't use transitions for controlled input state
+  // ❌ Can't use Transitions for controlled input state
   startTransition(() => {
     setText(e.target.value);
   });
@@ -1615,16 +1615,16 @@ function handleChange(e) {
 return <input value={text} onChange={handleChange} />;
 ```
 
-Esto se debe a que las transiciones son no bloqueantes, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma sincrónica. Si deseas ejecutar una transición en respuesta a la escritura, tiene dos opciones:
+Esto se debe a que las Transiciones son no bloqueantes, pero la actualización de una entrada en respuesta al evento de cambio debe producirse de forma sincrónica. Si deseas ejecutar una Transición en respuesta a la escritura, tiene dos opciones:
 
-1. Puedes declarar dos variables de estado separadas: una para el estado de la entrada (que siempre se actualiza de forma sincrónica), y otra que actualizarás en una transición. Esto te permite controlar la entrada utilizando el estado síncrono, y pasar la variable de estado de transición (que "irá por detrás" de la entrada) al resto de tu lógica de renderizado.
+1. Puedes declarar dos variables de estado separadas: una para el estado de la entrada (que siempre se actualiza de forma sincrónica), y otra que actualizarás en una Transición. Esto te permite controlar la entrada utilizando el estado síncrono, y pasar la variable de estado de Transición (que "irá por detrás" de la entrada) al resto de tu lógica de renderizado.
 2. Alternativamente, puedes tener una variable de estado, y añadir [`useDeferredValue`](/reference/react/useDeferredValue) que "irá por detrás" del valor real. Se activarán rerenderizados no bloqueantes para "ponerse al día" con el nuevo valor de forma automática.
 
 ---
 
-### React no trata mi actualización de estado como una transición {/*react-doesnt-treat-my-state-update-as-a-transition*/}
+### React no trata mi actualización de estado como una Transición {/*react-doesnt-treat-my-state-update-as-a-transition*/}
 
-Cuando envuelvas una actualización de estado en una transición, asegúrate de que ocurre *durante* la llamada `startTransition`:
+Cuando envuelvas una actualización de estado en una Transición, asegúrate de que ocurre *durante* la llamada `startTransition`:
 
 ```js
 startTransition(() => {
@@ -1635,7 +1635,7 @@ startTransition(() => {
 
 La función que pases a `startTransition` debe ser síncrona.
 
-No puedes marcar una actualización como una transición así:
+No puedes marcar una actualización como una Transición así:
 
 ```js
 startTransition(() => {
@@ -1657,7 +1657,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-Del mismo modo, no se puede marcar una actualización como una transición como esta:
+Del mismo modo, no se puede marcar una actualización como una Transición como esta:
 
 ```js
 startTransition(async () => {
@@ -1698,7 +1698,7 @@ startTransition(() => {
 console.log(3);
 ```
 
-**Se espera que imprima 1, 2, 3.** La función que pasas a `startTransition` no se retrasa. Al contrario que con el `setTimeout` del navegador, no ejecuta el callback más tarde. React ejecuta tu función inmediatamente, pero cualquier actualización de estado programada *mientras se está ejecutando* se marca como transición. Puedes imaginar que funciona así:
+**Se espera que imprima 1, 2, 3.** La función que pasas a `startTransition` no se retrasa. Al contrario que con el `setTimeout` del navegador, no ejecuta el callback más tarde. React ejecuta tu función inmediatamente, pero cualquier actualización de estado programada *mientras se está ejecutando* se marca como Transición. Puedes imaginar que funciona así:
 
 ```js
 // A simplified version of how React works
@@ -1713,7 +1713,7 @@ function startTransition(scope) {
 
 function setState() {
   if (isInsideTransition) {
-    // ... schedule a transition state update ...
+    // ... schedule a Transition state update ...
   } else {
     // ... schedule an urgent state update ...
   }
