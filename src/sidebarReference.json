@@ -113,6 +113,10 @@
       "path": "/reference/react/apis",
       "routes": [
         {
+          "title": "act",
+          "path": "/reference/react/act"
+        },
+        {
           "title": "cache",
           "path": "/reference/react/cache",
           "canary": true
@@ -342,8 +346,8 @@
       "path": "/reference/rules",
       "routes": [
         {
-        "title": "Los componentes y Hooks deben ser puros",
-        "path": "/reference/rules/components-and-hooks-must-be-pure"
+          "title": "Los componentes y Hooks deben ser puros",
+          "path": "/reference/rules/components-and-hooks-must-be-pure"
         },
         {
           "title": "React llama a los components y Hooks",
