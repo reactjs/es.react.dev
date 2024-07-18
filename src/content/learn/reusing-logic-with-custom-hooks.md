@@ -1,5 +1,5 @@
 ---
-title: 'Reutilizar la lógica con hooks personalizados'
+title: 'Reutilizar la lógica con Hooks personalizados'
 ---
 
 <Intro>
@@ -1899,7 +1899,7 @@ export default function Counter() {
 }
 ```
 
-Deberás escribir tu Hook personalizado en `useCounter.js` e importarlo en el archivo `Counter.js`.
+Deberás escribir tu Hook personalizado en `useCounter.js` e importarlo en el archivo `App.js`.
 
 <Sandpack>
 
