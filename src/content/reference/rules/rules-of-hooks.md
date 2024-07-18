@@ -35,17 +35,12 @@ function useWindowWidth() {
 
 No se admite llamar a los Hooks (funciones que empiezan con `use`) en  casos como por ejemplo:
 
-
 * 🔴 No llamar a los Hooks dentro de condicionales o bucles.
 * 🔴 No llamar a los Hooks después de una declaración `return` condicional.
 * 🔴 No llamar a los Hooks dentro de event handlers.
 * 🔴 No llamar a los Hooks dentro de componentes de clase.
 * 🔴 No llamar a los Hooks dentro de funciones pasadas a `useMemo`, `useReducer` o `useEffect`.
-
-
 * 🔴 No llamar a los Hooks dentro de bloques `try`/`catch`/`finally`.
-
-
 
 Si rompes estas reglas, es posible que veas este error.
 
