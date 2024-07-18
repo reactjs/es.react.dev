@@ -56,8 +56,6 @@ experimental_taintObjectReference(
 
 * `message`: El mensaje que deseas mostrar si el objeto se pasa a un Componente Cliente. Este mensaje se mostrará como parte del Error que se lanzará si el objeto se pasa a un Componente Cliente.
 
-
-
 * `object`: El objeto a contaminar. Funciones e instancias de clases pueden ser pasadas a `taintObjectReference` como `object`. Las funciones y clases ya están bloqueadas para ser pasadas a Componentes Cliente, pero el mensaje de error predeterminado de React será reemplazado por lo que hayas definido en el `message`. Cuando una instancia específica de una matriz tipada se pasa a `taintObjectReference` como `object`, cualquier otra copia de la matriz tipada no será contaminada.
 
 #### Devuelve {/*returns*/}
