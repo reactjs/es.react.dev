@@ -46,6 +46,7 @@ export default function App() {
   );
 }
 ```
+
 Para obtener información de estado, el componente de `Enviar` tiene que ser renderizado dentro de un `<form>`. El Hook retorna información como la propiedad <CodeStep step={1}>`pending`</CodeStep> que te dice si el formulario se está enviando activamente.
 
 En el ejemplo de arriba, `Enviar` usa esta información para deshabilitar la pulsación de `<button>` mientras el formulario se está enviando.
