@@ -265,7 +265,7 @@ setCount(count + 1); // Solicitar un nuevo renderizado con 1.
 console.log(count);  // ¡Todavía 0!
 ```
 
-Este comportamiento te ayuda a evitar errores sutiles. Aquí hay una pequeña aplicación de chat. Intenta adivinar qué sucede si presionas "Enviar" primero y *luego* cambias el destinatario a Bob. ¿El nombre de quién aparecerá en la `alerta` cinco segundos después?
+Este comportamiento te ayuda a evitar errores sutiles. Aquí hay una pequeña aplicación de chat. Intenta adivinar qué sucede si presionas "Enviar" primero y *luego* cambias el destinatario a Bob. ¿El nombre de quién aparecerá en la alerta (`alert`) cinco segundos después?
 
 <Sandpack>
 
