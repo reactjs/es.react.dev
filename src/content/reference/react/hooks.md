@@ -83,7 +83,7 @@ Hay dos variaciones raramente usadas de `useEffect` con diferencias en la sincro
 
 ## Hooks de rendimiento {/*performance-hooks*/}
 
-Una forma común de optimizar el rendimiento del re-renderizado es saltarse el trabajo innecesario. Por ejemplo, puedes decirle a React que reutilice cálculos que están en la cache o que se salte un re-renderizado si los datos no han cambiado desde el renderizado anterior.
+Una forma común de optimizar el rendimiento del re-renderizado es saltarse el trabajo innecesario. Por ejemplo, puedes decirle a React que reutilice cálculos que están en la caché o que se salte un re-renderizado si los datos no han cambiado desde el renderizado anterior.
 
 Para saltarse cálculos y re-renderizados innecesarios, usa uno de estos Hooks:
 
