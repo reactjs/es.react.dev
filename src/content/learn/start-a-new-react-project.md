@@ -35,7 +35,9 @@ Si tu aplicación tiene restricciones inusuales que estos frameworks no cumplen 
 
 Estos frameworks brindan todas las características que necesitas para implementar y escalar tu aplicación en producción y están trabajando para respaldar nuestra [visión de arquitectura full-stack](#which-features-make-up-the-react-teams-full-stack-architecture-vision). Todos los frameworks que recomendamos son de código abierto, con comunidades activas que brindan soporte, y pueden ser desplegados en tu propio servidor o en un proveedor de alojamiento. Si eres autor de un framework interesado en ser incluido en esta lista, [por favor, háznoslo saber](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
 
-**[Next.js' (Pages Router)](https://nextjs.org/) es un framework completo de React. Es versátil y te permite crear aplicaciones React de cualquier tamaño, desde un blog mayormente estático hasta una aplicación dinámica compleja. Para crear un nuevo proyecto de Next.js, ejecuta en tu terminal:
+### Next.js {/*nextjs-pages-router*/}
+
+**[Next.js' Pages Router](https://nextjs.org/) es un framework completo de React.** Es versátil y te permite crear aplicaciones React de cualquier tamaño, desde un blog mayormente estático hasta una aplicación dinámica compleja. Para crear un nuevo proyecto de Next.js, ejecuta en tu terminal:
 
 <TerminalBlock>
 npx create-next-app@latest
