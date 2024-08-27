@@ -30,7 +30,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  	// ...
+   // ...
 }
 ```
 
@@ -109,7 +109,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Los Efectos "reaccionan" a valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Dado que `roomId` es un valor reactivo (puede cambiar debido a una nueva renderización), el linter verifica que lo hayas especificado como dependencia. Si `roomId` recibe un valor diferente, React volverá a sincronizar tu Efecto. Esto asegura que el chat permanece conectado a la sala seleccionada y "reacciona" al _dropdown_:
+[Los Efectos "reaccionan" a valores reactivos](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Dado que `roomId` es un valor reactivo (puede cambiar debido a una nueva renderización), el linter verifica que lo hayas especificado como dependencia. Si `roomId` recibe un valor diferente, React volverá a sincronizar tu Efecto. Esto asegura que el chat permanece conectado a la sala seleccionada y "reacciona" al *dropdown*:
 
 <Sandpack>
 
@@ -198,7 +198,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // 🔴 React Hook useEffect has a missing dependency: 'roomId'
+  }, []); // 🔴 React Hook useEffect tiene una dependencia que falta: 'roomId'
   // ...
 }
 ```
@@ -309,7 +309,7 @@ export default function Timer() {
   const [increment, setIncrement] = useState(1);
 
   function onTick() {
-	setCount(count + increment);
+ setCount(count + increment);
   }
 
   useEffect(() => {
@@ -360,9 +360,9 @@ Este contador se supone que incremente cada segundo la cantidad configurable con
 
 Cada vez que ajustas las dependencias del Efecto para reflejar el código, mira a la lista de dependencias. ¿Tiene sentido volver a correr cuando alguna de estas dependencias cambie? A veces, la respuesta es "no":
 
-* A veces, quieres volver a ejecutar *diferentes partes* de tu Efecto bajo condiciones diferentes.
-* A veces, quieres leer solo el *último valor* de alguna dependencia en lugar de "reaccionar" a sus cambios.
-* A veces, una dependencia puede cambiar muy a menudo de forma *no intencional* porque es un objeto o una función.
+- A veces, quieres volver a ejecutar *diferentes partes* de tu Efecto bajo condiciones diferentes.
+- A veces, quieres leer solo el *último valor* de alguna dependencia en lugar de "reaccionar" a sus cambios.
+- A veces, una dependencia puede cambiar muy a menudo de forma *no intencional* porque es un objeto o una función.
 
 Para encontrar la solución correcta, necesitas responder algunas preguntas sobre tu Efecto. Revisémoslas.
 
@@ -433,7 +433,7 @@ function Form() {
 }
 ```
 
-Ahora que el código está en un controlador de evento, no es reactivo --por lo que solo se ejecutará cuando el usuario envía el formulario--. Lee más acerca de [escoger entre controladores de eventos y Efectos](/learn/separating-events-from-effects#reactive-values-and-reactive-logic) y [cómo eliminar Efectos innecesarios ](/learn/you-might-not-need-an-effect).
+Ahora que el código está en un controlador de evento, no es reactivo --por lo que solo se ejecutará cuando el usuario envía el formulario--. Lee más acerca de [escoger entre controladores de eventos y Efectos](/learn/separating-events-from-effects#reactive-values-and-reactive-logic) y [cómo eliminar Efectos innecesarios](/learn/you-might-not-need-an-effect).
 
 ### ¿Tú Efecto hace varias cosas no relacionadas? {/*is-your-effect-doing-several-unrelated-things*/}
 
@@ -553,7 +553,7 @@ El código final no es más largo que el original, pero separar estos Efectos a�
 
 ### ¿Estás leyendo algún estado para calcular el próximo estado? {/*are-you-reading-some-state-to-calculate-the-next-state*/}
 
-Este Efecto actualiza la variable de estado `messages` con un nuevo _array_ creado cada vez que llega un nuevo mensaje:
+Este Efecto actualiza la variable de estado `messages` con un nuevo *array* creado cada vez que llega un nuevo mensaje:
 
 ```js {2,6-8}
 function ChatRoom({ roomId }) {
@@ -567,7 +567,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-Usa la variable `messages` para [crear un nuevo _array_](/learn/updating-arrays-in-state) que se inicia con todos los mensajes existentes y añade el nuevo mensaje al final. Sin embargo, dado que `messages` es un valor reactivo que un Efecto lee, debe ser una dependencia:
+Usa la variable `messages` para [crear un nuevo *array*](/learn/updating-arrays-in-state) que se inicia con todos los mensajes existentes y añade el nuevo mensaje al final. Sin embargo, dado que `messages` es un valor reactivo que un Efecto lee, debe ser una dependencia:
 
 ```js {7,10}
 function ChatRoom({ roomId }) {
@@ -585,7 +585,7 @@ function ChatRoom({ roomId }) {
 
 Y cuando se incluye `messages` como dependencia se introduce un problema.
 
-Cada vez que recibes un mensaje, `setMessages()` causa que el componente se vuelva a renderizar con un nuevo _array_ `messages` que incluye el mensaje recibido. Sin embargo, dado que este Efecto ahora depende de `messages`, esto *también* resincronizará el Efecto. Por tanto cada nuevo mensaje hará que el chat se reconecte. ¡El usuario no querría eso!
+Cada vez que recibes un mensaje, `setMessages()` causa que el componente se vuelva a renderizar con un nuevo *array* `messages` que incluye el mensaje recibido. Sin embargo, dado que este Efecto ahora depende de `messages`, esto *también* resincronizará el Efecto. Por tanto cada nuevo mensaje hará que el chat se reconecte. ¡El usuario no querría eso!
 
 Para resolver el problema, no leas `messages` dentro del Efecto. En cambio, pasa una [función actualizadora](/reference/react/useState#updating-state-based-on-the-previous-state) a `setMessages`:
 
@@ -682,7 +682,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-Los Eventos de Efecto te permiten separar un Efecto en partes reactivas (que deben "reaccionar" a valores reactivos como `roomId` y sus cambios) y partes no reactivas (que solo leen sus últimos valores, como `onMessage` lee `isMuted`). **Ahora que has leído `isMuted` dentro de un Evento de Efecto, no necesita ser una dependencia de tu Efecto**. Como resultado, el chat no se reconectará cuando cambies la configuración "Muted" de _on_ a _off_, ¡solucionando el problema original!
+Los Eventos de Efecto te permiten separar un Efecto en partes reactivas (que deben "reaccionar" a valores reactivos como `roomId` y sus cambios) y partes no reactivas (que solo leen sus últimos valores, como `onMessage` lee `isMuted`). **Ahora que has leído `isMuted` dentro de un Evento de Efecto, no necesita ser una dependencia de tu Efecto**. Como resultado, el chat no se reconectará cuando cambies la configuración "Muted" de *on* a *off*, ¡solucionando el problema original!
 
 #### Envolver un controlador de evento de las props {/*wrapping-an-event-handler-from-the-props*/}
 
@@ -788,7 +788,7 @@ Este objeto se declara en el cuerpo del componente, por lo que es un [valor reac
   // ...
 ```
 
-¡Es importante declararlo como una dependencia! Esto garantiza, por ejemplo, que si cambia `roomId`, luego tu Efecto se volverá a conectar al chat con las nuevas opciones. Sin embargo, también hay un problema con el código de arriba. Para ver el problema, intenta escribir en la caja de texto del _sandbox_ de abajo y mira que pasa en la consola:
+¡Es importante declararlo como una dependencia! Esto garantiza, por ejemplo, que si cambia `roomId`, luego tu Efecto se volverá a conectar al chat con las nuevas opciones. Sin embargo, también hay un problema con el código de arriba. Para ver el problema, intenta escribir en la caja de texto del *sandbox* de abajo y mira que pasa en la consola:
 
 <Sandpack>
 
@@ -801,7 +801,7 @@ const serverUrl = 'https://localhost:1234';
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  // Temporarily disable the linter to demonstrate the problem
+  // Desactivar temporalmente el linter para demostrar el problema
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const options = {
     serverUrl: serverUrl,
@@ -865,7 +865,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-En el _sandbox_ de arriba, la caja de texto solo actualiza la variable de estado `message`. Desde la perspectiva del usuario, esto no debería afectar a la conexión del chat. Sin embargo, cada vez que actualizas la variable `message`, tu componente se vuelve a renderizar. Cuando tu componente rerenderiza, el código dentro de él se ejecuta nuevamente.
+En el *sandbox* de arriba, la caja de texto solo actualiza la variable de estado `message`. Desde la perspectiva del usuario, esto no debería afectar a la conexión del chat. Sin embargo, cada vez que actualizas la variable `message`, tu componente se vuelve a renderizar. Cuando tu componente rerenderiza, el código dentro de él se ejecuta nuevamente.
 
 Esto significa que se crea un nuevo objeto `options` en cada rerenderizado del componente `ChatRoom`. React ve que ese objeto `options` es un *objeto diferente* al objeto `options` que se creó en el renderizado anterior. Es por eso que resincroniza tu Efecto (que depende de `options`) y el chat se reconecta mientras escribes.
 
@@ -1239,15 +1239,15 @@ export default function Timer() {
 
 </Sandpack>
 
-En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` ("¡incrementa este número!"). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el _array_ de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
+En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` ("¡incrementa este número!"). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el *array* de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
 
 </Solution>
 
 #### Arregla una animación que se vuelve a ejecutar {/*fix-a-retriggering-animation*/}
 
-En este ejemplo, cuando presionas "Mostrar", se muestra con un efecto de fundido un mensaje de bienvenida. La animación toma un segundo. Cuando presionas "Remover", el mensaje de bienvenida desaparece inmediatamente. La lógica para la animación del efecto fundido se implementa en el archivo `animation.js` como un [bucle de animación](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) de JavaScript. No necesitas cambiar esa lógica. Puedes tratarla como una biblioteca de terceros. Tu Efecto crea una instancia de `FadeInAnimation` para el nodo del DOM, y luego llama `start(duration)` o `stop()` para controlar la animación. La duración `duration` se controla por un _slider_. Ajusta el _slider_ y mira como cambia la animación.
+En este ejemplo, cuando presionas "Mostrar", se muestra con un efecto de fundido un mensaje de bienvenida. La animación toma un segundo. Cuando presionas "Remover", el mensaje de bienvenida desaparece inmediatamente. La lógica para la animación del efecto fundido se implementa en el archivo `animation.js` como un [bucle de animación](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) de JavaScript. No necesitas cambiar esa lógica. Puedes tratarla como una biblioteca de terceros. Tu Efecto crea una instancia de `FadeInAnimation` para el nodo del DOM, y luego llama `start(duration)` o `stop()` para controlar la animación. La duración `duration` se controla por un *slider*. Ajusta el *slider* y mira como cambia la animación.
 
-Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando mueves el _slider_ que controla la variable de estado `duration`, se vuelve a ejecutar la animación. Cambia el comportamiento para que el Efecto no "reaccione" a la variable `duration`. Cuando presiones "Mostrar", el Efecto debe usar el valor actual de `duration` en el _slider_. Sin embargo, el hecho de mover el _slider_ no debería por sí solo volver a ejecutar la animación.
+Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando mueves el *slider* que controla la variable de estado `duration`, se vuelve a ejecutar la animación. Cambia el comportamiento para que el Efecto no "reaccione" a la variable `duration`. Cuando presiones "Mostrar", el Efecto debe usar el valor actual de `duration` en el *slider*. Sin embargo, el hecho de mover el *slider* no debería por sí solo volver a ejecutar la animación.
 
 <Hint>
 
@@ -1341,11 +1341,11 @@ export class FadeInAnimation {
   start(duration) {
     this.duration = duration;
     if (this.duration === 0) {
-      // Jump to end immediately
+      // Saltar al final inmediatamente
       this.onProgress(1);
     } else {
       this.onProgress(0);
-      // Start animating
+      // Comenzar a animar
       this.startTime = performance.now();
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
@@ -1355,7 +1355,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Todavía nos quedan más marcos por pintar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1480,7 +1480,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Todavía nos quedan más marcos por pintar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1802,7 +1802,7 @@ Limitarse a props primitivas siempre que sea posible facilita optimizar luego tu
 
 #### Soluciona la reconexión del chat, de nuevo {/*fix-a-reconnecting-chat-again*/}
 
-Este ejemplo se conecta al chat con o sin encriptación. Cambia el _checkbox_ y nota los diferentes mensajes en la consola cuando la encriptación está activada y desactivada. Intenta cambiar la sala. Luego, intenta cambiar el tema. Cuando estás conectado a una sala de chat, recibirás nuevos mensajes a intervalos de algunos segundos. Verifica que su color se ajusta al tema que has escogido.
+Este ejemplo se conecta al chat con o sin encriptación. Cambia el *checkbox* y nota los diferentes mensajes en la consola cuando la encriptación está activada y desactivada. Intenta cambiar la sala. Luego, intenta cambiar el tema. Cuando estás conectado a una sala de chat, recibirás nuevos mensajes a intervalos de algunos segundos. Verifica que su color se ajusta al tema que has escogido.
 
 En este ejemplo, el chat se reconecta cada vez que intentas cambiar el tema. Arregla esto. Luego de la solución, cambiar el tema no debería reconectar el chat, pero cambiar la configuración de encriptación o cambiar de sala debería provocar una reconexión.
 
@@ -2088,16 +2088,16 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
 Después de estos dos cambios, tu Efecto no depende más de ninguna función:
 
 ```js {1,8,10,21}
-export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Reactive values
-  const onReceiveMessage = useEffectEvent(onMessage); // Not reactive
+export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Valores de reacción
+  const onReceiveMessage = useEffectEvent(onMessage); // No reactivo
 
   useEffect(() => {
     function createConnection() {
       const options = {
         serverUrl: 'https://localhost:1234',
-        roomId: roomId // Reading a reactive value
+        roomId: roomId // Lectura de un valor reactivo
       };
-      if (isEncrypted) { // Reading a reactive value
+      if (isEncrypted) { // Lectura de un valor reactivo
         return createEncryptedConnection(options);
       } else {
         return createUnencryptedConnection(options);
