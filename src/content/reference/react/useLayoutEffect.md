@@ -67,6 +67,8 @@ function Tooltip() {
 
 * El código dentro de `useLayoutEffect` y todas las actualizaciones de estado programadas desde él **bloquean el navegador de volver a pintar en la pantalla.** Cuando es usado excesivamente, puede hacer tu aplicación muy lenta. Cuando sea posible se prefiere usar [`useEffect`.](/reference/react/useEffect) 
 
+* If you trigger a state update inside `useLayoutEffect`, React will execute all remaining Effects immediately including `useEffect`.
+
 ---
 
 ## Uso {/*usage*/}
