@@ -327,7 +327,7 @@ En este ejemplo, el operador `&&` se utiliza para renderizar condicionalmente un
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }

@@ -627,7 +627,11 @@ See the examples below for how to handle common patterns.
 
 ### Controlar widgets que no son de React {/*controlling-non-react-widgets*/}
 
+<<<<<<< HEAD
 A veces necesitas añadir widgets UI que no estén escritos en React. Por ejemplo, digamos que añades un componente de mapa a tu página y tiene un método `setZoomLevel()` y te gustaría mantener el nivel de zoom sincronizado con una variable de estado `zoomLevel` en tu código de React. Tu Efecto se vería similar a esto:
+=======
+Sometimes you need to add UI widgets that aren't written in React. For example, let's say you're adding a map component to your page. It has a `setZoomLevel()` method, and you'd like to keep the zoom level in sync with a `zoomLevel` state variable in your React code. Your Effect would look similar to this:
+>>>>>>> 1697ae89a3bbafd76998dd7496754e5358bc1e9a
 
 ```js
 useEffect(() => {
