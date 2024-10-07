@@ -57,6 +57,7 @@ Este ejemplo mantiene un objeto en el estado para representar la posición actua
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -127,6 +128,7 @@ Observa cómo el punto rojo sigue ahora a tu puntero cuando tocas o pasas el rat
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -377,7 +379,11 @@ Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las
 
 #### Utilizar un único controlador de evento para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
+<<<<<<< HEAD
 También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo controlador de evento en lugar de tres diferentes:
+=======
+You can also use the `[` and `]` braces inside your object definition to specify a property with a dynamic name. Here is the same example, but with a single event handler instead of three different ones:
+>>>>>>> 1697ae89a3bbafd76998dd7496754e5358bc1e9a
 
 <Sandpack>
 

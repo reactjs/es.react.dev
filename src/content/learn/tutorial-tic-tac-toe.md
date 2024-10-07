@@ -1135,7 +1135,11 @@ Llamar a la función `setSquares` le permite a React saber que el estado del com
 
 <Note>
 
+<<<<<<< HEAD
 JavaScript admite [cierres](https://developer.mozilla.org/es/docs/Web/JavaScript/Closures), lo que significa que una función interna (por ejemplo, `handleClick`) tiene acceso a variables y funciones definidas en una función externa (por ejemplo, `Board`). La función `handleClick` puede leer el estado `squares` y llamar al método `setSquares` porque ambos están definidos dentro de la función `Board`.
+=======
+JavaScript supports [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) which means an inner function (e.g. `handleClick`) has access to variables and functions defined in an outer function (e.g. `Board`). The `handleClick` function can read the `squares` state and call the `setSquares` method because they are both defined inside of the `Board` function.
+>>>>>>> 1697ae89a3bbafd76998dd7496754e5358bc1e9a
 
 </Note>
 

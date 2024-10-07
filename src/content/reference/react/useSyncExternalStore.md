@@ -41,7 +41,11 @@ Devuelve la instantánea de los datos en la fuente de almacenamiento de datos. N
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `subscribe`: Una función que toma un solo argumento `callback` y lo suscribe a la fuente de almacenamiento de datos. Cuando la fuente de almacenamiento de datos cambia, debe invocar el `callback` proporcionado. Esto hará que el componente se vuelva a rerenderizar. La función `subscribe` debería devolver una función que limpia dicha suscripción.
+=======
+* `subscribe`: A function that takes a single `callback` argument and subscribes it to the store. When the store changes, it should invoke the provided `callback`, which will cause React to re-call `getSnapshot` and (if needed) re-render the component. The `subscribe` function should return a function that cleans up the subscription.
+>>>>>>> 1697ae89a3bbafd76998dd7496754e5358bc1e9a
 
 * `getSnapshot`: Una función que devuelve una instantánea de los datos de la fuente de almacenamiento de datos que necesita el componente. Si bien la fuente de almacenamiento de datos no ha cambiado, las llamadas repetidas a `getSnapshot` deben devolver el mismo valor. Si la fuente de almacenamiento de datos cambia y el valor devuelto es diferente (usando para la comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) ), React volverá a rerenderizar el componente.
 
