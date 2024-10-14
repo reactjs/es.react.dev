@@ -34,7 +34,11 @@ Son especiales en React porque pasando el prop `value` los hace *[controlados.](
 
 ## Componentes de Recursos y Metadatos {/*resource-and-metadata-components*/}
 
+<<<<<<< HEAD
 Estos componentes integrados del navegador te permiten cargar recursos externos o anotar el documento con metadatos:
+=======
+These built-in browser components let you load external resources or annotate the document with metadata:
+>>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
 
 - [`<link>`](/reference/react-dom/components/link)
 - [`<meta>`](/reference/react-dom/components/meta)
