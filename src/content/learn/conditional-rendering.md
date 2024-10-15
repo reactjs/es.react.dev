@@ -52,11 +52,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Observa que algunos de los componentes `Item` tienen su prop `isPacked` asignada a `true` en lugar de `false`. Se desea añadir una marca de verificación (✔) a los elementos empaquetados si `isPacked={true}`.
-=======
-Notice that some of the `Item` components have their `isPacked` prop set to `true` instead of `false`. You want to add a checkmark (✅) to packed items if `isPacked={true}`.
->>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
+Observa que algunos de los componentes `Item` tienen su prop `isPacked` asignada a `true` en lugar de `false`. Se desea añadir una marca de verificación (✅) a los elementos empaquetados si `isPacked={true}`.
 
 Puedes escribir esto como una declaración [`if`/`else`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/if...else) así:
 
@@ -206,11 +202,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD
-Puedes leerlo como *"si `isPacked` es verdadero, entonces (`?`) renderiza `name + ' ✔'`, de lo contrario (`:`) renderiza `name`"*)
-=======
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✅'`, otherwise (`:`) render `name`"*.
->>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
+Puedes leerlo como *"si `isPacked` es verdadero, entonces (`?`) renderiza `name + ' ✅'`, de lo contrario (`:`) renderiza `name`"*)
 
 <DeepDive>
 

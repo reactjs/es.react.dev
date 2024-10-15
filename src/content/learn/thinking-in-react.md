@@ -265,19 +265,11 @@ En el paso anterior, encontraste dos elementos de estado en esta aplicación: el
 
 Ahora utilicemos nuestra estrategia para este estado:
 
-<<<<<<< HEAD
 1. **Identifica componentes que usen estado:**
     * `ProductTable` necesita filtrar la lista de productos con base en ese estado (texto de búsqueda y valor del *checkbox*).
     * `SearchBar` necesita mostrar ese estado (texto de búsqueda y valor del *checkbox*).
 2. **Encuentra su padre común:** El primer componente padre que ambos componentes comparten es `FilterableProductTable`.
 3. **Decide donde reside el estado:** Mantendremos el texto de filtrado y el estado de valor seleccionado en `FilterableProductTable`.
-=======
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
-    * `SearchBar` needs to display that state (search text and checkbox value).
-2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
->>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
 

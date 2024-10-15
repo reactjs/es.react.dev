@@ -379,11 +379,7 @@ Ten en cuenta que la sintaxis extendida  `...` es "superficial": sólo copia las
 
 #### Utilizar un único controlador de evento para diversos campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
-<<<<<<< HEAD
-También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con nombre dinámico. Aquí está el mismo ejemplo, pero con un solo controlador de evento en lugar de tres diferentes:
-=======
-You can also use the `[` and `]` braces inside your object definition to specify a property with a dynamic name. Here is the same example, but with a single event handler instead of three different ones:
->>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
+También puedes utilizar las llaves `[` y `]` dentro de tu definición de objeto para especificar una propiedad con un nombre dinámico. Aquí está el mismo ejemplo, pero con un solo controlador de evento en lugar de tres diferentes:
 
 <Sandpack>
 

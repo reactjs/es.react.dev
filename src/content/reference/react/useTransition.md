@@ -80,13 +80,9 @@ function TabContainer() {
 
 * La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como Transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como Transiciones.
 
-<<<<<<< HEAD
-* Una actualización de estado marcada como Transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una Transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un rerenderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de gestionar la actualización del input.
-=======
-* The `startTransition` function has a stable identity, so you will often see it omitted from effect dependencies, but including it will not cause the effect to fire. If the linter lets you omit a dependency without errors, it is safe to do. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+* La función `startTransition` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 
-* A state update marked as a Transition will be interrupted by other state updates. For example, if you update a chart component inside a Transition, but then start typing into an input while the chart is in the middle of a re-render, React will restart the rendering work on the chart component after handling the input update.
->>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
+* Una actualización de estado marcada como Transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente gráfico dentro de una Transición, pero luego empiezas a escribir en un input mientras el gráfico está en medio de un rerenderizado, React reiniciará el trabajo de renderizado en el componente gráfico después de gestionar la actualización del input.
 
 * Las actualizaciones de Transición no pueden utilizarse para controlar las entradas de texto.
 
