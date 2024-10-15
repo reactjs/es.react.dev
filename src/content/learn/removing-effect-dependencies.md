@@ -1355,7 +1355,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // Todavía nos quedan más marcos por pintar
+      // Todavía nos quedan más fotogramas por pintar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1480,7 +1480,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // Todavía nos quedan más marcos por pintar
+      // Todavía nos quedan más fotogramas por pintar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
