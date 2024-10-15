@@ -59,7 +59,7 @@ Nos gustaría reconocer a algunas personas que han hecho contribuciones signific
 
 Esta lista no es exhaustiva.
 
-Nos gustaría agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) y [Adam Wolff](https://github.com/wolffiex) por su guía y apoyo a lo largo de los años. También estamos agradecidos con todos los voluntarios que [tradujeron React a otros idiomas.](https://translations.reactjs.org/)
+Nos gustaría agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) y [Adam Wolff](https://github.com/wolffiex) por su guía y apoyo a lo largo de los años. También estamos agradecidos con todos los voluntarios que [tradujeron React a otros idiomas.](https://translations.react.dev/)
 
 ## Agradecimientos adicionales {/*additional-thanks*/}
 

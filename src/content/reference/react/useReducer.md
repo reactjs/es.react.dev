@@ -52,6 +52,7 @@ function MyComponent() {
 #### Advertencias {/*caveats*/}
 
 * `useReducer` es un Hook, por lo que sólo puedes llamarlo **en el nivel superior de tu componente** o en tus propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesitas, extrae un nuevo componente y mueve el estado a él.
+* La función `dispatch` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 * En Modo Estricto, React **llamará a tu reducer e inicializador dos veces** para [ayudarte a encontrar impurezas accidentales](#my-reducer-or-initializer-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu reducer e inicializador son puros (como deberían ser), esto no debería afectar tu lógica. El resultado de una de las llamadas se ignora.
 
 ---

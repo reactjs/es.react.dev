@@ -408,9 +408,9 @@ function Game() {
 
 Hay dos problemas con este código.
 
-Un problema es que es muy ineficiente: el componente (y su hijo) deben volver a renderizarse entre cada llamada a `set` en la cadena. En el ejemplo anterior, en el peor caso (`setCard` → renderizado → `setGoldCardCount` → renderizado → `setRound` → renderizado → `setIsGameOver` → renderizado), hay tres renderizados innecesarios del árbol hacia abajo.
+El primer problema es que es muy ineficiente: el componente (y su hijo) deben volver a renderizarse entre cada llamada a `set` en la cadena. En el ejemplo anterior, en el peor caso (`setCard` → renderizado → `setGoldCardCount` → renderizado → `setRound` → renderizado → `setIsGameOver` → renderizado), hay tres renderizados innecesarios del árbol hacia abajo.
 
-Incluso si no fuera lento, a medida que evoluciona tu código, te encontrarás con casos en los que la "cadena" que escribiste no se ajusta a los nuevos requisitos. Imagina que estás agregando una forma de recorrer el historial de los movimientos del juego. Lo harías actualizando cada variable de estado a un valor del pasado. Sin embargo, establecer el estado de `card` a un valor del pasado volvería a activar la cadena de Efectos y cambiaría los datos que estás mostrando. Este tipo de código suele ser rígido y frágil.
+El segundo problema es que aunque no fuera lento, a medida que evoluciona tu código, te encontrarás con casos en los que la "cadena" que escribiste no se ajusta a los nuevos requisitos. Imagina que estás agregando una forma de recorrer el historial de los movimientos del juego. Lo harías actualizando cada variable de estado a un valor del pasado. Sin embargo, establecer el estado de `card` a un valor del pasado volvería a activar la cadena de Efectos y cambiaría los datos que estás mostrando. Este tipo de código suele ser rígido y frágil.
 
 En este caso, es mejor calcular lo que puedas durante el proceso de renderizado y ajustar el estado en el controlador de eventos:
 

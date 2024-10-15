@@ -85,6 +85,8 @@ Las funciones `set` no tienen un valor de devolución.
 
 * React [agrupa actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples renderizados durante un solo evento. En el raro caso de que necesite forzar a React a actualizar la pantalla antes, por ejemplo, para acceder al DOM, puedes usar [`flushSync`.](/reference/react-dom/flushSync)
 
+* La función `set` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+
 * Llamar a la función `set` *durante el renderizado* solo está permitido desde el componente que se está renderizando. React descartará su salida e inmediatamente intentará renderizarlo nuevamente con el nuevo estado. Este patrón rara vez se necesita, pero puedes usarlo para **almacenar información de los renderizados anteriores**. [Ve un ejemplo debajo.](#storing-information-from-previous-renders)
 
 * En [Modo estricto](/reference/react/StrictMode), React **llamará a tu función de actualización dos veces** para [ayudarte a encontrar impurezas accidentales.](#my-initializer-or-updater-function-runs-twice) Este es un comportamiento exclusivo de desarrollo y no ocurre en producción. Si tu función de actualización es pura (como debería ser), esto no debería afectar la lógica de tu componente. Se ignorará el resultado de una de las llamadas.
