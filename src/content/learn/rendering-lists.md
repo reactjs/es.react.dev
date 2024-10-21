@@ -415,7 +415,7 @@ Distintas fuentes de datos dan diferentes fuentes de _keys_:
 
 Imagina que los archivos de tu escritorio no tuvieran nombres. En vez de eso, tu te referirías a ellos por su orden -- el primer archivo, el segundo, y así. Podrías acostumbrarte a ello, pero una vez borres un archivo, se volvería algo confuso. El segundo archivo se convertiría en el primero, el tercer archivo se convertiría en el segundo, y así.
 
-Los nombres de archivos en una carpeta y las _keys_ JSX en un array tienen un propósito similar. Nos permiten identificar un objeto de manera única entre sus hermanos. Una _key_ bien escogida da más información aparte de la posición en el array. incluso si la _posición_ cambia devido a un reordenamiento, la _`key`_ permite a React identificar al elemento a lo largo de su ciclo de vida.
+Los nombres de archivos en una carpeta y las _keys_ JSX en un array tienen un propósito similar. Nos permiten identificar un objeto de manera única entre sus hermanos. Una _key_ bien escogida da más información aparte de la posición en el array. incluso si la _posición_ cambia debido a un reordenamiento, la _`key`_ permite a React identificar al elemento a lo largo de su ciclo de vida.
 
 <Pitfall>
 
