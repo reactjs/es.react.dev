@@ -51,9 +51,15 @@ function MyComponent() {
 
 #### Advertencias {/*caveats*/}
 
+<<<<<<< HEAD
 * `useReducer` es un Hook, por lo que sólo puedes llamarlo **en el nivel superior de tu componente** o en tus propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si lo necesitas, extrae un nuevo componente y mueve el estado a él.
 * La función `dispatch` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 * En Modo Estricto, React **llamará a tu reducer e inicializador dos veces** para [ayudarte a encontrar impurezas accidentales](#my-reducer-or-initializer-function-runs-twice) Este es un comportamiento sólo de desarrollo y no afecta a la producción. Si tu reducer e inicializador son puros (como deberían ser), esto no debería afectar tu lógica. El resultado de una de las llamadas se ignora.
+=======
+* `useReducer` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
+* The `dispatch` function has a stable identity, so you will often see it omitted from Effect dependencies, but including it will not cause the Effect to fire. If the linter lets you omit a dependency without errors, it is safe to do. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+* In Strict Mode, React will **call your reducer and initializer twice** in order to [help you find accidental impurities.](#my-reducer-or-initializer-function-runs-twice) This is development-only behavior and does not affect production. If your reducer and initializer are pure (as they should be), this should not affect your logic. The result from one of the calls is ignored.
+>>>>>>> 9467bc58868e66c53ca9385c8531dcf7b02178c2
 
 ---
 
