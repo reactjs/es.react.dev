@@ -806,7 +806,7 @@ Esto asegura que los consumidores de tu Hook puedan optimizar su propio código 
 
 ## Solución de problemas {/*troubleshooting*/}
 
-### Cada ves que mi componente se renderiza, `useCallback` devuelve una función diferente {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
+### Cada vez que mi componente se renderiza, `useCallback` devuelve una función diferente {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
 
 ¡Asegúrate de haber especificado el *array* de dependencias como un segundo argumento!
 
