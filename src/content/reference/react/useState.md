@@ -85,11 +85,7 @@ Las funciones `set` no tienen un valor de devolución.
 
 * React [agrupa actualizaciones de estado.](/learn/queueing-a-series-of-state-updates) Actualiza la pantalla **después de que todos los controladores de eventos se hayan ejecutado** y hayan llamado a sus funciones `set`. Esto evita múltiples renderizados durante un solo evento. En el raro caso de que necesite forzar a React a actualizar la pantalla antes, por ejemplo, para acceder al DOM, puedes usar [`flushSync`.](/reference/react-dom/flushSync)
 
-<<<<<<< HEAD
 * La función `set` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
-=======
-* The `set` function has a stable identity, so you will often see it omitted from Effect dependencies, but including it will not cause the Effect to fire. If the linter lets you omit a dependency without errors, it is safe to do. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
->>>>>>> 9467bc58868e66c53ca9385c8531dcf7b02178c2
 
 * Llamar a la función `set` *durante el renderizado* solo está permitido desde el componente que se está renderizando. React descartará su salida e inmediatamente intentará renderizarlo nuevamente con el nuevo estado. Este patrón rara vez se necesita, pero puedes usarlo para **almacenar información de los renderizados anteriores**. [Ve un ejemplo debajo.](#storing-information-from-previous-renders)
 
