@@ -4,7 +4,7 @@ title: Agradecimientos
 
 <Intro>
 
-React fue creado originalmente por [Jordan Walke.](https://github.com/jordwalke) Hoy en día, React tiene un [equipo dedicado a tiempo completo trabajando en él](/community/team), así como más de mil [contribuyentes de código abierto.](https://github.com/facebook/react/blob/main/AUTHORS)
+React fue creado originalmente por [Jordan Walke.](https://github.com/jordwalke) Hoy en día, React tiene un [equipo dedicado a tiempo completo trabajando en él](/community/team), así como más de mil [contribuyentes de código abierto.](https://github.com/facebook/react/graphs/contributors)
 
 </Intro>
 
