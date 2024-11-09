@@ -16,7 +16,7 @@ React utiliza una forma declarativa para manipular la UI. En vez de manipular tr
 
 </YouWillLearn>
 
-## Cómo la UI declarativa se compara a la declarativa {/*how-declarative-ui-compares-to-imperative*/}
+## Cómo la UI declarativa se compara a la imperativa {/*how-declarative-ui-compares-to-imperative*/}
 
 Cuando diseñas interacciones con la UI, seguramente pensarás en como la UI *cambia* en respuesta a las acciones del usuario. Imagina un formulario que permita al usuario enviar una respuesta: 
 
