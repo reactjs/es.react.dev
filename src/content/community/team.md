@@ -38,7 +38,7 @@ Engineer at Meta
     Joe planeaba especializarse en matemáticas y filosofía, pero se metió en la informática después de escribir simulaciones de física en Matlab. Antes de React, trabajó en Relay, RSocket.js y el lenguaje de programación Skip. Cuando no está construyendo algún tipo de sistema reactivo, le gusta correr, estudiar japonés y pasar tiempo con su familia.
 </TeamMember>
 
-<TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="gnoff.bsky.social" title="Ingeniero en Vercel">
+<TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="storyhb.com" title="Ingeniero en Vercel">
     Josh se especializó en Matemáticas y descubrió la programación en la universidad. Su primer trabajo como desarrollador profesional fue programar cálculos de tarifas de seguros en Microsoft Excel, el parangón de la Programación Reactiva, que debe ser la razón por la que ahora trabaja en React. En el medio de ese tiempo Josh ha sido un IC, Gerente y Ejecutivo en algunas nuevas empresas. fuera del trabajo le gusta empujar sus límites con la cocina.
 </TeamMember>
 
