@@ -38,13 +38,8 @@ Engineer at Meta
     Joe planeaba especializarse en matemáticas y filosofía, pero se metió en la informática después de escribir simulaciones de física en Matlab. Antes de React, trabajó en Relay, RSocket.js y el lenguaje de programación Skip. Cuando no está construyendo algún tipo de sistema reactivo, le gusta correr, estudiar japonés y pasar tiempo con su familia.
 </TeamMember>
 
-<<<<<<< HEAD
-<TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="gnoff.bsky.social" title="Ingeniero en Vercel">
+<TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="storyhb.com" title="Ingeniero en Vercel">
     Josh se especializó en Matemáticas y descubrió la programación en la universidad. Su primer trabajo como desarrollador profesional fue programar cálculos de tarifas de seguros en Microsoft Excel, el parangón de la Programación Reactiva, que debe ser la razón por la que ahora trabaja en React. En el medio de ese tiempo Josh ha sido un IC, Gerente y Ejecutivo en algunas nuevas empresas. fuera del trabajo le gusta empujar sus límites con la cocina.
-=======
-<TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="storyhb.com" title="Engineer at Vercel">
-    Josh majored in Mathematics and discovered programming while in college. His first professional developer job was to program insurance rate calculations in Microsoft Excel, the paragon of Reactive Programming which must be why he now works on React. In between that time Josh has been an IC, Manager, and Executive at a few startups. outside of work he likes to push his limits with cooking.
->>>>>>> 84f29eb20af17e9c154b9ad71c21af4c9171e4a2
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" bsky="no.lol" title="Engineer at Meta">
