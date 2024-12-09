@@ -4,7 +4,11 @@ title: useTransition
 
 <Intro>
 
+<<<<<<< HEAD
 `useTransition` es un Hook de React que te permite actualizar el estado sin bloquear la UI.
+=======
+`useTransition` is a React Hook that lets you render a part of the UI in the background.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ```js
 const [isPending, startTransition] = useTransition()
@@ -41,6 +45,7 @@ function TabContainer() {
 
 `useTransition` devuelve un _array_ con exactamente dos elementos:
 
+<<<<<<< HEAD
 1. `isPending` que indica si hay una Transición pendiente.
 2. [`startTransition` function](#starttransition) que permite marcar una actualización de estado como una Transición.
 
@@ -49,6 +54,16 @@ function TabContainer() {
 ### Función `startTransition` {/*starttransition*/}
 
 La función `startTransition` devuelta por `useTransition` permite marcar una actualización de estado como una Transición.
+=======
+1. The `isPending` flag that tells you whether there is a pending Transition.
+2. The [`startTransition` function](#starttransition) that lets you mark updates as a Transition.
+
+---
+
+### `startTransition(action)` {/*starttransition*/}
+
+The `startTransition` function returned by `useTransition` lets you mark a updates as a Transition.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ```js {6,8}
 function TabContainer() {
@@ -64,9 +79,44 @@ function TabContainer() {
 }
 ```
 
+<<<<<<< HEAD
 #### Parámetros {/*starttransition-parameters*/}
 
 * `scope`: Una función que actualiza algún estado llamando a una o varias [funciones `set`.](/reference/react/useState#setstate) React inmediatamente llama a `scope` sin parámetros y marca todas las actualizaciones de estado programadas sincrónicamente durante la llamada a la función `scope` como Transiciones. Serán [sin bloqueo](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados.](#preventing-unwanted-loading-indicators)
+=======
+<Note>
+#### Functions called in `startTransition` are called "Actions". {/*functions-called-in-starttransition-are-called-actions*/}
+
+The function passed to `startTransition` is called an "Action". By convention, any callback called inside `startTransition` (such as a callback prop) should be named `action` or include the "Action" suffix:
+
+```js {1,9}
+function SubmitButton({ submitAction }) {
+  const [isPending, startTransition] = useTransition();
+
+  return (
+    <button
+      disabled={isPending}
+      onClick={() => {
+        startTransition(() => {
+          submitAction();
+        });
+      }}
+    >
+      Submit
+    </button>
+  );
+}
+
+```
+
+</Note>
+
+
+
+#### Parameters {/*starttransition-parameters*/}
+
+* `action`: A function that updates some state by calling one or more [`set` functions](/reference/react/useState#setstate). React calls `action` immediately with no parameters and marks all state updates scheduled synchronously during the `action` function call as Transitions. Any async calls that are awaited in the `action` will be included in the Transition, but currently require wrapping any `set` functions after the `await` in an additional `startTransition` (see [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)). State updates marked as Transitions will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators](#preventing-unwanted-loading-indicators).
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 #### Devuelve {/*starttransition-returns*/}
 
@@ -78,7 +128,13 @@ function TabContainer() {
 
 * Puedes envolver una actualización en una Transición sólo si tienes acceso a la función `set` de ese estado. Si deseas iniciar una Transición en respuesta a alguna prop o algún valor de un Hook personalizado, prueba [`useDeferredValue`](/reference/react/useDeferredValue) en su lugar.
 
+<<<<<<< HEAD
 * La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como Transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como Transiciones.
+=======
+* The function you pass to `startTransition` is called immediately, marking all state updates that happen while it executes as Transitions. If you try to perform state updates in a `setTimeout`, for example, they won't be marked as Transitions.
+
+* You must wrap any state updates after any async requests in another `startTransition` to mark them as Transitions. This is a known limitation that we will fix in the future (see [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)).
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 * La función `startTransition` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 
@@ -86,20 +142,30 @@ function TabContainer() {
 
 * Las actualizaciones de Transición no pueden utilizarse para controlar las entradas de texto.
 
+<<<<<<< HEAD
 * Si hay varias Transiciones en curso, React las agrupa. Se trata de una limitación que probablemente se eliminará en una versión futura.
 
 ---
+=======
+* If there are multiple ongoing Transitions, React currently batches them together. This is a limitation that may be removed in a future release.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ## Uso {/*usage*/}
 
+<<<<<<< HEAD
 ### Marcar una actualización de estado como Transición no bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
 Llama a `useTransition` en el nivel superior de tu componente para marcar las actualizaciones de estado como *Transiciones* no bloqueantes.
+=======
+### Perform non-blocking updates with Actions {/*perform-non-blocking-updates-with-actions*/}
+
+Call `useTransition` at the top of your component to create Actions, and access the pending state:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
-import { useState, useTransition } from 'react';
+import {useState, useTransition} from 'react';
 
-function TabContainer() {
+function CheckoutForm() {
   const [isPending, startTransition] = useTransition();
   // ...
 }
@@ -107,25 +173,39 @@ function TabContainer() {
 
 `useTransition` devuelve un array con exactamente dos elementos:
 
+<<<<<<< HEAD
 1. <CodeStep step={1}>`isPending` flag</CodeStep> que te indica si hay una Transición pendiente.
 2. <CodeStep step={2}>`startTransition` function</CodeStep> que permite marcar una actualización de estado como una Transición.
 
 A continuación, puedes marcar una actualización de estado como una Transición de esta manera:
+=======
+1. The <CodeStep step={1}>`isPending` flag</CodeStep> that tells you whether there is a pending Transition.
+2. The <CodeStep step={2}>`startTransition` function</CodeStep> that lets you create an Action.
 
-```js {6,8}
-function TabContainer() {
+To start a Transition, pass a function to `startTransition` like this:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
+
+```js
+import {useState, useTransition} from 'react';
+import {updateQuantity} from './api';
+
+function CheckoutForm() {
   const [isPending, startTransition] = useTransition();
-  const [tab, setTab] = useState('about');
+  const [quantity, setQuantity] = useState(1);
 
-  function selectTab(nextTab) {
-    startTransition(() => {
-      setTab(nextTab);
+  function onSubmit(newQuantity) {
+    startTransition(async function () {
+      const savedQuantity = await updateQuantity(newQuantity);
+      startTransition(() => {
+        setQuantity(savedQuantity);
+      });
     });
   }
   // ...
 }
 ```
 
+<<<<<<< HEAD
 Las Transiciones permiten mantener la capacidad de respuesta de las actualizaciones de la interfaz de usuario incluso en dispositivos lentos.
 
 Con una Transición, la interfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace clic en una pestaña pero luego cambia de opinión y hace clic en otra, puede hacerlo sin esperar a que termine la primera renderización.
@@ -137,27 +217,60 @@ Con una Transición, la interfaz de usuario mantiene su capacidad de respuesta e
 En este ejemplo, la pestaña "Posts" está **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse.
 
 Haz clic en "Mensajes" y luego inmediatamente en "Contacto". Observa que esto interrumpe la renderización lenta de "Posts". La pestaña _"Contact"_ se muestra inmediatamente. Debido a que esta actualización de estado está marcada como una Transición, una renderización lenta no congela la interfaz de usuario.
+=======
+The function passed to `startTransition` is called the "Action". You can update state and (optionally) perform side effects within an Action, and the work will be done in the background without blocking user interactions on the page. A Transition can include multiple Actions, and while a Transition is in progress, your UI stays responsive. For example, if the user clicks a tab but then changes their mind and clicks another tab, the second click will be immediately handled without waiting for the first update to finish. 
+
+To give the user feedback about in-progress Transitions, to `isPending` state switches to `true` at the first call to `startTransition`, and stays `true` until all Actions complete and the final state is shown to the user. Transitions ensure side effects in Actions to complete in order to [prevent unwanted loading indicators](#preventing-unwanted-loading-indicators), and you can provide immediate feedback while the Transition is in progress with `useOptimistic`.
+
+<Recipes titleText="The difference between Actions and regular event handling">
+
+#### Updating the quantity in an Action {/*updating-the-quantity-in-an-action*/}
+
+In this example, the `updateQuantity` function simulates a request to the server to update the item's quantity in the cart. This function is *artificially slowed down* so that it takes at least a second to complete the request.
+
+Update the quantity multiple times quickly. Notice that the pending "Total" state is shown while any requests are in progress, and the "Total" updates only after the final request is complete. Because the update is in an Action, the "quantity" can continue to be updated while the request is in progress.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 <Sandpack>
 
-```js
-import { useState, useTransition } from 'react';
-import TabButton from './TabButton.js';
-import AboutTab from './AboutTab.js';
-import PostsTab from './PostsTab.js';
-import ContactTab from './ContactTab.js';
-
-export default function TabContainer() {
-  const [isPending, startTransition] = useTransition();
-  const [tab, setTab] = useState('about');
-
-  function selectTab(nextTab) {
-    startTransition(() => {
-      setTab(nextTab);
-    });
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "beta",
+    "react-dom": "beta"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
+}
+```
+
+```js src/App.js
+import { useState, useTransition } from "react";
+import { updateQuantity } from "./api";
+import Item from "./Item";
+import Total from "./Total";
+
+export default function App({}) {
+  const [quantity, setQuantity] = useState(1);
+  const [isPending, startTransition] = useTransition();
+
+  const updateQuantityAction = async newQuantity => {
+    // To access the pending state of a transition,
+    // call startTransition again.
+    startTransition(async () => {
+      const savedQuantity = await updateQuantity(newQuantity);
+      startTransition(() => {
+        setQuantity(savedQuantity);
+      });
+    });
+  };
 
   return (
+<<<<<<< HEAD
     <>
       <TabButton
         isActive={tab === 'about'}
@@ -177,121 +290,150 @@ export default function TabContainer() {
       >
         Contact
       </TabButton>
+=======
+    <div>
+      <h1>Checkout</h1>
+      <Item action={updateQuantityAction}/>
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
       <hr />
-      {tab === 'about' && <AboutTab />}
-      {tab === 'posts' && <PostsTab />}
-      {tab === 'contact' && <ContactTab />}
-    </>
+      <Total quantity={quantity} isPending={isPending} />
+    </div>
   );
 }
 ```
 
-```js src/TabButton.js
-import { useTransition } from 'react';
+```js src/Item.js
+import { startTransition } from "react";
 
-export default function TabButton({ children, isActive, onClick }) {
-  if (isActive) {
-    return <b>{children}</b>
+export default function Item({action}) {
+  function handleChange(event) {
+    // To expose an action prop, call the callback in startTransition.
+    startTransition(async () => {
+      action(event.target.value);
+    })
   }
   return (
-    <button onClick={() => {
-      onClick();
-    }}>
-      {children}
-    </button>
+    <div className="item">
+      <span>Eras Tour Tickets</span>
+      <label htmlFor="name">Quantity: </label>
+      <input
+        type="number"
+        onChange={handleChange}
+        defaultValue={1}
+        min={1}
+      />
+    </div>
   )
 }
-
 ```
 
-```js src/AboutTab.js
-export default function AboutTab() {
-  return (
-    <p>Welcome to my profile!</p>
-  );
-}
-```
-
-```js src/PostsTab.js
-import { memo } from 'react';
-
-const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
-  console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
-
-  let items = [];
-  for (let i = 0; i < 500; i++) {
-    items.push(<SlowPost key={i} index={i} />);
-  }
-  return (
-    <ul className="items">
-      {items}
-    </ul>
-  );
+```js src/Total.js
+const intl = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
 });
 
+<<<<<<< HEAD
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
     // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
+=======
+export default function Total({quantity, isPending}) {
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
   return (
-    <li className="item">
-      Post #{index + 1}
-    </li>
-  );
+    <div className="total">
+      <span>Total:</span>
+      <span>
+        {isPending ? "🌀 Updating..." : `${intl.format(quantity * 9999)}`}
+      </span>
+    </div>
+  )
 }
-
-export default PostsTab;
 ```
 
-```js src/ContactTab.js
-export default function ContactTab() {
-  return (
-    <>
-      <p>
-        You can find me online here:
-      </p>
-      <ul>
-        <li>admin@mysite.com</li>
-        <li>+123456789</li>
-      </ul>
-    </>
-  );
+```js src/api.js
+export async function updateQuantity(newQuantity) {
+  return new Promise((resolve, reject) => {
+    // Simulate a slow network request.
+    setTimeout(() => {
+      resolve(newQuantity);
+    }, 2000);
+  });
 }
 ```
 
 ```css
-button { margin-right: 10px }
-b { display: inline-block; margin-right: 10px; }
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.item label {
+  flex: 1;
+  text-align: right;
+}
+
+.item input {
+  margin-left: 4px;
+  width: 60px;
+  padding: 4px;
+}
+
+.total {
+  height: 50px;
+  line-height: 25px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
 ```
 
 </Sandpack>
 
+This is a basic example to demonstrate how Actions work, but this example does not handle requests completing out of order. When updating the quantity multiple times, it's possible for the previous requests to finish after later requests causing the quantity to update out of order. This is a known limitation that we will fix in the future (see [Troubleshooting](#my-state-updates-in-async-transitions-are-out-of-order) below).
+
+For common use cases, React provides built-in abstractions such as:
+- [`useActionState`](/reference/react/useActionState)
+- [`<form>` actions](/reference/react-dom/components/form)
+- [Server Actions](/reference/rsc/server-actions)
+
+These solutions handle request ordering for you. When using Transitions to build your own custom hooks or libraries that manage async state transitions, you have greater control over the request ordering, but you must handle it yourself.
+
 <Solution />
 
+<<<<<<< HEAD
 #### Actualizar la pestaña actual sin Transición {/*updating-the-current-tab-without-a-transition*/}
 
 En este ejemplo, la pestaña "Posts" también es **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse. A diferencia del ejemplo anterior, esta actualización de estado **no es una Transición.**
 
 Haz clic en "Mensajes" e inmediatamente después en "Contacto". Observa que la aplicación se congela mientras se renderiza la pestaña ralentizada, y la interfaz de usuario deja de responder. Esta actualización de estado no es una Transición, por lo que una renderización lenta congela la interfaz de usuario.
+=======
+#### Updating the quantity without an Action {/*updating-the-users-name-without-an-action*/}
+
+In this example, the `updateQuantity` function also simulates a request to the server to update the item's quantity in the cart. This function is *artificially slowed down* so that it takes at least a second to complete the request.
+
+Update the quantity multiple times quickly. Notice that the pending "Total" state is shown while any requests is in progress, but the "Total" updates multiple times for each time the "quantity" was clicked:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 <Sandpack>
 
-```js
-import { useState } from 'react';
-import TabButton from './TabButton.js';
-import AboutTab from './AboutTab.js';
-import PostsTab from './PostsTab.js';
-import ContactTab from './ContactTab.js';
-
-export default function TabContainer() {
-  const [tab, setTab] = useState('about');
-
-  function selectTab(nextTab) {
-    setTab(nextTab);
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "beta",
+    "react-dom": "beta"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
+<<<<<<< HEAD
 
   return (
     <>
@@ -319,91 +461,255 @@ export default function TabContainer() {
       {tab === 'contact' && <ContactTab />}
     </>
   );
+=======
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 }
 ```
 
-```js src/TabButton.js
-import { useTransition } from 'react';
+```js src/App.js
+import { useState, useTransition } from "react";
+import { updateQuantity } from "./api";
+import Item from "./Item";
+import Total from "./Total";
 
-export default function TabButton({ children, isActive, onClick }) {
-  if (isActive) {
-    return <b>{children}</b>
+export default function App({}) {
+  const [quantity, setQuantity] = useState(1);
+  const [isPending, setIsPending] = useState(false);
+
+  const onUpdateQuantity = async newQuantity => {
+    // Manually set the isPending State.
+    setIsPending(true);
+    const savedQuantity = await updateQuantity(newQuantity);
+    setIsPending(false);
+    setQuantity(savedQuantity);
+  };
+
+  return (
+    <div>
+      <h1>Checkout</h1>
+      <Item onUpdateQuantity={onUpdateQuantity}/>
+      <hr />
+      <Total quantity={quantity} isPending={isPending} />
+    </div>
+  );
+}
+
+```
+
+```js src/Item.js
+export default function Item({onUpdateQuantity}) {
+  function handleChange(event) {
+    onUpdateQuantity(event.target.value);
   }
   return (
-    <button onClick={() => {
-      onClick();
-    }}>
-      {children}
-    </button>
+    <div className="item">
+      <span>Eras Tour Tickets</span>
+      <label htmlFor="name">Quantity: </label>
+      <input
+        type="number"
+        onChange={handleChange}
+        defaultValue={1}
+        min={1}
+      />
+    </div>
   )
 }
-
 ```
 
-```js src/AboutTab.js
-export default function AboutTab() {
-  return (
-    <p>Welcome to my profile!</p>
-  );
-}
-```
-
-```js src/PostsTab.js
-import { memo } from 'react';
-
-const PostsTab = memo(function PostsTab() {
-  // Log once. The actual slowdown is inside SlowPost.
-  console.log('[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />');
-
-  let items = [];
-  for (let i = 0; i < 500; i++) {
-    items.push(<SlowPost key={i} index={i} />);
-  }
-  return (
-    <ul className="items">
-      {items}
-    </ul>
-  );
+```js src/Total.js
+const intl = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
 });
 
+<<<<<<< HEAD
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
     // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
   }
 
+=======
+export default function Total({quantity, isPending}) {
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
   return (
-    <li className="item">
-      Post #{index + 1}
-    </li>
-  );
+    <div className="total">
+      <span>Total:</span>
+      <span>
+        {isPending ? "🌀 Updating..." : `${intl.format(quantity * 9999)}`}
+      </span>
+    </div>
+  )
 }
-
-export default PostsTab;
 ```
 
-```js src/ContactTab.js
-export default function ContactTab() {
-  return (
-    <>
-      <p>
-        You can find me online here:
-      </p>
-      <ul>
-        <li>admin@mysite.com</li>
-        <li>+123456789</li>
-      </ul>
-    </>
-  );
+```js src/api.js
+export async function updateQuantity(newQuantity) {
+  return new Promise((resolve, reject) => {
+    // Simulate a slow network request.
+    setTimeout(() => {
+      resolve(newQuantity);
+    }, 2000);
+  });
 }
 ```
 
 ```css
-button { margin-right: 10px }
-b { display: inline-block; margin-right: 10px; }
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.item label {
+  flex: 1;
+  text-align: right;
+}
+
+.item input {
+  margin-left: 4px;
+  width: 60px;
+  padding: 4px;
+}
+
+.total {
+  height: 50px;
+  line-height: 25px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
 ```
 
 </Sandpack>
+
+A common solution to this problem is to prevent the user from making changes while the quantity is updating:
+
+<Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "beta",
+    "react-dom": "beta"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+```js src/App.js
+import { useState, useTransition } from "react";
+import { updateQuantity } from "./api";
+import Item from "./Item";
+import Total from "./Total";
+
+export default function App({}) {
+  const [quantity, setQuantity] = useState(1);
+  const [isPending, setIsPending] = useState(false);
+
+  const onUpdateQuantity = async event => {
+    const newQuantity = event.target.value;
+    // Manually set the isPending state.
+    setIsPending(true);
+    const savedQuantity = await updateQuantity(newQuantity);
+    setIsPending(false);
+    setQuantity(savedQuantity);
+  };
+
+  return (
+    <div>
+      <h1>Checkout</h1>
+      <Item isPending={isPending} onUpdateQuantity={onUpdateQuantity}/>
+      <hr />
+      <Total quantity={quantity} isPending={isPending} />
+    </div>
+  );
+}
+
+```
+
+```js src/Item.js
+export default function Item({isPending, onUpdateQuantity}) {
+  return (
+    <div className="item">
+      <span>Eras Tour Tickets</span>
+      <label htmlFor="name">Quantity: </label>
+      <input
+        type="number"
+        disabled={isPending}
+        onChange={onUpdateQuantity}
+        defaultValue={1}
+        min={1}
+      />
+    </div>
+  )
+}
+```
+
+```js src/Total.js
+const intl = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
+});
+
+export default function Total({quantity, isPending}) {
+  return (
+    <div className="total">
+      <span>Total:</span>
+      <span>
+        {isPending ? "🌀 Updating..." : `${intl.format(quantity * 9999)}`}
+      </span>
+    </div>
+  )
+}
+```
+
+```js src/api.js
+export async function updateQuantity(newQuantity) {
+  return new Promise((resolve, reject) => {
+    // Simulate a slow network request.
+    setTimeout(() => {
+      resolve(newQuantity);
+    }, 2000);
+  });
+}
+```
+
+```css
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.item label {
+  flex: 1;
+  text-align: right;
+}
+
+.item input {
+  margin-left: 4px;
+  width: 60px;
+  padding: 4px;
+}
+
+.total {
+  height: 50px;
+  line-height: 25px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+```
+
+</Sandpack>
+
+This solution makes the app feel slow, because the user must wait each time they update the quantity. It's possible to add more complex handling manually to allow the user to interact with the UI while the quantity is updating, but Actions handle this case with a straight-forward built-in API.
 
 <Solution />
 
@@ -411,12 +717,21 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
+<<<<<<< HEAD
 ### Actualización del componente principal en una Transición {/*updating-the-parent-component-in-a-transition*/}
 
 También puedes actualizar el estado de un componente padre desde la llamada "useTransition". Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una Transición:
+=======
+### Exposing `action` prop from components {/*exposing-action-props-from-components*/}
+
+You can expose an `action` prop from a component to allow a parent to call an Action.
+
+
+For example, this `TabButton` component wraps its `onClick` logic in an `action` prop:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ```js {8-10}
-export default function TabButton({ children, isActive, onClick }) {
+export default function TabButton({ action, children, isActive }) {
   const [isPending, startTransition] = useTransition();
   if (isActive) {
     return <b>{children}</b>
@@ -424,7 +739,7 @@ export default function TabButton({ children, isActive, onClick }) {
   return (
     <button onClick={() => {
       startTransition(() => {
-        onClick();
+        action();
       });
     }}>
       {children}
@@ -433,7 +748,11 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
+<<<<<<< HEAD
 Debido a que el componente padre actualiza su estado dentro del controlador de evento `onClick`, esa actualización de estado se marca como una Transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una Transición, por lo que no bloquea las interacciones del usuario.
+=======
+Because the parent component updates its state inside the `action`, that state update gets marked as a Transition. This means you can click on "Posts" and then immediately click "Contact" and it does not block user interactions:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 <Sandpack>
 
@@ -450,19 +769,19 @@ export default function TabContainer() {
     <>
       <TabButton
         isActive={tab === 'about'}
-        onClick={() => setTab('about')}
+        action={() => setTab('about')}
       >
         Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
-        onClick={() => setTab('posts')}
+        action={() => setTab('posts')}
       >
         Posts (slow)
       </TabButton>
       <TabButton
         isActive={tab === 'contact'}
-        onClick={() => setTab('contact')}
+        action={() => setTab('contact')}
       >
         Contact
       </TabButton>
@@ -478,7 +797,7 @@ export default function TabContainer() {
 ```js src/TabButton.js active
 import { useTransition } from 'react';
 
-export default function TabButton({ children, isActive, onClick }) {
+export default function TabButton({ action, children, isActive }) {
   const [isPending, startTransition] = useTransition();
   if (isActive) {
     return <b>{children}</b>
@@ -486,7 +805,7 @@ export default function TabButton({ children, isActive, onClick }) {
   return (
     <button onClick={() => {
       startTransition(() => {
-        onClick();
+        action();
       });
     }}>
       {children}
@@ -562,12 +881,16 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
+<<<<<<< HEAD
 ### Visualización de un estado visual pendiente durante la Transición {/*displaying-a-pending-visual-state-during-the-transition*/}
+=======
+### Displaying a pending visual state {/*displaying-a-pending-visual-state*/}
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 Puedes utilizar el valor booleano `isPending` devuelto por `useTransition` para indicar al usuario que una Transición está en curso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente":
 
 ```js {4-6}
-function TabButton({ children, isActive, onClick }) {
+function TabButton({ action, children, isActive }) {
   const [isPending, startTransition] = useTransition();
   // ...
   if (isPending) {
@@ -593,19 +916,19 @@ export default function TabContainer() {
     <>
       <TabButton
         isActive={tab === 'about'}
-        onClick={() => setTab('about')}
+        action={() => setTab('about')}
       >
         Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
-        onClick={() => setTab('posts')}
+        action={() => setTab('posts')}
       >
         Posts (slow)
       </TabButton>
       <TabButton
         isActive={tab === 'contact'}
-        onClick={() => setTab('contact')}
+        action={() => setTab('contact')}
       >
         Contact
       </TabButton>
@@ -621,7 +944,7 @@ export default function TabContainer() {
 ```js src/TabButton.js active
 import { useTransition } from 'react';
 
-export default function TabButton({ children, isActive, onClick }) {
+export default function TabButton({ action, children, isActive }) {
   const [isPending, startTransition] = useTransition();
   if (isActive) {
     return <b>{children}</b>
@@ -632,7 +955,7 @@ export default function TabButton({ children, isActive, onClick }) {
   return (
     <button onClick={() => {
       startTransition(() => {
-        onClick();
+        action();
       });
     }}>
       {children}
@@ -711,7 +1034,11 @@ b { display: inline-block; margin-right: 10px; }
 
 ### Evitar indicadores de carga no deseados {/*preventing-unwanted-loading-indicators*/}
 
+<<<<<<< HEAD
 En este ejemplo, el componente `PostsTab` obtiene algunos datos utilizando una fuente de datos [preparada par usarse con Suspense](/reference/react/Suspense). Al hacer clic en la pestaña _"Posts"_, el componente `PostsTab` se *suspende*, haciendo que aparezca el fallback de carga más cercano:
+=======
+In this example, the `PostsTab` component fetches some data using [use](/reference/react/use). When you click the "Posts" tab, the `PostsTab` component *suspends*, causing the closest loading fallback to appear:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 <Sandpack>
 
@@ -728,19 +1055,19 @@ export default function TabContainer() {
     <Suspense fallback={<h1>🌀 Loading...</h1>}>
       <TabButton
         isActive={tab === 'about'}
-        onClick={() => setTab('about')}
+        action={() => setTab('about')}
       >
         Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
-        onClick={() => setTab('posts')}
+        action={() => setTab('posts')}
       >
         Posts
       </TabButton>
       <TabButton
         isActive={tab === 'contact'}
-        onClick={() => setTab('contact')}
+        action={() => setTab('contact')}
       >
         Contact
       </TabButton>
@@ -754,13 +1081,13 @@ export default function TabContainer() {
 ```
 
 ```js src/TabButton.js
-export default function TabButton({ children, isActive, onClick }) {
+export default function TabButton({ action, children, isActive }) {
   if (isActive) {
     return <b>{children}</b>
   }
   return (
     <button onClick={() => {
-      onClick();
+      action();
     }}>
       {children}
     </button>
@@ -777,13 +1104,8 @@ export default function AboutTab() {
 ```
 
 ```js src/PostsTab.js hidden
+import {use} from 'react';
 import { fetchData } from './data.js';
-
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
 
 function PostsTab() {
   const posts = use(fetchData('/posts'));
@@ -805,31 +1127,6 @@ function Post({ title }) {
 }
 
 export default PostsTab;
-
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
-function use(promise) {
-  if (promise.status === 'fulfilled') {
-    return promise.value;
-  } else if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
-  } else {
-    promise.status = 'pending';
-    promise.then(
-      result => {
-        promise.status = 'fulfilled';
-        promise.value = result;
-      },
-      reason => {
-        promise.status = 'rejected';
-        promise.reason = reason;
-      },
-    );
-    throw promise;
-  }
-}
 ```
 
 ```js src/ContactTab.js hidden
@@ -895,7 +1192,11 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
+<<<<<<< HEAD
 Ocultar todo el contenedor de pestañas para mostrar un indicador de carga conduce a una experiencia de usuario discordante. Si añades `useTransition` a `TabButton`, puedes indicar que se muestre el estado pendiente en el botón de la pestaña.
+=======
+Hiding the entire tab container to show a loading indicator leads to a jarring user experience. If you add `useTransition` to `TabButton`, you can instead display the pending state in the tab button instead.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 Observa que al hacer clic en "Entradas" ya no se sustituye todo el contenedor de la pestaña por un spinner:
 
@@ -914,19 +1215,19 @@ export default function TabContainer() {
     <Suspense fallback={<h1>🌀 Loading...</h1>}>
       <TabButton
         isActive={tab === 'about'}
-        onClick={() => setTab('about')}
+        action={() => setTab('about')}
       >
         Acerca de
       </TabButton>
       <TabButton
         isActive={tab === 'posts'}
-        onClick={() => setTab('posts')}
+        action={() => setTab('posts')}
       >
         Posts
       </TabButton>
       <TabButton
         isActive={tab === 'contact'}
-        onClick={() => setTab('contact')}
+        action={() => setTab('contact')}
       >
         Contact
       </TabButton>
@@ -942,7 +1243,7 @@ export default function TabContainer() {
 ```js src/TabButton.js active
 import { useTransition } from 'react';
 
-export default function TabButton({ children, isActive, onClick }) {
+export default function TabButton({ action, children, isActive }) {
   const [isPending, startTransition] = useTransition();
   if (isActive) {
     return <b>{children}</b>
@@ -953,7 +1254,7 @@ export default function TabButton({ children, isActive, onClick }) {
   return (
     <button onClick={() => {
       startTransition(() => {
-        onClick();
+        action();
       });
     }}>
       {children}
@@ -971,13 +1272,8 @@ export default function AboutTab() {
 ```
 
 ```js src/PostsTab.js hidden
+import {use} from 'react';
 import { fetchData } from './data.js';
-
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
 
 function PostsTab() {
   const posts = use(fetchData('/posts'));
@@ -999,31 +1295,6 @@ function Post({ title }) {
 }
 
 export default PostsTab;
-
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
-function use(promise) {
-  if (promise.status === 'fulfilled') {
-    return promise.value;
-  } else if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
-  } else {
-    promise.status = 'pending';
-    promise.then(
-      result => {
-        promise.status = 'fulfilled';
-        promise.value = result;
-      },
-      reason => {
-        promise.status = 'rejected';
-        promise.reason = reason;
-      },
-    );
-    throw promise;
-  }
-}
 ```
 
 ```js src/ContactTab.js hidden
@@ -1093,7 +1364,11 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
+<<<<<<< HEAD
 Las Transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de la pestaña). Si la pestaña Entradas tuviera una [barrera de `<Suspense>` anidada,](/reference/react/Suspense#revealing-nested-content-as-it-loads) la Transición no la "esperaría".
+=======
+Transitions only "wait" long enough to avoid hiding *already revealed* content (like the tab container). If the Posts tab had a [nested `<Suspense>` boundary,](/reference/react/Suspense#revealing-nested-content-as-it-loads) the Transition would not "wait" for it.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 </Note>
 
@@ -1116,29 +1391,24 @@ function Router() {
   // ...
 ```
 
+<<<<<<< HEAD
 Esto se recomienda por dos razones:
 
 - [Las Transiciones son interrumpibles,](#marking-a-state-update-as-a-non-blocking-transition) que permite al usuario hacer clic sin esperar a que se complete la nueva renderización.
 - [Las Transiciones evitan indicadores de carga no deseados,](#preventing-unwanted-loading-indicators) que permite al usuario evitar saltos bruscos en la navegación.
 
 He aquí un pequeño ejemplo de enrutador simplificado que utiliza Transiciones para las navegaciones.
+=======
+This is recommended for three reasons:
+
+- [Transitions are interruptible,](#marking-a-state-update-as-a-non-blocking-transition) which lets the user click away without waiting for the re-render to complete.
+- [Transitions prevent unwanted loading indicators,](#preventing-unwanted-loading-indicators) which lets the user avoid jarring jumps on navigation.
+- [Transitions wait for all pending actions](#perform-non-blocking-updates-with-actions) which lets the user wait for side effects to complete before the new page is shown.
+
+Here is a simplified router example using Transitions for navigations.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 <Sandpack>
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
 
 ```js src/App.js
 import { Suspense, useState, useTransition } from 'react';
@@ -1249,14 +1519,9 @@ function AlbumsGlimmer() {
 }
 ```
 
-```js src/Albums.js hidden
+```js src/Albums.js
+import {use} from 'react';
 import { fetchData } from './data.js';
-
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
 
 export default function Albums({ artistId }) {
   const albums = use(fetchData(`/${artistId}/albums`));
@@ -1270,41 +1535,11 @@ export default function Albums({ artistId }) {
     </ul>
   );
 }
-
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
-function use(promise) {
-  if (promise.status === 'fulfilled') {
-    return promise.value;
-  } else if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
-  } else {
-    promise.status = 'pending';
-    promise.then(
-      result => {
-        promise.status = 'fulfilled';
-        promise.value = result;
-      },
-      reason => {
-        promise.status = 'rejected';
-        promise.reason = reason;
-      },
-    );
-    throw promise;
-  }
-}
 ```
 
-```js src/Biography.js hidden
+```js src/Biography.js
+import {use} from 'react';
 import { fetchData } from './data.js';
-
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
 
 export default function Biography({ artistId }) {
   const bio = use(fetchData(`/${artistId}/bio`));
@@ -1314,34 +1549,9 @@ export default function Biography({ artistId }) {
     </section>
   );
 }
-
-// This is a workaround for a bug to get the demo running.
-// TODO: replace with real implementation when the bug is fixed.
-function use(promise) {
-  if (promise.status === 'fulfilled') {
-    return promise.value;
-  } else if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
-  } else {
-    promise.status = 'pending';
-    promise.then(
-      result => {
-        promise.status = 'fulfilled';
-        promise.value = result;
-      },
-      reason => {
-        promise.status = 'rejected';
-        promise.reason = reason;
-      },
-    );
-    throw promise;
-  }
-}
 ```
 
-```js src/Panel.js hidden
+```js src/Panel.js
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -1505,6 +1715,7 @@ Se espera que los enredadores [preparados para Suspense](/reference/react/Suspen
 
 ### Displaying an error to users with an error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
 
+<<<<<<< HEAD
 <Canary>
 
 La barrera de error para useTransition está disponible actualmente solo en los canales experimental y canary de React. Más información sobre [los canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
@@ -1512,6 +1723,9 @@ La barrera de error para useTransition está disponible actualmente solo en los 
 </Canary>
 
 Si una función que se pasa a `startTransition` lanza un error, puedes mostrar un error a tu usuario con una [barrera de error](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar una barrera de error, envuelve el componente en el que estás llamando a `useTransition` en una barrera de error. Una vez que la función que se pasa a `startTransition` lanza un error se mostrará el _fallback_ de la barrera de error.
+=======
+If a function passed to `startTransition` throws an error, you can display an error to your user with an [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). To use an error boundary, wrap the component where you are calling the `useTransition` in an error boundary. Once the function passed to `startTransition` errors, the fallback for the error boundary will be displayed.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 <Sandpack>
 
@@ -1563,16 +1777,9 @@ export default function App() {
 ```
 
 ```js src/index.js hidden
-// TODO: update to import from stable
-// react instead of canary once the `use`
-// Hook is in a stable release of React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
-
-// TODO: update this example to use
-// the Codesandbox Server Component
-// demo environment once it is created
 import App from './App';
 
 const root = createRoot(document.getElementById('root'));
@@ -1586,8 +1793,8 @@ root.render(
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.0.0-rc-3edc000d-20240926",
+    "react-dom": "19.0.0-rc-3edc000d-20240926",
     "react-scripts": "^5.0.0",
     "react-error-boundary": "4.0.3"
   },
@@ -1635,9 +1842,13 @@ startTransition(() => {
 });
 ```
 
+<<<<<<< HEAD
 La función que pases a `startTransition` debe ser síncrona.
 
 No puedes marcar una actualización como una Transición así:
+=======
+The function you pass to `startTransition` must be synchronous. You can't mark an update as a Transition like this:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ```js
 startTransition(() => {
@@ -1659,12 +1870,20 @@ setTimeout(() => {
 }, 1000);
 ```
 
+<<<<<<< HEAD
 Del mismo modo, no se puede marcar una actualización como una Transición como esta:
+=======
+---
+
+### React doesn't treat my state update after `await` as a Transition {/*react-doesnt-treat-my-state-update-after-await-as-a-transition*/}
+
+When you use `await` inside a `startTransition` function, the state updates that happen after the `await` are not marked as Transitions. You must wrap state updates after each `await` in a `startTransition` call:
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 ```js
 startTransition(async () => {
   await someAsyncFunction();
-  // ❌ Setting state *after* startTransition call
+  // ❌ Not using startTransition after await
   setPage('/about');
 });
 ```
@@ -1672,12 +1891,16 @@ startTransition(async () => {
 Sin embargo, esto funciona en su lugar:
 
 ```js
-await someAsyncFunction();
-startTransition(() => {
-  // ✅ Setting state *during* startTransition call
-  setPage('/about');
+startTransition(async () => {
+  await someAsyncFunction();
+  // ✅ Using startTransition *after* await
+  startTransition(() => {
+    setPage('/about');
+  });
 });
 ```
+
+This is a JavaScript limitation due to React losing the scope of the async context. In the future, when [AsyncContext](https://github.com/tc39/proposal-async-context) is available, this limitation will be removed.
 
 ---
 
@@ -1721,3 +1944,183 @@ function setState() {
   }
 }
 ```
+
+### My state updates in Transitions are out of order {/*my-state-updates-in-transitions-are-out-of-order*/}
+
+If you `await` inside `startTransition`, you might see the updates happen out of order.
+
+In this example, the `updateQuantity` function simulates a request to the server to update the item's quantity in the cart. This function *artificially returns the every other request after the previous* to simulate race conditions for network requests.
+
+Try updating the quantity once, then update it quickly multiple times. You might see the incorrect total:
+
+<Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "beta",
+    "react-dom": "beta"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+```js src/App.js
+import { useState, useTransition } from "react";
+import { updateQuantity } from "./api";
+import Item from "./Item";
+import Total from "./Total";
+
+export default function App({}) {
+  const [quantity, setQuantity] = useState(1);
+  const [isPending, startTransition] = useTransition();
+  // Store the actual quantity in separate state to show the mismatch.
+  const [clientQuantity, setClientQuantity] = useState(1);
+  
+  const updateQuantityAction = newQuantity => {
+    setClientQuantity(newQuantity);
+
+    // Access the pending state of the transition,
+    // by wrapping in startTransition again.
+    startTransition(async () => {
+      const savedQuantity = await updateQuantity(newQuantity);
+      startTransition(() => {
+        setQuantity(savedQuantity);
+      });
+    });
+  };
+
+  return (
+    <div>
+      <h1>Checkout</h1>
+      <Item action={updateQuantityAction}/>
+      <hr />
+      <Total clientQuantity={clientQuantity} savedQuantity={quantity} isPending={isPending} />
+    </div>
+  );
+}
+
+```
+
+```js src/Item.js
+import {startTransition} from 'react';
+
+export default function Item({action}) {
+  function handleChange(e) {
+    // Update the quantity in an Action.
+    startTransition(() => {
+      action(e.target.value);
+    });
+  }  
+  return (
+    <div className="item">
+      <span>Eras Tour Tickets</span>
+      <label htmlFor="name">Quantity: </label>
+      <input
+        type="number"
+        onChange={handleChange}
+        defaultValue={1}
+        min={1}
+      />
+    </div>
+  )
+}
+```
+
+```js src/Total.js
+const intl = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
+});
+
+export default function Total({ clientQuantity, savedQuantity, isPending }) {
+  return (
+    <div className="total">
+      <span>Total:</span>
+      <div>
+        <div>
+          {isPending
+            ? "🌀 Updating..."
+            : `${intl.format(savedQuantity * 9999)}`}
+        </div>
+        <div className="error">
+          {!isPending &&
+            clientQuantity !== savedQuantity &&
+            `Wrong total, expected: ${intl.format(clientQuantity * 9999)}`}
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+```js src/api.js
+let firstRequest = true;
+export async function updateQuantity(newName) {
+  return new Promise((resolve, reject) => {
+    if (firstRequest === true) {
+      firstRequest = false;
+      setTimeout(() => {
+        firstRequest = true;
+        resolve(newName);
+        // Simulate every other request being slower
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        resolve(newName);
+      }, 50);
+    }
+  });
+}
+```
+
+```css
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.item label {
+  flex: 1;
+  text-align: right;
+}
+
+.item input {
+  margin-left: 4px;
+  width: 60px;
+  padding: 4px;
+}
+
+.total {
+  height: 50px;
+  line-height: 25px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.total div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.error {
+  color: red;
+}
+```
+
+</Sandpack>
+
+
+When clicking multiple times, it's possible for previous requests to finish after later requests. When this happens, React currently has no way to know the intended order. This is because the updates are scheduled asynchronously, and React loses context of the order across the async boundary.
+
+This is expected, because Actions within a Transition do not guarantee execution order. For common use cases, React provides higher-level abstractions like [`useActionState`](/reference/react/useActionState) and [`<form>` actions](/reference/react-dom/components/form) that handle ordering for you. For advanced use cases, you'll need to implement your own queuing and abort logic to handle this.
+
+

@@ -48,10 +48,17 @@ function Greeting({ name }) {
 
 `createElement` devuelve un objecto React element con algunas propiedades:
 
+<<<<<<< HEAD
 * `type`: El `type` que pasaste.
 * `props`: Los `props` que pasaste excepto `ref` y `key`. Si el `type` es un componente con `type.defaultProps` heredado, entonces cualquier `props` que falte o `props` indefinidas obtendrá los valores de `type.defaultProps`.
 * `ref`: La `ref` que pasaste. Si no la pasaste es, `null`.
 * `key`: La `key` que pasaste, forzada a ser string. Si no la pasaste es, `null`.
+=======
+* `type`: The `type` you have passed.
+* `props`: The `props` you have passed except for `ref` and `key`.
+* `ref`: The `ref` you have passed. If missing, `null`.
+* `key`: The `key` you have passed, coerced to a string. If missing, `null`.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 Por lo general, devolverá el elemento de tu componente o lo convertirá en hijo de otro elemento. Aunque puedes leer las propiedades del elemento, es mejor tratar cada elemento como opaco después de su creación, y solo renderizarlo.
 
