@@ -6,11 +6,19 @@ Este repositorio contiene el código fuente y la documentación de [es.react.dev
 
 ### Prerrequisitos
 
+<<<<<<< HEAD
 1. Git.
 1. Node: cualquier versión 12.x a partir de v12.0.0 o superior.
 1. Yarn: consulta el [sitio web de Yarn para obtener instrucciones de instalación](https://yarnpkg.com/lang/en/docs/install/) (en inglés).
 1. Una bifurcación (_fork_) del repositorio (para cualquier contribución).
 1. Un clon (_clone_) del [repositorio es.react.dev](https://github.com/reactjs/es.react.dev) en tu máquina local.
+=======
+1. Git
+1. Node: any version starting with v16.8.0 or greater
+1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
+1. A fork of the repo (for any contributions)
+1. A clone of the [react.dev repo](https://github.com/reactjs/react.dev) on your local machine
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 ### Instalación
 

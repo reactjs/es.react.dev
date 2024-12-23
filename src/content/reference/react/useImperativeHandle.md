@@ -23,9 +23,9 @@ useImperativeHandle(ref, createHandle, dependencies?)
 Llama a `useImperativeHandle` en el nivel superior de tu componente para personalizar el identificador ref que se expone:
 
 ```js
-import { forwardRef, useImperativeHandle } from 'react';
+import { useImperativeHandle } from 'react';
 
-const MyInput = forwardRef(function MyInput(props, ref) {
+function MyInput({ ref }) {
   useImperativeHandle(ref, () => {
     return {
       // ... tus métodos ...
@@ -38,13 +38,27 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `ref`: La `ref` que recibes como segundo argumento de la [función render `forwardRef`](/reference/react/forwardRef#render-function)
+=======
+* `ref`: The `ref` you received as a prop to the `MyInput` component.
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 * `createHandle`: Una función que no toma argumentos y devuelve el identificador ref que quieres exponer. El identificador ref que devuelve puede tener cualquier tipo. Por lo general, devolverá un objeto con lo métodos que quieres exponer.
 
 * **opcional** `dependencies`: La lista de todos los valores reactivos a los que se hace referencia dentro del código de `createHandle`. Los valores reactivos incluye props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente.  Si tu linter es [configurado por React](/learn/editor-setup#linting), va a verificar que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias deben tener un número constante de elementos y ser escritos en una sola linea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si un nuevo renderizado resultara en un cambio a una dependencia, o si no especificaste las dependencias completamente, tu función `createHandle` se volverá a ejecutar, y el nuevo identificador recién creado será asignado a ref. 
 
+<<<<<<< HEAD
 #### Devuelve {/*returns*/}
+=======
+<Note>
+
+Starting with React 19, [`ref` is available a prop.](/blog/2024/12/05/react-19#ref-as-a-prop) In React 18 and earlier, it was necessary to get the `ref` from [`forwardRef`.](/reference/react/forwardRef) 
+
+</Note>
+
+#### Returns {/*returns*/}
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 `useImperativeHandle` devuelve `undefined`.
 
@@ -54,40 +68,50 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 ### Exponer un identificador ref personalizado al componente padre {/*exposing-a-custom-ref-handle-to-the-parent-component*/}
 
+<<<<<<< HEAD
 Los componentes por defecto no exponen sus nodos DOM a los componentes padre. Por ejemplo, si quieres el componente padre de `MyInput` para [tener acceso](/learn/manipulating-the-dom-with-refs) al nodo DOM de  `<input>`, tienes que optar por [`forwardRef`:](/reference/react/forwardRef)
+=======
+To expose a DOM node to the parent element, pass in the `ref` prop to the node.
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
-```js {4}
-import { forwardRef } from 'react';
-
-const MyInput = forwardRef(function MyInput(props, ref) {
-  return <input {...props} ref={ref} />;
-});
+```js {2}
+function MyInput({ ref }) {
+  return <input ref={ref} />;
+};
 ```
 
+<<<<<<< HEAD
 Con el código de arriba, [una ref a `MyInput` va a recibir el nodo DOM de `<input>`.](/reference/react/forwardRef#exposing-a-dom-node-to-the-parent-component) Aun así, puedes exponer un valor personalizado en su lugar. Para personalizar el identificador expuesto, llama a `useImperativeHandle` en el nivel superior  de tu componente:
+=======
+With the code above, [a ref to `MyInput` will receive the `<input>` DOM node.](/learn/manipulating-the-dom-with-refs) However, you can expose a custom value instead. To customize the exposed handle, call `useImperativeHandle` at the top level of your component:
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 ```js {4-8}
-import { forwardRef, useImperativeHandle } from 'react';
+import { useImperativeHandle } from 'react';
 
-const MyInput = forwardRef(function MyInput(props, ref) {
+function MyInput({ ref }) {
   useImperativeHandle(ref, () => {
     return {
       // ... tus métodos ...
     };
   }, []);
 
-  return <input {...props} />;
-});
+  return <input />;
+};
 ```
 
+<<<<<<< HEAD
 Ten en cuenta que en el código de arriba, la `ref` ya no se reenvía a `<input>`.
+=======
+Note that in the code above, the `ref` is no longer passed to the `<input>`.
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 Por ejemplo, supongamos que no quieres exponer el nodo DOM entero de `<input>`, pero quieres exponer dos de sus métodos: `focus` y `scrollIntoView`. Para hacer esto, mantén el DOM real del navegador en una ref separada. Entonces usa `useImperativeHandle` para exponer un identificador solamente con los métodos que quieres que el componente padre llame:
 
 ```js {7-14}
-import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 
-const MyInput = forwardRef(function MyInput(props, ref) {
+function MyInput({ ref }) {
   const inputRef = useRef(null);
 
   useImperativeHandle(ref, () => {
@@ -101,8 +125,8 @@ const MyInput = forwardRef(function MyInput(props, ref) {
     };
   }, []);
 
-  return <input {...props} ref={inputRef} />;
-});
+  return <input ref={inputRef} />;
+};
 ```
 
 Ahora, si el componente padre obtiene una ref a `MyInput`, podrá llamar a los métodos `focus` y `scrollIntoView` en él. Sin embargo, no va a tener acceso completo al nodo DOM de `<input>` de manera más profunda.
@@ -134,9 +158,9 @@ export default function Form() {
 ```
 
 ```js src/MyInput.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 
-const MyInput = forwardRef(function MyInput(props, ref) {
+function MyInput({ ref, ...props }) {
   const inputRef = useRef(null);
 
   useImperativeHandle(ref, () => {
@@ -151,7 +175,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
   }, []);
 
   return <input {...props} ref={inputRef} />;
-});
+};
 
 export default MyInput;
 ```
@@ -195,11 +219,11 @@ export default function Page() {
 ```
 
 ```js src/Post.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 import CommentList from './CommentList.js';
 import AddComment from './AddComment.js';
 
-const Post = forwardRef((props, ref) => {
+function Post({ ref }) {
   const commentsRef = useRef(null);
   const addCommentRef = useRef(null);
 
@@ -221,16 +245,16 @@ const Post = forwardRef((props, ref) => {
       <AddComment ref={addCommentRef} />
     </>
   );
-});
+};
 
 export default Post;
 ```
 
 
 ```js src/CommentList.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 
-const CommentList = forwardRef(function CommentList(props, ref) {
+function CommentList({ ref }) {
   const divRef = useRef(null);
 
   useImperativeHandle(ref, () => {
@@ -252,17 +276,23 @@ const CommentList = forwardRef(function CommentList(props, ref) {
       {comments}
     </div>
   );
-});
+}
 
 export default CommentList;
 ```
 
 ```js src/AddComment.js
-import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 
+<<<<<<< HEAD
 const AddComment = forwardRef(function AddComment(props, ref) {
   return <input placeholder="Añadir comentario..." ref={ref} />;
 });
+=======
+function AddComment({ ref }) {
+  return <input placeholder="Add comment..." ref={ref} />;
+}
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 export default AddComment;
 ```

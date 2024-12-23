@@ -32,12 +32,16 @@ Para mostrar un input, renderiza el componente [`<input>` incorporado en el nave
 
 `<input>` admite todas las [props comunes de los elementos.](/reference/react-dom/components/common#props)
 
+<<<<<<< HEAD
 <Canary>
 
 Las extensiones a la prop `formAction` solo están disponible actualmente en los canales experimental y Canary de React. En versiones estables de React, `formAction` funciona solo como un [componente integrado HTML del navegador](/reference/react-dom/components#all-html-components). Más información sobre [los canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
 </Canary>
 
 [`formAction`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction): Un string o una función. Sobreescribe el `<form action>` padre para `type="submit"` y `type="image"`. Cuando se pasa una URL a `action` el formulario se comportará como un formulario HTML estándar. Cuando se pasa una función a `formAction` la función manejará el envío del formulario. Consulta [`<form action>`](/reference/react-dom/components/form#props).
+=======
+- [`formAction`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction): A string or function. Overrides the parent `<form action>` for `type="submit"` and `type="image"`. When a URL is passed to `action` the form will behave like a standard HTML form. When a function is passed to `formAction` the function will handle the form submission. See [`<form action>`](/reference/react-dom/components/form#props).
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 Puedes [hacer un input controlado](#controlling-an-input-with-a-state-variable) pasando una de estas props:
 

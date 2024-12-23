@@ -1,13 +1,21 @@
 ---
+<<<<<<< HEAD
 title: "Directivas"
 canary: true
+=======
+title: Directives
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 ---
 
-<Canary>
+<RSC>
 
+<<<<<<< HEAD
 Estas directivas sólo son necesarias si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o construyendo una librería compatible con ellos.
+=======
+Directives are for use in [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
-</Canary>
+</RSC>
 
 <Intro>
 
