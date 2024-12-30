@@ -448,16 +448,20 @@ button { display: block; margin-bottom: 20px; }
 
 #### Exponer una ref a tu propio componente {/*exposing-a-ref-to-your-own-component*/}
 
+<<<<<<< HEAD
 A veces, es posible que quieras dejar que el componente padre manipule el DOM dentro de tu componente. Por ejemplo, tal vez estás escribiendo un componente `MyInput`, pero quieres que el padre sea capaz de enfocar la entrada (a la que el padre no tiene acceso). Puedes usar una combinación de `useRef` para mantener la entrada y [`forwardRef`](/reference/react/forwardRef) para exponerlo al componente padre. Lee un [recorrido detallado](/learn/manipulating-the-dom-with-refs#accessing-another-components-dom-nodes) aquí.
+=======
+Sometimes, you may want to let the parent component manipulate the DOM inside of your component. For example, maybe you're writing a `MyInput` component, but you want the parent to be able to focus the input (which the parent has no access to). You can create a `ref` in the parent and pass the `ref` as prop to the child component. Read a [detailed walkthrough](/learn/manipulating-the-dom-with-refs#accessing-another-components-dom-nodes) here.
+>>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
 ```js
-import { forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 
-const MyInput = forwardRef((props, ref) => {
-  return <input {...props} ref={ref} />;
-});
+function MyInput({ ref }) {
+  return <input ref={ref} />;
+};
 
 export default function Form() {
   const inputRef = useRef(null);
@@ -554,7 +558,11 @@ Es posible que aparezca un error en la consola:
 
 <ConsoleBlock level="error">
 
+<<<<<<< HEAD
 Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?<div>**(Traducción)**</div>Advertencia: Componentes de función no pueden recibir refs. Los intentos de acceder a esta ref fallarán. ¿Querías usar React.forwardRef()?
+=======
+TypeError: Cannot read properties of null
+>>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 </ConsoleBlock>
 
@@ -573,11 +581,18 @@ export default function MyInput({ value, onChange }) {
 }
 ```
 
+<<<<<<< HEAD
 Y luego envuélvelo en [`forwardRef`](/reference/react/forwardRef) de la siguiente forma:
 ```js {3,8}
 import { forwardRef } from 'react';
 
 const MyInput = forwardRef(({ value, onChange }, ref) => {
+=======
+And then add `ref` to the list of props your component accepts and pass `ref` as a prop to the relevent child [built-in component](/reference/react-dom/components/common) like this:
+
+```js {1,6}
+function MyInput({ value, onChange, ref }) {
+>>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
   return (
     <input
       value={value}
@@ -585,7 +600,7 @@ const MyInput = forwardRef(({ value, onChange }, ref) => {
       ref={ref}
     />
   );
-});
+};
 
 export default MyInput;
 ```
