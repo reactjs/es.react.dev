@@ -4,10 +4,10 @@ title: startTransition
 
 <Intro>
 
-`startTransition` permite actualizar el estado sin bloquear la UI.
+`startTransition` permite renderizar una parte de la UI en segundo plano.
 
 ```js
-startTransition(scope)
+startTransition(action)
 ```
 
 </Intro>
@@ -18,7 +18,7 @@ startTransition(scope)
 
 ## Referencia {/*reference*/}
 
-### `startTransition(scope)` {/*starttransitionscope*/}
+### `startTransition(action)` {/*starttransition*/}
 
 La función `startTransition` te permite marcar una actualización de estado como una Transición.
 
@@ -41,7 +41,7 @@ function TabContainer() {
 
 #### Parámetros {/*parameters*/}
 
-* `scope`: Una función que actualiza algún estado llamando a una o más [funciones `set`](/reference/react/useState#setstate). React llama inmediatamente a `scope` sin argumentos y marca todas las actualizaciones de estado programadas de forma síncrona durante la llamada a la función `scope` como Transiciones. Estas serán [sin bloqueo](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados.](/reference/react/useTransition#preventing-unwanted-loading-indicators)
+* `action`: A function that updates some state by calling one or more [`set` functions](/reference/react/useState#setstate). React calls `action` immediately with no parameters and marks all state updates scheduled synchronously during the `action` function call as Transitions. Any async calls awaited in the `action` will be included in the transition, but currently require wrapping any `set` functions after the `await` in an additional `startTransition` (see [Troubleshooting](/reference/react/useTransition#react-doesnt-treat-my-state-update-after-await-as-a-transition)). State updates marked as Transitions will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators.](/reference/react/useTransition#preventing-unwanted-loading-indicators).
 
 #### Devuelve {/*returns*/}
 
@@ -53,13 +53,15 @@ function TabContainer() {
 
 * Solo puedes envolver una actualización en una Transición si tienes acceso a la función `set`  de ese estado. Si deseas iniciar una Transición en respuesta a alguna prop o un valor de devolución de un Hook personalizado, intenta usar [`useDeferredValue`](/reference/react/useDeferredValue) en su lugar.
 
-* La función que pasas a `startTransition` debe ser sincrónica. React ejecuta inmediatamente esta función, marcando todas las actualizaciones de estado que ocurren mientras se ejecuta como Transiciones. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un timeout), no se marcarán como Transiciones.
+* The function you pass to `startTransition` is called immediately, marking all state updates that happen while it executes as Transitions. If you try to perform state updates in a `setTimeout`, for example, they won't be marked as Transitions.
+
+* You must wrap any state updates after any async requests in another `startTransition` to mark them as Transitions. This is a known limitation that we will fix in the future (see [Troubleshooting](/reference/react/useTransition#react-doesnt-treat-my-state-update-after-await-as-a-transition)).
 
 * Una actualización de estado marcada como una Transición será interrumpida por otras actualizaciones de estado. Por ejemplo, si actualizas un componente de gráfico dentro de una Transición, pero luego comienzas a escribir en una entrada de texto mientras el gráfico está en medio de una rerenderización, React reiniciará el trabajo de renderizado en el componente de gráfico después de manejar la actualización de estado de la entrada de texto.
 
 * Las actualizaciones de Transición no se pueden utilizar para controlar entradas de texto.
 
-* Si hay varias Transiciones en curso, React actualmente las agrupa. Esta es una limitación que probablemente se eliminará en una versión futura.
+* Si hay varias Transiciones en curso, React actualmente las agrupa. Esta es una limitación que podría eliminarse en una versión futura.
 
 ---
 

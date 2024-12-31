@@ -1,13 +1,12 @@
 ---
-title: "Directivas"
-canary: true
+title: Directivas
 ---
 
-<Canary>
+<RSC>
 
-Estas directivas sólo son necesarias si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o construyendo una librería compatible con ellos.
+Las directivas son necesarias en [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
 
-</Canary>
+</RSC>
 
 <Intro>
 

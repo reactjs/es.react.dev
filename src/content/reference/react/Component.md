@@ -50,7 +50,7 @@ Sólo el método `render` es requerido, otros métodos son opcionales.
 
 ### `context` {/*context*/}
 
-El [contexto](/learn/passing-data-deeply-with-context) de un componente de clase está disponible como `this.context`. Solo está disponible si especificas *cual* contexto deseas recibir usando [static contextType](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (deprecado).
+El [contexto](/learn/passing-data-deeply-with-context) de un componente de clase está disponible como `this.context`. Solo está disponible si especificas *qué* contexto deseas recibir usando [`static contextType`](#static-contexttype).
 
 Un componente de clase solo puede leer un contexto a la vez.
 
@@ -102,18 +102,6 @@ Leer `this.props` en componentes de clase es equivalente a [declarar props](/lea
 [Mira cómo migrar.](#migrating-a-simple-component-from-a-class-to-a-function)
 
 </Note>
-
----
-
-### `refs` {/*refs*/}
-
-<Deprecated>
-
-Esta API será eliminada en una versión mayor futura de React. [Usa createRef en su lugar.](/reference/react/createRef)
-
-</Deprecated>
-
-Te permite acceder a las [_refs_ antiguas de _string_](https://es.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs) para este componente.
 
 ---
 
@@ -494,18 +482,6 @@ La lectura de una fuente de datos externa y la actualización forzada de compone
 
 ---
 
-### `getChildContext()` {/*getchildcontext*/}
-
-<Deprecated>
-
-Esta API será eliminada en una versión importante futura de React. [Usa en su lugar `Context.Provider`.](/reference/react/createContext#provider)
-
-</Deprecated>
-
-Permite especificar los valores para el [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) que es proporcionado por este componente.
-
----
-
 ### `getSnapshotBeforeUpdate(prevProps, prevState)` {/*getsnapshotbeforeupdate*/}
 
 Si implementas `getSnapshotBeforeUpdate`, React lo llamará inmediatamente antes de actualizar el DOM. Esto permite que tu componente capture cierta información del DOM (por ejemplo, la posición de desplazamiento) antes de que potencialmente cambie. Cualquier valor devuelto por este método de ciclo de vida se pasará como parámetro a [`componentDidUpdate`.](#componentdidupdate)
@@ -738,7 +714,7 @@ React llama a `shouldComponentUpdate` antes de renderizar cuando se reciben nuev
 
 - `nextProps`: Las próximas props que el componente está a punto de renderizar. Compare `nextProps` con [`this.props`](#props) para determinar lo que cambió.
 - `nextState`: El próximo estado con el que el componente está a punto de renderizar. Compare `nextState` con [`this.state`](#props) para determinar lo que cambió.
-- `nextContext`: El próximo contexto con el que el componente está a punto de renderizar. Compare `nextContext` con [`this.context`](#context) para determinar lo que cambió. Solo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (legado).
+- `nextContext`: El próximo contexto con el que el componente está a punto de renderizar. Compare `nextContext` con [`this.context`](#context) para determinar lo que cambió. Solo está disponible si se especifica [`static contextType`](#static-contexttype).
 
 #### Devuelve {/*shouldcomponentupdate-returns*/}
 
@@ -813,7 +789,7 @@ Si defines `UNSAFE_componentWillReceiveProps`, React lo llamará cuando el compo
 #### Parámetros {/*unsafe_componentwillreceiveprops-parameters*/}
 
 - `nextProps`: Las siguientes props que el componente está a punto de recibir de su componente padre. Compara `nextProps` con [`this.props`](#props) para determinar qué ha cambiado.
-- `nextContext`: El siguiente contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Sólo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (heredado).
+- `nextContext`: El siguiente contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Sólo está disponible si se especifica [`static contextType`](#static-contexttype).
 
 #### Devuelve {/*unsafe_componentwillreceiveprops-returns*/}
 
@@ -875,30 +851,6 @@ Si defines `UNSAFE_componentWillUpdate`, React lo llamará antes de renderizar c
 No hay un equivalente directo a `UNSAFE_componentWillUpdate` en componentes de función.
 
 </Note>
-
----
-
-### `static childContextTypes` {/*static-childcontexttypes*/}
-
-<Deprecated>
-
-Esta API será eliminada en una futura versión importante de React. [En su lugar, usa `static contextType`.](#static-contexttype)
-
-</Deprecated>
-
-Te permite especificar qué [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) es proporcionado por este componente.
-
----
-
-### `static contextTypes` {/*static-contexttypes*/}
-
-<Deprecated>
-
-Esta API será eliminada en una versión mayor futura de React. [Usa `static contextType` en su lugar.](#static-contexttype)
-
-</Deprecated>
-
-Te permite especificar qué [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) es consumido por este componente.
 
 ---
 
@@ -971,34 +923,6 @@ Si la propiedad `color` no se proporciona o es `undefined`, se establecerá por 
 <Note>
 
 Definir `defaultProps` en componentes de clase es similar a usar [valores predeterminados](/learn/passing-props-to-a-component#specifying-a-default-value-for-a-prop) en componentes de función.
-
-</Note>
-
----
-
-### `static propTypes` {/*static-proptypes*/}
-
-Puedes definir `static propTypes` junto con la biblioteca [`prop-types`](https://www.npmjs.com/package/prop-types) para declarar los tipos de las props aceptadas por tu componente. Estos tipos se comprobarán durante el renderizado y sólo en el desarrollo.
-
-```js
-import PropTypes from 'prop-types';
-
-class Greeting extends React.Component {
-  static propTypes = {
-    name: PropTypes.string
-  };
-
-  render() {
-    return (
-      <h1>Hola, {this.props.name}</h1>
-    );
-  }
-}
-```
-
-<Note>
-
-Recomendamos utilizar [TypeScript](https://www.typescriptlang.org/) en lugar de comprobar los tipos de prop en tiempo de ejecución.
 
 </Note>
 

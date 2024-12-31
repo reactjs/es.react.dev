@@ -49,7 +49,7 @@ function Greeting({ name }) {
 `createElement` devuelve un objecto React element con algunas propiedades:
 
 * `type`: El `type` que pasaste.
-* `props`: Los `props` que pasaste excepto `ref` y `key`. Si el `type` es un componente con `type.defaultProps` heredado, entonces cualquier `props` que falte o `props` indefinidas obtendrá los valores de `type.defaultProps`.
+* `props`: Los `props` que pasaste excepto `ref` y `key`.
 * `ref`: La `ref` que pasaste. Si no la pasaste es, `null`.
 * `key`: La `key` que pasaste, forzada a ser string. Si no la pasaste es, `null`.
 

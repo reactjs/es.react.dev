@@ -12,23 +12,24 @@ Estas APIs se exportan desde el paquete `react`, pero no se recomiendan para ser
 
 ## APIs heredadas {/*legacy-apis*/}
 
-* [`Children`](/reference/react/Children) te permite manipular y transformar el JSX recibido como la propiedad `children`. [Ver alternativas.](/reference/react/Children#alternatives)
-* [`cloneElement`](/reference/react/cloneElement) te permite crear un elemento React usando otro elemento como punto de partida. [Ver alternativas.](/reference/react/cloneElement#alternatives)
-* [`Component`](/reference/react/Component) te permite definir un componente React como una clase JavaScript. [Ver alternativas.](/reference/react/Component#alternatives)
-* [`createElement`](/reference/react/createElement) te permite crear un elemento React. Por lo general, en su lugar, se utiliza JSX.
+* [`Children`](/reference/react/Children) te permite manipular y transformar el JSX recibido como la prop `children`. [Ver alternativas.](/reference/react/Children#alternatives)
+* [`cloneElement`](/reference/react/cloneElement) te permite crear un elemento de React utilizando otro elemento como punto de partida. [Ver alternativas.](/reference/react/cloneElement#alternatives)
+* [`Component`](/reference/react/Component) te permite definir un componente de React como una clase de JavaScript. [Ver alternativas.](/reference/react/Component#alternatives)
+* [`createElement`](/reference/react/createElement) te permite crear un elemento de React. Normalmente, utilizarás JSX en su lugar.
 * [`createRef`](/reference/react/createRef) crea un objeto ref que puede contener un valor arbitrario. [Ver alternativas.](/reference/react/createRef#alternatives)
-* [`isValidElement`](/reference/react/isValidElement) verifica si un valor es un elemento React. Por lo general, se utiliza con [`cloneElement`.](/reference/react/cloneElement)
-* [`PureComponent`](/reference/react/PureComponent) es similar a [`Component`,](/reference/react/Component) pero omite el renderizado con las mismas props. [Ver alternativas.](/reference/react/PureComponent#alternatives)
-
+* [`forwardRef`](/reference/react/forwardRef) permite que tu componente exponga un nodo DOM al componente padre con una [ref.](/learn/manipulating-the-dom-with-refs)
+* [`isValidElement`](/reference/react/isValidElement) comprueba si un valor es un elemento de React. Normalmente se utiliza con [`cloneElement`.](/reference/react/cloneElement)
+* [`PureComponent`](/reference/react/PureComponent) es similar a [`Component`,](/reference/react/Component) pero omite los rerenderizados con las mismas props. [Ver alternativas.](/reference/react/PureComponent#alternatives)
 
 ---
 
-## APIs obsoletas {/*deprecated-apis*/}
+## APIs eliminadas {/*removed-apis*/}
 
-<Deprecated>
+Las siguientes API se eliminaron en React 19:
 
-Estas APIs se eliminarán en una futura versión mayor de React.
-
-</Deprecated>
-
-* [`createFactory`](/reference/react/createFactory) te permite crear una función que produce elementos React de un cierto tipo.
+* [`createFactory`](https://18.react.dev/reference/react/createFactory): utiliza JSX en su lugar.
+* Componentes de Clase: [`static contextTypes`](https://18.react.dev//reference/react/Component#static-contexttypes): utiliza [`static contextType`](#static-contexttype) en su lugar.
+* Componentes de Clase: [`static childContextTypes`](https://18.react.dev//reference/react/Component#static-childcontexttypes): utiliza [`static contextType`](#static-contexttype) en su lugar.
+* Componentes de Clase: [`static getChildContext`](https://18.react.dev//reference/react/Component#getchildcontext): utiliza [`Context.Provider`](/reference/react/createContext#provider) en su lugar.
+* Componentes de Clase: [`static propTypes`](https://18.react.dev//reference/react/Component#static-proptypes): utiliza un sistema de tipos como [TypeScript](https://www.typescriptlang.org/) en su lugar.
+* Componentes de Clase: [`this.refs`](https://18.react.dev//reference/react/Component#refs): utiliza [`createRef`](/reference/react/createRef) en su lugar.

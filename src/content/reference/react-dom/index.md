@@ -41,15 +41,13 @@ El paquete `react-dom` proporciona dos puntos de entrada adicionales:
 
 ---
 
-## APIs obsoletas {/*deprecated-apis*/}
+## APIs eliminadas {/*removed-apis*/}
 
-<Deprecated>
+Las siguientes API se eliminaron en React 19:
 
-Las siguientes APIs se eliminarán en una próxima versión mayor de React.
-
-</Deprecated>
-
-* [`findDOMNode`](/reference/react-dom/findDOMNode) busca el nodo de DOM más cercano correspondiente a una instancia de componente de clase.
-* [`hydrate`](/reference/react-dom/hydrate) monta un árbol en el DOM creado a partir de HTML generado en el servidor. En su lugar, se recomienda usar [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
-* [`render`](/reference/react-dom/render) monta un árbol en el DOM. En su lugar, se recomienda usar [`createRoot`](/reference/react-dom/client/createRoot).
-* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) desmonta un árbol del DOM. En su lugar, se recomienda usar [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
+* [`findDOMNode`](https://18.react.dev/reference/react-dom/findDOMNode): consulta las [alternativas](https://18.react.dev/reference/react-dom/findDOMNode#alternatives).
+* [`hydrate`](https://18.react.dev/reference/react-dom/hydrate): utiliza [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en su lugar.
+* [`render`](https://18.react.dev/reference/react-dom/render): utiliza [`createRoot`](/reference/react-dom/client/createRoot) en su lugar.
+* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode): utiliza [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount) en su lugar.
+* [`renderToNodeStream`](https://18.react.dev/reference/react-dom/server/renderToNodeStream): utiliza las API de [`react-dom/server`](/reference/react-dom/server) en su lugar.
+* [`renderToStaticNodeStream`](https://18.react.dev/reference/react-dom/server/renderToStaticNodeStream): utiliza las API de [`react-dom/server`](/reference/react-dom/server) en su lugar.

@@ -43,7 +43,7 @@ Engineer at Meta
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" bsky="no.lol" title="Engineer at Meta">
-    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Estudió Finanzas en lugar de Ciencias de la Computación en la universidad, por lo que aprendió a programar en Excel en lugar de Java. Lauren disfruta lanzando memes descarados en el chat, jugando videojuegos con su pareja y acariciando a su perra Zelda.
+    La carrera de programadora de Lauren alcanzó su punto máximo cuando descubrió la etiqueta `<marquee>`. Ha estado persiguiendo ese momento desde entonces. Estudió Finanzas en lugar de Ciencias de la Computación en la universidad, por lo que aprendió a programar en Excel. Lauren disfruta lanzando memes descarados en el chat, jugando videojuegos con su pareja, aprendiendo coreano y acariciando a su perra Zelda.
 </TeamMember>
 
 <TeamMember name="Luna Wei" permalink="luna-wei" photo="/images/team/luna-wei.jpg" github="lunaleaps" twitter="lunaleaps" threads="lunaleaps" title="Ingeniera en Meta">

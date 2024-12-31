@@ -53,24 +53,9 @@ Ahora recarga tu sitio web en el navegador para verlo en las herramientas de des
 ![Versión autónoma de las Herramientas de Desarrollo de React](/images/docs/react-devtools-standalone.png)
 
 ## Móvil (React Native) {/*mobile-react-native*/}
-Las Herramientas de Desarrollo de React se pueden utilizar también para inspeccionar aplicaciones escritas con [React Native](https://reactnative.dev/):
 
-Las forma más fácil de usar las Herramientas de Desarrollo de React es instalarlas globalmente:
-```bash
-# Yarn
-yarn global add react-devtools
+Para inspeccionar aplicaciones creadas con [React Native](https://reactnative.dev/), puedes usar [React Native DevTools](https://reactnative.dev/docs/react-native-devtools), el depurador integrado que se integra profundamente con las herramientas de desarrollador de React. Todas las funciones funcionan de forma idéntica a la extensión del navegador, incluyendo el resaltado y la selección de elementos nativos.
 
-# Npm
-npm install -g react-devtools
-```
+[Learn more about debugging in React Native.](https://reactnative.dev/docs/debugging)
 
-Luego abre las herramientas de desarrollo desde la terminal.
-```bash
-react-devtools
-```
-
-Debería conectarse a cualquier aplicación local de React Native que se esté ejecutando.
-
-> Prueba recargar la aplicación si las herramientas de desarrollo no se conectan después de algunos segundos.
-
-[Aprende más sobre la depuración en React Native.](https://reactnative.dev/docs/debugging)
+> Para versiones de React Native anteriores a la 0.76, utiliza la compilación independiente de React DevTools siguiendo la guía de arriba [Safari y otros navegadores](#safari-and-other-browsers).

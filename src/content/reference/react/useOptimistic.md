@@ -1,13 +1,6 @@
 ---
 title: useOptimistic
-canary: true
 ---
-
-<Canary>
-
-El Hook `useOptimistic` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels)
-
-</Canary>
 
 <Intro>
 
@@ -129,17 +122,5 @@ export async function deliverMessage(message) {
 }
 ```
 
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "18.3.0-canary-6db7f4209-20231021",
-    "react-scripts": "^5.0.0"
-  },
-  "main": "/index.js",
-  "devDependencies": {}
-}
-```
 
 </Sandpack>

@@ -1,13 +1,6 @@
 ---
 title: use
-canary: true
 ---
-
-<Canary>
-
-La API `use` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).   
-
-</Canary>
 
 <Intro>
 
@@ -55,8 +48,8 @@ La API `use`  devuelve el valor que se leyó del recurso como el valor resuelto 
 #### Advertencias {/*caveats*/}
 
 * La API `use` debe ser llamado dentro de un componente o un Hook.
-* Cuando se recupera datos en un [Componente del Servidor](/reference/rsc/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
-* Se prefiere la creación de Promesas en los [Componente del Servidor](/reference/rsc/use-server) y pasarlos a los [Componente del Clientes](/reference/rsc/use-client) por encima de crear Promesas en los Componente del Clientes. Las Promesas creadas en los Componente del Clientes son recreadas en cada renderizado. Las Promesas que son pasadas de un Componente del Servidor a un Componente del Cliente son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
+* Cuando se recupera datos en un [Componente del Servidor](/reference/rsc/server-components), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
+* Se prefiere la creación de Promesas en los [Componente del Servidor](/reference/rsc/server-components) y pasarlos a los [Componente del Clientes](/reference/rsc/use-client) por encima de crear Promesas en los Componente del Clientes. Las Promesas creadas en los Componente del Clientes son recreadas en cada renderizado. Las Promesas que son pasadas de un Componente del Servidor a un Componente del Cliente son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
 
 ---
 
@@ -199,17 +192,6 @@ function Button({ show, children }) {
 }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "18.3.0-canary-9377e1010-20230712",
-    "react-dom": "18.3.0-canary-9377e1010-20230712",
-    "react-scripts": "^5.0.0"
-  },
-  "main": "/index.js"
-}
-```
-
 </Sandpack>
 
 ### Transmisión de datos del servidor al cliente (streaming) {/*streaming-data-from-server-to-client*/}
@@ -291,9 +273,6 @@ export default function App() {
 ```
 
 ```js src/index.js hidden
-// TODO: update to import from stable
-// react instead of canary once the `use`
-// API is in a stable release of React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
@@ -311,16 +290,6 @@ root.render(
 );
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "18.3.0-canary-9377e1010-20230712",
-    "react-dom": "18.3.0-canary-9377e1010-20230712",
-    "react-scripts": "^5.0.0"
-  },
-  "main": "/index.js"
-}
-```
 </Sandpack>
 
 <Note>
@@ -411,9 +380,6 @@ export default function App() {
 ```
 
 ```js src/index.js hidden
-// TODO: update to import from stable
-// react instead of canary once the `use`
-// API is in a stable release of React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
@@ -434,8 +400,8 @@ root.render(
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "18.3.0-canary-9377e1010-20230712",
-    "react-dom": "18.3.0-canary-9377e1010-20230712",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-scripts": "^5.0.0",
     "react-error-boundary": "4.0.3"
   },
