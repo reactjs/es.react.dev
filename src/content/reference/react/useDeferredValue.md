@@ -36,13 +36,8 @@ function SearchPage() {
 
 #### Parámetros {/*parameters*/}
 
-<<<<<<< HEAD
 * `value`: El valor que se quiere diferir. Puede ser de cualquier tipo.
-* <CanaryBadge title="This feature is only available in the Canary channel" /> **optional** `initialValue`: A value to use during the initial render of a component. If this option is omitted, `useDeferredValue` will not defer during the initial render, because there's no previous version of `value` that it can render instead.
-=======
-* `value`: The value you want to defer. It can have any type.
 * **optional** `initialValue`: A value to use during the initial render of a component. If this option is omitted, `useDeferredValue` will not defer during the initial render, because there's no previous version of `value` that it can render instead.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 
 #### Devuelve {/*returns*/}

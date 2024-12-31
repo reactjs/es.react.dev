@@ -2,15 +2,6 @@
 title: useFormStatus
 ---
 
-<<<<<<< HEAD
-<Canary>
-
-El Hook `useFormStatus` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
-
-</Canary>
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 <Intro>
 
 `useFormStatus` es un Hook que brinda información de estado del último formulario enviado.

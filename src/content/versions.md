@@ -10,13 +10,8 @@ La documentación de React en [react.dev](https://react.dev) proporciona documen
 
 Nuestro objetivo es mantener la documentación actualizada en las versiones principales y no publicamos versiones para cada versión menor o de parche. Cuando se lanza una nueva versión principal, archivamos la documentación de la versión anterior como `x.react.dev`. Consulta nuestra [política de versiones](/community/versioning-policy) para obtener más información.
 
-<<<<<<< HEAD
 Puedes encontrar un archivo de versiones principales anteriores a continuación.
-## Versiones futuras {/*future-versions*/}
-=======
-You can find an archive of previous major versions below.
-## Latest version: 19.0 {/*latest-version*/}
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+## Última versión: 19.0 {/*latest-version*/}
 
 - [react.dev](https://react.dev) {/*docs-19*/}
 
@@ -38,26 +33,6 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 </Note>
 
 ## Registro de cambios {/*changelog*/}
-
-### React 19 {/*react-19*/}
-
-**Entradas de blog**
-- [React v19](/blog/2024/12/05/react-19)
-- [Guía de actualización de React 19](/blog/2024/04/25/react-19-upgrade-guide)
-- [Lanzamiento de la versión beta del compilador React](/blog/2024/10/21/react-compiler-beta-release)
-
-**Charlas**
-- [Notas Claves de React 19](https://www.youtube.com/watch?v=lyEKhv8-3n0)
-- [Hoja de ruta hacia React 19](https://www.youtube.com/watch?v=R0B2HsSM78s)
-- [Novedades en React 19](https://www.youtube.com/watch?v=AJOGzVygGcY)
-- [React para dos Computadores](https://www.youtube.com/watch?v=ozI4V_29fj4)
-- [Análisis profundo del compilador de React](https://www.youtube.com/watch?v=uA_PVyZP7AI)
-- [Casos de Estudios del compilador de React](https://www.youtube.com/watch?v=lvhPq5chokM)
-- [Análisis profundo de React 19: Coordinando HTML](https://www.youtube.com/watch?v=IBBN-s77YSI)
-
-**Versiones**
-- [v19.0.0 (diciembre, 2024)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1900-december-5-2024)
-
 
 ### React 19 {/*react-19*/}
 

@@ -246,30 +246,6 @@ Estos eventos se disparan para recursos como [`<audio>`](https://developer.mozil
 En lugar de un objeto ref (como el devuelto por [`useRef`](/reference/react/useRef#manipulating-the-dom-with-a-ref)), puedes pasar una función al atributo `ref`.
 
 ```js
-<<<<<<< HEAD
-<div ref={(node) => console.log(node)} />
-```
-
-[Vea un ejemplo de la función callback `ref`.](/learn/manipulating-the-dom-with-refs#how-to-manage-a-list-of-refs-using-a-ref-callback)
-
-Cuando el nodo del DOM `<div>` es agregado a la pantalla, React llamará a tu callback `ref` con el nodo del DOM como argumento. Cuando ese nodo del DOM `<div>` se elimina, React llamará a tu callback `ref` con `null`.
-
-React también llamará a tu callback `ref` cada vez que pases un callback `ref` *diferente*. En el ejemplo anterior, `(node) => { ... }` es una función diferente en cada renderizado. Cuando tu componente se vuelva a renderizar, la función *anterior* será llamada con `null` como argumento, y la *siguiente* función será llamada con el nodo del DOM.
-
-#### Parámetros {/*ref-callback-parameters*/}
-
-* `node`: Un nodo del DOM o `null`. React te pasará el nodo del DOM cuando se vincule la ref, y `null` cuando la ref se desvincule. A menos que pases la misma función ref para el callback `ref` en cada renderizado, el callback se desprenderá temporalmente y se volverá a vincular durante cada renderizado del componente.
-
-<Canary>
-
-#### Devuelve {/*returns*/}
-
-*  **optional** `cleanup function`: When the `ref` is detached, React will call the cleanup function. If a function is not returned by the `ref` callback, React will call the callback again with `null` as the argument when the `ref` gets detached.
-
-```js
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 <div ref={(node) => {
   console.log('Attached', node);
 

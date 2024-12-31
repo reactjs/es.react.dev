@@ -42,16 +42,10 @@ root.render(
 
 El Modo Estricto habilita los siguientes comportamientos solo en desarrollo:
 
-<<<<<<< HEAD
 - Tus componentes se [volverán a renderizar una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
 - Tus componentes [volverán a ejecutar los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
+- Tus componentes [volverán a ejecutar las funciones de callback de ref una vez más](#fixing-bugs-found-by-cleaning-up-and-re-attaching-dom-refs-in-development) para encontrar errores causados por la falta de limpieza de refs.
 - Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
-=======
-- Your components will [re-render an extra time](#fixing-bugs-found-by-double-rendering-in-development) to find bugs caused by impure rendering.
-- Your components will [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) to find bugs caused by missing Effect cleanup.
-- Your components will [re-run refs callbacks an extra time](#fixing-bugs-found-by-re-running-ref-callbacks-in-development) to find bugs caused by missing ref cleanup.
-- Your components will [be checked for usage of deprecated APIs.](#fixing-deprecation-warnings-enabled-by-strict-mode)
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 #### Props {/*props*/}
 
@@ -92,16 +86,10 @@ A pesar de que las comprobaciones del Modo Estricta **solo se ejecutan en desarr
 
 El Modo Estricto habilita los siguientes chequeos en desarrollo:
 
-<<<<<<< HEAD
 - Tus componentes se [renderizarán una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
 - Tus componentes [ejecutarán los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
+- Tus componentes [volverán a ejecutar las funciones de callback de ref una vez más](#fixing-bugs-found-by-cleaning-up-and-re-attaching-dom-refs-in-development) para encontrar errores causados por la falta de limpieza de refs.
 - Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
-=======
-- Your components will [re-render an extra time](#fixing-bugs-found-by-double-rendering-in-development) to find bugs caused by impure rendering.
-- Your components will [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) to find bugs caused by missing Effect cleanup.
-- Your components will [re-run ref callbacks an extra time](#fixing-bugs-found-by-cleaning-up-and-re-attaching-dom-refs-in-development) to find bugs caused by missing ref cleanup.
-- Your components will [be checked for usage of deprecated APIs.](#fixing-deprecation-warnings-enabled-by-strict-mode)
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 **Todos estos chequeos es hacen solo en desarrollo y no afectan la compilación de producción.**
 
@@ -841,9 +829,6 @@ Sin Modo Estricto, es fácil pasar por alto que tu Efecto necesita limpieza. Al 
 ---
 ### Fixing bugs found by re-running ref callbacks in development {/*fixing-bugs-found-by-re-running-ref-callbacks-in-development*/}
 
-<<<<<<< HEAD
-### Arreglar advertencias de código obsoleto habilitadas en el Modo Estricto {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
-=======
 Strict Mode can also help find bugs in [callbacks refs.](/learn/manipulating-the-dom-with-refs)
 
 Every callback `ref` has some setup code and may have some cleanup code. Normally, React calls setup when the element is *created* (is added to the DOM) and calls cleanup when the element is *removed* (is removed from the DOM).
@@ -1254,18 +1239,10 @@ Now on inital mount in StrictMode, the ref callbacks are all setup, cleaned up, 
 Without Strict Mode, it was easy to miss the bug until you clicked around to app to notice broken features. Strict Mode made the bugs appear right away, before you push them to production.
 
 --- 
-### Fixing deprecation warnings enabled by Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+### Arreglar advertencias de código obsoleto habilitadas en el Modo Estricto {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
 
 React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas APIs obsoletas: 
 
-<<<<<<< HEAD
-* [`findDOMNode`](/reference/react-dom/findDOMNode). [Ver alternativas.](https://es.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
-* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) 
-* API antigua de contexto ([`childContextTypes`](/reference/react/Component#static-childcontexttypes), [`contextTypes`](/reference/react/Component#static-contexttypes), y [`getChildContext`](/reference/react/Component#getchildcontext)). [Ver alternativas.](/reference/react/createContext)
-* Antiguas refs de strings ([`this.refs`](/reference/react/Component#refs)). [Ver alternativas.](https://es.reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage)
-=======
-* `UNSAFE_` class lifecycle methods like [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [See alternatives.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles)
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+* Métodos de ciclo de vida `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Ver alternativas.](https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles)
 
 Estas APIs son usadas principalmente en los [componentes de clase](/reference/react/Component) más antiguos, por lo que no es común que aparezcan en aplicaciones modernas.

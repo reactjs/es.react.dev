@@ -2,15 +2,6 @@
 title: use
 ---
 
-<<<<<<< HEAD
-<Canary>
-
-La API `use` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).   
-
-</Canary>
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 <Intro>
 
 `use` es una API de React que te permite leer el valor de un recurso como una [Promesa](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) o [contexto](/learn/passing-data-deeply-with-context).
@@ -56,15 +47,9 @@ La API `use`  devuelve el valor que se leyó del recurso como el valor resuelto 
 
 #### Advertencias {/*caveats*/}
 
-<<<<<<< HEAD
 * La API `use` debe ser llamado dentro de un componente o un Hook.
-* Cuando se recupera datos en un [Componente del Servidor](/reference/rsc/use-server), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
-* Se prefiere la creación de Promesas en los [Componente del Servidor](/reference/rsc/use-server) y pasarlos a los [Componente del Clientes](/reference/rsc/use-client) por encima de crear Promesas en los Componente del Clientes. Las Promesas creadas en los Componente del Clientes son recreadas en cada renderizado. Las Promesas que son pasadas de un Componente del Servidor a un Componente del Cliente son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
-=======
-* The `use` API must be called inside a Component or a Hook.
-* When fetching data in a [Server Component](/reference/rsc/server-components), prefer `async` and `await` over `use`. `async` and `await` pick up rendering from the point where `await` was invoked, whereas `use` re-renders the component after the data is resolved.
-* Prefer creating Promises in [Server Components](/reference/rsc/server-components) and passing them to [Client Components](/reference/rsc/use-client) over creating Promises in Client Components. Promises created in Client Components are recreated on every render. Promises passed from a Server Component to a Client Component are stable across re-renders. [See this example](#streaming-data-from-server-to-client).
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+* Cuando se recupera datos en un [Componente del Servidor](/reference/rsc/server-components), se prefiere el uso de `async` y `await` por encima de `use`. `async` y `await` retoman el renderizado desde el punto donde se invocó `await`, mientras que `use` vuelve a renderizar el componente después de que se resuelvan los datos.
+* Se prefiere la creación de Promesas en los [Componente del Servidor](/reference/rsc/server-components) y pasarlos a los [Componente del Clientes](/reference/rsc/use-client) por encima de crear Promesas en los Componente del Clientes. Las Promesas creadas en los Componente del Clientes son recreadas en cada renderizado. Las Promesas que son pasadas de un Componente del Servidor a un Componente del Cliente son estables en todos los renderizados. [Ver este ejemplo](#streaming-data-from-server-to-client).
 
 ---
 

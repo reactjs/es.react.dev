@@ -2,15 +2,6 @@
 title: useOptimistic
 ---
 
-<<<<<<< HEAD
-<Canary>
-
-El Hook `useOptimistic` está actualmente disponible solo en React Canary y canales experimentales. Aprende más sobre los [canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels)
-
-</Canary>
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 <Intro>
 
 `useOptimistic` es un Hook de React que te permite actualizar la interfaz de usuario / UI de manera optimista.

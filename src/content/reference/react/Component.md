@@ -50,11 +50,7 @@ Sólo el método `render` es requerido, otros métodos son opcionales.
 
 ### `context` {/*context*/}
 
-<<<<<<< HEAD
-El [contexto](/learn/passing-data-deeply-with-context) de un componente de clase está disponible como `this.context`. Solo está disponible si especificas *cual* contexto deseas recibir usando [static contextType](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (deprecado).
-=======
-The [context](/learn/passing-data-deeply-with-context) of a class component is available as `this.context`. It is only available if you specify *which* context you want to receive using [`static contextType`](#static-contexttype).
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+El [contexto](/learn/passing-data-deeply-with-context) de un componente de clase está disponible como `this.context`. Solo está disponible si especificas *qué* contexto deseas recibir usando [`static contextType`](#static-contexttype).
 
 Un componente de clase solo puede leer un contexto a la vez.
 
@@ -109,21 +105,6 @@ Leer `this.props` en componentes de clase es equivalente a [declarar props](/lea
 
 ---
 
-<<<<<<< HEAD
-### `refs` {/*refs*/}
-
-<Deprecated>
-
-Esta API será eliminada en una versión mayor futura de React. [Usa createRef en su lugar.](/reference/react/createRef)
-
-</Deprecated>
-
-Te permite acceder a las [_refs_ antiguas de _string_](https://es.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs) para este componente.
-
----
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 ### `state` {/*state*/}
 
 El estado de un componente de clase está disponible como `this.state`. El campo `state` debe ser un objeto. No mutes el estado directamente. Si deseas cambiar el estado, llama a `setState` con el nuevo estado.
@@ -501,21 +482,6 @@ La lectura de una fuente de datos externa y la actualización forzada de compone
 
 ---
 
-<<<<<<< HEAD
-### `getChildContext()` {/*getchildcontext*/}
-
-<Deprecated>
-
-Esta API será eliminada en una versión importante futura de React. [Usa en su lugar `Context.Provider`.](/reference/react/createContext#provider)
-
-</Deprecated>
-
-Permite especificar los valores para el [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) que es proporcionado por este componente.
-
----
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 ### `getSnapshotBeforeUpdate(prevProps, prevState)` {/*getsnapshotbeforeupdate*/}
 
 Si implementas `getSnapshotBeforeUpdate`, React lo llamará inmediatamente antes de actualizar el DOM. Esto permite que tu componente capture cierta información del DOM (por ejemplo, la posición de desplazamiento) antes de que potencialmente cambie. Cualquier valor devuelto por este método de ciclo de vida se pasará como parámetro a [`componentDidUpdate`.](#componentdidupdate)
@@ -746,15 +712,9 @@ React llama a `shouldComponentUpdate` antes de renderizar cuando se reciben nuev
 
 #### Parámetros {/*shouldcomponentupdate-parameters*/}
 
-<<<<<<< HEAD
 - `nextProps`: Las próximas props que el componente está a punto de renderizar. Compare `nextProps` con [`this.props`](#props) para determinar lo que cambió.
 - `nextState`: El próximo estado con el que el componente está a punto de renderizar. Compare `nextState` con [`this.state`](#props) para determinar lo que cambió.
-- `nextContext`: El próximo contexto con el que el componente está a punto de renderizar. Compare `nextContext` con [`this.context`](#context) para determinar lo que cambió. Solo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (legado).
-=======
-- `nextProps`: The next props that the component is about to render with. Compare `nextProps` to [`this.props`](#props) to determine what changed.
-- `nextState`: The next state that the component is about to render with. Compare `nextState` to [`this.state`](#props) to determine what changed.
-- `nextContext`: The next context that the component is about to render with. Compare `nextContext` to [`this.context`](#context) to determine what changed. Only available if you specify [`static contextType`](#static-contexttype).
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+- `nextContext`: El próximo contexto con el que el componente está a punto de renderizar. Compare `nextContext` con [`this.context`](#context) para determinar lo que cambió. Solo está disponible si se especifica [`static contextType`](#static-contexttype).
 
 #### Devuelve {/*shouldcomponentupdate-returns*/}
 
@@ -828,13 +788,8 @@ Si defines `UNSAFE_componentWillReceiveProps`, React lo llamará cuando el compo
 
 #### Parámetros {/*unsafe_componentwillreceiveprops-parameters*/}
 
-<<<<<<< HEAD
 - `nextProps`: Las siguientes props que el componente está a punto de recibir de su componente padre. Compara `nextProps` con [`this.props`](#props) para determinar qué ha cambiado.
-- `nextContext`: El siguiente contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Sólo está disponible si se especifica [`static contextType`](#static-contexttype) (moderno) o [`static contextTypes`](#static-contexttypes) (heredado).
-=======
-- `nextProps`: The next props that the component is about to receive from its parent component. Compare `nextProps` to [`this.props`](#props) to determine what changed.
-- `nextContext`: The next context that the component is about to receive from the closest provider. Compare `nextContext` to [`this.context`](#context) to determine what changed. Only available if you specify [`static contextType`](#static-contexttype).
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+- `nextContext`: El siguiente contexto que el componente está a punto de recibir del proveedor más cercano. Compara `nextContext` con [`this.context`](#context) para determinar qué ha cambiado. Sólo está disponible si se especifica [`static contextType`](#static-contexttype).
 
 #### Devuelve {/*unsafe_componentwillreceiveprops-returns*/}
 
@@ -899,33 +854,6 @@ No hay un equivalente directo a `UNSAFE_componentWillUpdate` en componentes de f
 
 ---
 
-<<<<<<< HEAD
-### `static childContextTypes` {/*static-childcontexttypes*/}
-
-<Deprecated>
-
-Esta API será eliminada en una futura versión importante de React. [En su lugar, usa `static contextType`.](#static-contexttype)
-
-</Deprecated>
-
-Te permite especificar qué [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) es proporcionado por este componente.
-
----
-
-### `static contextTypes` {/*static-contexttypes*/}
-
-<Deprecated>
-
-Esta API será eliminada en una versión mayor futura de React. [Usa `static contextType` en su lugar.](#static-contexttype)
-
-</Deprecated>
-
-Te permite especificar qué [contexto heredado](https://es.reactjs.org/docs/legacy-context.html) es consumido por este componente.
-
----
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 ### `static contextType` {/*static-contexttype*/}
 
 Si deseas leer `this.context` desde tu componente de clase, debes especificar qué contexto debe leer. El contexto que especifiques como `static contextType` debe ser un valor creado previamente por [`createContext`.](/reference/react/createContext)
@@ -1000,37 +928,6 @@ Definir `defaultProps` en componentes de clase es similar a usar [valores predet
 
 ---
 
-<<<<<<< HEAD
-### `static propTypes` {/*static-proptypes*/}
-
-Puedes definir `static propTypes` junto con la biblioteca [`prop-types`](https://www.npmjs.com/package/prop-types) para declarar los tipos de las props aceptadas por tu componente. Estos tipos se comprobarán durante el renderizado y sólo en el desarrollo.
-
-```js
-import PropTypes from 'prop-types';
-
-class Greeting extends React.Component {
-  static propTypes = {
-    name: PropTypes.string
-  };
-
-  render() {
-    return (
-      <h1>Hola, {this.props.name}</h1>
-    );
-  }
-}
-```
-
-<Note>
-
-Recomendamos utilizar [TypeScript](https://www.typescriptlang.org/) en lugar de comprobar los tipos de prop en tiempo de ejecución.
-
-</Note>
-
----
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 ### `static getDerivedStateFromError(error)` {/*static-getderivedstatefromerror*/}
 
 Si defines `static getDerivedStateFromError`, React lo llamará cuando un componente hijo (incluyendo componentes hijos distantes) arroje un error durante el rendering. Esto te permite mostrar un mensaje de error en lugar de limpiar la interfaz de usuario.

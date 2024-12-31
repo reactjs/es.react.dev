@@ -5,19 +5,14 @@ titleForTitleTag: "'use client' directive"
 
 <RSC>
 
-<<<<<<< HEAD
-`'use client'` sólo es necesario si estás [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) o construyendo una librería compatible con ellos.
-=======
 `'use client'` is for use with [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
 
 </RSC>
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
-</Canary>
 
 <Intro>
 
-`'use client'` te permite marcar qué código se ejecuta en el cliente.
+`'use client'` lets you mark what code runs on the client.
 
 </Intro>
 
@@ -25,7 +20,7 @@ titleForTitleTag: "'use client' directive"
 
 ---
 
-## Referencia {/*reference*/}
+## Reference {/*reference*/}
 
 ### `'use client'` {/*use-client*/}
 

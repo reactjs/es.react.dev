@@ -319,31 +319,6 @@ En este ejemplo, `itemsRef` no contiene un solo nodo DOM. En su lugar, contiene 
   key={cat.id}
   ref={node => {
     const map = getMap();
-<<<<<<< HEAD
-    if (node) {
-      // Add to the Map
-      map.set(cat, node);
-    } else {
-      // Remove from the Map
-      map.delete(cat);
-    }
-  }}
->
-```
-
-Esto te permite leer nodos DOM individuales del Map más tarde.
-
-<Canary>
-
-This example shows another approach for managing the Map with a `ref` callback cleanup function.
-
-```js
-<li
-  key={cat.id}
-  ref={node => {
-    const map = getMap();
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
     // Add to the Map
     map.set(cat, node);
 
@@ -369,16 +344,11 @@ Read more about [how this helps find bugs](/reference/react/StrictMode#fixing-bu
 
 ## Accediendo a nodos DOM de otros componentes {/*accessing-another-components-dom-nodes*/}
 
-<<<<<<< HEAD
-Cuando colocas una ref en un componente integrado que devuelve de salida un elemento del navegador como `<input />`, React establecerá la propiedad `current` de esa ref al nodo DOM correspondiente (como el `<input />` real del navegador)
-
-Sin embargo, si intentas poner una ref en tu **propio** componente, como `<MyInput />`, por defecto tendrás `null`. Aquí hay un ejemplo demostrándolo. Nota como al hacer clic en el botón **no** enfoca el _input_.
-=======
 <Pitfall>
-Refs are an escape hatch. Manually manipulating _another_ component's DOM nodes can make your code fragile.
+Las refs son una vía de escape. Manipular manualmente los nodos DOM de _otro_ componente puede hacer que tu código sea frágil.
 </Pitfall>
 
-You can pass refs from parent component to child components [just like any other prop](/learn/passing-props-to-a-component).
+Puedes pasar refs desde un componente padre a componentes hijos [al igual que cualquier otra prop](/learn/passing-props-to-a-component).
 
 ```js {3-4,9}
 import { useRef } from 'react';
@@ -393,10 +363,9 @@ function MyForm() {
 }
 ```
 
-In the above example, a ref is created in the parent component, `MyForm`, and is passed to the child component, `MyInput`. `MyInput` then passes the ref to `<input>`. Because `<input>` is a [built-in component](/reference/react-dom/components/common) React sets the `.current` property of the ref to the `<input>` DOM element.
+En el ejemplo de arriba, se crea una ref en el componente padre, `MyForm`, y se pasa al componente hijo, `MyInput`. `MyInput` luego pasa la ref a `<input>`. Debido a que `<input>` es un [componente integrado](/reference/react-dom/components/common) React establece la propiedad `.current` de la ref al elemento DOM `<input>`.
 
-The `inputRef` created in `MyForm` now points to the `<input>` DOM element returned by `MyInput`. A click handler created in `MyForm` can access `inputRef` and call `focus()` to set the focus on `<input>`.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+La `inputRef` creada en `MyForm` ahora apunta al elemento DOM `<input>` devuelto por `MyInput`. Un manejador de clics creado en `MyForm` puede acceder a `inputRef` y llamar a `focus()` para establecer el foco en `<input>`.
 
 <Sandpack>
 
@@ -427,75 +396,11 @@ export default function MyForm() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Para ayudarte a notar el problema, React también mostrará un error en la consola.
-
-<ConsoleBlock level="error">
-
-Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?<div>**(Traducción)**</div>Advertencia: Los componentes de función no pueden recibir refs. Los intentos de acceder a esta ref fallarán. ¿Querías usar React.forwardRef()?
-
-</ConsoleBlock>
-
-Esto ocurre porque por defecto React no permite que un componente acceda a los nodos DOM de otros componentes. ¡Ni siquiera a sus propios hijos! Esto es intencionado. Las refs son una vía de escape que debe usarse con moderación. Manipular manualmente los nodos DOM de _otro_ componente hace tu código aún más frágil.
-
-En cambio, los componentes que _quieran_ exponer sus nodos DOM tienen que **optar** por ese comportamiento. Un componente puede especificar que "reenvíe" su ref a uno de sus hijos. Aquí vemos como `MyInput` puede usar la API `forwardRef`:
-
-```js
-const MyInput = forwardRef((props, ref) => {
-  return <input {...props} ref={ref} />;
-});
-```
-
-Así es como funciona:
-
-1. `<MyInput ref={inputRef} />` le dice a React que coloque el nodo DOM correspondiente en `inputRef.current`. Sin embargo, depende del componente `MyInput` utilizarlo o no; por defecto no lo hace.
-2. El componente `MyInput` es declarado usando `forwardRef`. **Esto hace que pueda optar por recibir el `inputRef` como segundo argumento de `ref`** la cual está declarada después de `props`.
-3. `MyInput` por si mismo pasa la `ref` que recibió del `<input>` dentro de él.
-
-Ahora al hacer clic en el botón para enfocar el _input_, funciona:
-
-<Sandpack>
-
-```js
-import { forwardRef, useRef } from 'react';
-
-const MyInput = forwardRef((props, ref) => {
-  return <input {...props} ref={ref} />;
-});
-
-export default function Form() {
-  const inputRef = useRef(null);
-
-  function handleClick() {
-    inputRef.current.focus();
-  }
-
-  return (
-    <>
-      <MyInput ref={inputRef} />
-      <button onClick={handleClick}>
-        Enfocar el input
-      </button>
-    </>
-  );
-}
-```
-
-</Sandpack>
-
-En diseño de sistemas, es un patrón común para componentes de bajo nivel como botones, _inputs_, etc. reenviar sus refs a sus nodos DOM. Por otro lado, los componentes de alto nivel como formularios, listas, o secciones de página, usualmente no suelen exponer sus nodos DOM para evitar dependencias accidentales de la estructura del DOM.
-
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 <DeepDive>
 
 #### Exponiendo un subconjunto de la API con un manejador imperativo {/*exposing-a-subset-of-the-api-with-an-imperative-handle*/}
 
-<<<<<<< HEAD
-En el ejemplo de arriba, `MyInput` expone el elemento _input_ del DOM original. Esto le permite al componente padre llamar a `focus()` en él. Sin embargo, esto también le permite al componente padre hacer otra cosa, por ejemplo, cambiar sus estilos CSS. En casos pocos comunes, quizás quieras restringir la funcionalidad expuesta. Puedes hacer eso con `useImperativeHandle`:
-=======
-In the above example, the ref passed to `MyInput` is passed on to the original DOM input element. This lets the parent component call `focus()` on it. However, this also lets the parent component do something else--for example, change its CSS styles. In uncommon cases, you may want to restrict the exposed functionality. You can do that with [`useImperativeHandle`](/reference/react/useImperativeHandle):
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+En el ejemplo de arriba, la ref que se pasa `MyInput` se pasa al elemento _input_ del DOM original. Esto le permite al componente padre llamar a `focus()` en él. Sin embargo, esto también le permite al componente padre hacer otra cosa, por ejemplo, cambiar sus estilos CSS. En casos pocos comunes, quizás quieras restringir la funcionalidad expuesta. Puedes hacerlo con [`useImperativeHandle`]((/reference/react/useImperativeHandle)):
 
 <Sandpack>
 
@@ -523,13 +428,7 @@ export default function Form() {
   return (
     <>
       <MyInput ref={inputRef} />
-<<<<<<< HEAD
-      <button onClick={handleClick}>
-        Enfocar el input
-      </button>
-=======
       <button onClick={handleClick}>Focus the input</button>
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
     </>
   );
 }
@@ -537,11 +436,7 @@ export default function Form() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Aquí, `realInputRef` dentro de `MyInput` mantiene el nodo DOM de input actual. Sin embargo, `useImperativeHandle` indica a React a proveer tu propio objeto especial como el valor de una ref al componente padre. Por lo tanto, `inputRef.current` dentro del componente `Form` solo va a tener el método `focus`. En este caso, el "manejador" ref no es el nodo DOM, sino el objeto personalizado que creaste dentro de la llamada de `useImperativeHandle`. 
-=======
-Here, `realInputRef` inside `MyInput` holds the actual input DOM node. However, [`useImperativeHandle`](/reference/react/useImperativeHandle) instructs React to provide your own special object as the value of a ref to the parent component. So `inputRef.current` inside the `Form` component will only have the `focus` method. In this case, the ref "handle" is not the DOM node, but the custom object you create inside [`useImperativeHandle`](/reference/react/useImperativeHandle) call.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+Aquí, `realInputRef` dentro de `MyInput` mantiene el nodo DOM de input actual. Sin embargo, [`useImperativeHandle`](/reference/react/useImperativeHandle) indica a React a proveer tu propio objeto especial como el valor de una ref al componente padre. Por lo tanto, `inputRef.current` dentro del componente `Form` solo va a tener el método `focus`. En este caso, el "manejador" ref no es el nodo DOM, sino el objeto personalizado que creaste dentro de la llamada de [`useImperativeHandle`](/reference/react/useImperativeHandle). 
 
 </DeepDive>
 

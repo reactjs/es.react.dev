@@ -38,27 +38,19 @@ function MyInput({ ref }) {
 
 #### Parámetros {/*parameters*/}
 
-<<<<<<< HEAD
-* `ref`: La `ref` que recibes como segundo argumento de la [función render `forwardRef`](/reference/react/forwardRef#render-function)
-=======
-* `ref`: The `ref` you received as a prop to the `MyInput` component.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+* `ref`: La `ref` que recibiste como prop del componente `MyInput`.
 
 * `createHandle`: Una función que no toma argumentos y devuelve el identificador ref que quieres exponer. El identificador ref que devuelve puede tener cualquier tipo. Por lo general, devolverá un objeto con lo métodos que quieres exponer.
 
 * **opcional** `dependencies`: La lista de todos los valores reactivos a los que se hace referencia dentro del código de `createHandle`. Los valores reactivos incluye props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente.  Si tu linter es [configurado por React](/learn/editor-setup#linting), va a verificar que cada valor reactivo esté correctamente especificado como una dependencia. La lista de dependencias deben tener un número constante de elementos y ser escritos en una sola linea como `[dep1, dep2, dep3]`. React comparará cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si un nuevo renderizado resultara en un cambio a una dependencia, o si no especificaste las dependencias completamente, tu función `createHandle` se volverá a ejecutar, y el nuevo identificador recién creado será asignado a ref. 
 
-<<<<<<< HEAD
-#### Devuelve {/*returns*/}
-=======
 <Note>
 
-Starting with React 19, [`ref` is available a prop.](/blog/2024/12/05/react-19#ref-as-a-prop) In React 18 and earlier, it was necessary to get the `ref` from [`forwardRef`.](/reference/react/forwardRef) 
+A partir de React 19, [`ref` está disponible como una prop.](/blog/2024/12/05/react-19#ref-as-a-prop) En React 18 y versiones anteriores, era necesario obtener la `ref` de [`forwardRef`.](/reference/react/forwardRef)
 
 </Note>
 
-#### Returns {/*returns*/}
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+#### Devuelve {/*returns*/}
 
 `useImperativeHandle` devuelve `undefined`.
 
@@ -68,11 +60,7 @@ Starting with React 19, [`ref` is available a prop.](/blog/2024/12/05/react-19#r
 
 ### Exponer un identificador ref personalizado al componente padre {/*exposing-a-custom-ref-handle-to-the-parent-component*/}
 
-<<<<<<< HEAD
-Los componentes por defecto no exponen sus nodos DOM a los componentes padre. Por ejemplo, si quieres el componente padre de `MyInput` para [tener acceso](/learn/manipulating-the-dom-with-refs) al nodo DOM de  `<input>`, tienes que optar por [`forwardRef`:](/reference/react/forwardRef)
-=======
-To expose a DOM node to the parent element, pass in the `ref` prop to the node.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+Para exponer un nodo DOM al elemento padre, pasa la prop `ref` al nodo.
 
 ```js {2}
 function MyInput({ ref }) {
@@ -80,11 +68,7 @@ function MyInput({ ref }) {
 };
 ```
 
-<<<<<<< HEAD
-Con el código de arriba, [una ref a `MyInput` va a recibir el nodo DOM de `<input>`.](/reference/react/forwardRef#exposing-a-dom-node-to-the-parent-component) Aun así, puedes exponer un valor personalizado en su lugar. Para personalizar el identificador expuesto, llama a `useImperativeHandle` en el nivel superior  de tu componente:
-=======
-With the code above, [a ref to `MyInput` will receive the `<input>` DOM node.](/learn/manipulating-the-dom-with-refs) However, you can expose a custom value instead. To customize the exposed handle, call `useImperativeHandle` at the top level of your component:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+Con el código de arriba, [una ref a `MyInput` va a recibir el nodo DOM de `<input>`.](/learn/manipulating-the-dom-with-refs) Aun así, puedes exponer un valor personalizado en su lugar. Para personalizar el identificador expuesto, llama a `useImperativeHandle` en el nivel superior  de tu componente:
 
 ```js {4-8}
 import { useImperativeHandle } from 'react';
@@ -100,11 +84,7 @@ function MyInput({ ref }) {
 };
 ```
 
-<<<<<<< HEAD
-Ten en cuenta que en el código de arriba, la `ref` ya no se reenvía a `<input>`.
-=======
-Note that in the code above, the `ref` is no longer passed to the `<input>`.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+Ten en cuenta que en el código de arriba, la `ref` ya no se pasa al `<input>`.
 
 Por ejemplo, supongamos que no quieres exponer el nodo DOM entero de `<input>`, pero quieres exponer dos de sus métodos: `focus` y `scrollIntoView`. Para hacer esto, mantén el DOM real del navegador en una ref separada. Entonces usa `useImperativeHandle` para exponer un identificador solamente con los métodos que quieres que el componente padre llame:
 
@@ -284,15 +264,9 @@ export default CommentList;
 ```js src/AddComment.js
 import { useRef, useImperativeHandle } from 'react';
 
-<<<<<<< HEAD
-const AddComment = forwardRef(function AddComment(props, ref) {
-  return <input placeholder="Añadir comentario..." ref={ref} />;
-});
-=======
 function AddComment({ ref }) {
   return <input placeholder="Add comment..." ref={ref} />;
 }
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 export default AddComment;
 ```

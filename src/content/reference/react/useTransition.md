@@ -4,11 +4,7 @@ title: useTransition
 
 <Intro>
 
-<<<<<<< HEAD
-`useTransition` es un Hook de React que te permite actualizar el estado sin bloquear la UI.
-=======
-`useTransition` is a React Hook that lets you render a part of the UI in the background.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+`useTransition` es un Hook de React que te permite renderizar una parte de la interfaz de usuario en segundo plano.
 
 ```js
 const [isPending, startTransition] = useTransition()
@@ -45,25 +41,14 @@ function TabContainer() {
 
 `useTransition` devuelve un _array_ con exactamente dos elementos:
 
-<<<<<<< HEAD
 1. `isPending` que indica si hay una Transición pendiente.
-2. [`startTransition` function](#starttransition) que permite marcar una actualización de estado como una Transición.
+2. [`startTransition` function](#starttransition) que permite marcar actualizaciones como una Transición.
 
 ---
 
 ### Función `startTransition` {/*starttransition*/}
 
 La función `startTransition` devuelta por `useTransition` permite marcar una actualización de estado como una Transición.
-=======
-1. The `isPending` flag that tells you whether there is a pending Transition.
-2. The [`startTransition` function](#starttransition) that lets you mark updates as a Transition.
-
----
-
-### `startTransition(action)` {/*starttransition*/}
-
-The `startTransition` function returned by `useTransition` lets you mark an update as a Transition.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 ```js {6,8}
 function TabContainer() {
@@ -79,11 +64,6 @@ function TabContainer() {
 }
 ```
 
-<<<<<<< HEAD
-#### Parámetros {/*starttransition-parameters*/}
-
-* `scope`: Una función que actualiza algún estado llamando a una o varias [funciones `set`.](/reference/react/useState#setstate) React inmediatamente llama a `scope` sin parámetros y marca todas las actualizaciones de estado programadas sincrónicamente durante la llamada a la función `scope` como Transiciones. Serán [sin bloqueo](#marking-a-state-update-as-a-non-blocking-transition) y [no mostrarán indicadores de carga no deseados.](#preventing-unwanted-loading-indicators)
-=======
 <Note>
 #### Functions called in `startTransition` are called "Actions". {/*functions-called-in-starttransition-are-called-actions*/}
 
@@ -116,7 +96,6 @@ function SubmitButton({ submitAction }) {
 #### Parameters {/*starttransition-parameters*/}
 
 * `action`: A function that updates some state by calling one or more [`set` functions](/reference/react/useState#setstate). React calls `action` immediately with no parameters and marks all state updates scheduled synchronously during the `action` function call as Transitions. Any async calls that are awaited in the `action` will be included in the Transition, but currently require wrapping any `set` functions after the `await` in an additional `startTransition` (see [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)). State updates marked as Transitions will be [non-blocking](#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators](#preventing-unwanted-loading-indicators).
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 #### Devuelve {/*starttransition-returns*/}
 
@@ -128,13 +107,9 @@ function SubmitButton({ submitAction }) {
 
 * Puedes envolver una actualización en una Transición sólo si tienes acceso a la función `set` de ese estado. Si deseas iniciar una Transición en respuesta a alguna prop o algún valor de un Hook personalizado, prueba [`useDeferredValue`](/reference/react/useDeferredValue) en su lugar.
 
-<<<<<<< HEAD
-* La función que pases a `startTransition` debe ser síncrona. React ejecuta inmediatamente esta función, marcando como Transiciones todas las actualizaciones de estado que se produzcan mientras se ejecuta. Si intentas realizar más actualizaciones de estado más tarde (por ejemplo, en un tiempo de espera), no se marcarán como Transiciones.
-=======
 * The function you pass to `startTransition` is called immediately, marking all state updates that happen while it executes as Transitions. If you try to perform state updates in a `setTimeout`, for example, they won't be marked as Transitions.
 
 * You must wrap any state updates after any async requests in another `startTransition` to mark them as Transitions. This is a known limitation that we will fix in the future (see [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)).
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 * La función `startTransition` tiene una identidad estable, por lo que a menudo verás que se omite de las dependencias de los Efectos, pero que se incluya no causa que el Efecto se dispare. Si el *linter* te permite omitir una dependencia sin errores, es seguro hacerlo. [Aprende más sobre eliminar dependencias de los Efectos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 
@@ -142,25 +117,13 @@ function SubmitButton({ submitAction }) {
 
 * Las actualizaciones de Transición no pueden utilizarse para controlar las entradas de texto.
 
-<<<<<<< HEAD
-* Si hay varias Transiciones en curso, React las agrupa. Se trata de una limitación que probablemente se eliminará en una versión futura.
-
----
-=======
-* If there are multiple ongoing Transitions, React currently batches them together. This is a limitation that may be removed in a future release.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+* Si hay varias Transiciones en curso, React las agrupa. Se trata de una limitación que podría eliminarse en una versión futura.
 
 ## Uso {/*usage*/}
 
-<<<<<<< HEAD
-### Marcar una actualización de estado como Transición no bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
-
-Llama a `useTransition` en el nivel superior de tu componente para marcar las actualizaciones de estado como *Transiciones* no bloqueantes.
-=======
 ### Perform non-blocking updates with Actions {/*perform-non-blocking-updates-with-actions*/}
 
 Call `useTransition` at the top of your component to create Actions, and access the pending state:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
 import {useState, useTransition} from 'react';
@@ -173,17 +136,10 @@ function CheckoutForm() {
 
 `useTransition` devuelve un array con exactamente dos elementos:
 
-<<<<<<< HEAD
 1. <CodeStep step={1}>`isPending` flag</CodeStep> que te indica si hay una Transición pendiente.
-2. <CodeStep step={2}>`startTransition` function</CodeStep> que permite marcar una actualización de estado como una Transición.
+2. <CodeStep step={2}>`startTransition` function</CodeStep> que te permite crear una Acción.
 
-A continuación, puedes marcar una actualización de estado como una Transición de esta manera:
-=======
-1. The <CodeStep step={1}>`isPending` flag</CodeStep> that tells you whether there is a pending Transition.
-2. The <CodeStep step={2}>`startTransition` function</CodeStep> that lets you create an Action.
-
-To start a Transition, pass a function to `startTransition` like this:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+Para iniciar una Transición pasa una función a `startTransition` de esta manera:
 
 ```js
 import {useState, useTransition} from 'react';
@@ -205,19 +161,6 @@ function CheckoutForm() {
 }
 ```
 
-<<<<<<< HEAD
-Las Transiciones permiten mantener la capacidad de respuesta de las actualizaciones de la interfaz de usuario incluso en dispositivos lentos.
-
-Con una Transición, la interfaz de usuario mantiene su capacidad de respuesta en medio de una nueva renderización. Por ejemplo, si el usuario hace clic en una pestaña pero luego cambia de opinión y hace clic en otra, puede hacerlo sin esperar a que termine la primera renderización.
-
-<Recipes titleText="Diferencia entre useTransition y las actualizaciones de estado normales" titleId="examples">
-
-#### Actualizar la pestaña actual en una Transición {/*updating-the-current-tab-in-a-transition*/}
-
-En este ejemplo, la pestaña "Posts" está **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse.
-
-Haz clic en "Mensajes" y luego inmediatamente en "Contacto". Observa que esto interrumpe la renderización lenta de "Posts". La pestaña _"Contact"_ se muestra inmediatamente. Debido a que esta actualización de estado está marcada como una Transición, una renderización lenta no congela la interfaz de usuario.
-=======
 The function passed to `startTransition` is called the "Action". You can update state and (optionally) perform side effects within an Action, and the work will be done in the background without blocking user interactions on the page. A Transition can include multiple Actions, and while a Transition is in progress, your UI stays responsive. For example, if the user clicks a tab but then changes their mind and clicks another tab, the second click will be immediately handled without waiting for the first update to finish. 
 
 To give the user feedback about in-progress Transitions, to `isPending` state switches to `true` at the first call to `startTransition`, and stays `true` until all Actions complete and the final state is shown to the user. Transitions ensure side effects in Actions to complete in order to [prevent unwanted loading indicators](#preventing-unwanted-loading-indicators), and you can provide immediate feedback while the Transition is in progress with `useOptimistic`.
@@ -229,7 +172,6 @@ To give the user feedback about in-progress Transitions, to `isPending` state sw
 In this example, the `updateQuantity` function simulates a request to the server to update the item's quantity in the cart. This function is *artificially slowed down* so that it takes at least a second to complete the request.
 
 Update the quantity multiple times quickly. Notice that the pending "Total" state is shown while any requests are in progress, and the "Total" updates only after the final request is complete. Because the update is in an Action, the "quantity" can continue to be updated while the request is in progress.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
@@ -270,31 +212,9 @@ export default function App({}) {
   };
 
   return (
-<<<<<<< HEAD
-    <>
-      <TabButton
-        isActive={tab === 'about'}
-        onClick={() => selectTab('about')}
-      >
-        Acerca de
-      </TabButton>
-      <TabButton
-        isActive={tab === 'posts'}
-        onClick={() => selectTab('posts')}
-      >
-        Posts (slow)
-      </TabButton>
-      <TabButton
-        isActive={tab === 'contact'}
-        onClick={() => selectTab('contact')}
-      >
-        Contact
-      </TabButton>
-=======
     <div>
       <h1>Checkout</h1>
       <Item action={updateQuantityAction}/>
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
       <hr />
       <Total quantity={quantity} isPending={isPending} />
     </div>
@@ -333,16 +253,7 @@ const intl = new Intl.NumberFormat("en-US", {
   currency: "USD"
 });
 
-<<<<<<< HEAD
-function SlowPost({ index }) {
-  let startTime = performance.now();
-  while (performance.now() - startTime < 1) {
-    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
-  }
-
-=======
 export default function Total({quantity, isPending}) {
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
   return (
     <div className="total">
       <span>Total:</span>
@@ -405,19 +316,11 @@ These solutions handle request ordering for you. When using Transitions to build
 
 <Solution />
 
-<<<<<<< HEAD
-#### Actualizar la pestaña actual sin Transición {/*updating-the-current-tab-without-a-transition*/}
-
-En este ejemplo, la pestaña "Posts" también es **artificialmente ralentizada** para que tarde al menos un segundo en renderizarse. A diferencia del ejemplo anterior, esta actualización de estado **no es una Transición.**
-
-Haz clic en "Mensajes" e inmediatamente después en "Contacto". Observa que la aplicación se congela mientras se renderiza la pestaña ralentizada, y la interfaz de usuario deja de responder. Esta actualización de estado no es una Transición, por lo que una renderización lenta congela la interfaz de usuario.
-=======
 #### Updating the quantity without an Action {/*updating-the-users-name-without-an-action*/}
 
 In this example, the `updateQuantity` function also simulates a request to the server to update the item's quantity in the cart. This function is *artificially slowed down* so that it takes at least a second to complete the request.
 
 Update the quantity multiple times quickly. Notice that the pending "Total" state is shown while any requests is in progress, but the "Total" updates multiple times for each time the "quantity" was clicked:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
@@ -433,36 +336,6 @@ Update the quantity multiple times quickly. Notice that the pending "Total" stat
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
-<<<<<<< HEAD
-
-  return (
-    <>
-      <TabButton
-        isActive={tab === 'about'}
-        onClick={() => selectTab('about')}
-      >
-        Acerca de
-      </TabButton>
-      <TabButton
-        isActive={tab === 'posts'}
-        onClick={() => selectTab('posts')}
-      >
-        Posts (slow)
-      </TabButton>
-      <TabButton
-        isActive={tab === 'contact'}
-        onClick={() => selectTab('contact')}
-      >
-        Contact
-      </TabButton>
-      <hr />
-      {tab === 'about' && <AboutTab />}
-      {tab === 'posts' && <PostsTab />}
-      {tab === 'contact' && <ContactTab />}
-    </>
-  );
-=======
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 }
 ```
 
@@ -522,16 +395,7 @@ const intl = new Intl.NumberFormat("en-US", {
   currency: "USD"
 });
 
-<<<<<<< HEAD
-function SlowPost({ index }) {
-  let startTime = performance.now();
-  while (performance.now() - startTime < 1) {
-    // No hace nada durante 1 ms por ítem para emular un código extremadamente lento
-  }
-
-=======
 export default function Total({quantity, isPending}) {
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
   return (
     <div className="total">
       <span>Total:</span>
@@ -717,18 +581,12 @@ This solution makes the app feel slow, because the user must wait each time they
 
 ---
 
-<<<<<<< HEAD
-### Actualización del componente principal en una Transición {/*updating-the-parent-component-in-a-transition*/}
-
-También puedes actualizar el estado de un componente padre desde la llamada "useTransition". Por ejemplo, este componente `TabButton` envuelve su lógica `onClick` en una Transición:
-=======
 ### Exposing `action` prop from components {/*exposing-action-props-from-components*/}
 
 You can expose an `action` prop from a component to allow a parent to call an Action.
 
 
 For example, this `TabButton` component wraps its `onClick` logic in an `action` prop:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 ```js {8-10}
 export default function TabButton({ action, children, isActive }) {
@@ -748,11 +606,7 @@ export default function TabButton({ action, children, isActive }) {
 }
 ```
 
-<<<<<<< HEAD
-Debido a que el componente padre actualiza su estado dentro del controlador de evento `onClick`, esa actualización de estado se marca como una Transición. Esta es la razón por la que, como en el ejemplo anterior, puedes hacer clic en "Posts" y luego inmediatamente hacer clic en "Contacto". La actualización de la pestaña seleccionada se marca como una Transición, por lo que no bloquea las interacciones del usuario.
-=======
 Because the parent component updates its state inside the `action`, that state update gets marked as a Transition. This means you can click on "Posts" and then immediately click "Contact" and it does not block user interactions:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
@@ -881,11 +735,7 @@ b { display: inline-block; margin-right: 10px; }
 
 ---
 
-<<<<<<< HEAD
-### Visualización de un estado visual pendiente durante la Transición {/*displaying-a-pending-visual-state-during-the-transition*/}
-=======
 ### Displaying a pending visual state {/*displaying-a-pending-visual-state*/}
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 Puedes utilizar el valor booleano `isPending` devuelto por `useTransition` para indicar al usuario que una Transición está en curso. Por ejemplo, el botón de la pestaña puede tener un estado visual especial "pendiente":
 
@@ -1034,11 +884,7 @@ b { display: inline-block; margin-right: 10px; }
 
 ### Evitar indicadores de carga no deseados {/*preventing-unwanted-loading-indicators*/}
 
-<<<<<<< HEAD
-En este ejemplo, el componente `PostsTab` obtiene algunos datos utilizando una fuente de datos [preparada par usarse con Suspense](/reference/react/Suspense). Al hacer clic en la pestaña _"Posts"_, el componente `PostsTab` se *suspende*, haciendo que aparezca el fallback de carga más cercano:
-=======
 In this example, the `PostsTab` component fetches some data using [use](/reference/react/use). When you click the "Posts" tab, the `PostsTab` component *suspends*, causing the closest loading fallback to appear:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
@@ -1192,11 +1038,7 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
-Ocultar todo el contenedor de pestañas para mostrar un indicador de carga conduce a una experiencia de usuario discordante. Si añades `useTransition` a `TabButton`, puedes indicar que se muestre el estado pendiente en el botón de la pestaña.
-=======
 Hiding the entire tab container to show a loading indicator leads to a jarring user experience. If you add `useTransition` to `TabButton`, you can instead display the pending state in the tab button instead.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 Observa que al hacer clic en "Entradas" ya no se sustituye todo el contenedor de la pestaña por un spinner:
 
@@ -1364,11 +1206,7 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
-<<<<<<< HEAD
-Las Transiciones sólo "esperarán" el tiempo suficiente para evitar ocultar el contenido *ya revelado* (como el contenedor de la pestaña). Si la pestaña Entradas tuviera una [barrera de `<Suspense>` anidada,](/reference/react/Suspense#revealing-nested-content-as-it-loads) la Transición no la "esperaría".
-=======
 Transitions only "wait" long enough to avoid hiding *already revealed* content (like the tab container). If the Posts tab had a [nested `<Suspense>` boundary,](/reference/react/Suspense#revealing-nested-content-as-it-loads) the Transition would not "wait" for it.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 </Note>
 
@@ -1391,14 +1229,6 @@ function Router() {
   // ...
 ```
 
-<<<<<<< HEAD
-Esto se recomienda por dos razones:
-
-- [Las Transiciones son interrumpibles,](#marking-a-state-update-as-a-non-blocking-transition) que permite al usuario hacer clic sin esperar a que se complete la nueva renderización.
-- [Las Transiciones evitan indicadores de carga no deseados,](#preventing-unwanted-loading-indicators) que permite al usuario evitar saltos bruscos en la navegación.
-
-He aquí un pequeño ejemplo de enrutador simplificado que utiliza Transiciones para las navegaciones.
-=======
 This is recommended for three reasons:
 
 - [Transitions are interruptible,](#marking-a-state-update-as-a-non-blocking-transition) which lets the user click away without waiting for the re-render to complete.
@@ -1406,7 +1236,6 @@ This is recommended for three reasons:
 - [Transitions wait for all pending actions](#perform-non-blocking-updates-with-actions) which lets the user wait for side effects to complete before the new page is shown.
 
 Here is a simplified router example using Transitions for navigations.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
@@ -1715,17 +1544,7 @@ Se espera que los enredadores [preparados para Suspense](/reference/react/Suspen
 
 ### Displaying an error to users with an error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
 
-<<<<<<< HEAD
-<Canary>
-
-La barrera de error para useTransition está disponible actualmente solo en los canales experimental y canary de React. Más información sobre [los canales de lanzamiento de React aquí](/community/versioning-policy#all-release-channels).
-
-</Canary>
-
-Si una función que se pasa a `startTransition` lanza un error, puedes mostrar un error a tu usuario con una [barrera de error](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar una barrera de error, envuelve el componente en el que estás llamando a `useTransition` en una barrera de error. Una vez que la función que se pasa a `startTransition` lanza un error se mostrará el _fallback_ de la barrera de error.
-=======
 If a function passed to `startTransition` throws an error, you can display an error to your user with an [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). To use an error boundary, wrap the component where you are calling the `useTransition` in an error boundary. Once the function passed to `startTransition` errors, the fallback for the error boundary will be displayed.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 <Sandpack>
 
@@ -1842,13 +1661,7 @@ startTransition(() => {
 });
 ```
 
-<<<<<<< HEAD
-La función que pases a `startTransition` debe ser síncrona.
-
-No puedes marcar una actualización como una Transición así:
-=======
 The function you pass to `startTransition` must be synchronous. You can't mark an update as a Transition like this:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 ```js
 startTransition(() => {
@@ -1870,15 +1683,11 @@ setTimeout(() => {
 }, 1000);
 ```
 
-<<<<<<< HEAD
-Del mismo modo, no se puede marcar una actualización como una Transición como esta:
-=======
 ---
 
 ### React doesn't treat my state update after `await` as a Transition {/*react-doesnt-treat-my-state-update-after-await-as-a-transition*/}
 
 When you use `await` inside a `startTransition` function, the state updates that happen after the `await` are not marked as Transitions. You must wrap state updates after each `await` in a `startTransition` call:
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
 
 ```js
 startTransition(async () => {

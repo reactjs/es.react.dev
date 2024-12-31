@@ -207,15 +207,9 @@ async function getAlbums() {
 
 **Sólo las fuentes de datos habilitadas para Suspense activarán un componente Suspense.** Entre ellas se incluyen:
 
-<<<<<<< HEAD
 - Carga de datos en frameworks capaces de manejar Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
 - Código de carga diferida de componentes con [`lazy`](/reference/react/lazy)
-- Leer el valor de una promesa con [`use`](/reference/react/use)
-=======
-- Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)
-- Lazy-loading component code with [`lazy`](/reference/react/lazy)
-- Reading the value of a cached Promise with [`use`](/reference/react/use)
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+- Leer el valor de una promesa guardada en caché con [`use`](/reference/react/use)
 
 Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un controlador de evento.
 
@@ -489,17 +483,10 @@ Con este cambio, no se necesita esperar por que cargue `Albums` para mostrar `Bi
 
 La secuencia sería:
 
-<<<<<<< HEAD
 1. Si `Biography` aún no ha cargado, se muestra `BigSpinner` en lugar de toda el área de contenido.
-1. Una vez que `Biography` termine de cargar, `BigSpinner` se reemplaza por el contenido.
-1. Si `Albums` aún no ha cargado, se muestra `AlbumsGlimmer` en lugar de `Albums` y su padre `Panel`.
-1. Por último, una vez que `Albums` termina de cargar, reemplaza a `AlbumsGlimmer`.
-=======
-1. If `Biography` hasn't loaded yet, `BigSpinner` is shown in place of the entire content area.
-2. Once `Biography` finishes loading, `BigSpinner` is replaced by the content.
-3. If `Albums` hasn't loaded yet, `AlbumsGlimmer` is shown in place of `Albums` and its parent `Panel`.
-4. Finally, once `Albums` finishes loading, it replaces `AlbumsGlimmer`.
->>>>>>> b1a249d597016c6584e4c186daa28b180cc9aafc
+2. Una vez que `Biography` termine de cargar, `BigSpinner` se reemplaza por el contenido.
+3. Si `Albums` aún no ha cargado, se muestra `AlbumsGlimmer` en lugar de `Albums` y su padre `Panel`.
+4. Por último, una vez que `Albums` termina de cargar, reemplaza a `AlbumsGlimmer`.
 
 <Sandpack>
 
