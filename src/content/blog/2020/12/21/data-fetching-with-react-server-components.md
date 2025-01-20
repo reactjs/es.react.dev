@@ -5,11 +5,7 @@ date: 2020/12/21
 description: 2020 ha sido un año largo. Antes de que termine queremos compartirte una actualización especial de fin de año sobre nuestra investigación acerca de los Componentes de React en el Servidor
 ---
 
-<<<<<<< HEAD
-21 de diciembre de 2020 por [Dan Abramov](https://twitter.com/dan_abramov), [Lauren Tan](https://twitter.com/potetotes), [Joseph Savona](https://twitter.com/en_JS) y [Sebastian Markbåge](https://twitter.com/sebmarkbage)
-=======
-December 21, 2020 by [Dan Abramov](https://bsky.app/profile/danabra.mov), [Lauren Tan](https://twitter.com/potetotes), [Joseph Savona](https://twitter.com/en_JS), and [Sebastian Markbåge](https://twitter.com/sebmarkbage)
->>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
+21 de diciembre de 2020 por [Dan Abramov](https://bsky.app/profile/danabra.mov), [Lauren Tan](https://twitter.com/potetotes), [Joseph Savona](https://twitter.com/en_JS) y [Sebastian Markbåge](https://twitter.com/sebmarkbage)
 
 ---
 
