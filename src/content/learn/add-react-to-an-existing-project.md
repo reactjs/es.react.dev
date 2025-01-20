@@ -20,9 +20,15 @@ Digamos que tienes una aplicación web existente en `example.com` construida con
 
 Así es como recomendamos configurarlo:
 
+<<<<<<< HEAD
 1. **Construye la parte React de tu app** utilizando uno de los [*frameworks* basados en React](/learn/start-a-new-react-project).
 2. **Especifica `/some-app` como la *ruta base***  en la configuración de tu framework (aquí tienes como: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configura tu servidor o un proxy** para que todas las peticiones bajo `/some-app/` sean manejadas por tu aplicación React.
+=======
+1. **Build the React part of your app** using one of the [React-based frameworks](/learn/start-a-new-react-project).
+2. **Specify `/some-app` as the *base path*** in your framework's configuration (here's how: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+3. **Configure your server or a proxy** so that all requests under `/some-app/` are handled by your React app.
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
 
 Esto garantiza que la parte React de tu aplicación se pueda [beneficiar de las mejoras practicas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) integradas en aquellos frameworks.
 
@@ -57,12 +63,17 @@ Después agrega las siguientes líneas de código al principio de tu archivo Jav
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
   <body>
+<<<<<<< HEAD
     <!-- El contenido existente de tu página (en este ejemplo, es reemplazado) -->
+=======
+    <!-- Your existing page content (in this example, it gets replaced) -->
+    <div id="root"></div>
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
   </body>
 </html>
 ```
@@ -119,7 +130,7 @@ Esto te permite encontrar aquel elemento HTML con [`document.getElementById`](ht
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>

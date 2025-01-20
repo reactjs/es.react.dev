@@ -5,7 +5,11 @@ date: 2022/06/15
 description: React 18 estuvo por años en desarrollo, y con él llegaron lecciones valiosas para el equipo de React. Su lanzamiento fue el resultado de muchos años de investigación y exploración de diversos caminos. Algunos de esos caminos fueron exitosos; muchos otros fueron callejones sin salida que nos llevaron a nuevas ideas. Una lección que hemos aprendido es que resulta frustrante para la comunidad esperar nuevas funcionalidades sin tener información sobre las rutas que estamos explorando.
 ---
 
+<<<<<<< HEAD
 15 de junio de 2022 por [Andrew Clark](https://twitter.com/acdlite), [Dan Abramov](https://twitter.com/dan_abramov), [Jan Kassens](https://twitter.com/kassens), [Joseph Savona](https://twitter.com/en_JS), [Josh Story](https://twitter.com/joshcstory), [Lauren Tan](https://twitter.com/potetotes), [Luna Ruan](https://twitter.com/lunaruan), [Mengdi Chen](https://twitter.com/mengdi_en), [Rick Hanlon](https://twitter.com/rickhanlonii), [Robert Zhang](https://twitter.com/jiaxuanzhang01), [Sathya Gunasekaran](https://twitter.com/_gsathya), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Xuan Huang](https://twitter.com/Huxpro)
+=======
+June 15, 2022 by [Andrew Clark](https://twitter.com/acdlite), [Dan Abramov](https://bsky.app/profile/danabra.mov), [Jan Kassens](https://twitter.com/kassens), [Joseph Savona](https://twitter.com/en_JS), [Josh Story](https://twitter.com/joshcstory), [Lauren Tan](https://twitter.com/potetotes), [Luna Ruan](https://twitter.com/lunaruan), [Mengdi Chen](https://twitter.com/mengdi_en), [Rick Hanlon](https://twitter.com/rickhanlonii), [Robert Zhang](https://twitter.com/jiaxuanzhang01), [Sathya Gunasekaran](https://twitter.com/_gsathya), [Sebastian Markbåge](https://twitter.com/sebmarkbage), and [Xuan Huang](https://twitter.com/Huxpro)
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
 
 ---
 

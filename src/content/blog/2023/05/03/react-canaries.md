@@ -5,7 +5,11 @@ date: 2023/05/03
 description: Nos gustaría ofrecer a la comunidad de React una opción para adoptar las nuevas características tan pronto su diseño está cerca de su etapa final, antes de que sean lanzados a una versión estable (similar a cómo Meta ha utilizado internamente las más recientes versiones de React). Estamos presentando oficialmente un nuevo [canal de lanzamiento Canary](/community/versioning-policy#canary-channel) con apoyo oficial. Permite que las configuraciones seleccionadas como los frameworks desvinculen la adopción de funcionalidades individuales de React del calendario de lanzamiento de React.
 ---
 
+<<<<<<< HEAD
 3 de Mayo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), y [Andrew Clark](https://twitter.com/acdlite)
+=======
+May 3, 2023 by [Dan Abramov](https://bsky.app/profile/danabra.mov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), and [Andrew Clark](https://twitter.com/acdlite)
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
 
 ---
 

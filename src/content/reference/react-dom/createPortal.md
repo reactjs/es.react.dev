@@ -252,7 +252,7 @@ Los portales resultan útiles cuando se desea integrar contenido de React en pá
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>Mi aplicación</title></head>

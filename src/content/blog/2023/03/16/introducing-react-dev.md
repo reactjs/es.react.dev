@@ -5,7 +5,11 @@ date: 2023/03/16
 description: Hoy estamos encantados de lanzar react.dev, el nuevo hogar de React y su documentación. En esta publicación, nos gustaría mostrarte el nuevo sitio.
 ---
 
+<<<<<<< HEAD
 16 de Marzo de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) y [Rachel Nabors](https://twitter.com/rachelnabors)
+=======
+March 16, 2023 by [Dan Abramov](https://bsky.app/profile/danabra.mov) and [Rachel Nabors](https://twitter.com/rachelnabors)
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
 
 ---
 
@@ -631,7 +635,11 @@ Creemos que nunca ha habido un mejor momento para aprender React.
 
 ## ¿Quiénes trabajaron en esto? {/*who-worked-on-this*/}
 
+<<<<<<< HEAD
 En el equipo de React, [Rachel Nabors](https://twitter.com/rachelnabors/)  lideró el proyecto (y proporcionó las ilustraciones), y [Dan Abramov](https://twitter.com/dan_abramov) diseñó el plan de estudios. Ambos coautoraron la mayor parte del contenido juntos también.
+=======
+On the React team, [Rachel Nabors](https://twitter.com/rachelnabors/) led the project (and provided the illustrations), and [Dan Abramov](https://bsky.app/profile/danabra.mov) designed the curriculum. They co-authored most of the content together as well.
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
 
 Por supuesto, ningún proyecto tan grande se realiza en aislamiento. ¡Tenemos muchas personas a quienes agradecer!
 

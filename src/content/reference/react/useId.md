@@ -227,7 +227,7 @@ Si renderizas varias aplicaciones de React independientes en una sola página, p
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
