@@ -222,7 +222,7 @@ Ahora piensa en todas la piezas de datos en esta aplicación de ejemplo:
 
 * ¿Se **mantiene sin cambios** con el tiempo? Si es así, no es estado.
 * ¿Se **pasa desde un padre** por props? Si es así, no es estado.
-* ¿**Puedes calcularlo** basado en estado existente on en props en tu componente? Si es así, ¡*definitivamente* no es estado!
+* ¿**Puedes calcularlo** basado en el estado existente o en props de tu componente? Si es así, ¡*definitivamente* no es estado!
 
 Lo que queda probablemente es estado.
 
