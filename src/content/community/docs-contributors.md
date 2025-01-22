@@ -11,7 +11,7 @@ La documentación de React es escrita y mantenida por el [equipo de React](/comm
 ## Contenido {/*content*/}
 
 * [Rachel Nabors](https://twitter.com/RachelNabors): edición, escritura, ilustración
-* [Dan Abramov](https://twitter.com/dan_abramov): escritura, diseño del currículo
+* [Dan Abramov](https://bsky.app/profile/danabra.mov): escritura, diseño del currículo
 * [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de ejemplo
 * [Rick Hanlon](https://twitter.com/rickhanlonii): escritura
 * [David McCabe](https://twitter.com/mcc_abe): escritura
@@ -34,7 +34,7 @@ La documentación de React es escrita y mantenida por el [equipo de React](/comm
 * [Jared Palmer](https://twitter.com/jaredpalmer): desarrollo del sitio
 * [ThisDotLabs](https://www.thisdot.co/) ([Dane Grant](https://twitter.com/danecando), [Dustin Goodman](https://twitter.com/dustinsgoodman)): desarrollo del sitio
 * [CodeSandbox](https://codesandbox.io/) ([Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), [Danilo Woznica](https://twitter.com/danilowoz)): sandbox integration
-* [Dan Abramov](https://twitter.com/dan_abramov): desarrollo del sitio
+* [Dan Abramov](https://bsky.app/profile/danabra.mov): desarrollo del sitio
 * [Rick Hanlon](https://twitter.com/rickhanlonii): desarrollo del sitio
 * [Harish Kumar](https://www.strek.in/): desarrollo y mantenimiento
 * [Luna Ruan](https://twitter.com/lunaruan): mejoras del sandbox

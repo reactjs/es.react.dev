@@ -21,7 +21,7 @@ Digamos que tienes una aplicación web existente en `example.com` construida con
 Así es como recomendamos configurarlo:
 
 1. **Construye la parte React de tu app** utilizando uno de los [*frameworks* basados en React](/learn/start-a-new-react-project).
-2. **Especifica `/some-app` como la *ruta base***  en la configuración de tu framework (aquí tienes como: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+2. **Especifica `/some-app` como la *ruta base***  en la configuración de tu framework (aquí tienes como: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configura tu servidor o un proxy** para que todas las peticiones bajo `/some-app/` sean manejadas por tu aplicación React.
 
 Esto garantiza que la parte React de tu aplicación se pueda [beneficiar de las mejoras practicas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) integradas en aquellos frameworks.
@@ -57,12 +57,13 @@ Después agrega las siguientes líneas de código al principio de tu archivo Jav
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
   <body>
     <!-- El contenido existente de tu página (en este ejemplo, es reemplazado) -->
+    <div id="root"></div>
   </body>
 </html>
 ```
@@ -119,7 +120,7 @@ Esto te permite encontrar aquel elemento HTML con [`document.getElementById`](ht
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
