@@ -297,7 +297,7 @@ export function HomeContent() {
                     <div className="bg-wash relative h-14 w-full" />
                     <div className="relative flex items-start justify-center flex-col flex-1 pb-16 pt-5 gap-3 px-5 lg:px-10 lg:pt-8">
                       <h4 className="leading-tight text-primary font-semibold text-3xl lg:text-4xl">
-                        Manténte fiel a la web
+                        Mantente fiel a la web
                       </h4>
                       <p className="lg:text-xl leading-normal text-secondary">
                         Las personas esperan que las páginas de las aplicaciones
