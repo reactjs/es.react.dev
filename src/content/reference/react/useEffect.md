@@ -23,7 +23,7 @@ useEffect(setup, dependencies?)
 Declara un efecto con `useEffect` en el nivel superior de tu componente:
 
 ```js
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 function ChatRoom({ roomId }) {
@@ -81,7 +81,7 @@ A veces, un componente puede necesitar permanecer conectado a la red, a alguna A
 Para [conectar tu componente a algún sistema externo,](/learn/synchronizing-with-effects) declara `useEffect` en el nivel superior de tu componente:
 
 ```js [[1, 8, "const connection = createConnection(serverUrl, roomId);"], [1, 9, "connection.connect();"], [2, 11, "connection.disconnect();"], [3, 13, "[serverUrl, roomId]"]]
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 function ChatRoom({ roomId }) {
