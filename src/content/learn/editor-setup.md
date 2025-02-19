@@ -15,7 +15,7 @@ Un editor configurado apropiadamente puede hacer la lectura del código más cla
 
 </YouWillLearn>
 
-## Your editor {/*your-editor*/}
+## Tu editor {/*your-editor*/}
 
 [VS Code](https://code.visualstudio.com/) es uno de los editores más populares hoy en día. Tiene disponible un mercado digital de extensiones y se integra bien con servicios populares como GitHub. La mayoría de las funcionalidades que se listan debajo se pueden añadir a VS Code también a través de extensiones, ¡lo que lo hace muy configurable!
 
