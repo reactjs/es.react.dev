@@ -27,7 +27,11 @@ En diciembre de 2020 anunciamos un [experimental demo of React Server Components
 
 En particular, estamos dejando la idea de tener bibliotecas de I/O bifurcadas (por ejemplo, react-fetch) y, en su lugar, adoptando un modelo de async/await para una mejor compatibilidad. Esto no bloquea técnicamente el lanzamiento de los RSC porque también se puede hacer uso de enrutadores para la recuperación de datos. Otro cambio es que también nos estamos alejando del enfoque de la extensión de archivo en favor de [annotating boundaries](https://github.com/reactjs/rfcs/pull/189#issuecomment-1116482278).
 
+<<<<<<< HEAD
 Estamos trabajando en colaboración con Vercel y Shopify para unificar el soporte del bundler para la semántica compartida tanto en Webpack como en Vite. Antes del lanzamiento, queremos asegurarnos de que la semántica de los RSCs sea la misma en todo el ecosistema de React. Este es el principal obstáculo para alcanzar estabilidad.
+=======
+We’re working together with Vercel and Shopify to unify bundler support for shared semantics in both webpack and Vite. Before launch, we want to make sure that the semantics of RSCs are the same across the whole React ecosystem. This is the major blocker for reaching stable.
+>>>>>>> fc29603434ec04621139738f4740caed89d659a7
 
 ## Carga de recursos {/*asset-loading*/}
 
