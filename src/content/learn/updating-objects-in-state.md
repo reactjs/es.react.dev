@@ -654,7 +654,7 @@ Si se muta `obj3.artwork.city`, afectaría tanto a `obj2.artwork.city` como a `o
 
 ### Escribe una lógica de actualización concisa con Immer {/*write-concise-update-logic-with-immer*/}
 
-Si su estado está profundamente anidado, podría considerar [aplanarlo.](/learn/choosing-the-state-structure#avoid-deeply-nested-state) Pero, si no quieres cambiar la estructura de tu estado, puede que prefieras un atajo a los spreads anidados. [Immer](https://github.com/immerjs/use-immer) es una popular librería que te permite escribir utilizando la sintaxis conveniente pero mutante y se encarga de producir las copias por ti. Con Immer, el código que escribes parece que estés "rompiendo las reglas" y mutando un objeto:
+Si su estado está profundamente anidado, podría considerar [aplanarlo.](/learn/choosing-the-state-structure#avoid-deeply-nested-state) Pero, si no quieres cambiar la estructura de tu estado, puede que prefieras un atajo a los spreads anidados. [Immer](https://github.com/immerjs/use-immer) es una popular biblioteca que te permite escribir utilizando la sintaxis conveniente pero mutante y se encarga de producir las copias por ti. Con Immer, el código que escribes parece que estés "rompiendo las reglas" y mutando un objeto:
 
 ```js
 updatePerson(draft => {
