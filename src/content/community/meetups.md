@@ -57,7 +57,14 @@ title: Reuniones de React
 * [React Advanced London](https://guild.host/react-advanced-london)
 * [React Native London](https://guild.host/RNLDN)
 
+<<<<<<< HEAD
 ## Francia {/*france*/}
+=======
+## Finland {/*finland*/}
+* [Helsinki](https://www.meetabit.com/communities/react-helsinki)
+
+## France {/*france*/}
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 * [Lille](https://www.meetup.com/ReactBeerLille/)
 * [París](https://www.meetup.com/ReactJS-Paris/)
 
@@ -136,9 +143,18 @@ title: Reuniones de React
 ## España {/*spain*/}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 
+<<<<<<< HEAD
 ## Suecia {/*sweden*/}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
 * [Estocolmo](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
+=======
+## Sri Lanka {/*sri-lanka*/}
+* [Colombo](https://www.javascriptcolombo.com/)
+
+## Sweden {/*sweden*/}
+* [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
+* [Stockholm](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 ## Suiza {/*switzerland*/}
 * [Zúrich](https://www.meetup.com/Zurich-ReactJS-Meetup/)

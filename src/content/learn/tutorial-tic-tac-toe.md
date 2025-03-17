@@ -295,7 +295,11 @@ export default function Square() {
 }
 ```
 
+<<<<<<< HEAD
 La sección del *browser* debería mostrarte un cuadrado con una X como esta:
+=======
+The _browser_ section should be displaying a square with an X in it like this:
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 ![Cuadrado lleno de x](../images/tutorial/x-filled-square.png)
 
@@ -1329,7 +1333,11 @@ Recapitulemos lo que sucede cuando un usuario hace clic en el cuadrado superior 
 2. `handleClick` usa el argumento (`0`) para actualizar el primer elemento de la matriz `squares` de `null` a `X`.
 3. El estado `squares` del componente `Board` se actualiza, por lo que `Board` y todos sus elementos secundarios se vuelven a renderizar. Esto hace que la prop `value` del componente `Square` con el índice `0` cambie de `null` a `X`.
 
+<<<<<<< HEAD
 Al final, el usuario ve que el cuadrado superior izquierdo ha pasado de estar vacío a tener una `X` después de hacer clic en él.
+=======
+In the end the user sees that the upper left square has changed from empty to having an `X` after clicking it.
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 <Note>
 
@@ -1410,7 +1418,11 @@ Pero espera, hay un problema. Intenta hacer clic en el mismo cuadrado varias vec
 
 ¡La `X` se sobrescribe con una `O`! Si bien esto agregaría un giro muy interesante al juego, por ahora nos apegaremos a las reglas originales.
 
+<<<<<<< HEAD
 Cuando marcas un cuadrado con una `X` o una `O`, no estás comprobando primero si el cuadrado ya tiene un valor `X` u `O`. Puedes arreglar esto *regresando rápidamente en el estado*. Verifica si el cuadrado ya tiene una `X` o una `O`. Si el cuadrado ya está lleno, genera un `return` en la función `handleClick`, antes de que intente actualizar el estado del tablero.
+=======
+When you mark a square with an `X` or an `O` you aren't first checking to see if the square already has an `X` or `O` value. You can fix this by *returning early*. You'll check to see if the square already has an `X` or an `O`. If the square is already filled, you will `return` in the `handleClick` function early--before it tries to update the board state.
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1560,7 +1572,11 @@ No importa si defines `calculateWinner` antes o después del `Board`. Pongámosl
 
 </Note>
 
+<<<<<<< HEAD
 Llamarás a `calculateWinner(squares)` en la función `handleClick` del componente `Board` para comprobar si un jugador ha ganado. Puedes realizar esta verificación al mismo tiempo que verificas si un usuario ha hecho clic en un cuadrado que ya tiene una `X` o una `O`.  Nos gustaría regresar rápido en el estado en ambos casos:
+=======
+You will call `calculateWinner(squares)` in the `Board` component's `handleClick` function to check if a player has won. You can perform this check at the same time you check if a user has clicked a square that already has an `X` or an `O`. We'd like to return early in both cases:
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 ```js {2}
 function handleClick(i) {

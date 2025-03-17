@@ -88,9 +88,15 @@ Durante las actualizaciones, el <CodeStep step={2}>valor diferido</CodeStep> ten
 
 Este ejemplo asume que se está utilizando una origen de datos con _Suspense_ habilitado:
 
+<<<<<<< HEAD
 - Frameworks para la obtención de datos con _Suspense_ habilitado como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials).
 - Carga diferida de código de componentes con [`lazy`](/reference/react/lazy)
 - Leer el valor de una promesa con [`use`](/reference/react/use)
+=======
+- Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/app/getting-started/fetching-data#with-suspense)
+- Lazy-loading component code with [`lazy`](/reference/react/lazy)
+- Reading the value of a Promise with [`use`](/reference/react/use)
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 - Componentes que empleen carga diferida mediante [`lazy`](/reference/react/lazy).
 
