@@ -45,7 +45,11 @@ Un entorno de JavaScript modular te permite escribir tus componentes React en ar
 
 * **Si tu aplicación ya está dividida en archivos que utilizan la sintaxis `import`,** prueba a utilizar tu configuración existente. Comprueba si escribir `<div />` en tu código JS causa un error de sintaxis. Si causa un error de sintaxis, es posible que necesites [transformar tu código JavaScript con Babel](https://babeljs.io/setup), y habilitar el [_preset_ de Babel React](https://babeljs.io/docs/babel-preset-react) para utilizar JSX.
 
+<<<<<<< HEAD
 * **Si tu aplicación no tiene una configuración existente para compilar módulos JavaScript,** configurarlo con [Vite](https://es.vitejs.dev/). La comunidad de Vite mantienen [varias integraciones con *frameworks* de backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluyendo Rails, Django y Laravel. Si tu *framework* de backend no aparece en la lista, [sigue esta guía](https://es.vitejs.dev/guide/backend-integration.html) para integrar la compilación con Vite con tu backend de forma manual.
+=======
+* **If your app doesn't have an existing setup for compiling JavaScript modules,** set it up with [Vite](https://vite.dev/). The Vite community maintains [many integrations with backend frameworks](https://github.com/vitejs/awesome-vite#integrations-with-backends), including Rails, Django, and Laravel. If your backend framework is not listed, [follow this guide](https://vite.dev/guide/backend-integration.html) to manually integrate Vite builds with your backend.
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 Para comprobar que tu configuración funciona, lanza el siguiente comando en el directorio de tu proyecto:
 
@@ -85,7 +89,11 @@ Si el contenido completo de tu página fue reemplazado por un "¡Hola, mundo!", 
 
 <Note>
 
+<<<<<<< HEAD
 Integrar un entorno de JavaScript modular en un proyecto existente por primera vez puede ser intimidante, ¡pero vale la pena! Si te quedas atascado, prueba nuestros [recursos de la comunidad](/community) o el [Vite Chat](https://chat.vitejs.dev/).
+=======
+Integrating a modular JavaScript environment into an existing project for the first time can feel intimidating, but it's worth it! If you get stuck, try our [community resources](/community) or the [Vite Chat](https://chat.vite.dev/).
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 </Note>
 

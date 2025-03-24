@@ -70,9 +70,15 @@ Prueba a comentar la llamada `root.render()` ¡y verás cómo desaparece el comp
 Una vez que el componente ha sido renderizado inicialmente, puede desencadenar más renderizados actualizando su estado con la [función `set`.](/reference/react/useState#setstate) Al actualizar el estado de tu componente, se pone en cola automáticamente un renderizado. (Puedes imaginarte esto como un cliente de un restaurante que pide té, postre y todo tipo de cosas después de poner su primer pedido, dependiendo del estado de su sed o hambre).
 
 <IllustrationBlock sequential>
+<<<<<<< HEAD
   <Illustration caption="La actualización del estado..." alt="React como un camarero en un restaurante, sirviendo una UI tarjeta al usuario, representado como un cliente con un cursor como su cabeza. ¡El cliente expresa que quiere una tarjeta rosa, no una negra!" src="/images/docs/illustrations/i_rerender1.png" />
   <Illustration caption="...¡desencadena..." alt="React vuelve a la cocina de los componentes y le dice al chef de las tarjetas que necesitan una tarjeta rosa." src="/images/docs/illustrations/i_rerender2.png" />
   <Illustration caption="...un renderizado!" alt="El chef de tarjetas le da a React la tarjeta rosa." src="/images/docs/illustrations/i_rerender3.png" />
+=======
+  <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. The patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
+  <Illustration caption="...triggers..." alt="React returns to the Component Kitchen and tells the Card Chef they need a pink Card." src="/images/docs/illustrations/i_rerender2.png" />
+  <Illustration caption="...render!" alt="The Card Chef gives React the pink Card." src="/images/docs/illustrations/i_rerender3.png" />
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 </IllustrationBlock>
 
 ## Paso 2: React renderiza tus componentes {/*step-2-react-renders-your-components*/}
@@ -84,7 +90,11 @@ Después de activar un renderizado, React llama a tus componentes para averiguar
 
 Este proceso es recursivo: si el componente actualizado devuelve algún otro componente, React renderizará _ese_ componente a continuación, y si ese componente también devuelve algo, renderizará _ese_ componente a continuación, y así sucesivamente. El proceso continuará hasta que no haya más componentes anidados y React sepa exactamente qué debe mostrarse en pantalla.
 
+<<<<<<< HEAD
 En el siguiente ejemplo, React llamará a `Gallery()` y a `Image()` varias veces:
+=======
+In the following example, React will call `Gallery()` and `Image()` several times:
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 <Sandpack>
 
@@ -148,10 +158,17 @@ El comportamiento por defecto de renderizar todos los componentes anidados dentr
 
 ## Paso 3: React confirma los cambios en el DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
+<<<<<<< HEAD
 Después de renderizar (llamar) tus componentes, React modificará el DOM. 
 
 * **Para el renderizado inicial,** React utilizará la API del DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) para poner en pantalla todos los nodos del DOM que ha creado. 
 * **Para los rerenderizados,** React aplicará las operaciones mínimas necesarias (¡calculadas durante el renderizado!) para hacer que el DOM coincida con la última salida del renderizado.
+=======
+After rendering (calling) your components, React will modify the DOM.
+
+* **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen.
+* **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 **React sólo cambia los nodos del DOM si hay una diferencia entre los renderizados.**  Por ejemplo, este es un componente que se vuelve a renderizar con diferentes props pasadas desde su padre cada segundo. Fíjate en que puedes añadir algún texto en el `<input>`, actualizando su `valor`, pero el texto no desaparece cuando el componente se vuelve a renderizar:
 
