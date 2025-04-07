@@ -645,12 +645,21 @@ Sin embargo, esto no quiere decir que no puedas en absoluto. Requiere de cuidado
 
 <Recap>
 
+<<<<<<< HEAD
 - Las refs son un concepto genérico, pero a menudo las vas a usar para almacenar elementos del DOM.
 - Tú le indicas a React a poner un nodo DOM dentro de `myRef.current` pasándole `<div ref={myRef}>`.
 - Normalmente, vas a usar las refs para acciones no destructivas como enfocar, desplazar, o medir elementos DOM.
 - Un componente no expone sus nodos DOM por defecto. Puedes optar por exponer un nodo DOM usando `forwardRef` y pasando el segundo argumento `ref` a un nodo específico.
 - Evita cambiar nodos DOM gestionados por React.
 - Si modificas nodos DOM gestionados por React, modifica las partes en donde React no tenga motivos para actualizar.
+=======
+- Refs are a generic concept, but most often you'll use them to hold DOM elements.
+- You instruct React to put a DOM node into `myRef.current` by passing `<div ref={myRef}>`.
+- Usually, you will use refs for non-destructive actions like focusing, scrolling, or measuring DOM elements.
+- A component doesn't expose its DOM nodes by default. You can opt into exposing a DOM node by using the `ref` prop.
+- Avoid changing DOM nodes managed by React.
+- If you do modify DOM nodes managed by React, modify parts that React has no reason to update.
+>>>>>>> 5138e605225b24d25701a1a1f68daa90499122a4
 
 </Recap>
 
@@ -1050,7 +1059,11 @@ Haz que al hacer clic en el botón "Buscar" se ponga el foco en el campo de text
 
 <Hint>
 
+<<<<<<< HEAD
 Necesitarás `forwardRef` para optar a exponer un nodo DOM de tu propio componente como `SearchInput`.
+=======
+You'll need to pass `ref` as a prop to opt into exposing a DOM node from your own component like `SearchInput`.
+>>>>>>> 5138e605225b24d25701a1a1f68daa90499122a4
 
 </Hint>
 
@@ -1135,6 +1148,7 @@ export default function SearchButton({ onClick }) {
 ```
 
 ```js src/SearchInput.js
+<<<<<<< HEAD
 import { forwardRef } from 'react';
 
 export default forwardRef(
@@ -1147,6 +1161,16 @@ export default forwardRef(
     );
   }
 );
+=======
+export default function SearchInput({ ref }) {
+  return (
+    <input
+      ref={ref}
+      placeholder="Looking for something?"
+    />
+  );
+}
+>>>>>>> 5138e605225b24d25701a1a1f68daa90499122a4
 ```
 
 ```css

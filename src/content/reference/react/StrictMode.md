@@ -86,10 +86,17 @@ A pesar de que las comprobaciones del Modo Estricta **solo se ejecutan en desarr
 
 El Modo Estricto habilita los siguientes chequeos en desarrollo:
 
+<<<<<<< HEAD
 - Tus componentes se [renderizarán una vez más](#fixing-bugs-found-by-double-rendering-in-development) para encontrar errores causados por renderizaciones impuras.
 - Tus componentes [ejecutarán los Efectos una vez más](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar errores causados por la ausencia de la fase de limpieza de estos.
 - Tus componentes [volverán a ejecutar las funciones de callback de ref una vez más](#fixing-bugs-found-by-cleaning-up-and-re-attaching-dom-refs-in-development) para encontrar errores causados por la falta de limpieza de refs.
 - Se comprobará el uso en tus componentes de [APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+=======
+- Your components will [re-render an extra time](#fixing-bugs-found-by-double-rendering-in-development) to find bugs caused by impure rendering.
+- Your components will [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) to find bugs caused by missing Effect cleanup.
+- Your components will [re-run ref callbacks an extra time](#fixing-bugs-found-by-re-running-ref-callbacks-in-development) to find bugs caused by missing ref cleanup.
+- Your components will [be checked for usage of deprecated APIs.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+>>>>>>> 5138e605225b24d25701a1a1f68daa90499122a4
 
 **Todos estos chequeos es hacen solo en desarrollo y no afectan la compilación de producción.**
 
@@ -121,6 +128,12 @@ function App() {
 ```
 
 En este ejemplo, el chequeo de Strict Mode no se ejecutarán en los componentes `Header` y `Footer`. Sin embargo, sí se ejecutarán en `Sidebar` y `Content` al igual que todos los componentes dentro de estos, sin importar la profundidad.
+
+<Note>
+
+When `StrictMode` is enabled for a part of the app, React will only enable behaviors that are possible in production. For example, if `<StrictMode>` is not enabled at the root of the app, it will not [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) on initial mount, since this would cause child effects to double fire without the parent effects, which cannot happen in production.
+
+</Note>
 
 ---
 

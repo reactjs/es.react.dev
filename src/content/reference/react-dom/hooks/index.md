@@ -14,7 +14,11 @@ El paquete de `react-dom` contiene Hooks que solo se admiten para aplicaciones w
 
 Los formularios (*forms*) te permiten crear controles interactivos para enviar información. Para manejar formularios en tus componentes, usa uno de estos Hooks:
 
+<<<<<<< HEAD
 * [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) facilita la actualización de la interfaz de usuario basada en el estado del formulario.
+=======
+* [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) allows you to make updates to the UI based on the status of a form.
+>>>>>>> 5138e605225b24d25701a1a1f68daa90499122a4
 
 ```js
 function Form({ action }) {
