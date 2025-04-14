@@ -47,7 +47,14 @@ title: Reuniones de React
 ## Colombia {/*colombia*/}
 * [Medellín](https://www.meetup.com/React-Medellin/)
 
+<<<<<<< HEAD
 ## Dinamarca {/*denmark*/}
+=======
+## Czechia {/*czechia*/}
+* [Prague](https://guild.host/react-prague/)
+
+## Denmark {/*denmark*/}
+>>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 * [Aalborg](https://www.meetup.com/Aalborg-React-React-Native-Meetup/)
 * [Aarhus](https://www.meetup.com/Aarhus-ReactJS-Meetup/)
 
@@ -57,7 +64,14 @@ title: Reuniones de React
 * [React Advanced London](https://guild.host/react-advanced-london)
 * [React Native London](https://guild.host/RNLDN)
 
+<<<<<<< HEAD
 ## Francia {/*france*/}
+=======
+## Finland {/*finland*/}
+* [Helsinki](https://www.meetabit.com/communities/react-helsinki)
+
+## France {/*france*/}
+>>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 * [Lille](https://www.meetup.com/ReactBeerLille/)
 * [París](https://www.meetup.com/ReactJS-Paris/)
 
@@ -75,7 +89,7 @@ title: Reuniones de React
 * [Tesalónica](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
 
 ## India {/*india*/}
-* [Ahmedabad](https://www.meetup.com/react-ahmedabad/)
+* [Ahmedabad](https://reactahmedabad.dev/)
 * [Bangalore (React)](https://www.meetup.com/ReactJS-Bangalore/)
 * [Bangalore (React Native)](https://www.meetup.com/React-Native-Bangalore-Meetup)
 * [Chennai](https://www.linkedin.com/company/chennaireact)
@@ -136,9 +150,18 @@ title: Reuniones de React
 ## España {/*spain*/}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 
+<<<<<<< HEAD
 ## Suecia {/*sweden*/}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
 * [Estocolmo](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
+=======
+## Sri Lanka {/*sri-lanka*/}
+* [Colombo](https://www.javascriptcolombo.com/)
+
+## Sweden {/*sweden*/}
+* [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
+* [Stockholm](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
+>>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 ## Suiza {/*switzerland*/}
 * [Zúrich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
@@ -160,6 +183,7 @@ title: Reuniones de React
 * [Cleveland, OH - ReactJS](https://www.meetup.com/Cleveland-React/)
 * [Colón, OH - ReactJS](https://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](https://www.meetup.com/ReactDallas/)
+* [Denver, CO - React Denver](https://reactdenver.com/)
 * [Detroit, MI - Detroit React User Group](https://www.meetup.com/Detroit-React-User-Group/)
 * [Indianapolis, IN - React.Indy](https://www.meetup.com/React-Indy)
 * [Irvine, CA - ReactJS](https://www.meetup.com/ReactJS-OC/)
