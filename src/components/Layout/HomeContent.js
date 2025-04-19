@@ -514,11 +514,13 @@ export function HomeContent() {
 
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <div className="uwu-visible flex justify-center">
-              <img
+              <Image
                 alt="logo by @sawaratsuki1004"
                 title="logo by @sawaratsuki1004"
                 className="uwu-visible mb-10 lg:mb-8 h-24 lg:h-32"
                 src="/images/uwu.png"
+                width={100}
+                height={100}
               />
             </div>
             <Logo className="uwu-hidden text-brand dark:text-brand-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
@@ -805,10 +807,12 @@ const CommunityImages = memo(function CommunityImages({isLazy}) {
                 ? 'rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl'
                 : 'group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]'
             )}>
-            <img
+            <Image
               loading={isLazy ? 'lazy' : 'eager'}
               src={src}
               alt={alt}
+              width={100}
+              height={100}
               className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
             />
           </div>
@@ -1565,7 +1569,7 @@ function Cover({background, children}) {
       <div className="absolute inset-0 px-4 py-2 flex items-end bg-gradient-to-t from-black/40 via-black/0">
         {children}
       </div>
-      <img
+      <Image
         src={background}
         width={500}
         height={263}
@@ -1642,11 +1646,13 @@ function Thumbnail({video}) {
         <>
           <div className="transition-opacity mt-2.5 -space-x-2 flex flex-row w-full justify-center">
             {image.speakers.map((src, i) => (
-              <img
+              <Image
                 key={i}
                 className="h-8 w-8 border-2 shadow-md border-gray-70 object-cover rounded-full"
                 src={src}
                 alt=""
+                width={100}
+                height={100}
               />
             ))}
           </div>
