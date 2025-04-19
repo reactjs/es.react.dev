@@ -14,7 +14,7 @@ exports.siteConfig = {
   twitterUrl: 'https://twitter.com/reactjs',
   algolia: {
     appId: 'XW1AQEYLQ1',
-    apiKey: 'c9ea9065a1b34fe1c24e62f25db95a7b',
+    apiKey: 'c282f6a2df1a04243d201cc6de1e63ed',
     indexName: 'es_react_dev_xw1aqeylq1_pages',
   },
 };
