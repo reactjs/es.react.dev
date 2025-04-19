@@ -13,8 +13,8 @@ exports.siteConfig = {
   repoUrl: 'https://github.com/facebook/react',
   twitterUrl: 'https://twitter.com/reactjs',
   algolia: {
-    appId: '1FCF9AYYAT',
-    apiKey: '1b7ad4e1c89e645e351e59d40544eda1',
-    indexName: 'beta-react',
+    appId: 'XW1AQEYLQ1',
+    apiKey: 'c9ea9065a1b34fe1c24e62f25db95a7b',
+    indexName: 'es.react.dev',
   },
 };
