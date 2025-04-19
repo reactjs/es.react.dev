@@ -13,7 +13,7 @@ El desarrollo de React está dirigido por un equipo dedicado que trabaja a tiemp
 Los miembros del equipo de React Core trabajan a tiempo completo en las API de componentes principales, el motor que impulsa React DOM y React Native, React DevTools y el sitio web de documentación de React.
 
 Los miembros actuales del equipo de React se enumeran en orden alfabético a continuación.
-Engineer at Meta
+
 <TeamMember name="Andrew Clark" permalink="andrew-clark" photo="/images/team/acdlite.jpg" github="acdlite" twitter="acdlite" threads="acdlite" title="Ingeniero en Vercel">
     Andrew comenzó con el desarrollo web creando sitios con WordPress, y y finalmente se engañó a sí mismo para hacer JavaScript. Su pasatiempo favorito es el karaoke. Andrew es un villano o una princesa de Disney, según el día.
 </TeamMember>

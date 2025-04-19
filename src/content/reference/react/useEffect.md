@@ -76,7 +76,7 @@ function ChatRoom({ roomId }) {
 
 ### Conexión a un sistema externo {/*connecting-to-an-external-system*/}
 
-A veces, un componente puede necesitar permanecer conectado a la red, a alguna API del navegador, o a una librería de terceros, mientras se muestra en la página. Estos sistemas no están controlados por React, por lo que se denominan *externos.*
+A veces, un componente puede necesitar permanecer conectado a la red, a alguna API del navegador, o a una biblioteca de terceros, mientras se muestra en la página. Estos sistemas no están controlados por React, por lo que se denominan *externos.*
 
 Para [conectar tu componente a algún sistema externo,](/learn/synchronizing-with-effects) declara `useEffect` en el nivel superior de tu componente:
 
