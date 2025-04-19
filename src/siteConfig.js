@@ -15,6 +15,6 @@ exports.siteConfig = {
   algolia: {
     appId: 'XW1AQEYLQ1',
     apiKey: 'c9ea9065a1b34fe1c24e62f25db95a7b',
-    indexName: 'es.react.dev',
+    indexName: 'es_react_dev_xw1aqeylq1_pages',
   },
 };
