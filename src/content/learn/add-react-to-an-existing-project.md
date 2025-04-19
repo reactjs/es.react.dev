@@ -45,7 +45,7 @@ Un entorno de JavaScript modular te permite escribir tus componentes React en ar
 
 * **Si tu aplicación ya está dividida en archivos que utilizan la sintaxis `import`,** prueba a utilizar tu configuración existente. Comprueba si escribir `<div />` en tu código JS causa un error de sintaxis. Si causa un error de sintaxis, es posible que necesites [transformar tu código JavaScript con Babel](https://babeljs.io/setup), y habilitar el [_preset_ de Babel React](https://babeljs.io/docs/babel-preset-react) para utilizar JSX.
 
-* **Si tu aplicación no tiene una configuración existente para compilar módulos JavaScript,** configurarlo con [Vite](https://es.vitejs.dev/). La comunidad de Vite mantienen [varias integraciones con *frameworks* de backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluyendo Rails, Django y Laravel. Si tu *framework* de backend no aparece en la lista, [sigue esta guía](https://es.vitejs.dev/guide/backend-integration.html) para integrar la compilación con Vite con tu backend de forma manual.
+* **Si tu aplicación no tiene una configuración existente para compilar módulos JavaScript,** configúrala con [Vite](https://es.vitejs.dev/). La comunidad de Vite mantiene [varias integraciones con *frameworks* de backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluyendo Rails, Django y Laravel. Si tu *framework* de backend no aparece en la lista, [sigue esta guía](https://es.vitejs.dev/guide/backend-integration.html) para integrar la compilación con Vite con tu backend de forma manual.
 
 Para comprobar que tu configuración funciona, lanza el siguiente comando en el directorio de tu proyecto:
 

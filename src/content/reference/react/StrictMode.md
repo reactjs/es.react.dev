@@ -122,6 +122,12 @@ function App() {
 
 En este ejemplo, el chequeo de Strict Mode no se ejecutarán en los componentes `Header` y `Footer`. Sin embargo, sí se ejecutarán en `Sidebar` y `Content` al igual que todos los componentes dentro de estos, sin importar la profundidad.
 
+<Note>
+
+When `StrictMode` is enabled for a part of the app, React will only enable behaviors that are possible in production. For example, if `<StrictMode>` is not enabled at the root of the app, it will not [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) on initial mount, since this would cause child effects to double fire without the parent effects, which cannot happen in production.
+
+</Note>
+
 ---
 
 ### Solución de errores encontrados por renderizado doble en desarrollo {/*fixing-bugs-found-by-double-rendering-in-development*/}

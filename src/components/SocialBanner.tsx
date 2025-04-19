@@ -7,7 +7,7 @@ import {useRef, useEffect} from 'react';
 import cn from 'classnames';
 import {ExternalLink} from './ExternalLink';
 
-const bannerText = 'Únete a la React Conf del 15 al 16 de mayo.';
+const bannerText = 'Únete a la React Conf del 7 al 8 de Octubre.';
 const bannerLink = 'https://conf.react.dev/';
 const bannerLinkText = 'Más información.';
 

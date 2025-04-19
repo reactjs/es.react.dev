@@ -405,7 +405,7 @@ Si los datos de tu fuente de almacenamiento son mutables, tu función `getSnapsh
 
 Esta función `subscribe` se define *dentro* de un componente, por lo que es diferente en cada rerenderizado:
 
-```js {4-7}
+```js {2-5}
 function ChatIndicator() {
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
@@ -413,6 +413,8 @@ function ChatIndicator() {
   function subscribe() {
     // ...
   }
+  
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // ...
 }
@@ -420,28 +422,28 @@ function ChatIndicator() {
 
 React se volverá a suscribir a tu fuente de almacenamiento si pasas una función de `subscribe` diferente entre rerenderizados. Si esto causa problemas de rendimiento y desea evitar volver a suscribirse a la fuente de almacenamiento de datos externa, mueva la función `subscribe` fuera:
 
-```js {6-9}
-function ChatIndicator() {
-  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
+```js {1-4}
+// ✅ Siempre la misma función, por lo que React no necesitará volver a suscribirse
+function subscribe() {
   // ...
 }
 
-// ✅ Siempre la misma función, por lo que React no necesitará volver a suscribirse
-function subscribe() {
+function ChatIndicator() {
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
   // ...
 }
 ```
 
 Alternativamente, puedes envolver `subscribe` con [`useCallback`](/reference/react/useCallback) para solo resuscribirte cuando algún argumento cambie:
 
-```js {4-8}
+```js {2-5}
 function ChatIndicator({ userId }) {
-  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
-  
   // ✅ Same function as long as userId doesn't change
   const subscribe = useCallback(() => {
     // ...
   }, [userId]);
+  
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // ...
 }

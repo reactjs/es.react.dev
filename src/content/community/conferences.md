@@ -10,25 +10,40 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 
 ## Upcoming Conferences {/*upcoming-conferences*/}
 
-### React Paris 2025 {/*react-paris-2025*/}
-March 20 - 21, 2024. In-person in Paris, France (hybrid event)
+### CityJS London 2025 {/*cityjs-london*/}
+April 23 - 25, 2025. In-person in London, UK 
 
-[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_)
+[Website](https://london.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) -  [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
 
 ### App.js Conf 2025 {/*appjs-conf-2025*/}
 May 28 - 30, 2025. In-person in Kraków, Poland + remote
 
 [Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
 
+### CityJS Athens 2025 {/*cityjs-athens*/}
+May 27 - 31, 2025. In-person in Athens, Greece
+
+[Website](https://athens.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
+
 ### React Summit 2025 {/*react-summit-2025*/}
 June 13 - 17, 2025. In-person in Amsterdam, Netherlands + remote (hybrid event)
 
 [Website](https://reactsummit.com/) - [Twitter](https://x.com/reactsummit)
 
+### React Nexus 2025 {/*react-nexus-2025*/}
+July 03 - 05, 2025. In-person in Bangalore, India
+
+[Website](https://reactnexus.com/) - [Twitter](https://x.com/ReactNexus) - [Bluesky](https://bsky.app/profile/reactnexus.com) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
+
 ### React Universe Conf 2025 {/*react-universe-conf-2025*/}
 September 2-4, 2025. Wrocław, Poland.
 
 [Website](https://www.reactuniverseconf.com/) - [Twitter](https://twitter.com/react_native_eu) - [LinkedIn](https://www.linkedin.com/events/reactuniverseconf7163919537074118657/)
+
+### React Conf 2025 {/*react-conf-2025*/}
+October 7-8, 2025. Henderson, Nevada, USA and free livestream
+
+[Website](https://conf.react.dev/) - [Twitter](https://x.com/reactjs) - [Bluesky](https://bsky.app/profile/react.dev)
 
 ### React India 2025 {/*react-india-2025*/}
 October 31 - November 01, 2025. In-person in Goa, India (hybrid event) + Oct 15 2025 - remote day
@@ -37,6 +52,16 @@ October 31 - November 01, 2025. In-person in Goa, India (hybrid event) + Oct 15 
 
 
 ## Past Conferences {/*past-conferences*/}
+
+### React Paris 2025 {/*react-paris-2025*/}
+March 20 - 21, 2025. In-person in Paris, France (hybrid event)
+
+[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_)
+
+### React Native Connection 2025 {/*react-native-connection-2025*/}
+April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
+
+[Website](https://reactnativeconnection.io/) - [X](https://x.com/reactnativeconn) - [Bluesky](https://bsky.app/profile/reactnativeconnect.bsky.social)
 
 ### React Day Berlin 2024 {/*react-day-berlin-2024*/}
 December 13 & 16, 2024. In-person in Berlin, Germany + remote (hybrid event)

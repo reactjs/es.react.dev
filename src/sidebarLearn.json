@@ -29,9 +29,19 @@
           "path": "/learn/start-a-new-react-project"
         },
         {
+          "title": "Crear una aplicación React desde cero",
+          "path": "/learn/build-a-react-app-from-scratch"
+        },
+        {
           "title": "Agregar React a un proyecto existente",
           "path": "/learn/add-react-to-an-existing-project"
-        },
+        }
+      ]
+    },
+    {
+      "title": "Setup",
+      "path": "/learn/setup",
+      "routes": [
         {
           "title": "Configurar un editor",
           "path": "/learn/editor-setup"

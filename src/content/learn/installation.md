@@ -47,9 +47,21 @@ Para probar React de forma local en tu computadora, [descarga esta página HTML]
 
 Si quieres crear una aplicación o un sitio web completamente con React, [inicia un nuevo proyecto React](/learn/start-a-new-react-project).
 
+## Construir una aplicación React desde cero {/*build-a-react-app-from-scratch*/}
+
+Si un framework no se ajusta bien a tu proyecto, prefieres construir tu propio framework, o simplemente quieres aprender los conceptos básicos de una aplicación React, puedes [construir una aplicación React desde cero](/learn/build-a-react-app-from-scratch).
+
 ## Añadir React a un proyecto existente {/*add-react-to-an-existing-project*/}
 
 Si quieres probar usando React en tu aplicación existente o en un sitio web, [añade React a un proyecto existente](/learn/add-react-to-an-existing-project).
+
+<Note>
+
+#### ¿Debería usar Create React App? {/*should-i-use-create-react-app*/}
+
+No. Create React App ha sido descontinuado. Para más información, consulta [Descontinuación de Create React App](/blog/2025/02/14/sunsetting-create-react-app).
+
+</Note>
 
 ## Próximos pasos {/*next-steps*/}
 

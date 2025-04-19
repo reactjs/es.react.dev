@@ -47,6 +47,9 @@ title: Reuniones de React
 ## Colombia {/*colombia*/}
 * [Medellín](https://www.meetup.com/React-Medellin/)
 
+## República Checa {/*czechia*/}
+* [Praga](https://guild.host/react-prague/)
+
 ## Dinamarca {/*denmark*/}
 * [Aalborg](https://www.meetup.com/Aalborg-React-React-Native-Meetup/)
 * [Aarhus](https://www.meetup.com/Aarhus-ReactJS-Meetup/)
@@ -56,6 +59,9 @@ title: Reuniones de React
 * [React.JS Girls London](https://www.meetup.com/ReactJS-Girls-London/)
 * [React Advanced London](https://guild.host/react-advanced-london)
 * [React Native London](https://guild.host/RNLDN)
+
+## Finlandia {/*finland*/}
+* [Helsinki](https://www.meetabit.com/communities/react-helsinki)
 
 ## Francia {/*france*/}
 * [Lille](https://www.meetup.com/ReactBeerLille/)
@@ -75,7 +81,7 @@ title: Reuniones de React
 * [Tesalónica](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
 
 ## India {/*india*/}
-* [Ahmedabad](https://www.meetup.com/react-ahmedabad/)
+* [Ahmedabad](https://reactahmedabad.dev/)
 * [Bangalore (React)](https://www.meetup.com/ReactJS-Bangalore/)
 * [Bangalore (React Native)](https://www.meetup.com/React-Native-Bangalore-Meetup)
 * [Chennai](https://www.linkedin.com/company/chennaireact)
@@ -136,6 +142,9 @@ title: Reuniones de React
 ## España {/*spain*/}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 
+## Sri Lanka {/*sri-lanka*/}
+* [Colombo](https://www.javascriptcolombo.com/)
+
 ## Suecia {/*sweden*/}
 * [Gotemburgo](https://www.meetup.com/ReactJS-Goteborg/)
 * [Estocolmo](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
@@ -160,6 +169,7 @@ title: Reuniones de React
 * [Cleveland, OH - ReactJS](https://www.meetup.com/Cleveland-React/)
 * [Colón, OH - ReactJS](https://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](https://www.meetup.com/ReactDallas/)
+* [Denver, CO - React Denver](https://reactdenver.com/)
 * [Detroit, MI - Detroit React User Group](https://www.meetup.com/Detroit-React-User-Group/)
 * [Indianapolis, IN - React.Indy](https://www.meetup.com/React-Indy)
 * [Irvine, CA - ReactJS](https://www.meetup.com/ReactJS-OC/)

@@ -26,6 +26,10 @@ Los miembros actuales del equipo de React se enumeran en orden alfabético a con
     Eli se metió en la programación después de que lo suspendieran de la escuela secundaria por piratear. Lleva trabajando en React y React Native desde 2017. Le gusta comer cosas ricas, especialmente helado y tarta de manzana. Puedes encontrar a Eli probando actividades extravagantes como parkour, paracaidismo en interiores y acrobacia en tela.
 </TeamMember>
 
+<TeamMember name="Hendrik Liebau" permalink="hendrik-liebau" photo="/images/team/hendrik.jpg" github="unstubbable" bsky="unstubbable.bsky.social" twitter="unstubbable" title="Engineer at Vercel">
+    Hendrik es un ingeniero de software que ha trabajado en la industria de la tecnología desde hace más de 20 años. Su trayectoria en el mundo de la tecnología comenzó en la década de 1990, cuando empezó a construir sus primeras páginas web utilizando Netscape Communicator.
+</TeamMember>
+
 <TeamMember name="Jack Pope" permalink="jack-pope" photo="/images/team/jack-pope.jpg" github="jackpope" personal="jackpope.me" title="Ingeniero en Meta">
     Poco después de aprender AutoHotkey, Jack empezó a escribir scripts para automatizar todo lo que se le pasara por la mente. Cuando alcanzó limitaciones allí, se sumergió de lleno en el desarrollo de aplicaciones web y no ha mirado hacia atrás. Más recientemente, Jack trabajó en la plataforma web de Instagram antes de pasar a React. Su lenguaje de programación favorito es JSX.
 </TeamMember>
@@ -36,6 +40,10 @@ Los miembros actuales del equipo de React se enumeran en orden alfabético a con
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Ingeniero en Meta">
     Joe planeaba especializarse en matemáticas y filosofía, pero se metió en la informática después de escribir simulaciones de física en Matlab. Antes de React, trabajó en Relay, RSocket.js y el lenguaje de programación Skip. Cuando no está construyendo algún tipo de sistema reactivo, le gusta correr, estudiar japonés y pasar tiempo con su familia.
+</TeamMember>
+
+<TeamMember name="Jordan Brown" permalink="jordan-brown" photo="/images/team/jordan.jpg" github="jbrown215" title="Engineer at Meta">
+    Jordan started coding by building iPhone apps, where he was pushing and popping view controllers before he knew that for-loops were a thing. He enjoys working on technology that developers love, which naturally drew him to React. Outside of work he enjoys reading, kiteboarding, and playing guitar.
 </TeamMember>
 
 <TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="storyhb.com" title="Ingeniero en Vercel">
@@ -70,7 +78,7 @@ Los miembros actuales del equipo de React se enumeran en orden alfabético a con
     Ruslan's introduction to UI programming started when he was a kid by manually editing HTML templates for his custom gaming forums. Somehow, he ended up majoring in Computer Science. He enjoys music, games, and memes. Mostly memes.
 </TeamMember>
 
-<TeamMember name="Sathya Gunasekaran " permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" threads="gsathya.03" title="Ingeniero en Meta">
+<TeamMember name="Sathya Gunasekaran" permalink="sathya-gunasekaran" photo="/images/team/sathya.jpg" github="gsathya" twitter="_gsathya" threads="gsathya.03" title="Ingeniero en Meta">
     Sathya odiaba el Libro del Dragón en la escuela, pero de alguna manera terminó trabajando en compiladores toda su carrera. Cuando no está compilando componentes de React, está bebiendo café o comiendo otra Dosa.
 </TeamMember>
 
