@@ -295,11 +295,7 @@ export default function Square() {
 }
 ```
 
-<<<<<<< HEAD
 La sección del *browser* debería mostrarte un cuadrado con una X como esta:
-=======
-The _browser_ section should be displaying a square with an X in it like this:
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 ![Cuadrado lleno de x](../images/tutorial/x-filled-square.png)
 
@@ -1333,11 +1329,7 @@ Recapitulemos lo que sucede cuando un usuario hace clic en el cuadrado superior 
 2. `handleClick` usa el argumento (`0`) para actualizar el primer elemento de la matriz `squares` de `null` a `X`.
 3. El estado `squares` del componente `Board` se actualiza, por lo que `Board` y todos sus elementos secundarios se vuelven a renderizar. Esto hace que la prop `value` del componente `Square` con el índice `0` cambie de `null` a `X`.
 
-<<<<<<< HEAD
 Al final, el usuario ve que el cuadrado superior izquierdo ha pasado de estar vacío a tener una `X` después de hacer clic en él.
-=======
-In the end the user sees that the upper left square has changed from empty to having an `X` after clicking it.
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 <Note>
 
@@ -1418,11 +1410,7 @@ Pero espera, hay un problema. Intenta hacer clic en el mismo cuadrado varias vec
 
 ¡La `X` se sobrescribe con una `O`! Si bien esto agregaría un giro muy interesante al juego, por ahora nos apegaremos a las reglas originales.
 
-<<<<<<< HEAD
 Cuando marcas un cuadrado con una `X` o una `O`, no estás comprobando primero si el cuadrado ya tiene un valor `X` u `O`. Puedes arreglar esto *regresando rápidamente en el estado*. Verifica si el cuadrado ya tiene una `X` o una `O`. Si el cuadrado ya está lleno, genera un `return` en la función `handleClick`, antes de que intente actualizar el estado del tablero.
-=======
-When you mark a square with an `X` or an `O` you aren't first checking to see if the square already has an `X` or `O` value. You can fix this by *returning early*. You'll check to see if the square already has an `X` or an `O`. If the square is already filled, you will `return` in the `handleClick` function early--before it tries to update the board state.
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1572,11 +1560,7 @@ No importa si defines `calculateWinner` antes o después del `Board`. Pongámosl
 
 </Note>
 
-<<<<<<< HEAD
 Llamarás a `calculateWinner(squares)` en la función `handleClick` del componente `Board` para comprobar si un jugador ha ganado. Puedes realizar esta verificación al mismo tiempo que verificas si un usuario ha hecho clic en un cuadrado que ya tiene una `X` o una `O`.  Nos gustaría regresar rápido en el estado en ambos casos:
-=======
-You will call `calculateWinner(squares)` in the `Board` component's `handleClick` function to check if a player has won. You can perform this check at the same time you check if a user has clicked a square that already has an `X` or an `O`. We'd like to return early in both cases:
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 ```js {2}
 function handleClick(i) {
@@ -2267,11 +2251,7 @@ body {
 
 </Sandpack>
 
-<<<<<<< HEAD
 Cuando recorres la matriz `history` dentro de la función que has pasado a `map`, el argumento `squares` recorre cada elemento de `history`, y el argumento `move` recorre cada índice de la matriz: `0`, `1`, `2`, …. (En la mayoría de los casos, necesitarías los elementos concretos de la matriz, pero para representar una lista de movimientos sólo necesitarás los índices).
-=======
-As you iterate through the `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 Para cada movimiento en el historial del juego de tres en línea, creas un elemento de lista `<li>` que contiene un botón `<button>`. El botón tiene un controlador `onClick` que llama a una función llamada `jumpTo` (que aún no has implementado).
 

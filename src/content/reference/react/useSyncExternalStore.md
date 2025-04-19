@@ -407,13 +407,9 @@ Esta función `subscribe` se define *dentro* de un componente, por lo que es dif
 
 ```js {2-5}
 function ChatIndicator() {
-<<<<<<< HEAD
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // 🚩 Siempre una función diferente, por lo que React se volverá a suscribir en cada rerenderizado
-=======
-  // 🚩 Always a different function, so React will resubscribe on every re-render
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
   function subscribe() {
     // ...
   }
@@ -427,18 +423,13 @@ function ChatIndicator() {
 React se volverá a suscribir a tu fuente de almacenamiento si pasas una función de `subscribe` diferente entre rerenderizados. Si esto causa problemas de rendimiento y desea evitar volver a suscribirse a la fuente de almacenamiento de datos externa, mueva la función `subscribe` fuera:
 
 ```js {1-4}
-// ✅ Always the same function, so React won't need to resubscribe
+// ✅ Siempre la misma función, por lo que React no necesitará volver a suscribirse
 function subscribe() {
   // ...
 }
 
-<<<<<<< HEAD
-// ✅ Siempre la misma función, por lo que React no necesitará volver a suscribirse
-function subscribe() {
-=======
 function ChatIndicator() {
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
   // ...
 }
 ```

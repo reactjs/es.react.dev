@@ -1333,11 +1333,7 @@ export function useOnlineStatus() {
 
 En el ejemplo anterior, `useOnlineStatus` es implementado con un par de [`useState`](/reference/react/useState) y [`useEffect`.](/reference/react/useEffect) Sin embargo, esta no es la mejor solución posible. Hay una serie de casos extremos que no considera. Por ejemplo, asume que cuando el componente se monta, `isOnline` ya es `true`, pero esto puede ser incorrecto si la red ya se desconectó. Puede usar la API del navegador [`navigator.onLine`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) para verificar eso, pero usarla directamente se rompería si ejecutas tu aplicación de React en un servidor para generar el HTML inicial. En resumen, este código podría mejorarse.
 
-<<<<<<< HEAD
 Afortunadamente, React 18 incluye una API llamada [`useSyncExternalStore`](/reference/react/useSyncExternalStore) que se encarga de todos estos problemas por ti. Así es como funciona tu Hook `useOnlineStatus`, reescrito para aprovechar esta nueva API:
-=======
-React includes a dedicated API called [`useSyncExternalStore`](/reference/react/useSyncExternalStore) which takes care of all of these problems for you. Here is your `useOnlineStatus` Hook, rewritten to take advantage of this new API:
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 <Sandpack>
 

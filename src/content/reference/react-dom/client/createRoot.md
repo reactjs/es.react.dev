@@ -474,13 +474,7 @@ export default function App() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-
----
 ## Solución de problemas {/*troubleshooting*/}
-=======
-## Troubleshooting {/*troubleshooting*/}
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 ### He creado una raíz, pero no se muestra nada {/*ive-created-a-root-but-nothing-is-displayed*/}
 

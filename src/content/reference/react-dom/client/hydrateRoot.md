@@ -98,11 +98,7 @@ Una aplicación completamente construida con React normalmente no tendrá ningun
 
 Esto es útil mayormente si el nodo DOM de tu raíz de React (o cualquiera de sus ancestros) puede ser eliminado del DOM por algún otro código. Por ejemplo, imagina un panel de pestañas jQuery que elimina las pestañas inactivas del DOM. Si se elimina una pestaña, todo lo que hay dentro de ella (incluyendo las raíces React que hay dentro) se eliminará también del DOM. En ese caso, tienes que decirle a React que "deje" de gestionar el contenido de la raíz eliminada llamando a `root.unmount`. De lo contrario, los componentes dentro de la raíz eliminada no sabrán limpiar y liberar recursos globales como las suscripciones.
 
-<<<<<<< HEAD
 Al llamar a `root.unmount` se desmontarán todos los componentes de la raíz y se "separará" React del nodo DOM raíz, incluyendo la eliminación de cualquier controlador de evento o estado en el árbol. 
-=======
-Calling `root.unmount` will unmount all the components in the root and "detach" React from the root DOM node, including removing any event handlers or state in the tree.
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 
 #### Parámetros {/*root-unmount-parameters*/}
@@ -273,11 +269,7 @@ export default function App() {
 
 </Sandpack>
 
-<<<<<<< HEAD
 Esto sólo funciona a un nivel de profundidad, y pretende ser una vía de escape. No abuses de su uso. A menos que sea contenido de texto, React aún no intentará parchearlo, por lo que puede permanecer inconsistente hasta futuras actualizaciones.
-=======
-This only works one level deep, and is intended to be an escape hatch. Don’t overuse it. React will **not** attempt to patch mismatched text content.
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
 
 ---
 
