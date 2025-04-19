@@ -196,7 +196,3 @@ title: Reuniones de React
 * [Tampa, FL - ReactJS](https://www.meetup.com/ReactJS-Tampa-Bay/)
 * [Tucson, AZ - ReactJS](https://www.meetup.com/Tucson-ReactJS-Meetup/)
 * [Washington, DC - ReactJS](https://www.meetup.com/React-DC/)
-
-## Sweden {/*sweden*/}
-* [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
-* [Stockholm](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
