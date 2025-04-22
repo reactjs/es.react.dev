@@ -4,34 +4,34 @@ title: Server Components
 
 <RSC>
 
-Server Components are for use in [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+Los Server Components son para usarse en [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
 
 </RSC>
 
 <Intro>
 
-Server Components are a new type of Component that renders ahead of time, before bundling, in an environment separate from your client app or SSR server.
+Los Server Components son un nuevo tipo de Componente que se renderizan con antelación, antes del empaquetado, en un entorno separado de tu aplicación en el cliente o servidor SSR.
 
 </Intro>
 
-This separate environment is the "server" in React Server Components. Server Components can run once at build time on your CI server, or they can be run for each request using a web server.
+Este entorno separado es el "servidor" en React Server Components. Los Server Components pueden ejecutarse una vez en el momento de la compilación en su servidor CI, o pueden ejecutarse para cada solicitud utilizando un servidor web.
 
 <InlineToc />
 
 <Note>
 
-#### How do I build support for Server Components? {/*how-do-i-build-support-for-server-components*/}
+#### ¿Cómo se crea la compatibilidad para los Server Components? {/*how-do-i-build-support-for-server-components*/}
 
-While React Server Components in React 19 are stable and will not break between minor versions, the underlying APIs used to implement a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x. 
+Mientras que los React Server Components en React 19 son estables y no se romperán entre versiones menores, las API subyacentes utilizadas para implementar un bundler o framework de React Server Components no siguen un versionado semántico y pueden romperse entre versiones menores en React 19.x.
 
-To support React Server Components as a bundler or framework, we recommend pinning to a specific React version, or using the Canary release. We will continue working with bundlers and frameworks to stabilize the APIs used to implement React Server Components in the future.
+Para soportar React Server Components como bundler o framework, recomendamos usar una versión específica de React, o usar la versión Canary. Seguiremos trabajando con bundlers y frameworks para estabilizar las API utilizadas para implementar React Server Components en el futuro.
 
 </Note>
 
-### Server Components without a Server {/*server-components-without-a-server*/}
-Server components can run at build time to read from the filesystem or fetch static content, so a web server is not required. For example, you may want to read static data from a content management system.
+### Server Components sin Servidor {/*server-components-without-a-server*/}
+Los Server components pueden ejecutarse en tiempo de compilación para leer del sistema de archivos u obtener contenido estático, por lo que no es necesario un servidor web. Por ejemplo, es posible que desee leer datos estáticos de un sistema de gestión de contenidos.
 
-Without Server Components, it's common to fetch static data on the client with an Effect:
+Sin Server Components, es común obtener datos estáticos en el cliente con un efecto:
 ```js
 // bundle.js
 import marked from 'marked'; // 35.9K (11.2K gzipped)
@@ -39,7 +39,7 @@ import sanitizeHtml from 'sanitize-html'; // 206K (63.3K gzipped)
 
 function Page({page}) {
   const [content, setContent] = useState('');
-  // NOTE: loads *after* first page render.
+  // NOTA: se carga *después* del primer renderizado.
   useEffect(() => {
     fetch(`/api/content/${page}`).then((data) => {
       setContent(data.content);
@@ -58,33 +58,33 @@ app.get(`/api/content/:page`, async (req, res) => {
 });
 ```
 
-This pattern means users need to download and parse an additional 75K (gzipped) of libraries, and wait for a second request to fetch the data after the page loads, just to render static content that will not change for the lifetime of the page.
+Este patrón significa que los usuarios tienen que descargar y analizar 75K adicionales (comprimidos en gzip) de bibliotecas, y esperar por una segunda petición para obtener los datos después de que se cargue la página, sólo para representar contenido estático que no cambiará durante el ciclo de vida de la página.
 
-With Server Components, you can render these components once at build time:
+Con Server Components, puedes renderizar estos componentes una vez en el tiempo de compilación:
 
 ```js
-import marked from 'marked'; // Not included in bundle
-import sanitizeHtml from 'sanitize-html'; // Not included in bundle
+import marked from 'marked'; // No incluido en el paquete
+import sanitizeHtml from 'sanitize-html'; // No incluido en el paquete
 
 async function Page({page}) {
-  // NOTE: loads *during* render, when the app is built.
+  // NOTA: se carga *durante* el renderizado, cuando se construye la aplicación.
   const content = await file.readFile(`${page}.md`);
   
   return <div>{sanitizeHtml(marked(content))}</div>;
 }
 ```
 
-The rendered output can then be server-side rendered (SSR) to HTML and uploaded to a CDN. When the app loads, the client will not see the original `Page` component, or the expensive libraries for rendering the markdown. The client will only see the rendered output:
+El resultado renderizado puede entonces ser renderizado del lado del servidor (SSR) a HTML y subido a un CDN. Cuando se cargue la aplicación, el cliente no verá el componente original `Page`, ni las costosas librerías para renderizar el markdown. El cliente sólo verá el resultado renderizado:
 
 ```js
 <div><!-- html for markdown --></div>
 ```
 
-This means the content is visible during first page load, and the bundle does not include the expensive libraries needed to render the static content.
+Esto significa que el contenido es visible durante la primera carga de la página, y el paquete no incluye las costosas bibliotecas necesarias para renderizar el contenido estático.
 
 <Note>
 
-You may notice that the Server Component above is an async function:
+Quizá pudiste notar que el Server Component de arriba es una función asíncrona:
 
 ```js
 async function Page({page}) {
@@ -92,22 +92,22 @@ async function Page({page}) {
 }
 ```
 
-Async Components are a new feature of Server Components that allow you to `await` in render.
+Los Componentes Asíncronos son una nueva característica de los Server Components que te permiten `esperar` en el renderizado.
 
-See [Async components with Server Components](#async-components-with-server-components) below.
+Véase [Componentes asíncronos con Server Components](#async-components-with-server-components) más abajo.
 
 </Note>
 
-### Server Components with a Server {/*server-components-with-a-server*/}
-Server Components can also run on a web server during a request for a page, letting you access your data layer without having to build an API. They are rendered before your application is bundled, and can pass data and JSX as props to Client Components.
+### Server Components con Servidor {/*server-components-with-a-server*/}
+Los Server Components también pueden ejecutarse en un servidor web durante la solicitud de una página, lo que te permite acceder a la capa de datos sin tener que crear una API. Se renderizan antes de empaquetar la aplicación y pueden pasar datos y JSX como props a los Client Components.
 
-Without Server Components, it's common to fetch dynamic data on the client in an Effect:
+Sin Server Components, es común obtener datos dinámicos en el cliente en un Efecto:
 
 ```js
 // bundle.js
 function Note({id}) {
   const [note, setNote] = useState('');
-  // NOTE: loads *after* first render.
+  // NOTA: se carga *después* del primer renderizado.
   useEffect(() => {
     fetch(`/api/notes/${id}`).then(data => {
       setNote(data.note);
@@ -124,8 +124,8 @@ function Note({id}) {
 
 function Author({id}) {
   const [author, setAuthor] = useState('');
-  // NOTE: loads *after* Note renders.
-  // Causing an expensive client-server waterfall.
+  // NOTA: se carga *después* del renderizado de Note.
+  // Provocando una costosa cascada cliente-servidor.
   useEffect(() => {
     fetch(`/api/authors/${id}`).then(data => {
       setAuthor(data.author);
@@ -150,13 +150,13 @@ app.get(`/api/authors/:id`, async (req, res) => {
 });
 ```
 
-With Server Components, you can read the data and render it in the component:
+Con Server Components, puedes leer los datos y representarlos en el componente:
 
 ```js
 import db from './database';
 
 async function Note({id}) {
-  // NOTE: loads *during* render.
+  // NOTA: se carga *durante* el renderizado.
   const note = await db.notes.get(id);
   return (
     <div>
@@ -167,14 +167,14 @@ async function Note({id}) {
 }
 
 async function Author({id}) {
-  // NOTE: loads *after* Note,
-  // but is fast if data is co-located.
+  // NOTA: se carga *después* de Note,
+  // pero es rápido si los datos están ubicados en el mismo lugar.
   const author = await db.authors.get(id);
   return <span>By: {author.name}</span>;
 }
 ```
 
-The bundler then combines the data, rendered Server Components and dynamic Client Components into a bundle. Optionally, that bundle can then be server-side rendered (SSR) to create the initial HTML for the page. When the page loads, the browser does not see the original `Note` and `Author` components; only the rendered output is sent to the client:
+El bundler luego combina los datos, los Server Components renderizados y los Client Components dinámicos en un paquete. Opcionalmente, ese paquete puede ser renderizado del lado del servidor (SSR) para crear el HTML inicial de la página. Cuando se carga la página, el navegador no ve los componentes originales `Note` y `Author`; sólo se envía al cliente la salida renderizada:
 
 ```js
 <div>
@@ -183,24 +183,24 @@ The bundler then combines the data, rendered Server Components and dynamic Clien
 </div>
 ```
 
-Server Components can be made dynamic by re-fetching them from a server, where they can access the data and render again. This new application architecture combines the simple “request/response” mental model of server-centric Multi-Page Apps with the seamless interactivity of client-centric Single-Page Apps, giving you the best of both worlds.
+Los Server Components pueden hacerse dinámicos al recuperarlos de un servidor, donde pueden acceder a los datos y renderizarse de nuevo. Esta nueva arquitectura de aplicaciones combina el sencillo modelo mental "solicitud/respuesta" de las Multi-Page Applications (MPA) centradas en el servidor con la interactividad fluida de las Single Page Applications (SPA) centradas en el cliente, ofreciéndole lo mejor de ambos mundos.
 
-### Adding interactivity to Server Components {/*adding-interactivity-to-server-components*/}
+### Añadir interactividad a los Server Components {/*adding-interactivity-to-server-components*/}
 
-Server Components are not sent to the browser, so they cannot use interactive APIs like `useState`. To add interactivity to Server Components, you can compose them with Client Component using the `"use client"` directive.
+Los Server Components no se envían al navegador, por lo que no pueden utilizar APIs interactivas como `useState`. Para añadir interactividad a los Server Components, puede componerlos con Client Component utilizando la directiva `"use client"`.
 
 <Note>
 
-#### There is no directive for Server Components. {/*there-is-no-directive-for-server-components*/}
+#### No hay directiva para los Server Components. {/*there-is-no-directive-for-server-components*/}
 
-A common misunderstanding is that Server Components are denoted by `"use server"`, but there is no directive for Server Components. The `"use server"` directive is used for Server Functions.
+Un malentendido común es que los Server Components se denotan por `"use server"`, pero no hay directiva para Server Components. La directiva `"use server"` se utiliza para las Server Functions.
 
-For more info, see the docs for [Directives](/reference/rsc/directives).
+Para más información, consulte la documentación de [Directivas](/reference/rsc/directives).
 
 </Note>
 
 
-In the following example, the `Notes` Server Component imports an `Expandable` Client Component that uses state to toggle its `expanded` state:
+En el siguiente ejemplo, el Server Component `Notes` importa un Client Component `Expandable` que utiliza el estado para cambiar su estado `expanded`:
 ```js
 // Server Component
 import Expandable from './Expandable';
@@ -237,11 +237,11 @@ export default function Expandable({children}) {
 }
 ```
 
-This works by first rendering `Notes` as a Server Component, and then instructing the bundler to create a bundle for the Client Component `Expandable`. In the browser, the Client Components will see output of the Server Components passed as props:
+Esto funciona renderizando primero `Notes` como un Server Component, y luego instruyendo al bundler para que cree un bundle para el Client Component `Expandable`. En el navegador, los Client Component verán la salida de los Server Component pasados como props:
 
 ```js
 <head>
-  <!-- the bundle for Client Components -->
+  <!-- el bundle para Client Components -->
   <script src="bundle.js" />
 </head>
 <body>
@@ -257,21 +257,21 @@ This works by first rendering `Notes` as a Server Component, and then instructin
 </body>
 ```
 
-### Async components with Server Components {/*async-components-with-server-components*/}
+### Componentes asíncronos con Server Components {/*async-components-with-server-components*/}
 
-Server Components introduce a new way to write Components using async/await. When you `await` in an async component, React will suspend and wait for the promise to resolve before resuming rendering. This works across server/client boundaries with streaming support for Suspense.
+Los Server Components introducen una nueva forma de escribir Componentes usando async/await.  Cuando `esperas` en un componente asíncrono, React suspenderá y esperará a que la promesa se resuelva antes de reanudar la renderización. Esto funciona a través de los límites de servidor/cliente con soporte de streaming para Suspense.
 
-You can even create a promise on the server, and await it on the client:
+Incluso puedes crear una promesa en el servidor y esperarla en el cliente:
 
 ```js
 // Server Component
 import db from './database';
 
 async function Page({id}) {
-  // Will suspend the Server Component.
+  // Suspenderá el Server Component.
   const note = await db.notes.get(id);
   
-  // NOTE: not awaited, will start here and await on the client. 
+  // NOTA: no se espera, se iniciará aquí y se esperará en el cliente.
   const commentsPromise = db.comments.get(note.id);
   return (
     <div>
@@ -290,13 +290,13 @@ async function Page({id}) {
 import {use} from 'react';
 
 function Comments({commentsPromise}) {
-  // NOTE: this will resume the promise from the server.
-  // It will suspend until the data is available.
+  // NOTA: esto reanudará la promesa desde el servidor.
+  // Se suspenderá hasta que los datos estén disponibles.
   const comments = use(commentsPromise);
   return comments.map(commment => <p>{comment}</p>);
 }
 ```
 
-The `note` content is important data for the page to render, so we `await` it on the server. The comments are below the fold and lower-priority, so we start the promise on the server, and wait for it on the client with the `use` API. This will Suspend on the client, without blocking the `note` content from rendering.
+El contenido de `note` es un dato importante para que la página se renderice, así que lo `esperamos` en el servidor. Los comentarios están por debajo del pliegue y son de menor prioridad, así que iniciamos la promesa en el servidor, y la esperamos en el cliente con la `use` API. Esto Suspenderá en el cliente, sin bloquear el contenido `note` de la renderización.
 
-Since async components are not supported on the client, we await the promise with `use`.
+Dado que los componentes asíncronos no están soportados en el cliente, esperamos la promesa con `use`.
