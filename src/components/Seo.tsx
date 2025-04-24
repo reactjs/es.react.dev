@@ -122,7 +122,6 @@ export const Seo = withRouter(
         {searchOrder != null && (
           <meta name="algolia-search-order" content={'' + searchOrder} />
         )}
-        <meta name="algolia-site-verification" content="93205ADFA4F18F6A" />
         <link
           rel="preload"
           href="/fonts/Source-Code-Pro-Regular.woff2"
