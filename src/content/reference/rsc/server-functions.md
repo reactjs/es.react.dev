@@ -4,15 +4,15 @@ title: Server Functions
 
 <RSC>
 
-Server Functions are for use in [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+Las Server Functions son para usarse en [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
 
-**Note:** Until September 2024, we referred to all Server Functions as "Server Actions". If a Server Function is passed to an action prop or called from inside an action then it is a Server Action, but not all Server Functions are Server Actions. The naming in this documentation has been updated to reflect that Server Functions can be used for multiple purposes.
+**Nota:** Hasta Septiembre de 2024, nos referíamos a todas las Server Functions como “Server Actions”. Si una Server Function se pasa a una propiedad de acción o se llama desde dentro de una acción, entonces es una Server Action, pero no todas las Server Functions son Server Actions. La nomenclatura en esta documentación ha sido actualizada para reflejar que las Server Functions pueden ser usadas para múltiples propósitos.
 
 </RSC>
 
 <Intro>
 
-Server Functions allow Client Components to call async functions executed on the server.
+Las Server Functions permiten a los Client Components llamar a funciones asíncronas ejecutadas en el servidor.
 
 </Intro>
 
@@ -20,23 +20,23 @@ Server Functions allow Client Components to call async functions executed on the
 
 <Note>
 
-#### How do I build support for Server Functions? {/*how-do-i-build-support-for-server-functions*/}
+#### ¿Cómo se crea la compatibilidad con las Server Functions? {/*how-do-i-build-support-for-server-functions*/}
 
-While Server Functions in React 19 are stable and will not break between minor versions, the underlying APIs used to implement Server Functions in a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x. 
+Mientras que las Server Functions en React 19 son estables y no se romperán entre versiones menores, las APIs subyacentes utilizadas para implementar Server Functions en un bundler o framework de React Server Components no siguen un versionado semántico y pueden romperse entre versiones menores en React 19.x.
 
-To support Server Functions as a bundler or framework, we recommend pinning to a specific React version, or using the Canary release. We will continue working with bundlers and frameworks to stabilize the APIs used to implement Server Functions in the future.
+Para soportar Server Functions como bundler o framework, recomendamos usar una versión específica de React, o usar la versión Canary. Seguiremos trabajando con bundlers y frameworks para estabilizar las API utilizadas para implementar Server Functions en el futuro.
 
 </Note>
 
-When a Server Functions is defined with the [`"use server"`](/reference/rsc/use-server) directive, your framework will automatically create a reference to the server function, and pass that reference to the Client Component. When that function is called on the client, React will send a request to the server to execute the function, and return the result.
+Cuando se define una Server Function con la directiva [`"use server"`](/reference/rsc/use-server), tu framework creará automáticamente una referencia a la Server Function, y pasará esa referencia al Client Component. Cuando esa función es llamada en el cliente, React enviará una petición al servidor para ejecutar la función, y devolver el resultado.
 
-Server Functions can be created in Server Components and passed as props to Client Components, or they can be imported and used in Client Components.
+Las Server Functions pueden crearse en Server Components y pasarse como props a los Client Components, o pueden importarse y utilizarse en Client Components.
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Creating a Server Function from a Server Component {/*creating-a-server-function-from-a-server-component*/}
+### Creación de una Server Function a partir de un Server Component {/*creating-a-server-function-from-a-server-component*/}
 
-Server Components can define Server Functions with the `"use server"` directive:
+Los Server Components pueden definir Server Functions con la directiva `"use server"`:
 
 ```js [[2, 7, "'use server'"], [1, 5, "createNoteAction"], [1, 12, "createNoteAction"]]
 // Server Component
@@ -54,7 +54,7 @@ function EmptyNote () {
 }
 ```
 
-When React renders the `EmptyNote` Server Function, it will create a reference to the `createNoteAction` function, and pass that reference to the `Button` Client Component. When the button is clicked, React will send a request to the server to execute the `createNoteAction` function with the reference provided:
+Cuando React renderiza la Server Function `EmptyNote`, creará una referencia a la función `createNoteAction`, y pasará esa referencia al Client Component `Button`. Cuando se pulse el botón, React enviará una petición al servidor para ejecutar la función `createNoteAction` con la referencia proporcionada:
 
 ```js {5}
 "use client";
@@ -66,12 +66,12 @@ export default function Button({onClick}) {
 }
 ```
 
-For more, see the docs for [`"use server"`](/reference/rsc/use-server).
+Para más información, consulte la documentación de [`"use server"`](/reference/rsc/use-server).
 
 
-### Importing Server Functions from Client Components {/*importing-server-functions-from-client-components*/}
+### Importar Server Functions desde Client Components {/*importing-server-functions-from-client-components*/}
 
-Client Components can import Server Functions from files that use the `"use server"` directive:
+Los Client Components pueden importar Server Functions desde archivos que utilicen la directiva `"use server"`:
 
 ```js [[1, 3, "createNote"]]
 "use server";
@@ -82,7 +82,7 @@ export async function createNote() {
 
 ```
 
-When the bundler builds the `EmptyNote` Client Component, it will create a reference to the `createNote` function in the bundle. When the `button` is clicked, React will send a request to the server to execute the `createNote` function using the reference provided:
+Cuando el bundler construye el Client Component `EmptyNote`, creará una referencia a la función `createNote` en el bundle. Cuando se pulse el botón, React enviará una petición al servidor para ejecutar la función `createNote` utilizando la referencia proporcionada:
 
 ```js [[1, 2, "createNote"], [1, 5, "createNote"], [1, 7, "createNote"]]
 "use client";
@@ -95,11 +95,11 @@ function EmptyNote() {
 }
 ```
 
-For more, see the docs for [`"use server"`](/reference/rsc/use-server).
+Para más información, consulte la documentación de [`"use server"`](/reference/rsc/use-server).
 
-### Server Functions with Actions {/*server-functions-with-actions*/}
+### Server Functions con Actions {/*server-functions-with-actions*/}
 
-Server Functions can be called from Actions on the client:
+Las Server Functions pueden ser llamadas desde Actions en el cliente:
 
 ```js [[1, 3, "updateName"]]
 "use server";
@@ -143,15 +143,15 @@ function UpdateName() {
 }
 ```
 
-This allows you to access the `isPending` state of the Server Function by wrapping it in an Action on the client.
+Esto te permite acceder al estado `isPending` de la Server Function envolviéndola en una Action en el cliente.
 
-For more, see the docs for [Calling a Server Function outside of `<form>`](/reference/rsc/use-server#calling-a-server-function-outside-of-form)
+Para más información, consulte la documentación de [Llamada a una Server Function fuera de `<form>`](/reference/rsc/use-server#calling-a-server-function-outside-of-form)
 
-### Server Functions with Form Actions {/*using-server-functions-with-form-actions*/}
+### Server Functions con Form Actions {/*using-server-functions-with-form-actions*/}
 
-Server Functions work with the new Form features in React 19.
+Las Server Functions funcionan con las nuevas funciones de Form de React 19.
 
-You can pass a Server Function to a Form to automatically submit the form to the server:
+Puede pasar una Server Function a un Form para automáticamente enviar el formulario al servidor:
 
 
 ```js [[1, 3, "updateName"], [1, 7, "updateName"]]
@@ -168,13 +168,13 @@ function UpdateName() {
 }
 ```
 
-When the Form submission succeeds, React will automatically reset the form. You can add `useActionState` to access the pending state, last response, or to support progressive enhancement.
+Cuando el envío del Form tiene éxito, React restablecerá automáticamente el formulario. Puedes añadir `useActionState` para acceder al estado pendiente, última respuesta, o para soportar la mejora progresiva.
 
-For more, see the docs for [Server Functions in Forms](/reference/rsc/use-server#server-functions-in-forms).
+Para más información, consulte la documentación de [Server Functions en Forms](/reference/rsc/use-server#server-functions-in-forms).
 
-### Server Functions with `useActionState` {/*server-functions-with-use-action-state*/}
+### Server Functions con `useActionState` {/*server-functions-with-use-action-state*/}
 
-You can call Server Functions with `useActionState` for the common case where you just need access to the action pending state and last returned response:
+Puede llamar a las Server Functions con `useActionState` para el caso común en el que sólo necesite acceder al estado pendiente de la acción y a la última respuesta devuelta:
 
 ```js [[1, 3, "updateName"], [1, 6, "updateName"], [2, 6, "submitAction"], [2, 9, "submitAction"]]
 "use client";
@@ -193,13 +193,13 @@ function UpdateName() {
 }
 ```
 
-When using `useActionState` with Server Functions, React will also automatically replay form submissions entered before hydration finishes. This means users can interact with your app even before the app has hydrated.
+Al utilizar `useActionState` con Server Functions, React también reproducirá automáticamente los envíos de formularios introducidos antes de que finalice la hidratación. Esto significa que los usuarios pueden interactuar con la aplicación incluso antes de que esta se haya hidratado.
 
-For more, see the docs for [`useActionState`](/reference/react-dom/hooks/useFormState).
+Para más información, consulte la documentación de [`useActionState`](/reference/react/useActionState).
 
-### Progressive enhancement with `useActionState` {/*progressive-enhancement-with-useactionstate*/}
+### Mejora progresiva con `useActionState` {/*progressive-enhancement-with-useactionstate*/}
 
-Server Functions also support progressive enhancement with the third argument of `useActionState`.
+Las Server Functions también admiten la mejora progresiva con el tercer argumento de `useActionState`.
 
 ```js [[1, 3, "updateName"], [1, 6, "updateName"], [2, 6, "/name/update"], [3, 6, "submitAction"], [3, 9, "submitAction"]]
 "use client";
@@ -217,6 +217,6 @@ function UpdateName() {
 }
 ```
 
-When the <CodeStep step={2}>permalink</CodeStep> is provided to `useActionState`, React will redirect to the provided URL if the form is submitted before the JavaScript bundle loads.
+Cuando se proporciona <CodeStep step={2}>permalink</CodeStep> a `useActionState`, React redirigirá a la URL proporcionada si el formulario se envía antes de que se cargue el paquete JavaScript.
 
-For more, see the docs for [`useActionState`](/reference/react-dom/hooks/useFormState).
+Para más información, consulte la documentación de [`useActionState`](/reference/react/useActionState).
