@@ -1,143 +1,143 @@
 ---
-title: Build a React app from Scratch
+title: Crear una aplicación React desde cero
 ---
 
 <Intro>
 
-If your app has constraints not well-served by existing frameworks, you prefer to build your own framework, or you just want to learn the basics of a React app, you can build a React app from scratch.
+Si tu aplicación tiene limitaciones que no están bien cubiertas por los frameworks existentes, prefieres crear tu propio framework o simplemente quieres aprender los conceptos básicos de una aplicación React, puedes crear una aplicación React desde cero.
 
 </Intro>
 
 <DeepDive>
 
-#### Consider using a framework {/*consider-using-a-framework*/}
+#### Considere usar un framework {/*consider-using-a-framework*/}
 
-Starting from scratch is an easy way to get started using React, but a major tradeoff to be aware of is that going this route is often the same as building your own adhoc framework. As your requirements evolve, you may need to solve more framework-like problems that our recommended frameworks already have well developed and supported solutions for. 
+Comenzar desde cero es una manera sencilla de iniciar con React, pero una desventaja importante a tener en cuenta es que tomar esta ruta es a menudo lo mismo que montar tu propio framework improvisado. Conforme tus necesidades evolucionen, podrías tener que solucionar problemas más similares a los de un framework, para los cuales nuestros frameworks recomendados ya cuentan con soluciones bien desarrolladas y respaldadas.
 
-For example, if in the future your app needs support for server-side rendering (SSR), static site generation (SSG), and/or React Server Components (RSC), you will have to implement those on your own. Similarly, future React features that require integrating at the framework level will have to be implemented on your own if you want to use them.
+Por ejemplo, si en el futuro tu aplicación necesita soporte para server-side rendering (SSR), static site generation (SSG), y/o React Server Components (RSC), tendrás que implementarlos por tu cuenta. Del mismo modo, las futuras características de React que requieran integración a nivel de framework tendrán que ser implementadas por ti mismo si quieres utilizarlas.
 
-Our recommended frameworks also help you build better performing apps. For example, reducing or eliminating waterfalls from network requests makes for a better user experience. This might not be a high priority when you are building a toy project, but if your app gains users you may want to improve its performance.
+Nuestros frameworks recomendados también le ayudan a crear aplicaciones con mejor rendimiento. Por ejemplo, reducir o eliminar las cascadas de peticiones de red mejora la experiencia del usuario. Puede que esto no sea una gran prioridad cuando estás construyendo un proyecto de juguete, pero si tu aplicación gana usuarios puede que quieras mejorar su rendimiento.
 
-Going this route also makes it more difficult to get support, since the way you develop routing, data-fetching, and other features will be unique to your situation. You should only choose this option if you are comfortable tackling these problems on your own, or if you’re confident that you will never need these features.
+Seguir esta ruta también hace que sea más difícil obtener soporte, ya que la forma en que desarrolle el enrutamiento, la obtención de datos y otras funciones será específica para su situación. Solo debe elegir esta opción si se siente cómodo abordando estos problemas por su cuenta o si está seguro de que nunca necesitará estas funciones.
 
-For a list of recommended frameworks, check out [Creating a React App](/learn/creating-a-react-app).
+Para obtener una lista de frameworks recomendados, consulte [Crear una aplicación React](/learn/creating-a-react-app).
 
 </DeepDive>
 
 
-## Step 1: Install a build tool {/*step-1-install-a-build-tool*/}
+## Paso 1: Instalar una herramienta de compilación {/*step-1-install-a-build-tool*/}
 
-The first step is to install a build tool like `vite`, `parcel`, or `rsbuild`. These build tools provide features to package and run source code, provide a development server for local development and a build command to deploy your app to a production server.
+El primer paso es instalar una herramienta de compilación como `vite`, `parcel` o `rsbuild`. Estas herramientas permiten empaquetar y ejecutar el código fuente, proporcionan un servidor de desarrollo local y un comando de compilación para desplegar tu aplicación en un servidor de producción.
 
 ### Vite {/*vite*/}
 
-[Vite](https://vite.dev/) is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+[Vite](https://es.vite.dev/) es una herramienta de compilación cuyo objetivo es proporcionar una experiencia de desarrollo más rápida y sencilla para los proyectos web modernos.
 
 <TerminalBlock>
 {`npm create vite@latest my-app -- --template react`}
 </TerminalBlock>
 
-Vite is opinionated and comes with sensible defaults out of the box. Vite has a rich ecosystem of plugins to support fast refresh, JSX,  Babel/SWC, and other common features. See Vite's [React plugin](https://vite.dev/plugins/#vitejs-plugin-react) or [React SWC plugin](https://vite.dev/plugins/#vitejs-plugin-react-swc) and [React SSR example project](https://vite.dev/guide/ssr.html#example-projects) to get started.
+Vite sigue una filosofía bien definida y viene con configuraciones predeterminadas sensatas listas para usar. Vite tiene un rico ecosistema de plugins para dar soporte a Fast Refresh (actualización rápida), JSX, Babel/SWC y otras características comunes. Consulta el [plugin React](https://es.vite.dev/plugins/#vite-plugin-react) de Vite o el [plugin React SWC](https://es.vite.dev/plugins/#vite-plugin-react-swc) y el [proyecto de ejemplo de React SSR](https://es.vite.dev/guide/ssr#proyectos-de-ejemplo) para empezar.
 
-Vite is already being used as a build tool in one of our [recommended frameworks](/learn/creating-a-react-app): [React Router](https://reactrouter.com/start/framework/installation).
+Vite ya se está utilizando como herramienta de compilación en uno de nuestros [frameworks recomendados](/learn/creating-a-react-app): [React Router](https://reactrouter.com/start/framework/installation).
 
 ### Parcel {/*parcel*/}
 
-[Parcel](https://parceljs.org/) combines a great out-of-the-box development experience with a scalable architecture that can take your project from just getting started to massive production applications.
+[Parcel](https://parceljs.org/) combina una excelente experiencia de desarrollo sin configuración inicial con una arquitectura escalable que puede llevar tu proyecto desde sus inicios hasta aplicaciones masivas en producción.
 
 <TerminalBlock>
 {`npm install --save-dev parcel`}
 </TerminalBlock>
 
-Parcel supports fast refresh, JSX, TypeScript, Flow, and styling out of the box. See [Parcel's React recipe](https://parceljs.org/recipes/react/#getting-started) to get started.
+Parcel es compatible de fábrica con Fast Refresh (actualización rápida), JSX, TypeScript, Flow y estilos. Consulta la [guía React de Parcel](https://parceljs.org/recipes/react/#getting-started) para empezar.
 
 ### Rsbuild {/*rsbuild*/}
 
-[Rsbuild](https://rsbuild.dev/) is an Rspack-powered build tool that provides a seamless development experience for React applications. It comes with carefully tuned defaults and performance optimizations ready to use.
+[Rsbuild](https://rsbuild.dev/) es una herramienta de desarrollo basada en Rspack que ofrece una experiencia de desarrollo fluida para aplicaciones React. Incluye valores predeterminados cuidadosamente ajustados y optimizaciones de rendimiento listas para usar.
 
 <TerminalBlock>
 {`npx create-rsbuild --template react`}
 </TerminalBlock>
 
-Rsbuild includes built-in support for React features like fast refresh, JSX, TypeScript, and styling. See [Rsbuild's React guide](https://rsbuild.dev/guide/framework/react) to get started.
+Rsbuild incluye compatibilidad integrada para funcionalidades de React como Fast Refresh, JSX, TypeScript y estilos. Consulte la [guía React de Rsbuild](https://rsbuild.dev/guide/framework/react) para empezar.
 
 <Note>
 
-#### Metro for React Native {/*react-native*/}
+#### Metro para React Native {/*react-native*/}
 
-If you're starting from scratch with React Native you'll need to use [Metro](https://metrobundler.dev/), the JavaScript bundler for React Native. Metro supports bundling for platforms like iOS and Android, but lacks many features when compared to the tools here. We recommend starting with Vite, Parcel, or Rsbuild unless your project requires React Native support.
+Si estás empezando desde cero con React Native tendrás que utilizar [Metro](https://metrobundler.dev/), el bundler JavaScript para React Native. Metro soporta bundling para plataformas como iOS y Android, pero carece de muchas características en comparación con las herramientas aquí mencionadas. Recomendamos empezar con Vite, Parcel o Rsbuild a menos que tu proyecto requiera soporte para React Native.
 
 </Note>
 
-## Step 2: Build Common Application Patterns {/*step-2-build-common-application-patterns*/}
+## Paso 2: Crear patrones comunes de aplicación {/*step-2-build-common-application-patterns*/}
 
-The build tools listed above start off with a client-only, single-page app (SPA), but don't include any further solutions for common functionality like routing, data fetching, or styling.
+Las herramientas de compilación enumeradas anteriormente comienzan con una aplicación de una sola página (SPA) solo para el cliente, pero no incluyen ninguna otra solución para funciones comunes como el enrutamiento, la obtención de datos o el diseño.
 
-The React ecosystem includes many tools for these problems. We've listed a few that are widely used as a starting point, but feel free to choose other tools if those work better for you.
+El ecosistema React incluye muchas herramientas para estos problemas. Hemos enumerado algunas que son ampliamente utilizadas como punto de partida, pero siéntete libre de elegir otras herramientas si esas funcionan mejor para ti.
 
-### Routing {/*routing*/}
+### Enrutamiento {/*routing*/}
 
-Routing determines what content or pages to display when a user visits a particular URL. You need to set up a router to map URLs to different parts of your app. You'll also need to handle nested routes, route parameters, and query parameters.  Routers can be configured within your code, or defined based on your component folder and file structures.
+El enrutamiento determina qué contenido o páginas mostrar cuando un usuario visita una URL concreta. Necesitas configurar un enrutador para asignar URLs a diferentes partes de tu aplicación. También tendrás que manejar rutas anidadas, parámetros de ruta y parámetros de consulta.  Los enrutadores pueden configurarse dentro del código o definirse basándose en las estructuras de carpetas y archivos de los componentes.
 
-Routers are a core part of modern applications, and are usually integrated with data fetching (including prefetching data for a whole page for faster loading), code splitting (to minimize client bundle sizes), and page rendering approaches (to decide how each page gets generated).
+Los enrutadores son una parte esencial de las aplicaciones modernas y suelen integrarse con la obtención de datos (incluida la obtención previa de datos de toda una página para una carga más rápida), la división de código (para minimizar el tamaño de los paquetes de cliente) y los enfoques de renderización de páginas (para decidir cómo se genera cada página).
 
-We suggest using:
+Sugerimos utilizar:
 
 - [React Router](https://reactrouter.com/start/data/custom)
 - [Tanstack Router](https://tanstack.com/router/latest)
 
 
-### Data Fetching {/*data-fetching*/}
+### Obtención de datos {/*data-fetching*/}
 
-Fetching data from a server or other data source is a key part of most applications. Doing this properly requires handling loading states, error states, and caching the fetched data, which can be complex.
+La obtención de datos de un servidor u otra fuente de datos es una parte clave de la mayoría de las aplicaciones. Hacerlo correctamente requiere manejar estados de carga, estados de error y almacenar en caché los datos obtenidos, lo que puede ser complejo.
 
-Purpose-built data fetching libraries do the hard work of fetching and caching the data for you, letting you focus on what data your app needs and how to display it.  These libraries are typically used directly in your components, but can also be integrated into routing loaders for faster pre-fetching and better performance, and in server rendering as well.
+Las bibliotecas de obtención de datos creadas específicamente para este propósito hacen el trabajo duro de obtener y almacenar en caché los datos por ti, permitiéndote centrarte en qué datos necesita tu aplicación y cómo mostrarlos.  Estas bibliotecas suelen utilizarse directamente en los componentes, pero también pueden integrarse en cargadores de rutas para acelerar la obtención previa y mejorar el rendimiento, así como en la renderización del servidor.
 
-Note that fetching data directly in components can lead to slower loading times due to network request waterfalls, so we recommend prefetching data in router loaders or on the server as much as possible!  This allows a page's data to be fetched all at once as the page is being displayed.
+Tenga en cuenta que la obtención de datos directamente en los componentes puede ralentizar los tiempos de carga debido a las caídas de peticiones de red, por lo que le recomendamos que, en la medida de lo posible, prefiera la obtención de datos en cargadores de enrutador o en el servidor.  Esto permite que los datos de una página se obtengan todos a la vez mientras se muestra la página.
 
-If you're fetching data from most backends or REST-style APIs, we suggest using:
+Si estás obteniendo datos de la mayoría de backends o APIs de estilo REST, sugerimos usar:
 
 - [React Query](https://react-query.tanstack.com/)
 - [SWR](https://swr.vercel.app/)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 
-If you're fetching data from a GraphQL API, we suggest using:
+Si estás obteniendo datos de una API de GraphQL, sugerimos usar:
 
 - [Apollo](https://www.apollographql.com/docs/react)
 - [Relay](https://relay.dev/)
 
 
-### Code-splitting {/*code-splitting*/}
+### División de código {/*code-splitting*/}
 
-Code-splitting is the process of breaking your app into smaller bundles that can be loaded on demand. An app's code size increases with every new feature and additional dependency. Apps can become slow to load because all of the code for the entire app needs to be sent before it can be used. Caching, reducing features/dependencies, and moving some code to run on the server can help mitigate slow loading but are incomplete solutions that can sacrifice functionality if overused.
+La división del código es el proceso de dividir una aplicación en paquetes más pequeños que puedan cargarse bajo demanda. El tamaño del código de una aplicación aumenta con cada nueva función y dependencia adicional. La carga de las aplicaciones puede volverse lenta porque todo el código de la aplicación debe enviarse antes de que pueda utilizarse. El almacenamiento en caché, la reducción de funciones/dependencias y el traslado de parte del código para que se ejecute en el servidor pueden ayudar a mitigar la lentitud de carga, pero son soluciones incompletas que pueden sacrificar la funcionalidad si se utilizan en exceso.
 
-Similarly, if you rely on the apps using your framework to split the code, you might encounter situations where loading becomes slower than if no code splitting were happening at all. For example, [lazily loading](/reference/react/lazy) a chart delays sending the code needed to render the chart, splitting the chart code from the rest of the app. [Parcel supports code splitting with React.lazy](https://parceljs.org/recipes/react/#code-splitting). However, if the chart loads its data *after* it has been initially rendered you are now waiting twice. This is a waterfall: rather than fetching the data for the chart and sending the code to render it simultaneously, you must wait for each step to complete one after the other.
+De manera similar, si confías en que las aplicaciones usen tu framework para dividir el código, podrías encontrarte con situaciones en las que la carga sea más lenta que si no se dividiera el código. Por ejemplo, la [carga diferida](/reference/react/lazy) de un gráfico retrasa el envío del código necesario para representarlo, dividiendo el código del gráfico del resto de la aplicación. [Parcel admite la división de código con React.lazy](https://parceljs.org/recipes/react/#code-splitting). Sin embargo, si el gráfico carga sus datos *después* de que se haya renderizado inicialmente, estará esperando dos veces. Esto es una cascada: en lugar de obtener los datos para el gráfico y enviar el código para renderizarlo simultáneamente, debe esperar a que cada paso se complete uno tras otro.
 
-Splitting code by route, when integrated with bundling and data fetching, can reduce the initial load time of your app and the time it takes for the largest visible content of the app to render ([Largest Contentful Paint](https://web.dev/articles/lcp)).
+La división del código por rutas, cuando se integra con el empaquetamiento y la obtención de datos, puede reducir el tiempo de carga inicial de su aplicación y el tiempo que tarda en renderizarse el contenido visible más grande de la aplicación. ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
-For code-splitting instructions, see your build tool docs:
-- [Vite build optimizations](https://v3.vitejs.dev/guide/features.html#build-optimizations)
-- [Parcel code splitting](https://parceljs.org/features/code-splitting/)
-- [Rsbuild code splitting](https://rsbuild.dev/guide/optimization/code-splitting)
+Para obtener instrucciones sobre cómo dividir el código, consulte la documentación de su herramienta de compilación:
+- [Optimizaciones de compilación](https://es.vite.dev/guide/features.html#optimizaciones-de-compilacion)
+- [División de código con Parcel](https://parceljs.org/features/code-splitting/)
+- [División de código con Rsbuild](https://rsbuild.dev/guide/optimization/code-splitting)
 
-### Improving Application Performance {/*improving-application-performance*/}
+### Mejorar el rendimiento de las aplicaciones {/*improving-application-performance*/}
 
-Since the build tool you select only support single page apps (SPAs) you'll need to implement other [rendering patterns](https://www.patterns.dev/vanilla/rendering-patterns) like server-side rendering (SSR), static site generation (SSG), and/or React Server Components (RSC). Even if you don't need these features at first, in the future there may be some routes that would benefit SSR, SSG or RSC.
+Dado que la herramienta de compilación que elija sólo admite aplicaciones de una sola página (SPA), tendrá que implementar otras [patrones de renderizado](https://www.patterns.dev/vanilla/rendering-patterns) como server-side rendering (SSR), static site generation (SSG), y/o React Server Components (RSC). Aunque al principio no necesites estas funciones, en el futuro puede que haya algunas rutas que se beneficien de SSR, SSG o RSC.
 
-* **Single-page apps (SPA)** load a single HTML page and dynamically updates the page as the user interacts with the app. SPAs are easier to get started with, but they can have slower initial load times. SPAs are the default architecture for most build tools.
+* **Single-page apps (SPA)** cargan una única página HTML y la actualizan dinámicamente a medida que el usuario interactúa con la aplicación. Las SPA son más fáciles de usar, pero pueden tener tiempos de carga iniciales más lentos. Las SPA son la arquitectura por defecto de la mayoría de las herramientas de compilación.
 
-* **Streaming Server-side rendering (SSR)** renders a page on the server and sends the fully rendered page to the client. SSR can improve performance, but it can be more complex to set up and maintain than a single-page app. With the addition of streaming, SSR can be very complex to set up and maintain. See [Vite's SSR guide]( https://vite.dev/guide/ssr).
+* **Streaming Server-side rendering (SSR)** renderiza una página en el servidor y la envía completamente renderizada al cliente. La SSR puede mejorar el rendimiento, pero puede ser más compleja de configurar y mantener que una aplicación de una sola página. Con la adición de streaming, SSR puede ser muy complejo de configurar y mantener. Consulte la [guía de SSR de Vite]( https://es.vite.dev/guide/ssr).
 
-* **Static site generation (SSG)** generates static HTML files for your app at build time. SSG can improve performance, but it can be more complex to set up and maintain than server-side rendering. See [Vite's SSG guide](https://vite.dev/guide/ssr.html#pre-rendering-ssg).
+* **Static site generation (SSG)** genera archivos HTML estáticos para tu aplicación en tiempo de compilación. SSG puede mejorar el rendimiento, pero puede ser más complejo de configurar y mantener que el renderizado del lado del servidor. Consulte la [guía de SSG de Vite](https://es.vite.dev/guide/ssr#renderizado-previo-ssg).
 
-* **React Server Components (RSC)** lets you mix build-time, server-only, and interactive components in a single React tree. RSC can improve performance, but it currently requires deep expertise to set up and maintain. See [Parcel's RSC examples](https://github.com/parcel-bundler/rsc-examples).
+* **React Server Components (RSC)** Permite mezclar componentes de tiempo de compilación, solo de servidor e interactivos dentro de un único árbol de React. RSC puede mejorar el rendimiento, pero a día de hoy requiere una gran experiencia para su configuración y mantenimiento. Consulte los [ejemplos de RSC de Parcel](https://github.com/parcel-bundler/rsc-examples).
 
-Your rendering strategies need to integrate with your router so apps built with your framework can choose the rendering strategy on a per-route level. This will enable different rendering strategies without having to rewrite your whole app. For example, the landing page for your app might benefit from being statically generated (SSG), while a page with a content feed might perform best with server-side rendering. 
+Tus estrategias de renderizado necesitan integrarse con tu router para que las aplicaciones construidas con tu framework puedan elegir la estrategia de renderizado a nivel de ruta. Esto permitirá diferentes estrategias de renderizado sin tener que reescribir toda la aplicación. Por ejemplo, la página de destino de tu aplicación podría beneficiarse de la generación estática (SSG), mientras que una página con un feed de contenido podría funcionar mejor con la renderización del lado del servidor.
 
-Using the right rendering strategy for the right routes can decrease the time it takes for the first byte of content to be loaded ([Time to First Byte](https://web.dev/articles/ttfb)), the first piece of content to render ([First Contentful Paint](https://web.dev/articles/fcp)), and the largest visible content of the app to render ([Largest Contentful Paint](https://web.dev/articles/lcp)).
+Utilizar la estrategia de renderización adecuada para las rutas correctas puede reducir el tiempo que tarda en cargarse el primer byte de contenido ([Time to First Byte](https://web.dev/articles/ttfb?hl=es-419)), el primer contenido que se muestra ([First Contentful Paint](https://web.dev/articles/fcp?hl=es-419)), y el mayor contenido visible de la aplicación para renderizar ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
-### And more... {/*and-more*/}
+### Y más... {/*and-more*/}
 
-These are just a few examples of the features a new app will need to consider when building from scratch. Many limitations you'll hit can be difficult to solve as each problem is interconnected with the others and can require deep expertise in problem areas you may not be familiar with. 
+Estos son sólo algunos ejemplos de las características que una nueva aplicación tendrá que tener en cuenta cuando se construya desde cero. Muchas de las limitaciones con las que te encontrarás pueden ser difíciles de resolver, ya que cada problema está interconectado con los demás y puede requerir profundos conocimientos en áreas problemáticas con las que quizá no estés familiarizado.
 
-If you don't want to solve these problems on your own, you can [get started with a framework](/learn/creating-a-react-app) that provides these features out of the box. 
+Si no quieres resolver estos problemas por tu cuenta, puedes [empezar con un framework](/learn/creating-a-react-app) que ofrece estas funciones desde el primer momento.
