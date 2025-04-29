@@ -1,0 +1,18 @@
+name: 'Close stale issues and PRs'
+on:
+  schedule:
+    - cron: '30 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          stale-issue-message: 'Este issue está inactivo porque ha estado abierto durante 30 días sin actividad. Elimina la etiqueta "stale" o comenta algo para evitar que se cierre en 5 días.'
+          stale-pr-message: 'Este pull request está inactivo porque ha estado abierto durante 30 días sin actividad. Elimina la etiqueta "stale" o comenta algo para evitar que se cierre en 5 días.'
+          close-issue-message: 'Este issue ha sido cerrado porque ha estado sin actividad durante 5 días.'
+          close-pr-message: 'Este pull request ha sido cerrado porque ha estado sin actividad durante 5 días.'
+          days-before-stale: 30
+          days-before-close: 5
