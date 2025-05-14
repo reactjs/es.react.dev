@@ -10,8 +10,13 @@ La documentación de React en [react.dev](https://react.dev) proporciona documen
 
 Nuestro objetivo es mantener la documentación actualizada en las versiones principales y no publicamos versiones para cada versión menor o de parche. Cuando se lanza una nueva versión principal, archivamos la documentación de la versión anterior como `x.react.dev`. Consulta nuestra [política de versiones](/community/versioning-policy) para obtener más información.
 
+<<<<<<< HEAD
 Puedes encontrar un archivo de versiones principales anteriores a continuación.
 ## Última versión: 19.0 {/*latest-version*/}
+=======
+You can find an archive of previous major versions below.
+## Latest version: 19.1 {/*latest-version*/}
+>>>>>>> a3e9466dfeea700696211533a3570bc48d7bc3d3
 
 - [react.dev](https://react.dev) {/*docs-19*/}
 
@@ -51,6 +56,7 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=IBBN-s77YSI)
 
 **Releases**
+- [v19.1.0 (March, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1910-march-28-2025)
 - [v19.0.0 (December, 2024)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1900-december-5-2024)
 
 ### React 18 {/*react-18*/}

@@ -4,7 +4,11 @@ title: Server Functions
 
 <RSC>
 
+<<<<<<< HEAD
 Las Server Functions son para usarse en [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+=======
+Server Functions are for use in [React Server Components](/reference/rsc/server-components).
+>>>>>>> a3e9466dfeea700696211533a3570bc48d7bc3d3
 
 **Nota:** Hasta Septiembre de 2024, nos referíamos a todas las Server Functions como “Server Actions”. Si una Server Function se pasa a una propiedad de acción o se llama desde dentro de una acción, entonces es una Server Action, pero no todas las Server Functions son Server Actions. La nomenclatura en esta documentación ha sido actualizada para reflejar que las Server Functions pueden ser usadas para múltiples propósitos.
 
@@ -54,7 +58,11 @@ function EmptyNote () {
 }
 ```
 
+<<<<<<< HEAD
 Cuando React renderiza la Server Function `EmptyNote`, creará una referencia a la función `createNoteAction`, y pasará esa referencia al Client Component `Button`. Cuando se pulse el botón, React enviará una petición al servidor para ejecutar la función `createNoteAction` con la referencia proporcionada:
+=======
+When React renders the `EmptyNote` Server Component, it will create a reference to the `createNoteAction` function, and pass that reference to the `Button` Client Component. When the button is clicked, React will send a request to the server to execute the `createNoteAction` function with the reference provided:
+>>>>>>> a3e9466dfeea700696211533a3570bc48d7bc3d3
 
 ```js {5}
 "use client";
