@@ -4,7 +4,7 @@ title: Directivas
 
 <RSC>
 
-Las directivas son necesarias en [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+Las directivas son necesarias en [React Server Components](/reference/rsc/server-components).
 
 </RSC>
 

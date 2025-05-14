@@ -4,13 +4,25 @@ title: Blog React
 
 <Intro>
 
-Este blog es la fuente oficial de las actualizaciones del equipo React. Cualquier cosa importante, incluidas las notas de la versión o las noticias de obsolescencia, se publicarán primero aquí. También puedes seguir la cuenta [@reactjs](https://twitter.com/reactjs) en Twitter, pero no te perderás nada esencial si solo lees este blog.
+Este blog es la fuente oficial de las actualizaciones del equipo React. Cualquier cosa importante, incluidas las notas de la versión o las noticias de obsolescencia, se publicarán primero aquí. También puedes seguir la cuenta [@react.dev](https://bsky.app/profile/react.dev) en Bluesky o [@reactjs](https://twitter.com/reactjs) en Twitter, pero no te perderás nada esencial si solo lees este blog.
 
 </Intro>
 
 <div className="sm:-mx-5 flex flex-col gap-5 mt-12">
 
-<BlogCard title="Sunsetting Create React App" date="February 13, 2025" url="/blog/2025/02/14/sunsetting-create-react-app">
+<BlogCard title="React Labs: View Transitions, Activity, and more" date="April 23, 2025" url="/blog/2025/04/23/react-labs-view-transitions-activity-and-more">
+
+In React Labs posts, we write about projects in active research and development. In this post, we're sharing two new experimental features that are ready to try today, and sharing other areas we're working on now ...
+
+</BlogCard>
+
+<BlogCard title="React Compiler RC" date="April 21, 2025" url="/blog/2025/04/21/react-compiler-rc">
+
+We are releasing the compiler's first Release Candidate (RC) today.
+
+</BlogCard>
+
+<BlogCard title="Sunsetting Create React App" date="February 14, 2025" url="/blog/2025/02/14/sunsetting-create-react-app">
 
 Today, we’re deprecating Create React App for new apps, and encouraging existing apps to migrate to a framework, or to migrate to a build tool like Vite, Parcel, or RSBuild. We’re also providing docs for when a framework isn’t a good fit for your project, you want to build your own framework, or you just want to learn how React works by building a React app from scratch ...
 
