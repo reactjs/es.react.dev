@@ -101,14 +101,6 @@ function Thread({ messages, sendMessageAction }) {
           {!!message.sending && <small> (Enviando...)</small>}
         </div>
       ))}
-<<<<<<< HEAD
-      <form action={formAction} ref={formRef}>
-        <input type="text" name="message" placeholder="Hola!" />
-        <button type="submit">Enviar</button>
-      </form>
-=======
-      
->>>>>>> a3e9466dfeea700696211533a3570bc48d7bc3d3
     </>
   );
 }
