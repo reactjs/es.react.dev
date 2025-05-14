@@ -54,11 +54,7 @@ function EmptyNote () {
 }
 ```
 
-<<<<<<< HEAD
 Cuando React renderiza la Server Function `EmptyNote`, creará una referencia a la función `createNoteAction`, y pasará esa referencia al Client Component `Button`. Cuando se pulse el botón, React enviará una petición al servidor para ejecutar la función `createNoteAction` con la referencia proporcionada:
-=======
-When React renders the `EmptyNote` Server Component, it will create a reference to the `createNoteAction` function, and pass that reference to the `Button` Client Component. When the button is clicked, React will send a request to the server to execute the `createNoteAction` function with the reference provided:
->>>>>>> a3e9466dfeea700696211533a3570bc48d7bc3d3
 
 ```js {5}
 "use client";
