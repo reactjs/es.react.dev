@@ -439,8 +439,14 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
+<<<<<<< HEAD
 Esto resuelve el problema. Ten en cuenta que has tenido que *eliminar* `onConnected` de la lista de dependencias de tu Efecto. **Los Eventos de Efecto no son reactivos y deben ser omitidos de las dependencias.**
 Verifica que el nuevo comportamiento funciona como esperas:
+=======
+This solves the problem. Note that you had to *remove* `theme` from the list of your Effect's dependencies, because it's no longer used in the Effect. You also don't need to *add* `onConnected` to it, because **Effect Events are not reactive and must be omitted from dependencies.**
+
+Verify that the new behavior works as you would expect:
+>>>>>>> 65d297e93b36be5370e58ab7828d022c741ecbe2
 
 <Sandpack>
 
