@@ -1,6 +1,6 @@
 ---
 title: "'use server'"
-titleForTitleTag: "'use server' directive"
+titleForTitleTag: "Directiva 'use server'"
 ---
 
 <RSC>
@@ -23,7 +23,7 @@ titleForTitleTag: "'use server' directive"
 
 ### `'use server'` {/*use-server*/}
 
-Add `'use server'` at the top of an async function body to mark the function as callable by the client. We call these functions [_Server Functions_](/reference/rsc/server-functions).
+Añade `'use server'` al principio del cuerpo de una función asíncrona para marcar la función como invocable desde el cliente. Llamamos a estas funciones [_Server Functions_](/reference/rsc/server-functions).
 
 ```js {2}
 async function addToCart(data) {
@@ -32,78 +32,76 @@ async function addToCart(data) {
 }
 ```
 
-When calling a Server Function on the client, it will make a network request to the server that includes a serialized copy of any arguments passed. If the Server Function returns a value, that value will be serialized and returned to the client.
+Cuando se llama a una Server Function desde el cliente, se realizará una petición de red al servidor que incluye una copia serializada de cualquier argumento pasado. Si la Server Function devuelve un valor, ese valor será serializado y devuelto al cliente.
 
-Instead of individually marking functions with `'use server'`, you can add the directive to the top of a file to mark all exports within that file as Server Functions that can be used anywhere, including imported in client code.
+En lugar de marcar funciones individualmente con `'use server'`, puedes añadir la directiva al principio de un archivo para marcar todas las exportaciones dentro de ese archivo como Server Functions que pueden usarse en cualquier lugar, incluyendo su importación en código cliente.
 
-#### Caveats {/*caveats*/}
-* `'use server'` must be at the very beginning of their function or module; above any other code including imports (comments above directives are OK). They must be written with single or double quotes, not backticks.
-* `'use server'` can only be used in server-side files. The resulting Server Functions can be passed to Client Components through props. See supported [types for serialization](#serializable-parameters-and-return-values).
-* To import a Server Functions from [client code](/reference/rsc/use-client), the directive must be used on a module level.
-* Because the underlying network calls are always asynchronous, `'use server'` can only be used on async functions.
-* Always treat arguments to Server Functions as untrusted input and authorize any mutations. See [security considerations](#security).
-* Server Functions should be called in a [Transition](/reference/react/useTransition). Server Functions passed to [`<form action>`](/reference/react-dom/components/form#props) or [`formAction`](/reference/react-dom/components/input#props) will automatically be called in a transition.
-* Server Functions are designed for mutations that update server-side state; they are not recommended for data fetching. Accordingly, frameworks implementing Server Functions typically process one action at a time and do not have a way to cache the return value.
+#### Consideraciones {/*caveats*/}
+* `'use server'` debe estar al principio de su función o módulo; por encima de cualquier otro código incluyendo importaciones (los comentarios por encima de las directivas están permitidos). Deben escribirse con comillas simples o dobles, no con comillas invertidas.
+* `'use server'` solo puede usarse en archivos del lado del servidor. Las Server Functions resultantes pueden pasarse a Client Components a través de props. Consulta los [tipos soportados para serialización](#serializable-parameters-and-return-values).
+* Para importar Server Functions desde [código cliente](/reference/rsc/use-client), la directiva debe usarse a nivel de módulo.
+* Debido a que las llamadas de red subyacentes son siempre asíncronas, `'use server'` solo puede usarse en funciones asíncronas.
+* Siempre trata los argumentos de las Server Functions como entradas no confiables y autoriza cualquier mutación. Consulta [consideraciones de seguridad](#security).
+* Las Server Functions deben llamarse en una [Transición](/reference/react/useTransition). Las Server Functions pasadas a [`<form action>`](/reference/react-dom/components/form#props) o [`formAction`](/reference/react-dom/components/input#props) se llamarán automáticamente en una transición.
+* Las Server Functions están diseñadas para mutaciones que actualizan el estado del servidor; no se recomiendan para la obtención de datos. En consecuencia, los frameworks que implementan Server Functions típicamente procesan una acción a la vez y no tienen una forma de almacenar en caché el valor de retorno.
 
-### Security considerations {/*security*/}
+### Consideraciones de seguridad {/*security*/}
 
-Arguments to Server Functions are fully client-controlled. For security, always treat them as untrusted input, and make sure to validate and escape arguments as appropriate.
+Los argumentos de las Server Functions están completamente controlados por el cliente. Por seguridad, siempre trátalos como entradas no confiables y asegúrate de validar y escapar los argumentos según corresponda.
 
-In any Server Function, make sure to validate that the logged-in user is allowed to perform that action.
+En cualquier Server Function, asegúrate de validar que el usuario conectado está autorizado para realizar esa acción.
 
 <Wip>
 
-To prevent sending sensitive data from a Server Function, there are experimental taint APIs to prevent unique values and objects from being passed to client code.
+Para evitar el envío de datos sensibles desde una Server Function, hay APIs experimentales de taint para evitar que valores y objetos únicos se pasen al código cliente.
 
-See [experimental_taintUniqueValue](/reference/react/experimental_taintUniqueValue) and [experimental_taintObjectReference](/reference/react/experimental_taintObjectReference).
+Consulta [experimental_taintUniqueValue](/reference/react/experimental_taintUniqueValue) y [experimental_taintObjectReference](/reference/react/experimental_taintObjectReference).
 
 </Wip>
 
-### Serializable arguments and return values {/*serializable-parameters-and-return-values*/}
+### Argumentos y valores de retorno serializables {/*serializable-parameters-and-return-values*/}
 
-Since client code calls the Server Function over the network, any arguments passed will need to be serializable.
+Dado que el código cliente llama a la Server Function a través de la red, cualquier argumento pasado necesitará ser serializable.
 
-Here are supported types for Server Function arguments:
+Aquí están los tipos soportados para argumentos de Server Functions:
 
-* Primitives
-	* [string](https://developer.mozilla.org/en-US/docs/Glossary/String)
-	* [number](https://developer.mozilla.org/en-US/docs/Glossary/Number)
-	* [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-	* [boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean)
-	* [undefined](https://developer.mozilla.org/en-US/docs/Glossary/Undefined)
-	* [null](https://developer.mozilla.org/en-US/docs/Glossary/Null)
-	* [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), only symbols registered in the global Symbol registry via [`Symbol.for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
-* Iterables containing serializable values
-	* [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-	* [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-	* [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
-	* [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-	* [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) and [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
-* [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-* [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) instances
-* Plain [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object): those created with [object initializers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer), with serializable properties
-* Functions that are Server Functions
-* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* Primitivos
+	* [string](https://developer.mozilla.org/es/docs/Glossary/String)
+	* [number](https://developer.mozilla.org/es/docs/Glossary/Number)
+	* [bigint](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+	* [boolean](https://developer.mozilla.org/es/docs/Glossary/Boolean)
+	* [undefined](https://developer.mozilla.org/es/docs/Glossary/Undefined)
+	* [null](https://developer.mozilla.org/es/docs/Glossary/Null)
+	* [symbol](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol), solo símbolos registrados en el registro global de Symbol mediante [`Symbol.for`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
+* Iterables que contienen valores serializables
+	* [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String)
+	* [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
+	* [Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map)
+	* [Set](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set)
+	* [TypedArray](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) y [ArrayBuffer](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+* [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* Instancias de [FormData](https://developer.mozilla.org/es/docs/Web/API/FormData)
+* [Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object) planos: aquellos creados con [inicializadores de objeto](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Object_initializer), con propiedades serializables
+* Funciones que son Server Functions
+* [Promises](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-Notably, these are not supported:
-* React elements, or [JSX](/learn/writing-markup-with-jsx)
-* Functions, including component functions or any other function that is not a Server Function
-* [Classes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
-* Objects that are instances of any class (other than the built-ins mentioned) or objects with [a null prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
-* Symbols not registered globally, ex. `Symbol('my new symbol')`
-* Events from event handlers
+Notablemente, estos no están soportados:
+* Elementos de React, o [JSX](/learn/writing-markup-with-jsx)
+* Funciones, incluyendo funciones de componente o cualquier otra función que no sea una Server Function
+* [Clases](https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+* Objetos que son instancias de cualquier clase (aparte de las incorporadas mencionadas) u objetos con [un prototipo nulo](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
+* Símbolos no registrados globalmente, ej. `Symbol('my new symbol')`
+* Eventos de manejadores de eventos
 
-
-Supported serializable return values are the same as [serializable props](/reference/rsc/use-client#passing-props-from-server-to-client-components) for a boundary Client Component.
-
+Los valores de retorno serializables soportados son los mismos que las [props serializables](/reference/rsc/use-client#passing-props-from-server-to-client-components) para un límite de Client Component.
 
 ## Uso {/*usage*/}
 
-### Server Functions in forms {/*server-functions-in-forms*/}
+### Server Functions en formularios {/*server-functions-in-forms*/}
 
-The most common use case of Server Functions will be calling functions that mutate data. On the browser, the [HTML form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) is the traditional approach for a user to submit a mutation. With React Server Components, React introduces first-class support for Server Functions as Actions in [forms](/reference/react-dom/components/form).
+El caso de uso más común de las Server Functions será llamar a funciones que mutan datos. En el navegador, el [elemento HTML form](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) es el enfoque tradicional para que un usuario envíe una mutación. Con React Server Components, React introduce soporte de primera clase para Server Functions como Acciones en [formularios](/reference/react-dom/components/form).
 
-Here is a form that allows a user to request a username.
+Aquí hay un formulario que permite a un usuario solicitar un nombre de usuario.
 
 ```js [[1, 3, "formData"]]
 // App.js
@@ -124,15 +122,15 @@ export default function App() {
 }
 ```
 
-In this example `requestUsername` is a Server Function passed to a `<form>`. When a user submits this form, there is a network request to the server function `requestUsername`. When calling a Server Function in a form, React will supply the form's <CodeStep step={1}>[FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)</CodeStep> as the first argument to the Server Function.
+En este ejemplo `requestUsername` es una Server Function pasada a un `<form>`. Cuando un usuario envía este formulario, hay una petición de red a la función del servidor `requestUsername`. Al llamar a una Server Function en un formulario, React proporcionará el [FormData](https://developer.mozilla.org/es/docs/Web/API/FormData) del formulario como el primer argumento de la Server Function.
 
-By passing a Server Function to the form `action`, React can [progressively enhance](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement) the form. This means that forms can be submitted before the JavaScript bundle is loaded.
+Al pasar una Server Function a la `action` del formulario, React puede [mejorar progresivamente](https://developer.mozilla.org/es/docs/Glossary/Progressive_Enhancement) el formulario. Esto significa que los formularios pueden enviarse antes de que se cargue el paquete JavaScript.
 
-#### Handling return values in forms {/*handling-return-values*/}
+#### Manejo de valores de retorno en formularios {/*handling-return-values*/}
 
-In the username request form, there might be the chance that a username is not available. `requestUsername` should tell us if it fails or not.
+En el formulario de solicitud de nombre de usuario, podría haber la posibilidad de que un nombre de usuario no esté disponible. `requestUsername` debería decirnos si falla o no.
 
-To update the UI based on the result of a Server Function while supporting progressive enhancement, use [`useActionState`](/reference/react/useActionState).
+Para actualizar la UI basada en el resultado de una Server Function mientras se soporta la mejora progresiva, usa [`useActionState`](/reference/react/useActionState).
 
 ```js
 // requestUsername.js
@@ -170,13 +168,13 @@ function UsernameForm() {
 }
 ```
 
-Note that like most Hooks, `useActionState` can only be called in <CodeStep step={1}>[client code](/reference/rsc/use-client)</CodeStep>.
+Ten en cuenta que como la mayoría de los Hooks, `useActionState` solo puede llamarse en [código cliente](/reference/rsc/use-client).
 
-### Calling a Server Function outside of `<form>` {/*calling-a-server-function-outside-of-form*/}
+### Llamar a una Server Function fuera de `<form>` {/*calling-a-server-function-outside-of-form*/}
 
-Server Functions are exposed server endpoints and can be called anywhere in client code.
+Las Server Functions son endpoints del servidor expuestos y pueden llamarse desde cualquier lugar en el código cliente.
 
-When using a Server Function outside a [form](/reference/react-dom/components/form), call the Server Function in a [Transition](/reference/react/useTransition), which allows you to display a loading indicator, show [optimistic state updates](/reference/react/useOptimistic), and handle unexpected errors. Forms will automatically wrap Server Functions in transitions.
+Cuando uses una Server Function fuera de un [formulario](/reference/react-dom/components/form), llama a la Server Function en una [Transición](/reference/react/useTransition), lo que te permite mostrar un indicador de carga, mostrar [actualizaciones de estado optimistas](/reference/react/useOptimistic), y manejar errores inesperados. Los formularios envolverán automáticamente las Server Functions en transiciones.
 
 ```js {9-12}
 import incrementLike from './actions';
@@ -213,4 +211,4 @@ export default async function incrementLike() {
 }
 ```
 
-To read a Server Function return value, you'll need to `await` the promise returned.
+Para leer un valor de retorno de una Server Function, necesitarás `await` la promesa devuelta.
