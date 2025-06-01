@@ -34,11 +34,11 @@ async function addToCart(data) {
 
 Cuando se llama a una Server Function desde el cliente, se realizará una petición de red al servidor que incluye una copia serializada de cualquier argumento pasado. Si la Server Function devuelve un valor, ese valor será serializado y devuelto al cliente.
 
-En lugar de marcar funciones individualmente con `'use server'`, puedes añadir la directiva al principio de un archivo para marcar todas las exportaciones dentro de ese archivo como Server Functions que pueden usarse en cualquier lugar, incluyendo su importación en código cliente.
+En lugar de marcar funciones individualmente con `'use server'`, puedes añadir la directiva al principio de un archivo para marcar todas las funciones exportadas dentro de ese archivo como Server Functions, que pueden usarse en cualquier lugar, inclusive en código cliente.
 
-#### Consideraciones {/*caveats*/}
+#### Advertencias {/*caveats*/}
 * `'use server'` debe estar al principio de su función o módulo; por encima de cualquier otro código incluyendo importaciones (los comentarios por encima de las directivas están permitidos). Deben escribirse con comillas simples o dobles, no con comillas invertidas.
-* `'use server'` solo puede usarse en archivos del lado del servidor. Las Server Functions resultantes pueden pasarse a Client Components a través de props. Consulta los [tipos soportados para serialización](#serializable-parameters-and-return-values).
+* `'use server'` solo puede usarse en archivos del lado del servidor. Las Server Functions resultantes pueden pasarse a Client Components a través de props. Consulta los [tipos compatibles para serialización](#serializable-parameters-and-return-values).
 * Para importar Server Functions desde [código cliente](/reference/rsc/use-client), la directiva debe usarse a nivel de módulo.
 * Debido a que las llamadas de red subyacentes son siempre asíncronas, `'use server'` solo puede usarse en funciones asíncronas.
 * Siempre trata los argumentos de las Server Functions como entradas no confiables y autoriza cualquier mutación. Consulta [consideraciones de seguridad](#security).
@@ -63,7 +63,7 @@ Consulta [experimental_taintUniqueValue](/reference/react/experimental_taintUniq
 
 Dado que el código cliente llama a la Server Function a través de la red, cualquier argumento pasado necesitará ser serializable.
 
-Aquí están los tipos soportados para argumentos de Server Functions:
+Aquí están los tipos compatibles para argumentos de Server Functions:
 
 * Primitivos
 	* [string](https://developer.mozilla.org/es/docs/Glossary/String)
@@ -85,15 +85,15 @@ Aquí están los tipos soportados para argumentos de Server Functions:
 * Funciones que son Server Functions
 * [Promises](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-Notablemente, estos no están soportados:
+Notablemente, estos no son compatibles:
 * Elementos de React, o [JSX](/learn/writing-markup-with-jsx)
 * Funciones, incluyendo funciones de componente o cualquier otra función que no sea una Server Function
 * [Clases](https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
-* Objetos que son instancias de cualquier clase (aparte de las incorporadas mencionadas) u objetos con [un prototipo nulo](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
+* Objetos que son instancias de cualquier clase (aparte de las incorporadas mencionadas) u objetos con [un prototipo nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
 * Símbolos no registrados globalmente, ej. `Symbol('my new symbol')`
-* Eventos de manejadores de eventos
+* Eventos de controladores de eventos.
 
-Los valores de retorno serializables soportados son los mismos que las [props serializables](/reference/rsc/use-client#passing-props-from-server-to-client-components) para un límite de Client Component.
+Los valores de retorno serializables compatibles son los mismos que las [props serializables](/reference/rsc/use-client#passing-props-from-server-to-client-components) para una barrera de Client Component.
 
 ## Uso {/*usage*/}
 
@@ -101,7 +101,7 @@ Los valores de retorno serializables soportados son los mismos que las [props se
 
 El caso de uso más común de las Server Functions será llamar a funciones que mutan datos. En el navegador, el [elemento HTML form](https://developer.mozilla.org/es/docs/Web/HTML/Element/form) es el enfoque tradicional para que un usuario envíe una mutación. Con React Server Components, React introduce soporte de primera clase para Server Functions como Acciones en [formularios](/reference/react-dom/components/form).
 
-Aquí hay un formulario que permite a un usuario solicitar un nombre de usuario.
+Aquí hay un formulario que permite solicitar un nombre de usuario.
 
 ```js [[1, 3, "formData"]]
 // App.js
@@ -124,13 +124,13 @@ export default function App() {
 
 En este ejemplo `requestUsername` es una Server Function pasada a un `<form>`. Cuando un usuario envía este formulario, hay una petición de red a la función del servidor `requestUsername`. Al llamar a una Server Function en un formulario, React proporcionará el [FormData](https://developer.mozilla.org/es/docs/Web/API/FormData) del formulario como el primer argumento de la Server Function.
 
-Al pasar una Server Function a la `action` del formulario, React puede [mejorar progresivamente](https://developer.mozilla.org/es/docs/Glossary/Progressive_Enhancement) el formulario. Esto significa que los formularios pueden enviarse antes de que se cargue el paquete JavaScript.
+Al pasar una Server Function a la `action` del formulario, React puede [mejorar progresivamente](https://developer.mozilla.org/es/docs/Glossary/Progressive_Enhancement) el formulario. Esto significa que los formularios pueden enviarse antes de que se cargue el bundle de JavaScript.
 
 #### Manejo de valores de retorno en formularios {/*handling-return-values*/}
 
-En el formulario de solicitud de nombre de usuario, podría haber la posibilidad de que un nombre de usuario no esté disponible. `requestUsername` debería decirnos si falla o no.
+En la solicitud del formulario podría estar la posibilidad de que un nombre de usuario no esté disponible. `requestUsername` debería decirnos si falla o no.
 
-Para actualizar la UI basada en el resultado de una Server Function mientras se soporta la mejora progresiva, usa [`useActionState`](/reference/react/useActionState).
+Para actualizar la UI en base al resultado de una Server Function mientras se soporta mejora progresiva, usa [`useActionState`](/reference/react/useActionState).
 
 ```js
 // requestUsername.js
@@ -211,4 +211,4 @@ export default async function incrementLike() {
 }
 ```
 
-Para leer un valor de retorno de una Server Function, necesitarás `await` la promesa devuelta.
+Para leer un valor de retorno de una Server Function, necesitas usar `await` en la promesa que retorna.
