@@ -461,11 +461,11 @@ export default function TaskApp() {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
   // ...
   return (
-    <TasksContext.Provider value={tasks}>
-      <TasksDispatchContext.Provider value={dispatch}>
+    <TasksContext value={tasks}>
+      <TasksDispatchContext value={dispatch}>
         ...
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext>
+    </TasksContext>
   );
 }
 ```
@@ -509,9 +509,15 @@ export default function TaskApp() {
   }
 
   return (
+<<<<<<< HEAD
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
         <h1>Día libre en Kyoto</h1>
+=======
+    <TasksContext value={tasks}>
+      <TasksDispatchContext value={dispatch}>
+        <h1>Day off in Kyoto</h1>
+>>>>>>> 50d6991ca6652f4bc4c985cf0c0e593864f2cc91
         <AddTask
           onAddTask={handleAddTask}
         />
@@ -520,8 +526,8 @@ export default function TaskApp() {
           onChangeTask={handleChangeTask}
           onDeleteTask={handleDeleteTask}
         />
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext>
+    </TasksContext>
   );
 }
 
@@ -676,13 +682,19 @@ En el siguiente paso, se eliminará el paso de props.
 Ahora no es necesario pasar la lista de tareas o los controladores de eventos por el árbol:
 
 ```js {4-5}
+<<<<<<< HEAD
 <TasksContext.Provider value={tasks}>
   <TasksDispatchContext.Provider value={dispatch}>
     <h1>Día libre en Kyoto</h1>
+=======
+<TasksContext value={tasks}>
+  <TasksDispatchContext value={dispatch}>
+    <h1>Day off in Kyoto</h1>
+>>>>>>> 50d6991ca6652f4bc4c985cf0c0e593864f2cc91
     <AddTask />
     <TaskList />
-  </TasksDispatchContext.Provider>
-</TasksContext.Provider>
+  </TasksDispatchContext>
+</TasksContext>
 ```
 
 En cambio, cualquier componente que necesite la lista de tareas puede leerla del `TaskContext`:
@@ -730,13 +742,19 @@ export default function TaskApp() {
   );
 
   return (
+<<<<<<< HEAD
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
         <h1>Día libre en Kyoto</h1>
+=======
+    <TasksContext value={tasks}>
+      <TasksDispatchContext value={dispatch}>
+        <h1>Day off in Kyoto</h1>
+>>>>>>> 50d6991ca6652f4bc4c985cf0c0e593864f2cc91
         <AddTask />
         <TaskList />
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext>
+    </TasksContext>
   );
 }
 
@@ -921,11 +939,11 @@ export function TasksProvider({ children }) {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
   return (
-    <TasksContext.Provider value={tasks}>
-      <TasksDispatchContext.Provider value={dispatch}>
+    <TasksContext value={tasks}>
+      <TasksDispatchContext value={dispatch}>
         {children}
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext>
+    </TasksContext>
   );
 }
 ```
@@ -963,11 +981,11 @@ export function TasksProvider({ children }) {
   );
 
   return (
-    <TasksContext.Provider value={tasks}>
-      <TasksDispatchContext.Provider value={dispatch}>
+    <TasksContext value={tasks}>
+      <TasksDispatchContext value={dispatch}>
         {children}
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext>
+    </TasksContext>
   );
 }
 
@@ -1174,11 +1192,11 @@ export function TasksProvider({ children }) {
   );
 
   return (
-    <TasksContext.Provider value={tasks}>
-      <TasksDispatchContext.Provider value={dispatch}>
+    <TasksContext value={tasks}>
+      <TasksDispatchContext value={dispatch}>
         {children}
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext>
+    </TasksContext>
   );
 }
 
@@ -1363,4 +1381,3 @@ A medida que tu aplicación crece, puedes tener muchos pares contexto-_reducer_ 
 - Puedes tener muchos pares context-_reducer_ como este en tu aplicación.
 
 </Recap>
-
