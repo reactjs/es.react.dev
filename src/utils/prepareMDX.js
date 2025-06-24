@@ -7,7 +7,7 @@ import {Children} from 'react';
 // TODO: Esta lógica podría estar en plugins MDX en lugar de esto.
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-export const PREPARE_MDX_CACHE_BREAKER = 3;
+export const PREPARE_MDX_CACHE_BREAKER = 4;
 // !!! IMPORTANT !!! Bump this if you change any logic.
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -65,7 +65,7 @@ function getTableOfContents(children, depth) {
   if (anchors.length > 0) {
     anchors.unshift({
       url: '#',
-      text: 'Overview',
+      text: 'Descripción general',
       depth: 2,
     });
   }
