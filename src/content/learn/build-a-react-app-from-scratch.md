@@ -115,10 +115,17 @@ De manera similar, si confías en que las aplicaciones usen tu framework para di
 
 La división del código por rutas, cuando se integra con el empaquetamiento y la obtención de datos, puede reducir el tiempo de carga inicial de su aplicación y el tiempo que tarda en renderizarse el contenido visible más grande de la aplicación. ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
+<<<<<<< HEAD
 Para obtener instrucciones sobre cómo dividir el código, consulte la documentación de su herramienta de compilación:
 - [Optimizaciones de compilación](https://es.vite.dev/guide/features.html#optimizaciones-de-compilacion)
 - [División de código con Parcel](https://parceljs.org/features/code-splitting/)
 - [División de código con Rsbuild](https://rsbuild.dev/guide/optimization/code-splitting)
+=======
+For code-splitting instructions, see your build tool docs:
+- [Vite build optimizations](https://vite.dev/guide/features.html#build-optimizations)
+- [Parcel code splitting](https://parceljs.org/features/code-splitting/)
+- [Rsbuild code splitting](https://rsbuild.dev/guide/optimization/code-splitting)
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 ### Mejorar el rendimiento de las aplicaciones {/*improving-application-performance*/}
 
