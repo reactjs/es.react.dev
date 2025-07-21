@@ -41,8 +41,13 @@ Cuando lanzamos React Hooks en 2018, la documentación de Hooks asumía que el l
 
 **Los nuevos documentos enseñan React con Hooks desde el principio.**  Los documentos se dividen en dos secciones principales:
 
+<<<<<<< HEAD
 * **[Aprende React](/learn)** es un curso autodidacta que enseña React desde cero.
 * **[Referencia de la API](/reference)** proporciona los detalles y ejemplos de uso de cada API de React.
+=======
+* **[Learn React](/learn)** is a self-paced course that teaches React from scratch.
+* **[API Reference](/reference/react)** provides the details and usage examples for every React API.
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 Veamos más de cerca qué puedes encontrar en cada sección.
 
@@ -607,7 +612,11 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
+<<<<<<< HEAD
 Algunas páginas de la API también incluyen [solución de problemas](/reference/react/useEffect#troubleshooting) (para problemas comunes) y [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
+=======
+Some API pages also include [Troubleshooting](/reference/react/useEffect#troubleshooting) (for common problems) and [Alternatives](https://18.react.dev/reference/react-dom/findDOMNode#alternatives) (for deprecated APIs).
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 Esperamos que este enfoque haga que la referencia de la API sea útil no solo como una forma de buscar un argumento, sino también como una forma de ver todas las cosas diferentes que se pueden hacer con cualquier API y cómo se conecta con las demás.
 

@@ -21,7 +21,7 @@ Puedes importar las siguientes APIs en tus componentes, pero su uso es poco com√
 
 These APIs can be used to make apps faster by pre-loading resources such as scripts, stylesheets, and fonts as soon as you know you need them, for example before navigating to another page where the resources will be used.
 
-[React-based frameworks](/learn/start-a-new-react-project) frequently handle resource loading for you, so you might not have to call these APIs yourself. Consult your framework's documentation for details.
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call these APIs yourself. Consult your framework's documentation for details.
 
 * [`prefetchDNS`](/reference/react-dom/prefetchDNS) lets you prefetch the IP address of a DNS domain name that you expect to connect to.
 * [`preconnect`](/reference/react-dom/preconnect) lets you connect to a server you expect to request resources from, even if you don't know what resources you'll need yet.
@@ -45,9 +45,18 @@ El paquete `react-dom` proporciona dos puntos de entrada adicionales:
 
 Las siguientes API se eliminaron en React 19:
 
+<<<<<<< HEAD
 * [`findDOMNode`](https://18.react.dev/reference/react-dom/findDOMNode): consulta las [alternativas](https://18.react.dev/reference/react-dom/findDOMNode#alternatives).
 * [`hydrate`](https://18.react.dev/reference/react-dom/hydrate): utiliza [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) en su lugar.
 * [`render`](https://18.react.dev/reference/react-dom/render): utiliza [`createRoot`](/reference/react-dom/client/createRoot) en su lugar.
 * [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode): utiliza [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount) en su lugar.
 * [`renderToNodeStream`](https://18.react.dev/reference/react-dom/server/renderToNodeStream): utiliza las API de [`react-dom/server`](/reference/react-dom/server) en su lugar.
 * [`renderToStaticNodeStream`](https://18.react.dev/reference/react-dom/server/renderToStaticNodeStream): utiliza las API de [`react-dom/server`](/reference/react-dom/server) en su lugar.
+=======
+* [`findDOMNode`](https://18.react.dev/reference/react-dom/findDOMNode): see [alternatives](https://18.react.dev/reference/react-dom/findDOMNode#alternatives).
+* [`hydrate`](https://18.react.dev/reference/react-dom/hydrate): use [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) instead.
+* [`render`](https://18.react.dev/reference/react-dom/render): use [`createRoot`](/reference/react-dom/client/createRoot) instead.
+* [`unmountComponentAtNode`](https://18.react.dev/reference/react-dom/unmountComponentAtNode): use [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount) instead.
+* [`renderToNodeStream`](https://18.react.dev/reference/react-dom/server/renderToNodeStream): use [`react-dom/server`](/reference/react-dom/server) APIs instead.
+* [`renderToStaticNodeStream`](https://18.react.dev/reference/react-dom/server/renderToStaticNodeStream): use [`react-dom/server`](/reference/react-dom/server) APIs instead.
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73

@@ -41,7 +41,11 @@ export default function RichTextEditor({ timestamp, text }) {
 }
 ```
 
+<<<<<<< HEAD
 Cuando un archivo marcado con `'use client'` es importado desde un Server Component, los [bundlers compatibles](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) tratarán la importación del módulo como una barrera entre el código que se ejecuta en el servidor y el que se ejecuta en el cliente.
+=======
+When a file marked with `'use client'` is imported from a Server Component, [compatible bundlers](/learn/creating-a-react-app#full-stack-frameworks) will treat the module import as a boundary between server-run and client-run code.
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 Las dependencias de `RichTextEditor`, `formatDate` y `Button` también se evaluarán en el cliente independientemente de si sus módulos contienen una directiva `'use client'`. Ten en cuenta que un módulo puede ser evaluado en el servidor cuando se importa desde código del servidor y en el cliente cuando se importa desde código del cliente.
 
