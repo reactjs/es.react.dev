@@ -38,7 +38,7 @@ title: Reuniones de React
 
 ## Canadá {/*canada*/}
 * [Halifax, NS](https://www.meetup.com/Halifax-ReactJS-Meetup/)
-* [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
+* [Montreal, QC](https://guild.host/react-montreal/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
 * [Saskatoon, SK](https://www.meetup.com/saskatoon-react-meetup/)
@@ -88,6 +88,7 @@ title: Reuniones de React
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Mumbai](https://reactmumbai.dev)
 * [Pune](https://www.meetup.com/ReactJS-and-Friends/)
+* [Rajasthan](https://reactrajasthan.com)
 
 ## Indonesia {/*indonesia*/}
 * [Indonesia](https://www.meetup.com/reactindonesia/)
@@ -136,10 +137,14 @@ title: Reuniones de React
 ## Portugal {/*portugal*/}
 * [Lisboa](https://www.meetup.com/JavaScript-Lisbon/)
 
+<<<<<<< HEAD
 ## Escocia (Reino Unido) {/*scotland-uk*/}
 * [Edimburgo](https://www.meetup.com/React-Scotland/)
 
 ## España {/*spain*/}
+=======
+## Spain {/*spain*/}
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 
 ## Sri Lanka {/*sri-lanka*/}

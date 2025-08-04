@@ -26,7 +26,11 @@ Hay dos casos comunes en los cuales no necesitas utilizar Efectos:
 * **No necesitas Efectos para transformar datos antes de renderizar.** Por ejemplo, supongamos que deseas filtrar una lista antes de mostrarla. Podrías sentirte tentado/a a escribir un Efecto que actualice una variable de estado cuando cambie la lista. Sin embargo, esto es ineficiente. Cuando actualizas el estado, React primero llama a las funciones de tu componente para calcular lo que debería mostrarse en la pantalla. Luego, React ["confirmará"](/learn/render-and-commit) estos cambios en el DOM, actualizando la pantalla. Después, React ejecuta tus Efectos. Si tu Efecto también actualiza inmediatamente el estado, ¡esto reinicia todo el proceso desde cero! Para evitar pasadas de renderizado innecesarias, transforma todos los datos en el nivel superior de tus componentes. Ese código se volverá a ejecutar automáticamente cada vez que tus _props_ o estado cambien.
 * **No necesitas Efectos para manejar eventos del usuario.** Por ejemplo, supongamos que deseas enviar una solicitud POST `/api/buy` y mostrar una notificación cuando el usuario compra un producto. En el controlador de eventos del botón "Comprar", sabes exactamente lo que sucedió. Para el momento en que se ejecuta un Efecto, no sabes *qué* hizo el usuario (por ejemplo, en qué botón se hizo clic). Por esta razón, generalmente se manejan los eventos del usuario en los controladores de eventos correspondientes.
 
+<<<<<<< HEAD
 Es *cierto* que necesitas Efectos para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemas externos. Por ejemplo, puedes escribir un Efecto que mantenga sincronizado un _widget_ de jQuery con el estado de React. También puedes obtener datos con Efectos, por ejemplo, puedes sincronizar los resultados de búsqueda con la consulta de búsqueda actual. Ten en cuenta que los [_frameworks_](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos proporcionan mecanismos más eficientes y nativos para obtener datos que escribir Efectos directamente en tus componentes.
+=======
+You *do* need Effects to [synchronize](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) with external systems. For example, you can write an Effect that keeps a jQuery widget synchronized with the React state. You can also fetch data with Effects: for example, you can synchronize the search results with the current search query. Keep in mind that modern [frameworks](/learn/start-a-new-react-project#full-stack-frameworks) provide more efficient built-in data fetching mechanisms than writing Effects directly in your components.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Para ayudarte a desarrollar la intuición adecuada, ¡veamos algunos ejemplos concretos comunes!
 
@@ -94,6 +98,12 @@ function TodoList({ todos, filter }) {
 Usualmente, ¡este código está bien! Pero tal vez `getFilteredTodos()` sea lento o tengas muchos `todos`. En ese caso, no querrás recalcular `getFilteredTodos()` si alguna variable de estado no relacionada, como `newTodo`, ha cambiado.
 
 Puedes almacenar en caché (o ["memoizar"](https://es.wikipedia.org/wiki/Memoización)) un cálculo costoso envolviéndolo en un Hook de React [`useMemo`](/reference/react/useMemo):
+
+<Note>
+
+[React Compiler](/learn/react-compiler) can automatically memoize expensive calculations for you, eliminating the need for manual `useMemo` in many cases.
+
+</Note>
 
 ```js {5-8}
 import { useMemo, useState } from 'react';
@@ -751,7 +761,11 @@ Esto asegura que cuando tu Efecto obtiene datos, todas las respuestas excepto la
 
 Manejar las condiciones de carrera no es la única dificultad al implementar la obtención de datos. También podrías considerar el almacenamiento en caché de las respuestas (para que el usuario pueda hacer clic en "Atrás" y ver la pantalla anterior instantáneamente), cómo obtener datos en el servidor (para que el HTML renderizado inicialmente por el servidor contenga el contenido obtenido en lugar de un indicador de carga (_spinner_)), y cómo evitar cascadas de red (para que un hijo pueda obtener datos sin tener que esperar por cada padre).
 
+<<<<<<< HEAD
 **Estos problemas aplican a cualquier biblioteca de UI, no solo a React. Resolverlos no es trivial, por eso los [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos ofrecen mecanismos incorporados más eficientes de obtención de datos que obtener datos en Efectos.**
+=======
+**These issues apply to any UI library, not just React. Solving them is not trivial, which is why modern [frameworks](/learn/start-a-new-react-project#full-stack-frameworks) provide more efficient built-in data fetching mechanisms than fetching data in Effects.**
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Si no utilizas un framework (y no quieres construir el tuyo propio) pero te gustaría hacer que la obtención de datos desde Efectos sea más cómoda, considera extraer tu lógica de obtención de datos en un Hook personalizado, como en este ejemplo:
 
