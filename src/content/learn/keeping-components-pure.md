@@ -175,7 +175,7 @@ function Cup({ guest }) {
 }
 
 export default function TeaGathering() {
-  let cups = [];
+  const cups = [];
   for (let i = 1; i <= 12; i++) {
     cups.push(<Cup key={i} guest={i} />);
   }
@@ -245,7 +245,7 @@ Renderizar es un *cálculo*, no debería tratar de "hacer" cosas. ¿Puedes expre
 
 ```js src/Clock.js active
 export default function Clock({ time }) {
-  let hours = time.getHours();
+  const hours = time.getHours();
   if (hours >= 0 && hours <= 6) {
     document.getElementById('time').className = 'night';
   } else {
@@ -307,7 +307,7 @@ Puedes arreglar este componente calculando el `className` e incluirlo en la sali
 
 ```js src/Clock.js active
 export default function Clock({ time }) {
-  let hours = time.getHours();
+  const hours = time.getHours();
   let className;
   if (hours >= 0 && hours <= 6) {
     className = 'night';
@@ -606,14 +606,20 @@ export default function StoryTray({ stories }) {
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
+<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia de Ankit" },
   {id: 1, label: "Historia de Taylor" },
+=======
+const initialStories = [
+  {id: 0, label: "Ankit's Story" },
+  {id: 1, label: "Taylor's Story" },
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
-  let time = useTime();
+  const [stories, setStories] = useState([...initialStories])
+  const time = useTime();
 
   // PISTA: Evita que la memoria crezca por siempre mientras lees documentos.
   // Estamos rompiendo nuestras propias reglas aquí.
@@ -702,14 +708,20 @@ export default function StoryTray({ stories }) {
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
+<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia de Ankit" },
   {id: 1, label: "Historia de Taylor" },
+=======
+const initialStories = [
+  {id: 0, label: "Ankit's Story" },
+  {id: 1, label: "Taylor's Story" },
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
-  let time = useTime();
+  const [stories, setStories] = useState([...initialStories])
+  const time = useTime();
 
   // PISTA: Evita que la memoria crezca por siempre mientras lees documentos.
   // Estamos rompiendo nuestras propias reglas aquí.
@@ -769,8 +781,13 @@ Como alternativa, podrías crear un _nuevo_ array (copiando el existente) antes 
 
 ```js src/StoryTray.js active
 export default function StoryTray({ stories }) {
+<<<<<<< HEAD
   // ¡Copia el array!
   let storiesToDisplay = stories.slice();
+=======
+  // Copy the array!
+  const storiesToDisplay = stories.slice();
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 
   // Esto no afecta al array original:
   storiesToDisplay.push({
@@ -794,14 +811,20 @@ export default function StoryTray({ stories }) {
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
+<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia de Ankit" },
   {id: 1, label: "Historia de Taylor" },
+=======
+const initialStories = [
+  {id: 0, label: "Ankit's Story" },
+  {id: 1, label: "Taylor's Story" },
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
-  let time = useTime();
+  const [stories, setStories] = useState([...initialStories])
+  const time = useTime();
 
   // PISTA: Evita que la memoria crezca por siempre mientras lees documentos.
   // Estamos rompiendo nuestras propias reglas aquí.

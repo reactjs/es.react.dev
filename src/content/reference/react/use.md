@@ -74,9 +74,9 @@ Para pasar el contexto a un `Button`, envuélvalo en uno de sus componentes padr
 ```js [[1, 3, "ThemeContext"], [2, 3, "\\"dark\\""], [1, 5, "ThemeContext"]]
 function MyPage() {
   return (
-    <ThemeContext.Provider value="dark">
+    <ThemeContext value="dark">
       <Form />
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }
 
@@ -116,9 +116,9 @@ const ThemeContext = createContext(null);
 
 export default function MyApp() {
   return (
-    <ThemeContext.Provider value="dark">
+    <ThemeContext value="dark">
       <Form />
-    </ThemeContext.Provider>
+    </ThemeContext>
   )
 }
 
@@ -312,7 +312,11 @@ export default async function App() {
 }
 ```
 
+<<<<<<< HEAD
 Pero el uso de `await` en un [Componente del Servidor](/reference/react/components#server-components) bloqueará su renderizado hasta que finalice la declaración de `await`. Pasar una Promesa de un Componente del Servidor a un Componente del Cliente evita que la Promesa bloquee la representación del Componente del Servidor.
+=======
+But using `await` in a [Server Component](/reference/rsc/server-components) will block its rendering until the `await` statement is finished. Passing a Promise from a Server Component to a Client Component prevents the Promise from blocking the rendering of the Server Component.
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 
 </DeepDive>
 

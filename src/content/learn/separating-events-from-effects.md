@@ -439,8 +439,14 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
+<<<<<<< HEAD
 Esto resuelve el problema. Ten en cuenta que has tenido que *eliminar* `onConnected` de la lista de dependencias de tu Efecto. **Los Eventos de Efecto no son reactivos y deben ser omitidos de las dependencias.**
 Verifica que el nuevo comportamiento funciona como esperas:
+=======
+This solves the problem. Note that you had to *remove* `theme` from the list of your Effect's dependencies, because it's no longer used in the Effect. You also don't need to *add* `onConnected` to it, because **Effect Events are not reactive and must be omitted from dependencies.**
+
+Verify that the new behavior works as you would expect:
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 
 <Sandpack>
 
@@ -972,6 +978,23 @@ Para arreglar este código, basta con seguir las reglas.
 
 <Sandpack>
 
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+
 ```js
 import { useState, useEffect } from 'react';
 
@@ -1024,6 +1047,22 @@ Como de costumbre, cuando busques bugs en Efectos, empieza por buscar supresione
 Si eliminas el comentario de supresión, React te dirá que el código de este Efecto depende de `increment`, pero tú le "mentiste" a React afirmando que este Efecto no depende de ningún valor reactivo (`[]`). Añade `increment` al array de dependencias:
 
 <Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
 
 ```js
 import { useState, useEffect } from 'react';
