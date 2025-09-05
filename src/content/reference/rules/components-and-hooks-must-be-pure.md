@@ -92,8 +92,8 @@ import { useState, useEffect } from 'react';
 
 function useTime() {
   // 1. Lleva el seguimiento del estado de la fecha actual. `useState` recibe una función inicializadora como su
-  //    estado inicial. Solo se ejecuta una vez cuando se llama al hook, por lo que solo la fecha actual al
-  //    momento en que se llama el hook se establece primero.
+  //    estado inicial. Solo se ejecuta una vez cuando se llama al hook, por lo que solo se establece la fecha
+  //    actual al principio, en el momento en que se llama al hook.
   const [time, setTime] = useState(() => new Date());
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function Clock() {
 
 </Sandpack>
 
-Al envolver la llamada no-idempotente `new Date()` en un Efecto, lleva ese cálculo [fuera del renderizado](#how-does-react-run-your-code).
+Al envolver la llamada no-idempotente `new Date()` en un Efecto, este lleva ese cálculo [fuera del renderizado](#how-does-react-run-your-code).
 
 Si no necesitas sincronizar algún estado externo con React, también puedes considerar usar un [manejador de eventos](/learn/responding-to-events) si solo se necesita que se actualice en respuesta a una interacción del usuario.
 
