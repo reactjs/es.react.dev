@@ -1,9 +1,9 @@
 ---
-title: React calls Components and Hooks
+title: React llama a los Components y Hooks
 ---
 
 <Intro>
-React is responsible for rendering components and Hooks when necessary to optimize the user experience. It is declarative: you tell React what to render in your component’s logic, and React will figure out how best to display it to your user.
+React se encarga de renderizar los componentes y hooks cuando sea necesario para optimizar la experiencia del usuario. Es declarativo: le dices a React qué renderizar en la lógica de tu componente, y React se encargará de decidir cómo mostrarlo de la mejor manera a tu usuario.
 </Intro>
 
 <InlineToc />
@@ -11,31 +11,31 @@ React is responsible for rendering components and Hooks when necessary to optimi
 ---
 
 ## Never call component functions directly {/*never-call-component-functions-directly*/}
-Components should only be used in JSX. Don't call them as regular functions. React should call it.
+Los componentes solo deben ser utilizados en JSX. No los llames como funciones regulares. React debería ser quien los llame.
 
-React must decide when your component function is called [during rendering](/reference/rules/components-and-hooks-must-be-pure#how-does-react-run-your-code). In React, you do this using JSX.
+React debe decidir cuándo se llama a la función del componente [durante el renderizado](/reference/rules/components-and-hooks-must-be-pure#how-does-react-run-your-code). En React, lo haces usando JSX.
 
 ```js {2}
 function BlogPost() {
-  return <Layout><Article /></Layout>; // ✅ Good: Only use components in JSX
+  return <Layout><Article /></Layout>; // ✅ Bien: Solo utiliza componentes en JSX
 }
 ```
 
 ```js {2}
 function BlogPost() {
-  return <Layout>{Article()}</Layout>; // 🔴 Bad: Never call them directly
+  return <Layout>{Article()}</Layout>; // 🔴 Mal: Nunca llamarlos directamente
 }
 ```
 
-If a component contains Hooks, it's easy to violate the [Rules of Hooks](/reference/rules/rules-of-hooks) when components are called directly in a loop or conditionally.
+Si un componente contiene Hooks, es fácil violar las [Reglas de los Hooks](/reference/rules/rules-of-hooks) cuando los componentes se llaman directamente en un bucle o de forma condicional.
 
-Letting React orchestrate rendering also allows a number of benefits:
+Permitir que React orqueste el renderizado también ofrece una serie de beneficios:
 
-* **Components become more than functions.** React can augment them with features like _local state_ through Hooks that are tied to the component's identity in the tree.
-* **Component types participate in reconciliation.** By letting React call your components, you also tell it more about the conceptual structure of your tree. For example, when you move from rendering `<Feed>` to the `<Profile>` page, React won’t attempt to re-use them.
-* **React can enhance your user experience.** For example, it can let the browser do some work between component calls so that re-rendering a large component tree doesn’t block the main thread.
-* **A better debugging story.** If components are first-class citizens that the library is aware of, we can build rich developer tools for introspection in development.
-* **More efficient reconciliation.** React can decide exactly which components in the tree need re-rendering and skip over the ones that don't. That makes your app faster and more snappy.
+* **Los componentes se convierten en más que funciones.** React puede aumentarlos con funcionalidades como el _estado local_ mediante Hooks que están vinculados a la identidad del componente en el árbol.
+* **Los tipos de componentes participan en la reconciliación.** Al dejar que React llame a tus componentes, también le estás diciendo más sobre la estructura conceptual de tu árbol. Por ejemplo, cuando pasas de renderizar `<Feed>` a la página `<Profile>` React no intentará reutilizarlos.
+* **React puede mejorar tu experiencia de usuario.**  Por ejemplo, puede permitir que el navegador haga algo de trabajo entre las llamadas a los componentes para que el re-renderizado de un árbol de componentes grande no bloquee el hilo principal.
+* **Mejor historial de depuración.** Si los componentes son ciudadanos de primera clase de los que la librería es consciente, podemos construir herramientas de desarrollo enriquecidas para la introspección durante el desarrollo.
+* **Reconciliación más eficiente.** React puede decidir exactamente qué componentes del árbol necesitan ser re-renderizados y saltarse los que no lo necesitan. Eso hace que tu aplicación sea más rápida y reactiva.
 
 ---
 
