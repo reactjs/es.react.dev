@@ -33,7 +33,7 @@ Permitir que React orqueste el renderizado también ofrece una serie de benefici
 
 * **Los componentes se convierten en más que funciones.** React puede aumentarlos con funcionalidades como el _estado local_ mediante Hooks que están vinculados a la identidad del componente en el árbol.
 * **Los tipos de componentes participan en la reconciliación.** Al dejar que React llame a tus componentes, también le estás diciendo más sobre la estructura conceptual de tu árbol. Por ejemplo, cuando pasas de renderizar `<Feed>` a la página `<Profile>` React no intentará reutilizarlos.
-* **React puede mejorar tu experiencia de usuario.**  Por ejemplo, puede permitir que el navegador haga algo de trabajo entre las llamadas a los componentes para que el re-renderizado de un árbol de componentes grande no bloquee el hilo principal.
+* **React puede mejorar tu experiencia de usuario.**  Por ejemplo, puede permitir que el navegador realice otras tareas entre las llamadas a los componentes para que el re-renderizado de un árbol de componentes grande no bloquee el hilo principal.
 * **Mejor historial de depuración.** Si los componentes son ciudadanos de primera clase de los que la librería es consciente, podemos construir herramientas de desarrollo enriquecidas para la introspección durante el desarrollo.
 * **Reconciliación más eficiente.** React puede decidir exactamente qué componentes del árbol necesitan ser re-renderizados y saltarse los que no lo necesitan. Eso hace que tu aplicación sea más rápida y reactiva.
 
