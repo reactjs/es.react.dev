@@ -97,7 +97,7 @@ class Bad extends React.Component {
 
 function Bad() {
   try {
-    // 🔴 Bad: Hook llamado dentro de un bloque try/catch/finally (solución, muévelo afuera del bloque!)
+    // 🔴 Mal: Hook llamado dentro de un bloque try/catch/finally (solución, muévelo afuera del bloque!)
     const [x, setX] = useState(0);
   } catch {
     const [x, setX] = useState(1);
@@ -105,7 +105,7 @@ function Bad() {
 }
 ```
 
-Puedes usar el [`eslint-plugin-react-hooks` plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks), para capturar estos errores.
+Puedes usar el [plugin `eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), para capturar estos errores.
 
 <Note>
 

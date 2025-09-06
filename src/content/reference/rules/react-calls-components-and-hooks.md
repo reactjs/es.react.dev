@@ -10,7 +10,7 @@ React se encarga de renderizar los componentes y hooks cuando sea necesario para
 
 ---
 
-## Never call component functions directly {/*never-call-component-functions-directly*/}
+## Nunca llames a funciones de componentes directamente {/*never-call-component-functions-directly*/}
 Los componentes solo deben ser utilizados en JSX. No los llames como funciones regulares. React debería ser quien los llame.
 
 React debe decidir cuándo se llama a la función del componente [durante el renderizado](/reference/rules/components-and-hooks-must-be-pure#how-does-react-run-your-code). En React, lo haces usando JSX.
@@ -39,48 +39,48 @@ Permitir que React orqueste el renderizado también ofrece una serie de benefici
 
 ---
 
-## Never pass around Hooks as regular values {/*never-pass-around-hooks-as-regular-values*/}
+## Nunca pases Hooks como valores regulares {/*never-pass-around-hooks-as-regular-values*/}
 
-Hooks should only be called inside of components or Hooks. Never pass it around as a regular value.
+Los Hooks solo deben ser llamados dentro de componentes. Nunca los pases como un valor regular.
 
-Hooks allow you to augment a component with React features. They should always be called as a function, and never passed around as a regular value. This enables _local reasoning_, or the ability for developers to understand everything a component can do by looking at that component in isolation.
+Los hooks te permiten aumentar un componente con las características de React. Siempre deben ser llamados como una función, y nunca pasados como un valor regular. Esto permite el _razonamiento local_, o la capacidad de los desarrolladores para entender todo lo que un componente puede hacer con solo mirar ese componente de forma aislada.
 
-Breaking this rule will cause React to not automatically optimize your component.
+Romper esta regla hará que React no optimice automáticamente tu componente.
 
-### Don't dynamically mutate a Hook {/*dont-dynamically-mutate-a-hook*/}
+### No mutes dinámicamente a un Hook {/*dont-dynamically-mutate-a-hook*/}
 
-Hooks should be as "static" as possible. This means you shouldn't dynamically mutate them. For example, this means you shouldn't write higher order Hooks:
+Los hooks deben ser como "estáticos" como sea posible. Esto significa que no debes mutarlos dinámicamente. Por ejemplo, esto significa que no debes escribir hooks de orden superior:
 
 ```js {2}
 function ChatInput() {
-  const useDataWithLogging = withLogging(useData); // 🔴 Bad: don't write higher order Hooks
+  const useDataWithLogging = withLogging(useData); // 🔴 Mal: no escribas hooks de orden superior
   const data = useDataWithLogging();
 }
 ```
 
-Hooks should be immutable and not be mutated. Instead of mutating a Hook dynamically, create a static version of the Hook with the desired functionality.
+Los hooks deben ser inmutables y no ser mutados. En su lugar, muta un hook dinámicamente, crea una versión estática del hook con la funcionalidad deseada.
 
 ```js {2,6}
 function ChatInput() {
-  const data = useDataWithLogging(); // ✅ Good: Create a new version of the Hook
+  const data = useDataWithLogging(); // ✅ Bien: Crea una nueva versión del hook
 }
 
 function useDataWithLogging() {
-  // ... Create a new version of the Hook and inline the logic here
+  // ... Crea una nueva versión del hook e implementa la lógica aquí
 }
 ```
 
-### Don't dynamically use Hooks {/*dont-dynamically-use-hooks*/}
+### No uses dinámicamente a un Hook {/*dont-dynamically-use-hooks*/}
 
-Hooks should also not be dynamically used: for example, instead of doing dependency injection in a component by passing a Hook as a value:
+Los hooks tampoco deben ser utilizados dinámicamente: por ejemplo, en lugar de hacer inyección de dependencias en un componente pasando un Hook como un valor:
 
 ```js {2}
 function ChatInput() {
-  return <Button useData={useDataWithLogging} /> // 🔴 Bad: don't pass Hooks as props
+  return <Button useData={useDataWithLogging} /> // 🔴 Mal: no pases hooks como props
 }
 ```
 
-You should always inline the call of the Hook into that component and handle any logic in there.
+Deberías siempre integrar la llamada del hook en el componente y manejar cualquier lógica en él.
 
 ```js {6}
 function ChatInput() {
@@ -88,14 +88,13 @@ function ChatInput() {
 }
 
 function Button() {
-  const data = useDataWithLogging(); // ✅ Good: Use the Hook directly
+  const data = useDataWithLogging(); // ✅ Bien: Llama al hook directamente
 }
 
 function useDataWithLogging() {
-  // If there's any conditional logic to change the Hook's behavior, it should be inlined into
-  // the Hook
+  // Si hay alguna lógica condicional para cambiar el comportamiento del hook, debe ser integrada // en el hook
 }
 ```
 
-This way, `<Button />` is much easier to understand and debug. When Hooks are used in dynamic ways, it increases the complexity of your app greatly and inhibits local reasoning, making your team less productive in the long term. It also makes it easier to accidentally break the [Rules of Hooks](/reference/rules/rules-of-hooks) that Hooks should not be called conditionally. If you find yourself needing to mock components for tests, it's better to mock the server instead to respond with canned data. If possible, it's also usually more effective to test your app with end-to-end tests.
+De esta manera, el componente, `<Button />` es mucho más fácil de entender y depurar. Cuando los Hooks se utilizan de forma dinámica, aumentan considerablemente la complejidad de tu aplicación e impiden el razonamiento local, lo que hace que tu equipo sea menos productivo a largo plazo. También hace que sea más fácil romper accidentalmente las [Reglas de los Hooks](/reference/rules/rules-of-hooks) que establecen que los Hooks no deben ser llamados condicionalmente. Si encuentrasen la necesidad de mockear componentes para realizar pruebas, es preferible mockear el servidor en su lugar para que responda con datos predefinidos. Si es posible, también suele ser más eficaz probar tu aplicación con pruebas de extremo a extremo (end-to-end).
 

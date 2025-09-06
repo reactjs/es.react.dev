@@ -18,7 +18,7 @@ Esta sección describe las reglas que necesitas seguir para escribir código Rea
 
 Estas reglas son conocidas como las **Reglas de React**. Son reglas – y no solo directrices –  en el sentido de que si se rompen, es probable que tu aplicación tenga errores. Tu código también se vuelve poco idiomático y más difícil de entender y de razonar.
 
-Recomendamos encarecidamente usar [Strict Mode](/reference/react/StrictMode) junto con el [ESLint plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) para ayudar a que tu base de código siga las Reglas de React. Al seguir las Reglas de React, podrás encontrar y abordar estos errores y mantener tu aplicación.
+Recomendamos encarecidamente usar [Strict Mode](/reference/react/StrictMode) junto con el [ESLint plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) para ayudar a que tu base de código siga las Reglas de React. Seguir las Reglas de React te permitirá encontrar y abordar estos errores y mantener tu aplicación.
 
 ---
 
