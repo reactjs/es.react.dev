@@ -50,7 +50,11 @@ Un portal modifica solamente la ubicación física del nodo de DOM, mientras que
 
 * `domNode`: Un nodo de DOM, como el que devuelve `document.getElementById()`. El nodo debe existir previamente. Si durante una actualización se pasa un nodo de DOM diferente, el contenido del portal se volverá a crear.
 
+<<<<<<< HEAD
 * **opcional** `key`: Un valor único en forma de string o número que se usará como [key](/learn/rendering-lists/#keeping-list-items-in-order-with-key) para el portal.
+=======
+* **optional** `key`: A unique string or number to be used as the portal's [key.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 #### Devuelve {/*returns*/}
 
@@ -240,7 +244,11 @@ export default function ModalContent({ onClose }) {
 
 Es importante garantizar la accesibilidad de tu aplicación al utilizar portales. Para ello, puede que tengas que gestionar el foco del teclado para que el usuario pueda navegar dentro y fuera del portal de forma natural.
 
+<<<<<<< HEAD
 Sigue la [Guía de Creación de Ventanas Modales con WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/#dialog_modal) al crear portales. Si usas paquetes de la comunidad, asegúrate de que sean accesibles y sigan estas pautas.
+=======
+Follow the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal) when creating modals. If you use a community package, ensure that it is accessible and follows these guidelines.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 </Pitfall>
 

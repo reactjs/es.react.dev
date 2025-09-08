@@ -211,7 +211,11 @@ Esto es porque los **Hooks solo tienen que ser llamados en el nivel más alto de
 
 Una posible forma de evitar esto es hacer una sola ref a su elemento padre, y luego usar métodos de manipulación del DOM como [`querySelectorAll`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelectorAll) para "encontrar" los nodos hijos individuales a partir de él. Sin embargo, esto es frágil y puede romperse si la estructura del DOM cambia.
 
+<<<<<<< HEAD
 Otra solución es **pasar una función al atributo `ref`.** A esto se le llama un [callback `ref`.](/reference/react-dom/components/common#ref-callback) React llamará tu callback ref con el nodo DOM cuando sea el momento de poner la ref, y con `null` cuando sea el momento de limpiarla. Esto te permite mantener tu propio array o un [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), y acceder a cualquier ref por su índice o algún tipo de ID.
+=======
+Another solution is to **pass a function to the `ref` attribute.** This is called a [`ref` callback.](/reference/react-dom/components/common#ref-callback) React will call your ref callback with the DOM node when it's time to set the ref, and call the cleanup function returned from the callback when it's time to clear it. This lets you maintain your own array or a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), and access any ref by its index or some kind of ID.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 Este ejemplo te muestra cómo puedes usar este enfoque para desplazarte a un nodo arbitrario en una lista larga:
 
@@ -247,13 +251,13 @@ export default function CatFriends() {
       <nav>
         <button onClick={() => scrollToCat(catList[0])}>Neo</button>
         <button onClick={() => scrollToCat(catList[5])}>Millie</button>
-        <button onClick={() => scrollToCat(catList[9])}>Bella</button>
+        <button onClick={() => scrollToCat(catList[8])}>Bella</button>
       </nav>
       <div>
         <ul>
           {catList.map((cat) => (
             <li
-              key={cat}
+              key={cat.id}
               ref={(node) => {
                 const map = getMap();
                 map.set(cat, node);
@@ -263,7 +267,7 @@ export default function CatFriends() {
                 };
               }}
             >
-              <img src={cat} />
+              <img src={cat.imageUrl} />
             </li>
           ))}
         </ul>
@@ -273,11 +277,22 @@ export default function CatFriends() {
 }
 
 function setupCatList() {
-  const catList = [];
-  for (let i = 0; i < 10; i++) {
-    catList.push("https://loremflickr.com/320/240/cat?lock=" + i);
+  const catCount = 10;
+  const catList = new Array(catCount)
+  for (let i = 0; i < catCount; i++) {
+    let imageUrl = '';
+    if (i < 5) {
+      imageUrl = "https://placecats.com/neo/320/240";
+    } else if (i < 8) {
+      imageUrl = "https://placecats.com/millie/320/240";
+    } else {
+      imageUrl = "https://placecats.com/bella/320/240";
+    }
+    catList[i] = {
+      id: i,
+      imageUrl,
+    };
   }
-
   return catList;
 }
 
@@ -877,12 +892,30 @@ export default function CatFriends() {
   );
 }
 
-const catList = [];
-for (let i = 0; i < 10; i++) {
-  catList.push({
+const catCount = 10;
+const catList = new Array(catCount);
+for (let i = 0; i < catCount; i++) {
+  const bucket = Math.floor(Math.random() * catCount) % 2;
+  let imageUrl = '';
+  switch (bucket) {
+    case 0: {
+      imageUrl = "https://placecats.com/neo/250/200";
+      break;
+    }
+    case 1: {
+      imageUrl = "https://placecats.com/millie/250/200";
+      break;
+    }
+    case 2:
+    default: {
+      imageUrl = "https://placecats.com/bella/250/200";
+      break;
+    }
+  }
+  catList[i] = {
     id: i,
-    imageUrl: 'https://loremflickr.com/250/200/cat?lock=' + i
-  });
+    imageUrl,
+  };
 }
 
 ```
@@ -962,7 +995,7 @@ export default function CatFriends() {
             behavior: 'smooth',
             block: 'nearest',
             inline: 'center'
-          });            
+          });
         }}>
           Siguiente
         </button>
@@ -994,12 +1027,30 @@ export default function CatFriends() {
   );
 }
 
-const catList = [];
-for (let i = 0; i < 10; i++) {
-  catList.push({
+const catCount = 10;
+const catList = new Array(catCount);
+for (let i = 0; i < catCount; i++) {
+  const bucket = Math.floor(Math.random() * catCount) % 2;
+  let imageUrl = '';
+  switch (bucket) {
+    case 0: {
+      imageUrl = "https://placecats.com/neo/250/200";
+      break;
+    }
+    case 1: {
+      imageUrl = "https://placecats.com/millie/250/200";
+      break;
+    }
+    case 2:
+    default: {
+      imageUrl = "https://placecats.com/bella/250/200";
+      break;
+    }
+  }
+  catList[i] = {
     id: i,
-    imageUrl: 'https://loremflickr.com/250/200/cat?lock=' + i
-  });
+    imageUrl,
+  };
 }
 
 ```

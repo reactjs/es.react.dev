@@ -4,7 +4,11 @@ title: APIs del servidor de React DOM
 
 <Intro>
 
+<<<<<<< HEAD
 Las APIs del `react-dom/server` te permiten renderizar del lado del servidor componentes de React a HTML. Estas API solo se usan en el servidor en el nivel superior de su aplicación para generar el HTML inicial. Un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) puede llamarlos por ti. La mayoría de tus componentes no necesitan importarlos o usarlos.
+=======
+The `react-dom/server` APIs let you server-side render React components to HTML. These APIs are only used on the server at the top level of your app to generate the initial HTML. A [framework](/learn/start-a-new-react-project#full-stack-frameworks) may call them for you. Most of your components don't need to import or use them.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 </Intro>
 
