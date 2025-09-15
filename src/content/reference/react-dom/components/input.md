@@ -30,7 +30,11 @@ Para mostrar un input, renderiza el componente [`<input>` incorporado en el nave
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<input>` admite todas las [props comunes de los elementos.](/reference/react-dom/components/common#props)
+=======
+`<input>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 - [`formAction`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formaction): A string or function. Overrides the parent `<form action>` for `type="submit"` and `type="image"`. When a URL is passed to `action` the form will behave like a standard HTML form. When a function is passed to `formAction` the function will handle the form submission. See [`<form action>`](/reference/react-dom/components/form#props).
 
