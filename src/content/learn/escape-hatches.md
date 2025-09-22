@@ -201,7 +201,7 @@ Hay dos casos comunes en los que no necesitas Efectos:
 
 Por ejemplo, no necesitas un Efecto para ajustar algún estado basado en otro estado:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');

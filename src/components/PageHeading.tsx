@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -27,7 +34,6 @@ function PageHeading({
   tags = [],
   breadcrumbs,
 }: PageHeadingProps) {
-  console.log('version', version);
   return (
     <div className="px-5 sm:px-12 pt-3.5">
       <div className="max-w-4xl ms-0 2xl:mx-auto">

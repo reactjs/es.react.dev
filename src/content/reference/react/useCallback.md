@@ -12,6 +12,12 @@ const cachedFn = useCallback(fn, dependencies)
 
 </Intro>
 
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useCallback` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
 <InlineToc />
 
 ---
@@ -124,7 +130,7 @@ function ProductPage({ productId, referrer, theme }) {
       orderDetails,
     });
   }
-  
+
   return (
     <div className={theme}>
       {/* ... así las props de ShippingForm nunca serán iguales, y cada vez se renderizará nuevamente */}
@@ -201,8 +207,13 @@ La diferencia está en *qué* te permiten almacenar:
 
 Si ya estás familiarizado con [`useMemo`](/reference/react/useMemo), tal vez te sea útil ver `useCallback` como esto:
 
+<<<<<<< HEAD
 ```js
 // Implementación simplificada (dentro de React)
+=======
+```js {expectedErrors: {'react-compiler': [3]}}
+// Simplified implementation (inside React)
+>>>>>>> 366b5fbdadefecbbf9f6ef36c0342c083248c691
 function useCallback(fn, dependencies) {
   return useMemo(() => fn, dependencies);
 }
@@ -216,7 +227,11 @@ function useCallback(fn, dependencies) {
 
 #### ¿Deberías siempre usar useCallback? {/*should-you-add-usecallback-everywhere*/}
 
+<<<<<<< HEAD
 Si tu aplicación es similar a este sitio, y la mayoría de las interacciones son bastas (como reemplazar una página o una sección entera), la memoización generalmente es innecesaria. Por otro lado, si tu aplicación es similar a un editor de dibujo, y la mayor parte de sus interacciones son granulares (como mover figuras), entonces la memoización puede ser muy útil.
+=======
+If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+>>>>>>> 366b5fbdadefecbbf9f6ef36c0342c083248c691
 
 Almacenar una función con `useCallback` solo es beneficioso en unos pocos casos:
 
@@ -304,7 +319,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -443,7 +458,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -862,7 +877,7 @@ Cuando encuentres cuál dependencia está rompiendo la memoización, puedes enco
 
 Suponiendo que el componente `Chart` está envuelto en [`memo`](/reference/react/memo). Deseas omitir el rerenderizado en cada `Chart` en la lista cuando el componente `ReportList` se rerenderiza. Sin embargo, no puedes llamar a `useCallback` dentro de un ciclo:
 
-```js {5-14}
+```js {expectedErrors: {'react-compiler': [6]}} {5-14}
 function ReportList({ items }) {
   return (
     <article>

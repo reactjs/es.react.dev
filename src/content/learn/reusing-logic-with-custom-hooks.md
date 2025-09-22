@@ -820,7 +820,11 @@ export default function ChatRoom({ roomId }) {
   // ...
 ```
 
+<<<<<<< HEAD
 y lo pasas como entrada a otro Hook:
+=======
+and passing it as an input to another Hook:
+>>>>>>> 366b5fbdadefecbbf9f6ef36c0342c083248c691
 
 ```js {6}
 export default function ChatRoom({ roomId }) {
@@ -1419,10 +1423,36 @@ De manera similar a un [sistema de diseño,](https://uxdesign.cc/everything-you-
 
 #### ¿Proporcionará React alguna solución integrada para la obtención de datos? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
 
+<<<<<<< HEAD
 Todavía estamos trabajando en los detalles, pero esperamos que en el futuro escribas la obtención de datos de esta manera:
 
 ```js {1,4,6}
 import { use } from 'react'; // ¡No disponible aún!
+=======
+Today, with the [`use`](/reference/react/use#streaming-data-from-server-to-client) API, data can be read in render by passing a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to `use`:
+
+```js {1,4,11}
+import { use, Suspense } from "react";
+
+function Message({ messagePromise }) {
+  const messageContent = use(messagePromise);
+  return <p>Here is the message: {messageContent}</p>;
+}
+
+export function MessageContainer({ messagePromise }) {
+  return (
+    <Suspense fallback={<p>⌛Downloading message...</p>}>
+      <Message messagePromise={messagePromise} />
+    </Suspense>
+  );
+}
+```
+
+We're still working out the details, but we expect that in the future, you'll write data fetching like this:
+
+```js {1,4,6}
+import { use } from 'react';
+>>>>>>> 366b5fbdadefecbbf9f6ef36c0342c083248c691
 
 function ShippingForm({ country }) {
   const cities = use(fetch(`/api/cities?country=${country}`));
@@ -2081,7 +2111,6 @@ Escribe `useInterval` en el archivo `useInterval.js` e impórtalo en el archivo 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
 import { useCounter } from './useCounter.js';
 
 export default function Counter() {

@@ -439,8 +439,14 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
+<<<<<<< HEAD
 Esto resuelve el problema. Ten en cuenta que has tenido que *eliminar* `onConnected` de la lista de dependencias de tu Efecto. **Los Eventos de Efecto no son reactivos y deben ser omitidos de las dependencias.**
 Verifica que el nuevo comportamiento funciona como esperas:
+=======
+This solves the problem. Note that you had to *remove* `theme` from the list of your Effect's dependencies, because it's no longer used in the Effect. You also don't need to *add* `onConnected` to it, because **Effect Events are not reactive and must be omitted from dependencies.**
+
+Verify that the new behavior works as you would expect:
+>>>>>>> 366b5fbdadefecbbf9f6ef36c0342c083248c691
 
 <Sandpack>
 
@@ -710,7 +716,7 @@ Aquí, `url` dentro de `onVisit` corresponde a la *última* `url` (que podría h
 
 En las bases de código existentes, a veces puede ver la regla lint suprimida de esta manera:
 
-```js {7-9}
+```js {expectedErrors: {'react-compiler': [8]}} {7-9}
 function Page({ url }) {
   const { items } = useContext(ShoppingCartContext);
   const numberOfItems = items.length;
@@ -734,7 +740,7 @@ Aquí hay un ejemplo de un error confuso causado por la supresión del linter. E
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [16]}}
 import { useState, useEffect } from 'react';
 
 export default function App() {
@@ -972,7 +978,24 @@ Para arreglar este código, basta con seguir las reglas.
 
 <Sandpack>
 
-```js
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+
+```js {expectedErrors: {'react-compiler': [14]}}
 import { useState, useEffect } from 'react';
 
 export default function Timer() {
@@ -1024,6 +1047,22 @@ Como de costumbre, cuando busques bugs en Efectos, empieza por buscar supresione
 Si eliminas el comentario de supresión, React te dirá que el código de este Efecto depende de `increment`, pero tú le "mentiste" a React afirmando que este Efecto no depende de ningún valor reactivo (`[]`). Añade `increment` al array de dependencias:
 
 <Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
 
 ```js
 import { useState, useEffect } from 'react';
