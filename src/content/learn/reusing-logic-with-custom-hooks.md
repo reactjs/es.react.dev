@@ -820,7 +820,11 @@ export default function ChatRoom({ roomId }) {
   // ...
 ```
 
+<<<<<<< HEAD
 y lo pasas como entrada a otro Hook:
+=======
+and passing it as an input to another Hook:
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ```js {6}
 export default function ChatRoom({ roomId }) {
@@ -837,11 +841,17 @@ Cada vez que tu componente `ChatRoom` se vuelve a renderizar, pasa el último `r
 
 ### Pasar controladores de eventos a los Hooks personalizados {/*passing-event-handlers-to-custom-hooks*/}
 
-<Wip>
+<Canary>
 
+<<<<<<< HEAD
 Esta sección describe una **API experimental que aún no se ha agregado a React,** por lo que aún no puedes usarla.
+=======
+**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
-</Wip>
+[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
+
+</Canary>
 
 A medida que comiences a usar `useChatRoom` en más componentes, es posible que desees permitir diferentes componentes que personalicen su comportamiento. Por ejemplo, actualmente, la lógica de qué hacer cuando llega un mensaje está escrita dentro del Hook:
 
@@ -985,7 +995,7 @@ export default function ChatRoom({ roomId }) {
 
 ```js src/useChatRoom.js
 import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection } from './chat.js';
 
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
@@ -1070,8 +1080,8 @@ export function showNotification(message, theme = 'dark') {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1419,10 +1429,36 @@ De manera similar a un [sistema de diseño,](https://uxdesign.cc/everything-you-
 
 #### ¿Proporcionará React alguna solución integrada para la obtención de datos? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
 
+<<<<<<< HEAD
 Todavía estamos trabajando en los detalles, pero esperamos que en el futuro escribas la obtención de datos de esta manera:
 
 ```js {1,4,6}
 import { use } from 'react'; // ¡No disponible aún!
+=======
+Today, with the [`use`](/reference/react/use#streaming-data-from-server-to-client) API, data can be read in render by passing a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to `use`:
+
+```js {1,4,11}
+import { use, Suspense } from "react";
+
+function Message({ messagePromise }) {
+  const messageContent = use(messagePromise);
+  return <p>Here is the message: {messageContent}</p>;
+}
+
+export function MessageContainer({ messagePromise }) {
+  return (
+    <Suspense fallback={<p>⌛Downloading message...</p>}>
+      <Message messagePromise={messagePromise} />
+    </Suspense>
+  );
+}
+```
+
+We're still working out the details, but we expect that in the future, you'll write data fetching like this:
+
+```js {1,4,6}
+import { use } from 'react';
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 function ShippingForm({ country }) {
   const cities = use(fetch(`/api/cities?country=${country}`));
@@ -1647,7 +1683,7 @@ export default function App() {
 
 ```js src/useFadeIn.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export function useFadeIn(ref, duration) {
   const [isRunning, setIsRunning] = useState(true);
@@ -1700,8 +1736,8 @@ html, body { min-height: 300px; }
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -2081,7 +2117,6 @@ Escribe `useInterval` en el archivo `useInterval.js` e impórtalo en el archivo 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
 import { useCounter } from './useCounter.js';
 
 export default function Counter() {
@@ -2190,8 +2225,8 @@ Parece que tu Hook `useInterval` acepta un controlador de evento como un argumen
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -2234,7 +2269,7 @@ export function useCounter(delay) {
 
 ```js src/useInterval.js
 import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export function useInterval(onTick, delay) {
   useEffect(() => {
@@ -2261,8 +2296,8 @@ Con este cambio, ambos intervalos funcionan como se esperaba y no interfieren en
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -2306,7 +2341,7 @@ export function useCounter(delay) {
 
 ```js src/useInterval.js active
 import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export function useInterval(callback, delay) {
   const onTick = useEffectEvent(callback);

@@ -400,13 +400,23 @@ Necesitas una forma de separar esta lógica no reactiva del Efecto reactivo que 
 
 ### Declaración de un Evento de Efecto {/*declaring-an-effect-event*/}
 
-<Wip>
+<Canary>
 
+<<<<<<< HEAD
 Esta sección describe una API **experimental que aún no se ha publicado** en una versión estable de React.
+=======
+**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
-</Wip>
+[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
 
+<<<<<<< HEAD
 Utiliza un Hook especial llamado [`useEffectEvent`](/reference/react/experimental_useEffectEvent) para extraer esta lógica no reactiva de su Efecto:
+=======
+</Canary>
+
+Use a special Hook called [`useEffectEvent`](/reference/react/useEffectEvent) to extract this non-reactive logic out of your Effect:
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ```js {1,4-6}
 import { useEffect, useEffectEvent } from 'react';
@@ -439,16 +449,22 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
+<<<<<<< HEAD
 Esto resuelve el problema. Ten en cuenta que has tenido que *eliminar* `onConnected` de la lista de dependencias de tu Efecto. **Los Eventos de Efecto no son reactivos y deben ser omitidos de las dependencias.**
 Verifica que el nuevo comportamiento funciona como esperas:
+=======
+This solves the problem. Note that you had to *remove* `theme` from the list of your Effect's dependencies, because it's no longer used in the Effect. You also don't need to *add* `onConnected` to it, because **Effect Events are not reactive and must be omitted from dependencies.**
+
+Verify that the new behavior works as you would expect:
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 <Sandpack>
 
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -463,7 +479,7 @@ Verifica que el nuevo comportamiento funciona como esperas:
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
@@ -577,11 +593,17 @@ Puedes pensar que los Eventos de Efecto son muy similares a los controladores de
 
 ### Leer las últimas propiedades y el estado con los Eventos de Efecto {/*reading-latest-props-and-state-with-effect-events*/}
 
-<Wip>
+<Canary>
 
+<<<<<<< HEAD
 Esta sección describe una API **experimental que aún no se ha publicado** en una versión estable de React.
+=======
+**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
-</Wip>
+[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
+
+</Canary>
 
 Los Eventos de Efecto le permiten arreglar muchos patrones en los que podría verse tentado a eliminar el linter de dependencias.
 
@@ -710,7 +732,7 @@ Aquí, `url` dentro de `onVisit` corresponde a la *última* `url` (que podría h
 
 En las bases de código existentes, a veces puede ver la regla lint suprimida de esta manera:
 
-```js {7-9}
+```js {expectedErrors: {'react-compiler': [8]}} {7-9}
 function Page({ url }) {
   const { items } = useContext(ShoppingCartContext);
   const numberOfItems = items.length;
@@ -734,7 +756,7 @@ Aquí hay un ejemplo de un error confuso causado por la supresión del linter. E
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [16]}}
 import { useState, useEffect } from 'react';
 
 export default function App() {
@@ -802,8 +824,8 @@ Con `useEffectEvent`, no hay necesidad de "mentir" al linter, y el código funci
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -817,7 +839,7 @@ Con `useEffectEvent`, no hay necesidad de "mentir" al linter, y el código funci
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -877,11 +899,17 @@ Leer [Eliminar dependencias de Efectos](/learn/removing-effect-dependencies) par
 
 ### Limitaciones de los Eventos de Efecto {/*limitations-of-effect-events*/}
 
-<Wip>
+<Canary>
 
+<<<<<<< HEAD
 Esta sección describe una API **experimental que aún no se ha publicado** en una versión estable de React.
+=======
+**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
-</Wip>
+[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
+
+</Canary>
 
 Los Eventos de Efecto tienen un uso muy limitado:
 
@@ -972,7 +1000,24 @@ Para arreglar este código, basta con seguir las reglas.
 
 <Sandpack>
 
-```js
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "canary",
+    "react-dom": "canary",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+
+```js {expectedErrors: {'react-compiler': [14]}}
 import { useState, useEffect } from 'react';
 
 export default function Timer() {
@@ -1024,6 +1069,22 @@ Como de costumbre, cuando busques bugs en Efectos, empieza por buscar supresione
 Si eliminas el comentario de supresión, React te dirá que el código de este Efecto depende de `increment`, pero tú le "mentiste" a React afirmando que este Efecto no depende de ningún valor reactivo (`[]`). Añade `increment` al array de dependencias:
 
 <Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "canary",
+    "react-dom": "canary",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
 
 ```js
 import { useState, useEffect } from 'react';
@@ -1090,8 +1151,8 @@ Parece que el Efecto que configura el temporizador "reacciona" al valor de `incr
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -1105,7 +1166,7 @@ Parece que el Efecto que configura el temporizador "reacciona" al valor de `incr
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function Timer() {
   const [count, setCount] = useState(0);
@@ -1159,8 +1220,8 @@ Para resolver el problema, extrae un Evento de Efecto `onTick` del Efecto:
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -1174,7 +1235,7 @@ Para resolver el problema, extrae un Evento de Efecto `onTick` del Efecto:
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function Timer() {
   const [count, setCount] = useState(0);
@@ -1241,8 +1302,8 @@ El código dentro de los Eventos de Efecto no es reactivo. ¿Hay casos en los qu
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -1256,7 +1317,7 @@ El código dentro de los Eventos de Efecto no es reactivo. ¿Hay casos en los qu
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function Timer() {
   const [count, setCount] = useState(0);
@@ -1328,8 +1389,8 @@ El problema con el ejemplo anterior es que extrajo un Evento de Efecto llamado `
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -1343,7 +1404,7 @@ El problema con el ejemplo anterior es que extrajo un Evento de Efecto llamado `
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function Timer() {
   const [count, setCount] = useState(0);
@@ -1424,8 +1485,8 @@ Tu Efecto sabe a qué sala está conectado. ¿Hay alguna información que quiera
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1440,7 +1501,7 @@ Tu Efecto sabe a qué sala está conectado. ¿Hay alguna información que quiera
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
@@ -1565,8 +1626,8 @@ Para solucionar el problema, en lugar de leer el *latest* `roomId` dentro del Ev
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1581,7 +1642,7 @@ Para solucionar el problema, en lugar de leer el *latest* `roomId` dentro del Ev
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
@@ -1702,8 +1763,8 @@ Para resolver el problema adicional, guarda el ID del tiempo de espera de la not
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1718,7 +1779,7 @@ Para resolver el problema adicional, guarda el ID del tiempo de espera de la not
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 

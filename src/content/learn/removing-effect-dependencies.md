@@ -301,7 +301,7 @@ Suprimir la advertencia del *linter* conduce a errores muy poco intuitivos que s
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [14]}}
 import { useState, useEffect } from 'react';
 
 export default function Timer() {
@@ -607,11 +607,17 @@ function ChatRoom({ roomId }) {
 
 ### ¿Quieres leer un valor sin "reaccionar" as sus cambios? {/*do-you-want-to-read-a-value-without-reacting-to-its-changes*/}
 
-<Wip>
+<Canary>
 
+<<<<<<< HEAD
 Esta sección describe una **API experimental que aún no se ha añadido a React**, por lo que aún no puedes usarla.
+=======
+**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
-</Wip>
+[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
+
+</Canary>
 
 Supón que quieres poner un sonido cuando el usuario recibe un nuevo mensaje a menos que `isMuted` sea `true`:
 
@@ -792,7 +798,7 @@ Este objeto se declara en el cuerpo del componente, por lo que es un [valor reac
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1239,7 +1245,11 @@ export default function Timer() {
 
 </Sandpack>
 
+<<<<<<< HEAD
 En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` ("¡incrementa este número!"). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el *array* de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
+=======
+Instead of reading `count` inside the Effect, you pass a `c => c + 1` instruction ("increment this number!") to React. React will apply it on the next render. And since you don't need to read the value of `count` inside your Effect anymore, you can keep your Effect's dependencies empty (`[]`). This prevents your Effect from re-creating the interval on every tick.
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 </Solution>
 
@@ -1260,8 +1270,8 @@ Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -1275,7 +1285,7 @@ Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando
 
 ```js
 import { useState, useEffect, useRef } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { FadeInAnimation } from './animation.js';
 
 function Welcome({ duration }) {
@@ -1387,8 +1397,8 @@ Tu Efecto necesita leer el último valor de `duration`, pero no quieres que "rea
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest"
   },
   "scripts": {
@@ -1403,7 +1413,7 @@ Tu Efecto necesita leer el último valor de `duration`, pero no quieres que "rea
 ```js
 import { useState, useEffect, useRef } from 'react';
 import { FadeInAnimation } from './animation.js';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 function Welcome({ duration }) {
   const ref = useRef(null);
@@ -1823,8 +1833,8 @@ La otra función solo existe para pasar algún estado a un método de una API im
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1905,7 +1915,7 @@ export default function App() {
 
 ```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function ChatRoom({ roomId, createConnection, onMessage }) {
   useEffect(() => {
@@ -2118,8 +2128,8 @@ As a result, the chat re-connects only when something meaningful (`roomId` or `i
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -2187,7 +2197,7 @@ export default function App() {
 
 ```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import {
   createEncryptedConnection,
   createUnencryptedConnection,

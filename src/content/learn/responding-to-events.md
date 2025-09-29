@@ -546,7 +546,7 @@ Al hacer clic en este botón se supone que debe cambiar el fondo de la página e
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5, 7]}}
 export default function LightSwitch() {
   function handleClick() {
     let bodyStyle = document.body.style;

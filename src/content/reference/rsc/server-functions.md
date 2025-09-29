@@ -28,7 +28,11 @@ Para soportar Server Functions como bundler o framework, recomendamos usar una v
 
 </Note>
 
+<<<<<<< HEAD
 Cuando se define una Server Function con la directiva [`"use server"`](/reference/rsc/use-server), tu framework creará automáticamente una referencia a la Server Function, y pasará esa referencia al Client Component. Cuando esa función es llamada en el cliente, React enviará una petición al servidor para ejecutar la función, y devolver el resultado.
+=======
+When a Server Function is defined with the [`"use server"`](/reference/rsc/use-server) directive, your framework will automatically create a reference to the Server Function, and pass that reference to the Client Component. When that function is called on the client, React will send a request to the server to execute the function, and return the result.
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 Las Server Functions pueden crearse en Server Components y pasarse como props a los Client Components, o pueden importarse y utilizarse en Client Components.
 
@@ -195,7 +199,11 @@ function UpdateName() {
 
 Al utilizar `useActionState` con Server Functions, React también reproducirá automáticamente los envíos de formularios introducidos antes de que finalice la hidratación. Esto significa que los usuarios pueden interactuar con la aplicación incluso antes de que esta se haya hidratado.
 
+<<<<<<< HEAD
 Para más información, consulte la documentación de [`useActionState`](/reference/react/useActionState).
+=======
+For more, see the docs for [`useActionState`](/reference/react/useActionState).
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### Mejora progresiva con `useActionState` {/*progressive-enhancement-with-useactionstate*/}
 
@@ -219,4 +227,8 @@ function UpdateName() {
 
 Cuando se proporciona <CodeStep step={2}>permalink</CodeStep> a `useActionState`, React redirigirá a la URL proporcionada si el formulario se envía antes de que se cargue el paquete JavaScript.
 
+<<<<<<< HEAD
 Para más información, consulte la documentación de [`useActionState`](/reference/react/useActionState).
+=======
+For more, see the docs for [`useActionState`](/reference/react/useActionState).
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf

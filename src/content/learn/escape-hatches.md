@@ -201,7 +201,7 @@ Hay dos casos comunes en los que no necesitas Efectos:
 
 Por ejemplo, no necesitas un Efecto para ajustar algún estado basado en otro estado:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -455,8 +455,8 @@ Esto no es lo ideal. Quieres volver a conectar con el chat únicamente si el `ro
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -471,7 +471,7 @@ Esto no es lo ideal. Quieres volver a conectar con el chat únicamente si el `ro
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
