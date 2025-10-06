@@ -201,7 +201,7 @@ Hay dos casos comunes en los que no necesitas Efectos:
 
 Por ejemplo, no necesitas un Efecto para ajustar algún estado basado en otro estado:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -312,6 +312,7 @@ Lee **[Ciclo de vida de eventos reactivos](/learn/lifecycle-of-reactive-effects)
 
 ## Separar eventos de Efectos {/*separating-events-from-effects*/}
 
+<<<<<<< HEAD
 <Wip>
 
 Esta sección describe una **API experimental que aún no se ha publicado** en una versión estable de React.
@@ -319,6 +320,9 @@ Esta sección describe una **API experimental que aún no se ha publicado** en u
 </Wip>
 
 Los controladores de eventos únicamente se vuelven a ejecutar cuando realizas de nuevo la misma interacción. A diferencia de los controladores de eventos, los Efectos se vuelven a sincronizar si alguno de los valores que leen, como props o estados, son diferentes a los del último renderizado. Algunas veces, quieres una mezcla de ambos comportamientos: un Efecto que se vuelve a ejecutar en respuesta de algunos valores.
+=======
+Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if any of the values they read, like props or state, are different than during last render. Sometimes, you want a mix of both behaviors: an Effect that re-runs in response to some values but not others.
+>>>>>>> 11cb6b591571caf5fa2a192117b6a6445c3f2027
 
 Todo el código dentro de los Efectos es *reactivo.* Se ejecutará de nuevo si algún valor reactivo que lee, ha cambiado debido a una nueva renderización. Por ejemplo, este Efecto volverá a conectarse con el chat si `roomId` o `theme` han cambiado:
 
@@ -455,8 +459,8 @@ Esto no es lo ideal. Quieres volver a conectar con el chat únicamente si el `ro
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -471,7 +475,7 @@ Esto no es lo ideal. Quieres volver a conectar con el chat únicamente si el `ro
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
