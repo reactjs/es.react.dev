@@ -812,16 +812,6 @@ const CommunityImages = memo(function CommunityImages({isLazy}) {
                 ? 'rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110'
                 : 'group-hover:rotate-1 group-hover:scale-110 rotate-[-2deg]'
             )}>
-<<<<<<< HEAD
-            <Image
-              loading={isLazy ? 'lazy' : 'eager'}
-              src={src}
-              alt={alt}
-              width={100}
-              height={100}
-              className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
-            />
-=======
             <div
               className={cn(
                 'overflow-clip relative before:absolute before:inset-0 before:pointer-events-none before:-translate-x-full group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-transform ease-in-out duration-300'
@@ -833,7 +823,6 @@ const CommunityImages = memo(function CommunityImages({isLazy}) {
                 className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
               />
             </div>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
           </div>
         </div>
       ))}

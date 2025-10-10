@@ -29,25 +29,21 @@ React-dom contiene funcionalidades que solo son compatibles con aplicaciones web
 * [APIs del cliente](/reference/react-dom/client) - Las APIs de `react-dom/client` te permiten renderizar componentes de React en el cliente (en el navegador).
 * [APIs del servidor](/reference/react-dom/server) - Las APIs de `react-dom/server` te permiten renderizar componentes de React a HTML en el servidor.
 
-<<<<<<< HEAD
-## Reglas de React {/*rules-of-react*/}
-=======
 ## React Compiler {/*react-compiler*/}
 
-The React Compiler is a build-time optimization tool that automatically memoizes your React components and values:
+El React Compiler es una herramienta de optimización en tiempo de compilación que memoiza automáticamente tus componentes y valores de React:
 
-* [Configuration](/reference/react-compiler/configuration) - Configuration options for React Compiler.
-* [Directives](/reference/react-compiler/directives) - Function-level directives to control compilation.
-* [Compiling Libraries](/reference/react-compiler/compiling-libraries) - Guide for shipping pre-compiled library code.
+* [Configuración](/reference/react-compiler/configuration) - Opciones de configuración para React Compiler.
+* [Directivas](/reference/react-compiler/directives) - Directivas a nivel de función para controlar la compilación.
+* [Compilar Librerías](/reference/react-compiler/compiling-libraries) - Guía para enviar código de librerías precompiladas.
 
 ## ESLint Plugin React Hooks {/*eslint-plugin-react-hooks*/}
 
-The [ESLint plugin for React Hooks](/reference/eslint-plugin-react-hooks) helps enforce the Rules of React:
+El [plugin de ESLint para React Hooks](/reference/eslint-plugin-react-hooks) ayuda a hacer cumplir las Reglas de React:
 
-* [Lints](/reference/eslint-plugin-react-hooks) - Detailed documentation for each lint with examples.
+* [Lints](/reference/eslint-plugin-react-hooks) - Documentación detallada para cada lint con ejemplos.
 
-## Rules of React {/*rules-of-react*/}
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+## Reglas de React {/*rules-of-react*/}
 
 React tiene idioms — o reglas — sobre cómo expresar ciertos patrones de una forma fácil de entender y que permita crear aplicaciones de alta calidad:
 

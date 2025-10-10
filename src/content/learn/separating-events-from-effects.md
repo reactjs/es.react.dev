@@ -402,21 +402,14 @@ Necesitas una forma de separar esta lógica no reactiva del Efecto reactivo que 
 
 <Canary>
 
-<<<<<<< HEAD
-Esta sección describe una API **experimental que aún no se ha publicado** en una versión estable de React.
-=======
-**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+**La API `useEffectEvent` actualmente solo está disponible en los canales Canary y Experimental de React.**
 
 [Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
 
-<<<<<<< HEAD
-Utiliza un Hook especial llamado [`useEffectEvent`](/reference/react/experimental_useEffectEvent) para extraer esta lógica no reactiva de su Efecto:
-=======
 </Canary>
 
-Use a special Hook called [`useEffectEvent`](/reference/react/useEffectEvent) to extract this non-reactive logic out of your Effect:
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+
+Utiliza un Hook especial llamado [`useEffectEvent`](/reference/react/experimental_useEffectEvent) para extraer esta lógica no reactiva de su Efecto:
 
 ```js {1,4-6}
 import { useEffect, useEffectEvent } from 'react';
@@ -449,14 +442,9 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
-<<<<<<< HEAD
 Esto resuelve el problema. Ten en cuenta que has tenido que *eliminar* `onConnected` de la lista de dependencias de tu Efecto. **Los Eventos de Efecto no son reactivos y deben ser omitidos de las dependencias.**
-Verifica que el nuevo comportamiento funciona como esperas:
-=======
-This solves the problem. Note that you had to *remove* `theme` from the list of your Effect's dependencies, because it's no longer used in the Effect. You also don't need to *add* `onConnected` to it, because **Effect Events are not reactive and must be omitted from dependencies.**
 
-Verify that the new behavior works as you would expect:
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+Verifica que el nuevo comportamiento funciona como esperas:
 
 <Sandpack>
 
@@ -595,11 +583,7 @@ Puedes pensar que los Eventos de Efecto son muy similares a los controladores de
 
 <Canary>
 
-<<<<<<< HEAD
-Esta sección describe una API **experimental que aún no se ha publicado** en una versión estable de React.
-=======
-**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+**La API `useEffectEvent` actualmente solo está disponible en los canales Canary y Experimental de React.**
 
 [Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
 
@@ -901,11 +885,7 @@ Leer [Eliminar dependencias de Efectos](/learn/removing-effect-dependencies) par
 
 <Canary>
 
-<<<<<<< HEAD
-Esta sección describe una API **experimental que aún no se ha publicado** en una versión estable de React.
-=======
-**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+**La API `useEffectEvent` actualmente solo está disponible en los canales Canary y Experimental de React.**
 
 [Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
 

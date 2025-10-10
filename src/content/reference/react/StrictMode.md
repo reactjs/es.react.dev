@@ -224,11 +224,7 @@ li {
 
 Hay un error en el código arriba. Sin embargo, puede pasar desapercibido con facilidad porque la salida inicial parece correcta.
 
-<<<<<<< HEAD
 Este error será más perceptible si el componente `StoryTray` se vuelve a renderizar múltiples veces. Por ejemplo, hagamos que `StoryTray` se vuelva a renderizar con un diferente color de fondo cada vez que el puntero pase sobre el componente:
-=======
-This mistake will become more noticeable if the `StoryTray` component re-renders multiple times. For example, let's make the `StoryTray` re-render with a different background color whenever you hover over it:
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 <Sandpack>
 
@@ -1245,13 +1241,8 @@ Now on inital mount in StrictMode, the ref callbacks are all setup, cleaned up, 
 
 Without Strict Mode, it was easy to miss the bug until you clicked around to app to notice broken features. Strict Mode made the bugs appear right away, before you push them to production.
 
-<<<<<<< HEAD
 --- 
 ### Arreglar advertencias de código obsoleto habilitadas en el Modo Estricto {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
-=======
----
-### Fixing deprecation warnings enabled by Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 React advierte si algún componente en cualquier lugar dentro de un árbol `<StrictMode>` usa una de estas APIs obsoletas: 
 

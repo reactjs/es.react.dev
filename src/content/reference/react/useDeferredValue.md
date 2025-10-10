@@ -246,11 +246,7 @@ input { margin: 10px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
-Una alternativa común en la UI es *diferir* la actualización de las listas de resultados y seguir mostrando los anteriores resultados hasta que los nuevos estén disponibles. Llama a `useDeferredValue` para pasar una versión diferida de la `query`:
-=======
-A common alternative UI pattern is to *defer* updating the list of results and to keep showing the previous results until the new results are ready. Call `useDeferredValue` to pass a deferred version of the query down:
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+Una alternativa común en la UI es *diferir* la actualización de la lista de resultados y seguir mostrando los resultados anteriores hasta que los nuevos estén listos. Llama a `useDeferredValue` para pasar una versión diferida de la query:
 
 ```js {3,11}
 export default function App() {
@@ -426,11 +422,7 @@ input { margin: 10px; }
 
 Puedes pensar que ocurre de acuerdo a estos dos pasos:
 
-<<<<<<< HEAD
-1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero utilizando el anterior `deferredQuery` (cuyo valor aún es `"a"`).** El valor de `deferredQuery`, el cual se pasa a la lista resultante, está "diferido" respecto al valor de la `query`.
-=======
-1. **First, React re-renders with the new `query` (`"ab"`) but with the old `deferredQuery` (still `"a"`).** The `deferredQuery` value, which you pass to the result list, is *deferred:* it "lags behind" the `query` value.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero con el anterior `deferredQuery` (que sigue siendo `"a"`).** El valor de `deferredQuery`, el cual se pasa a la lista de resultados, está *diferido:* va "por detrás" del valor de `query`.
 
 2. **En segundo plano, React intentará re-renderizar con *ambos* `query` y `deferredQuery` actualizados con el valor `"ab"`.** Si este re-renderizado se completa, React lo mostrará por pantalla. De lo contrario, si se "suspende" (los resultados para `"ab"` aún no se han cargado), React abandonará este intento de renderización y re-intentará este re-renderizado nuevamente una vez los datos hayan sido cargados. El usuario seguirá viendo el valor diferido obsoleto hasta que los datos hayan sido cargados.
 

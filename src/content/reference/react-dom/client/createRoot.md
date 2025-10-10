@@ -209,11 +209,7 @@ Cuando tu HTML está vacío, el usuario ve una página en blanco hasta que el c�
 <div id="root"></div>
 ```
 
-<<<<<<< HEAD
-¡Esto puede sentirse muy lento! Para resolverlo, puedes generar el HTML inicial a partir de tus componentes [en el servidor o durante la compilación.](/reference/react-dom/server) Entonces tus visitantes pueden leer el texto, ver imágenes, y hacer clic en los enlaces antes de que se cargue cualquiera de los códigos de JavaScript. Recomendamos [utilizar un framework](/learn/start-a-new-react-project#building-with-a-full-featured-framework) que tenga esta optimización incorporada. Dependiendo de cuando se ejecuta, se llama *renderizado de lado del servidor (SSR)*  o *generación de sitios estáticos (SSG)*
-=======
-This can feel very slow! To solve this, you can generate the initial HTML from your components [on the server or during the build.](/reference/react-dom/server) Then your visitors can read text, see images, and click links before any of the JavaScript code loads. We recommend [using a framework](/learn/start-a-new-react-project#full-stack-frameworks) that does this optimization out of the box. Depending on when it runs, this is called *server-side rendering (SSR)* or *static site generation (SSG).*
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+¡Esto puede sentirse muy lento! Para resolverlo, puedes generar el HTML inicial a partir de tus componentes [en el servidor o durante la compilación.](/reference/react-dom/server) Entonces tus visitantes pueden leer el texto, ver imágenes, y hacer clic en los enlaces antes de que se cargue cualquiera de los códigos de JavaScript. Recomendamos [utilizar un framework](/learn/start-a-new-react-project#full-stack-frameworks) que tenga esta optimización incorporada. Dependiendo de cuando se ejecuta, se llama *renderizado de lado del servidor (SSR)*  o *generación de sitios estáticos (SSG)*
 
 </Note>
 

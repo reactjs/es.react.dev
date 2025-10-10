@@ -332,13 +332,10 @@
     },
     {
       "hasSectionHeader": true,
-<<<<<<< HEAD
-      "sectionHeader": "Reglas de React"
-=======
       "sectionHeader": "React Compiler"
     },
     {
-      "title": "Configuration",
+      "title": "Configuración",
       "path": "/reference/react-compiler/configuration",
       "routes": [
         {
@@ -364,7 +361,7 @@
       ]
     },
     {
-      "title": "Directives",
+      "title": "Directivas",
       "path": "/reference/react-compiler/directives",
       "routes": [
         {
@@ -378,7 +375,7 @@
       ]
     },
     {
-      "title": "Compiling Libraries",
+      "title": "Compilar Librerías",
       "path": "/reference/react-compiler/compiling-libraries"
     },
     {
@@ -478,8 +475,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "Rules of React"
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+      "sectionHeader": "Reglas de React"
     },
     {
       "title": "Descripción general",

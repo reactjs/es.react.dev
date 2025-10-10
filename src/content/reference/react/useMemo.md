@@ -149,11 +149,7 @@ También ten en cuenta que medir el rendimiento en desarrollo no te dará los re
 
 #### ¿Deberías agregar useMemo en todas partes? {/*should-you-add-usememo-everywhere*/}
 
-<<<<<<< HEAD
 Si tu aplicación es como este sitio y la mayoría de las interacciones son bruscas (como reemplazar una página o una sección completa), la memoización generalmente no es necesaria. Por otro lado, si tu aplicación se parece más a un editor de dibujos y la mayoría de las interacciones son granulares (como formas en movimiento), entonces la memoización podría resultarte muy útil.
-=======
-If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 Optimizar con `useMemo` solo es valioso en algunos casos:
 

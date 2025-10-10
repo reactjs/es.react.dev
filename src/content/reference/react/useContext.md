@@ -38,23 +38,13 @@ function MyComponent() {
 
 #### Devuelve {/*returns*/}
 
-<<<<<<< HEAD
 `useContext` devuelve el valor del contexto para el componente que lo llama. Está determinado como el `value` pasado al `SomeContext.Provider` más cercano arriba del componente que llama en el árbol. Si no existe tal proveedor, entonces el valor devuelto será el `defaultValue` que le pasaste a [`createContext`](/reference/react/createContext) para ese contexto. El valor devuelto siempre está actualizado. React rerenderiza automáticamente los componentes que leen algún contexto si este cambia.
-=======
-`useContext` returns the context value for the calling component. It is determined as the `value` passed to the closest `SomeContext` above the calling component in the tree. If there is no such provider, then the returned value will be the `defaultValue` you have passed to [`createContext`](/reference/react/createContext) for that context. The returned value is always up-to-date. React automatically re-renders components that read some context if it changes.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 #### Advertencias {/*caveats*/}
 
-<<<<<<< HEAD
 * La llamada de `useContext()` en un componente no es afectada por los proveedores devueltos desde el *mismo* componente. El `<Context.Provider>` correspondiente **necesita estar *arriba*** del componente que hace la llamada de `useContext()`.
 * React **rerenderiza automáticamente** todos los hijos que usen un contexto particular empezando desde el proveedor que recibe un `value` diferente. Los valores anteriores y los siguientes son comparados con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Saltarse el rerenderizado con [`memo`](/reference/react/memo) no evita que los hijos reciban valores de contexto frescos de arriba.
 * Si tu sistema de compilación produce módulos duplicados en la salida (lo cual puede pasar si usas enlaces simbólicos), esto puede romper el contexto. Pasar algo a través del contexto solo funciona si `SomeContext` que usas para proporcionar el contexto y `SomeContext` que usas para leerlo son ***exactamente* el mismo objeto**, como está determinado por la comparación `===`.
-=======
-* `useContext()` call in a component is not affected by providers returned from the *same* component. The corresponding `<Context>` **needs to be *above*** the component doing the `useContext()` call.
-* React **automatically re-renders** all the children that use a particular context starting from the provider that receives a different `value`. The previous and the next values are compared with the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. Skipping re-renders with [`memo`](/reference/react/memo) does not prevent the children receiving fresh context values.
-* If your build system produces duplicates modules in the output (which can happen with symlinks), this can break context. Passing something via context only works if `SomeContext` that you use to provide context and `SomeContext` that you use to read it are ***exactly* the same object**, as determined by a `===` comparison.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ---
 
@@ -1111,17 +1101,10 @@ export default function MyApp() {
 
 function Form() {
   return (
-<<<<<<< HEAD
     <Panel title="Bienvenido">
       <Button>Registrarse</Button>
       <Button>Iniciar sesión</Button>
       <ThemeContext.Provider value="light">
-=======
-    <Panel title="Welcome">
-      <Button>Sign up</Button>
-      <Button>Log in</Button>
-      <ThemeContext value="light">
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
         <Footer />
       </ThemeContext>
     </Panel>
@@ -1364,28 +1347,17 @@ Como resultado de este cambio, incluso si `MyApp` necesita rerenderizarse, los c
 
 Hay algunas maneras comunes en que esto puede ocurrir:
 
-<<<<<<< HEAD
-1. Estás renderizando `<SomeContext.Provider>` en el mismo componente (o debajo de) donde estás llamando `useContext()`. Mueve `<SomeContext.Provider>` *arriba y afuera* del componente que llama `useContext()`.
-2. Puede que hayas olvidado envolver tu componente con `<SomeContext.Provider>`, o quizás lo colocaste en una parte diferente del árbol de la que pensabas. Revisa si la jerarquía está correcta utilizando [React DevTools.](/learn/react-developer-tools)
+1. Estás renderizando `<SomeContext>` en el mismo componente (o debajo de) donde estás llamando `useContext()`. Mueve `<SomeContext>` *arriba y afuera* del componente que llama `useContext()`.
+2. Puede que hayas olvidado envolver tu componente con `<SomeContext>`, o quizás lo colocaste en una parte diferente del árbol de la que pensabas. Revisa si la jerarquía está correcta utilizando [React DevTools.](/learn/react-developer-tools)
 3. Puede que tengas un problema de compilación con tus herramientas que provoque que `SomeContext` como es visto desde el componente proveedor y que `SomeContext` como es visto desde el componente que lee sean dos objetos diferentes. Esto puede suceder si usas enlaces simbólicos, por ejemplo. Puedes verificar esto al asignarlos a variables globales como `window.SomeContext1` y `window.SomeContext2` y luego verificar si `window.SomeContext1 === window.SomeContext2` en la consola. Si no son el mismo, necesitas arreglar ese problema a nivel de herramienta de compilación.
-=======
-1. You're rendering `<SomeContext>` in the same component (or below) as where you're calling `useContext()`. Move `<SomeContext>` *above and outside* the component calling `useContext()`.
-2. You may have forgotten to wrap your component with `<SomeContext>`, or you might have put it in a different part of the tree than you thought. Check whether the hierarchy is right using [React DevTools.](/learn/react-developer-tools)
-3. You might be running into some build issue with your tooling that causes `SomeContext` as seen from the providing component and `SomeContext` as seen by the reading component to be two different objects. This can happen if you use symlinks, for example. You can verify this by assigning them to globals like `window.SomeContext1` and `window.SomeContext2` and then checking whether `window.SomeContext1 === window.SomeContext2` in the console. If they're not the same, fix that issue on the build tool level.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### Siempre recibo `undefined` de mi contexto a pesar de que el valor por defecto es diferente {/*i-am-always-getting-undefined-from-my-context-although-the-default-value-is-different*/}
 
 Puede que tengas un proveedor sin un `value` en el árbol:
 
 ```js {1,2}
-<<<<<<< HEAD
 // 🚩 No funciona: No hay prop value
-<ThemeContext.Provider>
-=======
-// 🚩 Doesn't work: no value prop
 <ThemeContext>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
    <Button />
 </ThemeContext>
 ```
@@ -1395,13 +1367,8 @@ Si te olvidas de especificar un `value`, es como pasar `value={undefined}`.
 Es posible que hayas utilizado un nombre de prop diferente por error:
 
 ```js {1,2}
-<<<<<<< HEAD
 // 🚩 No funciona: la prop debería llamarse "value"
-<ThemeContext.Provider theme={theme}>
-=======
-// 🚩 Doesn't work: prop should be called "value"
 <ThemeContext theme={theme}>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
    <Button />
 </ThemeContext>
 ```
@@ -1409,19 +1376,10 @@ Es posible que hayas utilizado un nombre de prop diferente por error:
 En ambos casos deberías ver una advertencia de React en la consola. Para solucionarlos llama a la prop `value`:
 
 ```js {1,2}
-<<<<<<< HEAD
 // ✅ Pasando la prop value
-<ThemeContext.Provider value={theme}>
-=======
-// ✅ Passing the value prop
 <ThemeContext value={theme}>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
    <Button />
 </ThemeContext>
 ```
 
-<<<<<<< HEAD
-Fíjate que el [valor por defecto de tu llamada `createContext(defaultValue)`](#specifying-a-fallback-default-value) solo es usado **si no hay ningún proveedor que coincida arriba en absoluto.** Si hay algún componente `<SomeContext.Provider value={undefined}>` en algún lugar del árbol, el componente llamando `useContext(SomeContext)` *recibirá* `undefined` como el valor del contexto.
-=======
-Note that the [default value from your `createContext(defaultValue)` call](#specifying-a-fallback-default-value) is only used **if there is no matching provider above at all.** If there is a `<SomeContext value={undefined}>` component somewhere in the parent tree, the component calling `useContext(SomeContext)` *will* receive `undefined` as the context value.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+Fíjate que el [valor por defecto de tu llamada `createContext(defaultValue)`](#specifying-a-fallback-default-value) solo es usado **si no hay ningún proveedor que coincida arriba en absoluto.** Si hay algún componente `<SomeContext value={undefined}>` en algún lugar del árbol, el componente llamando `useContext(SomeContext)` *recibirá* `undefined` como el valor del contexto.

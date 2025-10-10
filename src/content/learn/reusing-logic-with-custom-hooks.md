@@ -820,11 +820,7 @@ export default function ChatRoom({ roomId }) {
   // ...
 ```
 
-<<<<<<< HEAD
 y lo pasas como entrada a otro Hook:
-=======
-and passing it as an input to another Hook:
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ```js {6}
 export default function ChatRoom({ roomId }) {
@@ -843,11 +839,7 @@ Cada vez que tu componente `ChatRoom` se vuelve a renderizar, pasa el último `r
 
 <Canary>
 
-<<<<<<< HEAD
-Esta sección describe una **API experimental que aún no se ha agregado a React,** por lo que aún no puedes usarla.
-=======
-**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+**La API `useEffectEvent` actualmente solo está disponible en los canales Canary y Experimental de React.**
 
 [Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
 
@@ -1429,36 +1421,29 @@ De manera similar a un [sistema de diseño,](https://uxdesign.cc/everything-you-
 
 #### ¿Proporcionará React alguna solución integrada para la obtención de datos? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
 
-<<<<<<< HEAD
-Todavía estamos trabajando en los detalles, pero esperamos que en el futuro escribas la obtención de datos de esta manera:
-
-```js {1,4,6}
-import { use } from 'react'; // ¡No disponible aún!
-=======
-Today, with the [`use`](/reference/react/use#streaming-data-from-server-to-client) API, data can be read in render by passing a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to `use`:
+Hoy en día, con la API [`use`](/reference/react/use#streaming-data-from-server-to-client), los datos se pueden leer durante el renderizado pasando una [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) a `use`:
 
 ```js {1,4,11}
 import { use, Suspense } from "react";
 
 function Message({ messagePromise }) {
   const messageContent = use(messagePromise);
-  return <p>Here is the message: {messageContent}</p>;
+  return <p>Aquí está el mensaje: {messageContent}</p>;
 }
 
 export function MessageContainer({ messagePromise }) {
   return (
-    <Suspense fallback={<p>⌛Downloading message...</p>}>
+    <Suspense fallback={<p>⌛Descargando mensaje...</p>}>
       <Message messagePromise={messagePromise} />
     </Suspense>
   );
 }
 ```
 
-We're still working out the details, but we expect that in the future, you'll write data fetching like this:
+Todavía estamos trabajando en los detalles, pero esperamos que en el futuro escribas la obtención de datos de esta manera:
 
 ```js {1,4,6}
 import { use } from 'react';
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 function ShippingForm({ country }) {
   const cities = use(fetch(`/api/cities?country=${country}`));

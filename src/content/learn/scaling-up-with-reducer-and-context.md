@@ -509,15 +509,9 @@ export default function TaskApp() {
   }
 
   return (
-<<<<<<< HEAD
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
         <h1>Día libre en Kyoto</h1>
-=======
-    <TasksContext value={tasks}>
-      <TasksDispatchContext value={dispatch}>
-        <h1>Day off in Kyoto</h1>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
         <AddTask
           onAddTask={handleAddTask}
         />
@@ -682,26 +676,16 @@ En el siguiente paso, se eliminará el paso de props.
 Ahora no es necesario pasar la lista de tareas o los controladores de eventos por el árbol:
 
 ```js {4-5}
-<<<<<<< HEAD
 <TasksContext.Provider value={tasks}>
   <TasksDispatchContext.Provider value={dispatch}>
     <h1>Día libre en Kyoto</h1>
-=======
-<TasksContext value={tasks}>
-  <TasksDispatchContext value={dispatch}>
-    <h1>Day off in Kyoto</h1>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
     <AddTask />
     <TaskList />
   </TasksDispatchContext>
 </TasksContext>
 ```
 
-<<<<<<< HEAD
 En cambio, cualquier componente que necesite la lista de tareas puede leerla del `TaskContext`:
-=======
-Instead, any component that needs the task list can read it from the `TasksContext`:
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ```js {2}
 export default function TaskList() {
@@ -746,15 +730,9 @@ export default function TaskApp() {
   );
 
   return (
-<<<<<<< HEAD
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
         <h1>Día libre en Kyoto</h1>
-=======
-    <TasksContext value={tasks}>
-      <TasksDispatchContext value={dispatch}>
-        <h1>Day off in Kyoto</h1>
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
         <AddTask />
         <TaskList />
       </TasksDispatchContext>

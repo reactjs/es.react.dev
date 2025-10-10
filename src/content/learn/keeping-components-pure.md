@@ -606,15 +606,9 @@ export default function StoryTray({ stories }) {
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
-<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia de Ankit" },
   {id: 1, label: "Historia de Taylor" },
-=======
-const initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 ];
 
 export default function App() {
@@ -708,15 +702,9 @@ export default function StoryTray({ stories }) {
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
-<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia de Ankit" },
   {id: 1, label: "Historia de Taylor" },
-=======
-const initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 ];
 
 export default function App() {
@@ -781,13 +769,8 @@ Como alternativa, podrías crear un _nuevo_ array (copiando el existente) antes 
 
 ```js src/StoryTray.js active
 export default function StoryTray({ stories }) {
-<<<<<<< HEAD
-  // ¡Copia el array!
-  let storiesToDisplay = stories.slice();
-=======
-  // Copy the array!
+   // ¡Copia el array!
   const storiesToDisplay = stories.slice();
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
   // Esto no afecta al array original:
   storiesToDisplay.push({
@@ -811,15 +794,9 @@ export default function StoryTray({ stories }) {
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
-<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia de Ankit" },
   {id: 1, label: "Historia de Taylor" },
-=======
-const initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 ];
 
 export default function App() {

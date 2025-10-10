@@ -38,18 +38,11 @@ const ThemeContext = createContext('light');
 
 `createContext` devuelve un objeto de contexto.
 
-<<<<<<< HEAD
 **El objeto de contexto en sí no contiene ninguna información.** Representa _qué_ contexto pueden leer o proporcionar otros componentes. Por lo general, utilizará [`SomeContext.Provider`](#provider) en los componentes anteriores para especificar el valor de contexto y llamará a [`useContext(SomeContext)`](/reference/react/useContext) en los componentes siguientes para leerlo. El objeto de contexto tiene algunas propiedades:
 
+* `SomeContext` te permite proporcionar el valor de contexto a los componentes.
 * `SomeContext.Provider` Te permite proporcionar el valor de contexto a los componentes.
 * `SomeContext.Consumer` Es una forma alternativa y poco utilizada de leer el valor del contexto..
-=======
-**The context object itself does not hold any information.** It represents _which_ context other components read or provide. Typically, you will use [`SomeContext`](#provider) in components above to specify the context value, and call [`useContext(SomeContext)`](/reference/react/useContext) in components below to read it. The context object has a few properties:
-
-* `SomeContext` lets you provide the context value to components.
-* `SomeContext.Consumer` is an alternative and rarely used way to read the context value.
-* `SomeContext.Provider` is a legacy way to provide the context value before React 19.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ---
 
@@ -229,9 +222,5 @@ const ThemeContext = createContext('light');
 
 Este valor nunca cambia. React solo usa este valor como respaldo si no puede encontrar un proveedor coincidente arriba.
 
-<<<<<<< HEAD
 Para hacer que el contexto cambie con el tiempo, [agrega estado y envuelve los componentes en un proveedor de contexto.](/reference/react/useContext#updating-data-passed-via-context)
 
-=======
-To make context change over time, [add state and wrap components in a context provider.](/reference/react/useContext#updating-data-passed-via-context)
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf

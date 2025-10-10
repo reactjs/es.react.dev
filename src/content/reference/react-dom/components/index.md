@@ -162,13 +162,7 @@ Similar al [estándar DOM,](https://developer.mozilla.org/es/docs/Web/API/Docume
 
 ### Elementos HTML personalizados {/*custom-html-elements*/}
 
-<<<<<<< HEAD
-Si renderizas una etiqueta con un guión, como `<my-element>`, React asumirá que quieres renderizar un [elemento HTML personalizado.](https://developer.mozilla.org/es/docs/Web/Web_Components/Using_custom_elements) En React, el renderizado de elementos personalizados funciona de manera diferente desde el renderizado de etiquetas integradas del navegador:
-
-- Todas las props de los elementos personalizados son serializadas a strings y siempre se configuran usando atributos.
-=======
-If you render a tag with a dash, like `<my-element>`, React will assume you want to render a [custom HTML element.](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+Si renderizas una etiqueta con un guión, como `<my-element>`, React asumirá que quieres renderizar un [elemento HTML personalizado.](https://developer.mozilla.org/es/docs/Web/Web_Components/Using_custom_elements)
 
 - Los elementos personalizados aceptan `class` en vez de `className`, y `for` en vez de `htmlFor`.
 
@@ -293,25 +287,14 @@ export function App() {
 
 <Note>
 
-<<<<<<< HEAD
-[Una versión futura de React incluirá un soporte más completo para elementos personalizados.](https://github.com/facebook/react/issues/11347#issuecomment-1122275286)
-
-Puedes probar actualizando los paquetes de React a la versión experimental más reciente:
-
-- `react@experimental`
-- `react-dom@experimental`
-
-Las versiones experimentales de React pueden contener errores. No las uses en producción.
-=======
-Events are case-sensitive and support dashes (`-`). Preserve the casing of the event and include all dashes when listening for custom element's events:
+Los eventos distinguen entre mayúsculas y minúsculas y admiten guiones (`-`). Conserva las mayúsculas del evento e incluye todos los guiones al escuchar los eventos del elemento personalizado:
 
 ```jsx
-// Listens for `say-hi` events
+// Escucha eventos `say-hi`
 <my-element onsay-hi={console.log}></my-element>
-// Listens for `sayHi` events
+// Escucha eventos `sayHi`
 <my-element onsayHi={console.log}></my-element>
 ```
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 </Note>
 ---

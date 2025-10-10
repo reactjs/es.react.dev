@@ -138,13 +138,8 @@ title: Reuniones de React
 ## Portugal {/*portugal*/}
 * [Lisboa](https://www.meetup.com/JavaScript-Lisbon/)
 
-<<<<<<< HEAD
 ## Escocia (Reino Unido) {/*scotland-uk*/}
-* [Edimburgo](https://www.meetup.com/React-Scotland/)
-=======
-## Scotland (UK) {/*scotland-uk*/}
-* [Edinburgh](https://www.meetup.com/react-edinburgh/)
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+* [Edimburgo](https://www.meetup.com/react-edinburgh/)
 
 ## España {/*spain*/}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)

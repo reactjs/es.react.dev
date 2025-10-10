@@ -609,11 +609,7 @@ function ChatRoom({ roomId }) {
 
 <Canary>
 
-<<<<<<< HEAD
-Esta sección describe una **API experimental que aún no se ha añadido a React**, por lo que aún no puedes usarla.
-=======
-**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+**La API `useEffectEvent` actualmente solo está disponible en los canales Canary y Experimental de React.**
 
 [Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
 
@@ -1245,11 +1241,7 @@ export default function Timer() {
 
 </Sandpack>
 
-<<<<<<< HEAD
 En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` ("¡incrementa este número!"). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el *array* de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
-=======
-Instead of reading `count` inside the Effect, you pass a `c => c + 1` instruction ("increment this number!") to React. React will apply it on the next render. And since you don't need to read the value of `count` inside your Effect anymore, you can keep your Effect's dependencies empty (`[]`). This prevents your Effect from re-creating the interval on every tick.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 </Solution>
 

@@ -8,80 +8,76 @@ Videos dedicados al debate sobre React y su ecosistema.
 
 </Intro>
 
-<<<<<<< HEAD
-## Conferencia de React 2021 {/*react-conf-2021*/}
-=======
-## React Conf 2024 {/*react-conf-2024*/}
+## Conferencia de React 2024 {/*react-conf-2024*/}
 
-At React Conf 2024, Meta CTO [Andrew "Boz" Bosworth](https://www.threads.net/@boztank) shared a welcome message to kick off the conference:
+En la Conferencia de React 2024, el CTO de Meta [Andrew "Boz" Bosworth](https://www.threads.net/@boztank) compartió un mensaje de bienvenida para dar inicio a la conferencia:
 
 <YouTubeIframe src="https://www.youtube.com/embed/T8TZQ6k4SLE?t=975s" title="Boz and Seth Intro" />
 
-### React 19 Keynote {/*react-19-keynote*/}
+### Discurso de React 19 {/*react-19-keynote*/}
 
-In the Day 1 keynote, we shared vision for React starting with React 19 and the React Compiler. Watch the full keynote from [Joe Savona](https://twitter.com/en_JS), [Lauren Tan](https://twitter.com/potetotes), [Andrew Clark](https://twitter.com/acdlite), [Josh Story](https://twitter.com/joshcstory), [Sathya Gunasekaran](https://twitter.com/_gsathya), and [Mofei Zhang](https://twitter.com/zmofei):
+En el discurso de apertura del Día 1, compartimos nuestra visión para React comenzando con React 19 y el Compilador de React. Observa el discurso completo de [Joe Savona](https://twitter.com/en_JS), [Lauren Tan](https://twitter.com/potetotes), [Andrew Clark](https://twitter.com/acdlite), [Josh Story](https://twitter.com/joshcstory), [Sathya Gunasekaran](https://twitter.com/_gsathya), y [Mofei Zhang](https://twitter.com/zmofei):
 
 
 <YouTubeIframe src="https://www.youtube.com/embed/lyEKhv8-3n0" title="YouTube video player" />
 
-### React Unpacked: A Roadmap to React 19 {/*react-unpacked-a-roadmap-to-react-19*/}
+### React Unpacked: Una hoja de ruta para React 19 {/*react-unpacked-a-roadmap-to-react-19*/}
 
-React 19 introduced new features including Actions, `use()`, `useOptimistic` and more. For a deep dive on using new features in React 19, see [Sam Selikoff's](https://twitter.com/samselikoff) talk:
+React 19 introdujo nuevas funcionalidades incluyendo Actions, `use()`, `useOptimistic` y más. Para una inmersión profunda sobre el uso de las nuevas funcionalidades en React 19, mira la charla de [Sam Selikoff](https://twitter.com/samselikoff):
 
 <YouTubeIframe src="https://www.youtube.com/embed/R0B2HsSM78s" title="React Unpacked: A Roadmap to React 19" />
 
-### What's New in React 19 {/*whats-new-in-react-19*/}
+### Qué hay de nuevo en React 19 {/*whats-new-in-react-19*/}
 
-[Lydia Hallie](https://twitter.com/lydiahallie) gave a visual deep dive of React 19's new features:
+[Lydia Hallie](https://twitter.com/lydiahallie) dio una inmersión profunda visual de las nuevas funcionalidades de React 19:
 
 <YouTubeIframe src="https://www.youtube.com/embed/AJOGzVygGcY" title="What's New in React 19" />
 
-### React 19 Deep Dive: Coordinating HTML {/*react-19-deep-dive-coordinating-html*/}
+### Inmersión profunda en React 19: Coordinando HTML {/*react-19-deep-dive-coordinating-html*/}
 
-[Josh Story](https://twitter.com/joshcstory) provided a deep dive on the document and resource streaming APIs in React 19:
+[Josh Story](https://twitter.com/joshcstory) proporcionó una inmersión profunda sobre el documento y las APIs de transmisión de recursos en React 19:
 
 <YouTubeIframe src="https://www.youtube.com/embed/IBBN-s77YSI" title="React 19 Deep Dive: Coordinating HTML" />
 
-### React for Two Computers {/*react-for-two-computers*/}
+### React para dos computadoras {/*react-for-two-computers*/}
 
-[Dan Abramov](https://bsky.app/profile/danabra.mov) imagined an alternate history where React started server-first:
+[Dan Abramov](https://bsky.app/profile/danabra.mov) imaginó una historia alternativa donde React comenzó primero en el servidor:
 
 <YouTubeIframe src="https://www.youtube.com/embed/ozI4V_29fj4" title="React for Two Computers" />
 
-### Forget About Memo {/*forget-about-memo*/}
+### Olvídate de memo {/*forget-about-memo*/}
 
-[Lauren Tan](https://twitter.com/potetotes) gave a talk on using the React Compiler in practice:
+[Lauren Tan](https://twitter.com/potetotes) dio una charla sobre el uso del Compilador de React en la práctica:
 
 <YouTubeIframe src="https://www.youtube.com/embed/lvhPq5chokM" title="Forget About Memo" />
 
-### React Compiler Deep Dive {/*react-compiler-deep-dive*/}
+### Inmersión profunda en el Compilador de React {/*react-compiler-deep-dive*/}
 
-[Sathya Gunasekaran](https://twitter.com/_gsathya) and [Mofei Zhang](https://twitter.com/zmofei) provided a deep dive on how the React Compiler works:
+[Sathya Gunasekaran](https://twitter.com/_gsathya) y [Mofei Zhang](https://twitter.com/zmofei) proporcionaron una inmersión profunda sobre cómo funciona el Compilador de React:
 
 <YouTubeIframe src="https://www.youtube.com/embed/uA_PVyZP7AI" title="React Compiler Deep Dive" />
 
-### And more... {/*and-more-2024*/}
+### Y más... {/*and-more-2024*/}
 
-**We also heard talks from the community on Server Components:**
-* [Enhancing Forms with React Server Components](https://www.youtube.com/embed/0ckOUBiuxVY&t=25280s) by [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
-* [And Now You Understand React Server Components](https://www.youtube.com/embed/pOo7x8OiAec) by [Kent C. Dodds](https://twitter.com/kentcdodds)
-* [Real-time Server Components](https://www.youtube.com/embed/6sMANTHWtLM) by [Sunil Pai](https://twitter.com/threepointone)
+**También escuchamos charlas de la comunidad sobre Componentes de Servidor:**
+* [Mejorando formularios con Componentes de Servidor de React](https://www.youtube.com/embed/0ckOUBiuxVY&t=25280s) por [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
+* [Y ahora entiendes los Componentes de Servidor de React](https://www.youtube.com/embed/pOo7x8OiAec) por [Kent C. Dodds](https://twitter.com/kentcdodds)
+* [Componentes de Servidor en tiempo real](https://www.youtube.com/embed/6sMANTHWtLM) por [Sunil Pai](https://twitter.com/threepointone)
 
-**Talks from React frameworks using new features:**
+**Charlas de frameworks de React usando nuevas funcionalidades:**
 
-* [Vanilla React](https://www.youtube.com/embed/ZcwA0xt8FlQ) by [Ryan Florence](https://twitter.com/ryanflorence)
-* [React Rhythm & Blues](https://www.youtube.com/embed/rs9X5MjvC4s) by [Lee Robinson](https://twitter.com/leeerob)
-* [RedwoodJS, now with React Server Components](https://www.youtube.com/embed/sjyY4MTECUU) by [Amy Dutton](https://twitter.com/selfteachme)
-* [Introducing Universal React Server Components in Expo Router](https://www.youtube.com/embed/djhEgxQf3Kw) by [Evan Bacon](https://twitter.com/Baconbrix)
+* [Vanilla React](https://www.youtube.com/embed/ZcwA0xt8FlQ) por [Ryan Florence](https://twitter.com/ryanflorence)
+* [React Rhythm & Blues](https://www.youtube.com/embed/rs9X5MjvC4s) por [Lee Robinson](https://twitter.com/leeerob)
+* [RedwoodJS, ahora con Componentes de Servidor de React](https://www.youtube.com/embed/sjyY4MTECUU) por [Amy Dutton](https://twitter.com/selfteachme)
+* [Introduciendo Componentes de Servidor de React Universales en Expo Router](https://www.youtube.com/embed/djhEgxQf3Kw) por [Evan Bacon](https://twitter.com/Baconbrix)
 
-**And Q&As with the React and React Native teams:**
-- [React Q&A](https://www.youtube.com/embed/T8TZQ6k4SLE&t=27518s) hosted by [Michael Chan](https://twitter.com/chantastic)
-- [React Native Q&A](https://www.youtube.com/embed/0ckOUBiuxVY&t=27935s) hosted by [Jamon Holmgren](https://twitter.com/jamonholmgren)
+**Y sesiones de preguntas y respuestas con los equipos de React y React Native:**
+- [Preguntas y respuestas de React](https://www.youtube.com/embed/T8TZQ6k4SLE&t=27518s) presentado por [Michael Chan](https://twitter.com/chantastic)
+- [Preguntas y respuestas de React Native](https://www.youtube.com/embed/0ckOUBiuxVY&t=27935s) presentado por [Jamon Holmgren](https://twitter.com/jamonholmgren)
 
-You can watch all of the talks at React Conf 2024 at [conf2024.react.dev](https://conf2024.react.dev/talks).
+Puedes ver todas las charlas de la Conferencia de React 2024 en [conf2024.react.dev](https://conf2024.react.dev/talks).
 
-## React Conf 2021 {/*react-conf-2021*/}
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+## Conferencia de React 2021 {/*react-conf-2021*/}
 
 ### Discurso de React 18 {/*react-18-keynote*/}
 
@@ -89,21 +85,13 @@ En el discurso de apertura, compartimos nuestra visión sobre el futuro de React
 
 Observa el discurso completo de [Andrew Clark](https://twitter.com/acdlite), [Juan Tejada](https://twitter.com/_jstejada), [Lauren Tan](https://twitter.com/potetotes), y [Rick Hanlon](https://twitter.com/rickhanlonii) aquí:
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/FZ0cG47msEk" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/FZ0cG47msEk" title="React 18 Keynote" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### React 18 para desarrolladores de aplicaciones {/*react-18-for-application-developers*/}
 
 Para ver un demo de cómo actualizar a React 18, mira la charla de [Shruti Kapoor](https://twitter.com/shrutikapoor08) aquí:
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/ytudH8je5ko" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/ytudH8je5ko" title="React 18 for Application Developers" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### Renderizado de transmisión desde el servidor con Suspense {/*streaming-server-rendering-with-suspense*/}
 
@@ -113,11 +101,7 @@ El renderizado de transmisión desde el servidor te permite generar HTML con los
 
 Para averiguar más a fondo, mira la charla de [Shaundai Person](https://twitter.com/shaundai) aquí:
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/pj5N-Khihgc" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/pj5N-Khihgc" title="Streaming Server Rendering with Suspense" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### El primer grupo de trabajo de React {/*the-first-react-working-group*/}
 
@@ -125,11 +109,7 @@ Para React 18, hemos creado nuestro primer grupo de trabajo para colaborar con u
 
 Para ver una descripción general sobre este trabajo, mira la charla de [Aakansha' Doshi](https://twitter.com/aakansha1216):
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/qn7gRClrC9U" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/qn7gRClrC9U" title="The first React working group" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### Herramientas de desarrollo de React {/*react-developer-tooling*/}
 
@@ -137,31 +117,19 @@ Para dar soporte a las nuevas funcionalidades en este lanzamiento, también hemo
 
 Para más información y una demo de las nuevas funcionalidades de las Herramientas de Desarrollo, mira la charla de [Brian Vaughn](https://twitter.com/brian_d_vaughn):
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/oxDfrke8rZg" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/oxDfrke8rZg" title="React Developer Tooling" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### React sin memoización {/*react-without-memo*/}
 
 De vista al futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxpro) una actualización de la investigación de nuestros laboratorios de React sobre un compilador para el auto-memoizado. Verifica esta charla para más información y una demo sobre el prototipo del compilador:
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/lGEMwh32soc" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/lGEMwh32soc" title="React without memo" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### Discurso sobre la documentación de React {/*react-docs-keynote*/}
 
 [Rachel Nabors](https://twitter.com/rachelnabors) inició una sección de charlas sobre el aprendizaje y el diseño con React con un discurso sobre la inversión en la nueva documentación de React ([ahora publicada como react.dev](/blog/2023/03/16/introducing-react-dev)):
 
-<<<<<<< HEAD
 <YouTubeIframe src="https://www.youtube.com/embed/mneDaMYOKP8" title="Reproductor de video de YouTube" />
-=======
-<YouTubeIframe src="https://www.youtube.com/embed/mneDaMYOKP8" title="React docs keynote" />
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ### Y más... {/*and-more*/}
 

@@ -4,11 +4,7 @@ title: Server Components
 
 <RSC>
 
-<<<<<<< HEAD
-Los Server Components son para usarse en [React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
-=======
-Server Components are for use in [React Server Components](/learn/start-a-new-react-project#full-stack-frameworks).
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
+Los Server Components son para usarse en [React Server Components](/learn/start-a-new-react-project#full-stack-frameworks).
 
 </RSC>
 
@@ -26,11 +22,7 @@ Este entorno separado es el "servidor" en React Server Components. Los Server Co
 
 #### ¿Cómo se crea la compatibilidad para los Server Components? {/*how-do-i-build-support-for-server-components*/}
 
-<<<<<<< HEAD
 Mientras que los React Server Components en React 19 son estables y no se romperán entre versiones menores, las API subyacentes utilizadas para implementar un bundler o framework de React Server Components no siguen un versionado semántico y pueden romperse entre versiones menores en React 19.x.
-=======
-While React Server Components in React 19 are stable and will not break between minor versions, the underlying APIs used to implement a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 Para soportar React Server Components como bundler o framework, recomendamos usar una versión específica de React, o usar la versión Canary. Seguiremos trabajando con bundlers y frameworks para estabilizar las API utilizadas para implementar React Server Components en el futuro.
 
@@ -278,13 +270,8 @@ import db from './database';
 async function Page({id}) {
   // Suspenderá el Server Component.
   const note = await db.notes.get(id);
-<<<<<<< HEAD
   
   // NOTA: no se espera, se iniciará aquí y se esperará en el cliente.
-=======
-
-  // NOTE: not awaited, will start here and await on the client.
->>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
   const commentsPromise = db.comments.get(note.id);
   return (
     <div>
