@@ -10,7 +10,11 @@ Las directivas son necesarias en [React Server Components](/reference/rsc/server
 
 <Intro>
 
+<<<<<<< HEAD
 Las directivas proporcionan instrucciones para [bundlers compatibles con React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+=======
+Directives provide instructions to [bundlers compatible with React Server Components](/learn/start-a-new-react-project#full-stack-frameworks).
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
 </Intro>
 

@@ -95,7 +95,7 @@ Puede que sientas la tentación de intentar llamar a `play()` o `pause()` durant
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7, 9]}}
 import { useState, useRef, useEffect } from 'react';
 
 function VideoPlayer({ src, isPlaying }) {
@@ -617,7 +617,7 @@ A common pitfall for preventing Effects firing twice in development is to use a 
 
 This makes it so you only see `"✅ Connecting..."` once in development, but it doesn't fix the bug.
 
-When the user navigates away, the connection still isn't closed and when they navigate back, a new connection is created. As the user navigates across the app, the connections would keep piling up, the same as it would before the "fix". 
+When the user navigates away, the connection still isn't closed and when they navigate back, a new connection is created. As the user navigates across the app, the connections would keep piling up, the same as it would before the "fix".
 
 To fix the bug, it is not enough to just make the Effect run once. The effect needs to work after re-mounting, which means the connection needs to be cleaned up like in the solution above.
 
@@ -732,8 +732,13 @@ Escribir llamadas `fetch` dentro de Efectos es una forma [popular de obtener dat
 
 Esta lista de inconvenientes no es específica de React. Se aplica a la obtención de datos en el montaje con cualquier biblioteca. Al igual que con el enrutamiento, la obtención de datos no es trivial para hacerlo bien, por lo que recomendamos los siguientes enfoques:
 
+<<<<<<< HEAD
 - **Si usas un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks), utiliza su mecanismo de obtención de datos integrado.** Los frameworks modernos de React han integrado mecanismos de obtención de datos que son eficientes y no sufren los inconvenientes anteriores.
 - **De lo contrario, considera la posibilidad de utilizar o construir una caché del lado del cliente.** Las soluciones populares de código abierto incluyen [React Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), y [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) También puedes crear tu propia solución, en cuyo caso se usarían Efectos por debajo, pero también se añadiría lógica para deduplicar las peticiones, almacenar en caché las respuestas y evitar las cascadas de red (precargando los datos o elevando los requisitos de datos a las rutas).
+=======
+- **If you use a [framework](/learn/start-a-new-react-project#full-stack-frameworks), use its built-in data fetching mechanism.** Modern React frameworks have integrated data fetching mechanisms that are efficient and don't suffer from the above pitfalls.
+- **Otherwise, consider using or building a client-side cache.** Popular open source solutions include [React Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), and [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) You can build your own solution too, in which case you would use Effects under the hood, but add logic for deduplicating requests, caching responses, and avoiding network waterfalls (by preloading data or hoisting data requirements to routes).
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
 Puedes seguir obteniendo datos directamente en Efectos si ninguno de estos enfoques te conviene.
 
@@ -1004,8 +1009,13 @@ import { useEffect, useRef } from 'react';
 export default function MyInput({ value, onChange }) {
   const ref = useRef(null);
 
+<<<<<<< HEAD
   // TODO: Esto no funciona del todo. Corrígelo.
   // ref.current.focus()    
+=======
+  // TODO: This doesn't quite work. Fix it.
+  // ref.current.focus()
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
   return (
     <input
@@ -1468,7 +1478,8 @@ Este componente muestra la biografía de la persona seleccionada. Carga la biogr
 
 <Sandpack>
 
-```js src/App.js
+{/* not the most efficient, but this validation is enabled in the linter only, so it's fine to ignore it here since we know what we're doing */}
+```js {expectedErrors: {'react-compiler': [9]}} src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1541,7 +1552,8 @@ Para solucionar esta condición de carrera, añade una función de limpieza:
 
 <Sandpack>
 
-```js src/App.js
+{/* not the most efficient, but this validation is enabled in the linter only, so it's fine to ignore it here since we know what we're doing */}
+```js {expectedErrors: {'react-compiler': [9]}} src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1605,4 +1617,3 @@ Para ignorar el resultado de una llamada de API desactualizada, también puedes 
 </Solution>
 
 </Challenges>
-

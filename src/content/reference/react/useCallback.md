@@ -12,6 +12,12 @@ const cachedFn = useCallback(fn, dependencies)
 
 </Intro>
 
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useCallback` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
 <InlineToc />
 
 ---
@@ -46,7 +52,11 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 En el renderizado inicial, `useCallback` devuelve la función `fn` que le has enviado. 
 
+<<<<<<< HEAD
 Durante los renderizados siguientes, puede devolver una función `fn` ya almacenada desde el último renderizado (si las dependencias no han cambiado), o devolver la función `fn` que hayas enviado durante el renderizado actual.
+=======
+During subsequent renders, it will either return an already stored `fn` function from the last render (if the dependencies haven't changed), or return the `fn` function you have passed during this render.
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
 #### Advertencias {/*caveats*/}
 
@@ -124,7 +134,7 @@ function ProductPage({ productId, referrer, theme }) {
       orderDetails,
     });
   }
-  
+
   return (
     <div className={theme}>
       {/* ... así las props de ShippingForm nunca serán iguales, y cada vez se renderizará nuevamente */}
@@ -201,8 +211,13 @@ La diferencia está en *qué* te permiten almacenar:
 
 Si ya estás familiarizado con [`useMemo`](/reference/react/useMemo), tal vez te sea útil ver `useCallback` como esto:
 
+<<<<<<< HEAD
 ```js
 // Implementación simplificada (dentro de React)
+=======
+```js {expectedErrors: {'react-compiler': [3]}}
+// Simplified implementation (inside React)
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 function useCallback(fn, dependencies) {
   return useMemo(() => fn, dependencies);
 }
@@ -216,9 +231,15 @@ function useCallback(fn, dependencies) {
 
 #### ¿Deberías siempre usar useCallback? {/*should-you-add-usecallback-everywhere*/}
 
+<<<<<<< HEAD
 Si tu aplicación es similar a este sitio, y la mayoría de las interacciones son bastas (como reemplazar una página o una sección entera), la memoización generalmente es innecesaria. Por otro lado, si tu aplicación es similar a un editor de dibujo, y la mayor parte de sus interacciones son granulares (como mover figuras), entonces la memoización puede ser muy útil.
 
 Almacenar una función con `useCallback` solo es beneficioso en unos pocos casos:
+=======
+If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+
+Caching a function with `useCallback` is only valuable in a few cases:
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
 - Al enviarla como prop al componente envuelto en [`memo`](/reference/react/memo). Querrás omitir el renderizado subsecuente si el valor no ha cambiado. La memoización permite que tu componente se renderice nuevamente solo cuando las dependencias no sean las mismas.
 - La función que estás enviando se usa más tarde como una dependencia de algún Hook. Por ejemplo, cuando otra función envuelta en `useCallback` depende de ella, o cuando dependes de dicha función desde [`useEffect.`](/reference/react/useEffect)
@@ -304,7 +325,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -443,7 +464,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -862,7 +883,7 @@ Cuando encuentres cuál dependencia está rompiendo la memoización, puedes enco
 
 Suponiendo que el componente `Chart` está envuelto en [`memo`](/reference/react/memo). Deseas omitir el rerenderizado en cada `Chart` en la lista cuando el componente `ReportList` se rerenderiza. Sin embargo, no puedes llamar a `useCallback` dentro de un ciclo:
 
-```js {5-14}
+```js {expectedErrors: {'react-compiler': [6]}} {5-14}
 function ReportList({ items }) {
   return (
     <article>
