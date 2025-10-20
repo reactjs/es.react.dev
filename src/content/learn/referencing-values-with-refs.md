@@ -211,7 +211,7 @@ Si intentaras implementarlo con una ref, React nunca rerenderizaría el componen
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [13]}}
 import { useRef } from 'react';
 
 export default function Counter() {
@@ -313,7 +313,7 @@ Variables comunes como `let timeoutID` no "sobreviven" entre rerenderizados porq
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useState } from 'react';
 
 export default function Chat() {
@@ -418,7 +418,7 @@ Este botón se supone que alterna entre mostrar "Encendido" y "Apagado". Sin emb
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useRef } from 'react';
 
 export default function Toggle() {
@@ -464,7 +464,11 @@ export default function Toggle() {
 
 #### Arregla el _debounce_ {/*fix-debouncing*/}
 
+<<<<<<< HEAD
 En este ejemplo, todos los controladores de clic usan [el "corte de rebote" o _"debounce"_.](https://redd.one/blog/debounce-vs-throttle) Para ver que significa esto, presiona uno de los botones. Fíjate como el mensaje aparece un segundo después. Si presionas el botón mientras esperas el mensaje, el temporizador se reiniciará. Así que si te mantienes cliqueando el mismo botón rápidamente muchas veces, el mensaje no aparecerá hasta un segundo *después* de que pares de hacer clic. El _debounce_ te permite retrasar algunas acciones hasta que el usuario "pare de hacer cosas".
+=======
+In this example, all button click handlers are ["debounced".](https://kettanaito.com/blog/debounce-vs-throttle) To see what this means, press one of the buttons. Notice how the message appears a second later. If you press the button while waiting for the message, the timer will reset. So if you keep clicking the same button fast many times, the message won't appear until a second *after* you stop clicking. Debouncing lets you delay some action until the user "stops doing things".
+>>>>>>> f8c81a0f4f8e454c850f0c854ad054b32313345c
 
 Este ejemplo funciona, pero no tan bien como se esperaba. Los botones no son independientes. Para ver el problema, haz clic en uno de los botones, y luego inmediatamente haz clic en otro botón. Esperarías que después de un retraso, podrías ver los mensajes de ambos botones. Pero solo se muestra el mensaje del último botón. El mensaje del primer botón se pierde.
 

@@ -2007,7 +2007,11 @@ Sin embargo, imagina ahora que estás navegando entre dos perfiles de usuario di
 ### Proporcionar un _fallback_ para errores de servidor y contenido solo-cliente {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
 
 
+<<<<<<< HEAD
 Si utilizas una de las [APIs de renderizado en el servidor con *streaming*](/reference/react-dom/server) (o un *framework* que depende de ellas), React también utilizará tus barreras de `<Suspense>` para manejar errores en el servidor. Si un componente lanza un error en el servidor, React no abortará el renderizado en el servidor. Lo que hará será encontrar el componente `<Suspense>` más cercano encima de este e incluirá su *fallback* (un *spinner*, por ejemplo) dentro del HTML generado en el  servidor. El usuario verá un *spinner* en lugar de un error.
+=======
+On the client, React will attempt to render the same component again. If it errors on the client too, React will throw the error and display the closest [Error Boundary.](/reference/react/Component#static-getderivedstatefromerror) However, if it does not error on the client, React will not display the error to the user since the content was eventually displayed successfully.
+>>>>>>> f8c81a0f4f8e454c850f0c854ad054b32313345c
 
 En el cliente, React intentará renderizar el mismo componente nuevamente. Si ocurre un error también en el cliente, React lanzará el error y mostrará la [barrera de error](/reference/react/Component#static-getderivedstatefromerror) más cercana. Sin embargo, si no ocurre un error en el cliente, React no le mostrará el error al usuario dado que el contenido eventualmente se le mostró al usuario satisfactoriamente.
 
