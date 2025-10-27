@@ -10,8 +10,14 @@ La documentación de React en [react.dev](https://react.dev) proporciona documen
 
 Nuestro objetivo es mantener la documentación actualizada en las versiones principales y no publicamos versiones para cada versión menor o de parche. Cuando se lanza una nueva versión principal, archivamos la documentación de la versión anterior como `x.react.dev`. Consulta nuestra [política de versiones](/community/versioning-policy) para obtener más información.
 
+<<<<<<< HEAD
 Puedes encontrar un archivo de versiones principales anteriores a continuación.
 ## Última versión: 19.1 {/*latest-version*/}
+=======
+You can find an archive of previous major versions below.
+
+## Latest version: 19.2 {/*latest-version*/}
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
 
 - [react.dev](https://react.dev) {/*docs-19*/}
 
@@ -40,6 +46,8 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [React v19](/blog/2024/12/05/react-19)
 - [React 19 Upgrade Guide](/blog/2024/04/25/react-19-upgrade-guide)
 - [React Compiler Beta Release](/blog/2024/10/21/react-compiler-beta-release)
+- [React Compiler v1.0](/blog/2025/10/07/react-compiler-1)
+- [React 19.2](/blog/2025/10/01/react-19-2)
 
 **Talks**
 - [React 19 Keynote](https://www.youtube.com/watch?v=lyEKhv8-3n0)
@@ -51,6 +59,7 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=IBBN-s77YSI)
 
 **Releases**
+- [v19.2.0 (October, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1920-october-1st-2025)
 - [v19.1.0 (March, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1910-march-28-2025)
 - [v19.0.0 (December, 2024)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1900-december-5-2024)
 
@@ -295,7 +304,11 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 
 React se convirtió en código abierto el 29 de mayo de 2013. el commit inicial es: [`75897c`: Versión pública inicial](https://github.com/facebook/react/commit/75897c2dcd1dd3a6ca46284dd37e13d22b4b16b4)
 
+<<<<<<< HEAD
 Consulta la primera publicación del blog: [¿Por qué creamos React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html)
+=======
+See the first blog post: [Why did we build React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html)
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
 
 React se convirtió en código abierto en Facebook Seattle en 2013:
 

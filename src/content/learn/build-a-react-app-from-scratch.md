@@ -115,14 +115,25 @@ De manera similar, si confías en que las aplicaciones usen tu framework para di
 
 La división del código por rutas, cuando se integra con el empaquetamiento y la obtención de datos, puede reducir el tiempo de carga inicial de su aplicación y el tiempo que tarda en renderizarse el contenido visible más grande de la aplicación. ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
+<<<<<<< HEAD
 Para obtener instrucciones sobre cómo dividir el código, consulte la documentación de su herramienta de compilación:
 - [Optimizaciones de compilación](https://es.vite.dev/guide/features.html#optimizaciones-de-compilacion)
 - [División de código con Parcel](https://parceljs.org/features/code-splitting/)
 - [División de código con Rsbuild](https://rsbuild.dev/guide/optimization/code-splitting)
+=======
+For code-splitting instructions, see your build tool docs:
+- [Vite build optimizations](https://vite.dev/guide/features.html#build-optimizations)
+- [Parcel code splitting](https://parceljs.org/features/code-splitting/)
+- [Rsbuild code splitting](https://rsbuild.dev/guide/optimization/code-splitting)
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
 
 ### Mejorar el rendimiento de las aplicaciones {/*improving-application-performance*/}
 
+<<<<<<< HEAD
 Dado que la herramienta de compilación que elija sólo admite aplicaciones de una sola página (SPA), tendrá que implementar otras [patrones de renderizado](https://www.patterns.dev/vanilla/rendering-patterns) como server-side rendering (SSR), static site generation (SSG), y/o React Server Components (RSC). Aunque al principio no necesites estas funciones, en el futuro puede que haya algunas rutas que se beneficien de SSR, SSG o RSC.
+=======
+Since the build tool you select only supports single page apps (SPAs), you'll need to implement other [rendering patterns](https://www.patterns.dev/vanilla/rendering-patterns) like server-side rendering (SSR), static site generation (SSG), and/or React Server Components (RSC). Even if you don't need these features at first, in the future there may be some routes that would benefit SSR, SSG or RSC.
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
 
 * **Single-page apps (SPA)** cargan una única página HTML y la actualizan dinámicamente a medida que el usuario interactúa con la aplicación. Las SPA son más fáciles de usar, pero pueden tener tiempos de carga iniciales más lentos. Las SPA son la arquitectura por defecto de la mayoría de las herramientas de compilación.
 
