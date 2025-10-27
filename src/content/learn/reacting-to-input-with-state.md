@@ -4,7 +4,7 @@ title: Reaccionar a las entradas con el estado
 
 <Intro>
 
-React utiliza una forma declarativa para manipular la UI. En vez de manipular trozos de la UI de forma individual directamente, describes los diferentes estados en los que puede estar tu componente, y cambias entre ellos en respuesta al lo que haga el usuario. Esto es similar a como los diseñadores piensan en la UI
+React utiliza una forma declarativa para manipular la UI. En vez de manipular trozos de la UI de forma individual directamente, describes los diferentes estados en los que puede estar tu componente, y cambias entre ellos en respuesta a lo que haga el usuario. Esto es similar a como los diseñadores piensan en la UI
 
 </Intro>
 
@@ -29,9 +29,9 @@ En la **programación imperativa,** lo descrito arriba se corresponde directamen
 
 <Illustration src="/images/docs/illustrations/i_imperative-ui-programming.png"  alt="En un coche conducido por una persona con apariencia ansiosa, representando a JavaScript, un pasajero le ordena al conductor a realizar una complicada secuencia de giros e indicaciones." />
 
-No sabe a donde quieres ir, solo sigue tus indicaciones. (Y si le das las indicaciones incorrectas, ¡acabarás en el lugar equivocado!) Se llama *imperativo* por que tienes que "mandar" a cada elemento, desde el indicativo de carga hasta el botón, diciéndole al ordenador *cómo* tiene que actualizar la UI.
+No sabe a donde quieres ir, solo sigue tus indicaciones. (Y si le das las indicaciones incorrectas, ¡acabarás en el lugar equivocado!) Se llama *imperativo* porque tienes que "mandar" a cada elemento, desde el indicativo de carga hasta el botón, diciéndole al ordenador *cómo* tiene que actualizar la UI.
 
-En este ejemplo de UI declarativa, el formulario esta construido *sin* React. Utiliza el [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) del navegador:
+En este ejemplo de UI declarativa, el formulario está construido *sin* React. Utiliza el [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) del navegador:
 
 <Sandpack>
 
@@ -131,11 +131,11 @@ body { font-family: sans-serif; margin: 20px; padding: 0; }
 
 </Sandpack>
 
-Manipular la UI de forma imperativa funciona lo suficientemente bien en ejemplos aislados, pero se vuelve mas complicado de manejar de forma exponencial en sistemas complejos. Imagina actualizar una pagina llena de formularios diferentes como este. Añadir un elemento nuevo a la UI o una nueva interacción requeriría revisar todo el código existente meticulosamente para asegurarse de no haber introducido un bug (por ejemplo, olvidando mostrar u ocultar algo).
+Manipular la UI de forma imperativa funciona lo suficientemente bien en ejemplos aislados, pero se vuelve más complicado de manejar de forma exponencial en sistemas complejos. Imagina actualizar una pagina llena de formularios diferentes como este. Añadir un elemento nuevo a la UI o una nueva interacción requeriría revisar todo el código existente meticulosamente para asegurarse de no haber introducido un bug (por ejemplo, olvidando mostrar u ocultar algo).
 
 React fue construido para solucionar este problema.
 
-En React, no necesitas manipular directamente la UI,lo que significa que no necesitas habilitar, deshabilitar, mostrar, u ocultar los componentes directamente. En su lugar, tú **declaras lo que quieres mostrar,** y React averigua cómo actualizar la UI. Piensa en ello como montarte en un taxi y decirle al conductor a donde quieres ir en lugar de decirle paso por paso que hacer. Es el trabajo del conductor llevarte a tu destino, ¡e incluso conocerá algún atajo que no habías considerado!
+En React, no necesitas manipular directamente la UI, lo que significa que no necesitas habilitar, deshabilitar, mostrar, u ocultar los componentes directamente. En su lugar, tú **declaras lo que quieres mostrar,** y React averigua cómo actualizar la UI. Piensa en ello como montarte en un taxi y decirle al conductor a donde quieres ir en lugar de decirle paso por paso que hacer. Es el trabajo del conductor llevarte a tu destino, ¡e incluso conocerá algún atajo que no habías considerado!
 
 <Illustration src="/images/docs/illustrations/i_declarative-ui-programming.png" alt="En un coche conducido por React, un pasajero indica el lugar al que desea ir en el mapa. React sabe como hacerlo." />
 
@@ -223,7 +223,7 @@ export default function Form({
         </button>
         {status === 'error' &&
           <p className="Error">
-            Buen intento, pero incorrecto. ¡Intntalo de nuevo!
+            Buen intento, pero incorrecto. ¡Inténtalo de nuevo!
           </p>
         }
       </form>
