@@ -12,6 +12,12 @@ const cachedValue = useMemo(calculateValue, dependencies)
 
 </Intro>
 
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useMemo` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
 <InlineToc />
 
 ---
@@ -143,7 +149,11 @@ También ten en cuenta que medir el rendimiento en desarrollo no te dará los re
 
 #### ¿Deberías agregar useMemo en todas partes? {/*should-you-add-usememo-everywhere*/}
 
+<<<<<<< HEAD
 Si tu aplicación es como este sitio y la mayoría de las interacciones son bruscas (como reemplazar una página o una sección completa), la memoización generalmente no es necesaria. Por otro lado, si tu aplicación se parece más a un editor de dibujos y la mayoría de las interacciones son granulares (como formas en movimiento), entonces la memoización podría resultarte muy útil.
+=======
+If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2
 
 Optimizar con `useMemo` solo es valioso en algunos casos:
 
@@ -711,7 +721,7 @@ export default function TodoList({ todos, theme, tab }) {
 }
 ```
 
-```js src/List.js
+```js {expectedErrors: {'react-compiler': [5, 6]}} src/List.js
 import { memo } from 'react';
 
 const List = memo(function List({ items }) {
@@ -849,7 +859,7 @@ export default function TodoList({ todos, theme, tab }) {
 }
 ```
 
-```js src/List.js
+```js {expectedErrors: {'react-compiler': [5, 6]}} src/List.js
 import { memo } from 'react';
 
 const List = memo(function List({ items }) {
@@ -1122,7 +1132,7 @@ function ChatRoom({ roomId }) {
       serverUrl: 'https://localhost:1234',
       roomId: roomId
     }
-    
+
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -1367,7 +1377,7 @@ Cuando encuentres qué dependencia está interrumpiendo la memoización, busca u
 
 Supongamos que el componente `Chart` está envuelto en [`memo`](/reference/react/memo). Quieres omitir volver a renderizar cada `Chart` en la lista cuando el componente `ReportList` se vuelve a renderizar. Sin embargo, no puedes llamar a `useMemo` en un bucle:
 
-```js {5-11}
+```js {expectedErrors: {'react-compiler': [6]}} {5-11}
 function ReportList({ items }) {
   return (
     <article>
