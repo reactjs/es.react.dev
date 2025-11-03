@@ -27,9 +27,18 @@ Estas APIs se exportan desde el paquete `react`, pero no se recomiendan para ser
 
 Las siguientes API se eliminaron en React 19:
 
+<<<<<<< HEAD
 * [`createFactory`](https://18.react.dev/reference/react/createFactory): utiliza JSX en su lugar.
 * Componentes de Clase: [`static contextTypes`](https://18.react.dev//reference/react/Component#static-contexttypes): utiliza [`static contextType`](#static-contexttype) en su lugar.
 * Componentes de Clase: [`static childContextTypes`](https://18.react.dev//reference/react/Component#static-childcontexttypes): utiliza [`static contextType`](#static-contexttype) en su lugar.
 * Componentes de Clase: [`static getChildContext`](https://18.react.dev//reference/react/Component#getchildcontext): utiliza [`Context.Provider`](/reference/react/createContext#provider) en su lugar.
 * Componentes de Clase: [`static propTypes`](https://18.react.dev//reference/react/Component#static-proptypes): utiliza un sistema de tipos como [TypeScript](https://www.typescriptlang.org/) en su lugar.
 * Componentes de Clase: [`this.refs`](https://18.react.dev//reference/react/Component#refs): utiliza [`createRef`](/reference/react/createRef) en su lugar.
+=======
+* [`createFactory`](https://18.react.dev/reference/react/createFactory): use JSX instead.
+* Class Components: [`static contextTypes`](https://18.react.dev//reference/react/Component#static-contexttypes): use [`static contextType`](#static-contexttype) instead.
+* Class Components: [`static childContextTypes`](https://18.react.dev//reference/react/Component#static-childcontexttypes): use [`static contextType`](#static-contexttype) instead.
+* Class Components: [`static getChildContext`](https://18.react.dev//reference/react/Component#getchildcontext): use [`Context`](/reference/react/createContext#provider) instead.
+* Class Components: [`static propTypes`](https://18.react.dev//reference/react/Component#static-proptypes): use a type system like [TypeScript](https://www.typescriptlang.org/) instead.
+* Class Components: [`this.refs`](https://18.react.dev//reference/react/Component#refs): use [`createRef`](/reference/react/createRef) instead.
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2

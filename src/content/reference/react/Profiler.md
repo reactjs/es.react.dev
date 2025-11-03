@@ -37,7 +37,11 @@ Envuelve un árbol de componentes en un `<Profiler>` para medir su rendimiento d
 
 #### Advertencias {/*caveats*/}
 
+<<<<<<< HEAD
 * El perfilado agrega cierta sobrecarga adicional, por lo que **está deshabilitado en la versión de producción de manera predeterminada.** Para optar por el perfilado en producción, debes habilitar una [versión especial de producción con el perfilado habilitado.](https://fb.me/react-profiling)
+=======
+* Profiling adds some additional overhead, so **it is disabled in the production build by default.** To opt into production profiling, you need to enable a [special production build with profiling enabled.](/reference/dev-tools/react-performance-tracks#using-profiling-builds)
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2
 
 ---
 
@@ -81,13 +85,20 @@ Se requieren dos props: un `id` (string) y un *callback* `onRender` (function) q
 
 <Pitfall>
 
+<<<<<<< HEAD
 El perfilado agrega una sobrecarga adicional, por lo que **está desactivado en la compilación de producción de forma predeterminada.** Para habilitar el perfilado en producción, debes habilitar una [compilación especial de producción con el perfilado activado.](https://fb.me/react-profiling)
+=======
+Profiling adds some additional overhead, so **it is disabled in the production build by default.** To opt into production profiling, you need to enable a [special production build with profiling enabled.](/reference/dev-tools/react-performance-tracks#using-profiling-builds)
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2
 
 </Pitfall>
 
 <Note>
 
 `<Profiler>` te permite recopilar mediciones de forma programática.  Si estás buscando un perfilador interactivo, prueba la pestaña Profiler en las [Herramientas de Desarrollo de React](/learn/react-developer-tools). Expone funcionalidades similares a una extensión del navegador.
+
+Components wrapped in `<Profiler>` will also be marked in the [Component tracks](/reference/dev-tools/react-performance-tracks#components) of React Performance tracks even in profiling builds.
+In development builds, all components are marked in the Components track regardless of whether they're wrapped in `<Profiler>`.
 
 </Note>
 
