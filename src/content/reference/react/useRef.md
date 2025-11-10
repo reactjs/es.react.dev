@@ -197,7 +197,7 @@ React espera que el cuerpo de tu componente [se comporte como una función pura]
 
 Leer o escribir una ref **durante el renderizado** rompe estas expectativas.
 
-```js {3-4,6-7}
+```js {expectedErrors: {'react-compiler': [4]}} {3-4,6-7}
 function MyComponent() {
   // ...
   // 🚩 No escribas una ref durante el renderizado
@@ -573,7 +573,11 @@ export default function MyInput({ value, onChange }) {
 }
 ```
 
+<<<<<<< HEAD
 Y luego añade `ref` a la lista de props que acepta tu componente y pasa `ref` como una prop al [componente integrado](/reference/react-dom/components/common) hijo que corresponda de esta forma:
+=======
+And then add `ref` to the list of props your component accepts and pass `ref` as a prop to the relevant child [built-in component](/reference/react-dom/components/common) like this:
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 ```js {1,6}
 function MyInput({ value, onChange, ref }) {

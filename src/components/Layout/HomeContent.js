@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -244,12 +251,20 @@ export function HomeContent() {
               con un framework
             </Header>
             <Para>
+<<<<<<< HEAD
               React es una biblioteca. Te permite agrupar componentes, pero no
               prescribe cómo hacer el enrutamiento y la obtención de datos. Para
               construir una aplicación completa en React, recomendamos un
               framework <i>full-stack</i> de React como{' '}
               <Link href="https://nextjs.org">Next.js</Link> o{' '}
               <Link href="https://remix.run">Remix</Link>.
+=======
+              React is a library. It lets you put components together, but it
+              doesn’t prescribe how to do routing and data fetching. To build an
+              entire app with React, we recommend a full-stack React framework
+              like <Link href="https://nextjs.org">Next.js</Link> or{' '}
+              <Link href="https://reactrouter.com">React Router</Link>.
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
             </Para>
           </Center>
           <FullBleed>
@@ -769,9 +784,7 @@ function CommunityGallery() {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="relative flex overflow-x-hidden overflow-y-visible w-auto">
+    <div ref={ref} className="relative flex overflow-x-clip w-auto">
       <div
         className="w-full py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
         style={{
@@ -798,15 +811,16 @@ const CommunityImages = memo(function CommunityImages({isLazy}) {
         <div
           key={i}
           className={cn(
-            `group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative`
+            `group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl`
           )}>
           <div
             className={cn(
-              'h-auto relative rounded-2xl overflow-hidden before:-skew-x-12 before:absolute before:inset-0 before:-translate-x-full group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-all ease-in-out duration-300',
+              'h-auto rounded-2xl before:rounded-2xl before:absolute before:pointer-events-none before:inset-0 before:transition-opacity before:-z-1 before:shadow-lg lg:before:shadow-2xl before:opacity-0 before:group-hover:opacity-100  transition-transform ease-in-out duration-300',
               i % 2 === 0
-                ? 'rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl'
-                : 'group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]'
+                ? 'rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110'
+                : 'group-hover:rotate-1 group-hover:scale-110 rotate-[-2deg]'
             )}>
+<<<<<<< HEAD
             <Image
               loading={isLazy ? 'lazy' : 'eager'}
               src={src}
@@ -815,6 +829,19 @@ const CommunityImages = memo(function CommunityImages({isLazy}) {
               height={100}
               className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
             />
+=======
+            <div
+              className={cn(
+                'overflow-clip relative before:absolute before:inset-0 before:pointer-events-none before:-translate-x-full group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-transform ease-in-out duration-300'
+              )}>
+              <img
+                loading={isLazy ? 'lazy' : 'eager'}
+                src={src}
+                alt={alt}
+                className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
+              />
+            </div>
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
           </div>
         </div>
       ))}
@@ -875,7 +902,8 @@ function ExampleLayout({
           </div>
           <div
             ref={contentRef}
-            className="relative mt-0 lg:-my-20 w-full p-2.5 xs:p-5 lg:p-10 flex grow justify-center">
+            className="relative mt-0 lg:-my-20 w-full p-2.5 xs:p-5 lg:p-10 flex grow justify-center"
+            dir="ltr">
             {right}
             <div
               className={cn(
@@ -1187,7 +1215,7 @@ async function Talks({ confId }) {
         </CodeBlock>
       }
       right={
-        <NavContext.Provider value={{slug, navigate}}>
+        <NavContext value={{slug, navigate}}>
           <BrowserChrome
             domain="example.com"
             path={'confs/' + slug}
@@ -1207,7 +1235,7 @@ async function Talks({ confId }) {
               </Suspense>
             </ExamplePanel>
           </BrowserChrome>
-        </NavContext.Provider>
+        </NavContext>
       }
     />
   );

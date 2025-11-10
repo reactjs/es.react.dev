@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -81,7 +88,11 @@ function FooterLink({
       />
       <div className="flex flex-col overflow-hidden">
         <span className="text-sm font-bold tracking-wide no-underline uppercase text-secondary dark:text-secondary-dark group-focus:text-link dark:group-focus:text-link-dark group-focus:text-opacity-100">
+<<<<<<< HEAD
           {typeTranslation}
+=======
+          {type === 'Previous' ? 'Previous' : 'Next'}
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
         </span>
         <span className="text-lg break-words group-hover:underline">
           {title}
