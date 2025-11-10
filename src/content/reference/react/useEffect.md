@@ -896,7 +896,11 @@ En este ejemplo, no se necesita una función de limpieza porque la clase `MapWid
 
 ### Obtención de datos con Efectos {/*fetching-data-with-effects*/}
 
+<<<<<<< HEAD
 Puedes utilizar un efecto para obtener datos para tu componente. Ten en cuenta que [si utilizas un framework,](/learn/start-a-new-react-project#building-with-a-full-featured-framework) usar el mecanismo de datos de tu framework será mucho más eficiente que escribir los efectos manualmente.
+=======
+You can use an Effect to fetch data for your component. Note that [if you use a framework,](/learn/start-a-new-react-project#full-stack-frameworks) using your framework's data fetching mechanism will be a lot more efficient than writing Effects manually.
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 Si quieres obtener datos con un Efecto manualmente, tu código podría verse así:
 
@@ -928,7 +932,8 @@ Observa que la variable `ignore` se inicializa con `false`, y se reasigna a `tru
 
 <Sandpack>
 
-```js src/App.js
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [9]}} src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1048,8 +1053,13 @@ Escribir llamadas `fetch` dentro de Efectos es una forma [popular de obtener dat
 
 Esta lista de inconvenientes no es específica de React. Se aplica a la obtención de datos en el montaje con cualquier biblioteca. Al igual que con el enrutamiento, la obtención de datos no es trivial para hacerlo bien, por lo que recomendamos los siguientes enfoques:
 
+<<<<<<< HEAD
 - **Si usas un [framework](/learn/start-a-new-react-project#building-with-a-full-featured-framework), utiliza su mecanismo de obtención de datos integrado.** Los frameworks modernos de React han integrado mecanismos de obtención de datos que son eficientes y no sufren los inconvenientes anteriores.
 - **De lo contrario, considera la posibilidad de utilizar o construir una caché del lado del cliente.** Las soluciones populares de código abierto incluyen [React Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), y [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) También puedes crear tu propia solución, en cuyo caso se usarían Efectos por debajo, pero también se añadiría lógica para deduplicar las peticiones, almacenar en caché las respuestas y evitar las cascadas de red (pre-cargando los datos o elevando los requisitos de datos a las rutas).
+=======
+- **If you use a [framework](/learn/start-a-new-react-project#full-stack-frameworks), use its built-in data fetching mechanism.** Modern React frameworks have integrated data fetching mechanisms that are efficient and don't suffer from the above pitfalls.
+- **Otherwise, consider using or building a client-side cache.** Popular open source solutions include [TanStack Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), and [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) You can build your own solution too, in which case you would use Effects under the hood but also add logic for deduplicating requests, caching responses, and avoiding network waterfalls (by preloading data or hoisting data requirements to routes).
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 Puedes seguir obteniendo datos directamente en Efectos si ninguno de estos enfoques te conviene.
 
@@ -1690,6 +1700,7 @@ Ahora que se define la función `createOptions` function inside the Effect, dent
 
 ### Lectura de las últimas props y el estado desde un Efecto {/*reading-the-latest-props-and-state-from-an-effect*/}
 
+<<<<<<< HEAD
 <Wip>
 
 Esta sección describe una **API experimental que aún no se ha añadido a React,** por lo que todavía no se puede utilizar.
@@ -1697,6 +1708,9 @@ Esta sección describe una **API experimental que aún no se ha añadido a React
 </Wip>
 
 Por defecto, cuando lees un valor reactivo de un Efecto, tienes que añadirlo como una dependencia. Esto asegura que tu Efecto "reacciona" a cada cambio de ese valor. Para la mayoría de las dependencias, ese es el comportamiento que quieres.
+=======
+By default, when you read a reactive value from an Effect, you have to add it as a dependency. This ensures that your Effect "reacts" to every change of that value. For most dependencies, that's the behavior you want.
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 **Sin embargo, a veces querrá leer las *últimas* props y estados de un efecto sin "reaccionar" a ellos.** Por ejemplo, imagina que quieres registrar el número de artículos del carrito de compras en cada visita a la página:
 
@@ -1709,7 +1723,11 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
+<<<<<<< HEAD
 **¿Qué pasa si quieres registrar una nueva visita a la página después de cada cambio de `url`, pero *no* si sólo cambia el `shoppingCart`?** No puedes excluir `shoppingCart` de las dependencias sin romper las [reglas de reactividad.](#specifying-reactive-dependencies) Sin embargo, puedes expresar que *no quieres* que una parte de código "reaccione" a los cambios aunque sea llamado desde dentro de un Efecto. Para hacer esto, [declara un *Efecto de evento*](/learn/separating-events-from-effects#declaring-an-effect-event) con el Hook [`useEffectEvent`](/reference/react/experimental_useEffectEvent), y mueve el código que lea al `shoppingCart` dentro de tal Hook:
+=======
+**What if you want to log a new page visit after every `url` change, but *not* if only the `shoppingCart` changes?** You can't exclude `shoppingCart` from dependencies without breaking the [reactivity rules.](#specifying-reactive-dependencies) However, you can express that you *don't want* a piece of code to "react" to changes even though it is called from inside an Effect. [Declare an *Effect Event*](/learn/separating-events-from-effects#declaring-an-effect-event) with the [`useEffectEvent`](/reference/react/useEffectEvent) Hook, and move the code reading `shoppingCart` inside of it:
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
@@ -1733,11 +1751,17 @@ function Page({ url, shoppingCart }) {
 
 ### Mostrar contenidos diferentes en el servidor y en el cliente {/*displaying-different-content-on-the-server-and-the-client*/}
 
+<<<<<<< HEAD
 Si tu aplicación utiliza renderizado de lado del servidor (ya sea [directamente](/reference/react-dom/server) o a través de un [framework](/learn/start-a-new-react-project#building-with-a-full-featured-framework)), tu componente se renderizará en dos entornos diferentes. En el servidor, se renderizará para producir el HTML inicial. En el cliente, React ejecutará de nuevo el código de renderizado para poder adjuntar tus controladores de eventos a ese HTML. Por eso, para que la [hidratación](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcione, tu salida inicial de renderizado debe ser idéntica en el cliente y en el servidor.
+=======
+If your app uses server rendering (either [directly](/reference/react-dom/server) or via a [framework](/learn/start-a-new-react-project#full-stack-frameworks)), your component will render in two different environments. On the server, it will render to produce the initial HTML. On the client, React will run the rendering code again so that it can attach your event handlers to that HTML. This is why, for [hydration](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) to work, your initial render output must be identical on the client and the server.
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 En raras ocasiones, es posible que necesites mostrar un contenido diferente en el cliente. Por ejemplo, si su aplicación lee algunos datos del [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), no puede hacerlo en el servidor. Así es como típicamente se implementaría esto:
 
-```js
+
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [5]}}
 function MyComponent() {
   const [didMount, setDidMount] = useState(false);
 
