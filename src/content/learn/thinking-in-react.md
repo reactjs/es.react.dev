@@ -37,9 +37,15 @@ Comienza por dibujar cuadros alrededor de cada componente y subcomponente en el 
 
 Dependiendo de tu formación y experiencia, puedes pensar en dividir un diseño en componentes de distintas maneras:
 
+<<<<<<< HEAD
 * **Programación**--utiliza las mismas técnicas para decidir si debes crear una nueva función o un objeto. Una de estas técnicas es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_única), es decir, lo ideal es que un componente sólo haga una cosa. Si termina creciendo, debería descomponerse en subcomponentes más pequeños.
 * **CSS**--considera para qué harías selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
 * **Diseño**--considera cómo organizarías las capas del diseño.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 Si tu JSON está bien estructurado, a menudo encontrarás que se corresponde naturalmente con la estructura de componentes de tu UI. Esto ocurre porque la UI y los modelos de datos a menudo tienen la misma arquitectura de información--o sea, la misma forma. Separa tu UI en componentes, de manera que cada componente se corresponda con una pieza de tu modelo de datos.
 
