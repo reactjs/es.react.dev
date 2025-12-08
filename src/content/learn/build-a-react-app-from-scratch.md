@@ -34,7 +34,7 @@ El primer paso es instalar una herramienta de compilación como `vite`, `parcel`
 [Vite](https://es.vite.dev/) es una herramienta de compilación cuyo objetivo es proporcionar una experiencia de desarrollo más rápida y sencilla para los proyectos web modernos.
 
 <TerminalBlock>
-{`npm create vite@latest my-app -- --template react`}
+npm create vite@latest my-app -- --template react-ts
 </TerminalBlock>
 
 Vite sigue una filosofía bien definida y viene con configuraciones predeterminadas sensatas listas para usar. Vite tiene un rico ecosistema de plugins para dar soporte a Fast Refresh (actualización rápida), JSX, Babel/SWC y otras características comunes. Consulta el [plugin React](https://es.vite.dev/plugins/#vite-plugin-react) de Vite o el [plugin React SWC](https://es.vite.dev/plugins/#vite-plugin-react-swc) y el [proyecto de ejemplo de React SSR](https://es.vite.dev/guide/ssr#proyectos-de-ejemplo) para empezar.
@@ -46,7 +46,7 @@ Vite ya se está utilizando como herramienta de compilación en uno de nuestros 
 [Parcel](https://parceljs.org/) combina una excelente experiencia de desarrollo sin configuración inicial con una arquitectura escalable que puede llevar tu proyecto desde sus inicios hasta aplicaciones masivas en producción.
 
 <TerminalBlock>
-{`npm install --save-dev parcel`}
+npm install --save-dev parcel
 </TerminalBlock>
 
 Parcel es compatible de fábrica con Fast Refresh (actualización rápida), JSX, TypeScript, Flow y estilos. Consulta la [guía React de Parcel](https://parceljs.org/recipes/react/#getting-started) para empezar.
@@ -56,7 +56,7 @@ Parcel es compatible de fábrica con Fast Refresh (actualización rápida), JSX,
 [Rsbuild](https://rsbuild.dev/) es una herramienta de desarrollo basada en Rspack que ofrece una experiencia de desarrollo fluida para aplicaciones React. Incluye valores predeterminados cuidadosamente ajustados y optimizaciones de rendimiento listas para usar.
 
 <TerminalBlock>
-{`npx create-rsbuild --template react`}
+npx create-rsbuild --template react
 </TerminalBlock>
 
 Rsbuild incluye compatibilidad integrada para funcionalidades de React como Fast Refresh, JSX, TypeScript y estilos. Consulte la [guía React de Rsbuild](https://rsbuild.dev/guide/framework/react) para empezar.
@@ -97,7 +97,7 @@ Tenga en cuenta que la obtención de datos directamente en los componentes puede
 
 Si estás obteniendo datos de la mayoría de backends o APIs de estilo REST, sugerimos usar:
 
-- [React Query](https://react-query.tanstack.com/)
+- [TanStack Query](https://tanstack.com/query/)
 - [SWR](https://swr.vercel.app/)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 
@@ -115,14 +115,25 @@ De manera similar, si confías en que las aplicaciones usen tu framework para di
 
 La división del código por rutas, cuando se integra con el empaquetamiento y la obtención de datos, puede reducir el tiempo de carga inicial de su aplicación y el tiempo que tarda en renderizarse el contenido visible más grande de la aplicación. ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
+<<<<<<< HEAD
 Para obtener instrucciones sobre cómo dividir el código, consulte la documentación de su herramienta de compilación:
 - [Optimizaciones de compilación](https://es.vite.dev/guide/features.html#optimizaciones-de-compilacion)
 - [División de código con Parcel](https://parceljs.org/features/code-splitting/)
 - [División de código con Rsbuild](https://rsbuild.dev/guide/optimization/code-splitting)
+=======
+For code-splitting instructions, see your build tool docs:
+- [Vite build optimizations](https://vite.dev/guide/features.html#build-optimizations)
+- [Parcel code splitting](https://parceljs.org/features/code-splitting/)
+- [Rsbuild code splitting](https://rsbuild.dev/guide/optimization/code-splitting)
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 ### Mejorar el rendimiento de las aplicaciones {/*improving-application-performance*/}
 
+<<<<<<< HEAD
 Dado que la herramienta de compilación que elija sólo admite aplicaciones de una sola página (SPA), tendrá que implementar otras [patrones de renderizado](https://www.patterns.dev/vanilla/rendering-patterns) como server-side rendering (SSR), static site generation (SSG), y/o React Server Components (RSC). Aunque al principio no necesites estas funciones, en el futuro puede que haya algunas rutas que se beneficien de SSR, SSG o RSC.
+=======
+Since the build tool you select only supports single page apps (SPAs), you'll need to implement other [rendering patterns](https://www.patterns.dev/vanilla/rendering-patterns) like server-side rendering (SSR), static site generation (SSG), and/or React Server Components (RSC). Even if you don't need these features at first, in the future there may be some routes that would benefit SSR, SSG or RSC.
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 * **Single-page apps (SPA)** cargan una única página HTML y la actualizan dinámicamente a medida que el usuario interactúa con la aplicación. Las SPA son más fáciles de usar, pero pueden tener tiempos de carga iniciales más lentos. Las SPA son la arquitectura por defecto de la mayoría de las herramientas de compilación.
 

@@ -36,7 +36,11 @@ Para mostrar un recuadro de selección, renderiza el componente [nativo del nave
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<select>` soporta todos los [elementos prop comunes.](/reference/react-dom/components/common#props)
+=======
+`<select>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 Puedes [hacer un recuadro de selección controlado](#controlling-a-select-box-with-a-state-variable) al pasar una prop `value`:
 
