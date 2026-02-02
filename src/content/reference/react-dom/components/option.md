@@ -36,7 +36,11 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<option>` es compatible con todas las [props de elementos comunes.](/reference/react-dom/components/common#props)
+=======
+`<option>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> 38b52cfdf059b2efc5ee3223a758efe00319fcc7
 
 Además, `<option>` admite estas props:
 
