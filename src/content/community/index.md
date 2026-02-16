@@ -29,4 +29,8 @@ Cada comunidad está constituida por miles de usuarios de React.
 
 ## Noticias {/*news*/}
 
+<<<<<<< HEAD
 Para conocer las últimas noticias sobre React, [sigue **@reactjs** en Twitter](https://twitter.com/reactjs) y el [blog oficial de React](/blog/) en este sitio web.
+=======
+For the latest news about React, [follow **@reactjs** on Twitter](https://twitter.com/reactjs), [**@react.dev** on Bluesky](https://bsky.app/profile/react.dev) and the [official React blog](/blog/) on this website.
+>>>>>>> 55a317d40781a0054a05a9f6c443ae0bd71f7d7e
