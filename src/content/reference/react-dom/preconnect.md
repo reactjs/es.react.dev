@@ -4,7 +4,7 @@ title: preconnect
 
 <Intro>
 
-`preconnect` lets you eagerly connect to a server that you expect to load resources from.
+`preconnect` te permite conectarte anticipadamente a un servidor desde el cual esperas cargar recursos.
 
 ```js
 preconnect("https://example.com");
@@ -16,11 +16,11 @@ preconnect("https://example.com");
 
 ---
 
-## Reference {/*reference*/}
+## Referencia {/*reference*/}
 
 ### `preconnect(href)` {/*preconnect*/}
 
-To preconnect to a host, call the `preconnect` function from `react-dom`.
+Para preconectarte a un host, llama a la función `preconnect` de `react-dom`.
 
 ```js
 import { preconnect } from 'react-dom';
@@ -32,34 +32,34 @@ function AppRoot() {
 
 ```
 
-[See more examples below.](#usage)
+[Ver más ejemplos a continuación.](#usage)
 
-The `preconnect` function provides the browser with a hint that it should open a connection to the given server. If the browser chooses to do so, this can speed up the loading of resources from that server. 
+La función `preconnect` proporciona al navegador una sugerencia de que debería abrir una conexión al servidor dado. Si el navegador decide hacerlo, esto puede acelerar la carga de recursos desde ese servidor.
 
-#### Parameters {/*parameters*/}
+#### Parámetros {/*parameters*/}
 
-* `href`: a string. The URL of the server you want to connect to.
+* `href`: una cadena. La URL del servidor al que deseas conectarte.
 
 
-#### Returns {/*returns*/}
+#### Devuelve {/*returns*/}
 
-`preconnect` returns nothing.
+`preconnect` no devuelve nada.
 
-#### Caveats {/*caveats*/}
+#### Advertencias {/*caveats*/}
 
-* Multiple calls to `preconnect` with the same server have the same effect as a single call.
-* In the browser, you can call `preconnect` in any situation: while rendering a component, in an Effect, in an event handler, and so on.
-* In server-side rendering or when rendering Server Components, `preconnect` only has an effect if you call it while rendering a component or in an async context originating from rendering a component. Any other calls will be ignored.
-* If you know the specific resources you'll need, you can call [other functions](/reference/react-dom/#resource-preloading-apis) instead that will start loading the resources right away.
-* There is no benefit to preconnecting to the same server the webpage itself is hosted from because it's already been connected to by the time the hint would be given.
+* Múltiples llamadas a `preconnect` con el mismo servidor tienen el mismo efecto que una sola llamada.
+* En el navegador, puedes llamar a `preconnect` en cualquier situación: mientras renderizas un componente, en un Efecto, en un controlador de eventos, y así sucesivamente.
+* En el renderizado del lado del servidor o al renderizar Componentes de Servidor, `preconnect` solo tiene efecto si lo llamas mientras renderizas un componente o en un contexto asíncrono que se origina al renderizar un componente. Cualquier otra llamada será ignorada.
+* Si conoces los recursos específicos que necesitarás, puedes llamar a [otras funciones](/reference/react-dom/#resource-preloading-apis) que comenzarán a cargar los recursos de inmediato.
+* No hay beneficio en preconectarse al mismo servidor en el que está alojada la página web, porque ya se habrá conectado para cuando se dé la sugerencia.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Preconnecting when rendering {/*preconnecting-when-rendering*/}
+### Preconexión al renderizar {/*preconnecting-when-rendering*/}
 
-Call `preconnect` when rendering a component if you know that its children will load external resources from that host.
+Llama a `preconnect` al renderizar un componente si sabes que sus hijos cargarán recursos externos desde ese host.
 
 ```js
 import { preconnect } from 'react-dom';
@@ -70,9 +70,9 @@ function AppRoot() {
 }
 ```
 
-### Preconnecting in an event handler {/*preconnecting-in-an-event-handler*/}
+### Preconexión en un controlador de eventos {/*preconnecting-in-an-event-handler*/}
 
-Call `preconnect` in an event handler before transitioning to a page or state where external resources will be needed. This gets the process started earlier than if you call it during the rendering of the new page or state.
+Llama a `preconnect` en un controlador de eventos antes de hacer la transición a una página o estado donde se necesitarán recursos externos. Esto inicia el proceso antes que si lo llamas durante el renderizado de la nueva página o estado.
 
 ```js
 import { preconnect } from 'react-dom';
