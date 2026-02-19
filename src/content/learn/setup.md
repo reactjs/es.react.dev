@@ -1,28 +1,28 @@
 ---
-title: Setup
+title: Configuración
 ---
 <Intro>
 
-React integrates with tools like editors, TypeScript, browser extensions, and compilers. This section will help you get your environment set up.
+React se integra con herramientas como editores, TypeScript, extensiones del navegador y compiladores. Esta sección te ayudará a configurar tu entorno.
 
 </Intro>
 
-## Editor Setup {/*editor-setup*/}
+## Configuración del editor {/*editor-setup*/}
 
-See our [recommended editors](/learn/editor-setup) and learn how to set them up to work with React.
+Consulta nuestros [editores recomendados](/learn/editor-setup) y aprende cómo configurarlos para trabajar con React.
 
-## Using TypeScript {/*using-typescript*/}
+## Uso de TypeScript {/*using-typescript*/}
 
-TypeScript is a popular way to add type definitions to JavaScript codebases. [Learn how to integrate TypeScript into your React projects](/learn/typescript).
+TypeScript es una forma popular de añadir definiciones de tipos a las bases de código JavaScript. [Aprende cómo integrar TypeScript en tus proyectos de React](/learn/typescript).
 
 ## React Developer Tools {/*react-developer-tools*/}
 
-React Developer Tools is a browser extension that can inspect React components, edit props and state, and identify performance problems. Learn how to install it [here](learn/react-developer-tools).
+React Developer Tools es una extensión del navegador que puede inspeccionar componentes de React, editar props y estado, e identificar problemas de rendimiento. Aprende cómo instalarla [aquí](learn/react-developer-tools).
 
 ## React Compiler {/*react-compiler*/}
 
-React Compiler is a tool that automatically optimizes your React app. [Learn more](/learn/react-compiler).
+React Compiler es una herramienta que optimiza automáticamente tu aplicación de React. [Aprende más](/learn/react-compiler).
 
-## Next steps {/*next-steps*/}
+## Próximos pasos {/*next-steps*/}
 
-Head to the [Quick Start](/learn) guide for a tour of the most important React concepts you will encounter every day.
+Dirígete a la guía de [Inicio rápido](/learn) para un recorrido por los conceptos más importantes de React que encontrarás cada día.
