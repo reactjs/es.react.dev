@@ -30,7 +30,11 @@ Para mostrar un indicador de progreso, renderiza el componente [`<progress>` inc
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<progress>` admite todas las [propiedades comunes de los elementos.](/reference/react-dom/components/common#props)
+=======
+`<progress>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> a1cc2ab4bf06b530f86a7049923c402baf86aca1
 
 Además, `<progress>` admite estas propiedades:
 
