@@ -4,7 +4,11 @@ title: preloadModule
 
 <Note>
 
+<<<<<<< HEAD
 [Los frameworks basados en React](/learn/start-a-new-react-project) con frecuencia manejan la carga de recursos por ti, por lo que es posible que no necesites llamar a esta API tú mismo. Consulta la documentación de tu framework para más detalles.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+>>>>>>> 40ea071c846b3ab1232391bab15d31f508913bf4
 
 </Note>
 

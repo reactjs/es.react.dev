@@ -30,7 +30,11 @@ Para mostrar un text area, renderiza el componente [`<textarea>` que viene integ
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<textarea>` soporta todas [ las props comunes de los elementos.](/reference/react-dom/components/common#props)
+=======
+`<textarea>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> 40ea071c846b3ab1232391bab15d31f508913bf4
 
 Puedes [hacer un text area controlado](#controlling-a-text-area-with-a-state-variable) pasando la prop `value`:
 

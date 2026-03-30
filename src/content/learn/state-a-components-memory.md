@@ -23,7 +23,7 @@ Aquí hay un componente que renderiza una imagen de una escultura. Al hacer clic
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
@@ -1229,7 +1229,7 @@ Cuando escribimos en los campos del formulario, no obtenemos nada. Es como si lo
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [6]}}
 export default function Form() {
   let firstName = '';
   let lastName = '';
@@ -1337,7 +1337,7 @@ Aquí hay un pequeño formulario que se supone que permite al usuario dejar algu
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [9]}}
 import { useState } from 'react';
 
 export default function FeedbackForm() {

@@ -152,7 +152,11 @@ No olvides que despachar eventos del DOM solo funciona cuando el contenedor del 
 
 ## Solución de problemas {/*troubleshooting*/}
 
+<<<<<<< HEAD
 ### Recibo un error: "The current testing environment is not configured to support act"(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+=======
+### I'm getting an error: "The current testing environment is not configured to support act(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+>>>>>>> 40ea071c846b3ab1232391bab15d31f508913bf4
 
 Usar `act` requiere configurar `global.IS_REACT_ACT_ENVIRONMENT=true` en tu entorno de pruebas. Esto es para asegurar que `act` solo se use en el entorno correcto.
 
