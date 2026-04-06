@@ -206,7 +206,11 @@ No hay una equivalencia exacta para `constructor` en los componentes de función
 
 Si defines `componentDidCatch`, React lo llamará cuando algún componente hijo (incluso los distantes) lance un error durante el renderizado. Esto te permite registrar ese error en un servicio de reporte de errores en producción.
 
+<<<<<<< HEAD
 Normalmente, se utiliza junto con [`static getDerivedStateFromError`](#static-getderivedstatefromerror), lo que te permite actualizar el estado en respuesta a un error y mostrar un mensaje de error al usuario. Un componente con estos métodos se llama *error boundary*.
+=======
+Typically, it is used together with [`static getDerivedStateFromError`](#static-getderivedstatefromerror) which lets you update state in response to an error and display an error message to the user. A component with these methods is called an *Error Boundary*.
+>>>>>>> 1207ee36e1c7e3f2737d8f1022015473ffa99adf
 
 [Ver un ejemplo.](#catching-rendering-errors-with-an-error-boundary)
 
@@ -932,7 +936,11 @@ Definir `defaultProps` en componentes de clase es similar a usar [valores predet
 
 Si defines `static getDerivedStateFromError`, React lo llamará cuando un componente hijo (incluyendo componentes hijos distantes) arroje un error durante el rendering. Esto te permite mostrar un mensaje de error en lugar de limpiar la interfaz de usuario.
 
+<<<<<<< HEAD
 Por lo general, se utiliza junto con [`componentDidCatch`](#componentdidcatch), que te permite enviar el informe de errores a algún servicio de análisis. Un componente con estos métodos se llama una *línea de error*.
+=======
+Typically, it is used together with [`componentDidCatch`](#componentdidcatch) which lets you send the error report to some analytics service. A component with these methods is called an *Error Boundary*.
+>>>>>>> 1207ee36e1c7e3f2737d8f1022015473ffa99adf
 
 [Mira un ejemplo.](#catching-rendering-errors-with-an-error-boundary)
 
@@ -1267,11 +1275,29 @@ Recomendamos definir los componentes como funciones en lugar de clases. [Mira c�
 
 ---
 
+<<<<<<< HEAD
 ### Capturando errores de renderizado con un error boundary {/*catching-rendering-errors-with-an-error-boundary*/}
 
 Por defecto, si tu aplicación lanza un error durante el renderizado, React eliminará su interfaz de usuario de la pantalla. Para evitar esto, puedes envolver una parte de tu interfaz de usuario en un *error boundary*. Un error boundary es un componente especial que te permite mostrar alguna interfaz de usuario alternativa en lugar de la que falló, por ejemplo, un mensaje de error.
 
 Para implementar un componente de error boundary, debes proporcionar [`static getDerivedStateFromError`](#static-getderivedstatefromerror) que te permite actualizar el estado en respuesta a un error y mostrar un mensaje de error al usuario. También puedes implementar opcionalmente [`componentDidCatch`](#componentdidcatch) para agregar algo de lógica adicional, por ejemplo, para registrar el error en un servicio de análisis.
+=======
+### Catching rendering errors with an Error Boundary {/*catching-rendering-errors-with-an-error-boundary*/}
+
+By default, if your application throws an error during rendering, React will remove its UI from the screen. To prevent this, you can wrap a part of your UI into an *Error Boundary*. An Error Boundary is a special component that lets you display some fallback UI instead of the part that crashed--for example, an error message.
+
+<Note>
+Error boundaries do not catch errors for:
+
+- Event handlers [(learn more)](/learn/responding-to-events)
+- [Server side rendering](/reference/react-dom/server) 
+- Errors thrown in the error boundary itself (rather than its children)
+- Asynchronous code (e.g. `setTimeout` or `requestAnimationFrame` callbacks); an exception is the usage of the [`startTransition`](/reference/react/useTransition#starttransition) function returned by the [`useTransition`](/reference/react/useTransition) Hook. Errors thrown inside the transition function are caught by error boundaries [(learn more)](/reference/react/useTransition#displaying-an-error-to-users-with-error-boundary)
+
+</Note>
+
+To implement an Error Boundary component, you need to provide [`static getDerivedStateFromError`](#static-getderivedstatefromerror) which lets you update state in response to an error and display an error message to the user. You can also optionally implement [`componentDidCatch`](#componentdidcatch) to add some extra logic, for example, to log the error to an analytics service.
+>>>>>>> 1207ee36e1c7e3f2737d8f1022015473ffa99adf
 
 With [`captureOwnerStack`](/reference/react/captureOwnerStack) you can include the Owner Stack during development.
 
@@ -1324,11 +1350,19 @@ Luego, puedes envolver una parte de tu árbol de componentes con él:
 
 Si `Profile` o su componente hijo arroja un error, `ErrorBoundary` "capturará" ese error, mostrará una IU de respaldo con el mensaje de error que ha proporcionado y enviará un informe de error de producción a su servicio de informes de errores.
 
+<<<<<<< HEAD
 Tú no necesitas envolver cada componente en una barrera de error separada. Cuando pienses en la [granularidad de las barreras de error,](https://www.brandondail.com/posts/fault-tolerance-react) considera dónde tiene sentido mostrar un mensaje de error. Por ejemplo, en una aplicación de mensajería, tiene sentido colocar una barrera de error alrededor de la lista de conversaciones. También tiene sentido colocar una alrededor de cada mensaje individual. Sin embargo, no tendría sentido colocar una barrera alrededor de cada avatar.
 
 <Note>
 
 Actualmente, no hay forma de escribir un error boundary como un componente de función. Sin embargo, no tienes que escribir la clase del error boundary tú mismo. Por ejemplo, puedes usar [`react-error-boundary`](https://github.com/bvaughn/react-error-boundary) en su lugar.
+=======
+You don't need to wrap every component into a separate Error Boundary. When you think about the [granularity of Error Boundaries,](https://www.brandondail.com/posts/fault-tolerance-react) consider where it makes sense to display an error message. For example, in a messaging app, it makes sense to place an Error Boundary around the list of conversations. It also makes sense to place one around every individual message. However, it wouldn't make sense to place a boundary around every avatar.
+
+<Note>
+
+There is currently no way to write an Error Boundary as a function component. However, you don't have to write the Error Boundary class yourself. For example, you can use [`react-error-boundary`](https://github.com/bvaughn/react-error-boundary) instead.
+>>>>>>> 1207ee36e1c7e3f2737d8f1022015473ffa99adf
 
 </Note>
 
@@ -1814,9 +1848,9 @@ function Form() {
 
 export default function MyApp() {
   return (
-    <ThemeContext.Provider value="dark">
+    <ThemeContext value="dark">
       <Form />
-    </ThemeContext.Provider>
+    </ThemeContext>
   )
 }
 ```
@@ -1900,9 +1934,9 @@ function Form() {
 
 export default function MyApp() {
   return (
-    <ThemeContext.Provider value="dark">
+    <ThemeContext value="dark">
       <Form />
-    </ThemeContext.Provider>
+    </ThemeContext>
   )
 }
 ```

@@ -474,7 +474,7 @@ Si de forma estricta solo escribes tus componentes como funciones puras, puedes 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
