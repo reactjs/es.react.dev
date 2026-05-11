@@ -527,9 +527,15 @@ export default function Form() {
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',
     artwork: {
+<<<<<<< HEAD
       title: 'Nana azul',
       city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+      title: 'Blue Nana',
+      city: 'Hamburg',
+      image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
     }
   });
 
@@ -607,8 +613,8 @@ export default function Form() {
         <br />
         (localizada en {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
