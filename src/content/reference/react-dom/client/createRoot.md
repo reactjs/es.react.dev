@@ -90,8 +90,8 @@ React mostrará `<App />` en la raíz (`root`) y se encargará de administrar el
 
 * Si llamas a `render` en la misma raíz más de una vez, React actualizará el DOM según sea necesario para reflejar el último JSX que pasaste. React decidirá qué partes del DOM se pueden reutilizar y cuáles deben ser recreadas para ["emparejarlo"](/learn/preserving-and-resetting-state) con el árbol renderizado previamente. Llamar a `render` en la misma raíz nuevamente es similar a llamar a la [función `set`](/reference/react/useState#setstate) en el componente raíz: React evita actualizaciones del DOM innecesarias.
 
-* Although rendering is synchronous once it starts, `root.render(...)` is not. This means code after `root.render()` may run before any effects (`useLayoutEffect`, `useEffect`) of that specific render are fired. This is usually fine and rarely needs adjustment. In rare cases where effect timing matters, you can wrap `root.render(...)` in [`flushSync`](https://react.dev/reference/react-dom/client/flushSync) to ensure the initial render runs fully synchronously.
-  
+* Although rendering is synchronous once it starts, `root.render(...)` is not. This means code after `root.render()` may run before any effects (`useLayoutEffect`, `useEffect`) of that specific render are fired. This is usually fine and rarely needs adjustment. In rare cases where effect timing matters, you can wrap `root.render(...)` in [`flushSync`](https://react.dev/reference/react-dom/flushSync) to ensure the initial render runs fully synchronously.
+
   ```js
   const root = createRoot(document.getElementById('root'));
   root.render(<App />);
@@ -113,7 +113,11 @@ Una aplicación completamente construida con React usualmente no tendrá ninguna
 
 Esto es útil sobre todo si el nodo del DOM de tu raíz de React (o cualquiera de sus ancestros) puede ser eliminado del DOM por algún otro código. Por ejemplo, imagina un panel de pestañas de jQuery que elimine las pestañas inactivas del DOM. Si se elimina una pestaña, todo lo que contiene (incluidas las raíces de React) también se eliminará del DOM. En ese caso, debes decirle a React que "detenga" la administración del contenido de la raíz eliminada con la llamada a `root.unmount`. Si no, los componentes dentro de la raíz eliminada no sabrán cómo limpiar y liberar recursos globales como suscripciones.
 
+<<<<<<< HEAD
 Llamar a `root.unmount` desmontará todos los componentes en la raíz y "separará" React del nodo del DOM raíz, incluida la eliminación de cualquier controlador de evento o estado en el árbol. 
+=======
+Calling `root.unmount` will unmount all the components in the root and "detach" React from the root DOM node, including removing any event handlers or state in the tree.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 
 #### Parámetros {/*root-unmount-parameters*/}
@@ -197,7 +201,11 @@ function Counter() {
 
 </Sandpack>
 
+<<<<<<< HEAD
 **Si tu aplicación está construida completamente con React, no deberías necesitar crear más raíces, o llamar a [`root.render`](#root-render) otra vez.** 
+=======
+**If your app is fully built with React, you shouldn't need to create any more roots, or to call [`root.render`](#root-render) again.**
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 A partir de este punto, React administrará el DOM de tu aplicación entera. Para agregar más componentes, [anídalos dentro del componente de la aplicación `App`.](/learn/importing-and-exporting-components) Cuando necesitas actualizar la interfaz de usuario (UI), cada uno de tus componentes puede lograrlo [con el uso de estado.](/reference/react/useState) Cuando necesitas mostrar contenido adicional como un modal o globos de ayuda fuera del nodo del DOM, [renderízalo con un portal.](/reference/react-dom/createPortal)
 
@@ -209,7 +217,11 @@ Cuando tu HTML está vacío, el usuario ve una página en blanco hasta que el c�
 <div id="root"></div>
 ```
 
+<<<<<<< HEAD
 ¡Esto puede sentirse muy lento! Para resolverlo, puedes generar el HTML inicial a partir de tus componentes [en el servidor o durante la compilación.](/reference/react-dom/server) Entonces tus visitantes pueden leer el texto, ver imágenes, y hacer clic en los enlaces antes de que se cargue cualquiera de los códigos de JavaScript. Recomendamos [utilizar un framework](/learn/start-a-new-react-project#building-with-a-full-featured-framework) que tenga esta optimización incorporada. Dependiendo de cuando se ejecuta, se llama *renderizado de lado del servidor (SSR)*  o *generación de sitios estáticos (SSG)*
+=======
+This can feel very slow! To solve this, you can generate the initial HTML from your components [on the server or during the build.](/reference/react-dom/server) Then your visitors can read text, see images, and click links before any of the JavaScript code loads. We recommend [using a framework](/learn/creating-a-react-app#full-stack-frameworks) that does this optimization out of the box. Depending on when it runs, this is called *server-side rendering (SSR)* or *static site generation (SSG).*
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 </Note>
 
@@ -249,11 +261,11 @@ import { createRoot } from 'react-dom/client';
 import { Comments, Navigation } from './Components.js';
 
 const navDomNode = document.getElementById('navigation');
-const navRoot = createRoot(navDomNode); 
+const navRoot = createRoot(navDomNode);
 navRoot.render(<Navigation />);
 
 const commentDomNode = document.getElementById('comments');
-const commentRoot = createRoot(commentDomNode); 
+const commentRoot = createRoot(commentDomNode);
 commentRoot.render(<Comments />);
 ```
 
@@ -303,7 +315,7 @@ También se puede crear un nodo del DOM nuevo con [`document.createElement()`](h
 
 ```js
 const domNode = document.createElement('div');
-const root = createRoot(domNode); 
+const root = createRoot(domNode);
 root.render(<Comment />);
 document.body.appendChild(domNode); // Puedes añadirlo en cualquier parte del documento
 ```
@@ -508,7 +520,7 @@ To fix, pass the root options to `createRoot(...)`, not `root.render(...)`:
 root.render(App, {onUncaughtError});
 
 // ✅ Correct: pass options to createRoot.
-const root = createRoot(container, {onUncaughtError}); 
+const root = createRoot(container, {onUncaughtError});
 root.render(<App />);
 ```
 
