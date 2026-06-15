@@ -86,7 +86,11 @@ label {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Esta sería la apariencia del árbol:    
+=======
+Here's how these look as a tree:
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 <DiagramGroup>
 
@@ -186,7 +190,7 @@ export default function App() {
   return (
     <div>
       <Counter />
-      {showB && <Counter />} 
+      {showB && <Counter />}
       <label>
         <input
           type="checkbox"
@@ -288,9 +292,9 @@ export default function App() {
   return (
     <div>
       {isFancy ? (
-        <Counter isFancy={true} /> 
+        <Counter isFancy={true} />
       ) : (
-        <Counter isFancy={false} /> 
+        <Counter isFancy={false} />
       )}
       <label>
         <input
@@ -496,9 +500,13 @@ export default function App() {
   return (
     <div>
       {isPaused ? (
+<<<<<<< HEAD
         <p>¡Nos vemos luego!</p> 
+=======
+        <p>See you later!</p>
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
       ) : (
-        <Counter /> 
+        <Counter />
       )}
       <label>
         <input
@@ -596,7 +604,7 @@ export default function App() {
     <div>
       {isFancy ? (
         <div>
-          <Counter isFancy={true} /> 
+          <Counter isFancy={true} />
         </div>
       ) : (
         <section>
@@ -672,7 +680,11 @@ label {
 
 </Sandpack>
 
+<<<<<<< HEAD
 El estado del contador se reinicia cuando se hace clic en la casilla de verificación. Aunque se renderiza un `Counter`, el primer hijo del `div` cambia de `div` a `section`. Cuando el `div` hijo se eliminó del DOM, todo el árbol debajo de él (incluyendo el `Counter` y su estado) se destruyó también.
+=======
+The counter state gets reset when you click the checkbox. Although you render a `Counter`, the first child of the `div` changes from a `section` to a `div`. When the child `section` was removed from the DOM, the whole tree below it (including the `Counter` and its state) was destroyed as well.
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 <DiagramGroup>
 
@@ -704,7 +716,7 @@ Aquí, la función del componente `MyTextField` se define *dentro* de `MyCompone
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { useState } from 'react';
 
 export default function MyComponent() {
@@ -1431,19 +1443,29 @@ export default function App() {
   if (reverse) {
     return (
       <>
+<<<<<<< HEAD
         <Field label="Apellido" /> 
         <Field label="Nombre" />
+=======
+        <Field label="Last name" />
+        <Field label="First name" />
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
         {checkbox}
       </>
     );
   } else {
     return (
       <>
+<<<<<<< HEAD
         <Field label="Nombre" /> 
         <Field label="Apellido" />
+=======
+        <Field label="First name" />
+        <Field label="Last name" />
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
         {checkbox}
       </>
-    );    
+    );
   }
 }
 
@@ -1493,19 +1515,29 @@ export default function App() {
   if (reverse) {
     return (
       <>
+<<<<<<< HEAD
         <Field key="lastName" label="Apellido" /> 
         <Field key="firstName" label="Nombre" />
+=======
+        <Field key="lastName" label="Last name" />
+        <Field key="firstName" label="First name" />
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
         {checkbox}
       </>
     );
   } else {
     return (
       <>
+<<<<<<< HEAD
         <Field key="firstName" label="Nombre" /> 
         <Field key="lastName" label="Apellido" />
+=======
+        <Field key="firstName" label="First name" />
+        <Field key="lastName" label="Last name" />
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
         {checkbox}
       </>
-    );    
+    );
   }
 }
 
@@ -1887,6 +1919,7 @@ export default function Gallery() {
 }
 
 let images = [{
+<<<<<<< HEAD
   place: 'Penang, Malasia',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
@@ -1895,10 +1928,21 @@ let images = [{
 }, {
   place: 'Bilbao, España',
   src: 'https://i.imgur.com/z08o2TS.jpg'
+=======
+  place: 'Penang, Malaysia',
+  src: 'https://react.dev/images/docs/scientists/FJeJR8M.jpg'
+}, {
+  place: 'Lisbon, Portugal',
+  src: 'https://react.dev/images/docs/scientists/dB2LRbj.jpg'
+}, {
+  place: 'Bilbao, Spain',
+  src: 'https://react.dev/images/docs/scientists/z08o2TS.jpg'
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 }, {
   place: 'Valparaíso, Chile',
-  src: 'https://i.imgur.com/Y3utgTi.jpg'
+  src: 'https://react.dev/images/docs/scientists/Y3utgTi.jpg'
 }, {
+<<<<<<< HEAD
   place: 'Schwyz, Suiza',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
@@ -1907,6 +1951,16 @@ let images = [{
 }, {
   place: 'Liubliana, Eslovenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
+=======
+  place: 'Schwyz, Switzerland',
+  src: 'https://react.dev/images/docs/scientists/JBbMpWY.jpg'
+}, {
+  place: 'Prague, Czechia',
+  src: 'https://react.dev/images/docs/scientists/QwUKKmF.jpg'
+}, {
+  place: 'Ljubljana, Slovenia',
+  src: 'https://react.dev/images/docs/scientists/3aIiwfm.jpg'
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 }];
 ```
 
@@ -1955,6 +2009,7 @@ export default function Gallery() {
 }
 
 let images = [{
+<<<<<<< HEAD
   place: 'Penang, Malasia',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
@@ -1963,10 +2018,21 @@ let images = [{
 }, {
   place: 'Bilbao, España',
   src: 'https://i.imgur.com/z08o2TS.jpg'
+=======
+  place: 'Penang, Malaysia',
+  src: 'https://react.dev/images/docs/scientists/FJeJR8M.jpg'
+}, {
+  place: 'Lisbon, Portugal',
+  src: 'https://react.dev/images/docs/scientists/dB2LRbj.jpg'
+}, {
+  place: 'Bilbao, Spain',
+  src: 'https://react.dev/images/docs/scientists/z08o2TS.jpg'
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 }, {
   place: 'Valparaíso, Chile',
-  src: 'https://i.imgur.com/Y3utgTi.jpg'
+  src: 'https://react.dev/images/docs/scientists/Y3utgTi.jpg'
 }, {
+<<<<<<< HEAD
   place: 'Schwyz, Suiza',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
@@ -1975,6 +2041,16 @@ let images = [{
 }, {
   place: 'Liubliana, Eslovenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
+=======
+  place: 'Schwyz, Switzerland',
+  src: 'https://react.dev/images/docs/scientists/JBbMpWY.jpg'
+}, {
+  place: 'Prague, Czechia',
+  src: 'https://react.dev/images/docs/scientists/QwUKKmF.jpg'
+}, {
+  place: 'Ljubljana, Slovenia',
+  src: 'https://react.dev/images/docs/scientists/3aIiwfm.jpg'
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 }];
 ```
 
@@ -2011,7 +2087,7 @@ export default function ContactList() {
       <label>
         <input
           type="checkbox"
-          value={reverse}
+          checked={reverse}
           onChange={e => {
             setReverse(e.target.checked)
           }}
@@ -2110,7 +2186,7 @@ export default function ContactList() {
       <label>
         <input
           type="checkbox"
-          value={reverse}
+          checked={reverse}
           onChange={e => {
             setReverse(e.target.checked)
           }}
