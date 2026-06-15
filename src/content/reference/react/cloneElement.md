@@ -103,7 +103,7 @@ export default function List({ children }) {
     <div className="List">
       {Children.map(children, (child, index) =>
         cloneElement(child, {
-          isHighlighted: index === selectedIndex 
+          isHighlighted: index === selectedIndex
         })
       )}
 ```
@@ -123,6 +123,7 @@ Clonando sus hijos, `List` puede pasar información adicional a cada `Row` dentr
 ```js {4,8,12}
 <List>
   <Row
+<<<<<<< HEAD
     title="Col"
     isHighlighted={true} 
   />
@@ -133,6 +134,18 @@ Clonando sus hijos, `List` puede pasar información adicional a cada `Row` dentr
   <Row
     title="Manzana"
     isHighlighted={false} 
+=======
+    title="Cabbage"
+    isHighlighted={true}
+  />
+  <Row
+    title="Garlic"
+    isHighlighted={false}
+  />
+  <Row
+    title="Apple"
+    isHighlighted={false}
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
   />
 </List>
 ```
@@ -152,7 +165,7 @@ export default function App() {
       {products.map(product =>
         <Row
           key={product.id}
-          title={product.title} 
+          title={product.title}
         />
       )}
     </List>
@@ -169,7 +182,7 @@ export default function List({ children }) {
     <div className="List">
       {Children.map(children, (child, index) =>
         cloneElement(child, {
-          isHighlighted: index === selectedIndex 
+          isHighlighted: index === selectedIndex
         })
       )}
       <hr />
@@ -246,7 +259,11 @@ Al clonar los hijos se hace difícil saber cómo fluye la información a través
 
 ### Pasar datos con una prop de renderizado {/*passing-data-with-a-render-prop*/}
 
+<<<<<<< HEAD
 En vez de usar `cloneElement`, considera aceptar una *render prop* (o prop de renderizado) como `renderItem`. Aquí, `List` recibe `renderItem` como una prop. `List` llama a `renderItem` para cada elemento y pasa `isHighlighted` como un argumento:
+=======
+Instead of using `cloneElement`, consider accepting a *render prop* like `renderItem`. Here, `List` receives `renderItem` as a prop. `List` calls `renderItem` for every item and passes `isHighlighted` as an argument:
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
 
 ```js {1,7}
 export default function List({ items, renderItem }) {
@@ -279,6 +296,7 @@ El resultado final es el mismo que con `cloneElement`:
 ```js {4,8,12}
 <List>
   <Row
+<<<<<<< HEAD
     title="Col"
     isHighlighted={true} 
   />
@@ -289,6 +307,18 @@ El resultado final es el mismo que con `cloneElement`:
   <Row
     title="Manzana"
     isHighlighted={false} 
+=======
+    title="Cabbage"
+    isHighlighted={true}
+  />
+  <Row
+    title="Garlic"
+    isHighlighted={false}
+  />
+  <Row
+    title="Apple"
+    isHighlighted={false}
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
   />
 </List>
 ```
@@ -414,9 +444,9 @@ export default function List({ items, renderItem }) {
       {items.map((item, index) => {
         const isHighlighted = index === selectedIndex;
         return (
-          <HighlightContext.Provider key={item.id} value={isHighlighted}>
+          <HighlightContext key={item.id} value={isHighlighted}>
             {renderItem(item)}
-          </HighlightContext.Provider>
+          </HighlightContext>
         );
       })}
 ```
@@ -472,12 +502,12 @@ export default function List({ items, renderItem }) {
       {items.map((item, index) => {
         const isHighlighted = index === selectedIndex;
         return (
-          <HighlightContext.Provider
+          <HighlightContext
             key={item.id}
             value={isHighlighted}
           >
             {renderItem(item)}
-          </HighlightContext.Provider>
+          </HighlightContext>
         );
       })}
       <hr />
