@@ -283,9 +283,15 @@ En CodeSandbox verás tres secciones principales:
 
 ![CodeSandbox con código de inicio](../images/tutorial/react-starter-code-codesandbox.png)
 
+<<<<<<< HEAD
 1. La sección *Files* con una lista de archivos como `App.js`, `index.js`, `styles.css` y una carpeta llamada `public`
 2. El *code editor* donde verás el código fuente de tu archivo seleccionado
 3. La sección *browser* donde verás cómo se mostrará el código que has escrito
+=======
+1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` in `src` folder and a folder called `public`
+1. The _code editor_ where you'll see the source code of your selected file
+1. The _browser_ section where you'll see how the code you've written will be displayed
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 El archivo `App.js` debe seleccionarse en la sección *Files*. El contenido de ese archivo en el  *code editor* debería ser:
 
@@ -337,7 +343,11 @@ import './styles.css';
 import App from './App';
 ```
 
+<<<<<<< HEAD
 Las líneas 1-5 reúnen todas las piezas necesarias:
+=======
+Lines 1-5 bring all the necessary pieces together:
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 - React
 - Biblioteca de React para hablar con los navegadores web (React DOM)
@@ -551,7 +561,11 @@ export default function Board() {
 }
 ```
 
+<<<<<<< HEAD
 Observa cómo, a diferencia de los `div`s del navegador, tus propios componentes `Board` y `Square` deben comenzar con una letra mayúscula.
+=======
+Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 Vamos a ver:
 
@@ -1096,7 +1110,11 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
+<<<<<<< HEAD
 Ahora conecta la prop `onSquareClick` a una función en el componente `Board` que llamarás `handleClick`. Para conectar `onSquareClick` a `handleClick`, pasa una función a la prop `onSquareClick` del primer componente `Square`:
+=======
+Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 ```js {7}
 export default function Board() {
@@ -2077,13 +2095,22 @@ export default function Game() {
 }
 ```
 
+<<<<<<< HEAD
 Puedes ver cómo debería verse tu código a continuación. Ten en cuenta que deberías ver un error en la consola de herramientas para desarrolladores que dice: 
+=======
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
+<<<<<<< HEAD
   
 Resolverás este error en la siguiente sección.
+=======
+
+You'll fix this error in the next section.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 <Sandpack>
 
