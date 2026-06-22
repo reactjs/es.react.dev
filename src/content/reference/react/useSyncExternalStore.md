@@ -107,7 +107,11 @@ Esto devuelve la <CodeStep step={3}>instantánea</CodeStep> del dato en la fuent
 
 React utilizará estas funciones para mantener tu componente suscrito a la fuente de almacenamiento de datos y volver a renderizarlo con los cambios.
 
+<<<<<<< HEAD
 Por ejemplo, en el *sandbox* debajo, `todosStore` se implementa como una fuente de almacenamiento de datos externa que almacena datos fuera de React. El componente `TodosApp` se conecta a esta fuente de almacenamiento externa de datos con el Hook `useSyncExternalStore`.
+=======
+For example, in the sandbox below, `todosStore` is implemented as an external store that stores data outside of React. The `TodosApp` component connects to that external store with the `useSyncExternalStore` Hook.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 <Sandpack>
 
@@ -413,14 +417,18 @@ function ChatIndicator() {
   function subscribe() {
     // ...
   }
-  
+
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // ...
 }
 ```
 
+<<<<<<< HEAD
 React se volverá a suscribir a tu fuente de almacenamiento si pasas una función de `subscribe` diferente entre rerenderizados. Si esto causa problemas de rendimiento y desea evitar volver a suscribirse a la fuente de almacenamiento de datos externa, mueva la función `subscribe` fuera:
+=======
+React will resubscribe to your store if you pass a different `subscribe` function between re-renders. If this causes performance issues and you'd like to avoid resubscribing, move the `subscribe` function outside:
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 ```js {1-4}
 // ✅ Siempre la misma función, por lo que React no necesitará volver a suscribirse
@@ -442,7 +450,7 @@ function ChatIndicator({ userId }) {
   const subscribe = useCallback(() => {
     // ...
   }, [userId]);
-  
+
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // ...

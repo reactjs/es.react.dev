@@ -38,9 +38,15 @@ function MyComponent() {
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `reducer`: La función reductora que debe devolver el estado inicial. Debe ser pura, debe tomar el estado y la acción como argumentos, y debe devolver el siguiente estado. El estado y la acción pueden ser de cualquier tipo. 
 * `initialArg`: El valor a partir del cual se calcula el estado inicial. Puede ser un valor de cualquier tipo. Cómo se calcula el estado inicial depende del siguiente argumento `init`.
 **opcional** `init`: La función inicializadora que especifica cómo se calcula el estado inicial. Si no se especifica, el estado inicial se establece en `initialArg`. En caso contrario, el estado inicial es el resultado de llamar a `init(initialArg)`.
+=======
+* `reducer`: The reducer function that specifies how the state gets updated. It must be pure, should take the state and action as arguments, and should return the next state. State and action can be of any types.
+* `initialArg`: The value from which the initial state is calculated. It can be a value of any type. How the initial state is calculated from it depends on the next `init` argument.
+* **optional** `init`: The initializer function that should return the initial state. If it's not specified, the initial state is set to `initialArg`. Otherwise, the initial state is set to the result of calling `init(initialArg)`.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 #### Devuelve {/*returns*/}
 
@@ -199,7 +205,7 @@ Las acciones pueden tener cualquier forma. Por convención, es común pasar obje
 ```js {5,9-12}
 function Form() {
   const [state, dispatch] = useReducer(reducer, { name: 'Taylor', age: 42 });
-  
+
   function handleButtonClick() {
     dispatch({ type: 'incremented_age' });
   }
@@ -291,7 +297,7 @@ export default function Form() {
     dispatch({
       type: 'changed_name',
       nextName: e.target.value
-    }); 
+    });
   }
 
   return (
