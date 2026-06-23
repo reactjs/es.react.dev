@@ -517,10 +517,10 @@ export function HomeContent() {
               <Image
                 alt="logo by @sawaratsuki1004"
                 title="logo by @sawaratsuki1004"
-                className="uwu-visible mb-10 lg:mb-8 h-24 lg:h-32"
+                className="uwu-visible mb-10 lg:mb-8 h-24 lg:h-32 w-auto"
                 src="/images/uwu.png"
-                width={100}
-                height={100}
+                width={313}
+                height={160}
               />
             </div>
             <Logo className="uwu-hidden text-brand dark:text-brand-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
