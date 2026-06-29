@@ -10,8 +10,14 @@ La documentación de React en [react.dev](https://react.dev) proporciona documen
 
 Nuestro objetivo es mantener la documentación actualizada en las versiones principales y no publicamos versiones para cada versión menor o de parche. Cuando se lanza una nueva versión principal, archivamos la documentación de la versión anterior como `x.react.dev`. Consulta nuestra [política de versiones](/community/versioning-policy) para obtener más información.
 
+<<<<<<< HEAD
 Puedes encontrar un archivo de versiones principales anteriores a continuación.
 ## Última versión: 19.1 {/*latest-version*/}
+=======
+You can find an archive of previous major versions below.
+
+## Latest version: 19.2 {/*latest-version*/}
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 - [react.dev](https://react.dev) {/*docs-19*/}
 
@@ -40,6 +46,8 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [React v19](/blog/2024/12/05/react-19)
 - [React 19 Upgrade Guide](/blog/2024/04/25/react-19-upgrade-guide)
 - [React Compiler Beta Release](/blog/2024/10/21/react-compiler-beta-release)
+- [React Compiler v1.0](/blog/2025/10/07/react-compiler-1)
+- [React 19.2](/blog/2025/10/01/react-19-2)
 
 **Talks**
 - [React 19 Keynote](https://www.youtube.com/watch?v=lyEKhv8-3n0)
@@ -51,7 +59,15 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=IBBN-s77YSI)
 
 **Releases**
+- [v19.2.1 (December, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1922-dec-11-2025)
+- [v19.2.1 (December, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1921-dec-3-2025)
+- [v19.2.0 (October, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1920-october-1st-2025)
+- [v19.1.3 (December, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1913-dec-11-2025)
+- [v19.1.2 (December, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1912-dec-3-2025)
+- [v19.1.1 (July, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1911-july-28-2025)
 - [v19.1.0 (March, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1910-march-28-2025)
+- [v19.0.2 (December, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1902-dec-11-2025)
+- [v19.0.1 (December, 2025)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1901-dec-3-2025)
 - [v19.0.0 (December, 2024)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1900-december-5-2024)
 
 ### React 18 {/*react-18*/}
@@ -273,13 +289,20 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [React v0.5](https://legacy.reactjs.org/blog/2013/10/16/react-v0.5.0.html)
 - [React v0.4.1](https://legacy.reactjs.org/blog/2013/07/26/react-v0-4-1.html)
 - [React v0.4.0](https://legacy.reactjs.org/blog/2013/07/17/react-v0-4-0.html)
+<<<<<<< HEAD
 - [Novedades en React v0.4: Validación de propiedades y valores predeterminados](https://legacy.reactjs.org/blog/2013/07/11/react-v0-4-prop-validation-and-default-values.html)
 - [Novedades en React v0.4: Vinculación automática por default](https://legacy.reactjs.org/blog/2013/07/02/react-v0-4-autobind-by-default.html)
 - [React v0.3.3](https://legacy.reactjs.org/blog/2013/07/02/react-v0-4-autobind-by-default.html)
+=======
+- [New in React v0.4: Prop Validation and Default Values](https://legacy.reactjs.org/blog/2013/07/11/react-v0-4-prop-validation-and-default-values.html)
+- [New in React v0.4: Autobind by Default](https://legacy.reactjs.org/blog/2013/07/02/react-v0-4-autobind-by-default.html)
+- [React v0.3.3](https://legacy.reactjs.org/blog/2013/06/21/react-v0-3-3.html)
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 **Versiones**
 - [v0.10.0 (marzo 2014)](https://github.com/facebook/react/blob/main/CHANGELOG.md#0100-march-21-2014)
 - [v0.9.0 (February 2014)](https://github.com/facebook/react/blob/main/CHANGELOG.md#090-february-20-2014)
+<<<<<<< HEAD
 - [v0.8.0 (diciembre 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#080-december-19-2013)
 - [v0.5.2 (diciembre 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#052-042-december-18-2013)
 - [v0.5.1 (octubre 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#051-october-29-2013)
@@ -290,12 +313,28 @@ Para versiones anteriores a React 15, consulte [15.react.dev](https://15.react.d
 - [v0.3.2 (mayo 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#032-may-31-2013)
 - [v0.3.1 (mayo 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#031-may-30-2013)
 - [v0.3.0 (mayo 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#031-may-30-2013)
+=======
+- [v0.8.0 (December 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#080-december-19-2013)
+- [v0.5.2 (December 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#052-042-december-18-2013)
+- [v0.5.1 (October 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#051-october-29-2013)
+- [v0.5.0 (October 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#050-october-16-2013)
+- [v0.4.1 (July 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#041-july-26-2013)
+- [v0.4.0 (July 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#040-july-17-2013)
+- [v0.3.3 (June 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#033-june-20-2013)
+- [v0.3.2 (May 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#032-may-31-2013)
+- [v0.3.1 (May 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#031-may-30-2013)
+- [v0.3.0 (May 2013)](https://github.com/facebook/react/blob/main/CHANGELOG.md#030-may-29-2013)
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 ### Commit Inicial {/*initial-commit*/}
 
 React se convirtió en código abierto el 29 de mayo de 2013. el commit inicial es: [`75897c`: Versión pública inicial](https://github.com/facebook/react/commit/75897c2dcd1dd3a6ca46284dd37e13d22b4b16b4)
 
+<<<<<<< HEAD
 Consulta la primera publicación del blog: [¿Por qué creamos React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html)
+=======
+See the first blog post: [Why did we build React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html)
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 React se convirtió en código abierto en Facebook Seattle en 2013:
 

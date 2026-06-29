@@ -294,7 +294,11 @@ Suspense **no** detectará cuando se obtengan datos dentro de un Efecto o contro
 
 La forma exacta de cargar los datos en el componente `Posts` anterior dependerá de tu *framework*. Si usas un *framework* habilitado para Suspense, encontrarás los detalles en su documentación de obtención de datos.
 
+<<<<<<< HEAD
 Por ahora, no se admite la obtención de datos habilitada para Suspense sin el uso de un *framework* con enfoque específico. Los requisitos para implementar una fuente de datos habilitada para Suspense son inestables y no están documentados. En una versión futura de React, se publicará una API oficial para integrar fuentes de datos con Suspense.
+=======
+Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 </Note>
 
@@ -401,7 +405,11 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
+<<<<<<< HEAD
     response.send('<h1>Algo salió mal</h1>'); 
+=======
+    response.send('<h1>Something went wrong</h1>');
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
   },
   onError(error) {
     console.error(error);
@@ -460,7 +468,11 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
+<<<<<<< HEAD
     response.send('<h1>Algo salió mal</h1>'); 
+=======
+    response.send('<h1>Something went wrong</h1>');
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
   },
   onError(error) {
     console.error(error);
@@ -486,7 +498,11 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
+<<<<<<< HEAD
     response.send('<h1>Algo salió mal</h1>'); 
+=======
+    response.send('<h1>Something went wrong</h1>');
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
   },
   onError(error) {
     didError = true;
@@ -530,7 +546,11 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
    response.statusCode = getStatusCode();
    response.setHeader('content-type', 'text/html');
+<<<<<<< HEAD
    response.send('<h1>Algo salió mal</h1>'); 
+=======
+   response.send('<h1>Something went wrong</h1>');
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
   },
   onError(error) {
     didError = true;
@@ -570,13 +590,17 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
+<<<<<<< HEAD
     response.send('<h1>Algo salió mal</h1>'); 
+=======
+    response.send('<h1>Something went wrong</h1>');
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
   },
   onAllReady() {
     if (isCrawler) {
       response.statusCode = didError ? 500 : 200;
       response.setHeader('content-type', 'text/html');
-      pipe(response);      
+      pipe(response);
     }
   },
   onError(error) {
