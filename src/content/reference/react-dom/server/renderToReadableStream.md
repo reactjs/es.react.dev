@@ -293,7 +293,11 @@ Suspense **no** detecta cuando la información es obtenida dentro de un Hook de 
 
 La forma exacta en la que se cargará la información dentro del componente `Posts` depende del framework que se use. Si usas un framework "Suspense-enabled", podrás consultar en la documentación los detalles de cómo funciona la obtención de datos.
 
+<<<<<<< HEAD
 La obtención de datos "Suspense-enabled" sin el uso de un framework dogmático no está soportado todavía. Los requisitos para implementar una fuente de datos "Suspense-enabled" son inestables y se encuentran indocumentados. La API oficial para implementar fuentes de datos "Suspense-enabled" será publicada en versiones futuras de React. 
+=======
+Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 </Note>
 
