@@ -279,6 +279,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           isPacked={true} 
           name="Traje espacial" 
@@ -290,6 +291,19 @@ export default function PackingList() {
         <Item 
           isPacked={false} 
           name="Foto de Tam" 
+=======
+        <Item
+          isPacked={true}
+          name="Space suit"
+        />
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
         />
       </ul>
     </section>
@@ -317,6 +331,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           isPacked={true} 
           name="Traje espacial" 
@@ -328,6 +343,19 @@ export default function PackingList() {
         <Item 
           isPacked={false} 
           name="Foto de Tam" 
+=======
+        <Item
+          isPacked={true}
+          name="Space suit"
+        />
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
         />
       </ul>
     </section>
@@ -365,6 +393,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           importance={9} 
           name="Traje espacial" 
@@ -376,6 +405,19 @@ export default function PackingList() {
         <Item 
           importance={6} 
           name="Foto de Tam" 
+=======
+        <Item
+          importance={9}
+          name="Space suit"
+        />
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          importance={6}
+          name="Photo of Tam"
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
         />
       </ul>
     </section>
@@ -409,6 +451,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           importance={9} 
           name="Traje espacial" 
@@ -420,6 +463,19 @@ export default function PackingList() {
         <Item 
           importance={6} 
           name="Foto de Tam" 
+=======
+        <Item
+          importance={9}
+          name="Space suit"
+        />
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          importance={6}
+          name="Photo of Tam"
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
         />
       </ul>
     </section>

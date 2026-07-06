@@ -215,7 +215,11 @@ Suspense **no** detecta la carga de datos cuando se hace en un Efecto o un contr
 
 La forma exacta en que cargarías los datos en el componente `Albums` de arriba depende de tu framework. Si usas un framework capaz de manejar Suspense, encontrarás los detalles en su documentación de la carga de datos.
 
+<<<<<<< HEAD
 Aún no se admite la carga de datos con Suspense sin el uso de un framework que tenga su propia forma de implementarla. Los requisitos para implementar una fuente de datos habilitada para Suspense son inestables y no están documentados. En una futura versión de React se publicará una API oficial para integrar fuentes de datos con Suspense.
+=======
+Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
 
 </Note>
 
@@ -362,9 +366,9 @@ async function getBio() {
     setTimeout(resolve, 1500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -624,9 +628,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -877,7 +881,11 @@ input { margin: 10px; }
 
 </Sandpack>
 
+<<<<<<< HEAD
 Un patrón de UI común consiste en *aplazar* la actualización de la lista de resultados y seguir mostrando los resultados anteriores hasta que los nuevos resultados estén listos. El Hook [`useDeferredValue`](/reference/react/useDeferredValue) te permite pasar una versión aplazada de la consulta:
+=======
+A common alternative UI pattern is to *defer* updating the list and to keep showing the previous results until the new results are ready. The [`useDeferredValue`](/reference/react/useDeferredValue) Hook lets you pass a deferred version of the query down:
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
 
 ```js {3,11}
 export default function App() {
@@ -903,7 +911,7 @@ Para que le resulte más claro al usuario, puedes añadir un indicador visual cu
 
 ```js {2}
 <div style={{
-  opacity: query !== deferredQuery ? 0.5 : 1 
+  opacity: query !== deferredQuery ? 0.5 : 1
 }}>
   <SearchResults query={deferredQuery} />
 </div>
@@ -1251,9 +1259,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -1375,7 +1383,7 @@ function Router() {
 
   function navigate(url) {
     startTransition(() => {
-      setPage(url);      
+      setPage(url);
     });
   }
   // ...
@@ -1563,9 +1571,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -1874,9 +1882,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -2007,7 +2015,11 @@ Sin embargo, imagina ahora que estás navegando entre dos perfiles de usuario di
 ### Proporcionar un _fallback_ para errores de servidor y contenido solo-cliente {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
 
 
+<<<<<<< HEAD
 Si utilizas una de las [APIs de renderizado en el servidor con *streaming*](/reference/react-dom/server) (o un *framework* que depende de ellas), React también utilizará tus barreras de `<Suspense>` para manejar errores en el servidor. Si un componente lanza un error en el servidor, React no abortará el renderizado en el servidor. Lo que hará será encontrar el componente `<Suspense>` más cercano encima de este e incluirá su *fallback* (un *spinner*, por ejemplo) dentro del HTML generado en el  servidor. El usuario verá un *spinner* en lugar de un error.
+=======
+On the client, React will attempt to render the same component again. If it errors on the client too, React will throw the error and display the closest [Error Boundary.](/reference/react/Component#static-getderivedstatefromerror) However, if it does not error on the client, React will not display the error to the user since the content was eventually displayed successfully.
+>>>>>>> 2639f369946f763fff9a2572b0d7c4b9e2f83ebd
 
 En el cliente, React intentará renderizar el mismo componente nuevamente. Si ocurre un error también en el cliente, React lanzará el error y mostrará la [barrera de error](/reference/react/Component#static-getderivedstatefromerror) más cercana. Sin embargo, si no ocurre un error en el cliente, React no le mostrará el error al usuario dado que el contenido eventualmente se le mostró al usuario satisfactoriamente.
 
