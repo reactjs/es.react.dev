@@ -79,6 +79,9 @@ Hay dos variaciones raramente usadas de `useEffect` con diferencias en la sincro
 * [`useLayoutEffect`](/reference/react/useLayoutEffect) se activa antes de que el navegador vuelve a pintar la pantalla. Puedes medir la maquetación aquí.
 * [`useInsertionEffect`](/reference/react/useInsertionEffect) se activa antes de que React realice cambios al DOM. Las bibliotecas pueden insertar CSS dinámico aquí.
 
+You can also separate events from Effects:
+
+- [`useEffectEvent`](/reference/react/useEffectEvent) creates a non-reactive event to fire from any Effect hook.
 ---
 
 ## Hooks de rendimiento {/*performance-hooks*/}
