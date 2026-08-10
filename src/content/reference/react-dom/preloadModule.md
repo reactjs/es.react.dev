@@ -4,7 +4,11 @@ title: preloadModule
 
 <Note>
 
+<<<<<<< HEAD
 [Los frameworks basados en React](/learn/start-a-new-react-project) con frecuencia manejan la carga de recursos por ti, por lo que es posible que no necesites llamar a esta API tú mismo. Consulta la documentación de tu framework para más detalles.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 </Note>
 
@@ -44,12 +48,21 @@ La función `preloadModule` proporciona al navegador una señal de que debería 
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `href`: un string. La URL del módulo que deseas descargar.
 * `options`: un objeto. Contiene las siguientes propiedades:
   *  `as`: un string requerido. Debe ser `'script'`.
   *  `crossOrigin`: un string. La [política de CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a utilizar. Sus valores posibles son `anonymous` y `use-credentials`.
   *  `integrity`: un string. Un hash criptográfico del módulo, para [verificar su autenticidad](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
   *  `nonce`: un string. Un [nonce criptográfico para permitir el módulo](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) cuando se utiliza una Política de Seguridad de Contenido estricta.
+=======
+* `href`: a string. The URL of the module you want to download.
+* `options`: an object. It contains the following properties:
+  *  `as`: a required string. It must be `'script'`.
+  *  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`.
+  *  `integrity`: a string. A cryptographic hash of the module, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+  *  `nonce`: a string. A cryptographic [nonce to allow the module](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 
 #### Devuelve {/*returns*/}

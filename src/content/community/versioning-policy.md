@@ -135,9 +135,15 @@ Si eres el autor de un marco de trabajo de React de terceros, biblioteca, herram
   ```console
   yarn upgrade react@canary react-dom@canary
   ```
+<<<<<<< HEAD
 - Ejecute su conjunto de pruebas contra los paquetes actualizados.
 - Si todo pasa, ¡genial! Puedes esperar que tu proyecto funcione con la próxima versión menor de React.
 - Si algo se rompe inesperadamente, por favor déjanos saber [presentando una propuesta](https://github.com/facebook/react/issues).
+=======
+- Run your test suite against the updated packages.
+- If everything passes, great! You can expect that your project will work with the next minor React release.
+- If something breaks unexpectedly, please let us know by [filing an issue](https://github.com/react/react/issues).
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 Un proyecto que usa este flujo de trabajo es Next.js. Puedes referirte a su [configuración de CircleCI](https://github.com/zeit/next.js/blob/c0a1c0f93966fe33edd93fb53e5fafb0dcd80a9e/.circleci/config.yml) como un ejemplo.
 
@@ -167,4 +173,8 @@ Si una función no está documentada, puede ir acompañada por un [RFC](https://
 
 Publicaremos en el [blog de React](/blog) cuando estemos listos para anunciar nuevos experimentos, pero eso no significa que daremos a conocer cada experimento.
 
+<<<<<<< HEAD
 Siempre puedes consultar el [historial](https://github.com/facebook/react/commits/main) de nuestro repositorio público de GitHub por una lista completa de cambios.
+=======
+You can always refer to our public GitHub repository's [history](https://github.com/react/react/commits/main) for a comprehensive list of changes.
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
