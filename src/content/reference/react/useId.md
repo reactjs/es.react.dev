@@ -45,7 +45,13 @@ function PasswordField() {
 
 * `useId` es un Hook, así que solo puedes llamarlo **en el nivel superior de tu componente** o en tus propios hooks. No puedes llamarlo dentro de bucles o condiciones. Si necesitas hacerlo, extrae un nuevo componente y mueve allí el estado.
 
+<<<<<<< HEAD
 * `useId` **no debe usarse para generar _keys_** en una lista. [Las _keys_ deben generarse a partir de tus datos.](/learn/rendering-lists#where-to-get-your-key)
+=======
+* `useId` **should not be used to generate cache keys** for [use()](/reference/react/use). The ID is stable when a component is mounted but may change during rendering. Cache keys should be generated from your data.
+
+* `useId` **should not be used to generate keys** in a list. [Keys should be generated from your data.](/learn/rendering-lists#where-to-get-your-key)
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 * `useId` currently cannot be used in [async Server Components](/reference/rsc/server-components#async-components-with-server-components).
 
@@ -192,7 +198,11 @@ Dentro de React, `useId` se genera a partir de la "ruta del padre" del component
 
 ### Generar IDs para varios elementos relacionados {/*generating-ids-for-several-related-elements*/}
 
+<<<<<<< HEAD
 Si necesitas proporcionar IDs a varios elementos relacionados, puedes llamar a `useId` para generar un prefijo compartido para ellos:
+=======
+If you need to give IDs to multiple related elements, you can call `useId` to generate a shared prefix for them:
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 <Sandpack>
 

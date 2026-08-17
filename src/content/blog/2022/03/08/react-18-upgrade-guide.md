@@ -13,7 +13,11 @@ description: Como compartimos en la publicación de lanzamiento, React 18 introd
 
 Como compartimos en la publicación de lanzamiento, React 18 introduce características impulsadas por nuestro nuevo renderizador concurrente, con una estrategia de adopción gradual para aplicaciones existentes. En esta publicación, te guiaremos a través de los pasos para actualizar a React 18.
 
+<<<<<<< HEAD
 Por favor, informa cualquier problema que encuentres durante la actualización a React 18.
+=======
+Please [report any issues](https://github.com/react/react/issues/new/choose) you encounter while upgrading to React 18.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 </Intro>
 
@@ -321,6 +325,7 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 
 ### React {/*react*/}
 
+<<<<<<< HEAD
 - Ahora los componentes pueden renderizar `undefined`: React ya no muestra advertencias si devuelves `undefined` desde un componente. Esto hace que los valores de devolución permitidos en los componentes sean consistentes con los valores permitidos en medio de un árbol de componentes. Te sugerimos usar un linter para evitar errores como olvidar una declaración de devolución antes de JSX.
 
 - **En las pruebas, las advertencias de `act` ahora son opcionales:** Si estás ejecutando pruebas de extremo a extremo, las advertencias de `act` son innecesarias. Hemos introducido un mecanismo [opcional](https://github.com/reactwg/react-18/discussions/102) para que puedas habilitarlas solo en pruebas unitarias donde sean útiles y beneficiosas.
@@ -330,6 +335,13 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 - No se suprimen los registros de la consola: Cuando usas el "Modo Estricto" (`Strict Mode`), React renderiza cada componente dos veces para ayudarte a encontrar efectos secundarios inesperados. En React 17, suprimimos los registros de la consola para una de las dos renderizaciones para que los registros fueran más fáciles de leer. En respuesta a los [comentarios de la comunidad](https://github.com/facebook/react/issues/21783) que indicaban que esto era confuso, hemos eliminado la supresión. En su lugar, si tienes instaladas las React DevTools, los registros de la segunda renderización se mostrarán en gris y habrá una opción (desactivada de forma predeterminada) para suprimirlos por completo.
 
 - Mejora en el uso de memoria: React ahora limpia más campos internos al desmontar, lo que reduce el impacto de posibles fugas de memoria no corregidas que puedan existir en el código de tu aplicación.
+=======
+* **Components can now render `undefined`:** React no longer warns if you return `undefined` from a component. This makes the allowed component return values consistent with values that are allowed in the middle of a component tree. We suggest to use a linter to prevent mistakes like forgetting a `return` statement before JSX.
+* **In tests, `act` warnings are now opt-in:** If you're running end-to-end tests, the `act` warnings are unnecessary. We've introduced an [opt-in](https://github.com/reactwg/react-18/discussions/102) mechanism so you can enable them only for unit tests where they are useful and beneficial.
+* **No warning about `setState` on unmounted components:** Previously, React warned about memory leaks when you call `setState` on an unmounted component. This warning was added for subscriptions, but people primarily run into it in scenarios where setting state is fine, and workarounds make the code worse. We've [removed](https://github.com/react/react/pull/22114) this warning.
+* **No suppression of console logs:** When you use Strict Mode, React renders each component twice to help you find unexpected side effects. In React 17, we've suppressed console logs for one of the two renders to make the logs easier to read. In response to [community feedback](https://github.com/react/react/issues/21783) about this being confusing, we've removed the suppression. Instead, if you have React DevTools installed, the second log's renders will be displayed in grey, and there will be an option (off by default) to suppress them completely.
+* **Improved memory usage:** React now cleans up more internal fields on unmount, making the impact from unfixed memory leaks that may exist in your application code less severe.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 ### React DOM Server {/*react-dom-server*/}
 
@@ -337,6 +349,10 @@ Si necesitas admitir Internet Explorer, te recomendamos que te quedes con React 
 
 - `renderToStaticMarkup`: Ya no generará un error al suspenderse en el servidor. En su lugar, emitirá el HTML de respaldo para el límite más cercano de `<Suspense>`.
 
+<<<<<<< HEAD
 ## Registro de cambios {/*changelog*/}
 
 Puedes ver el registro de cambios completo [aquí](https://github.com/facebook/react/blob/main/CHANGELOG.md).
+=======
+You can view the [full changelog here](https://github.com/react/react/blob/main/CHANGELOG.md).
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a

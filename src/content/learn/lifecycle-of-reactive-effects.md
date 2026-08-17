@@ -293,7 +293,11 @@ Podrías estarte preguntando cómo React conoce que tu Efecto necesita volverse 
 ```js {1,3,8}
 function ChatRoom({ roomId }) { // La prop roomId puede cambiar con el tiempo
   useEffect(() => {
+<<<<<<< HEAD
     const connection = createConnection(serverUrl, roomId); // Este Efecto lee roomId 
+=======
+    const connection = createConnection(serverUrl, roomId); // This Effect reads roomId
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
     connection.connect();
     return () => {
       connection.disconnect();
@@ -969,7 +973,7 @@ export default function App() {
       <label>
         <input type="checkbox"
           checked={canMove}
-          onChange={e => setCanMove(e.target.checked)} 
+          onChange={e => setCanMove(e.target.checked)}
         />
         El punto puede moverse
       </label>
@@ -1027,7 +1031,7 @@ export default function App() {
       <label>
         <input type="checkbox"
           checked={canMove}
-          onChange={e => setCanMove(e.target.checked)} 
+          onChange={e => setCanMove(e.target.checked)}
         />
         El punto puede moverse
       </label>
@@ -1083,7 +1087,7 @@ export default function App() {
       <label>
         <input type="checkbox"
           checked={canMove}
-          onChange={e => setCanMove(e.target.checked)} 
+          onChange={e => setCanMove(e.target.checked)}
         />
         El punto puede moverse
       </label>
@@ -1131,7 +1135,7 @@ Si ves una regla de linter suprimida, ¡elimina la supresión! Ahí es donde sue
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [16]}}
 import { useState, useEffect } from 'react';
 
 export default function App() {
@@ -1155,7 +1159,7 @@ export default function App() {
       <label>
         <input type="checkbox"
           checked={canMove}
-          onChange={e => setCanMove(e.target.checked)} 
+          onChange={e => setCanMove(e.target.checked)}
         />
         El punto puede moverse
       </label>
@@ -1220,7 +1224,7 @@ export default function App() {
       <label>
         <input type="checkbox"
           checked={canMove}
-          onChange={e => setCanMove(e.target.checked)} 
+          onChange={e => setCanMove(e.target.checked)}
         />
         El punto puede moverse
       </label>
@@ -1279,7 +1283,7 @@ export default function App() {
       <label>
         <input type="checkbox"
           checked={canMove}
-          onChange={e => setCanMove(e.target.checked)} 
+          onChange={e => setCanMove(e.target.checked)}
         />
         El punto puede moverse
       </label>
@@ -1374,7 +1378,7 @@ export default function App() {
 }
 ```
 
-```js src/ChatRoom.js active
+```js {expectedErrors: {'react-compiler': [8]}} src/ChatRoom.js active
 import { useState, useEffect } from 'react';
 
 export default function ChatRoom({ roomId, createConnection }) {
@@ -1711,7 +1715,11 @@ async function fetchPlanets() {
         name: 'Venus'
       }, {
         id: 'mars',
+<<<<<<< HEAD
         name: 'Marte'        
+=======
+        name: 'Mars'
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
       }]);
     }, 1000);
   });
@@ -1735,7 +1743,7 @@ async function fetchPlaces(planetId) {
           name: 'España'
         }, {
           id: 'vietnam',
-          name: 'Vietnam'        
+          name: 'Vietnam'
         }]);
       } else if (planetId === 'venus') {
         resolve([{
@@ -1746,7 +1754,7 @@ async function fetchPlaces(planetId) {
           name: 'Diana Chasma'
         }, {
           id: 'kumsong-vallis',
-          name: 'Kŭmsŏng Vallis'        
+          name: 'Kŭmsŏng Vallis'
         }]);
       } else if (planetId === 'mars') {
         resolve([{
@@ -1879,7 +1887,11 @@ async function fetchPlanets() {
         name: 'Venus'
       }, {
         id: 'mars',
+<<<<<<< HEAD
         name: 'Marte'        
+=======
+        name: 'Mars'
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
       }]);
     }, 1000);
   });
@@ -1903,7 +1915,7 @@ async function fetchPlaces(planetId) {
           name: 'España'
         }, {
           id: 'vietnam',
-          name: 'Vietnam'        
+          name: 'Vietnam'
         }]);
       } else if (planetId === 'venus') {
         resolve([{
@@ -1914,7 +1926,7 @@ async function fetchPlaces(planetId) {
           name: 'Diana Chasma'
         }, {
           id: 'kumsong-vallis',
-          name: 'Kŭmsŏng Vallis'        
+          name: 'Kŭmsŏng Vallis'
         }]);
       } else if (planetId === 'mars') {
         resolve([{
@@ -2042,7 +2054,11 @@ async function fetchPlanets() {
         name: 'Venus'
       }, {
         id: 'mars',
+<<<<<<< HEAD
         name: 'Marte'        
+=======
+        name: 'Mars'
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
       }]);
     }, 1000);
   });
@@ -2066,7 +2082,7 @@ async function fetchPlaces(planetId) {
           name: 'España'
         }, {
           id: 'vietnam',
-          name: 'Vietnam'        
+          name: 'Vietnam'
         }]);
       } else if (planetId === 'venus') {
         resolve([{
@@ -2077,7 +2093,7 @@ async function fetchPlaces(planetId) {
           name: 'Diana Chasma'
         }, {
           id: 'kumsong-vallis',
-          name: 'Kŭmsŏng Vallis'        
+          name: 'Kŭmsŏng Vallis'
         }]);
       } else if (planetId === 'mars') {
         resolve([{

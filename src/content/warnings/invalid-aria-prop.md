@@ -8,4 +8,8 @@ Esta advertencia se activará si intentas representar un elemento del DOM con un
 
 2. Si escribiste `aria-role`, es posible que hayas querido decir `role`.
 
+<<<<<<< HEAD
 3. De lo contrario, si estás en la última versión de React DOM y verificaste que estás usando un nombre de propiedad válido que figura en la especificación ARIA, por favor [reporta un error](https://github.com/facebook/react/issues/new/choose).
+=======
+3. Otherwise, if you're on the latest version of React DOM and verified that you're using a valid property name listed in the ARIA specification, please [report a bug](https://github.com/react/react/issues/new/choose).
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
