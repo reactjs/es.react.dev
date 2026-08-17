@@ -37,9 +37,15 @@ Comienza por dibujar cuadros alrededor de cada componente y subcomponente en el 
 
 Dependiendo de tu formación y experiencia, puedes pensar en dividir un diseño en componentes de distintas maneras:
 
+<<<<<<< HEAD
 * **Programación**--utiliza las mismas técnicas para decidir si debes crear una nueva función o un objeto. Una de estas técnicas es el [principio de responsabilidad única](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_única), es decir, lo ideal es que un componente sólo haga una cosa. Si termina creciendo, debería descomponerse en subcomponentes más pequeños.
 * **CSS**--considera para qué harías selectores de clase. (Sin embargo, los componentes son un poco menos granulares).
 * **Diseño**--considera cómo organizarías las capas del diseño.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 Si tu JSON está bien estructurado, a menudo encontrarás que se corresponde naturalmente con la estructura de componentes de tu UI. Esto ocurre porque la UI y los modelos de datos a menudo tienen la misma arquitectura de información--o sea, la misma forma. Separa tu UI en componentes, de manera que cada componente se corresponda con una pieza de tu modelo de datos.
 
@@ -228,10 +234,17 @@ Lo que queda probablemente es estado.
 
 Veámoslos uno por uno nuevamente:
 
+<<<<<<< HEAD
 1. La lista original de productos se **pasa como props, por lo que no es estado**.
 2. El texto de búsqueda parece ser estado dado que cambia con el tiempo y no puede ser calculado a partir de algo más.
 3. El valor del *checkbox* parece ser estado porque cambia con el tiempo y no puede ser calculado a partir de algo más.
 4. La lista filtrada de productos **no es estado porque puede ser calculada** tomando la lista original de productos y filtrándola de acuerdo al texto de búsqueda y el valor del *checkbox*.
+=======
+1. The original list of products is **passed in as props, so it's not state.**
+2. The search text seems to be state since it changes over time and can't be computed from anything.
+3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
+4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 ¡Esto significa que solo el texto de búsqueda y el valor del *checkbox* son estado! ¡Bien hecho!
 
@@ -265,6 +278,7 @@ En el paso anterior, encontraste dos elementos de estado en esta aplicación: el
 
 Ahora utilicemos nuestra estrategia para este estado:
 
+<<<<<<< HEAD
 1. **Identifica componentes que usen estado:**
     * `ProductTable` necesita filtrar la lista de productos con base en ese estado (texto de búsqueda y valor del *checkbox*).
     * `SearchBar` necesita mostrar ese estado (texto de búsqueda y valor del *checkbox*).
@@ -272,23 +286,32 @@ Ahora utilicemos nuestra estrategia para este estado:
 3. **Decide donde reside el estado:** Mantendremos el texto de filtrado y el estado de valor seleccionado en `FilterableProductTable`.
 
 Por tanto los valores del estado residirán en `FilterableProductTable`.
+=======
+1. **Identify components that use state:**
+    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value).
+    * `SearchBar` needs to display that state (search text and checkbox value).
+2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
+3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+
+So the state values will live in `FilterableProductTable`.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 Añade estado al componente con el [Hook `useState()`](/reference/react/useState). Los Hooks te permiten "engancharte" al [ciclo de renderizado](/learn/render-and-commit) de un componente (<abbr title="Nota de Traducción">N. de T.</abbr>: *hook* en inglés se puede traducir como "gancho"). Añade dos variables de estado al inicio de `FilterableProductTable` y especifica el estado inicial de tu aplicación:
 
 ```js
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);  
+  const [inStockOnly, setInStockOnly] = useState(false);
 ```
 
 Pasa entonces `filterText` e `inStockOnly` a `ProductTable` y `SearchBar` como props:
 
 ```js
 <div>
-  <SearchBar 
-    filterText={filterText} 
+  <SearchBar
+    filterText={filterText}
     inStockOnly={inStockOnly} />
-  <ProductTable 
+  <ProductTable
     products={products}
     filterText={filterText}
     inStockOnly={inStockOnly} />
@@ -308,10 +331,10 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly} />
-      <ProductTable 
+      <ProductTable
         products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
@@ -389,13 +412,20 @@ function ProductTable({ products, filterText, inStockOnly }) {
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
+<<<<<<< HEAD
       <input 
         type="text" 
         value={filterText} 
         placeholder="Buscar..."/>
+=======
+      <input
+        type="text"
+        value={filterText}
+        placeholder="Search..."/>
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
       <label>
-        <input 
-          type="checkbox" 
+        <input
+          type="checkbox"
           checked={inStockOnly} />
         {' '}
         Mostrar solo productos en stock
@@ -451,10 +481,17 @@ En el ejemplo de código de arriba `ProductTable` y `SearchBar` leen las props `
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
+<<<<<<< HEAD
       <input 
         type="text" 
         value={filterText} 
         placeholder="Buscar..."/>
+=======
+      <input
+        type="text"
+        value={filterText}
+        placeholder="Search..."/>
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 ```
 
 Sin embargo, no has añadido ningún código para responder a las acciones del usuario como la escritura en el teclado. Este será tu último paso.
@@ -462,7 +499,11 @@ Sin embargo, no has añadido ningún código para responder a las acciones del u
 
 ## Paso 5: Añade flujo de datos inverso {/*step-5-add-inverse-data-flow*/}
 
+<<<<<<< HEAD
 Actualmente tu aplicación se renderiza correctamente con props y estado fluyendo hacia abajo en la jerarquía. Pero para cambiar el estado de acuerdo a la entrada del usuario necesitarás ser capaz de manejar datos fluyendo en la otra dirección: los componentes de formulario que se encuentran debajo en la jerarquía necesitan actualizar el estado en `FilterableProductTable`.
+=======
+Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 React hace este flujo de datos explícito, pero requiere un poco más de escritura que el enlazado de datos en doble sentido. Si tratas de escribir o seleccionar el *checkbox* en el ejemplo de arriba, verás que React ignora tu entrada. Esto es intencional. Al escribir `<input value={filterText} />`, haz establecido que la prop `value` del `input` sea siempre igual al estado `filterState` pasado desde `FilterableProductTable`. Dado que el estado `filterText` nunca es modificado, el *input* nunca cambia.
 
@@ -475,8 +516,8 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
@@ -519,13 +560,13 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
-        inStockOnly={inStockOnly} 
-        onFilterTextChange={setFilterText} 
+      <SearchBar
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
-      <ProductTable 
-        products={products} 
+      <ProductTable
+        products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
     </div>
@@ -607,14 +648,20 @@ function SearchBar({
 }) {
   return (
     <form>
+<<<<<<< HEAD
       <input 
         type="text" 
         value={filterText} placeholder="Buscar..." 
+=======
+      <input
+        type="text"
+        value={filterText} placeholder="Search..."
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
-        <input 
-          type="checkbox" 
-          checked={inStockOnly} 
+        <input
+          type="checkbox"
+          checked={inStockOnly}
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
         Mostrar solo productos en stock

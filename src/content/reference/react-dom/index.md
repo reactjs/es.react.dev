@@ -21,7 +21,11 @@ Puedes importar las siguientes APIs en tus componentes, pero su uso es poco com�
 
 Estas APIs se pueden utilizar para hacer las aplicaciones más rápidas al precargar recursos como scripts, hojas de estilos y fuentes tan pronto como sepas que los necesitarás, por ejemplo antes de navegar a otra página donde se utilizarán los recursos.
 
+<<<<<<< HEAD
 [Los frameworks basados en React](/learn/start-a-new-react-project) con frecuencia manejan la carga de recursos por ti, por lo que es posible que no necesites llamar a estas APIs tú mismo. Consulta la documentación de tu framework para más detalles.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call these APIs yourself. Consult your framework's documentation for details.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 * [`prefetchDNS`](/reference/react-dom/prefetchDNS) te permite precargar la dirección IP de un nombre de dominio DNS al que esperas conectarte.
 * [`preconnect`](/reference/react-dom/preconnect) te permite conectarte a un servidor del que esperas solicitar recursos, incluso si aún no sabes qué recursos necesitarás.

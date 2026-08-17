@@ -301,7 +301,7 @@ Suprimir la advertencia del *linter* conduce a errores muy poco intuitivos que s
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [14]}}
 import { useState, useEffect } from 'react';
 
 export default function Timer() {
@@ -409,7 +409,7 @@ function Form() {
 
   function handleSubmit() {
     setSubmitted(true);
-  }  
+  }
 
   // ...
 }
@@ -427,7 +427,7 @@ function Form() {
     // ✅ Bien: Lógica específica de Evento se llama desde controladores de eventos
     post('/api/register');
     showNotification('Successfully registered!', theme);
-  }  
+  }
 
   // ...
 }
@@ -607,6 +607,7 @@ function ChatRoom({ roomId }) {
 
 ### ¿Quieres leer un valor sin "reaccionar" as sus cambios? {/*do-you-want-to-read-a-value-without-reacting-to-its-changes*/}
 
+<<<<<<< HEAD
 <Wip>
 
 Esta sección describe una **API experimental que aún no se ha añadido a React**, por lo que aún no puedes usarla.
@@ -614,6 +615,9 @@ Esta sección describe una **API experimental que aún no se ha añadido a React
 </Wip>
 
 Supón que quieres poner un sonido cuando el usuario recibe un nuevo mensaje a menos que `isMuted` sea `true`:
+=======
+Suppose that you want to play a sound when the user receives a new message unless `isMuted` is `true`:
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 ```js {3,10-12}
 function ChatRoom({ roomId }) {
@@ -792,7 +796,7 @@ Este objeto se declara en el cuerpo del componente, por lo que es un [valor reac
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
@@ -882,7 +886,11 @@ const options2 = { serverUrl: 'https://localhost:1234', roomId: 'música' };
 console.log(Object.is(options1, options2)); // falso
 ```
 
+<<<<<<< HEAD
 **Objetos y funciones como dependencias crean un riesgo de que tu Efecto se resincronice más a menudo de lo que necesitas.**
+=======
+**Object and function dependencies can make your Effect re-synchronize more often than you need.**
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 Es por esto que, siempre que sea posible, debes intentar evitar objetos y funciones como dependencias de los Efectos. En su lugar, intenta moverlos fuera del componente, o dentro del Efecto, o extraer valores primitivos fuera de ellos.
 
@@ -1239,7 +1247,11 @@ export default function Timer() {
 
 </Sandpack>
 
+<<<<<<< HEAD
 En lugar de leer `count` dentro del Efecto, pasas a React una instrucción `c => c + 1` ("¡incrementa este número!"). React la aplicará en el próximo renderizado. Y dado que ya no tienes que leer el valor de `count` dentro de tu Efecto, puedes mantener vacío (`[]`) el *array* de dependencias de tu Efecto. Así se evita que tu Efecto recree el intervalo en cada tic.
+=======
+Instead of reading `count` inside the Effect, you pass a `c => c + 1` instruction ("increment this number!") to React. React will apply it on the next render. And since you don't need to read the value of `count` inside your Effect anymore, you can keep your Effect's dependencies empty (`[]`). This prevents your Effect from re-creating the interval on every tick.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 </Solution>
 
@@ -1257,25 +1269,9 @@ Este código ya funciona, pero hay algo que quieres cambiar. Actualmente, cuando
 
 <Sandpack>
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 ```js
 import { useState, useEffect, useRef } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { FadeInAnimation } from './animation.js';
 
 function Welcome({ duration }) {
@@ -1384,26 +1380,10 @@ Tu Efecto necesita leer el último valor de `duration`, pero no quieres que "rea
 
 <Sandpack>
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 ```js
 import { useState, useEffect, useRef } from 'react';
 import { FadeInAnimation } from './animation.js';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 function Welcome({ duration }) {
   const ref = useRef(null);
@@ -1823,8 +1803,8 @@ La otra función solo existe para pasar algún estado a un método de una API im
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1905,7 +1885,7 @@ export default function App() {
 
 ```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export default function ChatRoom({ roomId, createConnection, onMessage }) {
   useEffect(() => {
@@ -2118,8 +2098,8 @@ As a result, the chat re-connects only when something meaningful (`roomId` or `i
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -2187,7 +2167,7 @@ export default function App() {
 
 ```js src/ChatRoom.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import {
   createEncryptedConnection,
   createUnencryptedConnection,

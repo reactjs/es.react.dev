@@ -143,7 +143,11 @@ window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
+<<<<<<< HEAD
 Si imprime `false`, es posible que tengas dos instancias de React y debas investigar las posibles causas. [Este issue](https://github.com/facebook/react/issues/13991) incluye algunas razones comunes encontradas por la comunidad.
+=======
+If it prints `false` then you might have two Reacts and need to figure out why that happened. [This issue](https://github.com/react/react/issues/13991) includes some common reasons encountered by the community.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 Este problema también puede surgir al utilizar `npm link` u otro método equivalente, lo que hace que el empaquetador de módulos "vea" dos versiones de React — una en la carpeta de la aplicación y otra en la carpeta de la biblioteca. Si `myapp` y `mylib` son carpetas hermanas, una posible solución es ejecutar `npm link ../myapp/node_modules/react` desde `mylib`. De esta forma, la biblioteca utilizará la versión de React de la aplicación.
 
@@ -155,4 +159,8 @@ En general, React permite el uso de varias instancias intependientes en una mism
 
 ## Otras causas {/*other-causes*/}
 
+<<<<<<< HEAD
 Si ninguna de estas soluciones funcionó, por favor coméntalo en [este issue](https://github.com/facebook/react/issues/13991) y trataremos de ayudarte. Intenta crear un pequeño ejemplo que reproduzca el problema — Es posible que descubras la causa del problema mientras intentas reproducirlo.
+=======
+If none of this worked, please comment in [this issue](https://github.com/react/react/issues/13991) and we'll try to help. Try to create a small reproducing example — you might discover the problem as you're doing it.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
