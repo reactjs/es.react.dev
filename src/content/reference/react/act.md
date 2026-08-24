@@ -96,12 +96,17 @@ import Counter from './Counter';
 it('can render and update a counter', async () => {
   container = document.createElement('div');
   document.body.appendChild(container);
+<<<<<<< HEAD
   
   // ✅ Renderiza el componente dentro de act().
+=======
+
+  // ✅ Render the component inside act().
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
   await act(() => {
     ReactDOMClient.createRoot(container).render(<Counter />);
   });
-  
+
   const button = container.querySelector('button');
   const label = container.querySelector('p');
   expect(label.textContent).toBe('You clicked 0 times');
@@ -125,12 +130,17 @@ import Counter from './Counter';
 it.only('can render and update a counter', async () => {
   const container = document.createElement('div');
   document.body.appendChild(container);
-  
+
   await act( async () => {
     ReactDOMClient.createRoot(container).render(<Counter />);
   });
+<<<<<<< HEAD
   
   // ✅ Despacha el evento dentro de act().
+=======
+
+  // ✅ Dispatch the event inside act().
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
   await act(async () => {
     button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   });
@@ -152,7 +162,11 @@ No olvides que despachar eventos del DOM solo funciona cuando el contenedor del 
 
 ## Solución de problemas {/*troubleshooting*/}
 
+<<<<<<< HEAD
 ### Recibo un error: "The current testing environment is not configured to support act"(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+=======
+### I'm getting an error: "The current testing environment is not configured to support act(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
 
 Usar `act` requiere configurar `global.IS_REACT_ACT_ENVIRONMENT=true` en tu entorno de pruebas. Esto es para asegurar que `act` solo se use en el entorno correcto.
 

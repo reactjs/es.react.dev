@@ -36,7 +36,11 @@ El [componente integrado `<option>` del navegador](https://developer.mozilla.org
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<option>` es compatible con todas las [props de elementos comunes.](/reference/react-dom/components/common#props)
+=======
+`<option>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
 
 Además, `<option>` admite estas props:
 
@@ -80,3 +84,7 @@ select { margin: 5px; }
 ```
 
 </Sandpack>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
