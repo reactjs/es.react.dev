@@ -517,8 +517,13 @@ export default function Picture() {
     <div className="background background--active">
       <img
         className="picture"
+<<<<<<< HEAD
         alt="Casas de arcoiris en Kampung Pelangi, Indonesia"
         src="https://i.imgur.com/5qwVYb1.jpeg"
+=======
+        alt="Rainbow houses in Kampung Pelangi, Indonesia"
+        src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
       />
     </div>
   );
@@ -593,8 +598,13 @@ export default function Picture() {
           setIsActive(true);
         }}
         className={pictureClassName}
+<<<<<<< HEAD
         alt="Casas de arcoiris en Kampung Pelangi, Indonesia"
         src="https://i.imgur.com/5qwVYb1.jpeg"
+=======
+        alt="Rainbow houses in Kampung Pelangi, Indonesia"
+        src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
       />
     </div>
   );
@@ -648,8 +658,13 @@ export default function Picture() {
       >
         <img
           className="picture picture--active"
+<<<<<<< HEAD
           alt="Casas de arcoiris en Kampung Pelangi, Indonesia"
           src="https://i.imgur.com/5qwVYb1.jpeg"
+=======
+          alt="Rainbow houses in Kampung Pelangi, Indonesia"
+          src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
           onClick={e => e.stopPropagation()}
         />
       </div>
@@ -659,8 +674,13 @@ export default function Picture() {
     <div className="background background--active">
       <img
         className="picture"
+<<<<<<< HEAD
         alt="Casas de arcoiris en Kampung Pelangi, Indonesia"
         src="https://i.imgur.com/5qwVYb1.jpeg"
+=======
+        alt="Rainbow houses in Kampung Pelangi, Indonesia"
+        src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
+>>>>>>> 12d692da47e77cdc558b928fcfbaf4e71c6d0cec
         onClick={() => setIsActive(true)}
       />
     </div>
