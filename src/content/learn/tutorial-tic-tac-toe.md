@@ -283,9 +283,15 @@ En CodeSandbox verás tres secciones principales:
 
 ![CodeSandbox con código de inicio](../images/tutorial/react-starter-code-codesandbox.png)
 
+<<<<<<< HEAD
 1. La sección *Files* con una lista de archivos como `App.js`, `index.js`, `styles.css` y una carpeta llamada `public`
 2. El *code editor* donde verás el código fuente de tu archivo seleccionado
 3. La sección *browser* donde verás cómo se mostrará el código que has escrito
+=======
+1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` in `src` folder and a folder called `public`
+1. The _code editor_ where you'll see the source code of your selected file
+1. The _browser_ section where you'll see how the code you've written will be displayed
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 El archivo `App.js` debe seleccionarse en la sección *Files*. El contenido de ese archivo en el  *code editor* debería ser:
 
@@ -337,7 +343,11 @@ import './styles.css';
 import App from './App';
 ```
 
+<<<<<<< HEAD
 Las líneas 1-5 reúnen todas las piezas necesarias:
+=======
+Lines 1-5 bring all the necessary pieces together:
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 - React
 - Biblioteca de React para hablar con los navegadores web (React DOM)
@@ -551,7 +561,11 @@ export default function Board() {
 }
 ```
 
+<<<<<<< HEAD
 Observa cómo, a diferencia de los `div`s del navegador, tus propios componentes `Board` y `Square` deben comenzar con una letra mayúscula.
+=======
+Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 Vamos a ver:
 
@@ -901,6 +915,7 @@ body {
 
 ### React Developer Tools {/*react-developer-tools*/}
 
+<<<<<<< HEAD
 React DevTools te permite verificar las props y el estado de tus componentes React. Puedes encontrar la pestaña React DevTools en la parte inferior de la sección *navegador* en CodeSandbox:
 
 ![React DevTools en CodeSandbox](../images/tutorial/codesandbox-devtools.png)
@@ -908,12 +923,26 @@ React DevTools te permite verificar las props y el estado de tus componentes Rea
 Para inspeccionar un componente en particular en la pantalla, usa el botón en la esquina superior izquierda de React DevTools:
 
 ![Seleccionar componentes en la página con React DevTools](../images/tutorial/devtools-select.gif)
+=======
+React Developer Tools let you check the props and the state of your React components. It is available as a [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) browser extension.
 
-<Note>
+After you install it, a new *Components* tab will appear in your browser Developer Tools for sites using React. If you're following along in CodeSandbox, you'd need to first open your sandbox preview in a new tab:
 
+![opening in new tab](../images/tutorial/sandbox-new-tab.png)
+
+Then, on the preview page, open your browser's DevTools and find the *Components* tab:
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
+
+![components tab](../images/tutorial/components-tab.png)
+
+<<<<<<< HEAD
 Para el desarrollo local, React DevTools está disponible como [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=es), [Firefox](https://addons.mozilla.org/es/firefox/addon/react-devtools/), y [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) extensión del navegador. Después de instalarlo, la pestaña *Componentes* aparecerá en las Herramientas de desarrollo de tu navegador para los sitios que utilizan React.
+=======
+To inspect a particular component on the screen, use the button in the top left corner of the Components tab:
 
-</Note>
+![inspecting with devtools](../images/tutorial/devtools-inspect.gif)
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
+
 
 ## Completar el juego {/*completing-the-game*/}
 
@@ -1096,7 +1125,11 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
+<<<<<<< HEAD
 Ahora conecta la prop `onSquareClick` a una función en el componente `Board` que llamarás `handleClick`. Para conectar `onSquareClick` a `handleClick`, pasa una función a la prop `onSquareClick` del primer componente `Square`:
+=======
+Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 ```js {7}
 export default function Board() {
@@ -2077,13 +2110,22 @@ export default function Game() {
 }
 ```
 
+<<<<<<< HEAD
 Puedes ver cómo debería verse tu código a continuación. Ten en cuenta que deberías ver un error en la consola de herramientas para desarrolladores que dice: 
+=======
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
+<<<<<<< HEAD
   
 Resolverás este error en la siguiente sección.
+=======
+
+You'll fix this error in the next section.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 <Sandpack>
 

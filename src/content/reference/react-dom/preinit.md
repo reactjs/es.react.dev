@@ -4,7 +4,11 @@ title: preinit
 
 <Note>
 
+<<<<<<< HEAD
 Los [frameworks basados en React](/learn/start-a-new-react-project) frecuentemente manejan la carga de recursos por ti, por lo que es posible que no necesites llamar a esta API tú mismo. Consulta la documentación de tu framework para más detalles.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 </Note>
 
@@ -44,6 +48,7 @@ La función `preinit` proporciona al navegador una sugerencia de que debería co
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `href`: una cadena. La URL del recurso que deseas descargar y ejecutar.
 * `options`: un objeto. Contiene las siguientes propiedades:
   *  `as`: una cadena requerida. El tipo de recurso. Sus valores posibles son `script` y `style`.
@@ -52,6 +57,16 @@ La función `preinit` proporciona al navegador una sugerencia de que debería co
   *  `integrity`: una cadena. Un hash criptográfico del recurso, para [verificar su autenticidad](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
   *  `nonce`: una cadena. Un [nonce criptográfico para permitir el recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) al usar una Política de Seguridad de Contenido estricta.
   *  `fetchPriority`: una cadena. Sugiere una prioridad relativa para obtener el recurso. Los valores posibles son `auto` (el predeterminado), `high` y `low`.
+=======
+* `href`: a string. The URL of the resource you want to download and execute.
+* `options`: an object. It contains the following properties:
+  *  `as`: a required string. The type of resource. Its possible values are `script` and `style`.
+  * `precedence`: a string. Required with stylesheets. Says where to insert the stylesheet relative to others. Stylesheets with higher precedence can override those with lower precedence. The possible values are `reset`, `low`, `medium`, `high`.
+  *  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`.
+  *  `integrity`: a string. A cryptographic hash of the resource, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+  *  `nonce`: a string. A cryptographic [nonce to allow the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
+  *  `fetchPriority`: a string. Suggests a relative priority for fetching the resource. The possible values are `auto` (the default), `high`, and `low`.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 #### Devuelve {/*returns*/}
 

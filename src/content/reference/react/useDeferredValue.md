@@ -86,6 +86,7 @@ Durante las actualizaciones, el <CodeStep step={2}>valor diferido</CodeStep> ten
 
 <Note>
 
+<<<<<<< HEAD
 Este ejemplo asume que se está utilizando una origen de datos con _Suspense_ habilitado:
 
 - Frameworks para la obtención de datos con _Suspense_ habilitado como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) y [Next.js](https://nextjs.org/docs/getting-started/react-essentials).
@@ -95,6 +96,11 @@ Este ejemplo asume que se está utilizando una origen de datos con _Suspense_ ha
 - Componentes que empleen carga diferida mediante [`lazy`](/reference/react/lazy).
 
 [Aprende más sobre _Suspense_ y sus limitaciones.](/reference/react/Suspense)
+=======
+This example assumes you use a data source that [activates a Suspense boundary](/reference/react/Suspense#what-activates-a-suspense-boundary), such as a Promise you read with [`use`](/reference/react/use).
+
+[Learn more about Suspense.](/reference/react/Suspense)
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 </Note>
 
@@ -246,7 +252,11 @@ input { margin: 10px; }
 
 </Sandpack>
 
+<<<<<<< HEAD
 Una alternativa común en la UI es *diferir* la actualización de las listas de resultados y seguir mostrando los anteriores resultados hasta que los nuevos estén disponibles. Llama a `useDeferredValue` para pasar una versión diferida de la `query`:
+=======
+A common alternative UI pattern is to *defer* updating the list of results and to keep showing the previous results until the new results are ready. Call `useDeferredValue` to pass a deferred version of the query down:
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 ```js {3,11}
 export default function App() {
@@ -422,7 +432,11 @@ input { margin: 10px; }
 
 Puedes pensar que ocurre de acuerdo a estos dos pasos:
 
+<<<<<<< HEAD
 1. **En primer lugar, React re-renderiza con la nueva `query` (`"ab"`) pero utilizando el anterior `deferredQuery` (cuyo valor aún es `"a"`).** El valor de `deferredQuery`, el cual se pasa a la lista resultante, está "diferido" respecto al valor de la `query`.
+=======
+1. **First, React re-renders with the new `query` (`"ab"`) but with the old `deferredQuery` (still `"a"`).** The `deferredQuery` value, which you pass to the result list, is *deferred:* it "lags behind" the `query` value.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 2. **En segundo plano, React intentará re-renderizar con *ambos* `query` y `deferredQuery` actualizados con el valor `"ab"`.** Si este re-renderizado se completa, React lo mostrará por pantalla. De lo contrario, si se "suspende" (los resultados para `"ab"` aún no se han cargado), React abandonará este intento de renderización y re-intentará este re-renderizado nuevamente una vez los datos hayan sido cargados. El usuario seguirá viendo el valor diferido obsoleto hasta que los datos hayan sido cargados.
 
@@ -671,7 +685,7 @@ export default function App() {
 }
 ```
 
-```js src/SlowList.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/SlowList.js
 import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {
@@ -708,6 +722,8 @@ export default SlowList;
 ```css
 .items {
   padding: 0;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .item {
@@ -748,7 +764,7 @@ export default function App() {
 }
 ```
 
-```js src/SlowList.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/SlowList.js
 import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {
@@ -785,6 +801,8 @@ export default SlowList;
 ```css
 .items {
   padding: 0;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .item {

@@ -273,7 +273,13 @@ Esto sólo funciona a un nivel de profundidad, y pretende ser una vía de escape
 
 ---
 
+<<<<<<< HEAD
 ### Manejar diferentes contenidos de cliente y servidor {/*handling-different-client-and-server-content*/}
+=======
+{/* TODO: Remove this subsection when browser is available in Stable. */}
+
+### Handling different client and server content {/*handling-different-client-and-server-content*/}
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 Si intencionalmente necesitas renderizar algo diferente en el servidor y en el cliente, puedes hacer un renderizado de dos pasadas. Los componentes que renderizan algo diferente en el cliente pueden leer una [variable de estado](/reference/react/useState) como `isClient`, que puedes establecer en `true` en un [Efecto](/reference/react/useEffect):
 
@@ -295,7 +301,8 @@ import App from './App.js';
 hydrateRoot(document.getElementById('root'), <App />);
 ```
 
-```js src/App.js active
+{/* kind of an edge case, seems fine to use this hack here */}
+```js {expectedErrors: {'react-compiler': [7]}} src/App.js active
 import { useState, useEffect } from "react";
 
 export default function App() {
@@ -316,6 +323,10 @@ export default function App() {
 </Sandpack>
 
 De esta forma el pase de render inicial renderizará el mismo contenido que el servidor, evitando desajustes, pero un pase adicional sucederá de forma sincrónica justo después de la hidratación.
+
+Use this approach when you want the client-rendered content to be different from the initial server-rendered HTML.
+
+<Canary>If a component should render only in the browser, call [`use(browser())`](/reference/react/use#use-browser) instead of waiting for an Effect.</Canary>
 
 <Pitfall>
 
