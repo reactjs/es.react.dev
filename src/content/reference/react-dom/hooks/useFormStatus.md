@@ -40,7 +40,11 @@ export default function App() {
 }
 ```
 
+<<<<<<< HEAD
 Para obtener información de estado, el componente de `Enviar` tiene que ser renderizado dentro de un `<form>`. El Hook retorna información como la propiedad <CodeStep step={1}>`pending`</CodeStep> que te dice si el formulario se está enviando activamente.
+=======
+To get status information, the `Submit` component must be rendered within a `<form>`. The Hook returns information like the <CodeStep step={1}>`pending`</CodeStep> property which tells you if the form is actively submitting.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 En el ejemplo de arriba, `Enviar` usa esta información para deshabilitar la pulsación de `<button>` mientras el formulario se está enviando.
 
@@ -65,8 +69,13 @@ Un objeto de `status` con las siguientes propiedades:
 
 #### Advertencias {/*caveats*/}
 
+<<<<<<< HEAD
 * El Hook `useFormStatus` debe llamarse desde un componente que se renderiza dentro de un `<form>`. 
 * `useFormStatus` solo retornará información de estado para un `<form>` padre. No retornará información de estado a ningún `<form>` renderizado en ese mismo componente o componente hijos.
+=======
+* The `useFormStatus` Hook must be called from a component that is rendered inside a `<form>`.
+* `useFormStatus` will only return status information for a parent `<form>`. It will not return status information for any `<form>` rendered in that same component or children components.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 ---
 
@@ -75,7 +84,11 @@ Un objeto de `status` con las siguientes propiedades:
 ### Muestra un estado pendiente durante el envío de un formulario {/*display-a-pending-state-during-form-submission*/}
 Para mostrar un estado pendiente mientras un formulario se está enviando, puedes llamar al Hook `useFormStatus` en un componente renderizado en un `<form>` y leer la propiedad `pending` que retorna.
 
+<<<<<<< HEAD
 Aquí, usamos la propiedad `pending` para indicar que el formulario se está enviando. 
+=======
+Here, we use the `pending` property to indicate the form is submitting.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 <Sandpack>
 
@@ -110,7 +123,7 @@ export async function submitForm(query) {
     await new Promise((res) => setTimeout(res, 1000));
 }
 ```
-</Sandpack>  
+</Sandpack>
 
 <Pitfall>
 
@@ -131,8 +144,13 @@ En su lugar llama a `useFormStatus` desde dentro de un componente que se encuent
 
 ```js
 function Submit() {
+<<<<<<< HEAD
   // ✅ `pending` se derivará del formulario que envuelve el componente Enviar
   const { pending } = useFormStatus(); 
+=======
+  // ✅ `pending` will be derived from the form that wraps the Submit component
+  const { pending } = useFormStatus();
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
   return <button disabled={pending}>...</button>;
 }
 
@@ -215,7 +233,7 @@ button {
 
 ```
 
-</Sandpack>  
+</Sandpack>
 
 ---
 
@@ -223,7 +241,11 @@ button {
 
 ### `status.pending` nunca es `true` {/*pending-is-never-true*/}
 
+<<<<<<< HEAD
 `useFormStatus` solo retornará información de estado a un `<form>` padre. 
+=======
+`useFormStatus` will only return status information for a parent `<form>`.
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 Si el componente que llama a `useFormStatus` no está anidado en un `<form>`, `status.pending` siempre retornará `false`. Verifica que `useFormStatus` está siendo llamado en un componente que es hijo de un elemento `<form>`.
 
