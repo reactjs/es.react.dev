@@ -21,7 +21,11 @@ Puedes importar las siguientes APIs en tus componentes, pero su uso es poco com�
 
 Estas APIs se pueden utilizar para hacer las aplicaciones más rápidas al precargar recursos como scripts, hojas de estilos y fuentes tan pronto como sepas que los necesitarás, por ejemplo antes de navegar a otra página donde se utilizarán los recursos.
 
+<<<<<<< HEAD
 [Los frameworks basados en React](/learn/start-a-new-react-project) con frecuencia manejan la carga de recursos por ti, por lo que es posible que no necesites llamar a estas APIs tú mismo. Consulta la documentación de tu framework para más detalles.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call these APIs yourself. Consult your framework's documentation for details.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 * [`prefetchDNS`](/reference/react-dom/prefetchDNS) te permite precargar la dirección IP de un nombre de dominio DNS al que esperas conectarte.
 * [`preconnect`](/reference/react-dom/preconnect) te permite conectarte a un servidor del que esperas solicitar recursos, incluso si aún no sabes qué recursos necesitarás.
@@ -29,6 +33,12 @@ Estas APIs se pueden utilizar para hacer las aplicaciones más rápidas al preca
 * [`preloadModule`](/reference/react-dom/preloadModule) te permite precargar un módulo ESM que esperas utilizar.
 * [`preinit`](/reference/react-dom/preinit) te permite precargar y evaluar un script externo o precargar e insertar una hoja de estilos.
 * [`preinitModule`](/reference/react-dom/preinitModule) te permite precargar y evaluar un módulo ESM.
+
+## Server Rendering APIs {/*server-rendering-apis*/}
+
+This API controls how components render on the server:
+
+* <CanaryBadge /> [`browser`](/reference/react-dom/browser) lets you mark a component as browser-only during server rendering.
 
 ---
 

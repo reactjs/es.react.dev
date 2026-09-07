@@ -51,7 +51,11 @@ Todos pueden leer las discusiones en el [repositorio del Grupo de Trabajo de Rea
 
 Debido a que esperamos un aumento inicial de interés en el Grupo de Trabajo, solo los miembros invitados podrán crear o comentar en los hilos. Sin embargo, los hilos son completamente públicos, por lo que todos tienen acceso a la misma información. Creemos que este es un buen compromiso entre crear un entorno productivo para los miembros del grupo de trabajo y, al mismo tiempo, mantener la transparencia con la comunidad en general.
 
+<<<<<<< HEAD
 Como siempre, puedes subir reportes de errores, preguntas y comentarios en general a nuestro [*issue tracker*](https://github.com/facebook/react/issues).
+=======
+As always, you can submit bug reports, questions, and general feedback to our [issue tracker](https://github.com/react/react/issues).
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 ## ¿Cómo probar React 18 Alpha hoy? {/*how-to-try-react-18-alpha-today*/}
 

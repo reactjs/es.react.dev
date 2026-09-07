@@ -458,7 +458,11 @@ export default function Menu() {
 
   return (
     <>
+<<<<<<< HEAD
       <h2>¿Cuál es tu merienda de viaje?</h2>
+=======
+      <h2>What's your travel snack?</h2>
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -920,7 +924,11 @@ export const initialTravelPlan = {
   },
   10: {
     id: 10,
+<<<<<<< HEAD
     title: 'Las Américas',
+=======
+    title: 'Americas',
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
@@ -966,7 +974,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -1000,8 +1008,13 @@ export const initialTravelPlan = {
   },
   26: {
     id: 26,
+<<<<<<< HEAD
     title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
+=======
+    title: 'Europe',
+    childIds: [27, 28, 29, 30, 31, 32, 33],
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
   },
   27: {
     id: 27,
@@ -1040,8 +1053,13 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
+<<<<<<< HEAD
     title: 'Oceanía',
     childIds: [35, 36, 37, 38, 39, 40, 41],   
+=======
+    title: 'Oceania',
+    childIds: [35, 36, 37, 38, 39, 40, 41],
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
   },
   35: {
     id: 35,
@@ -1256,7 +1274,11 @@ export const initialTravelPlan = {
   },
   10: {
     id: 10,
+<<<<<<< HEAD
     title: 'Las Américas',
+=======
+    title: 'Americas',
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
@@ -1302,7 +1324,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -1336,8 +1358,13 @@ export const initialTravelPlan = {
   },
   26: {
     id: 26,
+<<<<<<< HEAD
     title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
+=======
+    title: 'Europe',
+    childIds: [27, 28, 29, 30, 31, 32, 33],
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
   },
   27: {
     id: 27,
@@ -1376,8 +1403,13 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
+<<<<<<< HEAD
     title: 'Oceanía',
     childIds: [35, 36, 37, 38, 39, 40, 41],   
+=======
+    title: 'Oceania',
+    childIds: [35, 36, 37, 38, 39, 40, 41],
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
   },
   35: {
     id: 35,
@@ -1595,7 +1627,11 @@ export const initialTravelPlan = {
   },
   10: {
     id: 10,
+<<<<<<< HEAD
     title: 'Las Américas',
+=======
+    title: 'Americas',
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
@@ -1641,7 +1677,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25,],   
+    childIds: [20, 21, 22, 23, 24, 25,],
   },
   20: {
     id: 20,
@@ -1675,8 +1711,13 @@ export const initialTravelPlan = {
   },
   26: {
     id: 26,
+<<<<<<< HEAD
     title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
+=======
+    title: 'Europe',
+    childIds: [27, 28, 29, 30, 31, 32, 33],
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
   },
   27: {
     id: 27,
@@ -1715,8 +1756,13 @@ export const initialTravelPlan = {
   },
   34: {
     id: 34,
+<<<<<<< HEAD
     title: 'Oceanía',
     childIds: [35, 36, 37, 38, 39, 40, 41],   
+=======
+    title: 'Oceania',
+    childIds: [35, 36, 37, 38, 39, 40, 41],
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
   },
   35: {
     id: 35,
@@ -1821,6 +1867,7 @@ A veces, también puedes reducir el anidamiento de estados moviendo algunos de l
 
 <Recap>
 
+<<<<<<< HEAD
 * Si dos variables de estado siempre se actualizan juntas, considera combinarlas en una.
 * Elige cuidadosamente tus variables de estado para evitar crear estados "imposibles".
 * Estructura tu estado de una manera que reduzca las posibilidades de que cometas un error al actualizarlo.
@@ -1828,6 +1875,15 @@ A veces, también puedes reducir el anidamiento de estados moviendo algunos de l
 * No pongas props *en* estado a menos que desees evitar específicamente las actualizaciones.
 * Para patrones de interfaz de usuario como la selección, mantén el ID o el índice en estado en lugar del objeto mismo.
 * Si actualizar el estado profundamente anidado es complicado, intenta aplanarlo.
+=======
+* If two state variables always update together, consider merging them into one.
+* Choose your state variables carefully to avoid creating "impossible" states.
+* Structure your state in a way that reduces the chances that you'll make a mistake updating it.
+* Avoid redundant and duplicate state so that you don't need to keep it in sync.
+* Don't put props *into* state unless you specifically want to prevent updates.
+* For UI patterns like selection, keep ID or index in state instead of the object itself.
+* If updating deeply nested state is complicated, try flattening it.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 </Recap>
 
