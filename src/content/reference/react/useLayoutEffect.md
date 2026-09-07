@@ -47,9 +47,15 @@ function Tooltip() {
 
 #### Parámetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `setup`: La función con la lógica de tu Efecto. Tu función setup puede devolver opcionalmente una función de *limpieza*. Antes que tu componente sea agregado al DOM, React va a ejecutar tu función setup. Después de cada renderizado con dependencias modificadas, React primero va a ejecutar la función de limpieza (si tú lo provees) con los valores anteriores, y luego ejecuta tu función setup con los nuevos valores. Antes que tu componente sea eliminado del DOM, React va a ejecutar tu función de limpieza.
  
 * **opcional** `dependencies`: La lista de todos los valores reactivos referenciados dentro del código de `setup`. Los valores reactivos incluyen props, estados, y todas las variables y funciones declaradas directamente dentro del cuerpo de tu componente. Si tu linter está [configurado para React](/learn/editor-setup#linting), va a verificar que cada valor reactivo este correctamente especificado como una dependencia. La lista de dependencias tiene que tener un número constante de elementos y ser escritos en linea como `[dep1, dep2, dep3]`. React va a comparar cada dependencia con su valor anterior usando el algoritmo de comparación [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Si no especificas del todo las dependencias, tu Efecto se volverá a ejecutar después de cada renderizado del componente.
+=======
+* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. After your [component commits](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom) to the DOM and before the browser repaints the screen, React will run your setup function. After every commit with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. Before your component is removed from the DOM, React will run your cleanup function.
+
+* **optional** `dependencies`: The list of all reactive values referenced inside of the `setup` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. If you omit this argument, your Effect will re-run after every commit of the component.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 #### Devuelve {/*returns*/}
 
@@ -627,7 +633,7 @@ export default function ButtonWithTooltip({ tooltipContent, ...rest }) {
 }
 ```
 
-```js src/Tooltip.js active
+```js {expectedErrors: {'react-compiler': [10, 11]}} src/Tooltip.js active
 import { useRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import TooltipContainer from './TooltipContainer.js';
@@ -734,7 +740,13 @@ Sin embargo, si estás pasando por este problema, tienes algunas opciones:
 
 1. Puedes reemplazar `useLayoutEffect` con [`useEffect`.](/reference/react/useEffect) Esto le dice a React que está bien mostrar el resultado inicial del renderizado sin bloquear el pintado (porque el HTML original se convierte en visible antes que tu Efecto se ejecute).
 
+<<<<<<< HEAD
 2. Puedes [marcar tu componente como solo cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content) Esto le indica a React que debe reemplazar su contenido hasta la barrera de [`<Suspense>`](/reference/react/Suspense) más cercana con un *fallback* de carga (por ejemplo, un spinner o un glimmer) durante el renderizado en el lado del servidor.
+=======
+- <CanaryBadge /> Alternatively, call [`use(browser())`](/reference/react/use#use-browser) to mark the component as browser-only. React will replace its content up to the closest [`<Suspense>`](/reference/react/Suspense) boundary with a loading fallback (for example, a spinner or a glimmer) during server rendering.
+
+- Alternatively, [mark your component as client-only.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content) This tells React to replace its content up to the closest `<Suspense>` boundary with a loading fallback during server rendering.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 3. Puedes mostrar diferentes componentes en el servidor y en el cliente. Una manera de hacer esto es mantener el estado booleano `isMounted` que está inicializado en `false`, y cambiarlo a `true` dentro de la llamada de un `useEffect`. La lógica de renderizado puede ser entonces como `return isMounted ? <RealContent /> : <FallbackContent />`. En el servidor y durante la hidratación, el usuario va a ver `FallbackContent` que no debe llamar `useLayoutEffect`. Luego React va a reemplazarlo con `RealContent` que se ejecuta solo en el lado del cliente y puede incluir llamadas a `useLayoutEffect`.
 

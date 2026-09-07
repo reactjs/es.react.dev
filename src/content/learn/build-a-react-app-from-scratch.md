@@ -12,7 +12,11 @@ Si tu aplicación tiene limitaciones que no están bien cubiertas por los framew
 
 #### Considere usar un framework {/*consider-using-a-framework*/}
 
+<<<<<<< HEAD
 Comenzar desde cero es una manera sencilla de iniciar con React, pero una desventaja importante a tener en cuenta es que tomar esta ruta es a menudo lo mismo que montar tu propio framework improvisado. Conforme tus necesidades evolucionen, podrías tener que solucionar problemas más similares a los de un framework, para los cuales nuestros frameworks recomendados ya cuentan con soluciones bien desarrolladas y respaldadas.
+=======
+Starting from scratch is an easy way to get started using React, but a major tradeoff to be aware of is that going this route is often the same as building your own adhoc framework. As your requirements evolve, you may need to solve more framework-like problems that our recommended frameworks already have well developed and supported solutions for.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 Por ejemplo, si en el futuro tu aplicación necesita soporte para server-side rendering (SSR), static site generation (SSG), y/o React Server Components (RSC), tendrás que implementarlos por tu cuenta. Del mismo modo, las futuras características de React que requieran integración a nivel de framework tendrán que ser implementadas por ti mismo si quieres utilizarlas.
 
@@ -34,7 +38,7 @@ El primer paso es instalar una herramienta de compilación como `vite`, `parcel`
 [Vite](https://es.vite.dev/) es una herramienta de compilación cuyo objetivo es proporcionar una experiencia de desarrollo más rápida y sencilla para los proyectos web modernos.
 
 <TerminalBlock>
-{`npm create vite@latest my-app -- --template react`}
+npm create vite@latest my-app -- --template react-ts
 </TerminalBlock>
 
 Vite sigue una filosofía bien definida y viene con configuraciones predeterminadas sensatas listas para usar. Vite tiene un rico ecosistema de plugins para dar soporte a Fast Refresh (actualización rápida), JSX, Babel/SWC y otras características comunes. Consulta el [plugin React](https://es.vite.dev/plugins/#vite-plugin-react) de Vite o el [plugin React SWC](https://es.vite.dev/plugins/#vite-plugin-react-swc) y el [proyecto de ejemplo de React SSR](https://es.vite.dev/guide/ssr#proyectos-de-ejemplo) para empezar.
@@ -46,7 +50,7 @@ Vite ya se está utilizando como herramienta de compilación en uno de nuestros 
 [Parcel](https://parceljs.org/) combina una excelente experiencia de desarrollo sin configuración inicial con una arquitectura escalable que puede llevar tu proyecto desde sus inicios hasta aplicaciones masivas en producción.
 
 <TerminalBlock>
-{`npm install --save-dev parcel`}
+npm install --save-dev parcel
 </TerminalBlock>
 
 Parcel es compatible de fábrica con Fast Refresh (actualización rápida), JSX, TypeScript, Flow y estilos. Consulta la [guía React de Parcel](https://parceljs.org/recipes/react/#getting-started) para empezar.
@@ -56,7 +60,7 @@ Parcel es compatible de fábrica con Fast Refresh (actualización rápida), JSX,
 [Rsbuild](https://rsbuild.dev/) es una herramienta de desarrollo basada en Rspack que ofrece una experiencia de desarrollo fluida para aplicaciones React. Incluye valores predeterminados cuidadosamente ajustados y optimizaciones de rendimiento listas para usar.
 
 <TerminalBlock>
-{`npx create-rsbuild --template react`}
+npx create-rsbuild --template react
 </TerminalBlock>
 
 Rsbuild incluye compatibilidad integrada para funcionalidades de React como Fast Refresh, JSX, TypeScript y estilos. Consulte la [guía React de Rsbuild](https://rsbuild.dev/guide/framework/react) para empezar.
@@ -97,7 +101,7 @@ Tenga en cuenta que la obtención de datos directamente en los componentes puede
 
 Si estás obteniendo datos de la mayoría de backends o APIs de estilo REST, sugerimos usar:
 
-- [React Query](https://react-query.tanstack.com/)
+- [TanStack Query](https://tanstack.com/query/)
 - [SWR](https://swr.vercel.app/)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 
@@ -115,14 +119,25 @@ De manera similar, si confías en que las aplicaciones usen tu framework para di
 
 La división del código por rutas, cuando se integra con el empaquetamiento y la obtención de datos, puede reducir el tiempo de carga inicial de su aplicación y el tiempo que tarda en renderizarse el contenido visible más grande de la aplicación. ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
+<<<<<<< HEAD
 Para obtener instrucciones sobre cómo dividir el código, consulte la documentación de su herramienta de compilación:
 - [Optimizaciones de compilación](https://es.vite.dev/guide/features.html#optimizaciones-de-compilacion)
 - [División de código con Parcel](https://parceljs.org/features/code-splitting/)
 - [División de código con Rsbuild](https://rsbuild.dev/guide/optimization/code-splitting)
+=======
+For code-splitting instructions, see your build tool docs:
+- [Vite build optimizations](https://vite.dev/guide/features.html#build-optimizations)
+- [Parcel code splitting](https://parceljs.org/features/code-splitting/)
+- [Rsbuild code splitting](https://rsbuild.dev/guide/optimization/code-splitting)
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 ### Mejorar el rendimiento de las aplicaciones {/*improving-application-performance*/}
 
+<<<<<<< HEAD
 Dado que la herramienta de compilación que elija sólo admite aplicaciones de una sola página (SPA), tendrá que implementar otras [patrones de renderizado](https://www.patterns.dev/vanilla/rendering-patterns) como server-side rendering (SSR), static site generation (SSG), y/o React Server Components (RSC). Aunque al principio no necesites estas funciones, en el futuro puede que haya algunas rutas que se beneficien de SSR, SSG o RSC.
+=======
+Since the build tool you select only supports single page apps (SPAs), you'll need to implement other [rendering patterns](https://www.patterns.dev/vanilla/rendering-patterns) like server-side rendering (SSR), static site generation (SSG), and/or React Server Components (RSC). Even if you don't need these features at first, in the future there may be some routes that would benefit SSR, SSG or RSC.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 * **Single-page apps (SPA)** cargan una única página HTML y la actualizan dinámicamente a medida que el usuario interactúa con la aplicación. Las SPA son más fáciles de usar, pero pueden tener tiempos de carga iniciales más lentos. Las SPA son la arquitectura por defecto de la mayoría de las herramientas de compilación.
 
@@ -132,12 +147,22 @@ Dado que la herramienta de compilación que elija sólo admite aplicaciones de u
 
 * **React Server Components (RSC)** Permite mezclar componentes de tiempo de compilación, solo de servidor e interactivos dentro de un único árbol de React. RSC puede mejorar el rendimiento, pero a día de hoy requiere una gran experiencia para su configuración y mantenimiento. Consulte los [ejemplos de RSC de Parcel](https://github.com/parcel-bundler/rsc-examples).
 
+<<<<<<< HEAD
 Tus estrategias de renderizado necesitan integrarse con tu router para que las aplicaciones construidas con tu framework puedan elegir la estrategia de renderizado a nivel de ruta. Esto permitirá diferentes estrategias de renderizado sin tener que reescribir toda la aplicación. Por ejemplo, la página de destino de tu aplicación podría beneficiarse de la generación estática (SSG), mientras que una página con un feed de contenido podría funcionar mejor con la renderización del lado del servidor.
+=======
+Your rendering strategies need to integrate with your router so apps built with your framework can choose the rendering strategy on a per-route level. This will enable different rendering strategies without having to rewrite your whole app. For example, the landing page for your app might benefit from being statically generated (SSG), while a page with a content feed might perform best with server-side rendering.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 Utilizar la estrategia de renderización adecuada para las rutas correctas puede reducir el tiempo que tarda en cargarse el primer byte de contenido ([Time to First Byte](https://web.dev/articles/ttfb?hl=es-419)), el primer contenido que se muestra ([First Contentful Paint](https://web.dev/articles/fcp?hl=es-419)), y el mayor contenido visible de la aplicación para renderizar ([Largest Contentful Paint](https://web.dev/articles/lcp?hl=es-419)).
 
 ### Y más... {/*and-more*/}
 
+<<<<<<< HEAD
 Estos son sólo algunos ejemplos de las características que una nueva aplicación tendrá que tener en cuenta cuando se construya desde cero. Muchas de las limitaciones con las que te encontrarás pueden ser difíciles de resolver, ya que cada problema está interconectado con los demás y puede requerir profundos conocimientos en áreas problemáticas con las que quizá no estés familiarizado.
 
 Si no quieres resolver estos problemas por tu cuenta, puedes [empezar con un framework](/learn/creating-a-react-app) que ofrece estas funciones desde el primer momento.
+=======
+These are just a few examples of the features a new app will need to consider when building from scratch. Many limitations you'll hit can be difficult to solve as each problem is interconnected with the others and can require deep expertise in problem areas you may not be familiar with.
+
+If you don't want to solve these problems on your own, you can [get started with a framework](/learn/creating-a-react-app) that provides these features out of the box.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290

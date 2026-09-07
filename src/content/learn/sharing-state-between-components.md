@@ -322,7 +322,11 @@ Para ver cómo se siente esto en la práctica con algunos componentes más, lee 
 
 #### Entradas sincronizadas {/*synced-inputs*/}
 
+<<<<<<< HEAD
 Estas dos entradas son independientes. Haz que se mantengan sincronizadas: la edición de una entrada debería actualizar la otra con el mismo texto, y viceversa.
+=======
+These two inputs are independent. Make them stay in sync: editing one input should update the other input with the same text, and vice versa.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 <Hint>
 
@@ -570,7 +574,7 @@ function SearchBar({ query, onChange }) {
 function List({ items }) {
   return (
     <table>
-      <tbody> 
+      <tbody>
         {items.map(food => (
           <tr key={food.id}>
             <td>{food.name}</td>

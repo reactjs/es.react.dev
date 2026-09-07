@@ -10,15 +10,51 @@ Este blog es la fuente oficial de las actualizaciones del equipo React. Cualquie
 
 <div className="sm:-mx-5 flex flex-col gap-5 mt-12">
 
-<BlogCard title="React Labs: View Transitions, Activity, and more" date="April 23, 2025" url="/blog/2025/04/23/react-labs-view-transitions-activity-and-more">
+<BlogCard title="The React Foundation: A New Home for React Hosted by the Linux Foundation" date="February 24, 2026" url="/blog/2026/02/24/the-react-foundation">
 
-In React Labs posts, we write about projects in active research and development. In this post, we're sharing two new experimental features that are ready to try today, and sharing other areas we're working on now ...
+The React Foundation has officially launched under the Linux Foundation.
 
 </BlogCard>
 
-<BlogCard title="React Compiler RC" date="April 21, 2025" url="/blog/2025/04/21/react-compiler-rc">
+<BlogCard title="Denial of Service and Source Code Exposure in React Server Components" date="December 11, 2025" url="/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components">
 
-We are releasing the compiler's first Release Candidate (RC) today.
+Security researchers have found and disclosed two additional vulnerabilities in React Server Components while attempting to exploit the patches in last week’s critical vulnerability...
+
+</BlogCard>
+
+<BlogCard title="Critical Security Vulnerability in React Server Components" date="December 3, 2025" url="/blog/2025/12/03/critical-security-vulnerability-in-react-server-components">
+
+There is an unauthenticated remote code execution vulnerability in React Server Components. A fix has been published in versions 19.0.1, 19.1.2, and 19.2.1. We recommend upgrading immediately.
+
+</BlogCard>
+
+<BlogCard title="React Conf 2025 Recap" date="October 16, 2025" url="/blog/2025/10/16/react-conf-2025-recap">
+
+Last week we hosted React Conf 2025. In this post, we summarize the talks and announcements from the event...
+
+</BlogCard>
+
+<BlogCard title="React Compiler v1.0" date="October 7, 2025" url="/blog/2025/10/07/react-compiler-1">
+
+We're releasing the compiler's first stable release today, plus linting and tooling improvements to make adoption easier.
+
+</BlogCard>
+
+<BlogCard title="Introducing the React Foundation" date="October 7, 2025" url="/blog/2025/10/07/introducing-the-react-foundation">
+
+Today, we're announcing our plans to create the React Foundation and a new technical governance structure ...
+
+</BlogCard>
+
+<BlogCard title="React 19.2" date="October 1, 2025" url="/blog/2025/10/01/react-19-2">
+
+React 19.2 adds new features like Activity, React Performance Tracks, useEffectEvent, and more. In this post ...
+
+</BlogCard>
+
+<BlogCard title="React Labs: View Transitions, Activity, and more" date="April 23, 2025" url="/blog/2025/04/23/react-labs-view-transitions-activity-and-more">
+
+In React Labs posts, we write about projects in active research and development. In this post, we're sharing two new experimental features that are ready to try today, and sharing other areas we're working on now ...
 
 </BlogCard>
 
@@ -112,7 +148,11 @@ El equipo de React está emocionado por compartir algunas novedades:
 
 ### Todas las notas de la versión {/*all-release-notes*/}
 
+<<<<<<< HEAD
 No todas las versiones de React merecen su propia entrada en el blog, pero puedes encontrar un registro de cambios detallado para cada versión en el archivo [`CHANGELOG.md`](https://github.com/facebook/react/blob/main/CHANGELOG.md) en el repositorio de React, así como en la página de [Versiones](https://github.com/facebook/react/releases).
+=======
+Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md`](https://github.com/react/react/blob/main/CHANGELOG.md) file in the React repository, as well as on the [Releases](https://github.com/react/react/releases) page.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 ---
 
