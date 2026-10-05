@@ -177,7 +177,11 @@ Durante el siguiente renderizado, React recorre la cola de estados:
 | "reemplazar con `5`"  | `0` (sin usar) | `5`         |
 | `n => n + 1`          | `5`            | `5 + 1 = 6` |
 
+<<<<<<< HEAD
 React almacena `6` como resultado final y lo devuelve desde `useState`. 
+=======
+React stores `6` as the final result and returns it from `useState`.
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904
 
 <Note>
 
@@ -305,7 +309,11 @@ export default function RequestTracker() {
         Completado: {completed}
       </h3>
       <button onClick={handleClick}>
+<<<<<<< HEAD
         Comprar     
+=======
+        Buy
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904
       </button>
     </>
   );
@@ -349,7 +357,11 @@ export default function RequestTracker() {
         Completado: {completed}
       </h3>
       <button onClick={handleClick}>
+<<<<<<< HEAD
         Comprar
+=======
+        Buy
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904
       </button>
     </>
   );
