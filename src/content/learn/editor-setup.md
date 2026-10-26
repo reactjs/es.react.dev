@@ -31,7 +31,11 @@ Algunos editores vienen con estas funcionalidades integradas por defecto, pero o
 
 ### Linting (análisis de código) {/*linting*/}
 
+<<<<<<< HEAD
 Las herramientas de análisis de código de tipo *linters* permiten encontrar problemas en tu código mientras lo escribes, ayudando a corregirlos de forma temprana. [ESLint](https://eslint.org/) es un *linter* popular de código abierto para JavaScript.
+=======
+Code linters find problems in your code as you write, helping you fix them early. [ESLint](https://eslint.org/) is a popular, open source linter for JavaScript.
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
 
 * [Instala ESLint con la recomendación recomendada para React](https://www.npmjs.com/package/eslint-config-react-app) (¡asegúrate de tener [Node instalado!](https://nodejs.org/en/download/current/))
 * [Integra ESLint en VSCode con la extensión oficial](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
