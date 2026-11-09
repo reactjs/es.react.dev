@@ -41,8 +41,13 @@ Cuando lanzamos React Hooks en 2018, la documentación de Hooks asumía que el l
 
 **Los nuevos documentos enseñan React con Hooks desde el principio.**  Los documentos se dividen en dos secciones principales:
 
+<<<<<<< HEAD
 * **[Aprende React](/learn)** es un curso autodidacta que enseña React desde cero.
 * **[Referencia de la API](/reference)** proporciona los detalles y ejemplos de uso de cada API de React.
+=======
+* **[Learn React](/learn)** is a self-paced course that teaches React from scratch.
+* **[API Reference](/reference/react)** provides the details and usage examples for every React API.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Veamos más de cerca qué puedes encontrar en cada sección.
 
@@ -279,6 +284,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           isPacked={true} 
           name="Traje espacial" 
@@ -290,6 +296,19 @@ export default function PackingList() {
         <Item 
           isPacked={false} 
           name="Foto de Tam" 
+=======
+        <Item
+          isPacked={true}
+          name="Space suit"
+        />
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         />
       </ul>
     </section>
@@ -317,6 +336,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           isPacked={true} 
           name="Traje espacial" 
@@ -328,6 +348,19 @@ export default function PackingList() {
         <Item 
           isPacked={false} 
           name="Foto de Tam" 
+=======
+        <Item
+          isPacked={true}
+          name="Space suit"
+        />
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         />
       </ul>
     </section>
@@ -365,6 +398,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           importance={9} 
           name="Traje espacial" 
@@ -376,6 +410,19 @@ export default function PackingList() {
         <Item 
           importance={6} 
           name="Foto de Tam" 
+=======
+        <Item
+          importance={9}
+          name="Space suit"
+        />
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          importance={6}
+          name="Photo of Tam"
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         />
       </ul>
     </section>
@@ -409,6 +456,7 @@ export default function PackingList() {
     <section>
       <h1>Lista de equipaje de Sally Ride</h1>
       <ul>
+<<<<<<< HEAD
         <Item 
           importance={9} 
           name="Traje espacial" 
@@ -420,6 +468,19 @@ export default function PackingList() {
         <Item 
           importance={6} 
           name="Foto de Tam" 
+=======
+        <Item
+          importance={9}
+          name="Space suit"
+        />
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
+        />
+        <Item
+          importance={6}
+          name="Photo of Tam"
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         />
       </ul>
     </section>
@@ -459,11 +520,19 @@ Hemos confirmado con los proveedores de navegadores que esta representación es 
 
 En la [Referencia de la API](/reference/react), cada API de React ahora tiene una página dedicada. Esto incluye todo tipo de APIs:
 
+<<<<<<< HEAD
 - Hooks incorporados como [`useState`](/reference/react/useState).
 - Componentes incorporados como [`<Suspense>`](/reference/react/Suspense).
 - Componentes de navegadores incorporados como [`<input>`](/reference/react-dom/components/input).
 - APIs orientadas al framework como [`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
 - Otras APIs de React como [`memo`](/reference/react/memo).
+=======
+- Built-in Hooks like [`useState`](/reference/react/useState).
+- Built-in components like [`<Suspense>`](/reference/react/Suspense).
+- Built-in browser components like [`<input>`](/reference/react-dom/components/input).
+- Framework-oriented APIs like [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
+- Other React APIs like [`memo`](/reference/react/memo).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Observarás que cada página de API se divide en al menos dos segmentos: *Referencia* y *Uso*.
 
@@ -607,7 +676,11 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
+<<<<<<< HEAD
 Algunas páginas de la API también incluyen [solución de problemas](/reference/react/useEffect#troubleshooting) (para problemas comunes) y [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
+=======
+Some API pages also include [Troubleshooting](/reference/react/useEffect#troubleshooting) (for common problems) and [Alternatives](https://18.react.dev/reference/react-dom/findDOMNode#alternatives) (for deprecated APIs).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Esperamos que este enfoque haga que la referencia de la API sea útil no solo como una forma de buscar un argumento, sino también como una forma de ver todas las cosas diferentes que se pueden hacer con cualquier API y cómo se conecta con las demás.
 

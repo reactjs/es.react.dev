@@ -16,8 +16,14 @@ El *Estado* permite a un componente ["recordar" información como el input del u
 
 Para añadir un estado a un componente, usa de estos Hooks:
 
+<<<<<<< HEAD
 * [`useState`](/reference/react/useState) declara un estado variable que puedes actualizar directamente.
 * [`useReducer`](/reference/react/useReducer) declara un estado variable con la lógica de actualización dentro de una [función reductora.](/learn/extracting-state-logic-into-a-reducer)
+=======
+* [`useState`](/reference/react/useState) declares a state variable that you can update directly.
+* [`useReducer`](/reference/react/useReducer) declares a state variable with the update logic inside a [reducer function.](/learn/extracting-state-logic-into-a-reducer)
+* [`useOptimistic`](/reference/react/useOptimistic) lets you show a different state while an async action is pending.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js
 function ImageGallery() {
@@ -79,6 +85,9 @@ Hay dos variaciones raramente usadas de `useEffect` con diferencias en la sincro
 * [`useLayoutEffect`](/reference/react/useLayoutEffect) se activa antes de que el navegador vuelve a pintar la pantalla. Puedes medir la maquetación aquí.
 * [`useInsertionEffect`](/reference/react/useInsertionEffect) se activa antes de que React realice cambios al DOM. Las bibliotecas pueden insertar CSS dinámico aquí.
 
+You can also separate events from Effects:
+
+- [`useEffectEvent`](/reference/react/useEffectEvent) creates a non-reactive event to fire from any Effect hook.
 ---
 
 ## Hooks de rendimiento {/*performance-hooks*/}

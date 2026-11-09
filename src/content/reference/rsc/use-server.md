@@ -5,7 +5,11 @@ titleForTitleTag: "Directiva 'use server'"
 
 <RSC>
 
+<<<<<<< HEAD
 `'use server'` se utiliza con [React Server Components](/reference/rsc/server-components).
+=======
+`'use server'` is for use with [React Server Components](/reference/rsc/server-components).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 </RSC>
 
@@ -95,7 +99,11 @@ Notablemente, estos no son compatibles:
 
 Los valores de retorno serializables compatibles son los mismos que las [props serializables](/reference/rsc/use-client#passing-props-from-server-to-client-components) para una barrera de Client Component.
 
+<<<<<<< HEAD
 ## Uso {/*usage*/}
+=======
+Supported serializable return values are the same as [serializable props](/reference/rsc/use-client#serializable-types) for a boundary Client Component.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ### Server Functions en formularios {/*server-functions-in-forms*/}
 
@@ -136,7 +144,7 @@ Para actualizar la UI en base al resultado de una Server Function mientras se so
 // requestUsername.js
 'use server';
 
-export default async function requestUsername(formData) {
+export default async function requestUsername(prevState, formData) {
   const username = formData.get('username');
   if (canRequest(username)) {
     // ...
@@ -176,7 +184,7 @@ Las Server Functions son endpoints del servidor expuestos y pueden llamarse desd
 
 Cuando uses una Server Function fuera de un [formulario](/reference/react-dom/components/form), llama a la Server Function en una [Transición](/reference/react/useTransition), lo que te permite mostrar un indicador de carga, mostrar [actualizaciones de estado optimistas](/reference/react/useOptimistic), y manejar errores inesperados. Los formularios envolverán automáticamente las Server Functions en transiciones.
 
-```js {9-12}
+```js {9-14}
 import incrementLike from './actions';
 import { useState, useTransition } from 'react';
 
@@ -187,14 +195,16 @@ function LikeButton() {
   const onClick = () => {
     startTransition(async () => {
       const currentCount = await incrementLike();
-      setLikeCount(currentCount);
+      startTransition(() => {
+        setLikeCount(currentCount);
+      });
     });
   };
 
   return (
     <>
       <p>Total Likes: {likeCount}</p>
-      <button onClick={onClick} disabled={isPending}>Like</button>;
+      <button onClick={onClick} disabled={isPending}>Like</button>
     </>
   );
 }
