@@ -17,7 +17,11 @@ TypeScript es una forma popular de añadir definiciones de tipos a las bases de 
 
 ## React Developer Tools {/*react-developer-tools*/}
 
+<<<<<<< HEAD
 React Developer Tools es una extensión del navegador que puede inspeccionar componentes de React, editar props y estado, e identificar problemas de rendimiento. Aprende cómo instalarla [aquí](learn/react-developer-tools).
+=======
+React Developer Tools is a browser extension that can inspect React components, edit props and state, and identify performance problems. Learn how to install it [here](/learn/react-developer-tools).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ## React Compiler {/*react-compiler*/}
 

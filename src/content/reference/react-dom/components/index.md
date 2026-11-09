@@ -24,6 +24,7 @@ Esto incluye props específicos de React como `ref` y `dangerouslySetInnerHTML`.
 
 Estos componentes integrados en el navegador aceptan la entrada del usuario:
 
+* [`<form>`](/reference/react-dom/components/form)
 * [`<input>`](/reference/react-dom/components/input)
 * [`<select>`](/reference/react-dom/components/select)
 * [`<textarea>`](/reference/react-dom/components/textarea)
@@ -36,11 +37,20 @@ Son especiales en React porque pasando el prop `value` los hace *[controlados.](
 
 Estos componentes integrados del navegador te permiten cargar recursos externos o anotar el documento con metadatos:
 
+<<<<<<< HEAD
 - [`<link>`](/reference/react-dom/components/link)
 - [`<meta>`](/reference/react-dom/components/meta)
 - [`<script>`](/reference/react-dom/components/script)
 - [`<style>`](/reference/react-dom/components/style)
 - [`<title>`](/reference/react-dom/components/title)
+=======
+* [`<img>`](/reference/react-dom/components/img)
+* [`<link>`](/reference/react-dom/components/link)
+* [`<meta>`](/reference/react-dom/components/meta)
+* [`<script>`](/reference/react-dom/components/script)
+* [`<style>`](/reference/react-dom/components/style)
+* [`<title>`](/reference/react-dom/components/title)
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Son especiales en React porque React puede renderizarlos en el encabezado del documento, suspender mientras se cargan los recursos y aplicar otros comportamientos que se describen en la página de referencia de cada componente específico.
 
@@ -50,6 +60,7 @@ Son especiales en React porque React puede renderizarlos en el encabezado del do
 
 React admite todos los componentes HTML integrados en el navegador. Esto incluye:
 
+<<<<<<< HEAD
 * [`<aside>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/aside)
 * [`<audio>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/audio)
 * [`<b>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/b)
@@ -104,6 +115,62 @@ React admite todos los componentes HTML integrados en el navegador. Esto incluye
 * [`<mark>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/mark)
 * [`<menu>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/menu)
 * [`<meta>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/meta)
+=======
+* [`<aside>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
+* [`<audio>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
+* [`<b>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
+* [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
+* [`<bdi>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
+* [`<bdo>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
+* [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
+* [`<body>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body)
+* [`<br>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
+* [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
+* [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
+* [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
+* [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
+* [`<code>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
+* [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
+* [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
+* [`<data>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
+* [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
+* [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
+* [`<del>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
+* [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+* [`<dfn>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
+* [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+* [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
+* [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+* [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
+* [`<em>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
+* [`<embed>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
+* [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
+* [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
+* [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
+* [`<footer>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
+* [`<form>`](/reference/react-dom/components/form)
+* [`<h1>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
+* [`<head>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
+* [`<header>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
+* [`<hgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
+* [`<hr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
+* [`<html>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
+* [`<i>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
+* [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+* [`<img>`](/reference/react-dom/components/img)
+* [`<input>`](/reference/react-dom/components/input)
+* [`<ins>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
+* [`<kbd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
+* [`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+* [`<legend>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
+* [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
+* [`<link>`](/reference/react-dom/components/link)
+* [`<main>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
+* [`<map>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
+* [`<mark>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
+* [`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
+* [`<meta>`](/reference/react-dom/components/meta)
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 * [`<meter>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
 * [`<nav>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/nav)
 * [`<noscript>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/noscript)
@@ -120,6 +187,7 @@ React admite todos los componentes HTML integrados en el navegador. Esto incluye
 * [`<rp>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
 * [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
 * [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
+<<<<<<< HEAD
 * [`<s>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/s)
 * [`<samp>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/samp)
 * [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
@@ -132,6 +200,20 @@ React admite todos los componentes HTML integrados en el navegador. Esto incluye
 * [`<strong>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/strong)
 * [`<style>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/style)
 * [`<sub>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/sub)
+=======
+* [`<s>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
+* [`<samp>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
+* [`<script>`](/reference/react-dom/components/script)
+* [`<section>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
+* [`<select>`](/reference/react-dom/components/select)
+* [`<slot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
+* [`<small>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
+* [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
+* [`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
+* [`<strong>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
+* [`<style>`](/reference/react-dom/components/style)
+* [`<sub>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 * [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
 * [`<sup>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/sup)
 * [`<table>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/table)
@@ -142,6 +224,7 @@ React admite todos los componentes HTML integrados en el navegador. Esto incluye
 * [`<tfoot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
 * [`<th>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/th)
 * [`<thead>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
+<<<<<<< HEAD
 * [`<time>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/time)
 * [`<title>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/title)
 * [`<tr>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/tr)
@@ -151,6 +234,17 @@ React admite todos los componentes HTML integrados en el navegador. Esto incluye
 * [`<var>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/var)
 * [`<video>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/video)
 * [`<wbr>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/wbr)
+=======
+* [`<time>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
+* [`<title>`](/reference/react-dom/components/title)
+* [`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
+* [`<track>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
+* [`<u>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
+* [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
+* [`<var>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
+* [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
+* [`<wbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 <Note>
 
@@ -162,16 +256,138 @@ Similar al [estándar DOM,](https://developer.mozilla.org/es/docs/Web/API/Docume
 
 ### Elementos HTML personalizados {/*custom-html-elements*/}
 
+<<<<<<< HEAD
 Si renderizas una etiqueta con un guión, como `<my-element>`, React asumirá que quieres renderizar un [elemento HTML personalizado.](https://developer.mozilla.org/es/docs/Web/Web_Components/Using_custom_elements) En React, el renderizado de elementos personalizados funciona de manera diferente desde el renderizado de etiquetas integradas del navegador:
 
 - Todas las props de los elementos personalizados son serializadas a strings y siempre se configuran usando atributos.
+=======
+If you render a tag with a dash, like `<my-element>`, React will assume you want to render a [custom HTML element.](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 - Los elementos personalizados aceptan `class` en vez de `className`, y `for` en vez de `htmlFor`.
 
 Si renderizas un elemento HTML integrado en el navegador con un atributo [`is`](https://developer.mozilla.org/es/docs/Web/HTML/Global_attributes/is), también será tratado como un elemento personalizado.
 
+#### Setting values on custom elements {/*attributes-vs-properties*/}
+
+Custom elements have two methods of passing data into them:
+
+1) Attributes: Which are displayed in markup and can only be set to string values
+2) Properties: Which are not displayed in markup and can be set to arbitrary JavaScript values
+
+By default, React will pass values bound in JSX as attributes:
+
+```jsx
+<my-element value="Hello, world!"></my-element>
+```
+
+Non-string JavaScript values passed to custom elements will be serialized by default:
+
+```jsx
+// Will be passed as `"1,2,3"` as the output of `[1,2,3].toString()`
+<my-element value={[1,2,3]}></my-element>
+```
+
+React will, however, recognize a custom element's property as one that it may pass arbitrary values to if the property name shows up on the class during construction:
+
+<Sandpack>
+
+```js src/index.js hidden
+import {MyElement} from './MyElement.js';
+import { createRoot } from 'react-dom/client';
+import {App} from "./App.js";
+
+customElements.define('my-element', MyElement);
+
+const root = createRoot(document.getElementById('root'))
+root.render(<App />);
+```
+
+```js src/MyElement.js active
+export class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    // The value here will be overwritten by React
+    // when initialized as an element
+    this.value = undefined;
+  }
+
+  connectedCallback() {
+    this.innerHTML = this.value.join(", ");
+  }
+}
+```
+
+```js src/App.js
+export function App() {
+  return <my-element value={[1,2,3]}></my-element>
+}
+```
+
+</Sandpack>
+
+#### Listening for events on custom elements {/*custom-element-events*/}
+
+A common pattern when using custom elements is that they may dispatch [`CustomEvent`s](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) rather than accept a function to call when an event occur. You can listen for these events using an `on` prefix when binding to the event via JSX.
+
+<Sandpack>
+
+```js src/index.js hidden
+import {MyElement} from './MyElement.js';
+import { createRoot } from 'react-dom/client';
+import {App} from "./App.js";
+
+customElements.define('my-element', MyElement);
+
+const root = createRoot(document.getElementById('root'))
+root.render(<App />);
+```
+
+```javascript src/MyElement.js
+export class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    this.test = undefined;
+    this.emitEvent = this._emitEvent.bind(this);
+  }
+
+  _emitEvent() {
+    const event = new CustomEvent('speak', {
+      detail: {
+        message: 'Hello, world!',
+      },
+    });
+    this.dispatchEvent(event);
+  }
+
+  connectedCallback() {
+    this.el = document.createElement('button');
+    this.el.innerText = 'Say hi';
+    this.el.addEventListener('click', this.emitEvent);
+    this.appendChild(this.el);
+  }
+
+  disconnectedCallback() {
+    this.el.removeEventListener('click', this.emitEvent);
+  }
+}
+```
+
+```jsx src/App.js active
+export function App() {
+  return (
+    <my-element
+      onspeak={e => console.log(e.detail.message)}
+    ></my-element>
+  )
+}
+```
+
+</Sandpack>
+
 <Note>
 
+<<<<<<< HEAD
 [Una versión futura de React incluirá un soporte más completo para elementos personalizados.](https://github.com/facebook/react/issues/11347#issuecomment-1122275286)
 
 Puedes probar actualizando los paquetes de React a la versión experimental más reciente:
@@ -180,6 +396,16 @@ Puedes probar actualizando los paquetes de React a la versión experimental más
 - `react-dom@experimental`
 
 Las versiones experimentales de React pueden contener errores. No las uses en producción.
+=======
+Events are case-sensitive and support dashes (`-`). Preserve the casing of the event and include all dashes when listening for custom element's events:
+
+```jsx
+// Listens for `say-hi` events
+<my-element onsay-hi={console.log}></my-element>
+// Listens for `sayHi` events
+<my-element onsayHi={console.log}></my-element>
+```
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 </Note>
 ---

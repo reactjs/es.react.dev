@@ -20,7 +20,11 @@ React, al igual que muchas otras bibliotecas de UI, modela la UI como un árbol.
 
 ## Tu UI como un árbol {/*your-ui-as-a-tree*/}
 
+<<<<<<< HEAD
 Los árboles son un modelo de relación entre elementos, y la UI se representa frecuentemente utilizando estructuras de árbol. Por ejemplo, los navegadores utilizan estructuras de árbol para modelar HTML ([DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) y CSS ([CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Las plataformas móviles también utilizan árboles para representar su jerarquía de vistas.
+=======
+Trees are a relationship model between items. The UI is often represented using tree structures. For example, browsers use tree structures to model HTML ([DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) and CSS ([CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Mobile platforms also use trees to represent their view hierarchy.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 <Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Diagrama con tres secciones dispuestas horizontalmente. En la primera sección, hay tres rectángulos apilados verticalmente, con las etiquetas 'Componente A', 'Componente B' y 'Componente C'. Transicionando a la siguiente sección hay una flecha con el logo de React en la parte superior etiquetada 'React'. La sección del medio contiene un árbol de componentes, con la raíz etiquetada 'A' y dos hijos etiquetados 'B' y 'C'. La siguiente sección se transiciona nuevamente usando una flecha con el logo de React en la parte superior etiquetada 'React DOM'. La tercera y última sección es un esquema de un navegador, que contiene un árbol de 8 nodos, de los cuales solo un subconjunto está resaltado (indicando el subárbol de la sección del medio).">
 
@@ -135,7 +139,11 @@ El nodo raíz en un árbol de renderizado de React es el [componente raíz](/lea
 
 #### ¿Dónde están las etiquetas HTML en el árbol de renderizado? {/*where-are-the-html-elements-in-the-render-tree*/}
 
+<<<<<<< HEAD
 Notarás en el árbol de renderizado anterior que no se mencionan las etiquetas HTML que cada componente renderiza. Esto se debe a que el árbol de renderizado está compuesto únicamente por [componentes de React](learn/your-first-component#components-ui-building-blocks).
+=======
+You'll notice in the above render tree, there is no mention of the HTML tags that each component renders. This is because the render tree is only composed of React [components](/learn/your-first-component#components-ui-building-blocks).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 React, como framework de UI, es independiente de la plataforma. En react.dev, mostramos ejemplos que se renderizan en la web, la cual utiliza marcado HTML como sus primitivas de UI. Sin embargo, una aplicación de React también podría renderizarse en una plataforma móvil o de escritorio, que podría utilizar diferentes primitivas de UI como [UIView](https://developer.apple.com/documentation/uikit/uiview) o [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
 
