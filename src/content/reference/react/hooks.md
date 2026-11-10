@@ -43,7 +43,7 @@ function Button() {
 
 ## Hooks Ref {/*ref-hooks*/}
 
-Los *Refs* permiten a un componente [conserva algo de información que no es usada para el renderizado,](/learn/referencing-values-with-refs) como un nodo del DOM or el ID de un timeout. A diferencia del estado, actualizar un ref no no vuelve a renderizar tu componente. Los refs son una "puerta de escape" del paradigma de React. Son útiles cuando necesitas trabajar con sistemas que no son de React, como son las APIs integradas del navegador.
+Los *Refs* permiten a un componente [conserva algo de información que no es usada para el renderizado,](/learn/referencing-values-with-refs) como un nodo del DOM o el ID de un timeout. A diferencia del estado, actualizar un ref no vuelve a renderizar tu componente. Los refs son una "puerta de escape" del paradigma de React. Son útiles cuando necesitas trabajar con sistemas que no son de React, como son las APIs integradas del navegador.
 
 * [`useRef`](/reference/react/useRef) declara un ref. Puedes conservar cualquier valor en él, pero más frecuentemente se utiliza para conservar un node del DOM.
 * [`useImperativeHandle`](/reference/react/useImperativeHandle) te permite personalizar el ref expuesto por tu componente. Es raramente utilizado.
@@ -110,10 +110,10 @@ Para priorizar el renderizado, usa uno de estos Hooks:
 
 Estos Hooks son mayormente útiles para los autores de bibliotecas y no son comúnmente utilizados para el código de una aplicación.
 
-- [`useDebugValue`](/reference/react/useDebugValue) te permite personalizar la etiqueta que las herramientas de desarrollo de muestran para tu Hook personalizado.
-- [`useId`](/reference/react/useId) permite a un componente se asocie a sí mismo un identificador único. Típicamente es usado con APIs de accesibilidad.
+- [`useDebugValue`](/reference/react/useDebugValue) te permite personalizar la etiqueta que las herramientas de desarrollo muestran para tu Hook personalizado.
+- [`useId`](/reference/react/useId) permite que un componente se asocie a sí mismo un identificador único. Típicamente es usado con APIs de accesibilidad.
 - [`useSyncExternalStore`](/reference/react/useSyncExternalStore) permite a un componente suscribirse a una store externo.
-* [`useActionState`](/reference/react/useActionState) allows you to manage state of actions.
+* [`useActionState`](/reference/react/useActionState) te permite gestionar el estado de las acciones.
 
 ---
 
