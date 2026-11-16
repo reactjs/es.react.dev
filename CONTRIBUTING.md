@@ -38,6 +38,7 @@ Ignora esto si estás describiendo específicamente `createElement`.
 
 Ignora esto si estás escribiendo específicamente sobre ES5.
 
+<<<<<<< HEAD
 #### No utilices funciones de ES6 cuando las funciones equivalentes de ES5 no tienen inconvenientes.
 
 Recuerda que ES6 es todavía nuevo para mucha gente. Aunque lo usamos en muchos sitios (`const` / `let`, clases, funciones de flecha), si el código ES5 equivalente es igual de sencillo y legible, considera usarlo.
@@ -73,6 +74,11 @@ class MyComponent extends React.Component {
 ```
 
 Ignora esta regla si estás describiendo específicamente una propuesta experimental. Asegúrate de mencionar su carácter experimental en el código y en el texto que lo acompaña.
+=======
+#### Prefer readable syntax.
+
+Choose syntax that makes each example easier to follow. Prefer named `function` declarations over `const myFunction = () => ...` arrows for top-level functions. Use arrow functions when they make callbacks easier to read. In class components, arrow functions can also preserve the component's `this` value.
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Estilo
 

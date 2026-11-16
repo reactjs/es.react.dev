@@ -6,16 +6,30 @@ Este repositorio contiene el código fuente y la documentación de [es.react.dev
 
 ### Prerrequisitos
 
+<<<<<<< HEAD
 1. Git.
 1. Node: cualquier versión a partir de la v16.8.0 o superior.
 1. Yarn: consulta el [sitio web de Yarn para obtener instrucciones de instalación](https://yarnpkg.com/lang/en/docs/install/) (en inglés).
 1. Una bifurcación (_fork_) del repositorio (para cualquier contribución).
 1. Un clon (_clone_) del [repositorio es.react.dev](https://github.com/reactjs/es.react.dev) en tu máquina local.
+=======
+1. Git
+1. Node: v24 or greater
+1. Yarn Classic: See [Yarn website for installation instructions](https://classic.yarnpkg.com/en/docs/install/)
+1. A fork of the repo (for any contributions)
+1. A clone of the [react.dev repo](https://github.com/reactjs/react.dev) on your local machine
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Instalación
 
+<<<<<<< HEAD
 1. `cd es.react.dev` para entrar en la raíz del proyecto.
 2. `yarn` para instalar las dependencias npm del sitio web.
+=======
+1. `cd react.dev` to go into the project root
+2. `git remote add my-fork-name https://github.com/YOUR_USERNAME/react.dev.git` to add your fork as a remote. Replace `YOUR_USERNAME` with your GitHub username. You only need to do this once.
+3. `yarn` to install the website's npm dependencies
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Ejecución local
 
@@ -36,11 +50,19 @@ La documentación está dividida en varias secciones con un tono y un propósito
 
 ### Hacer un cambio
 
+<<<<<<< HEAD
 1. Sigue las instrucciones de ["Ejecución local"](#ejecución-local).
 1. Guarda los archivos y compruébalos en el navegador.
 1. Los cambios en los componentes React en `src` se recargarán en caliente.
 1. Los cambios en los archivos markdown de `content` se cargarán en caliente.
 1. Si trabajas con plugins, puede que tengas que eliminar el directorio `.cache` y reiniciar el servidor.
+=======
+1. Follow the ["Running locally"](#running-locally) instructions
+1. Save the files and check in the browser
+  1. Changes to React components in `src` will hot-reload
+  1. Changes to markdown files in `src/content` will hot-reload
+  1. If working with plugins, you may need to remove the `node_modules/.cache/react-docs-mdx` directory and restart the server
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Prueba el cambio
 
@@ -57,7 +79,11 @@ La documentación está dividida en varias secciones con un tono y un propósito
 
 ## Traducción
 
+<<<<<<< HEAD
 Si estás interesado en traducir `es.react.dev`, consulta los esfuerzos de traducción actuales [aquí](https://github.com/reactjs/react.dev/issues/4135) (en inglés).
+=======
+If you are interested in translating `react.dev`, please see the current translation efforts [here](https://react.dev/community/translations).
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ## Licencia
 

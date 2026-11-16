@@ -96,12 +96,17 @@ import Counter from './Counter';
 it('can render and update a counter', async () => {
   container = document.createElement('div');
   document.body.appendChild(container);
+<<<<<<< HEAD
   
   // ✅ Renderiza el componente dentro de act().
+=======
+
+  // ✅ Render the component inside act().
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
   await act(() => {
     ReactDOMClient.createRoot(container).render(<Counter />);
   });
-  
+
   const button = container.querySelector('button');
   const label = container.querySelector('p');
   expect(label.textContent).toBe('You clicked 0 times');
@@ -117,26 +122,32 @@ Usar `act` asegura que todas las actualizaciones se hayan aplicado antes de real
 
 Para probar eventos, envuelve el despacho del evento dentro de `act()`:
 
-```js {14,16}
+```js {17-19}
 import {act} from 'react';
 import ReactDOMClient from 'react-dom/client';
 import Counter from './Counter';
 
-it.only('can render and update a counter', async () => {
+it('can render and update a counter', async () => {
   const container = document.createElement('div');
   document.body.appendChild(container);
-  
-  await act( async () => {
+
+  await act(async () => {
     ReactDOMClient.createRoot(container).render(<Counter />);
   });
+<<<<<<< HEAD
   
   // ✅ Despacha el evento dentro de act().
+=======
+
+  const button = container.querySelector('button');
+  const label = container.querySelector('p');
+
+  // ✅ Dispatch the event inside act().
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
   await act(async () => {
     button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   });
 
-  const button = container.querySelector('button');
-  const label = container.querySelector('p');
   expect(label.textContent).toBe('You clicked 1 times');
   expect(document.title).toBe('You clicked 1 times');
 });
@@ -152,7 +163,11 @@ No olvides que despachar eventos del DOM solo funciona cuando el contenedor del 
 
 ## Solución de problemas {/*troubleshooting*/}
 
+<<<<<<< HEAD
 ### Recibo un error: "The current testing environment is not configured to support act"(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+=======
+### I'm getting an error: "The current testing environment is not configured to support act(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 Usar `act` requiere configurar `global.IS_REACT_ACT_ENVIRONMENT=true` en tu entorno de pruebas. Esto es para asegurar que `act` solo se use en el entorno correcto.
 
